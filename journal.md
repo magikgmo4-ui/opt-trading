@@ -114,3 +114,74 @@ jpt "Titre de session"
 - Corriger/valider l’état de `requirements.txt` (modifié localement) et décider de commit/push (ajout dépendances OpenAI) ou restauration.
 - Confirmer que `.gitignore` couvre bien `venv/`, `__pycache__/`, `*.pyc` pour éviter de futurs blocages lors des pulls/rebase.
 - Sauvegarder cette session via le workflow final (`ssh admin-trading` → `jpt "Validation finale système journal GPT multi-machine"` → coller ce dump → Ctrl-D).
+
+## 2026-02-14 04:00 — multi-moteurs quannts
+1) Objectifs:
+- Identifier comment utiliser OpenAI pour le trading (API, agents, tool/function calling).
+- Mettre en place une infrastructure quant reproductible sur Debian (data → backtest → rapports), avant de travailler les stratégies.
+- Tenir un journal de bord systématique (session + date + titre).
+
+2) Actions:
+- Choix de Python sur Debian et progression “une solution à la fois”.
+- Mise en place d’un projet `quant-infra` (venv, dépendances, structure dossiers).
+- Implémentation et validation:
+  - Fetch OHLCV via CCXT → sauvegarde Parquet.
+  - Backtest skeleton buy&hold → métriques + `reports/equity.png`.
+  - Ajout frais + slippage + génération `reports/trades.csv`.
+  - Moteur multi-trades (LONG-only) avec signaux démo MA(20/50).
+  - Multi-timeframe: données LTF 15m + signal HTF 1h forward-fill + annualisation adaptée crypto.
+  - Reproductibilité via `config.yaml` + dataset déterministe (plus de “dernier parquet”).
+  - Modularisation en package `src/` avec runners `python -m src.fetch` et `python -m src.backtest`.
+- Correction d’une erreur utilisateur: code Python collé dans bash (création correcte de fichiers `.py`).
+
+3) Décisions:
+- Priorité à l’infrastructure quant (data/backtest) avant les stratégies.
+- Stockage local Parquet (pas de DB au début).
+- Backtester LONG-only d’abord; short plus tard.
+- Introduire une config centralisée (`config.yaml`) pour la reproductibilité.
+- Prochaine étape annoncée: journal automatique `journal.md` écrit par les runners (I9).
+
+4) Commandes / Code:
+```bash
+# Bootstrap projet
+mkdir -p ~/projects/quant-infra && cd ~/projects/quant-infra
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip wheel
+pip install pandas numpy pyarrow matplotlib rich pydantic python-dotenv ccxt
+
+# Structure
+mkdir -p data/raw data/clean reports src
+touch .env .gitignore run_fetch.py run_backtest.py
+cat > .gitignore <<'EOF'
+.venv/
+__pycache__/
+data/
+reports/
+.env
+EOF
+```
+
+```bash
+# Fetch + backtest (validés)
+python run_fetch.py
+python run_backtest.py
+```
+
+```bash
+# Passage config reproductible
+pip install pyyaml
+python run_fetch.py
+python run_backtest.py
+```
+
+```bash
+# Passage projet modulaire
+python -m src.fetch
+python -m src.backtest
+```
+
+5) Points ouverts (next):
+- Implémenter I9: écriture automatique d’un `journal.md` (timestamp America/Montreal, titre, params, métriques, artefacts) via `src/quant/journal.py`, appelé depuis `src.fetch` et `src.backtest`.
+- Vérifier la sortie `tail -n 60 journal.md` après exécution.
+- Étape suivante envisagée après I9: rendre le titre de session paramétrable (ex: option `--title`).
