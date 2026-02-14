@@ -185,3 +185,71 @@ python -m src.backtest
 - Implémenter I9: écriture automatique d’un `journal.md` (timestamp America/Montreal, titre, params, métriques, artefacts) via `src/quant/journal.py`, appelé depuis `src.fetch` et `src.backtest`.
 - Vérifier la sortie `tail -n 60 journal.md` après exécution.
 - Étape suivante envisagée après I9: rendre le titre de session paramétrable (ex: option `--title`).
+
+## 2026-02-14 04:18 — python 2
+1) Objectifs:
+- Recenser les solutions OpenAI applicables au trading, puis appliquer chaque solution une à la fois en Python sur Debian.
+- Monter une infrastructure quant (fetch data, backtest) avant de travailler les stratégies.
+- Mettre en place une journalisation systématique (session/date/titre).
+
+2) Actions:
+- Setup projet Debian Python (`~/projects/quant-infra`) avec venv et dépendances (pandas/numpy/pyarrow/matplotlib/rich/pydantic/python-dotenv/ccxt + pyyaml + python-dateutil).
+- Création de scripts puis modularisation en projet `src/`:
+  - Fetch OHLCV via CCXT → Parquet.
+  - Backtest skeleton (buy&hold) puis ajout coûts/slippage et trade log CSV.
+  - Passage à un moteur multi-trades (signaux MA cross).
+  - Multi-timeframe: signal HTF (1h) forward-fill sur LTF (15m) + annualisation adaptée.
+  - Ajout d’une config `config.yaml` pour reproductibilité et sélection dataset déterministe.
+  - Ajout CLI avec `--title` et `--run-id` (reports versionnés).
+  - Batch runner `src.sweep` (grid fast/slow/htf) → `summary.csv`, puis hygiène (min_trades + durée) → `summary_all.csv`/`summary_filtered.csv`.
+- Mise en place d’un journal automatique `journal.md` (timestamp America/Montreal, params, résultats, artefacts) alimenté par `python -m src.fetch` et `python -m src.backtest`.
+- Correction d’erreur d’usage: code Python collé dans bash au lieu d’un fichier `.py`.
+- Problème data: `LIMIT` à 10000 ne changeait pas le nombre de bougies (toujours 1000) → implémentation pagination CCXT:
+  - 1ère tentative (forward) inefficace.
+  - Fix pagination “backward” (Binance) → 10,000 bougies 15m récupérées (2025-11-02 → 2026-02-14).
+- Sweep significatif après historique étendu: MA cross long-only globalement négatif (Sharpe filtrés < 0).
+- Nettoyage des fichiers legacy `reports/equity.png` et `reports/trades.csv` à la racine (suppression).
+
+3) Décisions:
+- Prioriser l’infrastructure quant avant les stratégies.
+- Stockage local Parquet (pas de DB au début).
+- Standardiser un journal de bord automatique `journal.md`.
+- Versionner les sorties backtest via `run_id` dans `reports/<run_id>/`.
+- Ajouter hygiène dans les sweeps (min trades + durée).
+- Constater que MA cross long-only n’est qu’un placeholder; besoin d’une stratégie robuste (prochaine: passage long/short + ATR/vol targeting envisagé).
+
+4) Commandes / Code:
+```bash
+# Setup
+mkdir -p ~/projects/quant-infra && cd ~/projects/quant-infra
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip wheel
+pip install pandas numpy pyarrow matplotlib rich pydantic python-dotenv ccxt pyyaml python-dateutil
+
+# Runs (modulaire)
+python -m src.fetch
+python -m src.backtest
+
+# Backtest versionné
+python -m src.backtest --title "BTC 15m infra test" --run-id auto
+
+# Sweep
+python -m src.sweep
+
+# Vérif dataset
+python - <<'PY'
+import pandas as pd
+df=pd.read_parquet("data/raw/binance_BTCUSDT_15m.parquet")
+print("rows:", len(df), "start:", df.dt.iloc[0], "end:", df.dt.iloc[-1])
+PY
+
+# Nettoyage legacy
+rm -f reports/equity.png reports/trades.csv
+```
+
+5) Points ouverts (next):
+- Implémenter le backtester long/short (signal -1/0/+1) et adapter la génération de signaux directionnels.
+- Refaire un sweep en mode directionnel (long/short) pour comparer.
+- Ajouter une stratégie robuste #1 (ex: trend long/short avec ATR stop et/ou vol targeting) une fois le moteur L/S validé.
+- Optionnel: améliorer significativité (min_trades) selon la fenêtre et paramètres.
