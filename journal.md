@@ -499,3 +499,101 @@ alert(json_msg, alert.freq_once_per_bar)
 - Côté TradingView: s’assurer que l’unique alerte “Any alert() function call” est active sur chaque chart/script et que l’URL webhook inclut `/tv`.
 - (Optionnel) Durcir la sécurité (au-delà du `key`): limitation IP, rotation secret, ou signature.
 - Stabiliser l’exécution (systemd pour uvicorn + démarrage ngrok/tunnel) si objectif “always-on”.
+
+## 2026-02-15 18:31 | TV Webhook | TV_TEST | BTCUSDT.P 60 | BUY
+
+1. **Signal**: `BUY`
+2. **Engine**: `TV_TEST`
+3. **Symbol/TF**: `BTCUSDT.P` / `60`
+4. **Price**: `111.0`
+5. **TP**: `222.0`
+6. **SL**: `333.0`
+7. **Reason**: restart_ok
+8. **Payload brut**:
+```json
+{
+  "key": "GHOST_XAU_2026_ULTRA",
+  "engine": "TV_TEST",
+  "signal": "BUY",
+  "symbol": "BTCUSDT.P",
+  "tf": "60",
+  "price": 111.0,
+  "tp": 222.0,
+  "sl": 333.0,
+  "reason": "restart_ok"
+}
+```
+
+## 2026-02-15 18:42 — multi algo suite
+1) Objectifs:
+- Formaliser un plan multi-moteur : short crypto en COIN-M, long crypto en USDT-M (conditionnel), achat CFD Gold.
+- Automatiser la génération de signaux “type TradingView” via alertes + webhook, puis journalisation automatique sur Debian.
+
+2) Actions:
+- Analyse multi-actifs (BTC/ETH/SOL/XAU) et définition des zones/invalidations/targets + règles de gestion (TP1/BE, levier, 1 position/coin).
+- Codage d’une logique “moteurs” en Python (pseudo algo) puis correction d’exécution (Python collé dans bash → mise en fichier + exécution Python).
+- Constat indicateur SMC en lecture seule → recodage d’un clone Pine “bulletproof” (éviter ternaires multi-lignes, concat fragiles).
+- Mise en place pipeline : TradingView alert() → webhook ngrok → serveur FastAPI → écriture dans `/opt/trading/journal.md`.
+- Debug TradingView : nécessité d’une alerte unique **Any alert() function call** pour capter `alert()` (plutôt que 2 alertconditions).
+- Installation/validation côté Debian :
+  - venv + `fastapi`, `uvicorn`, `python-dotenv`
+  - serveur `webhook_server.py`
+  - tests `curl` local + via URL ngrok
+  - inspection des requêtes via ngrok API `127.0.0.1:4040`
+- Ajout d’un secret `key` (clé partagée) côté serveur + obligation d’inclure `key` dans le JSON Pine.
+- Implémentation router (logs bruts JSONL, état lock moteur, journal formaté).
+- Validation : `/docs` OK, endpoint `/tv` OK, écriture journal OK, lock testé (COINM_SHORT active_engine, USDTM_LONG → 409), reset lock via écriture du state JSON.
+- Passage “GO PROD” : suppression des toggles TEST/DEBUG et livraison de 3 scripts Pine PROD (COINM_SHORT SELL only, USDTM_LONG BUY only, GOLD_CFD_LONG BUY only) avec JSON one-liner incluant `key`, `engine`, `signal`, `symbol`, `tf`, `price`, `tp`, `sl`, `reason`.
+
+3) Décisions:
+- Utiliser **1 alerte TradingView par script** : `Any alert() function call` + message `{{alert_message}}` + webhook URL `.../tv`.
+- Choix architecture Pine : **B = 3 scripts séparés** (COINM_SHORT / USDTM_LONG / GOLD_CFD_LONG) plutôt qu’un script multi-engine.
+- Garder le lock backend disponible mais ne pas le “gérer” opérationnellement tout de suite (discipline : 1 moteur agressif à la fois).
+- Utiliser ngrok sur Debian (TradingView sur Windows) pour rendre le webhook accessible publiquement.
+
+4) Commandes / Code:
+```bash
+# venv + deps
+cd /opt/trading
+python3 -m venv venv
+source venv/bin/activate
+pip install fastapi uvicorn python-dotenv
+
+# démarrage serveur
+python -m uvicorn webhook_server:app --host 0.0.0.0 --port 8000
+
+# vérification
+curl http://127.0.0.1:8000/docs
+lsof -i :8000
+
+# test local
+curl -X POST http://127.0.0.1:8000/tv \
+  -H "Content-Type: application/json" \
+  -d '{"key":"GHOST_XAU_2026_ULTRA","engine":"TV_TEST","signal":"BUY","symbol":"BTCUSDT.P","tf":"60","price":1,"tp":2,"sl":0,"reason":"manual_test"}'
+
+tail -n 25 /opt/trading/journal.md
+
+# test via ngrok (URL publique)
+curl -X POST https://phytogeographical-subnodulous-joycelyn.ngrok-free.dev/tv \
+  -H "Content-Type: application/json" \
+  -d '{"key":"GHOST_XAU_2026_ULTRA","engine":"NGROK_TEST","signal":"SELL","symbol":"BTCUSDT.P","tf":"1H","price":999,"tp":888,"sl":777,"reason":"ngrok_test"}'
+
+# inspect requêtes ngrok
+curl -s http://127.0.0.1:4040/api/requests/http | head
+
+# lock reset (state)
+echo '{"active_engine": null, "updated_at": null}' > /opt/trading/state/router_state.json
+cat /opt/trading/state/router_state.json
+```
+
+```pine
+// JSON Pine: version stable en 1 ligne (évite erreurs multi-lignes)
+f_json(_signal, _tp, _sl, _reason) =>
+    "{\"key\":\"" + key + "\",\"engine\":\"" + engine + "\",\"signal\":\"" + _signal + "\",\"symbol\":\"" + syminfo.ticker + "\",\"tf\":\"" + timeframe.period + "\",\"price\":" + str.tostring(close) + ",\"tp\":" + str.tostring(_tp) + ",\"sl\":" + str.tostring(_sl) + ",\"reason\":\"" + _reason + "\"}"
+```
+
+5) Points ouverts (next):
+- Always-on : créer services systemd pour `uvicorn` + `ngrok` (chemin binaire ngrok à confirmer via `which ngrok`).
+- Nettoyage du journal `/opt/trading/journal.md` (il contient des sections/commandes “parasites” en haut).
+- Vérifier en live que chaque script Pine PROD envoie bien `key` et que le serveur refuse sans key (403).
+- Finaliser la procédure opérationnelle : quand/qui fait `reset lock`, et conventions `reason`/naming pour le routage.
