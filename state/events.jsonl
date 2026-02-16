@@ -1,0 +1,3 @@
+{"key": "GHOST_XAU_2026_ULTRA", "engine": "TV_TEST", "signal": "BUY", "symbol": "BTCUSDT.P", "tf": "60", "price": 111.0, "tp": 222.0, "sl": 333.0, "reason": "dash_test", "_ts": "2026-02-16T02:09:52.457166+00:00", "_ip": "127.0.0.1"}
+{"key": "GHOST_XAU_2026_ULTRA", "engine": "GOLD_CFD_LONG", "signal": "BUY", "symbol": "XAUUSD", "tf": "15", "price": 2000.0, "tp": 2010.0, "sl": 1995.0, "reason": "tg_test", "_ts": "2026-02-16T04:03:23.857657+00:00", "_ip": "127.0.0.1"}
+{"key": "GHOST_XAU_2026_ULTRA", "engine": "XAU_M5_SCALP", "signal": "BUY", "symbol": "XAUUSD", "tf": "M5", "price": 2000.0, "tp": 2007.0, "sl": 1995.0, "reason": "branch test", "_ts": "2026-02-16T05:06:11.563799+00:00", "_ip": "127.0.0.1", "qty": 0, "risk_usd": 0.0, "risk_real_usd": 0}

@@ -1,0 +1,539 @@
+from __future__ import annotations
+
+import os, json, time
+from datetime import datetime, timezone
+from typing import Any, Dict, List, Optional
+from pathlib import Path
+
+from fastapi import FastAPI, Request, HTTPException
+from fastapi.responses import HTMLResponse, JSONResponse
+from pydantic import BaseModel, Field
+from dotenv import load_dotenv
+
+load_dotenv()
+
+APP_TITLE = "TV Webhook Server"
+STATE_DIR = Path("/opt/trading/state")
+STATE_DIR.mkdir(parents=True, exist_ok=True)
+
+JOURNAL_MD = Path("/opt/trading/journal.md")
+EVENTS_JSONL = STATE_DIR / "events.jsonl"
+ROUTER_STATE = STATE_DIR / "router_state.json"
+RISK_CFG = STATE_DIR / "risk_config.json"
+
+SECRET_KEY = os.getenv("TV_WEBHOOK_KEY", "GHOST_XAU_2026_ULTRA")
+
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
+TELEGRAM_ENABLED = bool(TELEGRAM_TOKEN and TELEGRAM_CHAT_ID)
+
+app = FastAPI(title=APP_TITLE)
+
+# -----------------------------
+# Models
+# -----------------------------
+class TVEvent(BaseModel):
+    key: str
+    engine: str
+    signal: str
+    symbol: str
+    tf: str
+    price: float
+    tp: float = 0.0
+    sl: float = 0.0
+    reason: str = "tv"
+
+# -----------------------------
+# Helpers: files / state
+# -----------------------------
+def utc_now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+def read_json(path: Path, default: Any) -> Any:
+    try:
+        return json.loads(path.read_text())
+    except Exception:
+        return default
+
+def write_json(path: Path, obj: Any) -> None:
+    path.write_text(json.dumps(obj, ensure_ascii=False))
+
+def append_jsonl(path: Path, obj: Dict[str, Any]) -> None:
+    with open(path, "a", encoding="utf-8") as f:
+        f.write(json.dumps(obj, ensure_ascii=False) + "\n")
+
+def clamp(x: float, lo: Optional[float] = None, hi: Optional[float] = None) -> float:
+    if lo is not None and x < lo:
+        x = lo
+    if hi is not None and x > hi:
+        x = hi
+    return x
+
+def round_step(x: float, step: float) -> float:
+    if step <= 0:
+        return x
+    return round(x / step) * step
+
+# -----------------------------
+# Risk config + sizing
+# -----------------------------
+def load_risk_cfg() -> Dict[str, Any]:
+    if not RISK_CFG.exists():
+        # fallback safe defaults (won't crash)
+        return {
+            "default": {"equity_usd": 6000, "risk_pct": 1.0, "cooldown_sec": 120, "reject_if_sl_missing": True, "min_stop_distance": 0.0},
+            "engines": {}
+        }
+    return read_json(RISK_CFG, {})
+
+def risk_for_engine(cfg: Dict[str, Any], engine: str) -> Dict[str, Any]:
+    d = cfg.get("default", {})
+    e = (cfg.get("engines", {}) or {}).get(engine, {})
+    out = dict(d)
+    out.update(e)
+    return out
+
+def compute_size(event: Dict[str, Any], cfg: Dict[str, Any]) -> Dict[str, Any]:
+    engine = event.get("engine", "")
+    price = float(event.get("price", 0) or 0)
+    sl = float(event.get("sl", 0) or 0)
+    tp = float(event.get("tp", 0) or 0)
+
+    rc = risk_for_engine(cfg, engine)
+    eq = float(rc.get("equity_usd", 0) or 0)
+    rpct = float(rc.get("risk_pct", 0) or 0)
+    risk_usd = eq * (rpct / 100.0)
+
+    # guards
+    reject_if_sl_missing = bool(rc.get("reject_if_sl_missing", True))
+    min_stop_distance = float(rc.get("min_stop_distance", 0.0) or 0.0)
+
+    dist = abs(price - sl) if (price and sl) else 0.0
+    if reject_if_sl_missing and (sl == 0.0 or dist == 0.0):
+        return {"ok": False, "reason": "missing_sl", "risk_usd": risk_usd, "distance": dist}
+
+    if dist < min_stop_distance:
+        return {"ok": False, "reason": "stop_too_close", "risk_usd": risk_usd, "distance": dist}
+
+    typ = (rc.get("type") or "").upper()
+
+    # ---- USDTM linear (qty in coin units)
+    if typ == "USDTM_LINEAR":
+        qty_raw = risk_usd / dist
+        min_qty = float(rc.get("min_qty", 0.0) or 0.0)
+        step = float(rc.get("qty_step", 0.0) or 0.0)
+        qty = max(min_qty, round_step(qty_raw, step))
+        risk_real = qty * dist
+        return {
+            "ok": True, "type": typ, "risk_usd": risk_usd, "risk_real_usd": risk_real, "distance": dist,
+            "qty": qty, "qty_raw": qty_raw
+        }
+
+    # ---- COINM inverse (contracts)
+    if typ == "COINM_INVERSE":
+        V = float(rc.get("contract_value_usd", 100.0) or 100.0)
+        # Approx loss USD per contract: V * dist / price
+        if price <= 0:
+            return {"ok": False, "reason": "bad_price", "risk_usd": risk_usd, "distance": dist}
+        contracts_raw = (risk_usd * price) / (V * dist)
+        min_c = int(rc.get("min_contracts", 1) or 1)
+        step = int(rc.get("contract_step", 1) or 1)
+        # ceil to step
+        c = int(contracts_raw)
+        if contracts_raw > c:
+            c += 1
+        # snap to step
+        if step > 1:
+            c = int(((c + step - 1) // step) * step)
+        c = max(min_c, c)
+        risk_real = (c * V * dist) / price
+        return {
+            "ok": True, "type": typ, "risk_usd": risk_usd, "risk_real_usd": risk_real, "distance": dist,
+            "contracts": c, "contracts_raw": contracts_raw, "contract_value_usd": V
+        }
+
+    # ---- XAU CFD units (units in oz; min 0.1)
+    if typ == "XAU_LINEAR_UNITS":
+        units_raw = risk_usd / dist
+        min_u = float(rc.get("min_units", 0.1) or 0.1)
+        step = float(rc.get("units_step", 0.1) or 0.1)
+        units = max(min_u, round_step(units_raw, step))
+        risk_real = units * dist
+        # R multiple if tp provided
+        r_mult = None
+        if tp and dist > 0:
+            r_mult = abs(tp - price) / dist
+        return {
+            "ok": True, "type": typ, "risk_usd": risk_usd, "risk_real_usd": risk_real, "distance": dist,
+            "units": units, "units_raw": units_raw, "r_multiple": r_mult
+        }
+
+    # default fallback = linear qty
+    qty_raw = risk_usd / dist
+    return {"ok": True, "type": "LINEAR_FALLBACK", "risk_usd": risk_usd, "risk_real_usd": risk_usd, "distance": dist, "qty": qty_raw}
+
+# -----------------------------
+# Router state
+# -----------------------------
+def ensure_router_state() -> Dict[str, Any]:
+    if not ROUTER_STATE.exists():
+        write_json(ROUTER_STATE, {"active_engine": None, "updated_at": None})
+    return read_json(ROUTER_STATE, {"active_engine": None, "updated_at": None})
+
+def set_router_state(active_engine: Optional[str]) -> None:
+    write_json(ROUTER_STATE, {"active_engine": active_engine, "updated_at": utc_now_iso()})
+
+# -----------------------------
+# Telegram
+# -----------------------------
+def tg_send(text: str) -> None:
+    if not TELEGRAM_ENABLED:
+        return
+    try:
+        import requests
+        url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
+        requests.post(url, json={"chat_id": TELEGRAM_CHAT_ID, "text": text}, timeout=8)
+    except Exception:
+        pass
+
+def fmt_tg(event: Dict[str, Any]) -> str:
+    e = event
+    risk = e.get("_risk", {})
+    parts = [
+        f"📡 TV Signal",
+        f"{e.get('engine')} • {e.get('signal')} • {e.get('symbol')} {e.get('tf')}",
+        f"price={e.get('price')}  tp={e.get('tp')}  sl={e.get('sl')}",
+        f"reason={e.get('reason')}"
+    ]
+    if risk and risk.get("ok"):
+        typ = risk.get("type")
+        dist = risk.get("distance")
+        rr = risk.get("risk_real_usd")
+        ru = risk.get("risk_usd")
+        if typ == "USDTM_LINEAR":
+            parts.append(f"size(qty) ≈ {risk.get('qty')}  | risk~{rr:.2f}$ (target {ru:.2f}$) | dist={dist:.2f}")
+        elif typ == "COINM_INVERSE":
+            parts.append(f"size(contracts) ≈ {risk.get('contracts')}  | risk~{rr:.2f}$ (target {ru:.2f}$) | dist={dist:.2f}")
+        elif typ == "XAU_LINEAR_UNITS":
+            rm = risk.get("r_multiple")
+            rm_s = f" | R~{rm:.2f}" if rm is not None else ""
+            parts.append(f"size(units) ≈ {risk.get('units')} oz | risk~{rr:.2f}$ (target {ru:.2f}$) | dist={dist:.2f}{rm_s}")
+    else:
+        if risk:
+            parts.append(f"⚠️ sizing: {risk.get('reason')}")
+    return "\n".join(parts)
+
+# -----------------------------
+# Events read
+# -----------------------------
+def read_last_events(limit: int = 50) -> List[Dict[str, Any]]:
+    if not EVENTS_JSONL.exists():
+        return []
+    lines = EVENTS_JSONL.read_text(encoding="utf-8").splitlines()
+    lines = lines[-max(1, limit):]
+    out = []
+    for ln in lines:
+        try:
+            out.append(json.loads(ln))
+        except Exception:
+            continue
+    return out
+
+# -----------------------------
+# API
+# -----------------------------
+@app.get("/api/state")
+def api_state():
+    s = ensure_router_state()
+    return {"ok": True, **s, "ts": utc_now_iso()}
+
+@app.get("/api/events")
+def api_events(limit: int = 50):
+    limit = int(clamp(limit, 1, 500))
+    ev = read_last_events(limit)
+    return {"ok": True, "count": len(ev), "events": ev}
+
+@app.get("/api/metrics")
+def api_metrics():
+    ev = read_last_events(2000)
+    now = datetime.now(timezone.utc)
+    buys = sum(1 for e in ev if (e.get("signal") == "BUY"))
+    sells = sum(1 for e in ev if (e.get("signal") == "SELL"))
+    last_ts = None
+    if ev:
+        last_ts = ev[-1].get("_ts")
+    age_sec = None
+    if last_ts:
+        try:
+            dt = datetime.fromisoformat(last_ts.replace("Z", "+00:00"))
+            age_sec = (now - dt).total_seconds()
+        except Exception:
+            pass
+    return {
+        "ok": True,
+        "counts": {"total": len(ev), "BUY": buys, "SELL": sells},
+        "last_event_ts": last_ts,
+        "last_event_age_sec": age_sec
+    }
+
+@app.get("/api/risk/quote")
+def api_risk_quote(engine: str, price: float, sl: float, tp: float = 0.0):
+    cfg = load_risk_cfg()
+    ev = {"engine": engine, "price": price, "sl": sl, "tp": tp}
+    return {"ok": True, "quote": compute_size(ev, cfg)}
+
+@app.post("/api/reset_lock")
+async def api_reset_lock(req: Request):
+    body = await req.json()
+    admin_key = body.get("admin_key", "")
+    # simple admin key (optional). If not set, allow local usage.
+    want = os.getenv("OPS_ADMIN_KEY", "")
+    if want and admin_key != want:
+        raise HTTPException(status_code=403, detail="Invalid admin key")
+    set_router_state(None)
+    return {"ok": True, "active_engine": None, "updated_at": utc_now_iso()}
+
+@app.post("/tv")
+async def tv_webhook(event: TVEvent, request: Request):
+    if event.key != SECRET_KEY:
+        raise HTTPException(status_code=403, detail="Invalid secret")
+
+    cfg = load_risk_cfg()
+    s = ensure_router_state()
+
+    # lock check: if active_engine set and differs, reject for safety
+    active = s.get("active_engine")
+    if active and active != event.engine:
+        raise HTTPException(status_code=409, detail=f"Engine lock active: {active}")
+
+    # compute sizing
+    risk = compute_size(event.model_dump(), cfg)
+
+    # enrich event
+    ip = request.client.host if request.client else "?"
+    ev = event.model_dump()
+    ev["_ts"] = utc_now_iso()
+    ev["_ip"] = ip
+    ev["_risk"] = risk
+
+    # write jsonl
+    append_jsonl(EVENTS_JSONL, ev)
+
+    # journal md (pretty)
+    entry = []
+    entry.append(f"\n## {datetime.now().strftime('%Y-%m-%d %H:%M')} | TV Webhook | {event.engine} | {event.symbol} {event.tf} | {event.signal}\n")
+    entry.append(f"1. **Signal**: `{event.signal}`\n")
+    entry.append(f"2. **Engine**: `{event.engine}`\n")
+    entry.append(f"3. **Symbol/TF**: `{event.symbol}` / `{event.tf}`\n")
+    entry.append(f"4. **Price**: `{event.price}`\n")
+    entry.append(f"5. **TP**: `{event.tp}`\n")
+    entry.append(f"6. **SL**: `{event.sl}`\n")
+    entry.append(f"7. **Reason**: {event.reason}\n")
+    if risk.get("ok"):
+        if risk.get("type") == "USDTM_LINEAR":
+            entry.append(f"8. **Risk**: target `{risk.get('risk_usd'):.2f}$` | real `{risk.get('risk_real_usd'):.2f}$` | qty `{risk.get('qty')}`\n")
+        elif risk.get("type") == "COINM_INVERSE":
+            entry.append(f"8. **Risk**: target `{risk.get('risk_usd'):.2f}$` | real `{risk.get('risk_real_usd'):.2f}$` | contracts `{risk.get('contracts')}`\n")
+        elif risk.get("type") == "XAU_LINEAR_UNITS":
+            entry.append(f"8. **Risk**: target `{risk.get('risk_usd'):.2f}$` | real `{risk.get('risk_real_usd'):.2f}$` | units `{risk.get('units')}` oz\n")
+    else:
+        entry.append(f"8. **Sizing**: ⚠️ {risk.get('reason')}\n")
+    entry.append("9. **Payload brut**:\n```json\n")
+    entry.append(json.dumps(ev, ensure_ascii=False, indent=2))
+    entry.append("\n```\n")
+
+    with open(JOURNAL_MD, "a", encoding="utf-8") as f:
+        f.write("".join(entry))
+
+    # Telegram notify only if sizing ok OR if you want all, remove the condition.
+    if TELEGRAM_ENABLED:
+        tg_send(fmt_tg(ev))
+
+    return {"ok": True}
+
+# -----------------------------
+# DASH (Trading Ops)
+# -----------------------------
+DASH_HTML = """<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TV Webhook — Trading Ops</title>
+<style>
+:root{--bg:#070b14;--card:#0f172a;--muted:#94a3b8;--text:#e2e8f0;--line:#1f2a44;--good:#22c55e;--bad:#ef4444;--pill:#111c33;}
+*{box-sizing:border-box;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto}
+body{margin:0;background:linear-gradient(180deg,#050712 0,#070b14 100%);color:var(--text)}
+.wrap{max-width:1200px;margin:28px auto;padding:0 18px}
+h1{margin:0 0 8px 0;font-weight:800;letter-spacing:.2px}
+.sub{color:var(--muted);margin-bottom:18px}
+.row{display:grid;grid-template-columns:1.1fr 1.4fr;gap:16px}
+.card{background:rgba(15,23,42,.72);border:1px solid var(--line);border-radius:16px;padding:16px;backdrop-filter: blur(6px)}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--pill);border:1px solid var(--line);padding:6px 10px;border-radius:999px;color:var(--muted);font-size:12px;margin-right:8px}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+.k{border:1px solid var(--line);border-radius:14px;padding:12px;background:rgba(2,6,23,.35)}
+.k .t{color:var(--muted);font-size:12px}
+.k .v{font-size:22px;font-weight:800;margin-top:6px}
+.btn{cursor:pointer;background:#0b1227;border:1px solid var(--line);color:var(--text);padding:10px 12px;border-radius:12px;font-weight:700}
+.in{width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:#0b1227;color:var(--text)}
+table{width:100%;border-collapse:collapse;margin-top:8px}
+th,td{border-bottom:1px solid var(--line);padding:10px 8px;text-align:left;font-size:13px}
+th{color:var(--muted);font-weight:700}
+.pill{display:inline-block;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:#0b1227}
+.pill.good{border-color:rgba(34,197,94,.4);color:var(--good)}
+.pill.bad{border-color:rgba(239,68,68,.4);color:var(--bad)}
+small{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>TV Webhook — Trading Ops</h1>
+  <div class="sub">Auto refresh ~2s • Data: last <span id="limit">50</span> events • Endpoints: <span class="badge">/api/state</span><span class="badge">/api/events</span><span class="badge">/api/metrics</span></div>
+
+  <div class="row">
+    <div class="card">
+      <div>
+        <span class="badge"><b>STATE</b> <span id="active_engine">-</span></span>
+        <span class="badge">updated_at: <span id="updated_at">-</span></span>
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:12px;align-items:center">
+        <input class="in" id="admin_key" placeholder="OPS_ADMIN_KEY (optional)"/>
+        <button class="btn" onclick="resetLock()">Reset Lock</button>
+      </div>
+
+      <div class="kpi">
+        <div class="k"><div class="t">Total (limit)</div><div class="v" id="k_total">0</div></div>
+        <div class="k"><div class="t">BUY</div><div class="v" id="k_buy">0</div></div>
+        <div class="k"><div class="t">SELL</div><div class="v" id="k_sell">0</div></div>
+        <div class="k"><div class="t">Last event age</div><div class="v" id="k_age">-</div></div>
+      </div>
+
+      <div style="margin-top:12px">
+        <small>Last signal per engine</small>
+        <table>
+          <thead><tr><th>Engine</th><th>Status</th><th>Signal</th><th>Symbol</th><th>TF</th><th>Size</th><th>Risk$</th><th>Age</th><th>Reason</th></tr></thead>
+          <tbody id="engine_rows"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span class="badge"><b>RECENT</b></span>
+        <span class="badge">limit=<span id="limit2">50</span></span>
+      </div>
+      <table>
+        <thead><tr>
+          <th>Time (UTC)</th><th>Engine</th><th>Signal</th><th>Symbol</th><th>TF</th><th>Price</th><th>TP</th><th>SL</th><th>Size</th><th>Risk$</th><th>Reason</th><th>IP</th>
+        </tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+const LIMIT = 50;
+document.getElementById("limit").innerText = LIMIT;
+document.getElementById("limit2").innerText = LIMIT;
+
+function fmtAge(sec){
+  if(sec==null) return "-";
+  if(sec<60) return Math.round(sec)+"s";
+  if(sec<3600) return Math.round(sec/60)+"m";
+  return Math.round(sec/3600)+"h";
+}
+function esc(s){return (s??"").toString().replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;");}
+
+async function resetLock(){
+  const admin_key = document.getElementById("admin_key").value || "";
+  const r = await fetch("/api/reset_lock", {method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({admin_key})});
+  if(!r.ok){ alert("Reset failed: "+(await r.text())); return; }
+  await refresh();
+}
+
+function extractSize(e){
+  const r = e._risk || {};
+  if(!r || !r.ok) return "-";
+  if(r.type==="USDTM_LINEAR") return (r.qty ?? "-");
+  if(r.type==="COINM_INVERSE") return (r.contracts ?? "-");
+  if(r.type==="XAU_LINEAR_UNITS") return (r.units ?? "-")+" oz";
+  return "-";
+}
+function extractRisk(e){
+  const r = e._risk || {};
+  if(!r || !r.ok) return "-";
+  return (r.risk_real_usd!=null) ? r.risk_real_usd.toFixed(2) : "-";
+}
+
+async function refresh(){
+  const st = await (await fetch("/api/state")).json();
+  document.getElementById("active_engine").innerText = st.active_engine ?? "-";
+  document.getElementById("updated_at").innerText = st.updated_at ?? "-";
+
+  const m = await (await fetch("/api/metrics")).json();
+  document.getElementById("k_total").innerText = m.counts.total ?? 0;
+  document.getElementById("k_buy").innerText = m.counts.BUY ?? 0;
+  document.getElementById("k_sell").innerText = m.counts.SELL ?? 0;
+  document.getElementById("k_age").innerText = fmtAge(m.last_event_age_sec);
+
+  const ev = await (await fetch(`/api/events?limit=${LIMIT}`)).json();
+  const rows = (ev.events||[]).slice().reverse();
+  const tbody = document.getElementById("rows");
+  tbody.innerHTML = rows.map(e=>{
+    const sig = e.signal || "-";
+    const pill = sig==="BUY" ? "good" : (sig==="SELL" ? "bad" : "");
+    return `<tr>
+      <td>${esc(e._ts)}</td>
+      <td><b>${esc(e.engine)}</b></td>
+      <td><span class="pill ${pill}">${esc(sig)}</span></td>
+      <td><b>${esc(e.symbol)}</b></td>
+      <td>${esc(e.tf)}</td>
+      <td>${esc(e.price)}</td>
+      <td>${esc(e.tp)}</td>
+      <td>${esc(e.sl)}</td>
+      <td>${esc(extractSize(e))}</td>
+      <td>${esc(extractRisk(e))}</td>
+      <td><span class="pill">${esc(e.reason)}</span></td>
+      <td><small>${esc(e._ip)}</small></td>
+    </tr>`;
+  }).join("");
+
+  // per-engine last
+  const map = {};
+  for(const e of ev.events||[]){
+    map[e.engine] = e; // last seen in file order
+  }
+  const engines = Object.keys(map).sort();
+  const erows = document.getElementById("engine_rows");
+  erows.innerHTML = engines.map(k=>{
+    const e = map[k];
+    const ok = (e._risk && e._risk.ok) ? true : false;
+    const status = ok ? "OK" : "WARN";
+    const stpill = ok ? "good" : "bad";
+    const sig = e.signal || "-";
+    const sp = sig==="BUY" ? "good" : (sig==="SELL" ? "bad" : "");
+    return `<tr>
+      <td><b>${esc(k)}</b></td>
+      <td><span class="pill ${stpill}">${status}</span></td>
+      <td><span class="pill ${sp}">${esc(sig)}</span></td>
+      <td>${esc(e.symbol)}</td>
+      <td>${esc(e.tf)}</td>
+      <td>${esc(extractSize(e))}</td>
+      <td>${esc(extractRisk(e))}</td>
+      <td>${esc("-")}</td>
+      <td>${esc(e.reason)}</td>
+    </tr>`;
+  }).join("");
+}
+
+refresh();
+setInterval(refresh, 2000);
+</script>
+</body>
+</html>"""
+
+@app.get("/dash", response_class=HTMLResponse)
+def dash():
+    return HTMLResponse(DASH_HTML)

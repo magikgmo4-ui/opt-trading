@@ -701,3 +701,159 @@ journalctl -u tv-webhook.service -n 40 --no-pager
   - hit entrant ngrok (`/api/requests/http`)
   - ajout dans `/opt/trading/journal.md`
 - Si hit ngrok sans entrée journal: diagnostiquer via `journalctl -u tv-webhook.service` (ex: 403 key/validation).
+
+## 2026-02-15 21:09 | TV Webhook | TV_TEST | BTCUSDT.P 60 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `TV_TEST`
+3. **Symbol/TF**: `BTCUSDT.P` / `60`
+4. **Price**: `111.0`
+5. **TP**: `222.0`
+6. **SL**: `333.0`
+7. **Reason**: dash_test
+8. **Payload brut**:
+```json
+{
+  "key": "GHOST_XAU_2026_ULTRA",
+  "engine": "TV_TEST",
+  "signal": "BUY",
+  "symbol": "BTCUSDT.P",
+  "tf": "60",
+  "price": 111.0,
+  "tp": 222.0,
+  "sl": 333.0,
+  "reason": "dash_test",
+  "_ts": "2026-02-16T02:09:52.457166+00:00",
+  "_ip": "127.0.0.1"
+}
+```
+
+## 2026-02-15 23:03 | TV Webhook | GOLD_CFD_LONG | XAUUSD 15 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `GOLD_CFD_LONG`
+3. **Symbol/TF**: `XAUUSD` / `15`
+4. **Price**: `2000.0`
+5. **TP**: `2010.0`
+6. **SL**: `1995.0`
+7. **Reason**: tg_test
+8. **Payload brut**:
+```json
+{
+  "key": "GHOST_XAU_2026_ULTRA",
+  "engine": "GOLD_CFD_LONG",
+  "signal": "BUY",
+  "symbol": "XAUUSD",
+  "tf": "15",
+  "price": 2000.0,
+  "tp": 2010.0,
+  "sl": 1995.0,
+  "reason": "tg_test",
+  "_ts": "2026-02-16T04:03:23.857657+00:00",
+  "_ip": "127.0.0.1"
+}
+```
+
+## 2026-02-16 00:06 | TV Webhook | XAU_M5_SCALP | XAUUSD M5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `XAU_M5_SCALP`
+3. **Symbol/TF**: `XAUUSD` / `M5`
+4. **Price**: `2000.0`
+5. **TP**: `2007.0`
+6. **SL**: `1995.0`
+7. **Reason**: branch test
+8. **Payload brut**:
+```json
+{
+  "key": "GHOST_XAU_2026_ULTRA",
+  "engine": "XAU_M5_SCALP",
+  "signal": "BUY",
+  "symbol": "XAUUSD",
+  "tf": "M5",
+  "price": 2000.0,
+  "tp": 2007.0,
+  "sl": 1995.0,
+  "reason": "branch test",
+  "_ts": "2026-02-16T05:06:11.563799+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 0,
+  "risk_usd": 0.0,
+  "risk_real_usd": 0
+}
+```
+
+## 2026-02-16 00:09 — algo 3
+1) Objectifs:
+- Ajouter un module “Performance” monitor-only (sans broker, sans exécution auto) : ledger trades, KPI (R, PnL théorique), equity curve simulée, drawdown.
+- Brancher automatiquement le risk sizing (tv-webhook) vers perf via un event OPEN.
+
+2) Actions:
+- Création et déploiement du microservice `perf` (FastAPI + SQLite) avec endpoints `/perf/event`, `/perf/summary`, `/perf/equity`.
+- Correction d’erreur systemd: `perf.service` avait été créé comme répertoire → suppression + recréation comme fichier.
+- Correction d’exécution systemd: `perf.service` utilisait `/usr/bin/python3` (sans uvicorn) → bascule vers python du venv `/opt/trading/venv/bin/python`.
+- Tests fonctionnels perf:
+  - OPEN OK → retour `trade_id`.
+  - CLOSE OK après correction du `trade_id` réel.
+  - Vérification KPI/equity OK (ex: pnl=0.7, R=0.14, equity=10000.7).
+- “Branch” perf dans `tv-webhook`:
+  - Identification du service: `ExecStart=/opt/trading/venv/bin/python -m uvicorn webhook_server:app --host 0.0.0.0 --port 8000`
+  - Ajout (prévu/indiqué) de `risk_quote(...)` + appel `perf_open(...)` dans l’endpoint `@app.post("/tv")`, avant création de `evt`.
+  - Redémarrage `tv-webhook.service` OK.
+- Test POST `/tv` a échoué (`Invalid secret`) car la clé webhook n’était pas la bonne.
+- Lecture de la clé `.env` bloquée sans sudo → instruction de lire via `sudo grep ... /opt/trading/.env`.
+
+3) Décisions:
+- Rejeter l’alerte Telegram “no activity” (non prioritaire).
+- Conserver une intégration non bloquante: l’envoi vers perf ne doit jamais casser le webhook (try/except).
+
+4) Commandes / Code:
+```bash
+# Services
+sudo systemctl status perf.service --no-pager
+sudo systemctl daemon-reload
+sudo systemctl enable --now perf.service
+sudo systemctl restart perf.service
+sudo journalctl -u perf.service -n 200 --no-pager -o cat
+
+sudo systemctl restart tv-webhook.service
+sudo systemctl status tv-webhook.service --no-pager
+sudo systemctl cat tv-webhook.service
+sudo journalctl -u tv-webhook.service -n 80 --no-pager -o cat
+
+# Tests perf
+curl -s http://127.0.0.1:8010/perf/summary | python -m json.tool
+curl -s http://127.0.0.1:8010/perf/event -H "Content-Type: application/json" -d '{...}' | python -m json.tool
+curl -s http://127.0.0.1:8010/perf/equity | python -m json.tool
+
+# Recherche dans le code tv-webhook
+grep -n "risk_" -n /opt/trading/webhook_server.py | head -n 50
+grep -n "qty" /opt/trading/webhook_server.py | head -n 50
+grep -n "size" /opt/trading/webhook_server.py | head -n 50
+
+# Récupération de la clé webhook (permission)
+sudo grep -E '^(TV_WEBHOOK_KEY|WEBHOOK_KEY|SECRET|TV_SECRET|KEY)=' /opt/trading/.env
+sudo grep -iE 'key|secret|token|webhook' /opt/trading/.env
+```
+
+```python
+# Insertion recommandée dans /tv (avant evt = {...})
+q = risk_quote(engine, price=price, sl=sl, tp=tp) if (price and sl) else None
+if not q:
+    raise HTTPException(status_code=400, detail="Missing/invalid price or sl for risk sizing")
+
+side = "LONG" if signal == "BUY" else "SHORT"
+
+perf_open(
+    engine=engine,
+    symbol=symbol,
+    side=side,
+    entry=price,
+    stop=sl,
+    qty=q["qty"],
+    risk_usd=q.get("risk_usd", 0.0),
+    meta={"tf": tf, "tp": tp, "reason": reason, "src": "/tv"}
+)
+```
+
+5) Points ouverts (next):
+- Lire la clé webhook dans `/opt/trading/.env` via `sudo`, puis retester POST `/tv` avec la vraie key pour valider le branch end-to-end (OPEN créé dans perf + `last_event_ts` mis à jour).
+- Confirmer que `risk_quote` retourne des valeurs valides pour l’engine utilisé (sinon choisir un engine existant dans `risk_config.json`).
+- (Optionnel) Ajouter un endpoint `/perf/open` pour lister les trades OPEN et faciliter la récupération des `trade_id` pour CLOSE manuel.
