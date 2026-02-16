@@ -5,7 +5,7 @@ TS="$(date +%Y%m%d_%H%M%S)"
 LOG="logs/diagnostics/diag_${TS}.log"
 
 WEBHOOK_BASE="${WEBHOOK_BASE:-http://127.0.0.1:8000}"
-PERF_BASE="${PERF_BASE:-http://127.0.0.1:8010}"
+BASE="${BASE:-http://127.0.0.1:8010}"
 
 mkdir -p "$(dirname "$LOG")"
 exec > >(tee -a "$LOG") 2>&1
@@ -41,16 +41,16 @@ echo "== endpoints check =="
 echo "-- webhook /api/state (GET) $WEBHOOK_BASE/api/state"
 curl -sS -i "$WEBHOOK_BASE/api/state" | sed -n '1,20p' || true
 echo
-echo "-- perf /perf/summary (GET) $PERF_BASE/perf/summary"
-curl -sS -i "$PERF_BASE/perf/summary" | sed -n '1,40p' || true
+echo "-- perf /perf/summary (GET) $BASE/perf/summary"
+curl -sS -i "$BASE/perf/summary" | sed -n '1,40p' || true
 echo
-echo "-- perf /perf/open (GET) $PERF_BASE/perf/open"
-curl -sS -i "$PERF_BASE/perf/open" | sed -n '1,30p' || true
+echo "-- perf /perf/open (GET) $BASE/perf/open"
+curl -sS -i "$BASE/perf/open" | sed -n '1,30p' || true
 echo
 
-echo "== smoke (PERF_BASE) =="
+echo "== smoke (BASE) =="
 if [ -x scripts/smoke.sh ]; then
-  BASE="$PERF_BASE" ./scripts/smoke.sh || echo "SMOKE FAILED"
+  BASE="$BASE" ./scripts/smoke.sh || echo "SMOKE FAILED"
 else
   echo "scripts/smoke.sh missing"
 fi
