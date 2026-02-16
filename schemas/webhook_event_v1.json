@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WebhookEvent v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "source",
+    "event_type",
+    "engine",
+    "symbol",
+    "side",
+    "ts"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": [
+        "1.0"
+      ]
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "tradingview",
+        "macro_job",
+        "manual"
+      ]
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "SIGNAL",
+        "OPEN",
+        "UPDATE",
+        "CLOSE"
+      ]
+    },
+    "engine": {
+      "type": "string",
+      "minLength": 1
+    },
+    "symbol": {
+      "type": "string",
+      "minLength": 1
+    },
+    "side": {
+      "type": "string",
+      "enum": [
+        "LONG",
+        "SHORT"
+      ]
+    },
+    "ts": {
+      "type": "string"
+    },
+    "key": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "prices": {
+      "type": "object",
+      "properties": {
+        "entry": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "stop": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "exit": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "qty_hint": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
