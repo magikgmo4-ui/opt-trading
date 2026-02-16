@@ -432,9 +432,9 @@ def perf_ui():
       <div class="subtitle">Dashboard LAN • API <span class="mono" id="base_url"></span> • <span id="last_updated">—</span></div>
     </div>
     <div class="actions">
-      <span class="chip">Status: <span id="status_badge">loading…</span></span>
+      <span class="chip">Status: <span id="status_badge">chargement…</span></span>
       <label class="chip"><input id="autorefresh" type="checkbox"/> auto-refresh</label>
-      <button class="primary" onclick="refreshAll(true)">Refresh</button>
+      <button class="primary" onclick="refreshAll(true)">Rafraîchir</button>
     </div>
   </div>
 
@@ -451,13 +451,13 @@ def perf_ui():
 
   <div class="grid3">
     <div class="card">
-      <h2>Open trades</h2>
+      <h2>Positions ouvertes</h2>
       <div class="muted">Clique un <span class="mono">trade_id</span> pour copier + préremplir le CLOSE.</div>
       <div style="margin-top:10px;"><table id="open_tbl"></table></div>
     </div>
 
     <div class="card">
-      <h2>Trade actions</h2>
+      <h2>Actions trade</h2>
       <div class="toolbar">
         <div class="field" style="flex:1">
           <label>trade_id</label>
@@ -469,11 +469,11 @@ def perf_ui():
         </div>
         <div class="field">
           <label>&nbsp;</label>
-          <button class="primary" onclick="closeTrade()">Send CLOSE</button>
+          <button class="primary" onclick="closeTrade()">Envoyer CLOSE</button>
         </div>
       </div>
       <div class="muted" id="close_res">—</div>
-      <div style="margin-top:12px;" class="muted">Tip: l’input <span class="mono">exit</span> doit être rempli (le placeholder n’est jamais envoyé).</div>
+      <div style="margin-top:12px;" class="muted">Astuce : l’input <span class="mono">exit</span> doit être rempli (le placeholder n’est jamais envoyé).</div>
     </div>
 
     <div class="card">
@@ -499,7 +499,7 @@ def perf_ui():
 
   <div class="grid2" style="margin-top:12px;">
     <div class="card">
-      <h2>Trades</h2>
+      <h2>Historique des trades</h2>
       <div class="toolbar">
         <div class="field">
           <label>limit</label>
@@ -527,7 +527,7 @@ def perf_ui():
 
     <div class="card">
       <h2>Raw summary (JSON)</h2>
-      <pre id="summary" class="muted">loading…</pre>
+      <pre id="summary" class="muted">chargement…</pre>
     </div>
   </div>
 
@@ -580,13 +580,11 @@ async function jget(url){ const r=await fetch(url); if(!r.ok) throw new Error(`$
 function esc(s){ return (s??"").toString().replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;"); }
 function mkRow(cells){ return "<tr>"+cells.map(c=>"<td>"+c+"</td>").join("")+"</tr>"; }
 function toast(msg){ const el=document.getElementById('toast'); el.textContent=msg; el.style.display='block'; clearTimeout(window.__toast_t); window.__toast_t=setTimeout(()=>{ el.style.display='none'; },1600); }
-async function copyText(t){ await navigator.clipboard.writeText(t); toast('Copied'); }
+async function copyText(t){ await navigator.clipboard.writeText(t); toast('Copié ✅'); }
 function fmt(n, d=2){ if(n===null||n===undefined||n==='') return '—'; const x=Number(n); if(!isFinite(x)) return String(n); return x.toFixed(d); }
 function setStatus(ok){ const el=document.getElementById('status_badge'); el.textContent=ok?'OK':'DOWN'; el.style.color=ok?'#7dffbf':'#ff7d7d'; }
 
-function buildCmds(){ return; }
-document.getElementById('cmds').innerHTML = html;
-}
+function buildCmds(){ /* legacy removed */ }
 
 function fillKpis(s){
   document.getElementById('k_total').textContent = String(s.total_trades ?? '—');
