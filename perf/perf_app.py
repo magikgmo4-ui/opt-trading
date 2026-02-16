@@ -544,61 +544,6 @@ pre, .mono, .json, #rawSummary, #raw_summary, #raw{
   white-space:pre !important;
 }
 
-
-/* === UI FIX: prevent overlap === */
-.grid,.row{
-  display:grid !important;
-  grid-template-columns:repeat(12,minmax(0,1fr)) !important;
-  gap:14px !important;
-  align-items:start !important;
-}
-.card{
-  position:relative !important;
-  z-index:1 !important;
-  overflow:hidden !important;
-}
-#rawSummary, pre{
-  max-height:260px !important;
-  overflow:auto !important;
-}
-
-
-/* === UI FIX: prevent overlap === */
-.grid,.row{
-  display:grid !important;
-  grid-template-columns:repeat(12,minmax(0,1fr)) !important;
-  gap:14px !important;
-  align-items:start !important;
-}
-.card{
-  position:relative !important;
-  z-index:1 !important;
-  overflow:hidden !important;
-}
-#rawSummary, pre{
-  max-height:260px !important;
-  overflow:auto !important;
-}
-
-
-/* === UI FIX: prevent overlap === */
-.grid,.row{
-  display:grid !important;
-  grid-template-columns:repeat(12,minmax(0,1fr)) !important;
-  gap:14px !important;
-  align-items:start !important;
-}
-.card{
-  position:relative !important;
-  z-index:1 !important;
-  overflow:hidden !important;
-}
-#rawSummary, pre{
-  max-height:260px !important;
-  overflow:auto !important;
-}
-
-
 /* === FIX: prevent overlap === */
 .grid, .row{
   display: grid !important;
@@ -617,7 +562,6 @@ pre, .mono, .json, #rawSummary, #raw_summary, #raw{
   overflow: auto !important;
   white-space: pre !important;
 }
-
 </style>
 </head>
 <body>
