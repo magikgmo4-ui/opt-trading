@@ -931,3 +931,137 @@ journalctl -u ngrok-tv.service -n 50 --no-pager
   - hit entrant ngrok (`curl http://127.0.0.1:4040/api/requests/http`)
   - nouvelle entrée dans `/opt/trading/journal.md`
 - Si hit ngrok sans entrée journal: diagnostiquer via `journalctl -u tv-webhook.service` (ex: 403 key/validation).
+
+## 2026-02-16 00:12 — algo 6
+1) Objectifs:
+- Formaliser un système multi-moteur: SHORT crypto en COIN-M, LONG crypto en USDT-M, LONG Gold CFD.
+- Automatiser la journalisation via TradingView → webhook → Debian.
+- Mettre en place: sécurité (secret), router/lock, always-on (systemd + ngrok), dashboard live, sizing risque, perf live + Telegram (sans exécution auto).
+
+2) Actions:
+- Analyse multi-actifs initiale (BTC/ETH/SOL/XAU) et définition des zones/invalidations/targets.
+- Création d’une logique pseudo-algo Python (MarketState/Signal/engines), puis correction d’erreur d’exécution (Python collé dans bash).
+- Décision d’utiliser TradingView alerts (webhook) plutôt que prix manuels dans Python.
+- Re-codage d’un clone Pine “bulletproof” (problèmes Pine multi-lignes/ternaires), puis passage à JSON webhook.
+- Mise en place serveur FastAPI (venv + deps), endpoint `/tv`, écriture journal `/opt/trading/journal.md`.
+- Validation pipeline:
+  - Test local `curl` → OK (`{"ok":true}`) + entrée journal.
+  - Exposition via ngrok + test public `NGROK_TEST` → OK.
+  - Debug TradingView: nécessité d’une alerte unique **Any alert() function call** pour capter `alert()`; test `TV_TEST` confirmé dans journal.
+- Ajout d’un secret “key” obligatoire côté serveur (403 sinon), et adaptation des scripts Pine pour inclure `key`.
+- Mise en place d’un router côté serveur:
+  - Raw logs JSONL.
+  - `router_state.json` pour lock (1 moteur agressif à la fois) + test 409.
+  - Reset lock via écriture du state.
+- Déploiement always-on:
+  - `tv-webhook.service` (uvicorn) + `ngrok-tv.service`.
+  - Résolution des conflits: port 8000 déjà utilisé + ERR_NGROK_334 (endpoint ngrok déjà online) en tuant l’instance manuelle puis redémarrant uniquement les services.
+- Dashboard live:
+  - Ajout `events.jsonl`, endpoints `/api/state`, `/api/events`, `/api/metrics`, page `/dash`.
+  - Clarification que `curl -I` (HEAD) sur `/dash` retourne 405 car endpoint en GET.
+- Risk sizing:
+  - Création `risk_config.json` (crypto equity 6000$ risk 1%, gold equity 1500$ risk 1%, min 0.1 unité, step 0.1).
+  - Correction du serveur pour lire `equity` + `risk_pct` au bon format (normalisation).
+  - Test sizing Gold: `risk_usd=15`, distance=5 → `qty=3` (oz) + webhook `tg_test`.
+- Telegram:
+  - Ajout variables d’environnement + envoi Telegram sur signal (validation).
+- Performance live (virtual):
+  - Demande “go performance” et livraison d’un serveur qui gère:
+    - Open/close virtuels (reverse) + fermeture sur BAR (TP/SL) si évènements “BAR” envoyés.
+    - Stockage open/closed trades et endpoints perf.
+
+3) Décisions:
+- Architecture trading:
+  - Short uniquement en COIN-M; long uniquement en USDT-M; Gold en CFD.
+  - Priorité signal/approche “risk-off”: short crypto actif, gold pullback buy, long USDT en attente de reclaim.
+- Architecture alertes:
+  - Utiliser `alert()` + **1 alerte TradingView par script**: **Any alert() function call** + `{{alert_message}}` + webhook `/tv`.
+  - Conserver GainzAlgo pour visuel (sans alertes), scripts PROD séparés pour alertes.
+- Pine:
+  - Choix **B = 3 scripts séparés** (COINM_SHORT / USDTM_LONG / GOLD_CFD_LONG).
+  - JSON en **one-liner** (éviter erreurs Pine multi-lignes).
+- Backend:
+  - Secret obligatoire (403 sinon).
+  - Lock backend disponible; pas forcément géré opérationnellement en continu.
+- Pas d’exécution auto; monitoring + sizing + perf + Telegram.
+
+4) Commandes / Code:
+```bash
+# venv + deps
+cd /opt/trading
+python3 -m venv venv
+source venv/bin/activate
+pip install fastapi uvicorn python-dotenv
+
+# Lancer serveur
+python -m uvicorn webhook_server:app --host 0.0.0.0 --port 8000
+
+# Tests locaux
+curl -X POST http://127.0.0.1:8000/tv -H "Content-Type: application/json" \
+  -d '{"engine":"TEST","signal":"BUY","symbol":"BTCUSDT.P","tf":"1H","price":1,"tp":2,"sl":0}'
+tail -n 40 /opt/trading/journal.md
+
+# ngrok
+ngrok http 8000
+# Webhook URL (exemple)
+# https://phytogeographical-subnodulous-joycelyn.ngrok-free.dev/tv
+
+# Test public via ngrok
+curl -X POST https://phytogeographical-subnodulous-joycelyn.ngrok-free.dev/tv \
+  -H "Content-Type: application/json" \
+  -d '{"engine":"NGROK_TEST","signal":"SELL","symbol":"BTCUSDT.P","tf":"1H","price":999,"tp":888,"sl":777}'
+
+# Inspect requêtes ngrok
+curl -s http://127.0.0.1:4040/api/requests/http | head
+
+# Services systemd (restart/status)
+sudo systemctl restart tv-webhook.service
+sudo systemctl status tv-webhook.service --no-pager
+sudo systemctl restart ngrok-tv.service
+sudo systemctl status ngrok-tv.service --no-pager
+
+# Vérifications
+lsof -i :8000
+curl -s http://127.0.0.1:8000/docs | head
+curl -s http://127.0.0.1:4040/api/tunnels | python3 -m json.tool | head -n 60
+```
+
+```bash
+# Reset lock
+echo '{"active_engine": null, "updated_at": null}' > /opt/trading/state/router_state.json
+cat /opt/trading/state/router_state.json
+```
+
+```json
+// /opt/trading/state/risk_config.json (exemple utilisé)
+{
+  "accounts": {
+    "COINM_SHORT": { "equity": 6000, "risk_pct": 0.01, "min_qty": 0.001, "qty_step": 0.001 },
+    "USDTM_LONG":  { "equity": 6000, "risk_pct": 0.01, "min_qty": 0.001, "qty_step": 0.001 },
+    "GOLD_CFD_LONG": { "equity": 1500, "risk_pct": 0.01, "min_units": 0.1, "units_step": 0.1 }
+  },
+  "gold_cfd": { "units_are_oz": true }
+}
+```
+
+```bash
+# Test sizing Gold
+curl -s "http://127.0.0.1:8000/api/risk/quote?engine=GOLD_CFD_LONG&price=2000&sl=1995&tp=2010" | jq .
+
+# Test webhook (signal)
+curl -s -X POST http://127.0.0.1:8000/tv -H "Content-Type: application/json" \
+  -d '{"key":"GHOST_XAU_2026_ULTRA","engine":"GOLD_CFD_LONG","signal":"BUY","symbol":"XAUUSD","tf":"15","price":2000,"tp":2010,"sl":1995,"reason":"tg_test"}' | jq .
+```
+
+```pine
+// JSON Pine stable 1 ligne (modèle utilisé)
+f_json(_signal, _tp, _sl, _reason) =>
+    "{\"key\":\"" + key + "\",\"engine\":\"" + engine + "\",\"signal\":\"" + _signal + "\",\"symbol\":\"" + syminfo.ticker + "\",\"tf\":\"" + timeframe.period + "\",\"price\":" + str.tostring(close) + ",\"tp\":" + str.tostring(_tp) + ",\"sl\":" + str.tostring(_sl) + ",\"reason\":\"" + _reason + "\"}"
+```
+
+5) Points ouverts (next):
+- Sécurité: rotation du token Telegram (token exposé dans la conversation) + mise en place d’un `.env`/EnvironmentFile stable.
+- Performance live: valider la stratégie de clôture (reverse vs BAR TP/SL) et définir si TradingView enverra des évènements “BAR” (high/low/close).
+- Nettoyage du journal `/opt/trading/journal.md` (contenu “parasite” en haut).
+- Standardiser `reason` / noms scripts / conventions (engine/symbol/tf) pour stats par moteur.
+- (Option) Ajouter alerte Telegram d’inactivité (global ou par engine) et confirmer le comportement anti-spam.
