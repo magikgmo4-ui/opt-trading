@@ -27,3 +27,14 @@ jobs/
 # local/runtime
 perf/perf.db
 scripts/smoke.sh.bak.*
+
+# diagnostics / runtime
+logs/
+logs/diagnostics/
+logs/diagnostics/*.log
+
+# perf runtime db
+perf/perf.db
+
+# local backups
+scripts/*.bak.*
