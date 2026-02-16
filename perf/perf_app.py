@@ -423,7 +423,32 @@ def perf_ui():
     .field label { font-size:11px; color:var(--muted); }
     .toast { position: fixed; right: 18px; bottom: 18px; background:#0f1320; border:1px solid var(--line); padding:10px 12px; border-radius:14px; display:none; }
     @media (max-width: 1000px){ .kpis{ grid-template-columns: repeat(2, minmax(140px, 1fr)); } .grid3{ grid-template-columns: 1fr; } .grid2{ grid-template-columns: 1fr; } }
-  </style>
+  
+/* === FIX OVERLAP (CSS only) === */
+.grid, .row, .kpi-grid, .cards, .cols {
+  display: grid !important;
+  grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+  align-items: start !important;
+}
+.card, .panel, .box, .section {
+  position: relative !important;
+  z-index: 1 !important;
+  overflow: hidden !important;
+  min-height: 0 !important;
+}
+pre, code, .mono, .json, #rawSummary, #raw_summary, #raw {
+  max-height: 320px !important;
+  overflow: auto !important;
+  white-space: pre !important;
+}
+table { width: 100% !important; border-collapse: collapse !important; }
+th, td { vertical-align: top !important; }
+@media (max-width: 900px){
+  .grid, .row, .kpi-grid, .cards, .cols { grid-template-columns: 1fr !important; }
+}
+
+</style>
 </head>
 <body>
   <div class="topbar">
