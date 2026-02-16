@@ -2091,3 +2091,49 @@ sudo systemctl restart tv-perf.service
 - Fournir un ZIP du repo (état actuel) pour analyse et correction définitive:
   - Identifier précisément le bloc legacy `buildCmds()` dans la source servie et remplacer l’affichage `<code>${c}</code>` par du texte FR (sans afficher `curl`), tout en conservant les boutons.
 - Nettoyage repo: éviter la pollution par `perf/perf_app.py.bak.*` et fichiers `.patch` non suivis (ajout `.gitignore` / nettoyage).
+
+## 2026-02-16 18:30 | TV Webhook | XAU_M5_SCALP | XAUUSD M5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `XAU_M5_SCALP`
+3. **Symbol/TF**: `XAUUSD` / `M5`
+4. **Price**: `1234.5`
+5. **TP**: `1240.0`
+6. **SL**: `1230.0`
+7. **Reason**: ngrok_buy_ok
+8. **Payload brut**:
+```json
+{
+  "key": "GHOST_XAU_2026_ULTRA",
+  "engine": "XAU_M5_SCALP",
+  "signal": "BUY",
+  "symbol": "XAUUSD",
+  "tf": "M5",
+  "price": 1234.5,
+  "tp": 1240.0,
+  "sl": 1230.0,
+  "reason": "ngrok_buy_ok",
+  "_ts": "2026-02-16T23:30:24.257484+00:00",
+  "_ip": "67.69.76.141",
+  "qty": 13.333,
+  "risk_usd": 60.0,
+  "risk_real_usd": 59.9985
+}
+```
+
+## 2026-02-16 18:46 | CLOSE SESSION | ngrok + LAN OK | TV webhook -> perf OK
+
+1. **ngrok-tv.service** patch stable (NGROK_CONFIG + pkill prestart via bash). Tunnel OK.
+2. **Windows LAN** confirmé OK:
+   - webhook: http://192.168.16.155:8000/api/state (200)
+   - perf ui:  http://192.168.16.155:8010/perf/ui (200)
+3. **TV webhook validation**:
+   - route POST = /tv (secret TV_WEBHOOK_KEY)
+   - engine TEST => risk_quote qty=0 (fallback) => rejet attendu
+   - engine XAU_M5_SCALP => risk_quote OK => POST /tv via ngrok OK (200)
+4. **Perf ledger end-to-end**:
+   - OPEN créé depuis /tv (trade_id: T_20260216_183024_XAU_M5_SCALP_f4f04a)
+   - CLOSE envoyé (exit=1238.0) => trade CLOSED, R≈0.7778
+
+5. **GO NEXT (prochaine session)**:
+   - Tester TradingView alert -> ngrok -> /tv -> perf OPEN
+   - Enregistrer signals + ouvrir simulations trades (OPEN/CLOSE) via perf UI
