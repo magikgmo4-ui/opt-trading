@@ -604,6 +604,61 @@ pre, .mono, .json, #rawSummary, #raw_summary, #raw{
   overflow:auto !important;
   white-space:pre !important;
 }
+
+/* MINIMAL_CLARITY_PATCH */
+:root{ --fg:#f3f6fb; --muted:#b7c2d3; --line:rgba(255,255,255,.14); }
+body{ font-size:13px; line-height:1.45; text-rendering:optimizeLegibility; }
+.card h2{ color:var(--muted); font-weight:700; letter-spacing:.2px; }
+.kpi .label{ color:var(--muted); font-size:12px; }
+.kpi .val{ font-size:17px; font-weight:800; }
+table{ font-size:13px; }
+th{ color:#d8e2f2; font-weight:700; background:rgba(255,255,255,.03); }
+td,th{ padding:8px 10px; }
+pre, code{ font-size:12px; }
+/* END_MINIMAL_CLARITY_PATCH */
+
+/* === MIN_POLISH_V1 === */
+/* Zebra rows + hover */
+table.tvpolish tbody tr:nth-child(odd){ background: rgba(255,255,255,.02); }
+table.tvpolish tbody tr:hover{ background: rgba(99,102,241,.06); }
+
+/* Numeric alignment */
+table.tvpolish td.num, table.tvpolish th.num{
+  text-align:right !important;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Status chips */
+.status-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:2px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+.status-chip::before{
+  content:"";
+  width:8px; height:8px;
+  border-radius:50%;
+  display:inline-block;
+  background: rgba(255,255,255,.35);
+}
+.status-chip.open{
+  border-color: rgba(45,212,191,.35);
+  background: rgba(45,212,191,.10);
+}
+.status-chip.open::before{ background: rgba(45,212,191,.95); }
+.status-chip.closed{
+  border-color: rgba(148,163,184,.25);
+  background: rgba(148,163,184,.08);
+}
+.status-chip.closed::before{ background: rgba(148,163,184,.75); }
+
 </style>
 </head>
 <body>
@@ -868,6 +923,59 @@ setTimeout(renderOps, 0);
 
 refreshAll(false);
 setInterval(()=>{ if(document.getElementById('autorefresh').checked) refreshAll(false); }, 5000);
+</script>
+
+<script id="min-polish-v1">
+/* MIN_POLISH_V1 */
+(function(){
+  function isNumericLike(t){
+    if(!t) return false;
+    t = t.replace(/\u00A0/g,' ').trim();           // nbsp
+    if(!t) return false;
+    // allow % , decimals, minus, thousands separators
+    // examples: 5038.5, -12.0, 1,234.50, 100.0%, 0.9100
+    const x = t.replace(/[, ]/g,'').replace(/%$/,'');
+    return /^-?\d+(\.\d+)?$/.test(x);
+  }
+
+  function polishOneTable(table){
+    if(!table) return;
+    table.classList.add("tvpolish");
+
+    // mark header numeric based on first body row sample
+    const rows = table.tBodies && table.tBodies[0] ? Array.from(table.tBodies[0].rows) : [];
+    const head = table.tHead && table.tHead.rows && table.tHead.rows[0] ? table.tHead.rows[0] : null;
+
+    // zebra is pure CSS; here we do numeric+status
+    rows.forEach(tr=>{
+      Array.from(tr.cells).forEach((td, idx)=>{
+        const raw = (td.textContent || "").trim();
+
+        // status chip (OPEN/CLOSED)
+        if(raw === "OPEN" || raw === "CLOSED"){
+          const cls = raw.toLowerCase();
+          // avoid double-wrapping
+          if(!td.querySelector(".status-chip")){
+            td.innerHTML = '<span class="status-chip '+cls+'">'+raw+'</span>';
+          }
+        }
+
+        // numeric right-align
+        if(isNumericLike(raw)){
+          td.classList.add("num");
+          if(head && head.cells && head.cells[idx]) head.cells[idx].classList.add("num");
+        }
+      });
+    });
+  }
+
+  function run(){
+    document.querySelectorAll("table").forEach(polishOneTable);
+  }
+
+  window.addEventListener("load", ()=>{ setTimeout(run, 200); });
+  setInterval(run, 1200);
+})();
 </script>
 </body>
 </html>
