@@ -23,3 +23,7 @@ env/
 # Local/Generated
 shared/
 jobs/
+
+# local/runtime
+perf/perf.db
+scripts/smoke.sh.bak.*
