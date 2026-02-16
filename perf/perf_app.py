@@ -331,3 +331,179 @@ def perf_open():
     """).fetchall()
     con.close()
     return {"open": [dict(r) for r in rows]}
+from fastapi import Query
+
+@app.get("/perf/open")
+def perf_open_trades():
+    con = db()
+    rows = con.execute("""
+        SELECT trade_id, engine, symbol, side, status, entry_ts, entry, stop, qty, risk_usd
+        FROM trades
+        WHERE status='OPEN'
+        ORDER BY entry_ts DESC
+    """).fetchall()
+    con.close()
+    return {"open": [dict(r) for r in rows]}
+
+@app.get("/perf/trades")
+def perf_trades(
+    limit: int = Query(50, ge=1, le=500),
+    engine: str | None = None,
+    status: str | None = None,   # OPEN / CLOSED
+    symbol: str | None = None,
+):
+    con = db()
+    where = []
+    params = {}
+
+    if engine:
+        where.append("engine = :engine")
+        params["engine"] = engine
+    if status:
+        where.append("status = :status")
+        params["status"] = status.upper()
+    if symbol:
+        where.append("symbol = :symbol")
+        params["symbol"] = symbol
+
+    where_sql = ("WHERE " + " AND ".join(where)) if where else ""
+
+    rows = con.execute(f"""
+        SELECT trade_id, status, engine, symbol, side,
+               entry, stop, exit,
+               qty, risk_usd,
+               pnl_real, r_real,
+               entry_ts, exit_ts
+        FROM trades
+        {where_sql}
+        ORDER BY entry_ts DESC
+        LIMIT :limit
+    """, {**params, "limit": limit}).fetchall()
+
+    con.close()
+    return {"trades": [dict(r) for r in rows], "limit": limit, "filters": params}
+from fastapi.responses import HTMLResponse
+
+@app.get("/perf/ui", response_class=HTMLResponse)
+def perf_ui():
+    return """
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Perf Control Center</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 18px; }
+    .row { display:flex; gap:14px; flex-wrap:wrap; align-items:flex-start; }
+    .card { border:1px solid #2223; border-radius:14px; padding:14px; min-width: 320px; }
+    h1 { margin:0 0 12px; font-size: 22px; }
+    h2 { margin:0 0 10px; font-size: 16px; opacity:.85; }
+    table { border-collapse: collapse; width: 100%; font-size: 13px; }
+    th, td { border-bottom:1px solid #2222; padding: 6px 8px; text-align:left; vertical-align: top; }
+    input, button { padding:8px 10px; border-radius:10px; border:1px solid #2223; }
+    button { cursor:pointer; }
+    .muted { opacity:.7; }
+    code { background:#0001; padding:2px 6px; border-radius:8px; }
+  </style>
+</head>
+<body>
+  <h1>Perf Control Center</h1>
+
+  <div class="row">
+    <div class="card" style="flex:1">
+      <h2>Summary</h2>
+      <pre id="summary" class="muted">loading...</pre>
+      <button onclick="refreshAll()">Refresh</button>
+    </div>
+
+    <div class="card" style="flex:1">
+      <h2>Close trade</h2>
+      <div class="row">
+        <div>
+          <div class="muted">trade_id</div>
+          <input id="close_id" style="width:360px" placeholder="T_..."/>
+        </div>
+        <div>
+          <div class="muted">exit</div>
+          <input id="close_exit" style="width:140px" placeholder="5038.5"/>
+        </div>
+      </div>
+      <div style="margin-top:10px;">
+        <button onclick="closeTrade()">Send CLOSE</button>
+        <span id="close_res" class="muted"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top:14px;">
+    <div class="card" style="flex:1">
+      <h2>Open trades</h2>
+      <div class="muted">Tip: clique un trade_id pour le copier.</div>
+      <table id="open_tbl"></table>
+    </div>
+
+    <div class="card" style="flex:1">
+      <h2>Last trades</h2>
+      <table id="trades_tbl"></table>
+    </div>
+  </div>
+
+<script>
+async function jget(url){ const r=await fetch(url); return await r.json(); }
+function esc(s){ return (s??"").toString().replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;"); }
+function mkRow(cells){ return "<tr>"+cells.map(c=>"<td>"+c+"</td>").join("")+"</tr>"; }
+function copyText(t){ navigator.clipboard.writeText(t); }
+
+async function refreshAll(){
+  const s = await jget("/perf/summary");
+  document.getElementById("summary").textContent = JSON.stringify(s, null, 2);
+
+  const o = await jget("/perf/open");
+  const open = o.open || [];
+  let h = "<tr><th>trade_id</th><th>engine</th><th>symbol</th><th>side</th><th>entry</th><th>stop</th><th>qty</th><th>risk</th><th>ts</th></tr>";
+  for(const t of open){
+    const id = esc(t.trade_id);
+    h += mkRow([
+      `<a href="#" onclick="copyText('${id}'); document.getElementById('close_id').value='${id}'; return false;"><code>${id}</code></a>`,
+      esc(t.engine), esc(t.symbol), esc(t.side),
+      esc(t.entry), esc(t.stop), esc(t.qty), esc(t.risk_usd),
+      esc(t.entry_ts)
+    ]);
+  }
+  document.getElementById("open_tbl").innerHTML = h;
+
+  const tr = await jget("/perf/trades?limit=50");
+  const trades = tr.trades || [];
+  let ht = "<tr><th>trade_id</th><th>status</th><th>engine</th><th>side</th><th>entry</th><th>exit</th><th>pnl</th><th>R</th><th>ts</th></tr>";
+  for(const t of trades.slice(0,50)){
+    const id = esc(t.trade_id);
+    ht += mkRow([
+      `<code>${id}</code>`,
+      esc(t.status), esc(t.engine), esc(t.side),
+      esc(t.entry), esc(t.exit ?? ""),
+      esc(t.pnl_real ?? ""), esc(t.r_real ?? ""),
+      esc(t.entry_ts)
+    ]);
+  }
+  document.getElementById("trades_tbl").innerHTML = ht;
+}
+
+async function closeTrade(){
+  const id = document.getElementById("close_id").value.trim();
+  const ex = parseFloat(document.getElementById("close_exit").value);
+  if(!id || !isFinite(ex)){ document.getElementById("close_res").textContent="missing trade_id or exit"; return; }
+  const r = await fetch("/perf/event", {
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body: JSON.stringify({type:"CLOSE", trade_id:id, exit:ex})
+  });
+  const j = await r.json();
+  document.getElementById("close_res").textContent = " → " + JSON.stringify(j);
+  await refreshAll();
+}
+
+refreshAll();
+</script>
+</body>
+</html>
+"""

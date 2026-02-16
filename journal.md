@@ -1,3 +1,55 @@
+## 2026-02-16 — PERF module (commands)
+
+### Services
+- status perf:
+  sudo systemctl status perf.service --no-pager -l
+- logs perf:
+  sudo journalctl -u perf.service -n 200 --no-pager -o cat
+- restart perf:
+  sudo systemctl restart perf.service
+
+- status tv-webhook:
+  sudo systemctl status tv-webhook.service --no-pager -l
+- logs tv-webhook:
+  sudo journalctl -u tv-webhook.service -n 200 --no-pager -o cat
+- restart tv-webhook:
+  sudo systemctl restart tv-webhook.service
+
+### Perf API
+- summary:
+  curl -s http://127.0.0.1:8010/perf/summary | python -m json.tool
+- equity:
+  curl -s http://127.0.0.1:8010/perf/equity | python -m json.tool
+- open trades:
+  curl -s http://127.0.0.1:8010/perf/open | python -m json.tool
+- trades (last 50):
+  curl -s "http://127.0.0.1:8010/perf/trades?limit=50" | python -m json.tool
+- trades filter engine:
+  curl -s "http://127.0.0.1:8010/perf/trades?engine=XAU_M5_SCALP&limit=50" | python -m json.tool
+
+### SQLite fallback
+- list OPEN:
+  sqlite3 /opt/trading/perf/perf.db "select trade_id, engine, symbol, side, entry, stop, qty, risk_usd, entry_ts from trades where status='OPEN' order by entry_ts desc;"
+- last 20:
+  sqlite3 /opt/trading/perf/perf.db "select trade_id, status, engine, symbol, side, entry, exit, pnl_real, r_real, entry_ts, exit_ts from trades order by entry_ts desc limit 20;"
+
+### /tv test (key auto from .env)
+sudo bash -lc '
+set -a; source /opt/trading/.env; set +a
+K="${TV_WEBHOOK_KEY:-${WEBHOOK_KEY:-${TV_SECRET:-${SECRET:-${KEY:-}}}}}"
+curl -s http://127.0.0.1:8000/tv -H "Content-Type: application/json" -d "{
+  \"key\":\"$K\",
+  \"engine\":\"XAU_M5_SCALP\",
+  \"signal\":\"BUY\",
+  \"symbol\":\"XAUUSD\",
+  \"tf\":\"M5\",
+  \"price\":5032.5,
+  \"tp\":5040.0,
+  \"sl\":5026.5,
+  \"reason\":\"perf branch test\"
+}" | python3 -m json.tool
+'
+
 
 ## 2026-02-13 01:14 — Test journal auto OK
 1) Objectifs:
@@ -1065,3 +1117,149 @@ f_json(_signal, _tp, _sl, _reason) =>
 - Nettoyage du journal `/opt/trading/journal.md` (contenu “parasite” en haut).
 - Standardiser `reason` / noms scripts / conventions (engine/symbol/tf) pour stats par moteur.
 - (Option) Ajouter alerte Telegram d’inactivité (global ou par engine) et confirmer le comportement anti-spam.
+
+## 2026-02-16 00:52 | TV Webhook | XAU_M5_SCALP | XAUUSD M5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `XAU_M5_SCALP`
+3. **Symbol/TF**: `XAUUSD` / `M5`
+4. **Price**: `5032.5`
+5. **TP**: `5040.0`
+6. **SL**: `5026.5`
+7. **Reason**: perf branch test
+8. **Payload brut**:
+```json
+{
+  "key": "GHOST_XAU_2026_ULTRA",
+  "engine": "XAU_M5_SCALP",
+  "signal": "BUY",
+  "symbol": "XAUUSD",
+  "tf": "M5",
+  "price": 5032.5,
+  "tp": 5040.0,
+  "sl": 5026.5,
+  "reason": "perf branch test",
+  "_ts": "2026-02-16T05:52:01.342650+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 60.0,
+  "risk_real_usd": 60.0
+}
+```
+
+## 2026-02-16 02:03 — algo 7
+1) Objectifs:
+- Ajouter un module Performance (monitor-only) : ledger, R-multiple, PnL théorique/réalisé, equity curve simulée, KPIs par engine/global.
+- Brancher le risk sizing existant (tv-webhook) vers perf via un POST OPEN.
+- Ajouter endpoints utilitaires (/perf/open, /perf/trades) + mini UI /perf/ui.
+- Garder zéro automation broker.
+
+2) Actions:
+- Création et déploiement d’un microservice FastAPI `perf_app.py` (SQLite + endpoints /perf/event, /perf/summary, /perf/equity) lancé par systemd `perf.service`.
+- Correction d’erreur: un répertoire `perf.service` avait été créé au lieu d’un fichier → suppression + création correcte.
+- Correction d’exécution systemd: `ExecStart` pointait sur `/usr/bin/python3` sans uvicorn → bascule vers le Python du venv `/opt/trading/venv/bin/python`.
+- Tests OK perf:
+  - OPEN via /perf/event → création trade_id.
+  - CLOSE via /perf/event → calcul PnL et R; mise à jour /perf/summary et /perf/equity.
+- Branchement tv-webhook (FastAPI `webhook_server:app`, endpoint `POST /tv`):
+  - Ajout d’un call `perf_open(...)` après risk sizing (`risk_quote`) avec mapping BUY/SELL → LONG/SHORT.
+  - Ajout d’un garde-fou: refuser le ledger si qty=0 ou risk=0.
+- Debug /tv “Invalid secret”:
+  - Lecture de la clé depuis `/opt/trading/.env` via `sudo`/subshell sans afficher la valeur.
+- Debug risk sizing à 0 pour `XAU_M5_SCALP`:
+  - Cause: engine absent de `state/risk_config.json` → `risk_usd=0`, `qty=0`.
+  - Fix: ajout d’un compte `XAU_M5_SCALP` dans `state/risk_config.json` (equity=6000, risk_pct=0.01, min_units/units_step).
+  - Validation JSON + re-test `risk_quote` → `risk_usd=60`, `qty=10`.
+- Test end-to-end /tv → perf:
+  - POST /tv (key auto) → création trade OPEN en DB perf (qty=10, risk=60).
+  - CLOSE trade via /perf/event → /perf/summary: `pnl_realized=62.2`, equity=10062.2.
+- Ajout demandé: endpoints utilitaires à ajouter à perf (`/perf/open`, `/perf/trades`) + proposition d’une page UI `GET /perf/ui`.
+- Accès UI depuis Windows non possible via 127.0.0.1 → décision d’ouvrir depuis Debian (localhost).
+
+3) Décisions:
+- perf en microservice séparé, monitor-only, sans broker.
+- Stockage SQLite + ledger d’événements.
+- tv-webhook alimente perf via POST OPEN après `risk_quote` uniquement si sizing valide.
+- Ajustement config risk: ajouter `XAU_M5_SCALP` dans `state/risk_config.json`.
+
+4) Commandes / Code:
+```bash
+# Services / logs
+sudo systemctl status perf.service --no-pager
+sudo journalctl -u perf.service -n 200 --no-pager -o cat
+sudo systemctl restart perf.service
+
+sudo systemctl status tv-webhook.service --no-pager
+sudo journalctl -u tv-webhook.service -n 200 --no-pager -o cat
+sudo systemctl restart tv-webhook.service
+
+# API perf
+curl -s http://127.0.0.1:8010/perf/summary | python -m json.tool
+curl -s http://127.0.0.1:8010/perf/equity  | python -m json.tool
+curl -s http://127.0.0.1:8010/perf/event -H "Content-Type: application/json" -d '{...}'
+
+# sqlite inspection
+sqlite3 /opt/trading/perf/perf.db \
+"select trade_id, engine, symbol, side, entry, stop, qty, risk_usd, entry_ts from trades where status='OPEN' order by entry_ts desc;"
+sqlite3 /opt/trading/perf/perf.db \
+"select trade_id, status, engine, symbol, side, entry, exit, pnl_real, r_real, entry_ts, exit_ts from trades order by entry_ts desc limit 20;"
+
+# Tester /tv en chargeant la key depuis .env (sans afficher la valeur)
+sudo bash -lc '
+set -a
+source /opt/trading/.env
+set +a
+K="${TV_WEBHOOK_KEY:-${WEBHOOK_KEY:-${TV_SECRET:-${SECRET:-${KEY:-}}}}}"
+curl -s http://127.0.0.1:8000/tv -H "Content-Type: application/json" -d "{
+  \"key\":\"$K\",
+  \"engine\":\"XAU_M5_SCALP\",
+  \"signal\":\"BUY\",
+  \"symbol\":\"XAUUSD\",
+  \"tf\":\"M5\",
+  \"price\":5032.5,
+  \"tp\":5040.0,
+  \"sl\":5026.5,
+  \"reason\":\"perf branch test\"
+}" | python3 -m json.tool
+'
+
+# Test risk_quote local (important: depuis /opt/trading)
+cd /opt/trading
+/opt/trading/venv/bin/python - <<'PY'
+from webhook_server import risk_quote
+print(risk_quote("XAU_M5_SCALP", price=5032.5, sl=5026.5, tp=5040.0))
+PY
+
+# Validation JSON config
+python3 -m json.tool /opt/trading/state/risk_config.json > /dev/null && echo "OK JSON"
+```
+
+```json
+// state/risk_config.json: ajout du compte
+"XAU_M5_SCALP": {
+  "equity": 6000,
+  "risk_pct": 0.01,
+  "min_units": 0.1,
+  "units_step": 0.1
+}
+```
+
+```python
+# webhook_server.py (/tv): garde-fou + envoi perf (bloc à placer avant evt = {...})
+q = risk_quote(engine, price=price, sl=sl, tp=tp) if (price and sl) else None
+if not q:
+    raise HTTPException(status_code=400, detail="Missing/invalid price or sl for risk sizing")
+if (not q.get("qty")) or ((q.get("risk_real_usd") or 0) <= 0 and (q.get("risk_usd") or 0) <= 0):
+    raise HTTPException(status_code=400, detail="Risk quote invalid (qty/risk is 0)")
+side = "LONG" if signal == "BUY" else "SHORT"
+risk_for_perf = q.get("risk_real_usd") or q.get("risk_usd") or 0.0
+perf_open(engine=engine, symbol=symbol, side=side, entry=price, stop=sl, qty=q["qty"], risk_usd=risk_for_perf,
+          meta={"tf": tf, "tp": tp, "reason": reason, "src": "/tv"})
+```
+
+5) Points ouverts (next):
+- Ajouter effectivement dans `perf_app.py` les endpoints:
+  - `GET /perf/open`
+  - `GET /perf/trades?limit=&engine=&status=&symbol=`
+- Ajouter (si retenu) `GET /perf/ui` et valider affichage sur Debian.
+- Décider stratégie d’accès Windows (SSH tunnel / bind 0.0.0.0 / ngrok) si besoin ultérieur.
+- Éventuel: harmoniser `risk_usd` envoyé à perf (préférer `risk_real_usd`) partout.

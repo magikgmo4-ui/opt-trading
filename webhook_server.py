@@ -416,13 +416,17 @@ async def tv_webhook(req: Request):
         st = ensure_router_state()
         if not st.get("active_engine"):
             set_router_state(engine)
-
     # --- RISK SIZING (quote) ---
     q = risk_quote(engine, price=price, sl=sl, tp=tp) if (price and sl) else None
     if not q:
         raise HTTPException(status_code=400, detail="Missing/invalid price or sl for risk sizing")
 
+    # Guard: never ledger trades with qty/risk = 0
+    if (not q.get("qty")) or ((q.get("risk_real_usd") or 0) <= 0 and (q.get("risk_usd") or 0) <= 0):
+        raise HTTPException(status_code=400, detail="Risk quote invalid (qty/risk is 0)")
+
     side = "LONG" if signal == "BUY" else "SHORT"
+    risk_for_perf = q.get("risk_real_usd") or q.get("risk_usd") or 0.0
 
     # --- PERF: OPEN trade ledger (non-bloquant) ---
     perf_open(
@@ -432,7 +436,7 @@ async def tv_webhook(req: Request):
         entry=price,
         stop=sl,
         qty=q["qty"],
-        risk_usd=q.get("risk_usd", 0.0),
+        risk_usd=risk_for_perf,
         meta={"tf": tf, "tp": tp, "reason": reason, "src": "/tv"}
     )
 
