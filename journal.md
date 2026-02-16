@@ -1982,3 +1982,112 @@ BASE="http://127.0.0.1:8010" WEBHOOK_BASE="http://127.0.0.1:8000" ./scripts/smok
 - Traiter (optionnel) le `405 Method Not Allowed` sur `HEAD /perf/ui` si on veut zéro warning (actuellement non bloquant, navigateur OK).
 - S’assurer que `scripts/smoke.sh` utilise `python3 -m json.tool` si `python -m json.tool` échoue selon environnements (mentionné comme correctif possible).
 - Nettoyage/standardisation pour éviter un lancement manuel qui reprend le port 8010 (process “fantôme”).
+
+## 2026-02-16 10:25 — algo 18
+1) Objectifs:
+- Valider état “GO” (services perf/webhook, endpoints, UI accessible Windows).
+- Remplacer les checks HEAD (405) par des GET.
+- Appliquer un patch “UI pro” sur `/perf/ui`, puis rendre l’UI plus “user friendly” en supprimant l’affichage des commandes `curl` (tout en gardant les boutons).
+- Générer un patch Git propre et journaliser.
+
+2) Actions:
+- Confirmé que `curl -I` envoie HEAD ⇒ `405` sur `/perf/ui` (GET-only) ; choix de l’option GET pour les checks.
+- Vérifié services/ports/endpoints/UI: `tv-perf` et `tv-webhook` actifs, bind `0.0.0.0:8010`, endpoints `/perf/summary`, `/perf/open`, `/perf/trades`, `/perf/ui` en `200`.
+- Alignement repo ↔ machine:
+  - `tv-perf.service` lance `uvicorn perf.perf_app:app` depuis `/opt/trading`.
+  - fichier cible confirmé: `/opt/trading/perf/perf_app.py`.
+- Application du patch UI pro depuis `"/home/ghost/Téléchargements/perf_ui_pro_clean.patch"` + redémarrage + tests `200`.
+- Création d’un patch Git “officiel” via commit + `git format-patch`, fichier produit: `/opt/trading/perf_ui_pro.patch` (commit `efa23c1`).
+- Ajout utilisateur `ghost` au groupe `adm` pour accès logs.
+- Itérations pour nettoyer l’UI (suppression/masquage des commandes `curl` affichées):
+  - Tentative de patch manuel `ui_clean_ops_folded.patch` échouée (patch corrompu).
+  - Ajout d’une card “Outils” + section “Avancé” repliée (libellés FR + boutons), injections JS via scripts Python.
+  - Ajout d’un appel `setTimeout(renderOps, 0);` après `refreshAll(false);`.
+  - Remplacement de blocs `<code>...</code>` par texte FR neutre (“Commande masquée…”), mais les `curl` restaient visibles.
+  - Preuve serveur: `curl .../perf/ui?v=999 | grep curl` montre que l’UI servie contient encore un bloc legacy `buildCmds()` avec `items=[{label,url,curl:...}]` et rendu `<code class="mono">${c}</code>` où `c = esc(it.curl)` + boutons `Copy URL/Copy cmd`.
+  - Constats: plusieurs tentatives de neutralisation n’ont pas matché le code réel (problèmes d’ancrage/recherche dans `perf_app.py`, présence de versions legacy et de backups `.bak.*`, et contenu effectivement servi toujours porteur du legacy).
+- Décision finale: pousser sur Git, puis fournir un ZIP pour analyse/correction.
+
+3) Décisions:
+- Utiliser des checks GET (option 1) au lieu de HEAD pour éviter le 405.
+- UI: objectif “user friendly” = ne plus afficher de texte `curl` (garder actions/boutons), au lieu de supprimer massivement des blocs.
+- Basculer vers une résolution “analyse ZIP + correction” après itérations et incohérences perçues entre modifications locales et HTML encore servi.
+- Plan: push Git puis envoi d’un ZIP pour analyse.
+
+4) Commandes / Code:
+```bash
+# Remplacer le check HEAD par GET
+curl -s http://127.0.0.1:8010/perf/ui >/dev/null && echo OK
+curl -s -o /dev/null -w "UI /perf/ui HTTP=%{http_code}\n" http://127.0.0.1:8010/perf/ui
+curl -s -o /dev/null -w "API /perf/summary HTTP=%{http_code}\n" http://127.0.0.1:8010/perf/summary
+curl -sf http://127.0.0.1:8010/perf/ui >/dev/null && echo "UI: PASS" || echo "UI: FAIL"
+
+# Vérifier service perf (chemin réel)
+sudo systemctl cat tv-perf.service | sed -n '1,120p'
+/opt/trading/venv/bin/python -c "import perf.perf_app; print(perf.perf_app.__file__)"
+
+# Backup / patch UI pro
+cd /opt/trading || exit 1
+cp -a perf/perf_app.py perf/perf_app.py.bak.$(date +%Y%m%d_%H%M%S)
+patch --dry-run -p1 < "/home/ghost/Téléchargements/perf_ui_pro_clean.patch"
+patch -p1 < "/home/ghost/Téléchargements/perf_ui_pro_clean.patch"
+sudo systemctl restart tv-perf.service
+curl -s -o /dev/null -w "UI /perf/ui HTTP=%{http_code}\n" http://127.0.0.1:8010/perf/ui
+curl -s -o /dev/null -w "API /perf/summary HTTP=%{http_code}\n" http://127.0.0.1:8010/perf/summary
+
+# Check robuste post-restart
+for i in {1..10}; do
+  code=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:8010/perf/summary || true)
+  [ "$code" = "200" ] && echo "API: PASS" && break
+  sleep 1
+done
+
+# Accès logs sans sudo (ops)
+sudo usermod -aG adm ghost
+newgrp adm
+
+# Générer patch Git “officiel” (commit + format-patch)
+cd /opt/trading || exit 1
+git add perf/perf_app.py
+git commit -m "Perf UI: pro dashboard + endpoints/copy tools"   # commit: efa23c1
+git format-patch -1 HEAD --stdout > perf_ui_pro.patch
+ls -la perf_ui_pro.patch
+head -n 20 perf_ui_pro.patch
+```
+
+```bash
+# Preuve serveur: l’UI servie contient encore du legacy buildCmds() avec curl affiché
+curl -s "http://127.0.0.1:8010/perf/ui?v=999" | grep -n "curl" | head -n 80
+curl -s "http://127.0.0.1:8010/perf/ui?v=1001" > /tmp/ui.html
+nl -ba /tmp/ui.html | sed -n '130,190p'
+```
+
+```bash
+# Recherche du legacy dans l’arborescence et preuve fichier réellement chargé
+sudo grep -RIn "const c = esc(it.curl)" /opt/trading | head -n 20
+/opt/trading/venv/bin/python - <<'PY'
+import perf.perf_app
+print(perf.perf_app.__file__)
+PY
+```
+
+```bash
+# Tentative de masquage global des blocs <code> (a remplacé 2 occurrences)
+python3 - <<'PY'
+import re, pathlib
+p = pathlib.Path("perf/perf_app.py")
+s = p.read_text(encoding="utf-8")
+s, n = re.subn(r'(?is)<code[^>]*>.*?</code>',
+               '<div class="muted">Commande masquée (copie disponible).</div>',
+               s)
+print("Replaced <code> blocks:", n)
+p.write_text(s, encoding="utf-8")
+PY
+sudo systemctl restart tv-perf.service
+```
+
+5) Points ouverts (next):
+- Push Git des changements “UI cleanup” (suppression affichage `curl`) non finalisés de manière stable.
+- Fournir un ZIP du repo (état actuel) pour analyse et correction définitive:
+  - Identifier précisément le bloc legacy `buildCmds()` dans la source servie et remplacer l’affichage `<code>${c}</code>` par du texte FR (sans afficher `curl`), tout en conservant les boutons.
+- Nettoyage repo: éviter la pollution par `perf/perf_app.py.bak.*` et fichiers `.patch` non suivis (ajout `.gitignore` / nettoyage).
