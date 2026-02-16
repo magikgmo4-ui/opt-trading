@@ -477,10 +477,24 @@ def perf_ui():
     </div>
 
     <div class="card">
-      <h2>Commandes utiles</h2>
-      <div class="muted">Endpoints perf + checks “PASS”.</div>
-      <div style="margin-top:10px;" class="mono" id="cmds"></div>
-    </div>
+      <h2>Outils</h2>
+<div class="muted">Actions rapides (interface propre). Les détails techniques sont repliés.</div>
+
+<div class="btnrow" style="margin-top:10px">
+  <button class="btn" onclick="openUrl('/perf/ui')">Ouvrir l’interface</button>
+  <button class="btn" onclick="openUrl('/perf/summary')">Voir le résumé</button>
+  <button class="btn" onclick="openUrl('/perf/trades?limit=50')">Voir les trades</button>
+  <button class="btn primary" onclick="refreshAll()">Rafraîchir</button>
+</div>
+
+<details style="margin-top:12px">
+  <summary class="muted" style="cursor:pointer">⚙️ Avancé (dev/ops)</summary>
+  <div class="muted" style="margin:10px 0 6px 0">
+    Copier des commandes sans les afficher en permanence.
+  </div>
+  <div id="ops-list"></div>
+</details>
+
   </div>
 
   <div class="grid2" style="margin-top:12px;">
@@ -520,6 +534,44 @@ def perf_ui():
   <div id="toast" class="toast"></div>
 
 <script>
+
+  // =========================
+  // Helpers UI (user-friendly)
+  // =========================
+  function baseUrl(){ return window.location.origin; }
+  function openUrl(path){ window.open(baseUrl() + path, "_blank"); }
+
+  async function copyRaw(text){
+    try{ await navigator.clipboard.writeText(text); toast("Copié ✅"); }
+    catch(e){ toast("Copie impossible"); }
+  }
+
+  // Commandes/URLs stockées ici (jamais affichées dans l'UI)
+  function opsCommands(){
+    return [
+      { label:"Résumé (statistiques)", openPath:"/perf/summary", copyCmd:`curl -s ${baseUrl()}/perf/summary | python -m json.tool` },
+      { label:"Positions ouvertes", openPath:"/perf/open", copyCmd:`curl -s ${baseUrl()}/perf/open | python -m json.tool` },
+      { label:"Trades (5 derniers)", openPath:"/perf/trades?limit=5", copyCmd:`curl -s "${baseUrl()}/perf/trades?limit=5" | python -m json.tool` },
+      { label:"Interface (UI)", openPath:"/perf/ui", copyCmd:`curl -sf ${baseUrl()}/perf/ui >/dev/null && echo "UI: PASS" || echo "UI: FAIL"` },
+      { label:"Événement CLOSE (exemple)", openPath:"/perf/ui", copyCmd:`curl -s ${baseUrl()}/perf/event -H "Content-Type: application/json" -d '{"type":"CLOSE","trade_id":"T_...","exit":5038.5}' | python -m json.tool` }
+    ];
+  }
+
+  function renderOps(){
+    const items = opsCommands();
+    const wrap = document.getElementById("ops-list");
+    if(!wrap) return;
+    wrap.innerHTML = items.map((it, idx) => `
+      <div class="row" style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid rgba(255,255,255,0.06)">
+        <div style="font-weight:600">${it.label}</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn tiny" onclick="openUrl('${it.openPath}')">Ouvrir</button>
+          <button class="btn tiny" onclick="copyRaw(opsCommands()[${idx}].copyCmd)">Copier commande</button>
+        </div>
+      </div>
+    `).join("");
+  }
+
 const ORIGIN = window.location.origin;
 document.getElementById('base_url').textContent = ORIGIN;
 
@@ -651,6 +703,8 @@ async function closeTrade(){
   document.getElementById('close_res').textContent = JSON.stringify(j);
   toast('CLOSE sent');
   await refreshAll(false);
+
+setTimeout(renderOps, 0);
 }
 
 buildCmds();
