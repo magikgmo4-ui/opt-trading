@@ -1410,3 +1410,93 @@ curl -s http://127.0.0.1:8010/perf/event \
 - Normaliser un schéma unique : Event (TradingView) → Trade → Perf, versionné (`schema_version`) + écrire l’adaptateur `webhook_event → perf_event`.
 - Formaliser services systemd, health endpoints, logrotate.
 - Finaliser la doc consolidée (PDF imprimable) en supprimant les doublons (contenu et repo).
+
+## 2026-02-16 05:01 — algo 10
+1) Objectifs:
+- Analyser le dépôt GitHub généré (cartographie modules + historique “par sessions”) et présenter le projet.
+- Produire une doc complète (README MAIN + docs/*), une roadmap annotée/indexée, et archiver la conversation.
+- Appliquer un patch “fixed.zip” avec nettoyage (doublons), ajout schémas/adaptateur/smoke tests, sans casser la prod.
+- Mettre en place une routine de diagnostic (test + log) exécutable en une commande.
+
+2) Actions:
+- Cartographie repo : journalisation JPT, serveur webhook FastAPI, module perf (SQLite + UI), jobs macro XAU, notifications Telegram, base “strategy_logic”.
+- Production de docs/plan : structure docs/INDEX.md, docs/ROADMAP.md, README MAIN; recommandation schéma unique Event→Trade→Perf + adaptateur webhook_event→perf_event.
+- Patch initial appliqué puis rollback (erreur rsync avec `--delete` en source située dans la destination) ; restauration via backup tar.gz.
+- Recréation venv et dépannage service systemd `tv-webhook.service` (erreurs `python introuvable`, puis `No module named uvicorn`).
+- Reprise patch en mode “v2” par commits petits et sûrs :
+  - Ajout `docs/`, `schemas/`, `scripts/smoke.sh` (commit `cc2f9fe`).
+  - Ajout `adapters/webhook_to_perf.py` (commit `8ea0483`).
+  - Fix `scripts/smoke.sh` (JSON invalide) via heredoc ; smoke OK (commit `8dfc416`).
+- Création/exécution d’un script `scripts/diagnose.sh` qui logge statut git, venv, systemd, endpoints 8000/8010, smoke, et écrit un log horodaté dans `logs/diagnostics/`.
+- Validation via diagnose :
+  - Webhook OK sur `http://127.0.0.1:8000/api/state` (200).
+  - Perf OK sur `http://127.0.0.1:8010/perf/summary` et `/perf/open` (200).
+  - Smoke OK (création OPEN/CLOSE + vérification trade).
+
+3) Décisions:
+- Ne plus appliquer de patch global “rsync --delete” dans le repo ; préférer extraction source hors repo (`/tmp`) et application par lots/commits.
+- Conserver `.env`, `state/`, `logs/`, `perf/perf.db`, `journal.md` hors écrasement lors des patchs.
+- Maintenir 2 services/ports distincts : webhook (8000) et perf (8010).
+- Mettre en place une routine “diagnose” + logs diagnostics.
+- (À faire) Ajouter règles `.gitignore` pour éviter de versionner `perf/perf.db`, logs diagnostics et backups smoke.
+
+4) Commandes / Code:
+```bash
+# Backup avant patch (snapshot)
+cd /opt || exit 1
+ts=$(date +%Y%m%d_%H%M%S)
+sudo tar -czf "/opt/trading_BACKUP_${ts}.tar.gz" --exclude='trading/venv' --exclude='trading/__pycache__' trading
+sudo tar -czf "/opt/trading_STATELOGS_${ts}.tar.gz" trading/state trading/logs trading/perf/perf.db 2>/dev/null || true
+
+# Patch safe (source hors repo)
+rm -rf /tmp/magikgmo_patch
+mkdir -p /tmp/magikgmo_patch
+unzip -q /opt/Magikgmo-main-fixed.zip -d /tmp/magikgmo_patch
+
+# Rollback Git du patch global (force-push)
+cd /opt/trading || exit 1
+sudo systemctl stop tv-webhook.service 2>/dev/null || true
+git reset --hard 4428c7d
+git clean -fd
+git push --force
+sudo systemctl start tv-webhook.service 2>/dev/null || true
+
+# Recréation venv + deps (quand venv cassé)
+cd /opt/trading || exit 1
+sudo apt-get update
+sudo apt-get install -y python3 python3-venv python3-pip
+rm -rf venv
+python3 -m venv venv
+source venv/bin/activate
+python -m pip install -U pip wheel
+pip install -r requirements.txt
+pip install "fastapi==0.115.6" "uvicorn[standard]==0.34.0"
+
+# Reprise patch v2 (copie ciblée)
+cd /opt/trading || exit 1
+mkdir -p docs schemas scripts adapters
+cp -a /tmp/magikgmo_patch/Magikgmo-main/docs/. docs/
+cp -a /tmp/magikgmo_patch/Magikgmo-main/schemas/. schemas/
+cp -a /tmp/magikgmo_patch/Magikgmo-main/scripts/smoke.sh scripts/
+chmod +x scripts/smoke.sh
+cp -a /tmp/magikgmo_patch/Magikgmo-main/adapters/webhook_to_perf.py adapters/
+
+# Fix smoke.sh (heredoc JSON) + exécution
+BASE=http://127.0.0.1:8010 ./scripts/smoke.sh
+
+# Diagnose (script + exécution + log)
+./scripts/diagnose.sh
+tail -n 200 logs/diagnostics/diag_*.log
+
+# Services
+sudo systemctl restart tv-webhook.service
+sudo systemctl status tv-webhook.service --no-pager -l
+journalctl -u tv-webhook.service -n 80 --no-pager
+```
+
+5) Points ouverts (next):
+- Ajouter/ajuster `.gitignore` pour : `perf/perf.db`, `logs/diagnostics/*.log`, `scripts/*.bak.*` (éviter pollution git).
+- Vérifier/standardiser l’installation des dépendances runtime (fastapi/uvicorn) dans `requirements.txt` pour éviter casse lors d’un rebuild venv.
+- Stabiliser la routine `diagnose.sh` (committer le fichier) et décider si les logs `logs/diagnostics/` doivent être exclus systématiquement.
+- Continuer les “cleanups” ciblés (macro_xau.py, webhook_server.py, endpoints perf potentiellement dupliqués) fichier par fichier avec smoke entre chaque commit.
+- Formaliser le schéma unique Event→Trade→Perf et brancher l’adaptateur dans le flux webhook (feature-flag).
