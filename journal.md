@@ -2293,3 +2293,115 @@ curl -fsS http://127.0.0.1:8010/perf/event \
 - Commit/push éventuel des changements systemd ngrok-tv (hors repo; documenter dans scripts/backup si besoin).
 - Optionnel: ignorer `backups/` dans `.gitignore` (actuellement `git status` montrait `?? backups/` au moment du snapshot).
 - Optionnel: corriger les scripts/tests qui utilisent `curl -I /perf/ui` (HEAD → 405 attendu) ou ajouter handler HEAD si souhaité.
+
+## 2026-02-17 00:30 | TV Webhook | COINM_SHORT | BTCUSDT.P 15 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT.P` / `15`
+4. **Price**: `68020.1`
+5. **TP**: `67893.8`
+6. **SL**: `68343.9`
+7. **Reason**: smartmoney_sell
+8. **Payload brut**:
+```json
+{
+  "key": "GHOST_XAU_2026_ULTRA",
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT.P",
+  "tf": "15",
+  "price": 68020.1,
+  "tp": 67893.8,
+  "sl": 68343.9,
+  "reason": "smartmoney_sell",
+  "_ts": "2026-02-17T05:30:01.268677+00:00",
+  "_ip": "52.32.178.7",
+  "qty": 0.185,
+  "risk_usd": 60.0,
+  "risk_real_usd": 59.903
+}
+```
+
+## 2026-02-17 00:30 | TV Webhook | COINM_SHORT | ETHUSDT.P 15 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `ETHUSDT.P` / `15`
+4. **Price**: `1972.93`
+5. **TP**: `1959.24`
+6. **SL**: `1994.15`
+7. **Reason**: smartmoney_sell
+8. **Payload brut**:
+```json
+{
+  "key": "GHOST_XAU_2026_ULTRA",
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "ETHUSDT.P",
+  "tf": "15",
+  "price": 1972.93,
+  "tp": 1959.24,
+  "sl": 1994.15,
+  "reason": "smartmoney_sell",
+  "_ts": "2026-02-17T05:30:02.020309+00:00",
+  "_ip": "52.32.178.7",
+  "qty": 2.827,
+  "risk_usd": 60.0,
+  "risk_real_usd": 59.98894
+}
+```
+
+## 2026-02-17 05:45 | TV Webhook | TV_TEST | XAUUSD 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `TV_TEST`
+3. **Symbol/TF**: `XAUUSD` / `5`
+4. **Price**: `100.0`
+5. **TP**: `110.0`
+6. **SL**: `90.0`
+7. **Reason**: curl_test
+8. **Payload brut**:
+```json
+{
+  "key": "GHOST_XAU_2026_ULTRA",
+  "engine": "TV_TEST",
+  "signal": "BUY",
+  "symbol": "XAUUSD",
+  "tf": "5",
+  "price": 100.0,
+  "tp": 110.0,
+  "sl": 90.0,
+  "reason": "curl_test",
+  "_ts": "2026-02-17T10:45:11.347747+00:00",
+  "_ip": "67.69.76.141",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-02-17 05:54 | TV Webhook | TV_TEST | XAUUSD 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `TV_TEST`
+3. **Symbol/TF**: `XAUUSD` / `5`
+4. **Price**: `100.0`
+5. **TP**: `110.0`
+6. **SL**: `90.0`
+7. **Reason**: curl_smoke
+8. **Payload brut**:
+```json
+{
+  "key": "GHOST_XAU_2026_ULTRA",
+  "engine": "TV_TEST",
+  "signal": "BUY",
+  "symbol": "XAUUSD",
+  "tf": "5",
+  "price": 100.0,
+  "tp": 110.0,
+  "sl": 90.0,
+  "reason": "curl_smoke",
+  "_ts": "2026-02-17T10:54:38.348164+00:00",
+  "_ip": "67.69.76.141",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```

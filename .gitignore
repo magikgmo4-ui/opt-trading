@@ -61,3 +61,16 @@ logs/
 backups/
 tmp/
 *.log
+
+# secrets / local state
+.env
+state/
+*.log
+logs/
+tmp/
+*.sqlite
+*.db
+__pycache__/
+*.pyc
+venv/
+.venv/
