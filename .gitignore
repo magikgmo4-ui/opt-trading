@@ -10,67 +10,26 @@ venv/
 ENV/
 env/
 
-# Logs / runtime
-*.log
-*.pid
-
 # Secrets
 .env
 *.key
 *.pem
 *.crt
 
-# Local/Generated
-shared/
-jobs/
-
-# local/runtime
-perf/perf.db
-scripts/smoke.sh.bak.*
-
-# diagnostics / runtime
-logs/
-logs/diagnostics/
-logs/diagnostics/*.log
-
-# perf runtime db
-perf/perf.db
-
-# local backups
-scripts/*.bak.*
-
-# backups
-perf/perf_app.py.bak.*
-
-# local junk
-tmp/
-logs/
-*.log
-__pycache__/
-*.pyc
-.venv/
-venv/
-.DS_Store
-
-# runtime
-logs/
-*.log
-
-# runtime
-logs/
-backups/
-tmp/
-*.log
-
-# secrets / local state
-.env
+# Runtime / state / logs
 state/
-*.log
 logs/
 tmp/
+*.log
 *.sqlite
 *.db
-__pycache__/
-*.pyc
-venv/
-.venv/
+
+# Backups / patches
+backup/
+backups/
+*.bak
+*.bak.*
+*.orig
+*.patch
+perf/*.bak*
+webhook_server.py.bak*
