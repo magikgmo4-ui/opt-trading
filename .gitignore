@@ -34,3 +34,4 @@ backups/
 perf/*.bak*
 webhook_server.py.bak*
 .env
+smartmoney.txt
