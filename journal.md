@@ -2405,3 +2405,64 @@ curl -fsS http://127.0.0.1:8010/perf/event \
   "risk_real_usd": 100.0
 }
 ```
+
+## 2026-02-18 02:57 — algo 30
+1) Objectifs:
+- Confirmer le bon ZIP/commit du repo et faire une revue complète.
+- Produire un patch unique “audit fixes” et l’appliquer sans erreurs de collage.
+- Retester la machine (verify_all) puis enchaîner TradingView → perf simulations.
+
+2) Actions:
+- Vérification SHA256 du ZIP uploadé: match exact `a6c42c07…` (commit `a90491d`), arborescence listée, revue en 3 passes réalisée.
+- Problèmes identifiés: XSS dashboard (innerHTML/esc), webhook trop permissif si `TV_WEBHOOK_KEY` absent, incohérence env Telegram, `trade_id` collision faible, `verify_all.sh` masque erreurs (|| true).
+- Tentatives d’application patch via `git apply` échouent:
+  - Patch vide (“PASTE LE PATCH ICI”) → “Pas de rustine valide”.
+  - Patch tronqué / heredoc cassé → “patch corrompu”.
+  - Collage terminal PowerShell tronqué (scroll/paste buffer).
+- Passage à méthode “script upload” via PowerShell + Notepad++ + scp/ssh.
+- Script initial: erreur `set: pipef` (caractères invisibles/CRLF). Fix côté serveur: nettoyage CR + zero-width + réécriture ASCII ligne 2.
+- Modifs appliquées, commit créé: `54d6a62`.
+- Exécution `./scripts/verify_all.sh`: py_compile OK, smoke rc 0, diagnose rc 0, endpoints 200. Messages `sudo` non-interactif observés dans diagnose (non bloquant).
+
+3) Décisions:
+- Abandonner `git apply` via gros patch collé; privilégier un script appliquant les changements puis commit.
+- Archiver l’état atteint et reprendre en nouvelle session Debian pour retest puis TradingView/perf.
+
+4) Commandes / Code:
+```bash
+# Export ZIP + SHA (serveur)
+cd /opt/trading
+git status
+git log --oneline -n 1
+git archive --format=zip -o /tmp/Magikgmo-clean.zip HEAD
+sha256sum /tmp/Magikgmo-clean.zip | tee /tmp/Magikgmo-clean.zip.sha256
+ls -lh /tmp/Magikgmo-clean.zip /tmp/Magikgmo-clean.zip.sha256
+```
+
+```powershell
+# Windows (PowerShell) + Notepad++ + upload/exécution
+& "C:\Program Files (x86)\Notepad++\notepad++.exe" "$env:TEMP\apply_audit_fixes.sh"
+scp "$env:TEMP\apply_audit_fixes.sh" admin-trading:/tmp/apply_audit_fixes.sh
+ssh admin-trading "head -n 5 /tmp/apply_audit_fixes.sh; chmod +x /tmp/apply_audit_fixes.sh && bash /tmp/apply_audit_fixes.sh"
+```
+
+```bash
+# Fix côté serveur (caractères invisibles) + exécution
+# (nettoyage CR + zero-width + réécriture de la ligne 2 "set -euo pipefail")
+# puis run script
+```
+
+```bash
+# Résultat (sur Debian)
+git diff --stat
+git commit -m "security+ops: xss escape, remote key lock, telegram env unification, verify rc, trade_id ms, readme"
+./scripts/verify_all.sh
+# Log: tmp/verify_20260218_025054.log
+# Diag: logs/diagnostics/diag_20260218_025054.log
+```
+
+5) Points ouverts (next):
+- Nouvelle session Debian: retest machine (`./scripts/verify_all.sh`) et confirmer logs.
+- Préparer TradingView/perf:
+  - Définir `TV_WEBHOOK_KEY` (obligatoire pour accès remote/ngrok) via `.env` + restart services si utilisés.
+  - Mettre en place l’URL webhook (ngrok) et créer alerte TradingView; valider réception event et création trade perf.
