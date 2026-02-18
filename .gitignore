@@ -33,3 +33,4 @@ backups/
 *.patch
 perf/*.bak*
 webhook_server.py.bak*
+.env
