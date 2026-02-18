@@ -18,3 +18,12 @@ curl http://IP_LAN:8010/perf/ui
 
 ## Smoke test
 Voir `scripts/smoke.sh`.
+
+## Full verification (logs)
+
+Run a full end-to-end verification and save logs under `tmp/`:
+
+```bash
+cd /opt/trading
+./scripts/verify_all.sh
+```
