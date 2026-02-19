@@ -23,8 +23,12 @@ def _get(path: str, params: Dict[str, str] | None = None) -> Dict[str, Any]:
     if params:
         qs = "?" + urllib.parse.urlencode(params)
     url = BASE + path + qs
+    print("BITGET_FEED url=", url, "BASE=", BASE, flush=True)
+    print("BITGET_FEED url=", url, "BASE=", BASE, flush=True)
     req = urllib.request.Request(url, headers={"User-Agent":"tv-perf-bitget/1.0"})
     with urllib.request.urlopen(req, timeout=int(os.environ.get('BITGET_TIMEOUT','8'))) as r:
+    print("BITGET_FEED proxies env=", {k:v for k,v in os.environ.items() if "proxy" in k.lower()}, flush=True)
+    print("BITGET_FEED proxies env=", {k:v for k,v in os.environ.items() if "proxy" in k.lower()}, flush=True)
         return json.loads(r.read().decode("utf-8"))
 
 def fetch_candles_usdt_futures(symbol: str, granularity_sec: int, limit: int = 200) -> List[Candle]:

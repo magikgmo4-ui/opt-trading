@@ -9,6 +9,17 @@ import urllib.parse
 import requests
 import hmac
 
+# [DISABLED: was top-level code causing SyntaxError]
+# action = enforce_single_open(engine, symbol, side, price)
+# [DISABLED: was top-level code causing SyntaxError]
+#
+# [DISABLED: was top-level code causing SyntaxError]
+# if action == "SKIP_SAME":
+# [DISABLED: was top-level code causing SyntaxError]
+#
+# [DISABLED: was top-level code causing SyntaxError]
+#     return {"ok": True, "skipped": "same-side-open"}
+
 PERF_URL = os.getenv("PERF_URL", "http://127.0.0.1:8010/perf/event")
 
 def perf_open(engine: str, symbol: str, side: str, entry: float, stop: float, qty: float, risk_usd: float, meta: dict | None = None):
@@ -64,6 +75,31 @@ INACTIVITY_SEC_DEFAULT = int(os.getenv("INACTIVITY_SEC", "3600"))  # 1h
 # Engines
 AGGRESSIVE_ENGINES = {"COINM_SHORT", "USDTM_LONG"}  # lock enforced across these
 ALL_ENGINES = {"COINM_SHORT", "USDTM_LONG", "GOLD_CFD_LONG", "TV_TEST", "NGROK_TEST"}
+
+PERF_URL = os.environ.get("PERF_URL", "http://127.0.0.1:8010")
+
+def _http_json(url: str, method: str = "GET", payload: dict | None = None, timeout: int = 15):
+    import json as _json
+    import urllib.request as _ur
+    req = _ur.Request(
+        url,
+        data=(_json.dumps(payload).encode() if payload is not None else None),
+        headers={"Content-Type":"application/json"},
+        method=method,
+    )
+    with _ur.urlopen(req, timeout=timeout) as r:
+        raw = r.read().decode("utf-8", errors="replace")
+        return _json.loads(raw) if raw else {}
+
+def _perf_get_open():
+    try:
+        r = _http_json(PERF_URL + "/perf/open", "GET", None, timeout=10)
+        return r.get("open", []) if isinstance(r, dict) else []
+    except Exception:
+        return []
+
+def _perf_close(trade_id: str, exit_price: float):
+    return _http_json(PERF_URL + "/perf/event", "POST", {"type":"CLOSE","trade_id":trade_id,"exit":exit_price}, timeout=10)
 
 app = FastAPI(title=APP_TITLE)
 
@@ -750,3 +786,31 @@ setInterval(refresh, 2000);
 @app.get("/dash", response_class=HTMLResponse)
 def dash():
     return HTMLResponse(content=DASH_HTML)
+
+
+def enforce_single_open(engine: str, symbol: str, new_side: str, price: float) -> str:
+    """
+    Returns: "ALLOW" | "SKIP_SAME" | "FLIPPED"
+    - If an open trade exists with same side -> SKIP_SAME (ignore signal)
+    - If open exists with opposite side -> close it -> FLIPPED
+    """
+    new_side = (new_side or "").upper()
+    open_ = _perf_get_open()
+
+    # filter engine+symbol only
+    cur = [t for t in open_ if t.get("engine")==engine and t.get("symbol")==symbol and t.get("status")=="OPEN"]
+    if not cur:
+        return "ALLOW"
+
+    # if any same-side open -> skip
+    for t in cur:
+        if (t.get("side") or "").upper() == new_side:
+            return "SKIP_SAME"
+
+    # else close all opposites
+    for t in cur:
+        tid = t.get("trade_id")
+        if tid:
+            _perf_close(tid, float(price))
+    return "FLIPPED"
+
