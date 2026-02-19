@@ -38,3 +38,8 @@ smartmoney.txt
 
 # local env files
 envs/
+
+# allow python module env (do not confuse with venv folders)
+!modules/env/
+!modules/env/__init__.py
+!modules/env/env.py
