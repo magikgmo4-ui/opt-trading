@@ -2781,3 +2781,758 @@ def require_ops_key(got_key: str) -> None:
 - Confirmer que l’alerte TradingView utilise bien:
   - Webhook URL: `https://phytogeographical-subnodulous-joycelyn.ngrok-free.dev/tv`
   - Message JSON incluant `"key":"GHOST_XAU_2026_ULTRA"`.
+
+## 2026-02-18 23:55 | TV Webhook | TV_TEST | XAUUSD 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `TV_TEST`
+3. **Symbol/TF**: `XAUUSD` / `5`
+4. **Price**: `100.0`
+5. **TP**: `0.0`
+6. **SL**: `90.0`
+7. **Reason**: probe-tv
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "TV_TEST",
+  "signal": "BUY",
+  "symbol": "XAUUSD",
+  "tf": "5",
+  "price": 100.0,
+  "tp": 0.0,
+  "sl": 90.0,
+  "reason": "probe-tv",
+  "_ts": "2026-02-19T04:55:01.587752+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-02-19 01:06 | TV Webhook | COINM_SHORT | BTCUSDT 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `67000.0`
+5. **TP**: `0.0`
+6. **SL**: `66990.0`
+7. **Reason**: bitget test real post
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 67000.0,
+  "tp": 0.0,
+  "sl": 66990.0,
+  "reason": "bitget test real post",
+  "_ts": "2026-02-19T06:06:56.531987+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 01:09 | TV Webhook | COINM_SHORT | BTCUSDT 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `66925.3`
+5. **TP**: `0.0`
+6. **SL**: `66915.3`
+7. **Reason**: bitget bar-close ts=1771481100000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 66925.3,
+  "tp": 0.0,
+  "sl": 66915.3,
+  "reason": "bitget bar-close ts=1771481100000",
+  "_ts": "2026-02-19T06:09:07.273515+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 01:10 | TV Webhook | COINM_SHORT | BTCUSDT 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `66938.4`
+5. **TP**: `0.0`
+6. **SL**: `66928.4`
+7. **Reason**: bitget bar-close ts=1771481400000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 66938.4,
+  "tp": 0.0,
+  "sl": 66928.4,
+  "reason": "bitget bar-close ts=1771481400000",
+  "_ts": "2026-02-19T06:10:03.495620+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 01:14 | TV Webhook | COINM_SHORT | BTCUSDT 5 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `66938.4`
+5. **TP**: `0.0`
+6. **SL**: `66948.4`
+7. **Reason**: force flip test
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 66938.4,
+  "tp": 0.0,
+  "sl": 66948.4,
+  "reason": "force flip test",
+  "_ts": "2026-02-19T06:14:33.327585+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 01:15 | TV Webhook | COINM_SHORT | BTCUSDT 5 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `66967.5`
+5. **TP**: `0.0`
+6. **SL**: `66977.5`
+7. **Reason**: bitget bar-close ts=1771481700000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 66967.5,
+  "tp": 0.0,
+  "sl": 66977.5,
+  "reason": "bitget bar-close ts=1771481700000",
+  "_ts": "2026-02-19T06:15:02.127766+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 01:15 | TV Webhook | COINM_SHORT | BTCUSDT 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `66967.5`
+5. **TP**: `0.0`
+6. **SL**: `66957.5`
+7. **Reason**: bitget bar-close ts=1771481700000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 66967.5,
+  "tp": 0.0,
+  "sl": 66957.5,
+  "reason": "bitget bar-close ts=1771481700000",
+  "_ts": "2026-02-19T06:15:02.791905+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 01:20 | TV Webhook | COINM_SHORT | BTCUSDT 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `67091.3`
+5. **TP**: `0.0`
+6. **SL**: `67081.3`
+7. **Reason**: bitget bar-close ts=1771482000000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 67091.3,
+  "tp": 0.0,
+  "sl": 67081.3,
+  "reason": "bitget bar-close ts=1771482000000",
+  "_ts": "2026-02-19T06:20:02.644932+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 01:25 | TV Webhook | COINM_SHORT | BTCUSDT 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `67160.4`
+5. **TP**: `0.0`
+6. **SL**: `67150.4`
+7. **Reason**: bitget bar-close ts=1771482300000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 67160.4,
+  "tp": 0.0,
+  "sl": 67150.4,
+  "reason": "bitget bar-close ts=1771482300000",
+  "_ts": "2026-02-19T06:25:02.174164+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 01:30 | TV Webhook | COINM_SHORT | BTCUSDT 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `67139.6`
+5. **TP**: `0.0`
+6. **SL**: `67129.6`
+7. **Reason**: bitget bar-close ts=1771482600000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 67139.6,
+  "tp": 0.0,
+  "sl": 67129.6,
+  "reason": "bitget bar-close ts=1771482600000",
+  "_ts": "2026-02-19T06:30:00.890001+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 01:30 | TV Webhook | COINM_SHORT | SOLUSDT.P 30 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `SOLUSDT.P` / `30`
+4. **Price**: `82.356`
+5. **TP**: `92.414`
+6. **SL**: `71.769`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "SOLUSDT.P",
+  "tf": "30",
+  "price": 82.356,
+  "tp": 92.414,
+  "sl": 71.769,
+  "reason": "",
+  "_ts": "2026-02-19T06:30:01.604826+00:00",
+  "_ip": "34.212.75.30",
+  "qty": 0.944,
+  "risk_usd": 10.0,
+  "risk_real_usd": 9.994128
+}
+```
+
+## 2026-02-19 01:30 | TV Webhook | COINM_SHORT | BTCUSDT 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `67142.8`
+5. **TP**: `0.0`
+6. **SL**: `67132.8`
+7. **Reason**: bitget bar-close ts=1771482600000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 67142.8,
+  "tp": 0.0,
+  "sl": 67132.8,
+  "reason": "bitget bar-close ts=1771482600000",
+  "_ts": "2026-02-19T06:30:04.874440+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 01:35 | TV Webhook | COINM_SHORT | BTCUSDT 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `67107.9`
+5. **TP**: `0.0`
+6. **SL**: `67097.9`
+7. **Reason**: bitget bar-close ts=1771482900000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 67107.9,
+  "tp": 0.0,
+  "sl": 67097.9,
+  "reason": "bitget bar-close ts=1771482900000",
+  "_ts": "2026-02-19T06:35:03.902102+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 01:35 | TV Webhook | COINM_SHORT | BTCUSDT 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `67107.9`
+5. **TP**: `0.0`
+6. **SL**: `67097.9`
+7. **Reason**: bitget bar-close ts=1771482900000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 67107.9,
+  "tp": 0.0,
+  "sl": 67097.9,
+  "reason": "bitget bar-close ts=1771482900000",
+  "_ts": "2026-02-19T06:35:05.022430+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 01:40 | TV Webhook | COINM_SHORT | BTCUSDT 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `67101.2`
+5. **TP**: `0.0`
+6. **SL**: `67091.2`
+7. **Reason**: bitget bar-close ts=1771483200000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 67101.2,
+  "tp": 0.0,
+  "sl": 67091.2,
+  "reason": "bitget bar-close ts=1771483200000",
+  "_ts": "2026-02-19T06:40:02.915660+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 01:42 | TV Webhook | COINM_SHORT | BTCUSDT 5 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `67065.3`
+5. **TP**: `0.0`
+6. **SL**: `67075.3`
+7. **Reason**: bitget bar-close ts=1771483200000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 67065.3,
+  "tp": 0.0,
+  "sl": 67075.3,
+  "reason": "bitget bar-close ts=1771483200000",
+  "_ts": "2026-02-19T06:42:40.105959+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 01:43 | TV Webhook | COINM_SHORT | BTCUSDT 5 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `67060.1`
+5. **TP**: `0.0`
+6. **SL**: `67070.1`
+7. **Reason**: bitget bar-close ts=1771483200000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 67060.1,
+  "tp": 0.0,
+  "sl": 67070.1,
+  "reason": "bitget bar-close ts=1771483200000",
+  "_ts": "2026-02-19T06:43:35.097800+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 01:43 | TV Webhook | COINM_SHORT | BTCUSDT 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `67101.2`
+5. **TP**: `0.0`
+6. **SL**: `67091.2`
+7. **Reason**: manual test
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 67101.2,
+  "tp": 0.0,
+  "sl": 67091.2,
+  "reason": "manual test",
+  "_ts": "2026-02-19T06:43:56.510649+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 01:45 | TV Webhook | COINM_SHORT | BTCUSDT 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `67069.1`
+5. **TP**: `0.0`
+6. **SL**: `67059.1`
+7. **Reason**: bitget bar-close ts=1771483500000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 67069.1,
+  "tp": 0.0,
+  "sl": 67059.1,
+  "reason": "bitget bar-close ts=1771483500000",
+  "_ts": "2026-02-19T06:45:06.686988+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 01:45 | TV Webhook | COINM_SHORT | BTCUSDT 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `67069.1`
+5. **TP**: `0.0`
+6. **SL**: `67059.1`
+7. **Reason**: bitget bar-close ts=1771483500000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 67069.1,
+  "tp": 0.0,
+  "sl": 67059.1,
+  "reason": "bitget bar-close ts=1771483500000",
+  "_ts": "2026-02-19T06:45:07.396987+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 01:48 | TV Webhook | COINM_SHORT | BTCUSDT 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `67103.0`
+5. **TP**: `0.0`
+6. **SL**: `67093.0`
+7. **Reason**: bitget bar-close ts=1771483500000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 67103.0,
+  "tp": 0.0,
+  "sl": 67093.0,
+  "reason": "bitget bar-close ts=1771483500000",
+  "_ts": "2026-02-19T06:48:22.594840+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 01:50 | TV Webhook | COINM_SHORT | BTCUSDT 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `67110.5`
+5. **TP**: `0.0`
+6. **SL**: `67100.5`
+7. **Reason**: bitget bar-close ts=1771483800000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 67110.5,
+  "tp": 0.0,
+  "sl": 67100.5,
+  "reason": "bitget bar-close ts=1771483800000",
+  "_ts": "2026-02-19T06:50:04.642706+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 01:50 | TV Webhook | COINM_SHORT | BTCUSDT 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `67110.5`
+5. **TP**: `0.0`
+6. **SL**: `67100.5`
+7. **Reason**: bitget bar-close ts=1771483800000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 67110.5,
+  "tp": 0.0,
+  "sl": 67100.5,
+  "reason": "bitget bar-close ts=1771483800000",
+  "_ts": "2026-02-19T06:50:05.386503+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 01:55 | TV Webhook | COINM_SHORT | BTCUSDT 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `67136.9`
+5. **TP**: `0.0`
+6. **SL**: `67126.9`
+7. **Reason**: bitget bar-close ts=1771484100000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 67136.9,
+  "tp": 0.0,
+  "sl": 67126.9,
+  "reason": "bitget bar-close ts=1771484100000",
+  "_ts": "2026-02-19T06:55:03.042751+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 01:55 | TV Webhook | COINM_SHORT | BTCUSDT 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `67136.9`
+5. **TP**: `0.0`
+6. **SL**: `67126.9`
+7. **Reason**: bitget bar-close ts=1771484100000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 67136.9,
+  "tp": 0.0,
+  "sl": 67126.9,
+  "reason": "bitget bar-close ts=1771484100000",
+  "_ts": "2026-02-19T06:55:05.811994+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 02:00 | TV Webhook | COINM_SHORT | BTCUSDT 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `67121.8`
+5. **TP**: `0.0`
+6. **SL**: `67111.8`
+7. **Reason**: bitget bar-close ts=1771484400000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 67121.8,
+  "tp": 0.0,
+  "sl": 67111.8,
+  "reason": "bitget bar-close ts=1771484400000",
+  "_ts": "2026-02-19T07:00:03.796011+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```
+
+## 2026-02-19 02:00 | TV Webhook | COINM_SHORT | BTCUSDT 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `5`
+4. **Price**: `67121.8`
+5. **TP**: `0.0`
+6. **SL**: `67111.8`
+7. **Reason**: bitget bar-close ts=1771484400000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "5",
+  "price": 67121.8,
+  "tp": 0.0,
+  "sl": 67111.8,
+  "reason": "bitget bar-close ts=1771484400000",
+  "_ts": "2026-02-19T07:00:06.596582+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 1.0,
+  "risk_usd": 10.0,
+  "risk_real_usd": 10.0
+}
+```

@@ -1,6 +1,7 @@
 import json
 import time
 import urllib.parse
+import os
 import urllib.request
 from dataclasses import dataclass
 from typing import List, Dict, Any
@@ -23,7 +24,7 @@ def _get(path: str, params: Dict[str, str] | None = None) -> Dict[str, Any]:
         qs = "?" + urllib.parse.urlencode(params)
     url = BASE + path + qs
     req = urllib.request.Request(url, headers={"User-Agent":"tv-perf-bitget/1.0"})
-    with urllib.request.urlopen(req, timeout=20) as r:
+    with urllib.request.urlopen(req, timeout=int(os.environ.get('BITGET_TIMEOUT','8'))) as r:
         return json.loads(r.read().decode("utf-8"))
 
 def fetch_candles_usdt_futures(symbol: str, granularity_sec: int, limit: int = 200) -> List[Candle]:

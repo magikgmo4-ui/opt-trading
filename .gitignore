@@ -35,3 +35,6 @@ perf/*.bak*
 webhook_server.py.bak*
 .env
 smartmoney.txt
+
+# local env files
+envs/

@@ -436,8 +436,12 @@ async def tv_webhook(req: Request):
     risk_for_perf = q.get("risk_real_usd") or q.get("risk_usd") or 0.0
 
     # --- PERF: OPEN trade ledger (non-bloquant) ---
-    perf_open(
-        engine=engine,
+    # --- ignore TEST engines for perf ledger ---
+    if engine == "TV_TEST" or engine.startswith("TEST_") or engine.startswith("_TEST_"):
+        pass
+    else:
+        perf_open(
+                engine=engine,
         symbol=symbol,
         side=side,
         entry=price,
@@ -445,7 +449,7 @@ async def tv_webhook(req: Request):
         qty=q["qty"],
         risk_usd=risk_for_perf,
         meta={"tf": tf, "tp": tp, "reason": reason, "src": "/tv"}
-    )
+        )
 
     evt = {
         "key": None,
