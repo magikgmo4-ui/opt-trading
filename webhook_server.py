@@ -9,6 +9,12 @@ import urllib.parse
 import requests
 import hmac
 
+from modules.env.env import load_env, ensure_dirs
+from shared.logger import setup_logger
+load_env(); ensure_dirs()
+log = setup_logger("tv-webhook")
+from modules.auth.webhook_key import payload_key_is_valid
+
 # [DISABLED: was top-level code causing SyntaxError]
 # action = enforce_single_open(engine, symbol, side, price)
 # [DISABLED: was top-level code causing SyntaxError]
@@ -366,7 +372,6 @@ def metrics(window_min: int = 60, limit: int = 50, inactivity_sec: int = INACTIV
         "last_per_engine": engines_rows,
     }
 
-
 # -------------------- Webhook --------------------
 def require_key(payload: Dict[str, Any], client_ip: str | None) -> None:
     """Security:
@@ -378,8 +383,9 @@ def require_key(payload: Dict[str, Any], client_ip: str | None) -> None:
         if client_ip not in ("127.0.0.1", "::1", "localhost"):
             raise HTTPException(status_code=403, detail="TV_WEBHOOK_KEY not set (localhost only)")
         return
-    got = str(payload.get("key") or "").strip()
-    if not hmac.compare_digest(got, expected):
+
+    # expected is set -> require valid payload key
+    if not payload_key_is_valid(payload):
         raise HTTPException(status_code=403, detail="Invalid secret")
 
 def enforce_lock(engine: str) -> None:
