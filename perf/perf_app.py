@@ -1,3 +1,8 @@
+from modules.env.env import load_env, ensure_dirs
+from shared.logger import setup_logger
+load_env(); ensure_dirs()
+log = setup_logger("tv-perf")
+
 #!/usr/bin/env python3
 import os, json, time, sqlite3, uuid
 from datetime import datetime, timezone
