@@ -2647,3 +2647,137 @@ curl -fsS "http://127.0.0.1:8010/perf/open" | python3 -m json.tool
 - (TV) Vérifier contraintes bloquantes : port 80/443, 2FA, HTTPS/URL, timeout.
 - (Bitget) Démarrer nouvelle session “bitget” et choisir le marché (SPOT / USDT-FUTURES / COIN-FUTURES) + symbole + timeframes (principal/HTF/LTF).
 - (Moteur Debian) Implémenter reproduction bar-close des conditions Pine (ATR, EMA/VWAP HTF/LTF, volume, breakout, anti-spam) et push vers `/perf/event` (OPEN v1) avec logs.
+
+## 2026-02-18 23:48 | TV Webhook | TV_TEST | XAUUSD 5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `TV_TEST`
+3. **Symbol/TF**: `XAUUSD` / `5`
+4. **Price**: `100.0`
+5. **TP**: `0.0`
+6. **SL**: `90.0`
+7. **Reason**: probe-tv
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "TV_TEST",
+  "signal": "BUY",
+  "symbol": "XAUUSD",
+  "tf": "5",
+  "price": 100.0,
+  "tp": 0.0,
+  "sl": 90.0,
+  "reason": "probe-tv",
+  "_ts": "2026-02-19T04:48:08.207524+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-02-18 23:52 — algo50
+1) Objectifs:
+- Centraliser la gestion des secrets (TV_WEBHOOK_KEY, OPS_ADMIN_KEY).
+- Déployer une version corrigée de `webhook_server.py` sur Debian.
+- Rendre le webhook non-bloquant quand `qty/risk == 0`.
+- Diagnostiquer pourquoi une alerte TradingView “réelle” n’arrive pas.
+
+2) Actions:
+- Proposition de création de `/opt/trading/webhook_secret.py` avec vérification constant-time (hmac) et helpers `require_tv_key()` / `require_ops_key()`.
+- Patch proposé pour remplacer les checks inline dans `webhook_server.py` par import de `webhook_secret.py`.
+- Fourniture d’un `webhook_server.py` complet intégrant:
+  - Fix XSS dashboard (escape HTML côté JS pour usage `innerHTML`).
+  - TV_WEBHOOK_KEY constant-time + mode dev (si clé absente: localhost only).
+  - OPS_ADMIN_KEY constant-time.
+  - Unification env Telegram (fallback `TELEGRAM_TOKEN`/`TELEGRAM_CHAT`).
+  - Ne plus logger la clé reçue (key stockée à `None`).
+  - Comportement non-bloquant si sizing invalide (qty/risk=0): log + Telegram optionnel + réponse OK.
+- Commande Debian fournie pour backup + remplacement via heredoc `cat > /opt/trading/webhook_server.py` + `py_compile` + restart systemd.
+- Remplacement manuel du fichier par l’utilisateur; validation du service:
+  - `tv-webhook.service` actif.
+  - `/api/state` OK, accès dashboard OK.
+  - `perf/summary` et `perf/trades` OK.
+- Constat: aucune requête POST /tv lors de l’alerte TradingView; seulement des GET du dashboard.
+- Test local réussi: événement `manual_test_after_tv_alert` apparaît (IP 127.0.0.1).
+- Diagnostic ngrok:
+  - `ngrok-tv.service` actif, écoute sur `127.0.0.1:4040`.
+  - Extraction de l’URL ngrok actuelle: `https://phytogeographical-subnodulous-joycelyn.ngrok-free.dev`.
+  - Test public réussi via ngrok: événement `public_test` apparaît avec IP publique.
+- Correction côté TradingView: le champ “Message” de l’alerte était vide; ajout du JSON (incluant la key). Attente de la prochaine alarme + suggestion de tests/monitoring (`tail -f`, `watch`, test alert TV).
+
+3) Décisions:
+- Adopter le comportement “non-bloquant” quand `qty/risk == 0` (pas de 400; skip perf; réponse `{ok:true, sizing_invalid:true}`).
+- Mettre à jour l’URL Webhook TradingView vers `https://phytogeographical-subnodulous-joycelyn.ngrok-free.dev/tv`.
+- Renseigner un message JSON non vide dans l’alerte TradingView (incluant `"key"`).
+
+4) Commandes / Code:
+```bash
+cd /opt/trading || exit 1
+
+# backup
+sudo cp -a webhook_server.py webhook_server.py.bak.$(date +%Y%m%d_%H%M%S)
+
+# remplacement (heredoc cat > /opt/trading/webhook_server.py <<'PY' ... PY) + checks
+python3 -m py_compile /opt/trading/webhook_server.py && echo "PY OK"
+sudo systemctl restart tv-webhook.service
+sudo systemctl is-active tv-webhook.service && echo "SERVICE OK"
+sudo ss -lntp | grep ':8000' || true
+curl -fsS http://127.0.0.1:8000/api/state | python3 -m json.tool
+curl -fsS "http://127.0.0.1:8000/api/events?limit=10" | python3 -m json.tool
+```
+
+```bash
+# perf checks
+curl -fsS http://127.0.0.1:8010/perf/summary | python3 -m json.tool
+curl -fsS "http://127.0.0.1:8010/perf/trades?limit=5" | python3 -m json.tool
+```
+
+```bash
+# ngrok service / web ui
+sudo systemctl is-active ngrok-tv.service
+sudo ss -lntp | grep ':4040'
+curl -s http://127.0.0.1:4040/api/tunnels
+curl -s http://127.0.0.1:4040/api/requests/http
+```
+
+```bash
+# test public via ngrok (après récupération de PUBLIC_URL)
+PUBLIC_URL="https://phytogeographical-subnodulous-joycelyn.ngrok-free.dev"
+curl -s -X POST "$PUBLIC_URL/tv" -H "Content-Type: application/json" \
+  -d '{"key":"GHOST_XAU_2026_ULTRA","engine":"TV_TEST","signal":"BUY","symbol":"XAUUSD","tf":"M5","price":100,"tp":110,"sl":90,"qty":0,"risk_usd":0,"reason":"public_test"}' \
+| python3 -m json.tool
+
+curl -fsS "http://127.0.0.1:8000/api/events?limit=3" | python3 -m json.tool
+```
+
+```python
+# /opt/trading/webhook_secret.py (proposé)
+import os, hmac
+from typing import Any, Dict
+
+def tv_key() -> str: return os.getenv("TV_WEBHOOK_KEY","").strip()
+def ops_key() -> str: return os.getenv("OPS_ADMIN_KEY","").strip()
+
+def require_tv_key(payload: Dict[str, Any]) -> None:
+    expected = tv_key()
+    if not expected: return
+    got = str(payload.get("key") or "").strip()
+    if not hmac.compare_digest(got, expected):
+        raise PermissionError("Invalid secret")
+
+def require_ops_key(got_key: str) -> None:
+    expected = ops_key()
+    if not expected: raise RuntimeError("OPS_ADMIN_KEY not set")
+    if not hmac.compare_digest((got_key or "").strip(), expected):
+        raise PermissionError("Forbidden")
+```
+
+5) Points ouverts (next):
+- Déclencher un “Test alert” TradingView (ou forcer une alerte) pour confirmer la réception end-to-end maintenant que le Message n’est plus vide.
+- Sur Debian, surveiller l’arrivée d’événements en temps réel:
+  - `tail -f /opt/trading/events.jsonl /opt/trading/state/events.jsonl`
+  - ou `watch -n 2 'curl -fsS "http://127.0.0.1:8000/api/events?limit=3" | python3 -m json.tool'`
+- Confirmer que l’alerte TradingView utilise bien:
+  - Webhook URL: `https://phytogeographical-subnodulous-joycelyn.ngrok-free.dev/tv`
+  - Message JSON incluant `"key":"GHOST_XAU_2026_ULTRA"`.

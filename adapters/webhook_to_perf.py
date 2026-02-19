@@ -59,6 +59,16 @@ def webhook_event_to_perf_event(evt: Dict[str, Any]) -> Optional[Dict[str, Any]]
     engine = (evt.get("engine") or "").strip()
     symbol = (evt.get("symbol") or "").strip()
 
+    # --- ignore test engines (avoid polluting perf) ---
+    eng = (engine or "").strip()
+    if eng == "TV_TEST" or eng.startswith("_TEST_") or eng.startswith("TEST_"):
+        return {
+            "ok": True,
+            "ignored": True,
+            "reason": f"engine ignored: {eng}",
+        }
+    # -----------------------------------------------
+
     entry = evt.get("entry", None)
     if entry is None:
         entry = evt.get("price", None)
