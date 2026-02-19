@@ -7,6 +7,7 @@ import pathlib
 import urllib.request
 import urllib.parse
 import requests
+import hmac
 
 PERF_URL = os.getenv("PERF_URL", "http://127.0.0.1:8010/perf/event")
 
@@ -54,8 +55,8 @@ TV_WEBHOOK_KEY = os.getenv("TV_WEBHOOK_KEY", "").strip()
 OPS_ADMIN_KEY = os.getenv("OPS_ADMIN_KEY", "").strip()
 
 TELEGRAM_ENABLED = os.getenv("TELEGRAM_ENABLED", "0").strip() in ("1", "true", "True", "yes", "YES")
-TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
-TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "").strip()
+TELEGRAM_BOT_TOKEN = (os.getenv("TELEGRAM_BOT_TOKEN") or os.getenv("TELEGRAM_TOKEN") or "").strip()
+TELEGRAM_CHAT_ID = (os.getenv("TELEGRAM_CHAT_ID") or os.getenv("TELEGRAM_CHAT") or "").strip()
 
 # Inactivity alert (used by dashboard "stale" logic)
 INACTIVITY_SEC_DEFAULT = int(os.getenv("INACTIVITY_SEC", "3600"))  # 1h
@@ -331,24 +332,18 @@ def metrics(window_min: int = 60, limit: int = 50, inactivity_sec: int = INACTIV
 
 
 # -------------------- Webhook --------------------
-def _is_local_client(req: Request) -> bool:
-    try:
-        host = (req.client.host or "").strip()
-    except Exception:
-        host = ""
-    return host in ("127.0.0.1", "::1")
-
-def require_key(req: Request, payload: Dict[str, Any]) -> None:
-    """Validate secret key.
-    - If TV_WEBHOOK_KEY is set: require exact match.
-    - If TV_WEBHOOK_KEY is NOT set: allow only localhost clients (dev mode).
+def require_key(payload: Dict[str, Any], client_ip: str | None) -> None:
+    """Security:
+    - If TV_WEBHOOK_KEY is set: require payload['key'] and compare in constant-time.
+    - If TV_WEBHOOK_KEY is NOT set (dev-mode): accept ONLY from localhost.
     """
-    if not TV_WEBHOOK_KEY:
-        if not _is_local_client(req):
-            raise HTTPException(status_code=403, detail="Missing TV_WEBHOOK_KEY (set env) — remote access blocked")
+    expected = (TV_WEBHOOK_KEY or "").strip()
+    if not expected:
+        if client_ip not in ("127.0.0.1", "::1", "localhost"):
+            raise HTTPException(status_code=403, detail="TV_WEBHOOK_KEY not set (localhost only)")
         return
-    got = (payload.get("key") or "").strip()
-    if got != TV_WEBHOOK_KEY:
+    got = str(payload.get("key") or "").strip()
+    if not hmac.compare_digest(got, expected):
         raise HTTPException(status_code=403, detail="Invalid secret")
 
 def enforce_lock(engine: str) -> None:
@@ -401,7 +396,9 @@ async def tv_webhook(req: Request):
 
     if not isinstance(payload, dict):
         raise HTTPException(status_code=400, detail="JSON must be object")
-    require_key(req, payload)
+
+    require_key(payload, req.client.host if req.client else None)
+
     engine = (payload.get("engine") or "").strip()
     signal = (payload.get("signal") or "").strip().upper()
     symbol = (payload.get("symbol") or "").strip()
@@ -451,7 +448,7 @@ async def tv_webhook(req: Request):
     )
 
     evt = {
-        "key": payload.get("key", None),
+        "key": None,
         "engine": engine,
         "signal": signal,
         "symbol": symbol,
@@ -516,7 +513,7 @@ async def api_reset_lock(req: Request):
     k = (body.get("ops_key") or "").strip()
     if not OPS_ADMIN_KEY:
         raise HTTPException(status_code=500, detail="OPS_ADMIN_KEY not set")
-    if k != OPS_ADMIN_KEY:
+    if not hmac.compare_digest(k, OPS_ADMIN_KEY):
         raise HTTPException(status_code=403, detail="Forbidden")
     st = set_router_state(None)
     return {"ok": True, "state": st}
@@ -647,11 +644,11 @@ async function fetchJson(url){
 function esc(x){
   if(x===null||x===undefined) return "";
   return String(x)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/\"/g, "&quot;")
-    .replace(/'/g, "&#39;");
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#39;");
 }
 
 async function refresh(){

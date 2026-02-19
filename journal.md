@@ -2522,3 +2522,128 @@ git commit -m "security+ops: xss escape, remote key lock, telegram env unificati
   "risk_real_usd": 100.0
 }
 ```
+
+## 2026-02-18 06:35 | TV Webhook | TV_TEST | XAUUSD M5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `TV_TEST`
+3. **Symbol/TF**: `XAUUSD` / `M5`
+4. **Price**: `100.0`
+5. **TP**: `110.0`
+6. **SL**: `90.0`
+7. **Reason**: manual_test_after_tv_alert
+8. **Payload brut**:
+```json
+{
+  "key": "GHOST_XAU_2026_ULTRA",
+  "engine": "TV_TEST",
+  "signal": "BUY",
+  "symbol": "XAUUSD",
+  "tf": "M5",
+  "price": 100.0,
+  "tp": 110.0,
+  "sl": 90.0,
+  "reason": "manual_test_after_tv_alert",
+  "_ts": "2026-02-18T11:35:11.713441+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-02-18 06:40 | TV Webhook | TV_TEST | XAUUSD M5 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `TV_TEST`
+3. **Symbol/TF**: `XAUUSD` / `M5`
+4. **Price**: `100.0`
+5. **TP**: `110.0`
+6. **SL**: `90.0`
+7. **Reason**: public_test
+8. **Payload brut**:
+```json
+{
+  "key": "GHOST_XAU_2026_ULTRA",
+  "engine": "TV_TEST",
+  "signal": "BUY",
+  "symbol": "XAUUSD",
+  "tf": "M5",
+  "price": 100.0,
+  "tp": 110.0,
+  "sl": 90.0,
+  "reason": "public_test",
+  "_ts": "2026-02-18T11:40:52.547323+00:00",
+  "_ip": "67.69.76.11",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-02-18 23:14 — algo 38
+1) Objectifs:
+- Évaluer une alternative Debian à PineScript/TradingView pour générer des signaux/trades de swing avec les mêmes conditions et un déclenchement quasi simultané.
+- Archiver/journaliser l’indicateur Pine v5 et préparer le changement de voie vers un pipeline Debian + module perf.
+- Avancer étape par étape avec logs/commandes et critères de réussite.
+
+2) Actions:
+- Partage du script Pine v5 **“Smart Money Clone | Bulletproof + Webhook JSON (FINAL)”** (alert JSON, TP/SL, filtres HTF/LTF, volume, breakout, anti-répétition).
+- Validation que le module **perf** fonctionne via sortie `/perf/trades?limit=10` montrant des trades `CLOSED` (engine `SMOKE`, `XAUUSD`).
+- Identification du problème initial : **TradingView n’envoie pas** (webhook).
+- Discussion des causes probables côté TradingView (ports 80/443, 2FA, timeout 3s, URL/HTTPS, IPv6 non supporté).
+- Clarification : possibilité de reproduire les signaux “bar close” sans TradingView/Pine via un moteur Debian (Python) en utilisant un feed de données (exchange).
+- Ciblage Bitget comme source de bougies et planification d’une nouvelle session dédiée (“bitget”).
+
+3) Décisions:
+- Garder le Pine comme **référence** et/ou comme déclencheur temporaire, mais déplacer la journalisation/exécution/perf côté Debian.
+- Déclenchement cible : **à la clôture de bougie** (équivalent `alert.freq_once_per_bar_close`) pour le swing.
+- Stratégie de debug : si TV n’envoie pas, diagnostiquer d’abord la chaîne TradingView→URL (ngrok/reverse proxy/2FA), sinon basculer vers moteur Debian “sans TV”.
+- Prochaine session : titre **“bitget”** ; progression étape par étape + logs ; intégration signaux → perf (OPEN v1, CLOSE plus tard).
+
+4) Commandes / Code:
+```pinescript
+//@version=5
+indicator("Smart Money Clone | Bulletproof + Webhook JSON (FINAL)", overlay=true, max_labels_count=500)
+// ... (script complet partagé dans la conversation)
+// Alerte JSON via alert(..., alert.freq_once_per_bar_close)
+// Payload: key, engine, signal, symbol, tf, price, tp, sl, reason
+```
+
+```bash
+# Vérifs proposées (webhook/ngrok/perf)
+sudo systemctl status tv-webhook.service --no-pager -l
+journalctl -u tv-webhook.service -n 80 --no-pager
+
+curl -s http://127.0.0.1:4040/api/requests/http | python3 -m json.tool | tail -n 120
+
+sudo systemctl status tv-perf.service --no-pager -l
+curl -fsS http://127.0.0.1:8010/perf/summary ; echo
+curl -fsS http://127.0.0.1:8010/perf/open ; echo
+
+curl -s "http://127.0.0.1:8010/perf/trades?limit=10" | python3 -m json.tool
+sudo ss -lntp | grep -E ':8000|:8010|:4040'
+```
+
+```bash
+# Test local proposé (simulation payload TradingView vers webhook)
+curl -fsS http://127.0.0.1:8000/webhook \
+  -H "Content-Type: application/json" \
+  -d '{
+    "key":"GHOST_XAU_2026_ULTRA",
+    "engine":"GOLD_CFD_LONG",
+    "signal":"BUY",
+    "symbol":"XAUUSD",
+    "tf":"5",
+    "price":4880.0,
+    "tp":4890.0,
+    "sl":4870.0,
+    "reason":"TEST_OPEN_V1"
+  }' | python3 -m json.tool
+
+curl -fsS "http://127.0.0.1:8010/perf/open" | python3 -m json.tool
+```
+
+5) Points ouverts (next):
+- (TV) Obtenir une preuve ngrok/logs : TradingView envoie-t-il un POST ? (`/api/requests/http`).
+- (TV) Vérifier contraintes bloquantes : port 80/443, 2FA, HTTPS/URL, timeout.
+- (Bitget) Démarrer nouvelle session “bitget” et choisir le marché (SPOT / USDT-FUTURES / COIN-FUTURES) + symbole + timeframes (principal/HTF/LTF).
+- (Moteur Debian) Implémenter reproduction bar-close des conditions Pine (ATR, EMA/VWAP HTF/LTF, volume, breakout, anti-spam) et push vers `/perf/event` (OPEN v1) avec logs.
