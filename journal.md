@@ -5300,3 +5300,77 @@ def require_ops_key(got_key: str) -> None:
   "risk_real_usd": 10.0
 }
 ```
+
+## 2026-02-22 12:43 — deskpro
+1) Objectifs:
+- Analyser un “desk pro” (desks les plus utilisés) et proposer des améliorations avant code (format données, modularité HTTP, compatibilité admin-trading).
+- Construire Desk Pro en micro-étapes (code court + log + journal + roadmap robuste).
+- Ajouter un formulaire incluant S/R Weekly + Daily + “situation” pour calcul de probabilité.
+- Afficher le desk dans le navigateur.
+
+2) Actions:
+- Création de l’arborescence `modules/desk_pro/` (api, service, providers, ui, logs).
+- Mise en place des fichiers de base: `__init__.py`, `models.py`.
+- Ajout services mock: `service/aggregator.py` (snapshot mock), `service/scoring.py` (score/probabilité + raisons + sr_summary).
+- Ajout API FastAPI: `api/routes.py` avec endpoints `/desk/health`, `/desk/snapshot`, `/desk/form`.
+- Ajout scripts module: `desk_pro_sanity.sh`, `desk_pro_cmd.sh`, `desk_pro_menu.sh`, `desk_pro_http_test.sh`.
+- Résolution d’un problème de déploiement: zips initialement sur Windows → transfert vers Debian via SCP + unzip.
+- Correction du hook: premier patch appliqué par erreur dans `~/Téléchargements/*.bak`; identification du vrai repo/service via `systemctl` puis patch correct.
+- Déploiement effectif dans `/opt/trading` + hook dans `perf/perf_app.py`, redémarrage `tv-perf.service`, tests HTTP OK.
+- Création d’une UI minimale accessible via `/desk/ui` (HTTP 200, sanity OK).
+- Tentative d’installation de raccourcis globaux (`menu-desk_pro` etc.) échoue faute de permissions (pas de `sudo`).
+
+3) Décisions:
+- Standardiser format données (schéma type `ts/source/asset/metric/value/unit/window/quality/notes` + snapshot normalisé).
+- Séparer “Data providers” / “Aggregator snapshot” / “Scoring” / “HTTP (serveur UI+API)” en fichiers distincts.
+- Procédure de livraison: tout code livré en **fichiers** (zip) + **scripts .sh** (cmd/menu/sanity) + logs minimaux, étape par étape.
+- Nouvelle procédure: conserver une “boîte à infos” non sensible (configs répétitives: OS/SSH, repo, service, port, URL).
+- Nouvelle règle demandée: 1 module = 1 sanity check + 1 cmd.sh + 1 menu.sh; et raccourci global (ex `menu-desk_pro`) pour lancer depuis n’importe où.
+- Pas de Docker pour l’instant.
+
+4) Commandes / Code:
+```bash
+# Création dossiers
+mkdir -p modules/desk_pro/{providers,service,api,ui,logs}
+
+# Vérifs
+ls -la modules/desk_pro
+python -c "import modules.desk_pro; print('desk_pro package OK')"
+
+# Transfert Windows -> Debian (PowerShell)
+scp "$env:USERPROFILE\Downloads\desk_pro_stepX.zip" ghost@admin-trading:~/
+
+# Installation côté Debian
+cd ~
+unzip -o desk_pro_step1_files.zip -d .
+unzip -o desk_pro_fix_models.zip -d .
+
+# Sanity module
+./scripts/desk_pro_sanity.sh
+
+# Hook correct dans le vrai repo/service
+cd /opt/trading
+REPO_ROOT=/opt/trading APP_FILE=perf/perf_app.py ./scripts/desk_pro_hook.sh
+sudo systemctl restart tv-perf.service
+
+# Tests HTTP
+HOST=http://127.0.0.1:8010 ./scripts/desk_pro_http_test.sh
+
+# UI check
+./scripts/desk_pro_ui_patch.sh
+./scripts/desk_pro_ui_sanity.sh
+
+# Erreurs rencontrées
+# ModuleNotFoundError: No module named 'modules.desk_pro.api.routes' (routes.py absent au moment de l'import)
+# ModuleNotFoundError: No module named 'pydantic' (dépendance manquante)
+# Permission non accordée pour /usr/local/bin/menu-desk_pro (installer avec sudo)
+
+# Résultat tests HTTP (OK)
+# /desk/health, /desk/snapshot, /desk/form (score + reasons + sr_summary)
+# /desk/ui retourne HTTP 200
+```
+
+5) Points ouverts (next):
+- Installer les raccourcis globaux avec permissions (`sudo bash ./scripts/install_desk_pro_shortcuts.sh`), puis tester `menu-desk_pro`, `sanity-desk_pro`, `cmd-desk_pro`.
+- Mettre en place 1 fichier `.env` à la racine + méthode modulaire de chargement (variables non sensibles dans scripts), et un fichier `TOOLBOX.txt` “boîte à infos” MAJ (incluant explicitement `/opt/trading`, `tv-perf.service`, port 8010, entrypoint `perf.perf_app:app`).
+- UI v2 à faire: 2 tableaux (flows/volumes + contexte) + formulaire simple (pas JSON) + affichage probabilité/raisons propre, accessible navigateur.

@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtualenv
+.venv/
+venv/
+ENV/
+env/
+
+# Secrets
+.env
+*.key
+*.pem
+*.crt
+
+# Runtime / state / logs
+state/
+logs/
+tmp/
+*.log
+*.sqlite
+*.db
+
+# Backups / patches
+backup/
+backups/
+*.bak
+*.bak.*
+*.orig
+*.patch
+perf/*.bak*
+webhook_server.py.bak*
+.env
+smartmoney.txt
+
+# local env files
+envs/

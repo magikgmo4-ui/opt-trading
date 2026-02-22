@@ -10,6 +10,7 @@ from typing import Optional, Dict, Any, List
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import HTMLResponse
+from modules.desk_pro.mount import mount as mount_desk_pro
 from pydantic import BaseModel, Field
 
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -25,6 +26,8 @@ ENGINE_DD_ALERT_PCT = float(os.getenv("PERF_ENGINE_DD_ALERT_PCT", "7.0"))  # % e
 EQUITY0 = float(os.getenv("PERF_EQUITY0", "10000"))  # simulated start equity
 
 app = FastAPI(title="perf", version="1.0")
+
+mount_desk_pro(app)
 
 # ---------------- Models ----------------
 class PerfEvent(BaseModel):
