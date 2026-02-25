@@ -44,30 +44,16 @@ def form_score(form: DeskForm):
 @router.get("/ui", response_class=HTMLResponse)
 def ui():
     _dp_log("desk_ui")
-    html = render_ui_html()
+    # --- TOOLBOX_UI_INJECT_V4 ---
+    try:
+        if 'html' in locals() and '/desk/toolbox' not in html and '/desk/form' in html:
+            _ins = ' <a href="/desk/toolbox" style="margin-left:10px">toolbox</a>'
+            # insert toolbox link right after first occurrence of /desk/form
+            html = html.replace('/desk/form', '/desk/form' + _ins, 1)
+    except Exception:
+        pass
 
-    # inject toolbox link into Endpoints row (UI uses <span class="pill"> ... </span>)
-    if "/desk/toolbox" not in html:
-        if '<span class="pill">/desk/form</span>' in html:
-            html = html.replace(
-                '<span class="pill">/desk/form</span>',
-                '<span class="pill">/desk/form</span><a class="pill" href="/desk/toolbox">/desk/toolbox</a>',
-                1
-            )
-        elif "</body>" in html:
-            # fallback: append before </body>
-            html = html.replace(
-                "</body>",
-                '
-<div style="margin-top:12px;padding:10px;border:1px solid #e6e6e6;border-radius:12px">'
-                '<strong>Toolbox:</strong> '
-                '<a class="pill" href="/desk/toolbox">/desk/toolbox</a>'
-                '</div>
-</body>',
-                1
-            )
-
-    return HTMLResponse(html)
+    return HTMLResponse(render_ui_html())
 
 
 @router.get("/toolbox", response_class=HTMLResponse)
