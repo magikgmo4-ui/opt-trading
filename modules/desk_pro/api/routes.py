@@ -44,6 +44,15 @@ def form_score(form: DeskForm):
 @router.get("/ui", response_class=HTMLResponse)
 def ui():
     _dp_log("desk_ui")
+    # --- TOOLBOX_UI_INJECT_V4 ---
+    try:
+        if 'html' in locals() and '/desk/toolbox' not in html and '/desk/form' in html:
+            _ins = ' <a href="/desk/toolbox" style="margin-left:10px">toolbox</a>'
+            # insert toolbox link right after first occurrence of /desk/form
+            html = html.replace('/desk/form', '/desk/form' + _ins, 1)
+    except Exception:
+        pass
+
     return HTMLResponse(render_ui_html())
 
 
