@@ -46,7 +46,7 @@ def ui():
     _dp_log("desk_ui")
     html = render_ui_html()
 
-    # inject toolbox link into Endpoints row (UI uses <span class="pill"> ... </span>)
+    # inject toolbox link into Endpoints row (UI uses <span class="pill">... )
     if "/desk/toolbox" not in html:
         if '<span class="pill">/desk/form</span>' in html:
             html = html.replace(
@@ -58,12 +58,10 @@ def ui():
             # fallback: append before </body>
             html = html.replace(
                 "</body>",
-                '
-<div style="margin-top:12px;padding:10px;border:1px solid #e6e6e6;border-radius:12px">'
+                '\n<div style="margin-top:12px;padding:10px;border:1px solid #e6e6e6;border-radius:12px">'
                 '<strong>Toolbox:</strong> '
                 '<a class="pill" href="/desk/toolbox">/desk/toolbox</a>'
-                '</div>
-</body>',
+                '</div>\n</body>',
                 1
             )
 
