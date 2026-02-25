@@ -1,0 +1,33 @@
+Desk Pro / admin-trading — Boîte à outils (MAJ)
+
+Repo réel:
+  /opt/trading
+
+Service:
+  tv-perf.service  (uvicorn perf.perf_app:app --host 0.0.0.0 --port 8010)
+
+URLs (local sur Debian):
+  http://127.0.0.1:8010/desk/health
+  http://127.0.0.1:8010/desk/snapshot
+
+Depuis Windows navigateur (LAN):
+  http://<IP_ADMIN_TRADING>:8010/desk/health
+  http://<IP_ADMIN_TRADING>:8010/desk/snapshot
+
+Scripts module Desk Pro:
+  ./scripts/desk_pro_sanity.sh
+  ./scripts/desk_pro_cmd.sh <health|snapshot|form-sample|sanity|tree>
+  ./scripts/desk_pro_menu.sh
+  ./scripts/desk_pro_http_test.sh
+
+Variables d'environnement (dans .env):
+  TV_PERF_SCHEME (http)
+  TV_PERF_HOST   (127.0.0.1)
+  TV_PERF_PORT   (8010)
+
+Procédure:
+  1) Copier .env.example -> .env et ajuster si besoin
+  2) Les scripts chargent .env automatiquement via scripts/load_env.sh
+  3) Fix deps (pydantic): ./scripts/desk_pro_requirements_fix.sh
+  4) Sanity: ./scripts/desk_pro_sanity.sh
+  5) Test HTTP: ./scripts/desk_pro_http_test.sh

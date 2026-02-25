@@ -1,10 +1,18 @@
+from modules.env.env import load_env, ensure_dirs
+from shared.logger import setup_logger
+load_env(); ensure_dirs()
+log = setup_logger("tv-perf")
+
 #!/usr/bin/env python3
 import os, json, time, sqlite3, uuid
 from datetime import datetime, timezone
 from typing import Optional, Dict, Any, List
 
 from fastapi import FastAPI, HTTPException, Query
+from modules.desk_pro.api.routes import router as desk_router
+
 from fastapi.responses import HTMLResponse
+from modules.desk_pro.mount import mount as mount_desk_pro
 from pydantic import BaseModel, Field
 
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -20,6 +28,11 @@ ENGINE_DD_ALERT_PCT = float(os.getenv("PERF_ENGINE_DD_ALERT_PCT", "7.0"))  # % e
 EQUITY0 = float(os.getenv("PERF_EQUITY0", "10000"))  # simulated start equity
 
 app = FastAPI(title="perf", version="1.0")
+
+
+# Desk Pro
+app.include_router(desk_router, prefix="/desk", tags=["desk"])
+mount_desk_pro(app)
 
 # ---------------- Models ----------------
 class PerfEvent(BaseModel):
