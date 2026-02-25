@@ -5644,3 +5644,108 @@ git push -u origin fix/desk-ui-toolbox
   - module 3e machine/cluster (OPS/COMPUTE/STUDENT)
   - DB layer (MongoDB → TimescaleDB → ClickHouse) + backups
   - Logger central + monitoring + alerting Telegram.
+
+## 2026-02-25 02:51 — note1
+1) Objectifs:
+- Mettre en place “Bot Vision” intégré à Desk Pro : commande Telegram `/analyze` générant 4 charts + logs/summary, affichage Desk Pro en 2 panneaux permanents.
+- Choisir le mode de réponse Telegram (mosaïque) + option “send all”.
+- Relancer proprement Desk Pro côté Windows↔Debian et fiabiliser l’UI (toolbox, diagnostics, logs).
+- Consolider la liste “@ faire” / modules prévus (incluant 3e machine + DB layer), et ne pas perdre le backlog.
+
+2) Actions:
+- Spécification Bot Vision :
+  - UI : 2 écrans permanents (Desk Pro tables/form vs Vision charts).
+  - `/analyze` produit un pack “run” (charts PNG, `summary.json`, `vision.log.jsonl`) + symlink `latest`.
+  - Telegram : défaut mosaïque 2x2 + option “send all” pour envoyer les 4 images.
+- Desk Pro GO depuis Windows PowerShell :
+  - Transfert zip via `scp`, installation scripts + shortcuts, sanity OK.
+  - Mise en place tunnel SSH Windows→Debian (port local 18010).
+- Débogage endpoints Desk Pro :
+  - 404 sur `/desk/toolbox` car le serveur lancé était `uvicorn perf.perf_app:app`.
+  - Patch `perf/perf_app.py` pour inclure le router Desk Pro + redémarrage.
+- Série de patches pour intégrer “toolbox/diagnostics/logs” dans Desk Pro :
+  - Ajout `/desk/toolbox`, `/desk/logs/latest`, injection dans `/desk/ui`.
+  - Résolution d’erreurs de redémarrage (port 8010 occupé), et de SyntaxError (`from __future__` pas en tête).
+  - Diagnostic : l’UI `/desk/ui` n’avait pas d’ancres `<a>` mais des `<span class="pill">...`, d’où injection initiale inefficace.
+  - Injection finale réussie : `/desk/ui` contient `/desk/toolbox` dans la ligne “Endpoints”.
+- Stabilisation :
+  - Hard restart uvicorn via `pkill` + `nohup`.
+  - Sanity réécrit pour utiliser le python du venv + `requests` (évite `curl (23)` et `ModuleNotFoundError: fastapi`).
+  - Commit + push GitHub sur branche `fix/desk-ui-toolbox`.
+- Git :
+  - Push SSH bloqué (publickey), bascule HTTPS + PAT.
+  - `credential.helper store` activé (push ensuite “Everything up-to-date”).
+- Uploads reçus pour audit : `opt-trading-fix-desk-ui-toolbox.zip`, `opt-trading-backup-main-before-filter.zip`, `opt-trading-main.zip`.
+
+3) Décisions:
+- Bot Vision Telegram : **mosaïque 2x2 par défaut + option “send all”**.
+- UI Desk Pro : **2 écrans/panneaux permanents** (cockpit tables + vision).
+- Accès UI depuis Windows : **tunnel SSH** privilégié (port local alternatif 18010/18011).
+- Correction UI toolbox : injection basée sur la structure réelle de l’UI (`<span class="pill">...`) + fallback.
+- Sanity : **basculé sur venv + `requests`** (plus robuste que `curl|grep`).
+
+4) Commandes / Code:
+```powershell
+# Windows: envoi zip + tunnel
+cd $env:USERPROFILE\Downloads
+scp .\desk_pro_go_pack_20260224.zip ghost@admin-trading:/home/ghost/
+ssh -L 18010:127.0.0.1:8010 ghost@admin-trading
+```
+
+```bash
+# Debian: install pack + sanity
+cd /opt/trading
+unzip -o /home/ghost/desk_pro_go_pack_20260224.zip -d /tmp/desk_pro_go_pack
+sudo cp -f /tmp/desk_pro_go_pack/desk_pro_pack_20260224/scripts/*.sh /opt/trading/scripts/
+sudo chmod +x /opt/trading/scripts/*.sh
+sudo bash /opt/trading/scripts/install_desk_pro_shortcuts.sh
+cmd-desk_pro sanity
+cmd-desk_pro health
+```
+
+```bash
+# Diagnostic port / process
+sudo ss -ltnp | grep ':8010' || true
+ps -p <PID> -o pid,cmd
+```
+
+```bash
+# Hard restart (fix reload non pris en compte)
+sudo pkill -f "uvicorn perf\.perf_app:app" || true
+sudo pkill -f "python -m uvicorn perf\.perf_app:app" || true
+sleep 1
+cd /opt/trading
+nohup /opt/trading/venv/bin/python -m uvicorn perf.perf_app:app --host 0.0.0.0 --port 8010 > /opt/trading/tmp/uvicorn_8010.log 2>&1 &
+sleep 1
+sudo ss -ltnp | grep ':8010'
+```
+
+```bash
+# Vérifs HTTP
+curl -sS http://127.0.0.1:8010/desk/ui | grep -n "/desk/toolbox" || echo "ABSENT"
+curl -sS -o /dev/null -w "%{http_code}\n" http://127.0.0.1:8010/desk/toolbox
+```
+
+```bash
+# Git (branche + push HTTPS avec PAT)
+cd /opt/trading
+git checkout -b fix/desk-ui-toolbox
+git add modules/desk_pro/api/routes.py scripts/*.sh
+git commit -m "Desk Pro: /desk/ui toolbox link + hard restart + sanity uses venv requests"
+git remote set-url origin https://github.com/magikgmo4-ui/opt-trading.git
+git push -u origin fix/desk-ui-toolbox
+git config --global credential.helper store
+```
+
+5) Points ouverts (next):
+- Bot Vision :
+  - Confirmer le comportement exact du bouton/commande “send all” (inline callback vs commande).
+  - Implémenter le générateur (charts + mosaïque + `summary.json` + `vision.log.jsonl`) + scripts standards (`sanity/cmd/menu`) + intégration Desk Pro (lecture `latest/`).
+- Desk Pro :
+  - Finir “UI v2” (mémoire session + journal + toolbox/endpoints + diagnostics/logs intégrés).
+  - Ajouter `.gitignore` (tmp/logs/*.bak/zips) + nettoyage des fichiers backup.
+- Stack “3e machine” + DB layer :
+  - Plan exécution : DB Layer MVP local vs déploiement direct sur 3e machine.
+  - Modules à préparer : MongoDB, TimescaleDB, ClickHouse + backup/restore + health checks + monitoring/logger central.
+- Git SSH :
+  - Clé ed25519 générée mais non autorisée côté GitHub (push SSH toujours refusé) ; décider si on reste en HTTPS/PAT ou on ajoute la clé dans GitHub.
