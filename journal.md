@@ -5749,3 +5749,60 @@ git config --global credential.helper store
   - Modules à préparer : MongoDB, TimescaleDB, ClickHouse + backup/restore + health checks + monitoring/logger central.
 - Git SSH :
   - Clé ed25519 générée mais non autorisée côté GitHub (push SSH toujours refusé) ; décider si on reste en HTTPS/PAT ou on ajoute la clé dans GitHub.
+
+## 2026-02-25 04:48 — note2
+1) Objectifs:
+- Ajouter une 3e machine “STUDENT” (DeepSeek/agent) à l’architecture OPS + COMPUTE.
+- Mettre en place une journalisation “capture tout” (inputs, décisions, commandes, outputs, artefacts) via un journal append-only.
+- Installer Debian 12 sur la 3e machine avec chiffrement disque et partitionnement bootable (UEFI), sans casser le démarrage.
+
+2) Actions:
+- Définition du rôle STUDENT: agent IA + batch/analyses; DB critique conservée côté OPS.
+- Recommandation OS: Debian 12 (minimal + SSH); Ubuntu MSI possible plus tard comme worker/GPU.
+- Proposition d’architecture journaling:
+  - Stockage: repo Git “journal” + `events.jsonl` + archivage artefacts hashés.
+  - Mécanismes: wrapper `runlog`, endpoint `ingest`, watcher dossier `drop`.
+- Guidance partitionnement Debian:
+  - Choix initial conseillé: LUKS + (optionnel) LVM; éviter RAID/iSCSI.
+  - Constats sur écran UEFI (ESP ~536MB) et swap 1GB; swapfile à créer après installation.
+  - Activation chiffrement par partitions (p2/p3/p4) puis assignation des mounts.
+  - Blocage rencontré: besoin d’un `/boot` non chiffré; tentative de correction via suppression/recréation de la partition root chiffrée (p2) mais blocage car “utilisée comme volume physique” (crypt mapping).
+- Décision de l’utilisateur: interruption de l’installation et redémarrage de l’installateur.
+- Nouvelle approche choisie: “assisté chiffré + LVM” (pour que Debian crée automatiquement ESP + `/boot` non chiffrés + LUKS/LVM).
+
+3) Décisions:
+- STUDENT sera sous Debian 12 (en cours d’installation).
+- Journalisation: DeepSeek n’est pas la base de vérité; la vérité = journal append-only + artefacts.
+- Après blocage `/boot`, abandon du partitionnement manuel en cours et redémarrage propre.
+- Choix final d’installation: assisté “chiffré + LVM”.
+
+4) Commandes / Code:
+```bash
+# Vérification mode boot après installation
+[ -d /sys/firmware/efi ] && echo UEFI || echo BIOS
+
+# Collecte infos machine (post-install)
+hostnamectl
+ip -br a
+ip r
+nproc
+free -h
+lsblk
+lsblk -f
+swapon --show
+
+# Swapfile (post-install) pour compenser swap partition 1GB
+sudo fallocate -l 8G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+```
+
+5) Points ouverts (next):
+- Une fois Debian 12 installé: fournir sorties des commandes (hostnamectl, ip, lsblk, free, swapon) + config matériel (CPU/RAM/disque/GPU).
+- Confirmer que le résumé de partitionnement (assisté chiffré + LVM) contient bien:
+  - ESP non chiffrée montée sur `/boot/efi`
+  - `/boot` ext4 non chiffrée
+  - root/home (et swap si présent) dans LUKS/LVM
+- Implémenter le “pack journaling STUDENT” (structure `/opt/trading`, `events.jsonl`, `runlog`, `ingest`, watcher, services systemd) et définir emplacement du journal maître (OPS vs STUDENT).
