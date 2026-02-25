@@ -1,53 +1,35 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-BIN_DIR="${BIN_DIR:-/usr/local/bin}"
-ROOT="${ROOT:-/opt/trading}"
+REPO="${REPO:-/opt/trading}"
 
-need() { [[ -f "$ROOT/scripts/$1" ]] || { echo "FAIL: missing $ROOT/scripts/$1"; exit 2; }; }
-
-need "desk_pro_menu.sh"
-need "desk_pro_cmd.sh"
-need "desk_pro_sanity.sh"
-need "load_env.sh"
-
-mkdir -p "$BIN_DIR"
-
-install_wrapper() {
-  local name="$1"
-  local target="$2"
-  local path="$BIN_DIR/$name"
-
-  cat > "$path" <<EOF
-#!/usr/bin/env bash
-set -euo pipefail
-cd "$ROOT"
-exec bash "$target" "\$@"
-EOF
-  chmod +x "$path"
-  echo "OK installed: $path"
-}
-
-install_wrapper "menu-desk_pro"  "./scripts/desk_pro_menu.sh"
-install_wrapper "cmd-desk_pro"   "./scripts/desk_pro_cmd.sh"
-install_wrapper "sanity-desk_pro" "./scripts/desk_pro_sanity.sh"
-
-cat > "$BIN_DIR/ui-desk_pro" <<'EOF'
-#!/usr/bin/env bash
-set -euo pipefail
-ROOT="/opt/trading"
-# shellcheck disable=SC1091
-source "$ROOT/scripts/load_env.sh"
-echo "Desk Pro UI: ${TV_PERF_BASE_URL}/desk/ui"
-if [[ "${1:-}" == "curl" ]]; then
-  curl -s "${TV_PERF_BASE_URL}/desk/ui" | head -n 40
+if [[ $EUID -ne 0 ]]; then
+  echo "Please run as root: sudo bash $0"
+  exit 2
 fi
-EOF
-chmod +x "$BIN_DIR/ui-desk_pro"
-echo "OK installed: $BIN_DIR/ui-desk_pro"
 
-echo
-echo "Done. Try:"
+echo "=== Install Desk Pro shortcuts ==="
+echo "Repo: $REPO"
+
+# Ensure target scripts exist
+for f in "$REPO/scripts/desk_pro_menu.sh" "$REPO/scripts/desk_pro_cmd.sh" "$REPO/scripts/sanity_desk_pro.sh"; do
+  [[ -f "$f" ]] || { echo "Missing: $f"; exit 3; }
+  chmod +x "$f" || true
+done
+
+# Install wrappers into /usr/local/bin (works even if /usr/local/bin is not writable for non-root)
+cat > /usr/local/bin/menu-desk_pro <<'EOF'
+#!/usr/bin/env bash
+exec /opt/trading/scripts/desk_pro_menu.sh "$@"
+EOF
+
+cat > /usr/local/bin/cmd-desk_pro <<'EOF'
+#!/usr/bin/env bash
+exec /opt/trading/scripts/desk_pro_cmd.sh "$@"
+EOF
+
+chmod +x /usr/local/bin/menu-desk_pro /usr/local/bin/cmd-desk_pro
+
+echo "OK installed:"
 echo "  menu-desk_pro"
-echo "  sanity-desk_pro"
-echo "  cmd-desk_pro health"
+echo "  cmd-desk_pro"

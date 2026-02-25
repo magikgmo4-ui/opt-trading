@@ -5374,3 +5374,119 @@ HOST=http://127.0.0.1:8010 ./scripts/desk_pro_http_test.sh
 - Installer les raccourcis globaux avec permissions (`sudo bash ./scripts/install_desk_pro_shortcuts.sh`), puis tester `menu-desk_pro`, `sanity-desk_pro`, `cmd-desk_pro`.
 - Mettre en place 1 fichier `.env` à la racine + méthode modulaire de chargement (variables non sensibles dans scripts), et un fichier `TOOLBOX.txt` “boîte à infos” MAJ (incluant explicitement `/opt/trading`, `tv-perf.service`, port 8010, entrypoint `perf.perf_app:app`).
 - UI v2 à faire: 2 tableaux (flows/volumes + contexte) + formulaire simple (pas JSON) + affichage probabilité/raisons propre, accessible navigateur.
+
+## 2026-02-25 02:04 — algo80
+1) Objectifs:
+- Clarifier l’accès au “journal de bord” enregistré.
+- Extraire du journal : listes “@ faire” / “à faire” + inventaire des modules prévus (incluant 3e machine, DB, observabilité).
+- Démarrer “Desk Pro GO” et rendre l’UI accessible depuis Windows.
+- Ajouter Toolbox + Diagnostics + Logs dans Desk Pro, puis intégrer le lien Toolbox dans `/desk/ui`.
+- Préparer la suite: passer ensuite à B (3e machine + DB layer).
+
+2) Actions:
+- Consolidation d’une liste “@ faire” et d’un inventaire modules (Desk Pro, Prop/Backtest, use.ai à éviter), puis extension avec:
+  - Cluster 3 machines (OPS/COMPUTE/STUDENT), sécurité LAN/VPN (WireGuard, SSH hardening, firewall).
+  - Data layer: MongoDB, TimescaleDB, ClickHouse + backups.
+  - Observabilité: logger central + monitoring/alerting Telegram.
+  - Desk Pro HTTP core + Vision bot `/analyze`.
+- Mémoire: demande “enregistre cette liste et ne la perd pas” → confirmé “enregistré”.
+- Exécution Desk Pro GO:
+  - Transfert zip depuis Windows vers Debian via `scp`, installation scripts, installation shortcuts, sanity OK, menu OK, UI 200.
+- Mise en place accès Windows à l’UI via tunnel SSH:
+  - Erreur port 8010 occupé → tunnel sur 18010.
+  - Confusion commandes Windows exécutées sur Debian (netstat/findstr) corrigée.
+- Patch Toolbox:
+  - `/desk/toolbox` d’abord 404 malgré route présente dans `routes.py` → diagnostic: le serveur 8010 lançait `uvicorn perf.perf_app:app`.
+  - Patch `perf/perf_app.py` pour `include_router(desk_router, prefix="/desk")` + redémarrage → `/desk/toolbox` OK via tunnel.
+- Patch “UI+Diagnostics+Logs”:
+  - Patch appliqué, mais `/desk/logs/latest` 404 → nécessité de restart.
+  - Restart a cassé l’app: `SyntaxError: from __future__ imports must occur at the beginning of the file` dans `routes.py` → correction via script pour remonter `from __future__ import annotations` en haut.
+  - Inject “UI Inject” a rendu visible bloc Diagnostics dans `/desk/ui`, mais lien/pill toolbox manquait.
+- Débogage lien Toolbox dans `/desk/ui` (workflow step-by-step):
+  - Vérification serveur: `curl /desk/ui | grep /desk/toolbox` = ABSENT.
+  - Listing des routes actives via `perf.perf_app:app`: `/desk/ui`, `/desk/toolbox`, `/desk/logs/latest` pointent bien vers `modules.desk_pro.api.routes`.
+  - Inspection HTML réel: `/desk/ui` renvoie HTML “minifié” (~7114 chars), contient `/desk/form` mais pas `/desk/toolbox`.
+  - Plusieurs tentatives de patch:
+    - Patch manuel dans `routes.py` (injection après `/desk/form`) → modif fichier visible, mais non reflétée côté HTML servi.
+    - “Restart béton”: `pkill`, relance `nohup uvicorn ...` + preuve via import direct `ui()` → `HAS toolbox: False`, donc ui() ne contient pas toolbox.
+- Passage en mode “pas de code”: l’utilisateur demande des patchs zip + étapes terminal.
+- Application patchs zip “toolbox fix”:
+  - Erreurs récurrentes de workflow (zip pas copié, ou pas présent dans Downloads).
+  - Patch v1: `FAIL: ui() HTML does not contain an anchor to /desk/form`; sanity échoue car exécuté hors venv (`ModuleNotFoundError: fastapi`).
+  - Patch v2: `FAIL: could not find ui() HTML triple-quoted block (doctype/html)`; test toujours ABSENT.
+  - Patch v3: erreur de quoting dans le script d’apply → `SyntaxError: invalid decimal literal`; toolbox toujours absent.
+  - Décision de produire un patch v4 “quoting safe” (non appliqué dans le dump).
+
+3) Décisions:
+- Accès UI Windows: privilégier tunnel SSH (port local alternatif 18010) plutôt qu’exposer sur LAN.
+- Serveur unique sur 8010: continuer via `perf.perf_app:app` en incluant le router Desk Pro.
+- Workflow imposé: étapes séquentielles + journalisation; éviter de coller les prompts dans les commandes.
+- Passage “no code”: fournir patch zip + commandes d’application/validation (Windows→scp→Debian).
+
+4) Commandes / Code:
+```powershell
+# Windows (tunnel)
+ssh -L 18010:127.0.0.1:8010 ghost@admin-trading
+
+# Windows -> Debian (exemples)
+scp .\desk_pro_go_pack_20260224.zip ghost@admin-trading:/home/ghost/
+scp .\desk_pro_ui_toolbox_fix_20260225.zip ghost@admin-trading:/home/ghost/
+scp .\desk_pro_ui_toolbox_fix_v2_20260225.zip ghost@admin-trading:/home/ghost/
+scp .\desk_pro_ui_toolbox_fix_v3_20260225.zip ghost@admin-trading:/home/ghost/
+```
+
+```bash
+# Debian - installation Desk Pro GO (extrait)
+unzip -o /home/ghost/desk_pro_go_pack_20260224.zip -d /tmp/desk_pro_go_pack
+sudo cp -f /tmp/desk_pro_go_pack/desk_pro_pack_20260224/scripts/*.sh /opt/trading/scripts/
+sudo chmod +x /opt/trading/scripts/*.sh
+sudo bash /opt/trading/scripts/install_desk_pro_shortcuts.sh
+cmd-desk_pro sanity
+cmd-desk_pro health
+
+# Diagnostics serveur
+sudo ss -ltnp | grep ':8010' || true
+ps -p 331502 -o pid,cmd
+curl -i http://127.0.0.1:8010/desk/toolbox | head
+curl -sS http://127.0.0.1:8010/desk/ui | grep -n "/desk/toolbox" || echo "ABSENT"
+
+# Stop total + relance background
+sudo pkill -f "uvicorn perf\.perf_app:app" || true
+sudo pkill -f "python -m uvicorn perf\.perf_app:app" || true
+nohup /opt/trading/venv/bin/python -m uvicorn perf.perf_app:app --host 0.0.0.0 --port 8010 > /opt/trading/tmp/uvicorn_8010.log 2>&1 &
+
+# Vérification routes actives (perf_app)
+python - <<'PY'
+from perf.perf_app import app
+from starlette.routing import Route
+for r in app.router.routes:
+    if isinstance(r, Route) and r.path.startswith("/desk"):
+        print(r.path, "->", r.endpoint.__module__, r.endpoint.__name__)
+PY
+
+# Sanity patchs (exemples)
+sudo bash /opt/trading/scripts/sanity_desk_pro_toolbox.sh
+sudo bash /opt/trading/scripts/sanity_desk_pro_ui_plus.sh
+
+# Application patch toolbox fix (tentatives v1/v2/v3)
+sudo bash /opt/trading/scripts/apply_desk_pro_ui_toolbox_fix.sh
+sudo bash /opt/trading/scripts/sanity_desk_pro_ui_toolbox_fix.sh
+sudo bash /opt/trading/scripts/apply_desk_pro_ui_toolbox_fix_v2.sh
+sudo bash /opt/trading/scripts/sanity_desk_pro_ui_toolbox_fix_v2.sh
+sudo bash /opt/trading/scripts/apply_desk_pro_ui_toolbox_fix_v3.sh
+sudo bash /opt/trading/scripts/sanity_desk_pro_ui_toolbox_fix_v3.sh
+
+# Helper restart/test (patch)
+bash /opt/trading/scripts/desk_pro_ui_toolbox_fix_cmd.sh restart
+bash /opt/trading/scripts/desk_pro_ui_toolbox_fix_cmd.sh test
+```
+
+5) Points ouverts (next):
+- Appliquer le patch v4 “UI Toolbox Fix” (quoting safe), puis:
+  - Restart propre de `perf.perf_app:app` sur 8010.
+  - Vérifier côté serveur: `/desk/ui` contient bien `/desk/toolbox`.
+  - Vérifier côté Windows via tunnel: lien visible + Ctrl+F5.
+- Stabiliser le run/reload (éviter redémarrages manuels): envisager service systemd + commandes `restart/status`.
+- Une fois Desk Pro UI finalisée (1,2,3), enchaîner sur B:
+  - 3e machine/cluster (OPS/COMPUTE/STUDENT), réseau, sécurité (WireGuard/SSH/UFW).
+  - DB layer: MongoDB → TimescaleDB → ClickHouse + backups + logger central + monitoring/alerting Telegram.

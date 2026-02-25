@@ -1,47 +1,73 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-cd "$ROOT"
+REPO="${REPO:-/opt/trading}"
+BASE_URL="${BASE_URL:-http://127.0.0.1:8010}"
 
-# shellcheck disable=SC1091
-source ./scripts/load_env.sh
-HOST="${HOST:-$TV_PERF_BASE_URL}"
+usage() {
+  cat <<'USAGE'
+cmd-desk_pro — Desk Pro commands
+Usage:
+  cmd-desk_pro sanity
+  cmd-desk_pro ui
+  cmd-desk_pro health
+  cmd-desk_pro logs [n]
+  cmd-desk_pro serve [host] [port]
 
-cmd="${1:-help}"
+Env:
+  REPO=/opt/trading
+  BASE_URL=http://127.0.0.1:8010
+USAGE
+}
 
-case "$cmd" in
-  help|-h|--help|"")
-    echo "Usage: $0 <cmd>"
-    echo "  sanity            Run sanity check"
-    echo "  health            GET /desk/health"
-    echo "  snapshot          GET /desk/snapshot"
-    echo "  form-sample       POST /desk/form (sample SR W/D)"
-    echo "  tree              Show module files"
-    echo
-    echo "Base URL: $TV_PERF_BASE_URL"
+sub="${1:-}"
+shift || true
+
+cd "$REPO" 2>/dev/null || true
+
+case "$sub" in
+  sanity)
+    bash "$REPO/scripts/sanity_desk_pro.sh"
     ;;
-  sanity) exec ./scripts/desk_pro_sanity.sh ;;
-  health) curl -s "$HOST/desk/health" | (command -v jq >/dev/null && jq || cat) ;;
-  snapshot) curl -s "$HOST/desk/snapshot" | (command -v jq >/dev/null && jq || cat) ;;
-  form-sample)
-    curl -s -X POST "$HOST/desk/form" -H 'Content-Type: application/json' -d '{
-      "symbol":"BTC",
-      "bias":"neutral",
-      "vol_regime":"normal",
-      "sr":[
-        {"tf":"W","kind":"S","level":67900,"label":"W support"},
-        {"tf":"D","kind":"R","level":69000,"label":"D resistance"}
-      ],
-      "etf_flow_bias":"out",
-      "onchain_flow_bias":"in",
-      "futures_flow_bias":"out",
-      "funding_bias":"pos",
-      "fear_greed":42,
-      "dxy_trend":"up",
-      "corr_xau_btc":0.35
-    }' | (command -v jq >/dev/null && jq || cat)
+  ui)
+    echo "$BASE_URL/desk/ui"
     ;;
-  tree) find modules/desk_pro -maxdepth 3 -type f -print | sort ;;
-  *) echo "Unknown cmd: $cmd"; exit 1 ;;
+  health)
+    if command -v curl >/dev/null 2>&1; then
+      curl -sS "$BASE_URL/desk/health" || true
+      echo
+    else
+      echo "curl not found"
+      exit 3
+    fi
+    ;;
+  logs)
+    n="${1:-200}"
+    logdir="$REPO/tmp"
+    if [[ -d "$logdir" ]]; then
+      ls -1t "$logdir"/*.log 2>/dev/null | head -n 1 | xargs -r tail -n "$n"
+    else
+      echo "No $logdir directory"
+    fi
+    ;;
+  serve)
+    host="${1:-127.0.0.1}"
+    port="${2:-8010}"
+    # Assumes your repo has the FastAPI entrypoint already wired (as per previous sessions).
+    # We keep this generic: if you have a make/runner, call it here.
+    if [[ -f "$REPO/scripts/run_api.sh" ]]; then
+      bash "$REPO/scripts/run_api.sh" "$host" "$port"
+    else
+      echo "No scripts/run_api.sh found. Start your API the usual way (uvicorn) then open: $BASE_URL/desk/ui"
+      exit 4
+    fi
+    ;;
+  ""|-h|--help|help)
+    usage
+    ;;
+  *)
+    echo "Unknown subcommand: $sub"
+    usage
+    exit 1
+    ;;
 esac

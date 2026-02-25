@@ -79,7 +79,7 @@ def desk_toolbox():
             <a class="pill" href="/desk/ui">/desk/ui</a>
             <a class="pill" href="/desk/health">/desk/health</a>
             <a class="pill" href="/desk/snapshot">/desk/snapshot</a>
-            <a class="pill" href="/desk/form">/desk/form</a> <a href="/desk/toolbox" style="margin-left:10px">toolbox</a>
+            <a class="pill" href="/desk/form">/desk/form</a>
             <a class="pill" href="/desk/toolbox">/desk/toolbox</a>
           </div>
         </div>

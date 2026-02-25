@@ -1,32 +1,39 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-cd "$ROOT"
+REPO="${REPO:-/opt/trading}"
+BASE_URL="${BASE_URL:-http://127.0.0.1:8010}"
 
-# shellcheck disable=SC1091
-source ./scripts/load_env.sh
-HOST="${HOST:-$TV_PERF_BASE_URL}"
+cd "$REPO" 2>/dev/null || true
 
-echo "=== Desk Pro menu ==="
-echo "BASE URL: $HOST"
+echo "=============================="
+echo "         DESK PRO MENU        "
+echo "=============================="
+echo "Repo: $REPO"
+echo "URL : $BASE_URL/desk/ui"
 echo
 echo "1) Sanity check"
-echo "2) Curl health"
-echo "3) Curl snapshot"
-echo "4) Post sample form (SR W/D)"
-echo "5) HTTP test"
-echo "6) Show module tree"
+echo "2) Show UI URL"
+echo "3) Health (GET /desk/health)"
+echo "4) Tail logs (last 200 lines)"
+echo "5) Install global shortcuts (sudo)"
 echo "q) Quit"
-read -r -p "> " choice
+echo
+read -rp "Choice: " c
 
-case "$choice" in
-  1) ./scripts/desk_pro_sanity.sh ;;
-  2) HOST="$HOST" ./scripts/desk_pro_cmd.sh health ;;
-  3) HOST="$HOST" ./scripts/desk_pro_cmd.sh snapshot ;;
-  4) HOST="$HOST" ./scripts/desk_pro_cmd.sh form-sample ;;
-  5) HOST="$HOST" ./scripts/desk_pro_http_test.sh ;;
-  6) ./scripts/desk_pro_cmd.sh tree ;;
+case "$c" in
+  1) bash "$REPO/scripts/sanity_desk_pro.sh" ;;
+  2) echo "$BASE_URL/desk/ui" ;;
+  3) cmd-desk_pro health || true ;;
+  4) cmd-desk_pro logs 200 || true ;;
+  5)
+     if [[ -f "$REPO/scripts/install_desk_pro_shortcuts.sh" ]]; then
+       sudo bash "$REPO/scripts/install_desk_pro_shortcuts.sh"
+     else
+       echo "Missing $REPO/scripts/install_desk_pro_shortcuts.sh"
+       exit 2
+     fi
+     ;;
   q|Q) exit 0 ;;
-  *) echo "unknown"; exit 1 ;;
+  *) echo "Invalid choice" ;;
 esac
