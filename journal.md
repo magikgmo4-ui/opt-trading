@@ -6020,3 +6020,175 @@ cd ~ && sync && sudo umount /mnt/usb
   - MSI lit/pull `events.jsonl` depuis student ou via endpoint, génère rapports, push vers `student:/opt/trading/drop/`.
 - Clarifier placement DB layer (Mongo/Timescale/ClickHouse) selon contraintes RAM/disque; éviter DB sur student.
 - Documenter et sauvegarder localement (Windows) le script/texte de restauration demandé (référence: `restore_student_config_v2.sh` + `RESTORE_STUDENT_CONFIG_V2.txt`) déjà regroupés sur la clé.
+
+## 2026-02-26 14:13 — note5
+1) Objectifs:
+- Faire fonctionner Fail2Ban sur Debian 12 sans `/var/log/auth.log` (journald/systemd backend).
+- Stabiliser les redémarrages (éviter l’erreur socket après restart).
+- Déployer un “module” de scripts (sanity/cmd/menu) via ZIP (MSI → admin-trading → student).
+- Ajouter hardening + sudoers ciblé NOPASSWD.
+- Ajouter le jail `recidive` + commandes associées.
+- Créer un menu “student” et un sanity system check (réseau/disque/LVM/services/ufw) sans blocage.
+
+2) Actions:
+- Diagnostic sur student: vérification OS, paquets, statut systemd, logs journald, présence socket `/run/fail2ban/fail2ban.sock`.
+- Installation/validation: `fail2ban` et `python3-systemd` présents; fail2ban fini par tourner; correction du jail `sshd` pour backend `systemd`.
+- Mise en évidence d’un problème récurrent de “race/timing” après `systemctl restart fail2ban`; ajout d’un “wait for socket” et usage explicite `-s /run/fail2ban/fail2ban.sock`.
+- Hardening Fail2Ban via `/etc/fail2ban/jail.d/00-defaults.local` (ignoreip LAN, findtime/maxretry/bantime, backend=systemd) et `/etc/fail2ban/jail.d/sshd.local`.
+- Vérification que sshd loggue dans journald (`journalctl -u ssh`), et que `fail2ban-client status sshd` fonctionne.
+- Déploiement via ZIP `fail2ban_module_v1.zip` (copie admin-trading → student, unzip, `install.sh`).
+- Patch post-install: `fail2ban_sanity_check.sh` devait utiliser `sudo fail2ban-client` (socket root-only).
+- Ajout sudoers NOPASSWD: d’abord `fail2ban-client`, puis extension à `systemctl restart/status fail2ban`; validation avec `visudo -cf`.
+- Patch `cmd-fail2ban` pour utiliser `/bin/systemctl` (chemin absolu) afin de matcher la règle sudoers.
+- Ajout `recidive`: création `/etc/fail2ban/jail.d/recidive.local`, puis validation via `cmd-fail2ban recidive` et liste des jails = `recidive, sshd`.
+- Création scripts “student” localement: `student_sanity_check.sh`, `student_cmd.sh`, `student_menu.sh`, et raccourcis `/usr/local/bin/cmd-student`, `/usr/local/bin/menu-student`.
+- Problèmes menu: “freeze” dû à prompts sudo invisibles (vgs/lvs/ufw); passage en `sudo -n ... || true`.
+- Un patch sed global a cassé le menu; réécriture complète de `student_menu.sh` avec pause “Press Enter”.
+- Clarification: lenteur perçue vient des actions (sanity), pas du “Enter”; ajout d’un menu “anti-plantage” (lecture via `/dev/tty`, affichage `[RUNNING]`/`[DONE]`).
+- Constat final: le blocage vient bien de `cmd-student sanity`/`student_sanity_check.sh`; décision de pousser sur Git pour audit.
+
+3) Décisions:
+- Debian 12: utiliser Fail2Ban avec `backend = systemd` (journald) car `/var/log/auth.log` absent.
+- Considérer l’erreur “Failed to access socket… après restart” comme un problème de timing → ajouter attente socket + `fail2ban-client -s`.
+- Déployer les scripts via ZIP (éviter heredocs trop longs qui cassent en terminal).
+- Garder socket root-only; utiliser `sudo` dans scripts plutôt que changer permissions socket.
+- Mettre sudoers NOPASSWD limité à commandes Fail2Ban (et ensuite inclure restart/status fail2ban).
+- Activer `recidive` (3 bans/24h → ban 7 jours).
+- Pour déboguer le freeze du sanity student: pousser les scripts sur Git + fournir logs (bash -x) au besoin.
+
+4) Commandes / Code:
+```bash
+# Override sshd jail (backend systemd)
+sudo mkdir -p /etc/fail2ban/jail.d
+sudo tee /etc/fail2ban/jail.d/sshd.local >/dev/null <<EOF
+[sshd]
+enabled = true
+backend = systemd
+EOF
+
+# Hardening global
+sudo tee /etc/fail2ban/jail.d/00-defaults.local >/dev/null <<EOF
+[DEFAULT]
+ignoreip = 127.0.0.1/8 ::1 192.168.16.0/24
+findtime = 10m
+maxretry = 5
+bantime  = 1h
+backend = systemd
+EOF
+
+# Wait socket + ping explicite
+for i in $(seq 1 20); do [ -S /run/fail2ban/fail2ban.sock ] && break; sleep 0.25; done
+sudo fail2ban-client -s /run/fail2ban/fail2ban.sock ping
+sudo fail2ban-client -s /run/fail2ban/fail2ban.sock status sshd
+
+# Déploiement ZIP fail2ban module
+scp ~/fail2ban_module_v1.zip student@192.168.16.103:/home/student/
+ssh -t student@192.168.16.103 '
+set -e
+cd ~
+rm -rf fail2ban_module_v1
+mkdir -p fail2ban_module_v1
+unzip -o fail2ban_module_v1.zip -d fail2ban_module_v1 >/dev/null
+cd fail2ban_module_v1
+chmod +x install.sh
+./install.sh
+'
+
+# Patch sanity: ajouter sudo devant fail2ban-client
+sudo sed -i "s/^fail2ban-client /sudo fail2ban-client /g" /opt/trading/scripts/fail2ban_sanity_check.sh
+
+# Sudoers NOPASSWD (version finale)
+sudo tee /etc/sudoers.d/fail2ban-nopasswd >/dev/null <<EOF
+student ALL=(root) NOPASSWD: /usr/bin/fail2ban-client, /bin/systemctl restart fail2ban, /bin/systemctl status fail2ban
+EOF
+sudo chmod 0440 /etc/sudoers.d/fail2ban-nopasswd
+sudo visudo -cf /etc/sudoers.d/fail2ban-nopasswd
+
+# Activer recidive
+sudo tee /etc/fail2ban/jail.d/recidive.local >/dev/null <<'EOF'
+[recidive]
+enabled = true
+backend = systemd
+findtime = 1d
+maxretry = 3
+bantime  = 7d
+EOF
+sudo /bin/systemctl restart fail2ban
+
+# cmd-fail2ban (version courte avec recidive + wait sock)
+sudo tee /opt/trading/scripts/fail2ban_cmd.sh >/dev/null <<'EOF'
+#!/usr/bin/env bash
+set -euo pipefail
+SOCK="/run/fail2ban/fail2ban.sock"
+w(){ for i in $(seq 1 40); do [ -S "$SOCK" ] && return 0; sleep 0.25; done; echo "no socket"; exit 1; }
+c(){ sudo /usr/bin/fail2ban-client -s "$SOCK" "$@"; }
+case "${1:-}" in
+  status)  w; c status | sed -n "1,120p"; echo; c status sshd ;;
+  restart) sudo /bin/systemctl restart fail2ban; w; /opt/trading/scripts/fail2ban_sanity_check.sh ;;
+  logs)    sudo journalctl -u fail2ban -b --no-pager -n 120 ;;
+  bans)    w; c status sshd | sed -n "1,220p" ;;
+  unban)   w; c set sshd unbanip "${2:?missing ip}"; c status sshd | sed -n "1,140p" ;;
+  recidive) w; c status recidive || true ;;
+  *) echo "usage: cmd-fail2ban {status|restart|logs|bans|unban IP|recidive}"; exit 2 ;;
+esac
+EOF
+sudo chmod +x /opt/trading/scripts/fail2ban_cmd.sh
+
+# Module menu student installé via student_menu_module_v1.zip
+ssh -t student@192.168.16.103 '
+set -e
+cd ~
+rm -rf student_menu_module_v1
+mkdir -p student_menu_module_v1
+unzip -o student_menu_module_v1.zip -d student_menu_module_v1 >/dev/null
+cd student_menu_module_v1
+chmod +x install.sh
+./install.sh
+'
+
+# Fix freeze menu: passer sudo -> sudo -n dans student sanity
+sudo sed -i 's/^sudo vgs /sudo -n vgs /' /opt/trading/scripts/student/student_sanity_check.sh
+sudo sed -i 's/^sudo lvs /sudo -n lvs /' /opt/trading/scripts/student/student_sanity_check.sh
+sudo sed -i 's/^sudo ufw /sudo -n ufw /' /opt/trading/scripts/student/student_sanity_check.sh
+
+# Réécriture student_menu.sh (pause "Press Enter")
+sudo tee /opt/trading/scripts/student/student_menu.sh >/dev/null <<'EOF'
+#!/usr/bin/env bash
+set -euo pipefail
+CMD="/opt/trading/scripts/student/student_cmd.sh"
+pause() { echo; read -r -p "Press Enter to return..." _; }
+while true; do
+  clear || true
+  echo "=== Student Menu ==="
+  echo "1) Student sanity check"
+  echo "2) SSH status"
+  echo "3) Fail2Ban status (sshd)"
+  echo "4) Fail2Ban logs"
+  echo "5) Fail2Ban restart + sanity"
+  echo "6) Recidive status"
+  echo "7) Recidive bans"
+  echo "8) Recidive unban IP"
+  echo "q) Quit"
+  echo
+  read -r -p "> " choice
+  case "$choice" in
+    1) "$CMD" sanity; pause ;;
+    2) "$CMD" ssh-status; pause ;;
+    3) "$CMD" fail2ban-status; pause ;;
+    4) "$CMD" fail2ban-logs; pause ;;
+    5) "$CMD" fail2ban-restart; pause ;;
+    6) "$CMD" recidive; pause ;;
+    7) "$CMD" recidive-bans; pause ;;
+    8) read -r -p "IP to unban (recidive): " ip; "$CMD" recidive-unban "$ip"; pause ;;
+    q|Q) exit 0 ;;
+    *) echo "Invalid choice"; sleep 1 ;;
+  esac
+done
+EOF
+sudo chmod +x /opt/trading/scripts/student/student_menu.sh
+```
+
+5) Points ouverts (next):
+- `cmd-student sanity`/`student_sanity_check.sh` bloque encore même après ajustements; identifier la commande fautive (proposé: `bash -x ...` + log).
+- Mettre les scripts “student” sur Git (repo + commit + éventuellement `sanity_debug.log`) puis fournir l’URL/chemins pour correction via diff.
+- Optionnel: ajouter commandes recidive supplémentaires (ex: `recidive-unban` côté `cmd-fail2ban` si requis) et harmoniser menus/scripts entre modules.
