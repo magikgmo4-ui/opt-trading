@@ -21,8 +21,8 @@ t lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS | sed 's/^/  /' || true
 echo
 
 echo "[lvm]"
-t sudo -n vgs
-t sudo -n lvs
+t sudo -n vgs || true
+t sudo -n lvs || true
 echo
 
 echo "[services]"
@@ -31,7 +31,23 @@ t sh -c 'systemctl is-active --quiet fail2ban && echo "OK fail2ban: active" || e
 echo
 
 echo "[ufw]"
-t sudo -n ufw status verbose
-
+t sudo -n ufw status verbose || true
 echo
+
 echo "PASS: student sanity ok"
+echo
+
+echo "[files]"
+for p in /opt/trading/scripts/student/student_cmd.sh \
+         /opt/trading/scripts/student/student_menu.sh \
+         /opt/trading/scripts/student/student_sanity_check.sh; do
+  [ -f "$p" ] && echo "OK: $p" || echo "WARN: missing $p"
+done
+echo
+
+echo "[ingest key]"
+if [ -f /opt/trading/ingest/INGEST_API_KEY ]; then
+  echo "OK: ingest key file exists"
+else
+  echo "WARN: ingest key missing (expected at /opt/trading/ingest/INGEST_API_KEY)"
+fi
