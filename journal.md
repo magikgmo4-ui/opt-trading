@@ -5806,3 +5806,217 @@ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
   - `/boot` ext4 non chiffrée
   - root/home (et swap si présent) dans LUKS/LVM
 - Implémenter le “pack journaling STUDENT” (structure `/opt/trading`, `events.jsonl`, `runlog`, `ingest`, watcher, services systemd) et définir emplacement du journal maître (OPS vs STUDENT).
+
+## 2026-02-26 11:39 — note3
+1) Objectifs:
+- Ajouter une 3e machine “STUDENT” (DeepSeek/agent) à l’architecture OPS/COMPUTE/STUDENT.
+- Mettre en place une journalisation “capture tout” (inputs, commandes, outputs, artefacts) via journal append-only + archivage + endpoint ingest HTTP.
+- Sécuriser l’accès (SSH clé-only, firewall) et prévoir backups (USB + copie Windows).
+- Préparer l’installation de DeepSeek sur le MSI (compute) et l’intégration avec student (hub).
+
+2) Actions:
+- Installation Debian 12 sur la 3e machine avec chiffrement + LVM (assisté chiffré + LVM) ; erreur initiale /boot chiffré → réinstallation en mode assisté chiffré+LVM résolvant /boot non chiffré.
+- 3e machine (student) mise en réseau LAN: `eno1 192.168.16.103/24`.
+- SSH installé/activé sur student et accès validé depuis Windows.
+- Swap augmenté:
+  - LV swap LVM de ~1G à 5G (limité par VFree ~4.66G).
+  - Ajout swapfile 8G → total swap 12G.
+- Installation module STUDENT via zip depuis Windows → sanity OK + service watchdrop actif.
+- Mise en place d’un endpoint HTTP ingest (FastAPI/uvicorn) en service systemd sur student (port 8020), tests local + Windows OK.
+- Ajout d’une clé API (header `X-API-Key`) pour sécuriser `/ingest`, rotation de la clé effectuée après exposition en clair.
+- Installation et configuration UFW sur student:
+  - Autoriser SSH 22.
+  - Autoriser 8020 uniquement depuis `192.168.16.0/24`.
+  - Deny 8020 global.
+  - Test Windows OK sur `/ingest/health`.
+- “Zip v2 apply” appliqué: sanity v2 OK; watchdrop + ingest actifs; `cmd-student ingest-test` OK (écriture events.jsonl).
+- Backups:
+  - Backup “install-only” sur clé USB vfat FAT16 label TRADING UUID `001B-9622`.
+  - Erreurs permissions rsync (vfat) → adaptation rsync `--no-owner --no-group` + exclusion venv.
+  - Erreurs I/O → `fsck.vfat -a` a réparé FAT.
+  - Backup “install-only” consolidé en un ZIP + SHA256, checksum OK; unmount corrigé (sortir de /mnt/usb).
+  - Copie ZIP+sha sur Windows Downloads, hash Windows = hash sha256 (OK).
+  - Backup “config v2” (zip + sha) créé et copié sur USB, checksum OK.
+  - Regroupement sur Windows dans `F:\STUDENT_BACKUP_BUNDLE_2026-02-25` contenant: zip config v2 + sha + script restore + doc.
+- Préparation connexion MSI:
+  - Scan LAN via ARP: IPs actives `.155` et `.179`.
+  - Identification: admin-trading = `192.168.16.155` (WiFi `wlo1`), donc MSI probable = `192.168.16.179`.
+  - Plan: SSH vers MSI depuis PowerShell puis collecte infos (hostnamectl/ip/free/df).
+
+3) Décisions:
+- Rôle final:
+  - student (3e machine Debian) = hub léger: journaling/ingest/archivage + services (watchdrop, ingest), pas de DB layer lourd.
+  - MSI (Ubuntu, 1TB, 12GB, NVIDIA) = compute/agent DeepSeek.
+  - admin-trading (Deb12 GNOME, 8GB, 240GB) = OPS/COMPUTE + UI.
+- DB layer: éviter sur student (8GB/256GB) ; Mongo plutôt sur MSI 1TB; Timescale/ClickHouse plutôt plus tard sur machine dédiée (RAM/SSD).
+- Sécurité: SSH clé-only (PasswordAuthentication no, PermitRootLogin no), UFW actif (8020 restreint au LAN).
+- Backup: pour l’instant “installation/config” seulement; éviter FAT16 fragile pour backups volumineux à long terme.
+
+4) Commandes / Code:
+```bash
+# Student (Debian) — infos clés
+ip -br a   # eno1 192.168.16.103/24
+
+# SSH install/verify
+sudo apt update
+sudo apt -y install openssh-server
+sudo systemctl enable --now ssh
+sudo systemctl status ssh --no-pager
+ss -lntp | grep ':22'
+
+# Swap LVM + swapfile
+sudo swapoff -a
+sudo lvextend -L 5G /dev/student-vg/swap_1
+sudo mkswap /dev/student-vg/swap_1
+sudo swapon -a
+
+sudo fallocate -l 8G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+free -h
+
+# SSH hardening (après clé OK)
+sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak.$(date +%F_%H%M)
+sudo sed -i 's/^[#[:space:]]*PasswordAuthentication.*/PasswordAuthentication no/' /etc/ssh/sshd_config
+sudo sed -i 's/^[#[:space:]]*PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config
+sudo sshd -t
+sudo systemctl restart ssh
+
+# Windows SSH config (~/.ssh/config)
+Host student
+  HostName 192.168.16.103
+  User student
+  IdentityFile ~/.ssh/id_ed25519
+  IdentitiesOnly yes
+
+Host admin-trading
+  HostName admin-trading
+  User ghost
+  IdentityFile ~/.ssh/id_ed25519
+  IdentitiesOnly yes
+
+# Student module zip install (dézip côté Debian)
+sudo apt -y install unzip
+unzip -o ~/student_module_pack.zip -d ~/student_pack
+cd ~/student_pack
+sudo bash ./scripts/install_student_module.sh
+sanity-student
+cmd-student status
+
+# Ingest FastAPI (service 8020)
+sudo apt -y install python3-venv
+python3 -m venv /opt/trading/ingest/venv
+/opt/trading/ingest/venv/bin/pip install --upgrade pip
+/opt/trading/ingest/venv/bin/pip install fastapi uvicorn
+
+cat > /opt/trading/ingest/app.py <<'EOF'
+from fastapi import FastAPI, Request, Header, HTTPException
+from datetime import datetime, timezone
+import json, os, socket
+APP = FastAPI()
+HOST = socket.gethostname()
+JSON_PATH = "/opt/trading/journal/events/events.jsonl"
+KEY_PATH = "/opt/trading/ingest/INGEST_API_KEY"
+def get_key() -> str:
+    with open(KEY_PATH, "r", encoding="utf-8") as f: return f.read().strip()
+def write_event(evt: dict):
+    os.makedirs(os.path.dirname(JSON_PATH), exist_ok=True)
+    with open(JSON_PATH, "a", encoding="utf-8") as f:
+        f.write(json.dumps(evt, ensure_ascii=False) + "\n")
+@APP.get("/ingest/health")
+def health(): return {"ok": True, "host": HOST}
+@APP.post("/ingest")
+async def ingest(req: Request, x_api_key: str | None = Header(default=None)):
+    if x_api_key is None or x_api_key != get_key():
+        raise HTTPException(status_code=401, detail="invalid api key")
+    payload = await req.json()
+    write_event({"ts": datetime.now(timezone.utc).isoformat(),"host": HOST,"type":"ingest","payload": payload})
+    return {"ok": True}
+EOF
+
+cat | sudo tee /etc/systemd/system/student-ingest.service >/dev/null <<'EOF'
+[Unit]
+Description=Student Ingest API (FastAPI)
+After=network.target
+[Service]
+Type=simple
+User=student
+WorkingDirectory=/opt/trading/ingest
+ExecStart=/opt/trading/ingest/venv/bin/uvicorn app:APP --host 0.0.0.0 --port 8020
+Restart=always
+RestartSec=2
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable --now student-ingest
+
+# API key generation/rotation
+openssl rand -hex 24 | sudo tee /opt/trading/ingest/INGEST_API_KEY >/dev/null
+sudo chown student:student /opt/trading/ingest/INGEST_API_KEY
+sudo chmod 600 /opt/trading/ingest/INGEST_API_KEY
+sudo systemctl restart student-ingest
+
+# Tests ingest (local)
+sudo apt -y install curl
+curl -s http://127.0.0.1:8020/ingest/health
+KEY="$(cat /opt/trading/ingest/INGEST_API_KEY)"
+curl -s -X POST http://127.0.0.1:8020/ingest -H "Content-Type: application/json" -H "X-API-Key: $KEY" -d '{"session":"init","note":"..."}'
+tail -n 1 /opt/trading/journal/events/events.jsonl
+
+# UFW rules
+sudo apt -y install ufw
+sudo ufw allow 22/tcp
+sudo ufw allow from 192.168.16.0/24 to any port 8020 proto tcp
+sudo ufw enable
+sudo ufw deny 8020/tcp
+sudo ufw status verbose
+```
+
+```powershell
+# Windows → test ingest with API key
+$k="COLLE_LA_CLE_ICI"
+curl -Method POST http://192.168.16.103:8020/ingest -ContentType "application/json" -Headers @{ "X-API-Key"=$k } -Body '{"session":"win","note":"api key ok"}'
+
+# Windows → copie zip(s) depuis student
+scp student@192.168.16.103:~/student_install_only_*.zip* $env:USERPROFILE\Downloads\
+Get-FileHash .\student_install_only_*.zip -Algorithm SHA256
+type .\student_install_only_*.zip.sha256
+
+# Bundle Windows → USB F:
+Copy-Item -Recurse -Force .\STUDENT_BACKUP_BUNDLE_2026-02-25 "F:\"
+```
+
+```bash
+# USB backup (install-only/config) — montage vfat + fsck
+sudo umount /mnt/usb 2>/dev/null || true
+sudo fsck.vfat -a /dev/sda
+sudo mount -t vfat -o rw,uid=$(id -u student),gid=$(id -g student),umask=022 /dev/sda /mnt/usb
+
+# zip config v2
+sudo apt -y install zip
+TS="$(date +%Y%m%d_%H%M%S)"
+OUT="$HOME/student_config_v2_$TS.zip"
+sudo zip -r "$OUT" \
+  /opt/trading/scripts \
+  /opt/trading/ingest/app.py \
+  /opt/trading/ingest/INGEST_API_KEY \
+  /opt/trading/journal/events/events.jsonl \
+  /etc/systemd/system/student-watchdrop.service \
+  /etc/systemd/system/student-ingest.service
+sha256sum "$OUT" | tee "$OUT.sha256"
+sudo cp -f "$OUT" "$OUT.sha256" /mnt/usb/
+cd /mnt/usb && sha256sum -c student_config_v2_*.sha256
+cd ~ && sync && sudo umount /mnt/usb
+```
+
+5) Points ouverts (next):
+- MSI (probable IP `192.168.16.179`) : valider SSH (installer openssh-server si nécessaire) puis fournir:
+  - `hostnamectl`, `ip -br a`, `free -h`, `df -h`.
+- Installer/configurer DeepSeek agent sur MSI (choix runtime non finalisé) et pipeline:
+  - MSI lit/pull `events.jsonl` depuis student ou via endpoint, génère rapports, push vers `student:/opt/trading/drop/`.
+- Clarifier placement DB layer (Mongo/Timescale/ClickHouse) selon contraintes RAM/disque; éviter DB sur student.
+- Documenter et sauvegarder localement (Windows) le script/texte de restauration demandé (référence: `restore_student_config_v2.sh` + `RESTORE_STUDENT_CONFIG_V2.txt`) déjà regroupés sur la clé.
