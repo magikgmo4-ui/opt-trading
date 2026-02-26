@@ -6192,3 +6192,243 @@ sudo chmod +x /opt/trading/scripts/student/student_menu.sh
 - `cmd-student sanity`/`student_sanity_check.sh` bloque encore même après ajustements; identifier la commande fautive (proposé: `bash -x ...` + log).
 - Mettre les scripts “student” sur Git (repo + commit + éventuellement `sanity_debug.log`) puis fournir l’URL/chemins pour correction via diff.
 - Optionnel: ajouter commandes recidive supplémentaires (ex: `recidive-unban` côté `cmd-fail2ban` si requis) et harmoniser menus/scripts entre modules.
+
+## 2026-02-26 14:16 — note6
+1) Objectifs:
+- Pousser “student” sur le repo Git avec une référence complète hors Git, sans infos sensibles.
+- Ajouter uniquement les scripts/menus “student” au repo (pas un sync complet du contenu /opt/trading).
+- Auditer ce qui a été push, puis corriger via un patch ZIP.
+
+2) Actions:
+- Création d’une archive “référence complète” sanitisée (excludes secrets) et validation anti-leak; suppression d’une archive corrompue (20 bytes).
+- Constat que `/opt/trading` n’était pas un repo Git (absence de `.git`).
+- Récupération de l’URL remote depuis `admin-trading`: `https://github.com/magikgmo4-ui/opt-trading.git`.
+- Tentative de clone avec placeholder `<URL_DU_REPO>` → échec, restauration depuis backup.
+- Reset/clean du repo pour revenir à un état propre et éviter les suppressions massives causées par `rsync --delete`.
+- Copie sélective depuis `/opt/trading.local_backup_20260226_110622` de scripts “student” et helpers (fail2ban/usb/etc.), exclusion explicite du fichier sensible `ingest/INGEST_API_KEY` via `.gitignore`.
+- Push effectué sur `main` vers GitHub (commit `8bb948f`).
+- Génération d’un bundle d’audit `student_audit_bundle_20260226_112821.tar.gz` (26K).
+- Transfert du bundle vers MSI Ubuntu: ajout de la clé SSH MSI dans `~/.ssh/authorized_keys` sur student puis `scp`.
+- Application d’un patch ZIP (`student_student_patch_20260226.zip`) sur student pour corriger des problèmes détectés; exécution de sanity checks.
+- Détection d’un bug de syntaxe dans `scripts/student/student_sanity_check.sh` après patch; hotfix appliqué via `sudo tee`, sanity check OK ensuite (WARN attendu sur clé ingest absente).
+
+3) Décisions:
+- Ne pas faire de “sync” global du repo; objectif limité à ajouter les éléments “student”.
+- Ne jamais pousser `ingest/INGEST_API_KEY` (secret) ni environnements `venv`; renforcer `.gitignore`.
+- Conserver une structure avec scripts “canoniques” sous `scripts/student/` + wrappers au besoin (corriger récursion).
+- Utiliser un patch ZIP pour corriger post-push, puis prévoir commit/push du hotfix pour ne pas perdre la correction.
+
+4) Commandes / Code:
+```bash
+# Archive de référence sanitisée (après correction du chemin exclude)
+mkdir -p ~/ref_student
+cat > ~/ref_student/ref_excludes.txt << 'EOF'
+# secrets / env
+.env
+.env.*
+**/.env
+**/*.key
+**/*.pem
+**/*.p12
+**/*.crt
+**/*token*
+**/*secret*
+**/*password*
+**/credentials*
+**/id_rsa*
+**/id_ed25519*
+**/authorized_keys
+# data / db / logs / tmp
+**/*.db
+**/*.sqlite*
+**/data/**
+**/logs/**
+**/tmp/**
+**/__pycache__/**
+**/.pytest_cache/**
+**/.mypy_cache/**
+**/.ruff_cache/**
+**/.venv/**
+**/venv/**
+**/node_modules/**
+**/.git/**
+EOF
+
+cd ~
+tar --exclude-from="$HOME/ref_student/ref_excludes.txt" \
+  -czf "ref_student_FULL_sanitized_$(date +%Y%m%d_%H%M%S).tar.gz" \
+  "$HOME/ref_student" /opt/trading
+
+# Sanity anti-leak sur l’archive
+tar -tzf ref_student_FULL_sanitized_20260226_105942.tar.gz \
+  | egrep -i '(^|/)\.env($|/)|id_rsa|id_ed25519|\.pem$|\.key$|credentials|token|secret|password|\.db$|/logs/|/tmp/' \
+  || echo "OK: rien de suspect"
+
+rm -f ref_student_FULL_sanitized_20260226_105845.tar.gz
+```
+
+```bash
+# Retour à l’état propre du repo après suppressions massives
+cd /opt/trading
+git reset --hard
+git clean -fd
+git status -sb
+```
+
+```bash
+# URL remote récupérée
+ssh ghost@admin-trading 'cd /opt/trading && git remote -v'
+# origin https://github.com/magikgmo4-ui/opt-trading.git (fetch/push)
+```
+
+```bash
+# Ajouts “student” depuis le backup (backup: /opt/trading.local_backup_20260226_110622)
+BACKUP="/opt/trading.local_backup_20260226_110622"
+cd /opt/trading
+mkdir -p scripts/student
+sudo rsync -a "$BACKUP/scripts/student/" scripts/student/
+
+for f in student_cmd.sh student_menu.sh student_sanity_check.sh install_student_shortcuts.sh \
+         usb_backup_student.sh usb_detect_mount.sh usb_mount_by_uuid.sh usb_verify_backup.sh \
+         fail2ban_cmd.sh fail2ban_menu.sh fail2ban_sanity_check.sh watch_drop.sh \
+         write_ingest_app.sh rotate_ingest_key.sh; do
+  test -f "$BACKUP/scripts/$f" && sudo rsync -a "$BACKUP/scripts/$f" scripts/
+done
+
+sudo chown -R student:student /opt/trading
+```
+
+```bash
+# .gitignore (ajouts clés)
+cat >> .gitignore << 'EOF'
+
+# --- student / ingest secrets ---
+ingest/INGEST_API_KEY
+ingest/venv/
+ingest/__pycache__/
+scripts/runlog
+
+# general secrets/env
+.env
+.env.*
+*API_KEY*
+*SECRET*
+*TOKEN*
+*PASSWORD*
+*.key
+*.pem
+EOF
+```
+
+```bash
+# Stage ciblé + scan
+git add \
+  scripts/student/ \
+  scripts/student_cmd.sh scripts/student_menu.sh scripts/student_sanity_check.sh \
+  scripts/install_student_shortcuts.sh \
+  scripts/usb_backup_student.sh scripts/usb_detect_mount.sh scripts/usb_mount_by_uuid.sh scripts/usb_verify_backup.sh \
+  scripts/fail2ban_cmd.sh scripts/fail2ban_menu.sh scripts/fail2ban_sanity_check.sh \
+  scripts/watch_drop.sh scripts/write_ingest_app.sh scripts/rotate_ingest_key.sh \
+  .gitignore
+
+git diff --cached | egrep -nEi "API[_-]?KEY|SECRET|TOKEN|PASSWORD|BEGIN (RSA|OPENSSH) PRIVATE KEY" || echo "OK: staged clean"
+```
+
+```bash
+# Push (HTTPS GitHub, demande Username + PAT)
+git push
+# -> main: 91103b0..8bb948f
+```
+
+```bash
+# Bundle d’audit (généré sur student)
+cd /opt/trading
+mkdir -p /tmp/student_audit
+OUT="/tmp/student_audit"
+git show --name-status --oneline -1 > "$OUT/01_last_commit_files.txt"
+cp -a scripts "$OUT/scripts"
+cp -a .gitignore "$OUT/.gitignore"
+git status -sb > "$OUT/02_git_status.txt"
+git log --oneline -n 30 > "$OUT/03_git_log_30.txt"
+git grep -nEI "API[_-]?KEY|SECRET|TOKEN|PASSWORD|BEGIN (RSA|OPENSSH) PRIVATE KEY" -- . ':!*.lock' > "$OUT/04_grep_secrets.txt" || true
+tar -czf "$HOME/student_audit_bundle_$(date +%Y%m%d_%H%M%S).tar.gz" -C /tmp student_audit
+ls -lh "$HOME"/student_audit_bundle_*.tar.gz | tail -n 1
+```
+
+```bash
+# Fix transfert MSI↔student: ajout clé MSI dans authorized_keys (sur student)
+cat >> ~/.ssh/authorized_keys << 'EOF'
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILvICBFDgYBdxQUfkpiqPE2NEFaZaHXbKoeFld+V0Lb5 msi-ubuntu
+EOF
+chmod 600 ~/.ssh/authorized_keys
+
+# Copie bundle vers MSI
+scp -i ~/.ssh/id_ed25519 student@192.168.16.103:/home/student/student_audit_bundle_20260226_112821.tar.gz .
+```
+
+```bash
+# Application patch zip sur student
+cd /opt/trading
+rm -rf /tmp/student_patch
+unzip -o /home/student/student_student_patch_20260226.zip -d /tmp/student_patch
+bash /tmp/student_patch/apply_student_patch.sh
+bash /tmp/student_patch/student_patch_sanity.sh
+/opt/trading/scripts/student/student_menu.sh
+```
+
+```bash
+# Hotfix: réécriture de scripts/student/student_sanity_check.sh (bug syntaxe)
+sudo tee /opt/trading/scripts/student/student_sanity_check.sh >/dev/null <<'EOF'
+#!/usr/bin/env bash
+set -euo pipefail
+t(){ timeout 3 "$@" 2>/dev/null || true; }
+echo "=== STUDENT Sanity Check ==="
+date -Is
+echo
+echo "[host]"
+t hostnamectl
+echo
+echo "[network]"
+t sh -c "ip -4 addr | grep -E 'inet ' | grep -v 127.0.0.1"
+t sh -c "ip -4 route | head -n 20"
+echo
+echo "[disk]"
+t lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS | sed 's/^/  /' || true
+echo
+echo "[lvm]"
+t sudo -n vgs || true
+t sudo -n lvs || true
+echo
+echo "[services]"
+t sh -c 'systemctl is-active --quiet ssh && echo "OK ssh: active" || echo "WARN ssh: not active"'
+t sh -c 'systemctl is-active --quiet fail2ban && echo "OK fail2ban: active" || echo "WARN fail2ban: not active"'
+echo
+echo "[ufw]"
+t sudo -n ufw status verbose || true
+echo
+echo "PASS: student sanity ok"
+echo
+echo "[files]"
+for p in /opt/trading/scripts/student/student_cmd.sh \
+         /opt/trading/scripts/student/student_menu.sh \
+         /opt/trading/scripts/student/student_sanity_check.sh; do
+  [ -f "$p" ] && echo "OK: $p" || echo "WARN: missing $p"
+done
+echo
+echo "[ingest key]"
+if [ -f /opt/trading/ingest/INGEST_API_KEY ]; then
+  echo "OK: ingest key file exists"
+else
+  echo "WARN: ingest key missing (expected at /opt/trading/ingest/INGEST_API_KEY)"
+fi
+EOF
+
+sudo chmod +x /opt/trading/scripts/student/student_sanity_check.sh
+/opt/trading/scripts/student/student_sanity_check.sh
+```
+
+5) Points ouverts (next):
+- Commit + push du hotfix `scripts/student/student_sanity_check.sh` (instructions données mais pas confirmé exécuté).
+- Installer les shortcuts via `sudo bash /opt/trading/scripts/install_student_shortcuts.sh` et valider `menu-student`.
+- Vérifier/normaliser définitivement les doublons wrappers vs canoniques (scripts à la racine `scripts/` vs `scripts/student/`) et s’assurer qu’il n’y a plus de récursion.
+- Vérifier `rotate_ingest_key.sh` / `write_ingest_app.sh` (ne pas afficher de clé; usage optionnel `--show` si applicable).
