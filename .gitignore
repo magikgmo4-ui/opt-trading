@@ -43,3 +43,19 @@ envs/
 !modules/env/
 !modules/env/__init__.py
 !modules/env/env.py
+
+# --- student / ingest secrets ---
+ingest/INGEST_API_KEY
+ingest/venv/
+ingest/__pycache__/
+scripts/runlog
+
+# general secrets/env
+.env
+.env.*
+*API_KEY*
+*SECRET*
+*TOKEN*
+*PASSWORD*
+*.key
+*.pem
