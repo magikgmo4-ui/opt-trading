@@ -6572,3 +6572,26 @@ curl -sS http://127.0.0.1:11434/api/generate -d '{"model":"deepseek-r1:1.5b","pr
 - Décider et livrer (plus tard) module Windows “botops” (headless/service/watchdog) strictement selon workflow (ZIP, sanity/cmd/menu/shortcuts, journal + @faire).
 - Confirmer/standardiser rsync “tout ce qu’on fait” vers student (modules + journaux) et politiques sur `.env` présent sur student.
 - Continuer uniformisation SSH (hosts/ssh_config sur toutes machines, y compris Windows) si objectif “ssh <hostname> partout” reste à terminer.
+
+## 2026-02-27 15:03 — note11
+1) Objectifs:
+- Estimer/comparer un lot de 3 serveurs Lenovo x3650 M5 dual Xeon E5-2620 v4.
+- Clarifier la compatibilité d’une barrette Samsung 4 Go DDR3L SO-DIMM avec ces serveurs.
+- Arrêter une stratégie pour le DB layer (base de données) de l’infra.
+
+2) Actions:
+- Compilation de références/prix approximatifs de serveurs Lenovo/IBM x3650 M5 d’occasion/remis à neuf et estimation d’une valeur pour un lot de 3.
+- Identification de la barrette mentionnée comme DDR3L SO-DIMM 204 broches et précision de non-compatibilité avec x3650 M5 (DDR4 ECC RDIMM/LRDIMM).
+- Proposition de critères techniques “minimum viable” pour un serveur DB dédié et options fournisseurs (OVH Eco/SYS-1, Hetzner, Contabo), ainsi qu’un plan de déploiement (sécurité, accès, backups, monitoring).
+
+3) Décisions:
+- Décision prise de louer un serveur dédié pour le DB layer, et de ne déployer la DB que lorsque les autres machines seront “set”/stabilisées et qu’il ne manquera plus que la DB pour finaliser.
+
+4) Commandes / Code:
+—  
+
+5) Points ouverts (next):
+- Confirmer la DB cible (Postgres/Timescale seulement vs ajout ClickHouse).
+- Estimer le volume initial (≤200 GB vs croissance rapide).
+- Choisir le fournisseur/datacenter au moment du “go db layer” (ex. Canada/Beauharnois vs alternatives).
+- Spécifier la config finale (RAM/NVMe/RAID) et dérouler le plan de déploiement.

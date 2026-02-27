@@ -1,0 +1,32 @@
+\
+# === reseau_ssh canonical config (Windows) ===
+# File: C:\Users\ghost\.ssh\config
+# Aliases: admin-trading, db-layer, student, cursor-ai
+
+Host *
+  ServerAliveInterval 30
+  ServerAliveCountMax 3
+  TCPKeepAlive yes
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_ed25519
+  IdentityFile ~/.ssh/id_ed25519_fantome
+
+Host admin-trading
+  HostName 192.168.16.155
+  User ghost
+  Port 22
+
+Host db-layer
+  HostName 192.168.16.179
+  User ghost
+  Port 22
+
+Host student
+  HostName 192.168.16.103
+  User student
+  Port 22
+
+Host cursor-ai
+  HostName 192.168.16.224
+  User ghost
+  Port 22
