@@ -6595,3 +6595,110 @@ curl -sS http://127.0.0.1:11434/api/generate -d '{"model":"deepseek-r1:1.5b","pr
 - Estimer le volume initial (≤200 GB vs croissance rapide).
 - Choisir le fournisseur/datacenter au moment du “go db layer” (ex. Canada/Beauharnois vs alternatives).
 - Spécifier la config finale (RAM/NVMe/RAID) et dérouler le plan de déploiement.
+
+## 2026-02-27 18:57 — note12
+1) Objectifs:
+- Mettre en place un workflow Cursor AI “gated” (GO/STOP à chaque étape) fidèle au proceed (petits pas, livrables vérifiables, rollback).
+- Ajouter une politique de backup obligatoire avant tout nouveau module/correction.
+- Livrer un module `workflow_ai` (ZIP/TGZ) avec scripts (menu/cmd/sanity/backup), templates (specs/tasks/db/api), prompts Cursor.
+- Déployer sur `admin-trading` (/opt/trading) + synchroniser via Git vers la machine Windows/Cursor.
+
+2) Actions:
+- Définition d’un workflow par Gates (0→5) + “Source de vérité” en Markdown + règles de scope via `@File/@Folder`.
+- Génération et transfert du module `workflow_ai` (ZIP) puis installation sur `admin-trading`.
+- Dépannage installation:
+  - Constat Windows vs Linux (chemins `/opt/trading`, absence de `unzip` sur Windows).
+  - Correction symlinks `/usr/local/bin/*workflow_ai` pointant vers `/opt/trading/workflow_ai/scripts`.
+  - Correction d’appels hardcodés `/usr/local/scripts/*` dans les scripts (menu/cmd), puis réécriture “robuste”.
+  - Backup manuel via `bash /opt/trading/workflow_ai/scripts/backup_before_change.sh ...` quand `cmd-workflow_ai backup` était cassé.
+  - Forensic sur wrappers/alias/cache shell; validation par exécution directe des scripts.
+- Création d’une archive `workflow_ai_for_fix.tgz` envoyée pour correction; réception d’un `workflow_ai_fixed.tgz` (chemins ancrés sur `/opt/trading/workflow_ai`), redéploiement et re-symlink.
+- Validation finale sur `admin-trading`: `PASS: workflow_ai sanity OK`.
+- Versionnement:
+  - Ajout `.gitignore` pour `*.tgz` et `*.zip`.
+  - Commit du module `workflow_ai`, tag `workflow_ai_v1.0`, push branch + tags vers GitHub.
+- Côté Windows (repo Cursor):
+  - Localisation du clone `C:\Users\ghost\opt-trading`.
+  - `git pull` OK; tag `workflow_ai_v1.0` confirmé via `Select-String`.
+- Application des règles dans Cursor via prompt:
+  - Cursor constate `.cursorrules` absent et propose création complète en Gate 0 + diff logique.
+  - Validation “tel quel” (GO) pour créer `.cursorrules`.
+
+3) Décisions:
+- Workflow “institutionnel light” retenu, compatible proceed, avec Gates et validations explicites GO/STOP.
+- Backup obligatoire avant tout nouveau module/correction; initialement “patch export ALWAYS”, commit au GO.
+- Contrôle strict:
+  - Interdiction de coder avant validation Gates 0–3.
+  - Interdiction de modifier des fichiers non référencés via `@`.
+  - Interdiction d’inventer API/DB hors `specs/tasks/db_schema/api_contract`.
+  - Livrables requis par incrément: fichiers, résumé diff, commandes, expected output, rollback.
+- Architecture 4 machines retenue (admin-trading/cursor-ai/db-layer/student) avec séparation des rôles.
+- Correction finale des scripts: abandon des ROOT instables; ancrage explicite sur `/opt/trading/workflow_ai` dans la version `workflow_ai_fixed.tgz`.
+- `.cursorrules` activé dans Cursor par création (fichier initial absent) validée “tel quel”.
+
+4) Commandes / Code:
+```powershell
+# Windows -> admin-trading
+scp C:\Users\ghost\Downloads\workflow_ai_module.zip ghost@192.168.16.155:/opt/trading/
+scp C:\Users\ghost\Downloads\workflow_ai_fixed.tgz ghost@192.168.16.155:/opt/trading/
+```
+
+```bash
+# admin-trading: unzip/install
+cd /opt/trading
+sudo apt install unzip -y
+unzip -o workflow_ai_module.zip
+
+# sanity + shortcuts
+bash workflow_ai/scripts/workflow_ai_sanity_check.sh
+sudo bash workflow_ai/scripts/install_workflow_ai_shortcuts.sh
+
+# dépannage: symlinks
+sudo ln -sf /opt/trading/workflow_ai/scripts/workflow_ai_menu.sh /usr/local/bin/menu-workflow_ai
+sudo ln -sf /opt/trading/workflow_ai/scripts/workflow_ai_cmd.sh  /usr/local/bin/cmd-workflow_ai
+sudo ln -sf /opt/trading/workflow_ai/scripts/workflow_ai_sanity_check.sh /usr/local/bin/sanity-workflow_ai
+
+# dépannage: rechercher/remplacer chemins hardcodés
+grep -n "/usr/local/scripts" /opt/trading/workflow_ai/scripts/workflow_ai_menu.sh || true
+sudo sed -i 's|/usr/local/scripts|/opt/trading/workflow_ai/scripts|g' /opt/trading/workflow_ai/scripts/workflow_ai_menu.sh
+sudo sed -i 's/\r$//' /opt/trading/workflow_ai/scripts/workflow_ai_menu.sh
+
+# backup direct (quand cmd-workflow_ai cassé)
+bash /opt/trading/workflow_ai/scripts/backup_before_change.sh "fix_workflow_ai_cmd_and_menu"
+
+# exécution directe cmd (bypass)
+bash /opt/trading/workflow_ai/scripts/workflow_ai_cmd.sh sanity
+bash /opt/trading/workflow_ai/scripts/workflow_ai_cmd.sh backup "fix_workflow_ai_menu"
+
+# création archive pour correction
+tar -czf workflow_ai_for_fix.tgz workflow_ai
+
+# déploiement version corrigée
+rm -rf workflow_ai
+tar -xzf workflow_ai_fixed.tgz
+
+# Git: ignorer archives + versionner module + tag + push
+echo "*.tgz" >> .gitignore
+echo "*.zip" >> .gitignore
+git add .gitignore
+git commit -m "chore: ignore archives (.tgz, .zip)"
+
+git add workflow_ai
+git commit -m "workflow_ai v1.0 - institutional light (stable, absolute path fix)"
+git tag -a workflow_ai_v1.0 -m "Stable workflow_ai institutional light"
+git push
+git push --tags
+```
+
+```powershell
+# Windows (repo Cursor)
+cd C:\Users\ghost\opt-trading
+git pull
+git tag | Select-String workflow_ai
+```
+
+5) Points ouverts (next):
+- Confirmer que `.cursorrules` est bien créé/appliqué dans Cursor après GO (et vérifier via “Explique moi les règles actives de ce repo”).
+- Envoyer/partager la “version finale” à Cursor (déjà via Git tag `workflow_ai_v1.0`; confirmer usage des prompts `workflow_ai/prompts/*` dans l’agent).
+- Décider du premier “vrai job sous ce régime” (module concret) et démarrer Gate 0.
+- Mettre “sur glace” l’idée d’un dossier commun de transfert via SSH (drop zone) pour future uniformisation LAN/hostname/VPN.
