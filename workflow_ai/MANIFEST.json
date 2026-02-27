@@ -1,0 +1,74 @@
+{
+  "generated_at": "2026-02-27 10:07:42",
+  "module": "workflow_ai",
+  "files": {
+    ".cursorrules": {
+      "sha256": "79c87e17e8fc3720bc5942aff5239b37d849e2a6af2f2040e72929fa670e7210",
+      "bytes": 1553
+    },
+    "WORKFLOW.md": {
+      "sha256": "694e6dca61bd4ee09cab041ec1ec05a0bdc8f2a14599efdbb1abb318efa8c8d4",
+      "bytes": 1241
+    },
+    "ROLLBACK.md": {
+      "sha256": "d75adc52e75f4867f2aefddabe24b810fc8c65066cb05ff04c557a80c8f001fd",
+      "bytes": 446
+    },
+    "CHANGELOG.md": {
+      "sha256": "28472b01770eb2516c955ed228c54c6e77c2d80ba092cc9ed671b677dd628840",
+      "bytes": 68
+    },
+    "templates/specs.md": {
+      "sha256": "66317673fe07b3a447722b6a0acf3241bc41824cdc877b27872f1942b352669d",
+      "bytes": 400
+    },
+    "templates/tasks.md": {
+      "sha256": "058d0e8dfd8b7edfc461d02459c93f6db2a7016c0410c9905f7b28cca1561d11",
+      "bytes": 676
+    },
+    "templates/db_schema.md": {
+      "sha256": "056e5bef66302a1a196cb1af9d36d0fd014bb6c0cebe296c8e544db3d33afef3",
+      "bytes": 224
+    },
+    "templates/api_contract.md": {
+      "sha256": "8d675c6661559bcea1a3230fffb5d0efed5afd1239b138709639e2d421d3d046",
+      "bytes": 192
+    },
+    "prompts/cursor_agent_gated.md": {
+      "sha256": "70e3f73e2ab1cfb11651201f3df5eb8aed4f819d3ee24c2a5c35ab661966834f",
+      "bytes": 808
+    },
+    "prompts/cursor_chat_blueprint.md": {
+      "sha256": "d05dc83744bcf919880bbd9776edb91def966904f2a643e9f1fb8bc2f66fa326",
+      "bytes": 312
+    },
+    "prompts/fix_this.md": {
+      "sha256": "35eb7a924014c88ef304248fe62c616a553aeabd76709c55d502e51fd0ec4d65",
+      "bytes": 270
+    },
+    "prompts/diff_review_checklist.md": {
+      "sha256": "e4ae070c565ae3876df2f3cb43952ebc60f6c6577cf040da1aeb58f2ffd60cf7",
+      "bytes": 381
+    },
+    "scripts/backup_before_change.sh": {
+      "sha256": "7deb9f8a727292a27fb8bd892691997283c8f036a773a0ea8773e6cd09b89b26",
+      "bytes": 1873
+    },
+    "scripts/workflow_ai_sanity_check.sh": {
+      "sha256": "ea8074e1bc945db6f09602d2b986c58b13fca9dfd4161f06cc82aa8125eb71bb",
+      "bytes": 1361
+    },
+    "scripts/workflow_ai_cmd.sh": {
+      "sha256": "aa0757c95444aac753f5317b4edeebb193d7e94b9dd94ef044b9a6c1f99c3539",
+      "bytes": 1053
+    },
+    "scripts/workflow_ai_menu.sh": {
+      "sha256": "e15039e2ca85025e7ba9688f9f9c3846035e0b6136ebb048f44bb5c15e361a08",
+      "bytes": 893
+    },
+    "scripts/install_workflow_ai_shortcuts.sh": {
+      "sha256": "4591f03362dffb5213c6fa25ca998a425d40353a2fae2d6558080bcbd9414087",
+      "bytes": 733
+    }
+  }
+}

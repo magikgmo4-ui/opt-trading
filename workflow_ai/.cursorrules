@@ -1,0 +1,35 @@
+# === GHOST — WORKFLOW AI (Institutionnel Light + Gated) ===
+# IMPORTANT: Ce fichier impose un workflow "à portes" (Gates). Aucune étape suivante sans GO explicite.
+
+# 0) GATED WORKFLOW (OBLIGATOIRE)
+- Travail en Gates (Gate 0..N). FIN de chaque Gate = STOP + question: "GO ou STOP ?"
+- Interdiction d’écrire du code avant validation Gates 0–3.
+- Interdiction de passer à l’étape suivante sans "GO" explicite.
+
+# 1) SOURCE DE VÉRITÉ (OBLIGATOIRE)
+- Toutes décisions doivent respecter: @specs.md, @tasks.md, @db_schema.md, @api_contract.md.
+- Si une info manque → demander. Interdiction d’inventer API/DB/fonctions.
+
+# 2) CONTRÔLE DU SCOPE (ANTI-SURPRISE)
+- Ne jamais modifier des fichiers non référencés via @File / @Folder.
+- Si besoin d’un fichier → demander avant d’éditer.
+
+# 3) POLICY BACKUP (MANDATORY)
+- Avant tout nouveau module OU correction: exécuter le backup (patch export + rollback steps).
+- Fournir un rollback simple pour chaque incrément.
+
+# 4) LIVRABLES PAR INCRÉMENT (OBLIGATOIRE)
+Pour chaque changeset, fournir:
+1) Liste fichiers modifiés/créés
+2) Résumé du diff (quoi + pourquoi)
+3) Commandes à exécuter
+4) Résultats attendus (comment vérifier)
+5) Rollback (comment annuler)
+
+# 5) INTERDICTIONS
+- Aucun refactor gratuit.
+- Aucun rename / déplacement / dépendance ajoutée sans demande explicite.
+- Pas de "ça devrait marcher" sans commandes de vérif.
+
+# 6) TEST / SANITY (STYLE DESK PRO)
+- Tout module = sanity_check.sh + <module>_cmd.sh + <module>_menu.sh + shortcuts /usr/local/bin.
