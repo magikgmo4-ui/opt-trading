@@ -6432,3 +6432,143 @@ sudo chmod +x /opt/trading/scripts/student/student_sanity_check.sh
 - Installer les shortcuts via `sudo bash /opt/trading/scripts/install_student_shortcuts.sh` et valider `menu-student`.
 - Vérifier/normaliser définitivement les doublons wrappers vs canoniques (scripts à la racine `scripts/` vs `scripts/student/`) et s’assurer qu’il n’y a plus de récursion.
 - Vérifier `rotate_ingest_key.sh` / `write_ingest_app.sh` (ne pas afficher de clé; usage optionnel `--show` si applicable).
+
+## 2026-02-27 02:43 — note8
+1) Objectifs:
+- Rendre les UI Desk/Perf/Toolbox accessibles depuis MSI + Windows (via admin-trading:8010).
+- Stabiliser les règles firewall (UFW) sur admin-trading pour l’accès LAN + WireGuard.
+- Intégrer la machine student (192.168.16.103) : SSH par clés, hardening (ufw/fail2ban), standards pack + menus.
+- Mettre en place infra-context (repo dédié + snapshots sanitisés 4 machines + autofill fiches + ZIP Cursor).
+- Mettre en place un registre d’événements sur student (push module + log NDJSON).
+- Démarrer un LLM local sur student (Ollama + deepseek-r1:1.5b) et structurer modules thinking/response + menus.
+- Déployer un bot Telegram Vision sur Windows (analyse sur demande + resize) et clarifier la facturation API.
+
+2) Actions:
+- Diagnostic accès UI: admin-trading écoute sur `0.0.0.0:8010`, IP LAN `192.168.16.155`; GET `/perf/ui` OK; HEAD retourne 405 (normal).
+- Troubleshooting MSI→admin-trading: tests `curl/nc`, routes, `tcpdump` : SYN vus depuis MSI, pas de réponse → blocage UFW sur admin-trading.
+- Correction UFW admin-trading: ajout règles 8010 pour MSI (LAN/WG), puis remplacement par règle LAN /24 et nettoyage règles redondantes; conservation WG rule.
+- Validation: Desk UI / Perf UI / Desk toolbox OK sur MSI + Windows.
+- Intégration student:
+  - Ping OK, SSH initial refusé (publickey), activation temporaire password auth / ajout clé → `OK_SSH_KEY`.
+  - Install outils + hardening via session interactive (`ufw`, `fail2ban`, etc.), création `/opt/trading`.
+  - Nettoyage UFW student: suppression règles 8020 (IPv4), reste une règle 8020 IPv6 DENY observée plus tard.
+  - Standards pack student installé via ZIP (transfert MSI→admin-trading→student) ; correction de chemin d’extraction ; sanity OK mais fail2ban/ufw incohérents → correctifs.
+  - Fail2ban: crash car `auth.log` absent; bascule backend systemd (journald), ajout wait-socket après restart; jail `sshd` actif; ajout preset `ignoreip` LAN + bantime/findtime; ajout scripts sanity/cmd/menu fail2ban via module ZIP; patch sudo dans sanity; ajout sudoers NOPASSWD limité (fail2ban-client + systemctl restart/status fail2ban) + patch script pour `/bin/systemctl`.
+  - Recidive: activation jail `recidive` + ajout commande `cmd-fail2ban recidive`; correction “socket missing” par wait; fix tentative sed cassée en remplaçant cmd.
+  - Menu student: corrections multiples (blocages sudo), passage `sudo -n`, réécriture menu stable; sanity rendu non-bloquant (timeouts/patchs).
+- Git / audit:
+  - Archive sanitisée de référence student créée (`ref_student_FULL_sanitized_...tar.gz`) + vérif anti-leak OK.
+  - Repo `/opt/trading` sur student: `.git` absent → clone du repo `https://github.com/magikgmo4-ui/opt-trading.git`, puis ajout uniquement scripts student/fail2ban/usb + `.gitignore` (exclusion `ingest/INGEST_API_KEY`); push effectué.
+  - Création bundle audit `student_audit_bundle_...tar.gz` → transfert via authorized_keys MSI→student→MSI; upload et analyse.
+  - Patch “student_student_patch_20260226.zip” appliqué: suppression `\` avant shebang, correction wrappers, correction `rotate_ingest_key.sh` (ne pas afficher clé), correction `install_student_shortcuts.sh` (runlog optionnel). Hotfix ensuite sur `student_sanity_check.sh` (erreur syntaxe) + commit/push recommandé.
+- Infra-context:
+  - Création repo `~/infra-context` sur admin-trading; module infra_context installé (menu/cmd/sanity), shortcuts `menu-infra_context`/`cmd-infra_context`.
+  - Snapshots sanitisés générés/committés: admin-trading (redaction ngrok→`<REDACTED_TUNNEL>`), student, db-layer (192.168.16.179), cursor-ai (Windows).
+  - `zip` manquant sur admin-trading → installation; export ZIP final; transfert vers Windows + student.
+  - Autofill des fiches (roles/reseau/fiche_machine) via patch ZIP + runner; commit; regen ZIP final; extraction Windows corrigée (snapshot cursor-ai manquant car extraction incomplète).
+- SSH uniformisé:
+  - Clé centrale `~/.ssh/id_ed25519` sur admin-trading confirmée; `ssh-copy-id` vers db-layer OK, student déjà OK.
+  - Student: hostname fixé, NetworkManager actif; passage IP statique via `nmcli` (manual, 192.168.16.103/24, gw 192.168.16.1, DNS 1.1.1.1/8.8.8.8, IPv6 disabled).
+  - Alias `ssh student` sans mot de passe validé depuis admin-trading (user student).
+  - Création `/opt/trading` sur student via `ssh -t` + sudo; venv déjà présent (`/opt/trading/.venv` Python 3.11.2).
+- Registre student:
+  - Création structure `_student_archive` (events/modules/snapshots).
+  - Scripts admin-trading: `push_module_to_student.sh`, `log_event_to_student.sh`, `push_and_log.sh`.
+  - Test: sync module desk_pro + log NDJSON OK (tail events).
+- Ollama / DeepSeek:
+  - Installation Ollama sur student (CPU-only); modèle `deepseek-r1:1.5b` pull OK.
+  - `ollama run` via SSH perçu comme figé; bascule recommandée vers API `127.0.0.1:11434/api/generate`.
+  - Besoin séparé: thinking vs response (indépendants). Création modules:
+    - `deepseek_thinking`: sanity + `cmd-deepseek_thinking run` → écrit `/opt/trading/_student_archive/thinking/thinking_*.md`.
+    - `deepseek_response`: sanity; (cmd response en cours/à compléter + menus demandés).
+  - Déploiement menus thinking/response via ZIP depuis MSI→admin-trading→student; tests PASS PASS; ajout souhaité menu global + roadmap par module (démarré, non finalisé).
+- Bot Telegram Vision (Windows):
+  - Installation libs + problèmes Python 3.14 event loop; corrections successives; quotas API: “quota exceeded” malgré abonnement ChatGPT (API = facturation séparée).
+  - Bot confirmé fonctionnel (analyse manuelle OK); choix: analyse sur demande + redimensionnement automatique (Pillow).
+  - Problème: images “pas envoyées directement” non mémorisées → patch proposé (capturer documents sans mime_type, extension-based, optional stickers).
+  - Autostart/service/headless/watchdog demandés puis mis en backlog (workflow strict demandé: module + journal + @faire, pas d’exécution immédiate).
+
+3) Décisions:
+- UI servies par admin-trading; student non impliqué pour l’accès UI.
+- UFW admin-trading: autoriser `8010/tcp` depuis `192.168.16.0/24` + conserver `8010/tcp on wg0` ; suppression règles spécifiques MSI/10.8.0.2.
+- student: firewall “SSH only”, fail2ban sur journald (backend systemd) + ignoreip LAN; ajout recidive.
+- Standardisation transfert modules: MSI→admin-trading→student si clé absente; sinon ajout clé MSI à `authorized_keys`.
+- infra-context: repo dédié + snapshots sanitisés + autofill fiches + ZIP final distribué à Windows et student.
+- Student devient registre central (archive + events NDJSON + modules sync) via scripts push_and_log.
+- DeepSeek/Ollama: utiliser API HTTP plutôt que `ollama run` pour éviter blocage SSH; séparer thinking/response en modules indépendants.
+- Bot Telegram: analyser sur demande; redimensionnement auto; éviter d’exposer clés (rotation si fuite); rappeler API billing séparé de ChatGPT.
+
+4) Commandes / Code:
+```bash
+# Vérifs UI (admin-trading)
+ip -4 addr | grep -E 'inet ' | grep -v 127.0.0.1
+ss -lntp | grep :8010
+curl -sS http://192.168.16.155:8010/perf/ui | head
+
+# UFW admin-trading (état final)
+sudo ufw status numbered
+# gardé:
+# [4] 8010/tcp on wg0 ALLOW IN Anywhere
+# [5] 8010/tcp ALLOW IN 192.168.16.0/24
+
+# Diagnostic réseau MSI→admin-trading
+curl -v --max-time 5 http://192.168.16.155:8010/perf/ui -o /dev/null
+sudo tcpdump -ni any 'tcp port 8010 and (host 192.168.16.179 or host 10.8.0.2)'
+
+# Fail2ban student (journald) - override
+sudo tee /etc/fail2ban/jail.d/sshd.local >/dev/null <<'EOF'
+[sshd]
+enabled = true
+backend = systemd
+EOF
+
+# Wait socket (anti race)
+for i in $(seq 1 20); do [ -S /run/fail2ban/fail2ban.sock ] && break; sleep 0.25; done
+
+# Sudoers fail2ban
+sudo tee /etc/sudoers.d/fail2ban-nopasswd >/dev/null <<'EOF'
+student ALL=(root) NOPASSWD: /usr/bin/fail2ban-client, /bin/systemctl restart fail2ban, /bin/systemctl status fail2ban
+EOF
+sudo chmod 0440 /etc/sudoers.d/fail2ban-nopasswd
+sudo visudo -cf /etc/sudoers.d/fail2ban-nopasswd
+
+# Recidive jail (student)
+sudo tee /etc/fail2ban/jail.d/recidive.local >/dev/null <<'EOF'
+[recidive]
+enabled = true
+backend = systemd
+findtime = 1d
+maxretry = 3
+bantime  = 7d
+EOF
+sudo /bin/systemctl restart fail2ban
+
+# infra-context (admin-trading)
+cmd-infra_context snap-linux admin-trading
+cmd-infra_context grep-secrets
+cmd-infra_context zip
+
+# Student IP statique via NetworkManager
+CONN="Wired connection 1"
+sudo nmcli con mod "$CONN" ipv4.method manual
+sudo nmcli con mod "$CONN" ipv4.addresses "192.168.16.103/24"
+sudo nmcli con mod "$CONN" ipv4.gateway "192.168.16.1"
+sudo nmcli con mod "$CONN" ipv4.dns "1.1.1.1 8.8.8.8"
+sudo nmcli con mod "$CONN" ipv6.method disabled
+
+# Student archive pipeline (admin-trading)
+ /opt/trading/scripts/push_and_log.sh desk_pro "Test pipeline" "First test: push module + log event to student registry"
+ssh student 'tail -n 3 /opt/trading/_student_archive/events/events.ndjson'
+
+# Ollama student
+curl -sS http://127.0.0.1:11434/api/tags | head
+curl -sS http://127.0.0.1:11434/api/generate -d '{"model":"deepseek-r1:1.5b","prompt":"Dis seulement: OK","stream":false}'
+```
+
+5) Points ouverts (next):
+- Finaliser les menus/commandes “par module” pour DeepSeek (roadmap response/thinking filtrée par `module` dans events.ndjson) en respectant workflow “ZIP + étapes courtes”.
+- Clarifier/implémenter le menu global deepseek (thinking/response + tails + run) si pas déjà stable.
+- Corriger côté bot Telegram: mémorisation des images transférées/partagées (documents sans mime_type, extension-based) + filtre handler élargi.
+- Décider et livrer (plus tard) module Windows “botops” (headless/service/watchdog) strictement selon workflow (ZIP, sanity/cmd/menu/shortcuts, journal + @faire).
+- Confirmer/standardiser rsync “tout ce qu’on fait” vers student (modules + journaux) et politiques sur `.env` présent sur student.
+- Continuer uniformisation SSH (hosts/ssh_config sur toutes machines, y compris Windows) si objectif “ssh <hostname> partout” reste à terminer.
