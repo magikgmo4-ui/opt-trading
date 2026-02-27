@@ -45,3 +45,7 @@ envs/
 !modules/env/env.py
 *.tgz
 *.zip
+
+# runtime data (generated)
+/data/
+**/data/
