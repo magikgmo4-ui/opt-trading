@@ -43,3 +43,5 @@ envs/
 !modules/env/
 !modules/env/__init__.py
 !modules/env/env.py
+*.tgz
+*.zip
