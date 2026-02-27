@@ -1,0 +1,41 @@
+\
+# ~/.ssh/config (template) — same file on every Linux host
+# Replace XXX with real IPs, and adjust users if needed.
+# Keep hostnames UNIQUE on the network. Use these Host aliases for convenience.
+
+Host admin-trading
+  HostName 192.168.16.XXX
+  User ghost
+  Port 22
+  IdentityFile ~/.ssh/id_ed25519
+  IdentitiesOnly yes
+  ServerAliveInterval 30
+  ServerAliveCountMax 3
+
+Host student
+  HostName 192.168.16.103
+  User student
+  Port 22
+  IdentityFile ~/.ssh/id_ed25519
+  IdentitiesOnly yes
+  ServerAliveInterval 30
+  ServerAliveCountMax 3
+
+Host msi
+  HostName 192.168.16.179
+  User ghost
+  Port 22
+  IdentityFile ~/.ssh/id_ed25519
+  IdentitiesOnly yes
+  ServerAliveInterval 30
+  ServerAliveCountMax 3
+
+# Windows OpenSSH server (optional)
+Host win
+  HostName 192.168.16.XXX
+  User ghost
+  Port 22
+  IdentityFile ~/.ssh/id_ed25519
+  IdentitiesOnly yes
+  ServerAliveInterval 30
+  ServerAliveCountMax 3

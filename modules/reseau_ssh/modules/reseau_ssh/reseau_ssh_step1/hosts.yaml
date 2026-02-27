@@ -1,0 +1,32 @@
+machines:
+  - id: admin-trading
+    hostname: admin-trading
+    ssh_alias: admin-trading
+    user: ghost
+    lan_ip: 192.168.16.155
+    role: "server/orchestrator"
+    os: linux
+
+  - id: student
+    hostname: student
+    ssh_alias: student
+    user: student
+    lan_ip: 192.168.16.103
+    role: "compute/student"
+    os: linux
+
+  - id: msi
+    hostname: msi
+    ssh_alias: msi
+    user: ghost
+    lan_ip: 192.168.16.179
+    role: "desktop/ops"
+    os: linux
+
+  - id: win
+    hostname: win-trading
+    ssh_alias: win
+    user: ghost
+    lan_ip: 192.168.16.224
+    role: "windows/tradingview+sharex"
+    os: windows
