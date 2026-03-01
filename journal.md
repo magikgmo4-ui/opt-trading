@@ -7098,3 +7098,141 @@ MD
   
 5) Points ouverts (next):
 - Choisir le module à exécuter maintenant (ex: `go network` ou `desk pro`) pour produire un Gate 0 correspondant.
+
+## 2026-03-01 16:07 — note21
+1) Objectifs:
+- Débugger l’accès aux UIs Desk Pro / Toolbox / Perf (ports/paths) et valider l’accès depuis db-layer (MSI Ubuntu).
+- Stabiliser le workflow (étapes 1 par 1, journal + commit/push).
+- Uniformiser l’accès réseau/SSH entre 4 machines (admin-trading, db-layer/MSI Ubuntu, student, cursor-ai/Dell Windows), puis déployer un VPN WireGuard mgmt + règles firewall.
+- Préparer des travaux futurs (SimEx MVP, Bot Vision), mais priorité donnée au module réseau.
+
+2) Actions:
+- Diagnostic UI sur admin-trading:
+  - Ports actifs: :8000 (tv-webhook) et :8010 (tv-perf).
+  - Perf UI répond 200 sur :8010/perf/ui; Desk UI 200 sur :8010/desk/ui; Toolbox UI 200 sur :8010/desk/toolbox.
+  - tv-webhook :8000 sert /docs mais /ui et /toolbox/ui = 404.
+  - OpenAPI :8010 expose routes /desk/* et /perf/*.
+  - UFW: ajout rules allow 8010/tcp et 8000/tcp.
+- Accès depuis db-layer:
+  - admin-trading pas joignable en LAN (interface enp0s25 DOWN), usage wg-mgmt (10.66.66.1).
+  - curl HEAD (-I) retourne 405 (GET only); GET retourne 200/200/200 sur /perf/ui /desk/ui /desk/toolbox via 10.66.66.1:8010.
+- Crash-loop tv-bitget-runner observé: TV_WEBHOOK_KEY missing in env (auto-restart massif).
+- Repo /opt/trading:
+  - Ajout doc UI_URLS.md + commits/push.
+  - Ajout scripts/ui_debug + step logs + nettoyage repo (plusieurs commits/push).
+  - Utilisation de cmd-post_change workflow pour log+commit+push en une étape; note d’un fichier placeholder `journal/steps/step_xxx.md` ajouté.
+- Déploiement module reseau_ssh:
+  - Step 1: inventaire hosts.yaml + sanity OK (IPs LAN: admin-trading 192.168.16.155, db-layer 192.168.16.179, student 192.168.16.103, cursor-ai 192.168.16.224).
+  - Step 1b patch: application /etc/hosts + ~/.ssh/config + raccourcis sur admin-trading, student, db-layer; changement hostname db-layer.
+  - Mise en place clés SSH bidirectionnelles; correction mismatch de clés (id_ed25519 vs id_ed25519_fantome); correction Windows OpenSSH Server + firewall 22; correction ACL authorized_keys (SIDs) + usage administrators_authorized_keys.
+  - SSH passwordless validé dans les 2 sens (Windows↔Linux et Linux→Windows via ProgramData administrators_authorized_keys).
+- WireGuard Step 2 (wg-mgmt 10.66.66.0/24, port 51821) sans toucher wg0 existant (10.8.0.0/24):
+  - Installation step2 patch + step2b (wg-mgmt).
+  - Résolution erreurs: scripts non exécutables (chmod +x), dépendance PyYAML manquante (python3-yaml), clé publique Windows WireGuard mal copiée (1 char différent) empêchant wg-quick.
+  - wg-mgmt up sur admin-trading (10.66.66.1), db-layer (10.66.66.2), student (10.66.66.3), cursor-ai (10.66.66.4). Handshakes OK.
+  - Forward UFW manquant sur hub: ajout règle `ufw route allow ...` pour TCP/22 sur wg-mgmt; après cela Windows peut SSH vers db-layer/student via 10.66.66.x.
+  - Mise à jour ~/.ssh/config Windows pour préférer HostName 10.66.66.x.
+- Décision de reprendre la suite réseau plus tard via trigger “go network” (nouvelle session).
+
+3) Décisions:
+- “Source of truth” UIs: service tv-perf sur :8010 avec paths /perf/ui, /desk/ui, /desk/toolbox (8501 non utilisé; :8000 = tv-webhook docs).
+- Accès client via wg-mgmt (10.66.66.1:8010) validé depuis db-layer; 405 sur HEAD accepté (GET only).
+- Nommage canon machines: admin-trading / db-layer (MSI Ubuntu) / student / cursor-ai (Dell Windows).
+- Déployer WireGuard mgmt sur interface wg-mgmt (10.66.66.0/24) pour éviter collision avec wg0 existant (10.8.0.0/24).
+- Autoriser le forward SSH (TCP/22) sur wg-mgmt via UFW sur admin-trading (hub).
+- Continuer le hardening réseau dans une nouvelle session via “go network”.
+
+4) Commandes / Code:
+```bash
+# UI: ports/services/routes
+ss -ltnp | egrep -i "8000|8010|uvicorn|python" || true
+sudo ss -ltnp | egrep ":8000|:8010" || true
+systemctl list-units --type=service --no-pager | egrep -i "desk|toolbox|perf|tv-|uvicorn|fastapi|nginx|caddy" || true
+curl -sS -i http://127.0.0.1:8010/perf/ui | head -n 30
+curl -sS -i http://127.0.0.1:8010/perf/summary | head -n 30
+curl -sS -i http://127.0.0.1:8010/desk/ui | head -n 15
+curl -sS -i http://127.0.0.1:8010/desk/toolbox | head -n 15
+
+python - <<'PY'
+import json, urllib.request
+def show(url):
+    print("\n===", url, "===")
+    data = json.load(urllib.request.urlopen(url, timeout=3))
+    paths = sorted(data.get("paths", {}).keys())
+    for p in paths:
+        if any(k in p.lower() for k in ["ui","desk","toolbox","perf"]):
+            print(p)
+    print(f"(total paths: {len(paths)})")
+show("http://127.0.0.1:8000/openapi.json")
+show("http://127.0.0.1:8010/openapi.json")
+PY
+
+journalctl -u tv-bitget-runner -n 120 --no-pager
+sudo ufw status numbered | egrep "8010|8000" || true
+sudo ufw allow 8010/tcp comment "tv-perf UI" || true
+sudo ufw allow 8000/tcp comment "tv-webhook" || true
+
+# db-layer: accès via wg-mgmt
+curl -sS -I "http://10.66.66.1:8010/perf/ui" | head -n 5   # 405 attendu sur HEAD
+curl -sS -o /dev/null -w "%{http_code}\n" "http://10.66.66.1:8010/perf/ui"
+curl -sS -o /dev/null -w "%{http_code}\n" "http://10.66.66.1:8010/desk/ui"
+curl -sS -o /dev/null -w "%{http_code}\n" "http://10.66.66.1:8010/desk/toolbox"
+
+# Git/doc UI
+cat > UI_URLS.md <<'MD'
+# UI URLs — Source of Truth
+## Access from db-layer / MSI (wg-mgmt)
+- Perf UI: http://10.66.66.1:8010/perf/ui
+- Desk Pro UI: http://10.66.66.1:8010/desk/ui
+- Desk Pro Toolbox UI: http://10.66.66.1:8010/desk/toolbox
+## Notes
+- curl -I (HEAD) may return 405; use GET
+- Port 8000 is tv-webhook docs, not UI host
+- Port 8501 is not used
+MD
+git add UI_URLS.md
+git commit -m "docs(ui): add source-of-truth URLs for Desk/Toolbox/Perf UIs"
+git push
+
+# Repo logs/module debug
+git add journal/steps/step_20260301_*.md scripts/ui_debug/
+git commit -m "chore(debug+journal): add ui_debug module and 2026-03-01 step logs"
+git push
+
+# reseau_ssh Step1 sanity
+ipconfig | findstr /R "IPv4"
+ip -4 addr | grep -E "inet 192\.168\.16\."
+grep -n "lan_ip" .../reseau_ssh_step1/hosts.yaml
+./scripts/sanity_check_reseau_ssh.sh
+
+# reseau_ssh Step1b apply
+./scripts/reseau_ssh_cmd.sh dry-run
+./scripts/reseau_ssh_cmd.sh apply
+./scripts/reseau_ssh_cmd.sh sanity
+./scripts/install_shortcuts_linux.sh
+./scripts/reseau_ssh_cmd.sh hostname db-layer
+
+# WireGuard wg-mgmt
+sudo systemctl enable --now wg-quick@wg-mgmt
+sudo wg show wg-mgmt
+
+# Fix Windows peer key mismatch in /etc/wireguard/wg-mgmt.conf (corriger DRJllI= -> DRJLlI=)
+sudo sed -i '/# cursor-ai (Windows)/,/AllowedIPs = 10\.66\.66\.4\/32/ s/^PublicKey = .*/PublicKey = +Ld6L+MSnviDhYRoawnoZH40duOg\/8YBsMk+xDRJLlI=/' /etc/wireguard/wg-mgmt.conf
+sudo systemctl restart wg-quick@wg-mgmt
+
+# UFW forward TCP/22 sur wg-mgmt (hub)
+sudo ufw route allow in on wg-mgmt out on wg-mgmt to any port 22 proto tcp
+sudo ufw status numbered
+
+# Windows checks
+$wg = "$env:ProgramFiles\WireGuard\wg.exe"; & $wg show cursor-ai
+Test-NetConnection 10.66.66.2 -Port 22
+Test-NetConnection 10.66.66.3 -Port 22
+```
+
+5) Points ouverts (next):
+- “go network” (nouvelle session): continuer hardening firewall (LAN vs wg-mgmt), finaliser règles UFW (db-layer UFW inactif), standardiser configs SSH (10.66.66.x pour db-layer/student), et commit/push des corrections scripts Windows (warnings/robustesse).
+- Corriger/traiter `journal/steps/step_xxx.md` (placeholder) si non désiré.
+- Traiter tv-bitget-runner crash-loop (TV_WEBHOOK_KEY missing in env) dans une étape dédiée.
+- Bot Vision: conservé pour plus tard (ShareX + module pull/push), déclencheur “go vision bot”.
+- SimEx MVP: analyser l’état git existant avant migration/placement (MSI vs admin-trading), décision non finalisée dans cette session.
