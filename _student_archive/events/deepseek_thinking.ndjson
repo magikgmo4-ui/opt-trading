@@ -1,2 +1,0 @@
-{"ts":"2026-02-26T18:06:24-05:00","from_host":"admin-trading","from_user":"ghost","module":"deepseek_thinking","title":"Create module + sanity","message":"Created deepseek_thinking module scripts + sanity shortcut"}
-{"ts":"2026-02-26T18:11:37-05:00","from_host":"admin-trading","from_user":"ghost","module":"deepseek_thinking","title":"Add cmd (thinking-only)","message":"Installed cmd-deepseek_thinking run -> writes thinking_YYYYmmdd_HHMMSS.md to /opt/trading/_student_archive/thinking/"}

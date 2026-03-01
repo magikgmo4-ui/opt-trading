@@ -1,2 +1,0 @@
-{"ts":"2026-02-26T18:17:57-05:00","from_host":"admin-trading","from_user":"ghost","module":"deepseek_response","title":"Create module + sanity","message":"Created deepseek_response module scripts + sanity shortcut"}
-{"ts":"2026-02-26T18:20:34-05:00","from_host":"admin-trading","from_user":"ghost","module":"deepseek_response","title":"Add cmd (response-only)","message":"Installed cmd-deepseek_response run -> writes response_YYYYmmdd_HHMMSS.md to /opt/trading/_student_archive/response/"}

@@ -1,3 +1,0 @@
-{"ts":"2026-02-26T17:10:15-05:00","from_host":"admin-trading","from_user":"ghost","module":"desk_pro","title":"Patch UI","message":"Added commands section + fixed HEAD 405"}
-{"ts":"2026-02-26T17:10:33-05:00","from_host":"admin-trading","from_user":"ghost","module":"desk_pro","title":"Add scoring rule","message":"Added macro score weighting + updated tests"}
-{"ts":"2026-02-26T17:11:03-05:00","from_host":"admin-trading","from_user":"ghost","module":"desk_pro","title":"Test pipeline","message":"First test: push module + log event to student registry"}
