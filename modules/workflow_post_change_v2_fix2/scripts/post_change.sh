@@ -82,10 +82,10 @@ if [ $DID_LOG -eq 0 ]; then
   else echo "WARN: log_event_to_student.sh missing; skipping ndjson log"; fi
 fi
 
-# FIX3: no sudo on student; /opt/trading is student-owned in this setup
+# FIX2: force TTY allocation even when stdin is a pipe/heredoc
 if [ $NO_STUDENT_COPY -eq 0 ]; then
   STUDENT_DIR="/opt/trading/_student_archive/journals/steps"
-  ssh student "mkdir -p '$STUDENT_DIR'"
+  ssh -tt student "sudo mkdir -p '$STUDENT_DIR' && sudo chown -R student:student '/opt/trading/_student_archive/journals' || true"
   scp "$ENTRY" "student:$STUDENT_DIR/"
   echo "OK: copied journal entry to student:$STUDENT_DIR/"
 else
@@ -100,4 +100,4 @@ else
   echo "SKIP: deepseek trigger disabled"
 fi
 
-echo "OK post_change v2 (fix3): module=$MODULE"
+echo "OK post_change v2 (fix2): module=$MODULE"

@@ -2,11 +2,18 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# cmd-post_change v2
+# Usage:
+#   cmd-post_change <module> "Title" "Message" [--no-deepseek] [--no-student-copy] [--no-push] [--model MODEL] [--n N]
+#   cmd-post_change <module> "Title" "Message" <<'MD' ... MD
+
 MODULE="${1:-}"
 TITLE="${2:-}"
 MESSAGE="${3:-}"
 
-shift || true; shift || true; shift || true
+shift || true
+shift || true
+shift || true
 
 NO_DEEPSEEK=0
 NO_STUDENT_COPY=0
@@ -23,13 +30,16 @@ while [ "${1:-}" != "" ]; do
     --n) N="${2:-$N}"; shift 2 ;;
     -h|--help)
       echo "Usage: cmd-post_change <module> \"Title\" \"Message\" [--no-deepseek] [--no-student-copy] [--no-push] [--model MODEL] [--n N]"
-      exit 0 ;;
+      exit 0
+      ;;
     *) echo "Unknown arg: $1"; exit 2 ;;
   esac
 done
 
 if [ -z "$MODULE" ] || [ -z "$TITLE" ] || [ -z "$MESSAGE" ]; then
-  echo "FAIL: missing args."; exit 2
+  echo "FAIL: missing args."
+  echo "Usage: cmd-post_change <module> \"Title\" \"Message\" <<'MD' ... MD"
+  exit 2
 fi
 
 BASE="/opt/trading"
@@ -40,10 +50,14 @@ TS_FILE="$(TZ=America/Montreal date +%Y%m%d_%H%M%S)"
 
 JDIR="$BASE/journal/steps"
 mkdir -p "$JDIR"
+
 ENTRY="$JDIR/step_${TS_FILE}_${MODULE}.md"
 
+# Read optional stdin journal block
 JOURNAL_BLOCK=""
-if [ ! -t 0 ]; then JOURNAL_BLOCK="$(cat || true)"; fi
+if [ ! -t 0 ]; then
+  JOURNAL_BLOCK="$(cat || true)"
+fi
 
 cat >"$ENTRY" <<EOF
 # Step — ${MODULE} — ${TS_ISO}
@@ -63,11 +77,24 @@ EOF
 if [ -n "${JOURNAL_BLOCK// /}" ]; then
   printf "%s\n" "$JOURNAL_BLOCK" >>"$ENTRY"
 else
-  echo "*(no extra journal block provided)*" >>"$ENTRY"
+  cat >>"$ENTRY" <<'EOF'
+*(no extra journal block provided)*
+
+Suggested template:
+- Contexte
+- Objectif
+- Actions (commandes + fichiers)
+- Résultats / preuves
+- Décisions
+- Idées / options
+- Risques
+- TODO (pending GO)
+EOF
 fi
 
 echo "OK: wrote journal entry: $ENTRY"
 
+# 1) Event log / push module (one or the other)
 LOG_SCRIPT="$BASE/scripts/log_event_to_student.sh"
 PUSH_SCRIPT="$BASE/scripts/push_and_log.sh"
 DID_LOG=0
@@ -78,20 +105,24 @@ if [ $NO_PUSH -eq 0 ] && [ -x "$PUSH_SCRIPT" ] && [ -d "$BASE/modules/$MODULE" ]
 fi
 
 if [ $DID_LOG -eq 0 ]; then
-  if [ -x "$LOG_SCRIPT" ]; then "$LOG_SCRIPT" "$MODULE" "$TITLE" "$MESSAGE" >/dev/null
-  else echo "WARN: log_event_to_student.sh missing; skipping ndjson log"; fi
+  if [ -x "$LOG_SCRIPT" ]; then
+    "$LOG_SCRIPT" "$MODULE" "$TITLE" "$MESSAGE" >/dev/null
+  else
+    echo "WARN: $LOG_SCRIPT missing; skipping ndjson log"
+  fi
 fi
 
-# FIX3: no sudo on student; /opt/trading is student-owned in this setup
+# 2) Copy journal entry to student
 if [ $NO_STUDENT_COPY -eq 0 ]; then
   STUDENT_DIR="/opt/trading/_student_archive/journals/steps"
-  ssh student "mkdir -p '$STUDENT_DIR'"
+  ssh student "sudo mkdir -p '$STUDENT_DIR' && sudo chown -R student:student '/opt/trading/_student_archive/journals' || true"
   scp "$ENTRY" "student:$STUDENT_DIR/"
   echo "OK: copied journal entry to student:$STUDENT_DIR/"
 else
   echo "SKIP: student copy disabled"
 fi
 
+# 3) Trigger DeepSeek roadmap (bg)
 if [ $NO_DEEPSEEK -eq 0 ]; then
   ssh student "nohup cmd-deepseek_response roadmap_module '$MODEL' '$MODULE' '$N' > /tmp/rr_${MODULE}.log 2>&1 &" || true
   ssh student "nohup cmd-deepseek_thinking  roadmap_module '$MODEL' '$MODULE' '$N' > /tmp/rt_${MODULE}.log 2>&1 &" || true
@@ -100,4 +131,4 @@ else
   echo "SKIP: deepseek trigger disabled"
 fi
 
-echo "OK post_change v2 (fix3): module=$MODULE"
+echo "OK post_change v2: module=$MODULE"

@@ -6702,3 +6702,155 @@ git tag | Select-String workflow_ai
 - Envoyer/partager la “version finale” à Cursor (déjà via Git tag `workflow_ai_v1.0`; confirmer usage des prompts `workflow_ai/prompts/*` dans l’agent).
 - Décider du premier “vrai job sous ce régime” (module concret) et démarrer Gate 0.
 - Mettre “sur glace” l’idée d’un dossier commun de transfert via SSH (drop zone) pour future uniformisation LAN/hostname/VPN.
+
+## 2026-03-01 08:50 — note13
+1) Objectifs:
+- Comprendre les permissions GitHub “Codex Connector” et clarifier que ChatGPT n’a pas d’accès direct aux repos.
+- Créer un “context pack” sanitisé des 4 machines pour Cursor AI (profils, rôles, réseau, chemins, workflows).
+- Mettre en place un repo Git dédié `infra-context`, générer snapshots sanitisés (Linux/Windows), auto-remplir les fiches, produire un ZIP à fournir à Cursor.
+- Uniformiser le workflow d’archivage: student comme archiviste (push modules + event log), DeepSeek local (thinking/response + roadmaps) sur student.
+- Mettre en place synchronisation Git multi-machines (`git_sync_all`) et un journal structuré automatique (`post_change v2`) poussé à student.
+- Préparer migration “Cursor-like” gratuite: VS Code + Continue + Ollama sur Windows.
+
+2) Actions:
+- Repo `~/infra-context` créé sur admin-trading, structure + README/SECURITY/.gitignore, commits init.
+- Module `infra_context` installé (menu/cmd/sanity/snapshots), raccourcis `/usr/local/bin/menu-infra_context` + `cmd-infra_context`.
+- Snapshots sanitisés générés/committés:
+  - admin-trading (ngrok redacted → `<REDACTED_TUNNEL>`)
+  - student
+  - db-layer (MSI Ubuntu, IP 192.168.16.179)
+  - cursor-ai (Windows) + correction du script PowerShell (ligne “\” au début) + transfert snapshot.
+- ZIP infra context généré et copié sur Windows + student; extraction Windows corrigée via `tar -xf` (snapshot cursor-ai absent à cause extraction incomplète).
+- Ajout patch `autofill` pour générer `fiche_machine.md/reseau.md/roles.md` depuis snapshots, commit + ZIP régénéré.
+- SSH cluster:
+  - Clé existante `~/.ssh/id_ed25519` sur admin-trading réutilisée.
+  - `ssh-copy-id` vers db-layer et student; tests BatchMode OK.
+  - Installation OpenSSH Server sur Windows (nécessite PowerShell Admin), sshd LISTEN 22.
+  - Tentative d’ajout clé publique Windows `authorized_keys` → problème de permissions (fix ACL proposé).
+- Student:
+  - Hostname fixé, IP statique via NetworkManager (Wired connection 1): `192.168.16.103/24`, GW `192.168.16.1`, DNS `1.1.1.1 8.8.8.8`, IPv6 disabled.
+  - Accès `ssh student` sans mot de passe depuis admin-trading.
+  - `/opt/trading` créé et ownership `student:student`; repo présent sur student + venv `.venv` OK (Python 3.11.2).
+- Student archiviste:
+  - Création `_student_archive/{events,modules,snapshots}`.
+  - Scripts sur admin-trading: `push_module_to_student.sh`, `log_event_to_student.sh`, `push_and_log.sh`.
+  - Test `push_and_log desk_pro ...` OK; events append dans `events.ndjson`.
+- DeepSeek local sur student via Ollama:
+  - Installation Ollama service systemd (CPU-only).
+  - Pull modèle `deepseek-r1:1.5b`.
+  - `ollama run` perçu “figé” → bascule sur API `http://127.0.0.1:11434/api/generate`.
+  - Mise en place de modules séparés:
+    - `deepseek_thinking` (thinking-only) → `_student_archive/thinking/`
+    - `deepseek_response` (response-only) → `_student_archive/response/`
+  - Ajout roadmaps “par module” via patch ZIP:
+    - `cmd-deepseek_response roadmap_module`
+    - `cmd-deepseek_thinking roadmap_module`
+  - Patch “FAST” (N=40, timeout réduit) + exécution en background (nohup) pour éviter blocage SSH; fichiers générés pour `desk_pro`.
+- PDFs projet:
+  - Dossier `/_student_archive/reports/project` créé sur student.
+  - Upload + sha256 vérifiés.
+  - Extraction en `.txt` via `pdftotext`, puis lancement DeepSeek response en background; sortie `response_20260227_201725.md`.
+- `git_sync_all`:
+  - Installation module `git_sync_all_module.zip` sur admin-trading puis student.
+  - Exécution `cmd-git_sync_all` sur les 2 machines; rapports générés sous `/tmp/git_sync_all/`.
+- Journaux:
+  - `journal.md` et `journal/*.md` détectés dans repo (`journal_add.sh`, `tools/journal_from_paste.py`, mentions de `jpt`).
+  - `journal.md` copié vers student.
+  - Compilation “light” sur student:
+    - `journal_final_20260227_235333.md`
+    - `todo_pending_GO_20260227_235328.md`
+- Module audit:
+  - Création docs `AUDIT_STRICT_CHECKLIST.md` et `AUDIT_THINKING_GUIDE.md` (séparation strict vs thinking) (confirmé “PASS audit docs”).
+- `post_change v2`:
+  - Installation `workflow_post_change_v2.zip` puis patchs fix1/fix2/fix3 (problèmes TTY/sudo/heredoc).
+  - Final: copie d’entry Markdown vers student sans sudo/TTY (fix3), log de réussite envoyé.
+- Module `Journal_De_Bord`:
+  - ZIP trouvé dans `~/Téléchargements/Journal_De_Bord_module.zip` et installé sur admin-trading (`cmd/menu/sanity`).
+  - Décision: installer sur student plus tard sur commande “go jdb student”.
+- Windows “Cursor-like gratuit”:
+  - Recommandation: VS Code + Continue + Ollama (Qwen2.5-Coder 1.5B/7B).
+  - Installation Ollama via `winget install ollama` lancée sur Windows.
+
+3) Décisions:
+- ChatGPT n’a pas d’accès direct GitHub; Codex Connector ne s’active que via outils/environnements compatibles et actions explicites.
+- Infra context en repo dédié `infra-context` + snapshots sanitisés (pas de secrets; ngrok redacted).
+- Student = archiviste central (append-only events + archives + IA).
+- IA sur student: séparer thinking vs response en modules distincts; roadmaps par module; exécuter en background pour éviter “freeze”.
+- Workflow: journalisation obligatoire (1 log par étape, max 2) + push automatique vers student via `post_change v2`.
+- Transferts “shared files”: préférence SFTP/ssh (FTP non retenu à ce stade).
+- Windows IDE: viser migration vers VS Code + Continue + Ollama (gratuit à l’usage) plutôt que dépendre uniquement de Cursor.
+
+4) Commandes / Code:
+```bash
+# Repo infra-context (admin-trading)
+mkdir -p ~/infra-context && cd ~/infra-context && git init
+mkdir -p infra_context machines scripts exports
+git commit -m "init infra-context repo (sanitized scaffold)"
+
+# Transfert ZIP (Windows -> admin-trading)
+scp "$env:USERPROFILE\Downloads\infra_context_module_pkg.zip" ghost@admin-trading:~/Downloads/infra_context_module_pkg.zip
+
+# Installer module + sanity
+unzip -o ~/Downloads/infra_context_module_pkg.zip -d .
+chmod +x scripts/*.sh
+bash scripts/infra_context_sanity_check.sh .
+
+# Raccourcis globaux
+sudo bash scripts/install_infra_context_shortcuts.sh "$(pwd)"
+
+# Snapshots + grep-secrets + redaction ngrok
+cmd-infra_context snap-linux admin-trading
+cmd-infra_context grep-secrets
+sed -i 's/ngrok/<REDACTED_TUNNEL>/gI' machines/admin-trading/snapshot/*.txt
+
+# ZIP export
+cmd-infra_context zip
+sudo apt-get update && sudo apt-get install -y zip
+
+# Student archiviste: push module + log event
+/opt/trading/scripts/push_and_log.sh desk_pro "Test pipeline" "First test: push module + log event to student registry"
+
+# SSH key deploy + tests
+ssh-copy-id -i ~/.ssh/id_ed25519.pub ghost@192.168.16.179
+ssh-copy-id -i ~/.ssh/id_ed25519.pub student@192.168.16.103
+ssh -o BatchMode=yes ghost@192.168.16.179 'echo OK_DB_LAYER && hostname && whoami'
+
+# Student IP statique (NetworkManager) — tentative et état final vérifié via nmcli
+nmcli dev status
+nmcli -p con show "Wired connection 1"
+
+# Ollama (student)
+ssh -t student 'curl -fsSL https://ollama.com/install.sh | sh'
+ssh student 'ollama pull deepseek-r1:1.5b'
+ssh student 'curl -sS http://127.0.0.1:11434/api/tags | head'
+
+# DeepSeek roadmap by module (background)
+ssh student 'nohup cmd-deepseek_response roadmap_module deepseek-r1:1.5b desk_pro 20 > /tmp/rr_desk_pro.log 2>&1 &'
+ssh student 'nohup cmd-deepseek_thinking  roadmap_module deepseek-r1:1.5b desk_pro 20 > /tmp/rt_desk_pro.log 2>&1 &'
+
+# git_sync_all (admin-trading + student)
+unzip -o ~/Téléchargements/git_sync_all_module.zip -d /tmp/git_sync_all
+sudo bash /tmp/git_sync_all/scripts/install.sh
+cmd-git_sync_all
+ssh student 'cmd-git_sync_all'
+
+# PDFs -> student + hash
+scp ~/Téléchargements/PROJECT_MASTER_REPORT.pdf student:/opt/trading/_student_archive/reports/project/
+ssh student 'sha256sum /opt/trading/_student_archive/reports/project/*.pdf | head'
+
+# Journal final "light" sur student
+ls -1t /opt/trading/_student_archive/journals/final | head -n 5
+
+# Windows: install Ollama
+winget install ollama
+```
+
+5) Points ouverts (next):
+- Installer `Journal_De_Bord` sur student (“go jdb student”), puis activer compilation canon FULL + push automatique vers student.
+- Finaliser `post_change v2` end-to-end: vérifier création effective de `/opt/trading/_student_archive/journals/steps/` + copie des steps (fix3 indiqué “PASS” mais détails de vérification non inclus dans ce dump).
+- Mettre en place module `shared_files` (SFTP + dossiers `/srv/shared` + symlinks + règles “Downloads”).
+- Module `audit` complet en ZIP (menu/cmd/sanity) + sorties strict/thinking en fichiers dédiés sur student.
+- Uniformiser rôles exacts des 4 machines (MSI = DB layer/observabilité; Dell/Windows = IDE cockpit; admin-trading = services live; student = archiviste).
+- SSH Windows: résoudre définitivement `authorized_keys` (erreur “Access denied”) + valider ssh inbound vers Windows depuis Linux.
+- Lancer audit Git “3 passages” sur repo réel (pas seulement zip clean), détection doublons/patches et plan de consolidation.
+- VS Code + Continue: compléter installation Ollama Windows (sanity + modèles qwen2.5-coder) et définir workflow IDE (à traiter plus tard).

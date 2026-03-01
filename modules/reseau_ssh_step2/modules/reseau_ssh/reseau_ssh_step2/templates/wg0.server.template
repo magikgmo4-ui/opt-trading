@@ -1,0 +1,6 @@
+[Interface]
+Address = {{WG_IP}}
+ListenPort = {{WG_PORT}}
+PrivateKey = {{PRIVATE_KEY}}
+
+{{PEERS}}
