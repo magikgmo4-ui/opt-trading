@@ -6854,3 +6854,102 @@ winget install ollama
 - SSH Windows: résoudre définitivement `authorized_keys` (erreur “Access denied”) + valider ssh inbound vers Windows depuis Linux.
 - Lancer audit Git “3 passages” sur repo réel (pas seulement zip clean), détection doublons/patches et plan de consolidation.
 - VS Code + Continue: compléter installation Ollama Windows (sanity + modèles qwen2.5-coder) et définir workflow IDE (à traiter plus tard).
+
+## 2026-03-01 09:54 — note17
+1) Objectifs:
+- Implémenter “Bot Vision” (Telegram `/analyze` → 4 charts + mosaïque 2x2 + logs + `summary.json`) et intégration Desk Pro.
+- Valider un setup multi-écrans et surtout appliquer le workflow (journalisation + scripts standards + Git/Cursor/Student).
+- Prioriser un module réseau: uniformiser SSH/hostnames/accès full-mesh (4 machines), puis WireGuard + firewall, avant de migrer Bot Vision.
+
+2) Actions:
+- Décision Bot Vision: mosaïque 2x2 par défaut + option “Send all” (4 images), UI à 2 panneaux permanents; artefacts `runs/<run_id>/charts/*.png`, `summary.json`, `vision.log.jsonl`, symlink `latest`.
+- Step 1 Bot Vision:
+  - Transfert du zip Windows → MSI → student.
+  - Sur student: unzip OK; échec initial `pip` absent + `matplotlib` manquant; installation deps via apt; sanity OK, création `latest -> runs/<run_id>`.
+  - Git: rebase/ stash/pop; push OK; restauration fichiers “bruit”; ajout `.gitignore` pour `data/`; push OK.
+- Module réseau `reseau_ssh`:
+  - Inventaire IP LAN trouvé:
+    - admin-trading: `192.168.16.155`
+    - db-layer (MSI Ubuntu): `192.168.16.179`
+    - student: `192.168.16.103`
+    - cursor-ai (Dell Windows): `192.168.16.224`
+  - Step1 sanity OK sur admin-trading.
+  - Step1b patch appliqué sur admin-trading/student/db-layer (hosts + ssh config + shortcuts); hostname db-layer appliqué.
+  - Clés SSH + trust:
+    - db-layer → admin-trading: mismatch de clé (id_ed25519 vs id_ed25519_fantome) diagnostiqué, clés ajoutées dans `authorized_keys`.
+    - student: génération clé ed25519, nettoyage known_hosts, `ssh-copy-id` vers admin-trading/db-layer, self-key pour sanity OK.
+    - Windows cursor-ai: extraction zip; script PS1 corrigé (caractère “\” + interpolation `$AdminTradingHost:`), hosts appliqué en admin, OpenSSH Server activé + firewall 22; ACL `authorized_keys` réparées via SIDs; bundle de clés importé; ajout clé admin-trading dans `C:\ProgramData\ssh\administrators_authorized_keys`; SSH bidirectionnel passwordless validé.
+- Step2 réseau (WireGuard + firewall):
+  - Step2 patch installé; collision détectée avec `wg0` existant (`10.8.0.1/24` sur admin-trading, Windows `10.8.0.2`) → décision d’utiliser `wg-mgmt` (`10.66.66.0/24`, UDP 51821) sans toucher `wg0`.
+  - Dépendance: `python3-yaml` installée (sanity Step2 OK).
+  - WireGuard wg-mgmt:
+    - admin-trading: `wg-mgmt` up, UFW allow `51821/udp`.
+    - db-layer: client up, ping `10.66.66.1` OK.
+    - student: wireguard installé, config `wg-mgmt` up, ping `10.66.66.1` OK.
+    - Windows cursor-ai: tunnel `cursor-ai` wg-mgmt; erreur clé publique (différence `...DRJllI=` vs `...DRJLlI=`) corrigée côté serveur; handshake OK; SSH via `10.66.66.1` validé.
+  - Windows SSH config: bascule admin-trading/db-layer/student vers IP wg-mgmt (10.66.66.1/2/3). Blocage SSH peer↔peer via WG résolu en ajoutant règle de forward sur admin-trading:
+    - `ufw route allow in on wg-mgmt out on wg-mgmt to any port 22 proto tcp` (vu comme `ALLOW FWD`).
+  - Validation: depuis Windows, `Test-NetConnection` et `ssh` OK vers `10.66.66.2` (db-layer) et `10.66.66.3` (student). Ping WG OK vers 10.66.66.1/2/3.
+
+3) Décisions:
+- Bot Vision: mosaïque 2x2 par défaut + option “Send all”; layout 2 panneaux permanents; bot prévu sur admin-trading avec ShareX Windows en “capture agent” et module `pull_push` (SCP pull / HTTP push) à livrer plus tard sur déclencheur “go vision bot”.
+- Nomenclature machines fixée: `admin-trading`, `db-layer` (MSI Ubuntu), `student`, `cursor-ai` (Dell Windows); abandon des labels “msi/win”.
+- Réseau: ne pas déployer WireGuard sur `wg0` (déjà existant 10.8.0.0/24); utiliser `wg-mgmt` 10.66.66.0/24 + port 51821.
+- Process: pause/continuer réseau plus tard sur commande “go network”.
+
+4) Commandes / Code:
+```powershell
+# Windows → Linux (ex: transfert zip)
+scp .\bot_vision_step1.zip ghost@192.168.16.179:/home/ghost/Téléchargements/
+
+# Vérif IP Windows
+ipconfig | findstr /R "IPv4"
+
+# Exécuter patch Windows (après extraction)
+Expand-Archive .\reseau_ssh_step1b_patch.zip -DestinationPath .\reseau_ssh_step1b_patch -Force
+powershell -ExecutionPolicy Bypass -File .\apply_cursor_ai.ps1 -EnableOpenSSHServer
+
+# WireGuard Windows (admin)
+$wg = "$env:ProgramFiles\WireGuard\wg.exe"
+& $wg show
+
+# Tests VPN mgmt
+ping 10.66.66.1
+Test-NetConnection 10.66.66.3 -Port 22
+ssh admin-trading hostname
+```
+
+```bash
+# Student: unzip + sanity bot_vision step1 (initialement deps manquantes)
+unzip -o ~/bot_vision_step1.zip
+./desk_pro_vision_scripts/sanity_desk_pro_vision.sh
+
+# Git: rebase workflow (quand remote ahead)
+git stash push -u -m "wip before rebase ..."
+git pull --rebase origin fix/desk-ui-toolbox
+git stash pop
+git push origin fix/desk-ui-toolbox
+
+# reseau_ssh step1 sanity
+./scripts/sanity_check_reseau_ssh.sh
+
+# Step1b apply Linux
+./scripts/reseau_ssh_cmd.sh dry-run
+./scripts/reseau_ssh_cmd.sh apply
+./scripts/reseau_ssh_cmd.sh sanity
+./scripts/reseau_ssh_cmd.sh hostname db-layer
+
+# admin-trading: UFW forward SSH entre peers via wg-mgmt (fix timeout TCP/22)
+sudo ufw route allow in on wg-mgmt out on wg-mgmt to any port 22 proto tcp
+sudo ufw reload
+sudo ufw status numbered
+
+# WireGuard wg-mgmt (admin-trading/db-layer/student)
+sudo systemctl enable --now wg-quick@wg-mgmt
+sudo wg show wg-mgmt
+ping -c 2 10.66.66.1
+```
+
+5) Points ouverts (next):
+- “go network” (nouvelle session): poursuivre durcissement (firewall cohérent sur db-layer, cleanup scripts Windows: warning `Replace input null`, écriture `administrators_authorized_keys`, + retrait/gestion `id_ed25519_fantome`), standardiser commits/push.
+- Bot Vision: Step 2 (Telegram remote control + handlers + `pull_push` ShareX) en attente du déclencheur “go vision bot” après stabilisation réseau.
