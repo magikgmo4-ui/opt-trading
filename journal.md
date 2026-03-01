@@ -6953,3 +6953,123 @@ ping -c 2 10.66.66.1
 5) Points ouverts (next):
 - “go network” (nouvelle session): poursuivre durcissement (firewall cohérent sur db-layer, cleanup scripts Windows: warning `Replace input null`, écriture `administrators_authorized_keys`, + retrait/gestion `id_ed25519_fantome`), standardiser commits/push.
 - Bot Vision: Step 2 (Telegram remote control + handlers + `pull_push` ShareX) en attente du déclencheur “go vision bot” après stabilisation réseau.
+
+## 2026-03-01 14:49 — note20
+1) Objectifs:
+- Uniformiser la config réseau LAN/SSH/UFW/WireGuard sur admin-trading, student, db-layer et Windows (cursor-ai).
+- Produire des audits (Linux/Windows) avant correction.
+- Appliquer un baseline SAFE puis LOCKDOWN sans lockout.
+- Réparer l’accès peer↔peer sur wg-mgmt (Windows → peers).
+- Finaliser workflow Git: commit/push sur admin-trading, sync sur student via git_sync_all, journaliser.
+
+2) Actions:
+- Installation reseau_ssh step2 sur admin-trading (corrige chemin d’unzip) + sanity OK; déploiement sur student + sanity OK.
+- Constats WireGuard wg-mgmt déjà en place; mapping confirmé:
+  - admin-trading=10.66.66.1, db-layer=10.66.66.2, student=10.66.66.3, cursor-ai=10.66.66.4.
+- Création module audit:
+  - Exécution reseau_audit v1 → bug `$f` (set -u), patch local (sed), puis warning awk; passage à reseau_audit v1.3 (OK) sur admin-trading/student/db-layer; rapatriement des bundles sur admin-trading; extraction et lecture des summaries + fichiers clés (UFW/WG/SSHD).
+  - Audit Windows v1.3 puis v1.4: création ZIP, upload sur admin-trading, extraction et lecture (firewall/sshd/wg/hosts).
+- Déploiement module reseau_fix:
+  - SAFE baseline appliqué sur admin-trading/student/db-layer: /etc/hosts, drop-in sshd SAFE, UFW baseline; db-layer: wg0 désactivé.
+  - LOCKDOWN appliqué (PasswordAuthentication no) sur admin-trading puis db-layer (via `ssh -tt`).
+  - Nettoyage UFW:
+    - student: suppression règle UDP 51820 inutile.
+    - db-layer: suppression règles “Anywhere” + IPv6 + ports inutiles; puis reset UFW et règles minimales (SSH LAN + SSH WG + (temp) 8010 restreint).
+    - correction erreur: suppression accidentelle sur admin-trading d’une règle SSH LAN (ré-ajout).
+  - Windows:
+    - reseau_fix v1.1: apply_hosts.ps1 bug `$content` null + duplications firewall; passage à reseau_fix v1.2/v1.2.1 (corrige scripts + flush DNS + supprime doublons), résolution hosts OK.
+    - Désactivation règle firewall Windows “OpenSSH SSH Server (sshd)” trop permissive; maintien des règles “SSH Allow LAN/WG-MGMT”.
+- SSH keys:
+  - Installation clé publique Windows (cursor-ai) sur admin-trading puis propagation vers student et db-layer; dédoublonnage des entrées `ghost@DESKTOP-1KDQTBH` (nettoyage sur db-layer requis).
+- Routage wg-mgmt peer↔peer:
+  - Symptôme: Windows → db-layer-vpn timeout, mais admin-trading → db-layer-vpn OK.
+  - Fix sur admin-trading: `net.ipv4.ip_forward=1` + règle UFW `ALLOW FWD on wg-mgmt` (v4+v6). Tests Windows: ssh OK vers db-layer-vpn et student-vpn.
+- UI/ports:
+  - db-layer: aucun listener 8010; décision implicite que UI est sur admin-trading. Vérification: admin-trading écoute sur 8000/8010 (0.0.0.0). db-layer: retrait final des règles 8010, ne reste que SSH LAN+WG.
+- Git/workflow:
+  - Sur admin-trading: repo clean initialement, journal workflow écrit via `cmd-post_change`.
+  - Sur student: `git pull --ff-only` bloqué par fichiers untracked (conflits). Script remote: backup des conflits dans `_student_archive/git_conflicts_*`, déplacement, pull OK.
+  - Commit admin-trading: `.gitignore` pour ignorer `_student_archive/events/*.ndjson` + `git rm --cached` des ndjson trackés; push.
+  - Student pull bloqué par modifications locales sur ndjson supprimés; script remote: backup `events_local_backup_*`, `git restore` sur 3 fichiers, pull OK, restauration locale.
+  - Commit admin-trading: ajout `.gitignore` global `_student_archive/`; push; student pull OK.
+  - Journal final workflow écrit et copié sur student.
+
+3) Décisions:
+- admin-trading = hub wg-mgmt; autoriser forwarding wg-mgmt↔wg-mgmt via UFW + activer ip_forward.
+- db-layer = machine DB (pas d’UI): fermeture définitive de 8010; UFW minimal SSH LAN+WG.
+- Student = archiviste: pas de commit; sync uniquement via git pull / git_sync_all; `_student_archive/` ignoré dans le repo.
+- Windows: désactiver règle firewall OpenSSH par défaut et conserver règles restreintes “SSH Allow LAN/WG-MGMT”.
+
+4) Commandes / Code:
+```bash
+# reseau_ssh step2 (chemin correct)
+cd /tmp/modules/reseau_ssh/reseau_ssh_step2
+sudo bash install_reseau_ssh.sh
+menu-reseau_ssh
+
+# reseau_audit v1.3 (collect)
+sudo bash install_reseau_audit.sh
+sudo cmd-reseau_audit collect
+
+# extraction summaries (Linux)
+OUT=/tmp/reseau_audit_unpack
+tar xzf /opt/trading/_reseau_audit/admin-trading_20260301_110228.tgz -C "$OUT"
+
+# reseau_fix SAFE + LOCKDOWN (Linux)
+sudo cmd-reseau_fix apply-safe
+sudo cmd-reseau_fix apply-lockdown
+sudo sanity-reseau_fix
+
+# student: supprimer règle UFW inutile
+sudo ufw delete allow from 192.168.16.0/24 to any port 51820 proto udp
+
+# db-layer: nettoyage UFW (résultat final: SSH LAN+WG uniquement)
+sudo ufw status numbered
+# (suppression règles superflues, puis reset)
+sudo ufw --force reset
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow from 192.168.16.0/24 to any port 22 proto tcp
+sudo ufw allow from 10.66.66.0/24 to any port 22 proto tcp
+sudo ufw --force enable
+
+# admin-trading: ré-ajout SSH LAN après suppression accidentelle
+sudo ufw allow from 192.168.16.0/24 to any port 22 proto tcp
+
+# admin-trading: activer forwarding wg-mgmt peer↔peer
+sudo sysctl -w net.ipv4.ip_forward=1
+echo 'net.ipv4.ip_forward=1' | sudo tee /etc/sysctl.d/99-wg-mgmt-forward.conf >/dev/null
+sudo ufw route allow in on wg-mgmt out on wg-mgmt
+
+# Windows audit v1.4: ZIP uploadé puis unzip côté admin-trading
+unzip -oq /tmp/reseau_audit_20260301_121744.zip -d /tmp/reseau_audit_unpack/cursor-ai_20260301_121744
+
+# SSH sudo distant (TTY requis)
+ssh -tt ghost@db-layer-vpn "sudo ufw status"
+
+# Ajout clé Windows dans authorized_keys (puis cleanup doublons)
+grep -v 'ghost@DESKTOP-1KDQTBH' ~/.ssh/authorized_keys > ~/.ssh/authorized_keys.tmp || true
+cat /tmp/cursor_ai_id_ed25519.pub >> ~/.ssh/authorized_keys.tmp
+awk 'NF && !seen[$0]++' ~/.ssh/authorized_keys.tmp > ~/.ssh/authorized_keys
+
+# Git: ignorer archives student
+grep -qxF "_student_archive/" .gitignore || echo "_student_archive/" >> .gitignore
+git add .gitignore
+git commit -m "git: ignore _student_archive (student-only)"
+git push
+
+# Student: débloquer pull (backup/restore ndjson supprimés)
+git restore --source=HEAD -- _student_archive/events/deepseek_response.ndjson _student_archive/events/deepseek_thinking.ndjson _student_archive/events/events.ndjson || true
+git pull --ff-only
+
+# Journal workflow
+cmd-post_change workflow "reseau+git: push + student sync ok" "..." <<'MD'
+...
+MD
+```
+
+5) Points ouverts (next):
+- Vérifier/standardiser définitivement la gestion des clés SSH Windows (éviter doublons; valider ssh direct Windows → student-vpn avec user `student`).
+- Nettoyer UFW sur admin-trading (retirer règles 8010 ajoutées par erreur si encore présentes; vérifier règles strictes attendues).
+- Confirmer que tous les services UI attendus tournent sur admin-trading (8000/8010) et planifier une session séparée de debug UI.
+- Utiliser `cmd-git_sync_all` (module présent `/usr/local/bin/cmd-git_sync_all`) plutôt que `git pull` manuel, si c’est la règle de workflow voulue.
