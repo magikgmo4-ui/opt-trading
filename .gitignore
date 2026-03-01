@@ -51,3 +51,4 @@ envs/
 **/data/
 _reseau_audit/
 _student_archive/events/*.ndjson
+_student_archive/
