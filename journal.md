@@ -7073,3 +7073,28 @@ MD
 - Nettoyer UFW sur admin-trading (retirer règles 8010 ajoutées par erreur si encore présentes; vérifier règles strictes attendues).
 - Confirmer que tous les services UI attendus tournent sur admin-trading (8000/8010) et planifier une session séparée de debug UI.
 - Utiliser `cmd-git_sync_all` (module présent `/usr/local/bin/cmd-git_sync_all`) plutôt que `git pull` manuel, si c’est la règle de workflow voulue.
+
+## 2026-03-01 14:52 — note21
+1) Objectifs:
+- Obtenir les détails exacts du workflow appliqué aux modules/changements.
+
+2) Actions:
+- Description du workflow “Institutionnel Gated” :
+  - Principes non-négociables (pas de changements sans “GO”, traçabilité, livraison par modules, exécution headless sur Debian via SSH).
+  - Définition des Gates 0 à 3 (analyse, proposition, exécution après GO, clôture avec packaging/preuves).
+  - Règles d’exécution sur la machine admin-trading (SSH user ghost depuis Windows, transferts depuis `C:\Users\ghost\Downloads`, micro-étapes).
+  - Standard de livraison par module (scripts sanity/cmd/menu + raccourcis globaux `/usr/local/bin/...` vers `/opt/trading/scripts/...`).
+  - Journalisation systématique (format d’entrée + chemin de steps `/opt/trading/journal/steps/step_YYYYMMDD_HHMMSS_<titre>.md`).
+  - Liste de “mots déclencheurs” (ex: `jpt`, `desk pro`, `GO cursor`, `go network`, etc.).
+  - Contrat GO/STOP (proposition tant que pas GO; STOP fige l’état et arrête).
+
+3) Décisions:
+- Tant que “GO” n’est pas donné, rester en Gate 0/1 (proposition uniquement).
+- Standardiser chaque module avec 3 scripts et des raccourcis globaux.
+- Journaliser chaque étape/session selon le format défini.
+
+4) Commandes / Code:
+—
+  
+5) Points ouverts (next):
+- Choisir le module à exécuter maintenant (ex: `go network` ou `desk pro`) pour produire un Gate 0 correspondant.
