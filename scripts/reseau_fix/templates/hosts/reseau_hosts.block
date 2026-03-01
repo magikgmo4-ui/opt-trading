@@ -1,0 +1,11 @@
+# BEGIN RESEAU_SSH MANAGED
+192.168.16.155   admin-trading
+192.168.16.103   student
+192.168.16.179   db-layer
+192.168.16.224   cursor-ai
+
+10.66.66.1       admin-trading-vpn
+10.66.66.2       db-layer-vpn
+10.66.66.3       student-vpn
+10.66.66.4       cursor-ai-vpn
+# END RESEAU_SSH MANAGED
