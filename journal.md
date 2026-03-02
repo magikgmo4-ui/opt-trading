@@ -7236,3 +7236,95 @@ Test-NetConnection 10.66.66.3 -Port 22
 - Traiter tv-bitget-runner crash-loop (TV_WEBHOOK_KEY missing in env) dans une étape dédiée.
 - Bot Vision: conservé pour plus tard (ShareX + module pull/push), déclencheur “go vision bot”.
 - SimEx MVP: analyser l’état git existant avant migration/placement (MSI vs admin-trading), décision non finalisée dans cette session.
+
+## 2026-03-01 20:28 — note25
+1) Objectifs:
+- Trouver un équivalent gratuit à Cursor AI.
+- Mettre en place un assistant “Cursor-like” local sur Windows (VS Code + Continue + Ollama).
+- (En parallèle) Avancer l’infra Linux : Journal_De_Bord (admin-trading + student), passage headless, SFTP partagé (/shared), et hub DeepSeek sur student.
+
+2) Actions:
+- Comparaison Cursor vs DeepSeek : DeepSeek = modèle; Cursor = IDE + agent/indexation. Alternatives gratuites identifiées (Gemini Code Assist, Continue+Ollama, Copilot Free limité).
+- Windows (DESKTOP-1KDTQBH) :
+  - Installation Ollama 0.17.4, vérification API localhost:11434.
+  - Modèles téléchargés : qwen2.5-coder:7b, qwen2.5-coder:1.5b, nomic-embed-text:latest.
+  - Installation VS Code + extension Continue (v1.2.16) et résolution du problème de profile VS Code (“Pro_Trader”).
+  - Configuration Continue sur provider Ollama; tests et diagnostic de lenteur/Agent; vérification via `ollama ps` et test `ollama run`.
+- admin-trading (Debian 12) / student (Debian 12) — Journal_De_Bord :
+  - Création bundle tgz sur admin-trading et installation sur student; wrappers /usr/local/bin; sanity PASS.
+  - `cmd-post_change` utilisé pour journaliser + copier les steps vers student.
+  - Compilation canon FULL : résolution erreurs (permissions /opt/trading/journal/canon, `compile_canon.py` requiert args, `--out` crée un dossier) → génération `JOURNAL_CANON_FULL_*.md` + `TODO_CONSOLIDE_FULL_*.md` et push vers student.
+  - Patch ZIP v3 : ajout `canon_latest`, timers systemd (daily/weekly) + option user timers; suppression user timers pour éviter double exécution; validation timers et exécution manuelle du service.
+- Passage headless admin-trading :
+  - Baseline (graphical.target + gdm actif) loggé via post_change.
+  - `systemctl set-default multi-user.target`, reboot, validation gdm/display-manager inactifs + timers JDB OK; log post_change.
+- shared_files_sftp (admin-trading) :
+  - Installation v1 → erreur `Subsystem 'sftp' already defined`; installation v2 corrige drop-in, sanity PASS.
+  - Ajout clé MSI (db-layer) et test SFTP; création user dédié `sftp_db_layer`.
+  - Ajout clé Windows (cursor-ai), création user `sftp_cursor_ai`; résolution “overwrite” via umask group-writable (internal-sftp `-u 0002`) + log post_change.
+  - Patch “wraps/mount/sync” : wrappers + ACL/perms + symlink; db-layer monté (sshfs) vers `~/Téléchargements/SHARED`; côté Windows, WinSCP installé, hostkey pinning, conversion clé en PPK via WinSCP, keepuptodate validé + autostart Windows validé (boot_test.txt visible serveur); log final post_change “SHARED unified”.
+- student DeepSeek (Ollama 0.17.0) :
+  - Audit : WireGuard installé + wg-mgmt up; UFW + fail2ban actifs; Ollama deepseek-r1:1.5b local-only.
+  - Clarification “thinking” : /api/chat renvoie `.message.thinking`, /api/generate ne renvoie pas `thinking` dans ce setup.
+  - Création hub DeepSeek :
+    - Déploiement module `deepseek_hub` via ZIP sur admin-trading → patch applied + install shortcuts + commit/push.
+    - Fix menu inputs via ZIP `deepseek_hub_menu_fix_v1.zip` (N numérique + validation modèle), commit/push, pull sur student; validation menu (tail response OK avec `n` → fallback 10).
+    - Création et test d’archives `.md` dans `/opt/trading/_student_archive/{thinking,response}` via menu hub.
+
+3) Décisions:
+- Abandon de Copilot Free pour usage agent intensif (quota) ; privilégier Ollama+Continue en local.
+- Sur JDB timers : conserver uniquement les timers SYSTEM, retirer USER timers (éviter double exécution).
+- admin-trading en headless via `multi-user.target`.
+- Pour partage fichiers : standardiser sur un dossier SHARED commun (Windows push auto → serveur → db-layer via sshfs).
+- Pour DeepSeek student : standardiser sur /api/chat pour récupérer thinking + hub menu unifié pour ne plus “redemander”.
+
+4) Commandes / Code:
+```powershell
+winget install ollama
+where.exe ollama
+irm http://localhost:11434/api/tags
+ollama pull qwen2.5-coder:7b
+ollama pull qwen2.5-coder:1.5b
+ollama pull nomic-embed-text
+code --install-extension Continue.continue
+```
+
+```powershell
+# WinSCP keepuptodate (après hostkey + ppk)
+& "$env:LOCALAPPDATA\Programs\WinSCP\WinSCP.com" /ini=nul /script="$env:USERPROFILE\Downloads\wscp_shared_files.txt"
+```
+
+```bash
+# admin-trading: headless
+sudo systemctl set-default multi-user.target
+sudo reboot
+systemctl get-default
+systemctl is-active gdm || true
+
+# student: ollama + deepseek
+sudo ss -lptn | grep 11434
+systemctl status ollama --no-pager
+ollama list
+curl -s http://127.0.0.1:11434/api/chat -d '{"model":"deepseek-r1:1.5b","messages":[{"role":"user","content":"..."}],"think":true,"stream":false}' | jq -r '.message.thinking, "----", .message.content'
+```
+
+```bash
+# shared_files_sftp: transfert ZIP MSI -> admin-trading
+scp "/home/ghost/Téléchargements/shared_files_sftp_module_*.zip" ghost@192.168.16.155:"/home/ghost/Téléchargements/"
+
+# sftp test Linux client
+sftp -i ~/.ssh/id_ed25519 sftp_share@192.168.16.155
+```
+
+```bash
+# JDB: timers validation
+systemctl list-timers | grep jdb-canon
+sudo systemctl start jdb-canon-daily.service
+sudo journalctl -u jdb-canon-daily.service -n 120 --no-pager
+```
+
+5) Points ouverts (next):
+- VS Code/Continue : valider un “agent-like” sur un repo réel (workspace ouvert + indexing) et stabiliser mode Agent/perf sur CPU.
+- student “legacy” : symlinks `menu-student/cmd-student/sanity-student` pointent vers des chemins inexistants (/opt/trading/scripts/student_*). Décider si on les redirige vers le hub DeepSeek ou suppression.
+- shared_files_sftp : (option) organiser `/shared` (modules/inbox/outbox) + sanity “quick check” côté Windows.
+- DeepSeek hub : (option) rendre le sanity/admin-trading en mode WARN si Ollama absent + finaliser symlinks manquants sur admin-trading si besoin d’utiliser le menu hors student.
