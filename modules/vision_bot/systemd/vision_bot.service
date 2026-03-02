@@ -1,0 +1,32 @@
+[Unit]
+Description=vision_bot (ShareX inbox -> outbox) watch loop
+After=network.target
+
+[Service]
+Type=simple
+User=ghost
+Group=ghost
+WorkingDirectory=/opt/trading
+
+# Paths
+Environment=VISION_BOT_INBOX=/srv/sftp/shared_files/shared/vision_inbox
+Environment=VISION_BOT_OUTBOX=/srv/sftp/shared_files/shared/vision_outbox
+Environment=VISION_BOT_PROCESSED=/srv/sftp/shared_files/shared/vision_processed
+Environment=VISION_BOT_WORKDIR=/opt/trading/_work/vision_bot
+
+# Engine
+Environment=VISION_BOT_ENGINE=ocr
+Environment=VISION_BOT_POLL_SEC=2
+
+ExecStart=/usr/bin/python3 /opt/trading/modules/vision_bot/app/vision_bot.py watch
+Restart=always
+RestartSec=2
+
+# Hardening (safe defaults)
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=false
+
+[Install]
+WantedBy=multi-user.target
