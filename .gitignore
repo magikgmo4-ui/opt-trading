@@ -62,3 +62,4 @@ _student_archive/
 _worktrees/
 _inbox/
 _hold_untracked_before_merge_*/
+perf/*.bak.*
