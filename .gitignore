@@ -63,3 +63,4 @@ _worktrees/
 _inbox/
 _hold_untracked_before_merge_*/
 perf/*.bak.*
+_hold/patch_backups/
