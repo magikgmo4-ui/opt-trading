@@ -1,4 +1,3 @@
-\
 #!/usr/bin/env bash
 # canon_full_push_student.sh
 # 1-click: compile canon FULL + push to student + log

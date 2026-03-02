@@ -1,4 +1,3 @@
-\
 ## cursor-ai (Dell Windows) — apply
 
 Open PowerShell as Administrator in this folder.

@@ -1,4 +1,3 @@
-\
 #!/usr/bin/env bash
 set -euo pipefail
 DROP="/etc/ssh/sshd_config.d/shared_files_sftp.conf"

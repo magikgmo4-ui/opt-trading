@@ -1,4 +1,3 @@
-\
 #!/usr/bin/env bash
 # canon_latest.sh
 set -euo pipefail

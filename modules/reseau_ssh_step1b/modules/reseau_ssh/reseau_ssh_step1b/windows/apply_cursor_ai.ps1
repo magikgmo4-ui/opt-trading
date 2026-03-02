@@ -1,4 +1,3 @@
-\
 <#
 reseau_ssh Step 1b — cursor-ai (Dell Windows)
 Run in elevated PowerShell for hosts/OpenSSH parts.

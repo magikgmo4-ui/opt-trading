@@ -1,4 +1,3 @@
-\
 #!/usr/bin/env bash
 # journal_de_bord_cmd_v3.sh
 set -euo pipefail

@@ -1,4 +1,3 @@
-\
 # ~/.ssh/config (template) — same file on every Linux host
 # Replace XXX with real IPs, and adjust users if needed.
 # Keep hostnames UNIQUE on the network. Use these Host aliases for convenience.

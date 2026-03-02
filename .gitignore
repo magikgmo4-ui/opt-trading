@@ -52,3 +52,9 @@ envs/
 _reseau_audit/
 _student_archive/events/*.ndjson
 _student_archive/
+# repo_hygiene additions (WAL/SHM + patch backups)
+*.db-wal
+*.db-shm
+*.sqlite-wal
+*.sqlite-shm
+*.bak_*
