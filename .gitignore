@@ -66,3 +66,6 @@ perf/*.bak.*
 _hold/patch_backups/
 _work/
 PATCH_NOTES.md
+modules/bot_vision_step2/config/bot_vision.env
+.venvs/
+modules/**/config/*.env
