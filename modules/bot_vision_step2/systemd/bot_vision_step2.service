@@ -1,0 +1,19 @@
+[Unit]
+Description=bot_vision_step2 (Telegram /analyze -> OpenAI -> Desk Pro artifacts)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ghost
+Group=ghost
+WorkingDirectory=/opt/trading
+EnvironmentFile=/opt/trading/modules/bot_vision_step2/config/bot_vision.env
+ExecStart=/opt/trading/.venvs/bot_vision_step2/bin/python /opt/trading/modules/bot_vision_step2/app/bot_vision_step2.py serve
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

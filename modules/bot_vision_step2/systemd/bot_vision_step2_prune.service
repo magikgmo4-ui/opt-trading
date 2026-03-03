@@ -1,0 +1,10 @@
+[Unit]
+Description=bot_vision_step2 prune old screenshots (processed/outbox)
+
+[Service]
+Type=oneshot
+User=ghost
+Group=ghost
+WorkingDirectory=/opt/trading
+EnvironmentFile=/opt/trading/modules/bot_vision_step2/config/bot_vision.env
+ExecStart=/opt/trading/.venvs/bot_vision_step2/bin/python /opt/trading/modules/bot_vision_step2/app/bot_vision_step2.py prune_old
