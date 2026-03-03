@@ -7328,3 +7328,117 @@ sudo journalctl -u jdb-canon-daily.service -n 120 --no-pager
 - student “legacy” : symlinks `menu-student/cmd-student/sanity-student` pointent vers des chemins inexistants (/opt/trading/scripts/student_*). Décider si on les redirige vers le hub DeepSeek ou suppression.
 - shared_files_sftp : (option) organiser `/shared` (modules/inbox/outbox) + sanity “quick check” côté Windows.
 - DeepSeek hub : (option) rendre le sanity/admin-trading en mode WARN si Ollama absent + finaliser symlinks manquants sur admin-trading si besoin d’utiliser le menu hors student.
+
+## 2026-03-03 08:00 — note23
+1) Objectifs:
+- Mettre en pause le travail “nouvelle branche + 3 modules”, puis décision inverse: activer les 3 modules sur admin-trading.
+- Déployer et stabiliser `vision_bot` (OCR inbox→outbox) puis le passer en service systemd (watch).
+- Configurer ShareX (Windows) pour upload SFTP vers admin-trading et fiabiliser le nommage.
+- Ajouter `bot_vision_step2` (Telegram /analyze + outputs Desk Pro) sur admin-trading, le rendre stable en groupe Telegram, puis “feed student” via git pull.
+- Assurer la portabilité côté student (sanity/shortcuts sans /srv/sftp ni venv) et corriger permissions/executable bits.
+
+2) Actions:
+- Repo: vérifications git sur `/opt/trading` puis pose d’un tag de gel (`ice/branch_wip_20260302`).
+- Modules repo activés/validés: `repo_hygiene`, `repo_local_artifacts`, `repo_ownership_guard` (sanity OK, shortcuts déjà présents via `/opt/trading/scripts/*`).
+- `vision_bot`:
+  - Sanity initial révélant erreur due aux symlinks `/usr/local/bin` (BASE_DIR=/usr/local → REPO_ROOT=/ → permissions + chemin app invalide).
+  - Patch fourni en ZIP (workflow), appliqué, sanity OK.
+  - Test pipeline local (copie d’un PNG) puis pipeline WinSCP/ShareX→SFTP→run_once OK.
+  - Correction ShareX “file naming” (pattern ShareX) et validation end-to-end (PNG → .md/.txt, processed).
+  - Commit/push du module `vision_bot` + ajout service systemd (install/uninstall + fix_git_health) + démarrage service `vision_bot.service`.
+- ShareX (Windows):
+  - Config SFTP (Destination settings → FTP/FTPS/SFTP en mode SFTP) vers `/srv/sftp/shared_files/shared/vision_inbox`.
+  - Fix nommage via pattern ShareX (éviter le nom “screen_26yy-%MM…”).
+  - Validation: admin-trading reçoit les uploads; watch systemd traite automatiquement (outbox/proc) sans `run_once`.
+- `bot_vision_step2`:
+  - Ajout du module via ZIP (repo voit `?? modules/bot_vision_step2/`), création env, sanity OK (WARN Pillow au début).
+  - Installation deps dans venv (openai+pillow) et test CLI `analyze_latest` générant: runs, `latest` symlink, `analyze_*.txt/.md` dans `vision_outbox`.
+  - Mise en place bot Telegram séparé + groupe “trading monitor et admin-trading”.
+  - Debug Telegram: erreurs HTTP 400 dues à mauvais `TELEGRAM_CHAT_ID` (utilisateur vs groupe), récupération du chat_id groupe via getUpdates après stop service + privacy disable; groupe = `-5177632039`.
+  - Stabilisation: `ALLOWED_CHAT_ID=-5177632039`, `TELEGRAM_CHAT_ID=` (vide). Après restart: service stable; /analyze fonctionne dans le groupe, produit 4 images + outputs “Desk Pro”, bouton “Send 4”.
+- Git hygiene:
+  - Commit/push `bot_vision_step2` (module + systemd + scripts).
+  - Ajout `.gitignore`: ignore `.venvs/` + ignore `modules/**/config/*.env` + ajout journaux `journal/steps/step_20260302_*.md`.
+- Student feed:
+  - Student était sur mauvaise branche au départ; switch sur `sot/mainline`, pull.
+  - Installation shortcuts `bot_vision_step2`.
+  - Correction sanity student: patch pour “skip /srv/sftp” (WARN + PASS).
+  - Correction wrapper sans venv puis correction du bit exécutable (script passé 100644→100755), résolution conflit pull côté student (restore/pull).
+
+3) Décisions:
+- Le travail “branche + 3 modules” a été d’abord gelé (tag ICE), puis décision de les utiliser sur admin-trading.
+- Architecture retenue:
+  - Windows/ShareX = “yeux” (capture + upload SFTP fiable).
+  - admin-trading = “cerveau” (vision_bot OCR + bot_vision_step2 /analyze + outputs Desk Pro).
+- Telegram: choix “groupe + 2 bots” (éviter conflit getUpdates).
+- Telegram config: allowlist sur le chat groupe `-5177632039`; `TELEGRAM_CHAT_ID` laissé vide pour répondre au chat appelant.
+- `vision_bot` doit tourner en service systemd (watch) sur admin-trading; commandes systemctl avec `sudo`.
+
+4) Commandes / Code:
+```bash
+# Git: vérifs + tag ICE
+cd /opt/trading || exit 1
+git status -sb
+git branch --show-current
+git log --oneline --decorate -10
+git tag -a "ice/branch_wip_20260302" -m "Freeze WIP: branch + 3 modules (no system changes)"
+git push --tags
+
+# Modules repo: sanity
+sanity-repo_hygiene
+sanity-repo_local_artifacts
+sanity-repo_ownership_guard
+
+# vision_bot: apply patches zips + shortcuts + tests
+unzip -o /srv/sftp/shared_files/shared/vision_bot_symlink_fix_patch_20260302.zip
+sudo bash modules/vision_bot/scripts/install_shortcuts.sh
+sanity-vision_bot
+cmd-vision_bot init
+cmd-vision_bot run_once
+
+# vision_bot: systemd service
+sudo bash modules/vision_bot/scripts/install_service.sh
+systemctl status vision_bot --no-pager
+sudo journalctl -u vision_bot -n 200 --no-pager
+
+# Commit vision_bot
+git add modules/vision_bot
+git commit -m "module: vision_bot v1 (ShareX inbox/outbox; symlink-safe)"
+git push
+
+# bot_vision_step2: install service + deps + start
+sudo bash modules/bot_vision_step2/scripts/install_service.sh
+sudo systemctl enable --now bot_vision_step2
+sudo systemctl status bot_vision_step2 --no-pager
+sudo journalctl -u bot_vision_step2 -n 80 --no-pager -o cat
+
+# Telegram: test sendMessage direct (validation token+chat_id)
+TOKEN="$(grep -E '^TELEGRAM_BOT_TOKEN=' modules/bot_vision_step2/config/bot_vision.env | cut -d= -f2-)"
+curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
+  -d "chat_id=-5177632039" \
+  -d "text=ping admin-trading (test)" ; echo
+
+# Git hygiene
+grep -qxF ".venvs/" .gitignore || echo ".venvs/" >> .gitignore
+grep -qxF "modules/**/config/*.env" .gitignore || echo "modules/**/config/*.env" >> .gitignore
+git add .gitignore journal/steps/step_20260302_*.md
+git commit -m "git: ignore .venvs + journal: add 2026-03-02 steps"
+git push
+
+# Student: feed (branch + shortcuts)
+git checkout sot/mainline
+git pull --ff-only
+sudo bash modules/bot_vision_step2/scripts/install_shortcuts.sh
+
+# Student: résoudre conflit pull après chmod local
+git restore modules/bot_vision_step2/scripts/bot_vision_step2_cmd.sh
+git pull --ff-only
+```
+
+5) Points ouverts (next):
+- Nouvelle session demandée pour:
+  - Optimiser le layout TradingView (actifs à garder/enlever, indicateurs) pour maximiser la qualité Desk Pro.
+  - Clarifier “pourquoi 2 analyses” (messages/sorties distinctes) et décider format final.
+  - Améliorer la gestion post-/analyze (fichiers, images, nettoyage/prune).
+- Sécurité: une clé OpenAI a été affichée en clair à un moment; rotation/révocation recommandée (à confirmer si faite).
+- Telegram/format: améliorer la sortie `/analyze` (FR + plus “propre” comme avant) et normaliser le format Desk Pro.
