@@ -74,9 +74,25 @@ def is_allowed_chat(c: Dict[str, str], chat_id: str) -> bool:
         return True
     return str(chat_id).strip() in allowed
 
-def ensure_dirs(c: Dict[str, str]) -> None:
+def ensure_dirs(c: Dict[str, str], strict: bool=True) -> None:
+    """Ensure required directories exist.
+
+    - strict=True: raise if we cannot create a required directory (runtime requirement on admin-trading).
+    - strict=False: warn and continue if a path is not creatable (e.g., student machine without /srv/sftp mount).
+    """
     for k in ["VISION_INBOX","VISION_PROCESSED","VISION_OUTBOX","DESKPRO_VISION_DIR","WORKDIR"]:
-        Path(c[k]).mkdir(parents=True, exist_ok=True)
+        p = Path(c[k])
+        try:
+            p.mkdir(parents=True, exist_ok=True)
+        except PermissionError as e:
+            if strict:
+                raise
+            print(f"WARN: cannot create {p} ({e}); skipping (expected on machines without /srv/sftp).")
+        except FileNotFoundError as e:
+            # Can happen when an intermediate path cannot be created (e.g., /srv/sftp on non-admin machines).
+            if strict:
+                raise
+            print(f"WARN: cannot create {p} ({e}); skipping (expected on machines without /srv/sftp).")
 
 def list_images(folder: Path) -> List[Path]:
     exts = {".png",".jpg",".jpeg",".webp"}
@@ -481,7 +497,7 @@ def sanity() -> int:
     print(now_iso())
     for k in ["VISION_INBOX","VISION_PROCESSED","VISION_OUTBOX","DESKPRO_VISION_DIR","WORKDIR","MAX_W","MAX_H","CROP_MODE","ANALYZE_MODE"]:
         print(f"{k}={c[k]}")
-    ensure_dirs(c)
+    ensure_dirs(c, strict=False)
     if Image is None:
         print("WARN: Pillow missing (install_service.sh will install).")
     if not c.get("TELEGRAM_BOT_TOKEN") or c["TELEGRAM_BOT_TOKEN"] == "REPLACE_ME":
