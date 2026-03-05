@@ -7541,3 +7541,100 @@ OK: Ollama API responds.
 - Décider si `perm_fix_student` doit aussi être versionné dans le repo (actuellement installé sur `student`).
 - Clarifier le “bon” nom du menu ops (remplace `menu_ops-super`) et produire un aide-mémoire permanent.
 - Nettoyer/traiter les fichiers non suivis listés par `git status` (incluant `desk/`, scripts, backups, journaux) selon la politique de versionnage.
+
+## 2026-03-05 18:50 — note 31
+1) Objectifs:
+- Stabiliser le setup “TV Desk Pro” (layout/indicateurs) et définir une sortie unique `/analyze` Telegram.
+- Corriger le problème “le bot ne voit pas ses propres screenshots” en basculant sur une source locale (`latest.json`).
+- Mettre en place un pipeline fiable : captures → stockage disque → ingestion → `/analyze`.
+- Standardiser l’outillage ops : menus numérotés, wrappers pour modules sans menu, installation de zips depuis `/shared`.
+- Éviter l’accumulation de données (prune/retention) et rendre `/shared` accessible sur toutes les machines.
+
+2) Actions:
+- TradingView :
+  - Mise en place “2+2” (limite Multichart=2) : 2 fenêtres TV (BTC+XAU en haut, SOL+ETH en bas), H1, sync crosshair+intervalle ON, symbole/dessins OFF.
+  - Template sauvegardé `desk_pro_2x2_v2`.
+  - Indicateurs on-chart : Volume + Volume MTF + VWAP MTF testés puis VWAP retiré; RSI ajouté; final = EMAs + zones/SR + Volume/Volume MTF + RSI (sans VWAP).
+- `/analyze` Telegram :
+  - Diagnostic confirmé : un bot Telegram ne “relit” pas ses propres photos via `getUpdates` → dépendance à Telegram supprimée.
+  - Mise en place d’un cache local des snapshots + index `/opt/trading/desk/snapshots/latest.json`.
+  - Module `desk_snapshot_ingest` installé; correctif symlink/permissions appliqué; tests d’ingestion OK (processed=4).
+  - Patch `bot_vision_step2` : `/analyze` lit `latest.json` et renvoie une analyse consolidée (plus de lecture Telegram).
+  - Correction crash-loop `IndentationError` (après patch maladroit) via restauration + patch v2; service stable.
+  - Gestion backlog : constat de multiples `/analyze` rejoués après redémarrage; tentative de “drop pending updates” (aucun backlog au moment du check).
+- Pipeline ShareX :
+  - Constat : les captures arrivent dans `/srv/sftp/shared_files/shared/vision_processed/` (pas dans `/inbox` attendu par ingest).
+  - Ajout d’un bridge `vision_processed` → split 2x2 → `/inbox` → `ingest_once`; Pillow installé pour fallback (convert absent).
+  - Timer/service `desk_bridge.service` validé via journaux systemd (processed=4, `latest.json refreshed`).
+  - Correction analyse : timezone/naive timestamps provoquaient un “STALE” incorrect (signalé), et sortie trop longue/anglais; tentative de patch `desk_analyze` (FR/compact + fix timezone) mais une régression `build_vision_prompt` (signature/call mismatch) a persisté dans la session (fixes successifs proposés, pas confirmés appliqués en fin de dump).
+- Retention/Prune :
+  - Timer `desk_retention.timer` configuré “daily 03:00” (format `OnCalendar=*-*-* 03:00:00`, `Persistent=true`), validation `systemd-analyze calendar` + `NextElapseUSecRealtime`.
+- Ops / Menus :
+  - Installation `ops_menu_hub` + correction symlink (scripts `readlink -f`) ; `cmd-ops_hub bootstrap_shortcuts` utilisé.
+  - Installation `ops_super_menu` : menu numéroté + liste modules sans menu + audits shortcuts/targets.
+  - Génération de wrappers (`ops_wrappers`) pour modules “NONE” afin d’avoir des menus standard; correction logique (installation shortcuts sur wrappers).
+  - Commit/push sur admin-trading : gros lot `desk_*`, `ops_*`, `install_module`, `scripts/desk_bridge`, wrappers, journaux.
+- Déploiement multi-machines :
+  - Student : `git pull`, bootstrap shortcuts; nettoyage repo (`git restore`, `git clean -fd`) après backups; montée `/shared` via sshfs; correction `install_module` (root/path, commandes `list_packages`/`sync_validate`).
+  - db-layer : `/opt/trading` non-git détecté → backup + reclone repo; bootstrap shortcuts; `menu-ops_super` fonctionnel; nettoyage `git clean -fd`.
+- `/shared` permanent :
+  - Installation bundle `shared_sshfs_permanent_bundle.zip`.
+  - db-layer : `shared-sshfs.service` en `enabled` + `active`, `/shared` monté.
+  - student : cas particulier (permissions FUSE/root), maintien d’un montage fonctionnel; vérifications finales : repos clean et accès à `/shared` (list packages OK).
+
+3) Décisions:
+- `/analyze` doit lire uniquement des artefacts locaux (`latest.json`) : Telegram n’est pas une source de vérité.
+- Layout TV : 2 fenêtres (2 charts chacune) pour obtenir un “2x2” visuel (limite multichart=2).
+- Indicateurs TV v1 (screenshot-friendly) : EMAs + zones/SR + Volume/Volume MTF + RSI; VWAP retiré pour lisibilité.
+- Les captures ShareX sont traitées via bridge depuis `vision_processed` (source réelle) plutôt que forcer `/inbox` direct.
+- Retention/prune : exécution quotidienne à 03:00 (pas toutes les 10 min).
+- Standardisation ops : “super menu” numéroté par machine + wrappers pour modules sans menu afin d’unifier l’accès.
+- Source de vérité pour le code : Git (commit/push sur admin-trading → pull sur student/db-layer). `/shared` sert aux patchs/bundles ponctuels.
+
+4) Commandes / Code:
+```bash
+# Ingestion snapshots
+cmd-desk_snapshot_ingest ingest_once
+sed -n '1,220p' /opt/trading/desk/snapshots/latest.json
+tail -n 40 /opt/trading/desk/snapshots/history.jsonl
+
+# Bridge vision_processed -> inbox -> ingest
+sudo systemctl start desk_bridge.service
+journalctl -u desk_bridge.service -n 80 --no-pager
+
+# Bot Telegram (service)
+sudo systemctl status bot_vision_step2 --no-pager
+sudo journalctl -u bot_vision_step2 -n 120 --no-pager
+
+# Timer retention daily
+systemctl cat desk_retention.timer | sed -n '1,120p'
+systemd-analyze calendar "*-*-* 03:00:00"
+
+# Ops hub / bootstrap shortcuts
+sudo cmd-ops_hub bootstrap_shortcuts
+menu-ops_super
+menu-ops_wrappers
+
+# Git (admin-trading)
+git commit -m "desk+ops: pipeline + menus + wrappers + install_module"
+git push
+
+# Student/db-layer clean (exécuté)
+git restore .
+git clean -fd
+
+# db-layer reclone (résumé)
+sudo mv /opt/trading /opt/trading.bak_nogit_<ts>
+git clone https://github.com/magikgmo4-ui/opt-trading.git /opt/trading
+
+# shared sshfs (db-layer, validé)
+systemctl is-enabled shared-sshfs.service && systemctl is-active shared-sshfs.service
+mount | grep -E "sshfs|/shared"
+```
+
+5) Points ouverts (next):
+- Finaliser proprement `desk_analyze` Vision (erreur persistante `build_vision_prompt`/signature vs call, et uniformiser sortie FR compacte non tronquée).
+- Normaliser définitivement le montage `/shared` sur student (service systemd stable aligné avec db-layer, éviter conflits FUSE/root).
+- Ajouter un index/description des zips dans `/shared` (mapping zip → objectif/machine) pour “savoir quoi installer” sans inspection manuelle.
+- Mettre en place un module “desk_state” (fusion canonique des inputs : snapshots/latest + vision inputs + futures APIs) et brancher UI plus tard.
+- Poursuivre l’enrichissement Desk Pro (corr BTC/DXY, XAU/DXY, DXY trend, Fear&Greed, liquidations) après stabilisation modules et prune.
