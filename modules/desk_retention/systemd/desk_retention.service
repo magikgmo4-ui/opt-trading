@@ -1,0 +1,10 @@
+[Unit]
+Description=Desk Retention (prune old desk/vision files)
+After=network.target
+
+[Service]
+Type=oneshot
+User=ghost
+Group=ghost
+WorkingDirectory=/opt/trading
+ExecStart=/opt/trading/modules/desk_retention/desk_retention.sh 0

@@ -69,3 +69,6 @@ PATCH_NOTES.md
 modules/bot_vision_step2/config/bot_vision.env
 .venvs/
 modules/**/config/*.env
+desk/
+*.restored_*
+*.fixindent_bak_*

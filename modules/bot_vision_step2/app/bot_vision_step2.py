@@ -438,20 +438,15 @@ def serve() -> None:
                         continue
 
                     if text.startswith("/analyze"):
-                        try:
-                            tg_send_message(c, target, "⏳ Analyse en cours…")
-                        except Exception as e:
-                            # Do not crash the loop if Telegram rejects a message.
-                            print(f"WARN: pre-analyze send failed (chat_id={chat_id} target={target}): {e}", flush=True)
-                        try:
-                            analyze_latest(chat_id_override=target)
-                        except Exception as e:
-                            try:
-                                tg_send_message(c, target, f"ERR analyze: {e}")
-                            except Exception as e2:
-                                print(f"WARN: ERR analyze send failed: {e2}", flush=True)
+                        # DESK_ANALYZE_LOCAL_FASTPATH_V2: local latest.json via desk_analyze (no Telegram media dependency)
+                        import subprocess
+                        script = "/opt/trading/modules/desk_analyze/analyze_latest.py"
+                        r = subprocess.run(["python3", script], capture_output=True, text=True)
+                        report = (r.stdout or "").strip() or (r.stderr or "").strip() or f"[desk_analyze] rc={r.returncode}"
+                        max_len = 3800
+                        for i in range(0, len(report), max_len):
+                            tg_api(c, "sendMessage", {"chat_id": chat_id, "text": report[i:i+max_len], "disable_web_page_preview": True})
                         continue
-
                 cb = upd.get("callback_query") or {}
                 if cb:
                     cbid = cb.get("id") or ""
