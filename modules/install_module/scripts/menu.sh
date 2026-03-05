@@ -1,41 +1,53 @@
-\
-    #!/usr/bin/env bash
-    set -euo pipefail
+#!/usr/bin/env bash
+set -euo pipefail
 
-    ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
-    CMD="$ROOT/modules/install_module/scripts/cmd.sh"
+ROOT="${ROOT:-/opt/trading}"
+HOST="$(hostname)"
 
-    prompt() { read -r -p "$1" ans; echo "$ans"; }
+cmd() { "$ROOT/modules/install_module/scripts/cmd.sh" "$@"; }
 
-    while true; do
-      echo
-      echo "=== INSTALL MODULE ==="
-      echo "root=$ROOT"
-      echo
-      echo "1) List packages in /shared"
-      echo "2) Sync/Validate (git push + pull on student/db-layer)"
-      echo "q) Quit"
-      echo -n "> "
-      read -r choice || exit 0
-
-      case "$choice" in
-        1)
-          echo
-          echo "--- packages ---"
-          "$CMD" list || true
-          ;;
-        2)
-          echo
-          hosts="$(prompt "Hosts (default: student db-layer): ")"
-          commit="$(prompt "Auto-commit message (empty = do NOT auto-commit): ")"
-          if [ -z "$hosts" ]; then hosts="student db-layer"; fi
-          if [ -n "$commit" ]; then
-            "$CMD" sync_validate --hosts "$hosts" --auto-commit --commit "$commit"
-          else
-            "$CMD" sync_validate --hosts "$hosts"
-          fi
-          ;;
-        q|Q) exit 0;;
-        *) echo "Invalid.";;
-      esac
-    done
+while true; do
+  echo
+  echo "=== INSTALL MODULE ==="
+  echo "host=$HOST"
+  echo "root=$ROOT"
+  echo
+  if [[ "$HOST" == "admin-trading" ]]; then
+    echo "1) List packages in shared"
+    echo "2) Install package (by number or filename)"
+    echo "3) Sync ALL (git push + pull student/db-layer + bootstrap shortcuts)"
+    echo "q) Quit"
+  else
+    echo "1) List packages in shared"
+    echo "2) Install package (by number or filename)"
+    echo "3) Sync/Validate (git pull + sanity + bootstrap shortcuts)"
+    echo "q) Quit"
+  fi
+  read -r -p "> " choice
+  case "$choice" in
+    1)
+      cmd list_packages
+      ;;
+    2)
+      read -r -p "Package (num|filename): " sel
+      read -r -p "Install shortcuts after install? (sudo) [y/N]: " ys
+      if [[ "${ys,,}" == "y" ]]; then
+        cmd install "$sel" --sudo
+      else
+        cmd install "$sel"
+      fi
+      ;;
+    3)
+      if [[ "$HOST" == "admin-trading" ]]; then
+        cmd sync_all
+      else
+        cmd sync_validate
+      fi
+      ;;
+    q|quit|exit) exit 0 ;;
+    *) echo "Invalid choice" ;;
+  esac
+  echo
+  read -r -p "Press Enter..." _
+  clear || true
+done
