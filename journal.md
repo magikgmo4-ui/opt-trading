@@ -7442,3 +7442,102 @@ git pull --ff-only
   - Améliorer la gestion post-/analyze (fichiers, images, nettoyage/prune).
 - Sécurité: une clé OpenAI a été affichée en clair à un moment; rotation/révocation recommandée (à confirmer si faite).
 - Telegram/format: améliorer la sortie `/analyze` (FR + plus “propre” comme avant) et normaliser le format Desk Pro.
+
+## 2026-03-05 17:07 — note30
+1) Objectifs:
+- Documenter l’architecture cible “AI Trading Desk” (modules, roadmap, schémas) et produire des fichiers de référence.
+- Mettre en place un flux de transfert de modules (WinSCP/shared) et corriger des problèmes de permissions sur `student`.
+- Tester Ollama (local + API) sur `student`.
+- Préparer un commit/push propre sur `sot/mainline` (sans fichiers runtime/parasites).
+
+2) Actions:
+- Définition de l’architecture “AI Trading Desk” (couches Data/Processing/Analytics/AI/Probability/Decision/Execution/Observability) + liste de modules (15 essentiels, puis ~25, puis ~60, puis ~100).
+- Génération annoncée de multiples fichiers (.txt/.pdf) : schémas (actuel vs objectif), blueprint avancé, catalogue modules (~100), liste 15 modules, roadmap par phases.
+- Correction permissions sur `student` via module `perm_fix_student` (install + sanity + `fix_journal`).
+- Test Ollama sur `student` (version, liste modèles, API `/api/tags`, génération via `/api/generate`) OK avec `deepseek-r1:1.5b`.
+- Mise en place du transfert manuel du zip depuis `admin-trading` (répertoire shared SFTP) vers `student`, installation depuis `/tmp`.
+- Planification d’un module `winscp_transfer` pour standardiser `shared/inbox|outbox` + commandes push/deploy/fetch.
+- Diagnostic Git sur `admin-trading` : branche `sot/mainline` à jour, nombreux fichiers non suivis + un fichier suivi modifié (`bot_vision_step2.py`).
+
+3) Décisions:
+- Ajouter le module manquant “flow inter-exchange” à la liste : `cross_exchange_flow` (alias proposé `liquidity_flow_engine`).
+- Ne pas committer `/usr/local/bin/*`, ni `/srv/sftp/shared_files/*`, ni logs/tmp (runtime).
+- Séparer/mettre de côté la modif suivie `modules/bot_vision_step2/app/bot_vision_step2.py` via `git stash` avant un commit “desk + ops + winscp”.
+- Ajouter des règles `.gitignore` pour éviter d’embarquer des fichiers/dossiers parasites (`desk/`, scripts patch/install, backups).
+
+4) Commandes / Code:
+```bash
+# Transfert zip admin-trading -> student
+ls -lah /srv/sftp/shared_files/shared/perm_fix_student_bundle.zip
+sha256sum /srv/sftp/shared_files/shared/perm_fix_student_bundle.zip
+scp /srv/sftp/shared_files/shared/perm_fix_student_bundle.zip \
+  student@192.168.16.103:/tmp/perm_fix_student_bundle.zip
+```
+
+```bash
+# Installation + exécution module perm_fix_student (sur student)
+cd /tmp
+unzip -o perm_fix_student_bundle.zip -d /tmp/pfs
+sudo bash /tmp/pfs/APPLY.sh
+
+sanity-perm_fix_student
+sudo cmd-perm_fix_student fix_journal
+cmd-perm_fix_student ollama_test
+```
+
+```bash
+# Aide-mémoire: retrouver les menus ops
+ls -1 /usr/local/bin | grep -E '^menu' | sort | sed -n '1,120p'
+ls -1 /usr/local/bin | grep -Ei '^menu.*ops|ops.*menu' | sort
+```
+
+```bash
+# Git commit propre (admin-trading) - stash du fichier suivi modifié
+cd /opt/trading
+git stash push -m "wip bot_vision_step2.py" -- modules/bot_vision_step2/app/bot_vision_step2.py
+```
+
+```bash
+# .gitignore (éviter parasites)
+touch .gitignore
+grep -qxF "desk/" .gitignore || echo "desk/" >> .gitignore
+grep -qxF "APPLY_PATCH.sh" .gitignore || echo "APPLY_PATCH.sh" >> .gitignore
+grep -qxF "INSTALL.sh" .gitignore || echo "INSTALL.sh" >> .gitignore
+grep -qxF "*.fixindent_bak_*" .gitignore || echo "*.fixindent_bak_*" >> .gitignore
+grep -qxF "*.restored_*" .gitignore || echo "*.restored_*" >> .gitignore
+```
+
+```bash
+# Stage ciblé (desk + ops + winscp + ignore)
+git add .gitignore \
+  modules/winscp_transfer \
+  modules/ops_menu_hub modules/ops_super_menu modules/ops_wrappers \
+  modules/desk_analyze modules/desk_capture_inputs modules/desk_common modules/desk_retention modules/desk_snapshot_ingest modules/desk_state \
+  modules/install_module \
+  scripts/desk_bridge
+
+# optionnel: journal
+git add journal/steps/step_2026030*.md
+
+git commit -m "desk: add ops menus + desk modules + winscp_transfer"
+git push
+```
+
+```text
+# Output clé (student) - sanity/ollama OK
+sanity_perm_fix_student — checks
+OK: journal files readable
+OK: ollama present
+PASS: perm_fix_student sanity OK
+...
+ollama version is 0.17.0
+... deepseek-r1:1.5b ...
+OK: Ollama API responds.
+```
+
+5) Points ouverts (next):
+- Vérifier/installer réellement `winscp_transfer` sur `admin-trading` (zip annoncé) et définir la convention `shared/inbox|outbox`.
+- Finaliser le commit/push sur `sot/mainline` en évitant d’inclure les éléments non désirés (parasites + runtime) et en confirmant le “Changes to be committed”.
+- Décider si `perm_fix_student` doit aussi être versionné dans le repo (actuellement installé sur `student`).
+- Clarifier le “bon” nom du menu ops (remplace `menu_ops-super`) et produire un aide-mémoire permanent.
+- Nettoyer/traiter les fichiers non suivis listés par `git status` (incluant `desk/`, scripts, backups, journaux) selon la politique de versionnage.
