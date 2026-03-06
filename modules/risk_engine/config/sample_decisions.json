@@ -1,0 +1,26 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "decision": "GO_LONG",
+    "confidence": 0.78,
+    "decision_score": 0.81,
+    "directional_bias": "LONG",
+    "review_priority": "HIGH"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "decision": "WAIT",
+    "confidence": 0.42,
+    "decision_score": 0.29,
+    "directional_bias": "SHORT",
+    "review_priority": "LOW"
+  },
+  {
+    "symbol": "SOLUSDT",
+    "decision": "GO_SHORT",
+    "confidence": 0.65,
+    "decision_score": 0.60,
+    "directional_bias": "SHORT",
+    "review_priority": "MEDIUM"
+  }
+]
