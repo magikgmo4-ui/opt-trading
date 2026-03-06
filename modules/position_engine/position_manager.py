@@ -5,11 +5,25 @@ Handles the lifecycle of trading positions.
 from typing import Dict, Optional, Any
 from datetime import datetime, timezone
 from modules.position_engine.models import Position
+from modules.position_engine.storage import load_positions, save_positions
 
 class PositionManager:
     def __init__(self):
-        # In-memory storage for scaffold: Symbol -> Position
+        # Load state from JSON
         self.positions: Dict[str, Position] = {}
+        data = load_positions()
+        for k, v in data.items():
+            # Reconstruct Position objects
+            try:
+                # Handle datetime string conversion if needed
+                if "opened_at" in v and isinstance(v["opened_at"], str):
+                    v["opened_at"] = datetime.fromisoformat(v["opened_at"])
+                self.positions[k] = Position(**v)
+            except Exception:
+                pass
+
+    def _persist(self):
+        save_positions(self.positions)
 
     def open_position(self, symbol: str, side: str, qty: float, price: float) -> Dict[str, Any]:
         """
@@ -23,6 +37,7 @@ class PositionManager:
             opened_at=datetime.now(timezone.utc)
         )
         self.positions[symbol] = pos
+        self._persist()
         return {
             "ok": True,
             "status": "opened",
@@ -39,6 +54,7 @@ class PositionManager:
         
         pos.status = "CLOSED"
         del self.positions[symbol]
+        self._persist()
         return {
             "ok": True,
             "status": "closed",
