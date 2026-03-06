@@ -20,7 +20,7 @@ else
   bad "env file missing: $ENV_FILE (run INSTALL.sh)"
 fi
 
-if systemctl list-unit-files | grep -q "^${SERVICE}"; then ok "systemd unit exists: $SERVICE"; else bad "systemd unit missing: $SERVICE"; fi
+if systemctl cat "$SERVICE" >/dev/null 2>&1; then ok "systemd unit exists: $SERVICE"; else bad "systemd unit missing: $SERVICE"; fi
 
 mp="${MOUNT_POINT:-/shared}"
 if [[ -d "$mp" ]]; then ok "mount point dir exists: $mp"; else bad "mount point missing: $mp"; fi

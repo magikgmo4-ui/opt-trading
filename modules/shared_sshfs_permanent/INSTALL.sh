@@ -46,11 +46,16 @@ if [[ -f /etc/fuse.conf ]]; then
 fi
 
 # dirs
-mkdir -p "$SCRIPTS_DIR" "$ENV_DIR" /shared
+mkdir -p "$SCRIPTS_DIR" "$ENV_DIR"
 
-# permissions on mountpoint
-chown "${LOCAL_USER}:${LOCAL_GROUP}" /shared
-chmod 2775 /shared
+# mount point: be tolerant if /shared is already mounted (sshfs/fuse)
+if mountpoint -q /shared 2>/dev/null; then
+  echo "NOTE: /shared is currently mounted; skipping mkdir/chown/chmod on mountpoint."
+else
+  mkdir -p /shared
+  chown "${LOCAL_USER}:${LOCAL_GROUP}" /shared || true
+  chmod 2775 /shared || true
+fi
 
 # copy scripts to /opt/trading/scripts
 install -m 0755 "${MOD_DIR}/scripts/shared_sshfs_permanent_menu.sh" "${SCRIPTS_DIR}/shared_sshfs_permanent_menu.sh"
@@ -97,7 +102,7 @@ fi
 sed -e "s/{{LOCAL_USER}}/${LOCAL_USER}/g" -e "s/{{LOCAL_GROUP}}/${LOCAL_GROUP}/g" "$TEMPLATE" > "$UNIT_FILE"
 
 systemctl daemon-reload
-systemctl enable "$UNIT_FILE" >/dev/null 2>&1 || true
+systemctl enable shared-sshfs.service >/dev/null 2>&1 || true
 
 echo
 echo "OK: installed wrappers:"
