@@ -1,0 +1,6 @@
+{
+  "mode": "PAPER",
+  "log_level": "INFO",
+  "orchestrator_module": "modules.desk_pro_orchestrator.app.desk_pro_orchestrator",
+  "dashboard_module": "modules.desk_pro_dashboard.app.desk_pro_dashboard"
+}
