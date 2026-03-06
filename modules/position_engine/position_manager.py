@@ -61,6 +61,24 @@ class PositionManager:
             "symbol": symbol
         }
 
+    def can_open_position(self, symbol: str, side: str) -> Dict[str, Any]:
+        """
+        Check if a position can be opened (Guardrail).
+        Returns: {ok, action, reason}
+        """
+        pos = self.positions.get(symbol)
+        
+        # 1. No open position -> ALLOW
+        if not pos:
+            return {"ok": True, "action": "open", "reason": "no_position"}
+
+        # 2. Same side open -> REJECT
+        if pos.side.upper() == side.upper():
+            return {"ok": False, "action": "reject", "reason": f"already_{side.lower()}"}
+
+        # 3. Opposite side open -> FLIP
+        return {"ok": True, "action": "flip", "reason": "opposite_side_open"}
+
     def get_position(self, symbol: str) -> Optional[Dict[str, Any]]:
         """
         Retrieve position details.
