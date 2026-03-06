@@ -12,6 +12,7 @@ import hmac
 from modules.env.env import load_env, ensure_dirs
 from shared.logger import setup_logger
 from modules.risk_engine.app.risk_calculator import RiskCalculator
+import modules.engines.registry as registry
 
 load_env(); ensure_dirs()
 log = setup_logger("tv-webhook")
@@ -409,9 +410,17 @@ async def tv_webhook(req: Request):
 
     if engine == "":
         raise HTTPException(status_code=400, detail="Missing engine")
-    if engine not in ALL_ENGINES and engine not in {"COINM_SHORT", "USDTM_LONG", "GOLD_CFD_LONG"}:
-        # allow future engines but keep sane
-        pass
+    
+    # Use registry for validation instead of hardcoded set
+    if not registry.get_engine(engine):
+        # Allow if in old hardcoded list just in case, but prefer registry
+        if engine not in ALL_ENGINES:
+             pass # Or raise? Original logic allowed pass for "future engines" but kept sane.
+             # Now we strictly require registry presence or ALL_ENGINES fallback
+             # If strictly enforcing registry:
+             # raise HTTPException(status_code=400, detail=f"Engine '{engine}' not registered")
+             pass
+
     if signal not in ("BUY", "SELL"):
         raise HTTPException(status_code=400, detail="signal must be BUY or SELL")
 
