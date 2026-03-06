@@ -61,6 +61,23 @@ class PositionManager:
             "symbol": symbol
         }
 
+    def flip_position(self, symbol: str, new_side: str, qty: float, price: float) -> Dict[str, Any]:
+        """
+        Flip a position (close current -> open new).
+        """
+        # Close current
+        close_res = self.close_position(symbol)
+        
+        # Open new
+        open_res = self.open_position(symbol, new_side, qty, price)
+        
+        return {
+            "ok": True,
+            "status": "flipped",
+            "closed": close_res,
+            "opened": open_res
+        }
+
     def can_open_position(self, symbol: str, side: str) -> Dict[str, Any]:
         """
         Check if a position can be opened (Guardrail).
