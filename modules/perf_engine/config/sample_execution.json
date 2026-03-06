@@ -1,0 +1,20 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "execution_status": "READY",
+    "execution_mode": "PAPER",
+    "action": "PREPARE_LONG"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "execution_status": "BLOCKED",
+    "execution_mode": "PAPER",
+    "action": "NO_ACTION"
+  },
+  {
+    "symbol": "SOLUSDT",
+    "execution_status": "READY",
+    "execution_mode": "PAPER",
+    "action": "PREPARE_SHORT"
+  }
+]
