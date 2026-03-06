@@ -9,7 +9,7 @@ The Probability Engine is the core scoring component of Desk Pro. It ingests nor
 
 ## Structure
 - `app/`: Python source code (scoring logic, normalization, explanation).
-- `config/`: Configuration templates and sample inputs.
+- `config/`: Configuration templates (env.example) and sample inputs.
 - `scripts/`: Standard shell wrappers (`cmd.sh`, `menu.sh`, `sanity_check.sh`).
 
 ## Usage

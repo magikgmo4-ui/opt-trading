@@ -19,7 +19,7 @@ Use the provided scripts in `scripts/`:
 - `sanity_check.sh`: Validate installation.
 
 ## Configuration
-Copy `config/example.env` to `config/.env` and adjust settings.
+Copy `config/env.example` to `config/.env` and adjust settings.
 
 ## Data Points
 - Open Interest (USD/Coin)
