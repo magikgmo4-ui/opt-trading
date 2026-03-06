@@ -1,0 +1,26 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "risk_status": "ALLOW",
+    "risk_tier": "MEDIUM",
+    "max_risk_pct": 0.5,
+    "sizing_hint": "HALF",
+    "allowed_action": "LONG_ONLY"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "risk_status": "BLOCK",
+    "risk_tier": "HIGH",
+    "max_risk_pct": 0.0,
+    "sizing_hint": "NONE",
+    "allowed_action": "NO_TRADE"
+  },
+  {
+    "symbol": "SOLUSDT",
+    "risk_status": "ALLOW",
+    "risk_tier": "HIGH",
+    "max_risk_pct": 0.25,
+    "sizing_hint": "MICRO",
+    "allowed_action": "SHORT_ONLY"
+  }
+]
