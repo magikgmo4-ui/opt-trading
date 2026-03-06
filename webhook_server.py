@@ -13,12 +13,14 @@ from modules.env.env import load_env, ensure_dirs
 from shared.logger import setup_logger
 from modules.risk_engine.app.risk_calculator import RiskCalculator
 from modules.execution_engine.executor import Executor
+from modules.position_engine.position_manager import PositionManager
 import modules.engines.registry as registry
 
 load_env(); ensure_dirs()
 log = setup_logger("tv-webhook")
 risk_calc = RiskCalculator()
 executor = Executor()
+pos_manager = PositionManager()
 
 from modules.auth.webhook_key import payload_key_is_valid
 
@@ -502,6 +504,10 @@ async def tv_webhook(req: Request):
         }
         res = executor.execute(order, "paper")
         log.info(f"EXECUTION: {res}")
+        
+        if res.get("ok"):
+             pos = pos_manager.open_position(symbol, signal, order["qty"], price)
+             log.info(f"POSITION UPDATED: {pos}")
 
     return {"ok": True}
 
