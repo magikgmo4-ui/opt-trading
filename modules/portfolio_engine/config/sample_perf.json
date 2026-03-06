@@ -1,0 +1,14 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "perf_status": "TRACKING"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "perf_status": "BLOCKED"
+  },
+  {
+    "symbol": "SOLUSDT",
+    "perf_status": "TRACKING"
+  }
+]

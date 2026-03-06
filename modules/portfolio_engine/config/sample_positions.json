@@ -1,0 +1,20 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "position_status": "OPEN_CANDIDATE",
+    "side": "LONG",
+    "max_risk_pct": 0.5
+  },
+  {
+    "symbol": "ETHUSDT",
+    "position_status": "BLOCKED",
+    "side": "NONE",
+    "max_risk_pct": 0.0
+  },
+  {
+    "symbol": "SOLUSDT",
+    "position_status": "OPEN_CANDIDATE",
+    "side": "SHORT",
+    "max_risk_pct": 0.25
+  }
+]
