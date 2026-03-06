@@ -1,0 +1,14 @@
+{
+  "symbol": "BTCUSDT",
+  "timestamp": "2026-03-06T16:30:00Z",
+  "directional_bias": "LONG",
+  "probability_long": 0.72,
+  "probability_short": 0.28,
+  "confidence": 0.65,
+  "summary": "Strong bullish signal driven by high OI and positive trend.",
+  "open_interest": 45000000,
+  "funding_rate": 0.0001,
+  "liquidations_long": 50000,
+  "liquidations_short": 1200000,
+  "long_short_ratio": 1.15
+}
