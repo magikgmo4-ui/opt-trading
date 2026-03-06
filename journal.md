@@ -8544,3 +8544,59 @@ index e5051c6..25ac73b 100644
 - Rejouer les 3 scénarios avec un payload valide (probablement `engine="PAPER_TEST"` + `signal` au bon format + `sl/price` + key si requise) et vérifier que le guard est bien atteint.
 - Vérifier que le bridge perf n’envoie plus de `POST /` (attendu: `POST /perf/event`).
 - Contexte outillage: attendre fin indexation git; repo Google Drive pas à jour (source de vérité à clarifier).
+
+## 2026-03-06 15:42 | TV Webhook | PAPER_TEST | PERFTEST2 1h | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `PAPER_TEST`
+3. **Symbol/TF**: `PERFTEST2` / `1h`
+4. **Price**: `50000.0`
+5. **TP**: `52000.0`
+6. **SL**: `49000.0`
+7. **Reason**: flip_fix_buy_test
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "PAPER_TEST",
+  "signal": "BUY",
+  "symbol": "PERFTEST2",
+  "tf": "1h",
+  "price": 50000.0,
+  "tp": 52000.0,
+  "sl": 49000.0,
+  "reason": "flip_fix_buy_test",
+  "_ts": "2026-03-06T20:42:43.394160+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 10000.0,
+  "risk_real_usd": 10000.0
+}
+```
+
+## 2026-03-06 15:43 | TV Webhook | PAPER_TEST | PERFTEST2 1h | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `PAPER_TEST`
+3. **Symbol/TF**: `PERFTEST2` / `1h`
+4. **Price**: `49500.0`
+5. **TP**: `48000.0`
+6. **SL**: `50500.0`
+7. **Reason**: flip_fix_sell_test
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "PAPER_TEST",
+  "signal": "SELL",
+  "symbol": "PERFTEST2",
+  "tf": "1h",
+  "price": 49500.0,
+  "tp": 48000.0,
+  "sl": 50500.0,
+  "reason": "flip_fix_sell_test",
+  "_ts": "2026-03-06T20:43:05.854332+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 10000.0,
+  "risk_real_usd": 10000.0
+}
+```
