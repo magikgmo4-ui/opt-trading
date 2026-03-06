@@ -7705,3 +7705,117 @@ sanity-shared_sshfs_permanent
   - `sanity-shared_sshfs_permanent`
   - `cmd-shared_sshfs_permanent status`
   - `cmd-shared_sshfs_permanent logs`
+
+## 2026-03-05 21:57 | TV Webhook | TV_TEST | BTCUSDT 15m | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `TV_TEST`
+3. **Symbol/TF**: `BTCUSDT` / `15m`
+4. **Price**: `50000.0`
+5. **TP**: `0.0`
+6. **SL**: `49500.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "TV_TEST",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "15m",
+  "price": 50000.0,
+  "tp": 0.0,
+  "sl": 49500.0,
+  "reason": "",
+  "_ts": "2026-03-06T02:57:58.209359+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 0.2,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-05 23:09 | TV Webhook | ECHO_TEST | BTCUSDT 1m | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `ECHO_TEST`
+3. **Symbol/TF**: `BTCUSDT` / `1m`
+4. **Price**: `50000.0`
+5. **TP**: `0.0`
+6. **SL**: `49000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "ECHO_TEST",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1m",
+  "price": 50000.0,
+  "tp": 0.0,
+  "sl": 49000.0,
+  "reason": "",
+  "_ts": "2026-03-06T04:09:59.955569+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 0.1,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-06 12:11 | TV Webhook | PAPER_TEST | BTCUSDT 1m | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `PAPER_TEST`
+3. **Symbol/TF**: `BTCUSDT` / `1m`
+4. **Price**: `50000.0`
+5. **TP**: `0.0`
+6. **SL**: `49000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "PAPER_TEST",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1m",
+  "price": 50000.0,
+  "tp": 0.0,
+  "sl": 49000.0,
+  "reason": "",
+  "_ts": "2026-03-06T17:11:39.388774+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 0.1,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-06 12:20 | TV Webhook | PAPER_TEST | BTCUSDT 1m | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `PAPER_TEST`
+3. **Symbol/TF**: `BTCUSDT` / `1m`
+4. **Price**: `50000.0`
+5. **TP**: `0.0`
+6. **SL**: `49000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "PAPER_TEST",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1m",
+  "price": 50000.0,
+  "tp": 0.0,
+  "sl": 49000.0,
+  "reason": "",
+  "_ts": "2026-03-06T17:20:02.361244+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 0.1,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-06 — execution_engine
+- risk_engine merged and validated
+- engines plugin merged and validated
+- execution_engine merged and PAPER_TEST validated end-to-end
+- runtime prerequisite confirmed: /opt/trading/state/risk_config.json
