@@ -7819,3 +7819,160 @@ sanity-shared_sshfs_permanent
 - engines plugin merged and validated
 - execution_engine merged and PAPER_TEST validated end-to-end
 - runtime prerequisite confirmed: /opt/trading/state/risk_config.json
+
+## 2026-03-06 12:25 — note40
+1) Objectifs:
+- Valider l’utilisation de Trae AI IDE sur le repo opt-trading.
+- Clarifier la stratégie Git (multi-branches / trunk).
+- Standardiser/industrialiser l’architecture modulaire (modules + scripts menu/cmd/sanity).
+- Extraire la logique de risque, introduire un système d’“engines” plugins, puis un module d’exécution (paper).
+- Assurer synchro multi-machines (Windows cursor-ai, admin-trading, student, db-layer).
+
+2) Actions:
+- Git (Windows):
+  - Fetch + diagnostic: branche locale en retard, création/switch sur `sot/mainline`.
+  - Ajout/commit/push de `.cursorrules` et `workflow_ai/MENU_WORKFLOW_AI.md` (fix identité Git).
+- Trae (accès pays):
+  - Contournement via Proton VPN; configuration split tunneling (inclusion Trae.exe + exclusion LAN 192.168.16.0/24).
+- Module `risk_engine`:
+  - Création branche `feat/risk-engine`, génération scaffold (scripts + app).
+  - Portage de la logique “risk_quote” (round_step, parsing equity/risk_pct, support GOLD vs generic).
+  - Intégration minimale: `webhook_server.py` délègue à `RiskCalculator`.
+  - Validation:
+    - CLI calc OK (attention: `1.0` = 100%, `0.01` = 1%).
+    - Uvicorn OK sur admin-trading (port libre 8011).
+    - E2E /tv bloqué puis résolu par création de `/opt/trading/state/risk_config.json`.
+  - Merge vers `sot/mainline` + push GitHub.
+- Module `engines`:
+  - Création branche `feat/engines-plugin`, scaffold `modules/engines` (registry/router + scripts).
+  - Enregistrement engines legacy + intégration minimale: validation engine via registry dans `webhook_server.py`.
+  - Validation E2E: nécessité d’ajouter engines dans `state/risk_config.json` (ECHO_TEST).
+  - Merge vers `sot/mainline` + push GitHub.
+- Tag:
+  - Création et push tag `v0.1` (“risk_engine + engines plugin integrated”).
+- Réseau:
+  - Diagnostic lenteurs SSH: pertes paquet ~50% sur LAN; suspicion interfaces WG/Proton; redémarrage routeur → stabilité revenue.
+- Module `execution_engine`:
+  - Création branche `feat/execution-engine`, scaffold `modules/execution_engine` (Executor + adapter paper + scripts).
+  - Ajout `PAPER_TEST` dans registry engines.
+  - Intégration minimale dans `webhook_server.py`: exécution paper uniquement si `engine == "PAPER_TEST"` + log `EXECUTION`.
+  - Test E2E sur admin-trading: nécessite entrée `PAPER_TEST` dans `/opt/trading/state/risk_config.json`; ensuite 200 OK + log d’exécution visible.
+  - Merge déjà présent dans trunk (confirmé “Already up to date”).
+- Sync admin-trading:
+  - `git pull` sur `/opt/trading` pour récupérer `sot/mainline` (incluant risk_engine/engines).
+  - Puis pull supplémentaire après merge execution_engine dans trunk (bloc EXECUTION confirmé par grep).
+- Journalisation:
+  - Ajout manuel d’une entrée dans `/opt/trading/journal.md` sur admin-trading (session execution_engine).
+
+3) Décisions:
+- Trunk officiel: `sot/mainline`; travail via branches `feat/*`, merge contrôlé.
+- Trae doit travailler sur la branche active (éviter anciennes branches).
+- Pré-requis runtime confirmé: `/opt/trading/state/risk_config.json` indispensable pour éviter “Risk quote invalid”.
+- Exécution réelle gardée “opt-in” via engine de test `PAPER_TEST` (pas d’impact prod).
+- Tag `v0.1` publié pour figer la base architecture (risk_engine + engines).
+
+4) Commandes / Code:
+```bash
+# Windows - synchro et bascule trunk
+git fetch --all
+git checkout -b sot/mainline origin/sot/mainline
+git status
+
+# Config identité Git (Windows)
+git config --global user.name "ghost"
+git config --global user.email "ghost@users.noreply.github.com"
+
+# Commit/push docs
+git add .cursorrules workflow_ai/MENU_WORKFLOW_AI.md
+git commit -m "docs: add cursorrules + workflow_ai menu doc"
+git push
+
+# Branch risk
+git checkout -b feat/risk-engine
+git add modules/risk_engine
+git commit -m "feat: add risk_engine module scaffold"
+git push -u origin feat/risk-engine
+git commit -m "feat(risk): port risk quote logic into risk_calculator"
+git push
+git commit -m "refactor(risk): delegate risk_quote to risk_engine calculator"
+git push
+git checkout sot/mainline
+git merge --no-ff feat/risk-engine -m "merge: risk_engine extraction and webhook integration"
+git push
+
+# Tests risk CLI (Windows)
+python modules/risk_engine/app/risk_calculator.py calc 2000 1990 10000 0.01 GOLD_CFD_LONG
+python modules/risk_engine/app/risk_calculator.py calc 50000 49000 10000 0.01 COINM_SHORT
+
+# Admin-trading - server test (port libre)
+uvicorn webhook_server:app --port 8011
+
+# Admin-trading - config runtime (bloquant E2E si absent)
+mkdir -p /opt/trading/state
+cat > /opt/trading/state/risk_config.json <<'JSON'
+{
+  "accounts": {
+    "TV_TEST": { "equity": 10000, "risk_pct": 0.01, "min_qty": 0.001, "qty_step": 0.001 }
+  }
+}
+JSON
+
+# E2E webhook
+curl -s -i -X POST "http://127.0.0.1:8011/tv" \
+  -H "Content-Type: application/json" \
+  -d '{"key":"","engine":"TV_TEST","symbol":"BTCUSDT","price":50000,"sl":49500,"signal":"BUY","tf":"15m"}'
+
+# Branch engines
+git checkout -b feat/engines-plugin
+git add modules/engines
+git commit -m "feat(engines): add plugin system scaffold"
+git push -u origin feat/engines-plugin
+git commit -m "feat(engines): register legacy engine names in registry"
+git push
+git commit -m "refactor(engines): validate engine names via registry"
+git push
+git checkout sot/mainline
+git merge --no-ff feat/engines-plugin -m "merge: engines plugin scaffold and registry validation"
+git push
+
+# Tag v0.1
+git tag -a v0.1 -m "v0.1: risk_engine + engines plugin integrated"
+git push origin v0.1
+
+# Branch execution
+git checkout -b feat/execution-engine
+git add modules/execution_engine
+git commit -m "feat(execution): add execution_engine scaffold"
+git push -u origin feat/execution-engine
+git commit -m "feat(execution): register PAPER_TEST engine"
+git push
+git commit -m "feat(execution): wire PAPER_TEST to paper executor"
+git push
+git checkout sot/mainline
+git merge --no-ff feat/execution-engine -m "merge: execution_engine scaffold and PAPER_TEST wiring"
+git push
+
+# Admin-trading - pull trunk
+cd /opt/trading
+git checkout sot/mainline
+git pull --ff-only --tags
+
+# Admin-trading - vérifier bloc EXECUTION
+grep -n "EXECUTION" /opt/trading/webhook_server.py
+
+# Admin-trading - test paper execution
+uvicorn webhook_server:app --port 8013
+curl -s -i -X POST "http://127.0.0.1:8013/tv" \
+  -H "Content-Type: application/json" \
+  -d '{"key":"","engine":"PAPER_TEST","symbol":"BTCUSDT","price":50000,"sl":49000,"signal":"BUY","tf":"1m"}'
+
+# Admin-trading - journalisation
+cd /opt/trading
+printf "\n## 2026-03-06 — execution_engine\n- risk_engine merged and validated\n- engines plugin merged and validated\n- execution_engine merged and PAPER_TEST validated end-to-end\n- runtime prerequisite confirmed: /opt/trading/state/risk_config.json\n" >> journal.md
+```
+
+5) Points ouverts (next):
+- Finaliser commit/push de `journal.md` sur admin-trading (instructions données, sortie non fournie).
+- Mettre à jour/synchroniser le repo sur student (`git pull --ff-only --tags`) quand réseau/SSH stable.
+- Documenter officiellement le prérequis runtime `state/risk_config.json` (RUNBOOK) + stratégie de provisionnement.
+- Décider prochain milestone: `feat/ci-automation` (.github/workflows/ci.yml pour verify_all/smoke).
