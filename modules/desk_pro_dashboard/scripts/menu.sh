@@ -9,10 +9,10 @@ while true; do
     echo "   Desk Pro Dashboard Menu"
     echo "================================="
     echo "1. Show Status"
-    echo "2. Run Sample (Mock)"
-    echo "3. Render from Sample Input"
-    echo "4. Export Sample to JSON"
-    echo "5. Export Sample to HTML"
+    echo "2. Run Sample (Legacy)"
+    echo "3. Render Latest Run"
+    echo "4. Export JSON (Latest)"
+    echo "5. Export HTML (Latest)"
     echo "6. Quit"
     echo "================================="
     read -p "Select option: " choice
@@ -27,8 +27,7 @@ while true; do
             read -p "Press Enter to continue..."
             ;;
         3)
-            SAMPLE_INPUT="$MODULE_DIR/../config/sample_dashboard_input.json"
-            bash "$CMD" render --input "$SAMPLE_INPUT"
+            bash "$CMD" render-latest
             read -p "Press Enter to continue..."
             ;;
         4)

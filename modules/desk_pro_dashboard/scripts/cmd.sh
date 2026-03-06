@@ -13,7 +13,7 @@ fi
 
 cmd="${1:-help}"
 case "$cmd" in
-  status|sample|render|export-json|export-html)
+  status|sample|render|render-latest|render-run|export-json|export-html)
     python3 -m modules.desk_pro_dashboard.app.desk_pro_dashboard "$cmd" "${@:2}"
     ;;
   menu)
@@ -23,7 +23,7 @@ case "$cmd" in
     exec bash "$MODULE_DIR/scripts/sanity_check.sh"
     ;;
   *)
-    echo "Usage: cmd.sh status|sample|render|export-json|export-html|menu|sanity"
+    echo "Usage: cmd.sh status|sample|render|render-latest|render-run|export-json|export-html|menu|sanity"
     exit 1
     ;;
 esac
