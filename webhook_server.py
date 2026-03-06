@@ -12,11 +12,13 @@ import hmac
 from modules.env.env import load_env, ensure_dirs
 from shared.logger import setup_logger
 from modules.risk_engine.app.risk_calculator import RiskCalculator
+from modules.execution_engine.executor import Executor
 import modules.engines.registry as registry
 
 load_env(); ensure_dirs()
 log = setup_logger("tv-webhook")
 risk_calc = RiskCalculator()
+executor = Executor()
 
 from modules.auth.webhook_key import payload_key_is_valid
 
@@ -488,6 +490,18 @@ async def tv_webhook(req: Request):
             qty_txt = f"\nqty: {q['qty']} | risk_usd: {q.get('risk_usd')}"
         msg = f"{signal} {symbol} {tf}\nengine: {engine}\nprice: {price} | tp: {tp} | sl: {sl}\nreason: {reason}{qty_txt}"
         telegram_send(msg)
+
+    # --- EXECUTION (Optional/Test) ---
+    if engine == "PAPER_TEST":
+        order = {
+            "symbol": symbol,
+            "side": signal,
+            "qty": q["qty"] if q else 0,
+            "price": price,
+            "type": "MARKET"
+        }
+        res = executor.execute(order, "paper")
+        log.info(f"EXECUTION: {res}")
 
     return {"ok": True}
 
