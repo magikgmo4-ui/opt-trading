@@ -8600,3 +8600,37 @@ index e5051c6..25ac73b 100644
   "risk_real_usd": 10000.0
 }
 ```
+
+## 2026-03-06 16:12 — note47
+1) Objectifs:
+- Confirmer l’état du dépôt (fix déjà présent sur `origin/sot/mainline`) et fermer la session en committant le journal.
+- Recadrer le périmètre: Desk Pro multi-modules (TradingView = une entrée parmi d’autres).
+- Définir un mode opératoire “Trae-first” avec déploiement/test via SSH et partage via `/shared`.
+
+2) Actions:
+- Vérifié que `webhook_server.py` est propre dans `HEAD` et que la branche est à jour avec `origin/sot/mainline`.
+- Commit + push du fichier local restant modifié (`journal.md`).
+- Établissement d’un point de reprise: passer de `PAPER_TEST`/tests manuels à une validation plus proche prod (TradingView end-to-end) ou standardiser tests/scripts webhook.
+- Cadrage Desk Pro à partir des docs (catalogue modules, 15 modules cœur, schémas, roadmap) et proposition de découpage backlog par blocs fonctionnels.
+- Ajout de contrainte d’exécution: machines accessibles via SSH, `admin-trading` possède le repo Git et un répertoire `/shared` monté sur les 2 autres machines; proposition de workflow “Trae-first, SSH-backed, shared-centered”.
+
+3) Décisions:
+- Clôturer la session par un commit de journal et push (session fermée proprement).
+- Adopter le cadrage: Desk Pro dépasse largement TradingView (multi-source, multi-moteur analytique, scoring probabiliste, décision/risque séparés, exécution optionnelle, dashboard dédié).
+- Standard de travail proposé: générer au maximum via prompts Trae, puis déployer/tester via SSH en s’appuyant sur `admin-trading` + `/shared`.
+- Prochaine brique: formaliser un template unique de prompt Trae pour générer les modules Desk Pro dans un format standard.
+
+4) Commandes / Code:
+```bash
+cd /opt/trading || exit 1
+git add journal.md
+git commit -m "journal: close 2026-03-06 (webhook perf bridge + flip fix validated)"
+git push
+git log -1 --oneline
+```
+
+5) Points ouverts (next):
+- Figer un backlog Desk Pro “institutionnel” en 3 niveaux (indispensable / haute valeur / plus tard).
+- Définir et écrire un template de prompt Trae standard pour la génération de modules.
+- Choisir la suite de validation: (a) TradingView réel end-to-end, ou (b) nettoyage/standardisation des tests et scripts autour du webhook.
+- Industrialiser la livraison inter-machines via `/shared` (inbox/bundles/logs/rapports) et tests via SSH sur `student`/`db-layer`.
