@@ -11,8 +11,12 @@ import hmac
 
 from modules.env.env import load_env, ensure_dirs
 from shared.logger import setup_logger
+from modules.risk_engine.app.risk_calculator import RiskCalculator
+
 load_env(); ensure_dirs()
 log = setup_logger("tv-webhook")
+risk_calc = RiskCalculator()
+
 from modules.auth.webhook_key import payload_key_is_valid
 
 # [DISABLED: was top-level code causing SyntaxError]
@@ -217,54 +221,7 @@ def risk_quote(engine: str, price: float, sl: float, tp: float) -> Dict[str, Any
     accounts = cfg.get("accounts", {}) or {}
     acct = accounts.get(engine, {}) or {}
 
-    equity, risk_pct = _get_equity_and_risk_pct(acct)
-    risk_usd = equity * risk_pct
-
-    distance = abs(price - sl)
-    if distance <= 0 or risk_usd <= 0:
-        return {
-            "ok": True,
-            "type": "LINEAR_FALLBACK",
-            "risk_usd": round(risk_usd, 6),
-            "risk_real_usd": 0,
-            "distance": round(distance, 6),
-            "qty": 0
-        }
-
-    # Default linear: PnL per 1 qty per $ move = 1 (fallback)
-    qty = risk_usd / distance
-
-    if engine == "GOLD_CFD_LONG":
-        min_units = safe_float(acct.get("min_units", acct.get("min_qty", 0.1))) or 0.1
-        units_step = safe_float(acct.get("units_step", acct.get("qty_step", 0.1))) or 0.1
-        qty = max(qty, min_units)
-        qty = round_step(qty, units_step)
-        qty = round(qty, 6)
-        risk_real = qty * distance
-        return {
-            "ok": True,
-            "type": "GOLD_CFD_OZ" if (cfg.get("gold_cfd", {}) or {}).get("units_are_oz", True) else "GOLD_CFD",
-            "risk_usd": round(risk_usd, 6),
-            "risk_real_usd": round(risk_real, 6),
-            "distance": round(distance, 6),
-            "qty": qty
-        }
-
-    # COINM/USDTM: keep generic sizing (you can later plug real contract specs)
-    min_qty = safe_float(acct.get("min_qty", 0.001)) or 0.001
-    qty_step = safe_float(acct.get("qty_step", 0.001)) or 0.001
-    qty = max(qty, min_qty)
-    qty = round_step(qty, qty_step)
-    qty = round(qty, 6)
-    risk_real = qty * distance
-    return {
-        "ok": True,
-        "type": "LINEAR_FALLBACK",
-        "risk_usd": round(risk_usd, 6),
-        "risk_real_usd": round(risk_real, 6),
-        "distance": round(distance, 6),
-        "qty": qty
-    }
+    return risk_calc.calculate_quote(acct, engine, price, sl, cfg)
 
 
 # -------------------- Events / Metrics --------------------
