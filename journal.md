@@ -8009,3 +8009,307 @@ printf "\n## 2026-03-06 — execution_engine\n- risk_engine merged and validated
 - integrated with PAPER_TEST execution path
 - execution_engine → position_engine flow validated
 - paper execution + position open confirmed via webhook test
+
+## 2026-03-06 13:24 | TV Webhook | PAPER_TEST | BTCUSDT 1m | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `PAPER_TEST`
+3. **Symbol/TF**: `BTCUSDT` / `1m`
+4. **Price**: `50000.0`
+5. **TP**: `0.0`
+6. **SL**: `49000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "PAPER_TEST",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1m",
+  "price": 50000.0,
+  "tp": 0.0,
+  "sl": 49000.0,
+  "reason": "",
+  "_ts": "2026-03-06T18:24:40.436436+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 0.1,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-06 13:25 | TV Webhook | PAPER_TEST | BTCUSDT 1m | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `PAPER_TEST`
+3. **Symbol/TF**: `BTCUSDT` / `1m`
+4. **Price**: `50000.0`
+5. **TP**: `0.0`
+6. **SL**: `49000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "PAPER_TEST",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1m",
+  "price": 50000.0,
+  "tp": 0.0,
+  "sl": 49000.0,
+  "reason": "",
+  "_ts": "2026-03-06T18:25:52.591375+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 0.1,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-06 13:31 | TV Webhook | PAPER_TEST | BTCUSDT 1m | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `PAPER_TEST`
+3. **Symbol/TF**: `BTCUSDT` / `1m`
+4. **Price**: `50000.0`
+5. **TP**: `0.0`
+6. **SL**: `49000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "PAPER_TEST",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1m",
+  "price": 50000.0,
+  "tp": 0.0,
+  "sl": 49000.0,
+  "reason": "",
+  "_ts": "2026-03-06T18:31:40.784527+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 0.1,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-06 13:59 | TV Webhook | PAPER_TEST | BTCUSDT 1m | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `PAPER_TEST`
+3. **Symbol/TF**: `BTCUSDT` / `1m`
+4. **Price**: `50000.0`
+5. **TP**: `0.0`
+6. **SL**: `49000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "PAPER_TEST",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1m",
+  "price": 50000.0,
+  "tp": 0.0,
+  "sl": 49000.0,
+  "reason": "",
+  "_ts": "2026-03-06T18:59:11.543071+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 0.1,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-06 14:01 | TV Webhook | PAPER_TEST | BTCUSDT 1m | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `PAPER_TEST`
+3. **Symbol/TF**: `BTCUSDT` / `1m`
+4. **Price**: `50000.0`
+5. **TP**: `0.0`
+6. **SL**: `51000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "PAPER_TEST",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1m",
+  "price": 50000.0,
+  "tp": 0.0,
+  "sl": 51000.0,
+  "reason": "",
+  "_ts": "2026-03-06T19:01:01.683994+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 0.1,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-06 — position_guard
+- position guard integrated in PAPER_TEST path
+- reject case validated: duplicate BUY returns skipped=already_buy
+- flip case validated: opposite side detected and skipped
+- execution is now blocked before order placement when guard disallows open
+
+## 2026-03-06 14:04 — note42
+1) Objectifs:
+- Valider l’usage de Trae AI IDE pour structurer opt-trading (workflow modulaire) et standardiser les modules (scripts menu/cmd/sanity).
+- Mettre en place une stratégie Git propre (trunk sot/mainline + branches feat/*) et synchroniser Windows/GitHub/serveurs.
+- Modulariser progressivement le cœur: risk sizing → validation engines → exécution paper → gestion de positions → persistance → guardrails.
+- Contourner le blocage pays Trae (VPN) sans casser SSH/LAN.
+
+2) Actions:
+- Git (Windows):
+  - Fetch, checkout trunk `sot/mainline`, commit/push de `.cursorrules` + `workflow_ai/MENU_WORKFLOW_AI.md`.
+  - Création et merge successifs dans `sot/mainline` des features:
+    - `feat/risk-engine`: création module `modules/risk_engine`, portage logique risk depuis `webhook_server.py`, délégation de `risk_quote`.
+    - `feat/engines-plugin`: scaffold `modules/engines` + registry; validation d’engines via registry dans `webhook_server.py`.
+    - Tag `v0.1` (base: risk_engine + engines plugin).
+    - `feat/execution-engine`: scaffold `modules/execution_engine`, engine `PAPER_TEST`, wiring `PAPER_TEST` → paper executor (log `EXECUTION:`).
+    - `feat/position-engine`: scaffold `modules/position_engine`, wiring `PAPER_TEST` → position open (log `POSITION UPDATED:`), journal commit/push.
+    - `feat/persistent-state`: persistance positions via `state/positions.json`, merge trunk.
+    - `feat/position-guard`: ajout guard `can_open_position`, intégration guard dans `PAPER_TEST`.
+- Tests (admin-trading):
+  - Démarrages uvicorn sur ports libres (8000 occupé → 8011/8012/8013/8014).
+  - E2E `/tv` validé après création de `/opt/trading/state/risk_config.json` (sinon 400 “Risk quote invalid (qty/risk is 0)”).
+  - Validation execution paper: `/tv` avec `engine=PAPER_TEST` + log `EXECUTION: {... adapter: 'paper' ...}`.
+  - Validation position tracking: log `POSITION UPDATED`.
+  - Validation position guard:
+    - duplicate BUY → skipped `already_buy` + log `GUARD BLOCKED`.
+    - SELL opposé → log `GUARD FLIP` + skipped.
+- Réseau/VPN:
+  - Trae bloqué par pays → contourné via VPN + split tunneling (inclusion app Trae).
+  - Problèmes SSH/LAN liés VPN/routes; tentative route `route -p add` puis suppression; split tunneling Proton finalement OK.
+  - Instabilité LAN (50% packet loss) → diagnostic interfaces WireGuard + redémarrage routeur (stabilisation).
+- Synchronisation:
+  - Admin-trading mis à jour depuis `sot/mainline`; découverte que `feat/execution-engine` n’était pas mergée au moment du test → merge/pull puis validation.
+
+3) Décisions:
+- Trunk officiel = `sot/mainline`; travail sur branches courtes `feat/*` avec merge `--no-ff`.
+- Trae utilisé via VPN en split tunneling (app-only) pour ne pas casser SSH/LAN.
+- Intégrations “sans risque” d’abord via chemins de test (ex: `PAPER_TEST`) avant d’impacter engines réels.
+- Pré-requis runtime confirmé: présence de `/opt/trading/state/risk_config.json` sur admin-trading pour éviter 400 qty/risk=0.
+- Tag de version `v0.1` publié.
+
+4) Commandes / Code:
+```bash
+# Git identity (Windows)
+git config --global user.name "ghost"
+git config --global user.email "ghost@users.noreply.github.com"
+
+# Mise à jour / branches
+git fetch --all
+git checkout -b sot/mainline origin/sot/mainline
+
+# Commit docs
+git add .cursorrules workflow_ai/MENU_WORKFLOW_AI.md
+git commit -m "docs: add cursorrules + workflow_ai menu doc"
+git push
+
+# risk_engine (branche + push + merge)
+git checkout -b feat/risk-engine
+git add modules/risk_engine
+git commit -m "feat: add risk_engine module scaffold"
+git push -u origin feat/risk-engine
+git add modules/risk_engine/app/risk_calculator.py
+git commit -m "feat(risk): port risk quote logic into risk_calculator"
+git push
+git add webhook_server.py
+git commit -m "refactor(risk): delegate risk_quote to risk_engine calculator"
+git push
+git checkout sot/mainline
+git merge --no-ff feat/risk-engine -m "merge: risk_engine extraction and webhook integration"
+git push
+
+# engines plugin (branche + push + merge)
+git checkout -b feat/engines-plugin
+git add modules/engines
+git commit -m "feat(engines): add plugin system scaffold"
+git push -u origin feat/engines-plugin
+git add modules/engines/registry.py
+git commit -m "feat(engines): register legacy engine names in registry"
+git push
+git add webhook_server.py
+git commit -m "refactor(engines): validate engine names via registry"
+git push
+git checkout sot/mainline
+git merge --no-ff feat/engines-plugin -m "merge: engines plugin scaffold and registry validation"
+git push
+
+# Tag v0.1
+git tag -a v0.1 -m "v0.1: risk_engine + engines plugin integrated"
+git push origin v0.1
+
+# execution_engine (merge final ensuite)
+git checkout -b feat/execution-engine
+git add modules/execution_engine
+git commit -m "feat(execution): add execution_engine scaffold"
+git push -u origin feat/execution-engine
+git add modules/engines/registry.py
+git commit -m "feat(execution): register PAPER_TEST engine"
+git push
+git add webhook_server.py
+git commit -m "feat(execution): wire PAPER_TEST to paper executor"
+git push
+git checkout sot/mainline
+git merge --no-ff feat/execution-engine -m "merge: execution_engine scaffold and PAPER_TEST wiring"
+git push
+
+# position_engine
+git checkout -b feat/position-engine
+git add modules/position_engine
+git commit -m "feat(position): add position_engine scaffold"
+git push -u origin feat/position-engine
+git add webhook_server.py
+git commit -m "feat(position): track PAPER_TEST positions after execution"
+git push
+git checkout sot/mainline
+git merge --no-ff feat/position-engine -m "merge: position_engine paper position tracking"
+git push
+
+# persistent state
+git checkout -b feat/persistent-state
+git add modules/position_engine/storage.py modules/position_engine/position_manager.py
+git commit -m "feat(position): persist positions to state/positions.json"
+git push --set-upstream origin feat/persistent-state
+git checkout sot/mainline
+git merge --no-ff feat/persistent-state -m "merge: persistent position state"
+git push
+
+# position guard
+git checkout -b feat/position-guard
+git add modules/position_engine/position_manager.py
+git commit -m "feat(position): add can_open_position guard"
+git push --set-upstream origin feat/position-guard
+git add webhook_server.py
+git commit -m "feat(position): use guard in PAPER_TEST path"
+git push
+git checkout sot/mainline
+git merge --no-ff feat/position-guard -m "merge: position guard for PAPER_TEST"
+git push
+
+# Tests admin-trading
+cd /opt/trading
+source venv/bin/activate
+uvicorn webhook_server:app --port 8011   # ou 8012/8013/8014
+curl -s -i -X POST "http://127.0.0.1:8011/tv" -H "Content-Type: application/json" -d '{...}'
+
+# Pre-req runtime (admin-trading)
+mkdir -p /opt/trading/state
+cat > /opt/trading/state/risk_config.json <<'JSON'
+{
+  "accounts": {
+    "TV_TEST": {"equity": 10000, "risk_pct": 0.01, "min_qty": 0.001, "qty_step": 0.001},
+    "ECHO_TEST": {"equity": 10000, "risk_pct": 0.01, "min_qty": 0.001, "qty_step": 0.001},
+    "PAPER_TEST": {"equity": 10000, "risk_pct": 0.01, "min_qty": 0.001, "qty_step": 0.001}
+  }
+}
+JSON
+```
+
+5) Points ouverts (next):
+- Stabiliser définitivement le réseau local (éviter retours de packet loss; revoir WireGuard/routeur si récidive).
+- Clarifier/provisionner officiellement `/opt/trading/state/risk_config.json` (runbook, template, déploiement).
+- CI automation (`feat/ci-automation`) via GitHub Actions (lint/smoke/verify_all).
+- Décider du comportement “flip” réel (close+open) et l’intégrer proprement (au-delà de skip/log).
+- Synchronisation “student” (pull tags/branches) quand réseau stable.
