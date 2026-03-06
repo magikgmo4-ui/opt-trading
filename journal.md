@@ -8313,3 +8313,234 @@ JSON
 - CI automation (`feat/ci-automation`) via GitHub Actions (lint/smoke/verify_all).
 - Décider du comportement “flip” réel (close+open) et l’intégrer proprement (au-delà de skip/log).
 - Synchronisation “student” (pull tags/branches) quand réseau stable.
+
+## 2026-03-06 15:27 | TV Webhook | PAPER_TEST | BTCUSDT 1h | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `PAPER_TEST`
+3. **Symbol/TF**: `BTCUSDT` / `1h`
+4. **Price**: `50000.0`
+5. **TP**: `52000.0`
+6. **SL**: `49000.0`
+7. **Reason**: manual_test
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "PAPER_TEST",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "price": 50000.0,
+  "tp": 52000.0,
+  "sl": 49000.0,
+  "reason": "manual_test",
+  "_ts": "2026-03-06T20:27:42.953107+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 10000.0,
+  "risk_real_usd": 10000.0
+}
+```
+
+## 2026-03-06 15:28 | TV Webhook | PAPER_TEST | BTCUSDT 1h | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `PAPER_TEST`
+3. **Symbol/TF**: `BTCUSDT` / `1h`
+4. **Price**: `49500.0`
+5. **TP**: `48000.0`
+6. **SL**: `50500.0`
+7. **Reason**: flip_test
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "PAPER_TEST",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "price": 49500.0,
+  "tp": 48000.0,
+  "sl": 50500.0,
+  "reason": "flip_test",
+  "_ts": "2026-03-06T20:28:51.754649+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 10000.0,
+  "risk_real_usd": 10000.0
+}
+```
+
+## 2026-03-06 15:32 | TV Webhook | PAPER_TEST | PERFTEST1 1h | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `PAPER_TEST`
+3. **Symbol/TF**: `PERFTEST1` / `1h`
+4. **Price**: `50000.0`
+5. **TP**: `52000.0`
+6. **SL**: `49000.0`
+7. **Reason**: perf_bridge_test
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "PAPER_TEST",
+  "signal": "BUY",
+  "symbol": "PERFTEST1",
+  "tf": "1h",
+  "price": 50000.0,
+  "tp": 52000.0,
+  "sl": 49000.0,
+  "reason": "perf_bridge_test",
+  "_ts": "2026-03-06T20:32:45.041040+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 10000.0,
+  "risk_real_usd": 10000.0
+}
+```
+
+## 2026-03-06 15:34 | TV Webhook | PAPER_TEST | PERFTEST1 1h | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `PAPER_TEST`
+3. **Symbol/TF**: `PERFTEST1` / `1h`
+4. **Price**: `49500.0`
+5. **TP**: `48000.0`
+6. **SL**: `50500.0`
+7. **Reason**: perf_flip_test
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "PAPER_TEST",
+  "signal": "SELL",
+  "symbol": "PERFTEST1",
+  "tf": "1h",
+  "price": 49500.0,
+  "tp": 48000.0,
+  "sl": 50500.0,
+  "reason": "perf_flip_test",
+  "_ts": "2026-03-06T20:34:01.353486+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 10000.0,
+  "risk_real_usd": 10000.0
+}
+```
+
+## 2026-03-06 15:40 — note46
+1) Objectifs:
+- Continuer le trading engine après validation du guard (already_buy / opposite_side_open).
+- Verrouiller le pipeline complet signal → guard → state → logs → bridge perf.
+- Mettre en place un workflow de tests (BUY, BUY bloqué, SELL flip) et préparer une mini-livraison “guardrail/sanity”.
+- Déléguer l’inspection/patch à Trae (SSH) avec exécution manuelle.
+
+2) Actions:
+- Redémarrage des services et vérification statut:
+  - tv-webhook OK (port 8000).
+  - tv-perf OK (port 8010).
+- Vérification perf:
+  - `GET /perf/summary` répond (equity0=10000, 0 trades).
+- Injection de 3 scénarios via `POST /tv` (BUY, BUY, SELL):
+  - Les 3 requêtes retournent `{"detail":"Risk quote invalid (qty/risk is 0)"}` (HTTP 400).
+  - Donc les tests n’atteignent pas le guard (blocage en validation risque).
+- Lecture logs:
+  - tv-webhook: plusieurs `POST /tv` → 400 Bad Request.
+  - tv-perf: historique montrant des `POST /` → 404 Not Found (bridge perf suspect).
+- Plan de diagnostic proposé:
+  - Inspecter OpenAPI `/tv` et `/perf` + grep code pour URL perf.
+- Mise en place de Trae:
+  - Connexion SSH validée.
+  - Consigne “inspection only” (skip exécution).
+- Résultats Trae (inspection + proposition de patch):
+  - Cause `qty/risk is 0`: config risque manquante.
+  - Ajout proposé: `state/risk_config.json` (compte `PAPER_TEST` equity=10000 risk_pct=1.0).
+  - Bridge perf: corriger envoi vers `/perf/event` (éviter POST `/`).
+  - Validation engine: via `modules/engines/registry.py`; `PAPER_TEST` enregistré; pas besoin de l’ajouter à `ALL_ENGINES`.
+  - Key: requise seulement si `TV_WEBHOOK_KEY` défini; localhost autorisé si key absente et variable non définie.
+- Contrôle runtime demandé: vérifier variables systemd (`TV_WEBHOOK_KEY`, `PERF_URL`) via `systemctl show ... Environment`.
+  - Commande exécutée mais aucune variable affichée (sortie vide via egrep).
+- Application partielle effectuée côté serveur:
+  - Création effective de `state/risk_config.json` sur `/opt/trading`.
+
+3) Décisions:
+- Pas de commit tant que:
+  - la validation risque est débloquée et que les tests BUY/BY bloc/Sell flip passent,
+  - et que le bridge perf vise la bonne route.
+- Ne pas utiliser les scripts Trae de start/stop (risque conflit avec systemd/ports, uvicorn `--reload`).
+- Continuer via patch minimal runtime uniquement (`risk_config.json` + correction URL perf) après vérification des variables d’environnement systemd.
+- Utiliser Trae surtout pour inspection/diff; exécution restarts/validation/commit reste manuelle.
+- Constats contexte: indexation git en cours; repo Google Drive pas à jour.
+
+4) Commandes / Code:
+```bash
+cd /opt/trading || exit 1
+sudo systemctl restart tv-webhook tv-perf
+sudo systemctl status tv-webhook --no-pager -l
+sudo systemctl status tv-perf --no-pager -l
+
+curl -s http://127.0.0.1:8010/perf/summary
+
+curl -s -X POST http://127.0.0.1:8000/tv \
+  -H 'Content-Type: application/json' \
+  -d '{"key":"TESTKEY","engine":"tv","signal":"buy","symbol":"BTCUSDT","tf":"5m","price":65000,"tp":66000,"sl":64500,"reason":"test_buy_1"}'
+
+curl -s -X POST http://127.0.0.1:8000/tv \
+  -H 'Content-Type: application/json' \
+  -d '{"key":"TESTKEY","engine":"tv","signal":"buy","symbol":"BTCUSDT","tf":"5m","price":65100,"tp":66100,"sl":64600,"reason":"test_buy_2"}'
+
+curl -s -X POST http://127.0.0.1:8000/tv \
+  -H 'Content-Type: application/json' \
+  -d '{"key":"TESTKEY","engine":"tv","signal":"sell","symbol":"BTCUSDT","tf":"5m","price":64900,"tp":64000,"sl":65400,"reason":"test_sell_flip"}'
+
+journalctl -u tv-webhook -n 80 --no-pager
+journalctl -u tv-perf -n 80 --no-pager
+
+sudo systemctl show tv-webhook -p Environment --no-pager | tr ' ' '\n' | egrep 'TV_WEBHOOK_KEY|PERF_URL'
+
+mkdir -p state
+cat > state/risk_config.json <<'EOF'
+{
+  "accounts": {
+    "PAPER_TEST": {
+      "equity": 10000,
+      "risk_pct": 1.0,
+      "min_qty": 0.001,
+      "qty_step": 0.001
+    }
+  },
+  "gold_cfd": {
+    "units_are_oz": true
+  }
+}
+EOF
+```
+
+```diff
+diff --git a/webhook_server.py b/webhook_server.py
+index e5051c6..25ac73b 100644
+--- a/webhook_server.py
++++ b/webhook_server.py
+@@ -35,7 +35,7 @@
+-PERF_URL = os.getenv("PERF_URL", "http://127.0.0.1:8010/perf/event")
++# PERF_URL removed (consolidated below)
+@@ -50,7 +50,9 @@ def perf_open(...):
+-        requests.post(PERF_URL, json=payload, timeout=2)
++        base = os.environ.get("PERF_URL", "http://127.0.0.1:8010")
++        requests.post(base + "/perf/event", json=payload, timeout=2)
+@@ -91,7 +93,7 @@
+-PERF_URL = os.environ.get("PERF_URL", "http://127.0.0.1:8010")
++PERF_API_URL = os.environ.get("PERF_URL", "http://127.0.0.1:8010")
+@@ -108,13 +110,13 @@ def _perf_get_open():
+-        r = _http_json(PERF_URL + "/perf/open", "GET", None, timeout=10)
++        r = _http_json(PERF_API_URL + "/perf/open", "GET", None, timeout=10)
+@@ -115,5 +115,5 @@ def _perf_close(...):
+-    return _http_json(PERF_URL + "/perf/event", "POST", {...}, timeout=10)
++    return _http_json(PERF_API_URL + "/perf/event", "POST", {...}, timeout=10)
+```
+
+5) Points ouverts (next):
+- Comprendre pourquoi `systemctl show tv-webhook -p Environment ... | egrep ...` ne retourne rien (variables non définies, ou non exposées).
+- Confirmer la valeur effective de `PERF_URL` (base vs déjà suffixée `/perf/event`) avant d’appliquer le patch URL.
+- Confirmer la valeur effective de `TV_WEBHOOK_KEY` (si définie, utiliser la vraie key dans les curls).
+- Rejouer les 3 scénarios avec un payload valide (probablement `engine="PAPER_TEST"` + `signal` au bon format + `sl/price` + key si requise) et vérifier que le guard est bien atteint.
+- Vérifier que le bridge perf n’envoie plus de `POST /` (attendu: `POST /perf/event`).
+- Contexte outillage: attendre fin indexation git; repo Google Drive pas à jour (source de vérité à clarifier).

@@ -50,7 +50,7 @@ def perf_open(engine: str, symbol: str, side: str, entry: float, stop: float, qt
         "meta": meta or {}
     }
     try:
-        requests.post(PERF_URL, json=payload, timeout=2)
+        requests.post(PERF_URL + "/perf/event", json=payload, timeout=2)
     except Exception:
         # perf est optionnel: ne jamais casser le webhook
         pass
@@ -452,6 +452,16 @@ async def tv_webhook(req: Request):
     if engine == "TV_TEST" or engine.startswith("TEST_") or engine.startswith("_TEST_"):
         pass
     else:
+        perf_side = "LONG" if signal == "BUY" else "SHORT"
+        for _t in _perf_get_open():
+            if _t.get("engine") == engine and _t.get("symbol") == symbol and _t.get("status") == "OPEN":
+                _cur_side = (_t.get("side") or "").upper()
+                if _cur_side == perf_side:
+                    return {"ok": True, "skipped": f"already_{signal.lower()}"}
+                _tid = _t.get("trade_id")
+                if _tid:
+                    _perf_close(_tid, float(price))
+
         perf_open(
                 engine=engine,
         symbol=symbol,
@@ -503,7 +513,6 @@ async def tv_webhook(req: Request):
 
         if guard["action"] == "flip":
             log.info(f"GUARD FLIP: {guard['reason']}")
-            return {"ok": True, "skipped": guard["reason"]}
 
         order = {
             "symbol": symbol,
