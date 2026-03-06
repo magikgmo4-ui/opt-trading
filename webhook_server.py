@@ -495,6 +495,17 @@ async def tv_webhook(req: Request):
 
     # --- EXECUTION (Optional/Test) ---
     if engine == "PAPER_TEST":
+        guard = pos_manager.can_open_position(symbol, signal)
+        
+        if guard["action"] == "reject":
+            log.warning(f"GUARD REJECT: {guard['reason']}")
+            return {"ok": True, "skipped": guard["reason"]}
+            
+        if guard["action"] == "flip":
+            log.info(f"GUARD FLIP: Closing opposite position before opening new one")
+            # In future: execute close here
+            pass
+
         order = {
             "symbol": symbol,
             "side": signal,
