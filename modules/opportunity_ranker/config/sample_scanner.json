@@ -1,0 +1,14 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "scan_score": 0.74,
+    "setup_bias": "LONG",
+    "priority": "HIGH"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "scan_score": -0.4,
+    "setup_bias": "SHORT",
+    "priority": "MEDIUM"
+  }
+]
