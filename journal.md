@@ -7976,3 +7976,36 @@ printf "\n## 2026-03-06 — execution_engine\n- risk_engine merged and validated
 - Mettre à jour/synchroniser le repo sur student (`git pull --ff-only --tags`) quand réseau/SSH stable.
 - Documenter officiellement le prérequis runtime `state/risk_config.json` (RUNBOOK) + stratégie de provisionnement.
 - Décider prochain milestone: `feat/ci-automation` (.github/workflows/ci.yml pour verify_all/smoke).
+
+## 2026-03-06 12:39 | TV Webhook | PAPER_TEST | BTCUSDT 1m | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `PAPER_TEST`
+3. **Symbol/TF**: `BTCUSDT` / `1m`
+4. **Price**: `50000.0`
+5. **TP**: `0.0`
+6. **SL**: `49000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "PAPER_TEST",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1m",
+  "price": 50000.0,
+  "tp": 0.0,
+  "sl": 49000.0,
+  "reason": "",
+  "_ts": "2026-03-06T17:39:01.256413+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 0.1,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-06 — position_engine
+- position_engine scaffold created
+- integrated with PAPER_TEST execution path
+- execution_engine → position_engine flow validated
+- paper execution + position open confirmed via webhook test
