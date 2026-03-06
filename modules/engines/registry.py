@@ -44,3 +44,19 @@ def _echo_engine(engine: str, payload: dict) -> dict:
 
 # Register default dummy engine
 register_engine("ECHO_TEST", _echo_engine)
+
+def _noop_engine(engine: str, payload: dict) -> dict:
+    """
+    Standard No-Op handler for legacy engines.
+    The server handles Risk/Perf/Log; the engine logic is implicit or upstream.
+    """
+    return {"ok": True, "engine": engine, "status": "noop"}
+
+# Legacy / Production Engines
+# These are the hardcoded engines from webhook_server.py
+register_engine("COINM_SHORT", _noop_engine)
+register_engine("USDTM_LONG", _noop_engine)
+register_engine("GOLD_CFD_LONG", _noop_engine)
+register_engine("TV_TEST", _noop_engine)
+register_engine("NGROK_TEST", _noop_engine)
+
