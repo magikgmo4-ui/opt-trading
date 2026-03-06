@@ -1,0 +1,61 @@
+{
+  "mode": "PAPER",
+  "log_level": "INFO",
+  "modules": [
+    {
+      "name": "market_scanner",
+      "command": "sample",
+      "output_key": "scanner"
+    },
+    {
+      "name": "liquidation_analyzer",
+      "command": "sample",
+      "output_key": "liquidations"
+    },
+    {
+      "name": "probability_engine",
+      "command": "sample",
+      "output_key": "probability"
+    },
+    {
+      "name": "opportunity_ranker",
+      "command": "sample",
+      "output_key": "ranker"
+    },
+    {
+      "name": "decision_engine",
+      "command": "sample",
+      "output_key": "decisions"
+    },
+    {
+      "name": "risk_engine",
+      "command": "sample",
+      "output_key": "risk"
+    },
+    {
+      "name": "execution_engine",
+      "command": "sample",
+      "output_key": "execution"
+    },
+    {
+      "name": "position_engine",
+      "command": "sample",
+      "output_key": "positions"
+    },
+    {
+      "name": "perf_engine",
+      "command": "sample",
+      "output_key": "perf"
+    },
+    {
+      "name": "journal_engine",
+      "command": "sample",
+      "output_key": "journal"
+    },
+    {
+      "name": "portfolio_engine",
+      "command": "sample",
+      "output_key": "portfolio"
+    }
+  ]
+}
