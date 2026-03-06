@@ -7638,3 +7638,70 @@ mount | grep -E "sshfs|/shared"
 - Ajouter un index/description des zips dans `/shared` (mapping zip → objectif/machine) pour “savoir quoi installer” sans inspection manuelle.
 - Mettre en place un module “desk_state” (fusion canonique des inputs : snapshots/latest + vision inputs + futures APIs) et brancher UI plus tard.
 - Poursuivre l’enrichissement Desk Pro (corr BTC/DXY, XAU/DXY, DXY trend, Fear&Greed, liquidations) après stabilisation modules et prune.
+
+## 2026-03-05 19:33 — note33
+1) Objectifs:
+- Créer/déployer le module `shared_sshfs_permanent` (scripts + wrappers menu/cmd/sanity + service systemd) pour monter `/shared` en SSHFS de façon permanente sur `student` et `db-layer` depuis `admin-trading`.
+
+2) Actions:
+- Tentatives initiales d’unzip depuis `/tmp` sur `admin-trading` → échec car les ZIP étaient stockés dans `/srv/sftp/shared_files/shared`.
+- Identification du ZIP correct sur `admin-trading` : `shared_sshfs_permanent_step1_patch_v1.zip`, puis unzip depuis `shared` vers `/tmp` et application du patch (module présent sous `/opt/trading/modules/shared_sshfs_permanent`).
+- Déploiement sur `student` et `db-layer` via `git pull --ff-only`.
+- `student`: échec INSTALL (permission sur `/shared`, wrappers inexistants). Fix proposé (stop service/unmount + recréer `/shared` + relancer INSTALL). Après relance : service actif, mount OK, sanity PASS=6 (avec warning `chown` quand déjà monté).
+- `db-layer`: INSTALL OK, service actif et `/shared` monté, mais `sanity` signalait à tort “unit missing” alors que le service existait (faux négatif).
+- Patch correctif “Step 1b” fourni (`shared_sshfs_permanent_step1b_patch_v1.zip`) pour:
+  - rendre l’INSTALL plus tolérant quand `/shared` est déjà monté (éviter échec `chown`/stat),
+  - corriger le check systemd dans `sanity`.
+- Après mise à jour + relance `INSTALL.sh` sur `student` et `db-layer`: sanity PASS=6 sur les 2 machines.
+- Vérification `cmd-shared_sshfs_permanent status/ls` :
+  - OK sur `student` et `db-layer`,
+  - attendu KO sur `admin-trading` (serveur du partage, module non installé côté serveur).
+
+3) Décisions:
+- Ne pas installer/ajouter de wrapper `cmd-shared_sshfs_permanent` sur `admin-trading` (serveur), laisser tel quel.
+- Reporter le test reboot (auto-mount au boot) à plus tard (workflow “boot log / fin de session”).
+
+4) Commandes / Code:
+```bash
+# admin-trading: localiser le zip dans shared
+cd /srv/sftp/shared_files/shared && ls -1 | grep -i shared_sshfs
+
+# admin-trading: unzip depuis shared -> /tmp puis appliquer patch
+rm -rf /tmp/shared_sshfs_permanent_patch
+unzip -o "/srv/sftp/shared_files/shared/shared_sshfs_permanent_step1_patch_v1.zip" \
+  -d /tmp/shared_sshfs_permanent_patch
+sudo bash /tmp/shared_sshfs_permanent_patch/APPLY_PATCH.sh
+
+# student / db-layer: update + install + mount + checks
+cd /opt/trading
+git pull --ff-only
+sudo bash modules/shared_sshfs_permanent/INSTALL.sh
+sudo cmd-shared_sshfs_permanent mount
+sanity-shared_sshfs_permanent
+cmd-shared_sshfs_permanent status
+
+# student: fix proposé pour état cassé de /shared (avant relance INSTALL)
+sudo systemctl stop shared-sshfs.service 2>/dev/null || true
+sudo fusermount3 -u /shared 2>/dev/null || sudo umount /shared 2>/dev/null || true
+sudo install -d -o student -g student -m 2775 /shared
+sudo bash /opt/trading/modules/shared_sshfs_permanent/INSTALL.sh
+
+# patch step 1b (admin-trading) + update clients
+cd /srv/sftp/shared_files/shared
+rm -rf /tmp/shared_sshfs_permanent_patch1b
+unzip -o shared_sshfs_permanent_step1b_patch_v1.zip -d /tmp/shared_sshfs_permanent_patch1b
+sudo bash /tmp/shared_sshfs_permanent_patch1b/APPLY_PATCH.sh
+
+# puis sur chaque client
+cd /opt/trading
+git pull --ff-only
+sudo bash modules/shared_sshfs_permanent/INSTALL.sh
+sanity-shared_sshfs_permanent
+```
+
+5) Points ouverts (next):
+- Faire un test de reboot sur `student` puis `db-layer` pour confirmer l’auto-mount de `/shared` au démarrage.
+- Après reboot, collecter:
+  - `sanity-shared_sshfs_permanent`
+  - `cmd-shared_sshfs_permanent status`
+  - `cmd-shared_sshfs_permanent logs`
