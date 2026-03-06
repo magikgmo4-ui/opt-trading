@@ -59,4 +59,5 @@ register_engine("USDTM_LONG", _noop_engine)
 register_engine("GOLD_CFD_LONG", _noop_engine)
 register_engine("TV_TEST", _noop_engine)
 register_engine("NGROK_TEST", _noop_engine)
+register_engine("PAPER_TEST", _noop_engine)
 
