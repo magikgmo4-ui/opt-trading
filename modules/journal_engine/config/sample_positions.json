@@ -1,0 +1,17 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "position_status": "OPEN_CANDIDATE",
+    "side": "LONG"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "position_status": "BLOCKED",
+    "side": "NONE"
+  },
+  {
+    "symbol": "SOLUSDT",
+    "position_status": "OPEN_CANDIDATE",
+    "side": "SHORT"
+  }
+]

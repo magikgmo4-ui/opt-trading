@@ -1,0 +1,17 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "risk_status": "ALLOW",
+    "risk_tier": "MEDIUM"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "risk_status": "BLOCK",
+    "risk_tier": "HIGH"
+  },
+  {
+    "symbol": "SOLUSDT",
+    "risk_status": "ALLOW",
+    "risk_tier": "HIGH"
+  }
+]
