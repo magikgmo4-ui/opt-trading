@@ -17,8 +17,6 @@ Les wrappers suivants sont disponibles après installation :
 | `deepseek-student` | Wrapper principal (status, run, summary) |
 | `menu-deepseek-student` | Menu interactif simple |
 | `sanity-deepseek-student` | Vérification de l'environnement DeepSeek |
-| `deepseek-student-run-logged` | Exécuter une analyse avec logs (Terminal + Fichier) |
-| `deepseek-student-tail-log` | Voir la fin du dernier log |
 
 ## 4. Flux Opérateur : Exécution DeepSeek
 

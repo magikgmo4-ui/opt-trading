@@ -30,10 +30,15 @@ if [ -w "/usr/local/bin" ]; then
     ln -sf "$SCRIPT_DIR/deepseek_student_cmd.sh" /usr/local/bin/deepseek-student
     ln -sf "$SCRIPT_DIR/deepseek_student_menu.sh" /usr/local/bin/menu-deepseek-student
     ln -sf "$SCRIPT_DIR/deepseek_student_sanity_check.sh" /usr/local/bin/sanity-deepseek-student
-    ln -sf "$SCRIPT_DIR/deepseek_student_run_logged.sh" /usr/local/bin/deepseek-student-run-logged
-    ln -sf "$SCRIPT_DIR/deepseek_student_tail_latest_log.sh" /usr/local/bin/deepseek-student-tail-log
     
-    echo "Installed: deepseek-student, menu-deepseek-student, sanity-deepseek-student, deepseek-student-run-logged, deepseek-student-tail-log"
+    # Remove old/confusing wrappers
+    rm -f /usr/local/bin/deepseek-student-run-logged
+    rm -f /usr/local/bin/deepseek-student-tail-log
+    
+    echo "Installed: deepseek-student, menu-deepseek-student, sanity-deepseek-student"
 fi
+
+# 4. Ensure Permissions
+chmod +x "$SCRIPT_DIR"/*.sh
 
 echo "Installation Complete."
