@@ -20,34 +20,29 @@ cmd="${1:-help}"
 
 case "$cmd" in
   status|summary)
-    echo "=== DEEPSEEK STUDENT STATUS ==="
-    echo "Repo Root:    $ROOT_DIR"
-    echo "Host:         $(hostname)"
-    echo "Date:         $(date -u)"
-    
-    if [ -f "$DEEPSEEK_HUB_CMD" ]; then
-        echo "DeepSeek Hub: FOUND"
-        if [ -x "$DEEPSEEK_HUB_CMD" ]; then
-             echo "Hub Script:   EXECUTABLE"
-        else
-             echo "Hub Script:   NOT EXECUTABLE (Run sanity check)"
-        fi
-    else
-        echo "DeepSeek Hub: MISSING"
-    fi
-
-    # Check Logs
-    LOGS_DIR="$ROOT_DIR/data/logs/deepseek_student"
-    if [ -d "$LOGS_DIR" ]; then
-        echo "Logs Dir:     EXISTS"
-    else
-        echo "Logs Dir:     MISSING (Will be created)"
-    fi
-    
-    echo "Summary:      DeepSeek Student pack ready."
-    echo "================================"
+    bash "$SCRIPT_DIR/deepseek_student_summary.sh"
     ;;
-    
+
+  show-latest-thinking)
+    bash "$SCRIPT_DIR/deepseek_student_show_latest_thinking.sh"
+    ;;
+
+  show-latest-response)
+    bash "$SCRIPT_DIR/deepseek_student_show_latest_response.sh"
+    ;;
+
+  show-latest-roadmap)
+    bash "$SCRIPT_DIR/deepseek_student_show_latest_roadmap.sh"
+    ;;
+
+  daily-log-thinking)
+    bash "$SCRIPT_DIR/deepseek_student_daily_log_thinking.sh"
+    ;;
+
+  install-daily-timer)
+    bash "$SCRIPT_DIR/deepseek_student_install_daily_timer.sh"
+    ;;
+
   sanity)
     bash "$SCRIPT_DIR/deepseek_student_sanity_check.sh"
     ;;
@@ -108,7 +103,7 @@ case "$cmd" in
     ;;
     
   *)
-    echo "Usage: deepseek_student_cmd.sh status|sanity|run|run-logged|think|response|roadmap-events|roadmap-think-module|roadmap-response-module|models|tail-latest-log|summary|explain"
+    echo "Usage: deepseek_student_cmd.sh status|sanity|run|run-logged|think|response|roadmap-events|roadmap-think-module|roadmap-response-module|models|tail-latest-log|summary|explain|show-latest-*|daily-log-thinking|install-daily-timer"
     exit 1
     ;;
 esac

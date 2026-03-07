@@ -52,12 +52,44 @@ Les wrappers suivants sont disponibles après installation :
    deepseek-student roadmap-think-module deepseek_hub
    ```
 
-6. **Consulter les Logs**
+6. **Consulter les Logs et Archives**
    ```bash
-   deepseek-student-tail-log
+   # Dernier log technique
+   deepseek-student tail-latest-log
+   
+   # Dernier résultat Thinking
+   deepseek-student show-latest-thinking
+   
+   # Dernier résultat Response
+   deepseek-student show-latest-response
    ```
 
-## 5. Gestion des Incidents Courants
+## 5. Automatisation Quotidienne
+
+### Installation du Timer
+Le pack inclut un job quotidien qui analyse les logs récents pour détecter les problèmes.
+Pour l'installer (timer systemd utilisateur) :
+
+```bash
+deepseek-student install-daily-timer
+```
+*Le job tournera tous les jours à 06:30.*
+
+### Lancement Manuel
+Pour forcer l'exécution immédiate de l'analyse quotidienne :
+```bash
+deepseek-student daily-log-thinking
+```
+
+### Consultation du Résultat
+Le résultat de l'analyse quotidienne est stocké dans `_student_archive/thinking/daily/` et lié via `daily_latest.md`.
+Pour le lire :
+```bash
+# Via wrapper (à implémenter ou cat direct)
+cat /opt/trading/_student_archive/thinking/daily/daily_latest.md
+```
+
+## 6. Gestion des Incidents Courants
 
 ### Cas : Logs introuvables
 **Symptôme** : `tail-latest-log` échoue.

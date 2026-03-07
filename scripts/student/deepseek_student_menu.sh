@@ -22,14 +22,18 @@ while true; do
     echo "8. Roadmap Think Module"
     echo "9. Roadmap Response Module"
     echo ""
-    echo "[Execution]"
-    echo "10. Run Logged (Status)"
-    echo "11. Run Logged (Models)"
-    echo "12. Tail Latest Log"
+    echo "[Logs / Archives]"
+    echo "10. Tail Latest Log"
+    echo "11. Show Latest Thinking"
+    echo "12. Show Latest Response"
+    echo ""
+    echo "[Automation]"
+    echo "13. Run Daily Log Thinking Now"
+    echo "14. Install Daily Timer"
     echo ""
     echo "[Docs]"
-    echo "13. Show Runbook Path"
-    echo "14. Show Quick Reference Path"
+    echo "15. Show Runbook Path"
+    echo "16. Show Quick Reference Path"
     echo ""
     echo "0. Quit"
     echo "================================="
@@ -78,22 +82,30 @@ while true; do
             read -p "Press Enter to continue..."
             ;;
         10)
-            bash "$CMD" run-logged status
-            read -p "Press Enter to continue..."
-            ;;
-        11)
-            bash "$CMD" run-logged models
-            read -p "Press Enter to continue..."
-            ;;
-        12)
             bash "$CMD" tail-latest-log
             read -p "Press Enter to continue..."
             ;;
+        11)
+            bash "$CMD" show-latest-thinking
+            read -p "Press Enter to continue..."
+            ;;
+        12)
+            bash "$CMD" show-latest-response
+            read -p "Press Enter to continue..."
+            ;;
         13)
-            echo "Runbook: docs/student_deepseek_runbook.md"
+            bash "$CMD" daily-log-thinking
             read -p "Press Enter to continue..."
             ;;
         14)
+            bash "$CMD" install-daily-timer
+            read -p "Press Enter to continue..."
+            ;;
+        15)
+            echo "Runbook: docs/student_deepseek_runbook.md"
+            read -p "Press Enter to continue..."
+            ;;
+        16)
             echo "Quick Reference: docs/student_deepseek_quick_reference.md"
             read -p "Press Enter to continue..."
             ;;
