@@ -69,10 +69,11 @@ class ProbabilityEngine:
             except Exception:
                 pass
 
-    def score(self, features):
+    def score(self, features, derivatives_context=None):
         """
         Calculate probability score from features.
         Features should be a dict with keys like 'trend_bias' (-1.0 to 1.0).
+        derivatives_context: Optional dict with keys 'derivatives_bias', 'squeeze_risk', 'crowding_risk'.
         """
         total_weight = 0.0
         weighted_sum = 0.0
@@ -95,6 +96,41 @@ class ProbabilityEngine:
         # Normalize score to -1.0 to 1.0
         final_score = weighted_sum / total_weight
         
+        # --- Derivatives Adjustment ---
+        deriv_info = {
+            "used": False,
+            "bias": "NONE",
+            "risk_flag": False,
+            "adjustment": 0.0
+        }
+        
+        if derivatives_context:
+            deriv_info["used"] = True
+            d_bias = derivatives_context.get("derivatives_bias", "NEUTRAL")
+            d_squeeze = derivatives_context.get("squeeze_risk", "LOW")
+            d_crowding = derivatives_context.get("crowding_risk", "LOW")
+            
+            deriv_info["bias"] = d_bias
+            
+            # 1. Bias Adjustment
+            adjustment = 0.0
+            if d_bias == "BULLISH_LEVERAGE":
+                adjustment += 0.1
+            elif d_bias == "BEARISH_LEVERAGE":
+                adjustment -= 0.1
+            elif d_bias == "BULLISH_UNWIND":
+                adjustment -= 0.05
+            elif d_bias == "BEARISH_UNWIND":
+                adjustment += 0.05
+            
+            # Apply adjustment (clamped)
+            final_score = max(-1.0, min(1.0, final_score + adjustment))
+            deriv_info["adjustment"] = adjustment
+            
+            # 2. Risk Flags (Confidence Dampeners)
+            if d_squeeze != "LOW" or "HIGH" in d_crowding:
+                deriv_info["risk_flag"] = True
+        
         # Convert to probabilities (0.0 to 1.0)
         # Score 1.0 -> Prob Long 1.0
         # Score -1.0 -> Prob Short 1.0 (Prob Long 0.0)
@@ -104,14 +140,18 @@ class ProbabilityEngine:
         
         # Confidence is magnitude of the score (how strong is the signal?)
         confidence = abs(final_score)
+        
+        # Apply risk dampening to confidence
+        if deriv_info["risk_flag"]:
+            confidence *= 0.85 # Reduce confidence by 15% if high risk
 
         direction = "NEUTRAL"
         if final_score > 0.1: direction = "LONG"
         elif final_score < -0.1: direction = "SHORT"
 
-        summary = self._generate_summary(features, direction, confidence)
+        summary = self._generate_summary(features, direction, confidence, deriv_info)
 
-        return {
+        result = {
             "symbol": features.get("symbol", "UNKNOWN"),
             "timestamp": features.get("timestamp", datetime.now(timezone.utc).isoformat()),
             "probability_long": round(prob_long, 2),
@@ -120,8 +160,21 @@ class ProbabilityEngine:
             "directional_bias": direction,
             "raw_score": round(final_score, 3),
             "summary": summary,
+            "derivatives_context": {
+                "used": deriv_info["used"],
+                "bias": deriv_info["bias"],
+                "risk_flag": deriv_info["risk_flag"],
+                "score_adjustment": round(deriv_info["adjustment"], 2)
+            },
+            # Top-level derivatives fields for easy consumption
+            "derivatives_context_used": deriv_info["used"],
+            "derivatives_bias": deriv_info["bias"],
+            "derivatives_risk_flag": deriv_info["risk_flag"],
+            "derivatives_score_adjustment": round(deriv_info["adjustment"], 2),
+            "adjusted_confidence": round(confidence, 2), # Explicitly named final confidence
             "_details": details
         }
+        return result
 
     def _empty_result(self, features):
         return {
@@ -135,7 +188,7 @@ class ProbabilityEngine:
             "raw_score": 0.0
         }
 
-    def _generate_summary(self, features, direction, confidence):
+    def _generate_summary(self, features, direction, confidence, deriv_info):
         # Simple rule-based explanation
         drivers = []
         for k, v in features.items():
@@ -146,10 +199,19 @@ class ProbabilityEngine:
         
         conf_str = "High" if confidence > 0.6 else "Moderate" if confidence > 0.3 else "Low"
         
+        base_summary = ""
         if not drivers:
-            return f"{conf_str} confidence {direction} bias. No strong individual drivers."
-        
-        return f"{conf_str} confidence {direction} bias driven by: {', '.join(drivers[:3])}."
+            base_summary = f"{conf_str} confidence {direction} bias. No strong individual drivers."
+        else:
+            base_summary = f"{conf_str} confidence {direction} bias driven by: {', '.join(drivers[:3])}."
+            
+        if deriv_info["used"]:
+            if deriv_info["adjustment"] != 0:
+                base_summary += f" Derivatives bias ({deriv_info['bias']}) adjusted score."
+            if deriv_info["risk_flag"]:
+                base_summary += " CAUTION: High derivatives risk detected."
+                
+        return base_summary
 
     def run_sample(self):
         # Load sample input
@@ -169,7 +231,7 @@ class ProbabilityEngine:
         print(json.dumps(result, indent=2))
         return result
 
-    def run_file(self, filepath, explain=False):
+    def run_file(self, filepath, derivatives_input=None, explain=False):
         p = Path(filepath)
         if not p.exists():
             print(f"Error: File not found: {filepath}")
@@ -177,8 +239,28 @@ class ProbabilityEngine:
         
         with open(p, "r") as f:
             features = json.load(f)
+            
+        derivatives_context = None
+        if derivatives_input:
+            dp = Path(derivatives_input)
+            if dp.exists():
+                try:
+                    with open(dp, "r") as f:
+                        d_data = json.load(f)
+                        # Expecting list of items or single item
+                        target_symbol = features.get("symbol")
+                        if isinstance(d_data, list):
+                            for item in d_data:
+                                if item.get("symbol") == target_symbol:
+                                    derivatives_context = item
+                                    break
+                        elif isinstance(d_data, dict):
+                            if d_data.get("symbol") == target_symbol:
+                                derivatives_context = d_data
+                except Exception as e:
+                    print(f"Warning: Failed to load derivatives input: {e}", file=sys.stderr)
         
-        result = self.score(features)
+        result = self.score(features, derivatives_context)
         
         if not explain:
             # Remove details for cleaner output unless requested
@@ -196,9 +278,11 @@ def main():
     
     score_parser = subparsers.add_parser("score", help="Score input file")
     score_parser.add_argument("--input", required=True, help="Path to input JSON features")
+    score_parser.add_argument("--derivatives-input", help="Path to derivatives analysis JSON")
     
     explain_parser = subparsers.add_parser("explain", help="Score and explain input file")
     explain_parser.add_argument("--input", required=True, help="Path to input JSON features")
+    explain_parser.add_argument("--derivatives-input", help="Path to derivatives analysis JSON")
 
     args = parser.parse_args()
     config = load_config()
@@ -211,9 +295,9 @@ def main():
     elif args.command == "sample":
         engine.run_sample()
     elif args.command == "score":
-        engine.run_file(args.input, explain=False)
+        engine.run_file(args.input, derivatives_input=getattr(args, 'derivatives_input', None), explain=False)
     elif args.command == "explain":
-        engine.run_file(args.input, explain=True)
+        engine.run_file(args.input, derivatives_input=getattr(args, 'derivatives_input', None), explain=True)
     else:
         parser.print_help()
 

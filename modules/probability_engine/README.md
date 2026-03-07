@@ -29,6 +29,9 @@ Use the provided scripts in `scripts/`:
 # Score a specific input file
 ./scripts/cmd.sh score --input config/example_input.json
 
+# Score with Derivatives Context (New in V1)
+./scripts/cmd.sh score --input config/example_input.json --derivatives-input ../derivatives_analyzer/output/derivatives_analysis.json
+
 # Explain a specific input file (verbose)
 ./scripts/cmd.sh explain --input config/example_input.json
 ```
@@ -58,7 +61,18 @@ Use the provided scripts in `scripts/`:
   "probability_short": 0.32,
   "confidence": 0.61,
   "directional_bias": "LONG",
-  "summary": "Bullish bias supported by trend, OI and liquidity; funding slightly negative."
+  "summary": "Bullish bias supported by trend, OI and liquidity; funding slightly negative.",
+  "derivatives_context": {
+      "used": true,
+      "bias": "BULLISH_LEVERAGE",
+      "risk_flag": false,
+      "score_adjustment": 0.1
+  },
+  "derivatives_context_used": true,
+  "derivatives_bias": "BULLISH_LEVERAGE",
+  "derivatives_risk_flag": false,
+  "derivatives_score_adjustment": 0.1,
+  "adjusted_confidence": 0.61
 }
 ```
 
