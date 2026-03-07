@@ -76,13 +76,13 @@ deepseek-student install-daily-timer
 *Le job tournera tous les jours à 06:30. Les commandes de statut sont SSH-friendly (sans pager).*
 
 ### Lancement Manuel
-Pour forcer l'exécution immédiate de l'analyse quotidienne :
+Pour forcer l'exécution immédiate du rapport quotidien :
 ```bash
-deepseek-student daily-log-thinking
+deepseek-student daily-log-report
 ```
 
 ### Consultation du Résultat
-Le résultat de l'analyse quotidienne est stocké dans `_student_archive/thinking/daily/` et lié via `daily_latest.md`.
+Le résultat de l'analyse quotidienne est stocké dans `_student_archive/response/daily/` et lié via `daily_latest.md`.
 Le rapport est structuré avec :
 - Résumé Exécutif
 - Succès Notables
@@ -91,8 +91,8 @@ Le rapport est structuré avec :
 
 Pour le lire :
 ```bash
-# Via wrapper (à implémenter ou cat direct)
-cat /opt/trading/_student_archive/thinking/daily/daily_latest.md
+# Via wrapper
+deepseek-student show-latest-response
 ```
 
 ## 7. Structure du Menu Opérateur
