@@ -8757,3 +8757,38 @@ deepseek-student summary
 - Éventuel polish UX menu (titres/numérotation) si souhaité.
 - Portage éventuel du standard DeepSeek (ops + usage réel + menu + timer + rapports) vers d’autres machines si pertinent.
 - Prochaine session : repartir de l’index/tag stable `student_deepseek_ops_v1.0_hotfix2` + docs `student_deepseek_runbook.md` / `student_deepseek_quick_reference.md`.
+
+## 2026-03-07 05:26 — note60
+1) Objectifs:
+- Indexer complètement le setup Desk (Dell Windows / MSI Ubuntu / Debian 12) sans casse.
+- Produire une cartographie exploitable de l’existant (modules, menus/cmd/sanity/wrappers, logs/timers/services), puis une gap analysis et une structure cible.
+- Préparer la suite sans l’exécuter : écran réseau Debian → Windows, intégrations API Alternative.me / Bitget, rendu final du Desk.
+
+2) Actions:
+- Définir une checklist opératoire par phases (A→I) : photo initiale, inventaires, cartographies, classification, gap analysis, structure cible, préparation de la suite.
+- Définir une zone de travail et une liste de fichiers livrables recommandés (00_scope.md … 08_next_actions.md + journal/steps/…).
+- Définir les fiches de collecte (fiche module, fiche entrée opératoire) et les points critiques à vérifier (menus/cmd/sanity manquants, wrappers absents, logs, cohérence, lisibilité opérateur).
+
+3) Décisions:
+- Interdictions pendant l’indexation : pas de refactor massif, pas de déplacement/renommage sans traçabilité, pas d’installation non nécessaire, pas de branchement API “partout”, pas de mélange nettoyage UI / ajout fonctionnel.
+- Règle de sécurité avant toute mini-modif : état git, backup si nécessaire, changement minimal, sanity check, log, commit propre en fin d’étape validée.
+- Architecture cible (rôles) documentée :
+  - Dell Windows (cursor-ai) : Trae/ChatGPT/terminal/screenshot-bot vision-Telegram/TradingView unique.
+  - MSI Ubuntu (db-layer) : écran 1 UI perf/desk/toolbox/modules/commandes ; écran 2 Coinglass.
+  - Debian 12 : futur écran réseau prêté à Windows (+ éventuel rôle utilitaire).
+
+4) Commandes / Code:
+```sh
+git status
+git branch
+git log -1
+```
+
+5) Points ouverts (next):
+- Créer l’entrée de journal de session (titre, objectif, périmètre, interdictions).
+- Réaliser la “photo initiale” du repo (branche, dernier commit, état).
+- Mettre en place le dossier de travail d’indexation et générer les fichiers de synthèse (00_scope.md … 08_next_actions.md).
+- Exécuter l’inventaire : modules → entrées opératoires (menu/cmd/sanity/wrappers) → logs/timers/services.
+- Produire la cartographie machines/écrans, la classification opérateur/dev/maintenance, la gap analysis, puis la structure cible.
+- Préparer (sans exécuter) : plan d’écran réseau Debian, reprise Alternative.me/Bitget étape par étape.
+- Option proposée mais non fournie ici : version “terrain” en 3 blocs (plan d’exécution, templates d’inventaire, commandes shell de repérage).
