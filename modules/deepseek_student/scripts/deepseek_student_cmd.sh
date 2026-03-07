@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
+
+# Robustly determine script and repo root directories
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(cd "$SCRIPT_DIR/../../.." && pwd)"
+
 CMD="${1:-help}"
 MODEL="${2:-deepseek-r1:1.5b}"
 
@@ -37,8 +42,14 @@ PY
     N="${3:-200}"
     export DEEPSEEK_MODEL="$MODEL"
     export EVENT_N="$N"
-    . /opt/trading/.venv/bin/activate
-    python /opt/trading/modules/deepseek_student/scripts/roadmap_from_events.py
+    # Use robust path to venv activation
+    if [ -f "$ROOT_DIR/.venv/bin/activate" ]; then
+        . "$ROOT_DIR/.venv/bin/activate"
+    elif [ -f "$ROOT_DIR/venv/bin/activate" ]; then
+        . "$ROOT_DIR/venv/bin/activate"
+    fi
+    # Use robust path to python script
+    python "$SCRIPT_DIR/roadmap_from_events.py"
     ;;
   *) echo "Usage: cmd-deepseek_student {sanity|pull|test|roadmap} [model] [N]" ;;
 esac

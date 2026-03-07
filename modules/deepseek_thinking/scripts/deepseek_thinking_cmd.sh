@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Robustly determine script and repo root directories
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Assuming: modules/deepseek_thinking/scripts/deepseek_thinking_cmd.sh
+# So ../../.. from SCRIPT_DIR should be repo root
+ROOT_DIR="$(cd "$SCRIPT_DIR/../../.." && pwd)"
+
 CMD="${1:-help}"
 MODEL="${2:-deepseek-r1:1.5b}"
 PROMPT="${3:-Explique ton raisonnement en détail sur: état du projet + prochaines étapes.}"
-OUTDIR="/opt/trading/_student_archive/thinking"
+OUTDIR="$ROOT_DIR/_student_archive/thinking"
 
 usage() {
   echo "Usage:"
@@ -67,8 +73,14 @@ case "$CMD" in
     export DEEPSEEK_MODEL="$MODEL"
     export MOD="$MOD"
     export EVENT_N="$N"
-    . /opt/trading/.venv/bin/activate
-    python /opt/trading/modules/deepseek_thinking/scripts/roadmap_thinking_by_module.py
+    # Use robust path to venv activation
+    if [ -f "$ROOT_DIR/.venv/bin/activate" ]; then
+        . "$ROOT_DIR/.venv/bin/activate"
+    elif [ -f "$ROOT_DIR/venv/bin/activate" ]; then
+        . "$ROOT_DIR/venv/bin/activate"
+    fi
+    # Use robust path to python script
+    python "$SCRIPT_DIR/roadmap_thinking_by_module.py"
     ;;
 
   help|--help|-h) usage ;;
