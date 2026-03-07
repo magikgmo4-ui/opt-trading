@@ -20,6 +20,7 @@ fi
 
 # 1. Gather recent logs (last 5, excluding today's thinking if recursive)
 # We take the last 200 lines of the 5 most recent logs
+# Sort by modification time, newest first, take top 5
 RECENT_LOGS=$(ls -t "$LOGS_DIR"/*.log 2>/dev/null | head -n 5)
 
 if [ -z "$RECENT_LOGS" ]; then
@@ -28,31 +29,45 @@ if [ -z "$RECENT_LOGS" ]; then
 fi
 
 CONTEXT_FILE="/tmp/deepseek_daily_context_${RANDOM}.txt"
-echo "--- DAILY LOG CONTEXT ---" > "$CONTEXT_FILE"
+echo "--- CONTEXTE : LOGS RÉCENTS DU SYSTÈME STUDENT ---" > "$CONTEXT_FILE"
+echo "Date de l'analyse : $(date -u)" >> "$CONTEXT_FILE"
+echo "" >> "$CONTEXT_FILE"
+
 for log in $RECENT_LOGS; do
-    echo "Log: $(basename "$log")" >> "$CONTEXT_FILE"
-    tail -n 100 "$log" >> "$CONTEXT_FILE"
-    echo "---" >> "$CONTEXT_FILE"
+    echo "=== Fichier Log : $(basename "$log") ===" >> "$CONTEXT_FILE"
+    # Filter lines to remove noise, keep relevant info, take last 100 lines
+    # Exclude typical progress bars or empty lines if possible
+    tail -n 100 "$log" | grep -vE "^#|^$" >> "$CONTEXT_FILE"
+    echo "" >> "$CONTEXT_FILE"
 done
 
-# 2. Build Prompt
-PROMPT="Analyse ces logs récents du système DeepSeek Student. Identifie les erreurs récurrentes, les succès notables et propose 3 actions d'amélioration prioritaires. Réponds en FRANÇAIS."
+# 2. Build Structured Prompt
+PROMPT="Analyse les logs ci-joints du système DeepSeek Student.
+Ton objectif est de fournir un rapport d'état clair et actionnable pour l'opérateur.
+
+RÈGLES :
+- Réponds en FRANÇAIS.
+- Sois CONCIS et structuré.
+- Ignore le bruit (chemins de fichiers sans erreur, barres de progression).
+- Concentre-toi sur les états, les transitions, les erreurs et les succès.
+
+STRUCTURE DE LA RÉPONSE ATTENDUE :
+1. **RÉSUMÉ EXÉCUTIF** : État général du système (Stable / Instable / Critique).
+2. **SUCCÈS NOTABLES** : Ce qui a bien fonctionné récemment.
+3. **ERREURS & POINTS D'ATTENTION** : Problèmes détectés, warnings récurrents.
+4. **ACTIONS PRIORITAIRES** : 1 à 3 commandes ou vérifications à lancer immédiatement.
+
+CONTEXTE LOGS :"
 
 # 3. Run Thinking
-# We use the existing 'think' command wrapper, but we want to capture the output specifically
-# However, 'think' wrapper logs to its own log file.
-# Here we want to capture the thinking output MD file.
-
 CMD_WRAPPER="$SCRIPT_DIR/deepseek_student_cmd.sh"
 
 echo "Running analysis..."
-# We pass the content of context file + prompt as the argument
-# Note: This might be large, but for a simple daily summary it should fit in args or we'd need a file input mode.
-# DeepSeek hub 'think' takes a string.
-
-FULL_PROMPT="$PROMPT $(cat "$CONTEXT_FILE")"
+FULL_PROMPT="$PROMPT
+$(cat "$CONTEXT_FILE")"
 
 # Execute via wrapper (this will log the execution itself)
+# We use quotes to ensure the multiline prompt is passed correctly
 bash "$CMD_WRAPPER" think "$FULL_PROMPT"
 
 # 4. Archive/Move (Optional)

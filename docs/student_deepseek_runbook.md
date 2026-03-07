@@ -83,6 +83,12 @@ deepseek-student daily-log-thinking
 
 ### Consultation du Résultat
 Le résultat de l'analyse quotidienne est stocké dans `_student_archive/thinking/daily/` et lié via `daily_latest.md`.
+Le rapport est structuré avec :
+- Résumé Exécutif
+- Succès Notables
+- Erreurs & Points d'Attention
+- Actions Prioritaires
+
 Pour le lire :
 ```bash
 # Via wrapper (à implémenter ou cat direct)
