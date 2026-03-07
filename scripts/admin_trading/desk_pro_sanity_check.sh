@@ -63,4 +63,11 @@ else
     echo "WARN: Logs directory missing (will be created on first logged run)."
 fi
 
+# 7. Session Journal
+if [ -f "$ROOT_DIR/data/logs/desk_pro/session_journal.log" ] || [ -d "$ROOT_DIR/data/logs/desk_pro" ]; then
+    echo "PASS: Session journal location valid."
+else
+    echo "WARN: Session journal not initialized."
+fi
+
 echo "Admin Sanity Check Passed."
