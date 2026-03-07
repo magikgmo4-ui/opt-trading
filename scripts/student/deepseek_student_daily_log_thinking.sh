@@ -33,10 +33,22 @@ echo "--- CONTEXTE : LOGS RÉCENTS DU SYSTÈME STUDENT ---" > "$CONTEXT_FILE"
 echo "Date de l'analyse : $(date -u)" >> "$CONTEXT_FILE"
 echo "" >> "$CONTEXT_FILE"
 
+# Keywords to prioritize
+KEYWORDS="ERROR|WARN|FAILED|SUCCESS|PASS|Start:|End:|Status:|Latest log linked|archive path final"
+
 for log in $RECENT_LOGS; do
     echo "=== Fichier Log : $(basename "$log") ===" >> "$CONTEXT_FILE"
-    # Filter lines to remove noise, keep relevant info, take last 100 lines
-    tail -n 100 "$log" | grep -vE "^#|^$" >> "$CONTEXT_FILE"
+    
+    # Strategy: 
+    # 1. Grep lines with key status words
+    # 2. Add last 20 lines for recent context
+    # 3. Filter out repetitive noise/empty lines
+    
+    {
+        grep -E "$KEYWORDS" "$log" || true
+        tail -n 20 "$log"
+    } | sort | uniq | grep -vE "^#|^$" | tail -n 50 >> "$CONTEXT_FILE"
+    
     echo "" >> "$CONTEXT_FILE"
 done
 
@@ -48,20 +60,19 @@ RÈGLES STRICTES :
 - Réponds UNIQUEMENT en FRANÇAIS.
 - NE MONTRE JAMAIS ton raisonnement interne.
 - Sois CONCIS, PROFESSIONNEL et ACTIONNABLE.
-- Ignore le bruit (chemins de fichiers sans erreur, barres de progression).
+- Si l'information est absente, dis 'Non observé'.
+- Ne PAS inventer de problèmes ou de succès non présents dans les logs.
 
 FORMAT DE RÉPONSE OBLIGATOIRE :
 
 ## RÉSUMÉ EXÉCUTIF
-[État général : Stable / Instable / Critique. Une phrase de synthèse.]
+- [État général en une phrase : Stable / Instable / Critique]
 
 ## SUCCÈS NOTABLES
-- [Point positif 1]
-- [Point positif 2]
+- [Point positif 1 (max 3 puces)]
 
 ## ERREURS ET POINTS D'ATTENTION
-- [Erreur ou Warning 1]
-- [Erreur ou Warning 2]
+- [Erreur ou Warning 1 (max 3 puces)]
 
 ## ACTIONS PRIORITAIRES
 1. [Action immédiate 1]

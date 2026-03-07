@@ -13,7 +13,7 @@
 | **Logs** | `deepseek-student tail-latest-log` | Voir le dernier log technique |
 | **Thinking** | `deepseek-student show-latest-thinking` | Voir le dernier output de pensée |
 | **Response** | `deepseek-student show-latest-response` | Voir la dernière réponse finale |
-| **Daily** | `deepseek-student daily-log-report` | Lancer le rapport quotidien logs |
+| **Daily** | `deepseek-student daily-log-report` | Rapport quotidien (filtré ERROR/WARN) |
 | **Timer Status** | `deepseek-student timer-status` | Voir l'état du timer (no pager) |
 | **Timer Logs** | `deepseek-student timer-logs` | Voir les logs du service (no pager) |
 | **Menu** | `menu-deepseek-student` | Interface interactive complète |
