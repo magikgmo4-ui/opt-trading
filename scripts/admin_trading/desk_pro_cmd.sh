@@ -49,8 +49,11 @@ case "$cmd" in
   add-session-note)
     bash "$SCRIPT_DIR/desk_pro_session_journal.sh" add-entry "${2:-}"
     ;;
+  checklist)
+    bash "$SCRIPT_DIR/desk_pro_incident_checklist.sh"
+    ;;
   *)
-    echo "Usage: desk_pro_cmd.sh status|run|run-and-show|dashboard-latest|export-json-latest|export-html-latest|copy-latest-to-shared|run-logged|tail-latest-log|last-run-info|show-session-journal|add-session-note|explain"
+    echo "Usage: desk_pro_cmd.sh status|run|run-and-show|dashboard-latest|export-json-latest|export-html-latest|copy-latest-to-shared|run-logged|tail-latest-log|last-run-info|show-session-journal|add-session-note|checklist|explain"
     exit 1
     ;;
 esac
