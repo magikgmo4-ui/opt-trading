@@ -40,13 +40,16 @@ show_group() {
 
 run_wrapper() {
     local wrapper="$1"
-    if command -v "$wrapper" >/dev/null 2>&1; then
+    # Support arguments in wrapper call (e.g. "cmd-probability_engine sample")
+    local cmd_name=$(echo "$wrapper" | awk '{print $1}')
+    
+    if command -v "$cmd_name" >/dev/null 2>&1; then
         echo -e "${GREEN}Running: $wrapper ...${NC}"
-        "$wrapper"
+        $wrapper
         echo
         read -p "Press Enter to continue..."
     else
-        echo -e "${RED}Error: Wrapper '$wrapper' not found in PATH.${NC}"
+        echo -e "${RED}Error: Wrapper '$cmd_name' not found in PATH.${NC}"
         read -p "Press Enter to continue..."
     fi
 }
@@ -82,7 +85,7 @@ while true; do
                     1) run_wrapper "cmd-desk_pro_runner" ;;
                     2) run_wrapper "cmd-desk_capture_inputs" ;;
                     3) run_wrapper "cmd-desk_analyze" ;;
-                    4) run_wrapper "cmd-desk_pro_dashboard" ;;
+                    4) run_wrapper "cmd-desk_pro_dashboard status" ;; # Default to status
                     0) break ;;
                     *) ;;
                 esac
@@ -104,8 +107,8 @@ while true; do
                 read -p "Select Engine: " an_choice
                 case "$an_choice" in
                     1) run_wrapper "cmd-derivatives_collector" ;;
-                    2) run_wrapper "cmd-derivatives_analyzer" ;;
-                    3) run_wrapper "cmd-probability_engine" ;;
+                    2) run_wrapper "cmd-derivatives_analyzer analyze" ;; # Default to analyze
+                    3) run_wrapper "cmd-probability_engine sample" ;; # Default to sample
                     4) run_wrapper "cmd-market_scanner" ;;
                     5) run_wrapper "cmd-opportunity_ranker" ;;
                     6) run_wrapper "cmd-liquidation_analyzer" ;;
