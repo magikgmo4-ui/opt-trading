@@ -12,6 +12,8 @@ while true; do
     echo "[Health / Status]"
     echo "1. Sanity Check"
     echo "2. Status"
+    echo ""
+    echo "[Shared / Summary]"
     echo "3. Shared Info"
     echo "4. Summary"
     echo ""

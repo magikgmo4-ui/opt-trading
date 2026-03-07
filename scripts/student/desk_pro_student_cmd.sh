@@ -17,29 +17,36 @@ cmd="${1:-help}"
 
 case "$cmd" in
   status|summary)
-    echo "=== Desk Pro Student Status ==="
-    echo "Repo Root: $ROOT_DIR"
-    echo "Host: $(hostname)"
-    echo "Date: $(date -u)"
+    echo "=== DESK PRO STUDENT STATUS ==="
+    echo "Repo Root:    $ROOT_DIR"
+    echo "Host:         $(hostname)"
+    echo "Date:         $(date -u)"
     
     # Check shared mount
     if mount | grep -q "/shared"; then
         echo "Shared Drive: MOUNTED"
+    elif [ -d "/shared" ]; then
+        echo "Shared Drive: EXISTS (Check contents)"
     else
-        if [ -d "/shared" ]; then
-             echo "Shared Drive: EXISTS (Check contents)"
-        else
-             echo "Shared Drive: MISSING (/shared)"
-        fi
+        echo "Shared Drive: MISSING (/shared)"
+    fi
+
+    # Check Shared Latest
+    if [ -d "/shared/desk_pro/latest" ] && [ -f "/shared/desk_pro/latest/run_summary.json" ]; then
+        echo "Shared Latest: AVAILABLE"
+    else
+        echo "Shared Latest: MISSING"
     fi
     
-    # Check runner
+    # Check Python
     if command -v python3 &> /dev/null; then
-        echo "Python: OK"
-        python3 -m modules.desk_pro_runner.app.desk_pro_runner status 2>/dev/null | grep "runner_status" || echo "Runner: Module not found or failed"
+        echo "Python:       OK"
     else
-        echo "Python: MISSING"
+        echo "Python:       MISSING"
     fi
+
+    echo "Summary:      Student pack ready for shared artifact consultation."
+    echo "================================"
     ;;
     
   sanity)

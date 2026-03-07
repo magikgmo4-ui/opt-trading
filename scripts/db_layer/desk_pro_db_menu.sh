@@ -7,11 +7,13 @@ CMD="$SCRIPT_DIR/desk_pro_db_cmd.sh"
 
 while true; do
     clear
-    echo "=== DESK PRO DB LAYER MENU ==="
+    echo "=== DESK PRO DB-LAYER MENU ==="
     echo ""
     echo "[Health / Status]"
     echo "1. Sanity Check"
     echo "2. Status"
+    echo ""
+    echo "[Shared / Summary]"
     echo "3. Shared Info"
     echo "4. Summary"
     echo ""
