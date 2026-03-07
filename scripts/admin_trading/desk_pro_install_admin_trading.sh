@@ -41,8 +41,9 @@ if [ -w "/usr/local/bin" ]; then
     ln -sf "$SCRIPT_DIR/desk_pro_tail_latest_log.sh" /usr/local/bin/desk-pro-tail-log
     ln -sf "$SCRIPT_DIR/desk_pro_last_run_info.sh" /usr/local/bin/desk-pro-last-run
     ln -sf "$SCRIPT_DIR/desk_pro_session_journal.sh" /usr/local/bin/desk-pro-session-journal
+    ln -sf "$SCRIPT_DIR/desk_pro_ops_summary.sh" /usr/local/bin/desk-pro-summary
     
-    echo "Installed: desk-pro, menu-desk-pro, sanity-desk-pro, desk-pro-copy-latest, desk-pro-run-logged, desk-pro-tail-log, desk-pro-last-run, desk-pro-session-journal"
+    echo "Installed: desk-pro, menu-desk-pro, sanity-desk-pro, desk-pro-copy-latest, desk-pro-run-logged, desk-pro-tail-log, desk-pro-last-run, desk-pro-session-journal, desk-pro-summary"
 fi
 
 echo "Installation Complete."
