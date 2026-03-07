@@ -89,7 +89,16 @@ Pour le lire :
 cat /opt/trading/_student_archive/thinking/daily/daily_latest.md
 ```
 
-## 6. Gestion des Incidents Courants
+## 7. Structure du Menu Opérateur
+
+Le menu interactif (`menu-deepseek-student`) est structuré pour simplifier l'exploitation :
+
+1. **Utilisation Quotidienne** : Actions métier fréquentes (Think, Response, Roadmap).
+2. **Résultats / Archives** : Consultation rapide des derniers outputs sans chercher les fichiers.
+3. **Automatisation** : Gestion du job quotidien (Timer, Logs, Run manuel).
+4. **Dev / Debug** : Outils techniques pour l'ingénieur (Sanity, Models, Paths).
+
+## 8. Gestion des Incidents Courants
 
 ### Cas : Logs introuvables
 **Symptôme** : `tail-latest-log` échoue.

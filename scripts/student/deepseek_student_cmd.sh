@@ -43,6 +43,40 @@ case "$cmd" in
     bash "$SCRIPT_DIR/deepseek_student_install_daily_timer.sh"
     ;;
 
+  timer-status)
+    echo "=== Daily Timer Status ==="
+    systemctl --user status deepseek_student_daily_log_thinking.timer || true
+    echo "--------------------------"
+    systemctl --user status deepseek_student_daily_log_thinking.service || true
+    ;;
+
+  timer-logs)
+    echo "=== Daily Timer Logs (Last 50 lines) ==="
+    journalctl --user -u deepseek_student_daily_log_thinking.service -n 50 --no-pager
+    ;;
+
+  show-paths)
+    echo "=== DeepSeek Student Paths ==="
+    echo "Root:         $ROOT_DIR"
+    echo "Scripts:      $SCRIPT_DIR"
+    echo "Hub Cmd:      $DEEPSEEK_HUB_CMD"
+    echo "Logs:         $ROOT_DIR/data/logs/deepseek_student"
+    echo "Archives:     $ROOT_DIR/_student_archive"
+    ;;
+
+  help)
+    echo "=== DeepSeek Student Help ==="
+    echo "Commands:"
+    echo "  think <prompt>       : Run thinking process"
+    echo "  response <prompt>    : Run response process"
+    echo "  roadmap-events       : Show roadmap"
+    echo "  daily-log-thinking   : Run daily analysis manually"
+    echo "  show-latest-*        : View latest results"
+    echo "  tail-latest-log      : View latest technical log"
+    echo "  summary              : View system summary"
+    echo "  menu                 : Interactive menu"
+    ;;
+
   sanity)
     bash "$SCRIPT_DIR/deepseek_student_sanity_check.sh"
     ;;
@@ -103,7 +137,7 @@ case "$cmd" in
     ;;
     
   *)
-    echo "Usage: deepseek_student_cmd.sh status|sanity|run|run-logged|think|response|roadmap-events|roadmap-think-module|roadmap-response-module|models|tail-latest-log|summary|explain|show-latest-*|daily-log-thinking|install-daily-timer"
+    echo "Usage: deepseek_student_cmd.sh status|sanity|run|run-logged|think|response|roadmap-events|roadmap-think-module|roadmap-response-module|models|tail-latest-log|summary|explain|show-latest-*|daily-log-thinking|install-daily-timer|timer-status|timer-logs|show-paths|help"
     exit 1
     ;;
 esac
