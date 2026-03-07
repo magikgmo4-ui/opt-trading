@@ -3,11 +3,15 @@
 | Action | Commande | Description |
 |---|---|---|
 | **Santé** | `sanity-deepseek-student` | Vérifier l'état DeepSeek local |
-| **Status** | `deepseek-student status` | Afficher les composants DeepSeek |
-| **Exécuter** | `deepseek-student-run-logged status` | Lancer une commande (ex: status, models) |
-| **Logs** | `deepseek-student-tail-log` | Voir les 50 dernières lignes du log |
-| **Run Direct** | `deepseek-student run models` | Exécution directe (sans log fichier) |
-| **Menu** | `menu-deepseek-student` | Interface interactive simple |
+| **Action** | **Commande** | **Description** |
+|---|---|---|
+| **Status** | `deepseek-student status` | Afficher l'état local |
+| **Think** | `deepseek-student think "..."` | Lancer une réflexion logguée |
+| **Response** | `deepseek-student response "..."` | Demander une réponse logguée |
+| **Roadmap** | `deepseek-student roadmap-events` | Voir la roadmap (max_tokens opt) |
+| **Module** | `deepseek-student roadmap-think-module <mod>` | Analyser un module spécifique |
+| **Logs** | `deepseek-student-tail-log` | Voir le dernier log |
+| **Menu** | `menu-deepseek-student` | Interface interactive complète |
 
 ---
 **Emplacements Clés**

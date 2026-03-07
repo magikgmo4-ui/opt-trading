@@ -67,7 +67,36 @@ case "$cmd" in
     shift
     bash "$SCRIPT_DIR/deepseek_student_run_logged.sh" "$@"
     ;;
-    
+
+  think)
+    shift
+    bash "$SCRIPT_DIR/deepseek_student_run_logged.sh" think "$@"
+    ;;
+
+  response)
+    shift
+    bash "$SCRIPT_DIR/deepseek_student_run_logged.sh" response "$@"
+    ;;
+
+  roadmap-events)
+    shift
+    bash "$SCRIPT_DIR/deepseek_student_run_logged.sh" roadmap_events "$@"
+    ;;
+
+  roadmap-think-module)
+    shift
+    bash "$SCRIPT_DIR/deepseek_student_run_logged.sh" roadmap_think_module "$@"
+    ;;
+
+  roadmap-response-module)
+    shift
+    bash "$SCRIPT_DIR/deepseek_student_run_logged.sh" roadmap_response_module "$@"
+    ;;
+
+  models)
+    bash "$SCRIPT_DIR/deepseek_student_run_logged.sh" models
+    ;;
+
   tail-latest-log)
     bash "$SCRIPT_DIR/deepseek_student_tail_latest_log.sh"
     ;;
@@ -75,11 +104,11 @@ case "$cmd" in
   explain)
     echo "DeepSeek Student Wrapper"
     echo "Provides SSH-friendly access to DeepSeek tools."
-    echo "Commands: status, sanity, run, run-logged, tail-latest-log."
+    echo "Commands: status, sanity, run, run-logged, think, response, roadmap-*, tail-latest-log."
     ;;
     
   *)
-    echo "Usage: deepseek_student_cmd.sh status|sanity|run|run-logged|tail-latest-log|summary|explain"
+    echo "Usage: deepseek_student_cmd.sh status|sanity|run|run-logged|think|response|roadmap-events|roadmap-think-module|roadmap-response-module|models|tail-latest-log|summary|explain"
     exit 1
     ;;
 esac

@@ -31,17 +31,28 @@ Les wrappers suivants sont disponibles après installation :
    ```bash
    sanity-deepseek-student
    ```
-   *Attendu : "DeepSeek Student Sanity Check Passed"*
 
-3. **Lancer une Analyse Loggée**
+3. **Lancer une Analyse (Think)**
    ```bash
-   deepseek-student-run-logged status
-   # OU
-   deepseek-student-run-logged models
+   deepseek-student think "Analyser le module market_scanner"
    ```
-   *Affiche la progression à l'écran ET écrit dans `data/logs/deepseek_student/`.*
+   *La sortie s'affiche et est logguée.*
 
-4. **Consulter le Résultat**
+4. **Demander une Réponse (Response)**
+   ```bash
+   deepseek-student response "Expliquer la stratégie de risque"
+   ```
+
+5. **Roadmap et Modules**
+   ```bash
+   # Voir les prochains événements
+   deepseek-student roadmap-events
+   
+   # Analyser un module spécifique
+   deepseek-student roadmap-think-module deepseek_hub
+   ```
+
+6. **Consulter les Logs**
    ```bash
    deepseek-student-tail-log
    ```

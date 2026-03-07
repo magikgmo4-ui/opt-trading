@@ -12,17 +12,24 @@ while true; do
     echo "[Health / Status]"
     echo "1. Sanity Check"
     echo "2. Status"
-    echo "3. Summary"
+    echo "3. Models"
+    echo "4. Summary"
+    echo ""
+    echo "[DeepSeek Usage]"
+    echo "5. Think"
+    echo "6. Response"
+    echo "7. Roadmap Events"
+    echo "8. Roadmap Think Module"
+    echo "9. Roadmap Response Module"
     echo ""
     echo "[Execution]"
-    echo "4. Run DeepSeek (Status)"
-    echo "5. Run DeepSeek (Sanity)"
-    echo "6. Run DeepSeek (Models)"
-    echo "7. Tail Latest Log"
+    echo "10. Run Logged (Status)"
+    echo "11. Run Logged (Models)"
+    echo "12. Tail Latest Log"
     echo ""
     echo "[Docs]"
-    echo "8. Show Runbook Path"
-    echo "9. Show Quick Reference Path"
+    echo "13. Show Runbook Path"
+    echo "14. Show Quick Reference Path"
     echo ""
     echo "0. Quit"
     echo "================================="
@@ -38,30 +45,55 @@ while true; do
             read -p "Press Enter to continue..."
             ;;
         3)
-            bash "$CMD" summary
+            bash "$CMD" models
             read -p "Press Enter to continue..."
             ;;
         4)
-            bash "$CMD" run-logged status
+            bash "$CMD" summary
             read -p "Press Enter to continue..."
             ;;
         5)
-            bash "$CMD" run-logged sanity
+            read -p "Enter Think prompt: " prompt
+            bash "$CMD" think "$prompt"
             read -p "Press Enter to continue..."
             ;;
         6)
-            bash "$CMD" run-logged models
+            read -p "Enter Response prompt: " prompt
+            bash "$CMD" response "$prompt"
             read -p "Press Enter to continue..."
             ;;
         7)
-            bash "$CMD" tail-latest-log
+            read -p "Enter max tokens (optional): " tokens
+            bash "$CMD" roadmap-events $tokens
             read -p "Press Enter to continue..."
             ;;
         8)
-            echo "Runbook: docs/student_deepseek_runbook.md"
+            read -p "Enter module name: " mod
+            bash "$CMD" roadmap-think-module "$mod"
             read -p "Press Enter to continue..."
             ;;
         9)
+            read -p "Enter module name: " mod
+            bash "$CMD" roadmap-response-module "$mod"
+            read -p "Press Enter to continue..."
+            ;;
+        10)
+            bash "$CMD" run-logged status
+            read -p "Press Enter to continue..."
+            ;;
+        11)
+            bash "$CMD" run-logged models
+            read -p "Press Enter to continue..."
+            ;;
+        12)
+            bash "$CMD" tail-latest-log
+            read -p "Press Enter to continue..."
+            ;;
+        13)
+            echo "Runbook: docs/student_deepseek_runbook.md"
+            read -p "Press Enter to continue..."
+            ;;
+        14)
             echo "Quick Reference: docs/student_deepseek_quick_reference.md"
             read -p "Press Enter to continue..."
             ;;
