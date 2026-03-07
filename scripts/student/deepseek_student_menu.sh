@@ -22,7 +22,7 @@ while true; do
     echo ""
     echo "[2] RÉSULTATS / ARCHIVES"
     echo "  7. Show Latest Thinking"
-    echo "  8. Show Latest Response"
+    echo "  8. Show Latest Response / Daily Report"
     echo "  9. Show Latest Roadmap"
     echo "  10. Tail Latest Log"
     echo ""

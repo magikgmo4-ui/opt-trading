@@ -12,7 +12,7 @@
 | **Module** | `deepseek-student roadmap-think-module <mod>` | Analyser un module spécifique |
 | **Logs** | `deepseek-student tail-latest-log` | Voir le dernier log technique |
 | **Thinking** | `deepseek-student show-latest-thinking` | Voir le dernier output de pensée |
-| **Response** | `deepseek-student show-latest-response` | Voir la dernière réponse finale |
+| **Response** | `deepseek-student show-latest-response` | Voir le rapport quotidien (ou std) |
 | **Daily** | `deepseek-student daily-log-report` | Rapport quotidien déterministe |
 | **Daily AI** | `deepseek-student daily-ai-report` | Rapport quotidien IA (Ollama) |
 | **Timer Status** | `deepseek-student timer-status` | Voir l'état du timer (no pager) |

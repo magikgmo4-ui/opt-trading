@@ -89,7 +89,7 @@ Le rapport est déterministe et factuel :
 - Erreurs & Points d'Attention (Filtré sur ERROR/WARN/FAILED)
 - Actions Prioritaires
 
-Pour le lire :
+Pour le lire (priorité au rapport quotidien) :
 ```bash
 # Via wrapper
 deepseek-student show-latest-response

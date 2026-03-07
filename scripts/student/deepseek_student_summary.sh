@@ -48,8 +48,21 @@ fi
 
 # Response
 if [ -d "$RESP_DIR" ]; then
-    LAST_RESP=$(ls -t "$RESP_DIR"/*.md 2>/dev/null | head -n 1)
-    echo "  Last Response: ${LAST_RESP:+$(basename "$LAST_RESP")}"
+    # Check for Daily Report first
+    DAILY_REP="$RESP_DIR/daily/daily_latest.md"
+    LAST_STD=$(ls -t "$RESP_DIR"/*.md 2>/dev/null | grep -v "/daily/" | head -n 1)
+    
+    if [ -L "$DAILY_REP" ] || [ -f "$DAILY_REP" ]; then
+        echo "  Daily Report:  $(basename $(readlink -f "$DAILY_REP"))"
+    else
+        echo "  Daily Report:  None"
+    fi
+    
+    if [ -n "$LAST_STD" ]; then
+        echo "  Last Standard: $(basename "$LAST_STD")"
+    else
+        echo "  Last Standard: None"
+    fi
 else
     echo "  Response Dir:  MISSING"
 fi
