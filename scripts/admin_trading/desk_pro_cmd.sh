@@ -31,8 +31,20 @@ case "$cmd" in
     # Custom admin helper
     bash "$SCRIPT_DIR/desk_pro_copy_latest_to_shared.sh"
     ;;
+  run-logged)
+    # Custom admin helper
+    bash "$SCRIPT_DIR/desk_pro_run_logged.sh"
+    ;;
+  tail-latest-log)
+    # Custom admin helper
+    bash "$SCRIPT_DIR/desk_pro_tail_latest_log.sh"
+    ;;
+  last-run-info)
+    # Custom admin helper
+    bash "$SCRIPT_DIR/desk_pro_last_run_info.sh"
+    ;;
   *)
-    echo "Usage: desk_pro_cmd.sh status|run|run-and-show|dashboard-latest|export-json-latest|export-html-latest|copy-latest-to-shared|explain"
+    echo "Usage: desk_pro_cmd.sh status|run|run-and-show|dashboard-latest|export-json-latest|export-html-latest|copy-latest-to-shared|run-logged|tail-latest-log|last-run-info|explain"
     exit 1
     ;;
 esac

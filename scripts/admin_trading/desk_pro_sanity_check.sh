@@ -56,4 +56,11 @@ else
     exit 1
 fi
 
+# 6. Logs Directory
+if [ -d "$ROOT_DIR/data/logs/desk_pro" ]; then
+    echo "PASS: Logs directory exists."
+else
+    echo "WARN: Logs directory missing (will be created on first logged run)."
+fi
+
 echo "Admin Sanity Check Passed."

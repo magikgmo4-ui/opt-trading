@@ -23,7 +23,10 @@ while true; do
     echo "6. Export JSON Latest"
     echo "7. Export HTML Latest"
     echo "8. Copy Latest To /shared"
-    echo "9. Quit"
+    echo "9. Run Desk Pro (Logged)"
+    echo "10. Tail Latest Log"
+    echo "11. Last Run Info"
+    echo "12. Quit"
     echo "================================="
     read -p "Select option: " choice
 
@@ -61,6 +64,18 @@ while true; do
             read -p "Press Enter to continue..."
             ;;
         9)
+            bash "$CMD" run-logged
+            read -p "Press Enter to continue..."
+            ;;
+        10)
+            bash "$CMD" tail-latest-log
+            read -p "Press Enter to continue..."
+            ;;
+        11)
+            bash "$CMD" last-run-info
+            read -p "Press Enter to continue..."
+            ;;
+        12)
             echo "Exiting..."
             exit 0
             ;;
