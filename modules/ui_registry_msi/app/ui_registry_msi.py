@@ -8,36 +8,90 @@ import sys
 import json
 import argparse
 import os
+try:
+    import yaml
+except ImportError:
+    yaml = None
 from datetime import datetime
 from pathlib import Path
 
 # Paths
 MODULE_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = MODULE_ROOT.parent.parent
 CONFIG_DIR = MODULE_ROOT / "config"
 OUTPUT_DIR = MODULE_ROOT / "output"
 SEED_FILE = CONFIG_DIR / "ui_registry_seed.json"
+CENTRAL_REGISTRY_FILE = PROJECT_ROOT / "registry" / "ui_surfaces_registry.yaml"
 EXPORT_JSON = OUTPUT_DIR / "ui_registry_msi.json"
 EXPORT_MD = OUTPUT_DIR / "ui_registry_msi.md"
 
 class UIRegistry:
     def __init__(self):
         self.surfaces = []
-        self.load_seed()
+        self.source_file = None
+        self.load_registry()
 
-    def load_seed(self):
-        if not SEED_FILE.exists():
-            print(f"Error: Seed file not found at {SEED_FILE}")
-            sys.exit(1)
-        try:
-            with open(SEED_FILE, 'r', encoding='utf-8') as f:
-                self.surfaces = json.load(f)
-        except Exception as e:
-            print(f"Error loading seed: {e}")
-            sys.exit(1)
+    def _parse_yaml_simple(self, file_path):
+        """Minimal YAML parser for simple lists of dicts"""
+        items = []
+        current_item = {}
+        
+        with open(file_path, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith('#'):
+                    continue
+                
+                # New item start
+                if line.startswith('- ') or line == '-':
+                    if current_item:
+                        items.append(current_item)
+                    current_item = {} # Start new
+                    line = line[1:].strip() # Remove '-' prefix
+                
+                if ':' in line:
+                    parts = line.split(':', 1)
+                    key = parts[0].strip().strip('"').strip("'")
+                    val = parts[1].split(' #', 1)[0].strip().strip('"').strip("'")
+                    current_item[key] = val
+                    
+        if current_item:
+            items.append(current_item)
+        return items
+
+    def load_registry(self):
+        # Priority 1: Central Registry (YAML)
+        if CENTRAL_REGISTRY_FILE.exists():
+            try:
+                if yaml:
+                    with open(CENTRAL_REGISTRY_FILE, 'r', encoding='utf-8') as f:
+                        self.surfaces = yaml.safe_load(f)
+                else:
+                    # Fallback internal parser
+                    self.surfaces = self._parse_yaml_simple(CENTRAL_REGISTRY_FILE)
+                
+                self.source_file = CENTRAL_REGISTRY_FILE
+                return
+            except Exception as e:
+                print(f"Warning: Failed to load central registry: {e}")
+
+        # Priority 2: Local Seed (JSON)
+        if SEED_FILE.exists():
+            try:
+                with open(SEED_FILE, 'r', encoding='utf-8') as f:
+                    self.surfaces = json.load(f)
+                    self.source_file = SEED_FILE
+                    return
+            except Exception as e:
+                print(f"Error loading seed: {e}")
+                sys.exit(1)
+        
+        print(f"Error: No registry source found (checked {CENTRAL_REGISTRY_FILE} and {SEED_FILE})")
+        sys.exit(1)
 
     def status(self):
         print(f"Module: ui_registry_msi")
-        print(f"Seed: {SEED_FILE}")
+        print(f"Source: {self.source_file}")
         print(f"Surfaces: {len(self.surfaces)}")
         print(f"Ready: {len(self.surfaces) > 0}")
 

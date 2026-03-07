@@ -19,14 +19,14 @@ Il ne s'agit pas du dashboard final, mais de l'index structuré qui permet de sa
 3. **Préparer** le terrain pour un dashboard unifié futur.
 
 ## Structure
-Le module est autonome et fonctionne sur une base de données JSON locale (`config/ui_registry_seed.json`).
+Le module est autonome et fonctionne en priorité avec le registre central (`registry/ui_surfaces_registry.yaml`), ou en fallback sur sa base locale (`config/ui_registry_seed.json`).
 
 ```
 modules/ui_registry_msi/
 ├── app/
 │   └── ui_registry_msi.py       # Logique de lecture/filtrage/export
 ├── config/
-│   └── ui_registry_seed.json    # Base de données des surfaces (Seed)
+│   └── ui_registry_seed.json    # Base locale (Fallback)
 ├── scripts/
 │   ├── cmd.sh                   # Wrapper CLI
 │   ├── menu.sh                  # Interface opérateur interactive

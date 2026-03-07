@@ -35,7 +35,7 @@
   {
     "surface_name": "desk_capture_inputs",
     "machine_target": "admin_trading",
-    "source_module": "desk_pro_runner",
+    "source_module": "desk_capture_inputs",
     "category": "ui/probabilites_trades",
     "audience": "operator",
     "description": "Interface de saisie manuelle des signaux.",
@@ -46,7 +46,7 @@
   {
     "surface_name": "desk_analyze",
     "machine_target": "admin_trading",
-    "source_module": "desk_pro_runner",
+    "source_module": "desk_analyze",
     "category": "ui/probabilites_trades",
     "audience": "operator",
     "description": "Déclenchement d'une analyse complète à la demande.",
@@ -112,7 +112,7 @@
   {
     "surface_name": "desk_snapshot_ingest",
     "machine_target": "admin_trading",
-    "source_module": "desk_pro_dashboard",
+    "source_module": "desk_snapshot_ingest",
     "category": "ui/screenshots_analyses_passees",
     "audience": "system",
     "description": "Ingestion des snapshots pour historique.",
@@ -123,7 +123,7 @@
   {
     "surface_name": "desk_retention",
     "machine_target": "admin_trading",
-    "source_module": "desk_pro_dashboard",
+    "source_module": "desk_retention",
     "category": "ui/screenshots_analyses_passees",
     "audience": "system",
     "description": "Gestion de la rétention des données historiques.",
