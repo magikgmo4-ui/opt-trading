@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Desk Pro - Wrapper Sanity Check
-# Verifies that all expected wrappers are installed and executable
+# Desk Pro - Wrapper Sanity Check (Robust V2)
+# Verifies presence, executability, and basic runtime viability of wrappers.
 
 BIN_DIR="/usr/local/bin"
 MODULES=(
@@ -25,38 +25,58 @@ MODULES=(
 )
 
 echo "=== Desk Pro Wrapper Sanity Check ==="
+echo "Target: $BIN_DIR"
 
 missing_count=0
+invalid_count=0
 total_checked=0
 
 check_wrapper() {
     local wrapper_name=$1
+    local expected_target_module=$2
     total_checked=$((total_checked + 1))
     
-    if [ -x "$BIN_DIR/$wrapper_name" ]; then
-        echo "  [OK] $wrapper_name"
-    else
-        echo "  [MISSING/NO EXEC] $wrapper_name"
+    local path="$BIN_DIR/$wrapper_name"
+    
+    if [ ! -f "$path" ]; then
+        echo "  [MISSING] $wrapper_name"
         missing_count=$((missing_count + 1))
+        return
     fi
+    
+    if [ ! -x "$path" ]; then
+        echo "  [NOT EXEC] $wrapper_name"
+        invalid_count=$((invalid_count + 1))
+        return
+    fi
+    
+    # Content Check: Must contain 'cd' to module dir
+    if ! grep -q "cd \"/opt/trading/modules/$expected_target_module\"" "$path"; then
+        echo "  [INVALID CONTENT] $wrapper_name (Does not cd to $expected_target_module)"
+        invalid_count=$((invalid_count + 1))
+        return
+    fi
+    
+    echo "  [OK] $wrapper_name"
 }
 
 for mod in "${MODULES[@]}"; do
     echo "Checking module: $mod"
-    check_wrapper "menu-$mod"
-    check_wrapper "cmd-$mod"
-    check_wrapper "sanity-$mod"
+    check_wrapper "menu-$mod" "$mod"
+    check_wrapper "cmd-$mod" "$mod"
+    check_wrapper "sanity-$mod" "$mod"
     echo ""
 done
 
 echo "=== Summary ==="
 echo "Total checked: $total_checked"
-echo "Missing/Invalid: $missing_count"
+echo "Missing: $missing_count"
+echo "Invalid Content: $invalid_count"
 
-if [ $missing_count -eq 0 ]; then
-    echo "SUCCESS: All wrappers appear correct."
+if [ $missing_count -eq 0 ] && [ $invalid_count -eq 0 ]; then
+    echo "SUCCESS: All wrappers appear correct and robust."
     exit 0
 else
-    echo "FAILURE: Some wrappers are missing."
+    echo "FAILURE: Some wrappers are missing or invalid."
     exit 1
 fi
