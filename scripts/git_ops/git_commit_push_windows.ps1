@@ -12,7 +12,7 @@
 
 [CmdletBinding(DefaultParameterSetName="CommitPush")]
 param (
-    [Parameter(Mandatory=$true, ParameterSetName="CommitPush")]
+    [Parameter(Mandatory=$true, ParameterSetName="CommitPush", ValueFromRemainingArguments=$true)]
     [string[]]$Paths,
     
     [Parameter(Mandatory=$true, ParameterSetName="CommitPush")]
@@ -44,18 +44,27 @@ if ($PsCmdlet.ParameterSetName -eq "StatusOnly") {
     exit 0
 }
 
-Write-Host "Paths:     $($Paths -join ', ')"
 Write-Host "Message:   $CommitMessage"
 Write-Host "-----------------------------"
 
 # 2. Add Paths
+$AddedCount = 0
 foreach ($Path in $Paths) {
-    if (Test-Path $Path) {
-        Write-Host "Adding: $Path"
-        git add $Path
+    # Trim quotes just in case, though PS handles arguments well usually
+    $CleanPath = $Path.Trim('"').Trim("'")
+    
+    if (Test-Path $CleanPath) {
+        Write-Host "Adding: $CleanPath"
+        git add $CleanPath
+        $AddedCount++
     } else {
-        Write-Warning "Path not found: $Path (Skipping)"
+        Write-Warning "Path not found: $CleanPath (Skipping)"
     }
+}
+
+if ($AddedCount -eq 0) {
+    Write-Error "FAIL: No valid paths found to add."
+    exit 1
 }
 
 # 3. Commit (if changes staged)
@@ -65,7 +74,7 @@ if ($StatusStaged) {
     git commit -m "$CommitMessage"
     Write-Host "PASS: Commit created." -ForegroundColor Green
 } else {
-    Write-Warning "No changes to commit."
+    Write-Warning "No changes to commit (already staged or empty)."
 }
 
 # 4. Push (if requested)
