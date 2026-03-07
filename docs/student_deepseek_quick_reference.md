@@ -14,8 +14,8 @@
 | **Thinking** | `deepseek-student show-latest-thinking` | Voir le dernier output de pensée |
 | **Response** | `deepseek-student show-latest-response` | Voir la dernière réponse finale |
 | **Daily** | `deepseek-student daily-log-thinking` | Lancer l'analyse quotidienne logs |
-| **Timer Status** | `deepseek-student timer-status` | Voir l'état du timer quotidien |
-| **Timer Logs** | `deepseek-student timer-logs` | Voir les logs du service quotidien |
+| **Timer Status** | `deepseek-student timer-status` | Voir l'état du timer (no pager) |
+| **Timer Logs** | `deepseek-student timer-logs` | Voir les logs du service (no pager) |
 | **Menu** | `menu-deepseek-student` | Interface interactive complète |
 
 ---

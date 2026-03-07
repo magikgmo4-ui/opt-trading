@@ -73,7 +73,7 @@ Pour l'installer (timer systemd utilisateur) :
 ```bash
 deepseek-student install-daily-timer
 ```
-*Le job tournera tous les jours à 06:30.*
+*Le job tournera tous les jours à 06:30. Les commandes de statut sont SSH-friendly (sans pager).*
 
 ### Lancement Manuel
 Pour forcer l'exécution immédiate de l'analyse quotidienne :

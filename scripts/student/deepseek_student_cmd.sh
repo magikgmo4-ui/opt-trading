@@ -45,9 +45,9 @@ case "$cmd" in
 
   timer-status)
     echo "=== Daily Timer Status ==="
-    systemctl --user status deepseek_student_daily_log_thinking.timer || true
+    systemctl --user --no-pager --full status deepseek_student_daily_log_thinking.timer || true
     echo "--------------------------"
-    systemctl --user status deepseek_student_daily_log_thinking.service || true
+    systemctl --user --no-pager --full status deepseek_student_daily_log_thinking.service || true
     ;;
 
   timer-logs)
