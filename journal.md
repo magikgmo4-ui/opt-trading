@@ -8634,3 +8634,126 @@ git log -1 --oneline
 - Définir et écrire un template de prompt Trae standard pour la génération de modules.
 - Choisir la suite de validation: (a) TradingView réel end-to-end, ou (b) nettoyage/standardisation des tests et scripts autour du webhook.
 - Industrialiser la livraison inter-machines via `/shared` (inbox/bundles/logs/rapports) et tests via SSH sur `student`/`db-layer`.
+
+## 2026-03-07 04:32 — note 51
+1) Objectifs:
+- Fermer la session précédente proprement via commit/push du journal.
+- Recadrer le périmètre “Desk Pro” (pas limité à TradingView) et industrialiser le développement “Trae-first”.
+- Générer et intégrer une chaîne modulaire Desk Pro v1 (collecte → scan → scoring → ranking → décision → risque → exécution paper → positions → perf → journal → portfolio → dashboard).
+- Mettre en place une exploitation multi-machines (admin-trading hub, student, db-layer) via SSH + /shared, avec wrappers, logs, runbooks, incident recovery.
+- Figer l’état “ops stable” par tag Git + ajouter un pack release_ops (freeze/tag/verify).
+- Construire un pack DeepSeek “student” (ops + usage réel), puis le stabiliser et le tagger.
+
+2) Actions:
+- Commit/push journal de clôture (67b413d) puis recadrage Desk Pro basé sur les docs (catalogue modules, core modules, roadmap, schémas).
+- Mise en place workflow “Trae-first, SSH-backed, shared-centered”; dépôt refs Trae dans `docs/`.
+- Création et tests locaux Windows (CLI) des modules Desk Pro; commits/push successifs.
+- Résolution d’un rejet push (fetch first) via stash + pull --rebase + push; gestion conflit stash sur `webhook_server.py` (garder ours).
+- Normalisation templates env : rename `example.env` → `env.example` + MAJ README.
+- Construction de la chaîne Desk Pro complète + orchestrateur + runner + wrappers root Windows/Linux.
+- Intégration admin-trading : pack scripts + installateur + wrappers `/usr/local/bin`; correction symlinks/path resolution; configuration /shared (lien stable si nécessaire).
+- Ajout pack logs/journal d’exploitation admin-trading (run logged, tail log, last run info) + runbook + quick reference + incident recovery + ops summary.
+- Packs ergonomie `student` et `db-layer` (sanity/menu/shared-info + runbooks) + harmonisation multi-machine + docs globales (map + quick ref).
+- Tag stable “Desk Pro ops” + tests de présence tag sur 3 machines.
+- Pack `release_ops` (freeze/tag Windows + verify Linux + menu/sanity/docs) + correctifs PowerShell (parameter sets + parsing multi-path).
+- Pack DeepSeek student : ops, usage réel, correction backends (dispatch cmd.sh, chemins hardcodés, symlinks), menu opérateur avancé, timer quotidien, séparation rapport déterministe vs IA complémentaire, corrections UX (no-pager), correction symlink-safe du menu; tag final.
+
+3) Décisions:
+- Ne pas force-push sur `sot/mainline`; privilégier `pull --rebase` en cas de divergence.
+- Desk Pro : séparation signal/score/décision/risque/exécution; exécution en mode PAPER uniquement.
+- Pour rapport quotidien opérateur : privilégier un rapport déterministe (source de vérité) et garder un rapport IA comme complémentaire/indicatif.
+- Standardiser les scripts par module en `cmd.sh/menu.sh/sanity_check.sh`.
+- Standardiser l’exploitation multi-machines par wrappers globaux + /shared + runbooks + incident recovery.
+
+4) Commandes / Code:
+```bash
+# Clôture journal (Linux admin-trading)
+cd /opt/trading || exit 1
+git add journal.md
+git commit -m "journal: close 2026-03-06 (webhook perf bridge + flip fix validated)"
+git push
+git log -1 --oneline
+```
+
+```powershell
+# Push après rejet (Windows) + conflit stash
+git stash push -u -m "wip before rebase windows"
+git pull --rebase origin sot/mainline
+git push
+git stash pop  # conflit webhook_server.py
+git checkout --ours webhook_server.py
+git add webhook_server.py
+```
+
+```powershell
+# Normalisation env templates
+Move-Item modules\derivatives_collector\config\example.env modules\derivatives_collector\config\env.example -Force
+Move-Item modules\probability_engine\config\example.env modules\probability_engine\config\env.example -Force
+```
+
+```bash
+# Admin-trading : install wrappers + usage
+sudo bash scripts/admin_trading/desk_pro_install_admin_trading.sh
+desk-pro status
+desk-pro run
+desk-pro dashboard-latest
+desk-pro-copy-latest
+```
+
+```bash
+# Logs admin-trading
+desk-pro-run-logged
+desk-pro-last-run
+desk-pro-tail-log
+desk-pro-copy-latest
+sanity-desk-pro
+```
+
+```bash
+# Tags ops
+git tag -a desk_pro_ops_v1.0 -m "Desk Pro ops stable v1.0 - multi-machine harmonized (admin-trading, student, db-layer)"
+git push origin desk_pro_ops_v1.0
+git show desk_pro_ops_v1.0 --no-patch
+```
+
+```bash
+# Verify tag (Linux)
+bash scripts/release_ops/desk_pro_verify_tag_linux.sh desk_pro_ops_v1.1-test
+```
+
+```bash
+# Student: DeepSeek menu (commande finale)
+menu-deepseek-student
+deepseek-student summary
+```
+
+- Commits/tags clés cités dans la conversation:
+  - 67b413d — journal: close 2026-03-06...
+  - 2e8d3b9 — desk: add derivatives_collector v1
+  - e710504 — desk: add probability_engine v1
+  - 28531b9 — desk: add desk_pro_dashboard v1
+  - 9b5a562 — desk: add market_scanner v1 and env templates
+  - 77c7401 — desk: add liquidation_analyzer v1
+  - 2322fc4 — desk: add opportunity_ranker v1
+  - 94e3653 — desk: add decision_engine v1
+  - a71f1d9 — desk: add risk_engine v1
+  - 2f47657 — desk: add execution_engine v1
+  - 878e691 — desk: add position_engine v1
+  - 290e596 — desk: add perf_engine v1
+  - c5301ef — desk: add journal_engine v1
+  - 8c5020e — desk: add portfolio_engine v1
+  - 84a6a25 — desk: add desk_pro_orchestrator v1
+  - 10eeb48 — desk: wire dashboard to orchestrator runs
+  - a2eef3b — desk: add desk_pro_runner v1
+  - 450226d — desk: add root wrappers for desk pro
+  - f489ad5 — desk: harmonize multi-machine status menus and docs
+  - tag desk_pro_ops_v1.0 (sur commit f489ad5)
+  - commit aca20d4 — desk: add release ops freeze tag and verification pack
+  - tag desk_pro_ops_v1.1-test (sur commit aca20d4)
+  - tag student_deepseek_ops_v1.0_hotfix2 (sur commit ee19c7e) — menu DeepSeek student symlink-safe
+
+5) Points ouverts (next):
+- Sur student : améliorer la qualité du “Daily AI Report” (actuellement peu fiable; laisser comme complémentaire).
+- Éventuel polish UX menu (titres/numérotation) si souhaité.
+- Portage éventuel du standard DeepSeek (ops + usage réel + menu + timer + rapports) vers d’autres machines si pertinent.
+- Prochaine session : repartir de l’index/tag stable `student_deepseek_ops_v1.0_hotfix2` + docs `student_deepseek_runbook.md` / `student_deepseek_quick_reference.md`.
