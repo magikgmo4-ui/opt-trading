@@ -11,7 +11,10 @@ echo "Checking Probability Engine Module..."
 # 1. Structure Check
 [ -d "$APP_DIR" ] || { echo "FAIL: App dir missing"; exit 1; }
 [ -f "$APP_DIR/probability_engine.py" ] || { echo "FAIL: Main script missing"; exit 1; }
-[ -f "$CONFIG_DIR/example.env" ] || { echo "FAIL: Config example missing"; exit 1; }
+# Check for template or actual file
+if [ ! -f "$CONFIG_DIR/example.env.sample" ] && [ ! -f "$CONFIG_DIR/example.env" ]; then
+    echo "FAIL: Config template missing (example.env.sample or example.env)"; exit 1;
+fi
 [ -f "$CONFIG_DIR/example_input.json" ] || { echo "FAIL: Example input missing"; exit 1; }
 [ -f "$SCRIPTS_DIR/cmd.sh" ] || { echo "FAIL: cmd.sh missing"; exit 1; }
 
