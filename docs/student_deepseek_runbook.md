@@ -83,7 +83,7 @@ deepseek-student daily-log-report
 
 ### Consultation du Résultat
 Le résultat de l'analyse quotidienne est stocké dans `_student_archive/response/daily/` et lié via `daily_latest.md`.
-Le rapport est structuré avec :
+Le rapport est déterministe et factuel :
 - Résumé Exécutif (État général)
 - Succès Notables (Basé sur les logs)
 - Erreurs & Points d'Attention (Filtré sur ERROR/WARN/FAILED)
