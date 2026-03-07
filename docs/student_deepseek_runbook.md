@@ -15,7 +15,7 @@ Les wrappers suivants sont disponibles après installation :
 | Commande | Description |
 |---|---|
 | `deepseek-student` | Wrapper principal (status, run, summary) |
-| `menu-deepseek-student` | Menu interactif simple |
+| `menu-deepseek-student` | Menu interactif simple (symlink-safe) |
 | `sanity-deepseek-student` | Vérification de l'environnement DeepSeek |
 
 ## 4. Flux Opérateur : Exécution DeepSeek
