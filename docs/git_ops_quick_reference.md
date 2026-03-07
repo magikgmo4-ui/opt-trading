@@ -2,6 +2,7 @@
 
 | Action | Machine | Commande |
 |---|---|---|
+| **Status Windows** | Windows (PowerShell) | `.\scripts\git_ops\git_commit_push_windows.ps1 -ShowStatusOnly` |
 | **Commit & Push** | Windows (PowerShell) | `.\scripts\git_ops\git_commit_push_windows.ps1 -Paths <list> -CommitMessage "<msg>"` |
 | **Pull Update** | Linux (Bash) | `bash scripts/git_ops/git_pull_update_linux.sh` |
 | **Pull with Restore** | Linux (Bash) | `bash scripts/git_ops/git_pull_update_linux.sh --paths <file1> <file2>` |

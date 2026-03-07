@@ -3,19 +3,25 @@
     Git Commit & Push (Windows)
 .DESCRIPTION
     Adds specified paths, commits with a message, and pushes to origin.
-    Ensures the repo is clean before pushing.
+    Or displays git status.
 .EXAMPLE
     .\git_commit_push_windows.ps1 -Paths "scripts/student", "docs/my_doc.md" -CommitMessage "Update student scripts"
+.EXAMPLE
+    .\git_commit_push_windows.ps1 -ShowStatusOnly
 #>
 
+[CmdletBinding(DefaultParameterSetName="CommitPush")]
 param (
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$true, ParameterSetName="CommitPush")]
     [string[]]$Paths,
     
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$true, ParameterSetName="CommitPush")]
     [string]$CommitMessage,
     
-    [switch]$ShowStatusOnly = $false,
+    [Parameter(Mandatory=$true, ParameterSetName="StatusOnly")]
+    [switch]$ShowStatusOnly,
+
+    [Parameter(ParameterSetName="CommitPush")]
     [switch]$NoPush = $false
 )
 
@@ -27,17 +33,20 @@ Set-Location $RootDir
 
 Write-Host "=== Git Commit & Push (Windows) ===" -ForegroundColor Cyan
 Write-Host "Repo Root: $RootDir"
+
+# 1. Check Git Status (Show Only)
+if ($PsCmdlet.ParameterSetName -eq "StatusOnly") {
+    Write-Host "Current Status:"
+    git status --short
+    Write-Host "-----------------------------"
+    Write-Host "Last Commit:"
+    git log -1 --oneline --no-decorate --color=always
+    exit 0
+}
+
 Write-Host "Paths:     $($Paths -join ', ')"
 Write-Host "Message:   $CommitMessage"
 Write-Host "-----------------------------"
-
-# 1. Check Git Status (Before)
-$StatusBefore = git status --porcelain
-if ($ShowStatusOnly) {
-    Write-Host "Current Status:"
-    $StatusBefore
-    exit 0
-}
 
 # 2. Add Paths
 foreach ($Path in $Paths) {

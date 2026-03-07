@@ -8,7 +8,11 @@ Il fournit des outils pour automatiser les tâches répétitives (commit/push/pu
 
 ### Étape 1 : Développement (Windows)
 1. Modifier/Créer les fichiers.
-2. Utiliser le script `git_commit_push_windows.ps1` pour ajouter, commiter et pousser.
+2. Vérifier le status (Optionnel) :
+   ```powershell
+   .\scripts\git_ops\git_commit_push_windows.ps1 -ShowStatusOnly
+   ```
+3. Ajouter, Commiter et Pousser :
    ```powershell
    .\scripts\git_ops\git_commit_push_windows.ps1 -Paths "scripts/student", "docs/my_doc.md" -CommitMessage "feat: update student scripts"
    ```
