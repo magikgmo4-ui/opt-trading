@@ -15,13 +15,14 @@ while true; do
     echo "3. Summary"
     echo ""
     echo "[Execution]"
-    echo "4. Run DeepSeek (All)"
-    echo "5. Run DeepSeek (Logged)"
-    echo "6. Tail Latest Log"
+    echo "4. Run DeepSeek (Status)"
+    echo "5. Run DeepSeek (Sanity)"
+    echo "6. Run DeepSeek (Models)"
+    echo "7. Tail Latest Log"
     echo ""
     echo "[Docs]"
-    echo "7. Show Runbook Path"
-    echo "8. Show Quick Reference Path"
+    echo "8. Show Runbook Path"
+    echo "9. Show Quick Reference Path"
     echo ""
     echo "0. Quit"
     echo "================================="
@@ -41,22 +42,26 @@ while true; do
             read -p "Press Enter to continue..."
             ;;
         4)
-            bash "$CMD" run
+            bash "$CMD" run-logged status
             read -p "Press Enter to continue..."
             ;;
         5)
-            bash "$CMD" run-logged
+            bash "$CMD" run-logged sanity
             read -p "Press Enter to continue..."
             ;;
         6)
-            bash "$CMD" tail-latest-log
+            bash "$CMD" run-logged models
             read -p "Press Enter to continue..."
             ;;
         7)
-            echo "Runbook: docs/student_deepseek_runbook.md"
+            bash "$CMD" tail-latest-log
             read -p "Press Enter to continue..."
             ;;
         8)
+            echo "Runbook: docs/student_deepseek_runbook.md"
+            read -p "Press Enter to continue..."
+            ;;
+        9)
             echo "Quick Reference: docs/student_deepseek_quick_reference.md"
             read -p "Press Enter to continue..."
             ;;

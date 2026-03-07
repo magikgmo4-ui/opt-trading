@@ -35,7 +35,9 @@ Les wrappers suivants sont disponibles après installation :
 
 3. **Lancer une Analyse Loggée**
    ```bash
-   deepseek-student-run-logged
+   deepseek-student-run-logged status
+   # OU
+   deepseek-student-run-logged models
    ```
    *Affiche la progression à l'écran ET écrit dans `data/logs/deepseek_student/`.*
 
@@ -53,7 +55,7 @@ Les wrappers suivants sont disponibles après installation :
 2. Droits d'écriture manquants dans `data/logs`.
 
 **Action** :
-1. Lancer un run : `deepseek-student-run-logged`
+1. Lancer un run : `deepseek-student-run-logged status`
 2. Vérifier les permissions : `ls -ld data/logs`
 
 ### Cas : Module DeepSeek manquant

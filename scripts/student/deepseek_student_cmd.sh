@@ -55,7 +55,8 @@ case "$cmd" in
   run)
     # Delegate to Hub but wrap slightly if needed, or just call directly
     if [ -x "$DEEPSEEK_HUB_CMD" ]; then
-        bash "$DEEPSEEK_HUB_CMD" run_all
+        shift
+        bash "$DEEPSEEK_HUB_CMD" "${@:-status}"
     else
         echo "Error: DeepSeek Hub script not executable or found."
         exit 1
@@ -63,7 +64,8 @@ case "$cmd" in
     ;;
     
   run-logged)
-    bash "$SCRIPT_DIR/deepseek_student_run_logged.sh"
+    shift
+    bash "$SCRIPT_DIR/deepseek_student_run_logged.sh" "$@"
     ;;
     
   tail-latest-log)

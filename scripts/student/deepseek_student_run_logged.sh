@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 # DeepSeek Student - Run Logged
-# Executes DeepSeek run_all and captures output to a log file
+# Executes DeepSeek command and captures output to a log file
 
 # Resolve root
 if command -v readlink >/dev/null 2>&1; then
@@ -16,13 +16,24 @@ LOGS_DIR="$ROOT_DIR/data/logs/deepseek_student"
 mkdir -p "$LOGS_DIR"
 
 TIMESTAMP=$(date -u +"%Y%m%d_%H%M%S")
-RUN_ID="deepseek_run_${TIMESTAMP}"
+
+# Determine command to run. Default to 'status' if no args provided.
+if [ $# -eq 0 ]; then
+    ARGS=("status")
+    CMD_NAME="status"
+else
+    ARGS=("$@")
+    CMD_NAME="${1}"
+fi
+
+RUN_ID="deepseek_${CMD_NAME}_${TIMESTAMP}"
 LOG_FILE="$LOGS_DIR/${RUN_ID}.log"
 LATEST_LINK="$LOGS_DIR/latest.log"
 
 DEEPSEEK_HUB_CMD="$ROOT_DIR/modules/deepseek_hub/scripts/deepseek_hub_cmd.sh"
 
 echo "=== DeepSeek Student Run (Logged) ==="
+echo "Command: ${ARGS[*]}"
 echo "Run ID:  $RUN_ID"
 echo "Log:     $LOG_FILE"
 echo "Start:   $(date -u)"
@@ -34,7 +45,7 @@ if [ ! -x "$DEEPSEEK_HUB_CMD" ]; then
 fi
 
 # Run and capture output (tee)
-if bash "$DEEPSEEK_HUB_CMD" run_all 2>&1 | tee "$LOG_FILE"; then
+if bash "$DEEPSEEK_HUB_CMD" "${ARGS[@]}" 2>&1 | tee "$LOG_FILE"; then
     STATUS="SUCCESS"
 else
     STATUS="FAILED"

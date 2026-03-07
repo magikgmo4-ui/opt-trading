@@ -33,10 +33,12 @@ fi
 
 # 4. Logs Access
 LOGS_DIR="$ROOT_DIR/data/logs/deepseek_student"
-if [ -d "$LOGS_DIR" ] || [ -w "$(dirname "$LOGS_DIR")" ]; then
-    echo "PASS: Logs directory accessible"
+if mkdir -p "$LOGS_DIR" && touch "$LOGS_DIR/.write_test"; then
+    rm "$LOGS_DIR/.write_test"
+    echo "PASS: Logs directory writable"
 else
-    echo "WARN: Cannot write to logs directory"
+    echo "FAIL: Cannot write to logs directory ($LOGS_DIR)"
+    exit 1
 fi
 
 echo "DeepSeek Student Sanity Check Passed."
