@@ -4,7 +4,12 @@ set -euo pipefail
 # Copies key artifacts from the latest run to /shared
 
 # Resolve root
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if command -v readlink >/dev/null 2>&1; then
+    SCRIPT_PATH="$(readlink -f "${BASH_SOURCE[0]}")"
+else
+    SCRIPT_PATH="${BASH_SOURCE[0]}"
+fi
+SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
 ROOT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 RUNS_DIR="$ROOT_DIR/data/desk_runs"
 SHARED_DIR="/shared/desk_pro/latest"

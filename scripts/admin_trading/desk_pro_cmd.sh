@@ -3,9 +3,13 @@ set -euo pipefail
 # Desk Pro Admin Trading - CMD Wrapper
 # Delegates to desk_pro_runner via the python module
 
-# Resolve root relative to script
-# This script is in scripts/admin_trading/
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Resolve root relative to script (even if symlinked)
+if command -v readlink >/dev/null 2>&1; then
+    SCRIPT_PATH="$(readlink -f "${BASH_SOURCE[0]}")"
+else
+    SCRIPT_PATH="${BASH_SOURCE[0]}"
+fi
+SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
 ROOT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
 cd "$ROOT_DIR" || exit 1

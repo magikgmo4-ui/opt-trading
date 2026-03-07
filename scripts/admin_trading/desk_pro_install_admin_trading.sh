@@ -3,7 +3,13 @@ set -euo pipefail
 # Desk Pro Install Admin Trading
 # Sets up convenience wrappers on the admin machine
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Resolve root
+if command -v readlink >/dev/null 2>&1; then
+    SCRIPT_PATH="$(readlink -f "${BASH_SOURCE[0]}")"
+else
+    SCRIPT_PATH="${BASH_SOURCE[0]}"
+fi
+SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
 ROOT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
 echo "=== Desk Pro Admin Trading Installer ==="
@@ -30,8 +36,9 @@ if [ -w "/usr/local/bin" ]; then
     ln -sf "$SCRIPT_DIR/desk_pro_cmd.sh" /usr/local/bin/desk-pro
     ln -sf "$SCRIPT_DIR/desk_pro_menu.sh" /usr/local/bin/menu-desk-pro
     ln -sf "$SCRIPT_DIR/desk_pro_sanity_check.sh" /usr/local/bin/sanity-desk-pro
+    ln -sf "$SCRIPT_DIR/desk_pro_copy_latest_to_shared.sh" /usr/local/bin/desk-pro-copy-latest
     
-    echo "Installed: desk-pro, menu-desk-pro, sanity-desk-pro"
+    echo "Installed: desk-pro, menu-desk-pro, sanity-desk-pro, desk-pro-copy-latest"
 fi
 
 echo "Installation Complete."
