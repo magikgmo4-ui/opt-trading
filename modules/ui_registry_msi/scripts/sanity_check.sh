@@ -13,21 +13,40 @@ echo "Checking UI Registry MSI..."
 [ -f "$APP_DIR/ui_registry_msi.py" ] || { echo "FAIL: Main script missing"; exit 1; }
 [ -f "$CONFIG_DIR/ui_registry_seed.json" ] || { echo "FAIL: Seed missing"; exit 1; }
 
-# 2. Python execution
-echo "Running status..."
+# 2. Python execution (Status)
+echo -n "Checking Status... "
 if bash "$CMD" status | grep -q "Module: ui_registry_msi"; then
-    echo "PASS: Status OK"
+    echo "OK"
 else
-    echo "FAIL: Status check failed"
+    echo "FAIL"
     exit 1
 fi
 
-# 3. Logic check
-echo "Running show-msi..."
-if bash "$CMD" show-msi | grep -q "msi_db_layer"; then
-    echo "PASS: Logic OK"
+# 3. Logic check (MSI filter)
+echo -n "Checking MSI Filter... "
+if bash "$CMD" show-msi | grep -q "MSI / DB-LAYER SURFACES"; then
+    echo "OK"
 else
-    echo "FAIL: Logic check failed"
+    echo "FAIL"
+    exit 1
+fi
+
+# 4. Exports Check
+echo -n "Checking JSON Export... "
+bash "$CMD" export-json > /dev/null
+if [ -f "$SCRIPT_DIR/../output/ui_registry_msi.json" ]; then
+    echo "OK"
+else
+    echo "FAIL"
+    exit 1
+fi
+
+echo -n "Checking Markdown Export... "
+bash "$CMD" export-md > /dev/null
+if [ -f "$SCRIPT_DIR/../output/ui_registry_msi.md" ]; then
+    echo "OK"
+else
+    echo "FAIL"
     exit 1
 fi
 
