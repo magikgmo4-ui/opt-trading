@@ -47,18 +47,28 @@ if ($PsCmdlet.ParameterSetName -eq "StatusOnly") {
 Write-Host "Message:   $CommitMessage"
 Write-Host "-----------------------------"
 
-# 2. Add Paths
+# 2. Process and Add Paths
+# Normalize Paths: Handle array input OR comma/semicolon separated strings
+$NormalizedPaths = @()
+foreach ($P in $Paths) {
+    # Split by comma or semicolon, trim spaces and quotes
+    $SplitParts = $P -split '[,;]'
+    foreach ($Part in $SplitParts) {
+        $CleanPart = $Part.Trim().Trim('"').Trim("'")
+        if (-not [string]::IsNullOrWhiteSpace($CleanPart)) {
+            $NormalizedPaths += $CleanPart
+        }
+    }
+}
+
 $AddedCount = 0
-foreach ($Path in $Paths) {
-    # Trim quotes just in case, though PS handles arguments well usually
-    $CleanPath = $Path.Trim('"').Trim("'")
-    
-    if (Test-Path $CleanPath) {
-        Write-Host "Adding: $CleanPath"
-        git add $CleanPath
+foreach ($Path in $NormalizedPaths) {
+    if (Test-Path $Path) {
+        Write-Host "Adding: $Path"
+        git add $Path
         $AddedCount++
     } else {
-        Write-Warning "Path not found: $CleanPath (Skipping)"
+        Write-Warning "Path not found: $Path (Skipping)"
     }
 }
 

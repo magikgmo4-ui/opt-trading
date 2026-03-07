@@ -16,7 +16,7 @@ Il fournit des outils pour automatiser les tâches répétitives (commit/push/pu
    ```powershell
    .\scripts\git_ops\git_commit_push_windows.ps1 -Paths "scripts/student", "docs/my_doc.md" -CommitMessage "feat: update student scripts"
    ```
-   *Note : Les chemins doivent être séparés par des virgules pour être traités comme un tableau.*
+   *Note : Les chemins peuvent être passés sous forme de tableau, ou comme une seule chaîne séparée par des virgules.*
 
 ### Étape 2 : Mise à Jour (Linux)
 Sur chaque machine cible (`admin-trading`, `student`, `db-layer`) :
