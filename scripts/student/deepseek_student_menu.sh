@@ -32,7 +32,7 @@ while true; do
     echo "  13. Install Daily Timer"
     echo "  14. Show Timer Status"
     echo "  15. Show Daily Timer Logs"
-    echo "  16. Show Latest AI Report"
+    echo "  16. Show Latest AI Report (Complementary)"
     echo ""
     echo "[4] DEV / DEBUG / MAINTENANCE"
     echo "  17. Sanity Check"

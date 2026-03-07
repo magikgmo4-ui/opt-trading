@@ -96,7 +96,7 @@ deepseek-student show-latest-response
 ```
 
 ### Rapport IA Complémentaire
-En plus du rapport déterministe, vous pouvez générer une analyse par IA (Ollama) :
+En plus du rapport déterministe, vous pouvez générer une analyse par IA (Ollama) à titre indicatif :
 ```bash
 deepseek-student daily-ai-report
 ```

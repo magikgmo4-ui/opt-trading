@@ -20,6 +20,7 @@ if [ -z "$LATEST_FILE" ]; then
 fi
 
 echo "=== Latest AI Report: $(basename "$LATEST_FILE") ==="
+echo "Note: This is a complementary AI report. Use 'show-latest-response' for the official deterministic report."
 echo "Path: $LATEST_FILE"
 echo "----------------------------------------"
 cat "$LATEST_FILE"
