@@ -14,6 +14,7 @@
 | **Thinking** | `deepseek-student show-latest-thinking` | Voir le dernier output de pensée |
 | **Response** | `deepseek-student show-latest-response` | Voir la dernière réponse finale |
 | **Daily** | `deepseek-student daily-log-report` | Rapport quotidien déterministe |
+| **Daily AI** | `deepseek-student daily-ai-report` | Rapport quotidien IA (Ollama) |
 | **Timer Status** | `deepseek-student timer-status` | Voir l'état du timer (no pager) |
 | **Timer Logs** | `deepseek-student timer-logs` | Voir les logs du service (no pager) |
 | **Menu** | `menu-deepseek-student` | Interface interactive complète |

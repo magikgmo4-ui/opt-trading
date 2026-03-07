@@ -95,6 +95,16 @@ Pour le lire :
 deepseek-student show-latest-response
 ```
 
+### Rapport IA Complémentaire
+En plus du rapport déterministe, vous pouvez générer une analyse par IA (Ollama) :
+```bash
+deepseek-student daily-ai-report
+```
+Pour le lire :
+```bash
+deepseek-student show-latest-ai-report
+```
+
 ## 7. Structure du Menu Opérateur
 
 Le menu interactif (`menu-deepseek-student`) est structuré pour simplifier l'exploitation :

@@ -43,6 +43,14 @@ case "$cmd" in
     bash "$SCRIPT_DIR/deepseek_student_daily_log_thinking.sh"
     ;;
 
+  daily-ai-report)
+    bash "$SCRIPT_DIR/deepseek_student_daily_ai_report.sh"
+    ;;
+
+  show-latest-ai-report)
+    bash "$SCRIPT_DIR/deepseek_student_show_latest_ai_report.sh"
+    ;;
+
   install-daily-timer)
     bash "$SCRIPT_DIR/deepseek_student_install_daily_timer.sh"
     ;;
@@ -141,7 +149,7 @@ case "$cmd" in
     ;;
     
   *)
-    echo "Usage: deepseek_student_cmd.sh status|sanity|run|run-logged|think|response|roadmap-events|roadmap-think-module|roadmap-response-module|models|tail-latest-log|summary|explain|show-latest-*|daily-log-report|install-daily-timer|timer-status|timer-logs|show-paths|help"
+    echo "Usage: deepseek_student_cmd.sh status|sanity|run|run-logged|think|response|roadmap-events|roadmap-think-module|roadmap-response-module|models|tail-latest-log|summary|explain|show-latest-*|daily-log-report|daily-ai-report|install-daily-timer|timer-status|timer-logs|show-paths|help"
     exit 1
     ;;
 esac

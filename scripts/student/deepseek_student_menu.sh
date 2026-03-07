@@ -27,17 +27,19 @@ while true; do
     echo "  10. Tail Latest Log"
     echo ""
     echo "[3] AUTOMATISATION"
-    echo "  11. Run Daily Log Thinking Now"
-    echo "  12. Install Daily Timer"
-    echo "  13. Show Timer Status"
-    echo "  14. Show Daily Timer Logs"
+    echo "  11. Run Daily Log Thinking Now (Deterministic)"
+    echo "  12. Run Daily AI Report Now (Ollama)"
+    echo "  13. Install Daily Timer"
+    echo "  14. Show Timer Status"
+    echo "  15. Show Daily Timer Logs"
+    echo "  16. Show Latest AI Report"
     echo ""
     echo "[4] DEV / DEBUG / MAINTENANCE"
-    echo "  15. Sanity Check"
-    echo "  16. Status"
-    echo "  17. Models"
-    echo "  18. Show Paths / Environment"
-    echo "  19. Explain / Help"
+    echo "  17. Sanity Check"
+    echo "  18. Status"
+    echo "  19. Models"
+    echo "  20. Show Paths / Environment"
+    echo "  21. Explain / Help"
     echo ""
     echo "  0. Quit"
     echo "================================="
@@ -108,40 +110,48 @@ while true; do
 
         # [3] AUTOMATISATION
         11)
-            bash "$CMD" daily-log-thinking
+            bash "$CMD" daily-log-report
             read -p "Press Enter to continue..."
             ;;
         12)
-            bash "$CMD" install-daily-timer
+            bash "$CMD" daily-ai-report
             read -p "Press Enter to continue..."
             ;;
         13)
-            bash "$CMD" timer-status
+            bash "$CMD" install-daily-timer
             read -p "Press Enter to continue..."
             ;;
         14)
+            bash "$CMD" timer-status
+            read -p "Press Enter to continue..."
+            ;;
+        15)
             bash "$CMD" timer-logs
+            read -p "Press Enter to continue..."
+            ;;
+        16)
+            bash "$CMD" show-latest-ai-report
             read -p "Press Enter to continue..."
             ;;
 
         # [4] DEV / DEBUG / MAINTENANCE
-        15)
+        17)
             bash "$CMD" sanity
             read -p "Press Enter to continue..."
             ;;
-        16)
+        18)
             bash "$CMD" status
             read -p "Press Enter to continue..."
             ;;
-        17)
+        19)
             bash "$CMD" models
             read -p "Press Enter to continue..."
             ;;
-        18)
+        20)
             bash "$CMD" show-paths
             read -p "Press Enter to continue..."
             ;;
-        19)
+        21)
             bash "$CMD" help
             read -p "Press Enter to continue..."
             ;;
