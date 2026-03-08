@@ -8866,3 +8866,51 @@ Get-ChildItem "C:\ProgramData\ssh\ssh_host_*_key.pub" | ForEach-Object {
 - Déclencheur de continuité: **GO_STUDENT_DUO_TRAE_RUN2** (stabiliser le format sur un 2e module).
 - SSH: exécuter la collecte sur les 4 machines et centraliser inventaire (si besoin).
 - (Option) Revenir sur l’activation exacte ETH/SOL (C_E(t), C_S(t)) si on veut simuler le modèle trading au complet.
+
+## 2026-03-08 04:41 — note61
+1) Objectifs:
+- Exécuter l’inventaire de clés SSH (consolidate + show-inventory).
+- Mettre en place un workflow institutionnel léger pour générer des prompts après validation (socle + générateur).
+- Construire le 1er module durable: **validated_prompt_factory** (générateur de prompts), avec templates Trae et règles anti-erreurs récurrentes.
+- Rebasculer la règle transport/livraison: **Git canal normal**, zip outil secondaire (opératoire/transfert ciblé).
+
+2) Actions:
+- Lancement de commandes:
+  - `bash ssh_keys_inventory_cmd.sh consolidate`
+  - `bash ssh_keys_inventory_cmd.sh show-inventory`
+- Validation et formalisation du workflow:
+  - Validation du principe: Workflow maître → Prompt socle → Module générateur → Prompts dérivés.
+  - Approbation d’un **Prompt Socle Workflow V2**, puis mise à jour en **V2.1** (Git canal normal, zip secondaire).
+- Spécification et dérivation d’artefacts (générés en .txt):
+  - Spec V1 du module **validated_prompt_factory**.
+  - Templates: Trae module durable, Trae patch local, bundle zip transfert, TODO GO_XXXX, synthèse validée → prompt final.
+  - Génération d’une **synthèse validée officielle** pour validated_prompt_factory.
+  - Génération d’un prompt d’implémentation Trae (plusieurs versions) puis clarification: utiliser la version “réelle” pour 1er lancement.
+  - Création d’un **prompt “hardened”** (fusionné/durci) pour encadrer Trae (repo, périmètre, interdictions, standard module, livrables, reprise).
+- Dépôt des .txt générés côté admin-trading:
+  - `/srv/sftp/shared_files/shared/documents/doc-workflow` (doc humain; “depuis application nouveau workflow”).
+
+3) Décisions:
+- Journalisation: uniquement si **changements réels**, mais inclure **TODO + point de reprise**; TODO doit exister **dans le journal + dans un fichier .txt de référence**.
+- Livraison: **module + patch = fichiers**; hors module/hors menu limité à test/debug/inspection; code max ~20 lignes dans le chat (exceptions: prompts/specs/docs).
+- Menus: privilégier menus pour réduire commandes redondantes; notation `menu-xxx_xxx 1 2`; recommander `help/list/status`; mini-standard proposé (collect/install/validate/package/rollback/status).
+- Autonomie: avant validation = proposer/structurer; après mission claire et validée = produire directement les artefacts prêts à exécuter; privilégier intégrations via **Trae**.
+- Transport/livraison: **Git redevient le canal normal**; zip devient **secondaire** (opératoire/transfert ciblé/livraison ponctuelle).
+- Classification obligatoire avant production: **diagnostic ponctuel / patch local / module durable / bundle transfert**.
+- Prochaine exécution sur Trae: utiliser le prompt **hardened** pour éviter dérives (théorie, périmètre qui s’élargit, oubli sanity/menu/cmd).
+
+4) Commandes / Code:
+```bash
+bash ssh_keys_inventory_cmd.sh consolidate
+bash ssh_keys_inventory_cmd.sh show-inventory
+```
+Chemin doc humain (admin-trading):
+```text
+/srv/sftp/shared_files/shared/documents/doc-workflow
+```
+
+5) Points ouverts (next):
+- Envoyer dans Trae le prompt: `prompt_implementation_validated_prompt_factory_hardened_v1.txt` et récupérer la sortie (arborescence + fichiers + commandes validation + GO_PROMPT_FACTORY).
+- Implémenter le module `modules/validated_prompt_factory/` avec standard: README, app/, `sanity_check.sh`, `*_cmd.sh`, `*_menu.sh`, wrappers si requis.
+- Produire/maintenir le fichier TODO de référence (GO_XXXX) + clôture de session (validation + TODO + reprise) lors de changements réels.
+- Tester validated_prompt_factory sur au moins 2 cas réels (ex: patch registry/ + un cas module durable ou bundle transfert) pour valider que le générateur reproduit le style “prompt métier” (Contexte/Important/Exigences/Livrables/Validation).
