@@ -8914,3 +8914,88 @@ Chemin doc humain (admin-trading):
 - Implémenter le module `modules/validated_prompt_factory/` avec standard: README, app/, `sanity_check.sh`, `*_cmd.sh`, `*_menu.sh`, wrappers si requis.
 - Produire/maintenir le fichier TODO de référence (GO_XXXX) + clôture de session (validation + TODO + reprise) lors de changements réels.
 - Tester validated_prompt_factory sur au moins 2 cas réels (ex: patch registry/ + un cas module durable ou bundle transfert) pour valider que le générateur reproduit le style “prompt métier” (Contexte/Important/Exigences/Livrables/Validation).
+
+## 2026-03-08 16:48 — note100
+1) Objectifs:
+- Formaliser et valider un workflow “institutionnel léger” pour générer des prompts de manière robuste (validation → génération).
+- Construire un module générateur de prompts validés (`validated_prompt_factory`) et ses templates (Trae, bundle zip, TODO/GO_XXXX, synthèse→prompt).
+- Mettre en place un pack de continuité projet (zip) et une nomenclature versionnée.
+- Cadrer l’usage Trae + (option) Claude en exécution, avec journalisation, TODO, points de reprise.
+- Questions annexes: dossier de téléchargement Chrome, clarification modèles (20B/120B), stack Student Duo (Ollama).
+
+2) Actions:
+- Proposition d’un module de génération de prompts (source de vérité séparée du prompt final) + architecture entrée/sortie.
+- Rédaction d’un **Prompt Socle Workflow V1**, puis collecte des règles de gouvernance (journalisation, livraison fichiers, menus, autonomie, Trae/zip).
+- Consolidation en **Prompt Socle Workflow V2** puis mise à jour en **V2.1**: **Git redevient canal normal**, zip secondaire (transport/opératoire ciblé).
+- Spécification module: `validated_prompt_factory_spec_v1.txt`.
+- Génération de templates:
+  - `template_trae_module_durable_v1.txt`
+  - `template_trae_patch_local_v1.txt`
+  - `template_bundle_zip_transfert_livraison_v1.txt`
+  - `template_todo_reference_go_xxxx_v1.txt`
+  - `template_synthese_validee_vers_prompt_final_v1.txt`
+- Création d’une synthèse validée du module:
+  - `synthese_validee_officielle_validated_prompt_factory_v1.txt`
+- Génération de prompts d’implémentation Trae:
+  - `prompt_implementation_reelle_validated_prompt_factory_v1.txt`
+  - `prompt_implementation_validated_prompt_factory_compact_v1.txt`
+  - version durcie: `prompt_implementation_validated_prompt_factory_hardened_v1.txt`
+- Organisation doc humaine sur admin-trading:
+  - dépôt des `.txt` dans `/srv/sftp/shared_files/shared/documents/doc-workflow`
+- Création d’un cas test “registry/”:
+  - `synthese_validee_test_registry_central_v1.txt`
+  - `prompt_final_attendu_test_registry_central_v1.txt`
+  - `note_cas_test_registry_central_v1.txt`
+- Procédure Trae étape par étape + recommandation: **coller le prompt principal** (SSH/doc distante seulement en bonus si accessible).
+- Journalisation/fermeture de session annoncée à plusieurs reprises avec fichiers de clôture (noms cités):  
+  - `OPT_TRADING_CLOTURE_SESSION_2026-03-08.txt`  
+  - `OPT_TRADING_SESSION_CLOSE_2026-03-08_STUDENT_DUO.txt`
+- Analyse/évolution d’un pack continuité:
+  - lecture documents “ai_trading_desk_*” + proposition de hiérarchie canonique
+  - lecture `CONTINUITE_PACK_FINAL_V2.zip`, diagnostic “workflow ok mais pas état projet”
+  - reconstruction en pack “projet complet” annoncé:
+    - `OPT_TRADING_CONTINUITE_PACK_V3.zip` avec fichiers 00..08 dont mapping
+- Lecture/synthèse de documents:
+  - `opt-trading-synthese.html`
+  - `localcms-v5 (1).html`, `localcms-architecture (1).html`, `localcms-reference (1).html`
+  - synthèse fusionnée LocalCMS↔opt-trading (modules=data; Core=$FORMS/$COND/$VALID/$STORE/$USER/$PATH)
+- Mise en place d’un schéma “orchestration” pour utiliser Claude comme exécuteur et ChatGPT comme orchestrateur/validateur.
+- Demande finale: fournir `workflow-claude.txt` et le fixer comme vérité (annoncé “C’est fixé. Fichier canonique : workflow-claude.txt”).
+
+3) Décisions:
+- **Workflow d’abord**, puis prompt socle, puis module générateur.
+- **Journalisation**: uniquement les **changements réels** + inclure **TODO** + **point de reprise**; TODO doit exister en **fichier .txt** de référence **et être journalisé**.
+- **Livraison**: module + patch ⇒ **fichiers obligatoires**; hors module/menu ⇒ seulement test/debug/inspection minimal; code max ~20 lignes en chat (exceptions: prompts/spec/docs).
+- **Menus** privilégiés pour réduire commandes redondantes; mini-standard recommandé (collect/install/validate/package/rollback/status) + `help/list/status` conseillé.
+- **Autonomie**: proposer/structurer avant validation; après mission claire validée ⇒ produire directement artefacts prêts à exécuter.
+- **Priorité intégration**: **Trae prioritaire** si logique; **zip** en **alternative** (transport/livraison ciblée).  
+- **Correction ultérieure**: “transport/livraison” → **Git canal normal**, zip secondaire.
+- Classification obligatoire avant production: **diagnostic / patch / module / bundle**.
+- Anti-erreurs récurrentes à intégrer dans prompts Trae (chmod, wrappers, BASE, sanity/menu/cmd, install/validate/rollback).
+- Stack Student: confirmé “**Ollama en duo**”; **PyTorch/TensorFlow mis de côté** pour l’instant.
+- Pack continuité: V2 → V3 annoncé comme nouveau zip distinct, avec mapping inclus.
+
+4) Commandes / Code:
+```text
+Chemin doc humaine (admin-trading):
+/srv/sftp/shared_files/shared/documents/doc-workflow
+```
+```text
+Suggestion Chrome (native):
+Chrome > Paramètres > Téléchargements > Emplacement > Modifier
+Option: "Demander où enregistrer chaque fichier..."
+Alternative: profil Chrome séparé pour ChatGPT.
+```
+```text
+Instruction envisagée (Trae):
+(uniquement si accès SSH réel)
+Lire: /srv/sftp/shared_files/shared/documents/doc-workflow/synthese_validee_officielle_validated_prompt_factory_v1.txt
+```
+
+5) Points ouverts (next):
+- Exécuter Trae avec `prompt_implementation_validated_prompt_factory_hardened_v1.txt` et récupérer sortie/diff pour validation.
+- Vérifier/centraliser effectivement les fichiers “annoncés” (spec, templates, prompts, clôtures) dans le dossier doc-workflow et/ou Git.
+- Confirmer le contenu réel et l’emplacement de `OPT_TRADING_CONTINUITE_PACK_V3.zip` (dans shared admin-trading) et valider que ce n’est pas le même que V2.
+- Finaliser/obtenir le contenu effectif de `workflow-claude.txt` (annoncé comme “fixé”) et le versionner/placer au bon endroit.
+- Décider si une V4 “ultra compacte” du pack continuité est nécessaire (GO_CONTINUITE_V4).
+- Lancer la série de prompts d’implémentation LocalCMS core ($FORMS → $COND → $VALID …) via modèle exécutant (Claude) + boucle validation.

@@ -1,0 +1,2 @@
+# ID|Label|Description|Category|Order|VisibleModMenu|VisibleOpsSuper|Frequency|Type|Target
+# template_action|My Action|Description of action|main|10|true|false|always|command|echo "Hello"
