@@ -1,0 +1,291 @@
+=== SANITIZED MACHINE SNAPSHOT (LINUX) ===
+2026-02-26T15:07:08-05:00
+
+[host]
+ Static hostname: admin-trading
+       Icon name: computer-laptop
+         Chassis: laptop 💻
+      Machine ID: 420d1e74a5ae4e179834350cb1da90f4
+         Boot ID: 1cca44ed94924cd18726bda9fa5d36bb
+Operating System: Debian GNU/Linux 12 (bookworm)
+          Kernel: Linux 6.1.0-42-amd64
+    Architecture: x86-64
+ Hardware Vendor: Hewlett-Packard
+  Hardware Model: HP EliteBook 840 G1
+Firmware Version: L71 Ver. 01.11
+
+[os-release]
+PRETTY_NAME="Debian GNU/Linux 12 (bookworm)"
+NAME="Debian GNU/Linux"
+VERSION_ID="12"
+VERSION="12 (bookworm)"
+VERSION_CODENAME=bookworm
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+
+[kernel]
+Linux admin-trading 6.1.0-42-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.159-1 (2025-12-30) x86_64 GNU/Linux
+
+[cpu]
+Architecture :                            x86_64
+Mode(s) opératoire(s) des processeurs :   32-bit, 64-bit
+Tailles des adresses:                     39 bits physical, 48 bits virtual
+Boutisme :                                Little Endian
+Processeur(s) :                           4
+Liste de processeur(s) en ligne :         0-3
+Identifiant constructeur :                GenuineIntel
+Nom de modèle :                           Intel(R) Core(TM) i5-4300U CPU @ 1.90GHz
+Famille de processeur :                   6
+Modèle :                                  69
+Thread(s) par cœur :                      2
+Cœur(s) par socket :                      2
+Socket(s) :                               1
+Révision :                                1
+multiplication des MHz du/des CPU(s) :    66%
+Vitesse maximale du processeur en MHz :   2900,0000
+Vitesse minimale du processeur en MHz :   800,0000
+BogoMIPS :                                4988,25
+Drapeaux :                                fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm ida arat pln pts md_clear flush_l1d ibpb_exit_to_user
+Cache L1d :                               64 KiB (2 instances)
+Cache L1i :                               64 KiB (2 instances)
+Cache L2 :                                512 KiB (2 instances)
+Cache L3 :                                3 MiB (1 instance)
+Nœud(s) NUMA :                            1
+Nœud NUMA 0 de processeur(s) :            0-3
+Vulnérabilité Gather data sampling :      Not affected
+Vulnérabilité Indirect target selection : Not affected
+Vulnérabilité Itlb multihit :             KVM: Mitigation: VMX unsupported
+Vulnérabilité L1tf :                      Mitigation; PTE Inversion
+Vulnérabilité Mds :                       Mitigation; Clear CPU buffers; SMT vulnerable
+Vulnérabilité Meltdown :                  Mitigation; PTI
+Vulnérabilité Mmio stale data :           Unknown: No mitigations
+Vulnérabilité Reg file data sampling :    Not affected
+Vulnérabilité Retbleed :                  Not affected
+Vulnérabilité Spec rstack overflow :      Not affected
+Vulnérabilité Spec store bypass :         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnérabilité Spectre v1 :                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnérabilité Spectre v2 :                Mitigation; Retpolines; IBPB conditional; IBRS_FW; STIBP conditional; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected
+Vulnérabilité Srbds :                     Mitigation; Microcode
+Vulnérabilité Tsa :                       Not affected
+Vulnérabilité Tsx async abort :           Not affected
+Vulnérabilité Vmscape :                   Mitigation; IBPB before exit to userspace
+
+[memory]
+               total       utilisé      libre     partagé tamp/cache   disponible
+Mem:           7,7Gi       4,2Gi       360Mi       719Mi       4,1Gi       3,5Gi
+Échange:       974Mi       491Mi       483Mi
+
+[disks df]
+Sys. de fichiers Type     Taille Utilisé Dispo Uti% Monté sur
+udev             devtmpfs   3,8G       0  3,8G   0% /dev
+tmpfs            tmpfs      784M    1,8M  782M   1% /run
+/dev/sda1        ext4       219G    9,0G  198G   5% /
+tmpfs            tmpfs      3,9G       0  3,9G   0% /dev/shm
+tmpfs            tmpfs      5,0M     16K  5,0M   1% /run/lock
+tmpfs            tmpfs      784M    112K  784M   1% /run/user/1000
+
+[disks lsblk]
+NAME   FSTYPE FSVER LABEL UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
+sda                                                                           
+├─sda1 ext4   1.0         c18c8ef7-b793-41f5-a42b-5e75a7645e4d  197,9G     4% /
+├─sda2                                                                        
+└─sda5 swap   1           97370712-1c22-4e39-b233-fd00f66eb807                [SWAP]
+
+[network ip]
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enp0s25          DOWN           
+wlo1             UP             192.168.16.155/24 fd28:6d79:9ba0::a89/128 fd28:6d79:9ba0:0:9b05:c114:35d5:f5d2/64 fe80::a4fd:42ce:1ed2:9858/64 
+wg0              UNKNOWN        10.8.0.1/24 
+
+[network routes]
+default via 192.168.16.1 dev wlo1 proto dhcp src 192.168.16.155 metric 600 
+10.8.0.0/24 dev wg0 proto kernel scope link src 10.8.0.1 
+169.254.0.0/16 dev wlo1 scope link metric 1000 
+192.168.16.0/24 dev wlo1 proto kernel scope link src 192.168.16.155 metric 600 
+
+[dns]
+# Generated by NetworkManager
+search lan
+nameserver 192.168.16.1
+nameserver fd28:6d79:9ba0::1
+
+[listening ports (top)]
+Netid State  Recv-Q Send-Q                    Local Address:Port  Peer Address:PortProcess                             
+udp   UNCONN 0      0                               0.0.0.0:51820      0.0.0.0:*                                       
+udp   UNCONN 0      0                               0.0.0.0:42029      0.0.0.0:*                                       
+udp   UNCONN 0      0                               0.0.0.0:5353       0.0.0.0:*                                       
+udp   UNCONN 0      0                                  [::]:51385         [::]:*                                       
+udp   UNCONN 0      0                                  [::]:51820         [::]:*                                       
+udp   UNCONN 0      0      [fe80::a4fd:42ce:1ed2:9858]%wlo1:546           [::]:*                                       
+udp   UNCONN 0      0                                  [::]:5353          [::]:*                                       
+tcp   LISTEN 0      2048                            0.0.0.0:8000       0.0.0.0:*    users:(("python",pid=330926,fd=13))
+tcp   LISTEN 0      2048                            0.0.0.0:8010       0.0.0.0:*    users:(("python",pid=490601,fd=13))
+tcp   LISTEN 0      128                           127.0.0.1:631        0.0.0.0:*                                       
+tcp   LISTEN 0      128                             0.0.0.0:22         0.0.0.0:*                                       
+tcp   LISTEN 0      4096                          127.0.0.1:4040       0.0.0.0:*    users:(("<REDACTED_TUNNEL>",pid=283429,fd=3))  
+tcp   LISTEN 0      128                               [::1]:631           [::]:*                                       
+tcp   LISTEN 0      128                                [::]:22            [::]:*                                       
+
+[firewall ufw]
+ufw not installed
+
+[fail2ban sshd]
+fail2ban/sshd jail not available
+
+[running services sample]
+  UNIT                          LOAD   ACTIVE SUB     DESCRIPTION
+  accounts-daemon.service       loaded active running Accounts Service
+  avahi-daemon.service          loaded active running Avahi mDNS/DNS-SD Stack
+  bluetooth.service             loaded active running Bluetooth service
+  colord.service                loaded active running Manage, Install and Generate Color Profiles
+  cron.service                  loaded active running Regular background program processing daemon
+  cups-browsed.service          loaded active running Make remote CUPS printers available locally
+  cups.service                  loaded active running CUPS Scheduler
+  dbus.service                  loaded active running D-Bus System Message Bus
+  fwupd.service                 loaded active running Firmware update daemon
+  gdm.service                   loaded active running GNOME Display Manager
+  geoclue.service               loaded active running Location Lookup Service
+  low-memory-monitor.service    loaded active running Low Memory Monitor
+  ModemManager.service          loaded active running Modem Manager
+  NetworkManager.service        loaded active running Network Manager
+  <REDACTED_TUNNEL>-tv.service              loaded active running <REDACTED_TUNNEL> tunnel for TradingView webhook
+  polkit.service                loaded active running Authorization Manager
+  power-profiles-daemon.service loaded active running Power Profiles daemon
+  rtkit-daemon.service          loaded active running RealtimeKit Scheduling Policy Service
+  ssh.service                   loaded active running OpenBSD Secure Shell server
+  switcheroo-control.service    loaded active running Switcheroo Control Proxy service
+  systemd-hostnamed.service     loaded active running Hostname Service
+  systemd-journald.service      loaded active running Journal Service
+  systemd-logind.service        loaded active running User Login Management
+  systemd-timesyncd.service     loaded active running Network Time Synchronization
+  systemd-udevd.service         loaded active running Rule-based Manager for Device Events and Files
+  tv-bitget-runner.service      loaded active running Bitget -> TV runner (poll candles and send /tv)
+  tv-webhook.service            loaded active running TradingView Webhook Server (FastAPI/Uvicorn)
+  udisks2.service               loaded active running Disk Manager
+  unattended-upgrades.service   loaded active running Unattended Upgrades Shutdown
+  upower.service                loaded active running Daemon for power management
+  user@1000.service             loaded active running User Manager for UID 1000
+  wpa_supplicant.service        loaded active running WPA supplicant
+
+LOAD   = Reflects whether the unit definition was properly loaded.
+ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
+SUB    = The low-level unit activation state, values depend on unit type.
+32 loaded units listed.
+
+[docker]
+docker not installed / not running
+
+[paths check]
+--- /opt/trading
+total 564
+drwxr-xr-x 19 ghost ghost   4096 22 fév 12:24 .
+drwxr-xr-x  5 root  root    4096 19 fév 05:49 ..
+drwxr-xr-x  2 ghost ghost   4096 19 fév 05:49 adapters
+-rw-r--r--  1 ghost ghost   2662 19 fév 05:49 bitget_bridge.py
+drwxr-xr-x  2 ghost ghost   4096 19 fév 09:43 data
+drwxr-xr-x  2 ghost ghost   4096 19 fév 05:49 docs
+-rw-r--r--  1 ghost ghost    274 22 fév 12:24 .env
+-rw-r--r--  1 ghost ghost    274 22 fév 17:23 .env.example
+drwxr-xr-x  8 ghost ghost   4096 26 fév 14:17 .git
+-rw-r--r--  1 ghost ghost    447 19 fév 11:16 .gitignore
+-rw-r--r--  1 ghost ghost    326 19 fév 05:49 .gitignore.bak.20260219_111453
+-rw-r--r--  1 ghost ghost    326 19 fév 05:49 .gitignore.bak2.20260219_111605
+drwxr-xr-x  3 ghost ghost   4096 19 fév 05:49 jobs
+drwxr-xr-x  2 ghost ghost   4096 19 fév 05:49 journal
+-rwxr-xr-x  1 ghost ghost    494 19 fév 05:49 journal_add.sh
+-rw-r--r--  1 ghost ghost 229644 26 fév 14:17 journal.md
+drwxr-xr-x 10 ghost ghost   4096 22 fév 12:08 modules
+drwxr-xr-x  3 ghost ghost   4096 25 fév 01:19 perf
+drwxr-xr-x  2 ghost ghost   4096 19 fév 09:58 __pycache__
+-rw-r--r--  1 ghost ghost    419 19 fév 05:49 Readme
+-rw-r--r--  1 ghost ghost    391 19 fév 05:49 requirements.txt
+drwxr-xr-x  2 ghost ghost   4096 19 fév 05:49 schemas
+drwxr-xr-x  2 ghost ghost   4096 25 fév 02:39 scripts
+drwxr-xr-x  3 ghost ghost   4096 19 fév 09:41 shared
+-rw-r--r--  1 ghost ghost   9647 19 fév 05:49 smartmoney.txt
+drwxr-xr-x  2 ghost ghost   4096 22 fév 12:24 state
+-rw-r--r--  1 ghost ghost   6989 19 fév 05:49 strategy_logic.py
+drwxr-xr-x  2 ghost ghost   4096 25 fév 01:49 tmp
+-rw-r--r--  1 ghost ghost    990 22 fév 17:23 TOOLBOX.txt
+drwxr-xr-x  2 ghost ghost   4096 19 fév 05:49 tools
+drwxr-xr-x  2 ghost ghost   4096 19 fév 05:49 tradingview
+drwxr-xr-x  5 ghost ghost   4096 19 fév 09:45 venv
+-rw-r--r--  1 ghost ghost  28624 19 fév 09:58 webhook_server.py
+-rw-r--r--  1 ghost ghost  28419 19 fév 05:49 webhook_server.py.bak.20260219_094249
+-rw-r--r--  1 ghost ghost  28568 19 fév 09:42 webhook_server.py.bak.auth.20260219_095127
+-rw-r--r--  1 ghost ghost  28568 19 fév 09:42 webhook_server.py.bak.auth2.20260219_095256
+-rw-r--r--  1 ghost ghost  28624 19 fév 09:54 webhook_server.py.bak.dedent.20260219_095542
+-rw-r--r--  1 ghost ghost  28653 19 fév 09:52 webhook_server.py.bak.indentfix.20260219_095430
+-rw-r--r--  1 ghost ghost  28624 19 fév 09:54 webhook_server.py.bak.webhookblock.20260219_095759
+--- /opt/trading/scripts
+total 184
+drwxr-xr-x  2 ghost ghost 4096 25 fév 02:39 .
+drwxr-xr-x 19 ghost ghost 4096 22 fév 12:24 ..
+-rwxr-xr-x  1 root  root  4898 25 fév 01:10 apply_desk_pro_toolbox_patch.sh
+-rwxr-xr-x  1 root  root  4194 25 fév 01:33 apply_desk_pro_ui_inject_patch.sh
+-rwxr-xr-x  1 root  root  5962 25 fév 01:27 apply_desk_pro_ui_plus_patch.sh
+-rwxr-xr-x  1 root  root  2162 25 fév 02:38 apply_desk_pro_ui_toolbox_final.sh
+-rwxr-xr-x  1 root  root  1727 25 fév 01:55 apply_desk_pro_ui_toolbox_fix.sh
+-rwxr-xr-x  1 root  root  2395 25 fév 01:58 apply_desk_pro_ui_toolbox_fix_v2.sh
+-rwxr-xr-x  1 root  root  2099 25 fév 02:02 apply_desk_pro_ui_toolbox_fix_v3.sh
+-rwxr-xr-x  1 root  root  2104 25 fév 02:05 apply_desk_pro_ui_toolbox_fix_v4.sh
+-rwxr-xr-x  1 ghost ghost 1305 19 fév 05:49 autos.sh
+-rwxr-xr-x  1 ghost ghost  306 19 fév 05:49 clean_repo.sh
+-rwxr-xr-x  1 ghost ghost 1523 24 fév 23:53 desk_pro_cmd.sh
+-rwxr-xr-x  1 ghost ghost 1078 22 fév 16:53 desk_pro_find_root.sh
+-rwxr-xr-x  1 ghost ghost 2754 22 fév 16:53 desk_pro_hook.sh
+-rwxr-xr-x  1 ghost ghost 1061 22 fév 17:23 desk_pro_http_test.sh
+-rwxr-xr-x  1 ghost ghost  982 24 fév 23:53 desk_pro_menu.sh
+-rwxr-xr-x  1 ghost ghost  544 22 fév 17:23 desk_pro_requirements_fix.sh
+-rwxr-xr-x  1 ghost ghost 1233 22 fév 17:23 desk_pro_sanity.sh
+-rwxr-xr-x  1 ghost ghost 1510 22 fév 17:30 desk_pro_ui_patch.sh
+-rwxr-xr-x  1 ghost ghost  498 22 fév 17:30 desk_pro_ui_sanity.sh
+-rwxr-xr-x  1 root  root   993 25 fév 02:36 desk_pro_ui_toolbox_final_cmd.sh
+-rwxr-xr-x  1 root  root   816 25 fév 02:05 desk_pro_ui_toolbox_fix_cmd.sh
+-rwxr-xr-x  1 ghost ghost 1915 19 fév 05:49 diagnose.sh
+-rwxr-xr-x  1 ghost ghost  899 24 fév 23:53 install_desk_pro_shortcuts.sh
+-rwxr-xr-x  1 ghost ghost  446 22 fév 17:23 load_env.sh
+-rwxr-xr-x  1 ghost ghost 5377 19 fév 05:49 patch_perf_ui_css_clean17.sh
+-rwxr-xr-x  1 ghost ghost 1890 19 fév 05:49 patch_perf_ui_minimal_clarity.sh
+-rwxr-xr-x  1 ghost ghost 4341 19 fév 05:49 patch_perf_ui_polish_min.sh
+-rwxr-xr-x  1 ghost ghost  979 19 fév 05:49 run_bitget_runner.sh
+-rwxr-xr-x  1 root  root  1325 24 fév 23:53 sanity_desk_pro.sh
+-rwxr-xr-x  1 root  root   770 25 fév 01:10 sanity_desk_pro_toolbox.sh
+-rwxr-xr-x  1 root  root   713 25 fév 01:33 sanity_desk_pro_ui_inject.sh
+-rwxr-xr-x  1 root  root  1036 25 fév 01:27 sanity_desk_pro_ui_plus.sh
+-rwxr-xr-x  1 root  root   930 25 fév 02:43 sanity_desk_pro_ui_toolbox_final.sh
+-rwxr-xr-x  1 root  root   944 25 fév 01:55 sanity_desk_pro_ui_toolbox_fix.sh
+-rwxr-xr-x  1 root  root  1031 25 fév 01:58 sanity_desk_pro_ui_toolbox_fix_v2.sh
+-rwxr-xr-x  1 root  root  1031 25 fév 02:02 sanity_desk_pro_ui_toolbox_fix_v3.sh
+-rwxr-xr-x  1 root  root   812 25 fév 02:05 sanity_desk_pro_ui_toolbox_fix_v4.sh
+-rwxr-xr-x  1 ghost ghost 1520 19 fév 05:49 smoke.sh
+-rwxr-xr-x  1 ghost ghost  939 19 fév 05:49 verify_all.sh
+--- /opt/trading/modules
+total 40
+drwxr-xr-x 10 ghost ghost 4096 22 fév 12:08 .
+drwxr-xr-x 19 ghost ghost 4096 22 fév 12:24 ..
+drwxr-xr-x  3 ghost ghost 4096 19 fév 09:47 auth
+drwxr-xr-x  8 ghost ghost 4096 22 fév 11:51 desk_pro
+drwxr-xr-x  3 ghost ghost 4096 19 fév 09:41 env
+-rw-r--r--  1 ghost ghost    0 19 fév 09:40 __init__.py
+drwxr-xr-x  2 ghost ghost 4096 19 fév 09:40 marketdata
+drwxr-xr-x  2 ghost ghost 4096 19 fév 09:40 perf
+drwxr-xr-x  2 ghost ghost 4096 19 fév 09:41 __pycache__
+drwxr-xr-x  2 ghost ghost 4096 19 fév 09:40 router
+drwxr-xr-x  3 ghost ghost 4096 19 fév 11:17 webhook
+--- /usr/local/bin
+total 30516
+drwxr-xr-x  2 root root     4096 26 fév 15:05 .
+drwxr-xr-x 10 root root     4096  6 fév 17:20 ..
+-rwxr-xr-x  1 root root       67 24 fév 23:53 cmd-desk_pro
+lrwxrwxrwx  1 root root       54 26 fév 15:05 cmd-infra_context -> /home/ghost/infra-context/scripts/infra_context_cmd.sh
+-rwxr-xr-x  1 root root       68 24 fév 23:53 menu-desk_pro
+lrwxrwxrwx  1 root root       55 26 fév 15:05 menu-infra_context -> /home/ghost/infra-context/scripts/infra_context_menu.sh
+-rwxr-xr-x  1 root root 31219896 31 déc  1979 <REDACTED_TUNNEL>
+-rwxr-xr-x  1 root root      102 22 fév 12:36 sanity-desk_pro
+-rwxr-xr-x  1 root root      259 22 fév 12:36 ui-desk_pro
+
+[REDACTION NOTE]
+Always scan this snapshot for tokens/URLs before sharing.

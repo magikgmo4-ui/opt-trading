@@ -1,0 +1,42 @@
+[
+  {
+    "machine_id": "admin_trading",
+    "hostname": "admin-trading",
+    "role": "backend",
+    "primary_use": "orchestration_services",
+    "ui_priority": "low",
+    "notes": "Core system, execution, scheduling, API"
+  },
+  {
+    "machine_id": "msi_db_layer",
+    "hostname": "db-layer",
+    "role": "operator_ui",
+    "primary_use": "monitoring_dashboard",
+    "ui_priority": "critical",
+    "notes": "MSI Operator entry point, dashboards, heavy queries"
+  },
+  {
+    "machine_id": "dell_cursor_ai",
+    "hostname": "dell-cursor-ai",
+    "role": "dev_station",
+    "primary_use": "development_llm",
+    "ui_priority": "medium",
+    "notes": "IDE, local testing, LLM integration"
+  },
+  {
+    "machine_id": "student",
+    "hostname": "student",
+    "role": "auxiliary_ai",
+    "primary_use": "analysis_support",
+    "ui_priority": "low",
+    "notes": "Secondary AI tasks, learning, experimental"
+  },
+  {
+    "machine_id": "debian_network_future",
+    "hostname": "debian-network",
+    "role": "network_node",
+    "primary_use": "connectivity",
+    "ui_priority": "none",
+    "notes": "Future network infrastructure placeholder"
+  }
+]

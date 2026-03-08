@@ -8792,3 +8792,77 @@ git log -1
 - Produire la cartographie machines/écrans, la classification opérateur/dev/maintenance, la gap analysis, puis la structure cible.
 - Préparer (sans exécuter) : plan d’écran réseau Debian, reprise Alternative.me/Bitget étape par étape.
 - Option proposée mais non fournie ici : version “terrain” en 3 blocs (plan d’exécution, templates d’inventaire, commandes shell de repérage).
+
+## 2026-03-08 04:25 — note60
+1) Objectifs:
+- Formaliser une stratégie ladder long/short (BTC + scalp ETH/SOL) en énoncé mathématique “universitaire” utilisable dans EduBrain Math AI.
+- Revoir le sizing (capital total 2500 USDT, 1% par position) et rendre le modèle paramétrique.
+- Définir un “Student Lab” local (Ollama) orienté apprentissage par boucle essai/erreur + validation + mémoire + journal.
+- Écarter CoCalc du périmètre V1.
+- Préparer l’intégration Trae (Rules/Skills/Agent/Memories) + procédure pas-à-pas de mise en place.
+- Inventorier/collecter les clés SSH des 4 machines (format + scripts).
+
+2) Actions:
+- Création d’une V1 puis V2 puis V5 “académique” du modèle (suites de niveaux, PnL, equity, liquidation simplifiée, algorithme discret).
+- Correction du malentendu sur le notionnel long: passage de “2500 marge par trade” à “K0=2500, alpha=1%”, donc M=25 et notionnels N_B=125, N_E=175, N_S=250.
+- Rédaction d’un prompt “final” prêt à coller dans EduBrain (version paramétrique + liquidation + simulation).
+- Définition du concept “Student Learning Loop” (Prof/Student/Lab/Examiner/Journal/Mémoire) + charte fondatrice V1.
+- Alignement du workflow: Trae prioritaire pour construire, Git prioritaire pour durable, zip secondaire seulement si besoin (opératoire/transfert/tests).
+- Spécification opératoire **GO_STUDENT_DUO_V1** (Researcher/Critic/Examiner + JSON schemas + arborescence + conditions d’arrêt + menu mini-standard).
+- Rédaction des templates Trae: Project Rule, Custom Agent “Student Duo V1”, 2 Skills (patch local / module durable), Memory seed, template TODO+reprise.
+- Procédure Trae “étape par étape” (ouvrir repo, indexation, rules/skills/memories, création agent, modèle, exécution en manuel, ajout contexte, run 1).
+- Documentation SSH: emplacements clés Linux/Windows + commandes pour afficher clés user/host + format de clé publique avec commentaire.
+- Mention de bundles zip v1/v2 d’inventaire SSH (collecte + consolidation) dans la conversation.
+
+3) Décisions:
+- Le modèle d’étude/trading doit être présenté comme problème discret paramétrique (suites, sommes, espérance, equity, condition de liquidation), pas comme description “trading”.
+- Les shorts: pas de SL; PnL mark-to-market; liquidation recalculée dynamiquement via maintenance margin simplifiée.
+- Les longs: probabilité de succès fixée à 50% (Bernoulli), payoff g_B / l_B.
+- Sizing correct: **K0=2500**, **alpha=0.01**, **M=25**, **N_B=125**, **N_E=175**, **N_S=250**.
+- Student Lab V1: exécution **séquentielle**, “learning-only”, **validation externe déterministe** obligatoire; “1 modèle / 2 rôles” recommandé sur machine 8 Go.
+- CoCalc: mis de côté hors périmètre V1.
+- Trae + Git = flux normal; zip uniquement si besoin ciblé.
+
+4) Commandes / Code:
+```bash
+# Ollama (modèles recommandés dans la session)
+ollama pull qwen3:4b-instruct
+ollama pull embeddinggemma
+# fallback embeddings ultra léger (optionnel)
+ollama pull all-minilm
+```
+
+```bash
+# Linux: clés utilisateur
+ls -la ~/.ssh
+for f in ~/.ssh/*.pub; do [ -f "$f" ] && echo "=== $f ===" && cat "$f" && ssh-keygen -lf "$f"; done
+
+# Linux: clés hôte
+sudo ls -la /etc/ssh/ssh_host_*_key.pub
+for f in /etc/ssh/ssh_host_*_key.pub; do [ -f "$f" ] && echo "=== $f ===" && sudo cat "$f" && sudo ssh-keygen -lf "$f"; done
+```
+
+```powershell
+# Windows: clés utilisateur
+Get-ChildItem $HOME\.ssh\*.pub | ForEach-Object {
+  "=== USER KEY: $($_.FullName) ==="
+  Get-Content $_.FullName
+  ssh-keygen -lf $_.FullName
+  ""
+}
+
+# Windows: clés hôte (OpenSSH)
+Get-ChildItem "C:\ProgramData\ssh\ssh_host_*_key.pub" | ForEach-Object {
+  "=== HOST KEY: $($_.FullName) ==="
+  Get-Content $_.FullName
+  ssh-keygen -lf $_.FullName
+  ""
+}
+```
+
+5) Points ouverts (next):
+- Trae: exécuter le **Run 1** réel avec l’agent “Student Duo V1” sur **un seul module** (à choisir) et vérifier discipline de sortie (structure, TODO, point de reprise, GO_XXXX).
+- Si changement réel après Run 1: journaliser (quoi/pourquoi/validation/TODO/reprise) + committer dans Git.
+- Déclencheur de continuité: **GO_STUDENT_DUO_TRAE_RUN2** (stabiliser le format sur un 2e module).
+- SSH: exécuter la collecte sur les 4 machines et centraliser inventaire (si besoin).
+- (Option) Revenir sur l’activation exacte ETH/SOL (C_E(t), C_S(t)) si on veut simuler le modèle trading au complet.

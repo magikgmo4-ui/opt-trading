@@ -1,0 +1,262 @@
+=== SANITIZED MACHINE SNAPSHOT (LINUX) ===
+2026-02-26T15:23:55-05:00
+
+[host]
+ Static hostname: ghost
+       Icon name: computer-laptop
+         Chassis: laptop 💻
+      Machine ID: 9e99e25044d04864899b7cd7e6d5ff99
+         Boot ID: 1b94639b755646fea2b13aec3a655b80
+Operating System: Ubuntu 24.04.4 LTS
+          Kernel: Linux 6.17.0-14-generic
+    Architecture: x86-64
+ Hardware Vendor: Micro-Star International Co., Ltd.
+  Hardware Model: GE62 2QD
+Firmware Version: E16J2IMS.114
+   Firmware Date: Wed 2015-09-23
+    Firmware Age: 10y 5month 5d
+
+[os-release]
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.4 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+
+[kernel]
+Linux ghost 6.17.0-14-generic #14~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Jan 15 15:52:10 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+
+[cpu]
+Architecture :                            x86_64
+Mode(s) opératoire(s) des processeurs :   32-bit, 64-bit
+Tailles des adresses:                     39 bits physical, 48 bits virtual
+Boutisme :                                Little Endian
+Processeur(s) :                           8
+Liste de processeur(s) en ligne :         0-7
+Identifiant constructeur :                GenuineIntel
+Nom de modèle :                           Intel(R) Core(TM) i7-5700HQ CPU @ 2.70GHz
+Famille de processeur :                   6
+Modèle :                                  71
+Thread(s) par cœur :                      2
+Cœur(s) par socket :                      4
+Socket(s) :                               1
+Révision :                                1
+multiplication des MHz du/des CPU(s) :    49%
+Vitesse maximale du processeur en MHz :   3500.0000
+Vitesse minimale du processeur en MHz :   800.0000
+BogoMIPS :                                5387.37
+Drapeaux :                                fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb pti ssbd ibrs ibpb stibp tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap intel_pt xsaveopt dtherm ida arat pln pts vnmi md_clear flush_l1d
+Virtualisation :                          VT-x
+Cache L1d :                               128 KiB (4 instances)
+Cache L1i :                               128 KiB (4 instances)
+Cache L2 :                                1 MiB (4 instances)
+Cache L3 :                                6 MiB (1 instance)
+Nœud(s) NUMA :                            1
+Nœud NUMA 0 de processeur(s) :            0-7
+Vulnérabilité Gather data sampling :      Not affected
+Vulnérabilité Ghostwrite :                Not affected
+Vulnérabilité Indirect target selection : Not affected
+Vulnérabilité Itlb multihit :             KVM: Mitigation: Split huge pages
+Vulnérabilité L1tf :                      Mitigation; PTE Inversion; VMX conditional cache flushes, SMT vulnerable
+Vulnérabilité Mds :                       Mitigation; Clear CPU buffers; SMT vulnerable
+Vulnérabilité Meltdown :                  Mitigation; PTI
+Vulnérabilité Mmio stale data :           Not affected
+Vulnérabilité Old microcode :             Not affected
+Vulnérabilité Reg file data sampling :    Not affected
+Vulnérabilité Retbleed :                  Not affected
+Vulnérabilité Spec rstack overflow :      Not affected
+Vulnérabilité Spec store bypass :         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnérabilité Spectre v1 :                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnérabilité Spectre v2 :                Mitigation; Retpolines; IBPB conditional; IBRS_FW; STIBP conditional; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected
+Vulnérabilité Srbds :                     Mitigation; Microcode
+Vulnérabilité Tsa :                       Not affected
+Vulnérabilité Tsx async abort :           Not affected
+Vulnérabilité Vmscape :                   Mitigation; IBPB before exit to userspace
+
+[memory]
+               total       utilisé      libre     partagé tamp/cache   disponible
+Mem:            11Gi       5.7Gi       265Mi       1.5Gi       5.8Gi       5.9Gi
+Échange:       4.0Gi       248Ki       4.0Gi
+
+[disks df]
+Sys. de fichiers Type     Taille Utilisé Dispo Uti% Monté sur
+tmpfs            tmpfs      1.2G    2.4M  1.2G   1% /run
+/dev/sda2        ext4       915G     18G  851G   3% /
+tmpfs            tmpfs      5.8G    8.0K  5.8G   1% /dev/shm
+tmpfs            tmpfs      5.0M     12K  5.0M   1% /run/lock
+efivarfs         efivarfs   128K     40K   84K  32% /sys/firmware/efi/efivars
+/dev/sda1        vfat       1.1G    6.2M  1.1G   1% /boot/efi
+tmpfs            tmpfs      1.2G    2.6M  1.2G   1% /run/user/1000
+
+[disks lsblk]
+NAME   FSTYPE   FSVER LABEL UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
+loop0  squashfs 4.0                                                    0   100% /snap/core20/2686
+loop1  squashfs 4.0                                                    0   100% /snap/bare/5
+loop2  squashfs 4.0                                                    0   100% /snap/core22/2045
+loop3  squashfs 4.0                                                    0   100% /snap/core20/2717
+loop4  squashfs 4.0                                                    0   100% /snap/core22/2292
+loop5  squashfs 4.0                                                    0   100% /snap/thunderbird/995
+loop6  squashfs 4.0                                                    0   100% /snap/firefox/7766
+loop7  squashfs 4.0                                                    0   100% /snap/firmware-updater/210
+loop8  squashfs 4.0                                                    0   100% /snap/firmware-updater/167
+loop9  squashfs 4.0                                                    0   100% /snap/gnome-42-2204/202
+loop10 squashfs 4.0                                                    0   100% /snap/gnome-3-38-2004/143
+loop11 squashfs 4.0                                                    0   100% /snap/gnome-42-2204/247
+loop12 squashfs 4.0                                                    0   100% /snap/mesa-core20/172
+loop13 squashfs 4.0                                                    0   100% /snap/gtk-common-themes/1535
+loop14 squashfs 4.0                                                    0   100% /snap/plex-desktop/87
+loop15 squashfs 4.0                                                    0   100% /snap/slack/216
+loop16 squashfs 4.0                                                    0   100% /snap/snap-store/1270
+loop17 squashfs 4.0                                                    0   100% /snap/snapd/24792
+loop18 squashfs 4.0                                                    0   100% /snap/snapd/25935
+loop19 squashfs 4.0                                                    0   100% /snap/snapd-desktop-integration/315
+loop20 squashfs 4.0                                                    0   100% /snap/snapd-desktop-integration/343
+loop22 squashfs 4.0                                                    0   100% /snap/thunderbird/959
+loop23 squashfs 4.0                                                    0   100% /snap/firefox/7836
+sda                                                                             
+├─sda1 vfat     FAT32       5594-1AE4                                 1G     1% /boot/efi
+└─sda2 ext4     1.0         8dd64e64-f9f8-4131-812c-13021447f37a  850.4G     2% /
+sr0                                                                             
+
+[network ip]
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enp4s0           UP             192.168.16.179/24 fd28:6d79:9ba0:0:8cc0:deb5:8680:50fb/64 fd28:6d79:9ba0:0:736d:3ea5:a0e1:1dfd/64 fd28:6d79:9ba0:0:c961:f1f5:45c2:13b3/64 fd28:6d79:9ba0::d43/128 fd28:6d79:9ba0:0:616d:a934:acab:a556/64 fd28:6d79:9ba0:0:6434:a68c:4f83:b99b/64 fe80::9894:dc64:61f:dac7/64 
+wlp3s0           DOWN           
+wg0              UNKNOWN        10.8.0.2/32 
+
+[network routes]
+default via 192.168.16.1 dev enp4s0 proto dhcp src 192.168.16.179 metric 100 
+10.8.0.0/24 dev wg0 scope link 
+192.168.16.0/24 dev enp4s0 proto kernel scope link src 192.168.16.179 metric 100 
+
+[dns]
+Global
+         Protocols: -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+  resolv.conf mode: stub
+
+Link 2 (enp4s0)
+    Current Scopes: DNS
+         Protocols: +DefaultRoute -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+Current DNS Server: 192.168.16.1
+       DNS Servers: 192.168.16.1
+        DNS Domain: lan
+
+Link 3 (wlp3s0)
+    Current Scopes: none
+         Protocols: -DefaultRoute -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+
+Link 20 (wg0)
+    Current Scopes: none
+         Protocols: -DefaultRoute -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+
+[listening ports (top)]
+Netid State  Recv-Q Send-Q                     Local Address:Port  Peer Address:PortProcess                          
+udp   UNCONN 0      0                         192.168.16.179:40225      0.0.0.0:*                                    
+udp   UNCONN 0      0                                0.0.0.0:32410      0.0.0.0:*                                    
+udp   UNCONN 0      0                                0.0.0.0:32412      0.0.0.0:*                                    
+udp   UNCONN 0      0                                0.0.0.0:32413      0.0.0.0:*                                    
+udp   UNCONN 0      0                                0.0.0.0:32414      0.0.0.0:*                                    
+udp   UNCONN 0      0                             127.0.0.54:53         0.0.0.0:*                                    
+udp   UNCONN 0      0                          127.0.0.53%lo:53         0.0.0.0:*                                    
+udp   UNCONN 0      0                                0.0.0.0:34211      0.0.0.0:*                                    
+udp   UNCONN 0      0                                0.0.0.0:50803      0.0.0.0:*                                    
+udp   UNCONN 0      0                                0.0.0.0:1901       0.0.0.0:*                                    
+udp   UNCONN 0      0                              127.0.0.1:43128      0.0.0.0:*                                    
+udp   UNCONN 0      0                                0.0.0.0:51821      0.0.0.0:*                                    
+udp   UNCONN 0      0                              127.0.0.1:60399      0.0.0.0:*                                    
+udp   UNCONN 0      0                         192.168.16.179:36397      0.0.0.0:*                                    
+udp   UNCONN 0      0                         192.168.16.179:36708      0.0.0.0:*                                    
+udp   UNCONN 0      0                                0.0.0.0:5353       0.0.0.0:*                                    
+udp   UNCONN 0      0                                   [::]:56112         [::]:*                                    
+udp   UNCONN 0      0      [fe80::9894:dc64:61f:dac7]%enp4s0:546           [::]:*                                    
+udp   UNCONN 0      0                                   [::]:51821         [::]:*                                    
+udp   UNCONN 0      0                                   [::]:5353          [::]:*                                    
+tcp   LISTEN 0      128                            127.0.0.1:44539      0.0.0.0:*                                    
+tcp   LISTEN 0      4096                          127.0.0.54:53         0.0.0.0:*                                    
+tcp   LISTEN 0      4096                           127.0.0.1:631        0.0.0.0:*                                    
+tcp   LISTEN 0      4096                       127.0.0.53%lo:53         0.0.0.0:*                                    
+tcp   LISTEN 0      1024                           127.0.0.1:32401      0.0.0.0:*                                    
+tcp   LISTEN 0      128                            127.0.0.1:32600      0.0.0.0:*                                    
+tcp   LISTEN 0      2048                             0.0.0.0:9100       0.0.0.0:*    users:(("python",pid=1541,fd=6))
+tcp   LISTEN 0      4096                             0.0.0.0:22         0.0.0.0:*                                    
+tcp   LISTEN 0      1024                                   *:32400            *:*                                    
+tcp   LISTEN 0      4096                               [::1]:631           [::]:*                                    
+tcp   LISTEN 0      4096                                [::]:22            [::]:*                                    
+
+[firewall ufw]
+ufw not installed
+
+[fail2ban sshd]
+fail2ban/sshd jail not available
+
+[running services sample]
+  UNIT                          LOAD   ACTIVE SUB     DESCRIPTION
+  accounts-daemon.service       loaded active running Accounts Service
+  algo-hf-api.service           loaded active running algo_hf API (FastAPI webhook)
+  avahi-daemon.service          loaded active running Avahi mDNS/DNS-SD Stack
+  bluetooth.service             loaded active running Bluetooth service
+  colord.service                loaded active running Manage, Install and Generate Color Profiles
+  cron.service                  loaded active running Regular background program processing daemon
+  cups-browsed.service          loaded active running Make remote CUPS printers available locally
+  cups.service                  loaded active running CUPS Scheduler
+  dbus.service                  loaded active running D-Bus System Message Bus
+  fwupd.service                 loaded active running Firmware update daemon
+  gdm.service                   loaded active running GNOME Display Manager
+  gnome-remote-desktop.service  loaded active running GNOME Remote Desktop
+  kerneloops.service            loaded active running Tool to automatically collect and submit kernel crash signatures
+  ModemManager.service          loaded active running Modem Manager
+  NetworkManager.service        loaded active running Network Manager
+  plexmediaserver.service       loaded active running Plex Media Server
+  polkit.service                loaded active running Authorization Manager
+  power-profiles-daemon.service loaded active running Power Profiles daemon
+  rsyslog.service               loaded active running System Logging Service
+  rtkit-daemon.service          loaded active running RealtimeKit Scheduling Policy Service
+  snapd.service                 loaded active running Snap Daemon
+  ssh.service                   loaded active running OpenBSD Secure Shell server
+  switcheroo-control.service    loaded active running Switcheroo Control Proxy service
+  systemd-hostnamed.service     loaded active running Hostname Service
+  systemd-journald.service      loaded active running Journal Service
+  systemd-logind.service        loaded active running User Login Management
+  systemd-oomd.service          loaded active running Userspace Out-Of-Memory (OOM) Killer
+  systemd-resolved.service      loaded active running Network Name Resolution
+  systemd-timesyncd.service     loaded active running Network Time Synchronization
+  systemd-udevd.service         loaded active running Rule-based Manager for Device Events and Files
+  thermald.service              loaded active running Thermal Daemon Service
+  udisks2.service               loaded active running Disk Manager
+  unattended-upgrades.service   loaded active running Unattended Upgrades Shutdown
+  upower.service                loaded active running Daemon for power management
+  user@1000.service             loaded active running User Manager for UID 1000
+  wpa_supplicant.service        loaded active running WPA supplicant
+
+Legend: LOAD   → Reflects whether the unit definition was properly loaded.
+        ACTIVE → The high-level unit activation state, i.e. generalization of SUB.
+        SUB    → The low-level unit activation state, values depend on unit type.
+
+36 loaded units listed.
+
+[docker]
+docker not installed / not running
+
+[paths check]
+--- /opt/trading
+missing
+--- /opt/trading/scripts
+missing
+--- /opt/trading/modules
+missing
+--- /usr/local/bin
+total 12
+drwxr-xr-x  2 root root 4096 Feb 22 02:17 .
+drwxr-xr-x 10 root root 4096 Aug  5  2025 ..
+-rwxr-xr-x  1 root root 1220 Feb 22 02:17 menu
+
+[REDACTION NOTE]
+Always scan this snapshot for tokens/URLs before sharing.
