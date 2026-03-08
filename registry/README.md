@@ -28,6 +28,12 @@ Inventaire des points d'entrée utilisateur (UI/UX).
 - Cibles machines (MSI, Admin)
 - Catégories d'usage
 
+### 4. [wrappers_registry.yaml](./wrappers_registry.yaml)
+Source de vérité pour les wrappers système et leurs emplacements cibles.
+- Familles (menu, cmd, sanity)
+- Modules cibles
+- Chemins d'installation
+
 ## Statut Actuel
 - **Version**: 0.1 (Initiale)
 - **Consommation**: Manuelle / Consultative pour l'instant.

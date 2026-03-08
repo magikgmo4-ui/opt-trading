@@ -1,0 +1,150 @@
+# Wrappers Registry
+# Source de vérité pour les wrappers système et leurs emplacements cibles
+
+# === REGISTRY TOOLS ===
+- wrapper_name: menu-ui_registry_msi
+  wrapper_family: menu
+  target_module: ui_registry_msi
+  target_script: scripts/menu.sh
+  install_location: /usr/local/bin/menu-ui_registry_msi
+  audience: operator
+  status: active
+  notes: "Menu interactif principal du registre UI"
+
+- wrapper_name: cmd-ui_registry_msi
+  wrapper_family: cmd
+  target_module: ui_registry_msi
+  target_script: scripts/cmd.sh
+  install_location: /usr/local/bin/cmd-ui_registry_msi
+  audience: operator
+  status: active
+  notes: "CLI du registre UI (status, list, show-msi)"
+
+- wrapper_name: sanity-ui_registry_msi
+  wrapper_family: sanity
+  target_module: ui_registry_msi
+  target_script: scripts/sanity_check.sh
+  install_location: /usr/local/bin/sanity-ui_registry_msi
+  audience: system
+  status: active
+  notes: "Vérification intégrité module UI Registry"
+
+- wrapper_name: cmd-machines_registry_reader
+  wrapper_family: cmd
+  target_module: machines_registry_reader
+  target_script: scripts/cmd.sh
+  install_location: /usr/local/bin/cmd-machines_registry_reader
+  audience: operator
+  status: active
+  notes: "Lecteur CLI du registre machines"
+
+- wrapper_name: menu-machines_registry_reader
+  wrapper_family: menu
+  target_module: machines_registry_reader
+  target_script: scripts/menu.sh
+  install_location: /usr/local/bin/menu-machines_registry_reader
+  audience: operator
+  status: active
+  notes: "Menu interactif du registre machines"
+
+- wrapper_name: cmd-modules_registry_reader
+  wrapper_family: cmd
+  target_module: modules_registry_reader
+  target_script: scripts/cmd.sh
+  install_location: /usr/local/bin/cmd-modules_registry_reader
+  audience: operator
+  status: active
+  notes: "Lecteur CLI du registre modules"
+
+- wrapper_name: menu-modules_registry_reader
+  wrapper_family: menu
+  target_module: modules_registry_reader
+  target_script: scripts/menu.sh
+  install_location: /usr/local/bin/menu-modules_registry_reader
+  audience: operator
+  status: active
+  notes: "Menu interactif du registre modules"
+
+# === OPERATOR TOOLS ===
+- wrapper_name: menu-ops_menu_hub
+  wrapper_family: menu
+  target_module: ops_menu_hub
+  target_script: scripts/menu.sh
+  install_location: /usr/local/bin/menu-ops_menu_hub
+  audience: operator
+  status: active
+  notes: "Point d'entrée global MSI"
+
+- wrapper_name: cmd-desk_pro_dashboard
+  wrapper_family: cmd
+  target_module: desk_pro_dashboard
+  target_script: scripts/cmd.sh
+  install_location: /usr/local/bin/cmd-desk_pro_dashboard
+  audience: operator
+  status: beta
+  notes: "Dashboard principal"
+
+- wrapper_name: cmd-desk_pro_runner
+  wrapper_family: cmd
+  target_module: desk_pro_runner
+  target_script: scripts/cmd.sh
+  install_location: /usr/local/bin/cmd-desk_pro_runner
+  audience: system
+  status: active
+  notes: "Orchestrateur backend"
+
+# === ANALYSIS ENGINES ===
+- wrapper_name: cmd-probability_engine
+  wrapper_family: cmd
+  target_module: probability_engine
+  target_script: scripts/cmd.sh
+  install_location: /usr/local/bin/cmd-probability_engine
+  audience: system
+  status: active
+  notes: "Moteur de probabilités"
+
+- wrapper_name: sanity-probability_engine
+  wrapper_family: sanity
+  target_module: probability_engine
+  target_script: scripts/sanity_check.sh
+  install_location: /usr/local/bin/sanity-probability_engine
+  audience: system
+  status: active
+  notes: "Sanity check moteur probabilités"
+
+- wrapper_name: cmd-decision_engine
+  wrapper_family: cmd
+  target_module: decision_engine
+  target_script: scripts/cmd.sh
+  install_location: /usr/local/bin/cmd-decision_engine
+  audience: system
+  status: active
+  notes: "Moteur de décision"
+
+- wrapper_name: cmd-risk_engine
+  wrapper_family: cmd
+  target_module: risk_engine
+  target_script: scripts/cmd.sh
+  install_location: /usr/local/bin/cmd-risk_engine
+  audience: system
+  status: active
+  notes: "Moteur de risque"
+
+# === TRADING CORE ===
+- wrapper_name: cmd-portfolio_engine
+  wrapper_family: cmd
+  target_module: portfolio_engine
+  target_script: scripts/cmd.sh
+  install_location: /usr/local/bin/cmd-portfolio_engine
+  audience: system
+  status: active
+  notes: "Gestion portefeuille"
+
+- wrapper_name: cmd-position_engine
+  wrapper_family: cmd
+  target_module: position_engine
+  target_script: scripts/cmd.sh
+  install_location: /usr/local/bin/cmd-position_engine
+  audience: system
+  status: active
+  notes: "Gestion positions"
