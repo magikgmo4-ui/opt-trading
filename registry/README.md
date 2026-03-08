@@ -34,6 +34,12 @@ Source de vérité pour les wrappers système et leurs emplacements cibles.
 - Modules cibles
 - Chemins d'installation
 
+### 5. [meta_index.yaml](./meta_index.yaml)
+Vue d'ensemble méta des registres centraux et de leurs consommateurs.
+- Cartographie des fichiers de registre
+- Consommateurs principaux (readers)
+- Portée et statut
+
 ## Statut Actuel
 - **Version**: 0.1 (Initiale)
 - **Consommation**: Manuelle / Consultative pour l'instant.
