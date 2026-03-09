@@ -9115,3 +9115,42 @@ git status
 - Reprise session suivante: réinjecter `workflow-claude-V101.txt`, `SESSION_001_2026-03-08.txt`, `PROMPT_LOCALCMS_ORCHESTRE_FINAL_V100.md`, `PROMPT_LOCALCMS_WORKERS_DERIVES_V100.md`.
 - Si objectif “sandbox + harnais” : choisir approche (MCP / tools API / computer use), définir liste d’outils autorisés (read/write/run/diff/reset/snapshot), règles de validation/promotion.
 - Présentation PDF demandée: obtenir/produire un artefact concret (le dump mentionne un “Download the PDF” sans fichier/lien réel).
+
+## 2026-03-09 02:21 — note101
+1) Objectifs:
+- Clarifier si une IA “apprend” réellement (ChatGPT vs entraînement ML/RL).
+- Définir une architecture “Student Lab” avec mémoire/journal et boucle d’amélioration.
+- Explorer un modèle de travail : conversation (gouvernance) + sandbox externe (exécution) via harnais, avec diff/sync et rôles séparés.
+- Évaluer la faisabilité “moi → sandbox → ChatGPT” (connexion directe vs via API/harnais).
+
+2) Actions:
+- Distinction établie entre :
+  - IA conversationnelle (pas d’apprentissage en direct),
+  - ML (apprentissage pendant entraînement),
+  - RL (apprentissage par récompense),
+  - architecture labo (apprentissage expérimental via tests/logs/mémoire).
+- Élaboration d’une architecture multi-rôles : orchestrateur (ChatGPT), harnais d’exécution, sandbox clonée, mémoire/journal, et agent(s) Student pour critique/analyse.
+- Discussion de la mise en place d’un environnement autour des modèles : orchestration, mémoire structurée, protocole de messages, validation déterministe (tests).
+- Analyse de l’idée “toi → sandbox base + clone modifiable → diff → validation → promotion” (analogie Git + snapshots).
+- Clarification des limites : ChatGPT (interface grand public) ne peut pas se connecter/exécuter directement dans un sandbox utilisateur; possibilité via API avec runner/harnais (tools/function calling/MCP/computer use).
+- Identification d’un risque structurel : dérive de gouvernance par accumulation de complexité; mitigation par hiérarchie stricte et synthèse/filtrage du bruit (Student duo).
+- Demande finale de l’utilisateur : générer une présentation PDF avec schémas; l’assistant affirme l’avoir générée et propose une V2 plus poussée.
+
+3) Décisions:
+- Conserver le mode conversationnel comme centre de commande et “source de vérité”.
+- Séparer strictement les rôles :
+  - ChatGPT = raisonnement/orchestration,
+  - Harnais = exécution stricte (sans thinking/learning),
+  - Sandbox = environnement isolé (base + clone),
+  - Student (IA2) = critique/analyse/learning (sans exécution).
+- Imposer le tempo par la conversation (anti-bruit), avec seuils/règles de sortie pour Student; possibilité d’un duo Student (production + filtrage).
+
+4) Commandes / Code:
+—  
+
+5) Points ouverts (next):
+- Définir une charte formelle des rôles + frontières (permissions, niveaux d’action, validation).
+- Spécifier l’architecture “maximale” (gouvernance, journaux multiples, snapshots, promotion contrôlée).
+- Choisir l’option d’intégration (API + runner/harnais vs app MCP vs computer use) selon besoins.
+- Mettre en place le mécanisme base/clone + diff/sync + journaux d’exécution.
+- Vérifier/obtenir réellement le PDF annoncé (lien, contenu, versioning) et décider d’une V2.
