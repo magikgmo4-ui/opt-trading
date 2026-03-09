@@ -9075,3 +9075,43 @@ git status
 - Faire découvrir automatiquement les modules par le menu (implémentation/itération à venir).
 - Définir/implémenter les futurs modules suivant le modèle “actions via contextuels”.
 - Maintenir les anciens modules sans refactor à court terme (surveillance de compatibilité).
+
+## 2026-03-09 02:10 — note100
+1) Objectifs:
+- Consolider un rappel “architecture + workflow + modèle de prompt Claude + état session Claude”.
+- Fixer une source de cadrage d’ouverture de session (Google Drive).
+- Clarifier si/ comment une IA “apprend” et ce que ça implique pour une architecture multi-agents + mémoire/journal.
+- Explorer un modèle d’exécution via sandbox utilisateur + harnais (runner) tout en gardant l’interface conversationnelle.
+- Aligner les rôles (ChatGPT / harnais / Student) et identifier les risques (bruit, dérive de gouvernance).
+- Demander une présentation PDF fidèle avec schémas.
+
+2) Actions:
+- Rappel consolidé produit sur 4 blocs : architecture, workflow canonique, doctrine/prompt maître Claude, état SESSION_001.
+- Lien Google Drive fourni comme référence d’ouverture de session : https://drive.google.com/drive/folders/11eAmz_if3cQphZ3_lvD2twuntA4tv0tW?usp=drive_link
+- Discussion approfondie sur : non-apprentissage “en direct” de ChatGPT vs apprentissage entraînement/RL, et nécessité d’une architecture (mémoire, logs, tests).
+- Discussion sur faisabilité “moi → sandbox → ChatGPT” : non natif dans ChatGPT grand public; faisable via API + harnais (tools/function calling/MCP/computer use).
+- Définition d’une architecture “maximale” (sans code) : sandbox base + clone de travail + harnais exécutant + diff/audit + journal + promotion contrôlée.
+- Clarification des rôles : harnais exécute sans thinking/learning; Student = critique/analyse/idéation/filtre anti-bruit; conversation = gouvernance/source de vérité.
+- Identification du risque principal : dérive par complexité cumulative; mitigation par tempo imposé par la conversation + seuils/synthèses + hiérarchie stricte.
+- Demande utilisateur : générer une présentation en PDF avec images/schémas; réponse de l’assistant : PDF “généré” avec lien “Download the PDF” (sans URL/artefact concret dans le dump).
+
+3) Décisions:
+- Architecture projet (rappel): LocalCMS = cockpit; opt-trading = source de vérité opérationnelle; Core orchestre; séparation HTML/logique/validation/persistance/conditions.
+- Workflow canonique: fichier workflow-claude.txt (V100 canonique), priorité des “vérités” (session réelle > workflow > état repo/services > journaux…).
+- Boucle canonique: prompt mission → exécution modèle → retour → validation/correction/versionnage → injection CMS/repo → Git.
+- Gates obligatoires: Gate0 cadrage, Gate1 plan, Gate2 production, Gate3 validation; interdiction d’élargir scope/refactor massif sans demande; livraisons petites, réversibles, journalisées.
+- Claude cowork: Claude = exécuteur + journaliste; ne valide pas sa propre sortie; journalisation dans journal-claude/ (format défini).
+- Modèle sandbox: conversation reste “centre de commande”; harnais exécute strictement; Student (IA2) critique/review et propose automatisations; aucune action sans validation conversationnelle.
+- Gestion du bruit: tempo imposé par la conversation; Student sort seulement sur demande/seuil/synthèse; possibilité d’un duo Student pour filtrer.
+
+4) Commandes / Code:
+—
+  
+5) Points ouverts (next):
+- Déposer `journal-claude/` “dans le canal habituel hors repo”.
+- Choisir l’emplacement définitif local de `journal-claude/`.
+- Valider avec ChatGPT la section 23 ajoutée à `workflow-claude.txt` (V101).
+- Définir la prochaine mission de production (aucune lancée à ce stade).
+- Reprise session suivante: réinjecter `workflow-claude-V101.txt`, `SESSION_001_2026-03-08.txt`, `PROMPT_LOCALCMS_ORCHESTRE_FINAL_V100.md`, `PROMPT_LOCALCMS_WORKERS_DERIVES_V100.md`.
+- Si objectif “sandbox + harnais” : choisir approche (MCP / tools API / computer use), définir liste d’outils autorisés (read/write/run/diff/reset/snapshot), règles de validation/promotion.
+- Présentation PDF demandée: obtenir/produire un artefact concret (le dump mentionne un “Download the PDF” sans fichier/lien réel).
