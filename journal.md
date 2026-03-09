@@ -9203,3 +9203,61 @@ Clôture annoncée:
 - Créer l’agent **TRAE Module Validator** dans l’UI TRAE/SOLO avec les champs fournis (et décider “callable”).
 - Tester Module Validator sur un module réel et ajuster format de sortie/validations.
 - Produire le fichier d’“établi” final de session (date/nom cohérents) si pas effectivement généré côté stockage.
+
+## 2026-03-09 03:39 — note 102
+1) Objectifs:
+- Améliorer les échanges via un workflow institutionnel léger basé sur : workflow validé → synthèse validée → prompts générés.
+- Figer un **Prompt Socle Workflow** (base) puis industrialiser un **module générateur de prompts**.
+- Construire le 1er module durable : **validated_prompt_factory** (générateur de prompts) + templates associés (Trae/module/patch/bundle).
+
+2) Actions:
+- Proposition d’architecture “module générateur” plutôt qu’un prompt fixe (source de vérité séparée du prompt final).
+- Rédaction d’un **Prompt Socle Workflow V1**, puis consolidation en V2 avec décisions de gouvernance.
+- Validation et ajustements utilisateur (menus, TODO, clôture, Trae prioritaire, zip secondaire, Git canal normal).
+- Création des artefacts (annoncés en .txt) :
+  - Prompt socle V2 puis V2.1 (avec correction : Git canal normal, zip secondaire).
+  - Spec V1 du module **validated_prompt_factory**.
+  - Templates :
+    - `template_trae_module_durable_v1.txt`
+    - `template_trae_patch_local_v1.txt`
+    - `template_bundle_zip_transfert_livraison_v1.txt`
+    - `template_todo_reference_go_xxxx_v1.txt`
+    - `template_synthese_validee_vers_prompt_final_v1.txt`
+  - Synthèse validée officielle du module : `synthese_validee_officielle_validated_prompt_factory_v1.txt`
+  - Prompts d’implémentation Trae :
+    - version principale : `prompt_implementation_reelle_validated_prompt_factory_v1.txt`
+    - version compacte : `prompt_implementation_validated_prompt_factory_compact_v1.txt`
+    - version “durcie” (cadrage strict) : `prompt_implementation_validated_prompt_factory_hardened_v1.txt`
+- Clarification “quel prompt envoyer à Trae” : privilégier la version principale (ou la “hardened” pour cadrage).
+- Ajout d’un cas test basé sur un ancien prompt “registry/” pour vérifier la capacité du futur générateur à produire des prompts métier concrets (entrée synthèse validée → sortie prompt final attendu).
+- Dépôt des .txt générés côté admin-trading dans :
+  `/srv/sftp/shared_files/shared/documents/doc-workflow` (doc humaine).
+- Demande de journalisation + fichier .txt “établi vs TODO” ; fichier annoncé :
+  `journal_workflow_validated_prompt_factory_2026-03-08.txt`.
+
+3) Décisions:
+- Priorité : **valider le workflow** → **Prompt Socle** → **module générateur** → templates dérivés.
+- **Journalisation** : seulement les changements réels + inclure **TODO** + **point de reprise** (GO_XXXX). Le TODO doit vivre **dans le journal** + **dans un .txt de référence**.
+- **Livraison** : module + patch = fichiers ; hors module/menu limité à tests/debug/inspection ; code max ~20 lignes dans le chat (hors prompts/specs/docs).
+- **Menus** : réduire les commandes redondantes ; recommander `help/list/status` + mini-standard (collect/install/validate/package/rollback/status) si applicable.
+- **Trae prioritaire** si intégration logique ; **Git redevient le canal normal** ; **zip** devient outil secondaire (opératoire/transfert ciblé).
+- Avant production : classifier la demande en une seule catégorie : diagnostic / patch / module / bundle.
+- Après validation claire : produire directement les artefacts exécutables (standard module : sanity/cmd/menu/wrapper si pertinent).
+
+4) Commandes / Code:
+```text
+Chemin doc humaine (admin-trading) :
+/srv/sftp/shared_files/shared/documents/doc-workflow
+
+Point de reprise :
+GO_PROMPT_FACTORY
+
+Prompt Trae à utiliser (cadrage strict) :
+prompt_implementation_validated_prompt_factory_hardened_v1.txt
+```
+
+5) Points ouverts (next):
+- Exécuter dans Trae l’implémentation du module **validated_prompt_factory** avec `prompt_implementation_validated_prompt_factory_hardened_v1.txt`, puis récupérer sortie/diff pour validation.
+- Vérifier que le module produit des **prompts métier concrets** (style “Tu travailles dans / Contexte / Important / Livrables / Validation”) via le cas test registry.
+- Confirmer/centraliser le fichier TODO de référence (GO_XXXX) et la règle de clôture (validation + TODO + reprise) dans la pratique.
+- Localiser/valider le fichier annoncé `journal_workflow_validated_prompt_factory_2026-03-08.txt` (cohérence date/nom).
