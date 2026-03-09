@@ -9154,3 +9154,52 @@ git status
 - Choisir l’option d’intégration (API + runner/harnais vs app MCP vs computer use) selon besoins.
 - Mettre en place le mécanisme base/clone + diff/sync + journaux d’exécution.
 - Vérifier/obtenir réellement le PDF annoncé (lien, contenu, versioning) et décider d’une V2.
+
+## 2026-03-09 02:40 — note107
+1) Objectifs:
+- Comprendre l’utilité du “Create Agent” (TRAE / SOLO) et structurer une démarche institutionnelle.
+- Définir une suite logique de versions (V0→V5) pour le déploiement d’agents.
+- Produire une V1 “institutionnelle” (architecture + ordre de déploiement).
+- Créer en priorité l’agent **Module Validator** (prêt à coller).
+- Proposer une doc “machine-first” (pack d’ouverture de session) pour éviter de relire de la doc humaine.
+
+2) Actions:
+- Explication du rôle du créateur d’agent: encapsuler prompt + outils + (optionnel) MCP + appel inter-agents.
+- Proposition d’une progression V0→V5 et d’une architecture noyau (Orchestrator / Module Validator / Patch Minimal / Delivery Journal).
+- Rédaction de la **V1 institutionnelle**: rôles, naming, identifiers, phases de déploiement, roadmap.
+- Génération de l’agent **TRAE Module Validator** (Name, English Identifier, When to Call, Prompt complet).
+- Proposition d’un **pack doc machine-first** (4 fichiers), puis génération du fichier **00_session_index.txt** (contenu fourni) et annonce du fichier **01_workflow_machine.txt**.
+- Préparation annoncée d’un fichier de clôture “établi” et fixation du point de reprise **GO_AGENTS_V1**.
+
+3) Décisions:
+- Démarrer par **Module Validator** avant Orchestrator.
+- Limiter le nombre d’agents (≈4 max) et déployer par phases.
+- Activer “callable by other agents” seulement quand nécessaire (au moins Validator et Patch Minimal).
+- Mettre en place une couche de doc **machine-first** indexée (00/01/02/03) en complément des docs humaines.
+- Point de reprise de la piste agents: **GO_AGENTS_V1**.
+
+4) Commandes / Code:
+```txt
+Agent défini:
+- Name: TRAE Module Validator
+- English Identifier: trae-module-validator
+- When to Call: validation/revue de module ou scope de fichiers (README/cmd/menu/sanity/scripts/contextuals), pas de refactor/architecture large
+- Prompt: rôle “validator” strict + priorités source-of-truth + responsabilités + contraintes + format de sortie attendu
+
+Pack machine-first (proposé):
+- 00_session_index.txt (généré avec sections: READ_PRIORITY, SOURCE_OF_TRUTH, CORE_FILES, GO_TRIGGERS, etc.)
+- 01_workflow_machine.txt (annoncé/généré côté assistant)
+- 02_project_state.txt (proposé)
+- 03_agents_registry.txt (proposé)
+
+Clôture annoncée:
+- Fichier: etabli_2026-03-08_agents_v1_machine_pack.txt
+- Reprise: GO_AGENTS_V1
+```
+
+5) Points ouverts (next):
+- Confirmer où sont réellement déposés les fichiers “envoyés en vrai fichier” (Drive/repo) et leur nommage final.
+- Finaliser / vérifier le contenu de **01_workflow_machine.txt** (et produire 02/03 si souhaité).
+- Créer l’agent **TRAE Module Validator** dans l’UI TRAE/SOLO avec les champs fournis (et décider “callable”).
+- Tester Module Validator sur un module réel et ajuster format de sortie/validations.
+- Produire le fichier d’“établi” final de session (date/nom cohérents) si pas effectivement généré côté stockage.
