@@ -8999,3 +8999,79 @@ Lire: /srv/sftp/shared_files/shared/documents/doc-workflow/synthese_validee_offi
 - Finaliser/obtenir le contenu effectif de `workflow-claude.txt` (annoncé comme “fixé”) et le versionner/placer au bon endroit.
 - Décider si une V4 “ultra compacte” du pack continuité est nécessaire (GO_CONTINUITE_V4).
 - Lancer la série de prompts d’implémentation LocalCMS core ($FORMS → $COND → $VALID …) via modèle exécutant (Claude) + boucle validation.
+
+## 2026-03-08 20:31 — note91
+1) Objectifs:
+- Établir et consigner l’état de validation de `module_contextuals_shell` (V1) et la logique d’architecture associée.
+- Formaliser le workflow de transfert Windows → Linux et les emplacements canoniques.
+- Fixer un point de reprise (checkpoint) pour la suite.
+
+2) Actions:
+- Navigation dans le repo:
+  - `cd /opt/trading`
+- Création du dossier de documentation:
+  - `mkdir -p /shared/documents/doc-workflow`
+- Rédaction d’un compte rendu de session dans:
+  - `/shared/documents/doc-workflow/ETABLI_SESSION_2026-03-08.txt`
+  - Contenu consigné:
+    - `module_contextuals_shell` V1 validé (runtime Linux sur `admin-trading`), avec: status/validate/list/demo OK, format contextuel validé, menu/routeur/reader utilisables.
+    - Logique: actions déclarées via contextuels, couche contextuals partagée, le menu doit découvrir les modules plus tard, pas de refactor des anciens modules pour l’instant.
+    - Workflow transfert: Windows Downloads sur `cursor-ai` → transfert WinSCP → destination Linux canonique `/srv/sftp/shared_files/shared` → installation module Linux `/opt/trading/modules/<nom_module>`.
+    - `INFOS_UTILES_RECURRENTES.txt` mentionné comme mis à jour; clarification shared/workflow de transfert.
+    - Point de reprise: `GO_CONTEXTUALS_SHELL_V1_VALIDATED`.
+- Vérification de l’état Git:
+  - `git status`
+
+3) Décisions:
+- Les futurs modules déclareront leurs actions via contextuels.
+- La couche `contextuals` est partagée.
+- Le menu doit découvrir les modules plus tard (et non l’inverse).
+- Pas de refactor des anciens modules pour le moment.
+- Chemins canoniques confirmés pour transfert et installation des modules.
+
+4) Commandes / Code:
+```sh
+cd /opt/trading
+
+mkdir -p /shared/documents/doc-workflow
+
+cat > /shared/documents/doc-workflow/ETABLI_SESSION_2026-03-08.txt <<'EOF'
+ETABLI — SESSION 2026-03-08
+===========================
+
+1. module_contextuals_shell
+- V1 validé runtime Linux sur admin-trading
+- status OK
+- validate OK
+- list OK
+- demo OK
+- format contextuel validé
+- menu / routeur / reader utilisables
+
+2. logique validée
+- les futurs modules déclarent leurs actions via contextuels
+- la couche contextuals est partagée
+- le menu doit découvrir les modules plus tard, pas l’inverse
+- pas de refactor des anciens modules pour l’instant
+
+3. workflow transfert confirmé
+- côté Windows : Downloads sur cursor-ai
+- transfert via WinSCP
+- destination canonique Linux : /srv/sftp/shared_files/shared
+- installation module Linux : /opt/trading/modules/<nom_module>
+
+4. notes récurrentes
+- INFOS_UTILES_RECURRENTES.txt mis à jour
+- shared / workflow de transfert clarifiés
+
+5. point de reprise validé
+- GO_CONTEXTUALS_SHELL_V1_VALIDATED
+EOF
+
+git status
+```
+
+5) Points ouverts (next):
+- Faire découvrir automatiquement les modules par le menu (implémentation/itération à venir).
+- Définir/implémenter les futurs modules suivant le modèle “actions via contextuels”.
+- Maintenir les anciens modules sans refactor à court terme (surveillance de compatibilité).
