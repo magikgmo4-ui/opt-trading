@@ -9391,3 +9391,56 @@ prompt_claude_localcms_v1_court.txt
 - Le chantier initial “PATCH_MINIMAL_VALIDATED_PROMPT_FACTORY_NORMALISATION_V1” n’est pas exécuté dans la conversation (aucun diff, aucun fichier modifié, aucune preuve `discover/sanity`).
 - Point de reprise explicitement mentionné côté patch: `GO_PROMPT_FACTORY` (à relancer quand la convention réelle de découverte est observée).
 - À faire pour débloquer la demande “archive déjà faite”: fournir les contenus directement en texte (ou re-fournir une archive autrement) puisque les téléchargements échouent.
+
+## 2026-03-11 19:32 — note108
+1) Objectifs:
+- Implémenter un module durable `validated_prompt_factory` dans `modules/validated_prompt_factory/` pour transformer une synthèse validée en prompt final.
+- Supporter 4 modes de sortie : `chatgpt_session`, `trae_module`, `trae_patch`, `bundle_transfer`.
+- Produire des fichiers prompts en texte simple sous `output/`.
+- Respecter le standard projet (montage/découverte, scripts, sanity) sans refactor global, sans API, Git canal normal.
+
+2) Actions:
+- Création de la structure du module `modules/validated_prompt_factory/` avec :
+  - `README.md`
+  - `app/validated_prompt_factory.py`
+  - `inputs/synthesis_example.txt`
+  - `output/` (génération de 4 prompts)
+  - `contextuals/actions.ctx` et `commands/*.txt`
+  - `scripts/install_shortcuts.sh` (utilitaire wrappers)
+- Exécution des validations :
+  - `sanity.sh` passe.
+  - `module_contextuals_shell/cmd.sh discover` détecte correctement le module après normalisation.
+- Normalisation des points d’entrée pour être compatibles avec la découverte :
+  - Adoption des scripts canoniques à la racine : `cmd.sh`, `menu.sh`, `sanity.sh`.
+  - Suppression des doublons/anciens wrappers et scripts redondants dans `scripts/`.
+- Génération confirmée des 4 fichiers :
+  - `output/prompt_chatgpt_session.txt`
+  - `output/prompt_trae_module.txt`
+  - `output/prompt_trae_patch.txt`
+  - `output/prompt_bundle_transfer.txt`
+- Création puis correction d’un `CLOSING_REPORT.txt` (aligné avec l’état réel : scripts canoniques à la racine, `scripts/` ne garde que `install_shortcuts.sh`).
+
+3) Décisions:
+- Supprimer les wrappers locaux redondants `scripts/validated_prompt_factory_cmd.sh` et `scripts/validated_prompt_factory_menu.sh` (convention mixte).
+- Aligner la convention de montage sur le standard réellement observé via discovery : `cmd.sh/menu.sh/sanity.sh` à la racine du module.
+- Conserver `scripts/install_shortcuts.sh` uniquement comme utilitaire.
+- Mission considérée comme livrée/normalisée/opérationnelle ; prochaine étape (hors mission) : intégration dans un menu Ops global.
+
+4) Commandes / Code:
+```powershell
+# Découverte du module
+& "C:\Program Files\Git\bin\bash.exe" modules/module_contextuals_shell/cmd.sh discover | Select-String "validated_prompt_factory" -Context 0,10
+
+# Validation module (sanity)
+& "C:\Program Files\Git\bin\bash.exe" modules/validated_prompt_factory/sanity.sh
+
+# Génération des 4 modes
+& "C:\Program Files\Git\bin\bash.exe" modules/validated_prompt_factory/cmd.sh generate chatgpt_session
+& "C:\Program Files\Git\bin\bash.exe" modules/validated_prompt_factory/cmd.sh generate trae_module
+& "C:\Program Files\Git\bin\bash.exe" modules/validated_prompt_factory/cmd.sh generate trae_patch
+& "C:\Program Files\Git\bin\bash.exe" modules/validated_prompt_factory/cmd.sh generate bundle_transfer
+```
+
+5) Points ouverts (next):
+- (Hors périmètre de la mission) Intégrer `validated_prompt_factory` dans le menu Ops global (`ops_menu_hub` ou `ops_super_menu`).
+- Point de reprise conservé : `GO_PROMPT_FACTORY`.
