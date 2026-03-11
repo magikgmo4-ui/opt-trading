@@ -9364,3 +9364,30 @@ prompt_claude_localcms_v1_court.txt
 - Recevoir le document HTML P0 “Compatibility Contract” produit par Claude.
 - Valider P0 selon critères (compatibilité comme invariant, contrat module clair, séparation core/runtime/store/user/path, sécurité/sanitation, pas de roadmap floue).
 - Décider si P0 est “suffisamment figé” pour autoriser M-1.1 ($FORMS) ou s’il faut corrections avant code.
+
+## 2026-03-11 18:41 — note105
+1) Objectifs:
+- Appliquer un patch minimal de normalisation sur le module `modules/validated_prompt_factory/` (scripts/wrappers/détection), sans refactor ni réécriture, et revalider `sanity/discover` + 4 modes de génération.
+- Créer puis fournir un Kanban complet pour planifier/évaluer les progrès (modèle puis version préremplie).
+- Consolider la documentation fournie (archive + journal), identifier établi/ambigu/contradictions/manques, et produire un Kanban priorisé + prochaine séquence.
+
+2) Actions:
+- Proposition d’un modèle Kanban (colonnes + registre + fiche carte + indicateurs).
+- Génération annoncée d’un fichier `modele_tableau_kanban.xlsx`.
+- Réception/prise en compte d’artefacts fournis par l’utilisateur: `archive.tgz`, `journal.md`.
+- Production d’un audit documentaire en 6 blocs (inventaire, synthèse canonique, établi/à confirmer/todo/bloqué, risques, kanban, next steps) et export en `.md` + `.xlsx` (prérempli).
+- Tentatives de livraison d’une archive `.zip` + fichiers séparés; correction annoncée après liens invalides; régénération en “v2”.
+
+3) Décisions:
+- Périmètre de travail initial (patch minimal sur `validated_prompt_factory`) rappelé comme contraint (pas de refactor global, pas de nouvelle API, ne pas casser V1).
+- Pour l’audit: hiérarchie des sources appliquée, et choix déclaré de recaler le livrable sur les chemins/noms réellement présents dans l’archive (au lieu de noms “supposés”), en marquant les écarts “à confirmer”.
+- Suite aux retours “impossible de les télécharger”: décision de régénérer et renvoyer des liens/fichiers valides.
+
+4) Commandes / Code:
+—  
+
+5) Points ouverts (next):
+- Livraison effective bloquée: l’utilisateur indique ne pas pouvoir télécharger les livrables (`.zip`, `.xlsx`, `.md`) malgré régénération annoncée.
+- Le chantier initial “PATCH_MINIMAL_VALIDATED_PROMPT_FACTORY_NORMALISATION_V1” n’est pas exécuté dans la conversation (aucun diff, aucun fichier modifié, aucune preuve `discover/sanity`).
+- Point de reprise explicitement mentionné côté patch: `GO_PROMPT_FACTORY` (à relancer quand la convention réelle de découverte est observée).
+- À faire pour débloquer la demande “archive déjà faite”: fournir les contenus directement en texte (ou re-fournir une archive autrement) puisque les téléchargements échouent.
