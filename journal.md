@@ -9319,3 +9319,48 @@ sanity-probability_engine
 cmd-ops_menu_hub show-msi
 menu-ops_menu_hub
 sanity-ops_menu_hub
+
+## 2026-03-11 18:05 — note103
+1) Objectifs:
+- Produire une synthèse complète du HTML “LocalCMS v5” (travail de Claude) orientée long terme (socle, adaptabilité, besoins).
+- Insister sur une doctrine de compatibilité maximale (OS/système/usager/multi-machine) comme contrainte fondatrice.
+- Préparer un plan V1 (socle minimal, contrat de module, ordre de refactor, éléments à figer avant de coder) et un prompt à envoyer à Claude (IA) en gardant Claude comme brique privilégiée de documentation HTML (sans exclusivité).
+
+2) Actions:
+- Analyse/synthèse de LocalCMS v5 : cockpit local en 3 plans (CONFIG/USE/DEV), architecture “core stable + modules déclaratifs”.
+- Identification des forces (vision modulaire, couverture fonctionnelle, potentiel d’intégration modules/menus) et faiblesses/risques (monolithe HTML ~9 938 lignes, inline HTML, manque de persistance, manque sanitation/XSS, ambiguïtés de modules).
+- Proposition d’un ordre long terme en phases, en ajoutant une phase P0 “Compatibility Contract” à figer avant $FORMS.
+- Rédaction d’un prompt initial pour Claude, puis reformulation suite à feedback utilisateur pour éviter une interprétation “rôle rigide”.
+- Production d’une version “saine” puis d’une version “courte” du prompt à envoyer à Claude.
+- Production de fichiers de clôture demandés : “établi” et “todo” listant ce qui est décidé et la suite logique (attendre P0 puis valider avant M-1.1).
+
+3) Décisions:
+- La compatibilité maximale est un invariant du socle (pas une brique future) et doit être figée avant M-1.1 ($FORMS).
+- Ajout d’une phase P0 — Compatibility Contract avant P1 (Core).
+- Claude est la brique privilégiée pour la documentation HTML visuelle (préférence non exclusive, sans restriction pour les autres).
+- Ordre V1 retenu : P0 → P1 ($FORMS/$COND/$VALID) → P2 ($STORE/$USER/$PATH) → P3 externalisation modules inline → P4 modules manquants critiques → P5 polish UX.
+
+4) Commandes / Code:
+```txt
+prompt_claude_localcms_v1_court.txt
+- Mission: produire un document HTML P0 “Compatibility Contract” (compatibilité, contrat module, UI projections, persistance, sécurité/sanitation)
+- Contraintes: ne pas coder, rester concret/exploitable, patch minimal, mission bornée
+```
+
+```txt
+2026-03-09_localcms_etabli.txt
+- Invariants: compatibilité max, pas de hardcode local dans core, modules déclaratifs, CONFIG/USE/DEV = projections d’un même registre
+- Ordre V1: P0 → P1 → P2 → P3 → P4 → P5
+```
+
+```txt
+2026-03-09_localcms_todo.txt
+- Attendre livrable HTML P0 de Claude
+- Valider P0 (invariant compat, contrat module, séparation core/store/user/path, pas de dérive)
+- Ensuite seulement: mission bornée M-1.1 ($FORMS), revue critique, commit isolé; puis $COND, $VALID; puis P2
+```
+
+5) Points ouverts (next):
+- Recevoir le document HTML P0 “Compatibility Contract” produit par Claude.
+- Valider P0 selon critères (compatibilité comme invariant, contrat module clair, séparation core/runtime/store/user/path, sécurité/sanitation, pas de roadmap floue).
+- Décider si P0 est “suffisamment figé” pour autoriser M-1.1 ($FORMS) ou s’il faut corrections avant code.
