@@ -9261,3 +9261,61 @@ prompt_implementation_validated_prompt_factory_hardened_v1.txt
 - Vérifier que le module produit des **prompts métier concrets** (style “Tu travailles dans / Contexte / Important / Livrables / Validation”) via le cas test registry.
 - Confirmer/centraliser le fichier TODO de référence (GO_XXXX) et la règle de clôture (validation + TODO + reprise) dans la pratique.
 - Localiser/valider le fichier annoncé `journal_workflow_validated_prompt_factory_2026-03-08.txt` (cohérence date/nom).
+
+## 2026-03-11 18:01 — note102
+1) Objectifs:
+- Reprendre depuis la référence stable `student_deepseek_ops_v1.0_hotfix2` sans rouvrir le chantier.
+- Construire/valider la chaîne Desk Pro (derivatives → probability) puis standardiser la surface opérateur.
+- Lancer une phase d’indexation (Desk puis UI) et établir une source de vérité centrale (`registry/`).
+- Mettre en place des lecteurs/routeur pour consommer les registres centraux.
+- Formaliser un workflow “Prompt Socle” et préparer le module générateur de prompts (`validated_prompt_factory`).
+
+2) Actions:
+- Création du module `modules/derivatives_analyzer/`, correction CLI (subcommands), suppression warning `utcnow`, commit+push.
+- Intégration V1 `--derivatives-input` dans `modules/probability_engine/` + champs top-level + tests PowerShell, commit+push.
+- Rebase admin-trading sur `origin/sot/mainline`, puis exécution d’un zip d’indexation desk (collecte + logs + seed journal).
+- Promotion des fichiers d’indexation vers `docs/indexation_desk/`, commit+push.
+- Audit surface opérateur: détection wrappers manquants; création scripts d’installation/check (`scripts/install_desk_pro_wrappers.sh`, `scripts/check_desk_pro_wrappers.sh`), puis durcissement (wrappers scripts “cd /opt/trading/modules/<module>” + backups + checks runtime), commit+push + validation Linux.
+- Fix `sanity-probability_engine` en rendant le check compatible gitignore via `example.env.sample` (tracké) + ajustement sanity, commit+push + validation Linux (après nettoyage chmod locaux via `git restore`).
+- Patch MSI toolbox: transformer `modules/ops_menu_hub` (menu en 4 groupes + `cmd.sh show-msi`) + micro-patch “safe defaults” (ex: `cmd-probability_engine sample`, `cmd-desk_pro_dashboard status`), commit+push + validation Linux.
+- UI indexation MSI-first (zip collect + prefill), promotion vers `docs/ui_indexation/`, commit+push.
+- Création `modules/ui_registry_msi/` (registry UI), correction sanity + `.gitignore` output, commit/push, validation Linux.
+- Création source de vérité centrale `registry/` (machines/modules/ui_surfaces), commit/push, pull+validation Linux; puis bascule `ui_registry_msi` pour consommer `registry/ui_surfaces_registry.yaml` sans PyYAML (parseur YAML minimal).
+- Création `modules/machines_registry_reader/` puis `modules/modules_registry_reader/`, commits/push + validations Linux.
+- Ajout `registry/wrappers_registry.yaml` puis création `modules/wrappers_registry_reader/` + hygiène `.gitignore`, commits/push + validation Linux.
+- Ajout `registry/meta_index.yaml` + création `modules/registry_meta_reader/`, commit/push + validation Linux.
+- Création `modules/registry_router/` (landing menu) + wrappers globaux `menu-registry_router`, `cmd-registry_router`, `sanity-registry_router` via `install_shortcuts.sh`, validation Linux.
+- Formalisation et validation du **Prompt Socle Workflow V2/V2.1**, templates Trae (module/patch/bundle), template TODO GO_XXXX, template “synthèse validée → prompt final”.
+- Patch minimal `module_contextuals_shell` V2 (filtrage discovery, convention `commands/`, doc). Fix final: exclusion explicite `scripts`, renommage `commands.txt` → `say_hello.txt`, validation via `cmd.sh validate/discover/list-modules/show-commands`.
+
+3) Décisions:
+- Ne pas retoucher le pack student stable (sauf régression).
+- Priorité à l’intégration et à l’opérabilité (wrappers robustes) avant UI avancée/API.
+- MSI-first pour les surfaces UI; admin-trading = backend/exécution; Dell = dev; student = IA complémentaire.
+- `ops_menu_hub` = entrée toolbox MSI v1 (hub CLI), puis UI registry avant dashboards finaux.
+- `registry/` devient la source de vérité centrale versionnée; consommation progressive par des readers (sans dépendance PyYAML obligatoire).
+- Git redevient le canal normal de stabilisation; zip = outil secondaire (transport/livraison ciblée).
+- `module_contextuals_shell` V2 cleanup considéré “fermé” après fix (doc check optionnel plus tard).
+
+4) Commandes / Code:
+```bash
+# Indexation desk (admin-trading)
+git fetch origin
+git rebase origin/sot/mainline
+unzip -o indexation_desk_bundle.zip
+./03_collect_indexation_desk.sh
+
+# Wrappers robustes (admin-trading)
+sudo bash scripts/install_desk_pro_wrappers.sh
+bash scripts/check_desk_pro_wrappers.sh
+
+# Validation wrappers (exemples)
+cmd-derivatives_analyzer status
+cmd-probability_engine sample
+sanity-derivatives_analyzer
+sanity-probability_engine
+
+# MSI toolbox hub
+cmd-ops_menu_hub show-msi
+menu-ops_menu_hub
+sanity-ops_menu_hub
