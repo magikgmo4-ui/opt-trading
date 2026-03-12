@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 APP_DIR="$SCRIPT_DIR/app"
 INPUT_DIR="$SCRIPT_DIR/inputs"
 CMD="$SCRIPT_DIR/cmd.sh"

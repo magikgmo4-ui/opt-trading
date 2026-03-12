@@ -24,4 +24,10 @@ EOF
 install_wrapper "$SCRIPT_DIR/../cmd.sh" "$TARGET_DIR/validated_prompt_factory_cmd"
 install_wrapper "$SCRIPT_DIR/../menu.sh" "$TARGET_DIR/validated_prompt_factory_menu"
 
+# Hub-compliant shortcuts (menu-*, cmd-*, sanity-*) for ops_super_menu integration
+echo "Installing Hub-compliant symlinks..."
+sudo ln -sf "$SCRIPT_DIR/../menu.sh" "$TARGET_DIR/menu-validated_prompt_factory"
+sudo ln -sf "$SCRIPT_DIR/../cmd.sh" "$TARGET_DIR/cmd-validated_prompt_factory"
+sudo ln -sf "$SCRIPT_DIR/../sanity.sh" "$TARGET_DIR/sanity-validated_prompt_factory"
+
 echo "Done."
