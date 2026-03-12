@@ -1,0 +1,32 @@
+
+# PROMPT POUR PATCH CORRECTIF TRAE
+
+## MODE PATCH
+Tu ne dois PAS créer de nouveau module.
+Tu dois UNIQUEMENT modifier l'existant pour corriger un problème ou ajouter une petite fonctionnalité.
+
+## CONTEXTE DU PATCH
+Nous devons créer un module de démonstration pour le validated_prompt_factory.
+Le projet est un système de trading automatisé.
+L'environnement est Windows mais avec une émulation Bash via Git Bash.
+
+## OBJECTIF DU FIX
+Créer le module validated_prompt_factory capable de générer des prompts standardisés.
+Il doit supporter 4 modes de sortie.
+
+## FICHIERS CONCERNÉS
+Identifie précisément les fichiers à modifier.
+Ne touche à rien d'autre.
+
+## CONTRAINTES
+- Ne pas casser l'existant.
+- Utiliser Python pour la logique.
+- Utiliser Bash pour les wrappers.
+- Respecter la structure standard des modules.
+
+## VALIDATION DU PATCH
+- Lancer sanity_check.sh doit passer.
+- Lancer la génération d'un prompt doit créer un fichier.
+
+## POINT DE REPRISE
+GO_PROMPT_FACTORY

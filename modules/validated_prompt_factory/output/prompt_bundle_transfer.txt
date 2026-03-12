@@ -1,0 +1,30 @@
+
+# PROMPT POUR GENERATION DE BUNDLE (ZIP)
+
+## OBJECTIF
+Préparer une archive ZIP contenant les fichiers nécessaires pour un transfert ou une livraison ciblée.
+
+## CONTEXTE
+Nous devons créer un module de démonstration pour le validated_prompt_factory.
+Le projet est un système de trading automatisé.
+L'environnement est Windows mais avec une émulation Bash via Git Bash.
+
+## CONTENU DU BUNDLE
+Basé sur : Créer le module validated_prompt_factory capable de générer des prompts standardisés.
+Il doit supporter 4 modes de sortie.
+
+## FICHIERS A INCLURE
+- Un module complet avec scripts et app.
+- Des fichiers de sortie dans output/.
+
+## INSTRUCTIONS
+1. Lister les fichiers exacts.
+2. Créer une structure temporaire propre.
+3. Copier les fichiers.
+4. Créer l'archive ZIP.
+5. Nettoyer les fichiers temporaires.
+
+## VALIDATION
+Vérifier que le ZIP contient bien les éléments attendus et rien d'autre.
+- Lancer sanity_check.sh doit passer.
+- Lancer la génération d'un prompt doit créer un fichier.

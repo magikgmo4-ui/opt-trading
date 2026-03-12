@@ -1,0 +1,5 @@
+Menu Title: Validated Prompt Factory
+1|Generate ChatGPT Prompt|bash modules/validated_prompt_factory/scripts/cmd.sh generate chatgpt_session|modules/validated_prompt_factory/scripts/cmd.sh|validated_prompt_factory|chatgpt_session|prompt|generation|active|Generate a conversational prompt for ChatGPT
+2|Generate Trae Module Prompt|bash modules/validated_prompt_factory/scripts/cmd.sh generate trae_module|modules/validated_prompt_factory/scripts/cmd.sh|validated_prompt_factory|trae_module|prompt|generation|active|Generate a structured prompt for Trae Module
+3|Generate Trae Patch Prompt|bash modules/validated_prompt_factory/scripts/cmd.sh generate trae_patch|modules/validated_prompt_factory/scripts/cmd.sh|validated_prompt_factory|trae_patch|prompt|generation|active|Generate a patch prompt for Trae
+4|Generate Bundle Transfer Prompt|bash modules/validated_prompt_factory/scripts/cmd.sh generate bundle_transfer|modules/validated_prompt_factory/scripts/cmd.sh|validated_prompt_factory|bundle_transfer|prompt|generation|active|Generate a bundle transfer prompt

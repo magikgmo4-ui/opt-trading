@@ -1,0 +1,1 @@
+bash modules/validated_prompt_factory/scripts/cmd.sh generate trae_patch
