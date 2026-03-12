@@ -9559,3 +9559,60 @@ Total core après patch P0: 333 assertions, 0 échec.
 - Confirmer définitivement les références (localcms-reference.html / localcms-architecture.html / localcms_next_steps) avant découpe de localcms-v5.html.
 - OpenClaw : décider installation finale sur db-layer (Ubuntu) avec utilisateur dédié + cadre strict (tools/channels/nodes) avant toute activation; éviter doctor --fix et canaux (Telegram) tant que le hardening n’est pas défini.
 - Drive : déplacer fichiers clés à la racine et indexation par nom si besoin; sinon continuer via ZIP.
+
+## 2026-03-12 12:06 — note117
+1) Objectifs:
+- Externaliser progressivement des modules inline de `localcms-v5.html` vers des fichiers `modules/*.js` (manifeste déclaratif pur + bridge transitoire minimal) en patch minimal (LocalCMS).
+- Clore M-3.1 à M-3.4, consolider P3 en archive canonique unique, puis ouvrir P4 (M-4.x).
+- Mettre Antigravity sur une branche et un clone isolés, puis lancer un chantier “Student” en parallèle (plan doc), sans impacter le repo principal.
+- Stabiliser la doctrine Trae (templates + chaîne + statuts), matérialiser en `.txt` sur disque et compléter un “Drive reference pack”.
+
+2) Actions:
+- M-3.1 (IA Config) : rejet initial (manifeste hybride + perte 4 onglets → 2 sections), puis correction : manifeste pur `*_DATA`, retour 4 forms/50 champs, smoke orienté équivalence, correction P0 `ia_img_output_dir=''`, smoke 125/125 ✅, **CLOSE**.
+- M-3.2 (Machines Config) : externalisation (6 forms/65 champs), correction P0 sur placeholders/hints (chemins/IP/hostnames neutralisés), smoke 151/151 ✅, **CLOSE**.
+- M-3.3 (Data Sources) : externalisation (5 forms/72 champs, 3 champs F-15), corrections P0 (values/placeholders/hints), smoke 136/136 ✅ ; détecté bug load order (bridges évalués avant `*_DATA`), corrigé en déplaçant `<script src="modules/*.js">` avant le bloc inline bridges, M-3.1/3.2/3.3 **CLOSE**.
+- M-3.4 : prompt préparé pour externaliser `MOD_ENV_GLOBAL → modules/env-global.js`.
+- Git/Antigravity : création d’un clone séparé et branche dédiée, push remote, synchronisation après divergence remote via rebase; confirmation état propre.
+- Student : plan initial Antigravity corrigé (ÉTABLI / À CONFIRMER / TODO / BLOQUÉ / RISQUES / POINT DE REPRISE / GO), mise au point sur dépendance “accès machine student”.
+- Trae : review/itérations successives des templates (Execution report, Review verdict, Doctrine chain, Status policy, Closure template, Canonical index, Session opening pack), micro-corrections puis clôtures Vx.1/Vx.2. Mise en place d’une règle de matérialisation en fichiers `.txt` locaux.
+- LocalCMS P3 : consolidation finale en une archive canonique unique (suppression logique “base + overrides”) + smokes complets.
+- P4 : M-4.1 externalisation `MOD_QUEUE_CFG`; M-4.2 externalisation `MOD_SEC_CFG`; smokes complets verts; statut conservé `review_required`.
+
+3) Décisions:
+- Les manifestes modules doivent être **purs** (données uniquement). Toute logique runtime doit rester dans le **bridge** (HTML), transitoire.
+- Pas de réduction de périmètre fonctionnel sans validation explicite (ex: onglets/forms).
+- P0 strict : pas de chemins/IPs/hostnames concrets dans `value` **ni** dans `placeholder/hint` ; champs sensibles marqués `sensitive`.
+- Correction load order : les `modules/*.js` contenant `*_DATA` doivent être chargés **avant** les bridges qui les lisent.
+- P3 consolidé en **archive unique** de reprise : `localcms_P3_CANONIQUE_FINAL.zip`, point de reprise `GO_P4`.
+- P4 : externaliser en priorité des modules config du “script 0” avec pattern FORMS (d’abord `MOD_QUEUE_CFG`, puis `MOD_SEC_CFG`), maintenir le pattern load order P4.
+- Antigravity doit travailler uniquement dans le clone dédié et sur `antigravity/main`.
+
+4) Commandes / Code:
+```powershell
+# Isolation Antigravity (clone séparé + branche dédiée)
+Remove-Item -Recurse -Force C:\Users\ghost\CLONE-opt-trading\opt-trading
+git clone https://github.com/magikgmo4-ui/opt-trading.git C:\Users\ghost\CLONE-opt-trading\opt-trading
+cd C:\Users\ghost\CLONE-opt-trading\opt-trading
+git switch sot/mainline
+git switch -c antigravity/main
+git push -u origin antigravity/main
+
+# Vérifications
+git branch --show-current
+git status
+
+# Push principal rejeté (remote ahead) -> rebase implicite confirmé par reflog
+git push
+git log --oneline --decorate -n 10
+git reflog -n 10
+
+# Mise à jour branche Antigravity depuis remote
+git push origin antigravity/main
+git log --oneline --decorate -n 5
+```
+
+5) Points ouverts (next):
+- M-4.3 à lancer : externalisation `MOD_APPS_CFG → modules/apps-config.js` (pattern P4), avec smoke + neutralisations P0 si nécessaires.
+- Décider si `review_required` sur M-4.1/M-4.2 devient **CLOSE** (critères: stabilité load order + non-régression UI via bridge).
+- Trae : appliquer micro-corrections proposées sur `TRAE_DRIVE_REFERENCE_PACK_V1 → V1.1` (versionner la liste + assouplir “validité” vs “disponibilité”), puis lancer `GO_TRAE_CANONICAL_SYNC_CHECK`.
+- Student : matérialiser le plan validé dans un fichier doc du repo (ex: `docs/student/README.md`) si souhaité, sans dev code.
