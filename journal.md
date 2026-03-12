@@ -9707,3 +9707,45 @@ git reset --hard origin/sot/mainline
 - LocalCMS : préparer la suite P4 (recommandé M-4.5 = MOD_BACKEND_CFG) ; maintenir l’état `review_required` (M-4.1 à M-4.4).
 - opt-trading : nettoyer/ignorer toute tentative de commit Windows antérieure (ex: 183533c) si elle existe encore localement hors branche active ; vérifier que `trae_pack_texts_backup_2026-03-12/` n’est jamais ajouté à Git.
 - Trae : prochaine intention à définir (point de reprise : **GO_MISSION_METIER_OU_STANDBY**).
+
+## 2026-03-12 13:49 — note122
+1) Objectifs:
+- Valider l’intégrité du socle doctrinal Trae après reset Git.
+- Comprendre/poser le format de cadrage `GO_MISSION`.
+- Auditer LocalCMS (sources session + états + packs) et réaligner le kanban sur l’état réel.
+- Produire des livrables de reprise LocalCMS : kanban “source de vérité”, établi, todo.
+- Lancer un audit majeur opt-trading et figer un kanban opt-trading “source de vérité”.
+2) Actions:
+- Vérification des fichiers Trae (pack textes non-tracké) dans `C:\Users\ghost\opt-trading\trae_pack_texts\trae_pack` : PASS, aucune anomalie.
+- Clôture `GO_TRAE_CANONICAL_SYNC_CHECK` : verdict ACCEPT, environnement sain, point de reprise `GO_MISSION_METIER_OU_STANDBY`.
+- Explication détaillée du format `GO_MISSION` (classification/cible/objectif/contrainte) + exemples.
+- Audit LocalCMS (multi-passes) basé principalement sur :
+  - `00_etat_courant_M4.4.txt`
+  - `localcms_session_M4.4_ALL.zip`
+  - `localcms_core_M1.1-M2.3.zip` (+ index + docs core)
+- Constats LocalCMS :
+  - P1/P2/P3 = CLOSE (selon état courant M-4.4)
+  - M-4.1→M-4.4 = review_required (techniquement verts, smokes relancés OK)
+  - prochain point recommandé : M-4.5 = `MOD_BACKEND_CFG`
+  - ancien kanban prérempli (P0→M-1.1) reclassé obsolète.
+- Production (dans la conversation) des 3 livrables LocalCMS :
+  - `localcms_kanban_source_of_truth_2026-03-12.md`
+  - `00_etabli_localcms_2026-03-12.txt`
+  - `00_todo_localcms_2026-03-12.txt`
+- Lancement d’un audit opt-trading sur snapshot repo `opt-trading.zip` (HEAD observé : `da1356d`, branche `sot/mainline`) + docs + inventaires + registry.
+- Signalement d’un point de qualité du snapshot : churn CRLF sur scripts rendant `git status`/exécution locale non fiables; priorité donnée au contenu Git HEAD/structure.
+- Production (dans la conversation) du livrable opt-trading :
+  - `opt_trading_kanban_source_of_truth_2026-03-12.md` (kanban figé “final”).
+3) Décisions:
+- `GO_TRAE_CANONICAL_SYNC_CHECK` clôturé en ACCEPT; pas d’action requise.
+- LocalCMS : la vérité de reprise est la baseline M-4.4 (packs + état courant), pas l’ancien gate P0→M-1.1; P0 reclassé comme “gap documentaire” (non bloquant code).
+- LocalCMS : ne pas promouvoir M-4.1→M-4.4 en CLOSE sans review/verdict explicite; reprise recommandée sur M-4.5 (`MOD_BACKEND_CFG`).
+- opt-trading : prochain chantier recommandé = standardiser la surface opérateur Desk Pro à partir du repo réel et du registry central (avant expansion UI/API/modules).
+4) Commandes / Code:
+```text
+Aucune commande exécutée explicitement dans ce dump pour le check Trae/LocalCMS/opt-trading.
+(Des commandes apparaissent dans des documents cités, mais pas comme exécution dans cette session.)
+```
+5) Points ouverts (next):
+- LocalCMS : faire la review formelle de M-4.1→M-4.4 puis ouvrir M-4.5 `MOD_BACKEND_CFG`; figer l’inventaire des blocs encore inline + ordre post M-4.5; clarifier l’emplacement canonique des artefacts LocalCMS.
+- opt-trading : enchaîner sur l’item `OT-OPS-01` (surface opérateur Desk Pro) avec une table canonique `module → scripts → wrappers → statut → action requise`, puis normalisation wrappers/registry/docs.
