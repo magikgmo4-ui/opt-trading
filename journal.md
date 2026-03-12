@@ -9616,3 +9616,94 @@ git log --oneline --decorate -n 5
 - Décider si `review_required` sur M-4.1/M-4.2 devient **CLOSE** (critères: stabilité load order + non-régression UI via bridge).
 - Trae : appliquer micro-corrections proposées sur `TRAE_DRIVE_REFERENCE_PACK_V1 → V1.1` (versionner la liste + assouplir “validité” vs “disponibilité”), puis lancer `GO_TRAE_CANONICAL_SYNC_CHECK`.
 - Student : matérialiser le plan validé dans un fichier doc du repo (ex: `docs/student/README.md`) si souhaité, sans dev code.
+
+## 2026-03-12 12:07 — note120
+1) Objectifs:
+- LocalCMS : externaliser des modules config du grand script inline (pattern P4), valider via smokes, archiver un point de reprise.
+- Trae : réhydrater/synchroniser le socle canonique, créer/canoniser un rôle Orchestrator, mettre à jour l’index et le reference pack, réaligner les pointeurs de réouverture.
+- opt-trading : intégrer `validated_prompt_factory` au hub Ops (`ops_super_menu`), valider en runtime sur Linux, pousser sur `origin/sot/mainline`, réaligner le repo Windows, revalider le socle Trae.
+
+2) Actions:
+- LocalCMS M-4.3 :
+  - Inventaire MOD_APPS_CFG : 6 forms, 154 champs réels, 468 lignes inline, 5 sensitive ; 14 values P0 vidées, 7 placeholders neutralisés.
+  - Création `modules/apps-config.js` + `modules/apps-config.smoke.js`.
+  - Patch `localcms-v5.html` : retrait inline, ajout bridge + `<script src="modules/apps-config.js">` avant `sec-config.js`.
+  - Correction du check “inline absent” (faux positif car regex matchait la signature du bridge).
+  - Validations : total 1397/1397 ✅ ; archive `localcms_M4.3_apps-config.zip`.
+- LocalCMS M-4.4 :
+  - Extraction base M-4.3 (1397/1397 ✅).
+  - Inventaire MOD_DEVTOOLS_CFG : 8 forms, 137 champs, 397 lignes inline, 0 sensitive ; vt_base `'/'`, vt_host `'localhost'` conservés.
+  - Création `modules/devtools-config.js` + `modules/devtools-config.smoke.js`.
+  - Patch `localcms-v5.html` : retrait inline, ajout bridge + `<script src="modules/devtools-config.js">` (load order dev < apps < sec < queue < script0).
+  - Ajustement smoke (precommit=17 ; correction dans smoke uniquement).
+  - Validations : total 1590/1590 ✅ ; archive `localcms_M4.4_devtools-config.zip`.
+  - Note : écart documentaire signalé sur un header/commentaire de comptage (non bloquant).
+- Pack reprise LocalCMS :
+  - Vérification archive `localcms_session_M4.3_ALL.zip` : jugée suffisante (HTML + modules P4/P3 + smokes).
+  - Rédaction de fichiers texte de reprise (00_reprise/00_etabli/00_next) + pack texte zip.
+- Trae (socle canonique) :
+  - Lecture `00_reouverture_session_trae.txt`, chargement index + établi ; résolution d’un écart (point de reprise : GO_TRAE_CANONICAL_SYNC_CHECK priorisé).
+  - Chargement pack canonique complet (templates + doctrine + status policy + drive reference pack).
+  - Rédaction d’un draft `TRAE_ORCHESTRATOR_ROLE_V1.1.txt`, matérialisation sur disque, puis canonisation via patch dédié (section 13).
+  - Création `TRAE_CANONICAL_INDEX_V1.3.txt` (V1.2 préservé) pour référencer la nouvelle brique close.
+  - Création `TRAE_DRIVE_REFERENCE_PACK_V1.1.txt` (V1 préservé), sync check PASS, puis patch `TRAE_SESSION_OPENING_PACK_V1.1.txt` pour pointer vers Index V1.3 / Ref Pack V1.1 ; clôture.
+- opt-trading / validated_prompt_factory :
+  - Diagnostic initial : patch `modules/validated_prompt_factory/scripts/install_shortcuts.sh` pour créer symlinks hub-compliant (`menu-*`, `cmd-*`, `sanity-*`) afin d’être détecté par `ops_super_menu`.
+  - Blocage runtime Windows (pas de WSL) => REJECT (preuve runtime manquante) + point de reprise validation Linux.
+  - Validation via SSH Windows -> admin-trading :
+    - Module absent sur admin-trading ⇒ transfert ciblé (SCP vers /tmp), staging.
+    - Copie vers `/opt/trading/modules/` (sudo), correction CRLF via `sed`.
+    - Exécution `install_shortcuts.sh`, symlinks présents, module listé par `/opt/trading/modules/ops_super_menu/ops_super_menu.sh list_menus`.
+    - Correctif : scripts `cmd.sh/menu.sh/sanity.sh` rendus symlink-aware (passage à `readlink -f`), chmod +x ; sanity PASS via `/usr/local/bin/sanity-validated_prompt_factory`.
+  - Git :
+    - Tentatives de commit/push Windows : push cassé et commit local suspect (trop large) ⇒ non retenu comme source de vérité.
+    - Sur admin-trading : commit initial ajout module (67ad84b) puis push rejeté (remote ahead). Cherry-pick sur remote a montré que le module existait déjà sur origin (conflits add/add).
+    - Solution : patch minimal sur 4 fichiers seulement, re-validation runtime, commit `da1356d`, push OK vers `origin/sot/mainline`.
+  - Réalignement :
+    - Admin-trading : reset hard sur origin/sot/mainline.
+    - Windows : backup `trae_pack_texts` puis `git fetch` + `git reset --hard origin/sot/mainline` ⇒ HEAD `da1356d`, `trae_pack_texts/` conservé.
+  - Trae sync check post-reset Git : PASS ; clôture GO_TRAE_CANONICAL_SYNC_CHECK ; état prêt mission métier.
+
+3) Décisions:
+- LocalCMS : M-4.3 et M-4.4 déclarés “techniquement solides” mais statut conservé `review_required` ; fermeture/archivage OK.
+- Check “inline absent” : ne plus matcher uniquement la signature `const MOD_* = (() => {` ; utiliser un marqueur unique de l’ancien inline (ex: `let activeType = 'eslint'`).
+- Trae : canonisation = review puis patch dédié (pas de modification “pendant la review”) ; pas de statut “HOLD/BLOCKED_BY_ENV” (non canonique).
+- Index Trae : création d’une nouvelle version (V1.3) plutôt que patch en place de V1.2 pour intégrer une nouvelle brique close.
+- Reference pack Trae : nouvelle version V1.1 plutôt qu’écrasement V1.
+- opt-trading : ne pas simuler une validation runtime ; validation doit se faire sur Linux réel (SSH). Ne pas “forcer” Git depuis Windows ; préférer patch minimal validé, puis push propre.
+- Git : interdiction de `push --force` ; en cas de divergence, préférer approche branch/compare/patch minimal.
+- Windows repo : réalignement par `reset --hard` autorisé avec backup préalable de `trae_pack_texts/`.
+
+4) Commandes / Code:
+```bash
+# Linux/admin-trading (validation runtime)
+bash /opt/trading/modules/validated_prompt_factory/scripts/install_shortcuts.sh
+ls -l /usr/local/bin/*validated_prompt_factory*
+/opt/trading/modules/ops_super_menu/ops_super_menu.sh list_menus | grep validated_prompt_factory
+/usr/local/bin/sanity-validated_prompt_factory
+
+# Fix CRLF (admin-trading)
+sudo sed -i "s/\r$//" /opt/trading/modules/validated_prompt_factory/scripts/install_shortcuts.sh
+sudo sed -i "s/\r$//" /opt/trading/modules/validated_prompt_factory/{cmd.sh,menu.sh,sanity.sh} \
+  /opt/trading/modules/validated_prompt_factory/scripts/install_shortcuts.sh
+
+# Symlink-aware scripts (admin-trading)
+# Remplacement du SCRIPT_DIR par readlink -f (appliqué sur cmd.sh/menu.sh/sanity.sh)
+SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+
+# Git (admin-trading) — patch minimal final
+git add modules/validated_prompt_factory/{cmd.sh,menu.sh,sanity.sh,scripts/install_shortcuts.sh}
+git commit -m "validated_prompt_factory: add hub shortcuts and symlink-aware scripts"
+git push origin HEAD:sot/mainline
+# Commit final poussé: da1356d
+
+# Windows (PowerShell) — réalignement
+git fetch origin
+git reset --hard origin/sot/mainline
+# HEAD: da1356d
+```
+
+5) Points ouverts (next):
+- LocalCMS : préparer la suite P4 (recommandé M-4.5 = MOD_BACKEND_CFG) ; maintenir l’état `review_required` (M-4.1 à M-4.4).
+- opt-trading : nettoyer/ignorer toute tentative de commit Windows antérieure (ex: 183533c) si elle existe encore localement hors branche active ; vérifier que `trae_pack_texts_backup_2026-03-12/` n’est jamais ajouté à Git.
+- Trae : prochaine intention à définir (point de reprise : **GO_MISSION_METIER_OU_STANDBY**).
