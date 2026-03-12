@@ -9444,3 +9444,54 @@ prompt_claude_localcms_v1_court.txt
 5) Points ouverts (next):
 - (Hors périmètre de la mission) Intégrer `validated_prompt_factory` dans le menu Ops global (`ops_menu_hub` ou `ops_super_menu`).
 - Point de reprise conservé : `GO_PROMPT_FACTORY`.
+
+## 2026-03-12 12:02 — note115
+1) Objectifs:
+- Lire l’audit Kanban (ZIP) et produire un compte rendu + étapes logiques suivantes.
+- Exécuter les premières étapes (K07/K01…) puis basculer sur le travail avec Trae (agents/modules) en mettant CMS/Claude de côté.
+- Implémenter et valider une suite de modules LocalCMS ($FORMS/$COND/$VALID) puis ouvrir $STORE.
+
+2) Actions:
+- Ouverture du ZIP d’audit : inventaire de présence du bundle reçu (README.txt, .md, .xlsx) et liste des artefacts référencés mais absents (P0, journal.md, packs, workflows, specs, logs, etc.). K07 marqué “partiellement fait” (bundle seulement).
+- Bascule vers Trae :
+  - Création du module `modules/trae_module_validator` (scripts + README + cmd/menu/sanity).
+  - Tests d’exécution via Git Bash : sanity OK; validation de `validated_prompt_factory` (PASS) et `vision_bot` (WARN legacy scripts/ + sanity_check.sh).
+  - Patch de finition : clarification standard `sanity.sh` (canonique) vs `sanity_check.sh` (legacy), suppression `docs/` vide, README corrigé.
+  - Validation V1 = CLOSE; journalisation annoncée (fichiers `2026-03-11_journal_trae_module_validator_v1.txt` et `2026-03-11_etabli_trae_module_validator_v1.txt`).
+  - Mission GO_TRAE_MODULE_VALIDATOR_V2 : validation du module lui-même; clôture avec point de reprise `GO_TRAE_ORCHESTRATOR_V1`.
+- LocalCMS (suite M-1.x) :
+  - M-1.2 ($COND) livré puis micro-fix M-1.2.1 : `getFormValues()` ignore `el.disabled` + test smoke DIS + correction mock DOM (disabled vs _disabled). Smokes verts (conditions 64/64, forms 61/61). M-1.2/M-1.2.1 = CLOSE.
+  - M-1.3 ($VALID) livré puis bug détecté (erreurs “stale” sur champs devenus inactifs). M-1.3.1 : purge des erreurs inactives dans `validateForm()` + smoke FIX; smokes verts (validation 63/63, forms 61/61, conditions 64/64). M-1.3/M-1.3.1 = CLOSE.
+  - M-2.1 ($STORE) implémenté (core/store.js + store.smoke.js) + patch mountForm (forms.js v1.1.5) + updates version checks; smokes verts (store 46/46, validation 63/63, conditions 64/64, forms 61/61). Revue : non-CLOSE car restore ne garantit pas de déclenchement du cycle `$COND/$VALID` (setFormValue n’émet pas `forms:changed`), ambiguïté per-field vs snapshot, autosave non branché par défaut.
+
+3) Décisions:
+- Ne pas lancer de chantiers lourds LocalCMS tant que les “gates” documentaires ne sont pas fermés (P0 réel, workflow canonique, shared/transfert, artefacts localisés).
+- Mettre CMS/Claude en pause; reprendre Trae comme chantier actif.
+- `trae_module_validator` : canonique `sanity.sh` à la racine; `sanity_check.sh` toléré en legacy avec WARN.
+- LocalCMS :
+  - Invariant confirmé : champ masqué via $COND => disabled => exclu de `getFormValues()`.
+  - M-1.1/M-1.2/M-1.2.1/M-1.3/M-1.3.1 entérinés en CLOSE.
+- M-2.1 $STORE : statut recommandé OPEN/quasi-fini, nécessitant un micro-fix (M-2.1.1) avant fermeture.
+
+4) Commandes / Code:
+```powershell
+mkdir modules/trae_module_validator/scripts; mkdir modules/trae_module_validator/docs
+& "C:\Program Files\Git\bin\bash.exe" modules/trae_module_validator/sanity.sh
+& "C:\Program Files\Git\bin\bash.exe" modules/trae_module_validator/cmd.sh validate validated_prompt_factory
+& "C:\Program Files\Git\bin\bash.exe" modules/trae_module_validator/cmd.sh validate vision_bot
+
+node core/conditions.smoke.js
+node core/forms.smoke.js
+node core/validation.smoke.js
+node core/store.smoke.js
+
+& "C:\Program Files\Git\bin\bash.exe" modules/module_contextuals_shell/cmd.sh discover | Select-String "trae_module_validator" -Context 0,10
+```
+
+5) Points ouverts (next):
+- Audit/Kanban : récupérer le stockage réel (repo/artefacts) pour terminer K07 (au-delà du bundle) + retrouver/valider P0 si réactivé plus tard.
+- Trae : ouvrir `GO_TRAE_ORCHESTRATOR_V1` (point de reprise retenu après clôture validator).
+- LocalCMS : M-2.1 $STORE à finaliser (M-2.1.1) :
+  - garantir le recalcul après restore (émission `forms:changed` ou équivalent + revalidation),
+  - clarifier/prioriser snapshot vs per-field (et/ou nettoyer per-field sur clearForm),
+  - décider si autosave doit être branché par défaut (mount/destroy).
