@@ -9495,3 +9495,67 @@ node core/store.smoke.js
   - garantir le recalcul après restore (émission `forms:changed` ou équivalent + revalidation),
   - clarifier/prioriser snapshot vs per-field (et/ou nettoyer per-field sur clearForm),
   - décider si autosave doit être branché par défaut (mount/destroy).
+
+## 2026-03-12 12:04 — note116
+1) Objectifs:
+- Fermer M-2.1 ($STORE) via M-2.1.1 (restore cycle, autosave, clear/reset).
+- Définir/valider la chaîne d’agents Trae (Orchestrator/Reviewer/Executor), templates et doctrine de déploiement.
+- Implémenter et fermer LocalCMS M-2.2 ($USER), M-2.3 ($PATH), puis préparer M-3.1 (externalisation 1er module) avec gate P0.
+- Démarrer l’installation d’OpenClaw avec un cadrage sécurité strict.
+
+2) Actions:
+- M-2.1.1 ($STORE) : patchs ciblés (restore émet forms:changed global avant validateForm; autosave clarifié opt-in; clearForm purge snapshot + clés per-field) + smokes ajoutés; compat mock localStorage corrigée.
+- Trae :
+  - Créé/patché/validé TRAE_ORCHESTRATOR_V1.1 + pack de tests + évaluation (8/8 PASS) → CLOSE.
+  - Créé/patché/validé TRAE_REVIEWER_V1.1 + tests + évaluation (7/7 PASS) → CLOSE.
+  - Créé/patché/validé TRAE_EXECUTOR_PROFILE_V1.1 + évaluation → CLOSE.
+  - Créé/patché/validé TRAE_CHAIN_CONTRACT_V1.1 + évaluation chaîne → CLOSE.
+  - Créé/patché/validé TRAE_DEPLOYMENT_V1.1 → CLOSE.
+  - Créé/patché/validé TRAE_MISSION_TEMPLATE_V1.1 → CLOSE.
+- LocalCMS :
+  - M-2.2 ($USER) implémenté (core/user.js + intégration forms.js couche 2b) + smokes; corrections doc/contrat (getProfile shallow + doc alignée) → CLOSE.
+  - M-2.3 ($PATH) implémenté en module autonome (core/path.js + smokes) aligné sur core/store.js (load/save/remove) → CLOSE.
+  - Analyse ZIP de continuité (workflow, kanban, repo opt-trading, archive LocalCMS, P0 export HTML) + création de fichiers de reprise (00_reprise.txt, etabli_session.txt).
+  - Gate P0 : audit P0 vs core; patch prérequis P0 sur $PATH (ajout alias @root/@data/@scripts/@logs/@modules/@core) + note E1 (conditions when/show canonique) + smokes verts; ouverture GATE 0 M-3.1 (choix module ia-config).
+- Google Drive : tentative accès connecteur; dossier visible mais contenu souvent non listé; ZIP utilisé comme source fiable; stratégie proposée par noms de fichiers à la racine.
+- OpenClaw :
+  - Installation Windows lancée, onboarding interrompu (No) après avertissement sécurité; décision de privilégier installation sur Ubuntu (db-layer) avec utilisateur dédié et isolement.
+
+3) Décisions:
+- M-2.1.1 : DONE → M-2.1 fermé.
+- Autosave $STORE : doctrine opt-in (pas d’activation automatique au mount).
+- Trae : chaîne canonique V1 stabilisée (Orchestrator/Executor/Reviewer + contrat + évals + déploiement + template mission) → multiples CLOSE.
+- LocalCMS : M-2.2 CLOSE après alignement doc/contrat; M-2.3 CLOSE après vérification API store; avant M-3.1, gate P0 requis; prérequis P0 E3 ($PATH aliases @) à patcher avant externalisation.
+- M-3.1 : ne pas coder avant GATE 0; candidat retenu (par Claude) = MOD_IA_CFG → modules/ia-config.js (pas env-global).
+- OpenClaw : ne pas continuer onboarding Windows; privilégier Linux natif (db-layer) en mode labo cloisonné (pas de channels/tools étendus au départ).
+
+4) Commandes / Code:
+```powershell
+iwr -useb https://openclaw.ai/install.ps1 | iex
+# onboarding interrompu : "No"
+```
+```powershell
+wsl --install
+```
+```bash
+curl -fsSL https://openclaw.ai/install.sh | bash
+openclaw onboard --install-daemon
+openclaw gateway status
+openclaw dashboard
+```
+LocalCMS / Core (selon résumés fournis):
+```js
+// core/user.js : getProfile() shallow copy + doc alignée
+const getProfile = () => _profile ? { ..._profile } : null;
+```
+Tests exécutés (résultats rapportés) :
+- store.smoke 59/59; forms.smoke 61/61; conditions.smoke 64/64; validation.smoke 63/63
+- user.smoke 38/38
+- path.smoke 48/48
+Total core après patch P0: 333 assertions, 0 échec.
+
+5) Points ouverts (next):
+- LocalCMS M-3.1 : exécuter le GATE 0 (cadrage final) puis implémenter externalisation du 1er module inline (candidat: ia-config), sans toucher au core; préparer smoke dédié module.
+- Confirmer définitivement les références (localcms-reference.html / localcms-architecture.html / localcms_next_steps) avant découpe de localcms-v5.html.
+- OpenClaw : décider installation finale sur db-layer (Ubuntu) avec utilisateur dédié + cadre strict (tools/channels/nodes) avant toute activation; éviter doctor --fix et canaux (Telegram) tant que le hardening n’est pas défini.
+- Drive : déplacer fichiers clés à la racine et indexation par nom si besoin; sinon continuer via ZIP.
