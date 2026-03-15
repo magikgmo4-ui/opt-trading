@@ -1,0 +1,58 @@
+12_ORCHESTRATOR_ENTRYPOINT_V1
+
+0. Objet
+Ce document matérialise la porte d’entrée Orchestrator V1 pour opt-trading.
+Il sert de standard de mission : cadrer proprement avant toute exécution.
+
+1. Format canonique (à remplir)
+
+MISSION_ID
+
+MISSION_CLASS (DIAGNOSTIC / PATCH_LOCAL / MODULE_DURABLE / BUNDLE_TRANSFERT / AUDIT_REALIGNEMENT)
+
+OBJECTIF_REFORMULE (1–5 lignes)
+
+SOURCES_CONSULTEES (liens/chemins précis)
+
+SOURCES_MANQUANTES_OU_NON_LUES
+
+ETAT_ETABLI_INITIAL (faits prouvés uniquement)
+
+POINTS_A_CONFIRMER (liste courte)
+
+CONTRADICTIONS_DETECTEES (si aucune : “Néant”)
+
+SCOPE_AUTORISE (liste courte)
+
+HORS_SCOPE (liste courte)
+
+CONTRAINTE_MULTI_MACHINE
+- MACHINE(S) CIBLE(S)
+- OS / CHEMINS / MONTAGES pertinents
+- STATUT_PORTABILITE (LOCAL_SEULEMENT / PARTIELLEMENT_PORTABLE / MULTI_MACHINE_VISE / MULTI_MACHINE_VALIDE)
+
+DECISION_DEPOT (repo / shared / temp / backups)
+- DEPOT_CIBLE (chemin)
+- JUSTIFICATION
+
+PREUVE_ATTENDUE (preuves minimales)
+
+PLAN_D_ACTION (étapes)
+- ETAPE_01
+- ETAPE_02
+- ETAPE_03
+
+Règle :
+- si la mission comporte 3 étapes ou plus, ou implique repo+shared, ou plusieurs machines, utiliser le modèle : `docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt`
+
+LIVRABLE_ATTENDU (liste des fichiers/outputs attendus)
+
+STATUT_ORCHESTRATION (APPROCHE_PROPOSEE / A_RECADRER / HORS_SCOPE)
+
+PROCHAIN_PAS_LOGIQUE (1 ligne exploitable)
+
+2. Notes d’usage (bornées)
+- Ne rien inventer.
+- Distinguer ÉTABLI / À CONFIRMER / HYPOTHÈSE.
+- Signaler explicitement les contradictions (état réel / repo / kanban / doc OT).
+- Respecter strictement le scope ; préférer le plus petit mouvement utile.

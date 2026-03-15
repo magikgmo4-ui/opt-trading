@@ -1,7 +1,8 @@
 # TEMPLATE DE MISSION TRAE
 
-**ID MISSION :** GO_OT_[TYPE]_[ID]_[NOM_COURT]
-**TYPE :** [AUDIT / PATCH / MODULE / SIGNALISATION / RUNBOOK]
+**ID MISSION :** GO_OT_[MISSION_CLASS]_[ID]_[NOM_COURT]
+**MISSION_CLASS :** [DIAGNOSTIC / PATCH_LOCAL / MODULE_DURABLE / BUNDLE_TRANSFERT / AUDIT_REALIGNEMENT]
+**TYPE (legacy, déprécié) :** [AUDIT / PATCH / MODULE / SIGNALISATION / RUNBOOK] (optionnel)
 **OBJECTIF :** [Description courte et précise]
 
 ## 1. CONTEXTE DE DÉPART
@@ -17,6 +18,8 @@
 5.  **Clôture / Documentation** : Figer le résultat et mettre à jour le Master Pack.
 
 Règle d’exécution : conduire l’implémentation via `workflow_ai/WORKFLOW.md` (gates) et ses templates (`specs.md` / `tasks.md`).
+Standard de mission (Orchestrator) : cadrer via `docs/ot/trae/12_ORCHESTRATOR_ENTRYPOINT_V1.txt` avant exécution.
+Si la mission comporte 3 étapes ou plus, ou implique repo+shared, ou plusieurs machines, utiliser : `docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt`.
 
 ## 3. RÈGLES SPÉCIFIQUES
 - [Règle 1 : Ne pas toucher à X]

@@ -18,5 +18,8 @@ Socle pré-V1 (ordre de lecture recommandé) :
 Modèle workflow pour missions multi-étapes :
 - `docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt`
 
+Porte d’entrée Orchestrator V1 (standard de mission) :
+- `docs/ot/trae/12_ORCHESTRATOR_ENTRYPOINT_V1.txt`
+
 Reprise de session canonique :
 - `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md`
