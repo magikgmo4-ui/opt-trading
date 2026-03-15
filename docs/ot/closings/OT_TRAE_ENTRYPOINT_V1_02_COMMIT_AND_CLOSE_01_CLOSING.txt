@@ -1,0 +1,77 @@
+OT_TRAE_ENTRYPOINT_V1_02_COMMIT_AND_CLOSE_01_CLOSING
+ 
+Date (America/Montreal) : 2026-03-15
+Statut : CLOSE
+Classe : BUNDLE_TRANSFERT
+ 
+1. Objet
+Clôturer proprement le bundle doc-only V1 lié à la porte d’entrée Orchestrator, en figeant uniquement le périmètre validé, sans inclure de patch kanban dans ce commit.
+ 
+2. Résumé exécutif
+- La porte d’entrée canonique Orchestrator V1 a été matérialisée.
+- Le README Trae pointe maintenant explicitement vers cet artefact.
+- Le template de mission starter pack a été aligné sur `MISSION_CLASS` et sur l’ID mission canonique.
+- La checklist multi-étapes a été alignée sur le vocabulaire V1 (`MISSION_CLASS` + enum canonique de portabilité).
+- Le bundle retenu pour ce commit est strictement limité à 4 fichiers doc-only.
+- Le kanban reste hors de ce commit pour garder un périmètre propre et non mélangé.
+ 
+3. Fichiers inclus dans le bundle
+- `docs/ot/trae/12_ORCHESTRATOR_ENTRYPOINT_V1.txt`
+- `docs/ot/trae/README.md`
+- `docs/master_pack/mission_starter_pack/01_mission_template.md`
+- `docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt`
+ 
+4. Changements figés
+4.1 `docs/ot/trae/12_ORCHESTRATOR_ENTRYPOINT_V1.txt`
+- Ajout de la porte d’entrée standard Orchestrator V1 comme artefact canonique de cadrage.
+ 
+4.2 `docs/ot/trae/README.md`
+- Ajout du pointeur explicite vers `12_ORCHESTRATOR_ENTRYPOINT_V1.txt`.
+ 
+4.3 `docs/master_pack/mission_starter_pack/01_mission_template.md`
+- `ID MISSION` aligné sur :
+  `GO_OT_[MISSION_CLASS]_[ID]_[NOM_COURT]`
+- `MISSION_CLASS` devient le champ principal.
+- `TYPE` est conservé uniquement comme alias legacy déprécié et optionnel.
+- Ajout du pointeur vers l’entrypoint Orchestrator.
+- Ajout de la règle de recours à la checklist multi-étapes.
+ 
+4.4 `docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt`
+- `TYPE` remplacé par `MISSION_CLASS`.
+- `PORTEE_MACHINE` aligné sur l’énumération canonique :
+  `LOCAL_SEULEMENT / PARTIELLEMENT_PORTABLE / MULTI_MACHINE_VISE / MULTI_MACHINE_VALIDE`
+ 
+5. Périmètre explicitement exclu
+- Aucun patch kanban dans ce commit.
+- Aucun patch reprise obligatoire dans ce commit.
+- Aucune implémentation runtime / MCP.
+- Aucune refonte large du socle.
+- Aucun changement code/script/module.
+- Aucun fichier hors des 4 chemins ci-dessus.
+ 
+6. Vérification de périmètre
+- Working tree retenu pour ce bundle : 4 fichiers exacts.
+- Aucun fichier parasite inclus.
+- Bundle doc-only strict.
+- Les warnings LF/CRLF éventuels sont notés comme non bloquants pour cette clôture.
+ 
+7. Commit retenu
+Message de commit :
+`Trae V1: add Orchestrator entrypoint and align mission template/checklist`
+ 
+8. Verdict
+PASS / CLOSE
+ 
+9. Décision de pilotage
+- Commit now : oui
+- Kanban patch now : non
+- Closing now : oui
+- Reprise patch now : non obligatoire
+ 
+10. Point de reprise exact
+`GO_OT_NEXT_MISSION_SELECTION_01`
+ 
+11. Note de continuité
+Le socle documentaire V1 a été consolidé sans mélange de périmètre.
+La suite ne doit pas repartir dans une réécriture doctrinale.
+La prochaine étape doit reprendre la sélection prudente de la mission suivante à partir du kanban canonique.
