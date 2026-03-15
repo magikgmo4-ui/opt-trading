@@ -1,0 +1,69 @@
+OT_KANBAN_SYNC_TRAE_ENTRYPOINT_V1_01_CLOSING
+ 
+Date (America/Montreal) : 2026-03-15
+Statut : CLOSE
+Classe : PATCH_LOCAL
+ 
+1. Objet
+Corriger la divergence documentaire entre la synthèse opérationnelle du kanban et le kanban détaillé canonique, sans toucher à la source of truth ni lancer d’autre chantier.
+ 
+2. Résumé exécutif
+- Une divergence interne repo a été confirmée entre :
+  - `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`
+  - `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md`
+- Le kanban détaillé a été conservé comme source de vérité.
+- La synthèse opérationnelle a été alignée sur les statuts réels du bloc Trae V1.
+- Aucun autre fichier n’a été modifié.
+- Le point de reprise reste `GO_OT_NEXT_MISSION_SELECTION_01`.
+ 
+3. Source de vérité utilisée
+- `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`
+- `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md`
+- `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md`
+- `docs/ot/closings/OT_TRAE_ENTRYPOINT_V1_02_COMMIT_AND_CLOSE_01_CLOSING.txt`
+ 
+4. Fichier modifié
+- `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md`
+ 
+5. Correction appliquée
+Les 4 lignes suivantes de la synthèse opérationnelle ont été corrigées pour refléter le kanban détaillé :
+- `Rules Trae V1`
+- `Agents Trae V1`
+- `Skills Trae V1`
+- `MCP Policy V1`
+ 
+Ancien état dans la synthèse :
+- `MANQUANT / À OUVRIR`
+- `MANQUANT`
+- `MANQUANT / REPORTÉ`
+ 
+Nouvel état aligné sur la source of truth :
+- `ÉTABLI / MATÉRIALISÉ (PRE-V1)`
+- suite logique : `revue + gel pré-V1`
+ 
+6. Périmètre explicitement exclu
+- Aucun patch sur `opt_trading_kanban_source_of_truth.md`
+- Aucun patch sur la reprise canonique
+- Aucun patch sur les docs Trae V1
+- Aucun code / script / module
+- Aucun chantier runtime / MCP / doctrine
+ 
+7. Vérification de périmètre
+- Patch doc-only strict
+- Un seul fichier touché
+- Aucun chantier parasite mélangé
+ 
+8. Verdict
+PASS / CLOSE
+ 
+9. Impact documentaire
+- Kanban détaillé : inchangé
+- Synthèse opérationnelle : corrigée
+- Reprise : inchangée
+ 
+10. Point de reprise exact
+`GO_OT_NEXT_MISSION_SELECTION_01`
+ 
+11. Note de continuité
+La divergence interne kanban détaillé ↔ synthèse opérationnelle a été résolue.
+La prochaine étape doit rejouer la sélection prudente de la mission suivante depuis le kanban canonique, sans exécution prématurée.
