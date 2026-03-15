@@ -1,7 +1,7 @@
-05B_MULTI_STEP_MISSION_CHECKLIST_V1
+08_MULTI_STEP_MISSION_CHECKLIST_V1
 
 0. Objet
-05B_MULTI_STEP_MISSION_CHECKLIST_V1 définit le modèle de checklist canonique pour les missions comportant plusieurs étapes.
+08_MULTI_STEP_MISSION_CHECKLIST_V1 définit le modèle de checklist canonique pour les missions comportant plusieurs étapes.
 
 1. Quand utiliser cette checklist
 La checklist multi-étapes devient obligatoire si la mission :
@@ -85,7 +85,7 @@ Le champ DEPEND_DE permet d’éviter les missions floues.
 Une étape bloquée doit être visible comme telle, pas absorbée silencieusement.
 
 7. Intégration au workflow
-Cette checklist doit être référencée depuis 05_POLITIQUE_INSTRUCTIONS_V1 et utilisée comme modèle dès qu’une mission devient réellement multi-étapes.
+Cette checklist doit être référencée depuis 07_POLITIQUE_INSTRUCTIONS_V1 et utilisée comme modèle dès qu’une mission devient réellement multi-étapes.
 
 8. Exemple minimal appliqué à une mission comme celle-ci
 PRE_V1_TRAE_01

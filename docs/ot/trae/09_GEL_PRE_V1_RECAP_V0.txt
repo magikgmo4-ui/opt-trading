@@ -3,12 +3,12 @@ GEL_PRE_V1_RECAP_V0
 1. Fichiers canoniques du socle pré-V1
 - 01_RULES_V1
 - 02_AGENTS_V1
-- MISSION_CLASSES_V1
-- 03_SKILLS_V1
-- 04_RUNTIME_MCP_POLICY_V1
-- 04B_REPO_BOUNDARY_POLICY_V1
-- 05_POLITIQUE_INSTRUCTIONS_V1
-- 05B_MULTI_STEP_MISSION_CHECKLIST_V1
+- 03_MISSION_CLASSES_V1
+- 04_SKILLS_V1
+- 05_RUNTIME_MCP_POLICY_V1
+- 06_REPO_BOUNDARY_POLICY_V1
+- 07_POLITIQUE_INSTRUCTIONS_V1
+- 08_MULTI_STEP_MISSION_CHECKLIST_V1
 
 2. Ce qui est déjà assez stable pour être considéré comme “draft V1 prêt à valider”
 - architecture du socle en couches ;
@@ -37,11 +37,11 @@ GEL_PRE_V1_RECAP_V0
 La V1 n’est plus un problème de prompting intelligent ; c’est un système de travail structuré où :
 - les règles communes vivent dans 01 ;
 - les comportements vivent dans 02 ;
-- les formes de mission vivent dans MISSION_CLASSES ;
-- les opérations répétables vivent dans 03 ;
-- les contraintes réelles vivent dans 04 ;
-- la frontière repo/hors-repo vit dans 04B ;
-- les prompts utilisateur sont allégés par 05.
+- les formes de mission vivent dans 03 ;
+- les opérations répétables vivent dans 04 ;
+- les contraintes réelles vivent dans 05 ;
+- la frontière repo/hors-repo vit dans 06 ;
+- les prompts utilisateur sont allégés par 07.
 
 6. Verdict de gel pré-V1
 Statut : DRAFT_PRE_V1_FORT.

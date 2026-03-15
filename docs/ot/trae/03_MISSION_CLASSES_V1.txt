@@ -1,7 +1,7 @@
-MISSION_CLASSES_V1
+03_MISSION_CLASSES_V1
 
 0. Objet
-MISSION_CLASSES_V1 définit les classes de mission canoniques de Trae pour opt-trading.
+03_MISSION_CLASSES_V1 définit les classes de mission canoniques de Trae pour opt-trading.
 
 1. Règles communes à toutes les classes
 Toute mission doit produire au minimum :

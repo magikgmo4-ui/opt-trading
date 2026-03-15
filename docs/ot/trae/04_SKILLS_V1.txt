@@ -1,7 +1,7 @@
-03_SKILLS_V1
+04_SKILLS_V1
 
 0. Objet
-03_SKILLS_V1 définit les skills canoniques minimaux de Trae pour opt-trading.
+04_SKILLS_V1 définit les skills canoniques minimaux de Trae pour opt-trading.
 
 1. Principe général
 Les agents portent la mission.

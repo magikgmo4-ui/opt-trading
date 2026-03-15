@@ -1,7 +1,7 @@
-04B_REPO_BOUNDARY_POLICY_V1
+06_REPO_BOUNDARY_POLICY_V1
 
 0. Objet
-04B_REPO_BOUNDARY_POLICY_V1 fixe la frontière canonique entre :
+06_REPO_BOUNDARY_POLICY_V1 fixe la frontière canonique entre :
 - repo
 - hors repo (shared)
 - temp
