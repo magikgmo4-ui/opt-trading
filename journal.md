@@ -9444,3 +9444,308 @@ prompt_claude_localcms_v1_court.txt
 5) Points ouverts (next):
 - (Hors périmètre de la mission) Intégrer `validated_prompt_factory` dans le menu Ops global (`ops_menu_hub` ou `ops_super_menu`).
 - Point de reprise conservé : `GO_PROMPT_FACTORY`.
+
+## 2026-03-12 12:02 — note115
+1) Objectifs:
+- Lire l’audit Kanban (ZIP) et produire un compte rendu + étapes logiques suivantes.
+- Exécuter les premières étapes (K07/K01…) puis basculer sur le travail avec Trae (agents/modules) en mettant CMS/Claude de côté.
+- Implémenter et valider une suite de modules LocalCMS ($FORMS/$COND/$VALID) puis ouvrir $STORE.
+
+2) Actions:
+- Ouverture du ZIP d’audit : inventaire de présence du bundle reçu (README.txt, .md, .xlsx) et liste des artefacts référencés mais absents (P0, journal.md, packs, workflows, specs, logs, etc.). K07 marqué “partiellement fait” (bundle seulement).
+- Bascule vers Trae :
+  - Création du module `modules/trae_module_validator` (scripts + README + cmd/menu/sanity).
+  - Tests d’exécution via Git Bash : sanity OK; validation de `validated_prompt_factory` (PASS) et `vision_bot` (WARN legacy scripts/ + sanity_check.sh).
+  - Patch de finition : clarification standard `sanity.sh` (canonique) vs `sanity_check.sh` (legacy), suppression `docs/` vide, README corrigé.
+  - Validation V1 = CLOSE; journalisation annoncée (fichiers `2026-03-11_journal_trae_module_validator_v1.txt` et `2026-03-11_etabli_trae_module_validator_v1.txt`).
+  - Mission GO_TRAE_MODULE_VALIDATOR_V2 : validation du module lui-même; clôture avec point de reprise `GO_TRAE_ORCHESTRATOR_V1`.
+- LocalCMS (suite M-1.x) :
+  - M-1.2 ($COND) livré puis micro-fix M-1.2.1 : `getFormValues()` ignore `el.disabled` + test smoke DIS + correction mock DOM (disabled vs _disabled). Smokes verts (conditions 64/64, forms 61/61). M-1.2/M-1.2.1 = CLOSE.
+  - M-1.3 ($VALID) livré puis bug détecté (erreurs “stale” sur champs devenus inactifs). M-1.3.1 : purge des erreurs inactives dans `validateForm()` + smoke FIX; smokes verts (validation 63/63, forms 61/61, conditions 64/64). M-1.3/M-1.3.1 = CLOSE.
+  - M-2.1 ($STORE) implémenté (core/store.js + store.smoke.js) + patch mountForm (forms.js v1.1.5) + updates version checks; smokes verts (store 46/46, validation 63/63, conditions 64/64, forms 61/61). Revue : non-CLOSE car restore ne garantit pas de déclenchement du cycle `$COND/$VALID` (setFormValue n’émet pas `forms:changed`), ambiguïté per-field vs snapshot, autosave non branché par défaut.
+
+3) Décisions:
+- Ne pas lancer de chantiers lourds LocalCMS tant que les “gates” documentaires ne sont pas fermés (P0 réel, workflow canonique, shared/transfert, artefacts localisés).
+- Mettre CMS/Claude en pause; reprendre Trae comme chantier actif.
+- `trae_module_validator` : canonique `sanity.sh` à la racine; `sanity_check.sh` toléré en legacy avec WARN.
+- LocalCMS :
+  - Invariant confirmé : champ masqué via $COND => disabled => exclu de `getFormValues()`.
+  - M-1.1/M-1.2/M-1.2.1/M-1.3/M-1.3.1 entérinés en CLOSE.
+- M-2.1 $STORE : statut recommandé OPEN/quasi-fini, nécessitant un micro-fix (M-2.1.1) avant fermeture.
+
+4) Commandes / Code:
+```powershell
+mkdir modules/trae_module_validator/scripts; mkdir modules/trae_module_validator/docs
+& "C:\Program Files\Git\bin\bash.exe" modules/trae_module_validator/sanity.sh
+& "C:\Program Files\Git\bin\bash.exe" modules/trae_module_validator/cmd.sh validate validated_prompt_factory
+& "C:\Program Files\Git\bin\bash.exe" modules/trae_module_validator/cmd.sh validate vision_bot
+
+node core/conditions.smoke.js
+node core/forms.smoke.js
+node core/validation.smoke.js
+node core/store.smoke.js
+
+& "C:\Program Files\Git\bin\bash.exe" modules/module_contextuals_shell/cmd.sh discover | Select-String "trae_module_validator" -Context 0,10
+```
+
+5) Points ouverts (next):
+- Audit/Kanban : récupérer le stockage réel (repo/artefacts) pour terminer K07 (au-delà du bundle) + retrouver/valider P0 si réactivé plus tard.
+- Trae : ouvrir `GO_TRAE_ORCHESTRATOR_V1` (point de reprise retenu après clôture validator).
+- LocalCMS : M-2.1 $STORE à finaliser (M-2.1.1) :
+  - garantir le recalcul après restore (émission `forms:changed` ou équivalent + revalidation),
+  - clarifier/prioriser snapshot vs per-field (et/ou nettoyer per-field sur clearForm),
+  - décider si autosave doit être branché par défaut (mount/destroy).
+
+## 2026-03-12 12:04 — note116
+1) Objectifs:
+- Fermer M-2.1 ($STORE) via M-2.1.1 (restore cycle, autosave, clear/reset).
+- Définir/valider la chaîne d’agents Trae (Orchestrator/Reviewer/Executor), templates et doctrine de déploiement.
+- Implémenter et fermer LocalCMS M-2.2 ($USER), M-2.3 ($PATH), puis préparer M-3.1 (externalisation 1er module) avec gate P0.
+- Démarrer l’installation d’OpenClaw avec un cadrage sécurité strict.
+
+2) Actions:
+- M-2.1.1 ($STORE) : patchs ciblés (restore émet forms:changed global avant validateForm; autosave clarifié opt-in; clearForm purge snapshot + clés per-field) + smokes ajoutés; compat mock localStorage corrigée.
+- Trae :
+  - Créé/patché/validé TRAE_ORCHESTRATOR_V1.1 + pack de tests + évaluation (8/8 PASS) → CLOSE.
+  - Créé/patché/validé TRAE_REVIEWER_V1.1 + tests + évaluation (7/7 PASS) → CLOSE.
+  - Créé/patché/validé TRAE_EXECUTOR_PROFILE_V1.1 + évaluation → CLOSE.
+  - Créé/patché/validé TRAE_CHAIN_CONTRACT_V1.1 + évaluation chaîne → CLOSE.
+  - Créé/patché/validé TRAE_DEPLOYMENT_V1.1 → CLOSE.
+  - Créé/patché/validé TRAE_MISSION_TEMPLATE_V1.1 → CLOSE.
+- LocalCMS :
+  - M-2.2 ($USER) implémenté (core/user.js + intégration forms.js couche 2b) + smokes; corrections doc/contrat (getProfile shallow + doc alignée) → CLOSE.
+  - M-2.3 ($PATH) implémenté en module autonome (core/path.js + smokes) aligné sur core/store.js (load/save/remove) → CLOSE.
+  - Analyse ZIP de continuité (workflow, kanban, repo opt-trading, archive LocalCMS, P0 export HTML) + création de fichiers de reprise (00_reprise.txt, etabli_session.txt).
+  - Gate P0 : audit P0 vs core; patch prérequis P0 sur $PATH (ajout alias @root/@data/@scripts/@logs/@modules/@core) + note E1 (conditions when/show canonique) + smokes verts; ouverture GATE 0 M-3.1 (choix module ia-config).
+- Google Drive : tentative accès connecteur; dossier visible mais contenu souvent non listé; ZIP utilisé comme source fiable; stratégie proposée par noms de fichiers à la racine.
+- OpenClaw :
+  - Installation Windows lancée, onboarding interrompu (No) après avertissement sécurité; décision de privilégier installation sur Ubuntu (db-layer) avec utilisateur dédié et isolement.
+
+3) Décisions:
+- M-2.1.1 : DONE → M-2.1 fermé.
+- Autosave $STORE : doctrine opt-in (pas d’activation automatique au mount).
+- Trae : chaîne canonique V1 stabilisée (Orchestrator/Executor/Reviewer + contrat + évals + déploiement + template mission) → multiples CLOSE.
+- LocalCMS : M-2.2 CLOSE après alignement doc/contrat; M-2.3 CLOSE après vérification API store; avant M-3.1, gate P0 requis; prérequis P0 E3 ($PATH aliases @) à patcher avant externalisation.
+- M-3.1 : ne pas coder avant GATE 0; candidat retenu (par Claude) = MOD_IA_CFG → modules/ia-config.js (pas env-global).
+- OpenClaw : ne pas continuer onboarding Windows; privilégier Linux natif (db-layer) en mode labo cloisonné (pas de channels/tools étendus au départ).
+
+4) Commandes / Code:
+```powershell
+iwr -useb https://openclaw.ai/install.ps1 | iex
+# onboarding interrompu : "No"
+```
+```powershell
+wsl --install
+```
+```bash
+curl -fsSL https://openclaw.ai/install.sh | bash
+openclaw onboard --install-daemon
+openclaw gateway status
+openclaw dashboard
+```
+LocalCMS / Core (selon résumés fournis):
+```js
+// core/user.js : getProfile() shallow copy + doc alignée
+const getProfile = () => _profile ? { ..._profile } : null;
+```
+Tests exécutés (résultats rapportés) :
+- store.smoke 59/59; forms.smoke 61/61; conditions.smoke 64/64; validation.smoke 63/63
+- user.smoke 38/38
+- path.smoke 48/48
+Total core après patch P0: 333 assertions, 0 échec.
+
+5) Points ouverts (next):
+- LocalCMS M-3.1 : exécuter le GATE 0 (cadrage final) puis implémenter externalisation du 1er module inline (candidat: ia-config), sans toucher au core; préparer smoke dédié module.
+- Confirmer définitivement les références (localcms-reference.html / localcms-architecture.html / localcms_next_steps) avant découpe de localcms-v5.html.
+- OpenClaw : décider installation finale sur db-layer (Ubuntu) avec utilisateur dédié + cadre strict (tools/channels/nodes) avant toute activation; éviter doctor --fix et canaux (Telegram) tant que le hardening n’est pas défini.
+- Drive : déplacer fichiers clés à la racine et indexation par nom si besoin; sinon continuer via ZIP.
+
+## 2026-03-12 12:06 — note117
+1) Objectifs:
+- Externaliser progressivement des modules inline de `localcms-v5.html` vers des fichiers `modules/*.js` (manifeste déclaratif pur + bridge transitoire minimal) en patch minimal (LocalCMS).
+- Clore M-3.1 à M-3.4, consolider P3 en archive canonique unique, puis ouvrir P4 (M-4.x).
+- Mettre Antigravity sur une branche et un clone isolés, puis lancer un chantier “Student” en parallèle (plan doc), sans impacter le repo principal.
+- Stabiliser la doctrine Trae (templates + chaîne + statuts), matérialiser en `.txt` sur disque et compléter un “Drive reference pack”.
+
+2) Actions:
+- M-3.1 (IA Config) : rejet initial (manifeste hybride + perte 4 onglets → 2 sections), puis correction : manifeste pur `*_DATA`, retour 4 forms/50 champs, smoke orienté équivalence, correction P0 `ia_img_output_dir=''`, smoke 125/125 ✅, **CLOSE**.
+- M-3.2 (Machines Config) : externalisation (6 forms/65 champs), correction P0 sur placeholders/hints (chemins/IP/hostnames neutralisés), smoke 151/151 ✅, **CLOSE**.
+- M-3.3 (Data Sources) : externalisation (5 forms/72 champs, 3 champs F-15), corrections P0 (values/placeholders/hints), smoke 136/136 ✅ ; détecté bug load order (bridges évalués avant `*_DATA`), corrigé en déplaçant `<script src="modules/*.js">` avant le bloc inline bridges, M-3.1/3.2/3.3 **CLOSE**.
+- M-3.4 : prompt préparé pour externaliser `MOD_ENV_GLOBAL → modules/env-global.js`.
+- Git/Antigravity : création d’un clone séparé et branche dédiée, push remote, synchronisation après divergence remote via rebase; confirmation état propre.
+- Student : plan initial Antigravity corrigé (ÉTABLI / À CONFIRMER / TODO / BLOQUÉ / RISQUES / POINT DE REPRISE / GO), mise au point sur dépendance “accès machine student”.
+- Trae : review/itérations successives des templates (Execution report, Review verdict, Doctrine chain, Status policy, Closure template, Canonical index, Session opening pack), micro-corrections puis clôtures Vx.1/Vx.2. Mise en place d’une règle de matérialisation en fichiers `.txt` locaux.
+- LocalCMS P3 : consolidation finale en une archive canonique unique (suppression logique “base + overrides”) + smokes complets.
+- P4 : M-4.1 externalisation `MOD_QUEUE_CFG`; M-4.2 externalisation `MOD_SEC_CFG`; smokes complets verts; statut conservé `review_required`.
+
+3) Décisions:
+- Les manifestes modules doivent être **purs** (données uniquement). Toute logique runtime doit rester dans le **bridge** (HTML), transitoire.
+- Pas de réduction de périmètre fonctionnel sans validation explicite (ex: onglets/forms).
+- P0 strict : pas de chemins/IPs/hostnames concrets dans `value` **ni** dans `placeholder/hint` ; champs sensibles marqués `sensitive`.
+- Correction load order : les `modules/*.js` contenant `*_DATA` doivent être chargés **avant** les bridges qui les lisent.
+- P3 consolidé en **archive unique** de reprise : `localcms_P3_CANONIQUE_FINAL.zip`, point de reprise `GO_P4`.
+- P4 : externaliser en priorité des modules config du “script 0” avec pattern FORMS (d’abord `MOD_QUEUE_CFG`, puis `MOD_SEC_CFG`), maintenir le pattern load order P4.
+- Antigravity doit travailler uniquement dans le clone dédié et sur `antigravity/main`.
+
+4) Commandes / Code:
+```powershell
+# Isolation Antigravity (clone séparé + branche dédiée)
+Remove-Item -Recurse -Force C:\Users\ghost\CLONE-opt-trading\opt-trading
+git clone https://github.com/magikgmo4-ui/opt-trading.git C:\Users\ghost\CLONE-opt-trading\opt-trading
+cd C:\Users\ghost\CLONE-opt-trading\opt-trading
+git switch sot/mainline
+git switch -c antigravity/main
+git push -u origin antigravity/main
+
+# Vérifications
+git branch --show-current
+git status
+
+# Push principal rejeté (remote ahead) -> rebase implicite confirmé par reflog
+git push
+git log --oneline --decorate -n 10
+git reflog -n 10
+
+# Mise à jour branche Antigravity depuis remote
+git push origin antigravity/main
+git log --oneline --decorate -n 5
+```
+
+5) Points ouverts (next):
+- M-4.3 à lancer : externalisation `MOD_APPS_CFG → modules/apps-config.js` (pattern P4), avec smoke + neutralisations P0 si nécessaires.
+- Décider si `review_required` sur M-4.1/M-4.2 devient **CLOSE** (critères: stabilité load order + non-régression UI via bridge).
+- Trae : appliquer micro-corrections proposées sur `TRAE_DRIVE_REFERENCE_PACK_V1 → V1.1` (versionner la liste + assouplir “validité” vs “disponibilité”), puis lancer `GO_TRAE_CANONICAL_SYNC_CHECK`.
+- Student : matérialiser le plan validé dans un fichier doc du repo (ex: `docs/student/README.md`) si souhaité, sans dev code.
+
+## 2026-03-12 12:07 — note120
+1) Objectifs:
+- LocalCMS : externaliser des modules config du grand script inline (pattern P4), valider via smokes, archiver un point de reprise.
+- Trae : réhydrater/synchroniser le socle canonique, créer/canoniser un rôle Orchestrator, mettre à jour l’index et le reference pack, réaligner les pointeurs de réouverture.
+- opt-trading : intégrer `validated_prompt_factory` au hub Ops (`ops_super_menu`), valider en runtime sur Linux, pousser sur `origin/sot/mainline`, réaligner le repo Windows, revalider le socle Trae.
+
+2) Actions:
+- LocalCMS M-4.3 :
+  - Inventaire MOD_APPS_CFG : 6 forms, 154 champs réels, 468 lignes inline, 5 sensitive ; 14 values P0 vidées, 7 placeholders neutralisés.
+  - Création `modules/apps-config.js` + `modules/apps-config.smoke.js`.
+  - Patch `localcms-v5.html` : retrait inline, ajout bridge + `<script src="modules/apps-config.js">` avant `sec-config.js`.
+  - Correction du check “inline absent” (faux positif car regex matchait la signature du bridge).
+  - Validations : total 1397/1397 ✅ ; archive `localcms_M4.3_apps-config.zip`.
+- LocalCMS M-4.4 :
+  - Extraction base M-4.3 (1397/1397 ✅).
+  - Inventaire MOD_DEVTOOLS_CFG : 8 forms, 137 champs, 397 lignes inline, 0 sensitive ; vt_base `'/'`, vt_host `'localhost'` conservés.
+  - Création `modules/devtools-config.js` + `modules/devtools-config.smoke.js`.
+  - Patch `localcms-v5.html` : retrait inline, ajout bridge + `<script src="modules/devtools-config.js">` (load order dev < apps < sec < queue < script0).
+  - Ajustement smoke (precommit=17 ; correction dans smoke uniquement).
+  - Validations : total 1590/1590 ✅ ; archive `localcms_M4.4_devtools-config.zip`.
+  - Note : écart documentaire signalé sur un header/commentaire de comptage (non bloquant).
+- Pack reprise LocalCMS :
+  - Vérification archive `localcms_session_M4.3_ALL.zip` : jugée suffisante (HTML + modules P4/P3 + smokes).
+  - Rédaction de fichiers texte de reprise (00_reprise/00_etabli/00_next) + pack texte zip.
+- Trae (socle canonique) :
+  - Lecture `00_reouverture_session_trae.txt`, chargement index + établi ; résolution d’un écart (point de reprise : GO_TRAE_CANONICAL_SYNC_CHECK priorisé).
+  - Chargement pack canonique complet (templates + doctrine + status policy + drive reference pack).
+  - Rédaction d’un draft `TRAE_ORCHESTRATOR_ROLE_V1.1.txt`, matérialisation sur disque, puis canonisation via patch dédié (section 13).
+  - Création `TRAE_CANONICAL_INDEX_V1.3.txt` (V1.2 préservé) pour référencer la nouvelle brique close.
+  - Création `TRAE_DRIVE_REFERENCE_PACK_V1.1.txt` (V1 préservé), sync check PASS, puis patch `TRAE_SESSION_OPENING_PACK_V1.1.txt` pour pointer vers Index V1.3 / Ref Pack V1.1 ; clôture.
+- opt-trading / validated_prompt_factory :
+  - Diagnostic initial : patch `modules/validated_prompt_factory/scripts/install_shortcuts.sh` pour créer symlinks hub-compliant (`menu-*`, `cmd-*`, `sanity-*`) afin d’être détecté par `ops_super_menu`.
+  - Blocage runtime Windows (pas de WSL) => REJECT (preuve runtime manquante) + point de reprise validation Linux.
+  - Validation via SSH Windows -> admin-trading :
+    - Module absent sur admin-trading ⇒ transfert ciblé (SCP vers /tmp), staging.
+    - Copie vers `/opt/trading/modules/` (sudo), correction CRLF via `sed`.
+    - Exécution `install_shortcuts.sh`, symlinks présents, module listé par `/opt/trading/modules/ops_super_menu/ops_super_menu.sh list_menus`.
+    - Correctif : scripts `cmd.sh/menu.sh/sanity.sh` rendus symlink-aware (passage à `readlink -f`), chmod +x ; sanity PASS via `/usr/local/bin/sanity-validated_prompt_factory`.
+  - Git :
+    - Tentatives de commit/push Windows : push cassé et commit local suspect (trop large) ⇒ non retenu comme source de vérité.
+    - Sur admin-trading : commit initial ajout module (67ad84b) puis push rejeté (remote ahead). Cherry-pick sur remote a montré que le module existait déjà sur origin (conflits add/add).
+    - Solution : patch minimal sur 4 fichiers seulement, re-validation runtime, commit `da1356d`, push OK vers `origin/sot/mainline`.
+  - Réalignement :
+    - Admin-trading : reset hard sur origin/sot/mainline.
+    - Windows : backup `trae_pack_texts` puis `git fetch` + `git reset --hard origin/sot/mainline` ⇒ HEAD `da1356d`, `trae_pack_texts/` conservé.
+  - Trae sync check post-reset Git : PASS ; clôture GO_TRAE_CANONICAL_SYNC_CHECK ; état prêt mission métier.
+
+3) Décisions:
+- LocalCMS : M-4.3 et M-4.4 déclarés “techniquement solides” mais statut conservé `review_required` ; fermeture/archivage OK.
+- Check “inline absent” : ne plus matcher uniquement la signature `const MOD_* = (() => {` ; utiliser un marqueur unique de l’ancien inline (ex: `let activeType = 'eslint'`).
+- Trae : canonisation = review puis patch dédié (pas de modification “pendant la review”) ; pas de statut “HOLD/BLOCKED_BY_ENV” (non canonique).
+- Index Trae : création d’une nouvelle version (V1.3) plutôt que patch en place de V1.2 pour intégrer une nouvelle brique close.
+- Reference pack Trae : nouvelle version V1.1 plutôt qu’écrasement V1.
+- opt-trading : ne pas simuler une validation runtime ; validation doit se faire sur Linux réel (SSH). Ne pas “forcer” Git depuis Windows ; préférer patch minimal validé, puis push propre.
+- Git : interdiction de `push --force` ; en cas de divergence, préférer approche branch/compare/patch minimal.
+- Windows repo : réalignement par `reset --hard` autorisé avec backup préalable de `trae_pack_texts/`.
+
+4) Commandes / Code:
+```bash
+# Linux/admin-trading (validation runtime)
+bash /opt/trading/modules/validated_prompt_factory/scripts/install_shortcuts.sh
+ls -l /usr/local/bin/*validated_prompt_factory*
+/opt/trading/modules/ops_super_menu/ops_super_menu.sh list_menus | grep validated_prompt_factory
+/usr/local/bin/sanity-validated_prompt_factory
+
+# Fix CRLF (admin-trading)
+sudo sed -i "s/\r$//" /opt/trading/modules/validated_prompt_factory/scripts/install_shortcuts.sh
+sudo sed -i "s/\r$//" /opt/trading/modules/validated_prompt_factory/{cmd.sh,menu.sh,sanity.sh} \
+  /opt/trading/modules/validated_prompt_factory/scripts/install_shortcuts.sh
+
+# Symlink-aware scripts (admin-trading)
+# Remplacement du SCRIPT_DIR par readlink -f (appliqué sur cmd.sh/menu.sh/sanity.sh)
+SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+
+# Git (admin-trading) — patch minimal final
+git add modules/validated_prompt_factory/{cmd.sh,menu.sh,sanity.sh,scripts/install_shortcuts.sh}
+git commit -m "validated_prompt_factory: add hub shortcuts and symlink-aware scripts"
+git push origin HEAD:sot/mainline
+# Commit final poussé: da1356d
+
+# Windows (PowerShell) — réalignement
+git fetch origin
+git reset --hard origin/sot/mainline
+# HEAD: da1356d
+```
+
+5) Points ouverts (next):
+- LocalCMS : préparer la suite P4 (recommandé M-4.5 = MOD_BACKEND_CFG) ; maintenir l’état `review_required` (M-4.1 à M-4.4).
+- opt-trading : nettoyer/ignorer toute tentative de commit Windows antérieure (ex: 183533c) si elle existe encore localement hors branche active ; vérifier que `trae_pack_texts_backup_2026-03-12/` n’est jamais ajouté à Git.
+- Trae : prochaine intention à définir (point de reprise : **GO_MISSION_METIER_OU_STANDBY**).
+
+## 2026-03-12 13:49 — note122
+1) Objectifs:
+- Valider l’intégrité du socle doctrinal Trae après reset Git.
+- Comprendre/poser le format de cadrage `GO_MISSION`.
+- Auditer LocalCMS (sources session + états + packs) et réaligner le kanban sur l’état réel.
+- Produire des livrables de reprise LocalCMS : kanban “source de vérité”, établi, todo.
+- Lancer un audit majeur opt-trading et figer un kanban opt-trading “source de vérité”.
+2) Actions:
+- Vérification des fichiers Trae (pack textes non-tracké) dans `C:\Users\ghost\opt-trading\trae_pack_texts\trae_pack` : PASS, aucune anomalie.
+- Clôture `GO_TRAE_CANONICAL_SYNC_CHECK` : verdict ACCEPT, environnement sain, point de reprise `GO_MISSION_METIER_OU_STANDBY`.
+- Explication détaillée du format `GO_MISSION` (classification/cible/objectif/contrainte) + exemples.
+- Audit LocalCMS (multi-passes) basé principalement sur :
+  - `00_etat_courant_M4.4.txt`
+  - `localcms_session_M4.4_ALL.zip`
+  - `localcms_core_M1.1-M2.3.zip` (+ index + docs core)
+- Constats LocalCMS :
+  - P1/P2/P3 = CLOSE (selon état courant M-4.4)
+  - M-4.1→M-4.4 = review_required (techniquement verts, smokes relancés OK)
+  - prochain point recommandé : M-4.5 = `MOD_BACKEND_CFG`
+  - ancien kanban prérempli (P0→M-1.1) reclassé obsolète.
+- Production (dans la conversation) des 3 livrables LocalCMS :
+  - `localcms_kanban_source_of_truth_2026-03-12.md`
+  - `00_etabli_localcms_2026-03-12.txt`
+  - `00_todo_localcms_2026-03-12.txt`
+- Lancement d’un audit opt-trading sur snapshot repo `opt-trading.zip` (HEAD observé : `da1356d`, branche `sot/mainline`) + docs + inventaires + registry.
+- Signalement d’un point de qualité du snapshot : churn CRLF sur scripts rendant `git status`/exécution locale non fiables; priorité donnée au contenu Git HEAD/structure.
+- Production (dans la conversation) du livrable opt-trading :
+  - `opt_trading_kanban_source_of_truth_2026-03-12.md` (kanban figé “final”).
+3) Décisions:
+- `GO_TRAE_CANONICAL_SYNC_CHECK` clôturé en ACCEPT; pas d’action requise.
+- LocalCMS : la vérité de reprise est la baseline M-4.4 (packs + état courant), pas l’ancien gate P0→M-1.1; P0 reclassé comme “gap documentaire” (non bloquant code).
+- LocalCMS : ne pas promouvoir M-4.1→M-4.4 en CLOSE sans review/verdict explicite; reprise recommandée sur M-4.5 (`MOD_BACKEND_CFG`).
+- opt-trading : prochain chantier recommandé = standardiser la surface opérateur Desk Pro à partir du repo réel et du registry central (avant expansion UI/API/modules).
+4) Commandes / Code:
+```text
+Aucune commande exécutée explicitement dans ce dump pour le check Trae/LocalCMS/opt-trading.
+(Des commandes apparaissent dans des documents cités, mais pas comme exécution dans cette session.)
+```
+5) Points ouverts (next):
+- LocalCMS : faire la review formelle de M-4.1→M-4.4 puis ouvrir M-4.5 `MOD_BACKEND_CFG`; figer l’inventaire des blocs encore inline + ordre post M-4.5; clarifier l’emplacement canonique des artefacts LocalCMS.
+- opt-trading : enchaîner sur l’item `OT-OPS-01` (surface opérateur Desk Pro) avec une table canonique `module → scripts → wrappers → statut → action requise`, puis normalisation wrappers/registry/docs.
