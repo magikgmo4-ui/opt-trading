@@ -22,6 +22,9 @@
 - [ ] Sanity check OK
 - [ ] Rollback documenté
 - [ ] tasks.md mis à jour (cases cochées)
+- [ ] Documentation canonique concernée mise à jour
+- [ ] Kanban / source of truth mis à jour
+- [ ] Point de reprise propre rédigé (next step explicite)
 
 ## Risques / Edge cases
 - ...

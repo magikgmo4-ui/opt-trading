@@ -1,0 +1,41 @@
+# OT-FIX-SSHFS-01 — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-12
+
+## 1. RÉSUMÉ EXÉCUTIF
+- Diagnostic `shared_sshfs_permanent` terminé, basé sur preuves repo + preuves live admin-trading (OT-LIVE-01).
+- Runtime map réalignée : `desk_retention` schedule live corrigé (daily 03:00 sur admin-trading) et `shared_sshfs_permanent` requalifié (repo installable vs live absent + wrappers incohérents).
+- Aucune action système risquée effectuée.
+
+## 2. PREUVES RELUES
+- [OT_LIVE_01_MACHINE_DRILL.md](file:///c:/Users/ghost/opt-trading/docs/ot/trae/OT_LIVE_01_MACHINE_DRILL.md)
+- [OT_LIVE_01_REPORT.md](file:///c:/Users/ghost/opt-trading/docs/ot/reports/OT_LIVE_01_REPORT.md)
+- [OT_SVC_01_CANONICAL_RUNTIME_MAP.md](file:///c:/Users/ghost/opt-trading/docs/ot/trae/OT_SVC_01_CANONICAL_RUNTIME_MAP.md)
+- [OT_SVC_01_CLOSING.txt](file:///c:/Users/ghost/opt-trading/docs/ot/closings/OT_SVC_01_CLOSING.txt)
+- Module : `modules/shared_sshfs_permanent/*`
+
+## 3. DIAGNOSTIC RETENU (CAUSE PROBABLE)
+- `shared_sshfs_permanent` : déploiement live **incomplet/non conforme** sur admin-trading (service absent, mount absent), combiné à des wrappers pointant vers des scripts non symlink-safe.
+
+## 4. CORRECTIONS DOCUMENTAIRES APPLIQUÉES
+- `OT_SVC_01_CANONICAL_RUNTIME_MAP.md` (desk_retention schedule + shared_sshfs_permanent requalifié + écarts explicités).
+- `OT_SVC_01_CLOSING.txt` (réserve déploiement live reformulée).
+
+## 5. FICHIERS MODIFIÉS
+- `OT_SVC_01_CANONICAL_RUNTIME_MAP.md`
+- `OT_SVC_01_CLOSING.txt`
+
+## 6. COMMANDES EXÉCUTÉES
+- Aucune (réutilisation des preuves OT-LIVE-01).
+
+## 7. IMPACT SUR OT-SVC-01
+- Réserve live : **réduite** (vision_bot + desk_retention prouvés live sur admin-trading), **maintenue** pour `shared_sshfs_permanent`.
+
+## 8. VERDICT FINAL
+Mission réussie : diagnostic précis, corrections documentaires ciblées, et conservation stricte de la distinction repo/package vs live.
+
+## 9. POINT DE REPRISE SUIVANT
+- Décider où `shared-sshfs.service` doit vivre réellement (quelle machine) et si l’on veut corriger/retirer la famille de wrappers non robuste aux symlinks avant toute tentative d’activation.
+
+**Status : CLOSE.**
+

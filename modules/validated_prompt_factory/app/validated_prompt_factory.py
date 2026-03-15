@@ -152,6 +152,12 @@ Préparer une archive ZIP contenant les fichiers nécessaires pour un transfert 
 ## CONTENU DU BUNDLE
 Basé sur : {OBJECTIF}
 
+## CONTRAINTES
+{CONTRAINTES}
+
+## RISQUES ET DEPENDANCES
+{DEPENDANCES}
+
 ## FICHIERS A INCLURE
 {LIVRABLE}
 
@@ -165,6 +171,12 @@ Basé sur : {OBJECTIF}
 ## VALIDATION
 Vérifier que le ZIP contient bien les éléments attendus et rien d'autre.
 {VALIDATION}
+
+## SUITE
+{SUITE}
+
+## POINT DE REPRISE
+{POINT DE REPRISE}
 """
 }
 
@@ -191,7 +203,7 @@ def parse_synthesis(file_path):
             
         upper_line = line.upper()
         # Remove trailing colon if present for matching
-        clean_line = upper_line.rstrip(":")
+        clean_line = upper_line.rstrip(":").lstrip("#").strip()
         
         is_header = False
         
@@ -222,9 +234,8 @@ def validate_sections(sections):
             missing.append(sec)
     
     if missing:
-        print(f"Warning: Missing sections in synthesis: {', '.join(missing)}")
-        return False
-    return True
+        return False, missing
+    return True, []
 
 def generate_prompt(mode, sections, output_dir):
     """Generates the prompt file based on mode and sections."""
@@ -265,6 +276,9 @@ def main():
     args = parser.parse_args()
 
     # Ensure output dir exists
+    if os.path.exists(args.output_dir) and not os.path.isdir(args.output_dir):
+        print(f"Error: Output path exists and is not a directory: {args.output_dir}")
+        sys.exit(1)
     if not os.path.exists(args.output_dir):
         os.makedirs(args.output_dir)
 
@@ -272,7 +286,10 @@ def main():
     sections = parse_synthesis(args.input)
     
     print("Validating synthesis structure...")
-    validate_sections(sections)
+    ok, missing = validate_sections(sections)
+    if not ok:
+        print(f"Error: Missing sections in synthesis: {', '.join(missing)}")
+        sys.exit(2)
 
     print(f"Generating prompt for mode: {args.mode}")
     generate_prompt(args.mode, sections, args.output_dir)

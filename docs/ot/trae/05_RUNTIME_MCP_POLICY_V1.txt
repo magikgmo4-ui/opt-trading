@@ -1,0 +1,140 @@
+04_RUNTIME_MCP_POLICY_V1
+
+0. Objet
+04_RUNTIME_MCP_POLICY_V1 définit les contraintes runtime et opératoires applicables à la V1 de Trae pour opt-trading.
+
+1. Principe général
+La V1 ne doit pas être figée comme une architecture théorique détachée du runtime réel.
+Une capacité non observée ne doit pas être supposée disponible.
+Une orchestration inter-agents non prouvée ne doit pas être considérée comme acquise.
+Une compatibilité multi-machine non validée ne doit pas être présentée comme établie.
+Un chemin ou un montage non validé ne doit pas être présenté comme canonique sans mention.
+
+2. Réalité runtime Trae
+Le runtime Trae actuellement observé comporte au minimum :
+- des agents built-in ;
+- au moins un custom agent spécialisé ;
+- des limitations d’appel et de mode selon le runtime.
+Conséquence :
+- rôle canonique ;
+- agent réellement disponible ;
+- capacité effectivement exécutable ;
+- capacité seulement conceptuelle à ce stade
+doivent être distingués.
+
+3. Politique MCP
+Dans la V1, MCP doit être traité comme une couche d’outillage, pas comme le cœur de la gouvernance.
+MCP sert à :
+- lire quand c’est utile ;
+- écrire quand c’est autorisé ;
+- exécuter des opérations techniques ou structurées ;
+- brancher des outils externes si cela est prouvé et utile.
+MCP ne sert pas à :
+- remplacer la doctrine ;
+- remplacer les rôles ;
+- décider seul du scope ;
+- contourner les exigences de preuve ;
+- justifier une exécution plus large que la mission.
+Statuts :
+- MCP_NON_REQUIS
+- MCP_UTILE
+- MCP_REQUIS
+
+4. Politique multi-machine
+Dans opt-trading, la compatibilité multi-machine est une contrainte structurelle par défaut pour :
+- modules durables ;
+- scripts ;
+- menus ;
+- cmd.sh ;
+- sanity_check.sh ;
+- bundles ;
+- workflows opératoires ;
+- transferts inter-machines.
+Statuts de portabilité :
+- LOCAL_SEULEMENT
+- PARTIELLEMENT_PORTABLE
+- MULTI_MACHINE_VISE
+- MULTI_MACHINE_VALIDE
+
+5. Politique shared
+Le dossier shared est un canal officiel hors repo pour :
+- transferts inter-machines ;
+- bundles ;
+- matérialisation de livrables ;
+- dépôt de preuves, logs ou exports utiles ;
+- reprise inter-session ;
+- remise vers Windows ;
+- stockage opératoire hors versioning principal.
+
+6. Chemins canoniques shared
+Côté Linux :
+/shared
+
+Côté Windows (recommandation V0 à valider avant gel final) :
+C:\Users\ghost\Downloads\opt-trading_shared\
+
+7. Arborescence canonique shared (révisée)
+/shared/
+├── inbox/
+│   ├── windows/
+│   ├── admin-trading/
+│   ├── student/
+│   └── db-layer/
+├── outbox/
+│   ├── windows/
+│   ├── admin-trading/
+│   ├── student/
+│   └── db-layer/
+├── bundles/
+│   ├── to_review/
+│   ├── validated/
+│   ├── transfer/
+│   └── archive/
+├── backups/
+│   ├── pre_patch/
+│   ├── pre_deploy/
+│   ├── session/
+│   └── archive/
+├── docs/
+│   ├── workflow/
+│   ├── reprise/
+│   ├── etabli/
+│   ├── reports/
+│   ├── export/
+│   └── todo/
+├── modules/
+│   ├── pending/
+│   ├── validated/
+│   └── archive/
+├── runtime/
+│   ├── exports/
+│   ├── logs/
+│   └── proofs/
+└── temp/
+
+8. Politique de dépôt
+Toute sortie déposée dans shared doit préciser :
+- pourquoi elle est hors repo ;
+- où elle est déposée ;
+- son statut ;
+- sa machine source ;
+- sa machine cible si applicable ;
+- si elle est locale, partielle, multi-machine visée ou multi-machine validée.
+
+9. Politique repo / shared / temp
+Repo = source de vérité du code et des artefacts versionnés.
+shared = transport, matérialisation, échange, preuves, docs hors repo.
+temp = tampon local sans valeur canonique.
+
+10. Établi vs à confirmer
+ÉTABLI V0 :
+- la V1 doit respecter le runtime réel observé ;
+- MCP est une couche d’outillage, pas de gouvernance ;
+- /shared est le chemin Linux canonique ;
+- shared est le canal officiel hors repo ;
+- la compatibilité multi-machine doit être explicitée quand pertinente ;
+- une validation locale ne vaut pas validation globale.
+À CONFIRMER avant gel final :
+- le chemin Windows canonique final ;
+- certains détails d’implémentation de transfert ;
+- la cartographie exacte rôle ↔ agent runtime ↔ limites SOLO/MCP selon les tests réels.

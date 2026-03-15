@@ -1,0 +1,181 @@
+MISSION_CLASSES_V1
+
+0. Objet
+MISSION_CLASSES_V1 définit les classes de mission canoniques de Trae pour opt-trading.
+
+1. Règles communes à toutes les classes
+Toute mission doit produire au minimum :
+- un objectif clair ;
+- un scope autorisé ;
+- un hors-scope ;
+- un état établi initial ;
+- des points à confirmer s’il y en a ;
+- un niveau de preuve adapté ;
+- un statut final explicite ;
+- un point de reprise.
+
+Classes canoniques V1 :
+- DIAGNOSTIC
+- PATCH_LOCAL
+- MODULE_DURABLE
+- BUNDLE_TRANSFERT
+- AUDIT_REALIGNEMENT
+
+2. DIAGNOSTIC
+Quand l’utiliser :
+- comprendre un bug ;
+- clarifier une ambiguïté ;
+- isoler une divergence ;
+- comparer plusieurs hypothèses ;
+- préparer une décision sans produire encore de changement durable.
+Doit produire :
+- constat ;
+- symptômes / observations ;
+- causes probables ;
+- ÉTABLI / À CONFIRMER / HYPOTHÈSES ;
+- recommandation ;
+- prochain pas logique.
+Preuve minimale :
+- sources consultées ;
+- faits observés ;
+- contradictions signalées ;
+- hypothèses séparées des faits.
+shared :
+- non obligatoire par défaut ;
+- utile si rapport, preuves, logs, export, reprise inter-machine.
+Multi-machine :
+- non obligatoire par défaut ;
+- à signaler si le problème dépend d’une machine, d’un OS, d’un hostname, d’un montage ou d’un chemin.
+Critère bloquant :
+- faits et hypothèses mélangés ;
+- sources OT pertinentes ignorées sans signalement ;
+- conclusion forte sans preuve suffisante.
+
+3. PATCH_LOCAL
+Quand l’utiliser :
+- corriger ou ajuster une zone bornée sans refonte globale.
+Doit produire :
+- problème ciblé ;
+- cause identifiée si connue ;
+- fichiers / zones touchés ;
+- changement minimal ;
+- éléments non touchés ;
+- validation ;
+- risques restants ;
+- rollback ou équivalent logique si pertinent.
+Preuve minimale :
+- fichiers ou sections touchés ;
+- logique du patch ;
+- vérification locale cohérente ;
+- limites connues ;
+- statut explicite.
+shared :
+- optionnel pour un patch purement local ;
+- requis si matérialisation hors repo, transfert, revue ailleurs, bundle, archive ou rapport hors repo.
+Multi-machine :
+- obligatoire à traiter si le patch touche module, script, menu, cmd.sh, sanity_check.sh, workflow, chemin, hostname, montage, dépendance machine.
+Critère bloquant :
+- dérive de scope ;
+- pas de validation minimale ;
+- changement machine-dépendant présenté comme général ;
+- divergence doc OT / kanban OT / état réel non signalée.
+
+4. MODULE_DURABLE
+Quand l’utiliser :
+- créer, stabiliser ou packager une brique réutilisable.
+Doit produire :
+- objectif du module ;
+- périmètre ;
+- arborescence ;
+- fichiers livrés ;
+- scripts standards ;
+- conditions d’usage ;
+- validations faites ;
+- validations restant à faire ;
+- point d’intégration ;
+- point de reprise.
+Preuve minimale :
+- structure claire ;
+- fichiers identifiés ;
+- sanity ou validation adaptée ;
+- statut de portabilité ;
+- cohérence avec workflow OT ;
+- usage prévu explicite.
+shared :
+- quasi-obligatoire si transfert, relecture hors repo, consommation sur autre machine, archivage hors repo, dépôt côté Windows.
+Multi-machine :
+- à traiter par défaut, sauf scope explicitement mono-machine.
+Critère bloquant :
+- structure floue ;
+- validations trop faibles ;
+- portée machine non précisée ;
+- compatibilité multi-machine implicite ;
+- dépôt/transfert hors repo non cadré alors qu’il est requis.
+
+5. BUNDLE_TRANSFERT
+Quand l’utiliser :
+- préparer un artefact destiné à être déplacé entre machines, remis à Windows, partagé hors repo, archivé, relu dans une autre session ou transmis à un autre rôle/environnement.
+Doit produire :
+- contenu exact du bundle ;
+- but ;
+- destination ;
+- statut ;
+- instructions d’usage ;
+- validations déjà faites ;
+- validations à refaire ailleurs ;
+- point de reprise.
+Preuve minimale :
+- liste du contenu ;
+- destination explicite ;
+- emplacement de dépôt ;
+- statut du bundle ;
+- portée de validation claire.
+shared :
+- obligatoire par défaut.
+Multi-machine :
+- centrale : machine source, machine cible, statut de compatibilité, validé localement, à revalider après transfert.
+Critère bloquant :
+- cible non définie ;
+- contenu non listé ;
+- emplacement non clair ;
+- portée locale vs inter-machine non précisée ;
+- bundle sans statut.
+
+6. AUDIT_REALIGNEMENT
+Quand l’utiliser :
+- relire plusieurs sources ;
+- recroiser repo, kanban, doc, reprise, notes ;
+- détecter contradictions, trous, obsolescence ;
+- réaligner la suite avant décision ou production.
+Doit produire :
+- ÉTABLI ;
+- À CONFIRMER ;
+- contradictoire ;
+- obsolète ;
+- manquant ;
+- décisions recommandées ;
+- ordre logique des suites.
+Preuve minimale :
+- sources croisées identifiées ;
+- contradictions explicites ;
+- pas d’invention ;
+- niveau de certitude visible.
+shared :
+- non obligatoire par défaut ;
+- recommandé si rapport canonique, dossier de reprise, pack inter-session/inter-machine.
+Multi-machine :
+- importante si l’audit porte sur modules, scripts, workflows d’exécution ou artefacts partagés entre machines.
+Critère bloquant :
+- contradictions lissées ;
+- hiérarchie des sources non respectée ;
+- recommandations sans distinguer ÉTABLI et HYPOTHÈSE.
+
+7. Déclencheurs shared à retenir
+shared est requis ou fortement recommandé pour :
+- transfert inter-machine ;
+- remise vers Windows ;
+- matérialisation hors repo ;
+- bundle ou archive ;
+- validation à rejouer ailleurs ;
+- dossier de reprise ;
+- dépôt de preuves / logs / exports utiles hors repo.

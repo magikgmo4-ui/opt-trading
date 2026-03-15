@@ -1,0 +1,44 @@
+# OT-DOC-01 — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-12
+
+## 1. RÉSUMÉ EXÉCUTIF
+- Docs haut niveau corrigées là où elles contredisaient l’état repo/package.
+- Réserves live conservées : aucun “validé live” n’est introduit sans preuve terrain.
+
+## 2. DOCS INSPECTÉES
+- `docs/master_pack/00_current_state_and_standards.md`
+- `registry/README.md`
+- `docs/ROADMAP.md`
+- `docs/ui_indexation/05_ui_gap_analysis.md`
+- `OT_SVC_01_CANONICAL_RUNTIME_MAP.md` + `OT_SVC_01_CLOSING.txt`
+- `OT_OPS_RUNBOOK_ADMIN_TRADING.md`
+- `registry/modules_registry.yaml`
+- `registry/wrappers_registry.yaml`
+
+## 3. CONTRADICTIONS LEVÉES
+- Roadmap : suppression de l’implicite “Done = prouvé” (rétrogradé en “À confirmer”).
+- UI gap : correction de “pas de registry UI canonique” → “socle repo existant, live à confirmer”.
+- Registry : correction de portée (opt-trading) + réserve repo/package ≠ live.
+
+## 4. RÉSERVES OUVERTES
+- Déploiement live systemd (services/timers) sur machines : à confirmer.
+- Forme live exacte de `shared_sshfs_permanent` : à confirmer.
+- Fichier kanban “source of truth” : présent au repo (`opt_trading_kanban_source_of_truth_2026-03-13_updated.md`).
+
+## 5. FICHIERS MODIFIÉS
+- `registry/README.md`
+- `docs/ROADMAP.md`
+- `docs/ui_indexation/05_ui_gap_analysis.md`
+
+## 6. COMMANDES EXÉCUTÉES
+- Aucune.
+
+## 7. VERDICT FINAL
+Réalignement documentaire haut niveau effectué, proportionné, et prudent : la doc reflète mieux la vérité repo/package tout en conservant explicitement les réserves live.
+
+## 8. POINT DE REPRISE SUIVANT
+Si nécessaire, exécuter un drill live (systemd/wrappers) sur machines cibles, puis mettre à jour uniquement les sections “À confirmer”.
+
+**Status : CLOSE AVEC RÉSERVE CORPUS LOCAL.**
+

@@ -1,0 +1,32 @@
+# MISSION TRAE — CANONISATION ORCHESTRATOR ROLE
+
+## 1. CADRAGE
+- **Classification** : **PATCH_LOCAL**
+- **Objectif** : Mettre à jour la section 13 du fichier `TRAE_ORCHESTRATOR_ROLE_V1.1.txt` pour refléter son statut canonique validé.
+- **Contexte** : Suite à la review doctrinale positive (ACCEPT_WITH_NOTES), le document doit être nettoyé de sa mention "brouillon" pour devenir une référence stable.
+
+## 2. PÉRIMÈTRE (SCOPE)
+- **Cible (Autorisé)** :
+  - `C:\Users\ghost\opt-trading\trae_pack_texts\trae_pack\TRAE_ORCHESTRATOR_ROLE_V1.1.txt`
+- **Interdit (Hors Scope)** :
+  - Modification du fond doctrinal (sections 1 à 12).
+  - Modification d'autres fichiers.
+
+## 3. EXÉCUTION
+- **Action attendue** :
+  - Remplacer le texte de la section 13.
+  - Ancien texte : "Document proposé en brouillon de travail..."
+  - Nouveau texte : "Document canonique validé. Fait foi pour tout Orchestrator opérant dans le cadre Trae V1."
+
+## 4. VALIDATION & SÉCURITÉ
+- **Preuve de succès attendue** : Lecture de la section 13 modifiée.
+- **Commande de validation** :
+  ```powershell
+  Get-Content "C:\Users\ghost\opt-trading\trae_pack_texts\trae_pack\TRAE_ORCHESTRATOR_ROLE_V1.1.txt" | Select-Object -Last 5
+  ```
+- **Stratégie de Rollback** :
+  - Restaurer la version précédente (via git checkout ou backup manuel si hors git).
+  - Commande : `git checkout C:\Users\ghost\opt-trading\trae_pack_texts\trae_pack\TRAE_ORCHESTRATOR_ROLE_V1.1.txt` (si versionné) OU réécriture inverse.
+
+## 5. LIVRABLES
+- Fichier `TRAE_ORCHESTRATOR_ROLE_V1.1.txt` en version finale.

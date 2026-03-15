@@ -1,0 +1,101 @@
+PRE_V1_REPO_LANDING_PLAN
+
+Objet
+- Fixer où chaque bloc pré-V1 doit atterrir dans le repo canonique.
+- Éviter que le pack reste une doctrine parallèle hors repo.
+- Préparer un merge propre, progressif et traçable.
+
+Principe
+- Canonique final = repo.
+- Pack pré-V1 = support de revue, transport, reprise et gel.
+- Toute pièce retenue comme vérité durable doit être matérialisée dans le repo.
+
+Landing plan recommandé
+
+1. Rules / gouvernance commune
+- Source pack: established/01_RULES_V1.txt
+- Repo target recommandé: docs/ot/trae/01_RULES_V1.txt
+- Rôle: noyau global obligatoire
+
+2. Agents / rôles
+- Source pack: established/02_AGENTS_V1.txt
+- Repo target recommandé: docs/ot/trae/02_AGENTS_V1.txt
+- Rôle: Orchestrator / Executor / Reviewer
+
+3. Classes de mission
+- Source pack: established/03_MISSION_CLASSES_V1.txt
+- Repo target recommandé: docs/ot/trae/03_MISSION_CLASSES_V1.txt
+- Rôle: preuve minimale, shared, multi-machine par classe
+
+4. Skills
+- Source pack: established/04_SKILLS_V1.txt
+- Repo target recommandé: docs/ot/trae/04_SKILLS_V1.txt
+- Rôle: opérations bornées V1
+
+5. Runtime / MCP / shared
+- Source pack: established/05_RUNTIME_MCP_POLICY_V1.txt
+- Repo target recommandé: docs/ot/trae/05_RUNTIME_MCP_POLICY_V1.txt
+- Rôle: contraintes runtime, MCP, shared, Linux/Windows, arborescence
+
+6. Frontière repo / hors repo
+- Source pack: established/06_REPO_BOUNDARY_POLICY_V1.txt
+- Repo target recommandé: docs/ot/trae/06_REPO_BOUNDARY_POLICY_V1.txt
+- Rôle: repo vs shared vs temp vs backups
+
+7. Politique d’instructions
+- Source pack: established/07_POLITIQUE_INSTRUCTIONS_V1.txt
+- Repo target recommandé: docs/ot/trae/07_POLITIQUE_INSTRUCTIONS_V1.txt
+- Rôle: ce que les prompts doivent encore contenir
+
+8. Checklist multi-étapes
+- Source pack: established/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt
+- Repo target recommandé: docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt
+- Rôle: modèle workflow pour missions composées
+
+9. Récap de gel pré-V1
+- Source pack: established/09_GEL_PRE_V1_RECAP_V0.txt
+- Repo target recommandé: docs/ot/trae/09_GEL_PRE_V1_RECAP_V0.txt
+- Rôle: photo consolidée avant gel
+
+10. Décisions finales de freeze
+- Source pack: established/10_PRE_V1_FREEZE_DECISIONS.txt
+- Repo target recommandé: docs/ot/trae/10_PRE_V1_FREEZE_DECISIONS.txt
+- Rôle: décisions à fermer avant gel V1 final
+
+11. Plan d’atterrissage repo
+- Source pack: established/11_PRE_V1_REPO_LANDING_PLAN.txt
+- Repo target recommandé: docs/ot/trae/11_PRE_V1_REPO_LANDING_PLAN.txt
+- Rôle: guide de merge canonique
+
+Mises à jour repo à prévoir en parallèle
+- docs/ot/trae/README.md
+  - ajouter l’ordre de lecture des nouveaux fichiers V1
+- docs/ot/README.md
+  - ajouter un pointeur vers docs/ot/trae/
+- docs/ot/kanban/opt_trading_kanban_source_of_truth.md
+  - ajouter une référence au socle pré-V1 si retenu
+- workflow ou index OT central
+  - référencer la checklist multi-étapes comme modèle officiel pour missions longues
+
+Arborescence shared à aligner
+- Ajouter /shared/backups/
+- Ajouter /shared/docs/export/
+- Conserver repo comme vérité versionnée
+- Conserver shared comme hors-repo opératoire
+
+Ordre de merge recommandé
+1. matérialiser 01 à 08 dans docs/ot/trae/
+2. mettre à jour README / index / workflow
+3. matérialiser 09 et 10
+4. vérifier cohérence kanban / reprise / runtime docs
+5. déclarer le socle gelé en PRE_V1_CLOSE ou V1_READY selon validation finale
+
+Ce qui ne doit pas arriver
+- ne pas laisser le pack comme unique source de vérité
+- ne pas disperser les fichiers V1 dans plusieurs emplacements incohérents
+- ne pas matérialiser les backups dans le repo
+- ne pas mélanger export de doc et doc canonique
+
+Verdict
+- Le meilleur prochain mouvement n’est plus d’écrire un nouveau texte de fond.
+- C’est de faire atterrir proprement le socle dans docs/ot/trae/ et d’aligner README / workflow / kanban autour de lui.

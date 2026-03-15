@@ -1,0 +1,64 @@
+TRAE_STATUS_POLICY_V1.1 — POLITIQUE CANONIQUE DES STATUTS
+
+## 1. OBJECTIF DU DOCUMENT
+Définir sans ambiguïté la sémantique, le porteur et la conséquence opérationnelle de chaque statut utilisé dans le workflow Trae, afin d'assurer une communication précise entre Orchestrator, Executor et Reviewer.
+
+## 2. LISTE DES STATUTS COUVERTS
+- ACCEPT
+- ACCEPT_WITH_NOTES
+- REJECT
+- CLOSE
+- POINT DE REPRISE
+
+## 3. DÉFINITION CANONIQUE DE CHAQUE STATUT
+### VERDICTS DE REVIEW
+- ACCEPT : Le livrable est conforme à la mission, prouvé par les logs et respecte les standards. Il est intégrable immédiatement sans réserve.
+- ACCEPT_WITH_NOTES : Le livrable est conforme et fonctionnel, mais présente des écarts mineurs non bloquants (doc légère, dette technique identifiée). Ces écarts doivent être tracés.
+- REJECT : Le livrable n'est pas acceptable (hors scope, pas de preuve, régression, standards manquants). Il doit être corrigé ou abandonné.
+### STATUTS DE CHAÎNE
+- CLOSE : État final d'une mission ou d'un artefact qui a reçu un verdict positif (ACCEPT ou ACCEPT_WITH_NOTES) et dont le dossier est archivé. Signifie "Dossier clos".
+- POINT DE REPRISE : Identifiant logique (ex: GO_MODULE_X_V2 ) marquant la prochaine étape à activer pour poursuivre le développement. Ce n'est pas un état technique (git tag), mais un repère méthodologique.
+
+## 4. MOMENT D’UTILISATION
+- ACCEPT / ACCEPT_WITH_NOTES / REJECT : À l’issue de la phase de review, uniquement.
+- CLOSE : Après validation positive et archivage correct du dossier, pour signifier la clôture de la mission ou de l’artefact.
+- POINT DE REPRISE : Dès qu’un état stable ou une prochaine étape logique doit être explicitement fixée pour assurer la continuité.
+
+## 5. PORTEUR LÉGITIME DU STATUT
+- Reviewer : Seul habilité à prononcer ACCEPT, REJECT ou ACCEPT_WITH_NOTES.
+- Orchestrator / Système : Pose le statut CLOSE une fois le verdict rendu et l'archivage effectué.
+- Orchestrator : Définit le POINT DE REPRISE pour la session suivante.
+
+## 6. CONSÉQUENCE OPÉRATIONNELLE
+- ACCEPT -> Merge / Déploiement -> Passage à CLOSE.
+- ACCEPT_WITH_NOTES -> Création de tickets/TODO -> Merge -> Passage à CLOSE.
+- REJECT -> Retour à l'Executor (Correction) OU Abandon de la mission.
+- CLOSE -> État validé et archivé ; l’élément est considéré comme clôturé dans la mémoire projet.
+- POINT DE REPRISE -> Devient le point d'entrée de la prochaine session.
+
+## 7. CONFUSIONS À INTERDIRE
+- Ne jamais confondre ACCEPT et CLOSE : ACCEPT est un jugement de qualité. CLOSE est un état administratif.
+- Ne jamais confondre REJECT et ROLLBACK : REJECT est la décision. ROLLBACK est l'action technique qui en découle.
+- Ne jamais confondre POINT DE REPRISE et GIT COMMIT : Le point de reprise est une intention ("Où on va"), le commit est une sauvegarde ("Où on est").
+
+## 8. EXEMPLES CANONIQUES D’USAGE
+- "Verdict Review : ACCEPT . Statut Mission : CLOSE . Point de Reprise : GO_NEXT_MODULE ."
+- "Verdict Review : REJECT (motif : pas de logs). Action : Retour Executor."
+- "Verdict Review : ACCEPT_WITH_NOTES (motif : doc à compléter). Action : TODO créé. Statut Mission : CLOSE ."
+
+## 9. ERREURS FRÉQUENTES À ÉVITER
+- Utiliser CLOSE à la place d' ACCEPT dans une review.
+- Utiliser ACCEPT_WITH_NOTES pour laisser passer un bug bloquant.
+- Oublier de définir le POINT DE REPRISE en fin de session.
+- Laisser une mission en REJECT sans décider si on corrige ou si on abandonne (Zombie).
+
+## 10. RÉSUMÉ TECHNIQUE COURT
+La TRAE_STATUS_POLICY_V1.1 structure le langage du workflow. Elle distingue le jugement de valeur (Verdicts du Reviewer) de l'état du dossier (Statuts de Chaîne). Elle garantit qu'aucune mission ne reste dans un état flou et que la continuité entre sessions est assurée par des points de reprise explicites.
+
+RÉSUMÉ DES CHANGEMENTS (V1 -> V1.1)
+
+- Correction Libellés : Utilisation stricte de ACCEPT / ACCEPT_WITH_NOTES / REJECT dans la section 4.
+- Extension Point de Reprise : Définition assouplie pour s'appliquer dès qu'une continuité est nécessaire, pas seulement en fin de session (Section 4).
+- Précision Close : Redéfinition de CLOSE comme un état archivé et mémoriel, supprimant l'implication opérationnelle "fin de session" (Section 6).
+
+POINT DE REPRISE : GO_TRAE_CLOSURE_TEMPLATE_V1

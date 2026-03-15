@@ -1,0 +1,109 @@
+05_POLITIQUE_INSTRUCTIONS_V1
+
+0. Objet
+05_POLITIQUE_INSTRUCTIONS_V1 définit la place des instructions dans la V1 Trae pour opt-trading.
+
+1. Principe central
+Dans la V1, une instruction ne doit plus porter tout le système.
+L’instruction ne sert pas à :
+- re-définir la doctrine ;
+- rappeler toutes les règles globales ;
+- re-définir les rôles ;
+- imposer à nouveau le kanban OT, la doc OT, shared, le multi-machine ou la preuve à chaque fois ;
+- jouer le rôle d’un manuel complet.
+L’instruction sert à :
+- décrire la mission du moment ;
+- préciser ce qui change ;
+- fixer le contexte spécifique de cette mission ;
+- préciser les contraintes locales ;
+- demander un livrable donné.
+
+2. Ce qui doit être implicite
+Implicite global :
+- partir des sources de vérité ;
+- ne rien inventer ;
+- distinguer ÉTABLI / À CONFIRMER / HYPOTHÈSE ;
+- respecter le scope ;
+- signaler les contradictions ;
+- exiger une preuve adaptée ;
+- conclure avec un statut ;
+- laisser un point de reprise.
+
+Implicite OT :
+- consulter, quand pertinentes et disponibles : état réel, repo, kanban OT, documentation OT canonique, notes de continuité, fichiers de reprise.
+
+Implicite runtime/workflow :
+- ne pas confondre repo / shared / temp / backups ;
+- traiter la compatibilité multi-machine quand elle est pertinente ;
+- signaler local / partiel / multi-machine ;
+- ne pas généraliser une validation locale.
+
+3. Ce que l’utilisateur doit encore fournir
+Le prompt utilisateur doit se concentrer sur ce qui est spécifique à la mission :
+- la cible ou le sujet ;
+- l’objectif immédiat ;
+- le type de livrable attendu ;
+- les contraintes locales ;
+- les documents/fichiers fournis ou à lire ;
+- l’éventuelle priorité ;
+- le point exact à trancher si décisionnelle.
+
+4. Structure recommandée d’une instruction de mission
+MISSION
+CONTEXTE_LOCAL
+OBJECTIF_IMMEDIAT
+CIBLE
+CONTRAINTES_SPECIFIQUES
+LIVRABLE_ATTENDU
+FICHIERS_OU_DOCS_FOURNIS
+POINT_A_TRANCHER
+
+5. Types d’instructions autorisés
+- instruction de mission ;
+- instruction de cadrage ;
+- instruction de correction ;
+- instruction de gel / validation.
+
+6. Politique anti-méga-prompt
+La V1 rejette le modèle “on met toutes les règles dans chaque prompt”.
+Quand une règle devient récurrente et structurelle, elle doit être déplacée dans :
+- 01_RULES_V1
+- 02_AGENTS_V1
+- MISSION_CLASSES_V1
+- 03_SKILLS_V1
+- 04_RUNTIME_MCP_POLICY_V1
+- 04B_REPO_BOUNDARY_POLICY_V1
+
+7. Exceptions locales
+Une instruction peut introduire une exception locale, mais elle doit être explicite.
+Exemples :
+- mission volontairement mono-machine ;
+- mission sans usage de shared ;
+- mission doc-only ;
+- mission repo-only ;
+- mission sans matérialisation ;
+- mission sans déploiement.
+
+8. Politique de continuité
+Si une mission s’inscrit dans une continuité, l’instruction peut se limiter à :
+- un point de reprise ;
+- un delta ;
+- une correction ;
+- un go/no-go ;
+- un nouveau bloc à produire.
+Exemples valides :
+- go
+- continue avec AGENTS
+- ajoute la contrainte multi-machine
+- modifie l’arborescence shared
+- intègre repo vs hors repo
+
+9. Politique spécifique OT
+Dans opt-trading, les instructions ne doivent pas avoir à répéter systématiquement :
+- lis le kanban ;
+- lis la doc OT ;
+- regarde le repo ;
+- respecte la frontière repo/shared ;
+- pense multi-machine ;
+- laisse un point de reprise.
+Ces obligations sont supposées absorbées par la V1.

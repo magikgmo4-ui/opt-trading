@@ -1,0 +1,52 @@
+GEL_PRE_V1_RECAP_V0
+
+1. Fichiers canoniques du socle pré-V1
+- 01_RULES_V1
+- 02_AGENTS_V1
+- MISSION_CLASSES_V1
+- 03_SKILLS_V1
+- 04_RUNTIME_MCP_POLICY_V1
+- 04B_REPO_BOUNDARY_POLICY_V1
+- 05_POLITIQUE_INSTRUCTIONS_V1
+- 05B_MULTI_STEP_MISSION_CHECKLIST_V1
+
+2. Ce qui est déjà assez stable pour être considéré comme “draft V1 prêt à valider”
+- architecture du socle en couches ;
+- principe central : les standards obligatoires sont absorbés par le système, pas répétés dans chaque prompt ;
+- séparation nette entre rôles, classes de mission, skills, runtime et politique d’instructions ;
+- OT forcé dans le workflow (kanban, doc OT, repo, état réel, continuité, reprise) ;
+- multi-machine intégrée comme contrainte structurelle quand pertinente ;
+- shared cadré comme canal officiel hors repo ;
+- frontière repo / hors repo / temp / backups clarifiée.
+
+3. Ce qui reste à confirmer avant gel final V1
+- chemin Windows canonique final ;
+- mapping runtime exact rôle ↔ agent Trae ;
+- intégration textuelle finale des deltas ;
+- liste finale in-repo des docs V1.
+
+4. Ce qui est hors V1 ou à ne pas alourdir maintenant
+- architecture multi-agents ambitieuse non prouvée ;
+- bibliothèque large de skills ;
+- automatisation avancée des transferts ;
+- surcouche runtime complexe ;
+- règles trop fines par sous-cas rares ;
+- excès de taxonomie documentaire.
+
+5. Décision de fond
+La V1 n’est plus un problème de prompting intelligent ; c’est un système de travail structuré où :
+- les règles communes vivent dans 01 ;
+- les comportements vivent dans 02 ;
+- les formes de mission vivent dans MISSION_CLASSES ;
+- les opérations répétables vivent dans 03 ;
+- les contraintes réelles vivent dans 04 ;
+- la frontière repo/hors-repo vit dans 04B ;
+- les prompts utilisateur sont allégés par 05.
+
+6. Verdict de gel pré-V1
+Statut : DRAFT_PRE_V1_FORT.
+Il manque surtout :
+1. confirmer les derniers points runtime concrets ;
+2. figer les noms/emplacements finaux ;
+3. faire une passe de cohérence transversale ;
+4. déclarer ce qui est officiellement hors V1.

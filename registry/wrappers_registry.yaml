@@ -2,6 +2,60 @@
 # Source de vérité pour les wrappers système et leurs emplacements cibles
 
 # === REGISTRY TOOLS ===
+- wrapper_name: menu-validated_prompt_factory
+  wrapper_family: menu
+  target_module: validated_prompt_factory
+  target_script: menu.sh
+  install_location: /usr/local/bin/menu-validated_prompt_factory
+  audience: operator
+  status: active
+  notes: "Générateur de prompts"
+
+- wrapper_name: cmd-validated_prompt_factory
+  wrapper_family: cmd
+  target_module: validated_prompt_factory
+  target_script: cmd.sh
+  install_location: /usr/local/bin/cmd-validated_prompt_factory
+  audience: operator
+  status: active
+  notes: "CLI Prompt Factory"
+
+- wrapper_name: sanity-validated_prompt_factory
+  wrapper_family: sanity
+  target_module: validated_prompt_factory
+  target_script: sanity.sh
+  install_location: /usr/local/bin/sanity-validated_prompt_factory
+  audience: system
+  status: active
+  notes: "Sanity Prompt Factory"
+
+- wrapper_name: menu-trae_module_validator
+  wrapper_family: menu
+  target_module: trae_module_validator
+  target_script: menu.sh
+  install_location: /usr/local/bin/menu-trae_module_validator
+  audience: operator
+  status: active
+  notes: "Validateur de modules"
+
+- wrapper_name: cmd-trae_module_validator
+  wrapper_family: cmd
+  target_module: trae_module_validator
+  target_script: cmd.sh
+  install_location: /usr/local/bin/cmd-trae_module_validator
+  audience: operator
+  status: active
+  notes: "CLI Validateur"
+
+- wrapper_name: sanity-trae_module_validator
+  wrapper_family: sanity
+  target_module: trae_module_validator
+  target_script: sanity.sh
+  install_location: /usr/local/bin/sanity-trae_module_validator
+  audience: system
+  status: active
+  notes: "Sanity Validateur"
+
 - wrapper_name: menu-ui_registry_msi
   wrapper_family: menu
   target_module: ui_registry_msi
@@ -148,3 +202,111 @@
   audience: system
   status: active
   notes: "Gestion positions"
+
+- wrapper_name: cmd-shared_sshfs_permanent
+  wrapper_family: cmd
+  target_module: shared_sshfs_permanent
+  target_script: scripts/shared_sshfs_permanent_cmd.sh
+  install_location: /usr/local/bin/cmd-shared_sshfs_permanent
+  audience: system
+  status: active
+  notes: "CLI montage SSHFS /shared (client Linux)"
+
+- wrapper_name: menu-shared_sshfs_permanent
+  wrapper_family: menu
+  target_module: shared_sshfs_permanent
+  target_script: scripts/shared_sshfs_permanent_menu.sh
+  install_location: /usr/local/bin/menu-shared_sshfs_permanent
+  audience: system
+  status: active
+  notes: "Menu montage SSHFS /shared (client Linux)"
+
+- wrapper_name: sanity-shared_sshfs_permanent
+  wrapper_family: sanity
+  target_module: shared_sshfs_permanent
+  target_script: scripts/shared_sshfs_permanent_sanity.sh
+  install_location: /usr/local/bin/sanity-shared_sshfs_permanent
+  audience: system
+  status: active
+  notes: "Sanity montage SSHFS /shared (client Linux)"
+
+- wrapper_name: cmd-shared
+  wrapper_family: cmd
+  target_module: shared
+  target_script: scripts/cmd.sh
+  install_location: /usr/local/bin/cmd-shared
+  audience: system
+  status: active
+  notes: "UX minimale surface canonique /shared (ls/get/put)"
+
+- wrapper_name: menu-shared
+  wrapper_family: menu
+  target_module: shared
+  target_script: scripts/menu.sh
+  install_location: /usr/local/bin/menu-shared
+  audience: system
+  status: active
+  notes: "Menu minimal surface canonique /shared"
+
+- wrapper_name: sanity-shared
+  wrapper_family: sanity
+  target_module: shared
+  target_script: scripts/sanity_check.sh
+  install_location: /usr/local/bin/sanity-shared
+  audience: system
+  status: active
+  notes: "Sanity minimal surface canonique /shared"
+
+- wrapper_name: cmd-shared_files_sftp
+  wrapper_family: cmd
+  target_module: shared_files_sftp
+  target_script: scripts/cmd.sh
+  install_location: /usr/local/bin/cmd-shared_files_sftp
+  audience: system
+  status: active
+  notes: "Serveur SFTP admin-trading (surface shared)"
+
+- wrapper_name: menu-shared_files_sftp
+  wrapper_family: menu
+  target_module: shared_files_sftp
+  target_script: scripts/menu.sh
+  install_location: /usr/local/bin/menu-shared_files_sftp
+  audience: system
+  status: active
+  notes: "Menu serveur SFTP admin-trading (surface shared)"
+
+- wrapper_name: sanity-shared_files_sftp
+  wrapper_family: sanity
+  target_module: shared_files_sftp
+  target_script: scripts/sanity_check.sh
+  install_location: /usr/local/bin/sanity-shared_files_sftp
+  audience: system
+  status: active
+  notes: "Sanity serveur SFTP admin-trading (surface shared)"
+
+- wrapper_name: cmd-winscp_transfer
+  wrapper_family: cmd
+  target_module: winscp_transfer
+  target_script: scripts/cmd.sh
+  install_location: /usr/local/bin/cmd-winscp_transfer
+  audience: system
+  status: active
+  notes: "Workflow WinSCP/SFTP (surface shared)"
+
+- wrapper_name: menu-winscp_transfer
+  wrapper_family: menu
+  target_module: winscp_transfer
+  target_script: scripts/menu.sh
+  install_location: /usr/local/bin/menu-winscp_transfer
+  audience: system
+  status: active
+  notes: "Menu workflow WinSCP/SFTP (surface shared)"
+
+- wrapper_name: sanity-winscp_transfer
+  wrapper_family: sanity
+  target_module: winscp_transfer
+  target_script: scripts/sanity_check.sh
+  install_location: /usr/local/bin/sanity-winscp_transfer
+  audience: system
+  status: active
+  notes: "Sanity workflow WinSCP/SFTP (surface shared)"

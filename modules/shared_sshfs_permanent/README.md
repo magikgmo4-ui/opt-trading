@@ -2,12 +2,18 @@
 
 But: monter **/shared** de façon permanente via **SSHFS** (systemd) depuis `admin-trading`.
 
+À ne pas confondre :
+- `shared` (module) : UX d’usage quotidien pour lister/déposer/récupérer des fichiers sur la surface (`cmd-shared ls|get|put|...`).
+- `shared_files_sftp` : couche serveur SFTP sur `admin-trading` (expose `/srv/sftp/shared_files/shared`).
+
 ## Usage rapide (après install)
 - `sanity-shared_sshfs_permanent`
 - `cmd-shared_sshfs_permanent status`
 - `cmd-shared_sshfs_permanent mount`
 - `cmd-shared_sshfs_permanent logs`
 - `menu-shared_sshfs_permanent`
+
+Note : ces wrappers globaux sont conçus pour pointer vers les scripts installés dans `/opt/trading/scripts/`. Si un wrapper pointe vers `modules/shared_sshfs_permanent/scripts/*`, il reste utilisable pour inspection et délègue vers `/opt/trading/scripts/` quand ces scripts existent.
 
 ## Config
 Fichier: `/etc/opt-trading/shared_sshfs_permanent.env`

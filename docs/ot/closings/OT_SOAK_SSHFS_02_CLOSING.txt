@@ -1,0 +1,42 @@
+# OT-SOAK-SSHFS-02 — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-13
+
+## 1. RÉSUMÉ EXÉCUTIF
+- Test de reconnexion contrôlé exécuté sur `db-layer` et `student`.
+- Faute de `sudo` non-interactif, la coupure réseau “pure” n’a pas été effectuée : la coupure a été simulée en terminant le process `sshfs` du service.
+- Résultat : auto-récupération prouvée sur les deux machines (restart systemd + `/shared` redevient lisible).
+
+## 2. MÉTHODE DE TEST
+- Coupure ciblée : `kill -TERM <MainPID sshfs>` de `shared-sshfs.service`.
+- Observation : `systemctl is-active`, `findmnt /shared`, lecture sous `timeout`, logs/status.
+- Justification : ne casse pas le SSH global de la machine, ne nécessite pas de privilèges.
+
+## 3. BASELINE AVANT COUPURE (SYNTHÈSE)
+- `db-layer` : service active, `/shared` monté, sanity PASS, lecture OK
+- `student` : service active, `/shared` monté, sanity PASS, lecture OK
+
+## 4. RÉSULTAT PENDANT COUPURE
+- `db-layer` : service passe brièvement en `activating` ; lecture `/shared` FAIL temporaire
+- `student` : service passe brièvement en `activating` ; lecture `/shared` FAIL temporaire
+
+## 5. RÉSULTAT APRÈS RÉTABLISSEMENT
+- `db-layer` : **PASS** (restart systemd observé, mount redevenu OK)
+- `student` : **PASS** (service relancé, nouveau PID, mount redevenu OK)
+
+## 6. COMPARATIF db-layer / student
+- Comportement global identique : restart automatique et retour `/shared` sans action manuelle.
+
+## 7. RÉSERVE RESTANTE
+- Reste à prouver : coupure/rétablissement réseau au niveau interface/firewall (nécessite `sudo` ou une fenêtre opérateur interactive).
+
+## 8. FICHIERS MODIFIÉS (REPO)
+- `OT_SOAK_SSHFS_02_REPORT.md`
+- `OT_SOAK_SSHFS_02_CLOSING.txt`
+
+## 9. VERDICT FINAL
+**Status : CLOSE AVEC RÉSERVE MINEURE (COUPURE RÉSEAU PURE NON PRouvÉE).**
+
+## 10. IMPACT SUR OT-SVC-01
+- Réserve “reconnexion réseau” : réduite (auto-récupération prouvée), mais pas entièrement levée (pas de preuve firewall/interface).
+

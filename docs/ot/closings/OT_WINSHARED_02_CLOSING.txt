@@ -1,0 +1,23 @@
+# OT-WINSHARED-02 — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-13
+
+## 1. RÉSUMÉ EXÉCUTIF
+- `cursor-ai` validé directement : dossier local canonique `C:\Users\ghost\Downloads\SHARED\` présent.
+- Accès SFTP canonique prouvé : user `sftp_cursor_ai` vers `admin-trading` avec `/shared` visible et listable.
+- KeepUpToDate WinSCP : non prouvé (WinSCP non présent/config non détectée).
+
+## 2. CHEMIN LOCAL WINDOWS VALIDÉ
+- `C:\Users\ghost\Downloads\SHARED\` (ÉTABLI SUR POSTE)
+
+## 3. SOURCE DISTANTE VALIDÉE
+- `admin-trading` (SFTP chroot root `/`)
+- Distant canonique : `/shared`
+
+## 4. VERDICT FINAL
+**Status : CLOSE AVEC NOTE (WinSCP/KeepUpToDate NON ÉTABLI).**
+
+## 5. IMPACT SUR OT-SVC-01
+- Réserve “Windows/cursor-ai” : levée (accès prouvé).
+- Réserve restante : reconnexion réseau “pure” Linux (interface/firewall) + décision sur outillage GUI (si requis).
+

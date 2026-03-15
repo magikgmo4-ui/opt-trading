@@ -1,0 +1,92 @@
+TRAE_CLOSURE_TEMPLATE_V1.1 — MODÈLE CANONIQUE DE CLÔTURE
+
+NOTE (opt-trading) : ce fichier est un helper (support de format). La clôture canonique côté repo est `OT_*_CLOSING.txt` avec alignement doc canonique + kanban + point de reprise ; en cas de conflit, le repo prime.
+
+## 1. OBJECTIF DU TEMPLATE
+Standardiser l’archivage d’un état validé (mission, module, doctrine) afin de garantir que ce qui est clos est clairement identifié, que les décisions sont tracées et que le point de reprise pour la suite est explicite. Ce document marque la fin administrative d'une séquence validée.
+
+## 2. CAS D’USAGE COUVERTS
+- Fin de mission après verdict ACCEPT ou ACCEPT_WITH_NOTES.
+- Stabilisation d'un module durable.
+- Validation d'un document doctrinal.
+- Fin de session de travail lorsqu’un état validé doit être archivé.
+
+## 3. CHAMPS OBLIGATOIRES
+- Élément Cible : Nom précis de ce qui est clos.
+- Statut Final : CLOSE.
+- Référence Verdict : Rappel du verdict de review (ACCEPT / ACCEPT_WITH_NOTES).
+- Point de Reprise : Prochaine étape logique ou état stable à reprendre.
+
+## 4. CHAMPS OPTIONNELS
+- Traçabilité Notes : Liste des TODO créés (si ACCEPT_WITH_NOTES).
+- Artefacts Livrés : Liste des fichiers clés produits.
+- Contexte Archivage : Date, version, ou lien vers le ticket.
+
+## 5. FORMAT CANONIQUE COMPLET
+# CLÔTURE — <NOM_ÉLÉMENT>
+
+## 1. ÉTAT ÉTABLI
+- **Cible** : <Nom du module / document / mission>
+- **Statut Final** : CLOSE
+- **Verdict de Référence** : [ACCEPT | ACCEPT_WITH_NOTES]
+
+## 2. TRAÇABILITÉ (Si applicable)
+- **Notes / Dettes** :
+  - [x] <Référence ticket ou TODO créé>
+- **Artefacts Clés** :
+  - <Fichier 1>
+  - <Doc A>
+
+## 3. POINT DE REPRISE
+> **GO_<PROCHAINE_ÉTAPE_LOGIQUE>**
+
+## 6. RÈGLES DE REMPLISSAGE
+1. Ne pas rejouer le match : Ce n'est pas le lieu pour discuter technique. C'est un constat administratif.
+2. Être binaire sur le statut : ce template sert à archiver un état validé en CLOSE. Un élément en REJECT reste hors clôture tant qu’une autre décision doctrinale n’a pas été formalisée.
+3. Lier le Point de Reprise : Le point de reprise doit être une commande ou un identifiant clair pour relancer l'action future sans ambiguïté.
+
+## 7. ERREURS FRÉQUENTES À ÉVITER
+- Clôture Floue : "On verra plus tard" (Pas de statut CLOSE clair).
+- Oubli des Notes : Clore un ACCEPT_WITH_NOTES sans lister les tickets créés.
+- Point de Reprise Manquant : Laisser le projet dans une impasse sans indiquer la suite.
+- Confusion Verdict/Statut : Mettre "ACCEPT" dans Statut Final au lieu de "CLOSE".
+
+## 8. EXEMPLE DE CLÔTURE VALIDE
+# CLÔTURE — MODULE SYSTEM_MONITOR V1
+
+## 1. ÉTAT ÉTABLI
+- **Cible** : Module `system_monitor`
+- **Statut Final** : CLOSE
+- **Verdict de Référence** : ACCEPT_WITH_NOTES
+
+## 2. TRAÇABILITÉ
+- **Notes / Dettes** :
+  - [x] TODO: Ajouter rotation des logs (Ticket #123)
+- **Artefacts Clés** :
+  - `modules/system_monitor/`
+  - `sanity.sh`
+
+## 3. POINT DE REPRISE
+> **GO_TRAE_DEPLOYMENT_V1**
+
+## 9. EXEMPLE DE CLÔTURE INVALIDE (À PROSCRIRE)
+# FIN — C'est bon
+
+## 1. ÉTAT
+C'est fini, ça marche.
+
+## 2. SUITE
+On continue.
+
+(Motif de rejet : Pas de statut canonique, pas de référence verdict, point de reprise vague).
+
+## 10. RÉSUMÉ TECHNIQUE COURT
+Le TRAE_CLOSURE_TEMPLATE_V1.1 est le sceau final. Il transforme un travail technique validé en un acquis organisationnel pérenne. Il sécurise la mémoire du projet en figeant les succès (CLOSE) et en traçant les dettes acceptées, tout en fléchant immédiatement la suite des opérations via le Point de Reprise.
+
+RÉSUMÉ DES CHANGEMENTS (V1 -> V1.1)
+
+- Alignement CLOSE : Restriction du template aux seuls éléments validés (ACCEPT / ACCEPT_WITH_NOTES) passant en statut CLOSE. Exclusion explicite des REJECT.
+- Nettoyage Cas d'Usage : Suppression des cas d'abandon/rejet pour se concentrer sur l'archivage positif.
+- Format Canonique : Suppression de l'option REJECT dans le format.
+
+POINT DE REPRISE : GO_TRAE_CANONICAL_INDEX_V1

@@ -6,27 +6,29 @@ Tu ne dois PAS créer de nouveau module.
 Tu dois UNIQUEMENT modifier l'existant pour corriger un problème ou ajouter une petite fonctionnalité.
 
 ## CONTEXTE DU PATCH
-Nous devons créer un module de démonstration pour le validated_prompt_factory.
-Le projet est un système de trading automatisé.
-L'environnement est Windows mais avec une émulation Bash via Git Bash.
+Le repo opt-trading utilise 2 registres YAML comme sources de vérité :
+- registry/modules_registry.yaml
+- registry/wrappers_registry.yaml
+
+Le patch concerne uniquement l’alignement du “registry central” (ajout/modif d’entrées), sans refactor global ni changement runtime machine.
 
 ## OBJECTIF DU FIX
-Créer le module validated_prompt_factory capable de générer des prompts standardisés.
-Il doit supporter 4 modes de sortie.
+Mettre à jour de façon cohérente les entrées module/wrappers du registry central pour refléter l’état réel du repo, sans casser les conventions (wrappers_expected, audience, status).
 
 ## FICHIERS CONCERNÉS
 Identifie précisément les fichiers à modifier.
 Ne touche à rien d'autre.
 
 ## CONTRAINTES
-- Ne pas casser l'existant.
-- Utiliser Python pour la logique.
-- Utiliser Bash pour les wrappers.
-- Respecter la structure standard des modules.
+- Ne pas modifier le code runtime (scripts/*) hors besoin documentaire explicite.
+- Ne pas inventer des wrappers ou modules non présents dans le repo.
+- Conserver les conventions de champs existantes dans les YAML.
+- Produire une clôture : doc canonique touchée + kanban + point de reprise alignés.
 
 ## VALIDATION DU PATCH
-- Lancer sanity_check.sh doit passer.
-- Lancer la génération d'un prompt doit créer un fichier.
+- Vérifier que les YAML restent lisibles et cohérents (pas de champs manquants, indent stable).
+- Vérifier que chaque wrapper référencé pointe vers un fichier existant.
+- Vérifier que chaque module référencé existe sous modules/<name>/.
 
 ## POINT DE REPRISE
-GO_PROMPT_FACTORY
+GO_OT_REGISTRY_CENTRAL_HARDENING_01

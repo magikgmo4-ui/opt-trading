@@ -1,0 +1,121 @@
+TRAE_MISSION_TEMPLATE_V1.1 — MODÈLE CANONIQUE DE MISSION
+
+## 1. OBJECTIF DU TEMPLATE
+Standardiser le format des missions transmises par l’Orchestrator à l’Executor, afin de garantir que chaque mission est bornée, claire, sans ambiguïté et contient toutes les informations nécessaires à une exécution conforme et validable.
+
+## 2. CHAMPS OBLIGATOIRES
+- ID Mission : Identifiant unique ou titre court.
+- Classification : Type de mission (DIAGNOSTIC_PONCTUEL, PATCH_LOCAL, MODULE_DURABLE, BUNDLE_TRANSFERT).
+- Objectif Unique : Une phrase décrivant le but.
+- Scope (Cible) : Liste explicite des fichiers ou dossiers concernés.
+- Scope (Interdit) : Ce qu'il ne faut PAS faire ou toucher.
+- Validation : Comment prouver le succès (commande, test, log).
+- Rollback : Stratégie de retour arrière prévue.
+
+## 3. CHAMPS OPTIONNELS
+- Contexte : Informations utiles pour comprendre le besoin (historique, lien ticket).
+- Contraintes Techniques : Version de langage, librairie imposée, style.
+- Artefacts Attendus : Fichiers spécifiques à livrer (si hors standard).
+
+## 4. FORMAT CANONIQUE COMPLET
+# MISSION TRAE — <TITRE_COURT>
+
+## 1. CADRAGE
+- **Classification** : [DIAGNOSTIC_PONCTUEL | PATCH_LOCAL | MODULE_DURABLE | BUNDLE_TRANSFERT]
+- **Objectif** : <Une phrase claire>
+- **Contexte** : (Optionnel) <Pourquoi on fait ça>
+
+## 2. PÉRIMÈTRE (SCOPE)
+- **Cible (Autorisé)** :
+  - <Fichier 1>
+  - <Dossier A>
+- **Interdit (Hors Scope)** :
+  - <Ne pas toucher à...>
+  - <Pas de refactor de...>
+
+## 3. EXÉCUTION
+- **Action attendue** : <Description technique succincte>
+- **Contraintes** : <Version, Style, etc.>
+
+## 4. VALIDATION & SÉCURITÉ
+- **Preuve de succès attendue** : <Logs sanity, diff, screenshot...>
+- **Commande de validation** : `<commande>`
+- **Stratégie de Rollback** : <git checkout, rm, cp backup...>
+
+## 5. LIVRABLES
+- Code modifié/créé.
+- Rapport d'exécution (selon standard Executor).
+
+## 5. RÈGLES DE REMPLISSAGE
+1. Soyez spécifique : Préférez "Modifier app/utils.py" à "Modifier le backend".
+2. Soyez limitatif : La section "Interdit" est aussi importante que la section "Cible".
+3. Soyez vérifiable : Si la validation est "Regarder si ça marche", c'est insuffisant. Exigez une commande.
+4. Soyez atomique : Une mission = Un changement cohérent. Pas de "Et aussi...".
+5. Cas Maintenance Doc : Les mises à jour documentaires sont classées en PATCH_LOCAL (cible : fichier.md).
+
+## 6. ERREURS FRÉQUENTES À ÉVITER
+- Mission Valise : "Corriger les bugs et refaire la doc." (Non : 2 missions).
+- Mission Floue : "Améliorer la performance." (Non : Cible précise requise).
+- Validation Manquante : Oublier de préciser comment on saura que c'est fini.
+- Rollback Oublié : Laisser l'Executor improviser le retour arrière.
+- Classification Ambiguë : Utiliser "PATCH" au lieu de "PATCH_LOCAL".
+
+## 7. CRITÈRES D’ACCEPTABILITÉ AVANT EXÉCUTION
+L'Executor doit refuser la mission si :
+
+- L'objectif est multiple ou contradictoire.
+- La cible contient "tout le projet" ou des jokers * trop larges.
+- La validation est impossible ou subjective.
+- Le rollback est techniquement impossible sans perte de données (alerte requise).
+
+## 8. EXEMPLE DE MISSION VALIDE
+# MISSION TRAE — PATCH SANITY SYSTEM_MONITOR
+
+## 1. CADRAGE
+- **Classification** : PATCH_LOCAL
+- **Objectif** : Corriger le chemin d'accès erroné dans le script de sanity check.
+
+## 2. PÉRIMÈTRE
+- **Cible** : `modules/system_monitor/sanity.sh`
+- **Interdit** : Ne modifier aucun autre fichier du module. Pas de renommage de variables.
+
+## 3. EXÉCUTION
+- **Action** : Remplacer `SCRIPT_DIR/..` par `SCRIPT_DIR/../app` ligne 12.
+
+## 4. VALIDATION
+- **Preuve** : Exécution réussie de `bash modules/system_monitor/sanity.sh` (exit code 0).
+- **Rollback** : `git checkout modules/system_monitor/sanity.sh`
+
+## 5. LIVRABLES
+- Fichier `sanity.sh` corrigé.
+- Logs d'exécution.
+
+## 9. EXEMPLE DE MISSION INVALIDE (À REJETER)
+# MISSION TRAE — AMÉLIORATION GLOBALE
+
+## 1. CADRAGE
+- **Classification** : MODULE (?)
+- **Objectif** : Nettoyer le code et le rendre plus rapide.
+
+## 2. PÉRIMÈTRE
+- **Cible** : Tout le dossier `modules/`.
+- **Interdit** : (Vide)
+
+## 3. EXÉCUTION
+- **Action** : Faire au mieux.
+
+## 4. VALIDATION
+- **Preuve** : Ça doit être mieux.
+
+(Motif de rejet : Scope infini, objectif flou, classification non canonique, pas de validation, pas de rollback).
+
+## 10. RÉSUMÉ TECHNIQUE COURT
+Le TRAE_MISSION_TEMPLATE_V1.1 est le contrat d'entrée standardisé. Il impose une classification stricte (DIAGNOSTIC_PONCTUEL, PATCH_LOCAL, MODULE_DURABLE, BUNDLE_TRANSFERT) et absorbe la maintenance documentaire dans PATCH_LOCAL. Il garantit que chaque ordre de travail est sans ambiguïté pour l'Executor.
+
+RÉSUMÉ DES CHANGEMENTS (V1 -> V1.1)
+
+- Harmonisation Classification : Adoption stricte de DIAGNOSTIC_PONCTUEL, PATCH_LOCAL, MODULE_DURABLE, BUNDLE_TRANSFERT.
+- Cas Maintenance Doc : Précision explicite que la doc est traitée comme un PATCH_LOCAL (Point 5).
+- Exemples : Mise à jour des exemples pour refléter la nomenclature harmonisée.
+
+POINT DE REPRISE : GO_TRAE_MISSION_TEMPLATE_V1.1

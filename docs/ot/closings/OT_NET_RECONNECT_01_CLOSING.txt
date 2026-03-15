@@ -1,0 +1,29 @@
+# OT-NET-RECONNECT-01 — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-13
+
+## 1. RÉSUMÉ EXÉCUTIF
+- Baseline `/shared` OK sur `db-layer` et `student`.
+- La coupure réseau “pure” contrôlée n’a pas pu être exécutée (pas de `sudo -n`, `nmcli networking off` refusé).
+- Réserve “reconnexion réseau pure” reste donc active.
+
+## 2. MÉTHODE DE COUPURE RETENUE (RÉALISTE)
+- Méthode recommandée pour lever la réserve : blocage outbound temporaire vers `admin-trading:22` via iptables OUTPUT (nécessite `sudo` interactif), car réversible et ne coupe pas la session SSH.
+
+## 3. RÉSULTATS
+- `db-layer` : **NON TESTÉ** (coupure réseau pure non exécutable en non-interactif)
+- `student` : **NON TESTÉ** (coupure réseau pure non exécutable en non-interactif)
+
+## 4. LIMITES RESTANTES
+- Exécuter le runbook opérateur (iptables OUTPUT) machine par machine pour produire une preuve live “pure”.
+
+## 5. FICHIERS MODIFIÉS (REPO)
+- `OT_NET_RECONNECT_01_REPORT.md`
+- `OT_NET_RECONNECT_01_CLOSING.txt`
+
+## 6. VERDICT FINAL
+**Status : CLOSE AVEC RÉSERVE (TEST RÉSEAU PURE NON REJOUÉ).**
+
+## 7. IMPACT SUR OT-SVC-01
+- OT-SVC-01 reste **CLOSE AVEC RÉSERVE MINEURE RECONNEXION** : la preuve live “pure” manque toujours.
+

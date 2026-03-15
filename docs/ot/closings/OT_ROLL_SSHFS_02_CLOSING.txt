@@ -1,0 +1,53 @@
+# OT-ROLL-SSHFS-02 — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-13
+
+## 1. RÉSUMÉ EXÉCUTIF
+- `/shared` est désormais documenté comme **standard canonique inter-machines**.
+- Les clients Linux pertinents (`db-layer`, `student`) sont **alignés et prouvés live** via `shared_sshfs_permanent`.
+- Windows/GUI (`cursor-ai`) reste aligné via WinSCP/SFTP vers la **même surface serveur** (pas de nouvelle surface concurrente).
+- Réserve restante : test de reconnexion réseau contrôlé + extension éventuelle à d’autres machines.
+
+## 2. DOCTRINE CANONIQUE RETENUE
+Source unique : `admin-trading:/srv/sftp/shared_files/shared`
+Clients Linux : montage sur `/shared` via `shared_sshfs_permanent` (`shared-sshfs.service`)
+Windows/GUI : WinSCP/SFTP vers la même source serveur
+
+## 3. ÉTAT LIVE PAR MACHINE
+- `admin-trading` : `/shared` alias (symlink) vers `/srv/sftp/shared_files/shared` (source)
+- `db-layer` : `shared-sshfs.service` actif ; `/shared` monté (sshfs)
+- `student` : `shared-sshfs.service` actif ; `/shared` monté (sshfs)
+- `cursor-ai` : mode WinSCP/SFTP (à confirmer précisément côté poste, preuves indirectes côté serveur)
+
+## 4. DÉPLOIEMENTS EFFECTUÉS
+- Aucun déploiement supplémentaire requis dans cette mission (standard déjà en place sur `db-layer` et `student`).
+
+## 5. CLEANUP
+- Aucun retrait destructif dans OT-ROLL-SSHFS-02.
+- Clarification packaging/registry pour éviter la dérive documentaire.
+
+## 6. FICHIERS MODIFIÉS
+- `registry/modules_registry.yaml`
+- `registry/wrappers_registry.yaml`
+- `docs/master_pack/00_current_state_and_standards.md`
+- `OT_SVC_01_CANONICAL_RUNTIME_MAP.md`
+- `OT_ROLL_SSHFS_02_ARCHITECTURE.md`
+- `OT_ROLL_SSHFS_02_DEPLOY_REPORT.md`
+- `OT_ROLL_SSHFS_02_CLEANUP_REPORT.md`
+- `OT_ROLL_SSHFS_02_CLOSING.txt`
+
+## 7. COMMANDES EXÉCUTÉES
+- Audits live non destructifs : `findmnt /shared`, `systemctl status shared-sshfs.service`, `sanity-shared_sshfs_permanent`, listings `/shared`.
+
+## 8. VERDICT FINAL
+Mission réussie : la phrase “`/shared` est le standard inter-machines” est **prouvée partiellement** (clients Linux alignés et prouvés). La généralisation multi-machines et un test contrôlé de reconnexion réseau restent ouverts.
+
+## 9. LIGNE CANONIQUE PROJET
+`/shared` est la surface canonique inter-machines (source `admin-trading:/srv/sftp/shared_files/shared`), montée sur les clients Linux via `shared_sshfs_permanent`, et accessible côté Windows via WinSCP/SFTP sur la même source.
+
+## 10. POINT DE REPRISE SUIVANT
+- Exécuter un test de reconnexion réseau contrôlé sur `db-layer` et `student` (OT-SOAK-SSHFS-01).
+- Documenter précisément le chemin local Windows canonique et la procédure WinSCP keepuptodate sur `cursor-ai`.
+
+**Status : CLOSE AVEC RÉSERVE MINEURE STABILITÉ / EXTENSION.**
+

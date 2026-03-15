@@ -1,0 +1,32 @@
+# OT-STARTERPACK-ADOPTION-01 — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-14
+
+## 1. RÉSUMÉ EXÉCUTIF
+- Validation d’adoption réalisée au niveau repo : ouverture/exécution/clôture/continuité sont compréhensibles et actionnables.
+- Une friction prouvée a été corrigée (contradiction sur les matrices runtime dans le point d’entrée unique).
+- Kanban mis à jour ; point de reprise laissé pour un drill opérateur “à froid”.
+
+## 2. CE QUI EST MAINTENANT ÉTABLI
+- Ouverture : `docs/master_pack/mission_starter_pack/00_mission_start_guide.md` (point d’entrée unique).
+- Exécution : `workflow_ai/WORKFLOW.md` + templates `specs.md` / `tasks.md`.
+- Clôture : `OT_*_CLOSING.txt` + exigence doc canonique + kanban + point de reprise.
+- Packs TRAE : helpers/support, non sources de vérité du repo (si conflit, repo prime).
+
+## 3. RÉSERVE MINEURE
+- Adoption opérateur réelle du gating “GO/STOP” : non prouvable par lecture repo seule ; à valider par drill.
+- Titre “canonique” des packs TRAE : friction cognitive possible, atténuée par la note opt-trading.
+
+## 4. IMPACT SUR LE KANBAN
+- Kanban mis à jour : OT-STARTERPACK-ADOPTION-01 = CLOSE (PASS AVEC RÉSERVE MINEURE) + next step.
+
+## 5. LIVRABLES
+- `OT_STARTERPACK_ADOPTION_01_REPORT.md`
+- `OT_STARTERPACK_ADOPTION_01_CLOSING.txt`
+
+## 6. VERDICT FINAL
+**Status : CLOSE (PASS AVEC RÉSERVE MINEURE).**
+
+## 7. POINT DE REPRISE
+> **GO_OT_SESSION_OPENING_DRILL_01**
+

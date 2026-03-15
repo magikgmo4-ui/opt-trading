@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
 set -euo pipefail
-MOD="${0%/*}/.."
-MOD="$(cd "$MOD" && pwd -P)"
+
+SCRIPT="${BASH_SOURCE[0]}"
+if command -v readlink >/dev/null 2>&1; then
+  SCRIPT="$(readlink -f "$SCRIPT" 2>/dev/null || echo "$SCRIPT")"
+fi
+MOD="$(cd "$(dirname "$SCRIPT")/.." && pwd -P)"
 NAME="$(basename "$MOD")"
+
+if [[ "$(basename "$0")" == "sanity-shared_sshfs_permanent" && -x "/opt/trading/scripts/shared_sshfs_permanent_sanity.sh" ]]; then
+  exec bash "/opt/trading/scripts/shared_sshfs_permanent_sanity.sh"
+fi
+
 echo "=== sanity (wrapper) ==="
 echo "name=$NAME"
 echo "path=$MOD"

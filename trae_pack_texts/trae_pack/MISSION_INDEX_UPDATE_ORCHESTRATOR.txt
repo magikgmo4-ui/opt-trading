@@ -1,0 +1,33 @@
+# MISSION TRAE — MISE À JOUR INDEX CANONIQUE (ORCHESTRATOR ROLE)
+
+## 1. CADRAGE
+- **Classification** : **PATCH_LOCAL**
+- **Objectif** : Ajouter la référence `TRAE_ORCHESTRATOR_ROLE_V1.1` à l'index canonique `TRAE_CANONICAL_INDEX_V1.2.txt`.
+- **Contexte** : Le rôle d'Orchestrator a été formellement validé et clos. Il doit désormais figurer dans la liste des briques canoniques actives.
+
+## 2. PÉRIMÈTRE (SCOPE)
+- **Cible (Autorisé)** :
+  - `C:\Users\ghost\opt-trading\trae_pack_texts\trae_pack\TRAE_CANONICAL_INDEX_V1.2.txt`
+- **Interdit (Hors Scope)** :
+  - Modification des autres entrées de l'index.
+  - Modification d'autres fichiers.
+  - Incrémentation de la version de l'index (reste V1.2 pour ce patch mineur, ou V1.3 si changement structurel - ici simple ajout).
+
+## 3. EXÉCUTION
+- **Action attendue** :
+  1. Ajouter une ligne dans la section "3. LISTE CANONIQUE DES BRIQUES".
+  2. Nouvelle entrée : `8. TRAE_ORCHESTRATOR_ROLE_V1.1` (numérotation à adapter selon l'existant).
+  3. Ajouter une ligne dans la section "4. RÔLE DE CHAQUE BRIQUE".
+  4. Nouvelle description : `- TRAE_ORCHESTRATOR_ROLE_V1.1 : Le "Cadrage". Définit les responsabilités et limites de l'autorité de mission.`
+
+## 4. VALIDATION & SÉCURITÉ
+- **Preuve de succès attendue** : Lecture des sections 3 et 4 de l'index.
+- **Commande de validation** :
+  ```powershell
+  Get-Content "C:\Users\ghost\opt-trading\trae_pack_texts\trae_pack\TRAE_CANONICAL_INDEX_V1.2.txt"
+  ```
+- **Stratégie de Rollback** :
+  - `git checkout ...` ou restauration manuelle de la version précédente.
+
+## 5. LIVRABLES
+- Fichier `TRAE_CANONICAL_INDEX_V1.2.txt` mis à jour.

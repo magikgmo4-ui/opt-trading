@@ -1,0 +1,36 @@
+# OT-SHARED-MIGRATE-01 — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-13
+
+## 1. RÉSUMÉ EXÉCUTIF
+- Migration douce lot 1 exécutée : création des dossiers cibles + déplacement des zips manifestement reclassables.
+- Racine `/shared` allégée (91 → 15 fichiers) sans toucher aux dossiers réservés/pipeline.
+- Cas ambigus/sensibles explicitement exclus : `.ssh.zip`, `.venv.zip`.
+
+## 2. DOSSIERS CIBLES CRÉÉS
+- `_bundles/`
+- `_ops/`
+- `_refs/`
+- `_archives/`
+
+## 3. DÉPLACEMENTS EFFECTUÉS
+- Vers `_bundles/` : 76 fichiers `.zip` (non-dot)
+- Vers `_ops/` : aucun (lot 1)
+- Vers `_refs/` : aucun (lot 1)
+- Vers `_archives/` : aucun (lot 1)
+
+## 4. LAISSÉS EN PLACE
+- Dossiers réservés inchangés : `inbox/ outbox/ modules/ _logs/ vision_*/ desk_pro/ documents/ windows/ _git_archives/`
+- Ambigus exclus : `.ssh.zip`, `.venv.zip`
+- Hors lot 1 : scripts `.sh`, `README.txt`, `audit_opt_trading_branches.md`, `module_repo_modules_v1.sha256`, `boot_test.txt`
+
+## 5. SNAPSHOT APRÈS MIGRATION
+- Racine : 15 dossiers (incluant nouveaux) ; 15 fichiers
+- `_bundles/` : 76 fichiers
+
+## 6. VERDICT FINAL
+**Status : CLOSE (MIGRATION LOT 1 PASS).**
+
+## 7. POINT DE REPRISE SUIVANT
+- Lot 2 (si souhaité) : déplacer certains `.sh` vers `_ops/` + docs vers `_refs/` après confirmation d’absence de dépendances.
+

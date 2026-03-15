@@ -1,11 +1,11 @@
 # Registry - Source de Vérité Centrale
 
-Ce dossier `registry/` a vocation à devenir la source de vérité canonique et unique pour l'architecture du Desk Pro.
+Ce dossier `registry/` est la source de vérité **versionnée repo** pour décrire l’architecture et les points d’entrée d’`opt-trading`.
 
 ## Objectif
 Centraliser les définitions statiques de l'infrastructure, des modules et des interfaces utilisateur, indépendamment de l'implémentation code.
 
-Contrairement aux documents d'analyse (`docs/`) ou aux implémentations spécifiques (`modules/ui_registry_msi`), ce registre est structuré pour être consommé par des outils d'automatisation futurs (CI/CD, Dashboard, Orchestrateur).
+Contrairement aux documents d'analyse (`docs/`) ou aux implémentations spécifiques (`modules/ui_registry_msi`), ce registre est structuré pour être consommé par des outils d'automatisation (readers, installateurs, menus).
 
 ## Contenu
 
@@ -46,4 +46,4 @@ Vue d'ensemble méta des registres centraux et de leurs consommateurs.
 - **Prochaine étape**: Faire consommer ces fichiers par `ui_registry_msi` et les scripts de déploiement.
 
 ## Note Importante
-Les modules existants (`ops_menu_hub`, `desk_pro_dashboard`, etc.) ne sont **pas encore** câblés sur ce registre. Ils fonctionnent avec leurs propres configurations locales. Ce registre servira de base à la future unification.
+Ce registre décrit la vérité **repo/package**. Il ne prouve pas, à lui seul, l’état réel du déploiement live (wrappers installés, unités systemd actives, etc.).

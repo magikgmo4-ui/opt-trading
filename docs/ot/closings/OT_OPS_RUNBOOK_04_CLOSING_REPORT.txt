@@ -1,0 +1,9 @@
+# OT-OPS-RUNBOOK-04 — CLOSING REPORT
+
+## 1. MISSION
+Micro-patch du runbook pour alignement strict avec le script admin.
+
+## 2. RÉSULTAT
+Le runbook `OT_OPS_RUNBOOK_ADMIN_TRADING.md` reflète désormais exactement les capacités du script `desk_pro_cmd.sh`.
+
+**Status : MISSION TERMINÉE.**

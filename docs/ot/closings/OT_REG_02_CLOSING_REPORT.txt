@@ -1,0 +1,19 @@
+# OT-REG-02 — CLOSING REPORT
+
+## 1. ÉTAT ÉTABLI (CE QUI EST FAIT)
+- **Registry Modules** : Mis à jour avec les modules critiques (`validated_prompt_factory`, `shared_sshfs_permanent`, `trae_module_validator`).
+- **Registry Wrappers** : Ajouté les wrappers interactifs pour `prompt_factory` et `validator`.
+- **Statuts Workflow** : Reflète l'état "Broken" vs "Active Candidate" observé lors de l'audit destructif.
+
+## 2. ACTIONS REQUISES (SUITE LOGIQUE)
+1. **OT-WRAP-01 (Deploy)** : Exécuter `install_shortcuts.sh` sur toutes les machines pour propager ces changements dans `/usr/local/bin`.
+2. **OT-OPS-02 (Cleanup)** : Promouvoir `fix3` vers `v2` et nettoyer les dossiers doublons.
+3. **OT-DOC-01 (Documentation)** : Mettre à jour la documentation utilisateur pour inclure les nouveaux outils.
+
+## 3. RISQUES RÉSIDUELS
+- La présence de `workflow_post_change_v2` (broken) dans le registry est temporaire, en attente du fix.
+- `reseau_ssh` reste hors registry (trop complexe).
+
+## 4. POINT DE REPRISE
+> **GO_OT_WRAP_01_DEPLOY_WRAPPERS**
+(Déployer les wrappers maintenant que le registry les connait).

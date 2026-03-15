@@ -5,6 +5,8 @@ Faciliter le workflow:
 Windows (WinSCP) -> admin-trading:/srv/sftp/shared_files/shared/inbox -> push vers student (ou autre hôte)
 et récupération inverse via outbox.
 
+Note : sur `admin-trading`, `/shared` est un alias de `/srv/sftp/shared_files/shared`.
+
 ## Dossiers standard (créés par `cmd-winscp_transfer init`)
 - /srv/sftp/shared_files/shared/inbox   : dépôt WinSCP (upload)
 - /srv/sftp/shared_files/shared/outbox  : fichiers à télécharger (download)
@@ -27,6 +29,14 @@ menu-winscp_transfer
 - Envoyer vers student: `cmd-winscp_transfer send student <fichier>`
 - Déployer un zip module sur student: `cmd-winscp_transfer deploy student <zip>`
 - Récupérer depuis student vers outbox: `cmd-winscp_transfer fetch student <remote_path>`
+
+## Windows (chemin local recommandé)
+- Dossier local canonique (établi sur poste) : `C:\Users\ghost\Downloads\SHARED\`
+
+## À ne pas confondre
+- `shared` (module) : UX Linux générique pour lister/déposer/récupérer sur la surface (`cmd-shared ls|get|put|...`).
+- `shared_files_sftp` : couche serveur SFTP (comptes/sshd) qui expose la surface.
+- `shared_sshfs_permanent` : client Linux (systemd) qui monte `/shared` sur `db-layer` et `student`.
 
 ## Configuration hôtes
 Par défaut:

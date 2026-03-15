@@ -3,7 +3,8 @@
 ## Gaps principaux observés
 
 ### Gap A — Pas encore de registry UI canonique
-On a des modules, des wrappers, des menus, mais pas encore une **vue unifiée des UI** par machine / rôle / catégorie.
+ÉTABLI (repo) : une base de registry existe (`registry/ui_surfaces_registry.yaml`, `registry/wrappers_registry.yaml`) et un module lecteur UI est versionné (`modules/ui_registry_msi`).
+À CONFIRMER (live) : adoption réelle comme source unique et complétude des surfaces par machine / rôle / catégorie.
 
 ### Gap B — `ops_menu_hub` est bon comme hub CLI, pas comme UI finale
 Il remplit bien son rôle d’accès opérateur, mais ne remplace pas une UI MSI riche.
@@ -21,4 +22,4 @@ Le besoin métier est clair, mais la vue UI/registre n’est pas encore écrite.
 Ces éléments ne doivent pas polluer ce chantier UI tant qu’ils ne sont pas classés.
 
 ## Conclusion
-Avant toute UI spécifique, il faut formaliser une **UI registry MSI-first** et un **target map** des surfaces.
+Avant toute UI spécifique, maintenir une **UI registry MSI-first** et un **target map** des surfaces, sans sur-interpréter l’état live tant qu’il n’est pas prouvé.

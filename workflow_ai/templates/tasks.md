@@ -9,7 +9,7 @@
 - [ ] Gate 3: backup avant changement
 - [ ] Gate 4: incrément 1 (MVP)
 - [ ] Gate 5: tests + sanity + rollback
-- [ ] Gate 6: update docs + changelog
+- [ ] Gate 6: clôture (update docs + kanban + synthèse kanban + point de reprise)
 
 ## Détails (exemple)
 - [ ] Créer endpoint POST /desk/snapshot

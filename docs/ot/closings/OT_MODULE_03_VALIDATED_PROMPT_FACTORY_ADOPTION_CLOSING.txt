@@ -1,0 +1,60 @@
+# OT-MODULE-03 — VALIDATED_PROMPT_FACTORY (ADOPTION) — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-14
+
+## 1. RÉSUMÉ EXÉCUTIF
+- Adoption opérateur minimale faite : parcours nominal documenté + menu aligné + 3 cas standard bornés.
+- Aucun refactor large ; aucun nouveau mode ; aucun débord de périmètre.
+- Preuves : 3 générations (patch/bundle/chatgpt) + 1 échec propre.
+
+## 2. PARCOURS OPÉRATEUR NOMINAL (RETENU)
+- Cas nominal patch : `./cmd.sh generate trae_patch inputs/synthesis_registry_central.txt`
+- Cas nominal bundle : `./cmd.sh generate bundle_transfer inputs/synthesis_bundle_transfer.txt`
+- Optionnel chatgpt : `./cmd.sh generate chatgpt_session inputs/synthesis_example.txt`
+- Récupération output : `output/prompt_<mode>.txt` (ou `--output-dir` via Python)
+
+## 3. PREUVES D’EXÉCUTION (EXACTES)
+### Cas standard 1 — Patch Trae
+- Commande :
+  - `python modules/validated_prompt_factory/app/validated_prompt_factory.py --input modules/validated_prompt_factory/inputs/synthesis_registry_central.txt --mode trae_patch --output-dir state/vpf_adoption_2026-03-14`
+- Résultat observé :
+  - `Success: Generated state/vpf_adoption_2026-03-14\prompt_trae_patch.txt`
+- Output :
+  - `state/vpf_adoption_2026-03-14/prompt_trae_patch.txt`
+
+### Cas standard 2 — Bundle transfer
+- Commande :
+  - `python modules/validated_prompt_factory/app/validated_prompt_factory.py --input modules/validated_prompt_factory/inputs/synthesis_bundle_transfer.txt --mode bundle_transfer --output-dir state/vpf_adoption_2026-03-14`
+- Résultat observé :
+  - `Success: Generated state/vpf_adoption_2026-03-14\prompt_bundle_transfer.txt`
+- Output :
+  - `state/vpf_adoption_2026-03-14/prompt_bundle_transfer.txt`
+
+### Cas standard 3 — Session ChatGPT (optionnel)
+- Commande :
+  - `python modules/validated_prompt_factory/app/validated_prompt_factory.py --input modules/validated_prompt_factory/inputs/synthesis_example.txt --mode chatgpt_session --output-dir state/vpf_adoption_2026-03-14`
+- Résultat observé :
+  - `Success: Generated state/vpf_adoption_2026-03-14\prompt_chatgpt_session.txt`
+- Output :
+  - `state/vpf_adoption_2026-03-14/prompt_chatgpt_session.txt`
+
+### Cas d’échec propre — Synthèse incomplète
+- Commande :
+  - `python modules/validated_prompt_factory/app/validated_prompt_factory.py --input modules/validated_prompt_factory/inputs/synthesis_failure_missing_section.txt --mode trae_patch --output-dir state/vpf_adoption_2026-03-14`
+- Erreur observée :
+  - `Error: Missing sections in synthesis: POINT DE REPRISE`
+
+## 4. IMPACT KANBAN
+- Kanban mis à jour : OT-MODULE-03 ajouté (CLOSE) et point de reprise mis à jour.
+
+## 5. LIVRABLES
+- `OT_MODULE_03_VALIDATED_PROMPT_FACTORY_ADOPTION_REPORT.md`
+- `OT_MODULE_03_VALIDATED_PROMPT_FACTORY_ADOPTION_GAP_REPORT.md`
+- `OT_MODULE_03_VALIDATED_PROMPT_FACTORY_ADOPTION_CLOSING.txt`
+
+## 6. VERDICT FINAL
+**Status : CLOSE (PASS).**
+
+## 7. POINT DE REPRISE
+> **GO_OT_MODULE_04_VALIDATED_PROMPT_FACTORY_LINUX_WRAPPERS_SMOKE**
+

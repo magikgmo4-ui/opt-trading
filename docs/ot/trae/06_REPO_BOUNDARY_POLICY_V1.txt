@@ -1,0 +1,108 @@
+04B_REPO_BOUNDARY_POLICY_V1
+
+0. Objet
+04B_REPO_BOUNDARY_POLICY_V1 fixe la frontière canonique entre :
+- repo
+- hors repo (shared)
+- temp
+- backups
+
+1. Principe central
+Le repo porte la vérité versionnée.
+shared porte les artefacts opératoires hors repo.
+temp porte le jetable non canonique.
+backups porte les copies de sécurité.
+
+2. Ce qui doit être IN-REPO
+Doit vivre dans le repo tout ce qui est :
+- source de vérité versionnée ;
+- code ;
+- scripts ;
+- modules ;
+- wrappers ;
+- registry ;
+- structure projet ;
+- workflow validé ;
+- kanban OT ;
+- documentation OT canonique ;
+- runbooks ;
+- closings ;
+- reports de référence durable ;
+- textes de doctrine et de cadrage validés.
+Règle :
+si le fichier doit être versionné, diffé dans Git, historiquement traçable et relisible comme vérité durable du projet, alors il doit être dans le repo.
+
+3. Ce qui doit être HORS REPO
+Doit vivre hors repo, dans shared, tout ce qui est :
+- artefact de transfert ;
+- bundle ;
+- archive zip/tgz ;
+- remise vers Windows ;
+- export vers autre machine ;
+- backup ;
+- sauvegarde avant patch ;
+- sauvegarde avant déploiement ;
+- snapshot de session ;
+- logs ;
+- exports techniques ;
+- captures ;
+- preuves de sanity/smoke ;
+- outputs à rejouer ailleurs ;
+- dossier de reprise à transmettre ;
+- export texte pour Drive ;
+- copie livrable hors repo ;
+- artefact de session utile mais non versionné.
+Règle :
+si le fichier sert surtout à transporter, sauvegarder, prouver une exécution, être consommé ailleurs, sortir du périmètre Git ou vivre comme artefact opératoire, alors il doit être hors repo.
+
+4. Ce qui doit être en temp
+Doit aller en temp tout ce qui est :
+- brouillon local ;
+- sortie intermédiaire non validée ;
+- essai jetable ;
+- artefact sans valeur de reprise ;
+- copie non destinée à transfert ni versioning.
+
+5. Quand un document canonique sort du repo
+Un document canonique peut être exporté hors repo dans ces cas :
+- remise vers Windows ;
+- dépôt sur Drive ;
+- transfert inter-machine ;
+- pack de reprise ;
+- bundle de travail ;
+- copie de livraison ;
+- usage hors Git par contrainte opératoire.
+Règle :
+l’original canonique reste dans le repo ; la copie va dans shared/docs/export/ ou un dossier adapté ; le statut de la copie doit être explicite.
+
+6. Cas particulier des backups
+Règle ferme :
+les backups ne vivent pas dans le repo.
+Ils vont dans /shared/backups/
+
+7. Test canonique “repo ou hors repo ?”
+Mettre dans le repo si :
+- source de vérité ;
+- versionné ;
+- diffable ;
+- durable ;
+- projet / doctrine / code / runbook / kanban.
+Mettre dans shared si :
+- bundle ;
+- backup ;
+- export ;
+- preuve ;
+- log ;
+- transfert ;
+- reprise ;
+- remise vers Windows / Drive / autre machine.
+Mettre dans temp si :
+- jetable ;
+- brouillon ;
+- non validé ;
+- sans valeur durable.
+
+8. Obligations opératoires
+Orchestrator : décide repo / shared / temp / backups, pourquoi, avec quelle cible.
+Executor : dépose au bon endroit et l’indique explicitement.
+Reviewer : vérifie que la frontière a été respectée.

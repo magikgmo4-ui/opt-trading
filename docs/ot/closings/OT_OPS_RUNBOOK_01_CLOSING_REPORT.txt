@@ -1,0 +1,14 @@
+# OT-OPS-RUNBOOK-01 — CLOSING REPORT
+
+## 1. MISSION
+Formaliser la procédure opérateur sur `admin-trading`.
+
+## 2. RÉSULTAT
+Le document `OT_OPS_RUNBOOK_ADMIN_TRADING.md` est créé.
+Il sert de référence unique pour l'usage quotidien.
+
+## 3. IMPACT
+L'opérateur n'a plus besoin de deviner quel script lancer.
+La distinction entre "Outil Quotidien" (Hub) et "Outil Admin" (Script Admin) est claire.
+
+**Status : MISSION ACCOMPLIE.**

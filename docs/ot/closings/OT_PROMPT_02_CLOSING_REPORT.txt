@@ -1,0 +1,13 @@
+# OT-PROMPT-02 — CLOSING REPORT
+
+## 1. MISSION
+Construction du Starter Pack Mission.
+
+## 2. RÉSULTAT
+Le dossier `docs/master_pack/mission_starter_pack/` est peuplé avec les outils essentiels.
+Il intègre les leçons apprises des missions OT-OPS-04 (Student), OT-OPS-05 (Exceptions) et OT-OPS-RUNBOOK (Desk Pro).
+
+## 3. PROCHAINE ÉTAPE
+Utiliser ce pack pour la prochaine mission réelle.
+
+**Status : MISSION ACCOMPLIE.**

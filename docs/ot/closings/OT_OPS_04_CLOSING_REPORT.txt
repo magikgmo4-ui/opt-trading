@@ -1,0 +1,19 @@
+# OT-OPS-04 — CLOSING REPORT
+
+## 1. OBJECTIF ATTEINT
+L'audit de la machine `student` a été réalisé sans modification destructive.
+Les routines réelles ont été distinguées des structures théoriques.
+
+## 2. RÉSULTATS CLÉS
+- **Identification de la Source de Vérité** : Le dossier `scripts/student/` est la production active pour l'IA, pas `modules/deepseek_student/`.
+- **Validation de Probability Engine** : Ce module est correctement standardisé.
+- **Matrice Établie** : Distinction claire entre routines locales (scripts legacy) et modules (probability).
+
+## 3. DÉCISIONS
+- **GEL** du dossier `scripts/student/` (ne pas toucher).
+- **MARQUAGE** du module `deepseek_student` comme "Incomplet/À mettre à jour".
+- **REFUS** de créer des wrappers distants spéculatifs sur `admin-trading`.
+
+## 4. PROCHAINE ÉTAPE
+Le système est stable en l'état.
+La normalisation de `deepseek_student` sera une tâche de refactoring dédiée, distincte de l'audit.

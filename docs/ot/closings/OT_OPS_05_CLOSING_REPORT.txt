@@ -1,0 +1,23 @@
+# OT-OPS-05 — CLOSING REPORT
+
+## 1. OBJECTIF ATTEINT
+La cartographie des exceptions runtime est complète. Nous avons dépassé la simple "découverte student" pour établir un modèle de compréhension global du repository.
+
+## 2. MODÈLE ÉTABLI : LE "HYBRIDE STABILISÉ"
+Le projet n'est pas une architecture modulaire pure, mais un système hybride stabilisé :
+1.  **Modules** : Briques logicielles (dans `modules/`).
+2.  **Runtime Layers** : Couches d'intégration par machine (dans `scripts/<machine>/`).
+3.  **Exceptions Historiques** : Zones où le runtime a divergé du module (`student`, `reseau_ssh`).
+
+## 3. ACTIONS RÉALISÉES
+- **Audit** : `OT_OPS_05_RUNTIME_EXCEPTION_AUDIT.md`
+- **Matrice** : `OT_OPS_05_RUNTIME_EXCEPTION_MATRIX.md`
+- **Plan** : `OT_OPS_05_RUNTIME_EXCEPTION_ACTIONS.md`
+- **Documentation** : Mise à jour de `docs/master_pack/00_current_state_and_standards.md` (Section 6 étendue).
+- **Signalisation** : Ajout de `scripts/reseau_ssh/README_RUNTIME_STATUS.md`.
+
+## 4. PROCHAINE ÉTAPE
+Le runtime est désormais cartographié et les zones dangereuses (Exceptions) sont balisées.
+Les zones valides (Runtime Layers) sont légitimées.
+
+**Status : MISSION ACCOMPLIE.**

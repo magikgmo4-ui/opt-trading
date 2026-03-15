@@ -148,6 +148,8 @@ while true; do
                 echo "3. Sanity: Probability"
                 echo "4. Sanity: Derivatives Analyzer"
                 echo "5. Sanity: Menu Hub"
+                echo "6. Prompt Factory (menu-validated_prompt_factory)"
+                echo "7. Module Validator (menu-trae_module_validator)"
                 echo "0. Back"
                 read -p "Select Tool: " maint_choice
                 case "$maint_choice" in
@@ -156,6 +158,8 @@ while true; do
                     3) run_wrapper "sanity-probability_engine" ;;
                     4) run_wrapper "sanity-derivatives_analyzer" ;;
                     5) run_wrapper "sanity-ops_menu_hub" ;;
+                    6) run_wrapper "menu-validated_prompt_factory" ;;
+                    7) run_wrapper "menu-trae_module_validator" ;;
                     0) break ;;
                     *) ;;
                 esac

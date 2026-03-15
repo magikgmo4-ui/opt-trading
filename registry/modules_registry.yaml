@@ -2,6 +2,50 @@
 # Source de vérité pour les modules fonctionnels et leurs rôles
 
 # === OPERATOR TOOLS ===
+- module_name: validated_prompt_factory
+  domain: operator_tools
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Générateur de prompts validés (ChatGPT, Trae, Bundle)"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: high
+  dependencies: []
+
+- module_name: trae_module_validator
+  domain: operator_tools
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Validateur de structure de module Trae"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: medium
+  dependencies: []
+
+- module_name: workflow_post_change_v2
+  domain: operator_tools
+  machine_target: any
+  operator_visible: false
+  ui_related: false
+  description: "Hook post-change (Canonique Patché)"
+  wrappers_expected: ["cmd"]
+  status: active
+  priority: critical
+  dependencies: []
+
+- module_name: workflow_post_change_v2_fix3
+  domain: operator_tools
+  machine_target: any
+  operator_visible: false
+  ui_related: false
+  description: "Hook post-change (Fix Source)"
+  wrappers_expected: ["cmd"]
+  status: deprecated_merged
+  priority: low
+  dependencies: []
+
 - module_name: ops_menu_hub
   domain: operator_tools
   machine_target: msi_db_layer
@@ -158,6 +202,50 @@
   dependencies: ["portfolio_engine"]
 
 # === MONITORING & MAINTENANCE ===
+- module_name: shared_sshfs_permanent
+  domain: infrastructure
+  machine_target: any
+  operator_visible: false
+  ui_related: false
+  description: "Client Linux: montage SSHFS permanent de /shared depuis admin-trading"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: critical
+  dependencies: []
+
+- module_name: shared
+  domain: infrastructure
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "UX minimale pour la surface canonique /shared (ls/get/put)"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: high
+  dependencies: []
+
+- module_name: shared_files_sftp
+  domain: infrastructure
+  machine_target: admin_trading
+  operator_visible: true
+  ui_related: false
+  description: "Serveur SFTP: exposition de la surface canonique shared sur admin-trading"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: high
+  dependencies: []
+
+- module_name: winscp_transfer
+  domain: infrastructure
+  machine_target: admin_trading
+  operator_visible: true
+  ui_related: false
+  description: "Workflow WinSCP/SFTP: inbox/outbox + push/pull vers machines"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: medium
+  dependencies: []
+
 - module_name: perf_engine
   domain: monitoring
   machine_target: admin_trading

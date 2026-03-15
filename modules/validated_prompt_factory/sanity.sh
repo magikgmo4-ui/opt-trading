@@ -9,12 +9,10 @@ OUTPUT_DIR="$SCRIPT_DIR/output"
 
 echo "Checking Validated Prompt Factory..."
 
-# 1. Structure
 [ -d "$APP_DIR" ] || { echo "FAIL: App dir missing"; exit 1; }
 [ -f "$APP_DIR/validated_prompt_factory.py" ] || { echo "FAIL: Main script missing"; exit 1; }
 [ -d "$INPUT_DIR" ] || { echo "FAIL: Inputs dir missing"; exit 1; }
 
-# 2. Python execution (Help)
 echo -n "Checking Help... "
 if bash "$CMD" help | grep -q "Usage:"; then
     echo "OK"
@@ -23,9 +21,7 @@ else
     exit 1
 fi
 
-# 3. Generation Test (Dry run mostly, but we can generate a file)
 echo -n "Checking Generation (chatgpt_session)... "
-# Ensure output dir exists
 mkdir -p "$OUTPUT_DIR"
 
 if bash "$CMD" generate chatgpt_session "$INPUT_DIR/synthesis_example.txt" > /dev/null; then
@@ -38,6 +34,14 @@ if bash "$CMD" generate chatgpt_session "$INPUT_DIR/synthesis_example.txt" > /de
 else
     echo "FAIL: Generation command failed"
     exit 1
+fi
+
+echo -n "Checking Failure (missing section)... "
+if bash "$CMD" generate trae_patch "$INPUT_DIR/synthesis_failure_missing_section.txt" > /dev/null 2>&1; then
+    echo "FAIL: Expected failure but command succeeded"
+    exit 1
+else
+    echo "OK"
 fi
 
 echo "Sanity Check Passed."

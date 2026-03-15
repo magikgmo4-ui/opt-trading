@@ -1,0 +1,33 @@
+# OT-SOAK-SSHFS-01 — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-13
+
+## 1. RÉSUMÉ EXÉCUTIF
+- Soak partiel effectué sur `db-layer` : validation post-boot et usage normal **OK**.
+- Aucune reconnexion réseau volontaire n’a été provoquée : la partie “incident réseau” reste à confirmer.
+
+## 2. MACHINE
+- `db-layer` (client mount /shared)
+
+## 3. RÉSULTATS (LIVE)
+- Post-boot : `shared-sshfs.service` **enabled + active** (PASS)
+- Mount : `/shared` **monté** depuis `ghost@admin-trading:/srv/sftp/shared_files/shared` (PASS)
+- Sanity : PASS (6/0)
+- Usage normal (lecture) : PASS
+- Erreurs dans logs du boot courant : aucune correspondance “timeout/disconnect/error” (PASS)
+- Reconnexion réseau : **NON TESTÉ**
+
+## 4. RÉSERVE RESTANTE
+- Stabilité long-terme / reconnexion réseau : à confirmer sur incident réel ou test contrôlé.
+- Extension multi-machines : à décider et valider par machine.
+
+## 5. POINT DE REPRISE SUIVANT (TEST CONTRÔLÉ MINIMAL)
+Sur `db-layer`, lors d’une fenêtre autorisée :
+- couper puis rétablir le réseau (Wi-Fi/Ethernet) ou VPN,
+- observer :
+  - `systemctl is-active shared-sshfs.service`
+  - `findmnt /shared`
+  - `journalctl -u shared-sshfs.service -n 80 --no-pager`
+
+**Status : CLOSE AVEC RÉSERVE STABILITÉ / EXTENSION.**
+

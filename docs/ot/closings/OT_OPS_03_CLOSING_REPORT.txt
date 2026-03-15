@@ -1,0 +1,15 @@
+# OT-OPS-03 — CLOSING REPORT
+
+## 1. ÉTAT ÉTABLI
+- **Routines Quotidiennes** : Identifiées et classées (Établies / Ambiguës / Manquantes).
+- **Lacune Principale** : `ops_menu_hub` ne référence pas les nouveaux outils.
+- **Risque Mineur** : Doublons de scripts historiques.
+
+## 2. ACTIONS RÉALISÉES
+- Audit des scripts `scripts/`.
+- Analyse du wrapper `ops_menu_hub`.
+- Matrice de routines.
+
+## 3. PROCHAINE MISSION LOGIQUE
+> **GO_OT_OPS_03B_NORMALIZE_ROUTINES**
+(Exécuter le plan minimal : lier les outils dans `ops_menu_hub` et normaliser `student_report`).

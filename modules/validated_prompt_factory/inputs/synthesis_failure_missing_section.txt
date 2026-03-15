@@ -1,0 +1,23 @@
+## CONTEXTE
+Test d’échec : synthèse incomplète pour vérifier que le module échoue proprement.
+
+## CLASSE
+TEST
+
+## OBJECTIF
+Provoquer un échec de validation en omettant une section requise.
+
+## CONTRAINTES
+- Ce fichier est volontairement incomplet.
+
+## DEPENDANCES
+- Néant.
+
+## LIVRABLE
+- Néant.
+
+## VALIDATION
+- La commande doit échouer avec un message “Missing sections”.
+
+## SUITE
+- Supprimer ce fichier si jugé inutile.

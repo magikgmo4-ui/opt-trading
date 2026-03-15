@@ -14,12 +14,12 @@ while true; do
     echo "0. Exit"
     echo "================================"
     read -p "Select: " choice
-    
+
     case "$choice" in
-        1) bash "$CMD" generate chatgpt_session ;;
-        2) bash "$CMD" generate trae_module ;;
-        3) bash "$CMD" generate trae_patch ;;
-        4) bash "$CMD" generate bundle_transfer ;;
+        1) bash "$CMD" generate chatgpt_session "$SCRIPT_DIR/inputs/synthesis_example.txt" ;;
+        2) bash "$CMD" generate trae_module "$SCRIPT_DIR/inputs/synthesis_example.txt" ;;
+        3) bash "$CMD" generate trae_patch "$SCRIPT_DIR/inputs/synthesis_registry_central.txt" ;;
+        4) bash "$CMD" generate bundle_transfer "$SCRIPT_DIR/inputs/synthesis_bundle_transfer.txt" ;;
         5) bash "$CMD" list-modes ;;
         6) bash "$CMD" validate ;;
         0) exit 0 ;;

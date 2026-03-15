@@ -52,10 +52,10 @@ The following business modules are present in the repo and form the current Desk
 - `modules/repo_hygiene`
 - `modules/repo_local_artifacts`
 - `modules/repo_ownership_guard`
-- `modules/workflow_post_change_v2`
-- `modules/workflow_post_change_v2_fix1`
-- `modules/workflow_post_change_v2_fix2`
-- `modules/workflow_post_change_v2_fix3`
+- `modules/workflow_post_change_v2` (ACTIVE/PATCHED - Canonique)
+- `modules/workflow_post_change_v2_fix1` (DEPRECATED/OBSOLETE)
+- `modules/workflow_post_change_v2_fix2` (DEPRECATED/OBSOLETE)
+- `modules/workflow_post_change_v2_fix3` (DEPRECATED/MERGED into v2)
 
 ## Network / shared / infra modules
 - `modules/shared_files_sftp`

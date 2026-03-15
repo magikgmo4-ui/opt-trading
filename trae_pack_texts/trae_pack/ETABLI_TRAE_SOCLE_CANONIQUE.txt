@@ -1,0 +1,25 @@
+ÉTABLI — TRAE SOCLE CANONIQUE
+
+- TRAE_DOCTRINE_CHAIN_V1.1 = CLOSE
+- TRAE_STATUS_POLICY_V1.1 = CLOSE
+- TRAE_CLOSURE_TEMPLATE_V1.1 = CLOSE
+- TRAE_CANONICAL_INDEX_V1.2 = CLOSE
+- TRAE_SESSION_OPENING_PACK_V1.1 = CLOSE après intégration de la micro-correction retenue
+
+Rappels canoniques :
+- ACCEPT / ACCEPT_WITH_NOTES / REJECT = verdicts de review
+- CLOSE = état final archivé
+- POINT DE REPRISE = repère de continuité
+
+Ordre logique du socle :
+1. Index canonique
+2. Doctrine chain
+3. Status policy
+4. Mission template
+5. Execution report template
+6. Review verdict template
+7. Closure template
+8. Session opening pack
+
+Point de reprise recommandé :
+GO_TRAE_DRIVE_REFERENCE_PACK_V1

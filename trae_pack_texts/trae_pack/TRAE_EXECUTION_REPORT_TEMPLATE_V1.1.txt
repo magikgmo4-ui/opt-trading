@@ -1,0 +1,137 @@
+TRAE_EXECUTION_REPORT_TEMPLATE_V1.1 — MODÈLE CANONIQUE DE RAPPORT
+
+## 1. OBJECTIF DU TEMPLATE
+Standardiser le retour d'information de l'Executor vers le Reviewer, afin de fournir toutes les preuves nécessaires pour valider la conformité, la qualité et la sécurité de l'exécution, sans que le Reviewer ait besoin de relancer le code lui-même.
+
+## 2. CHAMPS OBLIGATOIRES
+- ID Mission : Référence à la mission initiale.
+- Résumé des Actions : Liste factuelle des changements (fichiers modifiés/créés/supprimés).
+- Preuves de Validation : Logs de succès (sanity check, tests), diffs pertinents ou captures d'écran.
+- Procédure de Rollback : Commande exacte pour annuler les changements.
+- Auto-Contrôle : Checklist de conformité signée par l'Executor.
+
+## 3. CHAMPS OPTIONNELS
+- Notes Techniques : Choix d'implémentation, dette technique identifiée (pour ACCEPT_WITH_NOTES).
+- Points d'Attention : Risques résiduels ou dépendances nouvelles.
+- Temps d'Exécution : Durée approximative (si pertinent).
+
+## 4. FORMAT CANONIQUE COMPLET
+# EXÉCUTION — <TITRE_MISSION>
+
+## 1. RÉSUMÉ DES ACTIONS
+- **Fichiers Modifiés** :
+  - `path/to/file1`
+  - `path/to/file2`
+- **Fichiers Créés** :
+  - `path/to/new_file`
+- **Description** : <Résumé en 2 phrases max>
+
+## 2. PREUVES DE VALIDATION
+> **Commande de Test** : `<commande exécutée>`
+> **Logs de Succès** :
+```
+(Coller ici les logs COMPLETS du sanity check, incluant impérativement la ligne finale de succès : PASS, OK, Exit Code 0...)
+```
+> **Diff Clé (Optionnel)** :
+```diff
+- old_code
++ new_code
+```
+
+## 3. PROCÉDURE DE ROLLBACK
+> **Commande d'Annulation** :
+```bash
+git checkout path/to/file1 path/to/file2
+rm path/to/new_file
+# ou
+mv config.bak config.json
+```
+
+## 4. NOTES & RISQUES (Optionnel)
+- <Note sur un choix technique>
+- <Dette identifiée>
+
+## 5. AUTO-CONTRÔLE
+- [x] Scope respecté (pas de débordement).
+- [x] Existant vérifié (pas de doublon).
+- [x] Standards respectés (`cmd`, `menu`, `sanity`).
+- [x] Preuves fournies et lisibles (incluant succès final).
+- [x] Rollback testé ou sûr.
+- [x] Dettes/Notes techniques signalées (si applicable).
+
+## 5. RÈGLES DE REMPLISSAGE
+1. Soyez factuel : Pas de "J'ai bien travaillé". Listez les fichiers.
+2. Soyez prouvable : Un rapport sans logs est un rapport invalide.
+3. Soyez précis sur le rollback : Pas de "Annuler les modifs". Donnez la commande exacte.
+4. Soyez honnête : Si vous avez dû faire un choix douteux, mettez-le dans les Notes.
+
+## 6. ERREURS FRÉQUENTES À ÉVITER
+- Logs tronqués : Couper la partie qui montre le succès complet.
+- Rollback flou : "Voir git". (Non : donnez la commande).
+- Silence sur les dettes : Cacher un hack temporaire.
+- Oubli des standards : Ne pas mentionner `sanity.sh` pour un module durable.
+
+## 7. CRITÈRES D’ACCEPTABILITÉ AVANT REVIEW
+Le Reviewer doit rejeter le rapport sans le lire si :
+
+- La section "Preuves" est vide.
+- La section "Rollback" est manquante.
+- L'auto-contrôle n'est pas coché.
+- Le résumé des actions ne correspond pas aux fichiers réellement touchés (vérifiable par git status).
+
+## 8. EXEMPLE DE RAPPORT VALIDE
+# EXÉCUTION — PATCH SANITY SYSTEM_MONITOR
+
+## 1. RÉSUMÉ DES ACTIONS
+- **Fichiers Modifiés** : `modules/system_monitor/sanity.sh`
+- **Description** : Correction du chemin relatif `SCRIPT_DIR` qui pointait vers un dossier inexistant.
+
+## 2. PREUVES DE VALIDATION
+> **Commande** : `bash modules/system_monitor/sanity.sh`
+> **Logs** :
+```
+Checking System Monitor...
+Checking Config... OK
+Checking Service... OK
+Sanity Check Passed.
+```
+
+## 3. PROCÉDURE DE ROLLBACK
+> **Commande** :
+```bash
+git checkout modules/system_monitor/sanity.sh
+```
+
+## 4. AUTO-CONTRÔLE
+- [x] Scope respecté.
+- [x] Existant vérifié.
+- [x] Standards respectés.
+- [x] Preuves fournies.
+
+## 9. EXEMPLE DE RAPPORT INVALIDE (À REJETER)
+# EXÉCUTION — OPTIMISATION
+
+## 1. RÉSUMÉ DES ACTIONS
+- J'ai amélioré le code un peu partout.
+
+## 2. PREUVES DE VALIDATION
+- Ça marche chez moi.
+
+## 3. PROCÉDURE DE ROLLBACK
+- Git revert.
+
+## 5. AUTO-CONTRÔLE
+- [ ] Scope respecté.
+
+(Motif de rejet : Pas de liste de fichiers, pas de logs, rollback flou, auto-contrôle vide).
+
+## 10. RÉSUMÉ TECHNIQUE COURT
+Le TRAE_EXECUTION_REPORT_TEMPLATE_V1.1 est la pièce à conviction du procès de validation. Il oblige l'Executor à prouver son travail avant d'être jugé. Il transforme une exécution technique en un dossier administratif complet, permettant au Reviewer de trancher rapidement et objectivement.
+
+RÉSUMÉ DES CHANGEMENTS (V1 -> V1.1)
+
+- Logs complets : Exigence explicite d'inclure la ligne finale de succès dans les preuves.
+- Auto-contrôle renforcé : Ajout d'une vérification sur la signalisation des dettes ou notes techniques.
+- Précision preuves : La lisibilité des preuves inclut désormais explicitement le succès final.
+
+POINT DE REPRISE : GO_TRAE_REVIEW_VERDICT_TEMPLATE_V1

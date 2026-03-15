@@ -1,0 +1,35 @@
+# OT-MODULE-02 — VALIDATED_PROMPT_FACTORY (HARDENING) — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-14
+
+## 1. RÉSUMÉ EXÉCUTIF
+- Module durci après usage réel : validation d’entrée bloquante + parsing en-têtes Markdown + output-dir robuste.
+- Test d’échec ajouté et rejoué (synthèse incomplète → échec explicite).
+- README aligné ; kanban mis à jour ; point de reprise laissé.
+
+## 2. ÉTABLI
+- Génération prouvée sur 2 cas réels :
+  - registry central (`trae_patch`)
+  - bundle_transfer (`bundle_transfer`)
+- Continuité compatible : prompts incluent contraintes/validation/suite/reprise quand le mode le prévoit.
+
+## 3. ÉCART PROUVÉ (CORRIGÉ)
+- Synthèse incomplète acceptée (risque “Non spécifié”) : désormais refusée (échec explicite).
+
+## 4. RÉSERVE MINEURE / À CONFIRMER
+- Exécution wrappers bash (`cmd.sh`, `sanity.sh`) sur Linux cible : à confirmer (WSL absent sur ce poste Windows).
+
+## 5. IMPACT KANBAN
+- Kanban mis à jour : section validated_prompt_factory = OT-MODULE-02 marqué CLOSE (PASS) + reprise adoption.
+
+## 6. LIVRABLES
+- `OT_MODULE_02_VALIDATED_PROMPT_FACTORY_HARDENING_REPORT.md`
+- `OT_MODULE_02_VALIDATED_PROMPT_FACTORY_HARDENING_GAP_REPORT.md`
+- `OT_MODULE_02_VALIDATED_PROMPT_FACTORY_HARDENING_CLOSING.txt`
+
+## 7. VERDICT FINAL
+**Status : CLOSE (PASS).**
+
+## 8. POINT DE REPRISE
+> **GO_OT_MODULE_03_VALIDATED_PROMPT_FACTORY_ADOPTION**
+
