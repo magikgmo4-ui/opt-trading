@@ -25,10 +25,10 @@ Cette synthèse est un résumé vivant du kanban. Elle permet de voir rapidement
 | trae_module_validator | ÉTABLI / ACTIVE (FORMALISÉ) | outil opérateur | non | GO_OT_NEXT_MISSION_SELECTION_01 |
 | Socle doctrinal Trae | ÉTABLI / PARTIEL | helper doctrinal | CONFIRMÉ PARTIELLEMENT (adoption) | GO_OT_NEXT_MISSION_SELECTION_01 |
 | Runtime vs snapshot repo | DIVERGENT / SUIVI | gouvernance ops | NON CONFIRMÉ MAIS ACCEPTÉ (invariant documenté) | GO_OT_NEXT_MISSION_SELECTION_01 |
-| Rules Trae V1 | MANQUANT / À OUVRIR | couche V1 | oui | après sélection explicite |
-| Agents Trae V1 | MANQUANT / À OUVRIR | couche V1 | oui | après Rules |
-| Skills Trae V1 | MANQUANT | couche V1 | oui | après Agents |
-| MCP Policy V1 | MANQUANT / REPORTÉ | gouvernance | oui | après Skills si besoin prouvé |
+| Rules Trae V1 | ÉTABLI / MATÉRIALISÉ (PRE-V1) | couche V1 | oui | revue + gel pré-V1 |
+| Agents Trae V1 | ÉTABLI / MATÉRIALISÉ (PRE-V1) | couche V1 | oui | revue + gel pré-V1 |
+| Skills Trae V1 | ÉTABLI / MATÉRIALISÉ (PRE-V1) | couche V1 | oui | revue + gel pré-V1 |
+| MCP Policy V1 | ÉTABLI / MATÉRIALISÉ (PRE-V1) | gouvernance | oui | revue + gel pré-V1 |
 
 ### Règle de maintenance de la synthèse
 - cette synthèse est un résumé vivant ;
@@ -152,11 +152,9 @@ Reprise de session (canonique) :
   - objectif : lister ce qui est “standard opposable” (wrappers cmd/menu/sanity, registry, scripts) et ce qui reste “legacy toléré” ;
   - sortie attendue : une règle de compatibilité (grandfathering) + critères d’exception documentés.
 
-### MANQUANT
-- Rules Trae V1.
-- Agents Trae V1.
-- Skills Trae V1.
-- MCP Policy V1.
+### MATÉRIALISÉ (PRE-V1)
+- Socle pré-V1 matérialisé dans `docs/ot/trae/01_RULES_V1.txt` à `docs/ot/trae/11_PRE_V1_REPO_LANDING_PLAN.txt`.
+- Modèle missions longues / multi-étapes : `docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt`.
 
 ### DÉCISION (ORDRE V1 FUTUR)
 Ordre retenu :

@@ -11,6 +11,7 @@ Rendre le travail avec Cursor (ou tout agent) **prévisible**, **audit-able**, e
 - Templates d’exécution : `workflow_ai/templates/specs.md` et `workflow_ai/templates/tasks.md`
 - Continuité : `docs/ot/kanban/opt_trading_kanban_source_of_truth.md` + dernière clôture pertinente
 - Synthèse kanban : `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md`
+- Modèle officiel missions longues / multi-étapes : `docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt`
 - Packs TRAE : helpers (support), non sources de vérité du repo
 
 ## Gates

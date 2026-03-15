@@ -3,6 +3,7 @@
 - **docs/ROADMAP.md** : roadmap annotée + critères Done
 - **docs/ot/kanban/opt_trading_kanban_source_of_truth.md** : kanban (source of truth) + points de reprise
 - **docs/master_pack/mission_starter_pack/00_mission_start_guide.md** : point d’entrée unique (ouverture de session)
+- **docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt** : modèle officiel missions longues / multi-étapes
 - **docs/ARCHITECTURE.md** : architecture (flux, persistance, composants)
 - **docs/API.md** : endpoints + exemples `curl`
 - **docs/RUNBOOK.md** : ops/debug (systemd, logs, réseau Windows/LAN)
