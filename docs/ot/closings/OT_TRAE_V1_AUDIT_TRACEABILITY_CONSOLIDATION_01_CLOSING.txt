@@ -1,0 +1,73 @@
+OT_TRAE_V1_AUDIT_TRACEABILITY_CONSOLIDATION_01_CLOSING
+ 
+Date (America/Montreal) : 2026-03-15
+Statut : CLOSE
+Classe : AUDIT_REALIGNEMENT
+Mission : GO_OT_TRAE_V1_AUDIT_TRACEABILITY_CONSOLIDATION_01
+ 
+1. Objet
+Consolider la traçabilité canonique des audits V1 Trae déjà réalisés, en distinguant :
+- ce qui est audité et traçable par artefacts canoniques,
+- ce qui est seulement présent dans le repo,
+- ce qui reste à confirmer,
+- et ce qui n’est pas prouvé.
+ 
+2. Source de vérité utilisée (repo-first)
+- Kanban (source of truth) : `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`
+- Synthèse opérationnelle : `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md`
+- Reprise canonique : `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md`
+- Closing bundle entrypoint V1 : `docs/ot/closings/OT_TRAE_ENTRYPOINT_V1_02_COMMIT_AND_CLOSE_01_CLOSING.txt`
+- Closing sync kanban↔synthèse : `docs/ot/closings/OT_KANBAN_SYNC_TRAE_ENTRYPOINT_V1_01_CLOSING.txt`
+- Index Trae : `docs/ot/trae/README.md`
+- Fichiers Trae V1 (présence / matérialisation) :
+  - `docs/ot/trae/01_RULES_V1.txt`
+  - `docs/ot/trae/02_AGENTS_V1.txt`
+  - `docs/ot/trae/03_MISSION_CLASSES_V1.txt`
+  - `docs/ot/trae/04_SKILLS_V1.txt`
+  - `docs/ot/trae/05_RUNTIME_MCP_POLICY_V1.txt`
+  - `docs/ot/trae/06_REPO_BOUNDARY_POLICY_V1.txt`
+  - `docs/ot/trae/07_POLITIQUE_INSTRUCTIONS_V1.txt`
+  - `docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt`
+  - `docs/ot/trae/10_PRE_V1_FREEZE_DECISIONS.txt`
+  - `docs/ot/trae/12_ORCHESTRATOR_ENTRYPOINT_V1.txt`
+ 
+3. ÉTABLI (audité et traçable)
+3.1 Consolidation doc-only “entrypoint Orchestrator V1”
+- Preuve canonique : `docs/ot/closings/OT_TRAE_ENTRYPOINT_V1_02_COMMIT_AND_CLOSE_01_CLOSING.txt`
+- Contenu prouvé : entrypoint Orchestrator V1, README Trae repointé, template mission aligné MISSION_CLASS/ID, checklist multi-step alignée vocabulaire V1.
+ 
+3.2 Synchro kanban↔synthèse (statuts Trae V1)
+- Preuve canonique : `docs/ot/closings/OT_KANBAN_SYNC_TRAE_ENTRYPOINT_V1_01_CLOSING.txt`
+- Contenu prouvé : synthèse opérationnelle réalignée sur le kanban détaillé (source of truth).
+ 
+4. ÉTABLI (présent dans le repo)
+4.1 Blocs Trae V1 matérialisés (PRE-V1)
+Présence prouvée par les fichiers dans le repo :
+- `01_RULES_V1` à `08_MULTI_STEP_MISSION_CHECKLIST_V1`
+- `10_PRE_V1_FREEZE_DECISIONS`
+- `12_ORCHESTRATOR_ENTRYPOINT_V1`
+ 
+5. À CONFIRMER (audité mais insuffisamment matérialisé)
+Les audits “brique par brique” de la séquence V1 (Rules/Agents/Mission Classes/Skills/Runtime/Repo Boundary/Politique Instructions/Multi-step/Freeze decisions) ne sont pas matérialisés par des closings dédiés (un par brique) dans `docs/ot/closings/`.
+ 
+6. NON PROUVÉ
+- Qu’un audit canonique séparé (avec closing dédié) existe pour chacune des briques V1 ci-dessus.
+- Qu’un changement de statut “revue + gel pré-V1” a été opéré dans le kanban à la suite d’audits brique-par-brique (hors closings prouvés en section 3).
+ 
+7. Trous de traçabilité (actions recommandées, sans exécution ici)
+7.1 Trou principal
+- Absence d’un artefact canonique unique “audit V1 consolidé” avant ce document.
+ 
+7.2 Option A (minimal)
+- Conserver 1 closing unique (celui-ci) + 1 pointeur minimal dans le kanban détaillé vers ce closing.
+ 
+7.3 Option B (granulaire, à ne pas lancer ici)
+- Produire une série de closings brique-par-brique (Rules/Agents/...) uniquement si une exigence d’audit fin est prouvée.
+ 
+8. Périmètre de cette mission
+- Doc-only.
+- Aucun patch runtime/MCP.
+- Aucun nouveau chantier doctrinal.
+ 
+9. Point de reprise exact
+`GO_OT_NEXT_MISSION_SELECTION_01`

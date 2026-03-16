@@ -155,6 +155,7 @@ Reprise de session (canonique) :
 ### MATÉRIALISÉ (PRE-V1)
 - Socle pré-V1 matérialisé dans `docs/ot/trae/01_RULES_V1.txt` à `docs/ot/trae/11_PRE_V1_REPO_LANDING_PLAN.txt`.
 - Modèle missions longues / multi-étapes : `docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt`.
+- Consolidation traçabilité audit V1 : `docs/ot/closings/OT_TRAE_V1_AUDIT_TRACEABILITY_CONSOLIDATION_01_CLOSING.txt`.
 
 ### DÉCISION (ORDRE V1 FUTUR)
 Ordre retenu :
