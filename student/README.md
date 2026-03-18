@@ -1,0 +1,37 @@
+# Student Project
+
+Canonical workspace for the `student` operator experience inside `/opt/trading`.
+
+Scope:
+
+- global `student` shortcuts
+- DeepSeek hub operator entrypoints
+- DeepSeek student helper scripts
+- student-facing wrappers and documentation
+- migration artifacts used to converge legacy layouts
+
+Main entrypoints:
+
+- `scripts/student_cmd.sh`
+- `scripts/student_menu.sh`
+- `scripts/student_sanity_check.sh`
+
+Supporting areas:
+
+- `scripts/deepseek_hub/`
+- `scripts/deepseek_student/`
+- `scripts/wrappers/`
+- `docs/`
+- `exports/kanban/`
+
+This tree is created as a consolidation target. Existing legacy locations remain in place until migration is validated.
+
+Canonical decision:
+
+- official project root for `student`: `/opt/trading/student`
+- official global shortcuts:
+  - `menu-student` -> `/opt/trading/student/scripts/student_menu.sh`
+  - `cmd-student` -> `/opt/trading/student/scripts/student_cmd.sh`
+  - `sanity-student` -> `/opt/trading/student/scripts/student_sanity_check.sh`
+
+Legacy locations are now compatibility sources only and should not be used as primary entrypoints.
