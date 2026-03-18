@@ -83,10 +83,9 @@ RUN_ID="deepseek_${CMD_NAME}_${TIMESTAMP}"
 LOG_FILE="$LOGS_DIR/${RUN_ID}.log"
 LATEST_LINK="$LOGS_DIR/latest.log"
 
-# IMPORTANT: Point to the actual hub script, but ensure it's executable.
-# If installed via shortcuts, we might want to use the global wrapper if available,
-# but using the direct path is safer for standalone pack usage.
-DEEPSEEK_HUB_CMD="$ROOT_DIR/modules/deepseek_hub/scripts/deepseek_hub_cmd.sh"
+# Use the canonical hub script inside the consolidated student tree.
+STUDENT_ROOT="$ROOT_DIR"
+DEEPSEEK_HUB_CMD="$STUDENT_ROOT/scripts/deepseek_hub/deepseek_hub_cmd.sh"
 
 echo "=== DeepSeek Student Run (Logged) ==="
 echo "Command: ${ARGS[*]}"
@@ -100,19 +99,8 @@ if [ ! -f "$DEEPSEEK_HUB_CMD" ]; then
     exit 1
 fi
 
-# Ensure wrappers used by hub are in PATH if needed, OR rely on hub script logic.
-# The hub script calls `cmd-deepseek_thinking`, `cmd-deepseek_response`, `cmd-deepseek_student`.
-# We need to make sure these are available or that the hub script finds them.
-# Given install_shortcuts.sh, these are likely in /usr/local/bin.
-# If not, we might fail. 
-# BUT: deepseek_hub_cmd.sh uses `cmd-deepseek_thinking` directly.
-# Let's check if they exist.
-
 if ! command -v cmd-deepseek_thinking >/dev/null 2>&1; then
-    # Fallback: add module scripts to PATH temporarily if possible, 
-    # or warn user that shortcuts are missing.
-    # We will try to add potential locations to PATH.
-    export PATH="$PATH:$ROOT_DIR/modules/deepseek_thinking/scripts:$ROOT_DIR/modules/deepseek_response/scripts:$ROOT_DIR/modules/deepseek_student/scripts"
+    export PATH="$PATH:$ROOT_DIR/modules/deepseek_thinking/scripts:$ROOT_DIR/modules/deepseek_response/scripts:$STUDENT_ROOT/scripts/deepseek_student"
 fi
 
 # Run and capture output (tee)

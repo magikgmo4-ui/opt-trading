@@ -11,8 +11,9 @@ fi
 SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
 ROOT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
-# Define DeepSeek Hub location (assuming it's the main entry point)
-DEEPSEEK_HUB_CMD="$ROOT_DIR/modules/deepseek_hub/scripts/deepseek_hub_cmd.sh"
+# Define canonical DeepSeek Hub location inside the consolidated student tree
+STUDENT_ROOT="$ROOT_DIR"
+DEEPSEEK_HUB_CMD="$STUDENT_ROOT/scripts/deepseek_hub/deepseek_hub_cmd.sh"
 
 cd "$ROOT_DIR" || exit 1
 
@@ -72,9 +73,10 @@ case "$cmd" in
     echo "Root:         $ROOT_DIR"
     echo "Scripts:      $SCRIPT_DIR"
     echo "Hub Cmd:      $DEEPSEEK_HUB_CMD"
-    echo "Logs:         $ROOT_DIR/data/logs/deepseek_student"
-    echo "Archives:     $ROOT_DIR/_student_archive"
-    ;;
+        echo "Logs:         $ROOT_DIR/data/logs/deepseek_student"
+        echo "Archives:     $ROOT_DIR/_student_archive"
+        echo "Student Root: $STUDENT_ROOT"
+        ;;
 
   help)
     echo "=== DeepSeek Student Help ==="
