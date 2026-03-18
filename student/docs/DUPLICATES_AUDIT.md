@@ -27,8 +27,13 @@ Recommendation:
 
 - keep `student_cmd.sh` as the only official facade
 - keep `deepseek_hub_cmd.sh` as the internal engine
-- classify `wrappers/deepseek_student_cmd.sh` as operator convenience layer
-- classify `deepseek_student/deepseek_student_cmd.sh` as module helper or merge selected features into one implementation later
+- keep `wrappers/deepseek_student_cmd.sh` as the surviving module-level operator convenience command
+- classify `deepseek_student/deepseek_student_cmd.sh` as a narrow helper implementation used for focused module actions only
+
+Decision:
+
+- survivor for interactive module-level usage: `/opt/trading/student/scripts/wrappers/deepseek_student_cmd.sh`
+- retained helper backend: `/opt/trading/student/scripts/deepseek_student/deepseek_student_cmd.sh`
 
 ### 2. Shortcut Installer Overlap
 
