@@ -6,9 +6,21 @@ Core layers:
 
 - `scripts/student_*`: stable top-level operator entrypoints
 - `scripts/deepseek_hub/`: hub runtime commands and menu
-- `scripts/deepseek_student/`: module-specific DeepSeek student tooling
-- `scripts/wrappers/`: compatibility and operator convenience scripts
+- `scripts/deepseek_student/`: backend helper tooling for focused DeepSeek student actions
+- `scripts/wrappers/`: official `deepseek_student` operator facade layer
 - `exports/kanban/`: planning and tracking artifacts
+
+Facade rules:
+
+- top-level official workspace facade:
+  - `scripts/student_cmd.sh`
+  - `scripts/student_menu.sh`
+  - `scripts/student_sanity_check.sh`
+- module-level official `deepseek_student` facade:
+  - `scripts/wrappers/deepseek_student_cmd.sh`
+  - `scripts/wrappers/deepseek_student_menu.sh`
+  - `scripts/wrappers/deepseek_student_sanity_check.sh`
+- `scripts/deepseek_student/` remains available as backend/helper scope, not as the preferred operator entrypoint
 
 Migration note:
 

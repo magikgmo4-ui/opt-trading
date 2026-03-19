@@ -91,5 +91,5 @@ Recommendation:
 ## Priority Cleanup Targets
 
 1. normalize installer ownership around `/opt/trading/student/bin/install_shortcuts.sh`
-2. decide whether `wrappers/deepseek_student_cmd.sh` or `deepseek_student/deepseek_student_cmd.sh` survives as the module-level command
+2. reduce direct operator exposure of `deepseek_student/deepseek_student_cmd.sh` now that `wrappers/deepseek_student_cmd.sh` is the chosen facade
 3. document menu and sanity scopes so users stop calling the wrong layer
