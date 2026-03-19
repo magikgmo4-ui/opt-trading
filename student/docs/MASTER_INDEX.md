@@ -40,6 +40,7 @@ This file links the full `student` documentation set across the historical repo 
 
 - `/opt/trading/student/exports/kanban/KANBAN.md`
 - `/opt/trading/student/exports/kanban/KANBAN_MANAGER.md`
+- `/opt/trading/student/docs/MAINTENANCE_KANBAN.md`
 
 ## Historical Documentation In `/opt/trading/docs`
 
