@@ -9,7 +9,7 @@
 - gives `student` a single official root at `/opt/trading/student`
 - reduces path drift and shortcut inconsistency across the operator toolchain
 - makes future maintenance easier by separating canonical entrypoints from legacy sources
-- adds migration and audit artifacts so cleanup can continue without losing traceability
+- adds a master documentation index plus migration and audit artifacts so cleanup can continue without losing traceability
 
 ## Business / Ops Value
 

@@ -24,6 +24,11 @@ Supporting areas:
 - `docs/`
 - `exports/kanban/`
 
+Documentation entrypoints:
+
+- master index: `/opt/trading/student/docs/MASTER_INDEX.md`
+- operator index: `/opt/trading/student/INDEX.md`
+
 This tree is created as a consolidation target. Existing legacy locations remain in place until migration is validated.
 
 Canonical decision:

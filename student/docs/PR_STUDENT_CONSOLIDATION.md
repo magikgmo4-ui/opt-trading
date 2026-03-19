@@ -22,6 +22,7 @@
 - unified shortcut installation around `/opt/trading/student/bin/install_shortcuts.sh`
 - rewired wrapper scripts to use canonical student paths instead of legacy module paths
 - added governance and migration docs:
+  - `MASTER_INDEX.md`
   - `INDEX.md`
   - `PHASE2_MIGRATION.md`
   - `DUPLICATES_AUDIT.md`

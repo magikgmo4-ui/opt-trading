@@ -13,6 +13,7 @@ Use this file as the main navigation page for the consolidated `student` workspa
 ## Start Here
 
 - overview: `/opt/trading/student/README.md`
+- master index: `/opt/trading/student/docs/MASTER_INDEX.md`
 - architecture: `/opt/trading/student/docs/ARCHITECTURE.md`
 - runbook: `/opt/trading/student/docs/RUNBOOK.md`
 - quick reference: `/opt/trading/student/docs/QUICK_REFERENCE.md`

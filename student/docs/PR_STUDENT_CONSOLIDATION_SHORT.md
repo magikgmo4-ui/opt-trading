@@ -8,7 +8,7 @@
 
 - consolidate the `student` workspace under `/opt/trading/student`
 - repoint canonical shortcuts and wrapper paths to the new root
-- add migration, audit, and planning documentation for the transition
+- add a master index plus migration, audit, and planning documentation for the transition
 
 ## Validation
 
