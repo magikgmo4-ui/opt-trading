@@ -8,6 +8,8 @@
 - **docs/API.md** : endpoints + exemples `curl`
 - **docs/RUNBOOK.md** : ops/debug (systemd, logs, réseau Windows/LAN)
 - **docs/SCHEMAS.md** : schéma unique Event → Trade → Perf + adaptateur
+- **docs/deploy_module_multi_machine_continuity.md** : continuité de déploiement multi-machine, modules validés, prochain candidat
+- **docs/ops_wrappers_source_layout_refresh_runbook.md** : runbook de refresh source-layout pour `ops_wrappers`
 - **schemas/webhook_event_v1.json** : JSON Schema v1 (source de vérité)
 
 ## Code — repères
