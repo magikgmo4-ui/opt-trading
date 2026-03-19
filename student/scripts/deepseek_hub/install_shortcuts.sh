@@ -9,6 +9,7 @@ echo "== deepseek_hub: install shortcuts =="
 echo "ROOT: $ROOT"
 echo "MAKE_DEFAULT=$MAKE_DEFAULT"
 echo "ALSO_ALIAS_STUDENT=$ALSO_ALIAS_STUDENT"
+echo "NOTE: prefer /opt/trading/student/bin/install_shortcuts.sh as the canonical installer"
 
 sudo ln -sf "$ROOT/scripts/deepseek_hub/deepseek_hub_cmd.sh" /usr/local/bin/cmd-deepseek_hub
 sudo ln -sf "$ROOT/scripts/deepseek_hub/deepseek_hub_menu.sh" /usr/local/bin/menu-deepseek_hub
@@ -25,3 +26,4 @@ if [ "$ALSO_ALIAS_STUDENT" = "1" ]; then
 fi
 
 echo "OK: deepseek_hub shortcuts installed from canonical student root"
+echo "NOTE: this installer is module-scoped; use /opt/trading/student/bin/install_shortcuts.sh for full student setup"

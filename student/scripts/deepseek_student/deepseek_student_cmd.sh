@@ -12,15 +12,10 @@ MODEL="${2:-deepseek-r1:1.5b}"
 
 case "$CMD" in
   sanity)
-    # Use robust repo-relative path to sanity script if available, 
-    # otherwise fall back to command if installed, 
-    # or look for it in the same directory.
     if [ -x "$SCRIPT_DIR/sanity_check_deepseek_student.sh" ]; then
         bash "$SCRIPT_DIR/sanity_check_deepseek_student.sh"
-    elif command -v sanity-deepseek_student >/dev/null 2>&1; then
-        sanity-deepseek_student
     else
-        echo "WARN: sanity-deepseek_student not found."
+        echo "WARN: canonical deepseek student sanity script not found."
     fi
     ;;
   pull)   ollama pull "$MODEL" ;;

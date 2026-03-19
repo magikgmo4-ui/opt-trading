@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+STUDENT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+DEEPSEEK_STUDENT_CMD="$STUDENT_ROOT/scripts/wrappers/deepseek_student_cmd.sh"
+
 echo "=== DeepSeek Hub Sanity ==="
 date
 
@@ -25,12 +29,18 @@ curl -s http://127.0.0.1:11434/api/version | jq -e . >/dev/null || { echo "FAIL:
 curl -s http://127.0.0.1:11434/api/tags    | jq -e . >/dev/null || { echo "FAIL: cannot read /api/tags"; exit 1; }
 
 echo "[commands]"
-for c in cmd-deepseek_thinking cmd-deepseek_response cmd-deepseek_student; do
+for c in cmd-deepseek_thinking cmd-deepseek_response; do
   if ! command -v "$c" >/dev/null 2>&1; then
     echo "WARN: missing $c (shortcuts not installed yet?)"
   else
     echo "OK: $c"
   fi
 done
+
+if [[ -x "$DEEPSEEK_STUDENT_CMD" ]]; then
+  echo "OK: canonical deepseek student command"
+else
+  echo "WARN: missing canonical deepseek student command at $DEEPSEEK_STUDENT_CMD"
+fi
 
 echo "PASS: deepseek_hub sanity OK"

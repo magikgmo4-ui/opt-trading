@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+STUDENT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+DEEPSEEK_STUDENT_BACKEND_CMD="$STUDENT_ROOT/scripts/deepseek_student/cmd.sh"
+
 CMD="${1:-help}"
 MODEL="${2:-deepseek-r1:1.5b}"
 
@@ -72,7 +76,7 @@ case "$CMD" in
 
   roadmap_events)
     N="${3:-200}"
-    cmd-deepseek_student roadmap "$MODEL" "$N"
+    bash "$DEEPSEEK_STUDENT_BACKEND_CMD" roadmap "$MODEL" "$N"
     ;;
 
   roadmap_think_module)
