@@ -15,11 +15,11 @@ else
     exit 1
 fi
 
-# 2. Repo Structure
-if [ -d "$ROOT_DIR/modules/deepseek_hub" ]; then
-    echo "PASS: DeepSeek Hub directory exists"
+# 2. Canonical Student Structure
+if [ -d "$ROOT_DIR/scripts/deepseek_hub" ]; then
+    echo "PASS: canonical DeepSeek Hub directory exists"
 else
-    echo "FAIL: DeepSeek Hub module missing"
+    echo "FAIL: canonical DeepSeek Hub directory missing"
     exit 1
 fi
 
