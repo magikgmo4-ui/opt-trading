@@ -15,7 +15,7 @@
 | `/opt/trading/student/scripts/deepseek_hub/deepseek_hub_menu.sh` | Base canonique de la carte `K-008` |
 | `/opt/trading/student/scripts/deepseek_hub/sanity_check_deepseek_hub.sh` | Base canonique de la verification `K-006` |
 | `/opt/trading/docs/ARCHITECTURE.md` | Support de la cartographie globale `K-001` |
-| `/opt/trading/docs/student_deepseek_quick_reference.md` | Support documentaire de `K-015` |
+| `/opt/trading/student/docs/QUICK_REFERENCE.md` | Support documentaire canonique de `K-015` |
 | `/opt/trading/student/docs/RUNBOOK.md` | Support documentaire canonique de `K-009` et `K-015` |
 
 ## Sources externes au repo utilisees comme preuves d'etat
@@ -41,7 +41,7 @@
 | Document | Role |
 |---|---|
 | `/opt/trading/docs/ARCHITECTURE.md` | Vue d'ensemble de l'architecture |
-| `/opt/trading/docs/student_deepseek_quick_reference.md` | Quick reference operateur |
+| `/opt/trading/student/docs/QUICK_REFERENCE.md` | Quick reference operateur canonique |
 | `/opt/trading/student/docs/RUNBOOK.md` | Runbook d'exploitation canonique |
 | `/home/student/shortcut_targets_student_20260303_182326.log` | Audit detaille des cibles de raccourcis |
 | `/home/student/menu_audit_student_20260303_182326.log` | Inventaire des raccourcis exposes |
