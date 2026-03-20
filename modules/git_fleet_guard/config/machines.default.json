@@ -1,0 +1,20 @@
+{
+  "machines": [
+    {
+      "name": "admin-trading",
+      "ssh_target": "admin-trading",
+      "repo_path": "/opt/trading",
+      "local_names": ["admin-trading", "localhost", "127.0.0.1"]
+    },
+    {
+      "name": "student",
+      "ssh_target": "student",
+      "repo_path": "/opt/trading"
+    },
+    {
+      "name": "db-layer",
+      "ssh_target": "db-layer",
+      "repo_path": "/opt/trading"
+    }
+  ]
+}
