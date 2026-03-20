@@ -36,6 +36,8 @@ Il sert à :
   - matrice de convergence de toutes les branches auditées
 - `audit/2026-03-20/91_cross_topology_canon.md`
   - carte canonique minimale transverse du périmètre (`GO_CROSS_TOPLOGY_CANON_01`)
+- `audit/2026-03-20/92_student_canonical_surface.md`
+  - fiche canonique `student` comme sous-projet intégré à `opt-trading` (`GO_STUDENT_CANONICAL_SURFACE_01`)
 - `audit/2026-03-20/95_repo_branch_pm_kanban.md`
   - kanban PM aligné sur la logique `sot/mainline`
 - `audit/2026-03-20/96_cross_project_inventory_kanban_archive_first.md`
@@ -57,6 +59,7 @@ Il sert à :
 - `GO_REPO_BRANCH_PM_NEXT_ACTION_01`
 - `GO_CROSS_PROJECT_ARCHIVE_FIRST_PM_01`
 - `GO_CROSS_TOPLOGY_CANON_01` → livré dans `91_cross_topology_canon.md`
+- `GO_STUDENT_CANONICAL_SURFACE_01` → livré dans `92_student_canonical_surface.md`
 
 ## 6. USAGE RECOMMANDÉ
 - utiliser cet index comme première lecture en reprise ;

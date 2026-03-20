@@ -25,7 +25,7 @@ Règle : un chantier n’est pas considéré **clôturé proprement** tant que :
 |---|---|---|---|---|
 | opt-trading / sot-mainline | ÉTABLI / CANONIQUE / ACTIVE | repo pivot | non | GO_CROSS_TOPLOGY_CANON_01 |
 | opt-trading / branches secondaires auditées | ÉTABLI / CLASSÉ | historique / absorption / archive | selon branche | suivre `95_repo_branch_pm_kanban.md` |
-| student | ÉTABLI / INTÉGRÉ / PARTIELLEMENT FORMALISÉ | sous-projet interne | oui | GO_STUDENT_CANONICAL_SURFACE_01 |
+| student | ÉTABLI / INTÉGRÉ / FORMALISÉ | sous-projet interne | oui | GO_STUDENT_PHASE2_MIGRATION_01 |
 | api collector | ÉTABLI / PRÉSENT / À QUALIFIER | module interne | oui | GO_API_COLLECTOR_CANONICAL_MODULE_01 |
 | db-layer | ÉTABLI / DOCUMENTÉ | machine / runtime | oui | GO_RUNTIME_SURFACES_CANONICAL_MAP_01 |
 | admin-trading | ÉTABLI / DOCUMENTÉ | hub runtime | oui | GO_RUNTIME_SURFACES_CANONICAL_MAP_01 |
@@ -68,15 +68,18 @@ Règle : un chantier n’est pas considéré **clôturé proprement** tant que :
 
 ### ÉTABLI
 - `student` existe comme surface structurée dans `opt-trading`.
-- il comporte docs, bin, config et logique opérateur.
-- il n’est pas traité comme repo séparé dans cette passe.
+- racine canonique formalisée : `/opt/trading/student/`.
+- façade canonique : `student_cmd.sh`, `student_menu.sh`, `student_sanity_check.sh`.
+- wrappers opérateur : `student/scripts/wrappers/`.
+- legacy locations identifiées : `modules/deepseek_hub/scripts/`, `modules/deepseek_student/scripts/`, `scripts/student/`.
+- frontière canonique / toléré / legacy documentée dans `92_student_canonical_surface.md`.
+- fiche canonique `GO_STUDENT_CANONICAL_SURFACE_01` livrée.
 
 ### À CONFIRMER
-- fiche canonique dédiée `student` comme sous-projet interne ;
-- frontière exacte entre façade `student` et surfaces legacy/script historiques.
+- Phase 2 migration : cleanup legacy locations, repoint installers internes, purge doublons — non démarrée.
 
 ### POINT DE REPRISE
-- `GO_STUDENT_CANONICAL_SURFACE_01`
+- `GO_STUDENT_PHASE2_MIGRATION_01` (si chantier migration Phase 2 ouvert)
 
 ## 4. ÉTAT — API COLLECTOR
 
