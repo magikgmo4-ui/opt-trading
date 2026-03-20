@@ -463,14 +463,14 @@ async def tv_webhook(req: Request):
                     _perf_close(_tid, float(price))
 
         perf_open(
-                engine=engine,
-        symbol=symbol,
-        side=side,
-        entry=price,
-        stop=sl,
-        qty=q["qty"],
-        risk_usd=risk_for_perf,
-        meta={"tf": tf, "tp": tp, "reason": reason, "src": "/tv"}
+            engine=engine,
+            symbol=symbol,
+            side=side,
+            entry=price,
+            stop=sl,
+            qty=q["qty"],
+            risk_usd=risk_for_perf,
+            meta={"tf": tf, "tp": tp, "reason": reason, "src": "/tv"}
         )
 
     evt = {
@@ -824,4 +824,3 @@ def enforce_single_open(engine: str, symbol: str, new_side: str, price: float) -
         if tid:
             _perf_close(tid, float(price))
     return "FLIPPED"
-
