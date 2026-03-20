@@ -1,0 +1,32 @@
+[module]
+module_id = "collector_coingecko"
+provider_id = "coingecko"
+
+[contract]
+contract_version = "v1"
+schema_version = "v1.0"
+
+[api]
+plan = "demo"
+base_url = "https://api.coingecko.com/api/v3"
+timeout_seconds = 20
+user_agent = "collector_coingecko/0.1"
+
+[collection]
+vs_currency = "usd"
+coin_ids = ["bitcoin", "ethereum"]
+price_change_percentage = ["24h"]
+sparkline = false
+locale = "en"
+precision = "full"
+
+[freshness]
+max_age_seconds = 900
+
+[paths]
+runtime_dir = "runtime"
+logs_dir = "logs"
+outputs_dir = "outputs"
+raw_dir = "outputs/raw"
+normalized_dir = "outputs/normalized"
+snapshots_dir = "outputs/snapshots"
