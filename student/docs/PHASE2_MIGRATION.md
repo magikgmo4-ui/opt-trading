@@ -39,11 +39,16 @@ Move callers from scattered legacy paths to:
    - add deprecation notices in legacy wrappers where useful
    - move low-value legacy items to `legacy/` notes before removal
 
-## First Candidates For Replacement
+## First Candidates For Replacement — État 2026-03-20
 
-- docs that still reference `/opt/trading/modules/deepseek_hub/scripts/`
-- helper installers that still write shortcuts to module paths
-- wrappers that compute `ROOT_DIR/modules/deepseek_hub/...` instead of the canonical student root
+> Vérification locale effectuée le 2026-03-20 dans le cadre de `GO_STUDENT_PHASE2_MIGRATION_01`.
+
+| Candidat | État |
+|---|---|
+| Docs référençant `/opt/trading/modules/deepseek_hub/scripts/` | TOLÉRÉ — références documentaires uniquement. Acceptable comme mémoire historique. |
+| Helper installers pointant vers les chemins modules | CORRIGÉ — `scripts/deepseek_hub/install_shortcuts.sh` et `scripts/deepseek_student/install_shortcuts.sh` pointent désormais vers les chemins canoniques `student/`. |
+| Wrappers calculant `ROOT_DIR/modules/deepseek_hub/...` | CORRIGÉ — `wrappers/deepseek_student_cmd.sh` et `wrappers/deepseek_student_run_logged.sh` utilisent `$STUDENT_ROOT/scripts/deepseek_hub/`. |
+| PATH fallback `modules/deepseek_thinking` / `modules/deepseek_response` dans `run_logged.sh` | NON TRAITÉ — dépendance externe légitime hors périmètre migration student. Déféré. |
 
 ## Exit Criteria
 
