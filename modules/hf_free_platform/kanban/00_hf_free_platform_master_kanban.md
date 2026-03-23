@@ -69,14 +69,17 @@ Close criteria
 - sanity HF = PASS
 - foundations / portal / publish_bridge / tools / mcp / dataset déjà présentes et mergées
 
-M-8 HF publication rehearsal — TODO
+M-8 HF publication rehearsal — CLOSE
 Goal
 - create target hf repos and dry-run publication payloads
 Close criteria
-- repo names confirmed
-- no secrets leakage
-- publication checklist ready
+- rehearsal exécutée avec review manuelle
+- helper fix appliqué pour conserver le clone temporaire en mode `KEEP_WORKDIR=1`
+- `portal_static` publié
+- `tools_private` publié
+- `public_assets` publié
+- `mcp_public` non publié / laissé explicitement en attente
 - `sync_hf_exports.sh` reste un stub, donc la publication HF ne doit pas être présentée comme fully automated
 
 Next real mission
-- `GO_HF_PUBLICATION_REHEARSAL_01`
+- traiter `mcp_public`, seule cible HF restante non publiée
