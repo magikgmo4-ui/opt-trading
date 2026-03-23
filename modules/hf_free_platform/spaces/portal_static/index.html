@@ -1,20 +1,112 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>OT Portal Starter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OT Portal</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 40px; max-width: 900px; line-height: 1.5; }
-    code { background: #f4f4f4; padding: 2px 4px; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9fb;
+      color: #1a1a2e;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 16px;
+      line-height: 1.6;
+    }
+    .container { max-width: 720px; width: 100%; }
+    header { margin-bottom: 40px; }
+    h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
+    .subtitle { color: #555; font-size: 1rem; }
+    .badge {
+      display: inline-block;
+      background: #e8f0fe;
+      color: #1a73e8;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 4px;
+      padding: 2px 8px;
+      margin-top: 8px;
+      letter-spacing: 0.04em;
+    }
+    section { margin-bottom: 36px; }
+    h2 { font-size: 1.1rem; font-weight: 600; margin-bottom: 16px; color: #333; border-bottom: 1px solid #e0e0e0; padding-bottom: 6px; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+    .card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 18px 20px;
+    }
+    .card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; }
+    .card p { font-size: 0.85rem; color: #666; }
+    .card .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 1px 7px;
+      border-radius: 3px;
+      margin-bottom: 8px;
+    }
+    .tag-public { background: #e6f4ea; color: #137333; }
+    .tag-private { background: #fce8e6; color: #a50e0e; }
+    .info { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px 20px; font-size: 0.85rem; color: #555; }
+    .info strong { color: #333; }
+    footer { margin-top: 48px; font-size: 0.78rem; color: #aaa; text-align: center; }
+    code { background: #f4f4f4; padding: 1px 5px; border-radius: 3px; font-size: 0.83em; }
   </style>
 </head>
 <body>
-  <h1>OT Portal Starter</h1>
-  <p>Public Hugging Face portal starter for the <code>hf_free_platform</code> module.</p>
-  <ul>
-    <li>Canonical source of truth: <code>opt-trading</code></li>
-    <li>Hugging Face role: delivery/runtime/tooling only</li>
-    <li>Free-first constraints preserved</li>
-  </ul>
+  <div class="container">
+    <header>
+      <h1>OT Portal</h1>
+      <p class="subtitle">Public entry point — <code>hf_free_platform</code> module</p>
+      <span class="badge">read-only · no secrets · static</span>
+    </header>
+
+    <section>
+      <h2>Surfaces</h2>
+      <div class="card-grid">
+        <div class="card">
+          <span class="tag tag-public">public</span>
+          <h3>Portal (this)</h3>
+          <p>Public entry point. Navigation and surface index.</p>
+        </div>
+        <div class="card">
+          <span class="tag tag-public">public</span>
+          <h3>MCP Public</h3>
+          <p>Public MCP tool space. Minimal public interface.</p>
+        </div>
+        <div class="card">
+          <span class="tag tag-public">public</span>
+          <h3>Public Assets Dataset</h3>
+          <p>Public reference data and asset exports.</p>
+        </div>
+        <div class="card">
+          <span class="tag tag-private">private</span>
+          <h3>Tools Private</h3>
+          <p>Private tooling space. Restricted access.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Source of truth</h2>
+      <div class="info">
+        <p>
+          Canonical development: <strong>magikgmo4-ui/opt-trading</strong> — branch <code>sot/mainline</code>.<br/>
+          This HF Space is a <strong>publication target only</strong> — not a development surface.<br/>
+          No live exchange connections · No persistent state · No secrets.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      hf_free_platform · opt-trading · static portal
+    </footer>
+  </div>
 </body>
 </html>
