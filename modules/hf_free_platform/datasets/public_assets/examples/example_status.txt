@@ -1,0 +1,42 @@
+HF FREE PLATFORM — PROGRESS BOARD READY TO PASTE V1
+
+Use this block as a compact status handoff inside ChatGPT / Claude / Trae.
+
+Project: HF_FREE_PLATFORM
+Base: sot/mainline
+Epic: feature/hf-free-platform-v1
+
+Lanes
+- foundation: [[TODO|IN_PROGRESS|CLOSE]]
+- portal: [[TODO|IN_PROGRESS|CLOSE]]
+- publish_bridge: [[TODO|IN_PROGRESS|CLOSE]]
+- tools: [[TODO|IN_PROGRESS|CLOSE]]
+- mcp: [[TODO|IN_PROGRESS|CLOSE]]
+- dataset: [[TODO|IN_PROGRESS|CLOSE]]
+
+Current reality
+- canonical repo: opt-trading
+- hf role: delivery/runtime/tooling surface only
+- free-first constraints preserved: [[YES|NO]]
+- secrets in repo: [[NO expected]]
+- stateful core on HF: [[NO expected]]
+
+Latest completed action
+- [[write one factual line]]
+
+Current blocker
+- [[none or factual blocker]]
+
+Next exact action
+- [[one next action only]]
+
+Validation snapshot
+- sanity-hf_free_platform: [[PASS|FAIL|NOT_RUN]]
+- portal starter present: [[YES|NO]]
+- tools starter present: [[YES|NO]]
+- publish bridge present: [[YES|NO]]
+
+Handoff point
+- [[branch name]]
+- [[file(s)]]
+- [[next operator / next IA]]
