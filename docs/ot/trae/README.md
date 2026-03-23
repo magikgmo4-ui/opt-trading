@@ -23,3 +23,7 @@ Porte d’entrée Orchestrator V1 (standard de mission) :
 
 Reprise de session canonique :
 - `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md`
+
+Protocole de convergence documentaire — Claude Cowork (2026-03-20+) :
+- `docs/ot/trae/OT_TRAE_DOC_CONVERGENCE_PROTOCOL_V1.md`
+- `docs/ot/trae/OT_TRAE_DOC_CONVERGENCE_CHECKLIST_V1.md`

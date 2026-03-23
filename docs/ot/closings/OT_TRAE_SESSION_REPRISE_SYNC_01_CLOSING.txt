@@ -1,0 +1,52 @@
+OT_TRAE_SESSION_REPRISE_SYNC_01_CLOSING
+
+Date (America/Montreal) : 2026-03-20
+Statut : CLOSE (documentaire) — validation réelle/live non prouvée dans cette passe
+Classe : PATCH_LOCAL
+Mission : GO_TRAE_SESSION_REPRISE_SYNC_01
+
+1. Objet
+Synchroniser `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md` avec la couche canonique
+issue de la passe d'audit 2026-03-20 et le protocole de convergence documentaire,
+sans refondre le socle Trae V1 ni créer de système concurrent.
+
+2. Sources de vérité utilisées
+- `audit/2026-03-20/A4_audit_2026_03_20_formal_close.md`
+- `audit/2026-03-20/97_cross_project_master_kanban.md`
+- `audit/2026-03-20/00_audit_master_index.md`
+- `docs/ot/trae/OT_TRAE_DOC_CONVERGENCE_PROTOCOL_V1.md`
+- `docs/ot/trae/OT_TRAE_DOC_CONVERGENCE_CHECKLIST_V1.md`
+- `docs/ot/trae/README.md`
+
+3. ÉTABLI (prouvé par lecture des fichiers)
+- `OT_TRAE_SESSION_REPRISE.md` couvre désormais les deux contextes :
+  Trae V1 (§6b) et Claude Cowork (§6a).
+- §2 distingue explicitement les deux couches de sources :
+  couche audit 2026-03-20 (prioritaire) et couche socle Trae V1.
+- §2.1 cite A4, 97, 00 avec règle de priorité entre kanbans.
+- §5 expose deux points de reprise distincts : §5.1 (passe 2026-03-20)
+  et §5.2 (Trae V1 interne — GO_OT_NEXT_MISSION_SELECTION_01 conservé intact).
+- Le protocole de convergence est référencé par pointeurs uniquement (§1, §6a).
+  Aucune règle R01–R14 n'est dupliquée dans la reprise.
+- README Trae : déjà à jour depuis la mission précédente — aucune correction requise.
+- §3.6 ajouté : passe d'audit 2026-03-20 clôturée, référence vers A4.
+- §4 étendu de 4 à 7 items (ajout des règles issues de l'audit 2026-03-20).
+
+4. NON PROUVÉ dans cette passe
+- Lecture live des kanbans réels (statuts détaillés, items kanban Trae).
+- Synthèse kanban Trae mise à jour.
+- Toute validation SSH, runtime ou Git.
+
+5. Fichier modifié
+- `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md` — PATCH_LOCAL appliqué
+
+6. Périmètre de cette mission
+- Doc-only. Aucun patch runtime. Aucun chantier technique ouvert.
+- Aucun nouveau fichier Trae créé hors closings.
+
+7. Point de reprise exact
+Côté Claude Cowork :
+  GO_STUDENT_LIVE_VALIDATION_PACK_01 — SSH requis (hors périmètre local)
+  ou tout PATCH_LOCAL / AUDIT_REALIGNEMENT sur le repo local.
+Côté Trae V1 :
+  GO_OT_NEXT_MISSION_SELECTION_01

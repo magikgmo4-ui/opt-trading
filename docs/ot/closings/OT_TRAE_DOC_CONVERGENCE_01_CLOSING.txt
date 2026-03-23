@@ -1,0 +1,96 @@
+OT_TRAE_DOC_CONVERGENCE_01_CLOSING
+
+Date (America/Montreal) : 2026-03-22
+Statut : CLOSE — documentaire — livrables présents et cohérents, aucune validation live requise
+Classe : AUDIT_REALIGNEMENT / PATCH_LOCAL
+Mission : GO_TRAE_DOC_CONVERGENCE_01
+
+1. Objet
+Produire le protocole canonique de convergence documentaire pour les sessions Claude Cowork
+sur opt-trading, afin qu'un même chantier ne vive pas dans plusieurs vérités parallèles
+(repo, kanban, index, reprise, journal, pack local, TODO).
+Ce closing acte le statut ÉTABLI de la mission et ferme le trou de traçabilité
+(absence de closing dédié dans docs/ot/closings/ malgré les fichiers produits le 2026-03-20).
+
+2. Sources de vérité utilisées
+- audit/2026-03-20/A4_audit_2026_03_20_formal_close.md
+- audit/2026-03-20/97_cross_project_master_kanban.md
+- audit/2026-03-20/00_audit_master_index.md
+- docs/ot/trae/OT_TRAE_DOC_CONVERGENCE_PROTOCOL_V1.md
+- docs/ot/trae/OT_TRAE_DOC_CONVERGENCE_CHECKLIST_V1.md
+- docs/ot/trae/OT_TRAE_SESSION_REPRISE.md
+- docs/ot/trae/README.md
+- docs/ot/trae/04_SKILLS_V1.txt
+- docs/ot/closings/OT_TRAE_SESSION_REPRISE_SYNC_01_CLOSING.txt (référence de style)
+- docs/ot/closings/OT_TRAE_V1_AUDIT_TRACEABILITY_CONSOLIDATION_01_CLOSING.txt (référence de style)
+
+3. ÉTABLI (prouvé par lecture locale 2026-03-22)
+
+3.1 Livrables produits (session 2026-03-20) — présents, complets, cohérents
+- docs/ot/trae/OT_TRAE_DOC_CONVERGENCE_PROTOCOL_V1.md
+  9 sections couvrant : objet, sources de vérité et ordre de lecture, protocole
+  ChatGPT↔Claude, classification canonique, format mission locale, format
+  exécution/handoff/clôture/reprise, règles de non-régression (R01–R14),
+  convergence/réconciliation des sources parallèles, point de reprise.
+- docs/ot/trae/OT_TRAE_DOC_CONVERGENCE_CHECKLIST_V1.md
+  4 sections opérationnelles : ouverture session, avant production, compte-rendu
+  d'exécution (7 items), non-régression + classification rapide.
+
+3.2 Intégration dans le socle
+- docs/ot/trae/README.md : entrée dédiée "Protocole de convergence documentaire —
+  Claude Cowork (2026-03-20+)" → pointe vers les 2 fichiers.
+- docs/ot/trae/OT_TRAE_SESSION_REPRISE.md : §1 et §6a référencent le protocol et
+  la checklist avec ordre de lecture conforme au §2.2 du protocol.
+- Aucune règle dupliquée entre les fichiers. Les renvois sont des pointeurs uniquement.
+
+3.3 Couverture des exigences de la mission
+- Sources de vérité et ordre de lecture : §2 du protocol — COUVERT
+- Protocole ChatGPT↔Claude (flux, rôles, limites Claude) : §3 — COUVERT
+- Classification ÉTABLI/PARTIEL/DIFFÉRÉ/HORS PÉRIMÈTRE : §4 — COUVERT
+- Format minimal mission locale : §5 — COUVERT
+- Format minimal exécution/handoff/clôture/reprise : §6 — COUVERT
+- Règles de non-régression (R01–R14) : §7 — COUVERT
+- Convergence et réconciliation des sources parallèles : §8 — COUVERT
+- Point de reprise : §9 — COUVERT
+
+4. NON PROUVÉ dans cette passe
+- Mise à jour du kanban maître §12 avec mention explicite GO_TRAE_DOC_CONVERGENCE_01
+  LIVRÉ/ÉTABLI (rôle PM — hors périmètre Claude).
+- Toute validation SSH, runtime ou Git.
+
+5. Gap fermé par ce closing
+- Avant : aucun closing dédié dans docs/ot/closings/ pour GO_TRAE_DOC_CONVERGENCE_01,
+  malgré les fichiers produits et le §9 du protocol indiquant LIVRÉ.
+- Après : closing présent — traçabilité complète — mission formellement close.
+
+6. Fichiers produits / modifiés
+- docs/ot/closings/OT_TRAE_DOC_CONVERGENCE_01_CLOSING.txt — CRÉÉ (ce fichier)
+Aucune modification des livrables existants (complets, cohérents, ne pas toucher).
+
+7. Périmètre de cette mission
+- Doc-only. Aucun patch runtime. Aucun chantier technique ouvert.
+- Aucune modification de décision PM figée.
+- Aucun nouveau fichier OT_* à la racine du repo.
+
+8. Décisions structurantes établies
+D01 — OT_TRAE_DOC_CONVERGENCE_PROTOCOL_V1 est la référence canonique unique pour
+      l'ordre de lecture, la classification des chantiers, le protocole ChatGPT↔Claude,
+      les formats d'exécution/handoff/clôture, et les règles de non-régression.
+D02 — La checklist OT_TRAE_DOC_CONVERGENCE_CHECKLIST_V1 est l'outil de contrôle
+      opérateur à utiliser avant chaque production Claude Cowork.
+D03 — Le kanban maître 97_cross_project_master_kanban.md prime sur tout autre fichier
+      pour les chantiers issus de la passe 2026-03-20 et ceux qui en découlent.
+D04 — Claude ne modifie le kanban maître que sur mandat PM explicite et borné.
+D05 — Un closing dédié est requis pour tout chantier passant à ÉTABLI (règle §6.3
+      du protocol) — ce closing en est l'application directe.
+
+9. Point de reprise exact
+GO_TRAE_DOC_CONVERGENCE_01 → ÉTABLI / CLOSE
+
+Chantier documentaire suivant faisable sans SSH :
+  → tout PATCH_LOCAL ou AUDIT_REALIGNEMENT sur le repo local
+Chantier prioritaire PM en attente (SSH requis) :
+  → GO_STUDENT_LIVE_VALIDATION_PACK_01 — bash /opt/trading/student/validation/validate_student_live.sh
+  → GO_ALGO_HF_DEEP_AUDIT_01 — SSH db-layer (192.168.16.179) + GitHub algo_hf
+À confirmer par PM :
+  → mise à jour du kanban maître §12 pour inscrire GO_TRAE_DOC_CONVERGENCE_01 ÉTABLI
