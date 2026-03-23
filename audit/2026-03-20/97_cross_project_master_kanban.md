@@ -25,13 +25,13 @@ Règle : un chantier n’est pas considéré **clôturé proprement** tant que :
 |---|---|---|---|---|
 | opt-trading / sot-mainline | ÉTABLI / CANONIQUE / ACTIVE | repo pivot | non | GO_CROSS_TOPLOGY_CANON_01 |
 | opt-trading / branches secondaires auditées | ÉTABLI / CLASSÉ | historique / absorption / archive | selon branche | suivre `95_repo_branch_pm_kanban.md` |
-| student | ÉTABLI / INTÉGRÉ / FORMALISÉ | sous-projet interne | oui | GO_STUDENT_PHASE2_MIGRATION_01 |
+| student | ÉTABLI / INTÉGRÉ / PACK VALIDATION LIVRÉ | sous-projet interne | oui | GO_STUDENT_LIVE_VALIDATION_PACK_01 → EXÉCUTER SUR LA MACHINE LINUX CIBLE OÙ /opt/trading/student EST DÉPLOYÉ |
 | api collector (`derivatives_collector`) | ÉTABLI / QUALIFIÉ / MOCK FONCTIONNEL | module interne | oui | GO_RUNTIME_SURFACES_CANONICAL_MAP_01 |
 | db-layer | ÉTABLI / QUALIFIÉ / BACKEND ACTIF | machine / runtime Linux | oui | GO_ALGO_HF_AUDIT_01 |
 | admin-trading | ÉTABLI / QUALIFIÉ / OPS ACTIF | machine / runtime Linux | non | — |
 | cursor-ai | ÉTABLI / QUALIFIÉ / DEV SURFACE | machine / surface opérateur Windows | non | — |
-| localcms / feature socle | ÉTABLI / QUALIFIÉ / BASE PRODUIT | projet séparé | oui | GO_ALGO_HF_AUDIT_01 |
-| localcms / tools dev-host | ÉTABLI / QUALIFIÉ / SURCOUCHE HOST | projet séparé | oui | GO_ALGO_HF_AUDIT_01 |
+| localcms / feature socle | ÉTABLI / P0 ARCHIVÉ / REPRISE SYNCHRONISÉE | projet séparé | oui | GO_LOCALCMS_M1_1_FORMS_01 (PM) |
+| localcms / tools dev-host | ÉTABLI / QUALIFIÉ / SURCOUCHE HOST | projet séparé | non | — |
 | openclaw | HORS BUNDLE / À CADRER | chantier séparé | oui | GO_OPENCLAW_CANONICAL_REENTRY_01 |
 | hf_trading | À QUALIFIER | repo séparé potentiel | oui | GO_HF_TRADING_AUDIT_01 |
 | algo_hf | PARTIELLEMENT QUALIFIÉ / SERVICE PROUVÉ / SOURCE INCONNUE | workstream séparé / runtime db-layer | oui | GO_ALGO_HF_DEEP_AUDIT_01 |
@@ -75,10 +75,23 @@ Règle : un chantier n’est pas considéré **clôturé proprement** tant que :
 - frontière canonique / toléré / legacy documentée dans `92_student_canonical_surface.md`.
 - fiche canonique `GO_STUDENT_CANONICAL_SURFACE_01` livrée.
 
-### À CONFIRMER
-- Validation manuelle live sur machine `student` : `readlink -f /usr/local/bin/cmd-deepseek_student` — risque principal identifié par `GO_STUDENT_CLEANUP_DUPLICATES_01`.
-- Après confirmation live : retrait optionnel de `deepseek_student/deepseek_student_cmd.sh` comme entrypoint opérateur.
-- Rewiring alias-based fallback (`deepseek_hub_cmd.sh`, `sanity_check_deepseek_hub.sh`) — déféré, chantier futur.
+### CONFIRMÉ PAR VALIDATION LIVE — 2026-03-23
+
+```
+Machine  : student (Debian 12 — 192.168.16.103)
+Verdict  : OK avec warnings (exit 0 — 0 erreur — 2 warnings non bloquants)
+```
+
+- `readlink -f /usr/local/bin/cmd-deepseek_student` → `/opt/trading/student/scripts/wrappers/deepseek_student_cmd.sh` **CONFORME** — risque principal levé.
+- 9/9 raccourcis globaux OK — tous pointent vers les chemins canoniques `student/`.
+- 2 warnings non bloquants : alias-based fallback dans `deepseek_hub_cmd.sh` et `sanity_check_deepseek_hub.sh` (item 5 LEGACY_CALLERS_INVENTORY — déféré).
+- H01 de `93_student_phase2_migration.md` §6 : **CONFIRMÉ OUI**.
+- Condition `94_student_cleanup_duplicates.md` §4.2 remplie : retrait de `deepseek_student/deepseek_student_cmd.sh` comme entrypoint opérateur **activable sur décision PM**.
+
+### À CONFIRMER (résiduel post-live)
+- Rewiring alias-based fallback (`deepseek_hub_cmd.sh`, `sanity_check_deepseek_hub.sh`) — toujours déféré, chantier futur.
+- H02 (`deepseek_student/deepseek_student_cmd.sh` non appelé en prod) — callers directs non audités en live, condition readlink remplie.
+- H03 (modules `deepseek_thinking`/`deepseek_response` présents) — hors périmètre validation live, à confirmer si chantier module-dependency ouvert.
 
 ### ÉTABLI PAR GO_STUDENT_PHASE2_MIGRATION_01
 - Les 4 items runtime prioritaires du LEGACY_CALLERS_INVENTORY sont déjà corrigés dans les scripts (migration exécutée en amont de cette passe).
@@ -89,11 +102,19 @@ Règle : un chantier n’est pas considéré **clôturé proprement** tant que :
 ### ÉTABLI PAR GO_STUDENT_CLEANUP_DUPLICATES_01
 - Caller audit complet sur les 4 couches de doublons (CMD / Installer / Sanity / Menu).
 - Aucun doublon ne justifie de retrait physique sans validation live.
-- Risque principal isolé : alias `cmd-deepseek_student` — vérifier `readlink` sur machine `student`.
+- Risque principal isolé : alias `cmd-deepseek_student` — vérifier `readlink` sur la machine Linux cible où `/opt/trading/student` est effectivement déployé et où les shortcuts `/usr/local/bin` doivent être validés.
 - `DUPLICATES_AUDIT.md` mis à jour avec section Caller Audit 2026-03-20 et classification de risque.
 - `94_student_cleanup_duplicates.md` livré.
 
+### LIVRÉ PAR GO_STUDENT_LIVE_VALIDATION_PACK_01 (2026-03-20)
+- Pack de validation `student/validation/` créé (6 fichiers : runner, cmd, menu, sanity, RUNBOOK, HANDOFF).
+- Répertoire `student/validation/` inexistant avant cette mission — créé dans cette passe.
+- Couvre : 9 raccourcis globaux (readlink), raccourci critique `cmd-deepseek_student`, callers legacy item 5, entrypoints canoniques live, structure répertoire.
+- Archive zip : `audit/2026-03-20/student_validation_pack_20260320.zip` (à transférer sur la machine Linux cible où `/opt/trading/student` est effectivement déployé et où les shortcuts `/usr/local/bin` doivent être validés).
+- La validation live réelle reste à exécuter sur la machine Linux cible où `/opt/trading/student` est effectivement déployé et où les shortcuts `/usr/local/bin` doivent être validés.
+
 ### POINT DE REPRISE
+- `GO_STUDENT_LIVE_VALIDATION_PACK_01` → **LIVRÉ** — pack prêt, à exécuter sur la machine Linux cible où `/opt/trading/student` est effectivement déployé
 - `GO_API_COLLECTOR_CANONICAL_MODULE_01` (chantier suivant recommandé du portefeuille)
 
 ## 4. ÉTAT — API COLLECTOR
@@ -146,13 +167,18 @@ Règle : un chantier n’est pas considéré **clôturé proprement** tant que :
 - Clone canonique : `C:\Users\ghost\localcms\` — branche courante : `feature/...`.
 - Décision canonique livrée : `A2_localcms_canon_decision.md`.
 
-### À CONFIRMER (passe ultérieure)
-- Décision de merge / consolidation des 2 branches.
-- Promotion éventuelle de `tools/...` comme nouvelle baseline.
-- Reprise du développement CMS (M3, M4+).
+### CLOS — GO_P0_ARCHIVE_01 (2026-03-21)
+- P0 archivé sous `docs/p0-compatibility-contract.html` dans `feature/localcms-shared-explorer-cms-installer-v1`.
+- Commit pushé : `447c8c1` — branche : `feature/localcms-shared-explorer-cms-installer-v1`.
+- Ne pas rouvrir Trae ni P0.
+- Reprise LocalCMS synchronisée sur cette base.
+
+### DÉCISION PM EN ATTENTE
+- Validation explicite de P0 par le PM.
+- Puis ouverture de `GO_LOCALCMS_M1_1_FORMS_01`.
 
 ### POINT DE REPRISE
-- `GO_ALGO_HF_AUDIT_01` ou `GO_OPENCLAW_CANONICAL_REENTRY_01` (selon priorité PM)
+- `GO_LOCALCMS_M1_1_FORMS_01` (conditionnel — validation PM de P0 requise)
 
 ## 7. ÉTAT — OPENCLAW
 
@@ -277,4 +303,13 @@ Parce que sans cette couche, les prochains chantiers risquent de mélanger :
 
 ## 12. POINT ACTIF CONSERVÉ
 - **PASSE 2026-03-20 CLÔTURÉE** — `GO_AUDIT_2026_03_20_FORMAL_CLOSE_01` livré dans `A4_audit_2026_03_20_formal_close.md`
-- Prochain point actif recommandé : `GO_STUDENT_LIVE_VALIDATION_01` (SSH machine student) ou `GO_ALGO_HF_DEEP_AUDIT_01` (SSH db-layer + GitHub)
+- **`GO_STUDENT_LIVE_VALIDATION_PACK_01` LIVRÉ** — pack `student/validation/` créé (2026-03-20)
+- **`GO_STUDENT_VALIDATION_PACK_MATERIALIZE_01` LIVRÉ** — artefacts parasites supprimés, pack figé (2026-03-23)
+- **`GO_STUDENT_LIVE_RESULT_CAPTURE_01` LIVRÉ** — template `student/validation/LIVE_RESULT_CAPTURE_TEMPLATE.md` produit (2026-03-23)
+- **`GO_STUDENT_LIVE_AUDIT_UPDATE_01` LIVRÉ** — validation live exécutée sur machine `student` (2026-03-23) — verdict : **OK avec warnings** — 9/9 raccourcis OK — `cmd-deepseek_student` CONFORME — 2 warnings alias-based fallback non bloquants — `93`, `94`, `97` mis à jour
+- **`GO_P0_ARCHIVE_01` CLOS** — P0 archivé sous `docs/p0-compatibility-contract.html`, commit `447c8c1`, branche `feature/localcms-shared-explorer-cms-installer-v1`. Ne pas rouvrir Trae ni P0.
+- Décisions PM en attente :
+  - retrait de `deepseek_student/deepseek_student_cmd.sh` comme entrypoint opérateur — condition readlink remplie — décision PM requise
+  - `GO_STUDENT_PHASE2_MIGRATION_01` : PARTIEL → ÉTABLI — validation PM requise (H01 confirmé, H02/H03 résiduels non bloquants)
+  - validation explicite P0 → ouverture `GO_LOCALCMS_M1_1_FORMS_01`
+  - ou `GO_ALGO_HF_DEEP_AUDIT_01` (SSH db-layer + GitHub algo_hf)

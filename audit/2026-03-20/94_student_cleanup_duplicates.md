@@ -136,6 +136,33 @@ Si `cmd-deepseek_student` pointe encore vers `modules/deepseek_student/scripts/c
 bash /opt/trading/student/bin/install_shortcuts.sh
 ```
 
+### 5.1 Résultat validation live — 2026-03-23
+
+```
+Date         : 2026-03-23
+Machine      : student (Debian 12 — 192.168.16.103)
+Mission      : GO_STUDENT_LIVE_AUDIT_UPDATE_01
+```
+
+| Vérification | Attendu | Obtenu | Statut |
+|---|---|---|---|
+| `readlink -f /usr/local/bin/cmd-deepseek_student` | `.../student/scripts/wrappers/deepseek_student_cmd.sh` | `/opt/trading/student/scripts/wrappers/deepseek_student_cmd.sh` | **CONFORME** |
+| 9 raccourcis globaux | 9/9 OK | 9/9 OK — tous chemins canoniques | **OK** |
+| `validate_student_live.sh` exit code | 0 | 0 | **OK** |
+| Erreurs | 0 | 0 | **OK** |
+| Warnings | 0 | 2 (non bloquants — alias-based fallback item 5) | **WARNING** |
+| Verdict | OK | OK avec warnings | **OK avec warnings** |
+
+**Warnings détaillés :**
+- `deepseek_hub_cmd.sh` ne contient pas de référence directe à `cmd-deepseek_student` — vérification manuelle conseillée
+- `sanity_check_deepseek_hub.sh` ne référence pas `cmd-deepseek_student` — vérification manuelle conseillée
+
+Ces 2 warnings correspondent à l'alias-based fallback (item 5 LEGACY_CALLERS_INVENTORY) documenté comme déféré dans `93_student_phase2_migration.md` §3.2 et kanban §3.
+
+**Conséquence sur §4.2 :**
+La condition `readlink -f /usr/local/bin/cmd-deepseek_student` → chemin canonique est remplie.
+Le retrait de `deepseek_student/deepseek_student_cmd.sh` comme entrypoint opérateur est **activable** sur décision PM.
+
 ---
 
 ## 6. Limites réelles observées

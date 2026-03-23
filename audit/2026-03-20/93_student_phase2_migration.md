@@ -131,9 +131,9 @@ cmd-deepseek_student show-paths
 
 | ID | Hypothèse | Impact | Action requise |
 |---|---|---|---|
-| H01 | Les shortcuts globaux sur la machine `student` live pointent vers les chemins canoniques | MOYEN — vérifiable seulement en live SSH | Exécuter validation manuelle §5 |
-| H02 | `deepseek_student/deepseek_student_cmd.sh` n'est pas appelé directement en production | FAIBLE — doublon documenté, survivant choisi | Confirmer via audit callers live si besoin |
-| H03 | Les modules `deepseek_thinking` / `deepseek_response` sont bien présents dans `opt-trading/modules/` | FAIBLE — PATH fallback ne s'active que si absent du PATH global | Confirmer si chantier module-dependency ouvert |
+| H01 | Les shortcuts globaux sur la machine `student` live pointent vers les chemins canoniques | MOYEN — vérifiable seulement en live SSH | **CONFIRMÉ 2026-03-23** — 9/9 raccourcis OK. `readlink -f /usr/local/bin/cmd-deepseek_student` → `/opt/trading/student/scripts/wrappers/deepseek_student_cmd.sh` (CONFORME). 2 warnings non bloquants (alias-based fallback item 5 — déféré, cf. §3.2). Exit code 0. |
+| H02 | `deepseek_student/deepseek_student_cmd.sh` n'est pas appelé directement en production | FAIBLE — doublon documenté, survivant choisi | **NON VÉRIFIÉ EN LIVE** — shortcut `cmd-deepseek_student` confirmé canonique (pointe vers wrapper, non legacy). Callers directs de `deepseek_student/deepseek_student_cmd.sh` non audités en live. Condition readlink de `94_student_cleanup_duplicates.md` §4.2 remplie — retrait activable sur décision PM. |
+| H03 | Les modules `deepseek_thinking` / `deepseek_response` sont bien présents dans `opt-trading/modules/` | FAIBLE — PATH fallback ne s'active que si absent du PATH global | **NON VÉRIFIÉ** — hors périmètre de la validation live 2026-03-23. À confirmer si chantier module-dependency ouvert. |
 
 ---
 
