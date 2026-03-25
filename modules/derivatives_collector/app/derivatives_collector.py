@@ -104,6 +104,9 @@ class DerivativesCollector:
         source = self.config["DATA_SOURCE"].lower()
         if source == "mock":
             return MockAdapter()
+        elif source == "binance":
+            from .binance_adapter import BinanceAdapter
+            return BinanceAdapter()
         # Add other adapters here
         print(f"Warning: Unknown data source '{source}', falling back to mock.")
         return MockAdapter()
