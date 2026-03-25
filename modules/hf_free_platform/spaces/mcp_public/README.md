@@ -1,6 +1,6 @@
 ---
 title: OT MCP Public Starter
-emoji: ""
+emoji: "🧰"
 colorFrom: blue
 colorTo: gray
 sdk: gradio
