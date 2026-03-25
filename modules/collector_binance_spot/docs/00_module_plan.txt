@@ -1,0 +1,33 @@
+COLLECTOR BINANCE SPOT - MODULE PLAN
+DATE: 2026-03-18
+STATUS: IMPLEMENTED PILOT SCOPE
+
+PURPOSE
+Second real operational collector module for the V1 public no-auth validation path.
+
+FROZEN MODULE IDENTITY
+- module path: modules/collector_binance_spot
+- module_id: collector_binance_spot
+- provider_id: binance_spot
+
+IMPLEMENTED TARGET
+- execution mode: oneshot only
+- sanity endpoint: GET /api/v3/ping
+- metadata discovery endpoint: GET /api/v3/exchangeInfo
+- market snapshot endpoint: GET /api/v3/ticker/24hr
+- collection scope: BTCUSDT and ETHUSDT only
+- output goal: publish the frozen canonical artifact set plus a normalized pair market snapshot dataset
+
+WHY THIS SCOPE IS DELIBERATELY SMALL
+- validates second-module reuse of collectors_core
+- validates a public no-auth execution path
+- validates pair-centric exchange metadata plus 24-hour ticker snapshots
+- avoids broad exchange crawling and deeper market microstructure endpoints
+
+NOT IN THIS IMPLEMENTATION
+- websockets
+- order book
+- recent trades stream
+- klines or historical backfill
+- scheduler or daemon
+- multi-provider work
