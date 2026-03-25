@@ -1,0 +1,75 @@
+MARKET SNAPSHOT V1
+DATE: 2026-03-18
+
+PURPOSE
+Canonical normalized entity for the first CoinGecko pilot implementation.
+
+TOP-LEVEL REQUIRED FIELDS
+- contract_version
+- schema_version
+- module_id
+- provider_id
+- run_id
+- generated_at
+- entity_type
+- quote_currency
+- records
+
+TOP-LEVEL FIELD SEMANTICS
+- contract_version: canonical artifact contract version, fixed to v1
+- schema_version: normalized schema version, fixed to v1.0 for this entity contract
+- module_id: collector module identifier
+- provider_id: data provider identifier
+- run_id: unique run identifier for the published snapshot
+- generated_at: UTC ISO 8601 Z publication timestamp for this normalized artifact
+- entity_type: fixed string `market_snapshot`
+- quote_currency: currency code used for price, market_cap, total_volume, high_24h, and low_24h
+- records: ordered list of asset market snapshot records
+
+RECORD ORDER RULE
+- records must follow the configured provider allowlist order for deterministic downstream consumption.
+
+RECORD REQUIRED FIELDS
+- asset_symbol
+- asset_name
+- price
+- market_cap
+- market_cap_rank
+- total_volume
+- high_24h
+- low_24h
+- price_change_percentage_24h
+- circulating_supply
+- total_supply
+- max_supply
+- last_updated
+- source
+
+RECORD OPTIONAL FIELDS
+- image_url
+
+RECORD FIELD SEMANTICS
+- asset_symbol: uppercase asset symbol intended for display and filtering; not guaranteed to be globally unique across providers
+- asset_name: human-readable asset name
+- image_url: human-readable display image URL when provided by the source
+- price: latest asset price in quote_currency
+- market_cap: latest market capitalization in quote_currency, nullable if unavailable from the provider
+- market_cap_rank: provider rank by market capitalization, nullable if unavailable
+- total_volume: latest reported total volume in quote_currency, nullable if unavailable
+- high_24h: latest 24-hour high in quote_currency, nullable if unavailable
+- low_24h: latest 24-hour low in quote_currency, nullable if unavailable
+- price_change_percentage_24h: latest 24-hour percentage change, nullable if unavailable
+- circulating_supply: latest circulating supply in asset units, nullable if unavailable
+- total_supply: latest total supply in asset units, nullable if unavailable
+- max_supply: latest max supply in asset units, nullable if unavailable
+- last_updated: provider timestamp for the individual asset record in UTC ISO 8601 Z format
+- source.provider_asset_id: provider-specific asset identifier carried through without redefining the canonical surface
+
+SOURCE OBJECT RULE
+- source is required.
+- source must contain `provider_asset_id`.
+- provider-specific carry-through stays inside source and must not replace canonical fields.
+
+COMPATIBILITY RULES
+- Additive optional fields may be introduced in v1.x.
+- Existing required fields and meanings must remain stable throughout schema major version v1.
