@@ -200,8 +200,14 @@ Ce qui reste conditionné à une passe ultérieure :
   → décision sur baseline future (tools comme nouvelle base ?)
   → reprise du développement CMS (M3, M4+)
 
+Décision PM explicite consignée après cette passe :
+  ✓ `docs/p0-compatibility-contract.html` validé comme base figée de reprise
+  ✓ `feature/localcms-shared-explorer-cms-installer-v1` confirmé comme base produit
+  ✓ `tools/localcms-dev-host` confirmé comme surcouche locale
+  ✓ gate P0 levé pour une passe suivante `GO_LOCALCMS_M1_1_FORMS_01`
+  ✓ `GO_LOCALCMS_M1_1_FORMS_01` non ouvert dans cette passe
+
 Prochain chantier portefeuille recommandé :
-  GO_ALGO_HF_AUDIT_01
-  → qualifier workstream algo_hf / lien avec db-layer (algo-hf-api.service actif)
-  → ou GO_OPENCLAW_CANONICAL_REENTRY_01 selon priorité PM
+  GO_LOCALCMS_M1_1_FORMS_01
+  → carte désormais ouvrable en passe suivante, sans rouvrir P0
 ```

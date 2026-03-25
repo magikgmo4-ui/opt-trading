@@ -167,7 +167,20 @@ Le retrait de `deepseek_student/deepseek_student_cmd.sh` comme entrypoint opéra
 
 ## 6. Limites réelles observées
 
-Audit purement structurel et documentaire — aucun accès SSH live à la machine `student`. L'état du shortcut global `cmd-deepseek_student` sur la machine est le seul point non vérifiable depuis ce contexte. Les modules `opt-trading/modules/deepseek_hub/` et `opt-trading/modules/deepseek_student/` contiennent des copies des scripts similaires à `student/` : ces copies legacy sont hors périmètre de cette passe.
+La validation live a été exécutée sur la machine `student` le 2026-03-23.
+
+Ce qui est désormais prouvé :
+- `readlink -f /usr/local/bin/cmd-deepseek_student` → `/opt/trading/student/scripts/wrappers/deepseek_student_cmd.sh`
+- 9/9 raccourcis globaux OK
+- `validate_student_live.sh` exécuté avec exit 0
+- 0 erreur bloquante, 2 warnings non bloquants
+
+Ce qui reste hors périmètre ou non prouvé :
+- callers directs de `deepseek_student/deepseek_student_cmd.sh` en production
+- rewiring alias-based fallback (`deepseek_hub_cmd.sh`, `sanity_check_deepseek_hub.sh`)
+- exécution réelle des modèles DeepSeek et dépendances externes
+
+Les copies legacy sous `opt-trading/modules/deepseek_hub/` et `opt-trading/modules/deepseek_student/` restent hors périmètre de cette passe.
 
 ---
 
@@ -180,16 +193,14 @@ Ce qui est fait :
   ✓ audit terrain complet des callers de tous les doublons identifiés
   ✓ classification par niveau de risque (CMD / Installer / Sanity / Menu)
   ✓ DUPLICATES_AUDIT.md mis à jour avec section Caller Audit 2026-03-20
-  ✓ identification du risque principal : alias cmd-deepseek_student live
+  ✓ risque principal live levé : cmd-deepseek_student confirmé canonique
+  ✓ validation live exécutée le 2026-03-23 — 9/9 raccourcis OK — 0 erreur — 2 warnings non bloquants
 
-Ce qui reste conditionné à la validation live :
-  → vérifier readlink /usr/local/bin/cmd-deepseek_student sur machine student
-  → si legacy : réexécuter student/bin/install_shortcuts.sh
-  → après confirmation : supprimer deepseek_student/deepseek_student_cmd.sh
-    comme entrypoint opérateur (garder comme backend narrow scope)
+Ce qui reste :
+  → décision PM : activer ou non le retrait de `deepseek_student/deepseek_student_cmd.sh`
+    comme entrypoint opérateur
+  → rewiring alias-based fallback — chantier séparé si priorisé
 
-Prochain chantier portefeuille recommandé :
-  GO_API_COLLECTOR_CANONICAL_MODULE_01
-  → qualifier le module api collector (état fonctionnel réel, nom canonique,
-    runbook minimal, décision module opt-trading ou projet séparé)
+Prochain point logique :
+  GO_STUDENT_PHASE2_MIGRATION_01 → ÉTABLI (validation PM)
 ```

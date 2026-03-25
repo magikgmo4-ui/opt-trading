@@ -38,6 +38,25 @@ Décision :
 - ne pas traiter ces deux branches comme concurrentes ;
 - lire `tools/...` comme extension locale du socle CMS.
 
+Décision PM explicite — P0 :
+- `docs/p0-compatibility-contract.html` est validé comme base figée de reprise pour `localcms` ;
+- la base produit retenue reste `feature/localcms-shared-explorer-cms-installer-v1` ;
+- `tools/localcms-dev-host` reste une surcouche d’hébergement locale, non une base produit autonome ;
+- cette validation lève le gate P0 pour une passe suivante d’ouverture de `GO_LOCALCMS_M1_1_FORMS_01`, sans ouvrir cette carte dans le présent document.
+
+Décision PM explicite — `GO_LOCALCMS_M1_1_FORMS_01` :
+- la carte est considérée **implémentée et validée UI** dans un périmètre strictement borné au moteur forms Core ;
+- preuves retenues : validations locales `conditions[]`, `validators[]`, `sensitive`, `profile_bindings`, plus validation UI réelle bornée via serveur statique local et Edge headless ;
+- aucun runtime FastAPI, host ou port `8000` n'a été touché ;
+- cette décision ne vaut pas ouverture automatique d'un sous-lot forms suivant dans cette passe.
+
+Décision PM explicite — `GO_VALID_EXTEND_06` :
+- la carte est considérée **implémentée et validée localement** dans un périmètre strictement borné au raccord minimal de `$VALID` ;
+- périmètre effectivement livré : `MOD_APPS_CFG` puis `MOD_SEC_CFG` ;
+- les modules simples restants (`data-sources`, `env-global`, `devtools`, `queue`) sont **reportés explicitement** ;
+- aucun besoin prioritaire prouvé à ce stade pour ouvrir une carte dédiée `$VALID` supplémentaire ;
+- ne pas rouvrir le sous-périmètre forms sans besoin concret, bug observé, ou décision PM explicite.
+
 ### Périmètre `Magikgmo`
 Classement retenu :
 - `Magikgmo / main` = héritage historique

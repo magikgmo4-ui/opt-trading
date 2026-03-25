@@ -32,7 +32,7 @@ Sources terrain :
 | Surface | Type | OS | IP LAN | Rôle principal | Repo associé | Statut |
 |---|---|---|---|---|---|---|
 | `admin-trading` | machine / runtime Linux | Debian 12 | 192.168.16.155 | OPS / bastion / services trading actifs | `opt-trading` cloné sur `/opt/trading/` | ÉTABLI / ACTIF |
-| `db-layer` | machine / runtime Linux | Ubuntu 24.04 | 192.168.16.179 | Backend persistant / DB / API secondaires | non établi formellement | ÉTABLI / PARTIEL |
+| `db-layer` | machine / runtime Linux | Ubuntu 24.04 | 192.168.16.179 | Backend persistant / DB / API secondaires | `opt-trading` présent, `algo_hf` séparé | ÉTABLI / QUALIFIÉ |
 | `cursor-ai` | machine / surface opérateur Windows | Windows 10 Pro | 192.168.16.224 | Poste de développement — push/pull/deploy | `opt-trading` cloné sur `C:\Users\ghost\opt-trading\` | ÉTABLI / ACTIF |
 
 ---
@@ -162,25 +162,27 @@ Hébergement des services de type API secondaire et persistance (LAN-only)
 
 Ports en écoute : `22, 53, 631, 1901, 5353, 9100, 32400-32414, 32600, ...`
 
-Note : port `9100` = node_exporter Prometheus probable (non confirmé explicitement dans les sources).
+Note : la passe live a confirmé que le port `9100` est utilisé par `algo-hf-api.service` (processus Python / Uvicorn).
 
 ### 4.4 Repo et déploiement
 
 | Attribut | Valeur |
 |---|---|
-| Repo `opt-trading` déployé ? | NON établi formellement en tant que cible runtime principale |
+| Repo `opt-trading` déployé ? | OUI observé sur `/opt/trading/` (branche `sot/mainline`) |
 | Clone audit (`opt-trading-audit`) | Mentionné dans `98_claude_cowork_relaunch_pack.md` — usage : audit uniquement |
-| Chemins `opt-trading` sur db-layer | NON documentés dans les sources terrain |
+| Chemins `opt-trading` sur db-layer | `/opt/trading/` observé ; aucun module `algo_hf`/`hf_trading` observé dedans |
 
 ### 4.5 Lien `algo-hf-api` → workstream `algo_hf`
 
 `algo-hf-api.service` tourne sur `db-layer`. Le workstream `algo_hf` est listé comme "À QUALIFIER" dans la topologie.
 
-Ce lien est une **hypothèse structurellement très probable** mais non formellement prouvée dans cette passe :
-- le service est actif sur la machine
-- le workstream `algo_hf` est visible sur GitHub mais non qualifié dans le bundle
+Ce lien est désormais **prouvé** par la passe live :
+- unit file : `/etc/systemd/system/algo-hf-api.service`
+- `WorkingDirectory=/home/ghost/dev/nouveau-systeme`
+- `ExecStart=/home/ghost/dev/nouveau-systeme/scripts/commandes/api_service.sh`
+- lancement Python : `from algo_hf.api.run import main; main()`
 
-→ À traiter lors de `GO_ALGO_HF_AUDIT_01`.
+Le workstream `algo_hf` reste séparé de `opt-trading`.
 
 ### 4.6 Établi vs à confirmer
 
@@ -190,9 +192,9 @@ Ce lien est une **hypothèse structurellement très probable** mais non formelle
 | Rôle backend persistant / DB | ÉTABLI |
 | `algo-hf-api.service` actif | ÉTABLI (snapshot) |
 | Plex Media Server actif | ÉTABLI (snapshot) |
-| Repo `opt-trading` déployé sur db-layer | NON ÉTABLI |
+| Repo `opt-trading` déployé sur db-layer | ÉTABLI — `/opt/trading/` observé, branche `sot/mainline` |
 | Chemins base de données réels | À CONFIRMER |
-| Lien algo-hf-api ↔ workstream `algo_hf` | HYPOTHÈSE — À CONFIRMER par `GO_ALGO_HF_AUDIT_01` |
+| Lien algo-hf-api ↔ workstream `algo_hf` | ÉTABLI — code prouvé sous `/home/ghost/dev/nouveau-systeme` |
 | État des services au-delà du snapshot 2026-02-26 | À CONFIRMER live |
 
 ---
@@ -297,8 +299,8 @@ Note : `student` apparaît dans l'OVERVIEW et dans le tunnel — elle est mentio
 - **Audit documentaire uniquement** — aucun accès SSH live aux machines.
 - **Snapshot daté 2026-02-26** — l'état réel des services peut avoir évolué.
 - **`fiche_machine.md` de cursor-ai est vide** dans le repo — données reconstituées depuis snapshot et `generate_pdf_fiches.py` uniquement.
-- **Repo déployé sur db-layer non établi** — aucun chemin `/opt/trading/` prouvé sur db-layer dans les sources disponibles.
-- **Lien `algo-hf-api` ↔ `algo_hf`** = hypothèse forte mais non formellement qualifiée — déférée à `GO_ALGO_HF_AUDIT_01`.
+- **Repo `opt-trading` observé sur db-layer** — aucun lien d'intégration directe avec `algo_hf` n'est prouvé.
+- **Lien `algo-hf-api` ↔ `algo_hf`** = prouvé ; relation avec `hf_trading` non prouvée.
 - Les URL de tunnel sont redacted (`<REDACTED_TUNNEL>`) — non déchiffrables dans cette passe.
 
 ---

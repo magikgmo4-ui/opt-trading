@@ -5,8 +5,8 @@ Date     : 2026-03-20
 Branche  : audit/opt-trading-20260320a
 Mission  : GO_STUDENT_PHASE2_MIGRATION_01
 Pivot    : opt-trading / sot/mainline
-Statut   : PARTIEL — items runtime corrigés en amont ; documentation mise à jour ;
-           doublons documentés et planifiés ; suppression/retraite non exécutée
+Statut   : ÉTABLI — items runtime corrigés en amont ; validation live réalisée ;
+           H01 confirmé ; résiduels H02/H03 non bloquants et hors clôture Phase 2
 ```
 
 ---
@@ -140,27 +140,24 @@ cmd-deepseek_student show-paths
 ## 7. Point de reprise suivant
 
 ```
-GO_STUDENT_PHASE2_MIGRATION_01 → PARTIEL
+GO_STUDENT_PHASE2_MIGRATION_01 → ÉTABLI
 
 Ce qui est fait :
   ✓ audit terrain complet des 4 items runtime prioritaires
   ✓ LEGACY_CALLERS_INVENTORY.md mis à jour avec état réel
   ✓ PHASE2_MIGRATION.md mis à jour avec vérification
-  ✓ doublons documentés et décisions fixées dans DUPLICATES_AUDIT.md
+  ✓ validation live exécutée sur machine student
+  ✓ H01 confirmé : raccourcis canoniques OK, `cmd-deepseek_student` conforme
+  ✓ `sanity-student`, `cmd-student status`, `cmd-deepseek_student show-paths` OK
 
-Ce qui reste :
-  → validation manuelle live sur machine student (shortcuts, cmd-student, run_logged)
-  → cleanup physique des doublons (retire deepseek_student/deepseek_student_cmd.sh
-    comme entrypoint, etc.) — chantier séparé avec preuve d'absence d'appels actifs
+Ce qui reste hors clôture Phase 2 :
+  → H02 non prouvé : callers directs de `deepseek_student/deepseek_student_cmd.sh`
+  → H03 non prouvé : modules `deepseek_thinking` / `deepseek_response`
   → rewiring alias-based fallback — chantier séparé
+  → cleanup physique des doublons — chantier séparé, sur décision PM
 
-Prochain chantier si validation OK :
+Prochain point logique :
   GO_STUDENT_CLEANUP_DUPLICATES_01
-  → cleanup physique des doublons retenus dans DUPLICATES_AUDIT.md
-  → exige confirmation live que les callers legacy ne sont plus actifs
-
-Prochain chantier portefeuille recommandé :
-  GO_API_COLLECTOR_CANONICAL_MODULE_01
-  → qualifier le module api collector (état fonctionnel, nom canonique, runbook,
-    décision module opt-trading ou projet séparé)
+  → décision PM sur le retrait de `deepseek_student/deepseek_student_cmd.sh`
+    comme entrypoint opérateur
 ```

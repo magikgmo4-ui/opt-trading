@@ -55,7 +55,7 @@ Hors périmètre de cette passe (intentionnel) : `openclaw`, `hf_trading`.
 | `A0_api_collector_canonical_module.md` | Fiche module `derivatives_collector` — structure, état, runbook | LIVRÉ |
 | `A1_runtime_surfaces_canonical_map.md` | Carte machines runtime — admin-trading, db-layer, cursor-ai | LIVRÉ |
 | `A2_localcms_canon_decision.md` | Décision canonique `localcms` — rôle des 2 branches | LIVRÉ |
-| `A3_algo_hf_audit.md` | Qualification `algo_hf` — service prouvé, source non localisée | LIVRÉ (partiel) |
+| `A3_algo_hf_audit.md` | Qualification `algo_hf` — service et chemin code prouvés, relation `hf_trading` non prouvée | LIVRÉ |
 | `A4_audit_2026_03_20_formal_close.md` | Ce document — clôture formelle de la passe | LIVRÉ |
 
 ---
@@ -83,7 +83,7 @@ Hors périmètre de cette passe (intentionnel) : `openclaw`, `hf_trading`.
 |---|---|---|
 | `student` Phase 2 migration | 4 items corrigés avant la passe. 2 items non traités dans les scripts listés (`LEGACY_CALLERS_INVENTORY`). | Validation SSH live sur machine `student` requise. |
 | `student` cleanup doublons | Risque principal identifié : alias `cmd-deepseek_student`. Aucun retrait physique appliqué. | `readlink -f /usr/local/bin/cmd-deepseek_student` à vérifier sur machine `student`. |
-| `algo_hf` | Service runtime prouvé. Code source non localisé. GitHub non consulté. | SSH live db-layer + consultation repo GitHub. |
+| `algo_hf` | Service runtime et chemin code prouvés. Relation `hf_trading` non prouvée. | Consolidation PM/documentaire ; ne pas ouvrir `hf_trading` sans besoin explicite. |
 
 ### DIFFÉRÉ — hors périmètre ou décision PM à prendre
 
@@ -91,7 +91,7 @@ Hors périmètre de cette passe (intentionnel) : `openclaw`, `hf_trading`.
 |---|---|---|
 | `derivatives_collector` | Adapters réels (Coinglass, Binance, Bitget) = placeholders. | `GO_DERIVATIVES_COLLECTOR_ADAPTERS_01` si besoin |
 | `localcms` | Décision merge/consolidation des 2 branches. Reprise développement M3+. | `GO_LOCALCMS_NEXT_01` si reprise CMS |
-| `algo_hf` | Chemin code sur db-layer, GitHub, relation avec `hf_trading`. | `GO_ALGO_HF_DEEP_AUDIT_01` |
+| `algo_hf` | Relation avec `hf_trading`, qualification fonctionnelle plus profonde si besoin. | Suivi PM/documentaire uniquement |
 | `hf_trading` | Non démarré. Relation avec `algo_hf` inconnue. | `GO_HF_TRADING_AUDIT_01` |
 | `openclaw` | Hors bundle pour cette passe. | `GO_OPENCLAW_CANONICAL_REENTRY_01` |
 | `cursor-ai` — fiche_machine.md | Fiche vide dans le repo — données manquantes. | Correction ponctuelle si besoin |
@@ -103,7 +103,7 @@ Hors périmètre de cette passe (intentionnel) : `openclaw`, `hf_trading`.
 | Priorité suggérée | Mission | Périmètre | Condition |
 |---|---|---|---|
 | P1 | Validation live `student` Phase 2 + cleanup | `student` machine | SSH accès live requis |
-| P2 | `GO_ALGO_HF_DEEP_AUDIT_01` | `algo_hf` | SSH db-layer + GitHub |
+| P2 | Suivi PM post-`GO_ALGO_HF_DEEP_AUDIT_01` | `algo_hf` | Consolidation documentaire uniquement |
 | P2 | `GO_HF_TRADING_AUDIT_01` | `hf_trading` | GitHub / exploration locale |
 | P3 | `GO_OPENCLAW_CANONICAL_REENTRY_01` | `openclaw` | Décision PM d'entrée |
 | P3 | `GO_LOCALCMS_NEXT_01` | `localcms` | Décision PM de reprise CMS |

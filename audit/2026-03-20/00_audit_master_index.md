@@ -58,6 +58,20 @@ Il sert à :
   - inventaire transversal archive-first + plan opérationnel
 - `audit/2026-03-20/99_pm_decision.md`
   - décision PM finale de la passe
+- `student/validation/validate_student_live.sh`
+  - runner principal de validation live — 5 sections (raccourcis, critique, legacy, entrypoints, structure)
+- `student/validation/student_validation_cmd.sh`
+  - dispatcher CMD du pack validation student
+- `student/validation/student_validation_menu.sh`
+  - menu interactif opérateur
+- `student/validation/student_validation_sanity_check.sh`
+  - sanity check structurel statique
+- `student/validation/RUNBOOK.md`
+  - runbook opérateur complet
+- `student/validation/HANDOFF.md`
+  - état de livraison, périmètre couvert/non couvert, points de reprise
+- `audit/2026-03-20/student_validation_pack_20260320.zip`
+  - archive zip du pack complet (à transférer sur la machine Linux cible où /opt/trading/student est déployé)
 
 ## 4. CE QUE LA PASSE ÉTABLIT
 - `opt-trading / sot/mainline` = pivot canonique
@@ -81,6 +95,7 @@ Il sert à :
 - `GO_LOCALCMS_CANON_DECISION_01` → LIVRÉ — livré dans `A2_localcms_canon_decision.md`
 - `GO_ALGO_HF_AUDIT_01` → LIVRÉ (passe documentaire) — livré dans `A3_algo_hf_audit.md`
 - `GO_AUDIT_2026_03_20_FORMAL_CLOSE_01` → **LIVRÉ — PASSE CLÔTURÉE** — livré dans `A4_audit_2026_03_20_formal_close.md`
+- `GO_STUDENT_LIVE_VALIDATION_PACK_01` → **LIVRÉ** — pack `student/validation/` créé (6 fichiers + zip)
 
 ## 6. USAGE RECOMMANDÉ
 - utiliser cet index comme première lecture en reprise ;
