@@ -1,0 +1,59 @@
+COLLECTOR BINANCE SPOT - RUNBOOK
+DATE: 2026-03-18
+
+PURPOSE
+Run the minimal Binance Spot public market-data pilot locally in oneshot mode.
+
+REQUIRED SECRET
+- none for the default public market-data path
+
+OPTIONAL LOCAL FILES
+- `config/local.toml`
+
+STANDARD COMMANDS
+- `scripts/sanity_check.sh`
+- `scripts/collector_binance_spot_cmd.sh run`
+- `scripts/collector_binance_spot_cmd.sh status`
+- `scripts/collector_binance_spot_cmd.sh test`
+
+WHAT SANITY DOES
+- validates Python 3.11+
+- loads config layers
+- checks writable runtime, logs, and outputs directories
+- executes Binance Spot `/api/v3/ping`
+
+WHAT RUN DOES
+- loads config layers
+- fetches `/api/v3/exchangeInfo` for the configured pair allowlist
+- fetches `/api/v3/ticker/24hr` for the configured pair allowlist
+- writes raw and normalized outputs
+- updates `manifest.json`, `status.json`, `latest.json`, `events.jsonl`, and `errors.jsonl`
+
+REQUEST-SHAPE NOTE
+- on `data-api.binance.vision`, the documented `symbols` parameter must be sent in compact JSON array form such as `["BTCUSDT","ETHUSDT"]`
+
+FAILURE BEHAVIOR
+- `status.json` is updated on run start and terminal failure
+- `events.jsonl` and `errors.jsonl` append operational history
+- `manifest.json` and `latest.json` update only on successful publication
+- on a successful run, `errors.jsonl` still exists and remains empty
+- after a failed rerun following a success, the previous successful `manifest.json` and `latest.json` remain in place
+
+HTTP FAILURE SEMANTICS
+- `400`, `401`, and `403` are treated as non-retryable HTTP failures
+- `408`, `418`, `429`, and `5xx` are treated as retryable HTTP failures
+- a retryable failure after a fresh success yields `state=degraded`
+- a retryable failure after a stale success yields `state=stale`
+- `418` and `429` propagate `Retry-After` into `status.json` and `errors.jsonl` when Binance supplies it
+
+DEFAULT IMPLEMENTED SCOPE
+- allowlist: BTCUSDT, ETHUSDT
+- ticker type: FULL
+- oneshot only
+
+OUT OF SCOPE
+- websockets
+- order book
+- trades stream
+- klines/backfill
+- multiple providers
