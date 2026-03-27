@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import sys
 
 from app.core.constants import ALLOWED_HANDOFF_TARGETS, ALLOWED_STATUSES, ALLOWED_TYPES
 from app.core.paths import ensure_state_dirs
@@ -79,90 +80,94 @@ def main() -> int:
     parser = build_parser()
     args = parser.parse_args()
 
-    if args.command == "new":
-        result = create_brick(
-            brick_type=args.type,
-            title=args.title,
-            ia=args.ia,
-            machine=args.machine,
-            surface=args.surface,
-            project=args.project,
-            module_name=args.module,
-            status=args.status,
-            summary_short=args.summary_short,
-            resume_point=args.resume_point,
-            tags=[t.strip() for t in args.tags.split(",") if t.strip()],
-            repo=args.repo,
-            branch=args.branch,
-            path=args.path,
-            decisions=[t.strip() for t in args.decisions.split(",") if t.strip()],
-            todo=[t.strip() for t in args.todo.split(",") if t.strip()],
-            source_ref=[t.strip() for t in args.source_ref.split(",") if t.strip()],
-            canonical_ref=[t.strip() for t in args.canonical_ref.split(",") if t.strip()],
-            real_state_ref=[t.strip() for t in args.real_state_ref.split(",") if t.strip()],
-            validated_by=args.validated_by,
-        )
-        print(f"CREATED: {result['id']}")
-        print(f"FILE: {result['file']}")
-        return 0
+    try:
+        if args.command == "new":
+            result = create_brick(
+                brick_type=args.type,
+                title=args.title,
+                ia=args.ia,
+                machine=args.machine,
+                surface=args.surface,
+                project=args.project,
+                module_name=args.module,
+                status=args.status,
+                summary_short=args.summary_short,
+                resume_point=args.resume_point,
+                tags=[t.strip() for t in args.tags.split(",") if t.strip()],
+                repo=args.repo,
+                branch=args.branch,
+                path=args.path,
+                decisions=[t.strip() for t in args.decisions.split(",") if t.strip()],
+                todo=[t.strip() for t in args.todo.split(",") if t.strip()],
+                source_ref=[t.strip() for t in args.source_ref.split(",") if t.strip()],
+                canonical_ref=[t.strip() for t in args.canonical_ref.split(",") if t.strip()],
+                real_state_ref=[t.strip() for t in args.real_state_ref.split(",") if t.strip()],
+                validated_by=args.validated_by,
+            )
+            print(f"CREATED: {result['id']}")
+            print(f"FILE: {result['file']}")
+            return 0
 
-    if args.command == "list":
-        filters = {
-            "status": args.status,
-            "type": args.type,
-            "project": args.project,
-            "module": args.module,
-            "machine": args.machine,
-            "ia": args.ia,
-            "surface": args.surface,
-            "tag": args.tag,
-        }
-        rows = list_bricks(filters)
-        for row in rows:
-            print(row)
-        return 0
+        if args.command == "list":
+            filters = {
+                "status": args.status,
+                "type": args.type,
+                "project": args.project,
+                "module": args.module,
+                "machine": args.machine,
+                "ia": args.ia,
+                "surface": args.surface,
+                "tag": args.tag,
+            }
+            rows = list_bricks(filters)
+            for row in rows:
+                print(row)
+            return 0
 
-    if args.command == "show":
-        print(show_brick(args.id))
-        return 0
+        if args.command == "show":
+            print(show_brick(args.id))
+            return 0
 
-    if args.command == "status":
-        before, after = update_status(args.id, args.new_status)
-        print(f"UPDATED: {args.id} status={before} -> {after}")
-        return 0
+        if args.command == "status":
+            before, after = update_status(args.id, args.new_status)
+            print(f"UPDATED: {args.id} status={before} -> {after}")
+            return 0
 
-    if args.command == "link":
-        link_bricks(args.id, args.to)
-        print(f"LINKED: {args.id} -> {args.to}")
-        return 0
+        if args.command == "link":
+            link_bricks(args.id, args.to)
+            print(f"LINKED: {args.id} -> {args.to}")
+            return 0
 
-    if args.command == "index" and args.index_command == "rebuild":
-        paths = rebuild_index()
-        print("INDEX REBUILT:")
-        for path in paths:
-            print(f"- {path}")
-        return 0
+        if args.command == "index" and args.index_command == "rebuild":
+            paths = rebuild_index()
+            print("INDEX REBUILT:")
+            for path in paths:
+                print(f"- {path}")
+            return 0
 
-    if args.command == "merge":
-        out = merge_bricks(args.ids.split(","))
-        print("MERGE CREATED:")
-        print(f" {out}")
-        return 0
+        if args.command == "merge":
+            out = merge_bricks(args.ids.split(","))
+            print("MERGE CREATED:")
+            print(f" {out}")
+            return 0
 
-    if args.command == "export":
-        out = export_bricks(args.ids.split(","), args.format)
-        print("EXPORT CREATED:")
-        print(f" {out}")
-        return 0
+        if args.command == "export":
+            out = export_bricks(args.ids.split(","), args.format)
+            print("EXPORT CREATED:")
+            print(f" {out}")
+            return 0
 
-    if args.command == "handoff":
-        out = handoff_bricks(args.ids.split(","), args.target)
-        print("HANDOFF CREATED:")
-        print(f" {out}")
-        return 0
+        if args.command == "handoff":
+            out = handoff_bricks(args.ids.split(","), args.target)
+            print("HANDOFF CREATED:")
+            print(f" {out}")
+            return 0
 
-    parser.print_help()
-    return 1
+        parser.print_help()
+        return 1
+    except (FileNotFoundError, ValueError) as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        return 1
 
 
 if __name__ == "__main__":

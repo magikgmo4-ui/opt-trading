@@ -10,6 +10,8 @@ from app.storage.markdown_store import load_bricks_by_ids
 def export_bricks(ids: list[str], fmt: str) -> str:
     bricks = load_bricks_by_ids(ids)
     normalized_ids = [brick.id for brick in bricks]
+    if not normalized_ids:
+        raise ValueError("No brick ids provided")
     out = get_exports_dir() / f"export_{'_'.join(normalized_ids)}.{fmt}"
 
     if fmt == "json":

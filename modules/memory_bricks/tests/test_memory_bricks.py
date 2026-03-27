@@ -13,6 +13,7 @@ if str(MODULE_DIR) not in sys.path:
     sys.path.insert(0, str(MODULE_DIR))
 
 from app.schemas.brick_schema import BrickModel
+from app.storage.markdown_store import load_brick, load_all_bricks
 from app.services.create_brick import create_brick
 from app.services.export_bricks import export_bricks
 from app.services.handoff_bricks import handoff_bricks
@@ -68,6 +69,71 @@ class MemoryBricksTestCase(unittest.TestCase):
         )
         brick.validate()
 
+    def test_brick_model_rejects_invalid_values(self) -> None:
+        with self.assertRaisesRegex(ValueError, "Invalid date"):
+            BrickModel(
+                id="MB-00001",
+                title="Test",
+                date="not-a-date",
+                type="reference",
+                status="draft",
+                ia="chatgpt",
+                machine="student",
+                surface="terminal_linux",
+                project="opt-trading",
+                module="memory_bricks",
+                summary_short="hello",
+            ).validate()
+
+        with self.assertRaisesRegex(ValueError, "Invalid ia"):
+            BrickModel(
+                id="MB-00001",
+                title="Test",
+                date="2026-03-25T10:00:00-04:00",
+                type="reference",
+                status="draft",
+                ia="bad-ia",
+                machine="student",
+                surface="terminal_linux",
+                project="opt-trading",
+                module="memory_bricks",
+                summary_short="hello",
+            ).validate()
+
+        with self.assertRaisesRegex(ValueError, "summary_short cannot be empty"):
+            BrickModel(
+                id="MB-00001",
+                title="Test",
+                date="2026-03-25T10:00:00-04:00",
+                type="reference",
+                status="draft",
+                ia="chatgpt",
+                machine="student",
+                surface="terminal_linux",
+                project="opt-trading",
+                module="memory_bricks",
+                summary_short="",
+            ).validate()
+
+    def test_brick_model_normalizes_lists(self) -> None:
+        brick = BrickModel(
+            id="MB-00001",
+            title="Test",
+            date="2026-03-25T10:00:00-04:00",
+            type="reference",
+            status="draft",
+            ia="chatgpt",
+            machine="student",
+            surface="terminal_linux",
+            project="opt-trading",
+            module="memory_bricks",
+            summary_short="hello",
+            links=[" MB-00002 ", "", "MB-00003"],
+            tags=[" test ", "", "memory"],
+        )
+        self.assertEqual(brick.links, ["MB-00002", "MB-00003"])
+        self.assertEqual(brick.tags, ["test", "memory"])
+
     def test_create_list_show_status_and_link(self) -> None:
         first = self.create_sample(title="First Brick")
         second = self.create_sample(title="Second Brick", brick_type="reference", status="open", ia="claude")
@@ -84,6 +150,28 @@ class MemoryBricksTestCase(unittest.TestCase):
         content = show_brick(first["id"])
         self.assertIn(second["id"], content)
         self.assertIn('status: "closed"', content)
+
+    def test_missing_brick_operations_fail_cleanly(self) -> None:
+        with self.assertRaisesRegex(FileNotFoundError, "Brick not found"):
+            update_status("MB-99999", "closed")
+
+        existing = self.create_sample(title="Existing Brick")
+        with self.assertRaisesRegex(FileNotFoundError, "Brick not found"):
+            link_bricks(existing["id"], "MB-99999")
+
+    def test_duplicate_file_and_invalid_frontmatter_are_detected(self) -> None:
+        created = self.create_sample(title="Dup Brick")
+        first_path = Path(created["file"])
+        duplicate_path = first_path.with_name(f"{created['id']}__duplicate.md")
+        duplicate_path.write_text(first_path.read_text(encoding="utf-8"), encoding="utf-8")
+
+        with self.assertRaisesRegex(ValueError, "Multiple brick files found"):
+            load_brick(created["id"])
+
+        duplicate_path.unlink()
+        first_path.write_text("# no frontmatter\n", encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "Markdown file missing frontmatter"):
+            load_all_bricks()
 
     def test_rebuild_export_merge_and_handoff(self) -> None:
         first = self.create_sample(title="First Brick", decisions=["Keep V1 local"], todo=["Write tests"])
@@ -106,6 +194,24 @@ class MemoryBricksTestCase(unittest.TestCase):
         self.assertTrue(handoff_path.is_file())
         self.assertIn("Keep V1 local", merge_path.read_text(encoding="utf-8"))
         self.assertIn("HANDOFF CLAUDE", handoff_path.read_text(encoding="utf-8"))
+
+    def test_export_merge_and_handoff_reject_empty_dataset(self) -> None:
+        with self.assertRaisesRegex(ValueError, "No brick ids provided"):
+            export_bricks([], "txt")
+        with self.assertRaisesRegex(ValueError, "No brick ids provided"):
+            merge_bricks([])
+        with self.assertRaisesRegex(ValueError, "No brick ids provided"):
+            handoff_bricks([], "claude")
+
+    def test_rebuild_index_fails_on_incoherent_dataset(self) -> None:
+        self.create_sample(title="Healthy Brick")
+        bad_path = Path(os.environ["MEMORY_BRICKS_STATE_ROOT"]) / "bricks" / "MB-99999__bad.md"
+        bad_path.write_text(
+            "---\nid: \"MB-99999\"\ntitle: \"Bad\"\ndate: \"bad-date\"\ntimezone: \"America/Montreal\"\ntype: \"reference\"\nstatus: \"draft\"\nia: \"chatgpt\"\nmachine: \"student\"\nsurface: \"terminal_linux\"\nproject: \"opt-trading\"\nmodule: \"memory_bricks\"\nsummary_short: \"bad\"\nresume_point: \"\"\nlinks: []\ntags: []\nrepo: \"\"\nbranch: \"\"\npath: \"\"\nsource_ref: []\ncanonical_ref: []\nreal_state_ref: []\nvalidated_by: \"\"\ndecisions: []\ntodo: []\n---\n\n# bad\n",
+            encoding="utf-8",
+        )
+        with self.assertRaisesRegex(ValueError, "Invalid date"):
+            rebuild_index()
 
     def test_cli_end_to_end(self) -> None:
         env = os.environ.copy()
@@ -139,6 +245,49 @@ class MemoryBricksTestCase(unittest.TestCase):
 
         listed = subprocess.run(["bash", str(MODULE_DIR / "scripts" / "cmd.sh"), "list"], check=True, capture_output=True, text=True, env=env)
         self.assertIn("MB-00001", listed.stdout)
+
+    def test_cli_errors_return_non_zero_with_minimal_message(self) -> None:
+        env = os.environ.copy()
+
+        missing = subprocess.run(
+            ["bash", str(MODULE_DIR / "scripts" / "cmd.sh"), "show", "--id", "MB-99999"],
+            capture_output=True,
+            text=True,
+            env=env,
+        )
+        self.assertNotEqual(missing.returncode, 0)
+        self.assertIn("ERROR: Brick not found", missing.stderr)
+
+        invalid_ia = subprocess.run(
+            [
+                "bash",
+                str(MODULE_DIR / "scripts" / "cmd.sh"),
+                "new",
+                "--type",
+                "resume_point",
+                "--title",
+                "CLI Brick",
+                "--ia",
+                "bad-ia",
+                "--machine",
+                "student",
+                "--surface",
+                "terminal_linux",
+                "--project",
+                "opt-trading",
+                "--module",
+                "memory_bricks",
+                "--status",
+                "resumed",
+                "--summary-short",
+                "CLI summary.",
+            ],
+            capture_output=True,
+            text=True,
+            env=env,
+        )
+        self.assertNotEqual(invalid_ia.returncode, 0)
+        self.assertIn("ERROR: Invalid ia: bad-ia", invalid_ia.stderr)
 
 
 if __name__ == "__main__":
