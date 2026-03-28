@@ -51,6 +51,14 @@ class MemoryBricksTestCase(unittest.TestCase):
         payload.update(overrides)
         return create_brick(**payload)
 
+    def run_cli(self, *args, env=None):
+        return subprocess.run(
+            ["bash", str(MODULE_DIR / "scripts" / "cmd.sh"), *args],
+            capture_output=True,
+            text=True,
+            env=env or os.environ.copy(),
+        )
+
     def test_brick_model_validate(self) -> None:
         brick = BrickModel(
             id="MB-00001",
@@ -245,6 +253,69 @@ class MemoryBricksTestCase(unittest.TestCase):
 
         listed = subprocess.run(["bash", str(MODULE_DIR / "scripts" / "cmd.sh"), "list"], check=True, capture_output=True, text=True, env=env)
         self.assertIn("MB-00001", listed.stdout)
+
+    def test_query_cli_reads_existing_source_without_writes(self) -> None:
+        first = self.create_sample(
+            title="LocalCMS Seed",
+            summary_short="LocalCMS seed brick.",
+            resume_point="Read the persisted LocalCMS dataset here.",
+            tags=["localcms", "viewer"],
+        )
+        second = self.create_sample(
+            title="Viewer Contract",
+            brick_type="decision",
+            status="open",
+            ia="claude",
+            summary_short="Viewer consumes index_full.json in read-only mode.",
+            decisions=["needle-decision"],
+            tags=["contract", "readonly"],
+        )
+        rebuild_index()
+
+        status = self.run_cli("query", "status")
+        self.assertEqual(status.returncode, 0)
+        self.assertIn(f"ROOT: {os.environ['MEMORY_BRICKS_STATE_ROOT']}", status.stdout)
+        self.assertIn("BRICKS: 2", status.stdout)
+        self.assertIn("INDEX_FULL: yes", status.stdout)
+        self.assertIn("SEQUENCE: yes", status.stdout)
+
+        listed = self.run_cli("query", "list", "--ia", "claude")
+        self.assertEqual(listed.returncode, 0)
+        self.assertIn(second["id"], listed.stdout)
+        self.assertNotIn(first["id"], listed.stdout)
+
+        shown = self.run_cli("query", "show", "--id", first["id"])
+        self.assertEqual(shown.returncode, 0)
+        self.assertIn("LocalCMS Seed", shown.stdout)
+
+        found = self.run_cli("query", "find", "--text", "needle-decision")
+        self.assertEqual(found.returncode, 0)
+        self.assertIn(second["id"], found.stdout)
+
+    def test_query_cli_does_not_create_state_dirs(self) -> None:
+        root = Path(self.tmpdir.name) / "query-read-only-root"
+        os.environ["MEMORY_BRICKS_STATE_ROOT"] = str(root)
+        env = os.environ.copy()
+
+        status = self.run_cli("query", "status", env=env)
+        self.assertEqual(status.returncode, 0)
+        self.assertIn("ROOT_EXISTS: no", status.stdout)
+        self.assertFalse(root.exists())
+
+        listed = self.run_cli("query", "list", env=env)
+        self.assertEqual(listed.returncode, 0)
+        self.assertEqual(listed.stdout, "")
+        self.assertFalse(root.exists())
+
+        found = self.run_cli("query", "find", "--text", "localcms", env=env)
+        self.assertEqual(found.returncode, 0)
+        self.assertEqual(found.stdout, "")
+        self.assertFalse(root.exists())
+
+        shown = self.run_cli("query", "show", "--id", "MB-99999", env=env)
+        self.assertNotEqual(shown.returncode, 0)
+        self.assertIn("ERROR: Brick not found", shown.stderr)
+        self.assertFalse(root.exists())
 
     def test_cli_errors_return_non_zero_with_minimal_message(self) -> None:
         env = os.environ.copy()
