@@ -7,6 +7,16 @@
 - wrapper repo-local: `modules/memory_bricks/scripts/cmd.sh`
 - si la source a lire n'est pas la source par defaut, definir `MEMORY_BRICKS_STATE_ROOT`
 
+## Shortcuts optionnels
+
+```bash
+bash modules/memory_bricks/scripts/install_shortcuts.sh
+```
+
+- mode par defaut: installation dans `~/.local/bin` sans `sudo`
+- si besoin systeme explicite: `bash modules/memory_bricks/scripts/install_shortcuts.sh --system`
+- si `~/.local/bin` n'est pas dans `PATH`, l'ajouter avant d'appeler `cmd-memory_bricks`, `menu-memory_bricks` ou `sanity-memory_bricks`
+
 ## Source read-only validee
 
 ```bash
