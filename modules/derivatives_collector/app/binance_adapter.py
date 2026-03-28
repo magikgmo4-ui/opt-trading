@@ -1,4 +1,5 @@
 import sys
+import time
 import json
 import urllib.request
 import urllib.error
@@ -8,14 +9,19 @@ class BinanceAdapter:
     """Binance USD-M Futures Data Adapter"""
     BASE_URL = "https://fapi.binance.com"
 
-    def _fetch(self, url):
+    def _fetch(self, url, retries=3, backoff_factor=1.0):
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-        try:
-            with urllib.request.urlopen(req, timeout=10) as response:
-                return json.loads(response.read().decode('utf-8'))
-        except Exception as e:
-            print(f"[BINANCE] Error fetching {url}: {e}", file=sys.stderr)
-            return None
+        for attempt in range(retries):
+            try:
+                with urllib.request.urlopen(req, timeout=10) as response:
+                    return json.loads(response.read().decode('utf-8'))
+            except Exception as e:
+                if attempt == retries - 1:
+                    print(f"[BINANCE][ERROR] Final fetch failure for {url} after {retries} attempts: {e}", file=sys.stderr)
+                    return None
+                wait_time = backoff_factor * (2 ** attempt)
+                print(f"[BINANCE][WARN] Fetch failed for {url} (attempt {attempt+1}/{retries}). Retrying in {wait_time}s...", file=sys.stderr)
+                time.sleep(wait_time)
 
     def collect(self, symbols):
         data = []
@@ -57,6 +63,18 @@ class BinanceAdapter:
                     row["volume_futures"] = float(vol_resp["quoteVolume"])
                 except (ValueError, TypeError):
                     pass
+
+            # 5. Fetch Long/Short Ratio
+            lsr_resp = self._fetch(f"{self.BASE_URL}/futures/data/globalLongShortAccountRatio?symbol={base_symbol}&period=5m")
+            if lsr_resp and isinstance(lsr_resp, list) and len(lsr_resp) > 0:
+                try:
+                    row["long_short_ratio"] = float(lsr_resp[-1].get("longShortRatio", 0.0))
+                except (ValueError, TypeError):
+                    pass
+
+            missing_metrics = [k for k in ["open_interest", "funding_rate", "volume_futures", "long_short_ratio"] if row[k] is None]
+            if missing_metrics:
+                print(f"[BINANCE][WARN] Partial data degradation for {base_symbol}. Missing: {missing_metrics}", file=sys.stderr)
 
             data.append(row)
         return data
