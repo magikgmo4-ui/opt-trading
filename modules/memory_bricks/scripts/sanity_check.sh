@@ -1,7 +1,19 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-MODULE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+SOURCE_PATH="${BASH_SOURCE[0]}"
+while [ -h "${SOURCE_PATH}" ]; do
+  SOURCE_DIR="$(cd -P "$(dirname "${SOURCE_PATH}")" && pwd)"
+  LINK_TARGET="$(readlink "${SOURCE_PATH}")"
+  if [[ "${LINK_TARGET}" != /* ]]; then
+    SOURCE_PATH="${SOURCE_DIR}/${LINK_TARGET}"
+  else
+    SOURCE_PATH="${LINK_TARGET}"
+  fi
+done
+
+SCRIPT_DIR="$(cd -P "$(dirname "${SOURCE_PATH}")" && pwd)"
+MODULE_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 CMD="${MODULE_DIR}/scripts/cmd.sh"
 TMP_ROOT="$(mktemp -d)"
 trap 'rm -rf "${TMP_ROOT}"' EXIT
