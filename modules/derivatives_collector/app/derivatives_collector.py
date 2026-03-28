@@ -107,6 +107,9 @@ class DerivativesCollector:
         elif source == "binance":
             from .binance_adapter import BinanceAdapter
             return BinanceAdapter()
+        elif source == "bitget":
+            from .bitget_adapter import BitgetAdapter
+            return BitgetAdapter()
         # Add other adapters here
         print(f"Warning: Unknown data source '{source}', falling back to mock.")
         return MockAdapter()
