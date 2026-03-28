@@ -27,6 +27,7 @@
 ## 4. Surface reelle disponible
 
 - scripts locaux: `modules/memory_bricks/scripts/cmd.sh`, `modules/memory_bricks/scripts/menu.sh`, `modules/memory_bricks/scripts/sanity_check.sh`, `modules/memory_bricks/scripts/install_shortcuts.sh`
+- shortcuts operateur: `install_shortcuts.sh` installe par defaut dans `~/.local/bin` sans `sudo`; `--system` cible `/usr/local/bin`; `--bin-dir PATH` permet un dossier explicite
 - commandes mutation: `new`, `list`, `show`, `status`, `link`, `index rebuild`, `export`, `merge`, `handoff`
 - commandes read-only: `query status`, `query list`, `query show --id`, `query find --text`
 - docs utiles: `modules/memory_bricks/docs/SPEC_MEMORY_BRICKS_V1.md`, `modules/memory_bricks/docs/WORKFLOW_MEMORY_BRICKS_V1.md`, `modules/memory_bricks/docs/RUNBOOK_MEMORY_BRICKS_QUERY_V1.md`
@@ -44,7 +45,8 @@
 - `_state/` reste hors Git et ne doit pas etre ajoute au commit
 - aucune API active n'est ouverte sur ce checkout
 - aucune derive UI, cloud, mobile ou navigateur n'est ouverte dans ce module
-- `install_shortcuts.sh` repose toujours sur `sudo` pour les liens globaux
+- le mode systeme explicite `--system` repose toujours sur `sudo`; le mode par defaut est local-first via `~/.local/bin`
+- si `~/.local/bin` n'est pas deja dans `PATH`, l'operateur doit l'ajouter pour appeler les shortcuts directement
 - LocalCMS reste hors perimetre de ce closeout consolide
 
 ## 7. Ce qu'il ne faut pas rouvrir

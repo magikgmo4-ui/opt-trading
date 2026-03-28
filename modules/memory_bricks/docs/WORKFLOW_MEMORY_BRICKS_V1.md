@@ -6,6 +6,14 @@
 - override local possible via `MEMORY_BRICKS_STATE_ROOT`
 - source read-only validee sur fantome: `/home/fantome/opt-trading/_state/memory_bricks_localcms_source`
 
+## Acces operateur
+
+- acces repo-local direct toujours possible via `modules/memory_bricks/scripts/cmd.sh`, `modules/memory_bricks/scripts/menu.sh` et `modules/memory_bricks/scripts/sanity_check.sh`
+- installation optionnelle des shortcuts via `bash modules/memory_bricks/scripts/install_shortcuts.sh`
+- mode par defaut: installation dans `~/.local/bin` sans `sudo`
+- mode systeme explicite disponible via `bash modules/memory_bricks/scripts/install_shortcuts.sh --system`
+- ajouter `~/.local/bin` a `PATH` si les shortcuts installes ne sont pas resolus directement
+
 ## Flux mutation
 
 1. creer une brique via `modules/memory_bricks/scripts/cmd.sh new`
