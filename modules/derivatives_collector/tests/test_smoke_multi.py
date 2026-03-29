@@ -72,6 +72,7 @@ if __name__ == "__main__":
         test_adapter("mock", "MOCK")
         test_adapter("binance", "BINANCE")
         test_adapter("bitget", "BITGET")
+        test_fail_open()
         print("[SUCCESS] All multi-adapter smoke tests passed.")
         sys.exit(0)
     except AssertionError as e:
