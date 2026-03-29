@@ -67878,3 +67878,90 @@ python tmp\inject_init.py
 5) Points ouverts (next):
 - Vérifier l’hygiène repo : confirmer si `tmp\refactor_logging.py` a été commité et, si oui, décider nettoyage.
 - Lancer la passe suivante de cadrage : `GO_ANTIGRAVITY_V4_HARDENING_SCOPE_01` (durcissement défensif data/parsing/batch), sans rouvrir réseau/threading/logging ni changer le contrat JSON.
+
+## 2026-03-29 05:31 — note526
+1) Objectifs:
+- Reprendre le projet `localcms` après blocage d’accès repo et recadrer M1.1 Forms sur l’état réel.
+- Produire un cadrage documentaire (sans code) puis prouver l’état runtime ($USER / conditions[] / validators[] / persistance).
+- Implémenter $COND + $VALID de manière bornée (IA + Machines), prouver via smoke, puis commit.
+- Obtenir une preuve navigateur réelle et clarifier la confusion “PASS/commit vs pas merge”.
+- Clôturer le sous-chantier $COND/$VALID sans merge vers `main` (branche inexistante/inutile).
+- Ouvrir la suite : extension de $VALID à Apps + Sec.
+
+2) Actions:
+- Vérification repo accessible (GitHub) et recadrage terrain sur branche `feature/localcms-shared-explorer-cms-installer-v1` (HEAD initial observé 447c8c1).
+- Inventaire du périmètre M1.1 ($FORMS/$COND/$VALID/$OS/$USER) et des manques; recommandation de cadrage doc avant code.
+- Production d’un prompt Claude cadrage_02, puis validation PM du cadrage_02 (doc-only).
+- Passe “preuve runtime” : constat $USER nommé absent; conditions[] et validators[] présents dans manifestes mais non consommés; persistance cross-session absente.
+- Arbitrages PM : syntaxe conditions v1 = `{when:{field,eq}, show:[...]}`; persistance $USER HOLD; coexistence `f.required` (UI) vs `validators[]` (canon validation).
+- Implémentation bornée $COND/$VALID + câblage bridges IA/Machines (localcms-v5.html), tests Node/mock DOM + check syntaxe.
+- Décision PM : impl validée; commit/merge HOLD jusqu’à smoke navigateur réel.
+- Tentative de smoke navigateur : contraintes environnement (Chrome Windows vs VM Linux) → bascule sur smoke Node/mock DOM; PM requalifie : commit autorisé, merge HOLD, browser smoke à faire.
+- Reprise commit : découverte de dérive opératoire (index.lock, montage/virtiofs, HEAD différent, impl perdue) → réinsertion + smoke Node; commit finalement réalisé via clone local + “git plumbing”; HEAD avancé à 1989a4d; index.lock persistant.
+- Mise en place d’un chemin browser smoke réel via serveur HTTP Windows (`python -m http.server 8080`).
+- Debug navigateur : faux négatif initial (test `window.$COND/$VALID`) + incohérences fetch cache; validation finale browser smoke (PASS).
+- Closeout : tentative PR vers main refusée (pas d’historique commun); clarification : repo localcms n’a pas de `main` utile, seulement 2 branches; clôture “no merge”.
+- Ouverture GO_VALID_EXTEND_06 : préparer prompt pour câbler $VALID sur MOD_APPS_CFG et MOD_SEC_CFG.
+
+3) Décisions:
+- GO_LOCALCMS_M1_1_FORMS_CADRAGE_01 = VALIDÉ / CLOSE.
+- GO_LOCALCMS_M1_1_FORMS_CADRAGE_02 = OUVERT puis VALIDÉ / CLOSE (documentation uniquement).
+- GO_LOCALCMS_M1_1_FORMS_IMPL_01 = HOLD (bloqué tant que R-6/R-7 non arbitrés).
+- GO_LOCALCMS_M1_1_FORMS_PREUVE_RUNTIME_03 = GO puis VALIDÉ / CLOSE.
+- Arbitrages PM:
+  - P-1 conditions[] v1 : `{ when:{field, eq}, show:[...] }` (DSL P0 large déférée).
+  - P-2 persistance $USER : HOLD (pas de persistance cross-session).
+  - P-3 required : coexistence temporaire (`f.required` UI vs `validators[]` validation canonique).
+- GO_LOCALCMS_M1_1_COND_VALID_IMPL_04 = VALIDÉ / CLOSE (impl bornée IA+Machines).
+- GO_LOCALCMS_M1_1_COND_VALID_SMOKE_05 : requalifié (Node smoke validé comme preuve technique, pas browser).
+  - GO_COMMIT autorisé; GO_MERGE = HOLD jusqu’au browser smoke.
+- Incident continuité : nécessité d’une passe “real state” (montage/git lock/CRLF) → commit final canonique posé.
+- Browser smoke réel finalement PASS; sous-chantier $COND/$VALID VALIDÉ.
+- Merge/PR vers `main` : non applicable (branche `main` non base/trunk; branches existantes: `feature/...` et `tools/...`).
+- Clôture canonique retenue : base = `feature/localcms-shared-explorer-cms-installer-v1`, pas de merge vers main.
+- Prochain chantier validé : GO_VALID_EXTEND_06.
+
+4) Commandes / Code:
+```bat
+:: Serveur HTTP Windows (pour browser smoke)
+python -m http.server 8080
+```
+
+```bat
+:: Vérification présence des blocs dans localcms-v5.html
+findstr /C:"const $COND" localcms-v5.html
+findstr /C:"const $VALID" localcms-v5.html
+findstr /C:"const MOD_MACHINES_CFG" localcms-v5.html
+findstr /C:"const MOD_IA_CFG" localcms-v5.html
+```
+
+```js
+// Diagnostics DevTools (cache/reload + contenu servi)
+fetch('/localcms-v5.html').then(r=>r.text()).then(t=>console.log({
+  hasCOND: t.includes('const $COND'),
+  hasVALID: t.includes('const $VALID'),
+  hasMachinesBridge: t.includes('const MOD_MACHINES_CFG'),
+  hasIABridge: t.includes('const MOD_IA_CFG')
+}));
+
+fetch(location.href, { cache: 'reload' })
+  .then(r => r.text())
+  .then(t => console.log({
+    hasCOND: t.includes('const $COND'),
+    hasVALID: t.includes('const $VALID'),
+    hasMachines: t.includes('const MOD_MACHINES_CFG'),
+    hasIA: t.includes('const MOD_IA_CFG')
+  }));
+
+// Portée: const top-level ≠ propriété window
+typeof $COND;
+typeof $VALID;
+typeof window.$COND;
+typeof window.$VALID;
+```
+
+5) Points ouverts (next):
+- Nettoyage opératoire Windows : supprimer `.git\index.lock` (stale) et vérifier l’état git côté Windows après commit 1989a4d.
+- Étendre $VALID à d’autres bridges:
+  - GO_VALID_EXTEND_06 : câbler `MOD_APPS_CFG` et `MOD_SEC_CFG` à `$VALID` (validators[] déjà présents).
+- (Optionnel) Passe dédiée “normalisation branches” si besoin d’un trunk explicite; non requise pour continuer.
