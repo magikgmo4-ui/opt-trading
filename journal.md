@@ -67545,3 +67545,77 @@ lspci        # iGPU Intel HD Graphics 530 observée
 5) Points ouverts (next):
 - Relancer le retest de qualification réelle KB-301 sur `student` (avec preuves) et rendre un nouveau verdict `integre`/`non_integre`.
 - Décider explicitement du traitement futur de `vision` (preuve GPU locale vs maintien non qualifié) sans ouvrir KB-302/304/305.
+
+## 2026-03-29 05:27 — note520
+1) Objectifs:
+- Clore KB-301 : retester `student` après remédiation minimale et statuer `integre` ou `non_integre` sans rouvrir KB-302/304/305.
+- Confirmer doctrine : `db-layer` = control plane figé, compute standard sur `student`.
+- Sur `fantome` (repo `opt-trading`) : ouvrir et enchaîner les chantiers `memory_bricks` autour d’une query layer read-only, puis consolidations/doc/shortcuts/smokes.
+- En parallèle sur Windows (`localcms`) : vérifier si le viewer read-only est déjà clos et cadrer le prochain chantier.
+
+2) Actions:
+- KB-301 (`student`) : retest borné effectué à partir de l’état corrigé (pathing canonique, podman prouvé, vision borné non qualifié) ; validation officielle `student = integre`.
+- Clarification gouvernance : arrêter le compute standard sur `db-layer`; travail actif sur `student` (activation contrôlée `lab` puis `hf_build`).
+- Accès GitHub confirmé, mais distinction faite : accès remote GitHub ≠ accès shell `fantome`.
+- Sur `fantome` (`/home/fantome/opt-trading`, branche `feat/memory-bricks-v1-impl-harden`) :
+  - État Git local prouvé (HEAD initial `5b7d296`, `_state/` non tracké).
+  - Implémentation query layer read-only : ajout namespace `query` (status/list/show/find), suppression de l’écriture implicite `ensure_state_dirs()` pour commandes read-only, nouveau service `find_bricks.py`, tests ajoutés.
+  - Closeout/commits successifs prouvés :
+    - `cc2fe5a` query layer
+    - `d6e5365` sync runbook/menu query
+    - `5fa901f` closeout consolidé module
+    - `a38887a` shortcuts local-first + symlink fix
+    - `0276286` doc sync local-first
+    - `9aea91d` smoke wrappers script
+  - Ajout mode installation shortcuts local-first (par défaut `~/.local/bin`, options `--system` et `--bin-dir`) + résolution symlinks dans wrappers.
+  - Ajout smoke reproductible `smoke_wrappers.sh` validant install local-first + exécution wrappers.
+  - Plusieurs passes “contenu déjà committé” constatées lors des closeouts; `_state/` conservé hors Git.
+- Sur Windows (`C:\Users\ghost\localcms`) :
+  - État Git local prouvé : branche `feature/localcms-memory-view-v1`, HEAD `2bb1a58`, worktree propre.
+  - Historique confirme viewer memory bricks read-only déjà ajouté/clos (`ac74037`, `82cfe54`, `90a52e9`).
+  - Micro-chantier `GO_LOCALCMS_GITIGNORE_LOCAL_COMMIT_01` = PASS (commit `2bb1a58`).
+
+3) Décisions:
+- KB-301 : verdict final `integre` pour `student`; `vision` reste explicitement `non qualifie`; `training` noté “possible sous réserve”.
+- `db-layer` : figé control plane; prochain chantier “sur db-layer” évoqué = KB-302 (policy/services exposables), mais après activation sur `student`.
+- `memory_bricks` sur `fantome` : séquence de triggers validée et close successivement (query → runbook/menu → closeout consolidé → shortcuts local-first → doc sync → smoke wrappers).
+- `localcms` : ne pas rouvrir `GO_LOCALCMS_VIEWER_REAL_SOURCE_VALIDATE_01` (considéré déjà couvert) ; repartir sur `GO_LOCALCMS_NEXT_MISSION_SELECTION_02`.
+
+4) Commandes / Code:
+```bash
+# student - actions correctives prouvées (micro-chantier)
+sudo mkdir -p /srv/openclaw/workspaces /srv/openclaw/outputs
+sudo chown -R student:student /srv/openclaw
+sudo chmod 755 /srv/openclaw /srv/openclaw/workspaces /srv/openclaw/outputs
+sudo apt-get update
+sudo apt-get install -y podman
+podman --version
+podman run --rm docker.io/library/alpine:3.20 echo podman_ok
+```
+
+```bash
+# fantome - état git prouvé
+cd /home/fantome/opt-trading
+git branch --show-current
+git rev-parse --short HEAD
+git status --short
+git log --oneline -1
+find /home/fantome/opt-trading/_state/memory_bricks_localcms_source -maxdepth 3 | sort | sed -n '1,120p'
+```
+
+```bash
+# localcms windows - état git prouvé
+cd C:\Users\ghost\localcms
+git branch --show-current
+git rev-parse --short HEAD
+git status --short
+git log --oneline -5
+```
+
+5) Points ouverts (next):
+- `student` : lancer “activation contrôlée” minimale : `lab` puis `hf_build` (en gardant `vision` hors activation).
+- `db-layer` : après activations `student`, ouvrir KB-302 (policy/services exposables) si nécessaire.
+- `fantome/memory_bricks` :
+  - Branche toujours locale (remote GitHub ne voit pas `feat/memory-bricks-v1-impl-harden`) → décider push (sans `_state/`).
+  - Trigger en cours proposé : `GO_MEMORY_BRICKS_MODULE_CONSOLIDATED_REFRESH_02` (rafraîchir le closeout consolidé pour inclure `a38887a/0276286/9aea91d`, puis closeout Git).
+- `Windows/localcms` : démarrer `GO_LOCALCMS_NEXT_MISSION_SELECTION_02` (la branche/commits restent locaux tant que non push).
