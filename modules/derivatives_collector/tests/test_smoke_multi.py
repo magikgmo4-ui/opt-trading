@@ -47,6 +47,26 @@ def test_adapter(source_name, expected_exchange):
             
     print(f"[PASS] {expected_exchange} flow\n")
 
+from modules.derivatives_collector.app.derivatives_collector import BaseAdapter, DerivativesRow
+
+class ExplodingMockAdapter(BaseAdapter):
+    def _collect_symbol(self, symbol, batch_timestamp):
+        if symbol == "BOMB":
+            raise ValueError("Intentional crash for testing")
+        elif symbol == "DICT":
+            return {"symbol": "DICT", "error": "I am a raw dictionary, not a dataclass!"}
+        return DerivativesRow(symbol=symbol, exchange="MOCK", timestamp=batch_timestamp)
+
+def test_fail_open():
+    print("--- Testing Fail-Open Hardening ---")
+    adapter = ExplodingMockAdapter()
+    # Batch query where 2 elements are corrupt 
+    data = adapter.collect(["BTCUSDT", "BOMB", "ETHUSDT", "DICT"])
+    assert len(data) == 2, f"Fail-open should return 2 valid symbols out of 4, got {len(data)}"
+    assert data[0]["symbol"] == "BTCUSDT"
+    assert data[1]["symbol"] == "ETHUSDT"
+    print("[PASS] Fail-Open architecture\n")
+
 if __name__ == "__main__":
     try:
         test_adapter("mock", "MOCK")

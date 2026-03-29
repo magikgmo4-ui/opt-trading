@@ -122,14 +122,26 @@ class BaseAdapter:
     def _collect_symbol(self, symbol, batch_timestamp):
         raise NotImplementedError
 
+    def _safe_collect_symbol(self, symbol, batch_timestamp):
+        try:
+            row = self._collect_symbol(symbol, batch_timestamp)
+            if not isinstance(row, DerivativesRow):
+                self.logger.error(f"Invalid return type for {symbol}. Expected DerivativesRow, got {type(row).__name__}")
+                return None
+            return row
+        except Exception as e:
+            self.logger.error(f"Critical failure collecting {symbol}: {str(e)}")
+            return None
+
     def collect(self, symbols):
         data = []
         batch_timestamp = datetime.now(timezone.utc).isoformat()
         
         with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
-            results = executor.map(lambda sym: self._collect_symbol(sym, batch_timestamp), symbols)
+            results = executor.map(lambda sym: self._safe_collect_symbol(sym, batch_timestamp), symbols)
             for row in results:
-                data.append(asdict(row))
+                if row is not None:
+                    data.append(asdict(row))
                 
         return data
 
