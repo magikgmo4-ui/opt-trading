@@ -68154,3 +68154,79 @@ git push origin feature/localcms-shared-explorer-cms-installer-v1
 5) Points ouverts (next):
 - LocalCMS: exécuter `GO_LOCALCMS_FINAL_STATE_RECORDED_01` (jalon d’enregistrement de l’état final canonique), puis lancer `GO_LOCALCMS_NEXT_MISSION_SELECTION_04`.
 - ShareX/Telegram/Vision: clôture du scope actée; reprise “bot vision telegram” annoncée pour une autre session (pas traitée ici).
+
+## 2026-03-29 05:36 — note530
+1) Objectifs:
+- Reprendre l’état OpenClaw après KB-202 et déterminer le point de reprise.
+- Ouvrir et exécuter KB-301 (intégration du node compute `student`), puis ouvrir KB-302 (policy des services exposables) et valider un premier cas réel (lab+jupyter loopback).
+- Côté repo opt-trading/memory_bricks: aligner la doc opératoire avec les scripts de validation livrés, puis clarifier la politique de validation et la clôturer dans Git.
+
+2) Actions:
+- OpenClaw:
+  - Confirmation: phase 2 documentaire socle close; KB-301 runbook produit puis validé.
+  - Qualification terrain KB-301 initiale: verdict `non_integre` (blockers: pathing canonique absent, runtime conteneur non prouvé, GPU non prouvé pour `vision`).
+  - Micro-chantier pré-retest: création du pathing minimal `/srv/openclaw/...` et preuve runtime conteneur via `podman`; `vision` sorti du retest; verdict `retest_kb301_autorise`.
+  - Retest KB-301 avec `hf_build` uniquement: verdict final `integre`; KB-301 déclaré DONE/CLOSE.
+  - KB-302: rédaction/validation de `KB302_EXPOSABLE_SERVICES_POLICY_V1.md` (policy réseau/auth/sandbox; loopback par défaut; public interdit; protection `db-layer`).
+  - Classification d’un cas réel: `lab` + `jupyter` loopback sur `student` => `autorisable`.
+  - Erreur de séquence détectée (retour KB-301 pré-retest au lieu du runbook KB-302); correction: restitution puis validation du runbook `KB302_LAB_JUPYTER_LOOPBACK_RUNBOOK_V1.md` (ACCEPTÉ avec réserve mineure auth.mode local-user vs auth token service).
+  - État final OpenClaw dans l’extrait: runbook validé; prochain pas = exécution terrain de l’ouverture réelle loopback sur `student`.
+- memory_bricks (repo /home/fantome/opt-trading):
+  - GO_MEMORY_BRICKS_VALIDATION_ENTRYPOINT_SYNC_01: modification docs uniquement (WORKFLOW + RUNBOOK) pour intégrer `sanity_check.sh` + `smoke_wrappers.sh`; tests scripts exécutés PASS; commit réalisé.
+  - GO_MEMORY_BRICKS_VALIDATION_ENTRYPOINT_SYNC_CLOSEOUT_01: vérifié via `git status`/`git log`; PASS.
+  - GO_MEMORY_BRICKS_VALIDATION_POLICY_CLARIFY_01: ajout doc de la politique `unittest` vs `sanity_check.sh` vs `smoke_wrappers.sh` + ordre recommandé + matrice par type de changement; validations annoncées PASS; épisode de confusion/écart de reprise puis recadrage.
+  - GO_MEMORY_BRICKS_VALIDATION_POLICY_CLARIFY_CLOSEOUT_01: d’abord FAIL (docs modifiées non commitées, HEAD resté a0ba1c8), puis commit réalisé et preuve Git fournie => PASS (HEAD 926f762).
+  - Prochain trigger retenu: GO_MEMORY_BRICKS_SYSTEM_MODE_COVERAGE_01 (cadrage doc du mode `install_shortcuts.sh --system` dépendant de sudo).
+
+3) Décisions:
+- OpenClaw:
+  - KB-301: runbook ACCEPTÉ; qualification réelle exigée; `vision` hors retest faute de GPU prouvé; cas de base `hf_build`.
+  - KB-301 clôturé après retest: `student` = premier compute node local réel (`integre`); pas d’ouverture KB-302+ avant ce verdict.
+  - KB-302: policy validée (cadrage) puis premier cas classifié `lab+jupyter loopback` => `autorisable`.
+  - Micro-runbook loopback validé (réserve mineure sur articulation `spec.policy.auth.mode: local-user` vs `spec.services[].auth: token`).
+- memory_bricks:
+  - GO_MEMORY_BRICKS_VALIDATION_ENTRYPOINT_SYNC_* : PASS et clos (commit a0ba1c8).
+  - GO_MEMORY_BRICKS_VALIDATION_POLICY_CLARIFY_* : PASS fonctionnel puis closeout Git PASS (commit 926f762).
+  - Prochain chantier: GO_MEMORY_BRICKS_SYSTEM_MODE_COVERAGE_01.
+
+4) Commandes / Code:
+```bash
+# OpenClaw (student) — micro-chantier pré-retest
+ssh student "mkdir -p \
+  /srv/openclaw/workspaces/ws-hf-build-student \
+  /srv/openclaw/outputs/ws-hf-build-student/artifacts \
+  /srv/openclaw/outputs/ws-hf-build-student/logs"
+ssh student "podman --version"
+ssh student "podman run --rm --pull=never docker.io/library/alpine:3.20 true"
+ssh student "podman run --rm --pull=never \
+  -v /srv/openclaw/workspaces/ws-hf-build-student:/workspace:Z \
+  -v /srv/openclaw/outputs/ws-hf-build-student/artifacts:/artifacts:Z \
+  -v /srv/openclaw/outputs/ws-hf-build-student/logs:/logs:Z \
+  docker.io/library/alpine:3.20 sh -c 'touch /workspace/.probe /artifacts/.probe /logs/.probe && rm /workspace/.probe /artifacts/.probe /logs/.probe'"
+```
+
+```bash
+# memory_bricks — entrypoint sync commit
+cd /home/fantome/opt-trading
+git add modules/memory_bricks/docs/WORKFLOW_MEMORY_BRICKS_V1.md \
+        modules/memory_bricks/docs/RUNBOOK_MEMORY_BRICKS_QUERY_V1.md
+git commit -m "memory_bricks: sync validation entrypoints in workflow and runbook"
+git status --short --branch
+git log --oneline -1
+# HEAD après closeout: a0ba1c8
+```
+
+```bash
+# memory_bricks — policy clarify commit (preuve de clôture)
+cd /home/fantome/opt-trading
+git add modules/memory_bricks/docs/WORKFLOW_MEMORY_BRICKS_V1.md \
+        modules/memory_bricks/docs/RUNBOOK_MEMORY_BRICKS_QUERY_V1.md
+git commit -m "memory_bricks: clarify validation policy in workflow and runbook"
+git status --short --branch
+git log --oneline -1
+# HEAD après closeout: 926f762
+```
+
+5) Points ouverts (next):
+- OpenClaw: exécuter en réel sur `student` l’ouverture locale `lab` + `jupyter` (loopback-only) selon `KB302_LAB_JUPYTER_LOOPBACK_RUNBOOK_V1.md`, collecter preuves minimales et émettre verdict ouverture réelle (réussie/échouée).
+- memory_bricks: ouvrir GO_MEMORY_BRICKS_SYSTEM_MODE_COVERAGE_01 (cadrage doc/opératoire du mode `install_shortcuts.sh --system`, prérequis sudo, limites, validations minimales), sans rouvrir V1 ni toucher `_state/`.
