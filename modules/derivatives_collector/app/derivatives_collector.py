@@ -15,6 +15,8 @@ Commands:
 import sys
 import os
 import json
+from dataclasses import dataclass, asdict
+from typing import Optional
 import csv
 import argparse
 import random
@@ -63,6 +65,19 @@ def load_config():
                             config[key] = val
     return config
 
+
+@dataclass
+class DerivativesRow:
+    symbol: str
+    exchange: str
+    timestamp: str
+    open_interest: Optional[float] = None
+    funding_rate: Optional[float] = None
+    long_short_ratio: Optional[float] = None
+    liquidations_long: Optional[float] = None
+    liquidations_short: Optional[float] = None
+    volume_futures: Optional[float] = None
+
 # --- Adapters ---
 class BaseAdapter:
     def __init__(self, max_workers=5, retries=3, backoff_factor=1.0):
@@ -110,7 +125,7 @@ class BaseAdapter:
         with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
             results = executor.map(lambda sym: self._collect_symbol(sym, batch_timestamp), symbols)
             for row in results:
-                data.append(row)
+                data.append(asdict(row))
                 
         return data
 
@@ -125,17 +140,18 @@ class MockAdapter(BaseAdapter):
             liq_long = random.uniform(0, 1_000_000)
             liq_short = random.uniform(0, 1_000_000)
             
-            data.append({
-                "symbol": symbol,
-                "exchange": "MOCK",
-                "timestamp": datetime.now(timezone.utc).isoformat(),
-                "open_interest": round(oi, 2),
-                "funding_rate": round(funding, 6),
-                "long_short_ratio": round(ls_ratio, 4),
-                "liquidations_long": round(liq_long, 2),
-                "liquidations_short": round(liq_short, 2),
-                "volume_futures": round(random.uniform(50_000_000, 200_000_000), 2)
-            })
+            row = DerivativesRow(
+                symbol=symbol,
+                exchange="MOCK",
+                timestamp=datetime.now(timezone.utc).isoformat(),
+                open_interest=round(oi, 2),
+                funding_rate=round(funding, 6),
+                long_short_ratio=round(ls_ratio, 4),
+                liquidations_long=round(liq_long, 2),
+                liquidations_short=round(liq_short, 2),
+                volume_futures=round(random.uniform(50_000_000, 200_000_000), 2)
+            )
+            data.append(asdict(row))
         return data
 
 # --- Core Logic ---

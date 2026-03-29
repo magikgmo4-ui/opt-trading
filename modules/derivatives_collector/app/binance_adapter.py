@@ -1,5 +1,5 @@
 import sys
-from .derivatives_collector import BaseAdapter
+from .derivatives_collector import BaseAdapter, DerivativesRow
 import time
 import json
 import urllib.request
@@ -16,23 +16,17 @@ class BinanceAdapter(BaseAdapter):
 
     def _collect_symbol(self, symbol, batch_timestamp):
         base_symbol = symbol.upper()
-        row = {
-            "symbol": base_symbol,
-            "exchange": "BINANCE",
-            "timestamp": batch_timestamp,
-            "open_interest": None,
-            "funding_rate": None,
-            "long_short_ratio": None,
-            "liquidations_long": None,
-            "liquidations_short": None,
-            "volume_futures": None
-        }
+        row = DerivativesRow(
+            symbol=base_symbol,
+            exchange="BINANCE",
+            timestamp=batch_timestamp
+        )
 
         # 2. Fetch Open Interest
         oi_resp = self._fetch(f"{self.BASE_URL}/fapi/v1/openInterest?symbol={base_symbol}")
         if oi_resp and "openInterest" in oi_resp:
             try:
-                row["open_interest"] = float(oi_resp["openInterest"])
+                row.open_interest = float(oi_resp["openInterest"])
             except (ValueError, TypeError):
                 pass
 
@@ -40,7 +34,7 @@ class BinanceAdapter(BaseAdapter):
         fr_resp = self._fetch(f"{self.BASE_URL}/fapi/v1/premiumIndex?symbol={base_symbol}")
         if fr_resp and "lastFundingRate" in fr_resp:
             try:
-                row["funding_rate"] = float(fr_resp["lastFundingRate"])
+                row.funding_rate = float(fr_resp["lastFundingRate"])
             except (ValueError, TypeError):
                 pass
 
@@ -48,7 +42,7 @@ class BinanceAdapter(BaseAdapter):
         vol_resp = self._fetch(f"{self.BASE_URL}/fapi/v1/ticker/24hr?symbol={base_symbol}")
         if vol_resp and "quoteVolume" in vol_resp:
             try:
-                row["volume_futures"] = float(vol_resp["quoteVolume"])
+                row.volume_futures = float(vol_resp["quoteVolume"])
             except (ValueError, TypeError):
                 pass
 
@@ -56,11 +50,11 @@ class BinanceAdapter(BaseAdapter):
         lsr_resp = self._fetch(f"{self.BASE_URL}/futures/data/globalLongShortAccountRatio?symbol={base_symbol}&period=5m")
         if lsr_resp and isinstance(lsr_resp, list) and len(lsr_resp) > 0:
             try:
-                row["long_short_ratio"] = float(lsr_resp[-1].get("longShortRatio", 0.0))
+                row.long_short_ratio = float(lsr_resp[-1].get("longShortRatio", 0.0))
             except (ValueError, TypeError):
                 pass
 
-        missing_metrics = [k for k in ["open_interest", "funding_rate", "volume_futures", "long_short_ratio"] if row[k] is None]
+        missing_metrics = [k for k in ["open_interest", "funding_rate", "volume_futures", "long_short_ratio"] if getattr(row, k) is None]
         if missing_metrics:
             print(f"[BINANCE][WARN] Partial data degradation for {base_symbol}. Missing: {missing_metrics}", file=sys.stderr)
 
