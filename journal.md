@@ -66326,3 +66326,125 @@ ssh admin-trading 'bash /opt/trading/deploy_module_multi_machine/scripts/deploy_
 - deploy_module_multi_machine:
   - Finaliser la création des wrappers globaux `/usr/local/bin/{cmd,menu,sanity}-deploy_module_multi_machine` dès qu’un sudo utilisable (non interactif ou accès root) est disponible sur `admin-trading`.
   - (Option) Ajouter l’entrée registry si le schéma YAML est confirmé, sans inventer la structure.
+
+## 2026-03-29 05:10 | TV Webhook | COINM_SHORT | BTCUSDT 1 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `66643.3`
+5. **TP**: `0.0`
+6. **SL**: `66633.3`
+7. **Reason**: bitget bar-close ts=1774775400000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 66643.3,
+  "tp": 0.0,
+  "sl": 66633.3,
+  "reason": "bitget bar-close ts=1774775400000",
+  "_ts": "2026-03-29T09:10:02.347790+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-29 05:10 — note502
+1) Objectifs:
+- Finaliser et durcir le module `deploy_module_multi_machine` sur `admin-trading`.
+- Poser/valider les wrappers globaux dans `/usr/local/bin`.
+- Réaliser des déploiements multi-machines réels vers `student` et `db-layer`.
+- Ajouter progressivement : correction symlink, correctif script distant, post-install optionnel, préflight, durcissement tempfiles, lock concurrence, stale-lock recovery.
+- Aligner le menu interactif sur les capacités CLI.
+- Industrialiser le workflow “inventaire → preflight → deploy → sanity → doc”.
+
+2) Actions:
+- Constat initial : module déjà installé sous `/opt/trading/deploy_module_multi_machine`; wrappers globaux absents car `sudo` interactif requis et non injectable via OpenCode (timeout / TTY requis).
+- Activation `sudo` interactif via SSH TTY depuis terminal utilisateur; exécution de `scripts/install_module.sh` et pose des 3 symlinks dans `/usr/local/bin`.
+- Correction minimale de résolution de chemin via symlink dans 3 scripts wrappers du module.
+- Déploiement réel test (faible risque) de `module_contextuals_shell` vers `student@192.168.0.103` et `ghost@192.168.0.100`; bug réel découvert (script distant `if ... then` cassé) puis hotfix.
+- V1.1 : stabilisation du hotfix (join en multi-lignes), validation shell (`bash -n`), correction quoting SSH, extension sanity + doc.
+- Correction des alias SSH sur `admin-trading` (`~/.ssh/config`) : `student` et `db-layer` repointés vers `192.168.0.103` / `192.168.0.100`; revalidation deploy via alias.
+- V1.2 : ajout `--post-install` optionnel (exécution distante de `scripts/install_module.sh` si présent) + remontée JSON (disabled/skipped/ok/error/partial) + doc + sanity.
+- V1.3 : ajout commande `preflight` (probe SSH/capabilités/sudo/lock info + prédiction post-install) + doc + sanity.
+- V1.4 : durcissement concurrence tempfiles via `run_id` unique; chemins bundle/backup/staging rendus collision-safe + doc + sanity.
+- Menu : ajout d’entrées `preflight` et `deploy --post-install` + defaults targets `student,db-layer`; tests non interactifs par pipe.
+- V1.5 : lock distant par cible+`install_path` (mkdir atomique) + statut `blocked` si lock busy + doc + sanity + test de contention (lock manuel).
+- V1.5.1 : stale lock recovery (métadonnées, `--lock-stale-after-seconds`, `--cleanup-stale-lock`, inspection via preflight) + doc + sanity + test stale lock manuel.
+- Inventaire/tri modules (A/B/C). Déploiements réels documentés : `env`, `audit`, `repo_local_artifacts`, `repo_ownership_guard`.
+- Réconciliation “ne pas déployer” pour `scripts` et `perf` : divergence structurelle forte entre source `/opt/trading/modules/<module>` (wrapper-only) et runtime existant `/opt/trading/<module>` sur cibles.
+
+3) Décisions:
+- Ne pas redéployer `deploy_module_multi_machine` ; finaliser uniquement wrappers, puis durcir incrémentalement (V1.1→V1.5.1).
+- Utiliser `admin-trading` comme orchestrateur central; corriger alias SSH avant généralisation.
+- Post-install distant optionnel (pas défaut) et non interactif; en cas de sudo requis, remonter erreur/partial.
+- Ne pas “normaliser”/redéployer aveuglément des runtimes divergents (`scripts`, `perf`).
+- Créer/maintenir une doc canonique de continuité et l’indexer.
+
+4) Commandes / Code:
+```bash
+# wrappers globaux (admin-trading)
+ssh -tt admin-trading "cd /opt/trading/deploy_module_multi_machine && bash scripts/install_module.sh"
+
+# validations wrappers
+ssh admin-trading 'command -v menu-deploy_module_multi_machine; command -v cmd-deploy_module_multi_machine; command -v sanity-deploy_module_multi_machine'
+ssh admin-trading 'cmd-deploy_module_multi_machine status'
+ssh admin-trading 'sanity-deploy_module_multi_machine'
+
+# correction alias SSH (ghost@admin-trading)
+# (modif /home/ghost/.ssh/config + backup .bak.20260318T130903Z)
+ssh admin-trading 'ssh -o BatchMode=yes -o ConnectTimeout=5 student whoami'
+ssh admin-trading 'ssh -o BatchMode=yes -o ConnectTimeout=5 db-layer whoami'
+
+# déploiement réel module_contextuals_shell (LAN direct puis alias)
+ssh admin-trading 'cmd-deploy_module_multi_machine plan --module-name module_contextuals_shell --source-dir /opt/trading/modules/module_contextuals_shell --targets student@192.168.0.103,ghost@192.168.0.100 --dry-run'
+ssh admin-trading 'cmd-deploy_module_multi_machine deploy --module-name module_contextuals_shell --source-dir /opt/trading/modules/module_contextuals_shell --targets student@192.168.0.103,ghost@192.168.0.100'
+ssh admin-trading 'cmd-deploy_module_multi_machine deploy --module-name module_contextuals_shell --source-dir /opt/trading/modules/module_contextuals_shell --targets student,db-layer'
+
+# V1.2 post-install (exemple)
+ssh admin-trading 'cmd-deploy_module_multi_machine deploy --module-name deploy_module_multi_machine --source-dir /opt/trading/deploy_module_multi_machine --targets student,db-layer --post-install'
+
+# V1.3 preflight (exemple)
+ssh admin-trading 'cmd-deploy_module_multi_machine preflight --module-name deploy_module_multi_machine --source-dir /opt/trading/deploy_module_multi_machine --targets student,db-layer --post-install'
+
+# déploiements lot A (extraits réels)
+ssh admin-trading 'cmd-deploy_module_multi_machine deploy --module-name env --source-dir /opt/trading/modules/env --targets student,db-layer'
+ssh admin-trading 'ssh student "bash /opt/trading/env/scripts/sanity_check.sh"'
+ssh admin-trading 'ssh db-layer "bash /opt/trading/env/scripts/sanity_check.sh"'
+
+ssh admin-trading 'cmd-deploy_module_multi_machine deploy --module-name audit --source-dir /opt/trading/modules/audit --targets student,db-layer'
+ssh student 'bash /opt/trading/audit/scripts/sanity_check.sh'
+ssh db-layer 'bash /opt/trading/audit/scripts/sanity_check.sh'
+
+ssh admin-trading 'cmd-deploy_module_multi_machine deploy --module-name repo_local_artifacts --source-dir /opt/trading/modules/repo_local_artifacts --targets student,db-layer'
+ssh student 'bash /opt/trading/repo_local_artifacts/scripts/sanity_check.sh'
+ssh db-layer 'bash /opt/trading/repo_local_artifacts/scripts/sanity_check.sh'
+
+ssh admin-trading 'cmd-deploy_module_multi_machine deploy --module-name repo_ownership_guard --source-dir /opt/trading/modules/repo_ownership_guard --targets student,db-layer'
+ssh student 'bash /opt/trading/repo_ownership_guard/scripts/sanity_check.sh'
+ssh db-layer 'bash /opt/trading/repo_ownership_guard/scripts/sanity_check.sh'
+```
+
+Fichiers principaux modifiés côté déployeur (au fil des V1.1→V1.5.1, selon rapports) :
+- `/opt/trading/deploy_module_multi_machine/app/deploy_module_multi_machine.py` (+ multiples backups `.bak_...`)
+- `/opt/trading/deploy_module_multi_machine/scripts/deploy_module_multi_machine_cmd.sh` (V1.2/V1.3/V1.5.1)
+- `/opt/trading/deploy_module_multi_machine/scripts/deploy_module_multi_machine_sanity_check.sh`
+- `/opt/trading/deploy_module_multi_machine/scripts/deploy_module_multi_machine_menu.sh` (alignement menu; backup `.bak_20260318T143936Z`)
+- `/opt/trading/deploy_module_multi_machine/README.md`
+
+Docs de continuité créées/mises à jour :
+- Créé : `/opt/trading/docs/deploy_module_multi_machine_continuity.md`
+- Modifié : `/opt/trading/docs/INDEX.md` (+ backup `.bak_20260318T210059Z`)
+- Mises à jour successives de la continuité (+ backups datés).
+
+5) Points ouverts (next):
+- Traiter `journal_engine` avec une phase d’inspection prudente avant toute tentative `preflight/deploy` (module plus “lourd”).
+- Décider du traitement long-terme de `scripts` et `perf` (runtimes déjà présents et divergents) : documenter stratégie (ne pas écraser; éventuellement module distinct/rename si besoin).
+- Optionnel : exposer dans le menu les options stale-lock cleanup (`--cleanup-stale-lock`, `--lock-stale-after-seconds`) si souhaité.
+- Continuer l’industrialisation des modules restants (hors C) en suivant strictement : inspection → preflight → deploy → sanity → mise à jour `deploy_module_multi_machine_continuity.md`.
