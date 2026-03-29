@@ -68230,3 +68230,137 @@ git log --oneline -1
 5) Points ouverts (next):
 - OpenClaw: exécuter en réel sur `student` l’ouverture locale `lab` + `jupyter` (loopback-only) selon `KB302_LAB_JUPYTER_LOOPBACK_RUNBOOK_V1.md`, collecter preuves minimales et émettre verdict ouverture réelle (réussie/échouée).
 - memory_bricks: ouvrir GO_MEMORY_BRICKS_SYSTEM_MODE_COVERAGE_01 (cadrage doc/opératoire du mode `install_shortcuts.sh --system`, prérequis sudo, limites, validations minimales), sans rouvrir V1 ni toucher `_state/`.
+
+## 2026-03-29 05:37 | TV Webhook | COINM_SHORT | BTCUSDT 1 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `66512.7`
+5. **TP**: `0.0`
+6. **SL**: `66522.7`
+7. **Reason**: bitget bar-close ts=1774777020000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 66512.7,
+  "tp": 0.0,
+  "sl": 66522.7,
+  "reason": "bitget bar-close ts=1774777020000",
+  "_ts": "2026-03-29T09:37:05.731594+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-29 05:38 | TV Webhook | COINM_SHORT | BTCUSDT 1 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `66521.2`
+5. **TP**: `0.0`
+6. **SL**: `66511.2`
+7. **Reason**: bitget bar-close ts=1774777080000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 66521.2,
+  "tp": 0.0,
+  "sl": 66511.2,
+  "reason": "bitget bar-close ts=1774777080000",
+  "_ts": "2026-03-29T09:38:03.979378+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-29 05:38 — note540
+1) Objectifs:
+- Réactiver et valider Student Lab sur la machine `student` (deepseek_hub/Ollama), puis stabiliser des couches V1 (examiner, mémoire, journal) et outillage opérateur.
+- Enchaîner ensuite sur la reprise MiMo V2 Pro Free sur `/opt/trading`, branche `feat/student-mimo-qualification` (commit `8195cdf`), et qualifier runtime + endpoints.
+
+2) Actions:
+- Vérifs machine/runtime Student Lab: ancrage `/opt/trading`, présence `cmd-student`, status, service `ollama`, modèle `deepseek-r1:1.5b`, wrappers.
+- Validation lab minimale réelle: `sanity-student`, `think`, `response`, vérification archivage `_student_archive`.
+- Canonicalisation CLI: `cmd-student help` affiche `cmd-student` (au lieu de `cmd-deepseek_hub`).
+- Examiner:
+  - V1: ajout commande `examine` déterministe (checks structurels).
+  - V2 semantic-lite: métriques textuelles (`word_count`, `alpha_lines`, `unique_word_ratio`, `dominant_word_ratio`) sans LLM.
+  - Renommage support: `examiner_v2.sh` + recâblage.
+  - V3 topic-aware: `examine <file> [topic...]`, coverage lexicale, tuning seuils, raisons d’échec explicites, matching strict tokens, revalidation négative.
+  - Uniformisation sorties PASS/FAIL (reason/fail_family/fail_reason, ordre stable), docs/help, packs négatif/positif, entrées menu.
+- Mémoire:
+  - `memory_v1.jsonl` + `memory_rebuild`, `memory_tail`.
+  - Query V1 (substring), V2 `memory_query_field`, vue `memory_view`, vue filtrée `memory_view_field`, compte `showing X / Y`, ratios, summaries (global/date/mois), pretty dates/timestamps, correction `N=0`.
+- Journal:
+  - `journal_v1.jsonl` + `journal_add`, `journal_tail`.
+  - Autojournal: think/response/examine/memory_rebuild, capture `target_file` think/response, autojournal `status_summary` + packs.
+  - Canonisation `command_name` journal à `cmd-student`.
+- Surface opérateur:
+  - `status_summary` + entrée menu + doc + refresh doc.
+  - Index docs opérateur (Examiner + Student Lab), doc “UNKNOWN”.
+- Bascule MiMo:
+  - Diagnostic git: branche active non canonique + worktree sale.
+  - Stash + checkout branche canonique `feat/student-mimo-qualification` à `8195cdf`.
+  - Qualification smoke via venv (`venv` et `.venv`) puis runtime minimal (FastAPI app, routes, guards, health, schéma).
+  - Tests /tv happy-path (guard + clé, effet events), engine lock + reset lock, guard reset lock, risk quote.
+
+3) Décisions:
+- Ordre: canonicalize d’abord, puis Examiner V1.
+- Memory V1 en JSONL (pas SQLite).
+- Journal V1 en JSONL; autojournalisation non bloquante.
+- Matching topic-aware durci (tokens exacts), tuning seuils, raisons d’échec explicites.
+- MiMo: travailler sur `feat/student-mimo-qualification` (`8195cdf`) après stash; utiliser venv du repo pour smoke/tests.
+
+4) Commandes / Code:
+```bash
+# Student Lab — gates machine/runtime
+cd /opt/trading 2>/dev/null || cd /home/fantome/opt-trading
+readlink -f /opt/trading || true
+which cmd-student || true
+ls -l /usr/local/bin/cmd-student || true
+cmd-student status || bash student/scripts/deepseek_hub/deepseek_hub_cmd.sh status
+systemctl status ollama --no-pager 2>/dev/null | sed -n '1,12p' || systemctl --user status ollama --no-pager 2>/dev/null | sed -n '1,12p'
+ollama list || true
+
+# Student Lab — min run validation
+cd /opt/trading
+sanity-student || true
+cmd-student think deepseek-r1:1.5b "..."
+cmd-student response deepseek-r1:1.5b "..."
+cmd-student tail_think _ 5 || true
+cmd-student tail_response _ 5 || true
+
+# Canonicalize banner
+cmd-student help | sed -n '1,3p'
+cmd-deepseek_hub help | sed -n '1,3p'
+
+# MiMo — switch propre
+cd /opt/trading
+git stash push -u -m "temp-before-mimo-reprise"
+git checkout feat/student-mimo-qualification
+git rev-parse --short HEAD
+
+# MiMo — smoke dans venv
+source venv/bin/activate
+python scripts/smoke_tv_engine.py
+source .venv/bin/activate
+python scripts/smoke_tv_engine.py
+```
+
+5) Points ouverts (next):
+- MiMo: poursuivre après `GO_MIMO_V2_PRO_E2E_TESTCLIENT_01` (test end-to-end unique /tv → lock/state → risk sizing → events).
+- Student Lab: aucune action ouverte urgente mentionnée; rester attentif au stash contenant les changements Student Lab sur la branche bitget (`temp-before-mimo-reprise`).
