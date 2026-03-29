@@ -67401,3 +67401,57 @@ git commit -m "localcms: sync canonical memory viewer v1 closeout"
 - GO_WRAPPERS_EXTRA_NORMALIZE_01: normaliser les wrappers présents hors registre (/usr/local/bin), décision par wrapper (garder/enregistrer/alias/retirer) + validation sans casser runtime.
 - (Optionnel) Clarification `perf.service` vs `tv-perf.service` (amélioration).
 - Sur LocalCMS: poursuivre `GO_LOCALCMS_NEXT_MISSION_SELECTION_02` après `.gitignore` (si pas déjà fait) en respectant “ne pas rouvrir Memory Bricks V1”.
+
+## 2026-03-29 05:25 — note516
+1) Objectifs:
+- Normaliser les wrappers “extra” de `/usr/local/bin` vs `wrappers_registry.yaml` sans casser le runtime trading.
+- Aligner `modules_registry.yaml` (`wrappers_expected`) avec les wrappers réellement normalisés.
+- Gouverner les alias legacy (statuts/politique/retrait), clarifier la surface `desk-pro` vs `cmd-desk_pro`.
+- Consolider l’observabilité via `desk-pro runtime-guard` + adoption runbook.
+
+2) Actions:
+- Phase extras wrappers : enregistrement d’extras utiles dans `wrappers_registry.yaml`, conversion d’alias legacy en alias officiels, retrait des wrappers bruit cassés.
+- `desk_pro` : enregistré explicitement comme wrappers top-level légitimes dans `wrappers_registry.yaml`; alias `desk-pro` officialisés puis policy alias.
+- Phase modules : mise à jour de `wrappers_expected` pour 6 modules existants; ajout de 6 entrées manquantes dans `modules_registry.yaml` avec `dependencies: []`.
+- Policy alias : 8 alias legacy passés en `deprecated` + notes + commentaire de politique.
+- Alignement références : mise à jour d’installers/scripts/docs pour préférer canoniques (`ops_menu_hub`, `desk_pro`), en laissant les alias deprecated fonctionnels.
+- Surface `desk-pro` : réparation via launcher (remplace symlink cassant) + doc rôle `desk-pro` vs `cmd-desk_pro`.
+- Gouvernance registre : ajout de `desk-pro` dans `wrappers_registry.yaml` avec `wrapper_family: entrypoint`; officialisation documentaire de `entrypoint` (registry README + commentaire).
+- Outils consommateurs : doc/meta-index/reader alignés; `status()` affiche familles observées.
+- Audit consommateurs : patch master pack pour clarifier trio standard + exception `entrypoint`.
+- Observabilité : création `runtime_guard.sh`, commande `desk-pro runtime-guard`, tuning signal `/tv` puis `ngrok`, ajout header verdict synthèse.
+- Adoption opérateur : intégration `runtime-guard` dans runbook + quick reference.
+
+3) Décisions:
+- Garder runtime trading intact (services `tv-*`, `/tv`), micro-diffs uniquement.
+- Ne pas laisser `desk_pro` “zone grise” : statut explicite registre obligatoire.
+- Alias legacy : conserver fonctionnels mais marquer `deprecated` + politique de retrait ultérieur.
+- Retrait alias planifié par vagues (reseau_ssh_v2 puis ops_hub puis desk-pro), sans suppression immédiate.
+- `desk-pro` et `cmd-desk_pro` complémentaires (pas alias 1:1) ; réparation minimale + clarification doc.
+- `entrypoint` officialisé comme famille exceptionnelle admise (au-delà cmd/menu/sanity).
+- `desk-pro runtime-guard` stabilisé : arrêter les micro-polishs après adoption doc.
+
+4) Commandes / Code:
+```yaml
+# Exemples de changements (résumé)
+# - wrappers_registry.yaml: enregistrement extras + desk_pro + desk-pro(entrypoint) + alias deprecated
+# - modules_registry.yaml: wrappers_expected corrigés + 6 entrées manquantes ajoutées (dependencies: [])
+```
+
+```bash
+# Smoke / validations mentionnées
+missing_active_count=0
+missing_modules_registry_count=0
+systemctl status tv-bitget-runner.service
+curl -s -o /dev/null -w "%{http_code}\n" http://127.0.0.1:8000/dash
+# Desk Pro guard
+desk-pro runtime-guard
+desk-pro status
+cmd-desk_pro health
+cmd-desk_pro ui
+```
+
+5) Points ouverts (next):
+- Incident à reprendre dans une nouvelle session : bot Vision Telegram HS (Windows → Telegram → admin-trading → pipeline).
+- Backlog non prioritaire : GO_REGISTRY_HISTORICAL_DOCS_TIDY_01 (annotation historique seulement si risque de confusion).
+- Pour OpenClaw (autre fil) : phase 2 KB-202 (validation statique du format) après `launchables_registry.yaml` (déjà accepté).
