@@ -40,6 +40,14 @@ MEMORY_BRICKS_STATE_ROOT="$STATE_ROOT" "$CMD" query show --id MB-00001
 MEMORY_BRICKS_STATE_ROOT="$STATE_ROOT" "$CMD" query find --text "localcms"
 ```
 
+## Validation standard
+
+1. verifier la validite module et les prerequis via `bash modules/memory_bricks/scripts/sanity_check.sh`
+2. verifier les wrappers et entrypoints exposes via `bash modules/memory_bricks/scripts/smoke_wrappers.sh`
+
+- `sanity_check.sh`: valide la surface minimale du module sur un etat temporaire repo-local
+- `smoke_wrappers.sh`: valide l'installation local-first et l'execution reelle de `cmd-memory_bricks`, `menu-memory_bricks` et `sanity-memory_bricks`
+
 ## Garde-fous OT
 
 - utiliser `query` pour la consultation read-only
