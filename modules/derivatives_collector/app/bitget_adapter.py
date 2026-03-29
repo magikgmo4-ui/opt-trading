@@ -1,4 +1,5 @@
 import sys
+import logging
 from .derivatives_collector import BaseAdapter, DerivativesRow
 import time
 import json
@@ -6,6 +7,8 @@ import urllib.request
 import urllib.error
 import concurrent.futures
 from datetime import datetime, timezone
+
+logger = logging.getLogger(__name__)
 
 class BitgetAdapter(BaseAdapter):
     def __init__(self, max_workers=5, retries=3, backoff_factor=1.0):

@@ -1,4 +1,5 @@
 import sys
+import logging
 from .derivatives_collector import BaseAdapter, DerivativesRow
 import time
 import json
@@ -6,6 +7,8 @@ import urllib.request
 import urllib.error
 import concurrent.futures
 from datetime import datetime, timezone
+
+logger = logging.getLogger(__name__)
 
 class BinanceAdapter(BaseAdapter):
     def __init__(self, max_workers=5, retries=3, backoff_factor=1.0):
@@ -56,6 +59,6 @@ class BinanceAdapter(BaseAdapter):
 
         missing_metrics = [k for k in ["open_interest", "funding_rate", "volume_futures", "long_short_ratio"] if getattr(row, k) is None]
         if missing_metrics:
-            print(f"[BINANCE][WARN] Partial data degradation for {base_symbol}. Missing: {missing_metrics}", file=sys.stderr)
+            logger.warning(f"Partial data degradation for {base_symbol}. Missing: {missing_metrics}")
 
         return row

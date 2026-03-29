@@ -13,6 +13,7 @@ Commands:
     export      Export mock data to file.
 """
 import sys
+import logging
 import os
 import json
 from dataclasses import dataclass, asdict
@@ -26,6 +27,8 @@ import urllib.error
 import concurrent.futures
 from datetime import datetime, timezone
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
 
 # --- Configuration ---
 MODULE_DIR = Path(__file__).resolve().parent.parent
@@ -84,6 +87,7 @@ class BaseAdapter:
         self.max_workers = max_workers
         self.retries = retries
         self.backoff_factor = backoff_factor
+        self.logger = logging.getLogger(self.__class__.__name__)
 
     def _fetch(self, url):
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
@@ -101,7 +105,7 @@ class BaseAdapter:
                         wait_time = max(wait_time, 2.0)
                     elif e.code == 418:
                         error_msg = "IP auto-banned (418)"
-                        print(f"[{self.__class__.__name__.replace('Adapter', '').upper()}][FATAL] {error_msg} for {url}. Aborting.", file=sys.stderr)
+                        self.logger.error(f"{error_msg} for {url}. Aborting.")
                         return None
                     else:
                         error_msg = f"HTTP {e.code}"
@@ -109,10 +113,10 @@ class BaseAdapter:
                     error_msg = f"Network/Timeout ({e.reason})"
 
                 if attempt == self.retries - 1:
-                    print(f"[{self.__class__.__name__.replace('Adapter', '').upper()}][ERROR] Final fetch failure for {url} after {self.retries} attempts: {error_msg}", file=sys.stderr)
+                    self.logger.error(f"Final fetch failure for {url} after {self.retries} attempts: {error_msg}")
                     return None
                     
-                print(f"[{self.__class__.__name__.replace('Adapter', '').upper()}][WARN] Fetch failed for {url} (attempt {attempt+1}/{self.retries}): {error_msg}. Retrying in {wait_time}s...", file=sys.stderr)
+                self.logger.warning(f"Fetch failed for {url} (attempt {attempt+1}/{self.retries}): {error_msg}. Retrying in {wait_time}s...")
                 time.sleep(wait_time)
 
     def _collect_symbol(self, symbol, batch_timestamp):
@@ -177,11 +181,11 @@ class DerivativesCollector:
             from .bitget_adapter import BitgetAdapter
             return BitgetAdapter()
         # Add other adapters here
-        print(f"Warning: Unknown data source '{source}', falling back to mock.")
+        logger.warning(f"Unknown data source '{source}', falling back to mock.")
         return MockAdapter()
 
     def run(self):
-        print(f"Collecting derivatives data for {self.config['SYMBOLS']} using {self.config['DATA_SOURCE']}...")
+        logger.info(f"Collecting derivatives data for {self.config['SYMBOLS']} using {self.config['DATA_SOURCE']}...")
         data = self.adapter.collect(self.config["SYMBOLS"])
         self._output(data)
         return data
@@ -208,12 +212,17 @@ class DerivativesCollector:
                             writer = csv.DictWriter(f, fieldnames=keys)
                             writer.writeheader()
                             writer.writerows(data)
-                print(f"Data exported to: {filepath}")
+                logger.info(f"Data exported to: {filepath}")
             except Exception as e:
-                print(f"Error writing output file: {e}")
+                logger.error(f"Error writing output file: {e}")
 
 # --- CLI ---
 def main():
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+        handlers=[logging.StreamHandler(sys.stderr)]
+    )
     parser = argparse.ArgumentParser(description="Derivatives Collector")
     subparsers = parser.add_subparsers(dest="command", help="Command to run")
 
