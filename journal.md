@@ -67729,3 +67729,89 @@ git push origin sot/mainline
 5) Points ouverts (next):
 - **memory_bricks**: exécuter `GO_MEMORY_BRICKS_NEXT_MISSION_SELECTION_09` (repo local fantome; `_state/` non tracké à ne jamais committer; remote GitHub branche non visible selon notes).
 - **antigravity**: démarrer `GO_ANTIGRAVITY_V2_TESTS_01` (tests unitaires déterministes avec mock `urllib.request.urlopen`, couvrant 429/418/timeouts, dégradation partielle, et ordre sous `executor.map`).
+
+## 2026-03-29 05:29 — note522
+1) Objectifs:
+- Sécuriser BinanceAdapter V2 par un socle de tests unitaires déterministes (429/418/timeout/URLError, dégradation partielle, ordre sous parallélisme), sans réseau.
+- Clore V2 canoniquement sur `sot/mainline`.
+- Cadrer V3 : choisir le plus petit axe utile post-V2.
+- Implémenter un 2e adapter (Bitget) minimal sans changer le contrat.
+- Valider multi-adapter (mock/binance/bitget) en réel.
+- Démarrer le diagnostic ciblé “Bot Vision Telegram HS” et isoler le maillon en panne, puis appliquer des correctifs minimaux Windows/ShareX/Telegram.
+
+2) Actions:
+- Ajout tests unitaires mockés pour BinanceAdapter V2, exécution des tests + smoke live Binance.
+- Commit/push de clôture V2 (tests).
+- Cadrage V3 (priorité au 2e adapter), puis cadrage spécifique Bitget (métriques récupérables, frictions, scope minimal).
+- Implémentation BitgetAdapter + routage `DATA_SOURCE=bitget`, scellement Git.
+- Validation réelle multi-adapter via exécutions `collect` pour `mock`, `binance`, `bitget` et inspection des JSON générés.
+- Diagnostic Bot Vision:
+  - Localisation initiale côté admin-trading : fichiers PNG 0 octet dans `vision_inbox`, `vision_bot` skip unstable, auto-post Telegram désactivé (config/timer).
+  - Test manuel Windows→admin-trading (scp) avec PNG non vide : traitement OK (artefacts `.md/.txt`).
+  - Diff ciblé : panne sur upload SFTP ShareX (timeouts) vs scp manuel OK.
+  - Patch minimal ShareX : désactiver upload SFTP natif, déclencher un script PowerShell `send_vision_inbox.ps1` (scp + upload temp + rename).
+  - Instrumentation et itérations : correction du binding ShareX (l’action scp n’était pas exécutée), ajout wrapper pour prouver la chaîne et isoler `send_telegram.bat` exit codes.
+  - Validation Vision : capture ShareX → scp/ssh OK → apparition dans `vision_processed`.
+  - Validation Telegram partielle : réception OK pour écran principal; reste KO pour 2e écran + captures automatiques (divergences de chemins/jobs/noms).
+
+3) Décisions:
+- `GO_ANTIGRAVITY_V2_TESTS_01` retenu PASS (tests déterministes + smoke OK).
+- `GO_ANTIGRAVITY_V2_CLOSEOUT_01` retenu PASS, commit de scellement `6ef13c4`.
+- V3 priorisée sur “second adapter” plutôt que liquidations/logging/typage : `GO_ANTIGRAVITY_V3_SCOPE_01` PASS.
+- Choix Bitget comme second adapter minimal : `GO_ANTIGRAVITY_V3_BITGET_SCOPE_01` PASS.
+- Implémentation Bitget scellée : `GO_ANTIGRAVITY_V3_BITGET_IMPLEMENT_01` PASS canonique via commit `cc43542`.
+- Validation multi-adapter : `GO_ANTIGRAVITY_V3_MULTI_ADAPTER_VALIDATE_01` PASS.
+- Bot Vision : root cause initiale “PNG vides” invalidant l’entrée; puis preuve que pipeline Vision est sain si PNG valide. Correctif minimal retenu : contourner SFTP ShareX par scp + rename atomique via script; Telegram traité ensuite séparément.
+- Telegram Windows : panne d’abord sur chaînage/exit code, puis correction (robustesse noms spéciaux, copie temporaire); état final : Telegram OK sur écran principal, non encore validé sur 2e écran/auto.
+
+4) Commandes / Code:
+```bash
+python -m unittest c:\Users\ghost\opt-trading\modules\derivatives_collector\tests\test_binance_adapter.py
+python c:\Users\ghost\opt-trading\modules\derivatives_collector\tests\test_smoke_binance.py
+
+git add modules\derivatives_collector\tests\test_binance_adapter.py
+git commit -m "test(binance): add V2 deterministic mock tests"
+git push origin sot/mainline
+
+git status
+git add modules/derivatives_collector/app/bitget_adapter.py modules/derivatives_collector/app/derivatives_collector.py
+git commit -m "feat(bitget): add minimal second exchange adapter"
+git push origin sot/mainline
+git restore docs/ot/kanban/opt_trading_kanban_source_of_truth.md
+del tmp_binance_files.txt,tmp_git_branches.txt,tmp_git_diff.txt,tmp_git_diff2.txt,tmp_git_log.txt,tmp_git_log2.txt,tmp_git_merge.txt,tmp_git_status.txt
+
+$env:DATA_SOURCE="mock"; python -m modules.derivatives_collector.app.derivatives_collector collect; echo "---"; `
+$env:DATA_SOURCE="binance"; python -m modules.derivatives_collector.app.derivatives_collector collect; echo "---"; `
+$env:DATA_SOURCE="bitget"; python -m modules.derivatives_collector.app.derivatives_collector collect
+
+ls -l /srv/sftp/shared_files/shared/vision_inbox
+ls -lt /srv/sftp/shared_files/shared/vision_processed | sed -n '1,5p'
+ls -lt /srv/sftp/shared_files/shared/vision_outbox | sed -n '1,15p'
+journalctl -u vision_bot -n 100 --no-pager
+```
+
+```powershell
+# Test PNG local + scp manuel
+$PNG="C:\Users\ghost\Downloads\test_vision_manual.png"
+Get-Item $PNG | Select-Object FullName, Length, Extension, LastWriteTime
+if ((Get-Item $PNG).Length -gt 0) { "OK_PNG_NON_VIDE" } else { "FAIL_PNG_VIDE" }
+scp "$PNG" ghost@admin-trading:/srv/sftp/shared_files/shared/vision_inbox/
+
+# Validation capture ShareX locale
+Get-ChildItem "C:\Users\ghost\Documents\ShareX\Screenshots" -Recurse -Filter *.png |
+Sort-Object LastWriteTime -Descending |
+Select-Object -First 3 FullName,Name,Length,LastWriteTime |
+Format-List
+
+# Logs d’instrumentation
+Get-Content "C:\monitor\logs\send_vision_inbox.log" -Tail 30
+Get-Content "C:\monitor\logs\sharex_action_chain.log" -Tail 30
+Get-Content "C:\Users\ghost\Documents\ShareX\Logs\ShareX-Log-2026-03.txt" -Tail 40
+```
+
+5) Points ouverts (next):
+- Antigravity :
+  - `GO_ANTIGRAVITY_V3_REFACTOR_SCOPE_01` (après validation multi-adapter).
+- Bot Vision :
+  - Valider Telegram pour 2e écran + captures automatiques : différentiel de jobs/voies ShareX vs voie PASS.
+  - Prochain trigger proposé dans le fil : `GO_BOT_VISION_TELEGRAM_SAFE_FILENAME_2E_SCREEN_01` puis séparation du chantier “auto” (`GO_BOT_VISION_AUTOCAPTURE_REAL_PATH_PROOF_01` évoqué).
