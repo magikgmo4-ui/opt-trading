@@ -67035,3 +67035,107 @@ python3 -m py_compile jobs/macro_xau/macro_xau.py
 - Vérifier/archiver proprement les worktrees/branches Antigravity restants sur les machines (si encore présents) après merge.
 - Confirmer la disponibilité/ID exact du modèle MiMo V2 Pro dans OpenCode Zen au moment d’exécution (catalogue “free” pouvant changer).
 - Réserve mineure: warning LSP sur `telegram_notify` mentionné durant le micro-chantier `macro_xau` (non prouvé, non traité).
+
+## 2026-03-29 05:17 — note512
+1) Objectifs:
+- Qualifier MiMo V2 Pro sur /opt/trading via une séquence de micro-chantiers bornés (lecture seule, patch minimal, validation réelle).
+- Stabiliser des correctifs utiles (router/registry, Telegram HTML, webhook PERF_URL, validation engine /tv).
+- Ajouter des validations (smoke /tv, health check) et débloquer le flux via risk_config.
+- Sécuriser et aligner l’état Git sur student (séparer branches, résoudre rebase/stash, push).
+- Ouvrir un chantier Bitget “live equity” lecture seule : probe + loader credentials + hygiène Git.
+- Cadrer un module durable “memory_bricks” (spec V1) + pack de reprise Trae (documents .txt).
+
+2) Actions:
+- Lecture croisée router_state.json ↔ modules/engines/registry.py (engine actif cohérent).
+- Proposition PASS 3 : correction Telegram HTML via helper opt-in, validation py_compile.
+- Suppression d’une définition morte de PERF_URL dans webhook_server.py + validation.
+- Restauration de la validation engine dans /tv : registry fallback ALL_ENGINES sinon HTTP 400 + validation.
+- Création smoke test scripts/smoke_tv_engine.py (prouve engine inconnu 400, engine valide passe le garde-fou).
+- Création modules/health/checker.py (diagnostic local router_state/registry/risk_config) + validation.
+- Création state/risk_config.json minimal puis extension multi-engine (COINM_SHORT/USDTM_LONG/GOLD_CFD_LONG) + smokes.
+- Remplacement placeholders equity via valeurs documentées (6000/6000/1500) + revalidation.
+- Gestion Git sur student :
+  - rebase conflict (macro_xau supprimé upstream) → abort, reset, cherry-pick via checkout depuis backup commit.
+  - commit propre 8195cdf incluant state/risk_config.json (ajout forcé car ignoré).
+  - push sur nouvelle branche feat/student-mimo-qualification, réalignement de la branche audit locale.
+  - tentative journal.md via stash pop → conflit → branche jetable wip/journal-stash, puis abandon (journal canonique géré ailleurs) + suppression stashes/branche.
+- Vérification deepseek_hub sur student : ollama présent et service actif, wrappers cmd/menu/sanity-student OK, sanity PASS.
+- Ouverture branche feat/student-mimo-bitget-live-equity :
+  - ajout tools/bitget_equity_probe.py (credentials missing si absent).
+  - ajout modules/auth/bitget_credentials.py + script check.
+  - ajout support fichier local non versionné /opt/trading/.secrets/bitget.env + exemple .secrets/bitget.env.example.
+  - vérification git ignore du secret ; commit + push + commit .gitignore.
+- Cadrage produit : solution “mémoire sessions IA” (Joplin recommandé comme base gratuite), et cadrage/spec module memory_bricks + option LocalCMS (documents .txt annoncés) + pack de reprise Trae.
+
+3) Décisions:
+- MiMo qualifié progressivement : PASS 1→PASS 11 (patch local, lecture croisée, multi-fichiers, garde-fou métier, smokes, module health, risk_config, equities du journal).
+- Telegram HTML : ne pas retirer html.escape globalement ; ajouter send_telegram_html opt-in.
+- /tv : validation engine doit accepter registry ou ALL_ENGINES, sinon HTTP 400.
+- Chantiers retenus : suppression PERF_URL morte, smoke /tv, no-op schéma/payload (déjà aligné), module health check, ajout risk_config et extension multi-engine.
+- Git : isoler le travail MiMo sur branche dédiée feat/student-mimo-qualification ; journal.md canonique non piloté depuis student.
+- Bitget live equity : création d’un probe + loader credentials, lecture seule ; pas d’intégration au trading/risk_config ; secrets non versionnés.
+- OT/doc : K-007 et K-009 PASS sur student ; K-010/K-011 à faire sur autre machine ; aucun OT nouveau ouvert à la fin.
+- Pour mémoire app : démarrage recommandé avec Joplin ; Emergent plutôt pour prototypage ultérieur ; module memory_bricks prévu en local (V1), cloud non recommandé en source primaire.
+
+4) Commandes / Code:
+```bash
+# Validations python (exemples clés)
+python3 -m py_compile shared/telegram_notify.py
+python3 -m py_compile jobs/macro_xau/macro_xau.py
+python3 -m py_compile webhook_server.py
+python3 -m py_compile modules/health/checker.py
+python3 -m py_compile tools/bitget_equity_probe.py
+python3 -m py_compile modules/auth/bitget_credentials.py
+
+# Vérifs runtime /tv (smoke)
+ /opt/trading/venv/bin/python3 /opt/trading/scripts/smoke_tv_engine.py
+
+# Health check
+python3 modules/health/checker.py
+
+# Grep / validation PERF_URL
+grep -n "PERF_URL" webhook_server.py
+
+# Deepseek_hub / student
+command -v ollama
+systemctl status ollama --no-pager
+cmd-student status
+cmd-student help
+sanity-student
+readlink -f /usr/local/bin/cmd-student
+readlink -f /usr/local/bin/menu-student
+readlink -f /usr/local/bin/sanity-student
+
+# Git (résumé des actions majeures)
+git stash push -u -m "wip avant synchro audit/opt-trading-20260320a"
+git fetch origin
+git pull --rebase origin audit/opt-trading-20260320a   # conflit macro_xau supprimé upstream
+git rebase --abort
+git branch backup/mimo-b038db9
+git reset --hard origin/audit/opt-trading-20260320a
+git checkout backup/mimo-b038db9 -- shared/telegram_notify.py webhook_server.py schemas/webhook_event_v1.json scripts/smoke_tv_engine.py modules/health/__init__.py modules/health/checker.py
+git add -f state/risk_config.json
+git commit -m "qualify mimo v2 pro: webhook guard, health check, risk config"
+git switch -c feat/student-mimo-qualification
+git push -u origin feat/student-mimo-qualification
+git branch -f audit/opt-trading-20260320a origin/audit/opt-trading-20260320a
+
+# Bitget branch
+git switch -c feat/student-mimo-bitget-live-equity
+git commit -m "student: add bitget credentials loader and live equity probe"
+git push -u origin feat/student-mimo-bitget-live-equity
+git commit -m "student: ignore local bitget secrets file"
+git push
+
+# Gitignore checks for secrets
+git check-ignore .secrets/bitget.env
+git check-ignore .secrets/bitget.env.example
+```
+
+5) Points ouverts (next):
+- Bitget live equity : fournir de vraies credentials read-only via `/opt/trading/.secrets/bitget.env`, exécuter le probe pour obtenir un résultat live (pas de branchement automatique à risk_config).
+- Ouvrir une PR pour :
+  - `feat/student-mimo-qualification` (commit ref 8195cdf)
+  - `feat/student-mimo-bitget-live-equity` (commits ccce029, 4e5b5ed)
+- K-010/K-011 (shortcuts/naming) : à traiter sur l’autre machine (explicitement pas sur student).
+- Module “memory_bricks” : documents .txt demandés (cadrage + spec V1 + pack reprise Trae) à conserver pour déploiement ultérieur avec Trae.
