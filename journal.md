@@ -66559,3 +66559,154 @@ ssh admin-trading 'cd /opt/trading && git push origin sot/mainline'
 - `db-layer`: repo très divergent (behind 61) + nombreux fichiers modifiés/untracked → audit approfondi, stratégie de remise en conformité (probable reset + re-déploiement contrôlé, ou extraction des changements utiles).
 - Mise à jour documentaire: rien dans le dump ne confirme la mise à jour de `/opt/trading/docs/deploy_module_multi_machine_continuity.md` pour **git_fleet_guard** (à faire si exigé par la continuité).
 - Déploiement `git_fleet_guard` sur `student`/`db-layer` via `deploy_module_multi_machine` non réalisé dans l’extrait (préflight/deploy à planifier).
+
+## 2026-03-29 05:12 | TV Webhook | COINM_SHORT | BTCUSDT 1 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `66631.9`
+5. **TP**: `0.0`
+6. **SL**: `66641.9`
+7. **Reason**: bitget bar-close ts=1774775520000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 66631.9,
+  "tp": 0.0,
+  "sl": 66641.9,
+  "reason": "bitget bar-close ts=1774775520000",
+  "_ts": "2026-03-29T09:12:05.048747+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-29 05:13 | TV Webhook | COINM_SHORT | BTCUSDT 1 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `66650.9`
+5. **TP**: `0.0`
+6. **SL**: `66640.9`
+7. **Reason**: bitget bar-close ts=1774775580000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 66650.9,
+  "tp": 0.0,
+  "sl": 66640.9,
+  "reason": "bitget bar-close ts=1774775580000",
+  "_ts": "2026-03-29T09:13:04.263480+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-29 05:12 — note507
+1) Objectifs:
+- Vérifier l’état Git sur la machine `student` sans rien modifier.
+- Corriger la résolution SSH des alias entre Windows et `admin-trading`.
+- Produire/valider un workflow canonique (type Trae) pour documentation + gouvernance (AUDIT/VERDICT/APPLICATION avec GO_*).
+- Clôturer proprement LocalCMS (docs, décisions, branches) et préparer un pack de reprise.
+- Constater l’accès GitHub via connecteur et définir une méthode PM de rapports par branche.
+
+2) Actions:
+- Déploiement `git_fleet_guard` commité/pushé sur `origin/sot/mainline` (commit `a2f75c0`) avec:
+  - `modules/git_fleet_guard/`
+  - `docs/git_fleet_guard_module_overview.md`
+  - `docs/git_fleet_guard_runbook.md`
+- Tentatives d’inspection Git sur `student` via `admin-trading`:
+  - Erreurs “pas un dépôt git” et incohérences de répertoire (`/home/ghost`).
+  - Recherche `.git` sous `/opt` → retourne `/opt/trading` (repo supposé).
+  - Diagnostic SSH: `ssh -G` échoue (regex parenthèses non quotée).
+- Inspection/alignement config SSH:
+  - Lecture `~/.ssh/config` sur `admin-trading` puis comparaison avec Windows.
+  - Tentatives de patch (Python/sed) échouent (quoting/sed).
+  - Copie du config Windows vers `admin-trading` via `scp`, backup et installation OK.
+  - Tests depuis `admin-trading`:
+    - `db-layer` OK.
+    - `student`: utilisateur effectif `student` mais `pwd` incohérent; `/home/student` inexistant puis contradictoire; `pwd -P` renvoie `/home/ghost` ⇒ suspicion de confusion/contexte SSH.
+  - Commandes de vérification HOME/PWD/getent/env/stat/ls/readlink/namei menées; sorties contradictoires ⇒ décision: ne rien toucher, refaire tests simples.
+- LocalCMS:
+  - Arbitrage “12 lignes” (typeList/typeIcons/typeLabels) conclu comme doublons `const` (SyntaxError ES6) et suppression appliquée (commit `67c0bab`), avec push bloqué côté VM (proxy 403), push à faire depuis Windows.
+  - Mise en place d’un protocole contraignant pour Claude:
+    - PHASE 1 AUDIT / PHASE 2 VERDICT / PHASE 3 APPLICATION
+    - GO_APPLY/GO_COMMIT/GO_PUSH obligatoires
+    - Classification ÉTABLI/À CONFIRMER/HYPOTHÈSE/CONTRADICTION
+    - Interdiction d’actions implicites; précision factuelle (pas de “??”, pas de base de branche ambiguë).
+  - Production d’un pack documentaire LocalCMS (V2), écriture sur disque puis commit:
+    - `docs/claude/00_session_index_localcms.txt`
+    - `docs/claude/01_workflow_machine_localcms.txt`
+    - `docs/claude/02_etabli_localcms.txt`
+    - `docs/claude/04_reprise_localcms.txt`
+    - Commit: `023a6368...` (après détection/correction d’un faux commit parasite dû à virtiofs).
+  - Document associé host FastAPI:
+    - Écriture `docs/claude/00_arbitrage_HOST_DEV_SANDBOX.txt`, commit `ef94833...`.
+    - Validation opérateur: classification B (outillage durable séparé) validée, exécution reportée; mise à jour docs + commit `d26f07f...`.
+  - Création branche outillage exécutable:
+    - Audit dépendances: host non autonome (dépend de `api/*`, `localcms-v5.html`, `modules/`).
+    - Décision: branche exécutable basée sur `d26f07f` (pas orpheline 5 fichiers).
+    - GO_APPLY: création `tools/localcms-dev-host`, copie fichiers host + `.gitignore`.
+    - GO_COMMIT: commit `54da71f...` (6 fichiers: `main.py`, `requirements.txt`, `run.bat`, `run.sh`, `.env.example`, `.gitignore`).
+    - Push depuis VM bloqué (proxy 403); push effectué depuis Windows (rapport final indique origin aligné).
+- Pack de reprise demandé en “zip” (réponses indiquant zip prêt/régénéré), mais l’utilisateur signale fichiers indisponibles (pas de livraison effective dans la conversation).
+- Accès GitHub (connecteur) confirmé:
+  - Repos visibles mentionnés: `opt-trading`, `localcms`, `Magikgmo`, `hf_trading`, `algo_hf`.
+  - Branches opt-trading listées: `sot/build`, `sot/mainline`, plusieurs `feat/*`.
+- Suggestion PM: produire rapports normalisés par branche puis matrice de convergence, classification finale (canonique / à intégrer / à extraire / à archiver).
+
+3) Décisions:
+- Ne pas modifier `student` tant que le comportement SSH/Home reste contradictoire; privilégier tests simples/fiables.
+- Aligner `~/.ssh/config` de `admin-trading` sur la config Windows (copie brute + backup).
+- Pour LocalCMS:
+  - Adopter protocole strict GO_* (AUDIT/VERDICT/APPLICATION) et règles de preuve.
+  - Valider la classification B pour le host FastAPI sandbox (outillage durable séparé).
+  - Retenir une branche tools exécutable basée sur `d26f07f` (pas une orpheline 5 fichiers).
+  - Créer et versionner `tools/localcms-dev-host` avec 6 fichiers host + `.gitignore`.
+- Méthode PM pour lecture croisée: rapports par branche standardisés puis rapport de convergence.
+
+4) Commandes / Code:
+```powershell
+ssh admin-trading 'ssh student "cd /opt/trading && git fetch origin >/dev/null 2>&1 || true && git status -sb && echo --- && git status --short && echo --- && git stash list && echo --- && git log --oneline --decorate --left-right HEAD...origin/sot/mainline -n 20"'
+```
+```powershell
+ssh admin-trading 'ssh student "find /opt -maxdepth 4 -type d -name .git 2>/dev/null | sed \"s#/.git##\" | sort"'
+```
+```powershell
+ssh admin-trading "sed -n '1,220p' ~/.ssh/config"
+Get-Content $HOME\.ssh\config
+scp $HOME\.ssh\config admin-trading:/tmp/ssh_config.windows
+ssh admin-trading 'ts=$(date -u +%Y%m%dT%H%M%SZ) && cp ~/.ssh/config ~/.ssh/config.bak.$ts && cp /tmp/ssh_config.windows ~/.ssh/config && echo BACKUP=~/.ssh/config.bak.$ts && sed -n "1,220p" ~/.ssh/config'
+ssh admin-trading 'ssh -o BatchMode=yes -o ConnectTimeout=5 student "pwd && whoami"'
+ssh admin-trading 'ssh -o BatchMode=yes -o ConnectTimeout=5 student "id && echo HOME=\$HOME && pwd"'
+ssh admin-trading 'ssh -o BatchMode=yes -o ConnectTimeout=5 student "getent passwd student && echo --- && ls -ld /home/student /home/ghost && echo --- && grep -n \"cd /home/ghost\\|cd ~ghost\\|HOME=.*ghost\" ~/.bashrc ~/.profile ~/.bash_profile 2>/dev/null || true"'
+ssh admin-trading 'ssh -o BatchMode=yes -o ConnectTimeout=5 student "env | egrep \"^(HOME|PWD|USER|LOGNAME|SHELL)=\" && echo --- && grep -n \"ghost\" /etc/profile /etc/bash.bashrc 2>/dev/null || true"'
+ssh admin-trading 'ssh -o BatchMode=yes -o ConnectTimeout=5 student "pwd && pwd -P && echo --- && test -d \"$HOME\" && echo HOME_EXISTS || echo HOME_MISSING && echo --- && ls -ld \"$HOME\" 2>/dev/null || true"'
+ssh admin-trading 'ssh -o BatchMode=yes -o ConnectTimeout=5 student "ls -ld /home/student && echo --- && readlink -f /home/student && echo --- && namei -l /home/student"'
+ssh admin-trading 'ssh -o BatchMode=yes -o ConnectTimeout=5 student "echo USER=\$USER; echo HOME=\$HOME; /bin/pwd; /bin/pwd -P; /usr/bin/stat -c \"%U %G %A %n\" /home/student; /usr/bin/ls -ld /home/student /home/ghost"'
+```
+```bat
+cd C:\Users\ghost\localcms
+git push origin feature/localcms-shared-explorer-cms-installer-v1
+git push origin tools/localcms-dev-host
+```
+
+5) Points ouverts (next):
+- `student`: état SSH/Home toujours incohérent/contradictoire (retours `/home/ghost`, `/home/student` absent puis présent). Refaire une vérification minimale fiable avant toute action Git.
+- LocalCMS: mise à jour documentaire finale potentielle (02_etabli/04_reprise) pour refléter la création/push de `tools/localcms-dev-host` (mentionné comme “mission ouverte” dans le rapport).
+- Packs “zip/txt” de reprise: l’utilisateur indique que les fichiers/zip ne sont pas disponibles (problème de livraison à résoudre si requis).
+- Opt-trading: démarrer la lecture croisée (rapports normalisés par branche + matrice de convergence) selon la méthode PM proposée.
