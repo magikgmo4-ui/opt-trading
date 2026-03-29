@@ -5,7 +5,7 @@
 **Target**: `admin-trading`, `msi_db_layer`
 
 ## Description
-Ce module fournit un accès en lecture seule à la définition des wrappers système (menu, cmd, sanity).
+Ce module fournit un accès en lecture seule à la définition des wrappers système (familles standard : menu, cmd, sanity ; famille exceptionnelle admise : entrypoint pour certaines surfaces opérateur top-level).
 Il consomme le fichier central `registry/wrappers_registry.yaml` et offre une CLI pour l'interroger.
 
 ## Usage

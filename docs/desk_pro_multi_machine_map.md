@@ -32,7 +32,7 @@ Chaque machine dispose de wrappers installés dans `/usr/local/bin` pour facilit
 
 | Machine | Wrapper Principal | Menu | Info Partage |
 |---|---|---|---|
-| **admin-trading** | `desk-pro` | `menu-desk-pro` | N/A (Source) |
+| **admin-trading** | `desk-pro` | `menu-desk_pro` | N/A (Source) |
 | **student** | `desk-pro-student` | `menu-desk-pro-student` | `desk-pro-student-shared-info` |
 | **db-layer** | `desk-pro-db` | `menu-desk-pro-db` | `desk-pro-db-shared-info` |
 

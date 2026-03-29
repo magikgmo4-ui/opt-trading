@@ -74,9 +74,15 @@ class WrappersRegistry:
         sys.exit(1)
 
     def status(self):
+        families = []
+        for w in self.wrappers:
+            family = w.get('wrapper_family', 'unknown')
+            if family not in families:
+                families.append(family)
         print(f"Module: wrappers_registry_reader")
         print(f"Source: {self.source_file}")
         print(f"Wrappers: {len(self.wrappers)}")
+        print(f"Families: {', '.join(families)}")
         print(f"Ready: {len(self.wrappers) > 0}")
 
     def list_wrappers(self):

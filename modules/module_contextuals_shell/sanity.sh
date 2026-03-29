@@ -26,7 +26,7 @@ else
 fi
 
 echo -n "Checking List Actions... "
-if bash "$SCRIPT_DIR/cmd.sh" list | tr -d '\r' | grep -q "Dire Bonjour"; then
+if bash "$SCRIPT_DIR/cmd.sh" list | tr -d '' | grep -q "Dire Bonjour"; then
   echo "OK"
 else
   echo "FAIL: List Actions failed"
@@ -34,7 +34,7 @@ else
 fi
 
 echo -n "Checking Contextual Format... "
-FIELDS="$(grep -vE '^\s*#' "$EXAMPLES_DIR/example.ctx" | head -n 1 | tr -d '\r' | awk -F'|' '{print NF}')"
+FIELDS="$(grep -vE '^\s*#' "$EXAMPLES_DIR/example.ctx" | head -n 1 | tr -d '' | awk -F'|' '{print NF}')"
 if [ "${FIELDS:-0}" -ge 10 ]; then
   echo "OK ($FIELDS fields)"
 else

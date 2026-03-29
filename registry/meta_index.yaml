@@ -27,7 +27,7 @@
 
 - registry_name: wrappers_registry
   registry_file: registry/wrappers_registry.yaml
-  purpose: "Cartographie des wrappers système (menu, cmd, sanity)"
+  purpose: "Cartographie des wrappers système (familles standard: menu, cmd, sanity; famille exceptionnelle admise: entrypoint)"
   primary_consumer: modules/wrappers_registry_reader
   scope: system
   status: active

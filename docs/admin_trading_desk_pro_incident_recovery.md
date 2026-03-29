@@ -14,7 +14,7 @@ En cas de doute, exécutez ces commandes dans l'ordre :
 
 1. **Vérifier l'intégrité globale**
    ```bash
-   sanity-desk-pro
+   sanity-desk_pro
    ```
    *Doit retourner "Admin Sanity Check Passed".*
 
@@ -81,7 +81,7 @@ En cas de doute, exécutez ces commandes dans l'ordre :
 3. Workaround temporaire : récupérer les rapports dans `data/dashboard/` via SCP.
 
 ### D. Wrappers Globaux Absents (Command not found)
-**Symptôme** : `desk-pro` ou `sanity-desk-pro` introuvable.
+**Symptôme** : `desk-pro` ou `sanity-desk_pro` introuvable.
 **Diagnostic** :
 1. Vérifier le PATH.
 2. Vérifier `/usr/local/bin`.
@@ -109,7 +109,7 @@ En cas de doute, exécutez ces commandes dans l'ordre :
 **Reprise** :
 1. Vérifier la structure des dossiers.
    ```bash
-   sanity-desk-pro
+   sanity-desk_pro
    ```
 2. Si des wrappers ont changé, réinstaller.
    ```bash
@@ -129,7 +129,7 @@ desk-pro add-session-note "INCIDENT: Run échoué cause X. ACTION: Correctif Y a
 
 ## 6. Checklist de Clôture
 Avant de rendre la main :
-- [ ] `sanity-desk-pro` est PASS.
+- [ ] `sanity-desk_pro` est PASS.
 - [ ] Le dernier run est SUCCESS.
 - [ ] Le dashboard s'affiche.
 - [ ] La copie vers `/shared` fonctionne.

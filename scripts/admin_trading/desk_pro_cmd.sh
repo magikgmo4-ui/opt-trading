@@ -52,8 +52,11 @@ case "$cmd" in
   checklist)
     bash "$SCRIPT_DIR/desk_pro_incident_checklist.sh"
     ;;
+  runtime-guard)
+    bash "$SCRIPT_DIR/runtime_guard.sh"
+    ;;
   *)
-    echo "Usage: desk_pro_cmd.sh status|run|run-and-show|dashboard-latest|export-json-latest|export-html-latest|copy-latest-to-shared|run-logged|tail-latest-log|last-run-info|show-session-journal|add-session-note|checklist|explain"
+    echo "Usage: desk_pro_cmd.sh status|run|run-and-show|dashboard-latest|export-json-latest|export-html-latest|copy-latest-to-shared|run-logged|tail-latest-log|last-run-info|show-session-journal|add-session-note|checklist|runtime-guard|explain"
     exit 1
     ;;
 esac

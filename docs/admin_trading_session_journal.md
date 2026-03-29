@@ -35,5 +35,5 @@ Format:
 ## Integration
 
 - **Automated Entries**: `desk-pro run-logged` automatically appends an entry upon run completion (Success/Fail).
-- **Menu Integration**: The Ops Menu (`menu-desk-pro`) includes options to view and append to the journal.
+- **Menu Integration**: The Ops Menu (`menu-desk_pro`) includes options to view and append to the journal.
 - **Global Access**: Installing via `desk_pro_install_admin_trading.sh` creates the `desk-pro-session-journal` wrapper.

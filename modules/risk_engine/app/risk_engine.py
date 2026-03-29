@@ -32,7 +32,7 @@ RISK_PARAMS = {
     "min_confidence_allow": 0.6,
     "high_confidence_threshold": 0.8,
     "min_rank_priority_full": "HIGH",
-    "base_risk_pct": 1.0, # 1% account risk
+    "base_risk_pct": 1.0, # whole-percent scale for max_risk_pct outputs (1.0 => 1%)
 }
 
 # --- Core Logic ---

@@ -20,7 +20,7 @@ echo "[ ] Sanity Check"
 if "$SCRIPT_DIR/desk_pro_sanity_check.sh" >/dev/null 2>&1; then
     echo "    PASS: System structure OK"
 else
-    echo "    FAIL: System structure issues found. Run 'sanity-desk-pro' for details."
+    echo "    FAIL: System structure issues found. Run 'sanity-desk_pro' for details."
 fi
 
 # 2. Last Run Status

@@ -11,12 +11,17 @@ Il supplante les anciennes conventions si elles diffèrent.
 - **Dépréciés** : `fix3` (Merged), `fix1/fix2` (Obsolete/Conservés). Ne plus utiliser.
 
 ## 2. CONVENTIONS WRAPPERS
-Tout nouveau module DOIT exposer :
+Tout nouveau module standard DOIT exposer :
 - `menu-<module>` -> Pointe vers `modules/<module>/scripts/menu.sh`
 - `cmd-<module>` -> Pointe vers `modules/<module>/scripts/cmd.sh`
 - `sanity-<module>` -> Pointe vers `modules/<module>/scripts/sanity_check.sh`
 
-**Règle d'Or** : Les scripts internes doivent utiliser `readlink -f` pour supporter l'invocation via symlink `/usr/local/bin`.
+Exception admise :
+- certaines surfaces canoniques operateur top-level peuvent etre enregistrees comme `entrypoint`
+- elles ne sont utilisees que lorsqu'elles ne se reduisent pas proprement a `cmd/menu/sanity`
+- cas actuel : `desk-pro`
+
+**Regle d'Or** : Les scripts internes doivent utiliser `readlink -f` pour supporter l'invocation via symlink `/usr/local/bin`.
 
 ## 3. RUNTIME ADMIN-TRADING
 - Le runtime est la source de vérité finale.

@@ -2,9 +2,9 @@
 
 | Action | admin-trading | student | db-layer |
 |---|---|---|---|
-| **Health Check** | `sanity-desk-pro` | `sanity-desk-pro-student` | `sanity-desk-pro-db` |
+| **Health Check** | `sanity-desk_pro` | `sanity-desk-pro-student` | `sanity-desk-pro-db` |
 | **Status** | `desk-pro status` | `desk-pro-student status` | `desk-pro-db status` |
-| **Menu** | `menu-desk-pro` | `menu-desk-pro-student` | `menu-desk-pro-db` |
+| **Menu** | `menu-desk_pro` | `menu-desk-pro-student` | `menu-desk-pro-db` |
 | **Dernier Run** | `desk-pro-last-run` | `desk-pro-student-shared-info` | `desk-pro-db-shared-info` |
 | **Exécution** | `desk-pro-run-logged` | N/A | N/A |
 | **Logs** | `desk-pro-tail-log` | N/A | N/A |

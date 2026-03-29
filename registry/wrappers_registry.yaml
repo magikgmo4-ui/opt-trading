@@ -310,3 +310,324 @@
   audience: system
   status: active
   notes: "Sanity workflow WinSCP/SFTP (surface shared)"
+# === EXTRA NORMALIZATION ===
+- wrapper_name: cmd-ops_menu_hub
+  wrapper_family: cmd
+  target_module: ops_menu_hub
+  target_script: scripts/cmd.sh
+  install_location: /usr/local/bin/cmd-ops_menu_hub
+  audience: operator
+  status: active
+  notes: "CLI MSI du hub opérateur"
+
+- wrapper_name: sanity-ops_menu_hub
+  wrapper_family: sanity
+  target_module: ops_menu_hub
+  target_script: scripts/sanity_check.sh
+  install_location: /usr/local/bin/sanity-ops_menu_hub
+  audience: system
+  status: active
+  notes: "Sanity du hub opérateur MSI"
+
+- wrapper_name: menu-decision_engine
+  wrapper_family: menu
+  target_module: decision_engine
+  target_script: scripts/menu.sh
+  install_location: /usr/local/bin/menu-decision_engine
+  audience: operator
+  status: active
+  notes: "Menu du moteur de décision"
+
+- wrapper_name: sanity-decision_engine
+  wrapper_family: sanity
+  target_module: decision_engine
+  target_script: scripts/sanity_check.sh
+  install_location: /usr/local/bin/sanity-decision_engine
+  audience: system
+  status: active
+  notes: "Sanity du moteur de décision"
+
+- wrapper_name: menu-risk_engine
+  wrapper_family: menu
+  target_module: risk_engine
+  target_script: scripts/menu.sh
+  install_location: /usr/local/bin/menu-risk_engine
+  audience: operator
+  status: active
+  notes: "Menu du moteur de risque"
+
+- wrapper_name: sanity-risk_engine
+  wrapper_family: sanity
+  target_module: risk_engine
+  target_script: scripts/sanity_check.sh
+  install_location: /usr/local/bin/sanity-risk_engine
+  audience: system
+  status: active
+  notes: "Sanity du moteur de risque"
+
+- wrapper_name: menu-portfolio_engine
+  wrapper_family: menu
+  target_module: portfolio_engine
+  target_script: scripts/menu.sh
+  install_location: /usr/local/bin/menu-portfolio_engine
+  audience: operator
+  status: active
+  notes: "Menu du moteur portefeuille"
+
+- wrapper_name: sanity-portfolio_engine
+  wrapper_family: sanity
+  target_module: portfolio_engine
+  target_script: scripts/sanity_check.sh
+  install_location: /usr/local/bin/sanity-portfolio_engine
+  audience: system
+  status: active
+  notes: "Sanity du moteur portefeuille"
+
+- wrapper_name: menu-position_engine
+  wrapper_family: menu
+  target_module: position_engine
+  target_script: scripts/menu.sh
+  install_location: /usr/local/bin/menu-position_engine
+  audience: operator
+  status: active
+  notes: "Menu du moteur de position"
+
+- wrapper_name: sanity-position_engine
+  wrapper_family: sanity
+  target_module: position_engine
+  target_script: scripts/sanity_check.sh
+  install_location: /usr/local/bin/sanity-position_engine
+  audience: system
+  status: active
+  notes: "Sanity du moteur de position"
+
+- wrapper_name: menu-desk_pro_dashboard
+  wrapper_family: menu
+  target_module: desk_pro_dashboard
+  target_script: scripts/menu.sh
+  install_location: /usr/local/bin/menu-desk_pro_dashboard
+  audience: operator
+  status: beta
+  notes: "Menu dashboard Desk Pro"
+
+- wrapper_name: sanity-desk_pro_dashboard
+  wrapper_family: sanity
+  target_module: desk_pro_dashboard
+  target_script: scripts/sanity_check.sh
+  install_location: /usr/local/bin/sanity-desk_pro_dashboard
+  audience: system
+  status: beta
+  notes: "Sanity dashboard Desk Pro"
+
+- wrapper_name: menu-desk_pro_runner
+  wrapper_family: menu
+  target_module: desk_pro_runner
+  target_script: scripts/menu.sh
+  install_location: /usr/local/bin/menu-desk_pro_runner
+  audience: operator
+  status: active
+  notes: "Menu du runner Desk Pro"
+
+- wrapper_name: sanity-desk_pro_runner
+  wrapper_family: sanity
+  target_module: desk_pro_runner
+  target_script: scripts/sanity_check.sh
+  install_location: /usr/local/bin/sanity-desk_pro_runner
+  audience: system
+  status: active
+  notes: "Sanity du runner Desk Pro"
+
+- wrapper_name: cmd-desk_pro_orchestrator
+  wrapper_family: cmd
+  target_module: desk_pro_orchestrator
+  target_script: scripts/cmd.sh
+  install_location: /usr/local/bin/cmd-desk_pro_orchestrator
+  audience: operator
+  status: active
+  notes: "CLI de l'orchestrateur Desk Pro"
+
+- wrapper_name: menu-desk_pro_orchestrator
+  wrapper_family: menu
+  target_module: desk_pro_orchestrator
+  target_script: scripts/menu.sh
+  install_location: /usr/local/bin/menu-desk_pro_orchestrator
+  audience: operator
+  status: active
+  notes: "Menu de l'orchestrateur Desk Pro"
+
+- wrapper_name: sanity-desk_pro_orchestrator
+  wrapper_family: sanity
+  target_module: desk_pro_orchestrator
+  target_script: scripts/sanity_check.sh
+  install_location: /usr/local/bin/sanity-desk_pro_orchestrator
+  audience: system
+  status: active
+  notes: "Sanity de l'orchestrateur Desk Pro"
+
+- wrapper_name: cmd-module_contextuals_shell
+  wrapper_family: cmd
+  target_module: module_contextuals_shell
+  target_script: cmd.sh
+  install_location: /usr/local/bin/cmd-module_contextuals_shell
+  audience: operator
+  status: active
+  notes: "CLI du shell contextualisé"
+
+- wrapper_name: menu-module_contextuals_shell
+  wrapper_family: menu
+  target_module: module_contextuals_shell
+  target_script: menu.sh
+  install_location: /usr/local/bin/menu-module_contextuals_shell
+  audience: operator
+  status: active
+  notes: "Menu du shell contextualisé"
+
+- wrapper_name: sanity-module_contextuals_shell
+  wrapper_family: sanity
+  target_module: module_contextuals_shell
+  target_script: sanity.sh
+  install_location: /usr/local/bin/sanity-module_contextuals_shell
+  audience: system
+  status: active
+  notes: "Sanity du shell contextualisé"
+
+- wrapper_name: cmd-reseau_ssh
+  wrapper_family: cmd
+  target_module: reseau_ssh
+  target_script: scripts/reseau_ssh_cmd.sh
+  install_location: /usr/local/bin/cmd-reseau_ssh
+  audience: operator
+  status: active
+  notes: "CLI réseau SSH top-level"
+
+- wrapper_name: menu-reseau_ssh
+  wrapper_family: menu
+  target_module: reseau_ssh
+  target_script: scripts/reseau_ssh_menu.sh
+  install_location: /usr/local/bin/menu-reseau_ssh
+  audience: operator
+  status: active
+  notes: "Menu réseau SSH top-level"
+
+- wrapper_name: sanity-reseau_ssh
+  wrapper_family: sanity
+  target_module: reseau_ssh
+  target_script: scripts/sanity_reseau_ssh.sh
+  install_location: /usr/local/bin/sanity-reseau_ssh
+  audience: system
+  status: active
+  notes: "Sanity réseau SSH top-level"
+
+# entrypoint: reserved for canonical top-level operator surfaces not cleanly reducible to cmd/menu/sanity
+- wrapper_name: desk-pro
+  wrapper_family: entrypoint
+  target_module: desk_pro
+  target_script: scripts/admin_trading/desk_pro_cmd.sh
+  install_location: /usr/local/bin/desk-pro
+  audience: operator
+  status: active
+  notes: "CLI operateur principale Desk Pro sur admin-trading; complementaire de cmd-desk_pro."
+
+- wrapper_name: cmd-desk_pro
+  wrapper_family: cmd
+  target_module: desk_pro
+  target_script: scripts/desk_pro_cmd.sh
+  install_location: /usr/local/bin/cmd-desk_pro
+  audience: operator
+  status: active
+  notes: "Wrapper top-level légitime Desk Pro (hors module scripts/)"
+
+- wrapper_name: menu-desk_pro
+  wrapper_family: menu
+  target_module: desk_pro
+  target_script: scripts/desk_pro_menu.sh
+  install_location: /usr/local/bin/menu-desk_pro
+  audience: operator
+  status: active
+  notes: "Wrapper top-level légitime Desk Pro (hors module scripts/)"
+
+- wrapper_name: sanity-desk_pro
+  wrapper_family: sanity
+  target_module: desk_pro
+  target_script: scripts/desk_pro_sanity.sh
+  install_location: /usr/local/bin/sanity-desk_pro
+  audience: system
+  status: active
+  notes: "Wrapper top-level légitime Desk Pro (hors module scripts/)"
+
+# === OFFICIAL LEGACY ALIASES POLICY ===
+# Aliases are compatibility-only surfaces.
+# Canonical names remain the recommended operator surface.
+# Removal should happen only in a dedicated later cleanup.
+
+- wrapper_name: cmd-ops_hub
+  wrapper_family: cmd
+  target_module: ops_menu_hub
+  target_script: scripts/cmd.sh
+  install_location: /usr/local/bin/cmd-ops_hub
+  audience: operator
+  status: deprecated
+  notes: "Alias de compatibilite operateur; utiliser cmd-ops_menu_hub; retrait futur planifie."
+
+- wrapper_name: menu-ops_hub
+  wrapper_family: menu
+  target_module: ops_menu_hub
+  target_script: scripts/menu.sh
+  install_location: /usr/local/bin/menu-ops_hub
+  audience: operator
+  status: deprecated
+  notes: "Alias de compatibilite operateur; utiliser menu-ops_menu_hub; retrait futur planifie."
+
+- wrapper_name: sanity-ops_hub
+  wrapper_family: sanity
+  target_module: ops_menu_hub
+  target_script: scripts/sanity_check.sh
+  install_location: /usr/local/bin/sanity-ops_hub
+  audience: system
+  status: deprecated
+  notes: "Alias de compatibilite operateur; utiliser sanity-ops_menu_hub; retrait futur planifie."
+
+- wrapper_name: cmd-reseau_ssh_v2
+  wrapper_family: cmd
+  target_module: reseau_ssh
+  target_script: scripts/reseau_ssh_cmd.sh
+  install_location: /usr/local/bin/cmd-reseau_ssh_v2
+  audience: operator
+  status: deprecated
+  notes: "Alias de compatibilite operateur; utiliser cmd-reseau_ssh; retrait futur planifie."
+
+- wrapper_name: menu-reseau_ssh_v2
+  wrapper_family: menu
+  target_module: reseau_ssh
+  target_script: scripts/reseau_ssh_menu.sh
+  install_location: /usr/local/bin/menu-reseau_ssh_v2
+  audience: operator
+  status: deprecated
+  notes: "Alias de compatibilite operateur; utiliser menu-reseau_ssh; retrait futur planifie."
+
+- wrapper_name: sanity-reseau_ssh_v2
+  wrapper_family: sanity
+  target_module: reseau_ssh
+  target_script: scripts/sanity_reseau_ssh.sh
+  install_location: /usr/local/bin/sanity-reseau_ssh_v2
+  audience: system
+  status: deprecated
+  notes: "Alias de compatibilite operateur; utiliser sanity-reseau_ssh; retrait futur planifie."
+
+- wrapper_name: menu-desk-pro
+  wrapper_family: menu
+  target_module: desk_pro
+  target_script: scripts/desk_pro_menu.sh
+  install_location: /usr/local/bin/menu-desk-pro
+  audience: operator
+  status: deprecated
+  notes: "Alias de compatibilite operateur; utiliser menu-desk_pro; retrait futur planifie."
+
+- wrapper_name: sanity-desk-pro
+  wrapper_family: sanity
+  target_module: desk_pro
+  target_script: scripts/desk_pro_sanity.sh
+  install_location: /usr/local/bin/sanity-desk-pro
+  audience: system
+  status: deprecated
+  notes: "Alias de compatibilite operateur; utiliser sanity-desk_pro; retrait futur planifie."

@@ -55,7 +55,7 @@ def perf_open(engine: str, symbol: str, side: str, entry: float, stop: float, qt
         # perf est optionnel: ne jamais casser le webhook
         pass
 from datetime import datetime, timezone, timedelta
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional
 
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.responses import JSONResponse, HTMLResponse
@@ -193,28 +193,6 @@ def load_risk_config() -> Dict[str, Any]:
     cfg.setdefault("accounts", {})
     cfg.setdefault("gold_cfd", {})
     return cfg
-
-def _get_equity_and_risk_pct(acct: dict) -> Tuple[float, float]:
-    # equity can be "equity" or "equity_usd"
-    equity = float(acct.get("equity_usd", acct.get("equity", 0)) or 0)
-
-    # risk_pct can be 0.01 (1%), or 1 (1%), or 1.0 (1%), or 2 (2%)
-    rp = acct.get("risk_pct", 0)
-    try:
-        rp = float(rp)
-    except Exception:
-        rp = 0.0
-
-    if rp <= 0:
-        risk_pct = 0.0
-    elif rp <= 1.0:
-        # treat as fraction
-        risk_pct = rp
-    else:
-        # treat as percent
-        risk_pct = rp / 100.0
-
-    return equity, risk_pct
 
 def round_step(x: float, step: float) -> float:
     if step <= 0:

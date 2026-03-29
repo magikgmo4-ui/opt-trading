@@ -63,7 +63,7 @@
   operator_visible: true
   ui_related: true
   description: "Dashboard de supervision temps réel"
-  wrappers_expected: ["cmd"]
+  wrappers_expected: ["cmd", "menu", "sanity"]
   status: beta
   priority: high
   dependencies: ["desk_pro_runner"]
@@ -74,7 +74,7 @@
   operator_visible: false
   ui_related: false
   description: "Orchestrateur d'exécution principal"
-  wrappers_expected: ["cmd", "sanity"]
+  wrappers_expected: ["cmd", "menu", "sanity"]
   status: active
   priority: critical
   dependencies: ["probability_engine", "decision_engine"]
@@ -130,7 +130,7 @@
   operator_visible: false
   ui_related: false
   description: "Moteur de décision finale de trading"
-  wrappers_expected: ["cmd"]
+  wrappers_expected: ["cmd", "menu", "sanity"]
   status: active
   priority: high
   dependencies: ["probability_engine", "risk_engine"]
@@ -141,7 +141,7 @@
   operator_visible: false
   ui_related: false
   description: "Contrôle des risques"
-  wrappers_expected: ["cmd"]
+  wrappers_expected: ["cmd", "menu", "sanity"]
   status: active
   priority: critical
   dependencies: ["portfolio_engine"]
@@ -185,7 +185,7 @@
   operator_visible: false
   ui_related: false
   description: "Gestion globale du portefeuille"
-  wrappers_expected: ["cmd"]
+  wrappers_expected: ["cmd", "menu", "sanity"]
   status: active
   priority: critical
   dependencies: []
@@ -196,7 +196,7 @@
   operator_visible: false
   ui_related: false
   description: "Gestion des positions individuelles"
-  wrappers_expected: ["cmd"]
+  wrappers_expected: ["cmd", "menu", "sanity"]
   status: active
   priority: critical
   dependencies: ["portfolio_engine"]
@@ -310,4 +310,70 @@
   wrappers_expected: ["menu", "cmd", "sanity"]
   status: active
   priority: critical
+  dependencies: []
+
+- module_name: machines_registry_reader
+  domain: registry
+  machine_target: any
+  operator_visible: true
+  ui_related: true
+  description: "Lecteur du registre machines"
+  wrappers_expected: ["cmd", "menu"]
+  status: active
+  priority: high
+  dependencies: []
+
+- module_name: modules_registry_reader
+  domain: registry
+  machine_target: any
+  operator_visible: true
+  ui_related: true
+  description: "Lecteur du registre modules"
+  wrappers_expected: ["cmd", "menu"]
+  status: active
+  priority: high
+  dependencies: []
+
+- module_name: desk_pro_orchestrator
+  domain: operator_tools
+  machine_target: admin_trading
+  operator_visible: true
+  ui_related: true
+  description: "Orchestrateur opérateur Desk Pro"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: high
+  dependencies: []
+
+- module_name: module_contextuals_shell
+  domain: operator_tools
+  machine_target: any
+  operator_visible: true
+  ui_related: true
+  description: "Socle shell pour actions contextuelles"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: medium
+  dependencies: []
+
+- module_name: reseau_ssh
+  domain: infrastructure
+  machine_target: admin_trading
+  operator_visible: true
+  ui_related: false
+  description: "Pack réseau SSH, UFW, Fail2Ban et WireGuard"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: high
+  dependencies: []
+
+- module_name: desk_pro
+  domain: operator_tools
+  machine_target: admin_trading
+  operator_visible: true
+  ui_related: true
+  description: "Entrée top-level Desk Pro"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: high
   dependencies: []

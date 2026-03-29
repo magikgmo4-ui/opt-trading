@@ -4,6 +4,7 @@ Provides logic for position sizing and risk management.
 """
 
 import math
+import warnings
 import sys
 from typing import Any, Dict, Tuple, Optional
 
@@ -45,12 +46,23 @@ class RiskCalculator:
         # equity can be "equity" or "equity_usd"
         equity = float(acct.get("equity_usd", acct.get("equity", 0)) or 0)
 
-        # risk_pct can be 0.01 (1%), or 1 (1%), or 1.0 (1%), or 2 (2%)
+        # Canonical runtime convention for account_config["risk_pct"]:
+        #   0.01 = 1%, 0.02 = 2%
+        # Compatibility behavior kept for legacy values:
+        #   values > 1 are treated as whole percents (2 -> 2%)
+        #   values <= 1 are treated as direct fractions (1.0 -> 100%)
         rp = acct.get("risk_pct", 0)
         try:
             rp = float(rp)
         except Exception:
             rp = 0.0
+
+        if rp >= 1.0:
+            warnings.warn(
+                "Non-canonical risk_pct >= 1 detected; canonical runtime config uses fractions like 0.01 for 1%. Legacy parsing is still accepted for compatibility.",
+                RuntimeWarning,
+                stacklevel=2,
+            )
 
         if rp <= 0:
             risk_pct = 0.0

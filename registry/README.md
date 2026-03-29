@@ -30,7 +30,7 @@ Inventaire des points d'entrée utilisateur (UI/UX).
 
 ### 4. [wrappers_registry.yaml](./wrappers_registry.yaml)
 Source de vérité pour les wrappers système et leurs emplacements cibles.
-- Familles (menu, cmd, sanity)
+- Familles standard (menu, cmd, sanity) + famille exceptionnelle admise (entrypoint) reservee aux surfaces canoniques operateur top-level non reductibles proprement a cmd/menu/sanity
 - Modules cibles
 - Chemins d'installation
 

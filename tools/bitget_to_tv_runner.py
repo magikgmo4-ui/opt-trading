@@ -1,4 +1,5 @@
 import os, json, time, urllib.request, urllib.error
+from urllib.parse import urlparse
 from datetime import datetime, timezone
 from pathlib import Path
 import sys
@@ -56,9 +57,13 @@ def main():
     one_shot = os.environ.get("ONE_SHOT", "0") == "1"
     state_f  = os.environ.get("STATE_FILE", "/opt/trading/state/bitget_tv_state.json").strip()
 
-    if not key:
+    host = (urlparse(tv_url).hostname or "").strip().lower()
+    local_hosts = {"127.0.0.1", "localhost", "::1"}
+    if not key and host not in local_hosts:
         print("TV_WEBHOOK_KEY missing in env")
         raise SystemExit(2)
+    if not key:
+        print(f"TV_WEBHOOK_KEY missing in env; continuing because TV_WEBHOOK_URL host={host} is local")
 
     if force not in ("", "AUTO", "BUY", "SELL"):
         force = "AUTO"

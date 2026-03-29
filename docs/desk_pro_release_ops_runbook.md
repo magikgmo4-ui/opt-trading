@@ -35,7 +35,7 @@ Sur chaque machine cible (`admin-trading`, `student`, `db-layer`) :
    *Doit retourner "PASS: Tag 'v1.2.0' exists locally."*
 
 3. **Validation Finale** :
-   Lancer un `sanity-desk-pro` (ou équivalent local) pour confirmer que la version taggée fonctionne.
+   Lancer un `sanity-desk_pro` (ou équivalent local) pour confirmer que la version taggée fonctionne.
 
 ## 4. Gestion des Erreurs
 

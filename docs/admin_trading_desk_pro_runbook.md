@@ -16,13 +16,16 @@ Les wrappers suivants sont disponibles dans le PATH (`/usr/local/bin`) après in
 | Commande | Description |
 |---|---|
 | `desk-pro` | Point d'entrée principal (wrapper runner) |
-| `menu-desk-pro` | Menu interactif complet (Ops Menu) |
-| `sanity-desk-pro` | Vérification de santé du système |
+| `menu-desk_pro` | Menu interactif complet (Ops Menu) |
+| `sanity-desk_pro` | Vérification de santé du système |
+| `desk-pro runtime-guard` | Garde-fou runtime opérateur consolidé |
 | `desk-pro-run-logged` | Lancer un run avec log complet |
 | `desk-pro-tail-log` | Voir la fin du dernier log |
 | `desk-pro-last-run` | Infos sur la dernière exécution |
 | `desk-pro-session-journal` | Gérer le journal de session opérateur |
 | `desk-pro-copy-latest` | Copier les résultats vers `/shared` |
+
+Note de surface : `desk-pro` est la CLI opérateur principale Desk Pro sur `admin-trading` (runs, dashboard, journal, export). `cmd-desk_pro` reste la CLI utilitaire/service locale (sanity, ui, health, logs, serve) et ne remplace pas `desk-pro`.
 
 ## 4. Flux Opérateur : Début de Session
 
@@ -33,21 +36,42 @@ Les wrappers suivants sont disponibles dans le PATH (`/usr/local/bin`) après in
 
 2. **Vérification de Santé**
    ```bash
-   sanity-desk-pro
+   sanity-desk_pro
    ```
    *Attendu : "Admin Sanity Check Passed"*
 
-3. **Vérification du Dernier État**
+3. **Garde-fou Runtime**
+   ```bash
+   desk-pro runtime-guard
+   ```
+   *Lire d'abord la ligne `VERDICT`.*
+   - `PASS` : continuer.
+   - `WARN` : lire la cause principale, vérifier si c'est transitoire/récupéré, décider calmement.
+   - `FAIL` : traiter avant exploitation.
+
+4. **Vérification du Dernier État**
    ```bash
    desk-pro-last-run
    ```
    *Vérifier la date et le statut du dernier run.*
 
-4. **Ouverture du Journal de Session**
+5. **Ouverture du Journal de Session**
    ```bash
    desk-pro add-session-note "Début de session opérateur."
    desk-pro show-session-journal
    ```
+
+## Usage opérateur de runtime-guard
+
+- **Quand le lancer** :
+  - avant session opérateur
+  - après incident ou doute runtime
+  - après changement touchant services, wrappers ou Desk Pro
+- **Comment lire le verdict** :
+  - `PASS` = continuer
+  - `WARN` = lire la cause principale, vérifier si c'est transitoire/récupéré, décider calmement
+  - `FAIL` = traiter avant exploitation
+- **Rappel** : `desk-pro runtime-guard` est un garde-fou opérateur, pas une preuve absolue de santé métier
 
 ## 5. Flux Opérateur : Exécution (Run)
 
@@ -101,7 +125,8 @@ Les wrappers suivants sont disponibles dans le PATH (`/usr/local/bin`) après in
 1. **Consulter les logs** : `desk-pro-tail-log`
 2. **Identifier le module en erreur** (ex: market_scanner, risk_engine)
 3. **Vérifier les configs** dans `modules/<module>/config/`
-4. **Relancer un sanity check** : `sanity-desk-pro`
+4. **Relancer un sanity check** : `sanity-desk_pro`
+5. **Après incident ou doute runtime** : `desk-pro runtime-guard`
 
 ### Cas : /shared inaccessible
 1. **Vérifier le montage** : `ls -ld /shared`

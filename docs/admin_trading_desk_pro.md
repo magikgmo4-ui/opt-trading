@@ -16,8 +16,8 @@ This pack provides the integration layer for the `admin-trading` machine (Linux 
 After installation, the following commands are available globally:
 
 - `desk-pro`: Main entry point (delegates to runner).
-- `menu-desk-pro`: Interactive text menu.
-- `sanity-desk-pro`: Health check script.
+- `menu-desk_pro`: Interactive text menu.
+- `sanity-desk_pro`: Health check script.
 
 ## Usage Guide
 
