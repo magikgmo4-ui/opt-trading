@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 class BitgetAdapter(BaseAdapter):
     def __init__(self, max_workers=5, retries=3, backoff_factor=1.0):
-        super().__init__(max_workers=max_workers, retries=retries, backoff_factor=backoff_factor)
+        super().__init__("BITGET", max_workers=max_workers, retries=retries, backoff_factor=backoff_factor)
 
     """Bitget USDT-M Futures Data Adapter"""
     BASE_URL = "https://api.bitget.com"

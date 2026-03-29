@@ -59,12 +59,16 @@ class ExplodingMockAdapter(BaseAdapter):
 
 def test_fail_open():
     print("--- Testing Fail-Open Hardening ---")
-    adapter = ExplodingMockAdapter()
+    adapter = ExplodingMockAdapter("MOCK")
     # Batch query where 2 elements are corrupt 
     data = adapter.collect(["BTCUSDT", "BOMB", "ETHUSDT", "DICT"])
-    assert len(data) == 2, f"Fail-open should return 2 valid symbols out of 4, got {len(data)}"
+    assert len(data) == 4, f"Fail-open should return 4 rows for 4 symbols, got {len(data)}"
     assert data[0]["symbol"] == "BTCUSDT"
-    assert data[1]["symbol"] == "ETHUSDT"
+    assert data[1]["symbol"] == "BOMB"
+    assert "Intentional crash" in data[1]["error"]
+    assert data[2]["symbol"] == "ETHUSDT"
+    assert data[3]["symbol"] == "DICT"
+    assert "Invalid return type" in data[3]["error"]
     print("[PASS] Fail-Open architecture\n")
 
 if __name__ == "__main__":

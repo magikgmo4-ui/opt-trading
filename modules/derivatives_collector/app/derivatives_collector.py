@@ -80,10 +80,12 @@ class DerivativesRow:
     liquidations_long: Optional[float] = None
     liquidations_short: Optional[float] = None
     volume_futures: Optional[float] = None
+    error: Optional[str] = None
 
 # --- Adapters ---
 class BaseAdapter:
-    def __init__(self, max_workers=5, retries=3, backoff_factor=1.0):
+    def __init__(self, exchange_name, max_workers=5, retries=3, backoff_factor=1.0):
+        self.exchange_name = exchange_name
         self.max_workers = max_workers
         self.retries = retries
         self.backoff_factor = backoff_factor
@@ -127,11 +129,21 @@ class BaseAdapter:
             row = self._collect_symbol(symbol, batch_timestamp)
             if not isinstance(row, DerivativesRow):
                 self.logger.error(f"Invalid return type for {symbol}. Expected DerivativesRow, got {type(row).__name__}")
-                return None
+                return DerivativesRow(
+                    symbol=symbol,
+                    exchange=self.exchange_name,
+                    timestamp=batch_timestamp,
+                    error=f"Internal Error: Invalid return type {type(row).__name__}"
+                )
             return row
         except Exception as e:
             self.logger.error(f"Critical failure collecting {symbol}: {str(e)}")
-            return None
+            return DerivativesRow(
+                symbol=symbol,
+                exchange=self.exchange_name,
+                timestamp=batch_timestamp,
+                error=str(e)
+            )
 
     def collect(self, symbols):
         data = []
@@ -146,29 +158,28 @@ class BaseAdapter:
         return data
 
 class MockAdapter(BaseAdapter):
-    def collect(self, symbols):
-        data = []
-        for symbol in symbols:
-            # Simulate derivatives data
-            oi = random.uniform(10_000_000, 50_000_000)
-            funding = random.uniform(-0.01, 0.05)
-            ls_ratio = random.uniform(0.8, 1.2)
-            liq_long = random.uniform(0, 1_000_000)
-            liq_short = random.uniform(0, 1_000_000)
-            
-            row = DerivativesRow(
-                symbol=symbol,
-                exchange="MOCK",
-                timestamp=datetime.now(timezone.utc).isoformat(),
-                open_interest=round(oi, 2),
-                funding_rate=round(funding, 6),
-                long_short_ratio=round(ls_ratio, 4),
-                liquidations_long=round(liq_long, 2),
-                liquidations_short=round(liq_short, 2),
-                volume_futures=round(random.uniform(50_000_000, 200_000_000), 2)
-            )
-            data.append(asdict(row))
-        return data
+    def __init__(self, max_workers=5, retries=3, backoff_factor=1.0):
+        super().__init__("MOCK", max_workers=max_workers, retries=retries, backoff_factor=backoff_factor)
+
+    def _collect_symbol(self, symbol, batch_timestamp):
+        # Simulate derivatives data
+        oi = random.uniform(10_000_000, 50_000_000)
+        funding = random.uniform(-0.01, 0.05)
+        ls_ratio = random.uniform(0.8, 1.2)
+        liq_long = random.uniform(0, 1_000_000)
+        liq_short = random.uniform(0, 1_000_000)
+        
+        return DerivativesRow(
+            symbol=symbol,
+            exchange="MOCK",
+            timestamp=batch_timestamp,
+            open_interest=round(oi, 2),
+            funding_rate=round(funding, 6),
+            long_short_ratio=round(ls_ratio, 4),
+            liquidations_long=round(liq_long, 2),
+            liquidations_short=round(liq_short, 2),
+            volume_futures=round(random.uniform(50_000_000, 200_000_000), 2)
+        )
 
 # --- Core Logic ---
 class DerivativesCollector:
