@@ -67965,3 +67965,82 @@ typeof window.$VALID;
 - Étendre $VALID à d’autres bridges:
   - GO_VALID_EXTEND_06 : câbler `MOD_APPS_CFG` et `MOD_SEC_CFG` à `$VALID` (validators[] déjà présents).
 - (Optionnel) Passe dédiée “normalisation branches” si besoin d’un trunk explicite; non requise pour continuer.
+
+## 2026-03-29 05:32 | TV Webhook | COINM_SHORT | BTCUSDT 1 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `66655.1`
+5. **TP**: `0.0`
+6. **SL**: `66665.1`
+7. **Reason**: bitget bar-close ts=1774776720000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 66655.1,
+  "tp": 0.0,
+  "sl": 66665.1,
+  "reason": "bitget bar-close ts=1774776720000",
+  "_ts": "2026-03-29T09:32:04.253880+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-29 05:32 — note528
+1) Objectifs:
+- Reprendre le chantier **Bot Vision Telegram** sans audit global, maillon par maillon, pour isoler la rupture réelle (Windows source → Telegram → admin-trading → services bot_vision).
+- Qualifier la **route groupe** (/analyze) vs **route DM** et valider l’E2E /analyze.
+- Clôturer le recovery et préparer la suite (durcissement secrets, robustesse polling, politique STALE).
+
+2) Actions:
+- **Windows source (PASS)**: identification de l’entrypoint ShareX et tests locaux (scripts + logs) prouvant émission locale OK (send_vision_inbox PASS) malgré des exit Telegram intermittents.
+- **Telegram bot/group (FAIL)**: analyse `send_telegram.bat` → envoi Bot API OK mais CHATID configuré = **chat privé** (getChat type=private), pas un groupe.
+- **Qualification group_id (BLOQUÉ)**: `getUpdates` vide, recherche locale sans group_id trouvé; tentative de provocation d’événements de groupe (message + mention bot) sans updates.
+- **Captures Telegram**: preuves terrain que le groupe reçoit /analyze et que le DM bot fonctionne avec mémoire image par chat.
+- **Cartographie surfaces (PASS)**: lecture côté Windows `C:\monitor\telegram_bot\bot_vision.py`, service `TelegramVisionBot` (NSSM) avec env `TELEGRAM_BOT_TOKEN` + `ALLOWED_CHAT_ID=7785809317` → surface DM verrouillée au privé; surface groupe répond via acteur visible `admin-trading`.
+- **Route groupe admin-trading (PASS)**: sur serveur admin-trading, identification `bot_vision_step2.service` → `/opt/trading/modules/bot_vision_step2/app/bot_vision_step2.py` ; `/analyze` lance `/opt/trading/modules/desk_analyze/analyze_latest.py`; `getMe` prouve bot `ghost_admin_trading_bot` (nom affiché admin-trading).
+- **Bind groupe (BLOQUÉ → PASS)**: lecture `bot_vision.env` → `ALLOWED_CHAT_ID=-5177632039`, `TELEGRAM_CHAT_ID` vide; mesure terrain `/chatid` dans Telegram = `-5177632039` → bind OK.
+- **E2E /analyze groupe (PASS)**: `analyze_latest.py` lit `/opt/trading/desk/snapshots/latest.json`; exécution avec env du service OK; cohérence `latest.json` ↔ sortie stdout (utilisée comme message Telegram). STALE observé = règle d’âge (15 min), pas panne.
+- **Fraîcheur snapshots Desk (PASS)**: producteur `ingest_snapshots.py ingest_once`; déclencheur `desk_bridge.timer` (10 min) → `desk_bridge.service` lance `bridge_vision_to_desk_inbox.sh` puis ingestion; `latest.json` rafraîchi; STALE = âge de capture `snapshot_ts`.
+
+3) Décisions:
+- Ne plus traiter Telegram comme un bloc: séparation **DM Windows** vs **groupe admin-trading**.
+- Ne pas patcher `CHATID`/group_id à l’aveugle tant que non prouvé (phase getUpdates).
+- Clôture recovery: **GO_BOT_VISION_TELEGRAM_RECOVERY_01 = PASS** (cause initiale = confusion surfaces DM/groupe; chaîne groupe qualifiée).
+- Priorisation des prochains chantiers: **durcissement secrets** → **robustesse polling Telegram** → **politique STALE/frequence capture**.
+- Démarrer un nouveau chantier: **GO_BOT_VISION_SECRETS_HARDEN_PLAN_01** (plan, sans rotation ni affichage de secrets).
+
+4) Commandes / Code:
+```powershell
+# Tests Windows source (exemple)
+& "C:\monitor\scripts\sharex_action_chain.bat" "C:\Users\ghost\Documents\ShareX\Screenshots\2026-03\screen_2026-03-28_21-03-02_4.png"
+Get-Content "C:\monitor\logs\sharex_action_chain.log" -Tail 10
+Get-Content "C:\monitor\logs\send_vision_inbox.log" -Tail 10
+
+# Telegram Bot API (exemples utilisés)
+curl.exe -s "https://api.telegram.org/bot$token/getUpdates"
+curl.exe -s "https://api.telegram.org/bot$token/getMe"
+```
+
+```bash
+# Admin-trading (exemples décrits)
+systemctl list-units
+journalctl -u bot_vision_step2.service
+cat /opt/trading/modules/bot_vision_step2/config/bot_vision.env
+python3 /opt/trading/modules/desk_analyze/analyze_latest.py
+stat /opt/trading/desk/snapshots/latest.json
+journalctl -u desk_bridge.service
+```
+
+5) Points ouverts (next):
+- Lancer **GO_BOT_VISION_SECRETS_HARDEN_PLAN_01** (inventaire + plan de migration minimal, sans exposer ni tourner les secrets).
+- Évaluer ensuite si les **timeouts getUpdates** sont gênants (chantier polling).
+- Revoir la politique **STALE_MINUTES / fréquence capture / desk_bridge.timer** (chantier produit/UX).
