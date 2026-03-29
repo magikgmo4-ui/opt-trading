@@ -17,6 +17,16 @@ bash modules/memory_bricks/scripts/install_shortcuts.sh
 - si besoin systeme explicite: `bash modules/memory_bricks/scripts/install_shortcuts.sh --system`
 - si `~/.local/bin` n'est pas dans `PATH`, l'ajouter avant d'appeler `cmd-memory_bricks`, `menu-memory_bricks` ou `sanity-memory_bricks`
 
+## Validation standard
+
+```bash
+bash modules/memory_bricks/scripts/sanity_check.sh
+bash modules/memory_bricks/scripts/smoke_wrappers.sh
+```
+
+- `sanity_check.sh`: verifie la validite module, les prerequis et la surface minimale repo-locale
+- `smoke_wrappers.sh`: verifie les wrappers reellement exposes apres installation local-first, y compris `cmd-memory_bricks`, `menu-memory_bricks` et `sanity-memory_bricks`
+
 ## Source read-only validee
 
 ```bash
