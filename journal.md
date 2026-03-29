@@ -67455,3 +67455,93 @@ cmd-desk_pro ui
 - Incident à reprendre dans une nouvelle session : bot Vision Telegram HS (Windows → Telegram → admin-trading → pipeline).
 - Backlog non prioritaire : GO_REGISTRY_HISTORICAL_DOCS_TIDY_01 (annotation historique seulement si risque de confusion).
 - Pour OpenClaw (autre fil) : phase 2 KB-202 (validation statique du format) après `launchables_registry.yaml` (déjà accepté).
+
+## 2026-03-29 05:26 | TV Webhook | COINM_SHORT | BTCUSDT 1 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `66618.0`
+5. **TP**: `0.0`
+6. **SL**: `66628.0`
+7. **Reason**: bitget bar-close ts=1774776360000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 66618.0,
+  "tp": 0.0,
+  "sl": 66628.0,
+  "reason": "bitget bar-close ts=1774776360000",
+  "_ts": "2026-03-29T09:26:05.188432+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-29 05:26 — note518
+1) Objectifs:
+- Produire et valider le socle documentaire OpenClaw Brev-like (phase 2) : registry + validation statique + bootstrap contract + smoke runbook + result contract, avec verrouillage fort de `db-layer`.
+- Ouvrir KB-301 : intégrer réellement le node `student` comme premier compute node, puis qualifier terrain.
+
+2) Actions:
+- Lecture des documents V1 (spec Launchable, infra role mapping, security policy, registry, exemples).
+- Création KB-202 :
+  - Rédaction règles normatives de validation statique + matrice de contrôle + exemples valides/invalides.
+  - Règles incluent lien Launchable↔Registry obligatoire, compatibilités profile/node, contraintes node/role, et exception `db-layer` unique.
+- Création KB-203 : `bootstrap_contract_v1.md` (bootstrap documentaire uniquement, classification, refus, sorties).
+- Création KB-204 : `RUNBOOK_LAUNCHABLE_SMOKE_V1.md` (smoke documentaire uniquement, classes, préconditions, checkpoints, sorties).
+- Création KB-205 : `RESULT_CONTRACT_V1.md` (format canonique unique, enums, règles de cohérence, verrou `db-layer`).
+- Audit transverse KB-201→KB-205 : décision de mini-normalisation KB-203/KB-204 pour aligner les sorties sur KB-205.
+- Application mini-normalisation :
+  - Alignement sorties KB-203/KB-204 sur noyau `evaluation_stage/decision/result_class/result_status`.
+  - Normalisation lexicales : `document_only`, `not_applicable`, `restricted_pass`.
+- Clôture canonique phase 2 : création `PHASE2_CLOSEOUT_CANONICAL_V1.md`.
+- KB-301 :
+  - Création du runbook d’intégration réelle `student`.
+  - Qualification terrain initiale : verdict `non_integre` (pathing canonique absent, runtime conteneur non prouvé, GPU non prouvé).
+- Micro-chantier pré-retest :
+  - Plan de remédiation minimal (pathing + runtime conteneur + statut vision).
+  - Exécution réelle sur `student` :
+    - Création `/srv/openclaw/workspaces` et `/srv/openclaw/outputs` + droits.
+    - Installation `podman` + test `podman run --rm alpine ...`.
+    - Vérification GPU : pas de GPU qualifiant, `vision` tranché `non qualifie`.
+  - Verdict micro-chantier : `retest_possible`.
+
+3) Décisions:
+- KB-202/203/204/205 : ACCEPTÉS (DONE) ; doctrine `db-layer` verrouillée à plusieurs niveaux.
+- Phase 2 documentaire : SOCLE FIGÉ puis CLOSE (closeout canonique validé).
+- KB-301 runbook : ACCEPTÉ (DONE).
+- Qualification terrain KB-301 : `non_integre` tant que blockers non levés.
+- Micro-remédiation : pathing canonique minimal + preuve runtime conteneur ; `vision` reste non qualifié sans GPU prouvé.
+- Après remédiation réelle : `retest_possible` pour relancer la qualification KB-301 (a minima `lab` + `hf_build`).
+
+4) Commandes / Code:
+```sh
+# Vérifs identité
+ssh student "hostnamectl --static && whoami && uname -sr"
+
+# Pathing (sur student)
+sudo mkdir -p /srv/openclaw/workspaces /srv/openclaw/outputs
+sudo chown -R student:student /srv/openclaw
+sudo chmod 755 /srv/openclaw /srv/openclaw/workspaces /srv/openclaw/outputs
+
+# Runtime conteneur (sur student)
+sudo apt-get update
+sudo apt-get install -y podman
+podman --version
+podman run --rm docker.io/library/alpine:3.20 echo podman_ok
+
+# GPU (sur student)
+nvidia-smi   # absent
+lspci        # iGPU Intel HD Graphics 530 observée
+```
+
+5) Points ouverts (next):
+- Relancer le retest de qualification réelle KB-301 sur `student` (avec preuves) et rendre un nouveau verdict `integre`/`non_integre`.
+- Décider explicitement du traitement futur de `vision` (preuve GPU locale vs maintien non qualifié) sans ouvrir KB-302/304/305.
