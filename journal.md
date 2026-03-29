@@ -66710,3 +66710,98 @@ git push origin tools/localcms-dev-host
 - LocalCMS: mise à jour documentaire finale potentielle (02_etabli/04_reprise) pour refléter la création/push de `tools/localcms-dev-host` (mentionné comme “mission ouverte” dans le rapport).
 - Packs “zip/txt” de reprise: l’utilisateur indique que les fichiers/zip ne sont pas disponibles (problème de livraison à résoudre si requis).
 - Opt-trading: démarrer la lecture croisée (rapports normalisés par branche + matrice de convergence) selon la méthode PM proposée.
+
+## 2026-03-29 05:13 — note509
+1) Objectifs:
+- Auditer le repo **magikgmo4-ui/opt-trading** par branches avec un template fixe, produire une convergence et une décision PM.
+- Ancrer la mémoire de l’audit dans Git (branche d’audit dédiée), puis utiliser Claude pour la documentation/déploiement (cowork Windows) après cadrage.
+- Synchroniser la branche d’audit sur toutes les machines.
+- Préparer un pack de reprise pour une nouvelle session + mission **GO_CROSS_TOPLOGY_CANON_01**.
+- En parallèle : cadrer et stabiliser **OpenClaw** (runtime canonique), produire un Kanban/pack de clôture, valider skills et reclassement documentaire.
+
+2) Actions:
+- Établi l’inventaire des branches distantes opt-trading et l’ordre d’audit; constat: **pas de branche distante `student`**.
+- Défini la base canonique d’audit: **`sot/mainline`**; catégorisation des branches (historiques, absorbées, feat, archives).
+- Créé une branche d’audit neuve dédiée doc-only: **`audit/opt-trading-20260320a`** depuis `sot/mainline`.
+- Enregistré dans Git (branche d’audit) :
+  - Plan d’audit.
+  - Rapport 01 `sot/mainline` (et recroisement doc partiel via index/starter pack/kanban + docs structurantes).
+  - Kanban PM repo/branches, matrice de convergence, décision PM finale.
+  - Inventaire transverse archive-first + plan opérationnel.
+  - Index maître d’audit.
+  - Kanban maître transversal + pack de relance Claude cowork.
+- Synchronisation multi-machines:
+  - `admin-trading` OK (branche audit, clean).
+  - `student` OK pour lecture (fichiers non suivis).
+  - `Windows` OK (branche audit, untracked `docs/ot/closings/OT_TRAE_SKILLS_V1_01_CLOSING.txt`).
+  - `db-layer`: checkout bloqué par modifications locales + untracked; résolution: **clone propre dans `~/opt-trading-audit`** (OK, clean).
+- Préparé un prompt de reprise (nouvelle session ChatGPT) + prompt Claude cowork (Windows) pour mission **GO_CROSS_TOPLOGY_CANON_01**.
+- Sur OpenClaw (workflow PM/doc + validation):
+  - Lecture complète d’un zip de docs OpenClaw et extraction des écarts vs état runtime actuel.
+  - Production d’un modèle Kanban + état figé, puis packs (état figé, kanban, reprise, clôture).
+  - Validations read-only puis déploiement minimal de `maintenance-checklist-local` (création `SKILL.md`), inventaire skills, reclassements (archives + provider).
+  - Validation légère non destructive des 2 skills (contenu/borne/non destructif), sans exécution détaillée en session.
+
+3) Décisions:
+- Méthode PM: **une analyse à la fois, un rapport à la fois**, template fixe, synthèse finale obligatoire.
+- Périmètre initial: **opt-trading**; pas de branche “directrice” présupposée.
+- Canonique opt-trading: **`sot/mainline`**.
+- Rôle Claude: **génération/mise au propre doc** après audit/cadrage; ne pas arbitrer branches.
+- Mémoire chantier: **Git (branche d’audit) = source primaire**, conversation = pilotage.
+- Démarrage opérationnel: **pull** de la branche d’audit sur toutes les machines avant cowork Claude Windows.
+- Pour db-layer: ne pas casser le clone existant; **clone séparé dans `$HOME`**.
+- OpenClaw: wrapper canonique impose un contexte `openclaw` distinct; validations doivent être faites dans ce contexte; **pas de systemd --user** dans cette passe; reclassement doc clos; skills internes simples présents et “légèrement validés”.
+
+4) Commandes / Code:
+```bash
+# Pull branche d’audit (générique)
+git fetch origin
+git checkout audit/opt-trading-20260320a
+git pull --ff-only origin audit/opt-trading-20260320a
+git status
+ls audit/2026-03-20/
+```
+
+```bash
+# Recherche d’un clone git (db-layer)
+find ~ /opt /shared -maxdepth 5 -type f -path '*/.git/config' 2>/dev/null | sed 's#/\.git/config##'
+```
+
+```bash
+# Clone propre sur db-layer (droits /opt insuffisants)
+cd ~
+git clone --branch audit/opt-trading-20260320a --single-branch https://github.com/magikgmo4-ui/opt-trading.git opt-trading-audit
+cd ~/opt-trading-audit
+git status
+ls audit/2026-03-20/
+```
+
+```powershell
+# Vérification Windows
+Get-ChildItem .\audit\2026-03-20\
+```
+
+```bash
+# OpenClaw: wrapper canonique + vérif contexte (read-only)
+WRAP=/home/ghost/openclaw/openclaw_runtime_opening_ops_v3/openclaw_canonical_runtime.sh
+bash "$WRAP" health
+until bash "$WRAP" probe; do sleep 3; done
+sed -n '1,220p' "$WRAP"
+grep -nE 'openclaw|CONFIG|ENV|agent|provider|model|18789|loopback' "$WRAP"
+command -v openclaw
+```
+
+```bash
+# Déploiement minimal maintenance-checklist-local (dans le contexte openclaw)
+sudo -u openclaw bash -lc 'mkdir -p "/home/openclaw/.openclaw/skills/internal/maintenance/maintenance-checklist-local" && \
+cat > "/home/openclaw/.openclaw/skills/internal/maintenance/maintenance-checklist-local/SKILL.md" <<"EOF"
+... (SKILL.md) ...
+EOF
+find "/home/openclaw/.openclaw/skills" -maxdepth 4 -type f -name "SKILL.md" | sort'
+```
+
+5) Points ouverts (next):
+- Lancer la nouvelle session **Claude cowork (Windows)** sur **GO_CROSS_TOPLOGY_CANON_01** (carte canonique transverse: repo/branche vs sous-projet intégré vs module vs machine/runtime vs projet séparé vs hors bundle).
+- Traiter les **untracked** sur `student` et `Windows` (décider: ignorer vs nettoyer) pour éviter bruit de statut.
+- Optionnel: formaliser/committer un document “lancement cowork” si nécessaire (non confirmé lors d’une interruption précédente).
+- OpenClaw: si besoin de preuve plus forte, exécuter une **validation fonctionnelle légère en session** des skills (au-delà de la présence + lecture), sans élargir le périmètre.
