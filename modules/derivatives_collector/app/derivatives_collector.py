@@ -65,17 +65,19 @@ def load_config():
 
 # --- Adapters ---
 class BaseAdapter:
-    def __init__(self, max_workers=5):
+    def __init__(self, max_workers=5, retries=3, backoff_factor=1.0):
         self.max_workers = max_workers
+        self.retries = retries
+        self.backoff_factor = backoff_factor
 
-    def _fetch(self, url, retries=3, backoff_factor=1.0):
+    def _fetch(self, url):
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-        for attempt in range(retries):
+        for attempt in range(self.retries):
             try:
                 with urllib.request.urlopen(req, timeout=10) as response:
                     return json.loads(response.read().decode('utf-8'))
             except Exception as e:
-                wait_time = backoff_factor * (2 ** attempt)
+                wait_time = self.backoff_factor * (2 ** attempt)
                 error_msg = str(e)
                 
                 if isinstance(e, urllib.error.HTTPError):
@@ -91,11 +93,11 @@ class BaseAdapter:
                 elif isinstance(e, urllib.error.URLError):
                     error_msg = f"Network/Timeout ({e.reason})"
 
-                if attempt == retries - 1:
-                    print(f"[{self.__class__.__name__.replace('Adapter', '').upper()}][ERROR] Final fetch failure for {url} after {retries} attempts: {error_msg}", file=sys.stderr)
+                if attempt == self.retries - 1:
+                    print(f"[{self.__class__.__name__.replace('Adapter', '').upper()}][ERROR] Final fetch failure for {url} after {self.retries} attempts: {error_msg}", file=sys.stderr)
                     return None
                     
-                print(f"[{self.__class__.__name__.replace('Adapter', '').upper()}][WARN] Fetch failed for {url} (attempt {attempt+1}/{retries}): {error_msg}. Retrying in {wait_time}s...", file=sys.stderr)
+                print(f"[{self.__class__.__name__.replace('Adapter', '').upper()}][WARN] Fetch failed for {url} (attempt {attempt+1}/{self.retries}): {error_msg}. Retrying in {wait_time}s...", file=sys.stderr)
                 time.sleep(wait_time)
 
     def _collect_symbol(self, symbol, batch_timestamp):

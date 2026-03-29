@@ -8,6 +8,9 @@ import concurrent.futures
 from datetime import datetime, timezone
 
 class BinanceAdapter(BaseAdapter):
+    def __init__(self, max_workers=5, retries=3, backoff_factor=1.0):
+        super().__init__(max_workers=max_workers, retries=retries, backoff_factor=backoff_factor)
+
     """Binance USD-M Futures Data Adapter"""
     BASE_URL = "https://fapi.binance.com"
 
