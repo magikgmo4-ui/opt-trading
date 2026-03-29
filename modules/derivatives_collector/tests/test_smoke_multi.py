@@ -71,12 +71,46 @@ def test_fail_open():
     assert "Invalid return type" in data[3]["error"]
     print("[PASS] Fail-Open architecture\n")
 
+def test_sidecar_metadata():
+    print("--- Testing Sidecar Metadata ---")
+    config = {
+        "DATA_SOURCE": "mock",
+        "SYMBOLS": ["BTCUSDT", "ETHUSDT", "FAIL"],
+        "OUTPUT_FORMAT": "json",
+        "OUTPUT_DIR": PROJECT_ROOT / "data" / "derivatives" / "test_output"
+    }
+    collector = DerivativesCollector(config)
+    
+    # Clean output dir
+    if config["OUTPUT_DIR"].exists():
+        for f in config["OUTPUT_DIR"].glob("derivatives_*"):
+            f.unlink()
+            
+    data = collector.run()
+    
+    # Find created files
+    json_files = list(config["OUTPUT_DIR"].glob("*.json"))
+    meta_files = [f for f in json_files if f.suffix == ".json" and f.name.endswith(".meta.json")]
+    primary_files = [f for f in json_files if f not in meta_files]
+    
+    assert len(primary_files) == 1, "Should have 1 primary JSON file"
+    assert len(meta_files) == 1, "Should have 1 sidecar meta file"
+    
+    with open(meta_files[0], "r") as f:
+        meta = json.load(f)
+        
+    assert meta["meta_schema_version"] == 1
+    assert meta["stats"]["requested"] == 3
+    assert meta["stats"]["succeeded"] == 3 # Mock succeeds even if symbol is FAIL
+    print("[PASS] Sidecar Metadata architecture\n")
+
 if __name__ == "__main__":
     try:
         test_adapter("mock", "MOCK")
         test_adapter("binance", "BINANCE")
         test_adapter("bitget", "BITGET")
         test_fail_open()
+        test_sidecar_metadata()
         print("[SUCCESS] All multi-adapter smoke tests passed.")
         sys.exit(0)
     except AssertionError as e:

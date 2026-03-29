@@ -209,15 +209,34 @@ class DerivativesCollector:
 
     def run(self):
         logger.info(f"Collecting derivatives data for {self.config['SYMBOLS']} using {self.config['DATA_SOURCE']}...")
+        start_time = time.perf_counter()
         data = self.adapter.collect(self.config["SYMBOLS"])
-        self._output(data)
+        duration_s = time.perf_counter() - start_time
+        
+        self._output(data, duration_s=duration_s)
         return data
 
-    def _output(self, data):
+    def _output(self, data, duration_s=0.0):
         fmt = self.config["OUTPUT_FORMAT"].lower()
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"derivatives_{timestamp}.{fmt}"
+        now = datetime.now()
+        timestamp_str = now.strftime("%Y%m%d_%H%M%S")
+        filename = f"derivatives_{timestamp_str}.{fmt}"
         filepath = self.output_dir / filename
+        
+        # Calculate stats for Sidecar
+        stats = {
+            "requested": len(data),
+            "succeeded": len([r for r in data if r.get("error") is None]),
+            "failed": len([r for r in data if r.get("error") is not None])
+        }
+        
+        meta = {
+            "batch_timestamp": now.astimezone().isoformat(),
+            "source": self.config["DATA_SOURCE"],
+            "stats": stats,
+            "duration_s": round(duration_s, 3),
+            "meta_schema_version": 1
+        }
 
         # Console Output
         print(json.dumps(data, indent=2))
@@ -235,7 +254,14 @@ class DerivativesCollector:
                             writer = csv.DictWriter(f, fieldnames=keys)
                             writer.writeheader()
                             writer.writerows(data)
+                
+                # Sidecar Meta JSON
+                meta_filepath = filepath.with_suffix('.meta.json')
+                with open(meta_filepath, "w") as f:
+                    json.dump(meta, f, indent=2)
+                
                 logger.info(f"Data exported to: {filepath}")
+                logger.info(f"Meta exported to: {meta_filepath}")
             except Exception as e:
                 logger.error(f"Error writing output file: {e}")
 
