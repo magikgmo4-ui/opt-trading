@@ -68044,3 +68044,113 @@ journalctl -u desk_bridge.service
 - Lancer **GO_BOT_VISION_SECRETS_HARDEN_PLAN_01** (inventaire + plan de migration minimal, sans exposer ni tourner les secrets).
 - Évaluer ensuite si les **timeouts getUpdates** sont gênants (chantier polling).
 - Revoir la politique **STALE_MINUTES / fréquence capture / desk_bridge.timer** (chantier produit/UX).
+
+## 2026-03-29 05:33 | TV Webhook | COINM_SHORT | BTCUSDT 1 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `66638.0`
+5. **TP**: `0.0`
+6. **SL**: `66628.0`
+7. **Reason**: bitget bar-close ts=1774776780000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 66638.0,
+  "tp": 0.0,
+  "sl": 66628.0,
+  "reason": "bitget bar-close ts=1774776780000",
+  "_ts": "2026-03-29T09:33:03.705743+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-29 05:33 — note529
+1) Objectifs:
+- Sur Windows/OpenCode (repo `C:\Users\ghost\localcms`), garder une ligne de travail LocalCMS autonome (sans dépendre de `GO_MEMORY_BRICKS_QUERY_LAYER_V1_01` sur “fantome”).
+- Nettoyer/synchroniser l’état canonique local (docs + git) avant de sélectionner un prochain chantier.
+- Publier la branche LocalCMS sur GitHub, ouvrir/merger une PR, puis faire le cleanup post-merge.
+- En parallèle (autre chantier), corriger l’échec Telegram sur captures 2e écran via ShareX, puis valider terrain.
+
+2) Actions:
+- Vérifié accès GitHub: compte `magikgmo4-ui`, repo `magikgmo4-ui/localcms`, branche remote visible au départ: `main`.
+- Constaté que `feature/localcms-memory-view-v1` et le commit `90a52e9` n’étaient pas sur le remote (travail initialement local).
+- Réaligné docs pivots LocalCMS sur l’état réel local (HEAD/branche/triggers) et clôturé `GO_LOCALCMS_GITIGNORE_CANONICAL_SYNC_01` (PASS).
+- Commit local hygiène git incluant `.gitignore` + docs pivots: `2bb1a58` (`GO_LOCALCMS_GITIGNORE_LOCAL_COMMIT_01` PASS).
+- Sélection de mission: `GO_LOCALCMS_REPRISE_PACK_CONSOLIDATION_01` (consolidation du pack de reprise) puis commit `089efe3` (`GO_LOCALCMS_REPRISE_PACK_LOCAL_COMMIT_01` PASS).
+- Sync HEAD dans docs (éviter boucle), commit `7ed91c1` (`GO_LOCALCMS_REPRISE_PACK_HEAD_SYNC_LOCAL_COMMIT_01` PASS).
+- Préparation publication branche (`GO_LOCALCMS_BRANCH_PUBLICATION_PREP_01` PASS), push branche `feature/localcms-memory-view-v1` vers origin (`GO_LOCALCMS_BRANCH_PUBLICATION_PUSH_01` PASS).
+- Préparation PR: base cible recommandée `feature/localcms-shared-explorer-cms-installer-v1` (`GO_LOCALCMS_BRANCH_PUBLICATION_PR_PREP_01` PASS).
+- Création PR GitHub #1 via `gh pr create` (`GO_LOCALCMS_BRANCH_PUBLICATION_PR_CREATE_01` PASS), puis triage review (`GO_LOCALCMS_PR_REVIEW_FOLLOWUP_01` PASS), décision merge (`GO_LOCALCMS_PR_MERGE_DECISION_01` PASS), exécution merge (`GO_LOCALCMS_PR_MERGE_EXECUTE_01` PASS). Merge commit: `65caff47c9432e7efc1df6733cb3ee7503e0a382`.
+- Cleanup post-merge: suppression branche distante source via `git push origin --delete feature/localcms-memory-view-v1` (`GO_LOCALCMS_POST_MERGE_REMOTE_BRANCH_DELETE_01` PASS).
+- Cleanup local: switch + FF de la base locale sur `feature/localcms-shared-explorer-cms-installer-v1` (HEAD `65caff4`) (`GO_LOCALCMS_POST_MERGE_SWITCH_BASE_LOCAL_SYNC_01` PASS) puis suppression branche locale source (`git branch -d feature/localcms-memory-view-v1`) (`GO_LOCALCMS_POST_MERGE_LOCAL_BRANCH_DELETE_01` PASS).
+- Sync canonique post-merge des docs pivots sur la branche de base (00/01/04) (`GO_LOCALCMS_POST_MERGE_FINAL_STATE_SYNC_01` PASS), commit `3f29f46` (`GO_LOCALCMS_POST_MERGE_FINAL_STATE_LOCAL_COMMIT_01` PASS), push du commit documentaire (`GO_LOCALCMS_POST_MERGE_FINAL_STATE_PUSH_01` PASS).
+- Chantier ShareX/Telegram: patch minimal dans `C:\monitor\scripts\sharex_action_chain.bat` (copie temporaire ASCII-safe pour Telegram, original conservé pour Vision), validation terrain confirmée par l’utilisateur (2e écran + capture auto + Telegram OK). `GO_SHAREX_2ECRAN_TELEGRAM_VALIDATION_01` PASS et closeout `GO_SHAREX_2ECRAN_CLOSEOUT_01` PASS.
+
+3) Décisions:
+- Ouvrir un chantier LocalCMS séparé et autonome sur Windows, sans dépendre du chantier “fantome”.
+- Prioriser hygiène git + vérité documentaire (docs pivots) avant toute mission fonctionnelle.
+- Casser la boucle “sync HEAD docs” déclenchée par des commits documentaires; basculer vers publication/PR.
+- PR devait cibler `feature/localcms-shared-explorer-cms-installer-v1` (pas `main`).
+- Après merge: supprimer la branche distante source, puis réaligner la base locale, puis supprimer la branche locale source.
+- ShareX: corriger au niveau wrapper `sharex_action_chain.bat` (pas `send_telegram.bat` / pas `send_vision_inbox.ps1`).
+
+4) Commandes / Code:
+```bash
+git branch --show-current
+git rev-parse --short HEAD
+git status --short --branch
+git log --oneline -1
+git log --oneline -5
+git diff -- <fichiers docs ciblés>
+git show --name-only --format=oneline -1
+git remote -v
+git branch -vv
+git fetch origin --prune
+git ls-remote --heads origin <branch>
+git merge-base --is-ancestor <base> HEAD
+
+# commits locaux (exemples tels qu’exécutés)
+git add -- .gitignore docs/claude/00_session_index_localcms.txt docs/claude/01_workflow_machine_localcms.txt docs/claude/02_etabli_localcms.txt docs/claude/03_closeout_memory_view_v1.txt docs/claude/04_reprise_localcms.txt \
+  && git commit -m "localcms: commit gitignore harden and canonical sync"
+
+git add -- docs/claude/00_session_index_localcms.txt docs/claude/01_workflow_machine_localcms.txt docs/claude/04_reprise_localcms.txt \
+  && git commit -m "localcms: consolidate reprise pack"
+
+git add -- docs/claude/00_session_index_localcms.txt docs/claude/01_workflow_machine_localcms.txt docs/claude/04_reprise_localcms.txt \
+  && git commit -m "localcms: sync reprise pack head"
+
+# publication branche
+git push -u origin feature/localcms-memory-view-v1
+
+# PR / merge (GitHub CLI)
+gh pr create --base feature/localcms-shared-explorer-cms-installer-v1 --head feature/localcms-memory-view-v1 --title "Add LocalCMS Memory Bricks V1 read-only view" --body "..."
+gh pr view 1 --json number,title,url,baseRefName,headRefName,state,mergeable
+gh pr checks 1
+gh pr merge 1 --merge
+
+# post-merge cleanup remote
+git push origin --delete feature/localcms-memory-view-v1
+
+# réalignement base locale
+git switch feature/localcms-shared-explorer-cms-installer-v1
+git pull --ff-only origin feature/localcms-shared-explorer-cms-installer-v1
+
+# suppression branche locale source
+git branch -d feature/localcms-memory-view-v1
+
+# push sync doc post-merge
+git push origin feature/localcms-shared-explorer-cms-installer-v1
+```
+
+5) Points ouverts (next):
+- LocalCMS: exécuter `GO_LOCALCMS_FINAL_STATE_RECORDED_01` (jalon d’enregistrement de l’état final canonique), puis lancer `GO_LOCALCMS_NEXT_MISSION_SELECTION_04`.
+- ShareX/Telegram/Vision: clôture du scope actée; reprise “bot vision telegram” annoncée pour une autre session (pas traitée ici).
