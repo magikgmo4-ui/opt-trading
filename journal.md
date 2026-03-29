@@ -66936,3 +66936,102 @@ KEEP_WORKDIR=1 bash modules/hf_free_platform/bin/publish_hf_dataset.sh \
   - décider quoi faire de `mcp_public` (starter placeholder; Space non créé/pas publié).
   - vérifier/acter l’état de publication HF pour `portal_static` et `tools_private` (preuves de commits/push non collées, contrairement à `public_assets`).
 - Réseau/admin-trading: mot de passe Wi-Fi exposé dans la conversation → changer le mot de passe (action opératoire hors code).
+
+## 2026-03-29 05:16 — note511
+1) Objectifs:
+- Pousser les branches HF depuis le bon repo (opt-trading vs clones temporaires HF).
+- Rendre `mcp_public` publiable sur Hugging Face (HF Free) et le publier.
+- Clôturer HF via PR/merge sur `sot/mainline`.
+- Lancer un nouveau workflow “Antigravity” (multi-IA) puis cadrer/exécuter un pilote “BinanceAdapter” pour `derivatives_collector`.
+- Reprendre sur machine student avec OpenCode + modèle MiMo V2 Pro.
+
+2) Actions:
+- Correction d’un `git push` lancé dans un clone HF temporaire au lieu du repo canonique; push effectué depuis `~/opt-trading` (branche `feature/hf-publication-closeout-01`, commit `bbb28ba`).
+- Diagnostic `mcp_public`: placeholder non publiable → patch minimal Gradio créé (README frontmatter HF + `app.py` + `requirements.txt`), sanity check PASS, py_compile OK; branch `feature/hf-mcp-public-minimal-impl-01`, commit `3683a8e`, push GitHub OK.
+- Rehearsal publication HF de `mcp_public`:
+  - échec initial car Space HF inexistant → création du Space HF.
+  - correction `.pyc/__pycache__` dans le clone HF (ajout `.gitignore`).
+  - rejet HF “emoji empty” → correction frontmatter (`emoji: ""` → valeur non vide).
+  - rejet non-fast-forward → `git pull --rebase`; le commit local a été “skipped” car déjà représenté côté remote; Space `mcp_public` publié.
+  - réalignement demandé du canonique opt-trading pour `emoji`.
+- PRs GitHub ouvertes puis confirmées mergées pour HF: #14, #17, #18; plus tard PR #20 (tools_private metadata) identifiée puis mergée (base correcte = `sot/mainline`), et resync local sur `sot/mainline`.
+- Post-déploiement: `tools_private` en “Configuration error” (Missing configuration in README) → correction frontmatter README (bloc YAML doit être en première ligne), republication HF via clone temporaire; commit HF `97de2b9` poussé.
+- Confusion PRs base `main` vs `sot/mainline` → rappel flux canonique `feature -> sot/mainline`; PRs obsolètes fermées.
+- Audit/topologie (docs/PDF joints): clarification pivot `sot/mainline` + taxonomie (repo/module/machine/projets séparés); audio non transcrit.
+- Antigravity (Windows, branche d’audit `audit/opt-trading-20260320a`): passes read-only de cadrage avec Gemini; Antigravity qualifié comme “archive laboratoire” historique (`antigravity/main`) + nouveau workstream à définir; choix d’un pilote.
+- Pilote Antigravity: spécification puis implémentation d’un `BinanceAdapter V1` pour `derivatives_collector`:
+  - schéma de sortie verrouillé à 9 clés fixes + `None` si absent; `quoteVolume` pour `volume_futures`; timestamp batch UTC ISO.
+  - exécution en `git worktree` + branche dédiée; mini-correctifs (symbol uppercase export, timestamp batch unique, exceptions float).
+  - commit `7c5e1e3` sur branche `feat/antigravity-binance-v1`, push OK (un premier push avait échoué à cause d’un refspec pollué).
+  - pack de clôture + prompt de review PR rédigés; suppression des liens `cci:` exigée.
+- Nettoyage: alerte Vim swap `.MERGE_MSG.swp` → suppression recommandée; branche audit locale en avance avec modifications/suppressions + fichier non tracké → commit + push effectués.
+- Resync `sot/mainline` Windows: divergence + gros état staged → création branche rescue + stash, `reset --hard origin/sot/mainline`; constat que le pilote binance n’était pas sur cette machine; puis reprise sur machine Linux (fantome) où `origin/feat/antigravity-binance-v1` existe, tests `python3 sample` + `DATA_SOURCE=binance collect` OK; merge final annoncé “fait”.
+- Reprise student: sélection du chemin repo `/opt/trading`; choix OpenCode modèle MiMo V2 Pro; micro-chantier proposé puis exécuté (suppression duplication dans `jobs/macro_xau/macro_xau.py`), `python3 -m py_compile` OK.
+
+3) Décisions:
+- HF: `mcp_public` non publiable → patch minimal Gradio; publication HF validée; `tools_private` fix limité au frontmatter README.
+- Workflow Git: base canonique = `sot/mainline` (pas `main`); PRs contre `main` à fermer si obsolètes.
+- Antigravity: ne pas réactiver `antigravity/main` par défaut; définir un pilote concret avant de figer la forme finale.
+- Pilote Antigravity retenu: adapter Binance Futures public dans `derivatives_collector`, schéma 9 clés fixes, `None` pour champs absents, `quoteVolume`, timestamp batch UTC.
+- OpenCode/student: repo = `/opt/trading`; modèle = MiMo V2 Pro (Zen).
+
+4) Commandes / Code:
+```bash
+# Push GitHub depuis le repo canonique
+cd ~/opt-trading
+git checkout feature/hf-publication-closeout-01
+git push -u origin feature/hf-publication-closeout-01
+
+# Rehearsal publication HF Space
+KEEP_WORKDIR=1 bash modules/hf_free_platform/bin/publish_hf_space.sh \
+  modules/hf_free_platform/spaces/mcp_public \
+  https://huggingface.co/spaces/magikgmo4/mcp_public
+
+# Nettoyage __pycache__ dans clone HF + ignore
+rm -rf __pycache__
+printf "__pycache__/\n*.pyc\n" >> .gitignore
+git add .gitignore
+
+# Fix frontmatter HF mcp_public (emoji vide)
+sed -i 's/^emoji: ""$/emoji: "🧰"/' README.md
+git add README.md
+git commit --amend --no-edit
+git fetch origin
+git pull --rebase origin main
+git push
+
+# Correction tools_private (frontmatter en 1ère ligne) puis republication HF
+KEEP_WORKDIR=1 bash modules/hf_free_platform/bin/publish_hf_space.sh \
+  modules/hf_free_platform/spaces/tools_private \
+  https://huggingface.co/spaces/magikgmo4/tools_private
+
+# Resync canonique après merge PR #20 (Linux)
+cd ~/opt-trading
+git fetch origin --prune
+git checkout sot/mainline
+git pull --ff-only origin sot/mainline
+
+# Windows: rescue + stash + reset hard sot/mainline
+git branch rescue/sot-mainline-local-2964fea
+git stash push -u -m "rescue before reset sot-mainline 2026-03-25"
+git fetch origin --prune
+git checkout sot/mainline
+git reset --hard origin/sot/mainline
+
+# Antigravity: création worktree + branche (Windows)
+git fetch origin --prune
+git worktree add -b feat/antigravity-binance-pilot ../opt-trading-binance-pilot origin/sot/mainline
+
+# Tests derivatives_collector (Linux)
+python3 -m modules.derivatives_collector.app.derivatives_collector sample
+OUTPUT_DIR=/tmp/antigravity-binance-pilot DATA_SOURCE=binance \
+  python3 -m modules.derivatives_collector.app.derivatives_collector collect
+
+# OpenCode micro-chantier validé (macro_xau)
+python3 -m py_compile jobs/macro_xau/macro_xau.py
+```
+
+5) Points ouverts (next):
+- Vérifier/archiver proprement les worktrees/branches Antigravity restants sur les machines (si encore présents) après merge.
+- Confirmer la disponibilité/ID exact du modèle MiMo V2 Pro dans OpenCode Zen au moment d’exécution (catalogue “free” pouvant changer).
+- Réserve mineure: warning LSP sur `telegram_notify` mentionné durant le micro-chantier `macro_xau` (non prouvé, non traité).
