@@ -67619,3 +67619,113 @@ git log --oneline -5
   - Branche toujours locale (remote GitHub ne voit pas `feat/memory-bricks-v1-impl-harden`) → décider push (sans `_state/`).
   - Trigger en cours proposé : `GO_MEMORY_BRICKS_MODULE_CONSOLIDATED_REFRESH_02` (rafraîchir le closeout consolidé pour inclure `a38887a/0276286/9aea91d`, puis closeout Git).
 - `Windows/localcms` : démarrer `GO_LOCALCMS_NEXT_MISSION_SELECTION_02` (la branche/commits restent locaux tant que non push).
+
+## 2026-03-29 05:28 | TV Webhook | COINM_SHORT | BTCUSDT 1 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `66627.9`
+5. **TP**: `0.0`
+6. **SL**: `66617.9`
+7. **Reason**: bitget bar-close ts=1774776480000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 66627.9,
+  "tp": 0.0,
+  "sl": 66617.9,
+  "reason": "bitget bar-close ts=1774776480000",
+  "_ts": "2026-03-29T09:28:03.151331+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-29 05:28 — note521
+1) Objectifs:
+- Mettre à jour/close les passes documentaires **memory_bricks** (refresh closeout consolidé puis sync spec) sans toucher au code et sans ajouter `_state/`.
+- Côté **antigravity/binance**: sécuriser l’intégration canonique du BinanceAdapter (réalité Git vs mémoire), puis dérouler V1.1 et une V2 incrémentale (robustesse, métriques, observabilité, parallélisme) avec validations.
+
+2) Actions:
+- **memory_bricks**
+  - Refresh du closeout consolidé pour couvrir `a38887a`, `0276286`, `9aea91d` (incl. `smoke_wrappers.sh`, limites --system/sudo).
+  - Commit du closeout consolidé (HEAD passé à `438f404`), worktree restant: `?? _state/`.
+  - Sélection du chantier suivant: sync de `SPEC_MEMORY_BRICKS_V1.md`.
+  - Sync documentaire de la spec (query + install_shortcuts local-first + smoke_wrappers), puis commit (HEAD passé à `e24088c`), worktree restant: `?? _state/`.
+  - Prochain trigger memory_bricks: `GO_MEMORY_BRICKS_NEXT_MISSION_SELECTION_09`.
+- **antigravity / BinanceAdapter**
+  - Constats GitHub: PR #19 fermée non mergée; branche `feat/antigravity-binance-v1` diverged (ahead 1 / behind 12) ⇒ besoin resync/revalidate.
+  - Nettoyage/sync Windows sur `sot/mainline` (fast-forward `f59d675..5f7d066`), gestion d’un worktree local `feat/antigravity-binance-pilot` confirmé ancêtre puis supprimable.
+  - Smoke V1.1: première validation entachée par merge local; revalidation clean a d’abord échoué (adapter absent), puis forensics ont trouvé le patch sur `origin/feat/antigravity-binance-v1`.
+  - Réintégration canonique: constat que `origin/sot/mainline` était déjà aligné; push effectué; revalidation smoke clean ensuite **PASS**.
+  - V1.1: ajout retry/backoff, ajout `long_short_ratio`, ajout observabilité `stderr`, clôture V1.1 avec commit/push.
+  - V2: cadrage (priorité durcissement HTTP), implémentation durcissement (429/418/timeouts), cadrage parallélisme, implémentation parallélisme borné (revalidée), cadrage tests V2 (priorité tests unitaires déterministes via mocking `urllib`).
+
+3) Décisions:
+- **memory_bricks**
+  - `GO_MEMORY_BRICKS_MODULE_CONSOLIDATED_REFRESH_02` = PASS → closeout Git (`GO_MEMORY_BRICKS_MODULE_CONSOLIDATED_REFRESH_CLOSEOUT_02`) = PASS.
+  - `GO_MEMORY_BRICKS_SPEC_SYNC_01` = PASS → closeout Git (`GO_MEMORY_BRICKS_SPEC_SYNC_CLOSEOUT_01`) = PASS.
+  - Next: `GO_MEMORY_BRICKS_NEXT_MISSION_SELECTION_09`.
+- **antigravity**
+  - Requalifier `GO_ANTIGRAVITY_POSTMERGE_01` en “RESYNC BEFORE MERGE” tant que le canon ne prouve pas l’intégration.
+  - Après forensics et réintégration, `GO_ANTIGRAVITY_V1_1_SMOKE_REVALIDATE_CLEAN_01` = PASS.
+  - Enchaîner V1.1: `RETRY_01` PASS, `METRICS_01` PASS, `OBSERVABILITY_01` PASS, `CLOSEOUT_01` PASS.
+  - V2: `SCOPE_01` PASS → `V2_HTTP_HARDENING_01` PASS → `V2_PARALLELISM_SCOPE_01` PASS → `V2_PARALLELISM_REVALIDATE_01` PASS → `V2_TESTS_SCOPE_01` PASS.
+  - Next: `GO_ANTIGRAVITY_V2_TESTS_01`.
+
+4) Commandes / Code:
+```bash
+# memory_bricks (fantome)
+cd /home/fantome/opt-trading
+git add modules/memory_bricks/docs/CLOSEOUT_MEMORY_BRICKS_MODULE_CONSOLIDATED_01.md
+git commit -m "memory_bricks: refresh consolidated module closeout"
+
+git add modules/memory_bricks/docs/SPEC_MEMORY_BRICKS_V1.md
+git commit -m "memory_bricks: sync spec with delivered surface"
+```
+
+```powershell
+# Windows sync mainline
+git checkout sot/mainline
+git pull origin sot/mainline
+git worktree list
+
+# Vérif ancêtre branche pilote
+git merge-base --is-ancestor feat/antigravity-binance-pilot sot/mainline
+echo $LASTEXITCODE
+
+# Suppression worktree/branche pilote (si confirmé ancêtre)
+git worktree remove C:\Users\ghost\opt-trading-binance-pilot
+git branch -d feat/antigravity-binance-pilot
+```
+
+```bash
+# Antigravity canon reintegrate (safe)
+git checkout sot/mainline
+git pull origin sot/mainline
+git merge --ff-only origin/feat/antigravity-binance-v1
+git push origin sot/mainline
+```
+
+```bash
+# Smoke test antigravity
+python modules/derivatives_collector/tests/test_smoke_binance.py
+```
+
+```bash
+# V1.1 closeout commit/push (antigravity)
+git add modules/derivatives_collector/app/binance_adapter.py
+git commit -m "feat(binance): finalize V1.1 enhancements (retry, LSR, observability)"
+git push origin sot/mainline
+```
+
+5) Points ouverts (next):
+- **memory_bricks**: exécuter `GO_MEMORY_BRICKS_NEXT_MISSION_SELECTION_09` (repo local fantome; `_state/` non tracké à ne jamais committer; remote GitHub branche non visible selon notes).
+- **antigravity**: démarrer `GO_ANTIGRAVITY_V2_TESTS_01` (tests unitaires déterministes avec mock `urllib.request.urlopen`, couvrant 429/418/timeouts, dégradation partielle, et ordre sous `executor.map`).
