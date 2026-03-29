@@ -18,6 +18,10 @@ import json
 import csv
 import argparse
 import random
+import time
+import urllib.request
+import urllib.error
+import concurrent.futures
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -61,8 +65,52 @@ def load_config():
 
 # --- Adapters ---
 class BaseAdapter:
-    def collect(self, symbols):
+    def __init__(self, max_workers=5):
+        self.max_workers = max_workers
+
+    def _fetch(self, url, retries=3, backoff_factor=1.0):
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        for attempt in range(retries):
+            try:
+                with urllib.request.urlopen(req, timeout=10) as response:
+                    return json.loads(response.read().decode('utf-8'))
+            except Exception as e:
+                wait_time = backoff_factor * (2 ** attempt)
+                error_msg = str(e)
+                
+                if isinstance(e, urllib.error.HTTPError):
+                    if e.code == 429:
+                        error_msg = "Rate limit exceeded (429)"
+                        wait_time = max(wait_time, 2.0)
+                    elif e.code == 418:
+                        error_msg = "IP auto-banned (418)"
+                        print(f"[{self.__class__.__name__.replace('Adapter', '').upper()}][FATAL] {error_msg} for {url}. Aborting.", file=sys.stderr)
+                        return None
+                    else:
+                        error_msg = f"HTTP {e.code}"
+                elif isinstance(e, urllib.error.URLError):
+                    error_msg = f"Network/Timeout ({e.reason})"
+
+                if attempt == retries - 1:
+                    print(f"[{self.__class__.__name__.replace('Adapter', '').upper()}][ERROR] Final fetch failure for {url} after {retries} attempts: {error_msg}", file=sys.stderr)
+                    return None
+                    
+                print(f"[{self.__class__.__name__.replace('Adapter', '').upper()}][WARN] Fetch failed for {url} (attempt {attempt+1}/{retries}): {error_msg}. Retrying in {wait_time}s...", file=sys.stderr)
+                time.sleep(wait_time)
+
+    def _collect_symbol(self, symbol, batch_timestamp):
         raise NotImplementedError
+
+    def collect(self, symbols):
+        data = []
+        batch_timestamp = datetime.now(timezone.utc).isoformat()
+        
+        with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+            results = executor.map(lambda sym: self._collect_symbol(sym, batch_timestamp), symbols)
+            for row in results:
+                data.append(row)
+                
+        return data
 
 class MockAdapter(BaseAdapter):
     def collect(self, symbols):
