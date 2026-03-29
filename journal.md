@@ -66805,3 +66805,134 @@ find "/home/openclaw/.openclaw/skills" -maxdepth 4 -type f -name "SKILL.md" | so
 - Traiter les **untracked** sur `student` et `Windows` (décider: ignorer vs nettoyer) pour éviter bruit de statut.
 - Optionnel: formaliser/committer un document “lancement cowork” si nécessaire (non confirmé lors d’une interruption précédente).
 - OpenClaw: si besoin de preuve plus forte, exécuter une **validation fonctionnelle légère en session** des skills (au-delà de la présence + lecture), sans élargir le périmètre.
+
+## 2026-03-29 05:14 — note510
+1) Objectifs:
+- Consolider le statut des 2 skills internes simples OpenClaw (`routine-health-check-simple`, `maintenance-checklist-local`).
+- Corriger leur découverte/chargement côté runtime si nécessaire.
+- Valider une mobilisation légère en session.
+- Figer le statut dans les artefacts canoniques et créer un smoke/runbook versionné.
+- Poursuivre ensuite des chantiers LocalCMS (P0) puis HF/portal + HF publication rehearsal.
+
+2) Actions:
+- Validation session initiale des skills: échec (dérive vers skill bundlé `healthcheck` + skill non résolu).
+- Diagnostic read-only du mécanisme de découverte des skills OpenClaw:
+  - chemins consultés + priorité,
+  - `openclaw skills list/info/check` ne voit pas les skills internes,
+  - cause identifiée: arborescence trop profonde sous `~/.openclaw/skills/internal/...`.
+- Correction minimale non destructive: copie des `SKILL.md` vers `~/.openclaw/skills/<skill>/SKILL.md` en contexte `openclaw`.
+- Re-tests CLI: skills maintenant découverts (`openclaw-managed`, `ready`).
+- Re-validation légère en session: mobilisation OK et sortie bornée, non destructive (limites: exécution factuelle profonde non prouvée).
+- Mise à jour proposée des artefacts canoniques (ETAT_ACTUEL/KANBAN/packs) pour refléter “présent + découvert + mobilisable + validation session légère”.
+- Création d’un smoke opératoire, puis formalisation en runbook repo:
+  - runbook `runbooks/OPENCLAW_SKILLS_SMOKE_V1.md` créé et committé (`2bbab93`).
+- Trae (OT): fermeture documentaire propre:
+  - `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md` synchronisé post-audit (double contexte Trae V1 + Claude Cowork, 2 couches sources, 2 tracks reprise),
+  - closing créé `docs/ot/closings/OT_TRAE_SESSION_REPRISE_SYNC_01_CLOSING.txt`.
+- LocalCMS:
+  - sync reprise doc: `localcms/docs/claude/04_reprise_localcms.txt` mis à jour; blocage P0 identifié,
+  - P0 localisé (HTML) et archivé dans le repo; incident `index.lock` + staging deletions corrigés; commit/push faits (`447c8c1`).
+- HF/portal (opt-trading):
+  - incident réseau admin-trading: machine sur mauvais sous-réseau Wi-Fi (192.168.16.x) → réalignement vers 192.168.0.111; SSH rétabli,
+  - déploiement pack `portal_impl_pack_v1.zip` → branche `feature/hf-free-impl-portal-v1`, commit `7002f99`, push; PR #13 créée puis merge (merge commit `87ae991...`),
+  - resync local sur `sot/mainline` via `git fetch/pull`; sanity HF PASS.
+- HF doc:
+  - kanban + recovery pack HF synchronisés; commit `95d8720` sur `feature/hf-free-kanban-sync-v1` puis push (auth HTTPS).
+- HF rehearsal:
+  - création HF: `portal_static` (Space Static), `public_assets` (Dataset), `tools_private` (Space Gradio); `mcp_public` laissé en attente,
+  - bug dans scripts publish: `rsync --delete` supprimait `.git` → fix `--exclude ".git"`,
+  - amélioration scripts: mode `KEEP_WORKDIR=1` pour conserver le clone temporaire; commit `fd99b4e` sur `feature/hf-publish-helper-fix-01` puis push,
+  - rehearsal OK (diffs visibles), puis commit/push sur HF confirmé au moins pour dataset `public_assets` (`3f28cd2` sur HF),
+  - closeout doc HF préparé; commit local `bbb28ba` sur `feature/hf-publication-closeout-01` (push GitHub encore bloqué dans le texte final).
+
+3) Décisions:
+- Statut OpenClaw skills:
+  - Présence disque + cohérence doc: ÉTABLI,
+  - Découverte runtime: corrigée et ÉTABLI,
+  - Mobilisation session légère: ÉTABLI (validation complète/longrun non faite).
+- Correction discovery: privilégier copie non destructive vers root scanné plutôt que déplacement/renommage.
+- Runbook = source de vérité (repo), script ensuite seulement si besoin; runbook smoke committé.
+- Trae: `GO_TRAE_SESSION_REPRISE_SYNC_01` = CLOSE documentaire (validation live non prouvée).
+- LocalCMS: P0 archivé dans Git (commit/push `447c8c1`); K03 dépend uniquement de validation PM explicite de P0.
+- HF/portal: impl portal_static livrée et mergée (PR #13, merge commit `87ae991...`); resync `sot/mainline` requis côté clone.
+- HF publication rehearsal: exécution repo par repo; découverte et correction des helpers publish (exclusion `.git`, mode review KEEP_WORKDIR).
+
+4) Commandes / Code:
+```bash
+# OpenClaw — copie non destructive des skills pour découverte
+sudo -u openclaw bash -lc '
+set -e
+mkdir -p /home/openclaw/.openclaw/skills/routine-health-check-simple
+mkdir -p /home/openclaw/.openclaw/skills/maintenance-checklist-local
+cp /home/openclaw/.openclaw/skills/internal/routine/routine-health-check-simple/SKILL.md \
+   /home/openclaw/.openclaw/skills/routine-health-check-simple/SKILL.md
+cp /home/openclaw/.openclaw/skills/internal/maintenance/maintenance-checklist-local/SKILL.md \
+   /home/openclaw/.openclaw/skills/maintenance-checklist-local/SKILL.md
+/home/openclaw/.npm-global/bin/openclaw skills list
+/home/openclaw/.npm-global/bin/openclaw skills info routine-health-check-simple
+/home/openclaw/.npm-global/bin/openclaw skills info maintenance-checklist-local
+/home/openclaw/.npm-global/bin/openclaw skills check
+'
+```
+
+```bash
+# Repo OpenClaw — runbook smoke
+# runbooks/OPENCLAW_SKILLS_SMOKE_V1.md committé
+git commit -m "openclaw: add skills smoke runbook v1"
+# commit: 2bbab93
+```
+
+```powershell
+# LocalCMS — nettoyage index.lock + nettoyage staging deletions + commit P0
+Remove-Item .git\index.lock -Force
+git restore --staged docs/claude localcms-v5.html
+git add docs/p0-compatibility-contract.html docs/claude/04_reprise_localcms.txt
+git commit -m "archive P0 Compatibility Contract and sync LocalCMS reprise doc"
+git push origin feature/localcms-shared-explorer-cms-installer-v1
+# push avancé jusqu’à d26f07f..447c8c1
+```
+
+```powershell
+# HF/portal — transfert pack + exécution script sur admin-trading (LAN)
+scp C:\Users\ghost\Downloads\portal_impl_pack_v1.zip ghost@192.168.0.111:~/Downloads/
+ssh ghost@192.168.0.111 "cd ~/Downloads && unzip -o portal_impl_pack_v1.zip && \
+  test -f portal_impl/ops/impl_portal.sh && bash portal_impl/ops/impl_portal.sh /opt/trading"
+# crée/push branche feature/hf-free-impl-portal-v1, commit 7002f99
+```
+
+```bash
+# opt-trading — resync sot/mainline après merge PR
+git fetch origin --prune
+git checkout sot/mainline
+git pull --ff-only origin sot/mainline
+# origin/sot/mainline -> 87ae991... (merge PR #13)
+```
+
+```bash
+# hf_free_platform — fix publish helpers: exclure .git du rsync
+sed -i 's#rsync -a --delete "$LOCAL_DIR"/ "$WORKDIR/repo"/#rsync -a --delete --exclude ".git" "$LOCAL_DIR"/ "$WORKDIR/repo"/#' \
+  modules/hf_free_platform/bin/publish_hf_space.sh \
+  modules/hf_free_platform/bin/publish_hf_dataset.sh
+```
+
+```bash
+# hf_free_platform — rehearsal avec clone conservé
+KEEP_WORKDIR=1 bash modules/hf_free_platform/bin/publish_hf_space.sh \
+  modules/hf_free_platform/spaces/portal_static \
+  https://huggingface.co/spaces/magikgmo4/portal_static
+KEEP_WORKDIR=1 bash modules/hf_free_platform/bin/publish_hf_space.sh \
+  modules/hf_free_platform/spaces/tools_private \
+  https://huggingface.co/spaces/magikgmo4/tools_private
+KEEP_WORKDIR=1 bash modules/hf_free_platform/bin/publish_hf_dataset.sh \
+  modules/hf_free_platform/datasets/public_assets \
+  https://huggingface.co/datasets/magikgmo4/public_assets
+```
+
+5) Points ouverts (next):
+- OpenClaw: appliquer effectivement les mises à jour documentaires dans les artefacts canoniques (lignes de remplacement) si pas encore faites dans le repo.
+- LocalCMS: effectuer la validation PM explicite de P0 (K02) puis décider ouverture `GO_LOCALCMS_M1_1_FORMS_01`.
+- HF:
+  - pousser la branche closeout doc `feature/hf-publication-closeout-01` (commit local `bbb28ba`) si pas encore push.
+  - décider quoi faire de `mcp_public` (starter placeholder; Space non créé/pas publié).
+  - vérifier/acter l’état de publication HF pour `portal_static` et `tools_private` (preuves de commits/push non collées, contrairement à `public_assets`).
+- Réseau/admin-trading: mot de passe Wi-Fi exposé dans la conversation → changer le mot de passe (action opératoire hors code).
