@@ -67139,3 +67139,265 @@ git check-ignore .secrets/bitget.env.example
   - `feat/student-mimo-bitget-live-equity` (commits ccce029, 4e5b5ed)
 - K-010/K-011 (shortcuts/naming) : à traiter sur l’autre machine (explicitement pas sur student).
 - Module “memory_bricks” : documents .txt demandés (cadrage + spec V1 + pack reprise Trae) à conserver pour déploiement ultérieur avec Trae.
+
+## 2026-03-29 05:18 | TV Webhook | COINM_SHORT | BTCUSDT 1 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `66672.0`
+5. **TP**: `0.0`
+6. **SL**: `66682.0`
+7. **Reason**: bitget bar-close ts=1774775880000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 66672.0,
+  "tp": 0.0,
+  "sl": 66682.0,
+  "reason": "bitget bar-close ts=1774775880000",
+  "_ts": "2026-03-29T09:18:05.189998+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-29 05:18 — note513
+1) Objectifs:
+- Finaliser et valider le pack documentaire V1 “OpenClaw Brev-like” (control plane vs compute plane).
+- Ouvrir/derouler la phase 2 (registry, validation statique, bootstrap contract, smoke runbook, result contract) et figer le canon.
+- Ouvrir KB-301 (intégration réelle du node `student`) puis qualifier `student` dans le réel.
+- Lancer un chantier “memory_bricks” (module durable local) avec branche dédiée, hardening, tests, closeout, puis tenter une vue LocalCMS read-only.
+- Assainir l’isolement Git/branches (stashes, locks) et clarifier les points de reprise.
+
+2) Actions:
+- Livrables V1 OpenClaw produits (4 .md + 5 YAML exemples) + clôture en 7 blocs; validation PM “ACCEPTÉ (done déclaré) sous réserve de lecture”, puis acceptation “ACCEPTÉ AVEC RÉSERVES” côté relecture.
+- Prompts fournis pour validations/phase 2; création et validation de :
+  - `launchables_registry.yaml` (ACCEPTÉ).
+  - KB-202 validation statique (3 fichiers) (ACCEPTÉ).
+  - KB-203 `bootstrap_contract_v1.md` (ACCEPTÉ).
+  - KB-204 `RUNBOOK_LAUNCHABLE_SMOKE_V1.md` (ACCEPTÉ).
+  - KB-205 `RESULT_CONTRACT_V1.md` (ACCEPTÉ).
+- Audit transverse phase 2: “MINI CORRECTIONS REQUISES”; normalisation ciblée KB-203/Kb-204; socle phase 2 déclaré “FIGÉ”.
+- Closeout phase 2 produit: `PHASE2_CLOSEOUT_CANONICAL_V1.md` (validé), puis ouverture KB-301.
+- KB-301 runbook créé et validé; qualification terrain initiale: `non_integre` (pathing absent, runtime conteneur non prouvé, GPU non prouvé).
+- Micro-plan de remédiation (pathing + runtime conteneur + statut vision) validé; exécution réelle sur `student`:
+  - création `/srv/openclaw/workspaces` et `/srv/openclaw/outputs`
+  - installation `podman` + test `alpine echo`
+  - `vision` tranché `non qualifie` (pas de GPU).
+- Retest KB-301: verdict `integre` (lab + hf_build qualifiables; vision exclu).
+- Chantier memory_bricks: proposition branche dédiée, hardening et tests; commit OT réalisé sur un checkout Linux; closeouts V1 générés; tentative LocalCMS:
+  - Blocage initial car repo localcms absent sur machine Linux.
+  - Sur Windows: repo `C:\Users\ghost\localcms` qualifié, lock `.git/index.lock` levé, stash de protection créé, branche `feature/localcms-memory-view-v1` créée.
+  - Vue read-only “Memory Bricks” implémentée dans `localcms-v5.html` (PASS sur source synthétique) + commit `ac74037`.
+  - Validation sur source réelle échoue: aucune data `_state/memory_bricks` / `index_full.json` / `MB-*.md` trouvée sur Windows.
+- Détection d’incohérence de checkouts sur fantome: deux clones semblent exister (`/opt/trading` vs `~/opt-trading`) avec HEAD différents.
+
+3) Décisions:
+- Doctrine verrouillée: `db-layer` = control plane; pas compute standard; seule exception: inference locale de validation bornée/loopback/non intensive/exceptionnelle.
+- Phase 2 documentaire: CLOSE après normalisation et closeout; canon résultat unifié:
+  - champs: `evaluation_stage`, `decision`, `result_class`, `result_status`
+  - formes: `document_only`, `not_applicable`, `restricted_pass`
+  - abandon des noyaux concurrents `bootstrap_*` / `smoke_*`.
+- KB-301: continuer l’exécution sur `student`; `db-layer` figé (pas chantier compute).
+- LocalCMS: ne pas modifier le viewer tant qu’aucune “source réelle” memory_bricks (dataset) n’est attachée.
+- “Source réelle” = données générées par la CLI memory_bricks (index + MB-*.md), pas une fixture manuelle.
+- Nouvelle étape proposée: `GO_MEMORY_BRICKS_REAL_SOURCE_CREATE_01` avant `GO_LOCALCMS_MEMORY_VIEW_ATTACH_REAL_SOURCE_01`.
+- Git Windows: isoler le chantier via stash + nouvelle branche; traiter les locks stale.
+
+4) Commandes / Code:
+```bash
+# Création branche memory_bricks (a échoué sur un checkout)
+git checkout -b feat/memory-bricks-v1-impl-harden 8195cdf
+
+# Diagnostic recommandé
+git fetch --all --prune --tags
+git show --no-patch --oneline 8195cdf
+
+# Commits memory_bricks (sur un checkout)
+git add modules/memory_bricks/...
+git commit -m "memory_bricks v1: harden tests and operator error paths"
+git log --oneline -1
+```
+
+```bash
+# Remédiation student (Linux)
+sudo mkdir -p /srv/openclaw/workspaces /srv/openclaw/outputs
+sudo chown -R student:student /srv/openclaw
+sudo chmod 755 /srv/openclaw /srv/openclaw/workspaces /srv/openclaw/outputs
+sudo apt-get update
+sudo apt-get install -y podman
+podman --version
+podman run --rm docker.io/library/alpine:3.20 echo podman_ok
+```
+
+```powershell
+# Windows localcms: lock git
+Test-Path .git\index.lock
+Get-Process git, git-remote-http, git-remote-https, ssh -ErrorAction SilentlyContinue
+Remove-Item .git\index.lock -Force
+
+# Isolation chantier
+git stash push -u -m "pre-memory-view localcms state"
+git switch -c feature/localcms-memory-view-v1 447c8c1
+git branch --show-current
+git rev-parse --short HEAD
+git stash list -n 1
+```
+
+5) Points ouverts (next):
+- Résoudre l’incohérence des clones sur fantome:
+  - identifier checkout canonique (où les commits memory_bricks existent) et arrêter d’alterner `/opt/trading` vs `~/opt-trading`.
+  - vérifier si `e2541bb` est présent dans `~/opt-trading` et/ou si `5b7d296` est présent dans `/opt/trading` (ou inverse) + clarifier remotes.
+- Créer une “source réelle” memory_bricks persistée sur le bon checkout fantome (hors tmp), générée via CLI, contenant `index/index_full.json` + `MB-*.md`, puis la transférer vers Windows.
+- Rejouer `GO_LOCALCMS_MEMORY_VIEW_VALIDATE_REAL_SOURCE_01` après attachement (sans modifier le viewer sauf écart réel).
+- Sur `student`: lancer l’activation contrôlée minimale (lab puis hf_build), en gardant `vision` hors activation tant que GPU non prouvé.
+
+## 2026-03-29 05:20 | TV Webhook | COINM_SHORT | BTCUSDT 1 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `66619.2`
+5. **TP**: `0.0`
+6. **SL**: `66609.2`
+7. **Reason**: bitget bar-close ts=1774776000000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 66619.2,
+  "tp": 0.0,
+  "sl": 66609.2,
+  "reason": "bitget bar-close ts=1774776000000",
+  "_ts": "2026-03-29T09:20:03.006282+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-29 05:24 — note515
+1) Objectifs:
+- Créer une source `memory_bricks` persistante réelle dédiée pour validation LocalCMS.
+- Copier/attacher cette source vers Windows et valider le viewer LocalCMS en lecture seule sur source réelle.
+- Diagnostiquer l’absence du menu “Memory Bricks” dans l’UI et réaligner le bon point d’entrée.
+- Clôturer et synchroniser la documentation canonique (docs/claude) côté LocalCMS.
+- Lancer un audit lecture seule d’admin-trading via OpenCode, produire livrables, puis traiter P1 (services/secrets/wrappers) et débloquer le flux Bitget→/tv (risk).
+- Normaliser wrappers registry et préparer la normalisation des wrappers “extra”.
+
+2) Actions:
+- Côté Linux (fantome): création d’une source dédiée `memory_bricks` sous `/home/fantome/opt-trading/_state/memory_bricks_localcms_source`, génération 3 briques via CLI, link + close, rebuild index, vérifs fichiers.
+- Côté Windows: correction config SSH (Host fantome), debug réseau (sshd listen wg0 only, UFW deny order), ouverture SSH LAN, ajout clé publique, `scp` de la source vers `C:\Users\ghost\Downloads\memory_bricks_localcms_source`, vérification `index_full.json` + 3 bricks.
+- LocalCMS Windows: diagnostic UI “Memory Bricks” absent → confirmé présent dans `localcms-v5.html`, problème de point d’entrée/cache; réalignement, validation viewer sur source réelle (liste + détail + statuts + read-only) = PASS; closeout docs + sync canonique.
+- LocalCMS: `.gitignore` créé (hygiène locale).
+- admin-trading: audit OpenCode (4 phases, lecture seule), création des 5 livrables dans `.opencode/`, puis traitement P1 (service tv-bitget-runner restart loop, secret ngrok, wrappers cassés), puis résolution 400 `/tv` `qty/risk is 0` via config risk, recalibrage `risk_pct`, alignement doc, durcissement parseur (tests), cleanup doublon parsing, réconciliation wrappers registry→/usr/local/bin.
+- Préparation prompt pour `GO_WRAPPERS_EXTRA_NORMALIZE_01`.
+
+3) Décisions:
+- Hiérarchie: exécution terrain (OpenCode) > pack terrain proposé; chemin canonique viewer = `/home/fantome/opt-trading/_state/memory_bricks_localcms_source` (pas `_state/memory_bricks`).
+- Contrat viewer V1 corrigé: liste/filtres via `index/index_full.json`, détail via `bricks/MB-*.md` (pas `.md` à la racine).
+- SSH: ajout bloc `Host fantome` (LAN + user fantome + key dédiée), correction écoute sshd + règles UFW (ordre allow avant deny).
+- UI LocalCMS: problème attribué au point d’entrée / cache, pas au code (code présent dans `localcms-v5.html`).
+- Post-audit admin-trading: priorisation P1 (tv-bitget-runner, secret ngrok, wrappers cassés) puis résolution blocage métier 400 `/tv`.
+- Convention canonique `risk_pct` runtime: fraction décimale (0.01 = 1%); compat legacy conservée mais dépréciée + tests.
+- Réconciliation wrappers: privilégier des wrappers robustes (scripts lanceurs) plutôt que symlinks fragiles; registre inchangé quand déjà correct.
+
+4) Commandes / Code:
+```bash
+# Linux (fantome) — création dataset memory_bricks dédié
+git branch --show-current && git rev-parse HEAD && git status --short --branch
+
+STATE_ROOT="/home/fantome/opt-trading/_state/memory_bricks_localcms_source"
+CMD="/home/fantome/opt-trading/modules/memory_bricks/scripts/cmd.sh"
+
+MEMORY_BRICKS_STATE_ROOT="$STATE_ROOT" "$CMD" new --type resume_point --title "Persistent LocalCMS seed" ...
+MEMORY_BRICKS_STATE_ROOT="$STATE_ROOT" "$CMD" new --type decision --title "Read-only viewer contract" ...
+MEMORY_BRICKS_STATE_ROOT="$STATE_ROOT" "$CMD" new --type closeout --title "Minimal persisted dataset ready" ...
+
+MEMORY_BRICKS_STATE_ROOT="$STATE_ROOT" "$CMD" link --id MB-00002 --to MB-00001
+MEMORY_BRICKS_STATE_ROOT="$STATE_ROOT" "$CMD" link --id MB-00003 --to MB-00002
+MEMORY_BRICKS_STATE_ROOT="$STATE_ROOT" "$CMD" status --id MB-00003 --set closed
+
+MEMORY_BRICKS_STATE_ROOT="$STATE_ROOT" "$CMD" index rebuild
+MEMORY_BRICKS_STATE_ROOT="$STATE_ROOT" "$CMD" list
+
+python3 -c "from pathlib import Path; root=Path('/home/fantome/opt-trading/_state/memory_bricks_localcms_source'); idx=root/'index'/'index_full.json'; bricks=sorted((root/'bricks').glob('MB-*.md')); print(f'index_full_exists={idx.exists()}'); print(f'brick_count={len(bricks)}'); [print(p.name) for p in bricks]"
+```
+
+```powershell
+# Windows — SSH config inspection + tests
+Select-String -Path "$HOME\.ssh\config" -Pattern '^\s*Host\s+' -ErrorAction SilentlyContinue
+Select-String -Path "$HOME\.ssh\config" -Pattern '^\s*(Host|HostName|User|Port|IdentityFile|ProxyJump)\b' -ErrorAction SilentlyContinue
+ssh -G fantome 2>$null | findstr /I "hostname user port identityfile proxyjump"
+
+ping 192.168.0.191
+Test-NetConnection 192.168.0.191 -Port 22
+ssh -G fantome | findstr /I "hostname user port identityfile"
+
+# Copie dataset
+$DST_ROOT = "$HOME\Downloads"
+scp -r "fantome:/home/fantome/opt-trading/_state/memory_bricks_localcms_source" "$DST_ROOT"
+
+$ROOT = "$HOME\Downloads\memory_bricks_localcms_source"
+Test-Path "$ROOT\index\index_full.json"
+Get-ChildItem "$ROOT\bricks\MB-*.md" | Select-Object Name
+
+# LocalCMS repo check
+cd C:\Users\ghost\localcms
+git branch --show-current
+git rev-parse --short HEAD
+git status --short
+```
+
+```bash
+# fantome — debug réseau SSH + correctifs
+ip -br a
+ss -tlnp | grep ':22'
+systemctl status ssh --no-pager
+sudo ufw status
+
+sudo grep -Rni "ListenAddress\|AddressFamily\|ExecStart" /etc/ssh/sshd_config /etc/ssh/sshd_config.d /etc/systemd/system/ssh.service.d
+
+cat <<'EOF' | sudo tee /etc/ssh/sshd_config.d/90-fantome-listen.conf
+ListenAddress 10.8.0.1
+ListenAddress 192.168.0.191
+EOF
+
+sudo ufw allow from 192.168.0.0/24 to any port 22 proto tcp
+sudo sshd -t
+sudo systemctl restart ssh
+ss -tlnp | grep ':22'
+
+sudo tcpdump -ni wlx90de80f92739 port 22
+
+sudo ufw status numbered
+sudo ufw delete 7
+sudo ufw insert 6 allow from 192.168.0.0/24 to any port 22 proto tcp
+
+# autoriser la clé Windows
+mkdir -p ~/.ssh && chmod 700 ~/.ssh
+touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
+echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJF9lYLx/CrLktQLW8x+X43aWY0meQei2mRtDWgNXjpC ghost@DESKTOP-1KDQTBH' >> ~/.ssh/authorized_keys
+```
+
+```bash
+# LocalCMS — commit doc suggéré (si non fait)
+git add docs/claude/00_session_index_localcms.txt docs/claude/01_workflow_machine_localcms.txt docs/claude/02_etabli_localcms.txt docs/claude/03_closeout_memory_view_v1.txt docs/claude/04_reprise_localcms.txt
+git commit -m "localcms: sync canonical memory viewer v1 closeout"
+```
+
+5) Points ouverts (next):
+- GO_WRAPPERS_EXTRA_NORMALIZE_01: normaliser les wrappers présents hors registre (/usr/local/bin), décision par wrapper (garder/enregistrer/alias/retirer) + validation sans casser runtime.
+- (Optionnel) Clarification `perf.service` vs `tv-perf.service` (amélioration).
+- Sur LocalCMS: poursuivre `GO_LOCALCMS_NEXT_MISSION_SELECTION_02` après `.gitignore` (si pas déjà fait) en respectant “ne pas rouvrir Memory Bricks V1”.
