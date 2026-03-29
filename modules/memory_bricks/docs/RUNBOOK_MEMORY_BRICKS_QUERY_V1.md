@@ -20,12 +20,22 @@ bash modules/memory_bricks/scripts/install_shortcuts.sh
 ## Validation standard
 
 ```bash
+python3 -m unittest discover -s modules/memory_bricks/tests -p "test_*.py" -v
 bash modules/memory_bricks/scripts/sanity_check.sh
 bash modules/memory_bricks/scripts/smoke_wrappers.sh
 ```
 
+- ordre recommande quand tout s'applique: `unittest` -> `sanity_check.sh` -> `smoke_wrappers.sh`
+- `python3 -m unittest ...`: regression logique Python
 - `sanity_check.sh`: verifie la validite module, les prerequis et la surface minimale repo-locale
 - `smoke_wrappers.sh`: verifie les wrappers reellement exposes apres installation local-first, y compris `cmd-memory_bricks`, `menu-memory_bricks` et `sanity-memory_bricks`
+
+## Politique minimale selon le changement
+
+- lecture/review doc seule: aucune commande obligatoire
+- modif doc seule: aucune commande obligatoire si les commandes documentees restent identiques; sinon rejouer les commandes citees
+- modif code Python: lancer `python3 -m unittest discover -s modules/memory_bricks/tests -p "test_*.py" -v`, puis `bash modules/memory_bricks/scripts/sanity_check.sh`; ajouter `bash modules/memory_bricks/scripts/smoke_wrappers.sh` si les wrappers ou entrypoints exposes peuvent etre affectes
+- modif scripts/wrappers: lancer `bash modules/memory_bricks/scripts/sanity_check.sh`, puis `bash modules/memory_bricks/scripts/smoke_wrappers.sh`; ajouter `python3 -m unittest discover -s modules/memory_bricks/tests -p "test_*.py" -v` si la logique Python ou la CLI peut etre affectee
 
 ## Source read-only validee
 

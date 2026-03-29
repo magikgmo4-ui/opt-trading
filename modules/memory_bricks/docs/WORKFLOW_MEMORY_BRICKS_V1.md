@@ -42,11 +42,21 @@ MEMORY_BRICKS_STATE_ROOT="$STATE_ROOT" "$CMD" query find --text "localcms"
 
 ## Validation standard
 
-1. verifier la validite module et les prerequis via `bash modules/memory_bricks/scripts/sanity_check.sh`
-2. verifier les wrappers et entrypoints exposes via `bash modules/memory_bricks/scripts/smoke_wrappers.sh`
+1. lancer `python3 -m unittest discover -s modules/memory_bricks/tests -p "test_*.py" -v` pour la regression logique Python
+2. verifier la validite module et les prerequis via `bash modules/memory_bricks/scripts/sanity_check.sh`
+3. verifier les wrappers et entrypoints exposes via `bash modules/memory_bricks/scripts/smoke_wrappers.sh`
 
+- ordre recommande quand les trois niveaux s'appliquent: `unittest` -> `sanity_check.sh` -> `smoke_wrappers.sh`
+- `python3 -m unittest ...`: validation fonctionnelle Python et regression logique
 - `sanity_check.sh`: valide la surface minimale du module sur un etat temporaire repo-local
 - `smoke_wrappers.sh`: valide l'installation local-first et l'execution reelle de `cmd-memory_bricks`, `menu-memory_bricks` et `sanity-memory_bricks`
+
+## Politique de validation
+
+- lecture/review doc seule: aucune commande obligatoire
+- modif doc seule: aucune commande obligatoire si les commandes documentees ne changent pas; sinon rejouer au minimum les commandes citees
+- modif code Python: lancer `python3 -m unittest discover -s modules/memory_bricks/tests -p "test_*.py" -v`, puis `bash modules/memory_bricks/scripts/sanity_check.sh`; ajouter `bash modules/memory_bricks/scripts/smoke_wrappers.sh` si les entrypoints exposes ou les wrappers peuvent etre impactes
+- modif scripts/wrappers: lancer `bash modules/memory_bricks/scripts/sanity_check.sh`, puis `bash modules/memory_bricks/scripts/smoke_wrappers.sh`; ajouter `python3 -m unittest discover -s modules/memory_bricks/tests -p "test_*.py" -v` si la regression logique Python ou la CLI peut etre affectee
 
 ## Garde-fous OT
 
