@@ -67815,3 +67815,66 @@ Get-Content "C:\Users\ghost\Documents\ShareX\Logs\ShareX-Log-2026-03.txt" -Tail 
 - Bot Vision :
   - Valider Telegram pour 2e écran + captures automatiques : différentiel de jobs/voies ShareX vs voie PASS.
   - Prochain trigger proposé dans le fil : `GO_BOT_VISION_TELEGRAM_SAFE_FILENAME_2E_SCREEN_01` puis séparation du chantier “auto” (`GO_BOT_VISION_AUTOCAPTURE_REAL_PATH_PROOF_01` évoqué).
+
+## 2026-03-29 05:30 — note525
+1) Objectifs:
+- Reprendre l’état canonique Antigravity sur `magikgmo4-ui/opt-trading` (`sot/mainline`) sans repartir au mauvais endroit.
+- Confirmer/implémenter successivement (selon l’état déjà présent) : retry/backoff, hardening HTTP, parallélisme, tests, multi-exchange (Bitget), factorisation via `BaseAdapter`, schéma de sortie via `dataclass`, logging standard (stderr) sans polluer stdout, puis clôturer V3.
+- Préparer le cadrage du prochain cycle (V4 hardening).
+
+2) Actions:
+- Vérifications repo/fichiers : `git log -n 5`, `git status`, inspection de fichiers (binance/bitget adapters, `derivatives_collector.py`, `task.md`).
+- Constat que le retry/backoff V1.1 était déjà présent dans le canon ; ajustement de la formulation “validation” (inspection vs preuve runtime).
+- Clôture V2 consolidée (hardening HTTP 429/418, parallélisme borné, `long_short_ratio`, tests déterministes).
+- Cadrage multi-exchange : choix Bitget vs MEXC ; recommandation Bitget.
+- Implémentation/qualification Bitget : ajout d’un nouveau smoke test multi-adapter (Mock/Binance/Bitget) et exécution OK.
+- Factorisation : déplacement de `_fetch(...)` et `collect(...)` dans `BaseAdapter` avec paramètres configurables par adapter ; mise à jour Binance/Bitget ; exécution du smoke multi OK.
+- Schéma : introduction de `DerivativesRow` (dataclass) + sérialisation rétrocompatible (asdict) ; correction mentionnée d’un bug Bitget ; smoke multi OK.
+- Logging : cadrage puis implémentation `logging` standard, logs sur `stderr`, vérification explicite stdout (JSON) vs stderr (logs), smoke multi OK.
+- Clôture V3 (observabilité) : consolidation des acquis + limites ; préparation du prompt V4 hardening scope.
+
+3) Décisions:
+- `GO_ANTIGRAVITY_V1_1_RETRY_01` : PASS (déjà implémenté dans le canon ; PASS sur inspection, sans test sous panne).
+- `GO_ANTIGRAVITY_V2_CLOSEOUT_01` : PASS ; V2 CLOSE ; prochain axe recommandé orienté multi-exchange.
+- `GO_ANTIGRAVITY_MULTI_EXCHANGE_SCOPE_01` : PASS ; exchange retenu : Bitget.
+- Renommage recommandé du trigger : `GO_ANTIGRAVITY_BITGET_IMPL_01` (plus précis que `...MULTI_EXCHANGE_IMPL_01`).
+- `GO_ANTIGRAVITY_BITGET_IMPL_01` : PASS ; valeur ajoutée principale = qualification + smoke multi-adapter (`test_smoke_multi.py`).
+- `GO_ANTIGRAVITY_BASEADAPTER_SCOPE_01` : PASS ; noyau commun = `_fetch` + `collect` ; paramètres réseau doivent rester configurables par adapter.
+- `GO_ANTIGRAVITY_BASEADAPTER_IMPL_01` : PASS ; factorisation effectuée + configurabilité préservée ; smoke multi OK.
+- `GO_ANTIGRAVITY_V3_POLISH_SCOPE_01` : PASS ; axe retenu = schéma de sortie via dataclass (pas validation runtime forte).
+- Renommage recommandé : `GO_ANTIGRAVITY_V3_SCHEMA_IMPL_01`.
+- `GO_ANTIGRAVITY_V3_SCHEMA_IMPL_01` : PASS ; DerivativesRow + asdict ; smoke multi OK.
+- `GO_ANTIGRAVITY_V3_LOGGING_SCOPE_01` : PASS ; point critique = stdout JSON non pollué, logs sur stderr.
+- `GO_ANTIGRAVITY_V3_LOGGING_IMPL_01` : PASS ; séparation stdout/stderr vérifiée explicitement.
+- `GO_ANTIGRAVITY_V3_OBSERVABILITY_CLOSEOUT_01` : PASS ; V3 CLOSE.
+- Prochain point de reprise fixé : `GO_ANTIGRAVITY_V4_HARDENING_SCOPE_01`.
+
+4) Commandes / Code:
+```bash
+git log -n 5
+git status
+
+python modules\derivatives_collector\tests\test_smoke_multi.py
+
+git add modules\derivatives_collector\tests\test_smoke_multi.py
+git commit -m "test(multi): add dedicated Bitget, Binance, and Mock validation suite"
+git push origin sot/mainline
+
+git add modules\derivatives_collector\app\binance_adapter.py modules\derivatives_collector\app\bitget_adapter.py modules\derivatives_collector\app\derivatives_collector.py
+git commit -m "fix(adapters): concretize base constructor parameters for child instances"
+git push origin sot/mainline
+```
+```bash
+python tmp\inject_init.py
+```
+- Fichiers cités/touchés dans le dump :  
+  - `modules/derivatives_collector/tests/test_smoke_multi.py` (nouveau)  
+  - `modules/derivatives_collector/app/derivatives_collector.py` (modifié : BaseAdapter, DerivativesRow, logging)  
+  - `modules/derivatives_collector/app/binance_adapter.py` (modifié : usage BaseAdapter + config)  
+  - `modules/derivatives_collector/app/bitget_adapter.py` (modifié : usage BaseAdapter + config)  
+  - `task.md` (édité)  
+  - mention d’un fichier temporaire potentiellement ajouté : `tmp\refactor_logging.py` (à vérifier)
+
+5) Points ouverts (next):
+- Vérifier l’hygiène repo : confirmer si `tmp\refactor_logging.py` a été commité et, si oui, décider nettoyage.
+- Lancer la passe suivante de cadrage : `GO_ANTIGRAVITY_V4_HARDENING_SCOPE_01` (durcissement défensif data/parsing/batch), sans rouvrir réseau/threading/logging ni changer le contrat JSON.
