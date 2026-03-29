@@ -66186,3 +66186,143 @@ ps -eo user,pid,ppid,lstart,args | grep -E "openclaw-gateway|systemd --user"'
   - Fixer le hub/menus (actions directes + run_dir) si le hub doit rester point d’entrée unique.
 - HF (opt-trading):
   - Exécuter réellement la passe portal sur la machine canonique (admin-trading:/opt/trading) en respectant “anti faux-réel”, puis PR `feature/hf-free-impl-portal-v1` vers `sot/mainline`.
+
+## 2026-03-29 05:09 | TV Webhook | COINM_SHORT | BTCUSDT 1 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `66622.5`
+5. **TP**: `0.0`
+6. **SL**: `66632.5`
+7. **Reason**: bitget bar-close ts=1774775340000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 66622.5,
+  "tp": 0.0,
+  "sl": 66632.5,
+  "reason": "bitget bar-close ts=1774775340000",
+  "_ts": "2026-03-29T09:09:03.555235+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-29 05:09 — note501
+1) Objectifs:
+- Établir un point d’entrée canonique manuel pour lancer/valider le gateway OpenClaw sous l’utilisateur `openclaw`, piloté par `ghost`, sans dépendance à `/home/ghost/.npm-global/bin`.
+- Consolider minimalement quelques wrappers du hub pour réutiliser ce point d’entrée.
+- Publier la branche Git `student` vers `sot/mainline` via PR (base `sot/mainline`, head `student`) avec un body Markdown, puis synchroniser `sot/mainline`.
+- Déployer/valider le module `deploy_module_multi_machine` sur `admin-trading` depuis un dossier Windows via SSH (wrappers globaux non finalisés faute de sudo non-interactif).
+
+2) Actions:
+- Correction et validation du script canonique `openclaw_canonical_runtime.sh` :
+  - Remplacement de `sh -lc` (dash) par `bash -lc` pour supporter `set -o pipefail`.
+  - Validation `health`/`probe` OK via le script canonique.
+- Diagnostic et réparation de `/etc/sudoers` après erreur de syntaxe (perte temporaire de sudo), puis reprise des tests.
+- Démarrage du gateway via le script canonique; constat d’un warm-up RPC (probe timeout juste après start), puis stabilité après quelques secondes via boucles de probe.
+- Accès logs: refus de permission en lecture directe sur `/tmp/openclaw/openclaw-2026-03-18.log`, lecture à faire via `sudo -u openclaw`.
+- Consolidation minimale dans le hub (3 actions) pour déléguer health/probe (et start en contexte openclaw) vers le helper canonique.
+- Git/PR:
+  - Commit et push de `student` (auth GitHub via PAT en HTTPS; `gh` absent).
+  - Création PR via navigateur avec body depuis `student/docs/PR_STUDENT_CONSOLIDATION.md`.
+  - Suppression prématurée de la branche `student` puis re-création depuis `293df01` et re-push.
+  - Pull `sot/mainline` montrant intégration effective via merge PR (#5), commit `14c0133`.
+- Module `deploy_module_multi_machine` (sur `admin-trading`):
+  - Bundle tar.gz depuis le sous-dossier réel du module (dossier Windows extrait avec racine `mnt/`).
+  - SCP vers `admin-trading:/tmp`, extraction staging puis installation sous `/opt/trading/deploy_module_multi_machine`.
+  - Sanity + status + plan --dry-run OK.
+  - Installation des wrappers globaux `/usr/local/bin/*` bloquée par absence de sudo non interactif.
+
+3) Décisions:
+- Règle de travail figée:
+  - `ghost = opérateur`
+  - `openclaw = runtime canonique`
+  - Gateway canonique = lancé sous `openclaw`
+  - Point d’entrée manuel canonique = `/home/ghost/openclaw/openclaw_runtime_opening_ops_v3/openclaw_canonical_runtime.sh`
+  - Pas de dépendance canonique vers `/home/ghost/.npm-global/bin`
+  - Pas de systemd `--user` dans cette phase.
+- Warm-up accepté: `probe` peut timeout juste après `start`; considérer le gateway “prêt” seulement quand `probe` retourne `RPC: ok`.
+- PR `student`:
+  - Body de PR = fichier `.md` (pas le script `.sh`).
+  - Ne pas supprimer la branche `student` avant que la PR soit mergée et que `sot/mainline` soit synchronisée localement.
+- `deploy_module_multi_machine`:
+  - Installation sous `/opt/trading/deploy_module_multi_machine` validée; wrappers globaux reportés (bloqués par sudo).
+
+4) Commandes / Code:
+```bash
+# OpenClaw — validations directes
+sudo -u openclaw -H bash -lc 'cd /home/openclaw/.openclaw && /home/openclaw/.npm-global/bin/openclaw gateway health'
+sudo -u openclaw -H bash -lc 'cd /home/openclaw/.openclaw && /home/openclaw/.npm-global/bin/openclaw gateway probe'
+
+# Fix wrapper canonique (localisation + patch)
+rg -n "sh -lc|pipefail|sudo -u openclaw" /home/ghost/openclaw/openclaw_runtime_opening_ops_v3
+sed -n '1,240p' /home/ghost/openclaw/openclaw_runtime_opening_ops_v3/openclaw_canonical_runtime.sh
+sed -i "s/    sh -lc '/    bash -lc '/" /home/ghost/openclaw/openclaw_runtime_opening_ops_v3/openclaw_canonical_runtime.sh
+bash -n /home/ghost/openclaw/openclaw_runtime_opening_ops_v3/openclaw_canonical_runtime.sh
+bash /home/ghost/openclaw/openclaw_runtime_opening_ops_v3/openclaw_canonical_runtime.sh health
+bash /home/ghost/openclaw/openclaw_runtime_opening_ops_v3/openclaw_canonical_runtime.sh probe
+
+# Start + validation + warm-up handling
+bash /home/ghost/openclaw/openclaw_runtime_opening_ops_v3/openclaw_canonical_runtime.sh start
+until bash /home/ghost/openclaw/openclaw_runtime_opening_ops_v3/openclaw_canonical_runtime.sh probe; do
+  sleep 3
+done
+
+# Accès log gateway (lecture autorisée via openclaw)
+sudo -u openclaw -H tail -n 120 /tmp/openclaw/openclaw-2026-03-18.log
+
+# Hub — exécution wrappers (sortie écrite dans runs/*)
+bash /home/ghost/openclaw/openclaw_general_hub_v1/modules/openclaw_runtime_opening_ops_v3/openclaw_runtime_opening_ops_v3_cmd.sh gateway_health
+bash /home/ghost/openclaw/openclaw_general_hub_v1/modules/openclaw_runtime_opening_ops_v3/openclaw_runtime_opening_ops_v3_cmd.sh gateway_probe
+LATEST="$(ls -1dt /home/ghost/openclaw/openclaw_general_hub_v1/modules/openclaw_runtime_opening_ops_v3/runs/* | head -n 1)"
+cat "$LATEST/09_gateway_health.txt"
+cat "$LATEST/10_gateway_probe.txt"
+
+# Git/PR — student -> sot/mainline
+cd /opt/trading
+git switch student
+git add scripts/student
+git commit -m "student: consolidation"
+git push -u origin student
+cat /opt/trading/student/docs/PR_STUDENT_CONSOLIDATION.md
+# (PR créée via navigateur; gh absent)
+
+# Après suppression prématurée, re-création branch depuis commit
+git switch -c student 293df01
+git push -u origin student
+
+# Sync mainline après merge
+git fetch origin
+git switch sot/mainline
+git pull --ff-only origin sot/mainline
+
+# deploy_module_multi_machine — (résumé des commandes rapportées)
+ssh admin-trading 'ls -ld /opt/trading /opt/trading/registry /opt/trading/modules /usr/local/bin'
+tar --exclude='__pycache__' --exclude='*.pyc' -czf /tmp/deploy_module_multi_machine_install_bundle.tar.gz -C "<...>/modules/deploy_module_multi_machine" .
+scp /tmp/deploy_module_multi_machine_install_bundle.tar.gz admin-trading:/tmp/deploy_module_multi_machine_install_bundle.tar.gz
+ssh admin-trading 'cd /opt/trading/deploy_module_multi_machine && bash scripts/install_module.sh'
+ssh admin-trading 'bash /opt/trading/deploy_module_multi_machine/scripts/deploy_module_multi_machine_sanity_check.sh'
+ssh admin-trading 'bash /opt/trading/deploy_module_multi_machine/scripts/deploy_module_multi_machine_cmd.sh status'
+ssh admin-trading 'bash /opt/trading/deploy_module_multi_machine/scripts/deploy_module_multi_machine_cmd.sh plan --module-name deploy_module_multi_machine --source-dir /opt/trading/deploy_module_multi_machine --targets student,db-layer --dry-run'
+```
+
+5) Points ouverts (next):
+- OpenClaw:
+  - Décider comment remplacer proprement le lancement croisé historique par la procédure canonique manuelle (sans systemd `--user`).
+  - Améliorer l’UX: formaliser la readiness (warm-up) via boucle `probe` jusqu’à `RPC: ok`.
+  - Vérifier/normaliser l’accès aux logs `/tmp/openclaw/*` (lecture via `sudo -u openclaw`).
+- Sudo/admin:
+  - S’assurer que la configuration `/etc/sudoers` est stable (éviter nouvelles modifications risquées).
+- OPT-TRADING / Git:
+  - Les fichiers non suivis (`??`) liés au chantier “Déploiement multi-machines automatisé” restent locaux et en attente (pas publiés).
+- deploy_module_multi_machine:
+  - Finaliser la création des wrappers globaux `/usr/local/bin/{cmd,menu,sanity}-deploy_module_multi_machine` dès qu’un sudo utilisable (non interactif ou accès root) est disponible sur `admin-trading`.
+  - (Option) Ajouter l’entrée registry si le schéma YAML est confirmé, sans inventer la structure.
