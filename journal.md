@@ -66448,3 +66448,114 @@ Docs de continuité créées/mises à jour :
 - Décider du traitement long-terme de `scripts` et `perf` (runtimes déjà présents et divergents) : documenter stratégie (ne pas écraser; éventuellement module distinct/rename si besoin).
 - Optionnel : exposer dans le menu les options stale-lock cleanup (`--cleanup-stale-lock`, `--lock-stale-after-seconds`) si souhaité.
 - Continuer l’industrialisation des modules restants (hors C) en suivant strictement : inspection → preflight → deploy → sanity → mise à jour `deploy_module_multi_machine_continuity.md`.
+
+## 2026-03-29 05:11 — note504
+1) Objectifs:
+- Inspecter puis décider du déploiement de modules (`journal_engine`, puis `ops_wrappers`) via `deploy_module_multi_machine`.
+- Documenter systématiquement l’état observé/décisions dans la doc canonique.
+- Formaliser une doctrine “modules non standard”.
+- Produire un runbook de refresh **source-layout** pour `ops_wrappers`.
+- Clôturer proprement côté Git (commit/push), puis démarrer une méthode durable d’audit Git multi-machine (`git_fleet_guard`) et la déployer.
+
+2) Actions:
+- `journal_engine`:
+  - Inspection source (`README.md`, scripts, `app/journal_engine.py`), exécution sanity source OK.
+  - Vérification cibles: `/opt/trading/journal_engine` absent sur `student` et `db-layer`.
+  - Décision: **non-déploiement** (module applicatif couplé au layout repo/import `modules.*`).
+  - Doc canonique mise à jour + backup `.bak_*`.
+- `ops_wrappers`:
+  - Inspection source + sanity source OK.
+  - Vérification cibles: `/opt/trading/ops_wrappers` absent, mais **`/opt/trading/modules/ops_wrappers` présent** sur `student` et `db-layer`, `cmd-ops_wrappers` fonctionnel, hashes identiques.
+  - Décision: **non-déploiement runtime standard**; stratégie = refresh futur en **source-layout** via `--install-path /opt/trading/modules/ops_wrappers`.
+  - Préflight source-layout exécuté: OK sur `student` et `db-layer`.
+  - Doctrine “modules non standard” formalisée (3 profils) et intégrée à la continuité.
+  - Runbook dédié créé: `/opt/trading/docs/ops_wrappers_source_layout_refresh_runbook.md`; index doc mis à jour; backups `.bak_*` créés.
+- Git (admin-trading):
+  - Commit/push du chantier `deploy_module_multi_machine` + docs (push initial rejeté → rebase conflict → reset hard sur origin + cherry-pick du commit utile → push OK).
+  - Récupération de modifications perdues `perf/perf_app.py` et `webhook_server.py` via commit autostash `bd07572...` (restore → commit → push).
+- `git_fleet_guard` (méthode durable d’audit Git multi-machine):
+  - ZIP identifié sur Windows puis copié vers `admin-trading:/tmp`.
+  - Extraction sur `admin-trading` sous `/tmp/git_fleet_guard_extract/...`.
+  - Installation dans `/opt/trading`:
+    - Copie module + docs OK.
+    - `install_module.sh` bloqué par **sudo** (pas de terminal pour mot de passe) → wrappers globaux non installés.
+  - Validation sans wrappers globaux:
+    - `sanity_check.sh` OK.
+    - `bash scripts/cmd.sh status/audit/report` OK; génération de rapports.
+  - Audit `git_fleet_guard` observé:
+    - `admin-trading`: working tree dirty (nouveaux fichiers `git_fleet_guard`).
+    - `student`: behind 2 commits + nombreux untracked (runtimes/dossiers).
+    - `db-layer`: behind 61 commits + nombreux fichiers modifiés/untracked.
+  - Commit Git propre de `git_fleet_guard` sur `admin-trading`:
+    - Correction d’un échec de `git commit -m` dû au quoting SSH.
+    - Exclusion des rapports via `modules/git_fleet_guard/.gitignore` + suppression `reports/`.
+    - Commit `a2f75c0` puis push OK.
+
+3) Décisions:
+- `journal_engine`: **ne pas déployer** via runtime standard; documenté comme “module applicatif couplé au repo/layout”.
+- `ops_wrappers`: **ne pas déployer** en `/opt/trading/ops_wrappers`; classé “source-layout tool”, refresh futur uniquement via `--install-path /opt/trading/modules/ops_wrappers`, sans actions sudo/`/usr/local/bin`.
+- Doctrines non standard actées:
+  - Profil 1: source-layout tool (`ops_wrappers`)
+  - Profil 2: runtime à réconcilier (`scripts`, `perf`)
+  - Profil 3: module applicatif couplé au repo (`journal_engine`)
+- Git: stratégie “commit utile seul” via reset/cherry-pick; récupération perf/webhook via autostash; push sur `sot/mainline`.
+- `git_fleet_guard`: wrappers globaux non installés tant que sudo interactif non possible; usage via `bash scripts/cmd.sh`.
+
+4) Commandes / Code:
+```bash
+# Sanity source journal_engine
+ssh admin-trading 'bash /opt/trading/modules/journal_engine/scripts/sanity_check.sh'
+
+# Sanity source ops_wrappers
+ssh admin-trading 'bash /opt/trading/modules/ops_wrappers/scripts/sanity_check.sh'
+
+# Preflight ops_wrappers (source-layout)
+ssh admin-trading 'cmd-deploy_module_multi_machine preflight --module-name ops_wrappers --source-dir /opt/trading/modules/ops_wrappers --install-path /opt/trading/modules/ops_wrappers --targets student,db-layer'
+
+# Lire doc canonique
+ssh admin-trading 'sed -n "1,260p" /opt/trading/docs/deploy_module_multi_machine_continuity.md'
+```
+
+```bash
+# Git: commit/push deploy_module_multi_machine (résumé)
+git fetch origin
+git rebase --abort
+git branch backup/pre_push_cleanup_20260319
+git reset --hard origin/sot/mainline
+git cherry-pick 0ad6899
+git push origin sot/mainline
+
+# Récup perf/webhook depuis autostash
+git restore --source=bd075723b4b099350401ff217642dc7b27757a2d -- perf/perf_app.py webhook_server.py
+git add perf/perf_app.py webhook_server.py
+git commit -m "recover: restore perf and webhook local edits from autostash"
+git push origin sot/mainline
+```
+
+```powershell
+# Windows -> admin-trading: transfert ZIP
+scp C:\Users\ghost\Downloads\git_fleet_guard_v1.zip admin-trading:/tmp/git_fleet_guard_v1.zip
+```
+
+```bash
+# Extraction ZIP sur admin-trading
+ssh admin-trading 'rm -rf /tmp/git_fleet_guard_extract && mkdir -p /tmp/git_fleet_guard_extract && unzip -o /tmp/git_fleet_guard_v1.zip -d /tmp/git_fleet_guard_extract'
+
+# Installation (copie) sur admin-trading + sanity
+ssh admin-trading 'cd /opt/trading && cp -a /tmp/git_fleet_guard_extract/git_fleet_guard_package/modules/git_fleet_guard modules/ && cp -a /tmp/git_fleet_guard_extract/git_fleet_guard_package/docs/git_fleet_guard_module_overview.md docs/ && cp -a /tmp/git_fleet_guard_extract/git_fleet_guard_package/docs/git_fleet_guard_runbook.md docs/'
+ssh admin-trading 'cd /opt/trading && bash modules/git_fleet_guard/scripts/sanity_check.sh'
+
+# Validation sans wrappers globaux (install_module.sh bloqué sudo)
+ssh admin-trading 'cd /opt/trading/modules/git_fleet_guard && bash scripts/cmd.sh status && bash scripts/cmd.sh audit --machines admin-trading,student,db-layer && bash scripts/cmd.sh report'
+
+# Commit propre git_fleet_guard (exclure reports/)
+ssh admin-trading "cd /opt/trading && printf 'reports/\n' > modules/git_fleet_guard/.gitignore && git restore --staged modules/git_fleet_guard/reports 2>/dev/null || true && rm -rf modules/git_fleet_guard/reports && git add modules/git_fleet_guard/.gitignore modules/git_fleet_guard docs/git_fleet_guard_module_overview.md docs/git_fleet_guard_runbook.md && git commit -m 'git_fleet_guard: add read-only fleet git audit module'"
+ssh admin-trading 'cd /opt/trading && git push origin sot/mainline'
+```
+
+5) Points ouverts (next):
+- `git_fleet_guard`: résoudre l’installation des wrappers globaux (`install_module.sh`) nécessitant sudo (approche interactive/askpass ou exécution locale avec TTY).
+- `student`: repo derrière `origin/sot/mainline` (behind 2) + nombreux untracked (probables runtimes installés) → décider: nettoyage/ignore vs intégration.
+- `db-layer`: repo très divergent (behind 61) + nombreux fichiers modifiés/untracked → audit approfondi, stratégie de remise en conformité (probable reset + re-déploiement contrôlé, ou extraction des changements utiles).
+- Mise à jour documentaire: rien dans le dump ne confirme la mise à jour de `/opt/trading/docs/deploy_module_multi_machine_continuity.md` pour **git_fleet_guard** (à faire si exigé par la continuité).
+- Déploiement `git_fleet_guard` sur `student`/`db-layer` via `deploy_module_multi_machine` non réalisé dans l’extrait (préflight/deploy à planifier).
