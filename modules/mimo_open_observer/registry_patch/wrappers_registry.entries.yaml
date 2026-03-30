@@ -1,0 +1,27 @@
+# Proposed append entries for registry/wrappers_registry.yaml
+- wrapper_name: menu-mimo_open_observer
+  wrapper_family: menu
+  target_module: mimo_open_observer
+  target_script: menu.sh
+  install_location: /usr/local/bin/menu-mimo_open_observer
+  audience: operator
+  status: planned_doc_pack_v0
+  notes: "Menu observateur ouverture XAUUSD"
+
+- wrapper_name: cmd-mimo_open_observer
+  wrapper_family: cmd
+  target_module: mimo_open_observer
+  target_script: cmd.sh
+  install_location: /usr/local/bin/cmd-mimo_open_observer
+  audience: operator
+  status: planned_doc_pack_v0
+  notes: "CLI observateur ouverture XAUUSD"
+
+- wrapper_name: sanity-mimo_open_observer
+  wrapper_family: sanity
+  target_module: mimo_open_observer
+  target_script: sanity.sh
+  install_location: /usr/local/bin/sanity-mimo_open_observer
+  audience: system
+  status: planned_doc_pack_v0
+  notes: "Sanity doc pack observateur ouverture XAUUSD"
