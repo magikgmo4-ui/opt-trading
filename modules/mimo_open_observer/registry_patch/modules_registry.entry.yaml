@@ -1,0 +1,11 @@
+# Proposed append entry for registry/modules_registry.yaml
+- module_name: mimo_open_observer
+  domain: analysis_engines
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Observateur d'ouverture XAUUSD (FVG M1x5 + journal + stats simples)"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: planned_doc_pack_v0
+  priority: medium
+  dependencies: []
