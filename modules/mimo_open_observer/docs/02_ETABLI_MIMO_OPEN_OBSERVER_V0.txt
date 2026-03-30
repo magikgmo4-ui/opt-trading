@@ -1,0 +1,13 @@
+ETABLI — MIMO OPEN OBSERVER V0
+
+- module_name retenu: mimo_open_observer
+- actif retenu: XAUUSD
+- fuseau retenu: America/Montreal
+- fenêtre retenue V0: 18:00
+- jours retenus V0: dimanche à jeudi
+- scope retenu V0: M1x5
+- signal retenu: premier FVG seulement
+- tag retenu: sweep / no_sweep
+- horizons outcomes V0: +30m / +60m
+- source de vérité: events_raw.jsonl
+- enriched + stats: dérivés
