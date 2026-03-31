@@ -12,6 +12,7 @@
 - installation optionnelle des shortcuts via `bash modules/memory_bricks/scripts/install_shortcuts.sh`
 - mode par defaut: installation dans `~/.local/bin` sans `sudo`
 - mode systeme explicite disponible via `bash modules/memory_bricks/scripts/install_shortcuts.sh --system`
+- mode dossier personnalisé disponible via `bash modules/memory_bricks/scripts/install_shortcuts.sh --bin-dir PATH`
 - ajouter `~/.local/bin` a `PATH` si les shortcuts installes ne sont pas resolus directement
 
 ## Mode --system
@@ -58,6 +59,65 @@
 - non supporté: désinstallation automatisée
 - non supporté: validation `--system` dans le pipeline smoke actuel
 - non supporté: installation sans `sudo` vers `/usr/local/bin`
+
+## Mode --bin-dir
+
+### Syntaxe réelle
+
+```bash
+bash modules/memory_bricks/scripts/install_shortcuts.sh --bin-dir /chemin/vers/dossier
+```
+
+- argument obligatoire: chemin absolu ou relatif du dossier cible
+- erreur immédiate si aucun chemin fourni (`ERROR: --bin-dir requires a path`)
+
+### Quand utiliser
+
+- cible hors `~/.local/bin` et hors `/usr/local/bin`
+- environnement conteneurisé ou sandbox où `~/.local/bin` n'est pas pertinent
+- chemin personnalisé déjà dans `PATH` ou géré par un gestionnaire de paquets local
+- en pratique, le mode local-first par défaut suffit aux cas d'usage V1
+
+### Prerequis
+
+- dossier cible existant ou créable par l'utilisateur courant (pas de `sudo`)
+- droits d'écriture sur le dossier parent
+- repo cloné localement (les symlinks pointent vers `modules/memory_bricks/scripts/`)
+- bash disponible (shebang `#!/usr/bin/env bash`)
+
+### Portée réelle
+
+- identique au mode local-first: 3 symlinks sans `sudo`
+  - `cmd-memory_bricks` -> `modules/memory_bricks/scripts/cmd.sh`
+  - `menu-memory_bricks` -> `modules/memory_bricks/scripts/menu.sh`
+  - `sanity-memory_bricks` -> `modules/memory_bricks/scripts/sanity_check.sh`
+- n'installe aucune dépendance Python ni shell
+- ne modifie pas la source d'état
+- `USE_SUDO=0` systématique (pas de `sudo` quel que soit le chemin)
+
+### Limites connues
+
+- les symlinks cassent si le repo est déplacé ou supprimé
+- pas de commande de désinstallation intégrée
+- pas de validation `--bin-dir` dans `smoke_wrappers.sh` (couvre uniquement local-first avec `~/.local/bin`)
+- pas de vérification automatique que le chemin est dans `PATH`
+- pas de garde-fou sur les permissions du dossier cible (échec silencieux si `mkdir -p` refuse)
+
+### Validations minimales après installation
+
+1. vérifier que les 3 symlinks existent: `ls -la /chemin/vers/dossier/*memory_bricks`
+2. vérifier que les cibles sont lisibles: `test -x /chemin/vers/dossier/cmd-memory_bricks`
+3. vérifier que le dossier est dans `PATH`: `echo $PATH | grep -q /chemin/vers/dossier`
+4. lancer un `sanity-memory_bricks` ou `cmd-memory_bricks query status` avec une source valide
+
+### Supporté vs non supporté
+
+- supporté: tout chemin accessible en écriture par l'utilisateur courant
+- supporté: remplacement manuel des symlinks si le repo bouge
+- supporté: combinaison avec `MEMORY_BRICKS_STATE_ROOT` pour pointer vers une source spécifique
+- non supporté: désinstallation automatisée
+- non supporté: validation `--bin-dir` dans le pipeline smoke actuel
+- non supporté: chemin nécessitant `sudo` (utiliser `--system` à la place)
 
 ## Flux mutation
 
