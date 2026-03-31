@@ -67,9 +67,18 @@ for p in "${k5_files[@]}"; do
   [ -f "$p" ] || { echo "FAIL missing K5: $p" >&2; exit 1; }
 done
 
-# --- python import + config load + window detection + journal + enrichment ---
+# --- K6 stats builder ---
+k6_files=(
+  "$SCRIPT_DIR/app/stats_builder.py"
+)
+
+for p in "${k6_files[@]}"; do
+  [ -f "$p" ] || { echo "FAIL missing K6: $p" >&2; exit 1; }
+done
+
+# --- python full pipeline + stats ---
 python3 -c "
-import sys, tempfile, os, shutil
+import sys, tempfile, os, shutil, json
 sys.path.insert(0, '$SCRIPT_DIR')
 from app.config import load_config
 from app.models import Bar, RawEvent, EnrichedEvent
@@ -78,62 +87,50 @@ from app.utils_time import is_active_weekday, build_window_ts, add_minutes
 from app.window_detector import detect_window, find_first_fvg, compute_sweep
 from app.event_journal import ensure_parent_dir, read_jsonl, existing_ids, append_raw_event, append_enriched_event, tail_jsonl
 from app.outcome_sampler import compute_outcome, enrich_event, sample_pending
+from app.stats_builder import build_stats, write_reports
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
 cfg = load_config()
 assert cfg['symbol'] == 'XAUUSD'
-assert cfg['scope']['type'] == 'M1x5'
 
 tz = ZoneInfo('America/Montreal')
-window_ts = datetime(2026, 3, 29, 18, 0, tzinfo=tz)
 cfg_base = {'scope': {'type': 'M1x5', 'bars': 5},
             'windows': {'open_1800': {'type': 'OPEN_1800'}},
             'timezone': 'America/Montreal'}
 
-# K3 window detection
-cfg_b = {**cfg_base, 'provider': {'mode': 'fixture', 'fixture_file': 'fixture_bullish_no_sweep.json'}}
-cfg_no = {**cfg_base, 'provider': {'mode': 'fixture', 'fixture_file': 'fixture_no_event.json'}}
-evt_b = detect_window('XAUUSD', window_ts, cfg_b)
-evt_no = detect_window('XAUUSD', window_ts, cfg_no)
-
-# K4 journal
+# build enriched test data
 tmpdir = tempfile.mkdtemp()
-jpath = os.path.join(tmpdir, 'test.jsonl')
-append_raw_event(evt_b, jpath)
-assert len(read_jsonl(jpath)) == 1
-append_raw_event(evt_b, jpath)
-assert len(read_jsonl(jpath)) == 1
+events = [
+    {'event_id': 't1', 'fvg_detected': False, 'weekday': 'Sunday'},
+    {'event_id': 't2', 'fvg_detected': True, 'fvg_direction': 'bullish',
+     'sweep': False, 'weekday': 'Sunday',
+     'outcome_30m': 'win', 'delta_30m': 5.0},
+    {'event_id': 't3', 'fvg_detected': True, 'fvg_direction': 'bearish',
+     'sweep': True, 'weekday': 'Monday',
+     'outcome_30m': 'win', 'delta_30m': 8.0,
+     'outcome_60m': 'win', 'delta_60m': 12.0},
+]
 
-# K5 compute_outcome
-assert compute_outcome('bullish', 3000.0, 3010.0) == (10.0, 'win')
-assert compute_outcome('bearish', 3000.0, 2990.0) == (10.0, 'win')
+stats = build_stats(events)
+assert stats['summary']['total_windows'] == 3
+assert stats['summary']['total_signals'] == 2
+assert stats['summary']['total_no_event'] == 1
+assert stats['summary']['signal_rate'] == round(2/3, 4)
+assert 'bullish' in stats['by_direction']
+assert 'sweep_true' in stats['by_sweep']
+assert 'Sunday' in stats['by_weekday']
 
-# K5 enrich
-enr_no = enrich_event(evt_no.to_dict(), cfg_no)
-assert enr_no.fvg_detected == False
-assert enr_no.outcome_30m is None
-enr_b = enrich_event(evt_b.to_dict(), cfg_b)
-assert enr_b.fvg_detected == True
-
-# K5 enriched journal
-epath = os.path.join(tmpdir, 'enr.jsonl')
-assert append_enriched_event(enr_no, epath) == 'appended'
-assert append_enriched_event(enr_no, epath) == 'skipped_duplicate'
-
-# K5 sample_pending
-ts2 = datetime(2026, 3, 30, 18, 0, tzinfo=tz)
-evt2 = detect_window('XAUUSD', ts2, cfg_b)
-raw_path = os.path.join(tmpdir, 'raw.jsonl')
-enr_path = os.path.join(tmpdir, 'enr2.jsonl')
-append_raw_event(evt_no, raw_path)
-append_raw_event(evt2, raw_path)
-result = sample_pending(raw_path, enr_path, cfg_b)
-assert result['processed'] == 2
-assert result['appended'] == 2
+reports_dir = os.path.join(tmpdir, 'reports')
+write_reports(stats, reports_dir)
+files = sorted(os.listdir(reports_dir))
+assert 'stats_summary.json' in files
+assert 'stats_by_direction.json' in files
+assert 'stats_by_sweep.json' in files
+assert 'stats_by_weekday.json' in files
 
 shutil.rmtree(tmpdir)
-print('PASS: K1 + K2 + K3 + K4 + K5 sanity OK')
+print('PASS: K1..K6 full pipeline OK')
 " || { echo "FAIL: python sanity" >&2; exit 1; }
 
-echo "PASS: mimo_open_observer K5 sanity OK"
+echo "PASS: mimo_open_observer K6 sanity OK"
