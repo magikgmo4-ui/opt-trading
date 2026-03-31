@@ -87,7 +87,7 @@ for p in "${k7_files[@]}"; do
   [ -f "$p" ] || { echo "FAIL missing K7: $p" >&2; exit 1; }
 done
 
-# --- python full pipeline + stats + runners ---
+# --- python full pipeline + stats + runners (K1-K7) ---
 python3 -c "
 import sys, tempfile, os, shutil, json
 from pathlib import Path
@@ -126,23 +126,57 @@ app.config.MODULE_DIR = tmpdir
 import app.runner_detect as rd, app.runner_sample as rs, app.runner_stats as rst
 rd.MODULE_DIR = tmpdir; rs.MODULE_DIR = tmpdir; rst.MODULE_DIR = tmpdir
 
-# detect_range
 run_detect_range()
-
-# sample_pending
 run_sample_pending()
-
-# build_stats + show_stats
 run_build_stats()
 run_show_stats()
 
-# cleanup
 shutil.rmtree(str(tmpdir))
-print('PASS: K1..K7 full pipeline OK')
-" || { echo "FAIL: python sanity" >&2; exit 1; }
+print('PASS: K1-K7 full pipeline OK')
+" || { echo "FAIL: python sanity K1-K7" >&2; exit 1; }
+
+# --- python CSV replay (K8.1) ---
+python3 -c "
+import sys
+sys.path.insert(0, '$SCRIPT_DIR')
+from app.data_provider import get_m1_bars, get_price_at
+from app.models import Bar
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
+tz = ZoneInfo('America/Montreal')
+
+# fixture mode still works
+fix_cfg = {'provider': {'mode': 'fixture', 'fixture_file': 'fixture_no_event.json'}}
+bars_fix = get_m1_bars('XAUUSD', datetime(2026, 3, 29, 18, 0, tzinfo=tz), datetime(2026, 3, 29, 18, 4, tzinfo=tz), fix_cfg)
+assert len(bars_fix) == 5
+
+# csv_replay mode
+csv_cfg = {'provider': {'mode': 'csv_replay', 'csv_replay': {'path': 'fixtures/sample_xauusd_m1.csv'}}}
+csv_start = datetime(2026, 3, 22, 18, 0, tzinfo=tz)
+csv_end = datetime(2026, 3, 22, 18, 4, tzinfo=tz)
+csv_bars = get_m1_bars('XAUUSD', csv_start, csv_end, csv_cfg)
+assert len(csv_bars) == 5
+assert csv_bars[0].open == 3025.10
+csv_price = get_price_at('XAUUSD', csv_start, csv_cfg)
+assert csv_price == 3025.90
+
+# full hour
+csv_full = get_m1_bars('XAUUSD', csv_start, datetime(2026, 3, 22, 18, 59, tzinfo=tz), csv_cfg)
+assert len(csv_full) == 60
+
+# empty range
+csv_empty = get_m1_bars('XAUUSD', datetime(2026, 3, 22, 19, 0, tzinfo=tz), datetime(2026, 3, 22, 19, 30, tzinfo=tz), csv_cfg)
+assert len(csv_empty) == 0
+
+print('PASS: K8.1 CSV replay OK')
+" || { echo "FAIL: python sanity K8.1" >&2; exit 1; }
+
+# --- K8.1 replay data ---
+[ -f "$SCRIPT_DIR/fixtures/sample_xauusd_m1.csv" ] || { echo "FAIL missing: sample CSV" >&2; exit 1; }
 
 # --- cmd.sh / menu.sh existence ---
 [ -f "$SCRIPT_DIR/cmd.sh" ] || { echo "FAIL missing: cmd.sh" >&2; exit 1; }
 [ -f "$SCRIPT_DIR/menu.sh" ] || { echo "FAIL missing: menu.sh" >&2; exit 1; }
 
-echo "PASS: mimo_open_observer K7 sanity OK"
+echo "PASS: mimo_open_observer K8.1 sanity OK"

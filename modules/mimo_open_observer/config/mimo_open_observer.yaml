@@ -1,6 +1,6 @@
 version: v0
 module_name: mimo_open_observer
-status: doc_pack_only
+status: k8_csv_replay
 
 symbol: XAUUSD
 timezone: America/Montreal
@@ -26,3 +26,11 @@ paths:
 
 provider:
   mode: fixture
+  # mode: csv_replay
+  # csv_replay:
+  #   path: fixtures/sample_xauusd_m1.csv
+  # mode: ccxt
+  # ccxt:
+  #   exchange: binance
+  #   symbol: XAUUSDT
+  #   timeframe: 1m
