@@ -14,6 +14,51 @@
 - mode systeme explicite disponible via `bash modules/memory_bricks/scripts/install_shortcuts.sh --system`
 - ajouter `~/.local/bin` a `PATH` si les shortcuts installes ne sont pas resolus directement
 
+## Mode --system
+
+### Quand utiliser
+
+- machine multi-utilisateurs ou accès system-wide requis
+- utilisateur non-root devant accéder aux shortcuts sans configurer `~/.local/bin` dans `PATH`
+- en pratique, le mode local-first par défaut suffit aux cas d'usage V1
+
+### Prerequis
+
+- accès `sudo` effectif sur la machine cible
+- `/usr/local/bin` existant ou créable par `sudo mkdir -p`
+- repo cloné localement (les symlinks pointent vers `modules/memory_bricks/scripts/`)
+- bash disponible (shebang `#!/usr/bin/env bash`)
+
+### Portée réelle
+
+- crée 3 symlinks dans `/usr/local/bin` via `sudo ln -sf`:
+  - `cmd-memory_bricks` -> `modules/memory_bricks/scripts/cmd.sh`
+  - `menu-memory_bricks` -> `modules/memory_bricks/scripts/menu.sh`
+  - `sanity-memory_bricks` -> `modules/memory_bricks/scripts/sanity_check.sh`
+- n'installe aucune dépendance Python ni shell
+- ne modifie pas la source d'état
+
+### Limites connues
+
+- les symlinks cassent si le repo est déplacé ou supprimé
+- pas de commande de désinstallation intégrée (suppression manuelle des symlinks)
+- pas de validation `--system` dans `smoke_wrappers.sh` (couvre uniquement local-first)
+- nécessite `sudo` sur chaque invocation, pas de mode non-interactif garanti
+
+### Validations minimales après installation
+
+1. vérifier que les 3 symlinks existent: `ls -la /usr/local/bin/*memory_bricks`
+2. vérifier que les cibles sont lisibles: `test -x /usr/local/bin/cmd-memory_bricks`
+3. lancer un `sanity-memory_bricks` ou `cmd-memory_bricks query status` avec une source valide
+
+### Supporté vs non supporté
+
+- supporté: Linux avec `/usr/local/bin` standard et `sudo` disponible
+- supporté: remplacement manuel des symlinks si le repo bouge
+- non supporté: désinstallation automatisée
+- non supporté: validation `--system` dans le pipeline smoke actuel
+- non supporté: installation sans `sudo` vers `/usr/local/bin`
+
 ## Flux mutation
 
 1. creer une brique via `modules/memory_bricks/scripts/cmd.sh new`
