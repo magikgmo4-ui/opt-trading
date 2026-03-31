@@ -5,7 +5,7 @@ import os
 from pathlib import Path
 from typing import Optional
 
-from .models import RawEvent
+from .models import RawEvent, EnrichedEvent
 
 
 def ensure_parent_dir(path: str | Path) -> None:
@@ -51,3 +51,16 @@ def append_raw_event(event: RawEvent, path: str | Path) -> str:
 def tail_jsonl(path: str | Path, n: int = 10) -> list[dict]:
     entries = read_jsonl(path)
     return entries[-n:] if entries else []
+
+
+def append_enriched_event(event: EnrichedEvent, path: str | Path) -> str:
+    path = Path(path)
+    ensure_parent_dir(path)
+
+    if event.event_id in existing_ids(path):
+        return "skipped_duplicate"
+
+    with open(path, "a", encoding="utf-8") as fh:
+        fh.write(json.dumps(event.to_dict(), ensure_ascii=False) + "\n")
+
+    return "appended"
