@@ -4,17 +4,17 @@
 Module doc-first pour observer XAUUSD à l'ouverture, détecter le premier FVG sur les 5 premières bougies M1 de 18:00 (America/Montreal), journaliser l'événement brut, puis enrichir avec des outcomes simples à +30m / +60m.
 
 ## Statut
-- phase: K3 détecteur fenêtre
+- phase: K4 journal brut
 - doc pack: complet
 - package Python: initialisé
 - config loader: présent
 - modèles: présents
 - data_provider: présent (mode fixture)
 - utils_time: présent
-- fixtures: 3 scénarios (no_event, bullish, bearish)
+- fixtures: 3 scénarios
 - window_detector: présent (FVG + sweep)
-- sweep rule V0: both sides, bar[0] ref
-- journal / outcomes / stats: non implémentés
+- event_journal: présent (append-only, anti-doublons, JSONL)
+- enriched / outcomes / stats: non implémentés
 - provider réel: non branché
 
 ## Workflow retenu

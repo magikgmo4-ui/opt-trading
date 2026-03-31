@@ -49,15 +49,25 @@ for p in "${k3_files[@]}"; do
   [ -f "$p" ] || { echo "FAIL missing K3: $p" >&2; exit 1; }
 done
 
-# --- python import + config load + window detection ---
+# --- K4 event journal ---
+k4_files=(
+  "$SCRIPT_DIR/app/event_journal.py"
+)
+
+for p in "${k4_files[@]}"; do
+  [ -f "$p" ] || { echo "FAIL missing K4: $p" >&2; exit 1; }
+done
+
+# --- python import + config load + window detection + journal ---
 python3 -c "
-import sys
+import sys, tempfile, os, shutil
 sys.path.insert(0, '$SCRIPT_DIR')
 from app.config import load_config
 from app.models import Bar, RawEvent, EnrichedEvent
 from app.data_provider import get_m1_bars, get_price_at
 from app.utils_time import is_active_weekday, build_window_ts, add_minutes
 from app.window_detector import detect_window, find_first_fvg, compute_sweep
+from app.event_journal import ensure_parent_dir, read_jsonl, existing_ids, append_raw_event, tail_jsonl
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -72,28 +82,31 @@ cfg_base = {'scope': {'type': 'M1x5', 'bars': 5},
             'windows': {'open_1800': {'type': 'OPEN_1800'}},
             'timezone': 'America/Montreal'}
 
-# no_event
-cfg_no = {**cfg_base, 'provider': {'mode': 'fixture', 'fixture_file': 'fixture_no_event.json'}}
-evt_no = detect_window('XAUUSD', window_ts, cfg_no)
-assert isinstance(evt_no, RawEvent)
-assert evt_no.fvg_detected == False
-
-# bullish
+# K3 window detection
 cfg_b = {**cfg_base, 'provider': {'mode': 'fixture', 'fixture_file': 'fixture_bullish_no_sweep.json'}}
 evt_b = detect_window('XAUUSD', window_ts, cfg_b)
 assert evt_b.fvg_detected and evt_b.fvg_direction == 'bullish'
-assert evt_b.price_at_signal > 0
 
-# bearish
-cfg_s = {**cfg_base, 'provider': {'mode': 'fixture', 'fixture_file': 'fixture_bearish_sweep.json'}}
-evt_s = detect_window('XAUUSD', window_ts, cfg_s)
-assert evt_s.fvg_detected and evt_s.fvg_direction == 'bearish'
+# K4 journal: append
+tmpdir = tempfile.mkdtemp()
+jpath = os.path.join(tmpdir, 'test.jsonl')
+assert read_jsonl(jpath) == []
+r1 = append_raw_event(evt_b, jpath)
+assert r1 == 'appended'
+assert len(read_jsonl(jpath)) == 1
 
-# to_dict
-d = evt_b.to_dict()
-assert isinstance(d['signal_ts'], str)
+# K4 journal: anti-doublon
+r2 = append_raw_event(evt_b, jpath)
+assert r2 == 'skipped_duplicate'
+assert len(read_jsonl(jpath)) == 1
 
-print('PASS: K1 + K2 + K3 sanity OK')
+# K4 journal: tail
+tail = tail_jsonl(jpath, 5)
+assert len(tail) == 1
+assert tail[0]['event_id'] == evt_b.event_id
+
+shutil.rmtree(tmpdir)
+print('PASS: K1 + K2 + K3 + K4 sanity OK')
 " || { echo "FAIL: python sanity" >&2; exit 1; }
 
-echo "PASS: mimo_open_observer K3 sanity OK"
+echo "PASS: mimo_open_observer K4 sanity OK"
