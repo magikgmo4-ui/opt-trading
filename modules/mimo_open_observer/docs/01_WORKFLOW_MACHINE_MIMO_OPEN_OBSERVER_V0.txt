@@ -1,0 +1,17 @@
+WORKFLOW MACHINE — MIMO OPEN OBSERVER V0
+
+But:
+- construire d'abord le socle sur student
+- déployer plus tard sur admin-trading sans refondre le noyau
+
+Séparation retenue:
+- student: labo, fixtures, replay, qualification, stats
+- admin-trading: future exécution planifiée / live ops
+
+Chaîne canonique:
+- detect -> raw journal -> sample -> stats
+
+Règle:
+- pas d'exécution auto en V0
+- pas de PnL compliqué
+- pas de retest / HTF / news en V0

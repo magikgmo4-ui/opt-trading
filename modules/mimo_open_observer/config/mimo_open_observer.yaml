@@ -1,0 +1,36 @@
+version: v0
+module_name: mimo_open_observer
+status: k8_csv_replay
+
+symbol: XAUUSD
+timezone: America/Montreal
+
+windows:
+  open_1800:
+    enabled: true
+    hour: 18
+    minute: 0
+    weekdays: [sun, mon, tue, wed, thu]
+
+scope:
+  type: M1x5
+  bars: 5
+
+sampling:
+  horizons_minutes: [30, 60]
+
+paths:
+  raw_events: data/events/events_raw.jsonl
+  enriched_events: data/events/events_enriched.jsonl
+  reports_dir: data/reports
+
+provider:
+  mode: fixture
+  # mode: csv_replay
+  # csv_replay:
+  #   path: fixtures/sample_xauusd_m1.csv
+  # mode: ccxt
+  # ccxt:
+  #   exchange: binance
+  #   symbol: XAUUSDT
+  #   timeframe: 1m
