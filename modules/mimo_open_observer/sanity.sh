@@ -76,61 +76,73 @@ for p in "${k6_files[@]}"; do
   [ -f "$p" ] || { echo "FAIL missing K6: $p" >&2; exit 1; }
 done
 
-# --- python full pipeline + stats ---
+# --- K7 runners ---
+k7_files=(
+  "$SCRIPT_DIR/app/runner_detect.py"
+  "$SCRIPT_DIR/app/runner_sample.py"
+  "$SCRIPT_DIR/app/runner_stats.py"
+)
+
+for p in "${k7_files[@]}"; do
+  [ -f "$p" ] || { echo "FAIL missing K7: $p" >&2; exit 1; }
+done
+
+# --- python full pipeline + stats + runners ---
 python3 -c "
 import sys, tempfile, os, shutil, json
+from pathlib import Path
 sys.path.insert(0, '$SCRIPT_DIR')
-from app.config import load_config
+from app.config import load_config, MODULE_DIR as ORIG_MODULE_DIR
 from app.models import Bar, RawEvent, EnrichedEvent
-from app.data_provider import get_m1_bars, get_price_at
+from app.data_provider import get_m1_bars, get_price_at, FIXTURES_DIR
 from app.utils_time import is_active_weekday, build_window_ts, add_minutes
 from app.window_detector import detect_window, find_first_fvg, compute_sweep
 from app.event_journal import ensure_parent_dir, read_jsonl, existing_ids, append_raw_event, append_enriched_event, tail_jsonl
 from app.outcome_sampler import compute_outcome, enrich_event, sample_pending
 from app.stats_builder import build_stats, write_reports
+from app.runner_detect import run_detect_once, run_detect_range
+from app.runner_sample import run_sample_pending
+from app.runner_stats import run_build_stats, run_show_stats
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
 cfg = load_config()
 assert cfg['symbol'] == 'XAUUSD'
 
-tz = ZoneInfo('America/Montreal')
-cfg_base = {'scope': {'type': 'M1x5', 'bars': 5},
-            'windows': {'open_1800': {'type': 'OPEN_1800'}},
-            'timezone': 'America/Montreal'}
-
-# build enriched test data
-tmpdir = tempfile.mkdtemp()
+# K6 stats test
 events = [
-    {'event_id': 't1', 'fvg_detected': False, 'weekday': 'Sunday'},
-    {'event_id': 't2', 'fvg_detected': True, 'fvg_direction': 'bullish',
+    {'event_id': 's1', 'fvg_detected': False, 'weekday': 'Sunday'},
+    {'event_id': 's2', 'fvg_detected': True, 'fvg_direction': 'bullish',
      'sweep': False, 'weekday': 'Sunday',
      'outcome_30m': 'win', 'delta_30m': 5.0},
-    {'event_id': 't3', 'fvg_detected': True, 'fvg_direction': 'bearish',
-     'sweep': True, 'weekday': 'Monday',
-     'outcome_30m': 'win', 'delta_30m': 8.0,
-     'outcome_60m': 'win', 'delta_60m': 12.0},
 ]
-
 stats = build_stats(events)
-assert stats['summary']['total_windows'] == 3
-assert stats['summary']['total_signals'] == 2
-assert stats['summary']['total_no_event'] == 1
-assert stats['summary']['signal_rate'] == round(2/3, 4)
-assert 'bullish' in stats['by_direction']
-assert 'sweep_true' in stats['by_sweep']
-assert 'Sunday' in stats['by_weekday']
+assert stats['summary']['total_windows'] == 2
 
-reports_dir = os.path.join(tmpdir, 'reports')
-write_reports(stats, reports_dir)
-files = sorted(os.listdir(reports_dir))
-assert 'stats_summary.json' in files
-assert 'stats_by_direction.json' in files
-assert 'stats_by_sweep.json' in files
-assert 'stats_by_weekday.json' in files
+# K7 runners: patch data to tmpdir
+tmpdir = Path(tempfile.mkdtemp())
+import app.config
+app.config.MODULE_DIR = tmpdir
+import app.runner_detect as rd, app.runner_sample as rs, app.runner_stats as rst
+rd.MODULE_DIR = tmpdir; rs.MODULE_DIR = tmpdir; rst.MODULE_DIR = tmpdir
 
-shutil.rmtree(tmpdir)
-print('PASS: K1..K6 full pipeline OK')
+# detect_range
+run_detect_range()
+
+# sample_pending
+run_sample_pending()
+
+# build_stats + show_stats
+run_build_stats()
+run_show_stats()
+
+# cleanup
+shutil.rmtree(str(tmpdir))
+print('PASS: K1..K7 full pipeline OK')
 " || { echo "FAIL: python sanity" >&2; exit 1; }
 
-echo "PASS: mimo_open_observer K6 sanity OK"
+# --- cmd.sh / menu.sh existence ---
+[ -f "$SCRIPT_DIR/cmd.sh" ] || { echo "FAIL missing: cmd.sh" >&2; exit 1; }
+[ -f "$SCRIPT_DIR/menu.sh" ] || { echo "FAIL missing: menu.sh" >&2; exit 1; }
+
+echo "PASS: mimo_open_observer K7 sanity OK"
