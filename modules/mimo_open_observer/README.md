@@ -4,16 +4,17 @@
 Module doc-first pour observer XAUUSD à l'ouverture, détecter le premier FVG sur les 5 premières bougies M1 de 18:00 (America/Montreal), journaliser l'événement brut, puis enrichir avec des outcomes simples à +30m / +60m.
 
 ## Statut
-- phase: K8.1 CSV replay
+- phase: K8.4 replay runner
 - doc pack: complet
-- package Python: complet (K1..K7)
-- runners CLI: detect_once, detect_range, sample_pending, build_stats, show_stats
-- cmd.sh: façade shell opérationnelle
-- menu.sh: menu interactif opérationnel
+- package Python: complet (K1..K8)
+- runners CLI: detect_once, detect_range, replay, sample_pending, build_stats, show_stats
+- cmd.sh: façade shell opérationnelle (9 commandes)
+- menu.sh: menu interactif opérationnel (9 options)
 - flux nominal: detect → sample → stats
+- flux replay: `cmd.sh replay --csv <file>` (detect + sample + stats en un)
 - providers:
   - fixture (tests, inchangé)
-  - csv_replay (nouveau, données M1 réelles/semi-réelles)
+  - csv_replay (données M1 réelles/semi-réelles)
   - ccxt (prévu, pas encore implémenté)
 - provider réel live: non branché
 - scheduler/dashboard: non implémentés
@@ -55,6 +56,18 @@ ts_open,ts_close,open,high,low,close
 - OHLC en float
 - une ligne = une bougie M1
 - trié par `ts_open` croissant
+
+## Replay Usage
+```bash
+# full pipeline in one command
+cmd.sh replay --csv fixtures/sample_xauusd_m1.csv
+
+# or step by step
+cmd.sh detect_once
+cmd.sh sample_pending
+cmd.sh build_stats
+cmd.sh show_stats
+```
 
 ## Remarque
 Ce pack suit le modèle `opt-trading` (module durable + wrappers + registres) et l'esprit `localcms` (doc d'ouverture structurée, index compact, continuité de session).

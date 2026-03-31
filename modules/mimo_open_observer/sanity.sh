@@ -172,6 +172,41 @@ assert len(csv_empty) == 0
 print('PASS: K8.1 CSV replay OK')
 " || { echo "FAIL: python sanity K8.1" >&2; exit 1; }
 
+# --- python replay pipeline (K8.4) ---
+python3 -c "
+import sys, tempfile, shutil
+from pathlib import Path
+sys.path.insert(0, '$SCRIPT_DIR')
+from app.config import load_config, MODULE_DIR as ORIG_MODULE_DIR
+from app.runner_detect import run_replay_csv
+from app.event_journal import read_jsonl
+from app.stats_builder import build_stats, write_reports
+
+cfg = load_config()
+
+# replay on sample CSV
+ret = run_replay_csv('fixtures/sample_xauusd_m1.csv')
+assert ret == 0
+
+# verify raw event written
+raw_path = ORIG_MODULE_DIR / cfg['paths']['raw_events']
+raw_events = read_jsonl(str(raw_path))
+assert len(raw_events) >= 1
+
+# verify enriched written
+enr_path = ORIG_MODULE_DIR / cfg['paths']['enriched_events']
+enr_events = read_jsonl(str(enr_path))
+assert len(enr_events) >= 1
+
+# verify stats
+reports_dir = ORIG_MODULE_DIR / cfg['paths']['reports_dir']
+import os
+report_files = os.listdir(str(reports_dir))
+assert 'stats_summary.json' in report_files
+
+print('PASS: K8.4 replay pipeline OK')
+" || { echo "FAIL: python sanity K8.4" >&2; exit 1; }
+
 # --- K8.1 replay data ---
 [ -f "$SCRIPT_DIR/fixtures/sample_xauusd_m1.csv" ] || { echo "FAIL missing: sample CSV" >&2; exit 1; }
 
@@ -179,4 +214,4 @@ print('PASS: K8.1 CSV replay OK')
 [ -f "$SCRIPT_DIR/cmd.sh" ] || { echo "FAIL missing: cmd.sh" >&2; exit 1; }
 [ -f "$SCRIPT_DIR/menu.sh" ] || { echo "FAIL missing: menu.sh" >&2; exit 1; }
 
-echo "PASS: mimo_open_observer K8.1 sanity OK"
+echo "PASS: mimo_open_observer K8.4 sanity OK"
