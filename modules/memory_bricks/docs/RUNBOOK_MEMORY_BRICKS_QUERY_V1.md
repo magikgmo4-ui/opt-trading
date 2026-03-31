@@ -15,6 +15,7 @@ bash modules/memory_bricks/scripts/install_shortcuts.sh
 
 - mode par defaut: installation dans `~/.local/bin` sans `sudo`
 - si besoin systeme explicite: `bash modules/memory_bricks/scripts/install_shortcuts.sh --system`
+- si besoin dossier personnalisé: `bash modules/memory_bricks/scripts/install_shortcuts.sh --bin-dir /chemin/vers/dossier`
 - si `~/.local/bin` n'est pas dans `PATH`, l'ajouter avant d'appeler `cmd-memory_bricks`, `menu-memory_bricks` ou `sanity-memory_bricks`
 
 ### Mode --system: prerequis et validation
@@ -25,6 +26,17 @@ bash modules/memory_bricks/scripts/install_shortcuts.sh
   - `ls -la /usr/local/bin/*memory_bricks` (symlinks présents et cibles valides)
   - `sanity-memory_bricks` ou `cmd-memory_bricks query status` (exécution effective)
 - `smoke_wrappers.sh` ne couvre pas `--system` (local-first uniquement)
+- pas de désinstallation automatisée; suppression manuelle des symlinks si besoin
+
+### Mode --bin-dir: prerequis et validation
+
+- syntaxe: `bash modules/memory_bricks/scripts/install_shortcuts.sh --bin-dir /chemin/vers/dossier`
+- prerequis: dossier existant ou créable sans `sudo`, droits d'écriture sur le parent
+- cible: 3 symlinks dans le dossier spécifié (identique au mode local-first, pas de sudo)
+- `smoke_wrappers.sh` ne couvre pas `--bin-dir` (local-first avec `~/.local/bin` uniquement)
+- validation manuelle après installation:
+  - `ls -la /chemin/vers/dossier/*memory_bricks` (symlinks présents et cibles valides)
+  - vérifier que le dossier est dans `PATH` avant d'appeler les shortcuts
 - pas de désinstallation automatisée; suppression manuelle des symlinks si besoin
 
 ## Validation standard
