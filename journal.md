@@ -103699,3 +103699,154 @@ BACKEND_URL=http://<host>:<port> node tests/cms-installer.smoke.js
 5) Points ouverts (next):
 - Ouvrir **GO_LOCALCMS_M1_2_CADRAGE** (doc-only) pour cadrer l’extraction des modules inline lourds `MOD_BACKEND_CFG`, `MOD_NET_CFG`, `MOD_SYS_CFG` vers `modules/*.js` (stratégies, ordre, risques, prompt d’implémentation).
 - (Optionnel, non prioritaire) GO_LOCALCMS_M1_1_CLOSEOUT formel si non déjà produit sous forme d’un closeout global M-1.1 (le texte mentionne un gel, mais le livrable “CLOSEOUT_LOCALCMS_M1_1.txt” n’est pas confirmé ici).
+
+## 2026-03-31 22:39 | TV Webhook | COINM_SHORT | BTCUSDT 1 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `67647.9`
+5. **TP**: `0.0`
+6. **SL**: `67657.9`
+7. **Reason**: bitget bar-close ts=1775011140000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 67647.9,
+  "tp": 0.0,
+  "sl": 67657.9,
+  "reason": "bitget bar-close ts=1775011140000",
+  "_ts": "2026-04-01T02:39:02.453757+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-31 22:38 — note706
+1) Objectifs:
+- Aligner et durcir la surface V1 de `modules/memory_bricks` (docs opératoires/validation) sans rouvrir le code.
+- Intégrer et clôturer une chaîne de triggers OT (entrypoints validation, policy, modes d’installation).
+- Finaliser l’intégration Git (push, PR) jusqu’au merge sur `sot/mainline`, puis nettoyage.
+- Préparer la suite logique: consumer LocalCMS (Windows/Claude) et cadrage de branchement.
+
+2) Actions:
+- État initial établi: repo `/home/fantome/opt-trading`, branche `feat/memory-bricks-v1-impl-harden`, HEAD ref `e24088c`, worktree parasite `?? _state/` (à ne pas toucher).
+- Doc patch: ajout “Validation standard” dans `WORKFLOW_MEMORY_BRICKS_V1.md` et `RUNBOOK_MEMORY_BRICKS_QUERY_V1.md` (sanity vs smoke).
+- Commit entrypoint sync: `a0ba1c8` (“sync validation entrypoints…”). Closeout PASS.
+- Doc patch “validation policy” (unittest + ordre + politique selon type de changement). Commit `926f762`. Closeout PASS.
+- Doc patch “--system mode coverage” (prérequis sudo, portée, limites, validations minimales). Commit `139edb9`. Closeout PASS.
+- Doc patch “--bin-dir mode coverage”. Commit `5a1c56f`. Closeout PASS.
+- Audit surface doc `install_shortcuts.sh`: pas de patch; closeout PASS.
+- Audit consolidation doc V1: pas de patch; closeout PASS.
+- Audit final surface module V1 (code/scripts/tests/docs): pas de patch; closeout PASS.
+- Closeout de branche V1 (local): branche propre; remote non prouvé initialement.
+- Push remote: échec auth (HTTPS sans creds, SSH sans clés) → setup auth via PAT (opérateur).
+- Push retry: succès, branche distante créée, tracking OK.
+- PR créée initialement (#23) vers `sot/mainline`, mais scope trop large (36 commits/102 fichiers) → audit FAIL.
+- Construction d’une branche clean `feat/memory-bricks-v1-clean` par cherry-pick des 15 commits `modules/memory_bricks` uniquement; tests/sanity/smoke PASS.
+- Push branche clean + création PR propre (#24).
+- Fermeture PR #23 (superseded par #24).
+- PR #24 enrichie (body) puis merge effectué dans `sot/mainline` (commit merge `bd070345...`).
+- Cleanup branches locales/distantes: suppression `feat/memory-bricks-v1-clean` et `feat/memory-bricks-v1-impl-harden`.
+- Clôture finale V1: lifecycle complete, V1 considéré CLOSED.
+- Relecture docs memory_bricks: suite logique identifiée (LocalCMS consumer read-only; API V2 read-only plus tard).
+- Cadrage LocalCMS (Windows/Claude): décision de continuer sur branche LocalCMS existante et terminer cycle en cours avant de créer une 3e branche; confirmation via archives ZIP (main quasi vide, branche feature active).
+
+3) Décisions:
+- Ne pas rouvrir: noyau `memory_bricks` V1, query V1, scripts, tests, LocalCMS, `_state/`.
+- Prioriser docs/ops avant toute refonte scripts (“unify pack” écarté).
+- `--system` et `--bin-dir`: cadrage doc uniquement (pas de smoke automatisé, limites documentées).
+- PR #23 jugée trop large → création d’une PR clean (#24) via cherry-pick; #23 fermée.
+- Intégration via PR vers `sot/mainline` (base retenue) puis merge; nettoyage branches feature.
+- Suite: LocalCMS consumer se fait dans repo LocalCMS; mais ne pas ouvrir la 3e branche tout de suite (finir mini-cycle `$VALID` en cours avec Claude sur `feature/localcms-shared-explorer-cms-installer-v1`, base `c41b24a`), puis réalignement trunk, puis branche consumer.
+
+4) Commandes / Code:
+```bash
+# Vérifs / diffs
+git diff -- modules/memory_bricks/docs/WORKFLOW_MEMORY_BRICKS_V1.md \
+           modules/memory_bricks/docs/RUNBOOK_MEMORY_BRICKS_QUERY_V1.md \
+           modules/memory_bricks/docs/CLOSEOUT_MEMORY_BRICKS_MODULE_CONSOLIDATED_01.md
+git status --short --branch
+git log --oneline -1
+
+# Validations
+python3 -m unittest discover -s modules/memory_bricks/tests -p "test_*.py" -v
+bash modules/memory_bricks/scripts/sanity_check.sh
+bash modules/memory_bricks/scripts/smoke_wrappers.sh
+
+# Commits (exemples)
+git add modules/memory_bricks/docs/WORKFLOW_MEMORY_BRICKS_V1.md \
+        modules/memory_bricks/docs/RUNBOOK_MEMORY_BRICKS_QUERY_V1.md
+git commit -m "memory_bricks: sync validation entrypoints in workflow and runbook"
+git commit -m "memory_bricks: clarify validation policy in workflow and runbook"
+git commit -m "memory_bricks: document system mode coverage in workflow and runbook"
+git commit -m "memory_bricks: document bin-dir mode operational coverage"
+
+# Remote diagnostics / push
+git remote -v
+git branch -vv
+git ls-remote --heads origin feat/memory-bricks-v1-impl-harden || true
+git push -u origin feat/memory-bricks-v1-impl-harden
+
+# PR (GitHub CLI)
+gh pr create --base sot/mainline --head feat/memory-bricks-v1-impl-harden
+gh pr view 23 --json files,commits
+gh pr create --base sot/mainline --head feat/memory-bricks-v1-clean
+gh pr merge 24 --merge
+gh pr edit 24
+
+# Reconstruction PR clean (isoler commits memory_bricks)
+git fetch origin
+git log --no-merges --reverse --format='%H %s' \
+  f59d6750d03793ffcbcdec89e007649cc0aa4ef2..origin/feat/memory-bricks-v1-impl-harden \
+  -- modules/memory_bricks
+
+cat > /tmp/memory_bricks_commits.txt <<'EOF'
+9ac2195c6ff87704d6f594f119df63d37a31949b
+e2541bbe6e9001739707d3accabd8f5879e21ef2
+5b7d29622a46ea11458a4117181da79d68661d53
+cc2fe5a405d07ac7707595703e38bbaf1ba72bae
+d6e53657cf3f1654428cd091d26d841c875ad69d
+5fa901f3c8e0f062bf3cefa449ec9d43b7594ce1
+a38887ad495a5279b091429d859c4857ee96e19b
+02762865d1074dcf6a1ba7e5c45990f7528cb896
+9aea91d5e9c085da85c822b07058be65b0434ca5
+438f40453b48b37f30684fe5e5d1e24407eeae94
+e24088cddfdd00d58e8f79b2097a87028123321f
+a0ba1c8fd360758c7ce0822febba6780fd2b788a
+926f762a8a2719f69255ac2b6d6a5c4848b4507d
+139edb9a181af5139167ef26e3a27c87428fc831
+5a1c56f706adabdc1af555fc0bda96b892b0a8cb
+EOF
+
+# Vérif anti-commit-mixte
+while read -r sha; do
+  echo "=== $sha ==="
+  git show --name-only --format='' "$sha" | sed '/^$/d' | grep -v '^modules/memory_bricks/' || true
+done < /tmp/memory_bricks_commits.txt
+
+# Branche clean + cherry-pick
+git checkout -B sot/mainline origin/sot/mainline
+git checkout -b feat/memory-bricks-v1-clean
+while read -r sha; do git cherry-pick "$sha" || break; done < /tmp/memory_bricks_commits.txt
+git push -u origin feat/memory-bricks-v1-clean
+
+# Cleanup branches
+git push origin --delete feat/memory-bricks-v1-clean
+git push origin --delete feat/memory-bricks-v1-impl-harden
+git branch -d feat/memory-bricks-v1-clean
+git branch -D feat/memory-bricks-v1-impl-harden
+```
+
+5) Points ouverts (next):
+- LocalCMS (Windows, Claude): continuer sur repo `localcms`, branche active `feature/localcms-shared-explorer-cms-installer-v1` (base canonique mentionnée: `c41b24a`), exécuter `GO_VALID_EXTEND_08` puis seulement envisager:
+  - `GO_LOCALCMS_TRUNK_REALIGN_AFTER_VALID_01`
+  - ensuite création d’une 3e branche pour consumer memory_bricks.
+- Note résiduelle: divergence “10 tests” vs exécution locale “13 tests” mentionnée dans le narratif PR (non bloquante, mais potentiellement à corriger si souhaité).
+- `_state/` reste non tracké (à maintenir hors Git).
