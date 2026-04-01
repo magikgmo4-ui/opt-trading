@@ -210,8 +210,51 @@ print('PASS: K8.4 replay pipeline OK')
 # --- K8.1 replay data ---
 [ -f "$SCRIPT_DIR/fixtures/sample_xauusd_m1.csv" ] || { echo "FAIL missing: sample CSV" >&2; exit 1; }
 
+# --- python calendar checks (K8.3) ---
+python3 -c "
+import sys
+sys.path.insert(0, '$SCRIPT_DIR')
+from app.utils_time import is_market_open_day, get_enabled_windows, is_market_window, next_market_window
+from app.config import load_config
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
+cfg = load_config()
+tz = ZoneInfo('America/Montreal')
+
+# is_market_open_day
+assert is_market_open_day(datetime(2026, 3, 29, tzinfo=tz))      # Sunday
+assert is_market_open_day(datetime(2026, 4, 2, tzinfo=tz))       # Thursday
+assert not is_market_open_day(datetime(2026, 3, 27, tzinfo=tz))  # Friday
+assert not is_market_open_day(datetime(2026, 3, 28, tzinfo=tz))  # Saturday
+
+# get_enabled_windows
+wins = get_enabled_windows(cfg)
+assert len(wins) >= 1
+assert wins[0]['name'] == 'open_1800'
+assert wins[0]['hour'] == 18
+
+# is_market_window
+assert is_market_window(datetime(2026, 3, 29, 18, 0, tzinfo=tz), cfg)     # Sunday 18:00
+assert is_market_window(datetime(2026, 3, 30, 18, 0, tzinfo=tz), cfg)     # Monday 18:00
+assert not is_market_window(datetime(2026, 3, 27, 18, 0, tzinfo=tz), cfg) # Friday 18:00
+assert not is_market_window(datetime(2026, 3, 29, 18, 1, tzinfo=tz), cfg) # Sunday 18:01
+
+# next_market_window
+nxt = next_market_window(datetime(2026, 3, 27, 19, 0, tzinfo=tz), cfg)
+assert nxt is not None
+assert nxt.day == 29 and nxt.hour == 18  # next Sunday 18:00
+
+# check_window subcommand
+from app.runner_detect import run_check_window
+ret = run_check_window()
+assert ret == 0
+
+print('PASS: K8.3 calendar OK')
+" || { echo "FAIL: python sanity K8.3" >&2; exit 1; }
+
 # --- cmd.sh / menu.sh existence ---
 [ -f "$SCRIPT_DIR/cmd.sh" ] || { echo "FAIL missing: cmd.sh" >&2; exit 1; }
 [ -f "$SCRIPT_DIR/menu.sh" ] || { echo "FAIL missing: menu.sh" >&2; exit 1; }
 
-echo "PASS: mimo_open_observer K8.4 sanity OK"
+echo "PASS: mimo_open_observer K8.3 sanity OK"

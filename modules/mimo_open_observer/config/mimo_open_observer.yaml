@@ -1,6 +1,6 @@
 version: v0
 module_name: mimo_open_observer
-status: k8_csv_replay
+status: k8_calendar
 
 symbol: XAUUSD
 timezone: America/Montreal
@@ -11,6 +11,12 @@ windows:
     hour: 18
     minute: 0
     weekdays: [sun, mon, tue, wed, thu]
+
+  open_0000:
+    enabled: false
+    hour: 0
+    minute: 0
+    weekdays: [mon, tue, wed, thu, fri]
 
 scope:
   type: M1x5
@@ -34,3 +40,4 @@ provider:
   #   exchange: binance
   #   symbol: XAUUSDT
   #   timeframe: 1m
+  #   limit: 500
