@@ -16,7 +16,9 @@ Module doc-first pour observer XAUUSD à l'ouverture, détecter le premier FVG s
 - providers:
   - fixture (tests, inchangé)
   - csv_replay (données M1 réelles/semi-réelles)
-  - ccxt (Binance XAUUSDT M1)
+    - `fixtures/sample_xauusd_m1.csv` → no_event (dérive baissière, 60 bars)
+    - `fixtures/sample_xauusd_m1_signal.csv` → bullish FVG + sweep, 95 bars
+  - ccxt (Binance XAUUSDT M1, proxy live)
 - scheduler/dashboard: non implémentés
 
 ## Workflow retenu
@@ -68,6 +70,23 @@ cmd.sh sample_pending
 cmd.sh build_stats
 cmd.sh show_stats
 ```
+
+## CCXT Provider
+Mode `ccxt` pour données live M1 depuis Binance.
+
+Instrument par défaut : `XAUUSDT` (proxy, pas XAUUSD spot pur).
+
+```yaml
+provider:
+  mode: ccxt
+  ccxt:
+    exchange: binance
+    symbol: XAUUSDT
+    timeframe: 1m
+    limit: 500
+```
+
+Dépendance : `pip install ccxt`
 
 ## Remarque
 Ce pack suit le modèle `opt-trading` (module durable + wrappers + registres) et l'esprit `localcms` (doc d'ouverture structurée, index compact, continuité de session).

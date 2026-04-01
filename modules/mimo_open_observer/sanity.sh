@@ -210,6 +210,29 @@ print('PASS: K8.4 replay pipeline OK')
 # --- K8.1 replay data ---
 [ -f "$SCRIPT_DIR/fixtures/sample_xauusd_m1.csv" ] || { echo "FAIL missing: sample CSV" >&2; exit 1; }
 
+# --- K8.2 ccxt provider (soft check, requires network) ---
+python3 -c "
+import sys
+sys.path.insert(0, '$SCRIPT_DIR')
+try:
+    import ccxt
+    from app.data_provider import get_m1_bars
+    from datetime import datetime, timezone
+
+    cfg = {'provider': {'mode': 'ccxt', 'ccxt': {'exchange': 'binance', 'symbol': 'XAUUSDT', 'timeframe': '1m', 'limit': 5}}}
+    end = datetime.now(timezone.utc)
+    from datetime import timedelta
+    start = end - timedelta(minutes=10)
+    bars = get_m1_bars('XAUUSD', start, end, cfg)
+    assert len(bars) >= 1
+    assert bars[0].open > 0
+    print(f'ccxt: PASS ({len(bars)} bars, close={bars[-1].close})')
+except ImportError:
+    print('ccxt: SKIP (not installed)')
+except Exception as e:
+    print(f'ccxt: WARN ({type(e).__name__}: {e})')
+" || echo "ccxt: SKIP (soft check)"
+
 # --- python calendar checks (K8.3) ---
 python3 -c "
 import sys
