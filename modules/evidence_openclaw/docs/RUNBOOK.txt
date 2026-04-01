@@ -1,0 +1,9 @@
+EVIDENCE_OPENCLAW — RUNBOOK
+
+Flux recommandé:
+1. sudo -iu openclaw
+2. menu-evidence_openclaw
+3. detect workspace
+4. export docs evidence
+5. lire le prompt généré
+6. demander à OpenClaw de documenter à partir des fichiers de preuve du workspace

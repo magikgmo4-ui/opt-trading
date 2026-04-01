@@ -1,0 +1,11 @@
+INSTALL_MODULE_OPENCLAW — RUNBOOK
+
+Flux standard:
+1. sanity.sh
+2. cmd.sh list
+3. cmd.sh install <module_id>
+4. (optionnel) lancer install_shortcuts.sh du module installé
+5. utiliser menu-... / cmd-... du module
+
+Cible par défaut:
+- /opt/trading

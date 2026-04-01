@@ -1,0 +1,50 @@
+matrix_version: "1.0"
+agents:
+  orchestrateur:
+    primary:
+      provider: openrouter
+      model: qwen/qwen3-32b
+    fallback:
+      provider: openai_compatible_local
+      model: qwen3:14b-instruct
+    limits:
+      temperature: 0.2
+      top_p: 0.9
+      max_output_tokens: 4000
+      reasoning_mode: bounded
+  builder:
+    primary:
+      provider: openrouter
+      model: qwen/qwen3-coder-30b-a3b-instruct
+    fallback:
+      provider: openai_compatible_local
+      model: qwen2.5-coder:14b
+    limits:
+      temperature: 0.3
+      top_p: 0.92
+      max_output_tokens: 6000
+      reasoning_mode: implementation
+  reviewer:
+    primary:
+      provider: openrouter
+      model: deepseek/deepseek-r1
+    fallback:
+      provider: openai_compatible_local
+      model: qwen3:14b-instruct
+    limits:
+      temperature: 0.1
+      top_p: 0.85
+      max_output_tokens: 5000
+      reasoning_mode: strict_review
+  lab:
+    primary:
+      provider: openai_compatible_local
+      model: qwen3:14b-instruct
+    fallback:
+      provider: openrouter
+      model: qwen/qwen3-14b
+    limits:
+      temperature: 0.5
+      top_p: 0.95
+      max_output_tokens: 5000
+      reasoning_mode: exploration_bounded

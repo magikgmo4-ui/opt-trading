@@ -1,0 +1,24 @@
+OPENCLAW_CONFIG_MODULAIRE — ETABLI
+
+1. Le module suit le standard durable:
+   - scripts/sanity.sh
+   - scripts/cmd.sh
+   - scripts/menu.sh
+   - scripts/install_shortcuts.sh
+   - scripts/apply_safe.sh
+   - scripts/rollback.sh
+
+2. Le module prépare une config modulaire:
+   - openclaw.json racine
+   - config.d/agents.json5
+   - config.d/tools.json5
+
+3. Le token gateway n’est pas codé en dur dans le template final:
+   - il est extrait depuis la config live lors de l’apply
+
+4. L’apply est conçu en mode safe:
+   - backup avant remplacement
+   - validation OpenClaw
+   - rollback possible
+
+5. Le module est prévu pour être exécuté sous l’utilisateur openclaw.

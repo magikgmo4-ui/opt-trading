@@ -1,0 +1,3 @@
+CONFIGURE_OPENCLAW — ETABLI
+
+Module standard pour configure / config get-set-unset / validate / agents / dashboard.

@@ -1,0 +1,23 @@
+OPENCLAW_CONFIG_MODULAIRE — RUNBOOK
+
+Préconditions:
+- être sur la machine où OpenClaw est installé
+- travailler sous l’utilisateur openclaw
+- arrêter le gateway avant apply
+
+Procédure standard:
+1. sanity.sh
+2. cmd.sh status
+3. cmd.sh backup
+4. cmd.sh apply
+5. cmd.sh validate
+6. redémarrer le gateway
+7. cmd.sh health
+8. cmd.sh probe
+
+Rollback:
+- cmd.sh rollback
+
+Shortcuts globaux:
+- menu-openclaw_config_modulaire
+- cmd-openclaw_config_modulaire

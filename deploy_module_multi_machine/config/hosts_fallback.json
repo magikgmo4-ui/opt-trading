@@ -1,0 +1,36 @@
+{
+  "machines": {
+    "admin-trading": {
+      "hostname": "admin-trading",
+      "ssh_target": "admin-trading",
+      "role": "orchestrator",
+      "os_family": "linux",
+      "lan_ip": "192.168.0.111",
+      "wireguard_ip": "10.66.66.1"
+    },
+    "db-layer": {
+      "hostname": "db-layer",
+      "ssh_target": "db-layer",
+      "role": "storage",
+      "os_family": "linux",
+      "lan_ip": "192.168.0.100",
+      "wireguard_ip": "10.66.66.2"
+    },
+    "student": {
+      "hostname": "student",
+      "ssh_target": "student",
+      "role": "analytics",
+      "os_family": "linux",
+      "lan_ip": "192.168.0.103",
+      "wireguard_ip": "10.66.66.3"
+    },
+    "cursor-ai": {
+      "hostname": "cursor-ai",
+      "ssh_target": "cursor-ai",
+      "role": "windows-workstation",
+      "os_family": "windows",
+      "lan_ip": "192.168.0.177",
+      "wireguard_ip": "10.66.66.4"
+    }
+  }
+}

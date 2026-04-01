@@ -1,0 +1,4 @@
+CONFIGURE_OPENCLAW — RUNBOOK
+
+sudo -iu openclaw
+menu-configure_openclaw

@@ -1,0 +1,13 @@
+INSTALL_MODULE_OPENCLAW — ETABLI
+
+1. Le module suit le standard:
+   - sanity
+   - cmd
+   - menu
+   - install_shortcuts
+
+2. Le module sait lister les modules déclarés dans app/modules_registry.json.
+
+3. Le module sait installer un module déclaré vers une racine cible.
+
+4. Si le module installé possède scripts/install_shortcuts.sh, l’installeur propose de l’exécuter.

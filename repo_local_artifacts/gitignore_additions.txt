@@ -1,0 +1,4 @@
+# repo_local_artifacts additions (local-only folders; never commit)
+_worktrees/
+_inbox/
+_hold_untracked_before_merge_*/
