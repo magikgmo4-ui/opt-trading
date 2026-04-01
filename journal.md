@@ -9749,3 +9749,570 @@ Aucune commande exécutée explicitement dans ce dump pour le check Trae/LocalCM
 5) Points ouverts (next):
 - LocalCMS : faire la review formelle de M-4.1→M-4.4 puis ouvrir M-4.5 `MOD_BACKEND_CFG`; figer l’inventaire des blocs encore inline + ordre post M-4.5; clarifier l’emplacement canonique des artefacts LocalCMS.
 - opt-trading : enchaîner sur l’item `OT-OPS-01` (surface opérateur Desk Pro) avec une table canonique `module → scripts → wrappers → statut → action requise`, puis normalisation wrappers/registry/docs.
+
+## 2026-04-01 06:49 | TV Webhook | COINM_SHORT | BTCUSDT 1 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `68527.6`
+5. **TP**: `0.0`
+6. **SL**: `68537.6`
+7. **Reason**: bitget bar-close ts=1775040540000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 68527.6,
+  "tp": 0.0,
+  "sl": 68537.6,
+  "reason": "bitget bar-close ts=1775040540000",
+  "_ts": "2026-04-01T10:49:00.945720+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-04-01 06:50 | TV Webhook | COINM_SHORT | BTCUSDT 1 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `68585.7`
+5. **TP**: `0.0`
+6. **SL**: `68575.7`
+7. **Reason**: bitget bar-close ts=1775040600000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 68585.7,
+  "tp": 0.0,
+  "sl": 68575.7,
+  "reason": "bitget bar-close ts=1775040600000",
+  "_ts": "2026-04-01T10:50:04.455724+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-04-01 06:51 | TV Webhook | COINM_SHORT | BTCUSDT 1 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `68564.4`
+5. **TP**: `0.0`
+6. **SL**: `68574.4`
+7. **Reason**: bitget bar-close ts=1775040660000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 68564.4,
+  "tp": 0.0,
+  "sl": 68574.4,
+  "reason": "bitget bar-close ts=1775040660000",
+  "_ts": "2026-04-01T10:51:05.777234+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-04-01 06:52 | TV Webhook | COINM_SHORT | BTCUSDT 1 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `68552.4`
+5. **TP**: `0.0`
+6. **SL**: `68542.4`
+7. **Reason**: bitget bar-close ts=1775040720000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 68552.4,
+  "tp": 0.0,
+  "sl": 68542.4,
+  "reason": "bitget bar-close ts=1775040720000",
+  "_ts": "2026-04-01T10:52:03.527792+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-04-01 06:53 | TV Webhook | COINM_SHORT | BTCUSDT 1 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `68575.0`
+5. **TP**: `0.0`
+6. **SL**: `68585.0`
+7. **Reason**: bitget bar-close ts=1775040780000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 68575.0,
+  "tp": 0.0,
+  "sl": 68585.0,
+  "reason": "bitget bar-close ts=1775040780000",
+  "_ts": "2026-04-01T10:53:05.890233+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-04-01 06:54 | TV Webhook | COINM_SHORT | BTCUSDT 1 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `68539.0`
+5. **TP**: `0.0`
+6. **SL**: `68529.0`
+7. **Reason**: bitget bar-close ts=1775040840000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 68539.0,
+  "tp": 0.0,
+  "sl": 68529.0,
+  "reason": "bitget bar-close ts=1775040840000",
+  "_ts": "2026-04-01T10:54:02.052286+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-04-01 06:55 | TV Webhook | COINM_SHORT | BTCUSDT 1 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `68546.3`
+5. **TP**: `0.0`
+6. **SL**: `68556.3`
+7. **Reason**: bitget bar-close ts=1775040900000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 68546.3,
+  "tp": 0.0,
+  "sl": 68556.3,
+  "reason": "bitget bar-close ts=1775040900000",
+  "_ts": "2026-04-01T10:55:04.402434+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-04-01 06:56 | TV Webhook | COINM_SHORT | BTCUSDT 1 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `68427.8`
+5. **TP**: `0.0`
+6. **SL**: `68417.8`
+7. **Reason**: bitget bar-close ts=1775040960000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 68427.8,
+  "tp": 0.0,
+  "sl": 68417.8,
+  "reason": "bitget bar-close ts=1775040960000",
+  "_ts": "2026-04-01T10:56:05.301685+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-04-01 06:58 | TV Webhook | COINM_SHORT | BTCUSDT 1 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `68480.2`
+5. **TP**: `0.0`
+6. **SL**: `68490.2`
+7. **Reason**: bitget bar-close ts=1775041080000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 68480.2,
+  "tp": 0.0,
+  "sl": 68490.2,
+  "reason": "bitget bar-close ts=1775041080000",
+  "_ts": "2026-04-01T10:58:01.841275+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-04-01 06:59 | TV Webhook | COINM_SHORT | BTCUSDT 1 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `68498.7`
+5. **TP**: `0.0`
+6. **SL**: `68488.7`
+7. **Reason**: bitget bar-close ts=1775041140000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 68498.7,
+  "tp": 0.0,
+  "sl": 68488.7,
+  "reason": "bitget bar-close ts=1775041140000",
+  "_ts": "2026-04-01T10:59:02.456452+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-04-01 07:04 | TV Webhook | COINM_SHORT | BTCUSDT 1 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `68554.9`
+5. **TP**: `0.0`
+6. **SL**: `68564.9`
+7. **Reason**: bitget bar-close ts=1775041440000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 68554.9,
+  "tp": 0.0,
+  "sl": 68564.9,
+  "reason": "bitget bar-close ts=1775041440000",
+  "_ts": "2026-04-01T11:04:03.732654+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-04-01 07:06 | TV Webhook | COINM_SHORT | BTCUSDT 1 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `68539.5`
+5. **TP**: `0.0`
+6. **SL**: `68529.5`
+7. **Reason**: bitget bar-close ts=1775041560000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 68539.5,
+  "tp": 0.0,
+  "sl": 68529.5,
+  "reason": "bitget bar-close ts=1775041560000",
+  "_ts": "2026-04-01T11:06:05.285184+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-04-01 07:08 | TV Webhook | COINM_SHORT | BTCUSDT 1 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `68510.8`
+5. **TP**: `0.0`
+6. **SL**: `68520.8`
+7. **Reason**: bitget bar-close ts=1775041680000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 68510.8,
+  "tp": 0.0,
+  "sl": 68520.8,
+  "reason": "bitget bar-close ts=1775041680000",
+  "_ts": "2026-04-01T11:08:01.567795+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-04-01 07:09 | TV Webhook | COINM_SHORT | BTCUSDT 1 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `68507.6`
+5. **TP**: `0.0`
+6. **SL**: `68497.6`
+7. **Reason**: bitget bar-close ts=1775041740000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 68507.6,
+  "tp": 0.0,
+  "sl": 68497.6,
+  "reason": "bitget bar-close ts=1775041740000",
+  "_ts": "2026-04-01T11:09:02.243390+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-04-01 07:10 | TV Webhook | COINM_SHORT | BTCUSDT 1 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `68474.8`
+5. **TP**: `0.0`
+6. **SL**: `68484.8`
+7. **Reason**: bitget bar-close ts=1775041800000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 68474.8,
+  "tp": 0.0,
+  "sl": 68484.8,
+  "reason": "bitget bar-close ts=1775041800000",
+  "_ts": "2026-04-01T11:10:04.459069+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-04-01 07:11 | TV Webhook | COINM_SHORT | BTCUSDT 1 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `68501.0`
+5. **TP**: `0.0`
+6. **SL**: `68491.0`
+7. **Reason**: bitget bar-close ts=1775041860000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 68501.0,
+  "tp": 0.0,
+  "sl": 68491.0,
+  "reason": "bitget bar-close ts=1775041860000",
+  "_ts": "2026-04-01T11:11:05.123350+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-04-01 07:12 | TV Webhook | COINM_SHORT | BTCUSDT 1 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `68525.6`
+5. **TP**: `0.0`
+6. **SL**: `68535.6`
+7. **Reason**: bitget bar-close ts=1775041920000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 68525.6,
+  "tp": 0.0,
+  "sl": 68535.6,
+  "reason": "bitget bar-close ts=1775041920000",
+  "_ts": "2026-04-01T11:12:05.575656+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-04-01 07:37 — note 1001
+1) Objectifs:
+- Reconstituer l’état canonique LocalCMS à partir de dumps bruts.
+- Finaliser l’extension/câblage de la validation `$VALID` puis cadrer la suite.
+- Canoniser la documentation `docs/`.
+- Stabiliser/valider Shared Explorer et CMS Installer.
+- Ouvrir et exécuter M‑1.1 `$FORMS` (extraction + adoption) puis corriger dettes mineures.
+
+2) Actions:
+- Clarification initiale: `$USER` absent, `conditions[]/validators[]` présents mais non consommés (état ancien), persistance cross‑session absente; arbitrage PM sur `$COND/$VALID` bornés et `$USER` en HOLD.
+- Identification d’`extend_06` comme vrai GO: **GO_VALID_EXTEND_06** (et non “rapport 06”).
+- Exécution/closeout **GO_VALID_EXTEND_06**: câblage `$VALID` pour `MOD_APPS_CFG` + `MOD_SEC_CFG` dans `localcms-v5.html`, commit de référence `c41b24a`, tests 6/6 PASS, livrables de doc + smoke.
+- Cadrage **GO_LOCALCMS_NEXT_SCOPE_CADRAGE_07** → recommandation **GO_VALID_EXTEND_08** (3 modules restants à câbler à `$VALID`).
+- Exécution **GO_VALID_EXTEND_08**: câblage `$VALID` sur `MOD_QUEUE_CFG`, `MOD_ENV_GLOBAL`, `MOD_DATA_SOURCES`; création docs + smoke; corrections PM requises (emplacement closeout, comptage validators, formulation “expected”).
+- Correction documentaire GO_08: déplacement closeout vers `docs/`, correction total validators (24), reformulation “aucune régression détectée…”. GO_08 clôturé.
+- Canonisation docs: **GO_LOCALCMS_DOCS_CANONICALIZE_09** (structure cible, index maître, nommage, migration ancien→nouveau) puis **GO_LOCALCMS_DOCS_CLEANUP_09B** (suppression legacy `docs/claude/`, `docs/module/`, doublons racine; validation index 26/26).
+- Shared Explorer:
+  - Cadrage V2: manque UI champ `to` + affichage total tronqué.
+  - **GO_SHARED_EXPLORER_V2_SEARCH_COMPLETE**: ajout `sx-to`, stockage `searchTotal`, affichage “X sur N”, bump version à V1.1.0, tests dédiés; PASS.
+  - **GO_SHARED_EXPLORER_V2_SORT**: tri colonnes (Nom/Taille/Modifié) avec dirs-first conservé, état `sortKey/sortDir`, headers cliquables, bump à V1.2.0; tests T14–T17; PASS.
+  - Dette test: **GO_SHARED_EXPLORER_V2_TEST_SYNC** pour aligner assertion VERSION V1.2.0; suite entièrement verte 261/261.
+- CMS Installer:
+  - Qualification: échec integration I11 (12/13) attribué à pollution de backup par I10 (permissions 0o444) → GO micro-fix.
+  - **GO_CMS_INSTALLER_V1_I11_FIX**: nettoyage backups `test_mod_*` en fin de I10 dans `tests/integration_test_pipeline.py`; 13/13 intégration + suites Node PASS (32/32 global); CLOSE/PASS.
+  - LIVE smoke initial bloqué (infra absente: BACKEND_URL, backend, /shared, pip).
+  - Preuve “live-like” via backend HTTP stdlib (puis PM exige FastAPI réel).
+  - **GO_CMS_INSTALLER_V1_FASTAPI_DEPLOY_SMOKE** via shim: stub fastapi/pydantic dans `sys.modules`, import du **vrai** `api/cms_installer.py`, serveur HTTP stdlib appelant handlers; `cms-installer.smoke.js` 6/6 PASS; PM valide “PASS avec limite wrapper”, CMS Installer V1 = VALIDATED.
+- P0 gate:
+  - **GO_P0_VALIDATION_CONFIRM**: lecture complète `docs/canon/p0-compatibility-contract.html`, critères C1–C4 PASS, closeout; P0 PASSÉ, M‑1.1 `$FORMS` ouvrable.
+- M‑1.1 `$FORMS`:
+  - Cadrage: découverte majeure—`CFG/$COND/$VALID` existent déjà dans `localcms-v5.html` (53 appels), donc migration/extraction vs from scratch.
+  - **GO_LOCALCMS_M1_1_FORMS_EXTRACT_01**: création `core/forms.js`, `core/conditions.js` (dual-syntax), `core/validator.js` (8 règles + sanitize), tests (forms/conditions/validator), rebranchement HTML, non‑régression 1299/1299.
+  - **GO_LOCALCMS_M1_1_FORMS_EXTRACT_02**: ajout `<script src="core/forms.js">`, suppression CFG IIFE (−226 lignes), alias inversé `const CFG = $FORMS`, corrections core/forms.js (events, file-ext/os-selector, actionBar); non‑régression 1399/1399.
+  - Cadrage adoption **ADOPT_01** puis adoptions réelles:
+    - **ADOPT_ENV_GLOBAL**: 2 lignes (CFG→$FORMS), test d’adoption 26/26, non‑régression 1425/1425.
+    - **ADOPT_MACHINES_CFG**: 2 lignes, test 44/44, non‑régression 1469/1469.
+    - **ADOPT_IA_CFG**: 2 lignes, test 45/45; comportement documenté: show>hide, `$VALID.run()` non filtré par visibilité; non‑régression sauf dette test déjà traitée ensuite.
+    - **ADOPT_DATA_SOURCES**: 2 lignes (signature readValues atypique prouvée), test 40/40; suite 301/301; bridges transitoires 4/4 terminés.
+  - Cadrage suite M‑1.1 **CADRAGE_11**:
+    - GROUP A (APPS/SEC/DEVTOOLS/QUEUE) = bridges restants, pattern identique mais avec `actionBar/showPreview`.
+    - GROUP B (BACKEND/NET/SYS) = inline lourds, extraction non triviale (M‑1.2/M‑2).
+    - GROUP C plugin composite, GROUP D use-iface.
+  - **GO_LOCALCMS_M1_1_FORMS_ADOPT_4BRIDGES**: remplacement des 16 appels `CFG.*` → `$FORMS.*` (incl. actionBar/showPreview) + 4 tests (91/91) + suite 392/392; observation: `wh_url { type:'url' }` no-op avec `$VALID.run`.
+  - Dette: **GO_QUEUE_CONFIG_VALIDATOR_FIX**: `wh_url type:'url'` → `url:true` + ajustements tests queue; suite 392/392.
+
+3) Décisions:
+- `$USER` et persistance cross-session maintenus en HOLD (hors v1).
+- Convention docs finalement imposée et nettoyée: `docs/INDEX_LOCALCMS.md`, dossiers `canon/ planning/ modules/ go/ archive/`, suppression `docs/claude` et `docs/module`.
+- Validation: 
+  - GO_VALID_EXTEND_06 = CLOSE/PASS (c41b24a).
+  - GO_VALID_EXTEND_08 = CLOSE/PASS après corrections doc.
+  - GO_LOCALCMS_DOCS_CANONICALIZE_09 = CLOSE (via 09B).
+  - GO_LOCALCMS_DOCS_CLEANUP_09B = CLOSE/PASS.
+  - GO_SHARED_EXPLORER_V2_SEARCH_COMPLETE = CLOSE/PASS (V1.1.0).
+  - GO_SHARED_EXPLORER_V2_SORT = CLOSE/PASS (V1.2.0).
+  - GO_SHARED_EXPLORER_V2_TEST_SYNC = CLOSE/PASS (suite verte).
+  - GO_CMS_INSTALLER_V1_I11_FIX = CLOSE/PASS.
+  - GO_CMS_INSTALLER_V1_STABLE = CLOSE/PASS.
+  - GO_CMS_INSTALLER_V1_FASTAPI_DEPLOY_SMOKE = CLOSE/PASS avec limite wrapper; CMS Installer V1 = VALIDATED.
+  - GO_P0_VALIDATION_CONFIRM = CLOSE/PASS; P0 PASSÉ; M‑1.1 `$FORMS` ouvrable.
+  - GO_LOCALCMS_FORMS_V1_CADRAGE = CLOSE/PASS.
+  - GO_LOCALCMS_M1_1_FORMS_EXTRACT_01/02 = CLOSE/PASS.
+  - GO_LOCALCMS_M1_1_FORMS_ADOPT_* (ENV_GLOBAL, MACHINES_CFG, IA_CFG, DATA_SOURCES) = CLOSE/PASS.
+  - GO_LOCALCMS_M1_1_FORMS_ADOPT_4BRIDGES = CLOSE/PASS.
+  - GO_QUEUE_CONFIG_VALIDATOR_FIX = CLOSE/PASS.
+- Prochaine décision: ouvrir **GO_LOCALCMS_M1_2_CADRAGE** (cadrage doc-only extraction GROUP B inline lourds).
+
+4) Commandes / Code:
+```bash
+# Nettoyage docs (09B) — action recommandée/attendue
+git rm -r docs/claude/ docs/module/
+git rm docs/GO_VALID_EXTEND_08.md docs/10_CLOSEOUT_GO_VALID_EXTEND_08.txt docs/p0-compatibility-contract.html
+git rm docs/planning/audit_kanban_projet_rempli_v3.md docs/planning/plan_modulaire_explorateur_shared_installateur_cms.pdf
+git add docs/
+git commit -m "docs: GO_09 canonisation documentaire"
+```
+```bash
+# Exécutions tests CMS Installer (rappel)
+node tests/cms-installer.test.js
+node tests/cms-installer.smoke.js
+python3 tests/integration_test_pipeline.py
+```
+```bash
+# Smoke CMS Installer contre backend (rappel)
+BACKEND_URL=http://<host>:<port> node tests/cms-installer.smoke.js
+```
+
+5) Points ouverts (next):
+- Ouvrir **GO_LOCALCMS_M1_2_CADRAGE** (doc-only) pour planifier l’extraction GROUP B: `MOD_BACKEND_CFG`, `MOD_NET_CFG`, `MOD_SYS_CFG` (fortement inline, sans `modules/*.js`).
+- (Optionnel) Closeout formel M‑1.1 si non encore matérialisé en doc dédié `docs/go/CLOSEOUT_LOCALCMS_M1_1.txt` (le prompt existe, exécution non montrée explicitement dans le dump).
