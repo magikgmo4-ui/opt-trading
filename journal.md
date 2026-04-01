@@ -103560,3 +103560,142 @@ Implémenter uniquement l’extraction de `MOD_SYS_CFG` hors de `localcms-v5.htm
 - Vérifier dans le repo si `docs/go/CADRAGE_LOCALCMS_M1_2.txt` existe et correspond au résumé (sinon, le reconstituer/valider).
 - Lancer l’exécution de `GO_LOCALCMS_M1_2_SYS_CFG_EXTRACT` (extraction `MOD_SYS_CFG` vers `modules/sys-config.js` avec bridge inline minimal).
 - Confirmer après extraction que le contrat `{ FORMS, generators }` reste intact et que `MOD_PLUGIN_CFG` n’est pas impacté.
+
+## 2026-03-31 22:35 | TV Webhook | COINM_SHORT | BTCUSDT 1 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `67557.2`
+5. **TP**: `0.0`
+6. **SL**: `67567.2`
+7. **Reason**: bitget bar-close ts=1775010900000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 67557.2,
+  "tp": 0.0,
+  "sl": 67567.2,
+  "reason": "bitget bar-close ts=1775010900000",
+  "_ts": "2026-04-01T02:35:05.909009+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-31 22:37 | TV Webhook | COINM_SHORT | BTCUSDT 1 | BUY
+1. **Signal**: `BUY`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1`
+4. **Price**: `67648.0`
+5. **TP**: `0.0`
+6. **SL**: `67638.0`
+7. **Reason**: bitget bar-close ts=1775011020000
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "1",
+  "price": 67648.0,
+  "tp": 0.0,
+  "sl": 67638.0,
+  "reason": "bitget bar-close ts=1775011020000",
+  "_ts": "2026-04-01T02:37:01.514322+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 10.0,
+  "risk_usd": 100.0,
+  "risk_real_usd": 100.0
+}
+```
+
+## 2026-03-31 22:37 — note704
+1) Objectifs:
+- Extraire un état de reprise canonique autour de LocalCMS (branche, commits, chantiers GO).
+- Clarifier l’ambiguïté autour de “extend_06”.
+- Étendre et stabiliser le câblage `$VALID` sur les modules config, puis cadrer la suite.
+- Canoniser la documentation `docs/`, puis nettoyer les doublons legacy.
+- Stabiliser/valider Shared Explorer V2 (search + tri) et CMS Installer V1 (tests + smoke).
+- Passer le gate P0, cadrer puis extraire/adopter `$FORMS/$COND/$VALID` (M-1.1), puis cadrer M-1.2.
+
+2) Actions:
+- État LocalCMS consolidé: branche `feature/localcms-shared-explorer-cms-installer-v1`; base initiale évoquée `447c8c1` (working tree non propre), puis base canonique utilisée ensuite `1989a4d` → `c41b24a`.
+- Clarification “extend_06”: confirmé comme vrai chantier **GO_VALID_EXTEND_06**, avec artefacts (summary/closeout/smoke).
+- GO_VALID_EXTEND_06:
+  - Câblage `$VALID` Apps+Sec via guard `clearErrors/run/showErrors/return` dans `generate()`.
+  - Livrables: `GO_VALID_EXTEND_06_SUMMARY.md`, `09_CLOSEOUT_GO_VALID_EXTEND_06.txt`, `tests/smoke_go_valid_extend_06.js`.
+  - Statut: CLOSE/PASS; commit mentionné `c41b24a`.
+- GO_LOCALCMS_NEXT_SCOPE_CADRAGE_07:
+  - Diagnostic terrain: 3 modules avec `validators` non câblés (`MOD_DATA_SOURCES`, `MOD_QUEUE_CFG`, `MOD_ENV_GLOBAL`).
+  - Reco: GO_VALID_EXTEND_08.
+- GO_VALID_EXTEND_08:
+  - Implémentation `$VALID` sur Queue/Env/Data; corrections demandées avant close (déplacement closeout hors `docs/claude`, correction total validators, formulation “aucune régression détectée…”).
+  - Correction documentaire appliquée: closeout déplacé sous `docs/`, total validators = 24/7 modules; GO_VALID_EXTEND_08 CLOSE/PASS.
+- Doc canonisation:
+  - GO_LOCALCMS_DOCS_CANONICALIZE_09: cible `docs/INDEX_LOCALCMS.md`, dossiers `canon/`, `planning/`, `modules/`, `go/`, `archive/`; reclassification de `docs/claude` et `docs/module`.
+  - Limite initiale: doublons legacy non supprimés (permissions); GO_09 PASS AVEC LIMITES.
+  - GO_LOCALCMS_DOCS_CLEANUP_09B: suppression legacy (docs/claude, docs/module, fichiers racine docs/, anciens planning); validation index (26/26 chemins). GO_09B CLOSE/PASS; GO_09 CLOSE.
+- Shared Explorer:
+  - GO_SHARED_EXPLORER_V2_SEARCH_COMPLETE: ajout `sx-to` + stockage/affichage `searchTotal`; version V1.1.0; tests existants + nouveaux; CLOSE/PASS.
+  - GO_SHARED_EXPLORER_V2_SORT: tri colonnes (nom/taille/modifié), dirs-first conservé; version V1.2.0; tests 17/17 + smokes 6/6; CLOSE/PASS.
+  - Dette tests: `tests/shared-explorer-v2.test.js` mismatch VERSION; corrigée via GO_SHARED_EXPLORER_V2_TEST_SYNC → suite verte.
+- CMS Installer:
+  - GO_CMS_INSTALLER_V1_STABLE cadré: échec intégration I11 (12/13) dû à isolation de test I10/I11.
+  - GO_CMS_INSTALLER_V1_I11_FIX: nettoyage backups en fin de I10; intégration 13/13, suites 32/32; CLOSE/PASS (avec limites: live smoke non fait).
+  - GO_CMS_INSTALLER_V1_LIVE_SMOKE sandbox: FAIL infra (backend absent).
+  - Smoke “live-like” via backend stdlib, puis smoke plus fort via **import du vrai `api/cms_installer.py`** avec stubs fastapi/pydantic + serveur HTTP shim: `cms-installer.smoke.js` 6/6 PASS. Décision PM: `GO_CMS_INSTALLER_V1_FASTAPI_DEPLOY_SMOKE` CLOSE / PASS avec limite wrapper; CMS Installer V1 VALIDATED.
+- Next scope:
+  - GO_LOCALCMS_NEXT_SCOPE_CADRAGE_10: reco gate P0.
+  - GO_P0_VALIDATION_CONFIRM: lecture complète `docs/canon/p0-compatibility-contract.html`; C1–C4 PASS; P0 PASSÉ; `$FORMS` ouvrable.
+- `$FORMS/$COND/$VALID` (M-1.1):
+  - GO_LOCALCMS_FORMS_V1_CADRAGE: constat majeur: existants (CFG/$COND/$VALID) déjà vivants dans `localcms-v5.html`; cadrage validé.
+  - GO_LOCALCMS_M1_1_FORMS_EXTRACT_01: création `core/forms.js`, `core/conditions.js` (dual-syntax), `core/validator.js` (8 règles); tests dédiés; rebranchement HTML (CFG intact); CLOSE/PASS.
+  - GO_LOCALCMS_M1_1_FORMS_EXTRACT_02: promotion `core/forms.js` via `<script src>`; suppression CFG IIFE (-226 lignes); alias inversé `const CFG = $FORMS`; corrections d’events/guards/actionBar; 1399/1399 PASS; CLOSE/PASS.
+  - GO_LOCALCMS_M1_1_FORMS_ADOPT_* (adoptions bornées):
+    - ENV_GLOBAL: patch 2 lignes + test 26/26; non-régression 1425/1425; CLOSE/PASS.
+    - MACHINES_CFG: patch 2 lignes + test 44/44; non-régression 1469/1469; CLOSE/PASS.
+    - IA_CFG: patch 2 lignes + test 45/45; comportement show>hide et `$VALID` non filtré par visibilité documentés; non-régression partielle au départ (test Explorer pré-existant); CLOSE/PASS.
+    - Correction dette Explorer: GO_SHARED_EXPLORER_V2_TEST_SYNC → 261/261 suite verte; CLOSE/PASS.
+    - DATA_SOURCES: patch 2 lignes via script; signature readValues atypique prouvée; test 40/40; suite 301/301; CLOSE/PASS.
+  - GO_LOCALCMS_M1_1_NEXT_SCOPE_CADRAGE_11: cartographie CFG.* restants par groupes A/B/C/D; reco adoption GROUP A.
+  - GO_LOCALCMS_M1_1_FORMS_ADOPT_4BRIDGES: Apps/Sec/Devtools/Queue (renderForm/readValues/actionBar/showPreview) migrés vers `$FORMS`; 4 tests (91/91); suite 392/392; observation: validator `wh_url` déclaré `{type:'url'}` (no-op); CLOSE/PASS.
+- Dette validator:
+  - GO_QUEUE_CONFIG_VALIDATOR_FIX: `wh_url` `{type:'url'}` → `{url:true}` + update tests; suite 392/392; CLOSE/PASS.
+- Prochain chantier proposé: GO_LOCALCMS_M1_2_CADRAGE (doc-only) sur extraction modules inline lourds BACKEND/NET/SYS.
+
+3) Décisions:
+- GO_VALID_EXTEND_06: CLOSE/PASS; base de reprise c41b24a.
+- GO_VALID_EXTEND_08: CLOSE/PASS après corrections documentaires (emplacement docs/, total validators, formulation régressions).
+- Documentation: GO_09 PASS AVEC LIMITES → GO_09B CLOSE/PASS → GO_09 CLOSE.
+- Shared Explorer: V2_SEARCH_COMPLETE CLOSE/PASS; V2_SORT CLOSE/PASS; tests sync CLOSE/PASS.
+- CMS Installer: I11_FIX CLOSE/PASS; “LIVE smoke” sandbox FAIL infra; validation via shim du code prod acceptée; CMS Installer V1 VALIDATED avec limite wrapper FastAPI non exercée nativement.
+- P0: GO_P0_VALIDATION_CONFIRM CLOSE/PASS; M-1.1 `$FORMS` ouvrable.
+- M-1.1: EXTRACT_01 CLOSE/PASS; EXTRACT_02 CLOSE/PASS; ADOPT_ENV_GLOBAL/MACHINES_CFG/IA_CFG/DATA_SOURCES CLOSE/PASS; ADOPT_4BRIDGES CLOSE/PASS.
+- Dette `wh_url` corrigée: GO_QUEUE_CONFIG_VALIDATOR_FIX CLOSE/PASS.
+- Suite recommandée: ouvrir GO_LOCALCMS_M1_2_CADRAGE (cadrage documentaire, pas d’implémentation).
+
+4) Commandes / Code:
+```bash
+# Doc cleanup 09B (suggestion commit)
+git add -A docs/ && git commit -m "docs: GO_09B - nettoyage legacy, arbre canonique final"
+
+# Validation tests CMS Installer (référence)
+node tests/cms-installer.test.js
+node tests/cms-installer.smoke.js
+python3 tests/integration_test_pipeline.py
+
+# Smoke CMS Installer LIVE (référence)
+BACKEND_URL=http://<host>:<port> node tests/cms-installer.smoke.js
+```
+
+5) Points ouverts (next):
+- Ouvrir **GO_LOCALCMS_M1_2_CADRAGE** (doc-only) pour cadrer l’extraction des modules inline lourds `MOD_BACKEND_CFG`, `MOD_NET_CFG`, `MOD_SYS_CFG` vers `modules/*.js` (stratégies, ordre, risques, prompt d’implémentation).
+- (Optionnel, non prioritaire) GO_LOCALCMS_M1_1_CLOSEOUT formel si non déjà produit sous forme d’un closeout global M-1.1 (le texte mentionne un gel, mais le livrable “CLOSEOUT_LOCALCMS_M1_1.txt” n’est pas confirmé ici).
