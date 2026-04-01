@@ -11,7 +11,7 @@ from .window_detector import detect_window
 from .event_journal import append_raw_event, read_jsonl
 from .outcome_sampler import sample_pending
 from .stats_builder import build_stats, write_reports
-from .utils_time import build_window_ts
+from .utils_time import build_window_ts, is_market_window, get_enabled_windows, next_market_window
 
 
 FIXTURES_DIR = MODULE_DIR / "fixtures"
@@ -143,6 +143,33 @@ def run_replay_csv(csv_path: str) -> int:
     return 0
 
 
+def run_check_window() -> int:
+    config = load_config()
+    tz_name = config.get("timezone", "America/Montreal")
+    tz = ZoneInfo(tz_name)
+    now = datetime.now(tz)
+
+    is_window = is_market_window(now, config)
+    wins = get_enabled_windows(config)
+
+    print(f"  now:         {now.isoformat()}")
+    print(f"  is_window:   {is_window}")
+    print(f"  windows:")
+    for w in wins:
+        days = sorted(w["weekdays"])
+        day_names = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
+        day_str = ", ".join(day_names[d] for d in days)
+        print(f"    {w['name']}: {w['hour']:02d}:{w['minute']:02d} [{day_str}]")
+
+    nxt = next_market_window(now, config)
+    if nxt:
+        print(f"  next_window: {nxt.isoformat()}")
+    else:
+        print(f"  next_window: none found")
+
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     argv = argv or sys.argv[1:]
     if not argv or argv[0] in ("help", "--help"):
@@ -150,6 +177,7 @@ def main(argv: list[str] | None = None) -> int:
         print("  detect_once [--fixture NAME]")
         print("  detect_range [--fixtures all]")
         print("  replay --csv <file>")
+        print("  check_window")
         return 0
     if argv[0] == "detect_once":
         fixture = None
@@ -167,6 +195,8 @@ def main(argv: list[str] | None = None) -> int:
                 return run_replay_csv(argv[idx + 1])
         print("usage: replay --csv <file>", file=sys.stderr)
         return 1
+    if argv[0] == "check_window":
+        return run_check_window()
     print(f"unknown subcommand: {argv[0]}", file=sys.stderr)
     return 1
 

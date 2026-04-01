@@ -4,21 +4,21 @@
 Module doc-first pour observer XAUUSD à l'ouverture, détecter le premier FVG sur les 5 premières bougies M1 de 18:00 (America/Montreal), journaliser l'événement brut, puis enrichir avec des outcomes simples à +30m / +60m.
 
 ## Statut
-- phase: K8.2 ccxt provider
+- phase: K8.3 market calendar
 - doc pack: complet
 - package Python: complet (K1..K8)
-- runners CLI: detect_once, detect_range, replay, sample_pending, build_stats, show_stats
-- cmd.sh: façade shell opérationnelle (9 commandes)
-- menu.sh: menu interactif opérationnel (9 options)
+- runners CLI: detect_once, detect_range, replay, check_window, sample_pending, build_stats, show_stats
+- cmd.sh: façade shell opérationnelle (10 commandes)
+- menu.sh: menu interactif opérationnel (10 options)
 - flux nominal: detect → sample → stats
 - flux replay: `cmd.sh replay --csv <file>` (detect + sample + stats en un)
+- calendrier: fenêtres marché configurables (open_1800 activé, open_0000 prêt)
 - providers:
   - fixture (tests, inchangé)
   - csv_replay (données M1 réelles/semi-réelles)
     - `fixtures/sample_xauusd_m1.csv` → no_event (dérive baissière, 60 bars)
     - `fixtures/sample_xauusd_m1_signal.csv` → bullish FVG + sweep, 95 bars
-  - ccxt (nouveau — Binance XAUUSDT M1, proxy live)
-- provider réel live: ccxt branché (XAUUSDT proxy)
+  - ccxt (Binance XAUUSDT M1, proxy live)
 - scheduler/dashboard: non implémentés
 
 ## Workflow retenu
