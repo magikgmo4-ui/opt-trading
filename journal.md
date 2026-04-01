@@ -103452,3 +103452,111 @@ done < /tmp/memory_bricks_commits.txt
   - `GO_LOCALCMS_TRUNK_REALIGN_AFTER_VALID_01` (réaligner trunk `main` une fois le mini-cycle fermé),
   - ensuite seulement ouvrir la 3e branche consumer memory_bricks (ex: `feature/localcms-memory-bricks-consumer-v1`).
 - Note mineure relevée: divergence narrative “10 tests” vs exécution locale “13 tests” (non bloquante, mais à corriger si besoin dans la trace PR/doc ultérieure).
+
+## 2026-03-31 22:34 — note701
+1) Objectifs:
+- Consolider un état canonique de reprise sur le repo `localcms` sans remélanger d’anciens fils (GO_VALID_EXTEND_08 / trunk / memory_bricks).
+- Valider le cadrage M-1.2 (GROUP B) et définir le prochain GO d’implémentation.
+- Préparer un prompt “prêt à coller” pour démarrer l’extraction du module le moins risqué.
+
+2) Actions:
+- Relecture/synthèse de la réponse “Claude” pour `GO_LOCALCMS_M1_2_CADRAGE` (documentaire, sans code) :
+  - Cartographie GROUP B : `MOD_BACKEND_CFG`, `MOD_NET_CFG`, `MOD_SYS_CFG` inline dans `localcms-v5.html`.
+  - Quantification : ~20 forms, ~484 champs, 0 conditions, 0 validators.
+  - Identification du risque principal : dépendances browser-only dans `generators{}` (FGEN/OS/OS.cmds/OS.resolved) → non extractibles en modules Node, seules les `FORMS` sont extractibles.
+  - Dépendances à préserver : `MOD_PLUGIN_CFG` lit `*.FORMS` et `*.generators` (null-safe), contrat `{ FORMS, generators }` à conserver.
+- Clarification des sessions précédentes : contradictions avec l’ancien plan `GO_VALID_EXTEND_08`/réalignement trunk considérées comme historiques, non prioritaires puisque le contexte le plus récent à retenir est M-1.2 cadrage.
+- Proposition d’un point de reprise opérationnel : lancer `GO_LOCALCMS_M1_2_SYS_CFG_EXTRACT` (d’abord SYS, puis NET, puis BACKEND).
+
+3) Décisions:
+- Contexte canonique retenu :
+  - repo : `localcms`
+  - branche : `feature/localcms-shared-explorer-cms-installer-v1`
+  - M-1.1 gelée, ne pas la rouvrir.
+  - Ne pas proposer de merge vers `main` pendant cette phase.
+- `GO_LOCALCMS_M1_2_CADRAGE` considéré CLOSE / usable comme base documentaire.
+- Stratégie de migration retenue (séquentielle) : `SYS_CFG` → `NET_CFG` → `BACKEND_CFG`.
+- Démarrage immédiat sur : `GO_LOCALCMS_M1_2_SYS_CFG_EXTRACT`.
+- Réserve notée : absence de preuve “terrain” que `docs/go/CADRAGE_LOCALCMS_M1_2.txt` existe réellement dans le repo (à vérifier).
+
+4) Commandes / Code:
+```text
+##########################################################################
+Mission active
+GO_LOCALCMS_M1_2_SYS_CFG_EXTRACT
+
+## Contexte canonique retenu
+- repo : `localcms`
+- branche : `feature/localcms-shared-explorer-cms-installer-v1`
+- `GO_LOCALCMS_M1_1_CLOSEOUT` = CLOSE / PASS
+- M-1.1 est gelée
+- dette mineure `wh_url` apurée
+- ne pas rouvrir M-1.1
+- ne pas proposer de merge vers `main`
+- `GO_LOCALCMS_M1_2_CADRAGE` = CLOSE / base documentaire retenue
+- stratégie retenue : extraction séquentielle GROUP B dans l’ordre SYS -> NET -> BACKEND
+
+## Objet exact
+Implémenter uniquement l’extraction de `MOD_SYS_CFG` hors de `localcms-v5.html` vers un module externe dédié, avec patch minimal et sans élargir à `MOD_NET_CFG` ni `MOD_BACKEND_CFG`.
+
+## But exact
+- extraire les données pures de `MOD_SYS_CFG` vers `modules/sys-config.js`
+- conserver inline uniquement le bridge nécessaire
+- préserver le contrat existant avec le runtime actuel
+- ne pas refactorer `$FORMS/$COND/$VALID`
+- ne pas toucher `MOD_PLUGIN_CFG`
+- ne pas toucher `MOD_USE_IFACE`
+
+## Règles strictes
+- patch minimal
+- ne traiter que `MOD_SYS_CFG`
+- aucun refactor global
+- ne pas ouvrir de V2
+- ne pas rouvrir M-1.1
+- ne pas mélanger GROUP B avec d’autres groupes
+- conserver le comportement runtime existant
+- si une dépendance browser-only empêche l’extraction totale, la laisser explicitement inline et documenter pourquoi
+
+## Travail demandé
+1. relire l’état réel de `MOD_SYS_CFG` dans `localcms-v5.html`
+2. identifier exactement ce qui est extractible vers `modules/sys-config.js`
+3. distinguer :
+   - données pures extraites
+   - bridge inline conservé
+   - dépendances risquées non extraites
+4. appliquer le patch minimal
+5. câbler le bridge pour utiliser le module externe
+6. ajouter/adapter les tests strictement nécessaires
+7. vérifier qu’il n’y a pas de régression sur le runtime concerné
+8. produire un closeout propre
+
+## Fichiers probables concernés
+- `localcms-v5.html`
+- `modules/sys-config.js`
+- test(s) ciblé(s) si nécessaire
+- document de closeout si votre workflow courant l’exige
+
+## Format de sortie obligatoire
+1. État de départ retenu
+2. Correctif minimal appliqué
+3. Fichiers exacts touchés
+4. Diff synthétique
+5. Vérifications réelles exécutées
+6. Limites restantes réelles
+7. Verdict
+   - PASS
+   - PASS AVEC LIMITES
+   - FAIL
+8. Point de reprise suivant
+
+## Important
+- ne pas toucher NET/BACKEND dans cette passe
+- ne pas proposer de merge vers `main`
+- rester strictement dans le sous-cycle M-1.2 déjà engagé
+##########################################################################
+```
+
+5) Points ouverts (next):
+- Vérifier dans le repo si `docs/go/CADRAGE_LOCALCMS_M1_2.txt` existe et correspond au résumé (sinon, le reconstituer/valider).
+- Lancer l’exécution de `GO_LOCALCMS_M1_2_SYS_CFG_EXTRACT` (extraction `MOD_SYS_CFG` vers `modules/sys-config.js` avec bridge inline minimal).
+- Confirmer après extraction que le contrat `{ FORMS, generators }` reste intact et que `MOD_PLUGIN_CFG` n’est pas impacté.
