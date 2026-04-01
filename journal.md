@@ -10617,3 +10617,82 @@ git add -A docs/ && git commit -m "docs: GO_09B - nettoyage legacy, arbre canoni
 - Ouvrir **GO_LOCALCMS_M1_2_CADRAGE** (doc-only) : cartographier/expliquer stratégie d’extraction des modules inline lourds **MOD_BACKEND_CFG / MOD_NET_CFG / MOD_SYS_CFG** vers `modules/*.js`, sans implémenter.
 - (Note) Alias `CFG = $FORMS` et certains CFG.* restants hors GROUP A (GROUP B/C/D) : dettes assumées, à traiter en M-1.2+ selon cadrage.
 - (Note) Couche FastAPI/Starlette native non exécutée dans sandbox : limite documentée mais module CMS Installer V1 considéré VALIDATED.
+
+## 2026-04-01 15:41 — note1012
+1) Objectifs:
+- Reprendre et clôturer le chantier Bot Vision Telegram (recovery, secrets, polling, /analyze, captures auto, STALE) et produire un closeout documentaire propre.
+- Corriger les incidents de fuite de token et rétablir une chaîne stable de bout en bout.
+
+2) Actions:
+- Confirmé que **GO_BOT_VISION_TELEGRAM_RECOVERY_01 = PASS** (confusion DM vs groupe; chaîne groupe validée; bot_vision_step2.service; `ALLOWED_CHAT_ID=-5177632039`; `/analyze -> analyze_latest.py`; source snapshots `latest.json`; STALE = logique métier).
+- **Secrets hardening**:
+  - PLAN validé: runtime via `EnvironmentFile` systemd et `modules/bot_vision_step2/config/bot_vision.env`.
+  - EXEC: assainissement traces tokens dans `Readme` et `journal.md`, vérif `.gitignore` excluant `modules/**/config/*.env`, `chmod 600` sur `bot_vision.env`, restart service.
+  - ROTATION: rotation initiale effectuée mais token recollé en clair dans la transcription → **re-rotation propre** demandée.
+  - Re-rotation clean: édition manuelle via SSH/nano de `bot_vision.env` (corrigé `TELEGRAM_BOT_TOKEN`, `OPENAI_API_KEY`, `OPENAI_MODEL`), restart, test Telegram `getMe` OK.
+- **Polling harden**:
+  - Qualification: patch absent (grep marqueurs vide) → FAIL.
+  - Micro-patch appliqué à la main (backup + nano), `py_compile` OK, 4 marqueurs présents (`for attempt in range(3)`, `timeout=60`, `if not r or not r.get("ok")`, `time.sleep(5)`), service OK, logs post-restart propres → **PASS**.
+- **STALE**:
+  - Observé divergence/ancienneté cohérente (captures réellement vieilles).
+  - Localisé que `latest.json` manquait à un chemin attendu lors d’un test, et que `vision_processed` avait des timestamps anciens à un moment donné.
+- **/analyze photo + texte**:
+  - Micro-patch validé et appliqué: `/analyze` envoie la dernière capture (`latest_screenshot` + `resize_to_jpeg` + `tg_send_photo`) puis analyse texte.
+- **Chaîne Windows Desk Pro auto-capture**:
+  - Diagnostic OpenCode: ShareX AutoCapture bloqué par un **processus PowerShell zombie** (`send_vision_inbox.ps1`) à cause de `AutoCaptureWaitUpload=true`; kill du zombie → recaptures OK; upload OK; images fraîches réapparaissent.
+- **Bridge desk**:
+  - Découverte: script `/opt/trading/scripts/desk_bridge/bridge_vision_to_desk_inbox.sh`; `desk_bridge.timer` actif (10 min); exécutions SUCCESS; `latest.json` mis à jour; snapshots frais générés.
+- **Synchronisation photo/texte**:
+  - Micro-patch: forcer l’exécution du bridge (timeout 30s) avant `analyze_latest.py` dans `/analyze` → photo et texte alignés (tests confirmés).
+- **Durcissement Windows upload**:
+  - Patch `send_vision_inbox.ps1`: timeouts (SCP 120s, SSH rename 30s), kill/Stop-Process, log TIMEOUT, exit non-zéro pour rendre la main à ShareX; test auto-capture naturel PASS, aucun zombie résiduel.
+- **Cleanup tempfile /analyze**:
+  - Ajout cleanup `latest_analyze_{chat_id}.jpg` via `finally` + `unlink(missing_ok=True)`; test `/analyze` OK, fichier absent après.
+- **Closeout docs**:
+  - Pack de clôture généré (4 fichiers) dans `C:\Users\ghost\`, cleanup intégré, aucun secret exposé.
+
+3) Décisions:
+- Considérer le recovery Telegram clos: **ne pas rouvrir** DM/Windows/route `/analyze`/ingest comme causes principales.
+- Après exposition d’un token dans la transcription: exiger une **re-rotation clean** sans fuite.
+- Polling harden: refuser toute validation sans preuve (marqueurs + restart + logs).
+- Résoudre le décalage photo vs texte en **forçant le bridge avant analyse** dans `/analyze` (timeout + fallback).
+- Durcir la chaîne Windows pour empêcher le retour du blocage (timeouts + kill).
+
+4) Commandes / Code:
+```powershell
+# Création et transfert token (tentatives; issues rencontrées)
+$token = Read-Host "Entre le nouveau token" -AsSecureString
+$ptr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($token)
+try { $plain = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($ptr)
+      $plain | ssh admin-trading "umask 077; cat > /tmp/new_token.txt"
+} finally { [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ptr) }
+
+# Envoi script via stdin (here-doc bash/python)
+$script | ssh admin-trading 'bash -s'
+```
+
+```bash
+# Vérifs service/logs
+systemctl status bot_vision_step2 --no-pager -l | head -n 20
+journalctl -u bot_vision_step2 -n 30 --no-pager
+
+# Qualification polling harden
+grep -nE 'for attempt in range\(3\)|timeout=60|if not r or not r.get\("ok"\):|time.sleep\(5\)' \
+  /opt/trading/modules/bot_vision_step2/app/bot_vision_step2.py
+
+# Compilation / redémarrage après patch
+python3 -m py_compile /opt/trading/modules/bot_vision_step2/app/bot_vision_step2.py
+sudo systemctl restart bot_vision_step2
+
+# Test Telegram token
+TOKEN=$(grep '^TELEGRAM_BOT_TOKEN=' /opt/trading/modules/bot_vision_step2/config/bot_vision.env | cut -d= -f2-)
+curl -s "https://api.telegram.org/bot$TOKEN/getMe" | grep -o '"ok":true'
+
+# Observabilité chaîne captures
+ls -lt /srv/sftp/shared_files/shared/vision_inbox | head -5
+ls -lt /srv/sftp/shared_files/shared/vision_processed | head -5
+find /opt/trading/desk/snapshots -type f -printf '%TY-%Tm-%Td %TH:%TM:%TS %p\n' | sort | tail -10
+```
+
+5) Points ouverts (next):
+- — (Chantier déclaré clos: chaîne opérationnelle + hardening + synchro /analyze + garde-fous Windows + cleanup tempfile + closeout docs produits).
