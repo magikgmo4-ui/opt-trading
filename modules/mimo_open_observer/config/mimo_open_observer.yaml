@@ -1,6 +1,6 @@
 version: v0
 module_name: mimo_open_observer
-status: k8_csv_replay
+status: k8_ccxt
 
 symbol: XAUUSD
 timezone: America/Montreal
@@ -34,3 +34,4 @@ provider:
   #   exchange: binance
   #   symbol: XAUUSDT
   #   timeframe: 1m
+  #   limit: 500

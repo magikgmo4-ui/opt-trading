@@ -4,7 +4,7 @@
 Module doc-first pour observer XAUUSD à l'ouverture, détecter le premier FVG sur les 5 premières bougies M1 de 18:00 (America/Montreal), journaliser l'événement brut, puis enrichir avec des outcomes simples à +30m / +60m.
 
 ## Statut
-- phase: K8.4 replay runner
+- phase: K8.2 ccxt provider
 - doc pack: complet
 - package Python: complet (K1..K8)
 - runners CLI: detect_once, detect_range, replay, sample_pending, build_stats, show_stats
@@ -15,8 +15,10 @@ Module doc-first pour observer XAUUSD à l'ouverture, détecter le premier FVG s
 - providers:
   - fixture (tests, inchangé)
   - csv_replay (données M1 réelles/semi-réelles)
-  - ccxt (prévu, pas encore implémenté)
-- provider réel live: non branché
+    - `fixtures/sample_xauusd_m1.csv` → no_event (dérive baissière, 60 bars)
+    - `fixtures/sample_xauusd_m1_signal.csv` → bullish FVG + sweep, 95 bars
+  - ccxt (nouveau — Binance XAUUSDT M1, proxy live)
+- provider réel live: ccxt branché (XAUUSDT proxy)
 - scheduler/dashboard: non implémentés
 
 ## Workflow retenu
@@ -68,6 +70,23 @@ cmd.sh sample_pending
 cmd.sh build_stats
 cmd.sh show_stats
 ```
+
+## CCXT Provider
+Mode `ccxt` pour données live M1 depuis Binance.
+
+Instrument par défaut : `XAUUSDT` (proxy, pas XAUUSD spot pur).
+
+```yaml
+provider:
+  mode: ccxt
+  ccxt:
+    exchange: binance
+    symbol: XAUUSDT
+    timeframe: 1m
+    limit: 500
+```
+
+Dépendance : `pip install ccxt`
 
 ## Remarque
 Ce pack suit le modèle `opt-trading` (module durable + wrappers + registres) et l'esprit `localcms` (doc d'ouverture structurée, index compact, continuité de session).
