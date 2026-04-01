@@ -10395,3 +10395,80 @@ sudo systemctl restart bot_vision_step2
 
 5) Points ouverts (next):
 - — (Clôture actée: **GO_BOT_VISION_CLOSEOUT_DOCS_01 = PASS**; système opérationnel et durci; cleanup tempfile intégré; pack docs produit: `CLOSEOUT_FINAL_BOT_VISION.txt`, `ETABLI_BOT_VISION.txt`, `RESIDUEL_BOT_VISION.txt`, `REPRISE_BOT_VISION.txt`).
+
+## 2026-04-01 10:46 — note1003
+1) Objectifs:
+- Reprendre le point canonique Antigravity après V3 (observability closeout PASS) et cadrer/implémenter/clore V4 Hardening.
+- Ouvrir V5 (errors dans payload) puis trancher le nouveau canon de sortie.
+- Cadrer/implémenter/clore V6 (métadonnées batch) en restant compatible V5.
+- Démarrer le cadrage V7 (retry sur échecs) avec ciblage retryable vs non-retryable.
+- En parallèle: consolider LocalCMS M-1.2 GROUP B closeout, puis M-1.3 NET CMDS extract, M-1.4 cadrage + DEV_IFACE extract + closeout, et préparer M-1.5 cadrage.
+
+2) Actions:
+- Antigravity:
+  - Cadrage V4: identification fragilité dans `BaseAdapter.collect()` (exceptions futures, retours invalides, absence timeout global noté).
+  - Impl V4: ajout proxy `_safe_collect_symbol()`, filtrage `DerivativesRow`, logs erreurs; ajout test fail-open (initialement dans `test_smoke_multi.py`).
+  - Closeout V4: nettoyage artefacts `tmp/refactor_*.py`; correction exécution `test_fail_open()` (était défini mais non exécuté); commit test; recommandation trigger V5 précis.
+  - V5 scope: cadrage exposition erreurs dans payload sans casser consommateurs.
+  - V5 impl: ajout champ `error` à `DerivativesRow`; reporting in-row (une ligne par symbole demandé, métriques null + error en cas d’échec); mise à jour adapters `binance`/`bitget` (exchange_name) + tests; fix test (argument manquant).
+  - V5 closeout: décision canonique que `error` + in-row failures deviennent le nouveau contrat; commit “feat(payload): promote in-row error reporting...”.
+  - V6 scope initial: proposition “embedded summary row” rejetée (casse sémantique V5, détourne `error`).
+  - V6 rescoping: design retenu = sidecar `*.meta.json` couplé au payload principal; ajustements recommandés (`requested/succeeded/failed`, `meta_schema_version: 1`).
+  - V6 impl: ajout génération sidecar + `duration_s` dans `DerivativesCollector`; ajout test `test_sidecar_metadata`; commit “feat(meta): implement V6 sidecar metadata...”.
+  - V6 closeout: vérification schéma sidecar et invariants de couplage; exécution collecte locale; V6 déclaré canonique.
+  - V7 scope: proposition d’une seconde passe retry; réserve: ne retry que les erreurs retryables; prompt d’impl corrigé avec tests (flaky success + non-retryable).
+- LocalCMS:
+  - Closeout M-1.2 GROUP B: métriques consolidées, fichier de clôture produit, pas de merge.
+  - M-1.3 NET CMDS extract: création `modules/net-cmds.js`, patch HTML, tests dédiés, suite complète verte; closeout + prompt M-1.4 cadrage.
+  - M-1.4 cadrage: sélection unique `MOD_DEV_IFACE` (données pures) pour extraction.
+  - M-1.4 DEV_IFACE extract: création `modules/dev-iface.js`, patch HTML, tests dédiés (40), suite complète verte; closeout M-1.4 tranchant `DEFAULT_MACHINES` inline; préparation M-1.5 cadrage.
+
+3) Décisions:
+- Antigravity:
+  - `GO_ANTIGRAVITY_V4_HARDENING_SCOPE_01 = PASS` (axe: durcissement orchestrateur parent).
+  - `GO_ANTIGRAVITY_V4_HARDENING_IMPL_01 = PASS`; `GO_ANTIGRAVITY_V4_CLOSEOUT_01 = PASS`; scripts `tmp/refactor_*.py` non canoniques et supprimés.
+  - V5: `GO_ANTIGRAVITY_V5_CLOSEOUT_01 = PASS`; nouveau canon payload: champ `error` + 1 row par symbole demandé; consommateurs doivent filtrer rows non exploitables.
+  - V6: embedded summary row `_BLOCK_REPORT_` rejeté; sidecar meta file retenu; `GO_ANTIGRAVITY_V6_BATCH_META_RESC0PE_01 = PASS`; `GO_ANTIGRAVITY_V6_BATCH_META_IMPL_01 = PASS`; `GO_ANTIGRAVITY_V6_CLOSEOUT_01 = PASS` (sidecar devient standard canonique).
+  - V7: scope `PASS` sous réserve; seconde passe uniquement sur erreurs retryables, pas sur tous `error != null`.
+- LocalCMS:
+  - `GO_LOCALCMS_M1_2_GROUP_B_CLOSEOUT_01 = PASS` (CLOSE / PASS avec limites connues).
+  - `GO_LOCALCMS_M1_3_NET_CMDS_EXTRACT = CLOSE / PASS`.
+  - `GO_LOCALCMS_M1_4_CADRAGE = PASS` (axe: DEV_IFACE extract).
+  - `GO_LOCALCMS_M1_4_DEV_IFACE_EXTRACT = PASS`; `GO_LOCALCMS_M1_4_DEV_IFACE_CLOSEOUT_01 = PASS` (DEFAULT_MACHINES inline canonique, non bloquant).
+
+4) Commandes / Code:
+```bash
+python tmp\refactor_hardening.py
+python modules\derivatives_collector\tests\test_smoke_multi.py
+git add tmp\refactor_hardening.py modules\derivatives_collector\app\derivatives_collector.py modules\derivatives_collector\tests\test_smoke_multi.py
+git commit -m "feat(hardening): isolate execution queues under _safe_collect_symbol proxy"
+git push origin sot/mainline
+
+ls modules\derivatives_collector\app\derivatives_collector.py
+ls modules\derivatives_collector\tests\test_smoke_multi.py
+ls tmp\refactor_hardening.py
+rm tmp\refactor_hardening.py tmp\refactor_logging.py tmp\refactor_schema.py tmp\stdout.txt tmp\stderr.txt
+python modules\derivatives_collector\tests\test_smoke_multi.py > test_log.txt 2>&1
+cat test_log.txt
+rm test_log.txt
+git add modules\derivatives_collector\tests\test_smoke_multi.py
+git commit -m "test(hardening): add formal fail-open verification to smoke suite"
+git push origin sot/mainline
+
+git add modules\derivatives_collector\app\derivatives_collector.py modules\derivatives_collector\app\binance_adapter.py modules\derivatives_collector\app\bitget_adapter.py modules\derivatives_collector\tests\test_smoke_multi.py
+git commit -m "feat(payload): promote in-row error reporting to canonical status"
+git push origin sot/mainline
+
+python modules\derivatives_collector\app\derivatives_collector.py collect
+ls data\derivatives\*.json | select -last 2 | % { cat $_.FullName }
+
+git add modules\derivatives_collector\app\derivatives_collector.py modules\derivatives_collector\tests\test_smoke_multi.py
+git commit -m "feat(meta): implement V6 sidecar metadata file with batch aggregates"
+git push origin sot/mainline
+```
+
+5) Points ouverts (next):
+- Antigravity:
+  - Déclencher `GO_ANTIGRAVITY_V7_RETRY_ON_FAILED_IMPL_01` avec définition explicite retryable/non-retryable + tests (flaky retry + non-retryable + invariants V5/V6).
+- LocalCMS:
+  - Lancer `GO_LOCALCMS_M1_5_CADRAGE` (passe documentaire sans patch) pour choisir l’axe suivant (ex: `MOD_USE_IFACE.FILE_TYPE_MENUS`, `MOD_CFG_FILES.catalog`, etc.).
