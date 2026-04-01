@@ -3,6 +3,15 @@
 ## Description
 Ce module transforme une synthèse validée (format texte structuré) en un prompt final spécialisé, prêt à être utilisé avec une IA ou pour un transfert.
 
+## Nouvelle règle de posture / rôles
+À partir de maintenant, les prompts générés par ce module doivent intégrer une étape initiale obligatoire :
+1. proposer les rôles / postures pertinents pour la demande ;
+2. donner un exemple bref du type de sortie attendu pour chaque rôle ;
+3. recommander une posture par défaut ;
+4. ensuite seulement démarrer le travail.
+
+Cette règle s’applique aux modes de génération du module et doit être traitée comme un comportement canonique du Prompt Factory.
+
 ## Runbook opérateur (canonique, minimal)
 ### Quand utiliser
 - Quand tu as une synthèse structurée (sections complètes) et que tu veux produire un prompt final standardisé.

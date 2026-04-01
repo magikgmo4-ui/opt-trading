@@ -37,6 +37,21 @@ HEADER_MAPPING = {
     "POINT DE REPRISE": "POINT DE REPRISE"
 }
 
+ROLE_PREFACE = """
+## POSTURE INITIALE OBLIGATOIRE
+Avant de démarrer le travail demandé, tu dois toujours :
+1. proposer les rôles / postures pertinents pour la demande ;
+2. donner pour chaque rôle un exemple bref du type de sortie attendu ;
+3. recommander une posture par défaut ;
+4. ensuite seulement exécuter la demande.
+
+Règles :
+- adapter les rôles au cas d’usage réel ;
+- rester concret et court ;
+- ne pas lancer immédiatement l’implémentation avant ce cadrage initial ;
+- si la demande est un chantier ou une session structurée, cette étape est obligatoire.
+""".strip()
+
 # Templates for different modes
 TEMPLATES = {
     "chatgpt_session": """
@@ -50,6 +65,8 @@ TEMPLATES = {
 
 ## CLASSE
 {CLASSE}
+
+{ROLE_PREFACE}
 
 ## INSTRUCTIONS
 Agis en tant qu'expert technique senior.
@@ -90,6 +107,8 @@ Tu dois créer un NOUVEAU MODULE DURABLE.
 ## CONTEXTE
 {CONTEXTE}
 
+{ROLE_PREFACE}
+
 ## STRUCTURE ATTENDUE
 Le module doit respecter la structure standard :
 - README.md
@@ -127,6 +146,8 @@ Tu dois UNIQUEMENT modifier l'existant pour corriger un problème ou ajouter une
 ## OBJECTIF DU FIX
 {OBJECTIF}
 
+{ROLE_PREFACE}
+
 ## FICHIERS CONCERNÉS
 Identifie précisément les fichiers à modifier.
 Ne touche à rien d'autre.
@@ -151,6 +172,8 @@ Préparer une archive ZIP contenant les fichiers nécessaires pour un transfert 
 
 ## CONTENU DU BUNDLE
 Basé sur : {OBJECTIF}
+
+{ROLE_PREFACE}
 
 ## CONTRAINTES
 {CONTRAINTES}
@@ -249,6 +272,7 @@ def generate_prompt(mode, sections, output_dir):
     format_data = {}
     for sec in REQUIRED_SECTIONS:
         format_data[sec] = sections.get(sec, "Non spécifié")
+    format_data["ROLE_PREFACE"] = ROLE_PREFACE
 
     try:
         content = template.format(**format_data)
