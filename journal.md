@@ -27720,3 +27720,574 @@ Quand tu as sa sortie, colle-la ici et je te dirai si le périmètre M1.1 forms 
 
 
 
+
+## 2026-03-29 01:41 | TV Webhook | COINM_SHORT | BTCUSDT.P H1 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT.P` / `H1`
+4. **Price**: `68750.0`
+5. **TP**: `67200.0`
+6. **SL**: `69200.0`
+7. **Reason**: smoke test
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT.P",
+  "tf": "H1",
+  "price": 68750.0,
+  "tp": 67200.0,
+  "sl": 69200.0,
+  "reason": "smoke test",
+  "_ts": "2026-03-29T05:41:32.069467+00:00",
+  "_ip": "testclient",
+  "qty": 0.133,
+  "risk_usd": 60.0,
+  "risk_real_usd": 59.85
+}
+```
+
+## 2026-03-29 01:41 | TV Webhook | COINM_SHORT | BTCUSDT.P H1 | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT.P` / `H1`
+4. **Price**: `68750.0`
+5. **TP**: `67200.0`
+6. **SL**: `69200.0`
+7. **Reason**: smoke test
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT.P",
+  "tf": "H1",
+  "price": 68750.0,
+  "tp": 67200.0,
+  "sl": 69200.0,
+  "reason": "smoke test",
+  "_ts": "2026-03-29T05:41:41.729578+00:00",
+  "_ip": "testclient",
+  "qty": 0.133,
+  "risk_usd": 60.0,
+  "risk_real_usd": 59.85
+}
+```
+
+## 2026-03-29 02:06 | TV Webhook | COINM_SHORT | BTCUSDT 1h | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1h`
+4. **Price**: `85000.0`
+5. **TP**: `80000.0`
+6. **SL**: `87000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "price": 85000.0,
+  "tp": 80000.0,
+  "sl": 87000.0,
+  "reason": "",
+  "_ts": "2026-03-29T06:06:01.976230+00:00",
+  "_ip": "testclient",
+  "qty": 0.03,
+  "risk_usd": 60.0,
+  "risk_real_usd": 60.0
+}
+```
+
+## 2026-03-29 02:06 | TV Webhook | COINM_SHORT | BTCUSDT 1h | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1h`
+4. **Price**: `85000.0`
+5. **TP**: `80000.0`
+6. **SL**: `87000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "price": 85000.0,
+  "tp": 80000.0,
+  "sl": 87000.0,
+  "reason": "",
+  "_ts": "2026-03-29T06:06:21.772298+00:00",
+  "_ip": "testclient",
+  "qty": 0.03,
+  "risk_usd": 60.0,
+  "risk_real_usd": 60.0
+}
+```
+
+## 2026-03-29 02:32 | TV Webhook | COINM_SHORT | BTCUSDT 1h | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1h`
+4. **Price**: `85000.0`
+5. **TP**: `80000.0`
+6. **SL**: `87000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "price": 85000.0,
+  "tp": 80000.0,
+  "sl": 87000.0,
+  "reason": "",
+  "_ts": "2026-03-29T06:32:50.245358+00:00",
+  "_ip": "testclient",
+  "qty": 0.03,
+  "risk_usd": 60.0,
+  "risk_real_usd": 60.0
+}
+```
+
+## 2026-03-29 02:32 | TV Webhook | COINM_SHORT | BTCUSDT 1h | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1h`
+4. **Price**: `85000.0`
+5. **TP**: `80000.0`
+6. **SL**: `87000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "price": 85000.0,
+  "tp": 80000.0,
+  "sl": 87000.0,
+  "reason": "",
+  "_ts": "2026-03-29T06:32:51.824923+00:00",
+  "_ip": "testclient",
+  "qty": 0.03,
+  "risk_usd": 60.0,
+  "risk_real_usd": 60.0
+}
+```
+
+## 2026-03-29 02:32 | TV Webhook | GOLD_CFD_LONG | BTCUSDT 1h | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `GOLD_CFD_LONG`
+3. **Symbol/TF**: `BTCUSDT` / `1h`
+4. **Price**: `85000.0`
+5. **TP**: `80000.0`
+6. **SL**: `87000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "GOLD_CFD_LONG",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "price": 85000.0,
+  "tp": 80000.0,
+  "sl": 87000.0,
+  "reason": "",
+  "_ts": "2026-03-29T06:32:52.353476+00:00",
+  "_ip": "testclient",
+  "qty": 0.1,
+  "risk_usd": 15.0,
+  "risk_real_usd": 200.0
+}
+```
+
+## 2026-03-29 02:32 | TV Webhook | USDTM_LONG | BTCUSDT 1h | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `USDTM_LONG`
+3. **Symbol/TF**: `BTCUSDT` / `1h`
+4. **Price**: `85000.0`
+5. **TP**: `80000.0`
+6. **SL**: `87000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "USDTM_LONG",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "price": 85000.0,
+  "tp": 80000.0,
+  "sl": 87000.0,
+  "reason": "",
+  "_ts": "2026-03-29T06:32:53.935480+00:00",
+  "_ip": "testclient",
+  "qty": 0.03,
+  "risk_usd": 60.0,
+  "risk_real_usd": 60.0
+}
+```
+
+## 2026-03-29 07:06 | TV Webhook | COINM_SHORT | BTCUSDT 1h | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1h`
+4. **Price**: `85000.0`
+5. **TP**: `80000.0`
+6. **SL**: `87000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "price": 85000.0,
+  "tp": 80000.0,
+  "sl": 87000.0,
+  "reason": "",
+  "_ts": "2026-03-29T11:06:02.447402+00:00",
+  "_ip": "testclient",
+  "qty": 0.03,
+  "risk_usd": 60.0,
+  "risk_real_usd": 60.0
+}
+```
+
+## 2026-03-29 07:06 | TV Webhook | COINM_SHORT | BTCUSDT 1h | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1h`
+4. **Price**: `85000.0`
+5. **TP**: `80000.0`
+6. **SL**: `87000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "price": 85000.0,
+  "tp": 80000.0,
+  "sl": 87000.0,
+  "reason": "",
+  "_ts": "2026-03-29T11:06:03.478331+00:00",
+  "_ip": "testclient",
+  "qty": 0.03,
+  "risk_usd": 60.0,
+  "risk_real_usd": 60.0
+}
+```
+
+## 2026-03-29 07:06 | TV Webhook | GOLD_CFD_LONG | BTCUSDT 1h | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `GOLD_CFD_LONG`
+3. **Symbol/TF**: `BTCUSDT` / `1h`
+4. **Price**: `85000.0`
+5. **TP**: `80000.0`
+6. **SL**: `87000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "GOLD_CFD_LONG",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "price": 85000.0,
+  "tp": 80000.0,
+  "sl": 87000.0,
+  "reason": "",
+  "_ts": "2026-03-29T11:06:03.994090+00:00",
+  "_ip": "testclient",
+  "qty": 0.1,
+  "risk_usd": 15.0,
+  "risk_real_usd": 200.0
+}
+```
+
+## 2026-03-29 07:06 | TV Webhook | USDTM_LONG | BTCUSDT 1h | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `USDTM_LONG`
+3. **Symbol/TF**: `BTCUSDT` / `1h`
+4. **Price**: `85000.0`
+5. **TP**: `80000.0`
+6. **SL**: `87000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "USDTM_LONG",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "price": 85000.0,
+  "tp": 80000.0,
+  "sl": 87000.0,
+  "reason": "",
+  "_ts": "2026-03-29T11:06:05.030410+00:00",
+  "_ip": "testclient",
+  "qty": 0.03,
+  "risk_usd": 60.0,
+  "risk_real_usd": 60.0
+}
+```
+
+## 2026-03-29 07:06 | TV Webhook | USDTM_LONG | BTCUSDT 1h | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `USDTM_LONG`
+3. **Symbol/TF**: `BTCUSDT` / `1h`
+4. **Price**: `85000.0`
+5. **TP**: `80000.0`
+6. **SL**: `87000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "USDTM_LONG",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "price": 85000.0,
+  "tp": 80000.0,
+  "sl": 87000.0,
+  "reason": "",
+  "_ts": "2026-03-29T11:06:19.698579+00:00",
+  "_ip": "testclient",
+  "qty": 0.03,
+  "risk_usd": 60.0,
+  "risk_real_usd": 60.0
+}
+```
+
+## 2026-03-29 07:06 | TV Webhook | COINM_SHORT | BTCUSDT 1h | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1h`
+4. **Price**: `85000.0`
+5. **TP**: `80000.0`
+6. **SL**: `87000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "price": 85000.0,
+  "tp": 80000.0,
+  "sl": 87000.0,
+  "reason": "",
+  "_ts": "2026-03-29T11:06:40.835566+00:00",
+  "_ip": "testclient",
+  "qty": 0.03,
+  "risk_usd": 60.0,
+  "risk_real_usd": 60.0
+}
+```
+
+## 2026-03-29 07:06 | TV Webhook | COINM_SHORT | BTCUSDT 1h | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1h`
+4. **Price**: `85000.0`
+5. **TP**: `80000.0`
+6. **SL**: `87000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "price": 85000.0,
+  "tp": 80000.0,
+  "sl": 87000.0,
+  "reason": "",
+  "_ts": "2026-03-29T11:06:42.369133+00:00",
+  "_ip": "testclient",
+  "qty": 0.03,
+  "risk_usd": 60.0,
+  "risk_real_usd": 60.0
+}
+```
+
+## 2026-03-29 07:06 | TV Webhook | GOLD_CFD_LONG | BTCUSDT 1h | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `GOLD_CFD_LONG`
+3. **Symbol/TF**: `BTCUSDT` / `1h`
+4. **Price**: `85000.0`
+5. **TP**: `80000.0`
+6. **SL**: `87000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "GOLD_CFD_LONG",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "price": 85000.0,
+  "tp": 80000.0,
+  "sl": 87000.0,
+  "reason": "",
+  "_ts": "2026-03-29T11:06:42.889399+00:00",
+  "_ip": "testclient",
+  "qty": 0.1,
+  "risk_usd": 15.0,
+  "risk_real_usd": 200.0
+}
+```
+
+## 2026-03-29 07:06 | TV Webhook | USDTM_LONG | BTCUSDT 1h | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `USDTM_LONG`
+3. **Symbol/TF**: `BTCUSDT` / `1h`
+4. **Price**: `85000.0`
+5. **TP**: `80000.0`
+6. **SL**: `87000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "USDTM_LONG",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "price": 85000.0,
+  "tp": 80000.0,
+  "sl": 87000.0,
+  "reason": "",
+  "_ts": "2026-03-29T11:06:44.422823+00:00",
+  "_ip": "testclient",
+  "qty": 0.03,
+  "risk_usd": 60.0,
+  "risk_real_usd": 60.0
+}
+```
+
+## 2026-03-29 08:09 | TV Webhook | COINM_SHORT | BTCUSDT 1h | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1h`
+4. **Price**: `85000.0`
+5. **TP**: `80000.0`
+6. **SL**: `87000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "price": 85000.0,
+  "tp": 80000.0,
+  "sl": 87000.0,
+  "reason": "",
+  "_ts": "2026-03-29T12:09:20.686049+00:00",
+  "_ip": "testclient",
+  "qty": 0.03,
+  "risk_usd": 60.0,
+  "risk_real_usd": 60.0
+}
+```
+
+## 2026-03-29 08:47 | TV Webhook | COINM_SHORT | BTCUSDT 1h | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSDT` / `1h`
+4. **Price**: `85000.0`
+5. **TP**: `80000.0`
+6. **SL**: `87000.0`
+7. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "price": 85000.0,
+  "tp": 80000.0,
+  "sl": 87000.0,
+  "reason": "",
+  "_ts": "2026-03-29T12:47:54.859228+00:00",
+  "_ip": "testclient",
+  "qty": 0.03,
+  "risk_usd": 60.0,
+  "risk_real_usd": 60.0
+}
+```
+
+## 2026-03-30 08:58 | TV Webhook | COINM_SHORT | BTCUSD_PERP 1h | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSD_PERP` / `1h`
+4. **Price**: `65000.0`
+5. **TP**: `63000.0`
+6. **SL**: `66000.0`
+7. **Reason**: e2e_qualif_mimo_v2_pro_free
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSD_PERP",
+  "tf": "1h",
+  "price": 65000.0,
+  "tp": 63000.0,
+  "sl": 66000.0,
+  "reason": "e2e_qualif_mimo_v2_pro_free",
+  "_ts": "2026-03-30T12:58:37.092978+00:00",
+  "_ip": "testclient",
+  "qty": 0.06,
+  "risk_usd": 60.0,
+  "risk_real_usd": 60.0
+}
+```
+
+## 2026-03-30 09:46 | TV Webhook | COINM_SHORT | BTCUSD_PERP 1h | SELL
+1. **Signal**: `SELL`
+2. **Engine**: `COINM_SHORT`
+3. **Symbol/TF**: `BTCUSD_PERP` / `1h`
+4. **Price**: `65000.0`
+5. **TP**: `63000.0`
+6. **SL**: `66000.0`
+7. **Reason**: e2e_real_exec_mimo_v2_pro
+8. **Payload brut**:
+```json
+{
+  "key": null,
+  "engine": "COINM_SHORT",
+  "signal": "SELL",
+  "symbol": "BTCUSD_PERP",
+  "tf": "1h",
+  "price": 65000.0,
+  "tp": 63000.0,
+  "sl": 66000.0,
+  "reason": "e2e_real_exec_mimo_v2_pro",
+  "_ts": "2026-03-30T13:46:45.348873+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 0.06,
+  "risk_usd": 60.0,
+  "risk_real_usd": 60.0
+}
+```
