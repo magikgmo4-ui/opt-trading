@@ -10766,3 +10766,56 @@ gh pr create --base sot/mainline --head feat/mimo-open-observer-doc-pack-v0-clea
 - Si objectif = exécution contrôlée: ouvrir `GO_MIMO_OPEN_OBSERVER_BUILD_K8_5_CRON_WRAPPER_01` (wrapper auto-run avec lock+log) après merge calendar.
 - Confirmer stratégie de migration vers **admin-trading** (critères de promotion, installation shortcuts, emplacement logs, politique de rollback).
 - Décider si ajout fenêtre **00:00** est prochain jalon ou après stabilisation 18:00.
+
+## 2026-04-01 15:50 — note1010
+1) Objectifs:
+- Automatiser une boucle IA “questionneur → répondant(s) → évaluateur/comparateur → mémoire” pour explorer un sujet, comparer des modèles et capitaliser en base de connaissance.
+- Adapter l’approche au workflow existant avec une structure institutionnelle (Kanban/tableaux), et définir une méthode canonique de base de connaissance.
+- Réduire au maximum les risques/inconvénients via batteries de tests + gates qualité, puis équilibrer vitesse d’exploration vs gouvernance.
+
+2) Actions:
+- Définition d’une architecture canonique (rôles séparés, 3 couches : campagne brute / évaluation-comparaison / base de connaissance canonique).
+- Identification des points d’intégration dans l’écosystème (Student Lab, Memory Bricks, Journal, LocalCMS, Prompt Factory, Git, stockage local).
+- Proposition d’un Kanban EPIC “Knowledge Interview Loop (KIL)” avec tickets K-001 à K-008 (cadrage, schéma, orchestrateur, evaluator, comparator, knowledge store, reports, UI LocalCMS).
+- Définition d’une stratégie de base de connaissance V1 hybride (JSONL + SQLite + rapports MD/TXT) et d’un modèle de statuts (RAW/REVIEWED/COMPARED/CURATED/VALIDATED/CONTRADICTED/DEPRECATED + confiance LOW/MEDIUM/HIGH).
+- Ajout progressif de contrôles/risques et batteries de tests:
+  - V2: gates qualité, anti-fossilisation, anti-consensus artificiel, anti-boucle auto-référentielle, fraîcheur/obsolescence, sensibilité données, clôture campagne, corpus de régression.
+  - V3: modes LAB/STANDARD/STRICT + règles de promotion; audit cadrage initial; audit biais évaluateur; métriques de “valeur réelle”; synthèse macro par sujet; anti-sur-gouvernance.
+  - V3.1: revalidation globale + ajouts opératoires (matrice modes↔statuts, workflow “quand utiliser LAB/STANDARD/STRICT”, note de validation finale + limites).
+- Tentative de validation des standards doc via GitHub mentionnée; impossibilité de retrouver automatiquement les docs via recherche GitHub dans la session; production du pack “hors repo” en restant compatible avec le workflow mémoire.
+
+3) Décisions:
+- Approuver le plan KIL et l’intégration “institutionnelle” (Kanban + schémas + séparation stricte des rôles).
+- Base de connaissance V1 retenue: hybride JSONL (brut) + SQLite (index/requêtes/liens) + rapports Markdown/TXT (lecture humaine), avec Memory Bricks comme couche canonique du savoir.
+- Ne pas commencer par l’UI (LocalCMS) avant stabilisation du schéma/pipeline.
+- Ajouter des batteries de tests et gates qualité pour mitiger les risques, puis adopter des modes LAB/STANDARD/STRICT pour éviter la perte de vitesse et la sur-gouvernance.
+- Clôture: le pack V3.1 est jugé “optimal à ce stade” pour démarrer l’implémentation minimale (plutôt que d’ajouter encore de la doctrine).
+
+4) Commandes / Code:
+```json
+{
+  "topic": "FVG XAUUSD",
+  "round": 1,
+  "question": "Qu'est-ce qu'un FVG bearish ?",
+  "answer": "...",
+  "evaluation": {
+    "clarity": 8,
+    "precision": 7,
+    "missing_points": [
+      "conditions d'invalidation",
+      "exemple concret"
+    ]
+  },
+  "next_questions": [
+    "Quand un FVG bearish devient-il invalide ?",
+    "Quelle différence avec un liquidity sweep ?"
+  ],
+  "timestamp": "2026-04-01T15:00:00"
+}
+```
+
+5) Points ouverts (next):
+- Démarrer l’implémentation minimale V1 à partir du pack V3.1 (orchestrateur Python + config campagne + adaptateur modèle + evaluator standard + stockage JSONL/SQLite + exports MD/TXT).
+- Définir/valider concrètement l’intégration avec la structure de docs déjà établie dans le repo (standards de documentation non récupérés automatiquement via GitHub dans la session).
+- Choisir le périmètre exact du premier “topic/campaign” pilote + critères de clôture + mode d’exécution (LAB vs STANDARD vs STRICT).
+- Mettre en place le corpus de référence de non-régression et décider de la politique de rétention/archivage (volumétrie).
