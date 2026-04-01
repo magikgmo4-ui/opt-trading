@@ -10696,3 +10696,73 @@ find /opt/trading/desk/snapshots -type f -printf '%TY-%Tm-%Td %TH:%TM:%TS %p\n' 
 
 5) Points ouverts (next):
 - — (Chantier déclaré clos: chaîne opérationnelle + hardening + synchro /analyze + garde-fous Windows + cleanup tempfile + closeout docs produits).
+
+## 2026-04-01 15:43 — note1013
+1) Objectifs:
+- Ouvrir/structurer un chantier MiMo pour observer XAUUSD aux ouvertures (18:00 dim→jeu; 00:00 lun→ven), détecter FVG (M5 et/ou 5xM1) + tag sweep/no_sweep, journaliser et produire des stats simples.
+- Démarrer sur machine **student** (labo), viser **admin-trading** plus tard (exécution).
+- Construire un socle extensible (détection → journal → outcomes → stats) sans refonte.
+- Mettre le module dans le repo `opt-trading`, respecter le workflow (modules durables, wrappers, registry).
+
+2) Actions:
+- Ancrage des sessions sources: 8 mars (détection/journal/stats simples) et 23 mars (gold 18h, FVG + sweep).
+- Cadrage PM: réduire le V1 en V0 (fenêtre 18:00, scope M1x5, premier FVG) et traiter les “4 combinaisons” comme segments d’analyse; ajout explicite des cas `no_event`; règle “premier FVG uniquement”.
+- Spécification verrouillée V0: définition FVG (3 bougies), règle sweep (prise extrême de la 1re M1), contrat d’événement (raw/enriched), outcomes (+30m/+60m), journaux JSONL append-only, stats dérivées.
+- Plan de build K1→K7 (config/models → provider/time utils → détecteur → journal → sampler → stats → runners).
+- Création d’un **doc pack** et d’une branche GitHub initiale, puis audit: branche contaminée (scripts hors périmètre + base non `sot/mainline`).
+- Stratégie de sanitation: création d’une branche propre depuis `sot/mainline`, report sélectif du pack MiMo uniquement, correction `machine_target: any`, conservation `operator_visible: true`.
+- Publication: push vers `feat/mimo-open-observer-doc-pack-v0-clean`; création worktree dans `$HOME` pour éviter conflits avec autre branche locale; installation des shortcuts; correction des droits d’exécution (+x) sur scripts.
+- Validation opératoire: `help`, `sanity`, replay CSV; correction de chemin CSV (éviter doublon de path).
+- Ajout d’un CSV `signal` (déclenche FVG) retrouvé dans un autre worktree opencode, copié et poussé; replay sur CSV signal confirmé (1 signal bullish, winrate 30/60m = 1.0).
+- Installation de `gh` (GitHub CLI), login token, ouverture PR module V0 (#22) puis merge.
+- Chantiers follow-up: PR ccxt (#25) créée puis mergée; PR market calendar (#26) créée, conflit de merge résolu via merge `origin/sot/mainline` + résolution conflits README/YAML, puis merge.
+- Début de cadrage “auto-run strategy” (manuel → cron wrapper → admin-trading) sans implémentation.
+
+3) Décisions:
+- Nom canonique chantier: `GO_MIMO_XAU_OPEN_FVG_V1_01` puis module `mimo_open_observer` (V0).
+- V0 resserré: **OPEN_1800**, **M1x5**, **premier FVG**, sweep en tag, horizons **+30m/+60m**, journalisation + stats simples; ajouter `no_event`.
+- Architecture en couches: `window_detector` / `event_journal` / `outcome_sampler` / `stats_builder`; raw append-only comme source de vérité.
+- Branche doc-pack initiale jugée contaminée → **recréer une branche propre** depuis `sot/mainline`.
+- Registry: `machine_target: any`; `operator_visible: true` conservé (outil opérateur).
+- Déploiement CLI: installation via worktree + symlinks `/usr/local/bin`; régler les permissions d’exécution.
+- Avant live: privilégier `csv_replay` + runner replay; ensuite ccxt; ensuite calendrier; ensuite stratégie auto-run.
+
+4) Commandes / Code:
+```bash
+# Push branche propre (exemple montré)
+git push origin feat/mimo-open-observer-doc-pack-v0-clean-working:feat/mimo-open-observer-doc-pack-v0-clean
+
+# Diff de contrôle
+git diff --stat origin/sot/mainline...feat/mimo-open-observer-doc-pack-v0-clean-working
+
+# Worktree (éviter /opt faute de droits)
+mkdir -p "$HOME/worktrees"
+git worktree add "$HOME/worktrees/opt-trading-mimo" \
+  -b feat/mimo-open-observer-doc-pack-v0-clean-local \
+  origin/feat/mimo-open-observer-doc-pack-v0-clean
+
+# Install shortcuts + rendre exécutables (Permission denied résolu par chmod +x)
+bash modules/mimo_open_observer/scripts/install_shortcuts.sh
+chmod +x modules/mimo_open_observer/{cmd.sh,menu.sh,sanity.sh} \
+         modules/mimo_open_observer/scripts/{install_shortcuts.sh,mimo_open_observer_cmd.sh,mimo_open_observer_menu.sh,mimo_open_observer_sanity.sh}
+hash -r
+
+# Usage (chemin CSV correct)
+cmd-mimo_open_observer replay --csv fixtures/sample_xauusd_m1.csv
+cmd-mimo_open_observer replay --csv fixtures/sample_xauusd_m1_signal.csv
+cmd-mimo_open_observer show_stats
+
+# Installer GitHub CLI + auth
+sudo apt update
+sudo apt install -y gh
+gh auth login
+
+# PR (body via fichier pour éviter collage cassé)
+gh pr create --base sot/mainline --head feat/mimo-open-observer-doc-pack-v0-clean --body-file /tmp/mimo_pr_body.md
+```
+
+5) Points ouverts (next):
+- Clarifier le besoin utilisateur pour “prochains chantiers” (périmètre et priorité): uniquement `mimo_open_observer` vs trajectoire **student→admin-trading** vs repo global; priorité exploitation/robustesse/vitesse.
+- Si objectif = exécution contrôlée: ouvrir `GO_MIMO_OPEN_OBSERVER_BUILD_K8_5_CRON_WRAPPER_01` (wrapper auto-run avec lock+log) après merge calendar.
+- Confirmer stratégie de migration vers **admin-trading** (critères de promotion, installation shortcuts, emplacement logs, politique de rollback).
+- Décider si ajout fenêtre **00:00** est prochain jalon ou après stabilisation 18:00.
