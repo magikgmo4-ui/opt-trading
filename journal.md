@@ -10316,3 +10316,82 @@ BACKEND_URL=http://<host>:<port> node tests/cms-installer.smoke.js
 5) Points ouverts (next):
 - Ouvrir **GO_LOCALCMS_M1_2_CADRAGE** (doc-only) pour planifier l’extraction GROUP B: `MOD_BACKEND_CFG`, `MOD_NET_CFG`, `MOD_SYS_CFG` (fortement inline, sans `modules/*.js`).
 - (Optionnel) Closeout formel M‑1.1 si non encore matérialisé en doc dédié `docs/go/CLOSEOUT_LOCALCMS_M1_1.txt` (le prompt existe, exécution non montrée explicitement dans le dump).
+
+## 2026-04-01 10:43 — note1002
+1) Objectifs:
+- Reprendre le chantier Bot Vision Telegram depuis un dump brut et identifier le prochain trigger canonique.
+- Durcir la sécurité (secrets), requalifier le runtime, durcir le polling Telegram, puis traiter STALE et la chaîne de captures (Windows → Linux).
+- Ajouter l’envoi de la dernière capture dans `/analyze`, synchroniser photo+texte, puis clôturer avec docs propres.
+
+2) Actions:
+- Confirmé que **GO_BOT_VISION_TELEGRAM_RECOVERY_01 = PASS** (DM vs groupe, `bot_vision_step2.service`, `ALLOWED_CHAT_ID=-5177632039`, `/analyze -> analyze_latest.py`, source `latest.json`, STALE = logique métier).
+- Signalé exposition de token dans la transcription → priorisé durcissement secrets.
+- **GO_BOT_VISION_SECRETS_HARDEN_PLAN_01 (PASS)**: source runtime = `EnvironmentFile systemd` pointant sur `modules/bot_vision_step2/config/bot_vision.env`; risque = reliquats en docs/journal.
+- **GO_BOT_VISION_SECRETS_HARDEN_EXEC_01 (PASS)**: assainissement `Readme` + `journal.md`, vérif `.gitignore` (exclusion `modules/**/config/*.env`), permissions (mention `chmod 600`), service redémarré.
+- **GO_BOT_VISION_SECRETS_HARDEN_ROTATION_01 (PASS fonctionnel)**: rotation token sur `admin-trading`, redémarrage OK, `curl sendMessage` OK; correction: révocation de l’ancien token **non prouvée**. Constat ensuite: nouveau token recollé en clair dans transcript → **re-rotation requise**.
+- **GO_BOT_VISION_SECRETS_RE_ROTATE_CLEAN_01 (PASS)**: tentative d’injection “sans fuite” via `/tmp/new_token.txt` et script Python (échec here-doc, `TOKEN_TOO_SHORT`, soucis PowerShell/Read-Host). Finalement édition SSH+nano du `.env`, correction structure (séparation `OPENAI_API_KEY` / `OPENAI_MODEL`, `TELEGRAM_BOT_TOKEN` non vide), redémarrage, `curl getMe` = `"ok":true`.
+- **GO_BOT_VISION_TELEGRAM_POLLING_HARDEN_01**:
+  - Qualification: **GO_BOT_VISION_TELEGRAM_POLLING_HARDEN_QUALIFY_01 = FAIL** (marqueurs absents).
+  - Micro-patch appliqué manuellement: marqueurs présents (`for attempt in range(3)`, `timeout=60`, `if not r or not r.get("ok")`, `time.sleep(5)`), `py_compile` OK, restart OK, logs propres → **GO_BOT_VISION_TELEGRAM_POLLING_HARDEN_PATCH_MIN_01 = PASS** et **POLLING_HARDEN_01 = PASS**.
+- **STALE / fraîcheur**: tests montrent données trop anciennes; `latest.json` absent à un chemin attendu, mais `vision_processed` contenait des captures vieilles; diagnostic: **source capture fraîche KO** (amont).
+- Ajout micro-patch **/analyze envoie screenshot + texte**: **GO_BOT_VISION_ANALYZE_SEND_LATEST_SCREENSHOT_01** appliqué (tg_send_photo + resize), service restart OK; test utilisateur: `/analyze` renvoie screenshot + analyse.
+- Diagnostic chaîne Windows (OpenCode):
+  - ShareX AutoCapture + `AutoCaptureWaitUpload=true` bloqué par **PowerShell zombie** `send_vision_inbox.ps1` (hang sur SSH verify/rename) → AutoCapture figée.
+  - Kill du zombie → AutoCapture repart, upload OK, images fraîches reviennent.
+- Validation bridge Linux:
+  - Script trouvé `/opt/trading/scripts/desk_bridge/bridge_vision_to_desk_inbox.sh`, `desk_bridge.timer` actif; `latest.json` mis à jour (`snapshot_ts` récent), snapshots régénérés.
+- Observation résiduelle: **désalignement photo vs texte** (photo sur dernière image brute, texte sur `latest.json` en retard).
+- Micro-patch: **forcer rerun bridge avant génération texte** dans `/analyze` (subprocess timeout=30) → `/analyze` re-synchronisé (photo et `snapshot_ts` alignés).
+- Hardening Windows upload: ajout timeout guard dans `send_vision_inbox.ps1` (Stop-Process si dépassement; scp timeout 120s; ssh timeout 30s) → cycles auto OK, pas de zombies.
+- Cleanup non bloquant: suppression du temporaire `latest_analyze_{chat_id}.jpg` via `finally: tmp.unlink(missing_ok=True)` → validé.
+- Closeout docs: pack de 4 fichiers produit localement (`C:\Users\ghost\`).
+
+3) Décisions:
+- Ne pas rouvrir le recovery Telegram; passer en chantiers séparés: secrets → polling → STALE/chaîne captures.
+- Prioriser **hardening secrets** (token exposé) avant polling/stale.
+- Re-rotation exigée après exposition du nouveau token dans transcription.
+- Approche “micro-patch minimal + qualification par marqueurs” pour polling.
+- Écarter l’hypothèse “STALE = ingest cassé” tant que timestamps montrent des données réellement anciennes.
+- Corriger la cohérence `/analyze` en forçant le bridge juste avant l’analyse texte.
+- Ajouter garde-fou timeout côté Windows pour éviter blocage AutoCapture.
+- Clôturer avec documentation canonique (4 fichiers).
+
+4) Commandes / Code:
+```powershell
+# Création / upload token (tentatives) puis stratégie SSH+nano retenue.
+ssh admin-trading
+sudo nano /opt/trading/modules/bot_vision_step2/config/bot_vision.env
+sudo systemctl restart bot_vision_step2
+TOKEN=$(grep '^TELEGRAM_BOT_TOKEN=' /opt/trading/modules/bot_vision_step2/config/bot_vision.env | cut -d= -f2-)
+curl -s "https://api.telegram.org/bot$TOKEN/getMe" | grep -o '"ok":true'
+```
+
+```bash
+# Qualification / validation polling harden + service
+python3 -m py_compile /opt/trading/modules/bot_vision_step2/app/bot_vision_step2.py
+grep -nE 'for attempt in range\(3\)|timeout=60|if not r or not r.get\("ok"\):|time.sleep\(5\)' \
+  /opt/trading/modules/bot_vision_step2/app/bot_vision_step2.py
+sudo systemctl restart bot_vision_step2
+systemctl status bot_vision_step2 --no-pager -l | head -n 20
+journalctl -u bot_vision_step2 --since "2026-03-29 11:18:02" --no-pager
+```
+
+```bash
+# Diagnostics fraîcheur
+ls -lah /srv/sftp/shared_files/shared/vision_inbox | tail
+ls -lah /srv/sftp/shared_files/shared/vision_processed | tail
+find /opt/trading/desk/snapshots -type f -printf '%TY-%Tm-%Td %TH:%TM:%TS %p\n' | sort | tail -10
+```
+
+```bash
+# Déploiement fichier patché bot_vision_step2.py
+cp /opt/trading/modules/bot_vision_step2/app/bot_vision_step2.py \
+  /opt/trading/modules/bot_vision_step2/app/bot_vision_step2.py.bak_$(date +%Y%m%d_%H%M%S)
+cp /home/ghost/Téléchargements/bot_vision_step2_patched.py \
+  /opt/trading/modules/bot_vision_step2/app/bot_vision_step2.py
+python3 -m py_compile /opt/trading/modules/bot_vision_step2/app/bot_vision_step2.py
+sudo systemctl restart bot_vision_step2
+```
+
+5) Points ouverts (next):
+- — (Clôture actée: **GO_BOT_VISION_CLOSEOUT_DOCS_01 = PASS**; système opérationnel et durci; cleanup tempfile intégré; pack docs produit: `CLOSEOUT_FINAL_BOT_VISION.txt`, `ETABLI_BOT_VISION.txt`, `RESIDUEL_BOT_VISION.txt`, `REPRISE_BOT_VISION.txt`).
