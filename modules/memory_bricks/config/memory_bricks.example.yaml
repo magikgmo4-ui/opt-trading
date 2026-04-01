@@ -1,0 +1,6 @@
+state_root: /opt/trading/_state/memory_bricks
+timezone: America/Montreal
+allowed_targets:
+  - chatgpt
+  - claude
+  - generic
