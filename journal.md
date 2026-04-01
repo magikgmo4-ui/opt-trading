@@ -10472,3 +10472,70 @@ git push origin sot/mainline
   - Déclencher `GO_ANTIGRAVITY_V7_RETRY_ON_FAILED_IMPL_01` avec définition explicite retryable/non-retryable + tests (flaky retry + non-retryable + invariants V5/V6).
 - LocalCMS:
   - Lancer `GO_LOCALCMS_M1_5_CADRAGE` (passe documentaire sans patch) pour choisir l’axe suivant (ex: `MOD_USE_IFACE.FILE_TYPE_MENUS`, `MOD_CFG_FILES.catalog`, etc.).
+
+## 2026-04-01 11:26 — note1005
+1) Objectifs:
+- Déterminer si l’API memory_bricks V2 peut démarrer en parallèle du consumer LocalCMS (dev Windows) ou dépend de ses retours.
+- Ouvrir un chantier V2 limité à une spec read-only (doc-only) sur le repo opt-trading.
+- Clôturer proprement la spec et traiter les irritants (_state/ non tracké, incohérence supposée “8 vs 9 endpoints”).
+
+2) Actions:
+- Confirmation d’un plan parallèle avec séparation stricte :
+  - LocalCMS consumer (Windows, repo localcms) = impl/retours terrain.
+  - V2 sur fantome (repo opt-trading) = cadrage/spec read-only uniquement.
+- Création d’une branche dédiée V2 spec depuis sot/mainline dans opt-trading.
+- Rédaction et commit du livrable spec :
+  - `modules/memory_bricks/docs/SPEC_MEMORY_BRICKS_API_V2_READONLY.md` (300 lignes).
+- Vérification et neutralisation locale du bruit Git lié à `_state/` via `.git/info/exclude`.
+- Vérification de l’“incohérence endpoints” :
+  - Aucun changement commité (tentative de commit sans diff).
+  - Inspection du fichier : le “8” correspond à **8 points ouverts à confirmer**, pas à un compte d’endpoints; pas d’erreur prouvée dans la spec.
+
+3) Décisions:
+- Oui: lancer en parallèle une V2 **spec/read-only** sur fantome, sans implémentation.
+- Non: ne pas lancer une implémentation V2 complète avant retours concrets du consumer.
+- La V2 spec doit vivre sur une nouvelle branche dédiée (pas sur `feat/memory-bricks-v1-impl-harden`).
+- `_state/` reste hors périmètre Git; correction locale uniquement (pas de commit).
+- Prochain chantier recommandé après closeout: `GO_MEMORY_BRICKS_LOCALCMS_CONSUMER_01` (Windows).
+
+4) Commandes / Code:
+```bash
+cd /home/fantome/opt-trading
+git switch sot/mainline
+git pull
+git switch -c feat/memory-bricks-api-v2-readonly-spec
+```
+
+```bash
+git add modules/memory_bricks/docs/SPEC_MEMORY_BRICKS_API_V2_READONLY.md
+git commit -m "memory_bricks: add V2 read-only API spec"
+git status --short --branch
+git log --oneline -1
+```
+
+```bash
+# neutraliser _state/ localement (sans commit)
+printf '\n_state/\n' >> .git/info/exclude
+git status --short --branch
+```
+
+```bash
+# inspection du contenu _state/
+find _state -maxdepth 3 -type f | sort
+tree -a _state
+ls -lah _state
+find _state -maxdepth 2 -type d | sort
+```
+
+```bash
+# vérifications ciblées sur la spec
+grep -n "endpoint" modules/memory_bricks/docs/SPEC_MEMORY_BRICKS_API_V2_READONLY.md
+grep -n '^| GET ' modules/memory_bricks/docs/SPEC_MEMORY_BRICKS_API_V2_READONLY.md
+grep -c '^| GET ' modules/memory_bricks/docs/SPEC_MEMORY_BRICKS_API_V2_READONLY.md
+sed -n '240,285p' modules/memory_bricks/docs/SPEC_MEMORY_BRICKS_API_V2_READONLY.md
+```
+
+5) Points ouverts (next):
+- Démarrer le consumer côté Windows: `GO_MEMORY_BRICKS_LOCALCMS_CONSUMER_01`.
+- (Optionnel) Si besoin futur: compléter/structurer une table d’endpoints dans la spec, mais aucune incohérence n’est prouvée dans le fichier actuel.
+- Maintenir `_state/` hors commit (désormais exclu localement).
