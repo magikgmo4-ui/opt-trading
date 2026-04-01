@@ -1,0 +1,35 @@
+========================================
+RÉSIDUEL — BOT VISION
+========================================
+Date: 2026-03-30
+Règle : résiduels non bloquants uniquement.
+
+1. send_telegram.bat → 401 Unauthorized
+   - Impact : bot secondaire TradingMonitor_gmo_bot ne peut pas envoyer via sharex_action_chain.bat
+   - Urgence : basse (le bot vision_step2 fonctionne indépendamment)
+   - Action : relancer la rotation du token du bot secondaire si besoin, ou retirer send_telegram.bat de la chaîne
+
+2. watch_telegram.ps1 non vérifié
+   - Impact : FileSystemWatcher legacy sur C:\monitor\screens peut ne pas tourner
+   - Urgence : basse (pas de dépendance active connue)
+   - Action : vérifier si utile, sinon désactiver
+
+3. Pas de monitoring automatique de l'état ShareX
+   - Impact : si ShareX s'arrête ou AutoCapture se désactive, pas d'alerte
+   - Urgence : moyenne (risque de dégradation silencieuse)
+   - Action : ajouter un check périodique (scheduled task ou watchdog) qui vérifie le mtime du dernier screen_*.png
+
+4. Logs stdout du bot invisibles via journalctl
+   - Impact : les prints internes (/analyze debug, WARN) ne sont pas dans journalctl
+   - Urgence : basse (logs dans vision_outbox et run dirs)
+   - Action : configurer StandardOutput=journal dans le service unit, ou logger vers fichier
+
+5. Cleanup manuel des zombies Windows ponctuel
+   - Impact : si SSH re-hang, un zombie PS peut bloquer ShareX pendant 30s max (timeout garanti)
+   - Urgence : basse (timeout patché, le blocage est borné)
+   - Action : le timeout de 30s résout le problème — pas d'action supplémentaire nécessaire, juste surveillance
+
+6. Placeholder dans analyze_latest.py (Coinglass, TV)
+   - Impact : le texte Desk Pro contient des sections "placeholder" non alimentées
+   - Urgence : basse (analyse OpenAI fonctionne)
+   - Action : intégrer les vraies données quand les APIs sont disponibles

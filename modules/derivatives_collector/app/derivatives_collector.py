@@ -30,6 +30,46 @@ from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
+# --- Retryable Error Classification ---
+RETRYABLE_ERROR_PATTERNS = (
+    "timeout",
+    "timed out",
+    "rate limit",
+    "429",
+    "network",
+    "temporary",
+    "temporarily",
+    "connection reset",
+    "connection refused",
+    "dns",
+)
+
+NON_RETRYABLE_ERROR_PATTERNS = (
+    "invalid return type",
+    "internal error",
+    "not retryable",
+    "corruption",
+    "mapping",
+    "structure",
+)
+
+def is_retryable_error(error_msg):
+    """Classify whether an error is transient/retryable.
+    
+    Returns True only for clearly transient errors:
+    - timeout, temporary network errors, rate limits (429)
+    
+    Excludes non-transient errors:
+    - invalid return type, internal mapping bugs, structural errors
+    """
+    if error_msg is None:
+        return False
+    error_lower = error_msg.lower()
+    # Explicit non-retryable takes precedence
+    if any(pat in error_lower for pat in NON_RETRYABLE_ERROR_PATTERNS):
+        return False
+    return any(pat in error_lower for pat in RETRYABLE_ERROR_PATTERNS)
+
 # --- Configuration ---
 MODULE_DIR = Path(__file__).resolve().parent.parent
 PROJECT_ROOT = MODULE_DIR.parent.parent

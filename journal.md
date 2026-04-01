@@ -7413,7 +7413,7 @@ sudo systemctl status bot_vision_step2 --no-pager
 sudo journalctl -u bot_vision_step2 -n 80 --no-pager -o cat
 
 # Telegram: test sendMessage direct (validation token+chat_id)
-TOKEN="$(grep -E '^TELEGRAM_BOT_TOKEN=' modules/bot_vision_step2/config/bot_vision.env | cut -d= -f2-)"
+TOKEN="REPLACE_ME_FOR_TEST"
 curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
   -d "chat_id=-5177632039" \
   -d "text=ping admin-trading (test)" ; echo
