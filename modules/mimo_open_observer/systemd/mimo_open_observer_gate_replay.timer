@@ -1,0 +1,11 @@
+[Unit]
+Description=Run MiMo gate_replay at configured 18:00 market open
+
+[Timer]
+OnCalendar=Sun,Mon,Tue,Wed,Thu *-*-* 18:00:00
+AccuracySec=1s
+Persistent=true
+Unit=mimo_open_observer_gate_replay.service
+
+[Install]
+WantedBy=timers.target
