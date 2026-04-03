@@ -11084,3 +11084,82 @@ git push origin feature/localcms-shared-explorer-cms-installer-v1
   - `stash@{1} localcms-post-memory-view-sync`
   - `stash@{2} pre-memory-view localcms state`
 - Vérifier si la doc closeout Shared Explorer publiée reflète bien le smoke Windows final (il a été noté qu’une version “sandbox + limites” existait avant le smoke strict).
+
+## 2026-04-03 18:45 — note1051
+1) Objectifs:
+- Recaler le travail sur l’état GitHub réel de `magikgmo4-ui/opt-trading` (branche `sot/mainline`) sur la machine `admin-trading`.
+- Valider l’exploitabilité runtime de `modules/mimo_open_observer/` (MiMo) puis définir/implémenter une automatisation minimale, la promouvoir au canonique, et valider le scheduler runtime.
+- Produire des prompts “GO_*” réutilisables (ChatGPT 5.4) et un ordre de chantiers clair.
+
+2) Actions:
+- Inventaire GitHub/PRs:
+  - PR #22 merge: V0 `mimo_open_observer` (XAUUSD opening observer).
+  - PR #25 merge: provider `ccxt` live M1 XAUUSDT.
+  - PR #26 merge: market calendar + commande `check_window`.
+  - PR #29 merge: `scripts/admin_trading/runtime_guard.sh`.
+  - PR #30, #31 merge: docs/prompt factory.
+- Validation runtime sur `admin-trading` (GO_MIMO_ADMIN_TRADING_RUNTIME_VALIDATION_01):
+  - Module MiMo présent et identique à `origin/sot/mainline` (diff vide sur `modules/mimo_open_observer` + `runtime_guard.sh`).
+  - `cmd.sh sanity`, `check_window`, `replay`, `show_stats` exécutés avec preuves de sorties et fichiers générés sous `modules/mimo_open_observer/data/...`.
+  - `ccxt` non installé (bloque uniquement le mode live).
+  - `runtime_guard.sh` retourne `FAIL` (cause: `tv-bitget-runner.service` en `activating`), mais cela n’empêche pas la validation locale MiMo.
+- Automatisation légère (GO_MIMO_ADMIN_TRADING_LIGHT_AUTOMATION_GATE_01):
+  - Un point d’entrée `gate_replay` a été implémenté localement (skip hors fenêtre / replay en fenêtre) + validation CLI/syntaxe.
+  - Constat ensuite: `gate_replay` n’était pas canonique sur `sot/mainline`, donc besoin de promotion.
+- Promotion canonique `gate_replay`:
+  - Diff minimal confirmé (2 fichiers: `cmd.sh` + `runner_detect.py`).
+  - Branche `feat/mimo-gate-replay`, commit `002cb5be55c5de43329e0f247da3ed10765bd718`.
+  - PR #33 créée puis constatée mergée (closed/merged) avec merge commit `c84284b29bfcdb5ad5efcf0cf0993a0e45b3e873` (2026-04-02 00:57:38Z).
+- Scheduler minimal:
+  - Implémentation locale décrite: wrapper + unités systemd (`.service` + `.timer`) + activation machine + tests (skip hors fenêtre et replay en fenêtre via `--at` + CSV temporaire).
+  - Promotion canonique annoncée: PR #38 créée puis constatée mergée (closed/merged) avec merge commit `03d2c948164b71914cf9c707018af62fb9d51301` (2026-04-02 23:56:06Z).
+- Observation runtime scheduler (GO_MIMO_ADMIN_TRADING_SCHEDULER_RUNTIME_OBSERVE_01):
+  - Timer `mimo_open_observer_gate_replay.timer` `enabled` + `active (waiting)`; prochain run naturel: Sun 2026-04-05 18:00 EDT.
+  - Service exécute correctement (status 0/SUCCESS) et log “hors fenêtre: skip”.
+  - `LastTriggerUSec` vide: pas encore de run naturel à 18:00 observé.
+  - Verdict répété: `WARN` tant que le run naturel en fenêtre n’est pas observé.
+- Suite: forte friction sur la demande “proposer des prochains GO chantiers” (réponses en boucle). Un GO fini par être proposé: `GO_MIMO_RUN_1800` (capture run naturel 18:00). Ensuite proposition de chantier sans attendre: “source d’entrée runtime” (`GO_MIMO_SOURCE_RUNTIME`), mais le prompt correspondant n’a pas été livré clairement dans l’échange.
+
+3) Décisions:
+- Orientation projet confirmée: “Activer/valider MiMo sur admin-trading” plutôt que re-spécifier MiMo.
+- Ordre de chantiers retenu (haut niveau): A) MiMo ops sur admin-trading → B) runtime guard admin-trading → C) prompt factory/workflow.
+- Validation MiMo locale: `WARN` (MiMo OK en local; live bloqué par `ccxt` absent; `runtime_guard.sh` FAIL séparé).
+- Automatisation légère: `gate_replay` validé puis promu au canonique (PR #33 mergée).
+- Scheduler minimal: promu au canonique (PR #38 mergée) puis runtime observé `WARN` tant que run naturel 18:00 non capturé.
+- Prochain focus confirmé à plusieurs reprises:
+  - Capture run naturel à 18:00 (post-run journaux) = prochaine preuve à obtenir.
+  - En parallèle, chantier “source runtime” proposé pour avancer sans attendre.
+
+4) Commandes / Code:
+```bash
+# Vérifications Git / état canonique
+git status --short --branch
+git diff --stat origin/sot/mainline -- modules/mimo_open_observer scripts/admin_trading/runtime_guard.sh
+git diff origin/sot/mainline -- modules/mimo_open_observer/cmd.sh modules/mimo_open_observer/app/runner_detect.py
+
+# Runtime MiMo
+bash modules/mimo_open_observer/cmd.sh sanity
+bash modules/mimo_open_observer/cmd.sh check_window
+bash modules/mimo_open_observer/cmd.sh replay --csv fixtures/sample_xauusd_m1_signal.csv
+bash modules/mimo_open_observer/cmd.sh show_stats
+python3 -m py_compile modules/mimo_open_observer/app/runner_detect.py
+python3 -m pip show ccxt
+
+# Garde-fou machine
+bash scripts/admin_trading/runtime_guard.sh
+
+# Observation systemd (scheduler)
+systemctl status mimo_open_observer_gate_replay.timer --no-pager -l
+systemctl status mimo_open_observer_gate_replay.service --no-pager -l
+systemctl show mimo_open_observer_gate_replay.timer -p NextElapseUSecRealtime -p LastTriggerUSec -p FragmentPath -p UnitFileState -p ActiveState
+systemctl list-timers mimo_open_observer_gate_replay.timer --no-pager
+journalctl -u mimo_open_observer_gate_replay.timer -n 20 --no-pager -o short-iso
+journalctl -u mimo_open_observer_gate_replay.service -n 50 --no-pager -o short-iso
+```
+
+5) Points ouverts (next):
+- Capturer un run naturel du timer à 18:00 America/Montreal (journaux timer+service, `is_window: True`, `action: replay`, replay→sample→stats, status systemd) — GO proposé dans l’échange sous différentes variantes:  
+  - `GO_MIMO_ADMIN_TRADING_SCHEDULER_1800_POST_RUN_CAPTURE_01` (puis `_02`) / `GO_MIMO_RUN_1800`.
+- Clarifier et fournir un prompt complet pour le chantier “source d’entrée runtime” (proposé comme suite logique sans attendre) — GO mentionné mais non réellement délivré: `GO_MIMO_SOURCE_RUNTIME`.
+- `ccxt` absent: décider si/quan d l’installer (bloque uniquement le live).
+- `runtime_guard.sh` en `FAIL` via `tv-bitget-runner.service activating`: décider si c’est à traiter maintenant ou plus tard (déclaré “parallèle” à MiMo local).
