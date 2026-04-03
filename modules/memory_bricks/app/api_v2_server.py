@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import ast
 import json
 import os
 import sys
@@ -55,6 +56,25 @@ BRICK_LIST_FIELDS = (
     "tags",
 )
 
+BRICK_DETAIL_FIELDS = (
+    "id",
+    "title",
+    "type",
+    "status",
+    "ia",
+    "machine",
+    "surface",
+    "project",
+    "module",
+    "date",
+    "summary_short",
+    "resume_point",
+    "tags",
+    "links",
+    "decisions",
+    "todo",
+)
+
 
 def _load_index_rows() -> list[dict[str, object]]:
     index_path = get_index_dir() / "index_full.json"
@@ -65,6 +85,77 @@ def _load_index_rows() -> list[dict[str, object]]:
     if not isinstance(rows, list):
         raise ValueError("index_full.json must contain a JSON array")
     return [row for row in rows if isinstance(row, dict)]
+
+
+def _parse_scalar(value: str) -> object:
+    value = value.strip()
+    if value == "[]":
+        return []
+    if value.startswith(('"', "[", "{")):
+        try:
+            return json.loads(value)
+        except json.JSONDecodeError:
+            return ast.literal_eval(value)
+    return value
+
+
+def _parse_frontmatter(text: str) -> dict[str, object]:
+    result: dict[str, object] = {}
+    current_list_key: str | None = None
+
+    for raw_line in text.splitlines():
+        line = raw_line.rstrip()
+        if not line:
+            continue
+        if line.startswith("  - "):
+            if current_list_key is None:
+                raise ValueError(f"Invalid frontmatter list item: {raw_line}")
+            values = result.setdefault(current_list_key, [])
+            if not isinstance(values, list):
+                raise ValueError(f"Frontmatter key is not a list: {current_list_key}")
+            values.append(_parse_scalar(line[4:]))
+            continue
+
+        current_list_key = None
+        if ":" not in line:
+            raise ValueError(f"Invalid frontmatter line: {raw_line}")
+        key, value = line.split(":", 1)
+        key = key.strip()
+        value = value.strip()
+        if not key:
+            raise ValueError(f"Invalid frontmatter key: {raw_line}")
+        if not value:
+            result[key] = []
+            current_list_key = key
+            continue
+        result[key] = _parse_scalar(value)
+
+    return result
+
+
+def _load_brick_detail(brick_id: str) -> dict[str, object]:
+    matches = sorted(get_bricks_dir().glob(f"{brick_id}__*.md"))
+    if not matches:
+        raise FileNotFoundError(brick_id)
+    if len(matches) > 1:
+        raise ValueError(f"Multiple brick files found for {brick_id}")
+
+    raw_text = matches[0].read_text(encoding="utf-8")
+    if not raw_text.startswith("---\n"):
+        raise ValueError("Markdown file missing frontmatter")
+
+    _, rest = raw_text.split("---\n", 1)
+    frontmatter_text, content_markdown = rest.split("\n---\n", 1)
+    data = _parse_frontmatter(frontmatter_text)
+
+    payload: dict[str, object] = {}
+    for field in BRICK_DETAIL_FIELDS:
+        value = data.get(field)
+        if value is None and field in {"tags", "links", "decisions", "todo"}:
+            value = []
+        payload[field] = value
+    payload["content_markdown"] = content_markdown.strip()
+    return payload
 
 
 def _matches_filter(row: dict[str, object], key: str, value: str | None) -> bool:
@@ -179,6 +270,14 @@ def list_bricks(
         "limit": limit,
         "offset": offset,
     }
+
+
+@app.get("/bricks/{brick_id}")
+def get_brick(brick_id: str):
+    try:
+        return _load_brick_detail(brick_id)
+    except FileNotFoundError:
+        return JSONResponse(status_code=404, content={"error": "Brick not found"})
 
 
 def main() -> None:
