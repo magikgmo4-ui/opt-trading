@@ -1,0 +1,21 @@
+EVIDENCE_OPENCLAW — ETABLI
+
+1. Le module suit le standard:
+   - sanity
+   - cmd
+   - menu
+   - install_shortcuts
+
+2. Le module détecte le workspace du default agent à partir de:
+   - openclaw agents list
+   puis fallback si nécessaire.
+
+3. Le module exporte les preuves dans:
+   <workspace>/docs_evidence/openclaw_current_state/
+
+4. Le module génère:
+   - 01_doctor_status.txt
+   - 02_configure_status.txt
+   - 03_doctor_quick.txt
+   - 04_workspace_context.txt
+   - 90_PROMPT_DOCS.txt
