@@ -3,46 +3,27 @@ set -euo pipefail
 
 BASE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 APP="$BASE/app/trading_lab_v1.py"
+CMD="${1:-help}"
+ARG2="${2:-}"
+ARG3="${3:-}"
+ARG4="${4:-}"
 
-case "${1:-help}" in
-  sanity)
-    "$BASE/scripts/sanity.sh"
-    ;;
-  status)
-    python3 "$APP" status
-    ;;
-  show-profile)
-    python3 "$APP" show-profile
-    ;;
-  show-schemas)
-    python3 "$APP" show-schemas
-    ;;
-  show-market-source)
-    python3 "$APP" show-market-source
-    ;;
-  show-sessions)
-    python3 "$APP" show-sessions
-    ;;
-  sample-event)
-    python3 "$APP" sample-event
-    ;;
-  sample-trade)
-    python3 "$APP" sample-trade
-    ;;
-  materialize-samples)
-    python3 "$APP" materialize-samples
-    ;;
-  journal-status)
-    python3 "$APP" journal-status
-    ;;
-  run-once)
-    python3 "$APP" run-once "${2:-}"
-    ;;
-  analyze-market-input)
-    python3 "$APP" analyze-market-input "${2:-}" "${3:-}" "${4:-}"
-    ;;
+case "$CMD" in
+  sanity) "$BASE/scripts/sanity.sh" ;;
+  status) python3 "$APP" status ;;
+  show-profile) python3 "$APP" show-profile ;;
+  show-schemas) python3 "$APP" show-schemas ;;
+  show-market-source) python3 "$APP" show-market-source ;;
+  show-sessions) python3 "$APP" show-sessions ;;
+  sample-event) python3 "$APP" sample-event ;;
+  sample-trade) python3 "$APP" sample-trade ;;
+  materialize-samples) python3 "$APP" materialize-samples ;;
+  journal-status) python3 "$APP" journal-status ;;
+  run-once) python3 "$APP" run-once "$ARG2" ;;
+  extract-features) python3 "$APP" extract-features "$ARG2" "$ARG3" "$ARG4" ;;
+  analyze-market-input) python3 "$APP" analyze-market-input "$ARG2" "$ARG3" "$ARG4" ;;
   *)
-    echo "Usage: cmd.sh sanity|status|show-profile|show-schemas|show-market-source|show-sessions|sample-event|sample-trade|materialize-samples|journal-status|run-once [session_id]|analyze-market-input [csv_path] [session_id] [local_date]"
+    echo "Usage: cmd.sh <command>"
     exit 1
     ;;
 esac

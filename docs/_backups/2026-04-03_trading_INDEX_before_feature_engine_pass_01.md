@@ -18,7 +18,6 @@ Il sert à :
 - **docs/ot/trading/04_TRADING_LAB_V1_SKELETON_01.md** : clôture documentaire de l’ouverture du squelette LAB V1 et définition du prochain trigger naturel.
 - **docs/ot/trading/05_TRADING_LAB_V1_FIRST_RUNNER_PASS_01.md** : clôture documentaire de la première passe du runner LAB V1 et définition du trigger naturel suivant.
 - **docs/ot/trading/06_TRADING_LAB_V1_MARKET_INPUT_PASS_01.md** : clôture documentaire de la première passe input marché LAB et définition du trigger naturel suivant.
-- **docs/ot/trading/07_TRADING_LAB_V1_FEATURE_ENGINE_PASS_01.md** : clôture documentaire de la première passe feature engine LAB et définition du trigger naturel suivant.
 
 ## SCHÉMAS MACHINE-LISIBLES
 
@@ -28,7 +27,7 @@ Il sert à :
 
 ## MODULES LIÉS
 
-- **modules/trading_lab_v1/** : squelette standard minimal du LAB V1, avec docs, scripts, runner Python, entrée marché CSV, et feature engine initial.
+- **modules/trading_lab_v1/** : squelette standard minimal du LAB V1, avec docs, scripts, runner Python, génération d’exemples, premier runner pass, et première entrée marché CSV.
 
 ## ÉTAT ACTUEL DE LA ZONE
 
@@ -40,11 +39,10 @@ Il sert à :
 - les **schémas machine-lisibles V1** sont matérialisés ;
 - le **squelette LAB V1** est posé ;
 - une **première passe du runner LAB** est posée ;
-- une **première passe input marché LAB** est posée ;
-- une **première passe feature engine LAB** est posée.
+- une **première passe input marché LAB** est posée.
 
 ### Non encore matérialisé ici
-- batch multi-runs ;
+- feature engine métier plus poussé ;
 - comparateur lab/live exécuté ;
 - runner REAL-TIME.
 
@@ -57,11 +55,10 @@ Il sert à :
 5. lire `04_TRADING_LAB_V1_SKELETON_01.md`
 6. lire `05_TRADING_LAB_V1_FIRST_RUNNER_PASS_01.md`
 7. lire `06_TRADING_LAB_V1_MARKET_INPUT_PASS_01.md`
-8. lire `07_TRADING_LAB_V1_FEATURE_ENGINE_PASS_01.md`
-9. seulement ensuite ouvrir l’implémentation suivante
+8. seulement ensuite ouvrir l’implémentation suivante
 
 ## POINT DE REPRISE COURT
 
-Trigger courant clos au niveau feature engine : `GO_OT_TRADING_LAB_V1_FEATURE_ENGINE_PASS_01`
+Trigger courant clos au niveau market input : `GO_OT_TRADING_LAB_V1_MARKET_INPUT_PASS_01`
 
-Trigger naturel suivant : `GO_OT_TRADING_LAB_V1_BATCH_PASS_01`
+Trigger naturel suivant : `GO_OT_TRADING_LAB_V1_FEATURE_ENGINE_PASS_01`

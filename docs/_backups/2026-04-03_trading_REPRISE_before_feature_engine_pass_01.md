@@ -20,8 +20,7 @@ Point de reprise opératoire court pour la suite du chantier trading dual stack.
 - schémas V1 matérialisés ;
 - squelette LAB V1 posé ;
 - premier runner LAB posé ;
-- première passe input marché LAB posée ;
-- première passe feature engine LAB posée.
+- première passe input marché LAB posée.
 
 ## COUVERT
 - schéma commun ;
@@ -30,14 +29,13 @@ Point de reprise opératoire court pour la suite du chantier trading dual stack.
 - schéma trade V1 ;
 - squelette LAB V1 ;
 - premier runner LAB ;
-- input marché LAB ;
-- feature engine LAB et `features_v1.jsonl`.
+- input marché LAB via `modules/trading_lab_v1/data/sample_xauusd_m1.csv`.
 
 ## SUITE
-Suite recommandée immédiate : ouvrir une passe **batch** qui exécute plusieurs runs LAB sur plusieurs dates/fichiers tout en gardant le focus strict `XAUUSD`.
+Suite recommandée immédiate : ouvrir une passe **feature engine** qui raffine les calculs métier session/open à partir des chandelles M1.
 
 ## TRIGGER NATUREL SUIVANT
-`GO_OT_TRADING_LAB_V1_BATCH_PASS_01`
+`GO_OT_TRADING_LAB_V1_FEATURE_ENGINE_PASS_01`
 
 ## FORMULE COURTE
-Reprendre depuis les docs `docs/ot/trading/`, les fichiers `schemas/`, puis `modules/trading_lab_v1/`, et ouvrir la passe batch LAB avant toute implémentation REAL-TIME.
+Reprendre depuis les docs `docs/ot/trading/`, les fichiers `schemas/`, puis `modules/trading_lab_v1/`, et ouvrir la passe feature engine LAB avant toute implémentation REAL-TIME.

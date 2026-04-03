@@ -16,7 +16,6 @@ STATE_DIR = REPO_ROOT / "state" / "trading_lab_v1"
 EVENTS_JSONL = STATE_DIR / "events_v1.jsonl"
 TRADES_JSONL = STATE_DIR / "trades_v1.jsonl"
 MARKET_RUNS_JSONL = STATE_DIR / "market_runs_v1.jsonl"
-FEATURES_JSONL = STATE_DIR / "features_v1.jsonl"
 SAMPLE_MARKET_CSV = BASE / "data" / "sample_xauusd_m1.csv"
 
 
@@ -181,6 +180,81 @@ def choose_variant(profile: dict) -> str | None:
     return None
 
 
+def sample_event() -> dict:
+    return {
+        "event_id": "evt_sample_xau_001",
+        "event_ts": iso_now_local("America/Montreal"),
+        "profile_id": "xauusd_dual_stack_v1",
+        "mode": "observation",
+        "symbol": "XAUUSD",
+        "timeframe_context": {
+            "trigger_tf": "M1",
+            "context_tf": "M5"
+        },
+        "session_name": "gold_open_18h",
+        "local_date": local_now("America/Montreal").date().isoformat(),
+        "timezone": "America/Montreal",
+        "strategy_id": "xau_session_open_v1",
+        "variant_id": "xau_open_sweep_fvg",
+        "setup_instance_id": "setup_sample_xau_001",
+        "event_type": "setup_classified",
+        "decision_state": "observed",
+        "direction": "bullish",
+        "signal_ts": iso_now_local("America/Montreal"),
+        "filters_state": {
+            "require_session_window": True,
+            "require_complete_open_sequence": True
+        },
+        "frame_state": {
+            "session_allowed": True,
+            "max_trades_per_day_ok": True,
+            "cooldown_ok": True
+        },
+        "raw_features": {
+            "sweep_detected": True,
+            "fvg_detected": True,
+            "m5_open_candle_captured": True,
+            "m1_first_5_complete": True
+        },
+        "notes": None
+    }
+
+
+def sample_trade() -> dict:
+    return {
+        "trade_id": "trd_sample_xau_001",
+        "event_id_origin": "evt_sample_xau_001",
+        "profile_id": "xauusd_dual_stack_v1",
+        "mode": "observation",
+        "symbol": "XAUUSD",
+        "strategy_id": "xau_session_open_v1",
+        "variant_id": "xau_open_sweep_fvg",
+        "setup_instance_id": "setup_sample_xau_001",
+        "session_name": "gold_open_18h",
+        "local_date": local_now("America/Montreal").date().isoformat(),
+        "timezone": "America/Montreal",
+        "direction": "bullish",
+        "entry_ts": iso_now_local("America/Montreal"),
+        "exit_ts": None,
+        "entry": 3200.0,
+        "sl": 3195.0,
+        "tp_plan": {
+            "type": "rr_multiple",
+            "rr_target": 2.0
+        },
+        "risk_pct": 1.0,
+        "rr_planned": 2.0,
+        "result": "open",
+        "r_realized": None,
+        "mfe": None,
+        "mae": None,
+        "time_in_trade_seconds": None,
+        "execution_state": "virtual_open",
+        "exit_reason": None,
+        "slippage_points": 0.0
+    }
+
+
 def append_jsonl(path: Path, payload: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("a", encoding="utf-8") as fh:
@@ -293,138 +367,146 @@ def choose_direction(first_five: list[dict], fvg_direction: str | None) -> str:
     return "neutral"
 
 
-def build_feature_payload(profile: dict, session: dict, rows: list[dict], analysis_date: str, source_path: Path) -> dict:
-    tz_name = profile["frame"].get("timezone") or "America/Montreal"
-    now_dt = local_now(tz_name)
-    stamp = now_dt.strftime("%Y%m%d_%H%M%S")
+def analyze_session_market(rows: list[dict], session: dict) -> dict:
     first_five = rows[:5]
-    sequence_complete = len(first_five) >= 5
-    session_id = session.get("session_id", "unknown_session")
-
-    base_payload = {
-        "feature_id": f"feat_{stamp}_{session_id}",
-        "feature_ts": now_dt.isoformat(timespec="seconds"),
-        "profile_id": profile.get("profile_id") or "xauusd_dual_stack_v1",
-        "symbol": profile["frame"].get("symbol") or "XAUUSD",
-        "session_name": session_id,
-        "local_date": analysis_date,
-        "timezone": tz_name,
-        "source_csv": str(source_path),
-        "sequence_complete": sequence_complete,
-        "candle_count": len(rows),
-    }
-
-    if not rows:
-        base_payload.update(
-            {
-                "open_candle": None,
-                "first5_range_points": None,
-                "first5_body_delta": None,
-                "first5_direction": "neutral",
+    complete = len(first_five) >= 5
+    if not complete:
+        return {
+            "sequence_complete": False,
+            "candle_count": len(rows),
+            "variant_id": None,
+            "direction": "neutral",
+            "entry": None,
+            "sl": None,
+            "rr_planned": 2.0,
+            "raw_features": {
+                "m5_open_candle_captured": len(rows) > 0,
+                "m1_first_5_complete": False,
                 "sweep_detected": False,
-                "sweep_above": False,
-                "sweep_below": False,
                 "fvg_detected": False,
-                "fvg_direction": None,
-                "fvg_gap_points": 0.0,
-                "variant_id": None,
-                "entry": None,
-                "sl": None,
-                "rr_planned": 2.0,
-            }
-        )
-        return base_payload
-
-    first = first_five[0] if first_five else rows[0]
-    open_candle = {
-        "ts": first["ts"].isoformat(timespec="seconds"),
-        "open": first["open"],
-        "high": first["high"],
-        "low": first["low"],
-        "close": first["close"],
-        "range_points": round(first["high"] - first["low"], 4),
-        "body_points": round(abs(first["close"] - first["open"]), 4),
-        "direction": "bullish" if first["close"] > first["open"] else "bearish" if first["close"] < first["open"] else "neutral",
-    }
-
-    if not sequence_complete:
-        base_payload.update(
-            {
-                "open_candle": open_candle,
-                "first5_range_points": None,
-                "first5_body_delta": None,
-                "first5_direction": "neutral",
-                "sweep_detected": False,
-                "sweep_above": False,
-                "sweep_below": False,
-                "fvg_detected": False,
-                "fvg_direction": None,
-                "fvg_gap_points": 0.0,
-                "variant_id": None,
-                "entry": None,
-                "sl": None,
-                "rr_planned": 2.0,
-            }
-        )
-        return base_payload
+                "signal_window_start": session.get("signal_window_start"),
+                "signal_window_end": session.get("signal_window_end"),
+                "candle_count": len(rows),
+            },
+        }
 
     sweep = detect_sweep(first_five)
     fvg = detect_fvg(first_five)
     direction = choose_direction(first_five, fvg["fvg_direction"])
     variant_id = choose_variant_from_features(sweep["sweep_detected"], fvg["fvg_detected"])
+    first = first_five[0]
+    last = first_five[-1]
 
-    first5_high = max(c["high"] for c in first_five)
-    first5_low = min(c["low"] for c in first_five)
-    first5_range_points = round(first5_high - first5_low, 4)
-    first5_body_delta = round(first_five[-1]["close"] - first_five[0]["open"], 4)
+    if direction == "bearish":
+        entry = last["close"]
+        sl = max(c["high"] for c in first_five)
+    else:
+        entry = last["close"]
+        sl = min(c["low"] for c in first_five)
 
-    entry = round(first_five[-1]["close"], 4)
-    sl = round(first5_low if direction != "bearish" else first5_high, 4)
-
-    base_payload.update(
-        {
-            "open_candle": open_candle,
-            "first5_range_points": first5_range_points,
-            "first5_body_delta": first5_body_delta,
-            "first5_direction": direction,
+    return {
+        "sequence_complete": True,
+        "candle_count": len(rows),
+        "variant_id": variant_id,
+        "direction": direction,
+        "entry": round(entry, 4),
+        "sl": round(sl, 4),
+        "rr_planned": 2.0,
+        "raw_features": {
+            "m5_open_candle_captured": True,
+            "m1_first_5_complete": True,
+            "first_open": first["open"],
+            "first_high": first["high"],
+            "first_low": first["low"],
+            "fifth_close": last["close"],
+            "session_window_start": session.get("signal_window_start"),
+            "session_window_end": session.get("signal_window_end"),
+            "candle_count": len(rows),
             **sweep,
             **fvg,
-            "variant_id": variant_id,
-            "entry": entry,
-            "sl": sl,
-            "rr_planned": 2.0,
-        }
-    )
-    return base_payload
+        },
+    }
 
 
-def build_market_event(profile: dict, session: dict, features: dict) -> dict:
-    observed = bool(features.get("sequence_complete"))
+def build_event(profile: dict, session: dict, now_dt: datetime, session_is_active: bool) -> dict:
+    stamp = now_dt.strftime("%Y%m%d_%H%M%S")
+    variant_id = choose_variant(profile)
+    session_id = session.get("session_id", "unknown_session")
+    event_type = "setup_classified" if session_is_active else "setup_blocked"
+    decision_state = "observed" if session_is_active else "blocked_by_frame"
     return {
-        "event_id": features["feature_id"].replace("feat_", "evt_market_", 1),
-        "event_ts": features["feature_ts"],
-        "profile_id": features["profile_id"],
+        "event_id": f"evt_{stamp}_{session_id}",
+        "event_ts": now_dt.isoformat(timespec="seconds"),
+        "profile_id": profile.get("profile_id") or "xauusd_dual_stack_v1",
         "mode": "observation",
-        "symbol": features["symbol"],
+        "symbol": profile["frame"].get("symbol") or "XAUUSD",
+        "timeframe_context": {
+            "trigger_tf": "M1",
+            "context_tf": "M5",
+            "runner": "trading_lab_v1"
+        },
+        "session_name": session_id,
+        "local_date": now_dt.date().isoformat(),
+        "timezone": profile["frame"].get("timezone") or "America/Montreal",
+        "strategy_id": profile["strategy"].get("strategy_id") or "xau_session_open_v1",
+        "variant_id": variant_id,
+        "setup_instance_id": f"setup_{stamp}_{session_id}",
+        "event_type": event_type,
+        "decision_state": decision_state,
+        "direction": "bullish",
+        "signal_ts": now_dt.isoformat(timespec="seconds"),
+        "filters_state": {
+            "require_session_window": True,
+            "require_complete_open_sequence": True
+        },
+        "frame_state": {
+            "session_allowed": session_is_active,
+            "max_trades_per_day_ok": True,
+            "cooldown_ok": True,
+            "session_window_start": session.get("signal_window_start"),
+            "session_window_end": session.get("signal_window_end")
+        },
+        "raw_features": {
+            "sweep_detected": session_is_active,
+            "fvg_detected": session_is_active,
+            "m5_open_candle_captured": session_is_active,
+            "m1_first_5_complete": session_is_active
+        },
+        "notes": None
+    }
+
+
+def build_market_event(profile: dict, session: dict, market_result: dict, analysis_date: str, source_path: Path) -> dict:
+    tz_name = profile["frame"].get("timezone") or "America/Montreal"
+    now_dt = local_now(tz_name)
+    stamp = now_dt.strftime("%Y%m%d_%H%M%S")
+    session_id = session.get("session_id", "unknown_session")
+    observed = market_result["sequence_complete"]
+    return {
+        "event_id": f"evt_market_{stamp}_{session_id}",
+        "event_ts": now_dt.isoformat(timespec="seconds"),
+        "profile_id": profile.get("profile_id") or "xauusd_dual_stack_v1",
+        "mode": "observation",
+        "symbol": profile["frame"].get("symbol") or "XAUUSD",
         "timeframe_context": {
             "trigger_tf": "M1",
             "context_tf": "M5",
             "runner": "trading_lab_v1",
-            "market_input_source": features["source_csv"]
+            "market_input_source": str(source_path)
         },
-        "session_name": features["session_name"],
-        "local_date": features["local_date"],
-        "timezone": features["timezone"],
+        "session_name": session_id,
+        "local_date": analysis_date,
+        "timezone": tz_name,
         "strategy_id": profile["strategy"].get("strategy_id") or "xau_session_open_v1",
-        "variant_id": features["variant_id"],
-        "setup_instance_id": features["feature_id"].replace("feat_", "setup_", 1),
+        "variant_id": market_result["variant_id"],
+        "setup_instance_id": f"setup_market_{stamp}_{session_id}",
         "event_type": "setup_classified" if observed else "setup_blocked",
         "decision_state": "observed" if observed else "blocked_by_filters",
-        "direction": features["first5_direction"],
-        "signal_ts": features["feature_ts"],
+        "direction": market_result["direction"],
+        "signal_ts": now_dt.isoformat(timespec="seconds"),
         "filters_state": {
             "require_session_window": True,
-            "require_complete_open_sequence": observed
+            "require_complete_open_sequence": market_result["sequence_complete"]
         },
         "frame_state": {
             "session_allowed": True,
@@ -433,8 +515,8 @@ def build_market_event(profile: dict, session: dict, features: dict) -> dict:
             "session_window_start": session.get("signal_window_start"),
             "session_window_end": session.get("signal_window_end")
         },
-        "raw_features": features,
-        "notes": f"market_input:{Path(features['source_csv']).name}"
+        "raw_features": market_result["raw_features"],
+        "notes": f"market_input:{source_path.name}"
     }
 
 
@@ -474,14 +556,14 @@ def build_trade(event: dict) -> dict:
     }
 
 
-def build_market_trade(event: dict, features: dict) -> dict:
+def build_market_trade(event: dict, market_result: dict) -> dict:
     trade = build_trade(event)
-    trade["entry"] = features["entry"]
-    trade["sl"] = features["sl"]
-    trade["rr_planned"] = features["rr_planned"]
+    trade["entry"] = market_result["entry"]
+    trade["sl"] = market_result["sl"]
+    trade["rr_planned"] = market_result["rr_planned"]
     trade["tp_plan"] = {
         "type": "rr_multiple",
-        "rr_target": features["rr_planned"]
+        "rr_target": market_result["rr_planned"]
     }
     return trade
 
@@ -499,7 +581,6 @@ def status(_: list[str]) -> int:
         "events_jsonl": str(EVENTS_JSONL),
         "trades_jsonl": str(TRADES_JSONL),
         "market_runs_jsonl": str(MARKET_RUNS_JSONL),
-        "features_jsonl": str(FEATURES_JSONL),
     }
     print(json.dumps(payload, indent=2, ensure_ascii=False))
     return 0
@@ -541,37 +622,23 @@ def show_sessions(_: list[str]) -> int:
 
 
 def emit_sample_event(_: list[str]) -> int:
-    print(json.dumps({
-        "sample": "event",
-        "feature_engine": "use extract-features / analyze-market-input for market-based output"
-    }, indent=2, ensure_ascii=False))
+    print(json.dumps(sample_event(), indent=2, ensure_ascii=False))
     return 0
 
 
 def emit_sample_trade(_: list[str]) -> int:
-    print(json.dumps({
-        "sample": "trade",
-        "feature_engine": "use analyze-market-input for market-based output"
-    }, indent=2, ensure_ascii=False))
+    print(json.dumps(sample_trade(), indent=2, ensure_ascii=False))
     return 0
 
 
 def materialize_samples(_: list[str]) -> int:
     STATE_DIR.mkdir(parents=True, exist_ok=True)
-    feature_path = STATE_DIR / "sample_features_v1.json"
+    event_path = STATE_DIR / "sample_event_v1.json"
     trade_path = STATE_DIR / "sample_trade_v1.json"
-    profile = load_profile()
-    session = choose_session(profile, None)
-    rows = load_market_csv(SAMPLE_MARKET_CSV, profile["frame"].get("timezone") or "America/Montreal")
-    selected_rows, chosen_date = select_session_rows(rows, session, None)
-    features = build_feature_payload(profile, session, selected_rows, chosen_date or local_now(profile["frame"].get("timezone") or "America/Montreal").date().isoformat(), SAMPLE_MARKET_CSV)
-    feature_path.write_text(json.dumps(features, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    if features["sequence_complete"]:
-        event = build_market_event(profile, session, features)
-        trade = build_market_trade(event, features)
-        trade_path.write_text(json.dumps(trade, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    event_path.write_text(json.dumps(sample_event(), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    trade_path.write_text(json.dumps(sample_trade(), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({
-        "feature_sample": str(feature_path),
+        "event_sample": str(event_path),
         "trade_sample": str(trade_path)
     }, indent=2, ensure_ascii=False))
     return 0
@@ -585,8 +652,6 @@ def journal_status(_: list[str]) -> int:
         "trades_count": count_jsonl(TRADES_JSONL),
         "market_runs_jsonl": str(MARKET_RUNS_JSONL),
         "market_runs_count": count_jsonl(MARKET_RUNS_JSONL),
-        "features_jsonl": str(FEATURES_JSONL),
-        "features_count": count_jsonl(FEATURES_JSONL),
     }
     print(json.dumps(payload, indent=2, ensure_ascii=False))
     return 0
@@ -599,47 +664,23 @@ def run_once(args: list[str]) -> int:
     now_dt = local_now(tz_name)
     session = choose_session(profile, requested_session)
     is_active = active_now(session, now_dt)
-    selected_rows = []
-    analysis_date = now_dt.date().isoformat()
-    features = build_feature_payload(profile, session, selected_rows, analysis_date, SAMPLE_MARKET_CSV)
-    features["sequence_complete"] = is_active
-    features["feature_id"] = f"feat_{now_dt.strftime('%Y%m%d_%H%M%S')}_{session.get('session_id')}"
-    append_jsonl(FEATURES_JSONL, features)
-    event = build_market_event(profile, session, features)
-    event["decision_state"] = "observed" if is_active else "blocked_by_frame"
-    event["event_type"] = "setup_classified" if is_active else "setup_blocked"
+    event = build_event(profile, session, now_dt, is_active)
     append_jsonl(EVENTS_JSONL, event)
     trade_path = None
     if is_active:
-        trade = build_market_trade(event, features)
+        trade = build_trade(event)
         append_jsonl(TRADES_JSONL, trade)
         trade_path = str(TRADES_JSONL)
     payload = {
         "profile_id": profile.get("profile_id"),
         "session_id": session.get("session_id"),
         "active_now": is_active,
-        "feature_written": str(FEATURES_JSONL),
         "event_written": str(EVENTS_JSONL),
         "trade_written": trade_path,
         "event_decision_state": event["decision_state"],
         "event_type": event["event_type"]
     }
     print(json.dumps(payload, indent=2, ensure_ascii=False))
-    return 0
-
-
-def extract_features(args: list[str]) -> int:
-    csv_path = Path(args[0]).expanduser() if len(args) >= 1 and args[0] else SAMPLE_MARKET_CSV
-    requested_session = args[1] if len(args) >= 2 and args[1] else None
-    target_date = args[2] if len(args) >= 3 and args[2] else None
-    profile = load_profile()
-    tz_name = profile["frame"].get("timezone") or "America/Montreal"
-    session = choose_session(profile, requested_session)
-    rows = load_market_csv(csv_path, tz_name)
-    selected_rows, chosen_date = select_session_rows(rows, session, target_date)
-    analysis_date = chosen_date or local_now(tz_name).date().isoformat()
-    features = build_feature_payload(profile, session, selected_rows, analysis_date, csv_path)
-    print(json.dumps(features, indent=2, ensure_ascii=False))
     return 0
 
 
@@ -653,15 +694,14 @@ def analyze_market_input(args: list[str]) -> int:
     session = choose_session(profile, requested_session)
     rows = load_market_csv(csv_path, tz_name)
     selected_rows, chosen_date = select_session_rows(rows, session, target_date)
+    market_result = analyze_session_market(selected_rows, session)
     analysis_date = chosen_date or local_now(tz_name).date().isoformat()
-    features = build_feature_payload(profile, session, selected_rows, analysis_date, csv_path)
 
-    append_jsonl(FEATURES_JSONL, features)
-    event = build_market_event(profile, session, features)
+    event = build_market_event(profile, session, market_result, analysis_date, csv_path)
     append_jsonl(EVENTS_JSONL, event)
     trade_written = None
-    if features["sequence_complete"]:
-        trade = build_market_trade(event, features)
+    if market_result["sequence_complete"]:
+        trade = build_market_trade(event, market_result)
         append_jsonl(TRADES_JSONL, trade)
         trade_written = str(TRADES_JSONL)
 
@@ -671,10 +711,9 @@ def analyze_market_input(args: list[str]) -> int:
         "session_id": session.get("session_id"),
         "analysis_date": analysis_date,
         "selected_rows": len(selected_rows),
-        "sequence_complete": features["sequence_complete"],
-        "variant_id": features["variant_id"],
-        "direction": features["first5_direction"],
-        "feature_id": features["feature_id"],
+        "sequence_complete": market_result["sequence_complete"],
+        "variant_id": market_result["variant_id"],
+        "direction": market_result["direction"],
         "event_id": event["event_id"],
         "trade_written": trade_written,
     }
@@ -694,7 +733,6 @@ COMMANDS = {
     "materialize-samples": materialize_samples,
     "journal-status": journal_status,
     "run-once": run_once,
-    "extract-features": extract_features,
     "analyze-market-input": analyze_market_input,
 }
 
@@ -704,7 +742,7 @@ def main(argv: list[str]) -> int:
     fn = COMMANDS.get(cmd)
     if fn is None:
         print(
-            "Usage: trading_lab_v1.py status|show-profile|show-schemas|show-market-source|show-sessions|sample-event|sample-trade|materialize-samples|journal-status|run-once [session_id]|extract-features [csv_path] [session_id] [local_date]|analyze-market-input [csv_path] [session_id] [local_date]",
+            "Usage: trading_lab_v1.py status|show-profile|show-schemas|show-market-source|show-sessions|sample-event|sample-trade|materialize-samples|journal-status|run-once [session_id]|analyze-market-input [csv_path] [session_id] [local_date]",
             file=sys.stderr,
         )
         return 1
