@@ -277,7 +277,7 @@ def get_brick(brick_id: str):
     try:
         return _load_brick_detail(brick_id)
     except FileNotFoundError:
-        return JSONResponse(status_code=404, content={"error": f"Brick not found: {brick_id}"})
+        return JSONResponse(status_code=404, content={"error": "Brick not found"})
 
 
 def main() -> None:
