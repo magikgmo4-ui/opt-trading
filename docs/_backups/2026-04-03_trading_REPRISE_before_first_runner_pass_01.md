@@ -38,8 +38,7 @@ Module squelette LAB :
 - le système doit produire un **journal d’événements** avant un journal de trades ;
 - la **core spec V1** du noyau commun est matérialisée ;
 - les **schémas machine-lisibles V1** sont matérialisés ;
-- le **squelette LAB V1** est posé ;
-- une **première passe du runner LAB** est posée.
+- le **squelette LAB V1** est posé.
 
 ## 4. CE QUI EST MAINTENANT COUVERT
 
@@ -58,17 +57,14 @@ Couvert dans `02_TRADING_DUAL_STACK_CORE_SPEC_V1.md` et matérialisé dans `sche
 ### Bloc 5 — squelette LAB V1
 Couvert dans `modules/trading_lab_v1/` et `04_TRADING_LAB_V1_SKELETON_01.md`.
 
-### Bloc 6 — premier runner LAB
-Couvert dans `modules/trading_lab_v1/app/trading_lab_v1.py`, `modules/trading_lab_v1/scripts/cmd.sh` et `05_TRADING_LAB_V1_FIRST_RUNNER_PASS_01.md`.
-
 ## 5. À OUVRIR ENSUITE
 
 ### Suite recommandée immédiate
-Ouvrir une **passe input marché** qui remplace les features simulées par une vraie source de données LAB pour `XAUUSD`.
+Ouvrir une **première passe du runner LAB** qui consomme réellement le profil YAML et produit des journaux `event` / `trade` sur un flux cadré.
 
 ### Ordre recommandé
-1. input marché LAB
-2. calcul métier simple des features session/open
+1. premier runner LAB métier
+2. validation structurelle des journaux
 3. seulement ensuite runner REAL-TIME observation
 
 ## 6. RÈGLES DE TRAVAIL
@@ -85,8 +81,8 @@ Ouvrir une **passe input marché** qui remplace les features simulées par une v
 
 ## 8. TRIGGER NATUREL SUIVANT
 
-`GO_OT_TRADING_LAB_V1_MARKET_INPUT_PASS_01`
+`GO_OT_TRADING_LAB_V1_FIRST_RUNNER_PASS_01`
 
 ## 9. FORMULE DE REPRISE COURTE
 
-Reprendre depuis `docs/ot/trading/00_TRADING_DUAL_STACK_LAB_REALTIME_V1.md`, `docs/ot/trading/02_TRADING_DUAL_STACK_CORE_SPEC_V1.md`, les fichiers `schemas/`, et `modules/trading_lab_v1/`, puis ouvrir la passe input marché LAB avant toute implémentation REAL-TIME.
+Reprendre depuis `docs/ot/trading/00_TRADING_DUAL_STACK_LAB_REALTIME_V1.md`, `docs/ot/trading/02_TRADING_DUAL_STACK_CORE_SPEC_V1.md`, les fichiers `schemas/`, et `modules/trading_lab_v1/`, puis ouvrir la première passe du runner LAB avant toute implémentation REAL-TIME.

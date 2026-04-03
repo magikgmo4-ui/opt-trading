@@ -17,9 +17,6 @@ case "${1:-help}" in
   show-schemas)
     python3 "$APP" show-schemas
     ;;
-  show-sessions)
-    python3 "$APP" show-sessions
-    ;;
   sample-event)
     python3 "$APP" sample-event
     ;;
@@ -29,14 +26,8 @@ case "${1:-help}" in
   materialize-samples)
     python3 "$APP" materialize-samples
     ;;
-  journal-status)
-    python3 "$APP" journal-status
-    ;;
-  run-once)
-    python3 "$APP" run-once "${2:-}"
-    ;;
   *)
-    echo "Usage: cmd.sh sanity|status|show-profile|show-schemas|show-sessions|sample-event|sample-trade|materialize-samples|journal-status|run-once [session_id]"
+    echo "Usage: cmd.sh sanity|status|show-profile|show-schemas|sample-event|sample-trade|materialize-samples"
     exit 1
     ;;
 esac

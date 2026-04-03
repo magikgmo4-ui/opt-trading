@@ -16,7 +16,6 @@ Il sert à :
 - **docs/ot/trading/02_TRADING_DUAL_STACK_CORE_SPEC_V1.md** : spec opératoire V1 du noyau commun `frame / strategy / execution / analytics`, config V1, event schema, trade schema, et variantes Gold/session.
 - **docs/ot/trading/03_TRADING_LAB_V1_SCHEMA_MATERIALIZATION_01.md** : clôture documentaire de la matérialisation des schémas V1 et pointage vers la suite naturelle.
 - **docs/ot/trading/04_TRADING_LAB_V1_SKELETON_01.md** : clôture documentaire de l’ouverture du squelette LAB V1 et définition du prochain trigger naturel.
-- **docs/ot/trading/05_TRADING_LAB_V1_FIRST_RUNNER_PASS_01.md** : clôture documentaire de la première passe du runner LAB V1 et définition du trigger naturel suivant.
 
 ## SCHÉMAS MACHINE-LISIBLES
 
@@ -36,11 +35,11 @@ Il sert à :
 - le focus V1 initial est **Gold / XAUUSD**, fenêtres `18:00` et `00:00`, timezone `America/Montreal` ;
 - la **core spec V1** du noyau commun est matérialisée ;
 - les **schémas machine-lisibles V1** sont matérialisés ;
-- le **squelette LAB V1** est posé ;
-- une **première passe du runner LAB** est maintenant posée.
+- le **squelette LAB V1** est maintenant posé.
 
 ### Non encore matérialisé ici
-- input marché réel pour le LAB ;
+- runner LAB métier réel ;
+- boucle sessionnelle ;
 - comparateur lab/live exécuté ;
 - runner REAL-TIME.
 
@@ -51,11 +50,10 @@ Il sert à :
 3. lire `02_TRADING_DUAL_STACK_CORE_SPEC_V1.md`
 4. lire `03_TRADING_LAB_V1_SCHEMA_MATERIALIZATION_01.md`
 5. lire `04_TRADING_LAB_V1_SKELETON_01.md`
-6. lire `05_TRADING_LAB_V1_FIRST_RUNNER_PASS_01.md`
-7. seulement ensuite ouvrir l’implémentation suivante
+6. seulement ensuite ouvrir l’implémentation suivante
 
 ## POINT DE REPRISE COURT
 
-Trigger courant clos au niveau premier runner : `GO_OT_TRADING_LAB_V1_FIRST_RUNNER_PASS_01`
+Trigger courant clos au niveau squelette : `GO_OT_TRADING_LAB_V1_SKELETON_01`
 
-Trigger naturel suivant : `GO_OT_TRADING_LAB_V1_MARKET_INPUT_PASS_01`
+Trigger naturel suivant : `GO_OT_TRADING_LAB_V1_FIRST_RUNNER_PASS_01`
