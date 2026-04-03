@@ -597,10 +597,3 @@ Le plan de départ est bon.
 
 ### Décision finale
 Construire **un framework trading dual Lab + Real-Time**, centré d’abord sur Gold/session, avec un seul noyau de règles, une montée en puissance prudente, et une journalisation suffisamment riche pour décider objectivement ce qui mérite d’être exécuté dans le réel.
-
----
-
-## 16. NAVIGATION LOCALE
-
-- `docs/ot/trading/INDEX.md` : point d’entrée local de la zone trading.
-- `docs/ot/trading/01_GO_OT_TRADING_DUAL_STACK_V1_01_REPRISE.md` : point de reprise opératoire court.
