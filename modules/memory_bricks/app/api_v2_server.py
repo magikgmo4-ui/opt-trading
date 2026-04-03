@@ -229,6 +229,38 @@ def _find_bricks(query_text: str) -> list[dict[str, str]]:
     return rows
 
 
+def _index_status_payload() -> dict[str, object]:
+    index_dir = get_index_dir()
+    return {
+        "index_dir": str(index_dir),
+        "index_dir_exists": index_dir.exists(),
+        "index_full_exists": (index_dir / "index_full.json").exists(),
+        "index_short_exists": (index_dir / "index_short.md").exists(),
+        "sequence_exists": get_sequence_path().exists(),
+    }
+
+
+def _load_full_index() -> object:
+    index_path = get_index_dir() / "index_full.json"
+    if not index_path.exists():
+        raise FileNotFoundError(index_path)
+    return json.loads(index_path.read_text(encoding="utf-8"))
+
+
+def _load_short_index() -> str:
+    index_path = get_index_dir() / "index_short.md"
+    if not index_path.exists():
+        raise FileNotFoundError(index_path)
+    return index_path.read_text(encoding="utf-8")
+
+
+def _load_sequence() -> object:
+    sequence_path = get_sequence_path()
+    if not sequence_path.exists():
+        raise FileNotFoundError(sequence_path)
+    return json.loads(sequence_path.read_text(encoding="utf-8"))
+
+
 @app.get("/health")
 def health():
     """Sanity check: API is alive."""
@@ -243,7 +275,7 @@ def status():
     """
     root = get_state_root()
     bricks_dir = get_bricks_dir()
-    index_dir = get_index_dir()
+    index_status_payload = _index_status_payload()
     brick_count = 0
     if bricks_dir.exists():
         brick_count = len(list(bricks_dir.glob("MB-*.md")))
@@ -253,9 +285,9 @@ def status():
         "root_exists": root.exists(),
         "bricks_dir": bricks_dir.exists(),
         "bricks": brick_count,
-        "index_full": (index_dir / "index_full.json").exists(),
-        "index_short": (index_dir / "index_short.md").exists(),
-        "sequence": get_sequence_path().exists(),
+        "index_full": index_status_payload["index_full_exists"],
+        "index_short": index_status_payload["index_short_exists"],
+        "sequence": index_status_payload["sequence_exists"],
     }
 
     if not root.exists():
@@ -337,6 +369,35 @@ def find_bricks(text: str | None = None, limit: int = Query(default=50, ge=0), o
     total = len(matches)
     items = matches[offset : offset + limit]
     return {"items": items, "total": total, "query": query_text}
+
+
+@app.get("/indexes/status")
+def index_status():
+    return _index_status_payload()
+
+
+@app.get("/indexes/full")
+def index_full():
+    try:
+        return _load_full_index()
+    except FileNotFoundError:
+        return JSONResponse(status_code=404, content={"error": "index_full.json not found"})
+
+
+@app.get("/indexes/short")
+def index_short():
+    try:
+        return {"content": _load_short_index()}
+    except FileNotFoundError:
+        return JSONResponse(status_code=404, content={"error": "index_short.md not found"})
+
+
+@app.get("/indexes/sequence")
+def index_sequence():
+    try:
+        return _load_sequence()
+    except FileNotFoundError:
+        return JSONResponse(status_code=404, content={"error": "sequence.json not found"})
 
 
 def main() -> None:
