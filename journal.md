@@ -10953,3 +10953,134 @@ git push -u origin feat/memory-bricks-v2-find-clean
 - Prochain GO annoncé: `GO_MEMORY_BRICKS_API_V2_INDEXES_01` (GET `/indexes`, puis `/indexes/short`, puis `/indexes/full` selon besoin).
 - (Hygiène) Fermer la PR doublon #36 (mentionnée comme doublon d’une PR clean précédente).
 - (Backlog gelé) Pistes “jpt automation / plugin navigateur / petite app” explicitement séparées d’un closeout Prompt Factory.
+
+## 2026-04-03 18:38 — note1050
+1) Objectifs:
+- Reprendre proprement le chantier LocalCMS sur Windows/PowerShell, sans rouvrir le refactoring LocalCMS M-1.x (clos).
+- Valider/compléter le consumer Memory Bricks côté LocalCMS (read-only) et combler le gap de couverture tests.
+- Synchroniser les changements sur GitHub et remettre le working tree au propre (stashes).
+- Fermer Shared Explorer V1 via un vrai browser smoke Windows/Chrome, corriger un bug bloquant trouvé au smoke, publier et nettoyer.
+- Valider en live CMS Installer V1 (scan/inspect/precheck/install/finalize) et publier le closeout.
+- Ajouter une règle workflow “3Q + niveau d’écriture” (Feynman + rôles) dans le repo.
+
+2) Actions:
+- Consolidation LocalCMS M-1.2→M-1.6 (GROUP B extrait, USE_IFACE extrait, CFG_FILES extrait avec copy-pattern) : suite montée jusqu’à 631/631 PASS puis arrêt recommandé (Horizon cadré “STOP HERE” pour refactor).
+- Consumer Memory Bricks :
+  - Constat que MOD_MEMORY_VIEW existe déjà (consumer V1), gap = absence de tests.
+  - GO_MEMORY_VIEW_ADOPT_TESTS_01 exécuté : ajout `__test_helpers` (incluant rebuildFilters/findPathMatch/_state) + création `tests/memory-view-adopt.test.js` (34 tests) + closeout.
+  - Suite annoncée 711/711 PASS ; publication GitHub initialement bloquée (sandbox/proxy), puis push Windows réussi vers `feature/localcms-shared-explorer-cms-installer-v1` jusqu’au commit `443ee71`.
+- Gestion Git locale :
+  - `git status` montrait un gros “bazar” local ; utilisation de `stash`, résolution de `.git/index.lock`, pop partiel, puis nettoyage (`reset --hard`, `clean -fd`), isolement des gros stashes via branche de review puis suppression de la branche, retour branche canonique propre.
+  - Stashes conservés (au moins: `localcms-post-memory-view-sync`, `pre-memory-view localcms state`).
+- Sélection mission LocalCMS :
+  - Cadrage `GO_LOCALCMS_NEXT_MISSION_SELECTION_03` : recommandation fermer Shared Explorer V1 avant CMS Installer.
+- Shared Explorer V1 browser smoke (Windows strict) :
+  - Préflight/log, création `smoke_shared`, backend `smoke_backend.py` sur 8000, serveur/proxy same-origin sur 3001.
+  - Bug UI trouvé (clic impossible) : `Unexpected end of input` dû à quoting `onclick` dans `modules/shared-explorer.js`.
+  - Patch minimal (2 occurrences) : passer `onclick="..."` → `onclick='...'` via script Python.
+  - Re-smoke : navigation/preview/téléchargement OK ; C1 gros fichier OK ; C4 read-only OK ; E1 OK (bruit non bloquant).
+  - Commit + push du fix + docs smoke : `d91d8c5` publié sur la branche canonique.
+  - Artefacts smoke stashés : `localcms-post-shared-explorer-smoke-artifacts`.
+- Workflow :
+  - Création et push de `docs/Questions_prompt.md` (barrière 3Q + niveau d’écriture, rôles avant démarrage, Feynman) : commit `b137665`.
+- CMS Installer V1 live validation :
+  - Préflight OK (branche propre, fichiers présents).
+  - Création bundle minimal : premier bundle rejeté (id avec “-”, group non autorisé), correction bundle (`hello_mod`, group `tools`).
+  - Backend FastAPI lancé sur 8011 avec `LOCALCMS_SHARED_ROOT`.
+  - Scan/inspect OK.
+  - Precheck/install initialement bloqués par mauvais JSON (curl PowerShell) → bascule `Invoke-RestMethod`.
+  - Install OK mais écrit d’abord dans cible par défaut (`C:\app\localcms\modules`) faute de `LOCALCMS_MODULES_DIR`; puis relance/alignement et install OK dans `C:\Users\ghost\localcms\modules\hello_mod.js`.
+  - Closeout créé et push : commit `6467f77`.
+
+3) Décisions:
+- Refactoring LocalCMS post M-1.x : STOP HERE (pas d’Horizon-2/3/4 à ouvrir sans décision explicite).
+- Consumer Memory Bricks : ne pas “reconstruire” le consumer ; couvrir MOD_MEMORY_VIEW par tests adopt.
+- GitHub sync : publication à faire depuis Windows en cas de blocage sandbox (proxy).
+- Shared Explorer : prioriser la fermeture (browser smoke réel) avant d’ouvrir CMS Installer; accepter un micro-fix minimal découvert au smoke.
+- CMS Installer : validation live requiert alignement explicite de la cible via `LOCALCMS_MODULES_DIR`.
+- Méthode workflow à adopter : barrière “3Q + niveau d’écriture” + exigence “proposer les rôles avant de démarrer” + clarification via Feynman.
+- Point de reprise validé : `GO_CMS_INSTALLER_V1_NEXT_SCOPE_SELECTION_01`, et option cohérente “cadrer la suite consumer KIL/Memory Bricks” (formulation corrigée: évolution d’un consumer déjà existant).
+
+4) Commandes / Code:
+```powershell
+# Push publication Memory View adopt tests
+git push origin feature/localcms-shared-explorer-cms-installer-v1
+
+# Résolution lock + stash
+del .git\index.lock
+git stash push -u -m "localcms-post-memory-view-sync"
+
+# Nettoyage working tree après pop partiel
+git reset --hard HEAD
+git clean -fd
+
+# Suppression artefact "git" non suivi
+del git
+
+# Smoke Shared Explorer (serveur + proxy)
+python smoke_backend.py               # 127.0.0.1:8000
+python smoke_proxy.py                 # 127.0.0.1:3001, proxy /api/shared/* -> :8000
+
+# Diagnostic protections backend (PowerShell)
+curl.exe -i "http://127.0.0.1:8000/api/shared/download?path=.env"
+curl.exe -i "http://127.0.0.1:8000/api/shared/list?path=.."
+
+# Fix quoting onclick (2 occurrences) dans modules/shared-explorer.js
+# (restauration depuis .bak puis patch Python UTF-8)
+python - <<'PY'
+from pathlib import Path
+p = Path(r"C:\Users\ghost\localcms\modules\shared-explorer.js")
+s = p.read_text(encoding="utf-8")
+old = 'onclick="MOD_SHARED_EXPLORER.selectEntry(${JSON.stringify(JSON.stringify(e))})"'
+new = "onclick='MOD_SHARED_EXPLORER.selectEntry(${JSON.stringify(JSON.stringify(e))})'"
+before = s.count(old)
+if before != 2: raise SystemExit(f"ERREUR: before={before} (attendu: 2)")
+s = s.replace(old, new)
+p.write_text(s, encoding="utf-8", newline="\n")
+print("before=", before)
+print("after_new=", s.count(new))
+PY
+
+# Commit/push fix Shared Explorer + docs smoke
+git add modules/shared-explorer.js docs/go/GUIDE_BROWSER_SMOKE_05B.txt `
+  docs/go/CLOSEOUT_SHARED_EXPLORER_V1_TEMPLATE.txt `
+  docs/go/CLOSEOUT_SHARED_EXPLORER_V1_BROWSER_SMOKE_05B.txt
+git commit -m "localcms: fix Shared Explorer click handlers after browser smoke"
+git push origin feature/localcms-shared-explorer-cms-installer-v1
+
+# Stash artefacts smoke
+git stash push -u -m "localcms-post-shared-explorer-smoke-artifacts"
+
+# Ajout doc workflow
+git add docs/Questions_prompt.md
+git commit -m "docs: add workflow questions prompt"
+git push origin feature/localcms-shared-explorer-cms-installer-v1
+
+# CMS Installer backend (FastAPI/uvicorn) via script temporaire + env
+$env:LOCALCMS_SHARED_ROOT="C:\Users\ghost\localcms\cms_installer_live_shared"
+$env:LOCALCMS_MODULES_DIR="C:\Users\ghost\localcms\modules"
+python .\tmp_cms_installer_backend.py
+
+# CMS Installer scan/inspect
+curl.exe "http://127.0.0.1:8011/api/installer/scan"
+curl.exe "http://127.0.0.1:8011/api/installer/inspect?bundle=hello_mod-v1.0.0.zip"
+
+# CMS Installer install (PowerShell)
+$bodyJson = @{ bundle = "hello_mod-v1.0.0.zip" } | ConvertTo-Json -Compress
+Invoke-RestMethod -Method POST -Uri "http://127.0.0.1:8011/api/installer/install" `
+  -ContentType "application/json" -Body $bodyJson | ConvertTo-Json -Depth 10
+
+# Closeout CMS Installer et push
+git add docs/go/CLOSEOUT_CMS_INSTALLER_V1_LIVE_VALIDATION_01.txt
+git commit -m "localcms: close out CMS Installer V1 live validation"
+git push origin feature/localcms-shared-explorer-cms-installer-v1
+```
+
+5) Points ouverts (next):
+- Ouvrir `GO_CMS_INSTALLER_V1_NEXT_SCOPE_SELECTION_01` (sélection PM/architecte de suite post validation).
+- Confirmer la suite “GO_KIL_MEMORY_BRICKS_LOCALCMS_CONSUMER_CADRAGE_01” comme cadrage d’évolution du consumer déjà existant (MOD_MEMORY_VIEW), pas un consumer from scratch.
+- Stashes à conserver/archiver (ne pas pop sur la branche canonique) :
+  - `stash@{0} localcms-post-shared-explorer-smoke-artifacts`
+  - `stash@{1} localcms-post-memory-view-sync`
+  - `stash@{2} pre-memory-view localcms state`
+- Vérifier si la doc closeout Shared Explorer publiée reflète bien le smoke Windows final (il a été noté qu’une version “sandbox + limites” existait avant le smoke strict).
