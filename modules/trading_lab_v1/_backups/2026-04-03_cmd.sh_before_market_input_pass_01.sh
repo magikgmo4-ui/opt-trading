@@ -17,9 +17,6 @@ case "${1:-help}" in
   show-schemas)
     python3 "$APP" show-schemas
     ;;
-  show-market-source)
-    python3 "$APP" show-market-source
-    ;;
   show-sessions)
     python3 "$APP" show-sessions
     ;;
@@ -38,11 +35,8 @@ case "${1:-help}" in
   run-once)
     python3 "$APP" run-once "${2:-}"
     ;;
-  analyze-market-input)
-    python3 "$APP" analyze-market-input "${2:-}" "${3:-}" "${4:-}"
-    ;;
   *)
-    echo "Usage: cmd.sh sanity|status|show-profile|show-schemas|show-market-source|show-sessions|sample-event|sample-trade|materialize-samples|journal-status|run-once [session_id]|analyze-market-input [csv_path] [session_id] [local_date]"
+    echo "Usage: cmd.sh sanity|status|show-profile|show-schemas|show-sessions|sample-event|sample-trade|materialize-samples|journal-status|run-once [session_id]"
     exit 1
     ;;
 esac
