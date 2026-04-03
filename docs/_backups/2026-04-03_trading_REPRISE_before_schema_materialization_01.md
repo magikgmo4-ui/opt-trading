@@ -20,11 +20,6 @@ Index local :
 Spec V1 du noyau commun :
 - `docs/ot/trading/02_TRADING_DUAL_STACK_CORE_SPEC_V1.md`
 
-Schémas machine-lisibles :
-- `docs/ot/trading/schemas/xauusd_dual_stack_v1.profile.yaml`
-- `docs/ot/trading/schemas/trading_event_v1.schema.json`
-- `docs/ot/trading/schemas/trading_trade_v1.schema.json`
-
 ## 3. ÉTABLI
 
 - architecture cible retenue : **Lab + Real-Time** ;
@@ -33,31 +28,41 @@ Schémas machine-lisibles :
 - progression retenue : **Observation → Validation → Autonomie ciblée** ;
 - cadre V1 initial : **XAUUSD / Gold**, timezone `America/Montreal`, fenêtres `18:00` et `00:00` ;
 - le système doit produire un **journal d’événements** avant un journal de trades ;
-- la **core spec V1** du noyau commun est matérialisée ;
-- les **schémas machine-lisibles V1** sont matérialisés.
+- la **core spec V1** du noyau commun est matérialisée.
 
 ## 4. CE QUI EST MAINTENANT COUVERT
 
 ### Bloc 1 — schéma commun
-Couvert dans `02_TRADING_DUAL_STACK_CORE_SPEC_V1.md`.
+Couvert dans `02_TRADING_DUAL_STACK_CORE_SPEC_V1.md` :
+- `frame`
+- `strategy`
+- `execution`
+- `analytics`
 
 ### Bloc 2 — config V1
-Couvert dans `02_TRADING_DUAL_STACK_CORE_SPEC_V1.md` et matérialisé dans `schemas/xauusd_dual_stack_v1.profile.yaml`.
+Couvert dans `02_TRADING_DUAL_STACK_CORE_SPEC_V1.md` :
+- sessions
+- discipline
+- risk
+- constraints
+- variantes
+- execution policies
+- analytics minimum
 
 ### Bloc 3 — schéma d’événements V1
-Couvert dans `02_TRADING_DUAL_STACK_CORE_SPEC_V1.md` et matérialisé dans `schemas/trading_event_v1.schema.json`.
+Couvert dans `02_TRADING_DUAL_STACK_CORE_SPEC_V1.md`.
 
 ### Bloc 4 — schéma trade/log V1
-Couvert dans `02_TRADING_DUAL_STACK_CORE_SPEC_V1.md` et matérialisé dans `schemas/trading_trade_v1.schema.json`.
+Couvert dans `02_TRADING_DUAL_STACK_CORE_SPEC_V1.md`.
 
 ## 5. À OUVRIR ENSUITE
 
 ### Suite recommandée immédiate
-Ouvrir le **squelette LAB V1** qui consomme le profil YAML et les schémas JSON.
+Matérialiser les schémas machine-lisibles et/ou le squelette LAB V1.
 
 ### Ordre recommandé
-1. squelette LAB V1
-2. validation structurelle des journaux
+1. schémas machine-lisibles V1
+2. squelette LAB V1
 3. seulement ensuite runner REAL-TIME observation
 
 ## 6. RÈGLES DE TRAVAIL
@@ -68,14 +73,14 @@ Ouvrir le **squelette LAB V1** qui consomme le profil YAML et les schémas JSON.
 - ne pas produire une implémentation qui contourne la spec ;
 - ne pas sortir du focus V1 Gold/session sans décision explicite.
 
-## 7. TRIGGER SOURCE
+## 7. TRIGGER
 
 `GO_OT_TRADING_DUAL_STACK_V1_01`
 
 ## 8. TRIGGER NATUREL SUIVANT
 
-`GO_OT_TRADING_LAB_V1_SKELETON_01`
+`GO_OT_TRADING_LAB_V1_SCHEMA_MATERIALIZATION_01`
 
 ## 9. FORMULE DE REPRISE COURTE
 
-Reprendre depuis `docs/ot/trading/00_TRADING_DUAL_STACK_LAB_REALTIME_V1.md`, `docs/ot/trading/02_TRADING_DUAL_STACK_CORE_SPEC_V1.md` et les fichiers `schemas/`, puis ouvrir le squelette LAB V1 avant toute implémentation REAL-TIME.
+Reprendre depuis `docs/ot/trading/00_TRADING_DUAL_STACK_LAB_REALTIME_V1.md`, `docs/ot/trading/01_GO_OT_TRADING_DUAL_STACK_V1_01_REPRISE.md` et `docs/ot/trading/02_TRADING_DUAL_STACK_CORE_SPEC_V1.md`, puis matérialiser les schémas machine-lisibles V1 avant d’ouvrir le squelette LAB.

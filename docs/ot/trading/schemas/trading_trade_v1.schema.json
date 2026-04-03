@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "docs/ot/trading/schemas/trading_trade_v1.schema.json",
+  "title": "Trading Trade V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "trade_id",
+    "event_id_origin",
+    "profile_id",
+    "mode",
+    "symbol",
+    "strategy_id",
+    "variant_id",
+    "setup_instance_id",
+    "session_name",
+    "local_date",
+    "timezone",
+    "direction",
+    "entry_ts",
+    "entry",
+    "sl",
+    "risk_pct",
+    "rr_planned",
+    "execution_state"
+  ],
+  "properties": {
+    "trade_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "event_id_origin": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mode": {
+      "type": "string",
+      "enum": ["observation", "validation", "autonomous_candidate"]
+    },
+    "symbol": {
+      "type": "string",
+      "minLength": 1
+    },
+    "strategy_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "variant_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "setup_instance_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "session_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "local_date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "timezone": {
+      "type": "string",
+      "minLength": 1
+    },
+    "direction": {
+      "type": "string",
+      "enum": ["bullish", "bearish", "neutral"]
+    },
+    "entry_ts": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "exit_ts": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "entry": {
+      "type": "number"
+    },
+    "sl": {
+      "type": "number"
+    },
+    "tp_plan": {
+      "type": ["object", "null"],
+      "additionalProperties": true
+    },
+    "risk_pct": {
+      "type": "number",
+      "minimum": 0
+    },
+    "rr_planned": {
+      "type": "number"
+    },
+    "result": {
+      "type": ["string", "null"],
+      "enum": ["win", "loss", "scratch", "open", "cancelled", null]
+    },
+    "r_realized": {
+      "type": ["number", "null"]
+    },
+    "mfe": {
+      "type": ["number", "null"]
+    },
+    "mae": {
+      "type": ["number", "null"]
+    },
+    "time_in_trade_seconds": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "execution_state": {
+      "type": "string",
+      "enum": [
+        "virtual_open",
+        "virtual_closed",
+        "pending_validation",
+        "rejected_manual",
+        "candidate_only"
+      ]
+    },
+    "exit_reason": {
+      "type": ["string", "null"]
+    },
+    "slippage_points": {
+      "type": ["number", "null"]
+    }
+  }
+}

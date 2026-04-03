@@ -1,0 +1,144 @@
+version: "v1"
+profile_id: "xauusd_dual_stack_v1"
+
+frame:
+  timezone: "America/Montreal"
+  symbol: "XAUUSD"
+
+  sessions:
+    - session_id: "gold_open_18h"
+      enabled: true
+      start_local: "18:00"
+      end_local: "18:30"
+      signal_window_start: "18:00"
+      signal_window_end: "18:10"
+      max_trades_per_session: 1
+
+    - session_id: "midnight_00h"
+      enabled: true
+      start_local: "00:00"
+      end_local: "00:30"
+      signal_window_start: "00:00"
+      signal_window_end: "00:10"
+      max_trades_per_session: 1
+
+  discipline:
+    max_trades_per_day: 2
+    stop_day_after_losses: 2
+    cooldown_after_trade_minutes: 15
+    allow_reentry_same_setup: false
+    allow_outside_sessions: false
+    allow_overlapping_positions: false
+
+  risk:
+    risk_per_trade_pct: 1.0
+    rr_min: 2.0
+    move_be_at_r: 1.0
+    partial_tp_plan:
+      enabled: false
+    max_stop_distance_points: null
+    min_valid_stop_distance_points: null
+
+  constraints:
+    max_spread_points: null
+    news_lock_enabled: false
+    htf_filter_required: false
+    deny_if_data_incomplete: true
+
+strategy:
+  strategy_id: "xau_session_open_v1"
+  family: "session_open"
+  model: "mechanical"
+
+  variants:
+    - variant_id: "xau_open_sweep_fvg"
+      enabled: true
+      require_sweep: true
+      require_fvg: true
+      require_reclaim: false
+      direction_mode: "contextual"
+
+    - variant_id: "xau_open_no_sweep_fvg"
+      enabled: true
+      require_sweep: false
+      require_fvg: true
+      require_reclaim: false
+      direction_mode: "contextual"
+
+    - variant_id: "xau_open_sweep_no_fvg"
+      enabled: true
+      require_sweep: true
+      require_fvg: false
+      require_reclaim: false
+      direction_mode: "contextual"
+
+    - variant_id: "xau_open_no_sweep_no_fvg"
+      enabled: true
+      require_sweep: false
+      require_fvg: false
+      require_reclaim: false
+      direction_mode: "contextual"
+
+  filters:
+    require_session_window: true
+    require_complete_open_sequence: true
+    htf_bias_enabled: false
+    spread_filter_enabled: false
+    news_filter_enabled: false
+
+execution:
+  mode: "observation"
+
+  entry_policy:
+    order_type: "virtual"
+    require_manual_validation: false
+    min_rr_required: true
+    deny_if_frame_blocked: true
+
+  sizing_policy:
+    sizing_mode: "risk_percent"
+    source_risk_pct: "frame.risk.risk_per_trade_pct"
+    quantity_rounding_rule: "instrument_specific"
+
+  management_policy:
+    move_be_enabled: true
+    move_be_at_r: 1.0
+    partial_tp_enabled: false
+    trailing_enabled: false
+
+  exit_policy:
+    hard_stop_required: true
+    hard_tp_required: false
+    session_forced_exit_enabled: false
+    record_mfe_mae: true
+
+analytics:
+  event_journal:
+    enabled: true
+    format: "jsonl"
+    path: "state/trading/events_v1.jsonl"
+
+  trade_journal:
+    enabled: true
+    format: "jsonl"
+    path: "state/trading/trades_v1.jsonl"
+
+  reporting:
+    by_variant: true
+    by_session: true
+    by_day: true
+
+  comparison:
+    lab_vs_live_enabled: true
+    metrics:
+      - "signal_count_delta"
+      - "execution_rate_delta"
+      - "winrate_delta"
+      - "expectancy_delta"
+      - "slippage_delta"
+
+  lab_realism:
+    spread_points_simulated: null
+    slippage_points_simulated: null
+    entry_delay_seconds_simulated: null
+    missed_trade_flag: null
