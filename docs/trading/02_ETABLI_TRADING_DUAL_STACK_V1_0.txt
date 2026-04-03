@@ -1,0 +1,72 @@
+02_ETABLI_TRADING_DUAL_STACK_V1_0
+
+STATUS
+ETABLI
+
+DATE
+2026-04-03
+
+OBJET
+Architecture canonique duale pour systèmes de trading disciplinés.
+
+CE QUI EST ETABLI
+1. Le système cible est structuré en deux niveaux:
+   - LAB
+   - REALTIME
+
+2. Le LAB et le REALTIME partagent un noyau commun:
+   - Trader Frame
+   - Strategy
+   - Logs compatibles
+
+3. Le cadre trader humain est conservé comme objet canonique:
+   - sessions
+   - kill zones
+   - boring trader
+   - limites de trades
+   - risk management
+   - stop après pertes
+   - interdictions disciplinaires
+
+4. La V1.0 impose des contrats minimums:
+   - Market Data Contract
+   - Trader Frame Contract
+   - Strategy Contract
+   - Execution Mode Contract
+   - Logging/Event Contract
+   - Promotion/Qualification Contract
+
+5. La V1.0 impose un réalisme minimal du LAB:
+   - spread
+   - slippage minimal
+   - replay policy explicite
+
+6. La V1.0 impose des guards live minimums:
+   - max_daily_loss
+   - max_consecutive_losses
+   - spread_guard
+   - data_gap_guard
+   - kill_switch
+   - fallback_mode
+
+7. Les modes REALTIME retenus sont:
+   - observe
+   - confirm
+   - auto
+
+8. La promotion du LAB vers le REALTIME est gouvernée par des gates explicites:
+   - research
+   - shadow_observe
+   - confirm_ready
+   - auto_limited
+   - auto_approved
+
+9. Les sujets suivants sortent de V1.0 et restent pour V1.1:
+   - setup quality score
+   - explainability enrichie
+   - realism tiers multiples
+   - ranking avancé
+   - contexte marché enrichi
+
+RESULTAT
+La V1.0 est considérée assez claire pour être canonisée en documentation sans rouvrir le débat de fond.
