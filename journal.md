@@ -10883,3 +10883,73 @@ MEMORY_BRICKS_STATE_ROOT=/tmp/memory_bricks_state_...
 5) Points ouverts (next):
 - Ouvrir le cadrage du consumer LocalCMS read-only (proposé): `GO_KIL_MEMORY_BRICKS_LOCALCMS_CONSUMER_CADRAGE_01`.
 - Alternative si rester hors UI: cadrer une surface query plus riche côté Memory Bricks (list/show/find) et/ou wrappers système Memory Bricks (non fait).
+
+## 2026-04-03 16:16 — note1021
+1) Objectifs:
+- Clarifier l’impact des postures “Tu agis en tant que …” et en faire une règle de workflow.
+- Intégrer cette règle dans `modules/validated_prompt_factory` (opt-trading).
+- Closeout propre après merge (PR, sync Windows, branches).
+- Enchaîner sur la mise en place progressive de `memory_bricks` API V2 read-only (health/status, bricks, brick detail, find) avec branches “clean” si divergence.
+
+2) Actions:
+- Définition de ~12–16 rôles/postures, regroupés par niveau d’impact, avec exemples concrets et recommandation d’usage.
+- Règle de workflow actée: avant tout chantier/session structurée, proposer rôles pertinents + exemples de sorties + posture recommandée, puis exécuter.
+- Patch préparé pour `validated_prompt_factory` (ajout `ROLE_PREFACE` + injection dans 4 templates + doc README). Le connecteur GitHub a bloqué `create_commit`.
+- Application du patch en local Windows, création branche et push sur une nouvelle branche (`prompt-factory-role-preface-windows`) suite à conflit de branche distante.
+- PR #31 ouverte (draft) puis mergée “par inadvertance”; décision: conserver le merge, pas de revert. Sync Windows sur `sot/mainline` + suppression branche locale.
+- Démarrage `memory_bricks` API V2 read-only:
+  - `/health` + `/status` implémentés, puis publication sur branche “clean” (`feat/memory-bricks-v2-health-status-clean`) et merge (PR #37 mentionnée).
+  - `/bricks` implémenté, commit `44eb72e`, PR #40 ouverte (puis mentionnée comme mergée).
+  - `/bricks/{id}` implémenté + fix payload 404 conforme spec (deux commits rejoués sur branche clean), PR #42 ouverte.
+  - `/find` commité puis branche diverge; cherry-pick sur branche clean `feat/memory-bricks-v2-find-clean`, PR #43 ouverte.
+
+3) Décisions:
+- Nouvelle règle canonique: ajouter un préambule obligatoire “rôles pertinents + exemples + posture recommandée” dans le workflow et dans les prompts générés par Prompt Factory.
+- PR #31: merge conservé, aucun revert.
+- Pour `memory_bricks` API V2: progression par tranches minimales; si divergence, reconstruire une branche “-clean” depuis `sot/mainline` et cherry-pick des commits utiles.
+
+4) Commandes / Code:
+```bash
+# Patch Prompt Factory (Windows) — application et commit
+git checkout -b prompt-factory-role-preface
+git apply validated_prompt_factory_role_preface.patch
+git add modules/validated_prompt_factory/README.md modules/validated_prompt_factory/app/validated_prompt_factory.py
+git commit -m "validated_prompt_factory: add mandatory role-preface to prompts"
+
+# Push rejeté (branche distante existante) -> push via nouveau nom de branche
+git branch -m prompt-factory-role-preface-windows
+git push -u origin prompt-factory-role-preface-windows
+
+# Sync Windows après merge conservé
+git checkout sot/mainline
+git pull --rebase origin sot/mainline
+git branch -d prompt-factory-role-preface-windows
+
+# Memory bricks: /bricks (branche dédiée)
+git fetch origin
+git checkout -b feat/memory-bricks-v2-bricks-list --track origin/feat/memory-bricks-v2-bricks-list
+python3 -m py_compile modules/memory_bricks/app/api_v2_server.py
+git add modules/memory_bricks/app/api_v2_server.py
+git commit -m "memory_bricks: add V2 read-only /bricks endpoint"
+git push -u origin feat/memory-bricks-v2-bricks-list
+
+# Memory bricks: /bricks/{id} + fix 404 — rescue clean via cherry-pick
+git cherry-pick 0177768 7d300ba
+# (résultat clean publié: dde696a + ef2a984 sur feat/memory-bricks-v2-brick-detail-clean)
+
+# Memory bricks: /find — divergence -> clean branch
+git checkout sot/mainline
+git pull --rebase origin sot/mainline
+git checkout -b feat/memory-bricks-v2-find-clean
+git cherry-pick 006bd9e
+git push -u origin feat/memory-bricks-v2-find-clean
+```
+
+5) Points ouverts (next):
+- Vérifier/assurer le statut final des PR `memory_bricks` mentionnées:
+  - PR #40 (/bricks) indiquée comme mergée.
+  - PR #42 (/bricks/{id}) ouverte (à merger).
+  - PR #43 (/find) ouverte (à merger).
+- Prochain GO annoncé: `GO_MEMORY_BRICKS_API_V2_INDEXES_01` (GET `/indexes`, puis `/indexes/short`, puis `/indexes/full` selon besoin).
+- (Hygiène) Fermer la PR doublon #36 (mentionnée comme doublon d’une PR clean précédente).
+- (Backlog gelé) Pistes “jpt automation / plugin navigateur / petite app” explicitement séparées d’un closeout Prompt Factory.
