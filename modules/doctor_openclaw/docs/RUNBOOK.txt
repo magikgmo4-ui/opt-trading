@@ -1,0 +1,4 @@
+DOCTOR_OPENCLAW - RUNBOOK
+
+sudo -iu openclaw
+menu-doctor_openclaw

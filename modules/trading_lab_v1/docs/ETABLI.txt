@@ -1,0 +1,22 @@
+TRADING_LAB_V1 — ETABLI
+
+1. Le module suit le standard minimal :
+   - docs
+   - scripts
+   - app
+   - install_shortcuts
+
+2. Le module pointe vers :
+   - le profil YAML V1
+   - le schéma JSON event V1
+   - le schéma JSON trade V1
+
+3. Le module sait :
+   - afficher son état
+   - afficher les chemins de référence
+   - produire un exemple event
+   - produire un exemple trade
+   - matérialiser des exemples dans un dossier d’état
+
+4. Le module n’ouvre pas encore de backtest réel.
+   Il sert de squelette opératoire de départ pour le LAB.

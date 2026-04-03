@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "docs/ot/trading/schemas/trading_event_v1.schema.json",
+  "title": "Trading Event V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "event_ts",
+    "profile_id",
+    "mode",
+    "symbol",
+    "timeframe_context",
+    "session_name",
+    "local_date",
+    "timezone",
+    "strategy_id",
+    "event_type",
+    "decision_state",
+    "filters_state",
+    "frame_state",
+    "raw_features"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "event_ts": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "profile_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mode": {
+      "type": "string",
+      "enum": ["observation", "validation", "autonomous_candidate"]
+    },
+    "symbol": {
+      "type": "string",
+      "minLength": 1
+    },
+    "timeframe_context": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "session_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "local_date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "timezone": {
+      "type": "string",
+      "minLength": 1
+    },
+    "strategy_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "variant_id": {
+      "type": ["string", "null"]
+    },
+    "setup_instance_id": {
+      "type": ["string", "null"]
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "session_opened",
+        "setup_detected",
+        "setup_classified",
+        "setup_blocked",
+        "trade_candidate_created",
+        "trade_opened",
+        "trade_closed"
+      ]
+    },
+    "decision_state": {
+      "type": "string",
+      "enum": [
+        "observed",
+        "accepted",
+        "blocked_by_frame",
+        "blocked_by_filters",
+        "blocked_by_risk",
+        "awaiting_validation",
+        "rejected_manual",
+        "closed"
+      ]
+    },
+    "direction": {
+      "type": ["string", "null"],
+      "enum": ["bullish", "bearish", "neutral", null]
+    },
+    "signal_ts": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "filters_state": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "frame_state": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "raw_features": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "notes": {
+      "type": ["string", "null"]
+    }
+  }
+}

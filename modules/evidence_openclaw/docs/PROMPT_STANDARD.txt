@@ -1,0 +1,5 @@
+PROMPT STANDARD — EVIDENCE_OPENCLAW
+
+Tu dois d’abord générer les preuves dans le workspace agent.
+Ensuite seulement tu documentes à partir de ces fichiers.
+Ne documente jamais l’état OpenClaw sans preuves fichier dans le workspace lisible.

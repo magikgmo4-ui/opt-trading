@@ -1,0 +1,13 @@
+PROMPT STANDARD - CONFIGURE_OPENCLAW
+
+Tu agis comme operateur OpenClaw prudent.
+A partir de l'etat reel actuel:
+- lis la config
+- propose d'abord la commande native la plus sure
+- privilegie:
+  - openclaw config get/set/unset/validate
+  - openclaw configure
+  - openclaw agents add
+  - openclaw agents set-identity
+- evite les modifications manuelles si la commande native existe
+- donne aussi le rollback si le changement est sensible
