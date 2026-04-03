@@ -17,7 +17,6 @@ EVENTS_JSONL = STATE_DIR / "events_v1.jsonl"
 TRADES_JSONL = STATE_DIR / "trades_v1.jsonl"
 MARKET_RUNS_JSONL = STATE_DIR / "market_runs_v1.jsonl"
 FEATURES_JSONL = STATE_DIR / "features_v1.jsonl"
-BATCH_RUNS_JSONL = STATE_DIR / "batch_runs_v1.jsonl"
 SAMPLE_MARKET_CSV = BASE / "data" / "sample_xauusd_m1.csv"
 
 
@@ -139,6 +138,10 @@ def load_profile() -> dict:
     return data
 
 
+def iso_now_local(tz_name: str) -> str:
+    return datetime.now(ZoneInfo(tz_name)).isoformat(timespec="seconds")
+
+
 def local_now(tz_name: str) -> datetime:
     return datetime.now(ZoneInfo(tz_name))
 
@@ -167,6 +170,15 @@ def choose_session(profile: dict, requested: str | None) -> dict:
         if session.get("session_id") == requested:
             return session
     raise SystemExit(f"Unknown session_id: {requested}")
+
+
+def choose_variant(profile: dict) -> str | None:
+    for variant in profile["strategy"]["variants"]:
+        if variant.get("enabled", False):
+            return variant.get("variant_id")
+    if profile["strategy"]["variants"]:
+        return profile["strategy"]["variants"][0].get("variant_id")
+    return None
 
 
 def append_jsonl(path: Path, payload: dict) -> None:
@@ -213,11 +225,6 @@ def in_signal_window(session: dict, dt: datetime) -> bool:
     start = to_minutes(session.get("signal_window_start", session.get("start_local", "00:00")))
     end = to_minutes(session.get("signal_window_end", session.get("end_local", "23:59")))
     return start <= current <= end
-
-
-def available_dates_for_session(rows: list[dict], session: dict) -> list[str]:
-    dates = sorted({row["ts"].date().isoformat() for row in rows if in_signal_window(session, row["ts"])})
-    return dates
 
 
 def select_session_rows(rows: list[dict], session: dict, target_date: str | None) -> tuple[list[dict], str | None]:
@@ -479,43 +486,6 @@ def build_market_trade(event: dict, features: dict) -> dict:
     return trade
 
 
-def process_market_run(profile: dict, session: dict, csv_path: Path, analysis_date: str | None) -> dict:
-    tz_name = profile["frame"].get("timezone") or "America/Montreal"
-    rows = load_market_csv(csv_path, tz_name)
-    selected_rows, chosen_date = select_session_rows(rows, session, analysis_date)
-    effective_date = chosen_date or analysis_date or local_now(tz_name).date().isoformat()
-    features = build_feature_payload(profile, session, selected_rows, effective_date, csv_path)
-    append_jsonl(FEATURES_JSONL, features)
-    event = build_market_event(profile, session, features)
-    append_jsonl(EVENTS_JSONL, event)
-    trade_written = None
-    trade = None
-    if features["sequence_complete"]:
-        trade = build_market_trade(event, features)
-        append_jsonl(TRADES_JSONL, trade)
-        trade_written = str(TRADES_JSONL)
-    run_payload = {
-        "run_ts": local_now(tz_name).isoformat(timespec="seconds"),
-        "source_csv": str(csv_path),
-        "session_id": session.get("session_id"),
-        "analysis_date": effective_date,
-        "selected_rows": len(selected_rows),
-        "sequence_complete": features["sequence_complete"],
-        "variant_id": features["variant_id"],
-        "direction": features["first5_direction"],
-        "feature_id": features["feature_id"],
-        "event_id": event["event_id"],
-        "trade_written": trade_written,
-    }
-    append_jsonl(MARKET_RUNS_JSONL, run_payload)
-    return {
-        "features": features,
-        "event": event,
-        "trade": trade,
-        "run_payload": run_payload,
-    }
-
-
 def status(_: list[str]) -> int:
     payload = {
         "module": "trading_lab_v1",
@@ -530,7 +500,6 @@ def status(_: list[str]) -> int:
         "trades_jsonl": str(TRADES_JSONL),
         "market_runs_jsonl": str(MARKET_RUNS_JSONL),
         "features_jsonl": str(FEATURES_JSONL),
-        "batch_runs_jsonl": str(BATCH_RUNS_JSONL),
     }
     print(json.dumps(payload, indent=2, ensure_ascii=False))
     return 0
@@ -571,25 +540,10 @@ def show_sessions(_: list[str]) -> int:
     return 0
 
 
-def show_batch_dates(args: list[str]) -> int:
-    csv_path = Path(args[0]).expanduser() if len(args) >= 1 and args[0] else SAMPLE_MARKET_CSV
-    requested_session = args[1] if len(args) >= 2 and args[1] else None
-    profile = load_profile()
-    session = choose_session(profile, requested_session)
-    rows = load_market_csv(csv_path, profile["frame"].get("timezone") or "America/Montreal")
-    payload = {
-        "source_csv": str(csv_path),
-        "session_id": session.get("session_id"),
-        "dates": available_dates_for_session(rows, session),
-    }
-    print(json.dumps(payload, indent=2, ensure_ascii=False))
-    return 0
-
-
 def emit_sample_event(_: list[str]) -> int:
     print(json.dumps({
         "sample": "event",
-        "feature_engine": "use extract-features / analyze-market-input / batch-run for market-based output"
+        "feature_engine": "use extract-features / analyze-market-input for market-based output"
     }, indent=2, ensure_ascii=False))
     return 0
 
@@ -597,7 +551,7 @@ def emit_sample_event(_: list[str]) -> int:
 def emit_sample_trade(_: list[str]) -> int:
     print(json.dumps({
         "sample": "trade",
-        "feature_engine": "use analyze-market-input / batch-run for market-based output"
+        "feature_engine": "use analyze-market-input for market-based output"
     }, indent=2, ensure_ascii=False))
     return 0
 
@@ -608,10 +562,14 @@ def materialize_samples(_: list[str]) -> int:
     trade_path = STATE_DIR / "sample_trade_v1.json"
     profile = load_profile()
     session = choose_session(profile, None)
-    result = process_market_run(profile, session, SAMPLE_MARKET_CSV, None)
-    feature_path.write_text(json.dumps(result["features"], indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    if result["trade"] is not None:
-        trade_path.write_text(json.dumps(result["trade"], indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    rows = load_market_csv(SAMPLE_MARKET_CSV, profile["frame"].get("timezone") or "America/Montreal")
+    selected_rows, chosen_date = select_session_rows(rows, session, None)
+    features = build_feature_payload(profile, session, selected_rows, chosen_date or local_now(profile["frame"].get("timezone") or "America/Montreal").date().isoformat(), SAMPLE_MARKET_CSV)
+    feature_path.write_text(json.dumps(features, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    if features["sequence_complete"]:
+        event = build_market_event(profile, session, features)
+        trade = build_market_trade(event, features)
+        trade_path.write_text(json.dumps(trade, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({
         "feature_sample": str(feature_path),
         "trade_sample": str(trade_path)
@@ -629,8 +587,6 @@ def journal_status(_: list[str]) -> int:
         "market_runs_count": count_jsonl(MARKET_RUNS_JSONL),
         "features_jsonl": str(FEATURES_JSONL),
         "features_count": count_jsonl(FEATURES_JSONL),
-        "batch_runs_jsonl": str(BATCH_RUNS_JSONL),
-        "batch_runs_count": count_jsonl(BATCH_RUNS_JSONL),
     }
     print(json.dumps(payload, indent=2, ensure_ascii=False))
     return 0
@@ -639,16 +595,34 @@ def journal_status(_: list[str]) -> int:
 def run_once(args: list[str]) -> int:
     requested_session = args[0] if args else None
     profile = load_profile()
+    tz_name = profile["frame"].get("timezone") or "America/Montreal"
+    now_dt = local_now(tz_name)
     session = choose_session(profile, requested_session)
-    result = process_market_run(profile, session, SAMPLE_MARKET_CSV, None)
+    is_active = active_now(session, now_dt)
+    selected_rows = []
+    analysis_date = now_dt.date().isoformat()
+    features = build_feature_payload(profile, session, selected_rows, analysis_date, SAMPLE_MARKET_CSV)
+    features["sequence_complete"] = is_active
+    features["feature_id"] = f"feat_{now_dt.strftime('%Y%m%d_%H%M%S')}_{session.get('session_id')}"
+    append_jsonl(FEATURES_JSONL, features)
+    event = build_market_event(profile, session, features)
+    event["decision_state"] = "observed" if is_active else "blocked_by_frame"
+    event["event_type"] = "setup_classified" if is_active else "setup_blocked"
+    append_jsonl(EVENTS_JSONL, event)
+    trade_path = None
+    if is_active:
+        trade = build_market_trade(event, features)
+        append_jsonl(TRADES_JSONL, trade)
+        trade_path = str(TRADES_JSONL)
     payload = {
-        "profile_id": result["features"]["profile_id"],
+        "profile_id": profile.get("profile_id"),
         "session_id": session.get("session_id"),
+        "active_now": is_active,
         "feature_written": str(FEATURES_JSONL),
         "event_written": str(EVENTS_JSONL),
-        "trade_written": str(TRADES_JSONL) if result["trade"] is not None else None,
-        "event_decision_state": result["event"]["decision_state"],
-        "event_type": result["event"]["event_type"],
+        "trade_written": trade_path,
+        "event_decision_state": event["decision_state"],
+        "event_type": event["event_type"]
     }
     print(json.dumps(payload, indent=2, ensure_ascii=False))
     return 0
@@ -659,10 +633,11 @@ def extract_features(args: list[str]) -> int:
     requested_session = args[1] if len(args) >= 2 and args[1] else None
     target_date = args[2] if len(args) >= 3 and args[2] else None
     profile = load_profile()
+    tz_name = profile["frame"].get("timezone") or "America/Montreal"
     session = choose_session(profile, requested_session)
-    rows = load_market_csv(csv_path, profile["frame"].get("timezone") or "America/Montreal")
+    rows = load_market_csv(csv_path, tz_name)
     selected_rows, chosen_date = select_session_rows(rows, session, target_date)
-    analysis_date = chosen_date or target_date or local_now(profile["frame"].get("timezone") or "America/Montreal").date().isoformat()
+    analysis_date = chosen_date or local_now(tz_name).date().isoformat()
     features = build_feature_payload(profile, session, selected_rows, analysis_date, csv_path)
     print(json.dumps(features, indent=2, ensure_ascii=False))
     return 0
@@ -672,55 +647,39 @@ def analyze_market_input(args: list[str]) -> int:
     csv_path = Path(args[0]).expanduser() if len(args) >= 1 and args[0] else SAMPLE_MARKET_CSV
     requested_session = args[1] if len(args) >= 2 and args[1] else None
     target_date = args[2] if len(args) >= 3 and args[2] else None
-    profile = load_profile()
-    session = choose_session(profile, requested_session)
-    result = process_market_run(profile, session, csv_path, target_date)
-    print(json.dumps(result["run_payload"], indent=2, ensure_ascii=False))
-    return 0
-
-
-def batch_run(args: list[str]) -> int:
-    csv_path = Path(args[0]).expanduser() if len(args) >= 1 and args[0] else SAMPLE_MARKET_CSV
-    requested_session = args[1] if len(args) >= 2 and args[1] else None
-    start_date = args[2] if len(args) >= 3 and args[2] else None
-    end_date = args[3] if len(args) >= 4 and args[3] else None
 
     profile = load_profile()
+    tz_name = profile["frame"].get("timezone") or "America/Montreal"
     session = choose_session(profile, requested_session)
-    rows = load_market_csv(csv_path, profile["frame"].get("timezone") or "America/Montreal")
-    all_dates = available_dates_for_session(rows, session)
-    dates = [d for d in all_dates if (start_date is None or d >= start_date) and (end_date is None or d <= end_date)]
+    rows = load_market_csv(csv_path, tz_name)
+    selected_rows, chosen_date = select_session_rows(rows, session, target_date)
+    analysis_date = chosen_date or local_now(tz_name).date().isoformat()
+    features = build_feature_payload(profile, session, selected_rows, analysis_date, csv_path)
 
-    runs = []
-    variants: dict[str, int] = {}
-    complete_count = 0
-    trade_count = 0
-    for day in dates:
-        result = process_market_run(profile, session, csv_path, day)
-        run_payload = result["run_payload"]
-        runs.append(run_payload)
-        if result["features"]["sequence_complete"]:
-            complete_count += 1
-        if result["trade"] is not None:
-            trade_count += 1
-        variant = result["features"]["variant_id"] or "none"
-        variants[variant] = variants.get(variant, 0) + 1
+    append_jsonl(FEATURES_JSONL, features)
+    event = build_market_event(profile, session, features)
+    append_jsonl(EVENTS_JSONL, event)
+    trade_written = None
+    if features["sequence_complete"]:
+        trade = build_market_trade(event, features)
+        append_jsonl(TRADES_JSONL, trade)
+        trade_written = str(TRADES_JSONL)
 
-    summary = {
-        "batch_ts": local_now(profile["frame"].get("timezone") or "America/Montreal").isoformat(timespec="seconds"),
-        "profile_id": profile.get("profile_id"),
+    run_payload = {
+        "run_ts": local_now(tz_name).isoformat(timespec="seconds"),
         "source_csv": str(csv_path),
         "session_id": session.get("session_id"),
-        "start_date": start_date,
-        "end_date": end_date,
-        "processed_dates": dates,
-        "run_count": len(runs),
-        "sequence_complete_count": complete_count,
-        "trade_count": trade_count,
-        "variants": variants,
+        "analysis_date": analysis_date,
+        "selected_rows": len(selected_rows),
+        "sequence_complete": features["sequence_complete"],
+        "variant_id": features["variant_id"],
+        "direction": features["first5_direction"],
+        "feature_id": features["feature_id"],
+        "event_id": event["event_id"],
+        "trade_written": trade_written,
     }
-    append_jsonl(BATCH_RUNS_JSONL, summary)
-    print(json.dumps(summary, indent=2, ensure_ascii=False))
+    append_jsonl(MARKET_RUNS_JSONL, run_payload)
+    print(json.dumps(run_payload, indent=2, ensure_ascii=False))
     return 0
 
 
@@ -730,7 +689,6 @@ COMMANDS = {
     "show-schemas": show_schemas,
     "show-market-source": show_market_source,
     "show-sessions": show_sessions,
-    "show-batch-dates": show_batch_dates,
     "sample-event": emit_sample_event,
     "sample-trade": emit_sample_trade,
     "materialize-samples": materialize_samples,
@@ -738,7 +696,6 @@ COMMANDS = {
     "run-once": run_once,
     "extract-features": extract_features,
     "analyze-market-input": analyze_market_input,
-    "batch-run": batch_run,
 }
 
 
@@ -747,7 +704,7 @@ def main(argv: list[str]) -> int:
     fn = COMMANDS.get(cmd)
     if fn is None:
         print(
-            "Usage: trading_lab_v1.py status|show-profile|show-schemas|show-market-source|show-sessions|show-batch-dates [csv_path] [session_id]|sample-event|sample-trade|materialize-samples|journal-status|run-once [session_id]|extract-features [csv_path] [session_id] [local_date]|analyze-market-input [csv_path] [session_id] [local_date]|batch-run [csv_path] [session_id] [start_date] [end_date]",
+            "Usage: trading_lab_v1.py status|show-profile|show-schemas|show-market-source|show-sessions|sample-event|sample-trade|materialize-samples|journal-status|run-once [session_id]|extract-features [csv_path] [session_id] [local_date]|analyze-market-input [csv_path] [session_id] [local_date]",
             file=sys.stderr,
         )
         return 1
