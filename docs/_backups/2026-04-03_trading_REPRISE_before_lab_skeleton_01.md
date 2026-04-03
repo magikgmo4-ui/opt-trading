@@ -25,9 +25,6 @@ Schémas machine-lisibles :
 - `docs/ot/trading/schemas/trading_event_v1.schema.json`
 - `docs/ot/trading/schemas/trading_trade_v1.schema.json`
 
-Module squelette LAB :
-- `modules/trading_lab_v1/`
-
 ## 3. ÉTABLI
 
 - architecture cible retenue : **Lab + Real-Time** ;
@@ -37,8 +34,7 @@ Module squelette LAB :
 - cadre V1 initial : **XAUUSD / Gold**, timezone `America/Montreal`, fenêtres `18:00` et `00:00` ;
 - le système doit produire un **journal d’événements** avant un journal de trades ;
 - la **core spec V1** du noyau commun est matérialisée ;
-- les **schémas machine-lisibles V1** sont matérialisés ;
-- le **squelette LAB V1** est posé.
+- les **schémas machine-lisibles V1** sont matérialisés.
 
 ## 4. CE QUI EST MAINTENANT COUVERT
 
@@ -54,16 +50,13 @@ Couvert dans `02_TRADING_DUAL_STACK_CORE_SPEC_V1.md` et matérialisé dans `sche
 ### Bloc 4 — schéma trade/log V1
 Couvert dans `02_TRADING_DUAL_STACK_CORE_SPEC_V1.md` et matérialisé dans `schemas/trading_trade_v1.schema.json`.
 
-### Bloc 5 — squelette LAB V1
-Couvert dans `modules/trading_lab_v1/` et `04_TRADING_LAB_V1_SKELETON_01.md`.
-
 ## 5. À OUVRIR ENSUITE
 
 ### Suite recommandée immédiate
-Ouvrir une **première passe du runner LAB** qui consomme réellement le profil YAML et produit des journaux `event` / `trade` sur un flux cadré.
+Ouvrir le **squelette LAB V1** qui consomme le profil YAML et les schémas JSON.
 
 ### Ordre recommandé
-1. premier runner LAB métier
+1. squelette LAB V1
 2. validation structurelle des journaux
 3. seulement ensuite runner REAL-TIME observation
 
@@ -81,8 +74,8 @@ Ouvrir une **première passe du runner LAB** qui consomme réellement le profil 
 
 ## 8. TRIGGER NATUREL SUIVANT
 
-`GO_OT_TRADING_LAB_V1_FIRST_RUNNER_PASS_01`
+`GO_OT_TRADING_LAB_V1_SKELETON_01`
 
 ## 9. FORMULE DE REPRISE COURTE
 
-Reprendre depuis `docs/ot/trading/00_TRADING_DUAL_STACK_LAB_REALTIME_V1.md`, `docs/ot/trading/02_TRADING_DUAL_STACK_CORE_SPEC_V1.md`, les fichiers `schemas/`, et `modules/trading_lab_v1/`, puis ouvrir la première passe du runner LAB avant toute implémentation REAL-TIME.
+Reprendre depuis `docs/ot/trading/00_TRADING_DUAL_STACK_LAB_REALTIME_V1.md`, `docs/ot/trading/02_TRADING_DUAL_STACK_CORE_SPEC_V1.md` et les fichiers `schemas/`, puis ouvrir le squelette LAB V1 avant toute implémentation REAL-TIME.
