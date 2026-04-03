@@ -1,0 +1,9 @@
+[Unit]
+Description=MiMo Open Observer gate replay (non-live)
+
+[Service]
+Type=oneshot
+User=ghost
+Group=ghost
+WorkingDirectory=/opt/trading
+ExecStart=/opt/trading/modules/mimo_open_observer/scripts/mimo_open_observer_gate_replay.sh

@@ -10819,3 +10819,67 @@ gh pr create --base sot/mainline --head feat/mimo-open-observer-doc-pack-v0-clea
 - Définir/valider concrètement l’intégration avec la structure de docs déjà établie dans le repo (standards de documentation non récupérés automatiquement via GitHub dans la session).
 - Choisir le périmètre exact du premier “topic/campaign” pilote + critères de clôture + mode d’exécution (LAB vs STANDARD vs STRICT).
 - Mettre en place le corpus de référence de non-régression et décider de la politique de rétention/archivage (volumétrie).
+
+## 2026-04-03 13:28 — note1015
+1) Objectifs:
+- Repartir d’un état canonique unique (LocalCMS + KIL/Memory Bricks) sans mélanger d’anciens fils.
+- Clôturer proprement la chaîne de refactor LocalCMS (M-1.x) et décider s’il faut arrêter.
+- Sur `student`, implémenter un noyau KIL V1 minimal, puis intégrer réellement la promotion vers Memory Bricks (source de vérité).
+- Ajouter un provider réel (Ollama) puis des wrappers système KIL.
+- À la fin, choisir le rôle et le prochain axe produit.
+
+2) Actions:
+- LocalCMS:
+  - Cadrage M-1.2 GROUP B (SYS/NET/BACKEND) puis extraction séquentielle effectuée + tests; fermeture M-1.2.
+  - M-1.4 DEV_IFACE closeout validé (externalisation FILE_TYPES/FILE_MENUS/DEMO_TREE; DEFAULT_MACHINES conservé inline car muté).
+  - M-1.5 USE_IFACE extrait puis closeout; CAT A déclarée épuisée.
+  - M-1.6 cadré (seul candidat MOD_CFG_FILES, copy-pattern requis), extrait + closeout; CAT B épuisée; M-1.x déclaré structurellement clos.
+  - Closeout final chaîne M-1.x produit; cadrage “Horizon” produit recommandant STOP HERE pour le refactor LocalCMS.
+- KIL / Memory Bricks (sur `student`):
+  - Implémentation du module `modules/kil_v1/` (JSONL + SQLite + exports TXT/MD), gates 0→4, statuts, tests + sanity; registries MAJ.
+  - Closeout KIL V1 minimal (PASS avec limites: wrappers non installés, pas de provider réel, intégration MB seulement compatible).
+  - Cadrage intégration réelle KIL↔Memory Bricks (stratégie retenue: mutation via CLI V1 MB; API V2 read-only hors-scope).
+  - Implémentation pont KIL→CLI MB (pas de pseudo-brick local, mapping et `memory_sync_status`), closeout (PASS avec limites: CLI réel absent).
+  - Validation terrain initiale échoue (CLI MB réel indisponible) → décision: matérialiser une surface CLI MB minimale.
+  - Matérialisation CLI Memory Bricks V1 minimale dans `modules/memory_bricks/` (cmd.sh + sanity + cli.py + tests + README, état `_state/memory_bricks`, commandes new/link/index rebuild/query status).
+  - Validation terrain KIL→MB relancée et PASS (compatibilité prouvée de bout en bout; MB-* créé; index rebuild; mapping persisté; pas de mémoire parallèle KIL).
+  - Closeout final chaîne KIL→Memory Bricks minimal (CLOSE/PASS).
+  - Cadrage puis implémentation provider réel: Ollama local (`deepseek-r1:1.5b`), deux modes (fixture + provider), blocage avant évaluation si réponse inutilisable, métadonnées provider persistées; tests + exécution réelle; closeout provider (CLOSE/PASS).
+  - Cadrage puis implémentation wrappers système KIL: symlinks `/usr/local/bin/{cmd,menu,sanity}-kil_v1` + helper `modules/kil_v1/install_shortcuts.sh`; validations; closeout wrappers (CLOSE/PASS).
+  - Closeout final de chaîne KIL V1 (noyau + MB + provider + wrappers) (CLOSE/PASS), avec STOP HERE par défaut.
+- Discussion finale: après clôture chaîne KIL V1, clarification “quel rôle et quel axe” → recommandation: rôle “Architecte de suite/PM produit” + axe “LocalCMS consumer read-only”.
+
+3) Décisions:
+- LocalCMS:
+  - Ne pas rouvrir M-1.1; pas de merge vers `main` dans les phases M-1.x.
+  - M-1.x (CAT A puis CAT B) considéré épuisé; copy-pattern canonique borné à `cfg-files`.
+  - GO_LOCALCMS_HORIZON_CADRAGE conclut: arrêt du refactor LocalCMS (“STOP HERE”).
+- KIL/Memory Bricks:
+  - Séparer décision de promotion (KIL) vs sync technique (MB); ne pas rétrograder `promotion_status` si sync échoue (utiliser `memory_sync_status=SYNC_FAILED` + erreur).
+  - Ne pas utiliser l’API V2 read-only pour muter; mutation via CLI Memory Bricks V1.
+  - Ordre retenu après chaîne KIL↔MB: provider réel d’abord, wrappers système ensuite.
+  - Après clôture chaîne KIL V1: pas de nouveau chantier par défaut; pour la suite, recommander un axe explicite.
+- Suite recommandée:
+  - Rôle recommandé: Architecte de suite / PM produit (avec Gardien canonique en garde-fou).
+  - Axe recommandé: consumer LocalCMS read-only pour KIL + Memory Bricks (proposition de trigger: `GO_KIL_MEMORY_BRICKS_LOCALCMS_CONSUMER_CADRAGE_01`).
+
+4) Commandes / Code:
+```bash
+# KIL V1
+python3 -m unittest modules.kil_v1.tests.test_kil_v1
+bash modules/kil_v1/sanity.sh
+
+# Memory Bricks CLI (preuve terrain mentionnée)
+MEMORY_BRICKS_STATE_ROOT="$STATE_ROOT" bash modules/memory_bricks/cmd.sh new --payload-file "$PAYLOAD"
+MEMORY_BRICKS_STATE_ROOT="$STATE_ROOT" bash modules/memory_bricks/cmd.sh link --id MB-00001 --target KIL-TERRAIN
+MEMORY_BRICKS_STATE_ROOT="$STATE_ROOT" bash modules/memory_bricks/cmd.sh index rebuild
+MEMORY_BRICKS_STATE_ROOT="$STATE_ROOT" bash modules/memory_bricks/cmd.sh query status
+
+# Validation terrain KIL -> MB (via variables d'env, mentionné)
+KIL_V1_MEMORY_BRICKS_CMD="bash /opt/trading/modules/memory_bricks/cmd.sh"
+MEMORY_BRICKS_STATE_ROOT=/tmp/memory_bricks_state_...
+```
+
+5) Points ouverts (next):
+- Ouvrir le cadrage du consumer LocalCMS read-only (proposé): `GO_KIL_MEMORY_BRICKS_LOCALCMS_CONSUMER_CADRAGE_01`.
+- Alternative si rester hors UI: cadrer une surface query plus riche côté Memory Bricks (list/show/find) et/ou wrappers système Memory Bricks (non fait).

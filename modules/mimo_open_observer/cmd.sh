@@ -20,6 +20,7 @@ Commands:
   detect_once       Detect FVG on one fixture (--fixture NAME)
   detect_range      Detect FVG on all fixtures
   replay --csv FILE Replay full pipeline from CSV (detect + sample + stats)
+  gate_replay       Run replay only when window is open
   check_window      Check current market window status + next window
   sample_pending    Enrich pending raw events with outcomes
   build_stats       Build stats from enriched events
@@ -62,6 +63,26 @@ EOF
       exit 1
     fi
     python3 -m modules.mimo_open_observer.app.runner_detect replay --csv "$csv_file"
+    ;;
+  gate_replay)
+    csv_file=""
+    at_value=""
+    while [[ $# -gt 0 ]]; do
+      case "$1" in
+        --csv) csv_file="$2"; shift 2 ;;
+        --at) at_value="$2"; shift 2 ;;
+        *) shift ;;
+      esac
+    done
+    if [[ -z "$csv_file" ]]; then
+      echo "Usage: $0 gate_replay --csv <file> [--at ISO_TS]" >&2
+      exit 1
+    fi
+    if [[ -n "$at_value" ]]; then
+      python3 -m modules.mimo_open_observer.app.runner_detect gate_replay --csv "$csv_file" --at "$at_value"
+    else
+      python3 -m modules.mimo_open_observer.app.runner_detect gate_replay --csv "$csv_file"
+    fi
     ;;
   check_window)
     python3 -m modules.mimo_open_observer.app.runner_detect check_window

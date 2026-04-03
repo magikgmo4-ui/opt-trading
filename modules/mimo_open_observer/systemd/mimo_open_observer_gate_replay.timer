@@ -1,0 +1,10 @@
+[Unit]
+Description=Run MiMo gate replay at the configured open window
+
+[Timer]
+OnCalendar=Sun,Mon,Tue,Wed,Thu *-*-* 18:00:00
+AccuracySec=1s
+Unit=mimo_open_observer_gate_replay.service
+
+[Install]
+WantedBy=timers.target

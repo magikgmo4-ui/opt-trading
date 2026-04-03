@@ -143,6 +143,37 @@ def run_replay_csv(csv_path: str) -> int:
     return 0
 
 
+def _parse_local_ts(raw_value: str, tz_name: str) -> datetime:
+    ts = datetime.fromisoformat(raw_value)
+    tz = ZoneInfo(tz_name)
+    if ts.tzinfo is None:
+        return ts.replace(tzinfo=tz)
+    return ts.astimezone(tz)
+
+
+def run_gate_replay(csv_path: str, at: str | None = None) -> int:
+    config = load_config()
+    tz_name = config.get("timezone", "America/Montreal")
+    tz = ZoneInfo(tz_name)
+    now = _parse_local_ts(at, tz_name) if at else datetime.now(tz)
+
+    is_window = is_market_window(now, config)
+    print(f"  now:         {now.isoformat()}")
+    print(f"  is_window:   {is_window}")
+
+    if not is_window:
+        nxt = next_market_window(now, config)
+        print("  action:      skip")
+        if nxt:
+            print(f"  next_window: {nxt.isoformat()}")
+        else:
+            print("  next_window: none found")
+        return 0
+
+    print("  action:      replay")
+    return run_replay_csv(csv_path)
+
+
 def run_check_window() -> int:
     config = load_config()
     tz_name = config.get("timezone", "America/Montreal")
@@ -177,6 +208,7 @@ def main(argv: list[str] | None = None) -> int:
         print("  detect_once [--fixture NAME]")
         print("  detect_range [--fixtures all]")
         print("  replay --csv <file>")
+        print("  gate_replay --csv <file> [--at ISO_TS]")
         print("  check_window")
         return 0
     if argv[0] == "detect_once":
@@ -195,6 +227,22 @@ def main(argv: list[str] | None = None) -> int:
                 return run_replay_csv(argv[idx + 1])
         print("usage: replay --csv <file>", file=sys.stderr)
         return 1
+    if argv[0] == "gate_replay":
+        if "--csv" not in argv:
+            print("usage: gate_replay --csv <file> [--at ISO_TS]", file=sys.stderr)
+            return 1
+        csv_idx = argv.index("--csv")
+        if csv_idx + 1 >= len(argv):
+            print("usage: gate_replay --csv <file> [--at ISO_TS]", file=sys.stderr)
+            return 1
+        at = None
+        if "--at" in argv:
+            at_idx = argv.index("--at")
+            if at_idx + 1 >= len(argv):
+                print("usage: gate_replay --csv <file> [--at ISO_TS]", file=sys.stderr)
+                return 1
+            at = argv[at_idx + 1]
+        return run_gate_replay(argv[csv_idx + 1], at)
     if argv[0] == "check_window":
         return run_check_window()
     print(f"unknown subcommand: {argv[0]}", file=sys.stderr)
