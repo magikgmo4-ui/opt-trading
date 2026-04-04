@@ -53,5 +53,7 @@ test -f "$TMP_REPORTS/latest.json"
 test -f "$TMP_REPORTS/latest.md"
 "$CMD" report --reports-dir "$TMP_REPORTS" --format json >/dev/null
 "$CMD" report --reports-dir "$TMP_REPORTS" --format md >/dev/null
+"$CMD" remediate --reports-dir "$TMP_REPORTS" --format md >/dev/null
+"$CMD" remediate --reports-dir "$TMP_REPORTS" --format json >/dev/null
 
 echo "PASS: git_fleet_guard sanity OK"

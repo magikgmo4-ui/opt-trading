@@ -1,4 +1,4 @@
-# git_fleet_guard — runbook V1
+# git_fleet_guard — runbook V1 / V1.1
 
 ## But
 Auditer l'état Git du parc avant toute remédiation.
@@ -34,5 +34,27 @@ cmd-git_fleet_guard report --format md
 - pas de stash automatique
 - pas de push automatique
 
-## Suite logique
-Traiter ensuite une V1.1 de remédiation guidée seulement après validation du module V1.
+## Remediation guidee V1.1
+```bash
+cmd-git_fleet_guard remediate
+```
+
+## Remediation guidee ciblee
+```bash
+cmd-git_fleet_guard remediate --machine admin-trading
+```
+
+## Interdits V1.1
+- pas de reset automatique
+- pas de rebase automatique
+- pas de stash automatique
+- pas de push automatique
+- pas de pull automatique
+- pas de checkout automatique
+
+## Sortie attendue V1.1
+- diagnostic court
+- niveau de risque
+- commandes recommandees
+- avertissements
+- resultat attendu si l'operateur execute la remediaton
