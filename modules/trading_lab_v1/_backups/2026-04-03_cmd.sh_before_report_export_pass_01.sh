@@ -3,7 +3,6 @@ set -euo pipefail
 
 BASE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 APP="$BASE/app/trading_lab_v1.py"
-EXPORT_APP="$BASE/app/report_export_v1.py"
 CMD="${1:-help}"
 ARG2="${2:-}"
 ARG3="${3:-}"
@@ -28,9 +27,6 @@ case "$CMD" in
   batch-run) python3 "$APP" batch-run "$ARG2" "$ARG3" "$ARG4" "$ARG5" ;;
   batch-report) python3 "$APP" batch-report "$ARG2" "$ARG3" "$ARG4" ;;
   show-last-batch-report) python3 "$APP" show-last-batch-report ;;
-  export-last-batch-report) python3 "$EXPORT_APP" export-last ;;
-  export-batch-report) python3 "$EXPORT_APP" export-new "$ARG2" "$ARG3" "$ARG4" ;;
-  export-status) python3 "$EXPORT_APP" status ;;
   *)
     echo "Usage: cmd.sh <command>"
     exit 1

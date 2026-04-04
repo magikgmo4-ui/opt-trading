@@ -23,8 +23,7 @@ Point de reprise opératoire court pour la suite du chantier trading dual stack.
 - première passe input marché LAB posée ;
 - première passe feature engine LAB posée ;
 - première passe batch LAB posée ;
-- première passe batch reporting LAB posée ;
-- première passe report export LAB posée.
+- première passe batch reporting LAB posée.
 
 ## COUVERT
 - schéma commun ;
@@ -36,14 +35,13 @@ Point de reprise opératoire court pour la suite du chantier trading dual stack.
 - input marché LAB ;
 - feature engine LAB et `features_v1.jsonl` ;
 - batch LAB et `batch_runs_v1.jsonl` ;
-- batch reporting LAB et `batch_reports_v1.jsonl` ;
-- report export LAB en `.json` et `.md` dans `state/trading_lab_v1/exports/`.
+- batch reporting LAB et `batch_reports_v1.jsonl`.
 
 ## SUITE
-Suite recommandée immédiate : ouvrir une passe **comparateur lab/live** ou une passe d’export enrichi si le besoin porte d’abord sur la livraison de synthèses.
+Suite recommandée immédiate : ouvrir une passe **report export** pour produire un rendu ou un export plus lisible à partir des rapports batch.
 
 ## TRIGGER NATUREL SUIVANT
-`GO_OT_TRADING_LAB_V1_COMPARATOR_PASS_01`
+`GO_OT_TRADING_LAB_V1_REPORT_EXPORT_PASS_01`
 
 ## FORMULE COURTE
-Reprendre depuis les docs `docs/ot/trading/`, les fichiers `schemas/`, puis `modules/trading_lab_v1/`, et ouvrir la passe comparator LAB/live avant toute implémentation REAL-TIME plus poussée.
+Reprendre depuis les docs `docs/ot/trading/`, les fichiers `schemas/`, puis `modules/trading_lab_v1/`, et ouvrir la passe report export LAB avant toute implémentation REAL-TIME.
