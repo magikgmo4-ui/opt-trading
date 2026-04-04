@@ -20,7 +20,6 @@ Il sert à :
 - **docs/ot/trading/06_TRADING_LAB_V1_MARKET_INPUT_PASS_01.md** : clôture documentaire de la première passe input marché LAB et définition du trigger naturel suivant.
 - **docs/ot/trading/07_TRADING_LAB_V1_FEATURE_ENGINE_PASS_01.md** : clôture documentaire de la première passe feature engine LAB et définition du trigger naturel suivant.
 - **docs/ot/trading/08_TRADING_LAB_V1_BATCH_PASS_01.md** : clôture documentaire de la première passe batch LAB et définition du trigger naturel suivant.
-- **docs/ot/trading/09_TRADING_LAB_V1_BATCH_REPORTING_PASS_01.md** : clôture documentaire de la première passe batch reporting LAB et définition du trigger naturel suivant.
 
 ## SCHÉMAS MACHINE-LISIBLES
 
@@ -30,7 +29,7 @@ Il sert à :
 
 ## MODULES LIÉS
 
-- **modules/trading_lab_v1/** : squelette standard minimal du LAB V1, avec docs, scripts, runner Python, entrée marché CSV, feature engine initial, batch pass initial, et batch reporting initial.
+- **modules/trading_lab_v1/** : squelette standard minimal du LAB V1, avec docs, scripts, runner Python, entrée marché CSV, feature engine initial et batch pass initial.
 
 ## ÉTAT ACTUEL DE LA ZONE
 
@@ -44,11 +43,10 @@ Il sert à :
 - une **première passe du runner LAB** est posée ;
 - une **première passe input marché LAB** est posée ;
 - une **première passe feature engine LAB** est posée ;
-- une **première passe batch LAB** est posée ;
-- une **première passe batch reporting LAB** est posée.
+- une **première passe batch LAB** est posée.
 
 ### Non encore matérialisé ici
-- export/reporting enrichi ;
+- reporting/statistiques batch avancés ;
 - comparateur lab/live exécuté ;
 - runner REAL-TIME.
 
@@ -63,11 +61,10 @@ Il sert à :
 7. lire `06_TRADING_LAB_V1_MARKET_INPUT_PASS_01.md`
 8. lire `07_TRADING_LAB_V1_FEATURE_ENGINE_PASS_01.md`
 9. lire `08_TRADING_LAB_V1_BATCH_PASS_01.md`
-10. lire `09_TRADING_LAB_V1_BATCH_REPORTING_PASS_01.md`
-11. seulement ensuite ouvrir l’implémentation suivante
+10. seulement ensuite ouvrir l’implémentation suivante
 
 ## POINT DE REPRISE COURT
 
-Trigger courant clos au niveau batch reporting : `GO_OT_TRADING_LAB_V1_BATCH_REPORTING_PASS_01`
+Trigger courant clos au niveau batch : `GO_OT_TRADING_LAB_V1_BATCH_PASS_01`
 
-Trigger naturel suivant : `GO_OT_TRADING_LAB_V1_REPORT_EXPORT_PASS_01`
+Trigger naturel suivant : `GO_OT_TRADING_LAB_V1_BATCH_REPORTING_PASS_01`

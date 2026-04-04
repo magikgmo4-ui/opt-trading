@@ -5,7 +5,6 @@ import re
 import sys
 from datetime import datetime
 from pathlib import Path
-from statistics import mean
 from zoneinfo import ZoneInfo
 
 BASE = Path(__file__).resolve().parents[1]
@@ -19,7 +18,6 @@ TRADES_JSONL = STATE_DIR / "trades_v1.jsonl"
 MARKET_RUNS_JSONL = STATE_DIR / "market_runs_v1.jsonl"
 FEATURES_JSONL = STATE_DIR / "features_v1.jsonl"
 BATCH_RUNS_JSONL = STATE_DIR / "batch_runs_v1.jsonl"
-BATCH_REPORTS_JSONL = STATE_DIR / "batch_reports_v1.jsonl"
 SAMPLE_MARKET_CSV = BASE / "data" / "sample_xauusd_m1.csv"
 
 
@@ -177,20 +175,11 @@ def append_jsonl(path: Path, payload: dict) -> None:
         fh.write(json.dumps(payload, ensure_ascii=False) + "\n")
 
 
-def load_jsonl(path: Path) -> list[dict]:
-    if not path.exists():
-        return []
-    items = []
-    with path.open("r", encoding="utf-8") as fh:
-        for line in fh:
-            line = line.strip()
-            if line:
-                items.append(json.loads(line))
-    return items
-
-
 def count_jsonl(path: Path) -> int:
-    return len(load_jsonl(path))
+    if not path.exists():
+        return 0
+    with path.open("r", encoding="utf-8") as fh:
+        return sum(1 for _ in fh)
 
 
 def parse_csv_timestamp(raw: str, tz_name: str) -> datetime:
@@ -227,7 +216,8 @@ def in_signal_window(session: dict, dt: datetime) -> bool:
 
 
 def available_dates_for_session(rows: list[dict], session: dict) -> list[str]:
-    return sorted({row["ts"].date().isoformat() for row in rows if in_signal_window(session, row["ts"])})
+    dates = sorted({row["ts"].date().isoformat() for row in rows if in_signal_window(session, row["ts"])})
+    return dates
 
 
 def select_session_rows(rows: list[dict], session: dict, target_date: str | None) -> tuple[list[dict], str | None]:
@@ -244,17 +234,36 @@ def detect_fvg(first_five: list[dict]) -> dict:
         c1 = first_five[i]
         c3 = first_five[i + 2]
         if c3["low"] > c1["high"]:
-            return {"fvg_detected": True, "fvg_direction": "bullish", "fvg_gap_points": round(c3["low"] - c1["high"], 4), "fvg_window_index": i}
+            return {
+                "fvg_detected": True,
+                "fvg_direction": "bullish",
+                "fvg_gap_points": round(c3["low"] - c1["high"], 4),
+                "fvg_window_index": i,
+            }
         if c3["high"] < c1["low"]:
-            return {"fvg_detected": True, "fvg_direction": "bearish", "fvg_gap_points": round(c1["low"] - c3["high"], 4), "fvg_window_index": i}
-    return {"fvg_detected": False, "fvg_direction": None, "fvg_gap_points": 0.0, "fvg_window_index": None}
+            return {
+                "fvg_detected": True,
+                "fvg_direction": "bearish",
+                "fvg_gap_points": round(c1["low"] - c3["high"], 4),
+                "fvg_window_index": i,
+            }
+    return {
+        "fvg_detected": False,
+        "fvg_direction": None,
+        "fvg_gap_points": 0.0,
+        "fvg_window_index": None,
+    }
 
 
 def detect_sweep(first_five: list[dict]) -> dict:
     first = first_five[0]
     sweep_above = any(c["high"] > first["high"] for c in first_five[1:])
     sweep_below = any(c["low"] < first["low"] for c in first_five[1:])
-    return {"sweep_above": sweep_above, "sweep_below": sweep_below, "sweep_detected": sweep_above or sweep_below}
+    return {
+        "sweep_above": sweep_above,
+        "sweep_below": sweep_below,
+        "sweep_detected": sweep_above or sweep_below,
+    }
 
 
 def choose_variant_from_features(sweep_detected: bool, fvg_detected: bool) -> str:
@@ -299,22 +308,24 @@ def build_feature_payload(profile: dict, session: dict, rows: list[dict], analys
     }
 
     if not rows:
-        base_payload.update({
-            "open_candle": None,
-            "first5_range_points": None,
-            "first5_body_delta": None,
-            "first5_direction": "neutral",
-            "sweep_detected": False,
-            "sweep_above": False,
-            "sweep_below": False,
-            "fvg_detected": False,
-            "fvg_direction": None,
-            "fvg_gap_points": 0.0,
-            "variant_id": None,
-            "entry": None,
-            "sl": None,
-            "rr_planned": 2.0,
-        })
+        base_payload.update(
+            {
+                "open_candle": None,
+                "first5_range_points": None,
+                "first5_body_delta": None,
+                "first5_direction": "neutral",
+                "sweep_detected": False,
+                "sweep_above": False,
+                "sweep_below": False,
+                "fvg_detected": False,
+                "fvg_direction": None,
+                "fvg_gap_points": 0.0,
+                "variant_id": None,
+                "entry": None,
+                "sl": None,
+                "rr_planned": 2.0,
+            }
+        )
         return base_payload
 
     first = first_five[0] if first_five else rows[0]
@@ -330,22 +341,24 @@ def build_feature_payload(profile: dict, session: dict, rows: list[dict], analys
     }
 
     if not sequence_complete:
-        base_payload.update({
-            "open_candle": open_candle,
-            "first5_range_points": None,
-            "first5_body_delta": None,
-            "first5_direction": "neutral",
-            "sweep_detected": False,
-            "sweep_above": False,
-            "sweep_below": False,
-            "fvg_detected": False,
-            "fvg_direction": None,
-            "fvg_gap_points": 0.0,
-            "variant_id": None,
-            "entry": None,
-            "sl": None,
-            "rr_planned": 2.0,
-        })
+        base_payload.update(
+            {
+                "open_candle": open_candle,
+                "first5_range_points": None,
+                "first5_body_delta": None,
+                "first5_direction": "neutral",
+                "sweep_detected": False,
+                "sweep_above": False,
+                "sweep_below": False,
+                "fvg_detected": False,
+                "fvg_direction": None,
+                "fvg_gap_points": 0.0,
+                "variant_id": None,
+                "entry": None,
+                "sl": None,
+                "rr_planned": 2.0,
+            }
+        )
         return base_payload
 
     sweep = detect_sweep(first_five)
@@ -361,18 +374,20 @@ def build_feature_payload(profile: dict, session: dict, rows: list[dict], analys
     entry = round(first_five[-1]["close"], 4)
     sl = round(first5_low if direction != "bearish" else first5_high, 4)
 
-    base_payload.update({
-        "open_candle": open_candle,
-        "first5_range_points": first5_range_points,
-        "first5_body_delta": first5_body_delta,
-        "first5_direction": direction,
-        **sweep,
-        **fvg,
-        "variant_id": variant_id,
-        "entry": entry,
-        "sl": sl,
-        "rr_planned": 2.0,
-    })
+    base_payload.update(
+        {
+            "open_candle": open_candle,
+            "first5_range_points": first5_range_points,
+            "first5_body_delta": first5_body_delta,
+            "first5_direction": direction,
+            **sweep,
+            **fvg,
+            "variant_id": variant_id,
+            "entry": entry,
+            "sl": sl,
+            "rr_planned": 2.0,
+        }
+    )
     return base_payload
 
 
@@ -388,7 +403,7 @@ def build_market_event(profile: dict, session: dict, features: dict) -> dict:
             "trigger_tf": "M1",
             "context_tf": "M5",
             "runner": "trading_lab_v1",
-            "market_input_source": features["source_csv"],
+            "market_input_source": features["source_csv"]
         },
         "session_name": features["session_name"],
         "local_date": features["local_date"],
@@ -400,16 +415,19 @@ def build_market_event(profile: dict, session: dict, features: dict) -> dict:
         "decision_state": "observed" if observed else "blocked_by_filters",
         "direction": features["first5_direction"],
         "signal_ts": features["feature_ts"],
-        "filters_state": {"require_session_window": True, "require_complete_open_sequence": observed},
+        "filters_state": {
+            "require_session_window": True,
+            "require_complete_open_sequence": observed
+        },
         "frame_state": {
             "session_allowed": True,
             "max_trades_per_day_ok": True,
             "cooldown_ok": True,
             "session_window_start": session.get("signal_window_start"),
-            "session_window_end": session.get("signal_window_end"),
+            "session_window_end": session.get("signal_window_end")
         },
         "raw_features": features,
-        "notes": f"market_input:{Path(features['source_csv']).name}",
+        "notes": f"market_input:{Path(features['source_csv']).name}"
     }
 
 
@@ -432,7 +450,10 @@ def build_trade(event: dict) -> dict:
         "exit_ts": None,
         "entry": 3200.0,
         "sl": 3195.0,
-        "tp_plan": {"type": "rr_multiple", "rr_target": 2.0},
+        "tp_plan": {
+            "type": "rr_multiple",
+            "rr_target": 2.0
+        },
         "risk_pct": 1.0,
         "rr_planned": 2.0,
         "result": "open",
@@ -442,7 +463,7 @@ def build_trade(event: dict) -> dict:
         "time_in_trade_seconds": None,
         "execution_state": "virtual_open",
         "exit_reason": None,
-        "slippage_points": 0.0,
+        "slippage_points": 0.0
     }
 
 
@@ -451,7 +472,10 @@ def build_market_trade(event: dict, features: dict) -> dict:
     trade["entry"] = features["entry"]
     trade["sl"] = features["sl"]
     trade["rr_planned"] = features["rr_planned"]
-    trade["tp_plan"] = {"type": "rr_multiple", "rr_target": features["rr_planned"]}
+    trade["tp_plan"] = {
+        "type": "rr_multiple",
+        "rr_target": features["rr_planned"]
+    }
     return trade
 
 
@@ -484,81 +508,219 @@ def process_market_run(profile: dict, session: dict, csv_path: Path, analysis_da
         "trade_written": trade_written,
     }
     append_jsonl(MARKET_RUNS_JSONL, run_payload)
-    return {"features": features, "event": event, "trade": trade, "run_payload": run_payload}
-
-
-def filter_records(records: list[dict], session_id: str | None, start_date: str | None, end_date: str | None) -> list[dict]:
-    filtered = []
-    for rec in records:
-        rec_session = rec.get("session_name") or rec.get("session_id")
-        rec_date = rec.get("local_date") or rec.get("analysis_date")
-        if session_id and rec_session != session_id:
-            continue
-        if start_date and rec_date and rec_date < start_date:
-            continue
-        if end_date and rec_date and rec_date > end_date:
-            continue
-        filtered.append(rec)
-    return filtered
-
-
-def avg(values: list[float | int | None]):
-    nums = [float(v) for v in values if v is not None]
-    return round(mean(nums), 4) if nums else None
-
-
-def counts_by(records: list[dict], key: str) -> dict:
-    out: dict[str, int] = {}
-    for rec in records:
-        value = rec.get(key)
-        tag = str(value) if value is not None else "none"
-        out[tag] = out.get(tag, 0) + 1
-    return out
-
-
-def batch_report(args: list[str]) -> int:
-    session_id = args[0] if len(args) >= 1 and args[0] else None
-    start_date = args[1] if len(args) >= 2 and args[1] else None
-    end_date = args[2] if len(args) >= 3 and args[2] else None
-    tz_name = load_profile()["frame"].get("timezone") or "America/Montreal"
-
-    features = filter_records(load_jsonl(FEATURES_JSONL), session_id, start_date, end_date)
-    trades = filter_records(load_jsonl(TRADES_JSONL), session_id, start_date, end_date)
-    market_runs = filter_records(load_jsonl(MARKET_RUNS_JSONL), session_id, start_date, end_date)
-    batch_runs = filter_records(load_jsonl(BATCH_RUNS_JSONL), session_id, start_date, end_date)
-
-    report = {
-        "report_ts": local_now(tz_name).isoformat(timespec="seconds"),
-        "session_id": session_id,
-        "start_date": start_date,
-        "end_date": end_date,
-        "features_count": len(features),
-        "trades_count": len(trades),
-        "market_runs_count": len(market_runs),
-        "batch_runs_count": len(batch_runs),
-        "sequence_complete_count": sum(1 for f in features if f.get("sequence_complete")),
-        "dates": sorted({f.get("local_date") for f in features if f.get("local_date")}),
-        "variants": counts_by(features, "variant_id"),
-        "directions": counts_by(features, "first5_direction"),
-        "avg_open_range_points": avg([((f.get("open_candle") or {}).get("range_points")) for f in features]),
-        "avg_open_body_points": avg([((f.get("open_candle") or {}).get("body_points")) for f in features]),
-        "avg_first5_range_points": avg([f.get("first5_range_points") for f in features]),
-        "avg_first5_body_delta": avg([f.get("first5_body_delta") for f in features]),
-        "avg_fvg_gap_points": avg([f.get("fvg_gap_points") for f in features]),
-        "avg_rr_planned": avg([f.get("rr_planned") for f in features]),
-        "trade_results": counts_by(trades, "result"),
+    return {
+        "features": features,
+        "event": event,
+        "trade": trade,
+        "run_payload": run_payload,
     }
-    append_jsonl(BATCH_REPORTS_JSONL, report)
-    print(json.dumps(report, indent=2, ensure_ascii=False))
+
+
+def status(_: list[str]) -> int:
+    payload = {
+        "module": "trading_lab_v1",
+        "base": str(BASE),
+        "repo_root": str(REPO_ROOT),
+        "profile_exists": PROFILE_PATH.exists(),
+        "event_schema_exists": EVENT_SCHEMA_PATH.exists(),
+        "trade_schema_exists": TRADE_SCHEMA_PATH.exists(),
+        "sample_market_csv_exists": SAMPLE_MARKET_CSV.exists(),
+        "state_dir": str(STATE_DIR),
+        "events_jsonl": str(EVENTS_JSONL),
+        "trades_jsonl": str(TRADES_JSONL),
+        "market_runs_jsonl": str(MARKET_RUNS_JSONL),
+        "features_jsonl": str(FEATURES_JSONL),
+        "batch_runs_jsonl": str(BATCH_RUNS_JSONL),
+    }
+    print(json.dumps(payload, indent=2, ensure_ascii=False))
     return 0
 
 
-def show_last_batch_report(_: list[str]) -> int:
-    reports = load_jsonl(BATCH_REPORTS_JSONL)
-    if not reports:
-        print(json.dumps({"message": "no batch report yet"}, indent=2, ensure_ascii=False))
-        return 0
-    print(json.dumps(reports[-1], indent=2, ensure_ascii=False))
+def show_profile(_: list[str]) -> int:
+    print(str(PROFILE_PATH))
+    return 0
+
+
+def show_schemas(_: list[str]) -> int:
+    print(str(EVENT_SCHEMA_PATH))
+    print(str(TRADE_SCHEMA_PATH))
+    return 0
+
+
+def show_market_source(_: list[str]) -> int:
+    print(str(SAMPLE_MARKET_CSV))
+    return 0
+
+
+def show_sessions(_: list[str]) -> int:
+    profile = load_profile()
+    tz_name = profile["frame"].get("timezone") or "America/Montreal"
+    now_dt = local_now(tz_name)
+    payload = []
+    for session in profile["frame"]["sessions"]:
+        payload.append({
+            "session_id": session.get("session_id"),
+            "enabled": session.get("enabled", False),
+            "start_local": session.get("start_local"),
+            "end_local": session.get("end_local"),
+            "signal_window_start": session.get("signal_window_start"),
+            "signal_window_end": session.get("signal_window_end"),
+            "active_now": active_now(session, now_dt),
+        })
+    print(json.dumps(payload, indent=2, ensure_ascii=False))
+    return 0
+
+
+def show_batch_dates(args: list[str]) -> int:
+    csv_path = Path(args[0]).expanduser() if len(args) >= 1 and args[0] else SAMPLE_MARKET_CSV
+    requested_session = args[1] if len(args) >= 2 and args[1] else None
+    profile = load_profile()
+    session = choose_session(profile, requested_session)
+    rows = load_market_csv(csv_path, profile["frame"].get("timezone") or "America/Montreal")
+    payload = {
+        "source_csv": str(csv_path),
+        "session_id": session.get("session_id"),
+        "dates": available_dates_for_session(rows, session),
+    }
+    print(json.dumps(payload, indent=2, ensure_ascii=False))
+    return 0
+
+
+def emit_sample_event(_: list[str]) -> int:
+    print(json.dumps({
+        "sample": "event",
+        "feature_engine": "use extract-features / analyze-market-input / batch-run for market-based output"
+    }, indent=2, ensure_ascii=False))
+    return 0
+
+
+def emit_sample_trade(_: list[str]) -> int:
+    print(json.dumps({
+        "sample": "trade",
+        "feature_engine": "use analyze-market-input / batch-run for market-based output"
+    }, indent=2, ensure_ascii=False))
+    return 0
+
+
+def materialize_samples(_: list[str]) -> int:
+    STATE_DIR.mkdir(parents=True, exist_ok=True)
+    feature_path = STATE_DIR / "sample_features_v1.json"
+    trade_path = STATE_DIR / "sample_trade_v1.json"
+    profile = load_profile()
+    session = choose_session(profile, None)
+    result = process_market_run(profile, session, SAMPLE_MARKET_CSV, None)
+    feature_path.write_text(json.dumps(result["features"], indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    if result["trade"] is not None:
+        trade_path.write_text(json.dumps(result["trade"], indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(json.dumps({
+        "feature_sample": str(feature_path),
+        "trade_sample": str(trade_path)
+    }, indent=2, ensure_ascii=False))
+    return 0
+
+
+def journal_status(_: list[str]) -> int:
+    payload = {
+        "events_jsonl": str(EVENTS_JSONL),
+        "events_count": count_jsonl(EVENTS_JSONL),
+        "trades_jsonl": str(TRADES_JSONL),
+        "trades_count": count_jsonl(TRADES_JSONL),
+        "market_runs_jsonl": str(MARKET_RUNS_JSONL),
+        "market_runs_count": count_jsonl(MARKET_RUNS_JSONL),
+        "features_jsonl": str(FEATURES_JSONL),
+        "features_count": count_jsonl(FEATURES_JSONL),
+        "batch_runs_jsonl": str(BATCH_RUNS_JSONL),
+        "batch_runs_count": count_jsonl(BATCH_RUNS_JSONL),
+    }
+    print(json.dumps(payload, indent=2, ensure_ascii=False))
+    return 0
+
+
+def run_once(args: list[str]) -> int:
+    requested_session = args[0] if args else None
+    profile = load_profile()
+    session = choose_session(profile, requested_session)
+    result = process_market_run(profile, session, SAMPLE_MARKET_CSV, None)
+    payload = {
+        "profile_id": result["features"]["profile_id"],
+        "session_id": session.get("session_id"),
+        "feature_written": str(FEATURES_JSONL),
+        "event_written": str(EVENTS_JSONL),
+        "trade_written": str(TRADES_JSONL) if result["trade"] is not None else None,
+        "event_decision_state": result["event"]["decision_state"],
+        "event_type": result["event"]["event_type"],
+    }
+    print(json.dumps(payload, indent=2, ensure_ascii=False))
+    return 0
+
+
+def extract_features(args: list[str]) -> int:
+    csv_path = Path(args[0]).expanduser() if len(args) >= 1 and args[0] else SAMPLE_MARKET_CSV
+    requested_session = args[1] if len(args) >= 2 and args[1] else None
+    target_date = args[2] if len(args) >= 3 and args[2] else None
+    profile = load_profile()
+    session = choose_session(profile, requested_session)
+    rows = load_market_csv(csv_path, profile["frame"].get("timezone") or "America/Montreal")
+    selected_rows, chosen_date = select_session_rows(rows, session, target_date)
+    analysis_date = chosen_date or target_date or local_now(profile["frame"].get("timezone") or "America/Montreal").date().isoformat()
+    features = build_feature_payload(profile, session, selected_rows, analysis_date, csv_path)
+    print(json.dumps(features, indent=2, ensure_ascii=False))
+    return 0
+
+
+def analyze_market_input(args: list[str]) -> int:
+    csv_path = Path(args[0]).expanduser() if len(args) >= 1 and args[0] else SAMPLE_MARKET_CSV
+    requested_session = args[1] if len(args) >= 2 and args[1] else None
+    target_date = args[2] if len(args) >= 3 and args[2] else None
+    profile = load_profile()
+    session = choose_session(profile, requested_session)
+    result = process_market_run(profile, session, csv_path, target_date)
+    print(json.dumps(result["run_payload"], indent=2, ensure_ascii=False))
+    return 0
+
+
+def batch_run(args: list[str]) -> int:
+    csv_path = Path(args[0]).expanduser() if len(args) >= 1 and args[0] else SAMPLE_MARKET_CSV
+    requested_session = args[1] if len(args) >= 2 and args[1] else None
+    start_date = args[2] if len(args) >= 3 and args[2] else None
+    end_date = args[3] if len(args) >= 4 and args[3] else None
+
+    profile = load_profile()
+    session = choose_session(profile, requested_session)
+    rows = load_market_csv(csv_path, profile["frame"].get("timezone") or "America/Montreal")
+    all_dates = available_dates_for_session(rows, session)
+    dates = [d for d in all_dates if (start_date is None or d >= start_date) and (end_date is None or d <= end_date)]
+
+    runs = []
+    variants: dict[str, int] = {}
+    complete_count = 0
+    trade_count = 0
+    for day in dates:
+        result = process_market_run(profile, session, csv_path, day)
+        run_payload = result["run_payload"]
+        runs.append(run_payload)
+        if result["features"]["sequence_complete"]:
+            complete_count += 1
+        if result["trade"] is not None:
+            trade_count += 1
+        variant = result["features"]["variant_id"] or "none"
+        variants[variant] = variants.get(variant, 0) + 1
+
+    summary = {
+        "batch_ts": local_now(profile["frame"].get("timezone") or "America/Montreal").isoformat(timespec="seconds"),
+        "profile_id": profile.get("profile_id"),
+        "source_csv": str(csv_path),
+        "session_id": session.get("session_id"),
+        "start_date": start_date,
+        "end_date": end_date,
+        "processed_dates": dates,
+        "run_count": len(runs),
+        "sequence_complete_count": complete_count,
+        "trade_count": trade_count,
+        "variants": variants,
+    }
+    append_jsonl(BATCH_RUNS_JSONL, summary)
+    print(json.dumps(summary, indent=2, ensure_ascii=False))
     return 0
 
 
@@ -577,8 +739,6 @@ COMMANDS = {
     "extract-features": extract_features,
     "analyze-market-input": analyze_market_input,
     "batch-run": batch_run,
-    "batch-report": batch_report,
-    "show-last-batch-report": show_last_batch_report,
 }
 
 
@@ -587,7 +747,7 @@ def main(argv: list[str]) -> int:
     fn = COMMANDS.get(cmd)
     if fn is None:
         print(
-            "Usage: trading_lab_v1.py status|show-profile|show-schemas|show-market-source|show-sessions|show-batch-dates [csv_path] [session_id]|sample-event|sample-trade|materialize-samples|journal-status|run-once [session_id]|extract-features [csv_path] [session_id] [local_date]|analyze-market-input [csv_path] [session_id] [local_date]|batch-run [csv_path] [session_id] [start_date] [end_date]|batch-report [session_id] [start_date] [end_date]|show-last-batch-report",
+            "Usage: trading_lab_v1.py status|show-profile|show-schemas|show-market-source|show-sessions|show-batch-dates [csv_path] [session_id]|sample-event|sample-trade|materialize-samples|journal-status|run-once [session_id]|extract-features [csv_path] [session_id] [local_date]|analyze-market-input [csv_path] [session_id] [local_date]|batch-run [csv_path] [session_id] [start_date] [end_date]",
             file=sys.stderr,
         )
         return 1

@@ -25,8 +25,6 @@ case "$CMD" in
   extract-features) python3 "$APP" extract-features "$ARG2" "$ARG3" "$ARG4" ;;
   analyze-market-input) python3 "$APP" analyze-market-input "$ARG2" "$ARG3" "$ARG4" ;;
   batch-run) python3 "$APP" batch-run "$ARG2" "$ARG3" "$ARG4" "$ARG5" ;;
-  batch-report) python3 "$APP" batch-report "$ARG2" "$ARG3" "$ARG4" ;;
-  show-last-batch-report) python3 "$APP" show-last-batch-report ;;
   *)
     echo "Usage: cmd.sh <command>"
     exit 1
