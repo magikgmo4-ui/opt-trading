@@ -19,6 +19,16 @@ Module durable de pilotage du gateway OpenClaw via `tmux`, adapté au mode opér
 - log par défaut : `~openclaw/.openclaw/logs/gateway_foreground.log`
 - backend de démarrage : `openclaw gateway run`
 
+## Exécution
+Le module est conçu pour être exécuté **sous l'utilisateur `openclaw`**.
+
+Exemple :
+```bash
+sudo -iu openclaw
+cd /opt/trading
+bash modules/gateway_openclaw/scripts/cmd.sh status
+```
+
 ## Variables d'environnement
 - `OPENCLAW_GATEWAY_USER` — défaut `openclaw`
 - `OPENCLAW_GATEWAY_SESSION` — défaut `openclaw-gateway`
@@ -28,6 +38,8 @@ Module durable de pilotage du gateway OpenClaw via `tmux`, adapté au mode opér
 
 ## Exemples
 ```bash
+sudo -iu openclaw
+cd /opt/trading
 bash modules/gateway_openclaw/scripts/sanity.sh
 bash modules/gateway_openclaw/scripts/cmd.sh status
 bash modules/gateway_openclaw/scripts/cmd.sh start
