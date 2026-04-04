@@ -22,6 +22,8 @@ DEFAULT_TZ = os.getenv("TIMEZONE", "America/Montreal")
 DEFAULT_INDEX = os.getenv("INDEX_FILE", "/opt/trading/desk/snapshots/latest.json")
 DEFAULT_SYMBOLS = os.getenv("DESK_SYMBOLS", "BTCUSDT.P,XAUUSD,SOLUSDT.P,ETHUSDT.P")
 DEFAULT_STALE_MINUTES = int(os.getenv("STALE_MINUTES", "15"))
+REALDATA_TIMEOUT_SECONDS = float(os.getenv("DESK_ANALYZE_REALDATA_TIMEOUT_SECONDS", "4"))
+BINANCE_FUTURES_BASE_URL = os.getenv("DESK_ANALYZE_BINANCE_FUTURES_BASE_URL", "https://fapi.binance.com")
 
 # OpenAI (Responses API)
 OPENAI_API_BASE = os.getenv("OPENAI_API_BASE", "https://api.openai.com/v1")
@@ -32,6 +34,14 @@ DESK_ANALYZE_MAX_CHARS = int(os.getenv("DESK_ANALYZE_MAX_CHARS", "3600"))  # kee
 
 # Artifacts
 VISION_OUTBOX = os.getenv("VISION_OUTBOX", "/srv/sftp/shared_files/shared/vision_outbox")
+
+
+@dataclass
+class MarketDataStatus:
+    source: str
+    status: str
+    details: Optional[Dict[str, Any]] = None
+    error: str = ""
 
 def _tzinfo(name: str):
     if ZoneInfo is None:
@@ -95,6 +105,142 @@ def _safe_telegram(text: str, limit: int) -> str:
     if cut < 200:
         cut = limit - 50
     return text[:cut].rstrip() + "\n…(truncated)"
+
+
+def _fetch_json(url: str, timeout: float) -> Any:
+    req = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": "opt-trading/desk-analyze",
+            "Accept": "application/json",
+        },
+    )
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        body = resp.read().decode("utf-8", errors="replace")
+    return json.loads(body)
+
+
+def _normalize_binance_symbol(symbol: str) -> Optional[str]:
+    base = (symbol or "").strip().upper()
+    if not base:
+        return None
+    if base.endswith(".P"):
+        base = base[:-2]
+    if not base.endswith("USDT"):
+        return None
+    if any(ch for ch in base if not (ch.isalnum() or ch == "_")):
+        return None
+    return base
+
+
+def _format_compact_float(value: Any, digits: int = 4) -> str:
+    try:
+        num = float(value)
+    except (TypeError, ValueError):
+        return "n/a"
+    if abs(num) >= 1_000_000_000:
+        return f"{num / 1_000_000_000:.2f}B"
+    if abs(num) >= 1_000_000:
+        return f"{num / 1_000_000:.2f}M"
+    if abs(num) >= 1_000:
+        return f"{num / 1_000:.2f}K"
+    if abs(num) >= 100:
+        return f"{num:.2f}"
+    if abs(num) >= 1:
+        return f"{num:.{digits}f}".rstrip("0").rstrip(".")
+    return f"{num:.6f}".rstrip("0").rstrip(".")
+
+
+def _format_pct(value: Any, digits: int = 2) -> str:
+    try:
+        num = float(value)
+    except (TypeError, ValueError):
+        return "n/a"
+    return f"{num:+.{digits}f}%"
+
+
+def _minutes_until(timestamp_ms: Any, tz_name: str) -> Optional[int]:
+    try:
+        dt = datetime.fromtimestamp(float(timestamp_ms) / 1000.0, tz=timezone.utc)
+    except (TypeError, ValueError, OSError):
+        return None
+    now = datetime.now(_tzinfo(tz_name))
+    return int((dt.astimezone(_tzinfo(tz_name)) - now).total_seconds() // 60)
+
+
+def fetch_binance_market_data(symbol: str, tz_name: str) -> MarketDataStatus:
+    fut_symbol = _normalize_binance_symbol(symbol)
+    if not fut_symbol:
+        return MarketDataStatus(
+            source="binance-futures",
+            status="unsupported",
+            error="unsupported symbol for Binance USDT futures",
+        )
+
+    base = BINANCE_FUTURES_BASE_URL.rstrip("/")
+    try:
+        ticker = _fetch_json(f"{base}/fapi/v1/ticker/24hr?symbol={fut_symbol}", REALDATA_TIMEOUT_SECONDS)
+        premium = _fetch_json(f"{base}/fapi/v1/premiumIndex?symbol={fut_symbol}", REALDATA_TIMEOUT_SECONDS)
+        open_interest = _fetch_json(f"{base}/fapi/v1/openInterest?symbol={fut_symbol}", REALDATA_TIMEOUT_SECONDS)
+    except urllib.error.HTTPError as e:
+        return MarketDataStatus(source="binance-futures", status="error", error=f"HTTP {getattr(e, 'code', '?')}")
+    except urllib.error.URLError as e:
+        return MarketDataStatus(source="binance-futures", status="error", error=f"network: {e.reason}")
+    except Exception as e:
+        return MarketDataStatus(source="binance-futures", status="error", error=str(e))
+
+    details = {
+        "symbol": fut_symbol,
+        "last_price": ticker.get("lastPrice"),
+        "price_change_pct": ticker.get("priceChangePercent"),
+        "quote_volume": ticker.get("quoteVolume"),
+        "funding_rate": premium.get("lastFundingRate"),
+        "mark_price": premium.get("markPrice"),
+        "next_funding_minutes": _minutes_until(premium.get("nextFundingTime"), tz_name),
+        "open_interest": open_interest.get("openInterest"),
+        "exchange_time": premium.get("time") or ticker.get("closeTime") or open_interest.get("time"),
+    }
+    return MarketDataStatus(source="binance-futures", status="ok", details=details)
+
+
+def collect_market_data(symbols: List[str], tz_name: str) -> Dict[str, MarketDataStatus]:
+    return {symbol: fetch_binance_market_data(symbol, tz_name) for symbol in symbols}
+
+
+def _build_chart_runtime_line(snap: Dict[str, Any]) -> str:
+    image_path = str(snap.get("path") or "")
+    image_ok = os.path.exists(image_path) if image_path else False
+    image_name = os.path.basename(image_path) if image_path else "n/a"
+    return f"- TV/runtime: image={'OK' if image_ok else 'missing'} file={image_name}"
+
+
+def _build_market_line(market: Optional[MarketDataStatus]) -> str:
+    if not market:
+        return "- Market: unavailable (no fetch attempted)"
+    if market.status == "unsupported":
+        return "- Market: n/a for this symbol (Binance USDT futures only in V1)"
+    if market.status != "ok" or not market.details:
+        reason = market.error or "source unavailable"
+        return f"- Market: unavailable ({reason})"
+
+    details = market.details
+    raw_funding = details.get("funding_rate")
+    try:
+        funding_pct = float(raw_funding) * 100.0 if raw_funding is not None else None
+    except (TypeError, ValueError):
+        funding_pct = None
+    funding_txt = _format_pct(funding_pct, digits=4)
+    next_funding = details.get("next_funding_minutes")
+    next_funding_txt = "n/a" if next_funding is None else f"{next_funding}m"
+    return (
+        "- Market: "
+        f"px={_format_compact_float(details.get('last_price'))} "
+        f"24h={_format_pct(details.get('price_change_pct'))} "
+        f"funding={funding_txt} "
+        f"OI={_format_compact_float(details.get('open_interest'))} "
+        f"vol24h={_format_compact_float(details.get('quote_volume'))} "
+        f"next={next_funding_txt}"
+    )
 
 def _openai_responses_vision(prompt: str, labeled_images: List[Tuple[str, str]]) -> str:
     """
@@ -160,7 +306,13 @@ def _openai_responses_vision(prompt: str, labeled_images: List[Tuple[str, str]])
     out = "\n\n".join(parts).strip()
     return out or "(no text output)"
 
-def build_status_text(latest: Dict[str, Any], symbols: List[str], stale_minutes: int, tz_name: str) -> Tuple[str, Dict[str, Any]]:
+def build_status_text(
+    latest: Dict[str, Any],
+    symbols: List[str],
+    stale_minutes: int,
+    tz_name: str,
+    market_data: Optional[Dict[str, MarketDataStatus]] = None,
+) -> Tuple[str, Dict[str, Any]]:
     now = _now_iso(tz_name)
     lines: List[str] = []
     lines.append(f"[Desk Pro /analyze] {now} ({tz_name})")
@@ -208,8 +360,8 @@ def build_status_text(latest: Dict[str, Any], symbols: List[str], stale_minutes:
         if snap.get("meta"):
             lines.append(f"- meta: source={snap['meta'].get('source')} host={snap['meta'].get('host')}")
         lines.append(f"- path: {snap.get('path')}")
-        lines.append(f"- TV: bias/zone/volume/trigger (placeholder)")
-        lines.append(f"- Coinglass: funding/OI/liquidations (placeholder)")
+        lines.append(_build_chart_runtime_line(snap))
+        lines.append(_build_market_line((market_data or {}).get(s)))
         lines.append("")
 
     if stale:
@@ -338,7 +490,9 @@ def main() -> int:
     symbols = [s.strip() for s in args.symbols.split(",") if s.strip()]
     latest = load_latest(args.index)
 
-    status_text, meta = build_status_text(latest, symbols, args.stale_minutes, DEFAULT_TZ)
+    market_data = collect_market_data(symbols, DEFAULT_TZ)
+
+    status_text, meta = build_status_text(latest, symbols, args.stale_minutes, DEFAULT_TZ, market_data=market_data)
 
     openai_enabled = (not args.no_openai) and _boolish(DESK_ANALYZE_OPENAI) and bool(OPENAI_API_KEY)
     vision_text = ""
@@ -388,6 +542,15 @@ def main() -> int:
             "vision_text": vision_text,
             "vision_error": vision_err,
             "outbox": outbox_paths,
+            "real_data": {
+                symbol: {
+                    "source": status.source,
+                    "status": status.status,
+                    "details": status.details,
+                    "error": status.error,
+                }
+                for symbol, status in market_data.items()
+            },
             "meta": meta,
         }
         print(json.dumps(payload, indent=2, ensure_ascii=False))
