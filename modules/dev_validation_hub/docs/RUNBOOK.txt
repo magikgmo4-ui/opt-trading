@@ -1,0 +1,33 @@
+DEV VALIDATION HUB — RUNBOOK
+
+Objectif
+- machine de dev-only
+- venv local borné
+- validation rapide avant commit / PR
+
+Commandes
+1) Sanity
+bash modules/dev_validation_hub/scripts/sanity.sh
+
+2) État Git / machine
+bash modules/dev_validation_hub/scripts/cmd.sh status
+
+3) Créer le venv par défaut
+bash modules/dev_validation_hub/scripts/cmd.sh ensure-venv
+
+4) Installer les dépendances de tests HTTP
+bash modules/dev_validation_hub/scripts/cmd.sh install-http-test-deps
+
+5) Lancer les tests HTTP memory_bricks
+bash modules/dev_validation_hub/scripts/cmd.sh run-memory-bricks-http-tests
+
+6) Lire l'état pré-PR
+bash modules/dev_validation_hub/scripts/cmd.sh pre-pr
+
+7) Vérifier trading_lab_v1 rapidement
+bash modules/dev_validation_hub/scripts/cmd.sh trading-lab-status
+
+Notes
+- venv par défaut: .venv-dev-validation
+- peut être remplacé en second argument
+- aucune logique runtime ou prod dans ce module
