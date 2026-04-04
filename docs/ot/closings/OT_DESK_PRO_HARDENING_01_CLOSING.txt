@@ -1,0 +1,42 @@
+OT_DESK_PRO_HARDENING_01 - CLOSING
+Date UTC: 2026-04-04T16:12:00Z
+
+Etat reel constate au depart
+- Les wrappers globaux Desk Pro etaient presents sur `admin-trading`.
+- `desk-pro` et `desk-pro dashboard-latest` fonctionnaient.
+- `desk-pro-last-run`, `desk-pro-tail-log`, `desk-pro-copy-latest` et `desk-pro-run-logged` echouaient avec `Permission non accordee`.
+- Cause prouvee: les scripts cibles `scripts/admin_trading/desk_pro_*.sh` avaient perdu le bit executable.
+- Ecart runtime/doc prouve: `desk-pro-copy-latest` selectionnait le dashboard HTML par tri lexical, pas par fraicheur reelle.
+
+Patch minimal applique
+- Remise du bit executable sur les scripts Desk Pro admin cibles des wrappers globaux.
+- Reinstallation des wrappers globaux via `desk_pro_install_admin_trading.sh`.
+- Correction du fallback dashboard dans `scripts/admin_trading/desk_pro_copy_latest_to_shared.sh` pour prendre le HTML le plus recent par mtime.
+- Correction defensive deja appliquee sur `scripts/admin_trading/desk_pro_tail_latest_log.sh` pour chercher `desk_run_*.log`.
+
+Validation reelle
+- `sanity-desk-pro` -> PASS
+- `desk-pro-last-run` -> PASS
+- `desk-pro-tail-log` -> PASS
+- `desk-pro-run-logged` -> PASS
+- `desk-pro dashboard-latest` -> PASS
+- `desk-pro export-html-latest` -> PASS
+- `desk-pro-copy-latest` -> PASS
+- `desk-pro show-session-journal` + ajout de note -> PASS
+- `/shared/desk_pro/latest/dashboard_latest.html` pointe desormais sur le dashboard HTML le plus recent observe.
+
+Ecarts doc vs runtime retenus
+- La doc promettait des wrappers globaux fonctionnels; ils etaient installes mais certains etaient inutilisables faute de bit executable sur leurs scripts cibles.
+- La doc supposait une copie `/shared` fiable; le choix du dernier dashboard etait faussement base sur l'ordre lexical avant patch.
+
+Limites restantes reelles
+- Le worktree git local reste en avance sur `origin/sot/mainline` pour des changements hors perimetre Desk Pro.
+- Le closing ne couvre pas de refonte Desk Pro, seulement la fiabilisation operatoire locale.
+- Aucune mise a jour kanban appliquee ici; mission traitee comme patch local runtime.
+
+Verdict
+- PASS
+- Desk Pro est plus robuste en exploitation sur `admin-trading` sans refactor large.
+
+Point de reprise suivant
+- GO_OT_TRAE_RULES_V1_01

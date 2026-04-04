@@ -18,7 +18,7 @@ LATEST_LINK="$LOGS_DIR/latest.log"
 if [ ! -f "$LATEST_LINK" ]; then
     echo "No latest log found at $LATEST_LINK"
     # Try finding newest file
-    LATEST_FILE=$(find "$LOGS_DIR" -maxdepth 1 -name "run_*.log" | sort -r | head -n 1)
+    LATEST_FILE=$(find "$LOGS_DIR" -maxdepth 1 -name "desk_run_*.log" | sort -r | head -n 1)
     if [ -n "$LATEST_FILE" ]; then
         LATEST_LINK="$LATEST_FILE"
         echo "Found newest log: $(basename "$LATEST_LINK")"

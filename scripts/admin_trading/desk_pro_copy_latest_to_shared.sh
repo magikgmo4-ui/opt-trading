@@ -57,7 +57,7 @@ cp "$LATEST_RUN/perf_engine.json" "$SHARED_DIR/" 2>/dev/null || true
 # Also copy exported dashboard if available in root output dir
 DASH_DIR="$ROOT_DIR/data/dashboard"
 if [ -d "$DASH_DIR" ]; then
-    LATEST_HTML=$(find "$DASH_DIR" -name "dashboard_*.html" -type f | sort -r | head -n 1)
+    LATEST_HTML=$(ls -1t "$DASH_DIR"/dashboard_*.html 2>/dev/null | head -n 1 || true)
     if [ -n "$LATEST_HTML" ]; then
         cp "$LATEST_HTML" "$SHARED_DIR/dashboard_latest.html"
         echo "Copied dashboard: $(basename "$LATEST_HTML")"
