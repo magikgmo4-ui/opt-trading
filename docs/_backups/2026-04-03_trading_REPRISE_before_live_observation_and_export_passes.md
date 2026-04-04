@@ -25,9 +25,7 @@ Point de reprise opératoire court pour la suite du chantier trading dual stack.
 - batch LAB posé ;
 - batch reporting LAB posé ;
 - report export LAB posé ;
-- comparator LAB/LIVE posé ;
-- live observation posée ;
-- live export posé.
+- comparator LAB/LIVE posé.
 
 ## COUVERT
 - schéma commun ;
@@ -41,15 +39,13 @@ Point de reprise opératoire court pour la suite du chantier trading dual stack.
 - batch LAB ;
 - batch reporting LAB ;
 - report export LAB ;
-- comparator LAB/LIVE ;
-- live observation avec `live_observations_v1.jsonl` et `live_observation_runs_v1.jsonl` ;
-- live export en `.json` et `.md` dans `state/trading_lab_v1/live_exports/`.
+- comparator LAB/LIVE avec `comparator_pairs_v1.jsonl` et `comparator_reports_v1.jsonl`.
 
 ## SUITE
-Suite recommandée immédiate : ouvrir une passe **REALTIME skeleton** pour matérialiser le vrai socle runtime sans exécution d’ordres.
+Suite recommandée immédiate : ouvrir une passe **live observation** pour matérialiser la branche LIVE native avant un vrai runner temps réel plus poussé.
 
 ## TRIGGER NATUREL SUIVANT
-`GO_OT_TRADING_REALTIME_V1_SKELETON_PASS_01`
+`GO_OT_TRADING_LAB_V1_LIVE_OBSERVATION_PASS_01`
 
 ## FORMULE COURTE
-Reprendre depuis les docs `docs/ot/trading/`, les fichiers `schemas/`, puis `modules/trading_lab_v1/`, et ouvrir le skeleton REALTIME avant toute exécution plus poussée.
+Reprendre depuis les docs `docs/ot/trading/`, les fichiers `schemas/`, puis `modules/trading_lab_v1/`, et ouvrir la passe live observation avant toute montée en charge REAL-TIME.

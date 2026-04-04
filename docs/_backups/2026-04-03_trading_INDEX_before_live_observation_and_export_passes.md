@@ -18,8 +18,6 @@ Ce fichier est le point d’entrée local de `docs/ot/trading/`.
 - `docs/ot/trading/09_TRADING_LAB_V1_BATCH_REPORTING_PASS_01.md`
 - `docs/ot/trading/10_TRADING_LAB_V1_REPORT_EXPORT_PASS_01.md`
 - `docs/ot/trading/11_TRADING_LAB_V1_COMPARATOR_PASS_01.md`
-- `docs/ot/trading/12_TRADING_LAB_V1_LIVE_OBSERVATION_PASS_01.md`
-- `docs/ot/trading/13_TRADING_LAB_V1_LIVE_EXPORT_PASS_01.md`
 
 ## SCHÉMAS MACHINE-LISIBLES
 
@@ -29,7 +27,7 @@ Ce fichier est le point d’entrée local de `docs/ot/trading/`.
 
 ## MODULES LIÉS
 
-- `modules/trading_lab_v1/` : runner LAB, exporteur LAB, comparateur, live observation, live export, samples et scripts.
+- `modules/trading_lab_v1/` : runner LAB, exporteur, comparateur, samples et scripts.
 
 ## ÉTAT ACTUEL
 
@@ -44,12 +42,11 @@ Ce fichier est le point d’entrée local de `docs/ot/trading/`.
 - batch LAB posé ;
 - batch reporting LAB posé ;
 - report export LAB posé ;
-- comparator LAB/LIVE posé ;
-- live observation posée ;
-- live export posé.
+- comparator LAB/LIVE posé.
 
 ### Non encore matérialisé ici
-- runner REAL-TIME natif.
+- live observation native ;
+- runner REAL-TIME.
 
 ## ORDRE DE LECTURE RECOMMANDÉ
 
@@ -65,11 +62,9 @@ Ce fichier est le point d’entrée local de `docs/ot/trading/`.
 10. `09_TRADING_LAB_V1_BATCH_REPORTING_PASS_01.md`
 11. `10_TRADING_LAB_V1_REPORT_EXPORT_PASS_01.md`
 12. `11_TRADING_LAB_V1_COMPARATOR_PASS_01.md`
-13. `12_TRADING_LAB_V1_LIVE_OBSERVATION_PASS_01.md`
-14. `13_TRADING_LAB_V1_LIVE_EXPORT_PASS_01.md`
 
 ## POINT DE REPRISE COURT
 
-Trigger courant clos : `GO_OT_TRADING_LAB_V1_LIVE_EXPORT_PASS_01`
+Trigger courant clos : `GO_OT_TRADING_LAB_V1_COMPARATOR_PASS_01`
 
-Trigger naturel suivant : `GO_OT_TRADING_REALTIME_V1_SKELETON_PASS_01`
+Trigger naturel suivant : `GO_OT_TRADING_LAB_V1_LIVE_OBSERVATION_PASS_01`
