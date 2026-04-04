@@ -35,6 +35,12 @@
       "source_rel": "modules/evidence_openclaw",
       "target_rel": "modules/evidence_openclaw",
       "description": "Exporte les preuves OpenClaw dans le workspace agent puis génère un prompt documentaire fondé sur ces fichiers"
+    },
+    {
+      "id": "gateway_openclaw",
+      "source_rel": "modules/gateway_openclaw",
+      "target_rel": "modules/gateway_openclaw",
+      "description": "Pilotage tmux du gateway OpenClaw"
     }
   ]
 }
