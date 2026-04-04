@@ -11213,3 +11213,50 @@ La base mémoire canonique de l’assistant est la mémoire saved reconstruite l
 - Continuer l’injection des saved memories “bloc par bloc” (Bloc 02, etc.) avec formulations ultra-courtes (une idée stable à la fois), puis relance + audit de ce qui a réellement été retenu.
 - Confirmer les Custom Instructions actuelles réelles (texte exact dans Settings) vs la version proposée; décider quoi déplacer entre CI et saved memories.
 - Si besoin de recherche web: ouvrir un nouveau chat et activer “Search the web”/Outils (si disponible sur l’interface/compte).
+
+## 2026-04-04 13:30 — note1100
+1) Objectifs:
+- Comprendre et reproduire l’apparition du badge UI « Mise à jour de la mémoire / Memory updated ».
+- Établir une méthode fiable pour enregistrer des souvenirs (« saved memories ») de façon contrôlée.
+
+2) Actions:
+- Comparaison entre texte du modèle et notification/badge UI; clarification que le badge est un élément d’interface.
+- Recherche web (retours utilisateurs/forums) sur le déclenchement et les heuristiques d’enregistrement mémoire.
+- Validation via capture d’écran: la mémoire est reformulée par le système et affichée dans un encart « Memory updated » avec lien « Manage memories ».
+- Série de tests de prompts courts “Remember for future conversations: …” envoyés un par un; confirmation “C’est enregistré.” et vérification côté utilisateur dans “saved memories”.
+- Test d’un message contenant 2 souvenirs distincts; constat de fusion.
+- Re-test en séparant les 2 souvenirs en 2 messages distincts; enregistrement OK.
+- Envoi final d’un bloc consolidé (copier-coller de la mémoire + custom instructions); consigne de vérifier la façon dont la plateforme déduplique/fusionne dans Manage memories.
+- Accord final: n’ajouter des souvenirs projet/ops que “au moment utile”, sur demande explicite.
+
+3) Décisions:
+- Stratégie canonique: **1 souvenir = 1 message** (les souvenirs multiples dans un même message fusionnent).
+- Favoriser des prompts **courts, atomiques, orientés futur**, sans mélange (journal/TODO/synthèse).
+- Validation réelle: **Manage memories** (le badge UI peut être trompeur).
+- Pas d’ajout proactif; ajout mémoire **uniquement quand demandé en contexte**.
+
+4) Commandes / Code:
+```text
+Remember for future conversations: the canonical repo is opt-trading.
+Remember for future conversations: the continuity branch is sot/mainline.
+Remember for future conversations: Git is the priority path for patches and durable modules.
+Remember for future conversations: the reconstructed saved memory from April 3, 2026 is the canonical memory baseline.
+Remember for future conversations: the real state of the repo and the current session takes priority over memory and hypotheses.
+Remember for future conversations: start from the user request and the project context before making hypotheses.
+Remember for future conversations: start from the real state of the repo and the canonical repo before making hypotheses.
+Remember for future conversations: start from validated documents before making hypotheses.
+Remember for future conversations: at the start of a structured task, propose the relevant roles or postures with a default recommendation.
+Remember for future conversations: use the tags SCRATCH, HYPOTHESE, ETABLI, TODO, REPRISE, MEM_CANDIDATE, SAVE_MEMORY, NO_MEMORY, and GO_XXXX when relevant.
+Remember for future conversations: at the end of a session or structured task, produce at minimum ETABLI, TODO, REPRISE, and MEM_CANDIDATE when useful.
+Remember for future conversations: Git is the priority path for patches and durable modules, and zip or transfer files are only for targeted delivery.
+Remember for future conversations: prefer compact, operative, structured responses with no unnecessary filler.
+Remember for future conversations: classify the work before producing anything as diagnostic ponctuel, patch local, module durable, or bundle de transfert.
+Remember for future conversations: older conversation history is a secondary source and should be revalidated against the reconstructed saved memory from April 3, 2026.
+Remember for future conversations: opt-trading is the canonical continuity repo.
+```
+
+5) Points ouverts (next):
+- Vérifier dans **Manage memories** l’état réel de stockage après:
+  - le test “2 souvenirs dans 1 message” (fusion confirmée),
+  - le bloc consolidé (risque de fusion/déduplication).
+- Ajouter de nouveaux souvenirs uniquement lors d’un besoin récurrent (projet actif, branche de travail, machine/flux de livraison), via **1 souvenir atomique par message**.
