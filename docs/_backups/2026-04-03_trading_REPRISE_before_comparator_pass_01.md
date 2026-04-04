@@ -19,13 +19,12 @@ Point de reprise opératoire court pour la suite du chantier trading dual stack.
 - focus V1 = `XAUUSD`, timezone `America/Montreal`, fenêtres `18:00` et `00:00` ;
 - schémas V1 matérialisés ;
 - squelette LAB V1 posé ;
-- runner LAB posé ;
-- input marché LAB posé ;
-- feature engine LAB posé ;
-- batch LAB posé ;
-- batch reporting LAB posé ;
-- report export LAB posé ;
-- comparator LAB/LIVE posé.
+- premier runner LAB posé ;
+- première passe input marché LAB posée ;
+- première passe feature engine LAB posée ;
+- première passe batch LAB posée ;
+- première passe batch reporting LAB posée ;
+- première passe report export LAB posée.
 
 ## COUVERT
 - schéma commun ;
@@ -33,19 +32,18 @@ Point de reprise opératoire court pour la suite du chantier trading dual stack.
 - schéma event V1 ;
 - schéma trade V1 ;
 - squelette LAB V1 ;
-- runner LAB ;
+- premier runner LAB ;
 - input marché LAB ;
-- feature engine LAB ;
-- batch LAB ;
-- batch reporting LAB ;
-- report export LAB ;
-- comparator LAB/LIVE avec `comparator_pairs_v1.jsonl` et `comparator_reports_v1.jsonl`.
+- feature engine LAB et `features_v1.jsonl` ;
+- batch LAB et `batch_runs_v1.jsonl` ;
+- batch reporting LAB et `batch_reports_v1.jsonl` ;
+- report export LAB en `.json` et `.md` dans `state/trading_lab_v1/exports/`.
 
 ## SUITE
-Suite recommandée immédiate : ouvrir une passe **live observation** pour matérialiser la branche LIVE native avant un vrai runner temps réel plus poussé.
+Suite recommandée immédiate : ouvrir une passe **comparateur lab/live** ou une passe d’export enrichi si le besoin porte d’abord sur la livraison de synthèses.
 
 ## TRIGGER NATUREL SUIVANT
-`GO_OT_TRADING_LAB_V1_LIVE_OBSERVATION_PASS_01`
+`GO_OT_TRADING_LAB_V1_COMPARATOR_PASS_01`
 
 ## FORMULE COURTE
-Reprendre depuis les docs `docs/ot/trading/`, les fichiers `schemas/`, puis `modules/trading_lab_v1/`, et ouvrir la passe live observation avant toute montée en charge REAL-TIME.
+Reprendre depuis les docs `docs/ot/trading/`, les fichiers `schemas/`, puis `modules/trading_lab_v1/`, et ouvrir la passe comparator LAB/live avant toute implémentation REAL-TIME plus poussée.

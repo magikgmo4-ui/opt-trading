@@ -4,7 +4,6 @@ set -euo pipefail
 BASE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 APP="$BASE/app/trading_lab_v1.py"
 EXPORT_APP="$BASE/app/report_export_v1.py"
-COMPARATOR_APP="$BASE/app/comparator_v1.py"
 CMD="${1:-help}"
 ARG2="${2:-}"
 ARG3="${3:-}"
@@ -32,9 +31,8 @@ case "$CMD" in
   export-last-batch-report) python3 "$EXPORT_APP" export-last ;;
   export-batch-report) python3 "$EXPORT_APP" export-new "$ARG2" "$ARG3" "$ARG4" ;;
   export-status) python3 "$EXPORT_APP" status ;;
-  comparator-status) python3 "$COMPARATOR_APP" status ;;
-  show-live-reference) python3 "$COMPARATOR_APP" show-live-source ;;
-  compare-live) python3 "$COMPARATOR_APP" compare-live "$ARG2" "$ARG3" "$ARG4" "$ARG5" ;;
-  show-last-comparator-report) python3 "$COMPARATOR_APP" show-last-report ;;
-  *) echo "Usage: cmd.sh <command>"; exit 1 ;;
+  *)
+    echo "Usage: cmd.sh <command>"
+    exit 1
+    ;;
 esac
