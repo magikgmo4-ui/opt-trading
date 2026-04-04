@@ -1,0 +1,16 @@
+TRADING_REALTIME_V1 — RUNBOOK
+
+Flux recommandé :
+1. sanity-trading_realtime_v1
+2. cmd-trading_realtime_v1 status
+3. cmd-trading_realtime_v1 show-profile
+4. cmd-trading_realtime_v1 show-schemas
+5. cmd-trading_realtime_v1 show-live-source
+6. cmd-trading_realtime_v1 observe-once
+7. cmd-trading_realtime_v1 runtime-status
+
+But immédiat :
+- vérifier l’ancrage du module REALTIME ;
+- vérifier les dépendances de schémas ;
+- produire une première observation runtime séparée du LAB ;
+- préparer la suite runtime.

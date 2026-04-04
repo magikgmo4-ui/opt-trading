@@ -1,0 +1,20 @@
+TRADING_REALTIME_V1 — ETABLI
+
+1. Le module suit le standard minimal :
+   - docs
+   - scripts
+   - app
+   - install_shortcuts
+
+2. Le module est séparé du LAB.
+
+3. Le module reste en observation seulement :
+   - pas d’ordre réel
+   - pas d’exécution broker
+   - pas d’auto-trading
+
+4. Le module sait :
+   - afficher son état
+   - afficher les chemins de référence
+   - lire une source LIVE JSONL
+   - écrire une observation runtime minimale
