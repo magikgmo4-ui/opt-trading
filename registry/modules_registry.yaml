@@ -24,6 +24,17 @@
   priority: medium
   dependencies: []
 
+- module_name: git_fleet_guard
+  domain: operator_tools
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Audit Git read-only du parc Linux (admin-trading, student, db-layer)"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: medium
+  dependencies: []
+
 - module_name: workflow_post_change_v2
   domain: operator_tools
   machine_target: any

@@ -11163,3 +11163,53 @@ journalctl -u mimo_open_observer_gate_replay.service -n 50 --no-pager -o short-i
 - Clarifier et fournir un prompt complet pour le chantier “source d’entrée runtime” (proposé comme suite logique sans attendre) — GO mentionné mais non réellement délivré: `GO_MIMO_SOURCE_RUNTIME`.
 - `ccxt` absent: décider si/quan d l’installer (bloque uniquement le live).
 - `runtime_guard.sh` en `FAIL` via `tv-bitget-runner.service activating`: décider si c’est à traiter maintenant ou plus tard (déclaré “parallèle” à MiMo local).
+
+## 2026-04-04 02:03 — note1100
+1) Objectifs:
+- Comprendre le fonctionnement de la mémoire inter-session (saved memories vs reference chat history) et ce que l’utilisateur peut contrôler.
+- Mettre en place un workflow pour réduire le bruit: tags, clôture canonique, séparation Custom Instructions / saved memories / memory_bricks / journal.
+- Reconstruire une base mémoire “canonique” à partir du nettoyage du 3 avril 2026, puis réinjecter des blocs durables.
+- Définir une version de Custom Instructions ≤ 1500 caractères.
+- Clarifier la capacité à déclencher “mémoire enregistrée” et la possibilité de recherche web.
+
+2) Actions:
+- Explication fournie: 2 couches (saved memories vs reference chat history), contrôle utilisateur (Manage memories, activer/désactiver, Temporary Chat), limites d’audit de l’historique.
+- Proposition d’un workflow: tags (SCRATCH/HYPOTHESE/ETABLI/TODO/REPRISE/MEM_CANDIDATE/SAVE_MEMORY/NO_MEMORY/GO_XXXX), clôture canonique (ETABLI/TODO/REPRISE/MEM_CANDIDATE), discipline “rien en mémoire durable sans SAVE_MEMORY/ordre explicite”.
+- Audit partiel d’un item de mémoire (“device code Codex”) classé à retirer des saved memories (note produit/sécurité ponctuelle).
+- Tentative d’alignement avec le repo opt-trading: accès GitHub, récupération d’un ZIP `opt-trading-sot-mainline (3).zip`, puis proposition de “blocs mémoire” (workflow, clôture, tags, jpt, topologie machines, prompt_factory, memory_bricks, dual-stack trading, périmètres, livraison).
+- Rédaction d’une Custom Instructions compacte (1201 caractères annoncés) et démarrage d’un protocole “saved memories bloc par bloc”.
+- Clarification: l’assistant ne peut pas garantir l’écriture effective dans saved memories ni forcer/valider l’apparition du badge UI “mémoire enregistrée”.
+- Clarification: pas d’accès web public live dans cette session; explication sur comment activer “Search the web” via un nouveau chat/outils si disponible.
+
+3) Décisions:
+- La “mémoire saved reconstruite le 3 avril 2026” est définie comme base canonique de continuité; l’historique/archives plus anciens deviennent secondaires et doivent être revalidés avant réintégration.
+- Répartition retenue: Custom Instructions = règles stables; saved memories = noyau durable minimal; continuité détaillée via memory_bricks + repo + journal jpt.
+- Procéder bloc par bloc pour tenter de reconstruire les saved memories, puis auditer après relance (via UI Manage memories / observation de ce qui remonte).
+
+4) Commandes / Code:
+```text
+Custom Instructions (≤1500 caractères, version fournie) :
+
+Workflow canonique: partir de la demande, du contexte projet, de l’état réel, du repo canonique et des documents validés avant les hypothèses. La mémoire saved reconstruite le 3 avril 2026 est la base mémoire canonique; l’historique ancien n’est qu’une source secondaire à revalider.
+
+Au début d’un chantier structuré, proposer les rôles/postures pertinents avec une recommandation par défaut. Classifier le travail avant production: diagnostic ponctuel / patch local / module durable / bundle de transfert.
+
+Pour tout patch ou module durable, Git est prioritaire. Zip ou fichiers de transfert seulement pour livraison ciblée. Préférer des réponses compactes, opératoires, structurées, sans blabla inutile.
+
+Utiliser si pertinent les tags: SCRATCH, HYPOTHESE, ETABLI, TODO, REPRISE, MEM_CANDIDATE, SAVE_MEMORY, NO_MEMORY, GO_XXXX.
+
+En clôture de session ou de chantier, produire au minimum: 1. ETABLI 2. TODO 3. REPRISE 4. MEM_CANDIDATE si utile.
+
+Le repo canonique est opt-trading; la branche canonique de continuité est sot/mainline. memory_bricks, jpt et les fichiers canoniques servent à la continuité compacte. L’état réel du repo et de la session prime toujours sur la mémoire et les hypothèses.
+```
+
+```text
+Bloc 01 (candidat “saved memory”, formulé) :
+La base mémoire canonique de l’assistant est la mémoire saved reconstruite le 3 avril 2026. Toute information plus ancienne provenant de l’historique ou d’archives doit être considérée comme non canonique tant qu’elle n’a pas été relue, validée et réintégrée explicitement dans cette base mémoire. Le repo canonique opt-trading, la branche sot/mainline, l’état réel de la session et les documents validés priment toujours sur la mémoire et les hypothèses.
+```
+
+5) Points ouverts (next):
+- Vérifier côté UI si “Manage memories” existe/est accessible, et si le badge “mémoire enregistrée” apparaît lors des demandes de mémorisation.
+- Continuer l’injection des saved memories “bloc par bloc” (Bloc 02, etc.) avec formulations ultra-courtes (une idée stable à la fois), puis relance + audit de ce qui a réellement été retenu.
+- Confirmer les Custom Instructions actuelles réelles (texte exact dans Settings) vs la version proposée; décider quoi déplacer entre CI et saved memories.
+- Si besoin de recherche web: ouvrir un nouveau chat et activer “Search the web”/Outils (si disponible sur l’interface/compte).

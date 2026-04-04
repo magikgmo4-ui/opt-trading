@@ -1,0 +1,6 @@
+ETABLI V1
+
+- audit read-only du parc Linux
+- machines cibles: admin-trading, student, db-layer
+- sorties: JSON detaille, Markdown lisible, latest.json, latest.md
+- aucune remediation automatique dans cette V1

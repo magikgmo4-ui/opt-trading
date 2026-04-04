@@ -358,7 +358,7 @@ def cmd_audit(args: argparse.Namespace) -> int:
     for machine in machines:
         if args.repo_path:
             machine.repo_path = args.repo_path
-        report["results"].append(inspect_machine(machine, args.remote_branch, do_fetch=not args.no_fetch))
+        report["results"].append(inspect_machine(machine, args.remote_branch, do_fetch=getattr(args, "fetch", False)))
     reports_dir = Path(args.reports_dir) if args.reports_dir else default_reports_dir(module_root)
     paths = write_report(report, reports_dir)
     summary = {

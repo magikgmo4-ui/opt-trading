@@ -56,6 +56,33 @@
   status: active
   notes: "Sanity Validateur"
 
+- wrapper_name: menu-git_fleet_guard
+  wrapper_family: menu
+  target_module: git_fleet_guard
+  target_script: scripts/menu.sh
+  install_location: /usr/local/bin/menu-git_fleet_guard
+  audience: operator
+  status: active
+  notes: "Menu audit Git read-only du parc"
+
+- wrapper_name: cmd-git_fleet_guard
+  wrapper_family: cmd
+  target_module: git_fleet_guard
+  target_script: scripts/cmd.sh
+  install_location: /usr/local/bin/cmd-git_fleet_guard
+  audience: operator
+  status: active
+  notes: "CLI audit Git read-only du parc"
+
+- wrapper_name: sanity-git_fleet_guard
+  wrapper_family: sanity
+  target_module: git_fleet_guard
+  target_script: scripts/sanity_check.sh
+  install_location: /usr/local/bin/sanity-git_fleet_guard
+  audience: system
+  status: active
+  notes: "Sanity audit Git read-only du parc"
+
 - wrapper_name: menu-ui_registry_msi
   wrapper_family: menu
   target_module: ui_registry_msi
