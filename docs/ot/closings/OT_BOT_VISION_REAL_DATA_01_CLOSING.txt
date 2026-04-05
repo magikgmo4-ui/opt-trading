@@ -1,0 +1,66 @@
+OT_BOT_VISION_REAL_DATA_01 - CLOSING
+Date UTC: 2026-04-04T18:35:00Z
+
+1. Etat reel constate au depart
+- La chaine Bot Vision canonique etait deja stabilisee et ne devait pas etre rouverte.
+- `modules/desk_analyze/analyze_latest.py` contenait encore deux lignes placeholder par symbole : `TV: bias/zone/volume/trigger (placeholder)` et `Coinglass: funding/OI/liquidations (placeholder)`.
+- Le runtime reel fournissait deja `desk/snapshots/latest.json` et les PNG associes.
+- `latest.json` observe pendant la mission contenait `BTCUSDT.P`, `ETHUSDT.P`, `SOLUSDT.P`, `XAUUSD`, tous en `H1`, snapshot `2026-04-04T11:06:16`.
+
+2. Placeholders reels remplaces
+- Placeholder TradingView remplace par une ligne runtime reelle: presence image sur disque + nom de fichier de capture.
+- Placeholder Coinglass remplace par une ligne market data reelle issue de Binance Futures public pour les symboles USDT perpetuels supportes.
+
+3. Sources de donnees reellement integrees
+- Source runtime locale: `desk/snapshots/latest.json` + verification `os.path.exists()` des PNG references.
+- Source HTTP publique legere: `https://fapi.binance.com`
+  - `/fapi/v1/ticker/24hr`
+  - `/fapi/v1/premiumIndex`
+  - `/fapi/v1/openInterest`
+- Champ rendu en V1: prix, variation 24h, funding courant, open interest, volume 24h, minutes jusqu'au prochain funding.
+- Limite volontaire V1: seulement les symboles Binance USDT futures; `XAUUSD` reste en fallback explicite.
+
+4. Fichiers modifies / crees
+- Modifie: `modules/desk_analyze/analyze_latest.py`
+- Cree: `docs/ot/closings/OT_BOT_VISION_REAL_DATA_01_CLOSING.txt`
+
+5. Resume technique court
+- Ajout d'un fetcher HTTP minimal sans nouvelle dependance lourde.
+- Ajout d'un mapping borne `*.P -> *USDT` pour les perps crypto Binance.
+- Sortie compacte conservee: une ligne `TV/runtime`, une ligne `Market` par symbole.
+- Mode degrade explicite: symbole non supporte, HTTP error, erreur reseau ou source indisponible n'arretent pas `/analyze`.
+- Le flux OpenAI vision existant reste intact; seul le bloc statut enrichi a ete patche.
+
+6. Commandes de validation reelles
+- `python modules/desk_analyze/analyze_latest.py --no-openai`
+- `DESK_ANALYZE_BINANCE_FUTURES_BASE_URL="https://127.0.0.1:9" python modules/desk_analyze/analyze_latest.py --no-openai`
+- `python modules/desk_analyze/analyze_latest.py --no-openai --json`
+- `python modules/desk_analyze/analyze_latest.py`
+- `python -m py_compile modules/desk_analyze/analyze_latest.py`
+
+7. Resultats d'execution reels
+- Nominal (`--no-openai`) :
+  - `BTCUSDT.P`: `Market: px=67.27K 24h=+0.63% funding=+0.0010% OI=92.01K vol24h=3.31B next=325m`
+  - `SOLUSDT.P`: `Market: px=80.79 24h=+0.61% funding=+0.0007% OI=9.62M vol24h=903.43M next=325m`
+  - `ETHUSDT.P`: `Market: px=2.06K 24h=+0.20% funding=+0.0006% OI=2.15M vol24h=2.20B next=325m`
+  - `XAUUSD`: `Market: n/a for this symbol (Binance USDT futures only in V1)`
+- Degrade (base URL invalide) :
+  - crypto perps -> `Market: unavailable (network: [Errno 111] Connection refused)`
+  - `XAUUSD` conserve le fallback symbole non supporte.
+- Compatibilite Telegram : sortie nominale mesuree a `1326` caracteres, donc sous la limite courante `DESK_ANALYZE_MAX_CHARS=3600`.
+- Compatibilite vision existante : `python modules/desk_analyze/analyze_latest.py` s'execute sans crash et conserve le comportement de gating OpenAI existant.
+
+8. Limites restantes reelles
+- Pas d'integration Coinglass API dans cette V1, faute de surface publique prouvee ici sans hypothese de credential.
+- Pas de donnees de liquidations dans cette V1; le patch couvre seulement un premier socle exploitable (prix/funding/OI/volume).
+- Pas de support metal/forex dans la couche market externe ajoutee; `XAUUSD` reste fallback explicite.
+- Les valeurs Binance sont des snapshots HTTP publics au moment de l'appel, pas une promesse de temps reel continu.
+
+9. Closing canonique
+- PASS
+- Patch local minimal livre sans rouvrir ShareX -> inbox -> bridge -> latest.json -> /analyze.
+- Premiere couche de donnees reelles exploitable ajoutee dans `analyze_latest.py`, avec garde-fous et mode degrade lisible.
+
+10. Point de reprise suivant
+- GO_OT_BOT_VISION_REAL_DATA_02
+- Suite logique: etendre prudemment la couche market a une source additionnelle prouvee pour les symboles non-Binance (ou ajouter une couche liquidation robuste) sans refondre Bot Vision.
