@@ -13,9 +13,6 @@ while true; do
   echo "5) show live source"
   echo "6) observe once"
   echo "7) runtime status"
-  echo "8) bridge status"
-  echo "9) bridge latest"
-  echo "10) show last runtime event"
   echo "0) quit"
   printf "choice: "
   read -r choice
@@ -27,9 +24,6 @@ while true; do
     5) "$CMD" show-live-source ;;
     6) "$CMD" observe-once ;;
     7) "$CMD" runtime-status ;;
-    8) "$CMD" bridge-status ;;
-    9) "$CMD" bridge-latest ;;
-    10) "$CMD" show-last-runtime-event ;;
     0) exit 0 ;;
     *) echo "Choix invalide" ;;
   esac
