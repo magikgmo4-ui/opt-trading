@@ -1,0 +1,147 @@
+#!/usr/bin/env python3
+import json
+import sys
+from datetime import datetime
+from pathlib import Path
+from statistics import mean
+from zoneinfo import ZoneInfo
+
+BASE = Path(__file__).resolve().parents[1]
+REPO_ROOT = BASE.parents[1]
+TIMEZONE = "America/Montreal"
+STATE_DIR = REPO_ROOT / "state" / "trading_realtime_v1"
+RUNTIME_OBSERVATIONS_JSONL = STATE_DIR / "runtime_observations_v1.jsonl"
+RUNTIME_RUNS_JSONL = STATE_DIR / "runtime_runs_v1.jsonl"
+RUNTIME_EVENTS_JSONL = STATE_DIR / "runtime_events_v1.jsonl"
+RUNTIME_BRIDGE_RUNS_JSONL = STATE_DIR / "runtime_bridge_runs_v1.jsonl"
+RUNTIME_REPORTS_JSONL = STATE_DIR / "runtime_reports_v1.jsonl"
+
+
+def now_local() -> datetime:
+    return datetime.now(ZoneInfo(TIMEZONE))
+
+
+def load_jsonl(path: Path) -> list[dict]:
+    if not path.exists():
+        return []
+    rows = []
+    with path.open("r", encoding="utf-8") as fh:
+        for line in fh:
+            line = line.strip()
+            if line:
+                rows.append(json.loads(line))
+    return rows
+
+
+def append_jsonl(path: Path, payload: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", encoding="utf-8") as fh:
+        fh.write(json.dumps(payload, ensure_ascii=False) + "\n")
+
+
+def filter_records(records: list[dict], session_id: str | None, start_date: str | None, end_date: str | None) -> list[dict]:
+    out = []
+    for rec in records:
+        rec_session = rec.get("session_name") or rec.get("session_id")
+        rec_date = rec.get("local_date")
+        if session_id and rec_session != session_id:
+            continue
+        if start_date and rec_date and rec_date < start_date:
+            continue
+        if end_date and rec_date and rec_date > end_date:
+            continue
+        out.append(rec)
+    return out
+
+
+def avg(values: list):
+    nums = [float(v) for v in values if v is not None]
+    return round(mean(nums), 4) if nums else None
+
+
+def counts_by(records: list[dict], key: str) -> dict:
+    out = {}
+    for rec in records:
+        value = rec.get(key)
+        tag = str(value) if value is not None else "none"
+        out[tag] = out.get(tag, 0) + 1
+    return out
+
+
+def status(_: list[str]) -> int:
+    payload = {
+        "runtime_observations_jsonl": str(RUNTIME_OBSERVATIONS_JSONL),
+        "runtime_runs_jsonl": str(RUNTIME_RUNS_JSONL),
+        "runtime_events_jsonl": str(RUNTIME_EVENTS_JSONL),
+        "runtime_bridge_runs_jsonl": str(RUNTIME_BRIDGE_RUNS_JSONL),
+        "runtime_reports_jsonl": str(RUNTIME_REPORTS_JSONL),
+        "runtime_observations_count": len(load_jsonl(RUNTIME_OBSERVATIONS_JSONL)),
+        "runtime_runs_count": len(load_jsonl(RUNTIME_RUNS_JSONL)),
+        "runtime_events_count": len(load_jsonl(RUNTIME_EVENTS_JSONL)),
+        "runtime_bridge_runs_count": len(load_jsonl(RUNTIME_BRIDGE_RUNS_JSONL)),
+        "runtime_reports_count": len(load_jsonl(RUNTIME_REPORTS_JSONL))
+    }
+    print(json.dumps(payload, indent=2, ensure_ascii=False))
+    return 0
+
+
+def report_runtime(args: list[str]) -> int:
+    session_id = args[0] if len(args) >= 1 and args[0] else None
+    start_date = args[1] if len(args) >= 2 and args[1] else None
+    end_date = args[2] if len(args) >= 3 and args[2] else None
+
+    observations = filter_records(load_jsonl(RUNTIME_OBSERVATIONS_JSONL), session_id, start_date, end_date)
+    runs = filter_records(load_jsonl(RUNTIME_RUNS_JSONL), session_id, start_date, end_date)
+    events = filter_records(load_jsonl(RUNTIME_EVENTS_JSONL), session_id, start_date, end_date)
+    bridge_runs = filter_records(load_jsonl(RUNTIME_BRIDGE_RUNS_JSONL), session_id, start_date, end_date)
+
+    report = {
+        "report_ts": now_local().isoformat(timespec="seconds"),
+        "session_id": session_id,
+        "start_date": start_date,
+        "end_date": end_date,
+        "runtime_observations_count": len(observations),
+        "runtime_runs_count": len(runs),
+        "runtime_events_count": len(events),
+        "runtime_bridge_runs_count": len(bridge_runs),
+        "dates": sorted({rec.get("local_date") for rec in observations if rec.get("local_date")}),
+        "sessions": counts_by(observations, "session_name"),
+        "variants": counts_by(events, "variant_id"),
+        "directions": counts_by(events, "direction"),
+        "event_types": counts_by(events, "event_type"),
+        "avg_entry": avg([rec.get("entry") for rec in observations]),
+        "avg_sl": avg([rec.get("sl") for rec in observations]),
+        "avg_rr_planned": avg([rec.get("rr_planned") for rec in observations])
+    }
+    append_jsonl(RUNTIME_REPORTS_JSONL, report)
+    print(json.dumps(report, indent=2, ensure_ascii=False))
+    return 0
+
+
+def show_last_report(_: list[str]) -> int:
+    reports = load_jsonl(RUNTIME_REPORTS_JSONL)
+    if not reports:
+        print(json.dumps({"message": "no runtime report yet"}, indent=2, ensure_ascii=False))
+        return 0
+    print(json.dumps(reports[-1], indent=2, ensure_ascii=False))
+    return 0
+
+
+COMMANDS = {
+    "status": status,
+    "report-runtime": report_runtime,
+    "show-last-report": show_last_report
+}
+
+
+def main(argv: list[str]) -> int:
+    cmd = argv[1] if len(argv) > 1 else "status"
+    fn = COMMANDS.get(cmd)
+    if fn is None:
+        print("Usage: reporting_v1.py status|report-runtime [session_id] [start_date] [end_date]|show-last-report", file=sys.stderr)
+        return 1
+    return fn(argv[2:])
+
+
+if __name__ == "__main__":
+    raise SystemExit(main(sys.argv))
