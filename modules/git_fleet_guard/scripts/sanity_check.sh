@@ -10,8 +10,12 @@ echo "=== sanity (git_fleet_guard) ==="
 
 test -f "$MODULE_ROOT/app/git_fleet_guard.py"
 test -f "$MODULE_ROOT/config/machines.default.json"
+test -f "$MODULE_ROOT/docs/README.md"
+test -f "$MODULE_ROOT/docs/ETABLI.txt"
+test -f "$MODULE_ROOT/docs/RUNBOOK.txt"
 test -x "$SCRIPT_DIR/cmd.sh"
 test -x "$SCRIPT_DIR/menu.sh"
+test -x "$SCRIPT_DIR/install_shortcuts.sh"
 
 python3 -m py_compile "$MODULE_ROOT/app/git_fleet_guard.py"
 
@@ -49,5 +53,7 @@ test -f "$TMP_REPORTS/latest.json"
 test -f "$TMP_REPORTS/latest.md"
 "$CMD" report --reports-dir "$TMP_REPORTS" --format json >/dev/null
 "$CMD" report --reports-dir "$TMP_REPORTS" --format md >/dev/null
+"$CMD" remediate --reports-dir "$TMP_REPORTS" --format md >/dev/null
+"$CMD" remediate --reports-dir "$TMP_REPORTS" --format json >/dev/null
 
 echo "PASS: git_fleet_guard sanity OK"

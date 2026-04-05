@@ -1,0 +1,54 @@
+OT_GIT_FLEET_GUARD_V1_1_GUIDED_REMEDIATION_01 - CLOSING
+Date UTC: 2026-04-04T17:42:00Z
+
+Etat reel constate au depart
+- Le module `modules/git_fleet_guard/` etait deja valide en V1 audit read-only.
+- La surface existante restait limitee a `status`, `audit`, `report`.
+- Aucun mode de remediation guidee n'existait encore.
+- Les signaux V1.1 `remote_origin_missing`, `remote_origin_inconsistent`, `branch_differs_from_target`, `remote_branch_missing_or_unreachable` n'etaient pas encore produits explicitement dans le rapport reel.
+
+Cas de remediation couverts
+- `stash present`
+- `working tree dirty`
+- `ahead only`
+- `behind only`
+- `diverged`
+- `remote origin missing`
+- `remote origin inconsistent`
+- `branch differs from target`
+- `remote branch missing or unreachable`
+- `repo inaccessible`
+
+Patch minimal applique
+- Conservation complete de la V1 audit read-only.
+- Ajout d'une commande `remediate` lisant `latest.json` par defaut.
+- Enrichissement du rapport d'audit avec les signaux de remote/branche manquants.
+- Mise a jour minimale de `menu.sh`, `README.md`, `docs/git_fleet_guard_module_overview.md`, `docs/git_fleet_guard_runbook.md`, `sanity_check.sh`.
+- Aucun automatisme Git destructif ou semi-destructif ajoute.
+
+Validation reelle
+- `bash modules/git_fleet_guard/scripts/sanity_check.sh` -> PASS
+- `bash modules/git_fleet_guard/scripts/cmd.sh audit --machines admin-trading,student,db-layer` -> PASS
+- `bash modules/git_fleet_guard/scripts/cmd.sh remediate` -> PASS
+- `bash modules/git_fleet_guard/scripts/cmd.sh remediate --machine admin-trading --format json` -> PASS
+- `bash modules/git_fleet_guard/scripts/cmd.sh audit --machines admin-trading --fetch` -> PASS
+- Validation synthetique des cas V1.1 via rapport JSON temporaire -> PASS
+
+Resultats reels observes
+- `admin-trading` remonte maintenant en `review_required` avec `stash_present`, `working_tree_dirty`, et divergence reelle `ahead 7 / behind 105`.
+- `student` remonte en `review_required` avec `stash_present` et `working_tree_dirty`.
+- `db-layer` reste `clean`.
+- `remediate` produit pour chaque machine un diagnostic, un risque, des commandes exactes, des avertissements et un resultat attendu.
+- Les commandes distantes sont correctement quotees, ex. `ssh student 'cd /opt/trading && git status --short'`.
+
+Limites restantes reelles
+- La couche V1.1 reste 100% guidee: aucune commande Git n'est executee automatiquement.
+- Les cas `remote origin missing`, `remote origin inconsistent`, `branch differs from target`, `remote branch missing or unreachable`, `repo inaccessible` sont valides par logique et par rapport synthetique, mais n'ont pas ete observes sur une machine reelle pendant ce run.
+- Aucun kanban n'a ete modifie dans ce closing ; le chantier reste un patch local borné au module.
+
+Verdict
+- PASS
+- V1.1 de remediation guidee ajoutee sans casser la V1 audit read-only.
+
+Point de reprise suivant
+- GO_OT_BOT_VISION_REAL_DATA_01

@@ -1,0 +1,41 @@
+OT_GIT_FLEET_GUARD_V1_AUDIT_01 - CLOSING
+Date UTC: 2026-04-04T01:50:00Z
+
+Etat de depart constate
+- Le module `modules/git_fleet_guard/` existait deja.
+- Le module etait exploitable partiellement, mais incoherent avec la V1 demandee:
+  - doc module non alignee sur les statuts machine V1 ;
+  - audit non read-only par defaut car `git fetch origin` etait actif par defaut dans le code ;
+  - structure standard docs/wrappers incomplete ;
+  - module et wrappers absents des registries.
+
+Patch minimal applique
+- Conserve le module existant ; aucun chantier de remediation ajoute.
+- Audit passe en mode read-only par defaut ; `--fetch` devient explicite/opt-in.
+- Detection V1 durcie pour `remote origin` et branche cible.
+- Ajout de la doc standard minimale sous `modules/git_fleet_guard/docs/`.
+- Ajout de `scripts/install_shortcuts.sh` deleguant vers l'installateur existant.
+- Declaration du module et des wrappers dans `registry/modules_registry.yaml` et `registry/wrappers_registry.yaml`.
+
+Validation reelle
+- `bash modules/git_fleet_guard/scripts/sanity_check.sh` -> PASS
+- `bash modules/git_fleet_guard/scripts/cmd.sh audit --machines admin-trading,student,db-layer` -> PASS
+- `bash modules/git_fleet_guard/scripts/cmd.sh report --format md` -> PASS
+
+Resultats d'audit reels observes
+- `admin-trading` -> `review_required` (stash present, worktree local modifie par le patch en cours, branch ahead 4)
+- `student` -> `review_required` (stash present, working tree dirty)
+- `db-layer` -> `clean`
+- Rapports ecrits sous `modules/git_fleet_guard/reports/` avec `latest.json` et `latest.md`.
+
+Limites restantes reelles
+- Mission V1 strictement read-only: aucune remediation automatique n'est implemente.
+- Le rapport depend de l'accessibilite SSH effective des cibles quand elles sont distantes.
+- Les nouveaux checks `remote_origin_missing`, `remote_origin_inconsistent`, `branch_differs_from_target`, `remote_branch_missing_or_unreachable` sont en place mais non exerces dans ce closing faute de cas reel observe.
+
+Kanban
+- Pas de mise a jour du kanban appliquee dans ce closing ; aucun statut kanban explicite pre-existant du chantier n'a ete modifie dans les sources lues.
+
+Closing canonique
+- Verdict: V1 AUDIT validee comme module durable minimal, read-only par defaut, avec rapport machine par machine.
+- Point de reprise suivant: GO_OT_GIT_FLEET_GUARD_V1_1_GUIDED_REMEDIATION_01
