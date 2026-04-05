@@ -19,9 +19,6 @@ while true; do
   echo "11) reporting status"
   echo "12) report runtime"
   echo "13) show last runtime report"
-  echo "14) export status"
-  echo "15) export last runtime report"
-  echo "16) export runtime report"
   echo "0) quit"
   printf "choice: "
   read -r choice
@@ -39,9 +36,6 @@ while true; do
     11) "$CMD" reporting-status ;;
     12) "$CMD" report-runtime ;;
     13) "$CMD" show-last-runtime-report ;;
-    14) "$CMD" export-status ;;
-    15) "$CMD" export-last-runtime-report ;;
-    16) "$CMD" export-runtime-report ;;
     0) exit 0 ;;
     *) echo "Choix invalide" ;;
   esac
