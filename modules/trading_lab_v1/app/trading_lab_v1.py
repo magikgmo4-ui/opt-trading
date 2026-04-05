@@ -563,20 +563,6 @@ def show_last_batch_report(_: list[str]) -> int:
 
 
 COMMANDS = {
-    "status": status,
-    "show-profile": show_profile,
-    "show-schemas": show_schemas,
-    "show-market-source": show_market_source,
-    "show-sessions": show_sessions,
-    "show-batch-dates": show_batch_dates,
-    "sample-event": emit_sample_event,
-    "sample-trade": emit_sample_trade,
-    "materialize-samples": materialize_samples,
-    "journal-status": journal_status,
-    "run-once": run_once,
-    "extract-features": extract_features,
-    "analyze-market-input": analyze_market_input,
-    "batch-run": batch_run,
     "batch-report": batch_report,
     "show-last-batch-report": show_last_batch_report,
 }
