@@ -25,9 +25,6 @@ while true; do
   echo "17) runtime loop status"
   echo "18) runtime loop once"
   echo "19) show last runtime loop run"
-  echo "20) guardrails status"
-  echo "21) check guardrails"
-  echo "22) show last guardrails report"
   echo "0) quit"
   printf "choice: "
   read -r choice
@@ -51,9 +48,6 @@ while true; do
     17) "$CMD" runtime-loop-status ;;
     18) "$CMD" runtime-loop-once ;;
     19) "$CMD" show-last-runtime-loop-run ;;
-    20) "$CMD" guardrails-status ;;
-    21) "$CMD" check-guardrails ;;
-    22) "$CMD" show-last-guardrails-report ;;
     0) exit 0 ;;
     *) echo "Choix invalide" ;;
   esac
