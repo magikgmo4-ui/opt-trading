@@ -2,7 +2,6 @@
 set -euo pipefail
 BASE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 APP="$BASE/app/trading_realtime_v1.py"
-BRIDGE_APP="$BASE/app/event_bridge_v1.py"
 
 case "${1:-help}" in
   sanity)
@@ -26,17 +25,8 @@ case "${1:-help}" in
   runtime-status)
     python3 "$APP" runtime-status
     ;;
-  bridge-status)
-    python3 "$BRIDGE_APP" status
-    ;;
-  bridge-latest)
-    python3 "$BRIDGE_APP" bridge-latest
-    ;;
-  show-last-runtime-event)
-    python3 "$BRIDGE_APP" show-last-event
-    ;;
   *)
-    echo "Usage: cmd.sh sanity|status|show-profile|show-schemas|show-live-source|observe-once [live_jsonl_path]|runtime-status|bridge-status|bridge-latest|show-last-runtime-event"
+    echo "Usage: cmd.sh sanity|status|show-profile|show-schemas|show-live-source|observe-once [live_jsonl_path]|runtime-status"
     exit 1
     ;;
 esac
