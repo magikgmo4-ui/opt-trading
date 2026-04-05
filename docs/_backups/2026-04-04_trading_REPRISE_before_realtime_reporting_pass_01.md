@@ -24,8 +24,7 @@ Point de reprise opératoire court pour la suite du chantier trading dual stack.
 - live observation posée ;
 - live export posé ;
 - squelette REALTIME V1 posé ;
-- event bridge REALTIME posé ;
-- reporting REALTIME posé.
+- event bridge REALTIME posé.
 
 ## COUVERT
 - schéma commun ;
@@ -37,14 +36,13 @@ Point de reprise opératoire court pour la suite du chantier trading dual stack.
 - live observation ;
 - live export ;
 - squelette REALTIME V1 ;
-- event bridge REALTIME ;
-- reporting REALTIME avec `runtime_reports_v1.jsonl`.
+- event bridge REALTIME avec `runtime_events_v1.jsonl` et `runtime_bridge_runs_v1.jsonl`.
 
 ## SUITE
-Suite recommandée immédiate : ouvrir une passe **REALTIME export** pour produire un rendu lisible/transportable des rapports runtime.
+Suite recommandée immédiate : ouvrir une passe **REALTIME reporting** pour agréger les événements runtime sans glisser vers l’exécution.
 
 ## TRIGGER NATUREL SUIVANT
-`GO_OT_TRADING_REALTIME_V1_EXPORT_PASS_01`
+`GO_OT_TRADING_REALTIME_V1_REPORTING_PASS_01`
 
 ## FORMULE COURTE
-Reprendre depuis les docs `docs/ot/trading/`, les fichiers `schemas/`, puis `modules/trading_lab_v1/` et `modules/trading_realtime_v1/`, et ouvrir la passe REALTIME export avant toute montée en charge runtime.
+Reprendre depuis les docs `docs/ot/trading/`, les fichiers `schemas/`, puis `modules/trading_lab_v1/` et `modules/trading_realtime_v1/`, et ouvrir la passe REALTIME reporting avant toute montée en charge runtime.

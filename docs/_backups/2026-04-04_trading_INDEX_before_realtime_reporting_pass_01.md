@@ -22,7 +22,6 @@ Ce fichier est le point d’entrée local de `docs/ot/trading/`.
 - `docs/ot/trading/13_TRADING_LAB_V1_LIVE_EXPORT_PASS_01.md`
 - `docs/ot/trading/14_TRADING_REALTIME_V1_SKELETON_PASS_01.md`
 - `docs/ot/trading/15_TRADING_REALTIME_V1_EVENT_BRIDGE_PASS_01.md`
-- `docs/ot/trading/16_TRADING_REALTIME_V1_REPORTING_PASS_01.md`
 
 ## SCHÉMAS MACHINE-LISIBLES
 
@@ -33,7 +32,7 @@ Ce fichier est le point d’entrée local de `docs/ot/trading/`.
 ## MODULES LIÉS
 
 - `modules/trading_lab_v1/` : runner LAB, exporteur LAB, comparateur, live observation, live export, samples et scripts.
-- `modules/trading_realtime_v1/` : skeleton REALTIME V1, event bridge runtime, reporting runtime.
+- `modules/trading_realtime_v1/` : skeleton REALTIME V1 et event bridge runtime.
 
 ## ÉTAT ACTUEL
 
@@ -46,11 +45,10 @@ Ce fichier est le point d’entrée local de `docs/ot/trading/`.
 - live observation posée ;
 - live export posé ;
 - squelette REALTIME V1 posé ;
-- event bridge REALTIME posé ;
-- reporting REALTIME posé.
+- event bridge REALTIME posé.
 
 ### Non encore matérialisé ici
-- export REALTIME dédié ;
+- reporting REALTIME dédié ;
 - runner REAL-TIME plus poussé.
 
 ## ORDRE DE LECTURE RECOMMANDÉ
@@ -71,10 +69,9 @@ Ce fichier est le point d’entrée local de `docs/ot/trading/`.
 14. `13_TRADING_LAB_V1_LIVE_EXPORT_PASS_01.md`
 15. `14_TRADING_REALTIME_V1_SKELETON_PASS_01.md`
 16. `15_TRADING_REALTIME_V1_EVENT_BRIDGE_PASS_01.md`
-17. `16_TRADING_REALTIME_V1_REPORTING_PASS_01.md`
 
 ## POINT DE REPRISE COURT
 
-Trigger courant clos : `GO_OT_TRADING_REALTIME_V1_REPORTING_PASS_01`
+Trigger courant clos : `GO_OT_TRADING_REALTIME_V1_EVENT_BRIDGE_PASS_01`
 
-Trigger naturel suivant : `GO_OT_TRADING_REALTIME_V1_EXPORT_PASS_01`
+Trigger naturel suivant : `GO_OT_TRADING_REALTIME_V1_REPORTING_PASS_01`
