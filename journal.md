@@ -11000,3 +11000,77 @@ git diff --name-only origin/sot/mainline...HEAD
 5) Points ouverts (next):
 - Optionnel: supprimer branches devenues inutiles (`fix/mimo-gate-replay-csv-path-01`, `fix/mimo-postmerge-journal-cleanup-01`) si politique repo le permet.
 - —
+
+## 2026-04-06 00:46 — note1220
+1) Objectifs:
+- Reprendre correctement le bon chantier (MiMo V2 Pro Free vs Student Lab).
+- Qualifier MiMo V2 Pro Free bout-en-bout (auth/webhook, lock engine, reset_lock guard, risk_quote, E2E).
+- Produire un closeout documentaire minimal.
+- Vérifier le chemin d’exécution réel (uvicorn + curl).
+- Décider stratégie de merge sans collisions avec autres chantiers; auditer l’état GitHub.
+- Promouvoir dans `sot/mainline` un delta MiMo V2 borné depuis une branche historique divergée.
+
+2) Actions:
+- Rectification de reprise: abandon du fil Student Lab, reprise sur MiMo V2 Pro Free.
+- Qualification MiMo V2:
+  - Lock engine prouvé (mutex COINM_SHORT/USDTM_LONG via `state/router_state.json`, reset via `/api/reset_lock`).
+  - Garde admin `/api/reset_lock` prouvée (500 si OPS_ADMIN_KEY absent, 403 mauvaise clé, 200 bonne clé).
+  - `risk_quote` prouvé (lecture `state/risk_config.json`, formules, variations contrôlées; visibilité via `/api/risk/quote` et `/api/events`; `/tv` retourne 400 si quote invalide).
+  - Test E2E global déclaré PASS.
+- Closeout doc créé: `student/docs/MIMO_V2_PRO_FREE_CLOSEOUT.md`.
+- Qualification runtime réel: lancement uvicorn local + appels curl; comparaison TestClient vs HTTP réel (match).
+- Discussion PM: stratégie “merge candidate” + matrice collision vs Bot Vision Telegram (obligatoire) et Antigravity (conditionnel).
+- Audit repo GitHub `magikgmo4-ui/opt-trading`:
+  - Branches: default `main`, continuité `sot/mainline` (divergence main vs sot/mainline).
+  - Branche historique `feat/student-mimo-qualification` trop divergée (21 ahead / 250 behind vs `sot/mainline`), trop bruitée.
+  - Décision: promotion par branche neuve + delta borné.
+- Construction d’une branche de promotion:
+  - Création `promo/mimo-v2-bounded-01` depuis `sot/mainline`.
+  - Restauration de `modules/health/checker.py` depuis commit `8195cdf`.
+  - Micro-patch `webhook_server.py` (suppression PERF_URL précoce, rejet strict engine non enregistré).
+  - Commit local `1a238ed`.
+- Push de la branche, ouverture PR #71, puis merge confirmé (scope 2 fichiers).
+
+3) Décisions:
+- MiMo V2 Pro Free qualification: CLOSE (PASS E2E GLOBAL PROUVE) + runtime réel: PASS REAL EXEC PATH PROUVE.
+- Ne pas merger directement `feat/student-mimo-qualification`; éviter rebase lourd.
+- Promotion MiMo V2 via branche neuve bornée et PR limitée à 2 fichiers.
+- Bot Vision Telegram = comparateur obligatoire avant décisions de merge similaires; Antigravity = comparateur conditionnel.
+- PR #71 mergée dans `sot/mainline` (delta MiMo résiduel absorbé).
+
+4) Commandes / Code:
+```bash
+# Validation/exec réel (résumé)
+cd /opt/trading
+/opt/trading/.venv/bin/python -m uvicorn webhook_server:app --host 127.0.0.1 --port 8000 --log-level warning
+curl http://127.0.0.1:8000/api/state
+curl "http://127.0.0.1:8000/api/risk/quote?engine=COINM_SHORT&price=65000&sl=66000&tp=0"
+curl -X POST http://127.0.0.1:8000/tv -H 'Content-Type: application/json' -d '<payload>'
+curl "http://127.0.0.1:8000/api/events?limit=3"
+pkill uvicorn
+```
+
+```bash
+# Promotion bornée depuis sot/mainline
+git fetch origin
+git switch sot/mainline
+git pull --ff-only origin sot/mainline
+git switch -c promo/mimo-v2-bounded-01
+git restore --source=8195cdf900acc52c0318f16354144d15655823ce -- modules/health/checker.py
+python3 -m py_compile modules/health/checker.py webhook_server.py
+git add modules/health/checker.py webhook_server.py
+git commit -m "feat(mimo_v2): promote bounded health check and strict engine validation"
+git push -u origin promo/mimo-v2-bounded-01
+```
+
+```diff
+# webhook_server.py (extraits)
+- PERF_URL = os.getenv("PERF_URL", "http://127.0.0.1:8010/perf/event")
+...
+-             pass
++            raise HTTPException(status_code=400, detail=f"Engine '{engine}' not registered")
+```
+
+5) Points ouverts (next):
+- Aucun point actif retenu sur MiMo V2 (promotion bornée mergée, scope respecté).
+- Prochain chantier à ouvrir au besoin: revue/merge candidate Bot Vision Telegram (et Antigravity si intersection réelle avec `opt-trading`).
