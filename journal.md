@@ -10917,3 +10917,86 @@ git push origin --delete <branch>
 5) Points ouverts (next):
 - Reprendre dans une nouvelle session: **GO_GIT_FLEET_GUARD_GUIDED_REMEDIATION_01_REVIEW**.
 - `MEM_CANDIDATE`: `fantome` est réaligné `sot/mainline`; le canon a avancé sur `modules/git_fleet_guard/*` + docs de clôture correspondants, à auditer sans refactor large.
+
+## 2026-04-05 23:41 — note1205
+1) Objectifs:
+- Reconstituer la continuité réelle de **GO_MIMO_OPEN_OBSERVER_GATE_REPLAY_REPRISE_01**.
+- Prouver l’état **gate_replay** (présence, CLI, runtime) sans réimplémentation.
+- Auditer l’exécution runtime sur **admin-trading** (wrapper + systemd + timer + exécution).
+- Corriger un bug borné: résolution de chemin `--csv` en CLI manuelle (chemin relatif repo-root).
+
+2) Actions:
+- Vérification GitHub: **gate_replay** est déjà mergé dans `sot/mainline` (PR #33) + scheduler minimal (PR #38).
+- Audit admin-trading:
+  - Constats Git: `sot/mainline` local divergeait initialement (ahead 2 / behind 7), mais **aucun diff** sur `modules/mimo_open_observer`.
+  - Vérif runtime: wrapper + fichiers systemd présents; timer enabled/active; exécution planifiée OK avec stats.
+  - Reproduction bug CLI: échec en “in-window” avec chemin relatif repo-root (doublon `.../modules/mimo_open_observer/modules/mimo_open_observer/...`).
+  - Validation contournement: exécution OK avec chemin absolu et via wrapper (`MIMO_GATE_REPLAY_CSV` absolu).
+- Patch minimal (branche `fix/mimo-gate-replay-csv-path-01`) sur `modules/mimo_open_observer/app/runner_detect.py`:
+  - Normalisation unique du chemin CSV + injection du chemin résolu dans `provider.csv_replay.path`.
+  - Commit `c129768` pushé après rebase (1er push non-fast-forward).
+- PR #68 ouverte puis **mergée par erreur** avec un fichier parasite `journal.md` en plus du fix.
+- Post-merge sync admin-trading vers `origin/sot/mainline` (HEAD=merge PR #68 `3e5635c...`) + validation runtime PASS.
+- Preuve locale du parasite: `git diff --name-only 821120e..3e5635c...` => `journal.md` + `runner_detect.py`.
+- Cleanup:
+  - Branche `fix/mimo-postmerge-journal-cleanup-01` (déjà existante côté origin), delta borné à `journal.md`.
+  - PR #69 ouverte puis mergée; sync final admin-trading (HEAD=`c4ef381...`) OK.
+
+3) Décisions:
+- Ne pas rouvrir l’implémentation gate_replay (déjà mergée); faire un **audit runtime**.
+- Conserver le correctif CSV path en production; traiter l’inclusion accidentelle de `journal.md` via une PR cleanup dédiée (#69).
+- Sync admin-trading sur `sot/mainline` après merges pour validation réelle.
+
+4) Commandes / Code:
+```bash
+# Audit Git (admin-trading)
+cd /opt/trading
+git fetch origin --prune
+git status --short --branch
+git rev-parse sot/mainline
+git rev-parse origin/sot/mainline
+git diff --name-status sot/mainline..origin/sot/mainline -- modules/mimo_open_observer
+
+# Tests gate_replay
+bash modules/mimo_open_observer/cmd.sh gate_replay \
+  --csv /opt/trading/modules/mimo_open_observer/fixtures/sample_xauusd_m1_signal.csv \
+  --at 2026-04-01T18:00:00-04:00
+
+MIMO_GATE_REPLAY_CSV=/opt/trading/modules/mimo_open_observer/fixtures/sample_xauusd_m1_signal.csv \
+bash modules/mimo_open_observer/scripts/mimo_open_observer_gate_replay.sh \
+  --at 2026-04-01T18:00:00-04:00
+
+# Post-merge sync admin-trading
+git switch sot/mainline
+git pull --rebase origin sot/mainline
+python3 -m py_compile modules/mimo_open_observer/app/runner_detect.py
+
+# Preuve fichier parasite dans merge #68
+git diff --name-only 821120e..3e5635cdd354d3fd5b545911b65e7e08fa04572e
+
+# Préparation cleanup (journal.md uniquement) + vérif portée
+git switch fix/mimo-postmerge-journal-cleanup-01
+git diff --name-only origin/sot/mainline...HEAD
+```
+
+```diff
+# Patch minimal appliqué (runner_detect.py)
++def _resolve_csv_path(csv_path: str) -> Path:
++    raw_path = Path(csv_path)
++    if raw_path.is_absolute():
++        return raw_path
++    cwd_candidate = raw_path
++    if cwd_candidate.is_file():
++        return cwd_candidate.resolve()
++    module_candidate = MODULE_DIR / raw_path
++    if module_candidate.is_file():
++        return module_candidate.resolve()
++    return module_candidate
+...
+-    cfg = {**config, "provider": {"mode": "csv_replay", "csv_replay": {"path": str(csv_path)}}}
++    cfg = {**config, "provider": {"mode": "csv_replay", "csv_replay": {"path": str(csv_file)}}}
+```
+
+5) Points ouverts (next):
+- Optionnel: supprimer branches devenues inutiles (`fix/mimo-gate-replay-csv-path-01`, `fix/mimo-postmerge-journal-cleanup-01`) si politique repo le permet.
+- —
