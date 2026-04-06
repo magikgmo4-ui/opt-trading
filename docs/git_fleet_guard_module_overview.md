@@ -3,7 +3,7 @@
 ## But
 Créer une méthode durable et fidèle au workflow pour auditer l'état Git sur plusieurs machines, sans action destructive par défaut.
 
-## Périmètre V1
+## Perimetre V1
 - admin-trading
 - student
 - db-layer
@@ -12,12 +12,14 @@ Créer une méthode durable et fidèle au workflow pour auditer l'état Git sur 
 - `status`
 - `audit`
 - `report`
+- `remediate`
 
 ## Garanties
 - read-only par défaut
 - aucun reset/rebase/push/stash automatique
 - rapport JSON + Markdown
 - classification des écarts par machine
+- remédiation guidée uniquement ; aucune commande Git n'est exécutée automatiquement
 
 ## Rapport
 Le module écrit :

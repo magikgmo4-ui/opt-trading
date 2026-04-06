@@ -14,7 +14,8 @@ while true; do
 2) audit all
 3) audit one/many machines
 4) show last report (markdown)
-5) quit
+5) guided remediation (markdown)
+6) quit
 EOF
   read -r -p "> " choice || exit 0
   case "$choice" in
@@ -26,7 +27,8 @@ EOF
       "$CMD" audit --machines "$machines"
       ;;
     4) "$CMD" report --format md ;;
-    5) echo "Sortie."; exit 0 ;;
+    5) "$CMD" remediate --format md ;;
+    6) echo "Sortie."; exit 0 ;;
     *) echo "Choix invalide." ;;
   esac
   echo
