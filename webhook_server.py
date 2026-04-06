@@ -35,8 +35,6 @@ from modules.auth.webhook_key import payload_key_is_valid
 # [DISABLED: was top-level code causing SyntaxError]
 #     return {"ok": True, "skipped": "same-side-open"}
 
-PERF_URL = os.getenv("PERF_URL", "http://127.0.0.1:8010/perf/event")
-
 def perf_open(engine: str, symbol: str, side: str, entry: float, stop: float, qty: float, risk_usd: float, meta: dict | None = None):
     payload = {
         "type": "OPEN",
@@ -419,11 +417,7 @@ async def tv_webhook(req: Request):
     if not registry.get_engine(engine):
         # Allow if in old hardcoded list just in case, but prefer registry
         if engine not in ALL_ENGINES:
-             pass # Or raise? Original logic allowed pass for "future engines" but kept sane.
-             # Now we strictly require registry presence or ALL_ENGINES fallback
-             # If strictly enforcing registry:
-             # raise HTTPException(status_code=400, detail=f"Engine '{engine}' not registered")
-             pass
+            raise HTTPException(status_code=400, detail=f"Engine '{engine}' not registered")
 
     if signal not in ("BUY", "SELL"):
         raise HTTPException(status_code=400, detail="signal must be BUY or SELL")
