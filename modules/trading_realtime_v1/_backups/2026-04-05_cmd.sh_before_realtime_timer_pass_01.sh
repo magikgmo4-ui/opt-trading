@@ -7,7 +7,6 @@ REPORT_APP="$BASE/app/reporting_v1.py"
 EXPORT_APP="$BASE/app/export_v1.py"
 LOOP_APP="$BASE/app/runtime_loop_v1.py"
 GUARD_APP="$BASE/app/guardrails_v1.py"
-TIMER_APP="$BASE/app/timer_v1.py"
 C="${1:-help}"
 A2="${2:-}"
 A3="${3:-}"
@@ -35,9 +34,5 @@ case "$C" in
   guardrails-status) python3 "$GUARD_APP" status ;;
   check-guardrails) python3 "$GUARD_APP" check-guardrails ;;
   show-last-guardrails-report) python3 "$GUARD_APP" show-last-report ;;
-  timer-status) python3 "$TIMER_APP" status ;;
-  show-timer-plan) python3 "$TIMER_APP" show-plan ;;
-  timer-tick-once) python3 "$TIMER_APP" tick-once "$A2" ;;
-  show-last-timer-run) python3 "$TIMER_APP" show-last-run ;;
   *) echo "Usage: cmd.sh <command>"; exit 1 ;;
 esac

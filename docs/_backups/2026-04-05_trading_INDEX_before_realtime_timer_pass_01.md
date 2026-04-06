@@ -26,7 +26,6 @@ Ce fichier est le point d’entrée local de `docs/ot/trading/`.
 - `docs/ot/trading/17_TRADING_REALTIME_V1_EXPORT_PASS_01.md`
 - `docs/ot/trading/18_TRADING_REALTIME_V1_RUNTIME_LOOP_PASS_01.md`
 - `docs/ot/trading/19_TRADING_REALTIME_V1_GUARDRAILS_PASS_01.md`
-- `docs/ot/trading/20_TRADING_REALTIME_V1_TIMER_PASS_01.md`
 
 ## SCHÉMAS MACHINE-LISIBLES
 
@@ -37,7 +36,7 @@ Ce fichier est le point d’entrée local de `docs/ot/trading/`.
 ## MODULES LIÉS
 
 - `modules/trading_lab_v1/` : runner LAB, exporteur LAB, comparateur, live observation, live export, samples et scripts.
-- `modules/trading_realtime_v1/` : skeleton REALTIME V1, event bridge runtime, reporting runtime, export runtime, runtime loop, guardrails, timer.
+- `modules/trading_realtime_v1/` : skeleton REALTIME V1, event bridge runtime, reporting runtime, export runtime, runtime loop, guardrails.
 
 ## ÉTAT ACTUEL
 
@@ -54,11 +53,10 @@ Ce fichier est le point d’entrée local de `docs/ot/trading/`.
 - reporting REALTIME posé ;
 - export REALTIME posé ;
 - runtime loop REALTIME posée ;
-- guardrails REALTIME posés ;
-- timer REALTIME posé.
+- guardrails REALTIME posés.
 
 ### Non encore matérialisé ici
-- closeout REALTIME ;
+- timer REALTIME ;
 - runner REAL-TIME plus poussé.
 
 ## ORDRE DE LECTURE RECOMMANDÉ
@@ -83,10 +81,9 @@ Ce fichier est le point d’entrée local de `docs/ot/trading/`.
 18. `17_TRADING_REALTIME_V1_EXPORT_PASS_01.md`
 19. `18_TRADING_REALTIME_V1_RUNTIME_LOOP_PASS_01.md`
 20. `19_TRADING_REALTIME_V1_GUARDRAILS_PASS_01.md`
-21. `20_TRADING_REALTIME_V1_TIMER_PASS_01.md`
 
 ## POINT DE REPRISE COURT
 
-Trigger courant clos : `GO_OT_TRADING_REALTIME_V1_TIMER_PASS_01`
+Trigger courant clos : `GO_OT_TRADING_REALTIME_V1_GUARDRAILS_PASS_01`
 
-Trigger naturel suivant : `GO_OT_TRADING_REALTIME_V1_CLOSEOUT_01`
+Trigger naturel suivant : `GO_OT_TRADING_REALTIME_V1_TIMER_PASS_01`
