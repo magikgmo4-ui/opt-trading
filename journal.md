@@ -11153,3 +11153,83 @@ python -m unittest modules.derivatives_collector.tests.test_bitget_adapter -v
 
 5) Points ouverts (next):
 - Prochain trigger recommandé à l’issue du closeout V12 : `GO_ANTIGRAVITY_V13_UNKNOWN_DETAIL_SCOPE_01` (évaluer si un détail supplémentaire sur les `unknown` vaut le coût, au-delà de `stats.unknown`).
+
+## 2026-04-06 04:57 — note2050
+1) Objectifs:
+- Reprendre l’état canonique (base `sot/mainline`) et borner V12/V13.
+- V12: confirmer l’ajout minimal `stats.unknown` dans le sidecar `.meta.json` sans changer le payload V5.
+- V13: clarification contractuelle (doc/commentaire + tests) autour de `stats.unknown`, sans évolution fonctionnelle ni nouveau champ sidecar.
+
+2) Actions:
+- Confirmé que V12 ne touche réellement que:
+  - `modules/derivatives_collector/app/derivatives_collector.py`
+  - `modules/derivatives_collector/tests/test_orchestrator_retry.py`
+  - `modules/derivatives_collector/tests/test_smoke_multi.py`
+- Validé V12 via:
+  - `unittest` sur `test_orchestrator_retry` (incluant test dédié `stats.unknown`)
+  - smoke ciblé (`test_fail_open`, `test_sidecar_metadata`, `test_adapter(mock, MOCK)`)
+- Cadré V13 (GO_ANTIGRAVITY_V13_SCOPE_01) en passe de clarification contractuelle (pas de nouveau champ sidecar).
+- Implémenté V13 (GO_ANTIGRAVITY_V13_IMPL_01) dans un périmètre strict:
+  - commentaire local figant la sémantique de `stats.unknown` dans `derivatives_collector.py` (vers ligne 347)
+  - renforcement tests contractuels dans `test_orchestrator_retry.py` (vers lignes 276 et 304)
+  - complétion smoke sidecar dans `test_smoke_multi.py` (vers ligne 127)
+- Exécuté les validations annoncées; verdict V13: PASS.
+- Préparé la clôture V13 (GO_ANTIGRAVITY_V13_CLOSEOUT_01).
+
+3) Décisions:
+- V12: PASS; `stats.unknown` devient canonique comme compteur batch-level minimal (rows finales `unknown`), sans détail par symbole/causes.
+- V13: retenu comme clarification contractuelle uniquement (doc/commentaire + tests), sans ajout de champ sidecar et sans modification du payload V5.
+- Invariants figés:
+  - payload V5 inchangé (List[Dict], 1 row/symbole, `error` nullable)
+  - sidecar compatible, `requested = succeeded + failed`
+  - `stats.unknown` informatif; tests ajoutés pour `0 <= unknown <= failed`
+  - absence de fuite de champs internes (ex: `_error_category`)
+
+4) Commandes / Code:
+```bash
+git status --short
+python -m unittest modules.derivatives_collector.tests.test_orchestrator_retry -v
+python -c "from modules.derivatives_collector.tests.test_smoke_multi import test_fail_open, test_sidecar_metadata, test_adapter; test_fail_open(); test_sidecar_metadata(); test_adapter('mock', 'MOCK')"
+```
+
+5) Points ouverts (next):
+- GO_ANTIGRAVITY_V13_CLOSEOUT_01: produire la clôture canonique V13 (périmètre réel, invariants verrouillés, validations exécutées, limites inchangées).
+- Ne pas ouvrir de changement (détail par symbole, détail par cause, nouvelle taxonomie, réduction des unknown, refonte sidecar) sans nouveau trigger explicite.
+
+## 2026-04-06 05:11 — note2051
+1) Objectifs:
+- Reprendre l’état canonique (base `sot/mainline`) et confirmer le périmètre réel de V12.
+- Clôturer V12 (ajout minimal `stats.unknown` dans le sidecar) sans toucher au contrat V5/V6.
+- Cadrer puis implémenter V13 comme clarification contractuelle (doc/tests) autour de `stats.unknown`, sans évolution fonctionnelle ni nouveau champ sidecar.
+
+2) Actions:
+- Confirmé que V12 ne modifie que :
+  - `modules/derivatives_collector/app/derivatives_collector.py`
+  - `modules/derivatives_collector/tests/test_orchestrator_retry.py`
+  - `modules/derivatives_collector/tests/test_smoke_multi.py`
+- Vérifié les validations V12 (unittest + smoke ciblé) et la non-régression du contrat :
+  - payload V5 inchangé (List[Dict], 1 row/symbole, `error` nullable)
+  - sidecar V6 inchangé sauf ajout `stats.unknown`
+  - invariant `requested = succeeded + failed` conservé
+- Cadré V13 : clarification contractuelle uniquement (documentation locale + tests de non-régression), interdiction d’ajouter de nouveaux champs sidecar.
+- Implémenté V13 dans un périmètre strict :
+  - Ajout d’un commentaire local (sémantique `stats.unknown`) dans `derivatives_collector.py` (mentionné à ~ligne 347)
+  - Renforcement tests contractuels dans `test_orchestrator_retry.py` (mentionné à ~lignes 276 et 304)
+  - Complété smoke sidecar chemin mock dans `test_smoke_multi.py` (mentionné à ~ligne 127)
+- Constat : worktree Git déjà “sale” sur d’autres fichiers collector ; la passe V13 est restée bornée au contrat `stats.unknown`.
+
+3) Décisions:
+- V12 : `PASS`. `stats.unknown` devient canonique comme compteur batch-level minimal des rows finales `unknown` (pas de détail par symbole, pas de cause, pas de refonte sidecar).
+- V13 : retenue comme passe de clarification contractuelle (doc/tests), sans ajout de champ sidecar, sans changement du payload principal.
+- V13 : `PASS`. Point de reprise : `GO_ANTIGRAVITY_V13_CLOSEOUT_01`.
+
+4) Commandes / Code:
+```bash
+git status --short
+python -m unittest modules.derivatives_collector.tests.test_orchestrator_retry -v
+python -c "from modules.derivatives_collector.tests.test_smoke_multi import test_fail_open, test_sidecar_metadata, test_adapter; test_fail_open(); test_sidecar_metadata(); test_adapter('mock', 'MOCK')"
+```
+
+5) Points ouverts (next):
+- Produire la clôture canonique V13 (closeout) avec : périmètre réel, invariants verrouillés, validations exécutées, limites inchangées.
+- Ne pas ouvrir de scope (détail par symbole/cause, taxonomie, réduction unknown, refonte sidecar) sans nouveau trigger après `GO_ANTIGRAVITY_V13_CLOSEOUT_01`.
