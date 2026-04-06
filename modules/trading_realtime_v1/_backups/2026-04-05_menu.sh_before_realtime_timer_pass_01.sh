@@ -28,10 +28,6 @@ while true; do
   echo "20) guardrails status"
   echo "21) check guardrails"
   echo "22) show last guardrails report"
-  echo "23) timer status"
-  echo "24) show timer plan"
-  echo "25) timer tick once"
-  echo "26) show last timer run"
   echo "0) quit"
   printf "choice: "
   read -r choice
@@ -58,10 +54,6 @@ while true; do
     20) "$CMD" guardrails-status ;;
     21) "$CMD" check-guardrails ;;
     22) "$CMD" show-last-guardrails-report ;;
-    23) "$CMD" timer-status ;;
-    24) "$CMD" show-timer-plan ;;
-    25) "$CMD" timer-tick-once ;;
-    26) "$CMD" show-last-timer-run ;;
     0) exit 0 ;;
     *) echo "Choix invalide" ;;
   esac
