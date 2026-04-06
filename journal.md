@@ -10819,3 +10819,101 @@ gh pr create --base sot/mainline --head feat/mimo-open-observer-doc-pack-v0-clea
 - Définir/valider concrètement l’intégration avec la structure de docs déjà établie dans le repo (standards de documentation non récupérés automatiquement via GitHub dans la session).
 - Choisir le périmètre exact du premier “topic/campaign” pilote + critères de clôture + mode d’exécution (LAB vs STANDARD vs STRICT).
 - Mettre en place le corpus de référence de non-régression et décider de la politique de rétention/archivage (volumétrie).
+
+## 2026-04-05 20:56 — note1200
+1) Objectifs:
+- Vérifier/aligner l’état Git sur `sot/mainline` (confusion initiale Windows vs Linux).
+- Implémenter et promouvoir la surface read-only `memory_bricks` API V2 `/indexes/*`, puis ajouter des tests HTTP automatisés.
+- Outiller `fantome` comme machine dev-only (module `dev_validation_hub`).
+- Durcir `trading_lab_v1` via tests isolés + corriger un bug d’import canonique.
+- Ajouter des tests isolés pour `trading_realtime_v1` (surfaces runtime + runtime loop).
+- Préparer la reprise sur `GO_GIT_FLEET_GUARD_GUIDED_REMEDIATION_01_REVIEW`.
+
+2) Actions:
+- Diagnostic Git: constat que les commandes étaient exécutées sur Linux `fantome` (pas Windows), repo propre; réalignement `sot/mainline` via `git pull --rebase` (FF jusqu’à `1038036` à ce moment).
+- `memory_bricks` V2:
+  - Implémentation rapportée (branche de travail) de:
+    - `GET /indexes/status`, `GET /indexes/full`, `GET /indexes/short`, `GET /indexes/sequence` (read-only, erreurs stables, aucune mutation `_state/memory_bricks`).
+  - Closeout fonctionnel `/indexes/*`: PASS (sans diff supplémentaire).
+  - PR promotion endpoints: création branche `feat/memory-bricks-v2-indexes-readonly`, commit `e9d9074`, PR #44 créée puis mergée (merge commit `f59e0609`).
+  - Tests HTTP: ajout `modules/memory_bricks/tests/test_api_v2_http.py`; échec initial (dépendances manquantes), puis validation via venv dédié: `14 passed`.
+  - Promotion tests: branche `feat/memory-bricks-v2-http-tests`, commit `1f705ea`, PR #48 créée puis mergée (merge commit `baa1ccf...`), cleanup local+remote confirmé, `sot/mainline` réaligné.
+- Outillage machine dev-only:
+  - Création module `modules/dev_validation_hub` sur `feat/dev-validation-hub-01` (README/RUNBOOK + scripts `cmd.sh`, `menu.sh`, `sanity.sh`, `install_shortcuts.sh`).
+  - Validation locale: `SANITY PASS`; exécution tests memory_bricks via hub confirmée.
+  - PR #49 créée puis mergée (merge commit `06062e8...`), cleanup local+remote confirmé; `sot/mainline` realigné jusqu’à `c217460` (mentionné).
+- `trading_lab_v1` tests:
+  - Tranche 01: branche `feat/trading-lab-v1-test-hardening-01`, fichier `modules/trading_lab_v1/tests/test_reporting_surfaces_v1.py`; validation: `10 passed`; PR #53 mergée (merge commit `1812de1...`), cleanup standard demandé.
+  - Tranche 03: branche `feat/trading-lab-v1-test-hardening-03`, fichier `modules/trading_lab_v1/tests/test_core_runner_v1.py`; découverte d’un bug canonique (import cassé) `NameError: status` car table `COMMANDS` référence des handlers absents.
+    - Patch minimal appliqué localement (réécriture `COMMANDS` pour ne garder que handlers existants `batch-report`, `show-last-batch-report`), tests: `10 passed`, commit `3b9f781`.
+    - Push manquant puis effectué; PR #57 ouverte puis mergée (merge commit `b6932ea...`), cleanup local+remote confirmé; `sot/mainline` réaligné jusqu’à `1073505` (mentionné).
+- `trading_realtime_v1` tests:
+  - Tranche surfaces runtime: branche `feat/trading-realtime-v1-test-hardening-01`, fichier `modules/trading_realtime_v1/tests/test_runtime_surfaces_v1.py`; validation: `10 passed`; PR #60 mergée (merge commit `cb45478...`), cleanup + `git pull` (FF) appliqués, venvs ignorés via `.git/info/exclude`.
+  - Tranche runtime loop: branche `feat/trading-realtime-v1-runtime-loop-tests`, fichier `modules/trading_realtime_v1/tests/test_runtime_loop_v1.py`; validation: `5 passed`; PR #63 mergée (merge commit `4d0d16b...`), cleanup local+remote effectué.
+- Dernier `git pull` sur `sot/mainline`: FF `cb45478..7a998dd` avec ajouts `modules/trading_realtime_v1/app/guardrails_v1.py` et mises à jour `modules/git_fleet_guard/*` + docs closings.
+
+3) Décisions:
+- Le patch `validated_prompt_factory: add mandatory role-preface to prompts` est considéré déjà mergé sur `sot/mainline` (pas de revert).
+- Doctrine `memory_bricks` V2: endpoints strictement read-only, pas de mutation `_state/memory_bricks`, erreurs stables; `/indexes/*` traité par tranches + closeout.
+- `fantome` = machine dev-only (pas de rôle runtime); investissement ROI via module versionné `dev_validation_hub`.
+- Pour `trading_lab_v1` tranche 03: corriger minimalement l’import (table `COMMANDS`) plutôt que refactor large, afin de rendre le module importable et testable.
+- Reprise demandée dans une autre session sur: `GO_GIT_FLEET_GUARD_GUIDED_REMEDIATION_01_REVIEW` (avec `MEM_CANDIDATE`).
+
+4) Commandes / Code:
+```bash
+# Vérifs/alignements Git (exemples utilisés)
+git status --short --branch
+git rev-list --left-right --count HEAD...origin/sot/mainline
+git checkout sot/mainline
+git pull --rebase origin sot/mainline
+git fetch --all --prune
+
+# Promotion memory_bricks indexes
+git switch -c feat/memory-bricks-v2-indexes-readonly
+git add modules/memory_bricks/app/api_v2_server.py
+git commit -m "memory_bricks: finalize V2 read-only indexes endpoints"
+git push -u origin feat/memory-bricks-v2-indexes-readonly
+
+# Promotion tests HTTP memory_bricks
+git switch -c feat/memory-bricks-v2-http-tests
+git add modules/memory_bricks/tests/test_api_v2_http.py
+git commit -m "memory_bricks: add isolated HTTP tests for V2 read-only API"
+git push -u origin feat/memory-bricks-v2-http-tests
+
+# Venv + exécution tests HTTP (validation réelle)
+python3 -m venv ".venv-memory-bricks-tests"
+".venv-memory-bricks-tests/bin/python" -m pip install --upgrade pip
+".venv-memory-bricks-tests/bin/python" -m pip install pytest fastapi httpx uvicorn
+".venv-memory-bricks-tests/bin/python" -m pytest "modules/memory_bricks/tests/test_api_v2_http.py"
+
+# Masquer venvs localement sans polluer .gitignore
+printf ".venv-dev-validation/\n.venv-memory-bricks-tests/\n" >> .git/info/exclude
+
+# Correction locale trading_lab_v1 (patch minimal COMMANDS) + tests + commit
+python3 - <<'PY'
+from pathlib import Path; import re
+p=Path("modules/trading_lab_v1/app/trading_lab_v1.py")
+t=p.read_text(encoding="utf-8")
+t=re.sub(r'COMMANDS = \{.*?\n\}\n\n\ndef main','COMMANDS = {\n    "batch-report": batch_report,\n    "show-last-batch-report": show_last_batch_report,\n}\n\n\ndef main',t,flags=re.S)
+p.write_text(t,encoding="utf-8")
+print("patched", p)
+PY
+python3 -m py_compile modules/trading_lab_v1/app/trading_lab_v1.py modules/trading_lab_v1/tests/test_core_runner_v1.py
+python3 -m pytest modules/trading_lab_v1/tests/test_core_runner_v1.py
+git add modules/trading_lab_v1/app/trading_lab_v1.py modules/trading_lab_v1/tests/test_core_runner_v1.py
+git commit -m "trading_lab_v1: restore import-safe command map for core tests"
+
+# Tests trading_realtime_v1
+python3 -m py_compile modules/trading_realtime_v1/tests/test_runtime_surfaces_v1.py
+python3 -m pytest modules/trading_realtime_v1/tests/test_runtime_surfaces_v1.py
+python3 -m py_compile modules/trading_realtime_v1/tests/test_runtime_loop_v1.py
+python3 -m pytest modules/trading_realtime_v1/tests/test_runtime_loop_v1.py
+
+# Cleanup branches après merge
+git branch -d <branch>
+git push origin --delete <branch>
+```
+
+5) Points ouverts (next):
+- Reprendre dans une nouvelle session: **GO_GIT_FLEET_GUARD_GUIDED_REMEDIATION_01_REVIEW**.
+- `MEM_CANDIDATE`: `fantome` est réaligné `sot/mainline`; le canon a avancé sur `modules/git_fleet_guard/*` + docs de clôture correspondants, à auditer sans refactor large.
