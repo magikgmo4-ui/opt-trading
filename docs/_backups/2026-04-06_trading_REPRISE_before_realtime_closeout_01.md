@@ -1,6 +1,6 @@
 # GO_OT_TRADING_DUAL_STACK_V1_01 — REPRISE
 
-Date (America/Montreal) : 2026-04-06
+Date (America/Montreal) : 2026-04-05
 
 ## OBJET
 Point de reprise opératoire court pour la suite du chantier trading dual stack.
@@ -29,8 +29,7 @@ Point de reprise opératoire court pour la suite du chantier trading dual stack.
 - export REALTIME posé ;
 - runtime loop REALTIME posée ;
 - guardrails REALTIME posés ;
-- timer REALTIME posé ;
-- closeout REALTIME V1 posé.
+- timer REALTIME posé.
 
 ## COUVERT
 - schéma commun ;
@@ -47,14 +46,13 @@ Point de reprise opératoire court pour la suite du chantier trading dual stack.
 - export REALTIME ;
 - runtime loop REALTIME ;
 - guardrails REALTIME ;
-- timer REALTIME ;
-- closeout REALTIME V1.
+- timer REALTIME avec `runtime_timer_runs_v1.jsonl`.
 
 ## SUITE
-Aucun nouveau chantier n’est recommandé par défaut.
+Suite recommandée immédiate : ouvrir une passe **REALTIME closeout** pour fermer proprement la chaîne REALTIME V1 minimale.
 
-## POINT DE REPRISE UNIQUE
-`GO_OT_TRADING_REALTIME_V1_CHAIN_CLOSED_01`
+## TRIGGER NATUREL SUIVANT
+`GO_OT_TRADING_REALTIME_V1_CLOSEOUT_01`
 
 ## FORMULE COURTE
-La chaîne minimale REALTIME V1 est fermée proprement au niveau repo et continuité canonique. Reprendre uniquement depuis `GO_OT_TRADING_REALTIME_V1_CHAIN_CLOSED_01` si un nouveau chantier réel doit être ouvert.
+Reprendre depuis les docs `docs/ot/trading/`, les fichiers `schemas/`, puis `modules/trading_lab_v1/` et `modules/trading_realtime_v1/`, et ouvrir la passe REALTIME closeout pour fermer proprement la chaîne minimale.

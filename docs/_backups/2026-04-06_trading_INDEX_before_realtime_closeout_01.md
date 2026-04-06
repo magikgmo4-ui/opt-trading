@@ -27,7 +27,6 @@ Ce fichier est le point d’entrée local de `docs/ot/trading/`.
 - `docs/ot/trading/18_TRADING_REALTIME_V1_RUNTIME_LOOP_PASS_01.md`
 - `docs/ot/trading/19_TRADING_REALTIME_V1_GUARDRAILS_PASS_01.md`
 - `docs/ot/trading/20_TRADING_REALTIME_V1_TIMER_PASS_01.md`
-- `docs/ot/trading/21_TRADING_REALTIME_V1_CLOSEOUT_01.md`
 
 ## SCHÉMAS MACHINE-LISIBLES
 
@@ -56,11 +55,11 @@ Ce fichier est le point d’entrée local de `docs/ot/trading/`.
 - export REALTIME posé ;
 - runtime loop REALTIME posée ;
 - guardrails REALTIME posés ;
-- timer REALTIME posé ;
-- closeout REALTIME V1 posé.
+- timer REALTIME posé.
 
 ### Non encore matérialisé ici
-- aucun nouveau chantier recommandé par défaut.
+- closeout REALTIME ;
+- runner REAL-TIME plus poussé.
 
 ## ORDRE DE LECTURE RECOMMANDÉ
 
@@ -85,10 +84,9 @@ Ce fichier est le point d’entrée local de `docs/ot/trading/`.
 19. `18_TRADING_REALTIME_V1_RUNTIME_LOOP_PASS_01.md`
 20. `19_TRADING_REALTIME_V1_GUARDRAILS_PASS_01.md`
 21. `20_TRADING_REALTIME_V1_TIMER_PASS_01.md`
-22. `21_TRADING_REALTIME_V1_CLOSEOUT_01.md`
 
 ## POINT DE REPRISE COURT
 
-Trigger courant clos : `GO_OT_TRADING_REALTIME_V1_CLOSEOUT_01`
+Trigger courant clos : `GO_OT_TRADING_REALTIME_V1_TIMER_PASS_01`
 
-Point de reprise unique : `GO_OT_TRADING_REALTIME_V1_CHAIN_CLOSED_01`
+Trigger naturel suivant : `GO_OT_TRADING_REALTIME_V1_CLOSEOUT_01`
