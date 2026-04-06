@@ -11074,3 +11074,82 @@ git push -u origin promo/mimo-v2-bounded-01
 5) Points ouverts (next):
 - Aucun point actif retenu sur MiMo V2 (promotion bornée mergée, scope respecté).
 - Prochain chantier à ouvrir au besoin: revue/merge candidate Bot Vision Telegram (et Antigravity si intersection réelle avec `opt-trading`).
+
+## 2026-04-06 02:47 — note2030
+1) Objectifs:
+- Reprendre l’état canonique Antigravity sur `magikgmo4-ui/opt-trading` et enchaîner V4→V12 (hardening, contrat de sortie, meta sidecar, retry, taxonomie erreurs, couverture adapters, visibilité unknown) jusqu’aux points de reprise suivants.
+
+2) Actions:
+- V4 Hardening:
+  - Cadrage V4 : fragilité localisée sur `BaseAdapter.collect()` (exceptions threads + retours invalides) ; axe retenu = fail-open orchestrateur.
+  - Impl V4 : ajout proxy `_safe_collect_symbol()`, filtrage type avant `asdict`, logs d’erreur par symbole, batch partiel conservé.
+  - Closeout V4 : suppression artefacts `tmp/refactor_*.py`; correction exécution `test_fail_open()` ; commit/push.
+- V5 Errors Payload:
+  - Impl : ajout champ `error` dans `DerivativesRow`, reporting in-row (une ligne par symbole demandé, métriques null en cas d’échec), mise à jour adapters + tests; commit/push.
+  - Closeout : contrat de sortie explicitement changé et accepté comme nouveau canon (champ `error` + lignes d’échec).
+- V6 Batch Meta:
+  - Scope initial rejeté (pseudo-row `_BLOCK_REPORT_`) puis recadrage PASS vers sidecar `.meta.json`.
+  - Impl : génération `derivatives_TIMESTAMP.meta.json` avec stats batch + `meta_schema_version: 1`; test sidecar; commit/push.
+  - Closeout : sidecar validé canonique; `requested = succeeded + failed` confirmé.
+- V7 Retry On Failed:
+  - Cadrage : seconde passe unique, ciblée sur erreurs retryables seulement.
+  - Impl : seconde passe orchestrateur + filtre retryable (marqueurs textuels au départ) + tests; PASS; closeout PASS (dette = classification textuelle).
+- V8 Retryable Error Taxonomy:
+  - Scope PASS : taxonomie interne légère au point commun.
+  - Impl : catégories internes + décision retry basée catégorie, fallback textuel secondaire; tests OK; mention erreurs Binance préexistantes hors périmètre; closeout PASS.
+- V9 Suppression fallback textuel:
+  - Scope PASS, Impl : retrait complet du fallback (suppression `RETRYABLE_ERROR_MARKERS` / `_is_retryable_error`), décision purement taxonomique, `unknown` non-retryable; support optionnel `(DerivativesRow, category)`; tests OK; closeout PASS.
+- V10 Couverture catégorielle adapter-level:
+  - Scope PASS, Impl : marquage ponctuel sur Binance/Bitget (pannes transitoires totales => `retryable_transient`, symbole vide/invalide => `non_retryable_contract`), ajout suivi `_last_fetch_error_category`; tests adapters; closeout PASS (note worktree initialement dirty).
+- V11 Réduction micro des `unknown`:
+  - Scope PASS, Impl : Bitget symbole vide/invalide marqué `non_retryable_contract`; tests OK; closeout PASS.
+- V12 Visibilité `unknown`:
+  - Scope PASS, Impl : ajout `stats.unknown` dans sidecar `.meta.json` + tests; closeout PASS.
+
+3) Décisions:
+- V4 : priorité durcissement orchestrateur (fail-open) ; timeout global laissé hors priorité.
+- V4 Closeout : scripts `tmp/refactor_*.py` tranchés non canoniques et retirés.
+- V5 : nouveau canon de sortie accepté (champ `error` + une row par symbole demandé).
+- V6 : design sidecar `.meta.json` retenu; pseudo-row `_BLOCK_REPORT_` rejetée.
+- V7 : retry = une seconde passe unique, seulement pour erreurs retryables.
+- V8 : taxonomie interne légère canonique; fallback textuel transitoire.
+- V9 : suppression totale du fallback textuel; `unknown` non-retryable; `(DerivativesRow, category)` accepté comme mécanisme léger.
+- V10 : enrichissement adapter-level ciblé (pas de normalisation exhaustive); `unknown` reste filet prudent.
+- V12 : `stats.unknown` canonique comme compteur batch-level minimal (pas d’inventaire détaillé).
+
+4) Commandes / Code:
+```bash
+python tmp\refactor_hardening.py
+python modules\derivatives_collector\tests\test_smoke_multi.py
+
+git add tmp\refactor_hardening.py modules\derivatives_collector\app\derivatives_collector.py modules\derivatives_collector\tests\test_smoke_multi.py
+git commit -m "feat(hardening): isolate execution queues under _safe_collect_symbol proxy"
+git push origin sot/mainline
+
+ls modules\derivatives_collector\app\derivatives_collector.py
+ls modules\derivatives_collector\tests\test_smoke_multi.py
+ls tmp\refactor_hardening.py
+
+rm tmp\refactor_hardening.py tmp\refactor_logging.py tmp\refactor_schema.py tmp\stdout.txt tmp\stderr.txt
+python modules\derivatives_collector\tests\test_smoke_multi.py > test_log.txt 2>&1
+cat test_log.txt
+rm test_log.txt
+
+git add modules\derivatives_collector\tests\test_smoke_multi.py
+git commit -m "test(hardening): add formal fail-open verification to smoke suite"
+git push origin sot/mainline
+
+git add modules\derivatives_collector\app\derivatives_collector.py modules\derivatives_collector\app\binance_adapter.py modules\derivatives_collector\app\bitget_adapter.py modules\derivatives_collector\tests\test_smoke_multi.py
+git commit -m "feat(payload): promote in-row error reporting to canonical status"
+git push origin sot/mainline
+
+python modules\derivatives_collector\app\derivatives_collector.py collect
+ls data\derivatives\*.json | select -last 2 | % { cat $_.FullName }
+
+python -m unittest modules.derivatives_collector.tests.test_orchestrator_retry -v
+python -c "from modules.derivatives_collector.tests.test_smoke_multi import test_fail_open, test_sidecar_metadata, test_adapter; test_fail_open(); test_sidecar_metadata(); test_adapter('mock', 'MOCK')"
+python -m unittest modules.derivatives_collector.tests.test_bitget_adapter -v
+```
+
+5) Points ouverts (next):
+- Prochain trigger recommandé à l’issue du closeout V12 : `GO_ANTIGRAVITY_V13_UNKNOWN_DETAIL_SCOPE_01` (évaluer si un détail supplémentaire sur les `unknown` vaut le coût, au-delà de `stats.unknown`).
