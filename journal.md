@@ -10917,3 +10917,120 @@ git push origin --delete <branch>
 5) Points ouverts (next):
 - Reprendre dans une nouvelle session: **GO_GIT_FLEET_GUARD_GUIDED_REMEDIATION_01_REVIEW**.
 - `MEM_CANDIDATE`: `fantome` est réaligné `sot/mainline`; le canon a avancé sur `modules/git_fleet_guard/*` + docs de clôture correspondants, à auditer sans refactor large.
+
+## 2026-04-05 22:22 — note1201
+1) Objectifs:
+- Reprendre un plan de doc “dual stack” (LAB vs REALTIME) et le matérialiser proprement dans le repo `magikgmo4-ui/opt-trading`.
+- Structurer une chaîne LAB V1 complète (schémas → runner → batch → reporting/export → comparaison LAB/LIVE → observation LIVE).
+- Ouvrir une chaîne REALTIME V1 observation-only (squelette → bridge événements → reporting/export → boucle runtime → guardrails → timer) puis la fermer (closeout).
+- Maintenir une discipline “backup avant modif”, indexation, et points de reprise (GO triggers).
+
+2) Actions:
+- Repo ciblé et confirmé : `magikgmo4-ui/opt-trading` (branche `sot/mainline`), utilisation du dossier `docs/ot/trading/`.
+- Création doc canonique + ajout dans `docs/INDEX.md` avec backups.
+- Mise en place d’un index local `docs/ot/trading/INDEX.md` + fichier de reprise `01_GO_..._REPRISE.md` + navigation locale, avec backups.
+- Matérialisation progressive LAB V1 :
+  - core spec, schémas machine-lisibles (YAML/JSON), squelette module `modules/trading_lab_v1/`, runner (run-once), input marché CSV, feature engine, batch, batch reporting, export.
+  - comparateur LAB/LIVE via référence JSONL.
+  - branche LIVE observation + export (publication bloquée en direct, contournée par PR).
+- Matérialisation progressive REALTIME V1 (module séparé `modules/trading_realtime_v1/`, observation-only) :
+  - squelette, event bridge, reporting, export, runtime loop, guardrails, timer.
+  - plusieurs publications ont nécessité le pattern “branche dédiée + PR” à cause de refus non-fast-forward / update_ref.
+- Closeout REALTIME : fermeture canonique + mise à jour index/reprise + backups.
+
+3) Décisions:
+- Déposer la doc dans `docs/ot/trading/` et garder un naming séquentiel (`00_...`, `01_...`, etc.) pour repérage.
+- Ne pas modifier certains fichiers quand le connecteur bloque (ex: `menu.sh` parfois), privilégier une passe minimale livrable.
+- En cas de blocage `update_ref` / non-fast-forward : appliquer le pattern de secours “commit → branche dédiée → PR de rattrapage”.
+- Maintenir STRICTEMENT `trading_realtime_v1` en observation-only (pas d’exécution d’ordres).
+
+4) Commandes / Code:
+```text
+Repo: magikgmo4-ui/opt-trading
+Branche canonique: sot/mainline
+
+Principales commandes ajoutées (LAB):
+- cmd-trading_lab_v1 analyze-market-input [csv_path] [session_id] [local_date]
+- cmd-trading_lab_v1 extract-features [csv_path] [session_id] [local_date]
+- cmd-trading_lab_v1 show-batch-dates [csv_path] [session_id]
+- cmd-trading_lab_v1 batch-run [csv_path] [session_id] [start_date] [end_date]
+- cmd-trading_lab_v1 batch-report [session_id] [start_date] [end_date]
+- cmd-trading_lab_v1 export-last-batch-report
+- cmd-trading_lab_v1 export-batch-report [session_id] [start_date] [end_date]
+- cmd-trading_lab_v1 compare-live [live_jsonl_path] [session_id] [start_date] [end_date]
+- cmd-trading_lab_v1 observe-live [live_jsonl_path] [session_id] [start_date] [end_date]
+(+ status/show-last* associés)
+
+Principales commandes ajoutées (REALTIME):
+- cmd-trading_realtime_v1 observe-once
+- cmd-trading_realtime_v1 bridge-latest / show-last-runtime-event
+- cmd-trading_realtime_v1 report-runtime [session_id] [start_date] [end_date]
+- cmd-trading_realtime_v1 export-runtime-report [session_id] [start_date] [end_date]
+- cmd-trading_realtime_v1 runtime-loop-once [live_jsonl_path]
+- cmd-trading_realtime_v1 check-guardrails
+- cmd-trading_realtime_v1 timer-tick-once [live_jsonl_path]
+(+ status/show-last* associés)
+```
+
+Commits (directs sur `sot/mainline`, tels que reportés) :
+```text
+c39880c  doc canonique initiale
+a4f93f3  backup + update docs/INDEX.md (entrée trading)
+a8dd27e  index local + reprise + backup doc principal + nav locale
+78d91b0  core spec V1
+1038036  schémas V1 (YAML/JSON) + doc matérialisation
+35eddbd  squelette modules/trading_lab_v1
+e032a88  first runner pass (JSONL)
+52d56a1  market input pass (CSV + analyse)
+661da42  feature engine pass (features_v1.jsonl)
+1a33537  batch pass (batch_runs_v1.jsonl)
+0244503  batch reporting pass (batch_reports_v1.jsonl)
+cfdff7c  report export pass (exports/)
+a0b244c  comparator pass (LAB/LIVE)
+3af189a  closeout REALTIME V1 (21_..._CLOSEOUT_01.md)
+```
+
+PRs (pattern de rattrapage, telles que reportées) :
+```text
+#50  LIVE observation + LIVE export (feat/trading-live-observation-export-v1) — merged
+#52  REALTIME skeleton (feat/trading-realtime-v1-skeleton) — merged
+#54  REALTIME event bridge (feat/trading-realtime-v1-event-bridge) — merged
+#56  REALTIME reporting (feat/trading-realtime-v1-reporting) — merged
+#58  REALTIME export (feat/trading-realtime-v1-export) — merged
+#59  REALTIME runtime loop (feat/trading-realtime-v1-runtime-loop) — merged
+#62  REALTIME guardrails (feat/trading-realtime-v1-guardrails) — merged
+#65  REALTIME timer (feat/trading-realtime-v1-timer) — merged
+```
+
+Fichiers clés ajoutés (sélection) :
+```text
+Docs (trading):
+docs/ot/trading/00_TRADING_DUAL_STACK_LAB_REALTIME_V1.md
+docs/ot/trading/02_TRADING_DUAL_STACK_CORE_SPEC_V1.md
+docs/ot/trading/03..21_*.md (matérialisations, passes, closeout)
+docs/ot/trading/INDEX.md
+docs/ot/trading/01_GO_OT_TRADING_DUAL_STACK_V1_01_REPRISE.md
+docs/_backups/* (multiples backups avant modifs)
+
+LAB:
+modules/trading_lab_v1/app/trading_lab_v1.py
+modules/trading_lab_v1/app/report_export_v1.py
+modules/trading_lab_v1/app/comparator_v1.py
+modules/trading_lab_v1/app/live_observation_v1.py
+modules/trading_lab_v1/app/live_export_v1.py
+modules/trading_lab_v1/data/sample_xauusd_m1.csv
+modules/trading_lab_v1/data/sample_live_reference_v1.jsonl
+
+REALTIME:
+modules/trading_realtime_v1/app/trading_realtime_v1.py
+modules/trading_realtime_v1/app/event_bridge_v1.py
+modules/trading_realtime_v1/app/reporting_v1.py
+modules/trading_realtime_v1/app/export_v1.py
+modules/trading_realtime_v1/app/runtime_loop_v1.py
+modules/trading_realtime_v1/app/guardrails_v1.py
+modules/trading_realtime_v1/app/timer_v1.py
+```
+
+5) Points ouverts (next):
+- Côté trading : chaîne REALTIME V1 fermée avec point de reprise unique `GO_OT_TRADING_REALTIME_V1_CHAIN_CLOSED_01` (aucun nouveau chantier recommandé par défaut).
+- Note présente dans le dump sur “KIL V1 / Memory Bricks / ollama” : hors-contexte trading dans cette conversation, aucune action repo trading associée explicitement ici.
