@@ -85,16 +85,21 @@ def run_detect_range() -> int:
 def run_replay_csv(csv_path: str) -> int:
     config = load_config()
 
-    csv_file = Path(csv_path)
+    csv_file = Path(csv_path).expanduser()
     if not csv_file.is_absolute():
-        csv_file = MODULE_DIR / csv_path
+        cwd_candidate = (Path.cwd() / csv_file).resolve()
+        if cwd_candidate.is_file():
+            csv_file = cwd_candidate
+        else:
+            csv_file = (MODULE_DIR / csv_file).resolve()
     if not csv_file.is_file():
         print(f"  ERROR: file not found: {csv_file}", file=sys.stderr)
         return 1
 
     window_open_ts = _first_ts_from_csv(csv_file)
 
-    cfg = {**config, "provider": {"mode": "csv_replay", "csv_replay": {"path": str(csv_path)}}}
+    normalized_csv_path = str(csv_file)
+    cfg = {**config, "provider": {"mode": "csv_replay", "csv_replay": {"path": normalized_csv_path}}}
 
     raw_path = MODULE_DIR / config["paths"]["raw_events"]
     enriched_path = MODULE_DIR / config["paths"]["enriched_events"]
@@ -105,7 +110,7 @@ def run_replay_csv(csv_path: str) -> int:
     status = append_raw_event(evt, str(raw_path))
 
     print(f"  === REPLAY DETECT ===")
-    print(f"  csv:             {csv_path}")
+    print(f"  csv:             {normalized_csv_path}")
     print(f"  window:          {window_open_ts.isoformat()}")
     print(f"  event_id:        {evt.event_id}")
     print(f"  fvg_detected:    {evt.fvg_detected}")
