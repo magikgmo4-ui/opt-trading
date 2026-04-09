@@ -13,7 +13,7 @@ Source : construite à partir de `docs/ot/kanban/opt_trading_kanban_source_of_tr
 | Socle doctrinal Trae | ÉTABLI / PARTIEL | helper doctrinal | CONFIRMÉ PARTIELLEMENT (adoption) | GO_OT_NEXT_MISSION_SELECTION_01 |
 | Runtime vs snapshot repo | DIVERGENT / SUIVI | gouvernance ops | NON CONFIRMÉ MAIS ACCEPTÉ (invariant documenté) | GO_OT_NEXT_MISSION_SELECTION_01 |
 | Rules Trae V1 | ÉTABLI / GELÉ (PRE-V1, OPPOSABLE) | couche V1 | oui | gel pré-V1 acté (doc-only) ; suite: GO_OT_NEXT_MISSION_SELECTION_01 |
-| Agents Trae V1 | ÉTABLI / MATÉRIALISÉ (PRE-V1) | couche V1 | oui | revue + gel pré-V1 |
+| Agents Trae V1 | ÉTABLI / GELÉ (PRE-V1, OPPOSABLE) | couche V1 | oui | gel pré-V1 acté (doc-only) ; suite: GO_OT_NEXT_MISSION_SELECTION_01 |
 | Skills Trae V1 | ÉTABLI / MATÉRIALISÉ (PRE-V1) | couche V1 | oui | revue + gel pré-V1 |
 | MCP Policy V1 | ÉTABLI / MATÉRIALISÉ (PRE-V1) | gouvernance | oui | revue + gel pré-V1 |
 
