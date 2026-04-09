@@ -1,6 +1,7 @@
 # INDEX — Documentation Magikgmo
 
 - **docs/ROADMAP.md** : roadmap annotée + critères Done
+- **docs/simex/SIMEX_PRESETS.md** : presets opérateur (SIMEX_* env) + commandes Bitget→Perf
 - **docs/ot/kanban/opt_trading_kanban_source_of_truth.md** : kanban (source of truth) + points de reprise
 - **docs/ot/trading/00_TRADING_DUAL_STACK_LAB_REALTIME_V1.md** : cadrage canonique dual Lab + Real-Time V1, analyse multi-rôles, garde-fous, et trigger `GO_OT_TRADING_DUAL_STACK_V1_01`
 - **docs/master_pack/mission_starter_pack/00_mission_start_guide.md** : point d’entrée unique (ouverture de session)
