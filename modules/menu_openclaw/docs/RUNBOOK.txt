@@ -1,0 +1,15 @@
+MENU_OPENCLAW - RUNBOOK
+
+1. cd /opt/trading
+2. bash modules/menu_openclaw/scripts/sanity.sh
+3. bash modules/menu_openclaw/scripts/cmd.sh status
+4. bash modules/menu_openclaw/scripts/cmd.sh list-menus
+5. ouvrir le module voulu via open-menu <module_id>
+
+Sequence standard OpenClaw :
+- install_module_openclaw
+- openclaw_config_modulaire
+- gateway_openclaw
+- configure_openclaw
+- doctor_openclaw
+- evidence_openclaw
