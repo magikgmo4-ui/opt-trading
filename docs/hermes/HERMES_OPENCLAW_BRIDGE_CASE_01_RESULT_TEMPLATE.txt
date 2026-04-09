@@ -1,0 +1,46 @@
+HERMES OPENCLAW BRIDGE CASE 01 - RESULT TEMPLATE
+
+DATE:
+OPERATEUR:
+MACHINE:
+BRANCHE:
+
+PROMPT SOURCE:
+- docs/hermes/HERMES_OPENCLAW_BRIDGE_CASE_01_PROMPT.txt
+
+SCRIPT HERMES RECU:
+[COLLER ICI]
+
+RELECTURE HUMAINE:
+- conforme au perimetre borne ?
+- oui/non :
+- note courte :
+
+RELECTURE OPENCLAW:
+- faite ?
+- oui/non :
+- note courte :
+
+VALIDATION HUMAINE AVANT EXECUTION:
+- autorise
+- refuse
+- raison :
+
+EXECUTION MANUELLE:
+- executee ?
+- oui/non :
+- commande utilisee :
+
+SORTIE OBSERVEE:
+[COLLER ICI]
+
+VERDICT:
+- preuve ponctuelle validee
+- preuve rejetee
+- execution non autorisee
+
+RISQUES / POINTS DE VIGILANCE:
+- 
+
+SCOPE NOTE:
+Ce resultat ne valide pas un bridge Hermes/OpenClaw general. Il documente seulement le cas borne 01.
