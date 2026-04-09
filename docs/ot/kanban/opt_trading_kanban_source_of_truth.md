@@ -25,6 +25,8 @@ Cette synthèse est un résumé vivant du kanban. Elle permet de voir rapidement
 | trae_module_validator | ÉTABLI / ACTIVE (FORMALISÉ) | outil opérateur | non | GO_OT_NEXT_MISSION_SELECTION_01 |
 | Socle doctrinal Trae | ÉTABLI / PARTIEL | helper doctrinal | CONFIRMÉ PARTIELLEMENT (adoption) | GO_OT_NEXT_MISSION_SELECTION_01 |
 | Runtime vs snapshot repo | DIVERGENT / SUIVI | gouvernance ops | NON CONFIRMÉ MAIS ACCEPTÉ (invariant documenté) | GO_OT_NEXT_MISSION_SELECTION_01 |
+| Trae pré-V1 (statut global) | PRE_V1_COHERENT_AVEC_DELTAS_FINAUX | orchestration / système | non | GO_OT_NEXT_MISSION_SELECTION_01 |
+| CONTRADICTOIRE (cadrage) | CLOSE (CADRÉ / OPPOSABLE) | gouvernance | non | GO_OT_NEXT_MISSION_SELECTION_01 |
 | Rules Trae V1 | ÉTABLI / GELÉ (PRE-V1, OPPOSABLE) | couche V1 | oui | gel pré-V1 acté (doc-only) ; suite: GO_OT_NEXT_MISSION_SELECTION_01 |
 | Agents Trae V1 | ÉTABLI / GELÉ (PRE-V1, OPPOSABLE) | couche V1 | oui | gel pré-V1 acté (doc-only) ; suite: GO_OT_NEXT_MISSION_SELECTION_01 |
 | Skills Trae V1 | ÉTABLI / GELÉ (PRE-V1, OPPOSABLE) | couche V1 | oui | gel pré-V1 acté (doc-only) ; suite: GO_OT_NEXT_MISSION_SELECTION_01 |
@@ -143,8 +145,9 @@ Reprise de session (canonique) :
 ### RÉGULARISATION
 - Régularisations préalables à CONTRADICTOIRE : complétées (décisions canoniques produites pour module validator, adoption socle Trae, et runtime/snapshot).
 
-### CONTRADICTOIRE (À CADRER — MISSION DÉDIÉE, PAS ICI)
-- Décision canonique de cadrage : `docs/ot/trae/OT_TRAE_CONTRADICTOIRE_CADRAGE_DECISION_01.md`
+### CONTRADICTOIRE (CLOSE — CADRÉ / OPPOSABLE)
+- Décision canonique : `docs/ot/trae/OT_TRAE_CONTRADICTOIRE_CADRAGE_DECISION_01.md`
+- Closing : `docs/ot/closings/OT_TRAE_CONTRADICTOIRE_CADRAGE_01_CLOSING.txt`
 - Taxonomie repo vs taxonomie doctrinale Trae :
   - objectif : définir une table de correspondance stable (où vit quoi : `docs/`, `workflow_ai/`, `modules/`, `registry/`, `trae_pack_texts/`) vs couches Trae (Rules/Agents/Skills/MCP).
   - sortie attendue : un mapping “emplacement → rôle → statut canonique”, sans refactor.
@@ -154,6 +157,9 @@ Reprise de session (canonique) :
 
 ### MATÉRIALISÉ & GELÉ (PRE-V1, OPPOSABLE)
 - Socle pré-V1 matérialisé dans `docs/ot/trae/01_RULES_V1.txt` à `docs/ot/trae/11_PRE_V1_REPO_LANDING_PLAN.txt`, et gelé en PRE‑V1 opposable via décisions + clôtures.
+- Statut global Trae pré‑V1 acté : `PRE_V1_COHERENT_AVEC_DELTAS_FINAUX` (sans surpromesse `V1_READY`) :
+  - décision : `docs/ot/trae/OT_TRAE_PRE_V1_CLOSEOUT_STATUS_DECISION_01.md`
+  - closing : `docs/ot/closings/OT_TRAE_PRE_V1_CLOSEOUT_01_CLOSING.txt`
 - Modèle missions longues / multi-étapes : `docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt`.
 - Consolidation traçabilité audit V1 : `docs/ot/closings/OT_TRAE_V1_AUDIT_TRACEABILITY_CONSOLIDATION_01_CLOSING.txt`.
 
@@ -168,4 +174,4 @@ Ordre retenu :
 - GO_OT_NEXT_MISSION_SELECTION_01
 
 ## 11. POINT CANDIDAT SI OUVERTURE DU CHANTIER TRAE V1
-- GO_OT_TRAE_RULES_V1_01 (alias legacy : GO_OT_TRAE_RULES_V1_ADOPTION_01)
+- GO_OT_NEXT_MISSION_SELECTION_01 (sélection explicite, sans lancement automatique)

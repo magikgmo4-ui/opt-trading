@@ -27,3 +27,8 @@ Décisions de gel pré‑V1 opposable (V1 non automatique) :
 - `docs/ot/trae/OT_TRAE_AGENTS_PRE_V1_GEL_DECISION_01.md`
 - `docs/ot/trae/OT_TRAE_SKILLS_PRE_V1_GEL_DECISION_01.md`
 - `docs/ot/trae/OT_TRAE_MCP_POLICY_PRE_V1_GEL_DECISION_01.md`
+Statut global Trae pré‑V1 (closeout doc-only) :
+- `docs/ot/trae/OT_TRAE_PRE_V1_CLOSEOUT_STATUS_DECISION_01.md`
+
+Cadrage CONTRADICTOIRE (repo ↔ couches Trae ; standard module ↔ legacy) :
+- `docs/ot/trae/OT_TRAE_CONTRADICTOIRE_CADRAGE_DECISION_01.md`
