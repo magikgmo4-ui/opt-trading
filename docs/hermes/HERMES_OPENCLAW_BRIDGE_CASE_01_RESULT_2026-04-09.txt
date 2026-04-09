@@ -1,0 +1,59 @@
+HERMES OPENCLAW BRIDGE CASE 01 - RESULT
+
+DATE: 2026-04-09
+OPERATEUR: openclaw / ghost
+MACHINE: db-layer
+BRANCHE: sot/mainline
+
+PROMPT SOURCE:
+- docs/hermes/HERMES_OPENCLAW_BRIDGE_CASE_01_PROMPT.txt
+
+SCRIPT HERMES RECU:
+#!/usr/bin/env bash
+set -Eeuo pipefail
+echo "bridge_case_01_ok"
+pwd
+whoami
+date
+
+RELECTURE HUMAINE:
+- conforme au perimetre borne ?
+- oui/non : oui
+- note courte : script minimal, affichage seul, aucun acces reseau, aucune mutation systeme
+
+RELECTURE OPENCLAW:
+- faite ?
+- oui/non : oui
+- note courte : GO exec 01 et prompt relus localement avant execution ; script conforme au case 01 borne
+
+VALIDATION HUMAINE AVANT EXECUTION:
+- autorise
+- refuse
+- raison : script strictement borne et reversible
+
+EXECUTION MANUELLE:
+- executee ?
+- oui/non : oui
+- commande utilisee : execution directe au shell interactif openclaw
+
+SORTIE OBSERVEE:
+bridge_case_01_ok
+/home/openclaw
+openclaw
+Thu Apr  9 11:40:56 EDT 2026
+
+VERDICT:
+- preuve ponctuelle validee
+
+RISQUES / POINTS DE VIGILANCE:
+- execution faite au shell interactif plutot que via un fichier script capture
+- ne pas extrapoler ce resultat a un bridge Hermes/OpenClaw general
+
+TODO:
+- clore proprement GO_HERMES_OPENCLAW_BRIDGE_05_EXEC_01 cote documentation si aucune preuve supplementaire n est requise
+- decider si un case 02 borne est necessaire ou si case 01 suffit comme preuve minimale
+- si case 02 est ouvert, conserver les memes garde-fous : pas de reseau, pas de mutation systeme, validation humaine obligatoire
+- si reprise terrain, preferer une capture via fichier script temporaire + sortie tee pour une tracabilite plus propre
+
+SCOPE NOTE:
+Ce resultat ne valide pas un bridge Hermes/OpenClaw general. Il documente seulement le cas borne 01.
