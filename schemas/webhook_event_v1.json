@@ -1,97 +1,65 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "WebhookEvent v1",
+  "description": "Contrat réel du payload écrit dans events.jsonl par webhook_server.py",
   "type": "object",
   "required": [
-    "schema_version",
-    "source",
-    "event_type",
     "engine",
+    "signal",
     "symbol",
-    "side",
-    "ts"
+    "tf",
+    "price",
+    "tp",
+    "sl",
+    "reason",
+    "_ts",
+    "qty"
   ],
   "properties": {
-    "schema_version": {
-      "type": "string",
-      "enum": [
-        "1.0"
-      ]
-    },
-    "source": {
-      "type": "string",
-      "enum": [
-        "tradingview",
-        "macro_job",
-        "manual"
-      ]
-    },
-    "event_type": {
-      "type": "string",
-      "enum": [
-        "SIGNAL",
-        "OPEN",
-        "UPDATE",
-        "CLOSE"
-      ]
+    "key": {
+      "type": ["string", "null"]
     },
     "engine": {
       "type": "string",
       "minLength": 1
     },
+    "signal": {
+      "type": "string",
+      "enum": ["BUY", "SELL"]
+    },
     "symbol": {
       "type": "string",
       "minLength": 1
     },
-    "side": {
-      "type": "string",
-      "enum": [
-        "LONG",
-        "SHORT"
-      ]
-    },
-    "ts": {
+    "tf": {
       "type": "string"
     },
-    "key": {
-      "type": [
-        "string",
-        "null"
-      ]
+    "price": {
+      "type": "number"
     },
-    "prices": {
-      "type": "object",
-      "properties": {
-        "entry": {
-          "type": [
-            "number",
-            "null"
-          ]
-        },
-        "stop": {
-          "type": [
-            "number",
-            "null"
-          ]
-        },
-        "exit": {
-          "type": [
-            "number",
-            "null"
-          ]
-        }
-      },
-      "additionalProperties": false
+    "tp": {
+      "type": "number"
     },
-    "qty_hint": {
-      "type": [
-        "number",
-        "null"
-      ]
+    "sl": {
+      "type": "number"
     },
-    "meta": {
-      "type": "object",
-      "additionalProperties": true
+    "reason": {
+      "type": "string"
+    },
+    "_ts": {
+      "type": "string"
+    },
+    "_ip": {
+      "type": ["string", "null"]
+    },
+    "qty": {
+      "type": "number"
+    },
+    "risk_usd": {
+      "type": ["number", "null"]
+    },
+    "risk_real_usd": {
+      "type": ["number", "null"]
     }
   },
   "additionalProperties": true
