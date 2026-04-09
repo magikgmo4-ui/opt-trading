@@ -28,7 +28,7 @@ Cette synthèse est un résumé vivant du kanban. Elle permet de voir rapidement
 | Rules Trae V1 | ÉTABLI / GELÉ (PRE-V1, OPPOSABLE) | couche V1 | oui | gel pré-V1 acté (doc-only) ; suite: GO_OT_NEXT_MISSION_SELECTION_01 |
 | Agents Trae V1 | ÉTABLI / GELÉ (PRE-V1, OPPOSABLE) | couche V1 | oui | gel pré-V1 acté (doc-only) ; suite: GO_OT_NEXT_MISSION_SELECTION_01 |
 | Skills Trae V1 | ÉTABLI / GELÉ (PRE-V1, OPPOSABLE) | couche V1 | oui | gel pré-V1 acté (doc-only) ; suite: GO_OT_NEXT_MISSION_SELECTION_01 |
-| MCP Policy V1 | ÉTABLI / MATÉRIALISÉ (PRE-V1) | gouvernance | oui | revue + gel pré-V1 |
+| MCP Policy V1 | ÉTABLI / GELÉ (PRE-V1, OPPOSABLE) | gouvernance | oui | gel pré-V1 acté (doc-only) ; suite: GO_OT_NEXT_MISSION_SELECTION_01 |
 
 ### Règle de maintenance de la synthèse
 - cette synthèse est un résumé vivant ;
