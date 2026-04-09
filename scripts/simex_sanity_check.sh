@@ -2,4 +2,4 @@
 set -Eeuo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-exec "$ROOT/scripts/simex_cmd.sh" sanity
+exec "$ROOT/modules/simex_bitget_bridge/sanity.sh" "$@"
