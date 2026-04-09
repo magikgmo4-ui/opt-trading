@@ -8,11 +8,15 @@ while true; do
     echo "================================="
     echo "   Derivatives Collector Menu"
     echo "================================="
-    echo "1. Run Collection (Default)"
-    echo "2. Run Sample (Mock)"
-    echo "3. Export Data"
-    echo "4. Show Status"
-    echo "5. Quit"
+    echo "1. Run Collection (Historical)"
+    echo "2. Run Sample (Historical Mock)"
+    echo "3. Export Data (Historical)"
+    echo "4. Show Status (Historical)"
+    echo "5. Run Lifecycle Collection"
+    echo "6. Run Lifecycle Sample"
+    echo "7. Run Lifecycle Export"
+    echo "8. Show Lifecycle Status"
+    echo "9. Quit"
     echo "================================="
     read -p "Select option: " choice
 
@@ -34,6 +38,22 @@ while true; do
             read -p "Press Enter to continue..."
             ;;
         5)
+            bash "$CMD" lifecycle
+            read -p "Press Enter to continue..."
+            ;;
+        6)
+            bash "$CMD" lifecycle-sample
+            read -p "Press Enter to continue..."
+            ;;
+        7)
+            bash "$CMD" lifecycle-export
+            read -p "Press Enter to continue..."
+            ;;
+        8)
+            bash "$CMD" lifecycle-status
+            read -p "Press Enter to continue..."
+            ;;
+        9)
             echo "Exiting..."
             exit 0
             ;;
