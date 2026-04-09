@@ -44,9 +44,9 @@ La V1 n’est plus un problème de prompting intelligent ; c’est un système d
 - les prompts utilisateur sont allégés par 07.
 
 6. Verdict de gel pré-V1
-Statut : DRAFT_PRE_V1_FORT.
+Statut : PRE_V1_COHERENT_AVEC_DELTAS_FINAUX.
 Il manque surtout :
 1. confirmer les derniers points runtime concrets ;
 2. figer les noms/emplacements finaux ;
-3. faire une passe de cohérence transversale ;
+3. conserver une cohérence transversale (README / workflow / reprise / kanban) ;
 4. déclarer ce qui est officiellement hors V1.

@@ -88,7 +88,7 @@ Ordre de merge recommandé
 2. mettre à jour README / index / workflow
 3. matérialiser 09 et 10
 4. vérifier cohérence kanban / reprise / runtime docs
-5. déclarer le socle gelé en PRE_V1_CLOSE ou V1_READY selon validation finale
+5. déclarer le socle cohérent en PRE_V1_COHERENT_AVEC_DELTAS_FINAUX (sans surpromesse V1_READY)
 
 Ce qui ne doit pas arriver
 - ne pas laisser le pack comme unique source de vérité

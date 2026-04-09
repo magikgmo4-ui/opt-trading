@@ -152,8 +152,8 @@ Reprise de session (canonique) :
   - objectif : lister ce qui est “standard opposable” (wrappers cmd/menu/sanity, registry, scripts) et ce qui reste “legacy toléré” ;
   - sortie attendue : une règle de compatibilité (grandfathering) + critères d’exception documentés.
 
-### MATÉRIALISÉ (PRE-V1)
-- Socle pré-V1 matérialisé dans `docs/ot/trae/01_RULES_V1.txt` à `docs/ot/trae/11_PRE_V1_REPO_LANDING_PLAN.txt`.
+### MATÉRIALISÉ & GELÉ (PRE-V1, OPPOSABLE)
+- Socle pré-V1 matérialisé dans `docs/ot/trae/01_RULES_V1.txt` à `docs/ot/trae/11_PRE_V1_REPO_LANDING_PLAN.txt`, et gelé en PRE‑V1 opposable via décisions + clôtures.
 - Modèle missions longues / multi-étapes : `docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt`.
 - Consolidation traçabilité audit V1 : `docs/ot/closings/OT_TRAE_V1_AUDIT_TRACEABILITY_CONSOLIDATION_01_CLOSING.txt`.
 

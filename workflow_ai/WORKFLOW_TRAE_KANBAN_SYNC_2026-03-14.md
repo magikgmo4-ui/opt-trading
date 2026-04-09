@@ -1,65 +1,50 @@
-# Workflow AI — Institutionnel Light (Gated)
+# Workflow — Sync Trae↔Kanban (OT)
 
-Date de génération: 2026-02-27 10:07:42
+Date (America/Montreal) : 2026-03-14
 
-## Objectif
-Rendre le travail avec Cursor (ou tout agent) **prévisible**, **audit-able**, et **contrôlé** par validation humaine (GO/STOP).
+## 1. Objet
+Décrire la procédure minimale et opposable de synchronisation entre :
+- la progression réelle d’un chantier (décisions + clôture),
+- le kanban OT (source of truth + synthèse),
+- et le point de reprise de session.
 
-## Positionnement (repo opt-trading)
-- Ouverture de session (point d’entrée unique) : `docs/master_pack/mission_starter_pack/00_mission_start_guide.md`
-- Exécution : ce document (`workflow_ai/WORKFLOW.md`) est la doctrine canonique de conduite (gates + GO/STOP)
-- Templates d’exécution : `workflow_ai/templates/specs.md` et `workflow_ai/templates/tasks.md`
-- Continuité : `docs/ot/kanban/opt_trading_kanban_source_of_truth.md` + `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md` + dernière clôture pertinente
-- Reprise de session (canonique) : `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md`
-- Packs TRAE : helpers (support), non sources de vérité du repo
+Ce document ne remplace pas la doctrine gated : `workflow_ai/WORKFLOW.md`.
 
-## Gates
-### Gate 0 — Cadre
-- Objectif (5 lignes max)
-- Contraintes (stack, sécurité, perf)
-- Définition du "DONE"
-- Risques connus
+## 2. Règle de priorité (résolution des contradictions)
+Si conflit, appliquer l’ordre suivant :
+1) état réel prouvé (git + artefacts présents),
+2) dernière clôture pertinente,
+3) workflow (`workflow_ai/WORKFLOW.md`),
+4) starter pack,
+5) kanban.
 
-### Gate 1 — Source de vérité
-Créer / mettre à jour :
-- `specs.md`
-- `tasks.md`
-- `db_schema.md` (si DB)
-- `api_contract.md` (si API)
+## 3. Artefacts canoniques à synchroniser
+- Kanban (source of truth) : `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`
+- Synthèse opérationnelle : `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md`
+- Clôtures : `docs/ot/closings/`
+- Décisions Trae : `docs/ot/trae/OT_TRAE_*_DECISION_*.md`
+- Reprise de session : `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md`
 
-### Gate 2 — Plan (petits pas)
-- Étapes atomiques
-- Fichiers touchés
-- Commandes & critères de succès
+## 4. Quand déclencher la sync
+Déclencher une sync si et seulement si au moins un des éléments suivants change :
+- statut d’une brique (ex. “MATÉRIALISÉ” → “GELÉ (PRE‑V1, OPPOSABLE)”),
+- preuve/justification canonique (décision ou clôture),
+- suite / point de reprise,
+- interdiction explicite (ne pas rouvrir / hors-scope),
+- ordre des briques (si et seulement si acté).
 
-### Gate 3 — Backup (OBLIGATOIRE)
-Avant tout nouveau module / correction :
-- export patch (diff)
-- état git (status)
-- instructions rollback
-- (option) commit/tag quand l’humain valide
+## 5. Checklist de sync (doc-only)
+1) Relire la dernière clôture pertinente sous `docs/ot/closings/`.
+2) Vérifier que la décision associée existe (si changement “opposable” ou règle).
+3) Mettre à jour le kanban source of truth (ligne(s) concernée(s) uniquement).
+4) Mettre à jour la synthèse opérationnelle (mêmes lignes, même suite).
+5) Mettre à jour la reprise de session si le point actif ou une interdiction de réouverture change.
+6) Vérifier que la doc de référence pointe vers les bons fichiers (`docs/ot/README.md`, `docs/ot/trae/README.md` si nécessaire).
 
-### Gate 4..N — Implémentation incrémentale
-Chaque incrément doit livrer :
-1) fichiers
-2) résumé diff
-3) commandes
-4) expected output
-5) rollback
+## 6. Interdits (dans la sync)
+- Ne pas “inventer” un nouveau GO pour conclure une sync.
+- Ne pas dégrader un statut opposable sans décision/clôture.
+- Ne pas patcher code/runtime dans une sync.
 
-### Gate N+1 — Clôture (DOC + KANBAN + REPRISE)
-Une brique/mission/module n’est pas considérée “clôturée proprement” tant que la même séquence de travail n’a pas produit :
-1) mise à jour de la documentation canonique concernée,
-2) mise à jour du kanban / source of truth,
-3) vérification et mise à jour de la synthèse opérationnelle du kanban si un statut, une preuve, un point de reprise, une interdiction de réouverture ou l’ordre des briques a changé,
-4) point de reprise propre (next step explicite).
-
-## Validation
-À la fin de chaque Gate :
-- L’agent s’arrête et demande **GO** ou **STOP**.
-
-## Policy 4 machines (rappel)
-- `admin-trading` = repo truth + exécution
-- `cursor-ai` = édition (Cursor)
-- `db-layer` = bases & outils DB
-- `student` = compute/tests lourds
+## 7. Missions longues / multi-étapes
+Modèle canonique : `docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt`.

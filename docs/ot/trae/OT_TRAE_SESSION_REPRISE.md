@@ -8,6 +8,7 @@ Fichier canonique de continuité pour reprendre une session Trae sur `opt-tradin
 ## 2. Chemins canoniques (sources de vérité)
 - Kanban (source of truth) : `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`
 - Synthèse kanban : `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md`
+- Workflow (doctrine gated) : `workflow_ai/WORKFLOW.md`
 - Workflow sync Trae↔Kanban : `workflow_ai/WORKFLOW_TRAE_KANBAN_SYNC_2026-03-14.md`
 - Point d’entrée mission (starter pack) : `docs/master_pack/mission_starter_pack/00_mission_start_guide.md`
 - Standards projet (current state) : `docs/master_pack/00_current_state_and_standards.md`
@@ -19,7 +20,7 @@ Legacy conservé (ne pas promouvoir) :
 ## 3. Ce qui est établi dans cette session
 ### 3.1 Canonicalisation docs OT (OK)
 - Kanban canonique + synthèse en place.
-- Workflow sync en place.
+- Workflow gated + sync en place.
 
 ### 3.2 Migration OT_* hors de la racine (OK)
 - Tous les `OT_*` précédemment à la racine ont été migrés vers :
