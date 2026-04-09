@@ -1,16 +1,18 @@
+import os
 import time
 import datetime
 import requests
 
-SYMBOL = "XAUUSDT"
-PRODUCT_TYPE = "USDT-FUTURES"
-GRANULARITY = "300"   # 5m
-LIMIT = "3"
+SYMBOL = os.getenv("SIMEX_SYMBOL", "XAUUSDT")
+PRODUCT_TYPE = os.getenv("SIMEX_PRODUCT_TYPE", "USDT-FUTURES")
+GRANULARITY = os.getenv("SIMEX_GRANULARITY", "300")   # 5m
+LIMIT = os.getenv("SIMEX_LIMIT", "3")
 
 # tolérance pour capter micro-sweeps/touches (ajuste 0.3–0.8 si besoin)
-TOL = 0.5
+TOL = float(os.getenv("SIMEX_TOL", "0.5"))
 
-PERF_EVENT = "http://127.0.0.1:8010/perf/event"
+PERF_EVENT = os.getenv("SIMEX_PERF_EVENT", "http://127.0.0.1:8010/perf/event")
+ENGINE = os.getenv("SIMEX_ENGINE", "BITGET_SM_LITE")
 
 def bitget_candles(symbol: str):
     url = "https://api.bitget.com/api/v2/mix/market/candles"
@@ -63,7 +65,7 @@ def main():
     open_payload = {
         "type": "OPEN",
         "trade_id": trade_id,
-        "engine": "BITGET_SM_LITE",
+        "engine": ENGINE,
         "symbol": SYMBOL,
         "side": "LONG",
         "entry": entry,
@@ -72,6 +74,9 @@ def main():
         "risk_usd": 0.5,
         "meta": {
             "rule": "sweep+reclaim_tol",
+            "origin": "simex_bitget_bridge",
+            "granularity": GRANULARITY,
+            "product_type": PRODUCT_TYPE,
             "tol": TOL,
             "a_low": a_low,
             "b_low": b_low,
