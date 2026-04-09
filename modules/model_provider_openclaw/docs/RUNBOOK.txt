@@ -1,0 +1,24 @@
+MODEL_PROVIDER_OPENCLAW - RUNBOOK
+
+Objectif : relire et qualifier la policy provider/model avant son usage par les autres façades OpenClaw.
+
+Lecture minimale :
+1. README du module
+2. model_provider_openclaw.doc.md
+3. providers_policy.yaml
+4. agent_model_matrix.yaml
+
+Commandes de base :
+1. cd /opt/trading
+2. bash modules/model_provider_openclaw/scripts/sanity.sh
+3. bash modules/model_provider_openclaw/scripts/cmd.sh status
+4. bash modules/model_provider_openclaw/scripts/cmd.sh show-agent orchestrateur
+5. bash modules/model_provider_openclaw/scripts/cmd.sh export-json
+
+Branchement prudent dans la chaîne OpenClaw :
+- relire la policy via model_provider_openclaw
+- relire ensuite la configuration via configure_openclaw
+- vérifier l état runtime via doctor_openclaw
+- exporter la preuve via evidence_openclaw si nécessaire
+
+Ce runbook ne modifie pas la config live OpenClaw à lui seul.
