@@ -1,0 +1,37 @@
+OT_TRAE_SKILLS_V1_01 - CLOSING
+Date (America/Montreal) : 2026-04-09
+Statut : CLOSE
+Classe : PATCH_LOCAL
+
+1. Objet
+Ouvrir le chantier Skills Trae V1 et acter un gel pré‑V1 strictement doc-only et opposable, sans toucher au runtime, au code, ni ouvrir automatiquement MCP.
+
+2. État réel constaté au départ
+- Repo propre sur `sot/mainline` (working tree clean).
+- Kanban : `Skills Trae V1` = `ÉTABLI / MATÉRIALISÉ (PRE-V1)` avec suite `revue + gel pré-V1`.
+
+3. Décision doc-only
+- Gel pré‑V1 opposable acté pour `Skills Trae V1` (portée : `docs/ot/trae/04_SKILLS_V1.txt` uniquement).
+- Décision canonique : `docs/ot/trae/OT_TRAE_SKILLS_PRE_V1_GEL_DECISION_01.md`
+
+4. Fichiers modifiés / créés
+- Créé : `docs/ot/trae/OT_TRAE_SKILLS_PRE_V1_GEL_DECISION_01.md`
+- Créé : `docs/ot/closings/OT_TRAE_SKILLS_V1_01_CLOSING.txt`
+- Modifié : `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`
+- Modifié : `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md`
+
+5. Patch appliqué (doc-only)
+- Kanban et synthèse alignés pour distinguer `Skills Trae V1` “pré‑V1 matérialisé” vs “pré‑V1 gelé/opposable”.
+- Aucun autre bloc Trae V1 (MCP) n’a été modifié.
+
+6. Périmètre explicitement exclu
+- Aucun patch code / scripts / modules.
+- Aucun patch runtime.
+- Aucune ouverture ou gel de la couche MCP.
+- Aucun commit/push.
+
+7. Verdict
+PASS / CLOSE
+
+8. Point de reprise suivant
+GO_OT_NEXT_MISSION_SELECTION_01 (décider explicitement si l’étape suivante est la couche MCP V1, sans inventer de nouveau GO).
