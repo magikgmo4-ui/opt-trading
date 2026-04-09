@@ -72,3 +72,16 @@ modules/**/config/*.env
 desk/
 *.restored_*
 *.fixindent_bak_*
+
+# --- student / ingest secrets ---
+ingest/INGEST_API_KEY
+ingest/venv/
+ingest/__pycache__/
+scripts/runlog
+
+# general secrets/env
+.env.*
+*API_KEY*
+*SECRET*
+*TOKEN*
+*PASSWORD*
