@@ -8,6 +8,7 @@ while true; do
   echo "1) Sanity"
   echo "2) Canon FULL -> push student (1-click)"
   echo "3) Canon latest (top 10)"
+  echo "4) Refresh active GO matrix"
   echo "q) Quit"
   echo -n "> "
   read -r choice || true
@@ -15,6 +16,7 @@ while true; do
     1) "$DIR/sanity_check_journal_de_bord.sh" ;;
     2) "$DIR/canon_full_push_student.sh" ;;
     3) "$DIR/canon_latest.sh" 10 ;;
+    4) "$DIR/go_matrix_refresh.sh" ;;
     q|Q) exit 0 ;;
     *) echo "?" ;;
   esac
