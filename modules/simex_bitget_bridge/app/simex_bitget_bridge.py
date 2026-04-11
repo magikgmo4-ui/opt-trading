@@ -4,6 +4,8 @@ import datetime
 import requests
 
 CONTRACT_VERSION = "SIMEX_UNITS_V1"
+BITGET_HOST = "api.bitget.com"
+BITGET_CANDLES_URL = "https://api.bitget.com/api/v2/mix/market/candles"
 
 
 def _env_first(*names: str, default: str):
@@ -24,6 +26,13 @@ def _env_int(*names: str, default: int) -> int:
 
 def _env_float(*names: str, default: float) -> float:
     return float(_env_first(*names, default=str(default)))
+
+
+def _compact_text(value, max_len: int = 240) -> str:
+    text = " ".join(str(value).split())
+    if len(text) <= max_len:
+        return text
+    return text[: max_len - 3] + "..."
 
 
 SYMBOL = _env_str("SIMEX_SYMBOL", default="XAUUSDT")
@@ -49,15 +58,61 @@ LEGACY_ENV_BRIDGE = {
 }
 
 
+def classify_bitget_request_failure(exc: requests.exceptions.RequestException) -> str:
+    text = _compact_text(exc, max_len=400).lower()
+
+    if (
+        "temporary failure in name resolution" in text
+        or "failed to resolve" in text
+        or "nameresolutionerror" in text
+        or "getaddrinfo" in text
+    ):
+        return "NF_DNS_RESOLUTION"
+
+    if (
+        "handshake operation timed out" in text
+        or ("ssl" in text and "timed out" in text)
+        or "_ssl.c" in text
+    ):
+        return "NF_TLS_HANDSHAKE_TIMEOUT"
+
+    if "read timed out" in text or "readtimeouterror" in text or "readtimeout" in text:
+        return "NF_HTTP_READ_TIMEOUT"
+
+    if "connect timed out" in text or "connecttimeout" in text:
+        return "NF_HTTP_CONNECT_TIMEOUT"
+
+    if isinstance(exc, requests.exceptions.Timeout):
+        return "NF_HTTP_TIMEOUT"
+
+    if isinstance(exc, requests.exceptions.ConnectionError):
+        return "NF_CONNECTION"
+
+    return "NF_UPSTREAM_UNKNOWN"
+
+
+def log_bitget_request_failure(exc: requests.exceptions.RequestException) -> None:
+    failure_class = classify_bitget_request_failure(exc)
+    print(
+        "upstream_failure: "
+        f"class={failure_class} "
+        f"host={BITGET_HOST} "
+        f"symbol={SYMBOL} "
+        f"product_type={PRODUCT_TYPE} "
+        f"granularity_sec={GRANULARITY_SEC} "
+        f"detail={_compact_text(exc)}"
+    )
+
+
+
 def bitget_candles(symbol: str):
-    url = "https://api.bitget.com/api/v2/mix/market/candles"
     params = {
         "symbol": symbol,
         "productType": PRODUCT_TYPE,
         "granularity": str(GRANULARITY_SEC),
         "limit": str(LIMIT),
     }
-    r = requests.get(url, params=params, timeout=20)
+    r = requests.get(BITGET_CANDLES_URL, params=params, timeout=20)
     r.raise_for_status()
     j = r.json()
     if isinstance(j, dict) and j.get("code") not in (None, "00000", 0):
@@ -98,7 +153,12 @@ def runtime_units_meta() -> dict:
 
 
 def main():
-    candles = bitget_candles(SYMBOL)
+    try:
+        candles = bitget_candles(SYMBOL)
+    except requests.exceptions.RequestException as exc:
+        log_bitget_request_failure(exc)
+        return
+
     a, b, c = candles[-3], candles[-2], candles[-1]
 
     a_low = float(a[3])
