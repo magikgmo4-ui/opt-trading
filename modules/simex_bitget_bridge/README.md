@@ -36,7 +36,7 @@ Aliases encore acceptés :
 
 ## Comportement sur fautes upstream Bitget
 
-- Les fautes réseau upstream Bitget sont classifiées et loggées de façon compacte.
+- Les fautes upstream Bitget sont classifiées et loggées de façon compacte.
 - Classes actuellement reconnues :
   - `NF_DNS_RESOLUTION`
   - `NF_TLS_HANDSHAKE_TIMEOUT`
@@ -44,8 +44,9 @@ Aliases encore acceptés :
   - `NF_HTTP_CONNECT_TIMEOUT`
   - `NF_HTTP_TIMEOUT`
   - `NF_CONNECTION`
+  - `NF_INSUFFICIENT_CANDLES`
   - `NF_UPSTREAM_UNKNOWN`
-- En cas de faute `requests` lors de la lecture Bitget, le runner sort proprement sans traceback massif.
+- En cas de faute `requests` ou de données Bitget insuffisantes lors de la lecture des candles, le runner sort proprement sans traceback massif.
 - Le timer systemd suivant peut donc relancer naturellement le runner.
 - Aucun événement Perf n'est émis si la lecture Bitget échoue avant l'analyse du signal.
 
