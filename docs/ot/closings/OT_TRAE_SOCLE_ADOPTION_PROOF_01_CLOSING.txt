@@ -1,0 +1,44 @@
+OT_TRAE_SOCLE_ADOPTION_PROOF_01 - CLOSING
+Date (America/Montreal) : 2026-04-10
+Statut : CLOSE
+Classe : PATCH_LOCAL
+
+1. Objet
+Consolider la preuve d’adoption du socle Trae de manière strictement doc-only, en vérifiant si la pratique GO/STOP et le gating canonique sont suffisamment démontrés par les closings, le workflow et la reprise actuelle, puis en actant un verdict canonique sans rouvrir Rules/Agents/Skills/MCP, sans runtime, et sans ouvrir le backlog post‑V1.
+
+2. État réel constaté au départ
+- Repo propre sur `sot/mainline` (working tree clean).
+- Chantier Trae prioritaire clos (pré‑V1 + CONTRADICTOIRE) ; suivi runtime/snapshot clos en doc-only.
+- Kanban : `Socle doctrinal Trae` = `ÉTABLI / PARTIEL` avec verdict `CONFIRMÉ PARTIELLEMENT`.
+
+3. Audit documentaire (résumé)
+- La doctrine gated (Gates + GO/STOP) est canonique et opposable : `workflow_ai/WORKFLOW.md`.
+- Le point d’entrée mission impose l’ordre de lecture et la clôture “doc canonique + kanban + point de reprise” : `docs/master_pack/mission_starter_pack/00_mission_start_guide.md`.
+- Plusieurs closings mentionnent explicitement que l’adoption opérateur du GO/STOP n’est pas démontrable par lecture repo seule (réserve) ou demandent un drill.
+
+4. Verdict canonique
+- VERDICT maintenu : `CONFIRMÉ PARTIELLEMENT`.
+- Motif : la doctrine GO/STOP existe et est utilisée comme cadre, mais la preuve d’une pratique systématique (trace “GO/STOP à chaque Gate” dans les closings) n’est pas consolidée par les artefacts.
+- Décision canonique de référence : `docs/ot/trae/OT_TRAE_SOCLE_ADOPTION_DECISION_01.md`.
+
+5. Kanban / reprise
+- Le statut et la suite ne changent pas (pas d’upgrade de verdict) : point de reprise conservé `GO_OT_NEXT_MISSION_SELECTION_01`.
+- Le kanban et la reprise peuvent référencer cette clôture comme preuve documentaire additionnelle (sans changer les statuts).
+
+6. Fichiers modifiés / créés
+- Créé : `docs/ot/closings/OT_TRAE_SOCLE_ADOPTION_PROOF_01_CLOSING.txt`
+- Modifié : `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`
+- Modifié : `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md`
+
+7. Périmètre explicitement exclu
+- Aucun patch runtime.
+- Aucun patch code / scripts / modules.
+- Aucune ouverture automatique de Rules/Agents/Skills/MCP (V1).
+- Aucun post‑V1 backlog.
+- Aucun commit/push.
+
+8. Verdict
+PASS / CLOSE
+
+9. Point de reprise suivant
+GO_OT_NEXT_MISSION_SELECTION_01
