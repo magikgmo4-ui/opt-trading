@@ -20,7 +20,7 @@ Ce runbook décrit la procédure pour **figer** une version du système Desk Pro
    *Le script vérifie la propreté, crée le tag annoté, et pousse vers origin.*
 
 ### Étape 2 : Vérifier sur Linux (Target)
-Sur chaque machine cible (`admin-trading`, `student`, `db-layer`) :
+Sur chaque machine cible (`admin-trading`, `student`, `db-layer`), depuis la racine du repo :
 
 1. **Mettre à jour** :
    ```bash
@@ -35,7 +35,8 @@ Sur chaque machine cible (`admin-trading`, `student`, `db-layer`) :
    *Doit retourner "PASS: Tag 'v1.2.0' exists locally."*
 
 3. **Validation Finale** :
-   Lancer `scripts/admin_trading/desk_pro_cmd.sh status` ou `cmd-desk_pro_runner status` pour confirmer que la version taggée reste exploitable côté repo/admin.
+   - Sur `admin-trading` : lancer `scripts/admin_trading/desk_pro_cmd.sh status` ou `cmd-desk_pro_runner status` pour confirmer que la version taggée reste exploitable côté admin.
+   - Sur `student` et `db-layer` : la validation de ce runbook se limite à la mise à jour Git + présence du tag ; ne pas utiliser les commandes admin Desk Pro sur ces machines.
 
 ## 4. Gestion des Erreurs
 
