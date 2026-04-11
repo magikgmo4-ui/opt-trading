@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 # Desk Pro Install Admin Trading
-# Sets up convenience wrappers on the admin machine
+# Aligns admin machine setup with canonical Desk Pro entrypoints
 
 # Resolve root
 if command -v readlink >/dev/null 2>&1; then
@@ -29,22 +29,23 @@ if [ ! -w "/usr/local/bin" ] && [ "$(id -u)" != "0" ]; then
     exit 0
 fi
 
-# 3. Install Wrappers (if root/sudo)
+# 3. Remove legacy global aliases and defer to canonical entrypoints
 if [ -w "/usr/local/bin" ]; then
-    echo "Installing global wrappers..."
-    
-    ln -sf "$SCRIPT_DIR/desk_pro_cmd.sh" /usr/local/bin/desk-pro
-    ln -sf "$SCRIPT_DIR/desk_pro_menu.sh" /usr/local/bin/menu-desk-pro
-    ln -sf "$SCRIPT_DIR/desk_pro_sanity_check.sh" /usr/local/bin/sanity-desk-pro
-    ln -sf "$SCRIPT_DIR/desk_pro_copy_latest_to_shared.sh" /usr/local/bin/desk-pro-copy-latest
-    ln -sf "$SCRIPT_DIR/desk_pro_run_logged.sh" /usr/local/bin/desk-pro-run-logged
-    ln -sf "$SCRIPT_DIR/desk_pro_tail_latest_log.sh" /usr/local/bin/desk-pro-tail-log
-    ln -sf "$SCRIPT_DIR/desk_pro_last_run_info.sh" /usr/local/bin/desk-pro-last-run
-    ln -sf "$SCRIPT_DIR/desk_pro_session_journal.sh" /usr/local/bin/desk-pro-session-journal
-    ln -sf "$SCRIPT_DIR/desk_pro_ops_summary.sh" /usr/local/bin/desk-pro-summary
-    ln -sf "$SCRIPT_DIR/desk_pro_incident_checklist.sh" /usr/local/bin/desk-pro-checklist
-    
-    echo "Installed: desk-pro, menu-desk-pro, sanity-desk-pro, desk-pro-copy-latest, desk-pro-run-logged, desk-pro-tail-log, desk-pro-last-run, desk-pro-session-journal, desk-pro-summary, desk-pro-checklist"
+    echo "Removing non-canonical Desk Pro global aliases..."
+
+    rm -f /usr/local/bin/desk-pro
+    rm -f /usr/local/bin/menu-desk-pro
+    rm -f /usr/local/bin/sanity-desk-pro
+    rm -f /usr/local/bin/desk-pro-copy-latest
+    rm -f /usr/local/bin/desk-pro-run-logged
+    rm -f /usr/local/bin/desk-pro-tail-log
+    rm -f /usr/local/bin/desk-pro-last-run
+    rm -f /usr/local/bin/desk-pro-session-journal
+    rm -f /usr/local/bin/desk-pro-summary
+    rm -f /usr/local/bin/desk-pro-checklist
+
+    echo "No Desk Pro admin global alias installed by this script."
+    echo "Use canonical entrypoints instead: menu-ops_menu_hub, cmd-desk_pro_runner, scripts/admin_trading/desk_pro_cmd.sh"
 fi
 
 echo "Installation Complete."
