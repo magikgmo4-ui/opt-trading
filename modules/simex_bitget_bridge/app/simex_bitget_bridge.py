@@ -8,6 +8,13 @@ BITGET_HOST = "api.bitget.com"
 BITGET_CANDLES_URL = "https://api.bitget.com/api/v2/mix/market/candles"
 
 
+class BitgetUpstreamDataError(RuntimeError):
+    def __init__(self, failure_class: str, detail: str):
+        super().__init__(detail)
+        self.failure_class = failure_class
+        self.detail = detail
+
+
 def _env_first(*names: str, default: str):
     for name in names:
         value = os.getenv(name)
@@ -91,8 +98,7 @@ def classify_bitget_request_failure(exc: requests.exceptions.RequestException) -
     return "NF_UPSTREAM_UNKNOWN"
 
 
-def log_bitget_request_failure(exc: requests.exceptions.RequestException) -> None:
-    failure_class = classify_bitget_request_failure(exc)
+def log_upstream_failure(failure_class: str, detail) -> None:
     print(
         "upstream_failure: "
         f"class={failure_class} "
@@ -100,8 +106,13 @@ def log_bitget_request_failure(exc: requests.exceptions.RequestException) -> Non
         f"symbol={SYMBOL} "
         f"product_type={PRODUCT_TYPE} "
         f"granularity_sec={GRANULARITY_SEC} "
-        f"detail={_compact_text(exc)}"
+        f"detail={_compact_text(detail)}"
     )
+
+
+def log_bitget_request_failure(exc: requests.exceptions.RequestException) -> None:
+    failure_class = classify_bitget_request_failure(exc)
+    log_upstream_failure(failure_class, exc)
 
 
 
@@ -119,7 +130,10 @@ def bitget_candles(symbol: str):
         raise RuntimeError(f"Bitget error code={j.get('code')} msg={j.get('msg')}")
     data = (j.get("data") or [])
     if len(data) < 3:
-        raise RuntimeError(f"Not enough candles: {len(data)} (need 3)")
+        raise BitgetUpstreamDataError(
+            "NF_INSUFFICIENT_CANDLES",
+            f"Not enough candles: received={len(data)} need=3 requested_limit={LIMIT}",
+        )
     return sorted(data, key=lambda x: int(x[0]))
 
 
@@ -157,6 +171,9 @@ def main():
         candles = bitget_candles(SYMBOL)
     except requests.exceptions.RequestException as exc:
         log_bitget_request_failure(exc)
+        return
+    except BitgetUpstreamDataError as exc:
+        log_upstream_failure(exc.failure_class, exc.detail)
         return
 
     a, b, c = candles[-3], candles[-2], candles[-1]
