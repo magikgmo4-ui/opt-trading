@@ -2,6 +2,7 @@
 
 - **docs/ROADMAP.md** : roadmap annotée + critères Done
 - **docs/simex/SIMEX_PRESETS.md** : presets opérateur (SIMEX_* env) + commandes Bitget→Perf
+- **docs/simex/SIMEX_UNITS_CONTRACT.md** : contrat canonique des unités SimEx (`SIMEX_UNITS_V1`) + compat legacy
 - **docs/ot/kanban/opt_trading_kanban_source_of_truth.md** : kanban (source of truth) + points de reprise
 - **docs/ot/journal/OT_JOURNAL_GO_MATRIX_V1.md** : spécification canonique courte de la matrice GO active générée
 - **journal/index/ACTIVE_GO_MATRIX.md** : matrice compacte générée des GO actifs / reprise

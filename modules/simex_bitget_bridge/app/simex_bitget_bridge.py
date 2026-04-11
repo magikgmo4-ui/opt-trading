@@ -3,16 +3,50 @@ import time
 import datetime
 import requests
 
-SYMBOL = os.getenv("SIMEX_SYMBOL", "XAUUSDT")
-PRODUCT_TYPE = os.getenv("SIMEX_PRODUCT_TYPE", "USDT-FUTURES")
-GRANULARITY = os.getenv("SIMEX_GRANULARITY", "300")
-LIMIT = os.getenv("SIMEX_LIMIT", "3")
+CONTRACT_VERSION = "SIMEX_UNITS_V1"
 
-# tolerance pour capter micro-sweeps/touches (ajuste 0.3-0.8 si besoin)
-TOL = float(os.getenv("SIMEX_TOL", "0.5"))
 
-PERF_EVENT = os.getenv("SIMEX_PERF_EVENT", "http://127.0.0.1:8010/perf/event")
-ENGINE = os.getenv("SIMEX_ENGINE", "BITGET_SM_LITE")
+def _env_first(*names: str, default: str):
+    for name in names:
+        value = os.getenv(name)
+        if value not in (None, ""):
+            return value
+    return default
+
+
+def _env_str(*names: str, default: str) -> str:
+    return str(_env_first(*names, default=default))
+
+
+def _env_int(*names: str, default: int) -> int:
+    return int(_env_first(*names, default=str(default)))
+
+
+def _env_float(*names: str, default: float) -> float:
+    return float(_env_first(*names, default=str(default)))
+
+
+SYMBOL = _env_str("SIMEX_SYMBOL", default="XAUUSDT")
+PRODUCT_TYPE = _env_str("SIMEX_PRODUCT_TYPE", default="USDT-FUTURES")
+GRANULARITY_SEC = _env_int("SIMEX_GRANULARITY_SEC", "SIMEX_GRANULARITY", default=300)
+LIMIT = _env_int("SIMEX_LIMIT", default=3)
+
+# unités de prix absolues (compat legacy conservée pour SIMEX_TOL)
+TOL_PRICE_ABS = _env_float("SIMEX_TOL_PRICE_ABS", "SIMEX_TOL", default=0.5)
+STOP_OFFSET_PRICE_ABS = _env_float("SIMEX_STOP_OFFSET_PRICE_ABS", default=5.0)
+TARGET_OFFSET_PRICE_ABS = _env_float("SIMEX_TARGET_OFFSET_PRICE_ABS", default=2.0)
+
+# quantité scalaire consommée par Perf (pnl = delta_prix * qty)
+QTY_UNITS = _env_float("SIMEX_QTY_UNITS", default=0.1)
+RISK_USD = _env_float("SIMEX_RISK_USD", default=0.5)
+
+PERF_EVENT = _env_str("SIMEX_PERF_EVENT", default="http://127.0.0.1:8010/perf/event")
+ENGINE = _env_str("SIMEX_ENGINE", default="BITGET_SM_LITE")
+
+LEGACY_ENV_BRIDGE = {
+    "SIMEX_GRANULARITY": os.getenv("SIMEX_GRANULARITY_SEC") in (None, "") and os.getenv("SIMEX_GRANULARITY") not in (None, ""),
+    "SIMEX_TOL": os.getenv("SIMEX_TOL_PRICE_ABS") in (None, "") and os.getenv("SIMEX_TOL") not in (None, ""),
+}
 
 
 def bitget_candles(symbol: str):
@@ -20,8 +54,8 @@ def bitget_candles(symbol: str):
     params = {
         "symbol": symbol,
         "productType": PRODUCT_TYPE,
-        "granularity": GRANULARITY,
-        "limit": LIMIT,
+        "granularity": str(GRANULARITY_SEC),
+        "limit": str(LIMIT),
     }
     r = requests.get(url, params=params, timeout=20)
     r.raise_for_status()
@@ -40,6 +74,29 @@ def perf_post(payload: dict):
     return r.json()
 
 
+def runtime_units_meta() -> dict:
+    return {
+        "contract_version": CONTRACT_VERSION,
+        "units": {
+            "granularity": "seconds",
+            "tolerance": "absolute_price",
+            "stop_offset": "absolute_price",
+            "target_offset": "absolute_price",
+            "qty": "perf_qty_units",
+            "risk": "usd",
+        },
+        "normalization": {
+            "granularity_sec": GRANULARITY_SEC,
+            "tol_price_abs": TOL_PRICE_ABS,
+            "stop_offset_price_abs": STOP_OFFSET_PRICE_ABS,
+            "target_offset_price_abs": TARGET_OFFSET_PRICE_ABS,
+            "qty_units": QTY_UNITS,
+            "risk_usd": RISK_USD,
+        },
+        "legacy_env_bridge": LEGACY_ENV_BRIDGE,
+    }
+
+
 def main():
     candles = bitget_candles(SYMBOL)
     a, b, c = candles[-3], candles[-2], candles[-1]
@@ -52,12 +109,16 @@ def main():
 
     print("a_low:", a_low, "b_low:", b_low, "c_close:", c_close, "ts_ms:", last_ts)
 
-    sweep = b_low <= a_low + TOL
+    sweep = b_low <= a_low + TOL_PRICE_ABS
     reclaim = c_close > a_low
     confirm = c_close > b_open
 
     if not (sweep and reclaim and confirm):
-        print(f"signal: NO (sweep={sweep} reclaim={reclaim} confirm={confirm} tol={TOL})")
+        print(
+            "signal: NO "
+            f"(sweep={sweep} reclaim={reclaim} confirm={confirm} "
+            f"tol_price_abs={TOL_PRICE_ABS})"
+        )
         return
 
     print("signal: YES (SWEEP+RECLAIM tol) -> OPEN then CLOSE")
@@ -71,18 +132,17 @@ def main():
         "symbol": SYMBOL,
         "side": "LONG",
         "entry": entry,
-        "stop": entry - 5.0,
-        "qty": 0.1,
-        "risk_usd": 0.5,
+        "stop": entry - STOP_OFFSET_PRICE_ABS,
+        "qty": QTY_UNITS,
+        "risk_usd": RISK_USD,
         "meta": {
             "rule": "sweep+reclaim_tol",
             "origin": "simex_bitget_bridge",
-            "granularity": GRANULARITY,
             "product_type": PRODUCT_TYPE,
-            "tol": TOL,
             "a_low": a_low,
             "b_low": b_low,
             "ts_ms": last_ts,
+            **runtime_units_meta(),
         },
     }
     print("perf_open:", perf_post(open_payload))
@@ -92,8 +152,11 @@ def main():
     close_payload = {
         "type": "CLOSE",
         "trade_id": trade_id,
-        "exit": entry + 2.0,
-        "meta": {"note": "auto close 10s"},
+        "exit": entry + TARGET_OFFSET_PRICE_ABS,
+        "meta": {
+            "note": "auto close 10s",
+            **runtime_units_meta(),
+        },
     }
     print("perf_close:", perf_post(close_payload))
 
