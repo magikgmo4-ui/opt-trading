@@ -1,0 +1,40 @@
+OT_DESKPRO_RELEASE_REFERENCES_CONSOLIDATION_01 - CLOSING
+Date (America/Montreal) : 2026-04-11
+Statut : CLOSE
+Classe : PATCH_LOCAL
+
+1. Objet
+Consolider les références release Desk Pro pour réduire la dispersion entre runbook et quick reference, sans toucher au runtime, sans relancer le drill, et sans ouvrir Trae.
+
+2. État réel constaté au départ
+- `docs/desk_pro_release_ops_runbook.md` portait déjà la procédure complète et la clarification issue du drill release.
+- `docs/desk_pro_release_ops_quick_reference.md` répétait une mini-section `Workflow` qui redoublait partiellement le runbook.
+- Les scripts release réels restaient cohérents avec les commandes documentées :
+  - `scripts/release_ops/desk_pro_freeze_tag.ps1`
+  - `scripts/release_ops/desk_pro_verify_tag_linux.sh`
+  - `scripts/release_ops/desk_pro_release_menu.sh`
+  - `scripts/release_ops/desk_pro_release_sanity_check.sh`
+
+3. Patch appliqué
+- `docs/desk_pro_release_ops_quick_reference.md` pointe explicitement vers le runbook comme référence procédurale complète.
+- La section `Workflow` redondante est retirée de la quick reference.
+- La quick reference conserve uniquement les commandes compactes réellement supportées, avec une note de portée minimale.
+
+4. Verdict
+- Hiérarchie documentaire consolidée :
+  - runbook = procédure complète
+  - quick reference = aide-mémoire compacte
+
+5. Périmètre exclu
+- Aucun patch runtime/live.
+- Aucun patch des scripts release.
+- Aucun nouveau drill.
+- Aucune ouverture automatique Trae.
+
+6. Kanban / reprise
+- Aucun changement de statut canonique.
+- Kanban inchangé.
+- Point de reprise conservé : `GO_OT_NEXT_MISSION_SELECTION_01`.
+
+7. Point de reprise suivant
+GO_OT_NEXT_MISSION_SELECTION_01
