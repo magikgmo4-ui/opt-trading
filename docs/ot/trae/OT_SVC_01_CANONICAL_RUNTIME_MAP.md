@@ -43,6 +43,8 @@ Processus qui doivent tourner en permanence.
 | :--- | :--- | :--- | :--- | :--- |
 | **vision_bot** | SERVICE | `vision_bot.service` | Admin | Live (admin-trading) | Watch Loop (ShareX inbox) |
 | **shared_sshfs_permanent** | SERVICE | `shared-sshfs.service` | Clients Linux | Live (db-layer + student) + repo | Mount SSHFS `/shared` depuis `admin-trading` (live admin-trading : pas de service local) |
+| **tv-bitget-runner** | SERVICE | `tv-bitget-runner.service` | Admin | Live (admin-trading) | Service infra (non cartographié comme module) |
+| **tv-webhook** | SERVICE | `tv-webhook.service` | Admin | Live (admin-trading) | Service infra (FastAPI/Uvicorn) |
 
 ### D. TIMERS (PÉRIODIQUES)
 Tâches de maintenance récurrentes.
@@ -64,6 +66,7 @@ Modules supportant les deux modes.
 3. **shared_sshfs_permanent** : sur `db-layer` et `student`, le service `shared-sshfs.service` et le montage `/shared` sont actifs (preuve live OT-DEPLOY-SSHFS-01 + OT-ROLL-SSHFS-02).
 4. **shared_sshfs_permanent** : bug wrappers symlink observé sur `admin-trading` (OT-LIVE-01 : `name=local path=/usr/local`, `FAIL: scripts missing`) puis corrigé et revalidé (OT-PATCH-SSHFS-01 + OT-RECHECK-SSHFS-01 : `cmd ... info` et `sanity ...` OK). Le déploiement install (`/opt/trading/scripts/shared_sshfs_permanent_*`) reste absent sur `admin-trading`.
 5. **desk_snapshot_ingest** : wrappers présents sur `admin-trading`, aucune unité systemd dédiée observée.
+6. **tv-webhook / tv-bitget-runner** : services actifs observés sur `admin-trading` (snapshot infra). Ne pas inférer une normalisation “module” sans mission dédiée.
 
 ## 4. RÈGLE DE DÉPLOIEMENT
 - Tout **SERVICE** ou **TIMER** doit avoir son fichier `.service`/`.timer` dans un sous-dossier `systemd/` du module.
