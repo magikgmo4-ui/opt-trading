@@ -64,6 +64,10 @@ Décisions canoniques produites :
 - Borne canonique documentée : oui.
 - Closing : `docs/ot/closings/OT_TRAE_STARTERPACK_GATING_PROOF_01_CLOSING.txt`
 
+### 3.9 Rules V1 — ouverture explicite (OK)
+- Décision : `docs/ot/trae/OT_TRAE_RULES_V1_OPEN_DECISION_01.md`
+- Closing : `docs/ot/closings/OT_TRAE_RULES_V1_OPEN_01_CLOSING.txt`
+
 ## 4. Ce qu’il ne faut pas rouvrir dans la reprise
 - Ne pas ouvrir automatiquement Rules/Agents/Skills/MCP (V1) sans sélection explicite.
 - Ne pas “normaliser” (déplacer/refactor) les couches runtime ou legacy sans mission dédiée.
@@ -71,7 +75,7 @@ Décisions canoniques produites :
 - Ne pas recréer des OT_* à la racine du repo.
 
 ## 5. Point de reprise global
-- Point de reprise actuel : `GO_OT_TRAE_RULES_V1_OPEN_01`
+- Point de reprise actuel : `GO_OT_TRAE_AGENTS_V1_OPEN_01`
 
 ## 6. Procédure de reprise (checklist minimaliste)
 1) Lire `docs/master_pack/00_current_state_and_standards.md`
@@ -81,4 +85,4 @@ Décisions canoniques produites :
    - `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md`
 4) Relire les décisions Trae (si mission liée) :
    - `docs/ot/trae/OT_TRAE_*_DECISION_01.md`
-5) Appliquer le point de reprise : `GO_OT_TRAE_RULES_V1_OPEN_01`
+5) Appliquer le point de reprise : `GO_OT_TRAE_AGENTS_V1_OPEN_01`

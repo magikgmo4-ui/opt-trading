@@ -19,19 +19,19 @@ Cette synthèse est un résumé vivant du kanban. Elle permet de voir rapidement
 
 | Bloc | État | Nature | Réouverture | Suite |
 |---|---|---|---|---|
-| SHARED / SSHFS | ÉTABLI / STABLE | infra | non | GO_OT_TRAE_RULES_V1_OPEN_01 |
-| Starter Pack / Opening | ÉTABLI / STABLE | doctrine repo | non | GO_OT_TRAE_RULES_V1_OPEN_01 |
+| SHARED / SSHFS | ÉTABLI / STABLE | infra | non | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+| Starter Pack / Opening | ÉTABLI / STABLE | doctrine repo | non | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
 | validated_prompt_factory | CLOSE | outil opérateur | non | aucune |
-| trae_module_validator | ÉTABLI / ACTIVE (FORMALISÉ) | outil opérateur | non | GO_OT_TRAE_RULES_V1_OPEN_01 |
-| Socle doctrinal Trae | ÉTABLI / PARTIEL | helper doctrinal | CONFIRMÉ PARTIELLEMENT (adoption) | GO_OT_TRAE_RULES_V1_OPEN_01 |
-| Runtime vs snapshot repo | DIVERGENT / SUIVI | gouvernance ops | NON CONFIRMÉ MAIS ACCEPTÉ (invariant documenté) | GO_OT_TRAE_RULES_V1_OPEN_01 |
-| Trae pré-V1 (statut global) | PRE_V1_COHERENT_AVEC_DELTAS_FINAUX | orchestration / système | non | GO_OT_TRAE_RULES_V1_OPEN_01 |
-| CONTRADICTOIRE (cadrage) | CLOSE (CADRÉ / OPPOSABLE) | gouvernance | non | GO_OT_TRAE_RULES_V1_OPEN_01 |
-| journal_de_bord — matrice GO active | ÉTABLI / ACTIVE | outillage opérateur | non | GO_OT_TRAE_RULES_V1_OPEN_01 |
-| Rules Trae V1 | ÉTABLI / GELÉ (PRE-V1, OPPOSABLE) | couche V1 | oui | gel pré-V1 acté (doc-only) ; suite: GO_OT_TRAE_RULES_V1_OPEN_01 |
-| Agents Trae V1 | ÉTABLI / GELÉ (PRE-V1, OPPOSABLE) | couche V1 | oui | gel pré-V1 acté (doc-only) ; suite: GO_OT_TRAE_RULES_V1_OPEN_01 |
-| Skills Trae V1 | ÉTABLI / GELÉ (PRE-V1, OPPOSABLE) | couche V1 | oui | gel pré-V1 acté (doc-only) ; suite: GO_OT_TRAE_RULES_V1_OPEN_01 |
-| MCP Policy V1 | ÉTABLI / GELÉ (PRE-V1, OPPOSABLE) | gouvernance | oui | gel pré-V1 acté (doc-only) ; suite: GO_OT_TRAE_RULES_V1_OPEN_01 |
+| trae_module_validator | ÉTABLI / ACTIVE (FORMALISÉ) | outil opérateur | non | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+| Socle doctrinal Trae | ÉTABLI / PARTIEL | helper doctrinal | CONFIRMÉ PARTIELLEMENT (adoption) | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+| Runtime vs snapshot repo | DIVERGENT / SUIVI | gouvernance ops | NON CONFIRMÉ MAIS ACCEPTÉ (invariant documenté) | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+| Trae pré-V1 (statut global) | PRE_V1_COHERENT_AVEC_DELTAS_FINAUX | orchestration / système | non | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+| CONTRADICTOIRE (cadrage) | CLOSE (CADRÉ / OPPOSABLE) | gouvernance | non | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+| journal_de_bord — matrice GO active | ÉTABLI / ACTIVE | outillage opérateur | non | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+| Rules Trae V1 | ACTIVE (V1_OPEN) | couche V1 | oui | ouverture actée (doc-only) ; suite: GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+| Agents Trae V1 | ÉTABLI / GELÉ (PRE-V1, OPPOSABLE) | couche V1 | oui | gel pré-V1 acté (doc-only) ; suite: GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+| Skills Trae V1 | ÉTABLI / GELÉ (PRE-V1, OPPOSABLE) | couche V1 | oui | gel pré-V1 acté (doc-only) ; suite: GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+| MCP Policy V1 | ÉTABLI / GELÉ (PRE-V1, OPPOSABLE) | gouvernance | oui | gel pré-V1 acté (doc-only) ; suite: GO_OT_TRAE_AGENTS_V1_OPEN_01 |
 
 ### Règle de maintenance de la synthèse
 - cette synthèse est un résumé vivant ;
@@ -72,7 +72,7 @@ Cette synthèse est un résumé vivant du kanban. Elle permet de voir rapidement
 - OT-NET-RECONNECT-01 : preuve “réseau pur” non produite en non-interactif (baseline /shared OK).
 
 ## 4. POINT DE REPRISE SUIVANT
-- GO_OT_TRAE_RULES_V1_OPEN_01 (suite de continuité Trae ; ouverture explicite Rules V1 uniquement ; ne pas lancer automatiquement).
+- GO_OT_TRAE_AGENTS_V1_OPEN_01 (suite V1 ; ouverture explicite Agents V1 uniquement ; ne pas lancer automatiquement).
 
 ## 5. ÉTAT — STARTER PACK (OUVERTURE / CLÔTURE / CONTINUITÉ)
 
@@ -93,13 +93,13 @@ Cette synthèse est un résumé vivant du kanban. Elle permet de voir rapidement
   - closing : `docs/ot/closings/OT_TRAE_STARTERPACK_GATING_PROOF_01_CLOSING.txt`
 
 ## 6. POINT DE REPRISE SUIVANT (DOCS)
-- GO_OT_TRAE_RULES_V1_OPEN_01 :
+- GO_OT_TRAE_AGENTS_V1_OPEN_01 :
   - relire `docs/ot/kanban/opt_trading_kanban_source_of_truth.md` + dernier `docs/ot/closings/OT_*_CLOSING*.txt`
-  - décider explicitement de l’ouverture Rules V1 (sans ouvrir Agents/Skills/MCP)
+  - décider explicitement de l’ouverture Agents V1 (sans ouvrir Skills/MCP)
 
 ## 7. POINT DE REPRISE SUIVANT (OPS)
-- GO_OT_TRAE_RULES_V1_OPEN_01 :
-  - même objectif (ouverture explicite Rules V1 uniquement, sans lancement automatique)
+- GO_OT_TRAE_AGENTS_V1_OPEN_01 :
+  - même objectif (ouverture explicite Agents V1 uniquement, sans lancement automatique)
 
 ## 8. MODULES — VALIDATED_PROMPT_FACTORY
 
@@ -182,10 +182,9 @@ Ordre retenu :
 4. MCP
 
 ## 10. POINT ACTIF CONSERVÉ
-- GO_OT_TRAE_RULES_V1_OPEN_01
-  - décision (continuité) : `docs/ot/trae/OT_TRAE_CONTINUATION_DEFAULT_DECISION_01.md`
-  - closing (continuité) : `docs/ot/closings/OT_TRAE_CONTINUATION_DEFAULT_DECISION_01_CLOSING.txt`
-  - closing (borne GO/STOP) : `docs/ot/closings/OT_TRAE_STARTERPACK_GATING_PROOF_01_CLOSING.txt`
+- GO_OT_TRAE_AGENTS_V1_OPEN_01
+  - décision (ouverture Rules) : `docs/ot/trae/OT_TRAE_RULES_V1_OPEN_DECISION_01.md`
+  - closing (ouverture Rules) : `docs/ot/closings/OT_TRAE_RULES_V1_OPEN_01_CLOSING.txt`
 
 ## 11. POINT CANDIDAT SI OUVERTURE DU CHANTIER TRAE V1
-- GO_OT_TRAE_RULES_V1_OPEN_01 (sélection explicite, sans lancement automatique)
+- GO_OT_TRAE_AGENTS_V1_OPEN_01 (sélection explicite, sans lancement automatique)
