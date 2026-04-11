@@ -38,6 +38,7 @@ Certaines zones du repo divergent de la structure modulaire standard pour des ra
 ### A. Student Runtime (GELÉ)
 - **Runtime Actif** : `scripts/student/` (Contient IA/Reporting).
 - **Module Incomplet** : `modules/deepseek_student/` (Ne pas utiliser).
+- **Wrappers Pack Machine** : Les wrappers `desk-pro-student*` relèvent du pack machine `scripts/student/` et non de `registry/wrappers_registry.yaml`.
 - **Note** : Voir `docs/ot/reports/OT_OPS_04B_FREEZE_REPORT.md`.
 
 ### B. Reseau SSH (EXCEPTION)
@@ -50,6 +51,11 @@ Les dossiers suivants sont des couches d'intégration machine valides, pas des m
 - `scripts/admin_trading/` : Orchestration spécifique Admin.
 - `scripts/db_layer/` : Scripts autonomes DB Layer.
 - `scripts/git_ops/` : Outillage Git transversal.
+
+Règle canonique :
+- Les wrappers de packs machine `scripts/student/` et `scripts/db_layer/` sont des exceptions runtime-layer opposables.
+- Ils peuvent être installés globalement par leurs installateurs dédiés sans entrer dans `registry/wrappers_registry.yaml`.
+- `registry/wrappers_registry.yaml` reste réservé aux wrappers canoniques de modules et surfaces globales transverses.
 
 ## 7. ENTRYPOINTS CANONIQUES (DESK PRO)
 Pour clarifier l'usage des multiples scripts "desk_pro" :
