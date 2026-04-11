@@ -1,13 +1,13 @@
-# Desk Pro Root Wrapper
+# Desk Pro Root Wrapper (Legacy Compat)
 
-The Desk Pro Root Wrapper is a lightweight, cross-platform entry point for the Desk Pro trading system. It allows operators to launch the system directly from the repository root without navigating into module subdirectories.
+Ce document décrit une couche legacy de compatibilité autour des scripts root Desk Pro. Elle ne doit plus être promue comme point d'entrée canonique.
 
-## Purpose
-- **Convenience**: Single command to run, status check, or export.
-- **Abstraction**: Hides the underlying python module path (`python -m modules.desk_pro_runner.app.desk_pro_runner`).
-- **Cross-Platform**: Supports both Linux (Bash) and Windows (PowerShell).
+## Statut Canonique
+- **Opérateur** : `menu-ops_menu_hub`
+- **Admin / debug** : `scripts/admin_trading/desk_pro_cmd.sh` ou `cmd-desk_pro_runner`
+- **Scripts root `desk_pro_root_*`** : **LEGACY / COMPAT** uniquement
 
-## Commands
+## Legacy Commands
 
 ### Linux / Bash
 Located in `scripts/`:
@@ -54,10 +54,8 @@ Located in `scripts/`:
 .\scripts\desk_pro_root.ps1 export-html-latest
 ```
 
-## Operator Workflow
-1.  **Start of Day**: Run `run-and-show` to generate fresh analysis and view the dashboard.
-2.  **Monitoring**: Use `dashboard-latest` to check the state periodically.
-3.  **End of Day**: Use `export-html-latest` to save a daily report.
+## Règle d'Usage
+Ces scripts peuvent rester utilisés pour compatibilité locale, mais les nouvelles procédures doivent référencer `menu-ops_menu_hub`, `scripts/admin_trading/desk_pro_cmd.sh` ou `cmd-desk_pro_runner` selon le rôle.
 
 ## Integration
 - **Delegates to**: `modules.desk_pro_runner.app.desk_pro_runner`

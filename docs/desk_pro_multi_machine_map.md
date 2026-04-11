@@ -12,9 +12,9 @@ Ce document cartographie l'architecture d'exploitation multi-machines du systèm
 
 ## 2. Flux de Données
 
-1. **Exécution** : `admin-trading` lance un run (`desk-pro-run-logged`).
+1. **Exécution** : `admin-trading` lance un run via `scripts/admin_trading/desk_pro_cmd.sh run-logged`.
 2. **Export** : Le run produit des JSON/HTML dans `data/`.
-3. **Partage** : `admin-trading` copie les artefacts finaux vers `/shared/desk_pro/latest` (`desk-pro-copy-latest`).
+3. **Partage** : `admin-trading` copie les artefacts finaux vers `/shared/desk_pro/latest` via `scripts/admin_trading/desk_pro_cmd.sh copy-latest-to-shared`.
 4. **Consommation** : `student` et `db-layer` lisent `/shared` via leurs wrappers dédiés (`shared-info`).
 
 ## 3. Emplacements Clés
@@ -26,13 +26,13 @@ Ce document cartographie l'architecture d'exploitation multi-machines du systèm
 | **Artefacts Locaux** | `data/desk_runs/`, `data/dashboard/` | N/A |
 | **Artefacts Partagés** | `/shared/desk_pro/latest/` (Source) | `/shared/desk_pro/latest/` (Mount) |
 
-## 4. Wrappers Globaux
+## 4. Surfaces Opératoires
 
-Chaque machine dispose de wrappers installés dans `/usr/local/bin` pour faciliter l'exploitation.
+Chaque machine dispose d'une surface opératoire documentée pour faciliter l'exploitation.
 
 | Machine | Wrapper Principal | Menu | Info Partage |
 |---|---|---|---|
-| **admin-trading** | `desk-pro` | `menu-desk-pro` | N/A (Source) |
+| **admin-trading** | `scripts/admin_trading/desk_pro_cmd.sh` ou `cmd-desk_pro_runner` | `menu-ops_menu_hub` | N/A (Source) |
 | **student** | `desk-pro-student` | `menu-desk-pro-student` | `desk-pro-student-shared-info` |
 | **db-layer** | `desk-pro-db` | `menu-desk-pro-db` | `desk-pro-db-shared-info` |
 
