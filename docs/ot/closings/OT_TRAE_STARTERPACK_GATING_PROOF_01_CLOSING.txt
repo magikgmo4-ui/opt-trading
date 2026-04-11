@@ -1,0 +1,35 @@
+OT_TRAE_STARTERPACK_GATING_PROOF_01 - CLOSING
+Date (America/Montreal) : 2026-04-11
+Statut : CLOSE
+Classe : PATCH_LOCAL
+
+1. Objet
+Transformer la réserve canonique sur le gating GO/STOP en preuve opposable ou, à défaut, en borne explicite documentée, en restant strictement Trae et doc-only (sans runtime, sans code, sans ouverture automatique V1).
+
+2. État réel constaté au départ
+- Repo sur `sot/mainline` (doc-only).
+- La doctrine gated (Gates + GO/STOP) est canonique : `workflow_ai/WORKFLOW.md`.
+- Les closings et artefacts disponibles ne prouvent pas une pratique systématique “GO/STOP à chaque Gate”.
+
+3. Audit documentaire (résumé)
+- Le workflow et le starter pack décrivent l’approche gated et la notion de GO/STOP.
+- Des closings existants mentionnent explicitement que l’adoption opérateur du GO/STOP “systématique” n’est pas démontrable par lecture repo seule et demandent un drill.
+
+4. Verdict canonique (preuve)
+- Preuve opposable “GO/STOP à chaque Gate, sur toutes les missions” : NON DÉMONTRÉE (doc-only).
+- Borne canonique documentée : OUI.
+
+5. Kanban / reprise / matrice active
+- Mise à jour minimale justifiée : la suite de continuité Trae passe à `GO_OT_TRAE_RULES_V1_OPEN_01` (sans lancement automatique).
+
+6. Périmètre explicitement exclu
+- Aucun patch runtime.
+- Aucun patch code / scripts / modules.
+- Aucune ouverture automatique de Rules/Agents/Skills/MCP (V1).
+- Aucun commit/push.
+
+7. Verdict
+PASS / CLOSE (BORNE DOCUMENTÉE)
+
+8. Point de reprise suivant
+GO_OT_TRAE_RULES_V1_OPEN_01

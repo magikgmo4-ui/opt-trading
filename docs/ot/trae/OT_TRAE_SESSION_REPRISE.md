@@ -1,7 +1,7 @@
 # OPT-TRADING — REPRISE DE SESSION (CANONIQUE)
 
 Date (America/Montreal) : 2026-03-14
-Dernière mise à jour (America/Montreal) : 2026-04-09
+Dernière mise à jour (America/Montreal) : 2026-04-11
 
 ## 1. Objet
 Fichier canonique de continuité pour reprendre une session Trae sur `opt-trading` sans rouvrir de chantier technique.
@@ -55,6 +55,15 @@ Décisions canoniques produites :
 - Décision : `docs/ot/trae/OT_TRAE_PRE_V1_CLOSEOUT_STATUS_DECISION_01.md`
 - Closing : `docs/ot/closings/OT_TRAE_PRE_V1_CLOSEOUT_01_CLOSING.txt`
 
+### 3.7 Continuité Trae par défaut (OK)
+- Décision : `docs/ot/trae/OT_TRAE_CONTINUATION_DEFAULT_DECISION_01.md`
+- Closing : `docs/ot/closings/OT_TRAE_CONTINUATION_DEFAULT_DECISION_01_CLOSING.txt`
+
+### 3.8 Gating GO/STOP — borne canonique (OK)
+- Preuve opposable d’une pratique “GO/STOP à chaque Gate” : non démontrée doc-only.
+- Borne canonique documentée : oui.
+- Closing : `docs/ot/closings/OT_TRAE_STARTERPACK_GATING_PROOF_01_CLOSING.txt`
+
 ## 4. Ce qu’il ne faut pas rouvrir dans la reprise
 - Ne pas ouvrir automatiquement Rules/Agents/Skills/MCP (V1) sans sélection explicite.
 - Ne pas “normaliser” (déplacer/refactor) les couches runtime ou legacy sans mission dédiée.
@@ -62,7 +71,7 @@ Décisions canoniques produites :
 - Ne pas recréer des OT_* à la racine du repo.
 
 ## 5. Point de reprise global
-- Point de reprise actuel : `GO_OT_TRAE_STARTERPACK_GATING_PROOF_01`
+- Point de reprise actuel : `GO_OT_TRAE_RULES_V1_OPEN_01`
 
 ## 6. Procédure de reprise (checklist minimaliste)
 1) Lire `docs/master_pack/00_current_state_and_standards.md`
@@ -72,5 +81,4 @@ Décisions canoniques produites :
    - `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md`
 4) Relire les décisions Trae (si mission liée) :
    - `docs/ot/trae/OT_TRAE_*_DECISION_01.md`
-5) Appliquer le point de reprise : `GO_OT_NEXT_MISSION_SELECTION_01`
-5) Appliquer le point de reprise : `GO_OT_TRAE_STARTERPACK_GATING_PROOF_01`
+5) Appliquer le point de reprise : `GO_OT_TRAE_RULES_V1_OPEN_01`
