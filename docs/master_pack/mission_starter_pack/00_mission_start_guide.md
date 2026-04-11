@@ -56,6 +56,7 @@ Toute mission doit se conclure par :
 2.  **Mise à jour du Master Pack** (Si applicable) : Refléter les changements d'architecture ou de standard.
 3.  **Mise à jour Kanban / Source of Truth** : Statut de la mission + point de reprise alignés avec la clôture.
 4.  **Preuve de Validation** : Trace d'exécution ou analyse statique confirmant le résultat.
+5.  **Preuve gating GO/STOP** : Mentionner explicitement dans la clôture l’un des statuts suivants : `prouvée`, `partielle`, ou `non prouvable par lecture repo seule`.
 
 ## 5. POINT DE REPRISE (NEXT STEP)
 Toujours indiquer clairement quelle est l'étape logique suivante.
