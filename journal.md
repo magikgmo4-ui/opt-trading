@@ -11000,3 +11000,104 @@ git diff --name-only origin/sot/mainline...HEAD
 5) Points ouverts (next):
 - Optionnel: supprimer branches devenues inutiles (`fix/mimo-gate-replay-csv-path-01`, `fix/mimo-postmerge-journal-cleanup-01`) si politique repo le permet.
 - —
+
+## 2026-04-11 08:37 — note5000
+1) Objectifs:
+- Reprendre le repo **magikgmo4-ui/opt-trading** sur la branche canonique **sot/mainline** en suivant les docs canoniques.
+- Stabiliser et canoniser la continuité Trae (gel PRE‑V1, closeouts, kanban, reprise, matrice GO active).
+- Sécuriser un WIP local hors périmètre (derivatives_collector) puis revenir à un état Git propre.
+- Publier les patches doc-only sur **origin/sot/mainline** et déterminer la suite Trae.
+
+2) Actions:
+- Vérification repo/branche canoniques et lecture des sources canoniques (starter pack, standards, workflow, kanban, reprise Trae, closings, orchestrator entrypoint).
+- Constat initial d’un état local mélangé (branche bot_vision + modifs derivatives_collector), puis:
+  - création d’une branche rescue **rescue/derivatives-local-2026-04-09** + commit **701b88a**,
+  - retour sur **sot/mainline**, pull FF, tree clean.
+- Adaptation PowerShell: `sed` non dispo → utilisation de `Get-Content` + réglage UTF‑8 (mojibake).
+- Gel doc-only successifs + alignements kanban/synthèse + décision/closing + commit/push (avec rebase quand origin avance):
+  - **Rules** gel PRE‑V1 opposable + kanban: commit initial **577a15b**, puis rebases (PR #77/#78/#79) et push final **f47eaa3**.
+  - **Agents** gel PRE‑V1 opposable + kanban: commit **f6a3acd** (puis état à jour confirmé, HEAD ultérieur **6dea950**).
+  - **Skills** gel PRE‑V1 opposable + kanban + push: commit **b621010**.
+  - **MCP Policy**: création décision+closing (commit **a665130**) puis correctif kanban-only (commit **2c7a501**) poussé.
+- Passe Trae “cohérence transversale” (README/workflow/reprise/kanban) avec exclusion d’un fichier Hermes hors scope; commit **c035009**.
+- Closeout Trae pré‑V1 (décision + closing + mini alignement synthèse): commit **3aab2df**, rebase sur remote avancé puis push → HEAD/push **ababfce**.
+- Closeout **CONTRADICTOIRE** (closing + realign reprise/kanban): commit **57335f4**, rebase/push → **00b517f**.
+- Closeout **Runtime vs snapshot** (decision+map+closing): commit **851f236**, push après résolution d’un blocage (fichier synthèse modifié + remote avancé) → commit publié **69a20f9**.
+- Closeout **Socle adoption proof**: commit **b26e008**, rebase/push → **4373d89**.
+- Relecture kanban+docs Trae: verdict “pas de nouveau GO Trae explicite” (reprise neutre) jusqu’à décision d’“imposer” une suite.
+- Mise en place d’une **continuité Trae imposée** (décision + closing + alignement kanban/reprise/README/index Trae/matrice GO active). Le commit de continuité est publié sur sot/mainline (HEAD observé **921175a**).
+- Tentative GO **STARTERPACK_GATING_PROOF_01**: plusieurs états Git incohérents → nettoyage complet (`restore`/`clean`) puis relance.
+- Ouverture **Rules V1 Open** puis **Agents V1 Open** (doc-only), avec points de reprise annoncés:
+  - après Rules V1 Open → reprise: **GO_OT_TRAE_AGENTS_V1_OPEN_01**,
+  - après Agents V1 Open → reprise: **GO_OT_TRAE_SKILLS_V1_OPEN_01**,
+  - post-V1 backlog repoussé (pas prioritaire tant que la chaîne V1 Open n’est pas déroulée).
+
+3) Décisions:
+- Ne pas lancer d’implémentation/runtime pendant les reprises; privilégier doc-only + closeouts + kanban alignés.
+- Priorité: sécuriser l’état Git local avant reprise Trae (rescue/stash), puis revenir sur **sot/mainline** propre.
+- Gel PRE‑V1 opposable acté successivement pour **Rules**, **Agents**, **Skills**, **MCP Policy** (doc-only).
+- Corriger MCP: un commit initial a poussé décision/closing sans kanban; décision de faire un correctif kanban-only.
+- En cas de confusion de continuité: ne pas “inventer” des GO; n’adopter un nouveau GO que s’il est canonisé (ou explicitement “nom retenu maintenant”).
+- Après fermeture Trae pré‑V1 + contradictoire + runtime/snapshot + adoption proof: reprise neutre sur **GO_OT_NEXT_MISSION_SELECTION_01** (jusqu’à décision ultérieure d’imposer une suite).
+- Décision ultérieure: **imposer** une suite Trae canonique via décision de continuité; nouveau point actif devient **GO_OT_TRAE_STARTERPACK_GATING_PROOF_01**, puis **GO_OT_TRAE_RULES_V1_OPEN_01**, puis **GO_OT_TRAE_POST_V1_BACKLOG_CADRAGE_01** (ce dernier restant après les ouvertures V1).
+- Constat de déviation: un dernier message collé concerne **localcms** (hors repo opt-trading) → à ignorer pour cette session.
+
+4) Commandes / Code:
+```powershell
+# État Git initial
+git rev-parse --short HEAD
+git status --short
+git branch -vv
+
+# Sauvegarde WIP derivatives_collector
+git switch -c rescue/derivatives-local-2026-04-09
+git add modules/derivatives_collector
+git commit -m "wip: save local derivatives_collector state before trae reprise"
+
+# Retour canonique
+git switch sot/mainline
+git pull --ff-only
+
+# PowerShell (remplace sed)
+Get-Content .\docs\master_pack\mission_starter_pack\00_mission_start_guide.md -Head 220
+Get-Content .\docs\ot\trae\OT_TRAE_SESSION_REPRISE.md -Head 260
+Get-Content .\docs\ot\kanban\opt_trading_kanban_source_of_truth.md -Head 320
+
+# Encodage UTF-8 console
+chcp 65001
+[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
+$OutputEncoding = [Console]::OutputEncoding
+Get-Content <file> -Encoding utf8 -Head <n>
+
+# Staging/commit/push doc-only (exemple Rules, Agents, Skills)
+git add <fichiers>
+git diff --cached --name-status
+git diff --cached --stat
+git commit -m "<message>"
+git fetch origin
+git rebase origin/sot/mainline
+git push origin sot/mainline
+
+# Gestion non-fast-forward et index sale
+git stash push -u -m "temp/pre-rebase-upstream-delta-2026-04-09"
+git rebase origin/sot/mainline
+git stash show --stat 'stash@{0}'
+git stash drop 'stash@{0}'
+
+# Correctif MCP kanban-only
+git add docs/ot/kanban/opt_trading_kanban_source_of_truth.md docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md
+git commit -m "docs(kanban): align MCP Policy V1 as pre-v1 opposable"
+git push
+
+# Nettoyage workspace (éviter mélange GO / artefacts prématurés)
+git restore <file>
+git restore --staged <file>
+git clean -f -- <untracked_file>
+Remove-Item .\<untracked_file>
+```
+
+5) Points ouverts (next):
+- Continuité Trae imposée publiée: vérifier état Git local (tree clean) avant d’exécuter/committer le GO actif.
+- Exécuter proprement **GO_OT_TRAE_STARTERPACK_GATING_PROOF_01** (doc-only) sans mélange, puis commit/rebase/push; seulement ensuite ouvrir **GO_OT_TRAE_RULES_V1_OPEN_01** (si pas déjà clos canoniquement).
+- Si **GO_OT_TRAE_RULES_V1_OPEN_01** et **GO_OT_TRAE_AGENTS_V1_OPEN_01** sont déjà clos canoniquement (indiqué dans la conversation), enchaîner sur **GO_OT_TRAE_SKILLS_V1_OPEN_01** après vérification Git (diff réel + commit/push).
+- Hors-scope à gérer localement: fichiers Hermes untracked (ex: `docs/hermes/HERMES_OPENCLAW_BRIDGE_CASE_01_RESULT.txt`) à supprimer ou laisser non trackés, mais jamais inclure dans commits Trae.
