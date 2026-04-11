@@ -1,0 +1,38 @@
+OT_DESKPRO_ADMIN_WRAPPERS_GOVERNANCE_01 - CLOSING
+Date (America/Montreal) : 2026-04-11
+Statut : CLOSE
+Classe : PATCH_LOCAL
+
+1. Objet
+Réaligner l'installateur admin Desk Pro sur la doctrine canonique des entrypoints, sans déploiement OPS et sans modifier le live dans ce tour.
+
+2. État réel constaté au départ
+- La doctrine canonique repo fixe `menu-ops_menu_hub` comme entrypoint opérateur, `scripts/admin_trading/desk_pro_cmd.sh` comme outil admin, et `cmd-desk_pro_runner` / `cmd-desk_pro_dashboard` comme surfaces CLI directes.
+- `scripts/admin_trading/desk_pro_install_admin_trading.sh` installait encore des alias globaux ambigus et non canoniques : `desk-pro`, `menu-desk-pro`, `sanity-desk-pro`.
+- Le même installateur installait aussi des alias top-level `desk-pro-*` pour des helpers admin déjà accessibles via `scripts/admin_trading/desk_pro_cmd.sh`.
+- Ces aliases globaux n'étaient pas déclarés dans `registry/wrappers_registry.yaml`.
+
+3. Patch appliqué
+- `scripts/admin_trading/desk_pro_install_admin_trading.sh` n'installe plus aucun alias global `desk-pro*`.
+- Le script supprime explicitement les anciens symlinks `desk-pro*` de `/usr/local/bin` lors d'une réexécution avec droits adéquats.
+- La surface recommandée reste celle déjà portée par la doc canonique et la registry : `menu-ops_menu_hub`, `cmd-desk_pro_runner`, `cmd-desk_pro_dashboard`, `scripts/admin_trading/desk_pro_cmd.sh`.
+
+4. Registry / doc
+- `registry/wrappers_registry.yaml` reste inchangé : aucun wrapper global admin supplémentaire n'est désormais installé par cet installateur.
+- `docs/admin_trading_desk_pro_runbook.md` reste valide et cohérent avec la surface canonique.
+
+5. Kanban / reprise
+- Aucun changement de statut produit/canonique.
+- Kanban inchangé.
+- Point de reprise conservé : `GO_OT_NEXT_MISSION_SELECTION_01`.
+
+6. Périmètre explicitement exclu
+- Aucun déploiement live sur `admin-trading`.
+- Aucun patch OPS hors repo.
+- Aucune ouverture automatique Trae V1.
+
+7. Verdict
+PASS / CLOSE
+
+8. Point de reprise suivant
+GO_OT_NEXT_MISSION_SELECTION_01
