@@ -68,5 +68,17 @@ Les wrappers suivants sont disponibles après installation :
 - **Partage Lecture** : `/shared/desk_pro/latest/`
 - **Scripts DB Layer** : `scripts/db_layer/`
 
+## 7. Contrat Source Minimal Pour Ingestion Future
+
+- **Surface source canonique** : `/shared/desk_pro/latest/`
+- **Artefacts source candidats** :
+  - `run_summary.json`
+  - `portfolio_engine.json`
+  - `journal_engine.json`
+  - `perf_engine.json`
+- **Producteur source** : `admin-trading` publie ces artefacts via `scripts/admin_trading/desk_pro_cmd.sh copy-latest-to-shared`.
+- **Point d'entrée machine actuel** : `desk-pro-db` / `desk-pro-db-shared-info` permettent la consultation de cette surface.
+- **Limite canonique actuelle** : l'ingestion DB de ces artefacts n'est pas encore implémentée dans le repo ; cette section formalise seulement le contrat source minimal.
+
 ---
 *Dernière mise à jour : 2026-03-06*

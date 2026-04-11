@@ -1,0 +1,32 @@
+OT_DESKPRO_DB_LAYER_INGESTION_SOURCE_CONTRACT_01 - CLOSING
+Date (America/Montreal) : 2026-04-11
+Statut : CLOSE
+Classe : PATCH_LOCAL
+
+1. Objet
+Formaliser dans le runbook `db-layer` le contrat source minimal des artefacts Desk Pro candidats à une future ingestion, sans implémenter encore l'ingestion.
+
+2. État réel constaté au départ
+- `db-layer` dispose déjà d'un pack machine de consultation sur `/shared/desk_pro/latest`.
+- `scripts/admin_trading/desk_pro_copy_latest_to_shared.sh` publie plusieurs artefacts JSON sur cette surface.
+- Le runbook `db-layer` mentionnait la préparation à l'ingestion future sans lister explicitement les artefacts source candidats.
+
+3. Patch appliqué
+- `docs/db_layer_desk_pro_runbook.md` ajoute une section courte `Contrat Source Minimal Pour Ingestion Future`.
+- La section fixe la surface canonique `/shared/desk_pro/latest/`.
+- La section liste les artefacts candidats : `run_summary.json`, `portfolio_engine.json`, `journal_engine.json`, `perf_engine.json`.
+- La section borne explicitement que l'ingestion DB n'est pas encore implémentée.
+
+4. Périmètre exclu
+- Aucun patch runtime/live.
+- Aucune implémentation ingestion.
+- Aucun changement registry.
+- Aucune ouverture automatique Trae.
+
+5. Kanban / reprise
+- Aucun changement de statut canonique.
+- Kanban inchangé.
+- Point de reprise conservé : `GO_OT_NEXT_MISSION_SELECTION_01`.
+
+6. Point de reprise suivant
+GO_OT_NEXT_MISSION_SELECTION_01
