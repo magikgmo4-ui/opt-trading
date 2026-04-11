@@ -40,8 +40,10 @@ Décisions canoniques produites :
   - décision : `docs/ot/trae/OT_TRAE_MODULE_VALIDATOR_STATUS_DECISION_01.md`
 - Adoption socle Trae : CONFIRMÉ PARTIELLEMENT  
   - décision : `docs/ot/trae/OT_TRAE_SOCLE_ADOPTION_DECISION_01.md`
+  - closing : `docs/ot/closings/OT_TRAE_SOCLE_ADOPTION_PROOF_01_CLOSING.txt`
 - Runtime / snapshot repo : NON CONFIRMÉ MAIS ACCEPTÉ COMME INVARIANT DOCUMENTÉ  
   - décision : `docs/ot/trae/OT_TRAE_RUNTIME_SNAPSHOT_ALIGNMENT_DECISION_01.md`
+  - closing : `docs/ot/closings/OT_TRAE_RUNTIME_SNAPSHOT_ALIGNMENT_CHECK_01_CLOSING.txt`
 
 ### 3.5 Bloc CONTRADICTOIRE cadré (OK)
 - Cadrage canonique (repo-first + grandfathering standard/legacy + pas de normalisation implicite + V1 non automatique) :  
@@ -60,7 +62,7 @@ Décisions canoniques produites :
 - Ne pas recréer des OT_* à la racine du repo.
 
 ## 5. Point de reprise global
-- Point de reprise actuel : `GO_OT_NEXT_MISSION_SELECTION_01`
+- Point de reprise actuel : `GO_OT_TRAE_STARTERPACK_GATING_PROOF_01`
 
 ## 6. Procédure de reprise (checklist minimaliste)
 1) Lire `docs/master_pack/00_current_state_and_standards.md`
@@ -71,3 +73,4 @@ Décisions canoniques produites :
 4) Relire les décisions Trae (si mission liée) :
    - `docs/ot/trae/OT_TRAE_*_DECISION_01.md`
 5) Appliquer le point de reprise : `GO_OT_NEXT_MISSION_SELECTION_01`
+5) Appliquer le point de reprise : `GO_OT_TRAE_STARTERPACK_GATING_PROOF_01`

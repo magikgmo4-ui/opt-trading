@@ -1,0 +1,46 @@
+OT_TRAE_CONTINUATION_DEFAULT_DECISION_01 - CLOSING
+Date (America/Montreal) : 2026-04-10
+Statut : CLOSE
+Classe : PATCH_LOCAL
+
+1. Objet
+Canoniser la suite principale du plan Trae après la reprise neutre, en remplaçant le point actif `GO_OT_NEXT_MISSION_SELECTION_01` par une continuité doc-only imposée, sans ouvrir effectivement les missions ni exécuter runtime/code.
+
+2. État réel constaté au départ
+- Repo propre sur `sot/mainline` (working tree clean).
+- Closeouts Trae récents produits (pré‑V1, CONTRADICTOIRE, runtime/snapshot, adoption proof).
+- Point actif conservé partout : `GO_OT_NEXT_MISSION_SELECTION_01`.
+
+3. Décision doc-only
+- Continuité par défaut imposée :
+  1) `GO_OT_TRAE_STARTERPACK_GATING_PROOF_01`
+  2) `GO_OT_TRAE_RULES_V1_OPEN_01`
+  3) `GO_OT_TRAE_POST_V1_BACKLOG_CADRAGE_01` (réservé post‑V1)
+- Décision canonique : `docs/ot/trae/OT_TRAE_CONTINUATION_DEFAULT_DECISION_01.md`.
+
+4. Patch doc-only
+- Kanban et synthèse alignés pour afficher le nouveau point actif : `GO_OT_TRAE_STARTERPACK_GATING_PROOF_01`.
+- Reprise de session alignée sur le nouveau point actif.
+- Matrice GO active (journal) alignée, en conservant le kanban comme source de vérité.
+
+5. Fichiers modifiés / créés
+- Créé : `docs/ot/trae/OT_TRAE_CONTINUATION_DEFAULT_DECISION_01.md`
+- Créé : `docs/ot/closings/OT_TRAE_CONTINUATION_DEFAULT_DECISION_01_CLOSING.txt`
+- Modifié : `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`
+- Modifié : `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md`
+- Modifié : `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md`
+- Modifié : `docs/ot/trae/README.md`
+- Modifié : `journal/index/ACTIVE_GO_MATRIX.md`
+- Modifié : `journal/index/ACTIVE_GO_MATRIX.json`
+
+6. Périmètre explicitement exclu
+- Aucune ouverture effective des missions listées (aucune exécution).
+- Aucun patch runtime.
+- Aucun patch code / scripts / modules.
+- Aucun commit/push.
+
+7. Verdict
+PASS / CLOSE
+
+8. Point de reprise suivant
+GO_OT_TRAE_STARTERPACK_GATING_PROOF_01
