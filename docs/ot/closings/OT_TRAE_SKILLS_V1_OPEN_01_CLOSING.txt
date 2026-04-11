@@ -1,0 +1,44 @@
+OT_TRAE_SKILLS_V1_OPEN_01 - CLOSING
+Date (America/Montreal) : 2026-04-11
+Statut : CLOSE
+Classe : PATCH_LOCAL
+
+1. Objet
+Ouvrir explicitement la trajectoire Trae V1 par la couche Skills uniquement, après clôture de `GO_OT_TRAE_AGENTS_V1_OPEN_01`, en restant strictement doc-only, sans runtime, sans code, et sans ouverture automatique MCP.
+
+2. Pré-requis vérifiés
+- Closing Agents V1 open présent : `docs/ot/closings/OT_TRAE_AGENTS_V1_OPEN_01_CLOSING.txt`
+- Point actif initial : `GO_OT_TRAE_SKILLS_V1_OPEN_01`
+- Socle Skills V1 existant : `docs/ot/trae/04_SKILLS_V1.txt`
+- Décision de gel pré‑V1 Skills existante : `docs/ot/trae/OT_TRAE_SKILLS_PRE_V1_GEL_DECISION_01.md`
+
+3. Actions réalisées
+- Décision d’ouverture Skills V1 : `docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md`
+- Alignement minimal kanban / synthèse / reprise / matrice GO pour refléter :
+  - Skills V1 = ouvert explicitement (Skills uniquement)
+  - point de reprise suivant = `GO_OT_TRAE_MCP_POLICY_V1_OPEN_01` (sans lancement automatique)
+
+4. Bornes opposables confirmées
+- Skills V1 uniquement ; MCP Policy reste non ouverte automatiquement.
+- Doc-only strict : aucun patch runtime, aucun patch code.
+
+5. Fichiers touchés
+- Créé : `docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md`
+- Créé : `docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt`
+- Modifié : `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`
+- Modifié : `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md`
+- Modifié : `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md`
+- Modifié : `journal/index/ACTIVE_GO_MATRIX.json`
+- Modifié : `journal/index/ACTIVE_GO_MATRIX.md`
+
+6. Périmètre explicitement exclu
+- Aucun patch runtime.
+- Aucun patch code / scripts / modules.
+- Aucune ouverture automatique MCP (V1).
+- Aucun commit/push.
+
+7. Verdict
+PASS / CLOSE (SKILLS V1 OUVERT EXPLICITEMENT)
+
+8. Point de reprise suivant
+GO_OT_TRAE_MCP_POLICY_V1_OPEN_01

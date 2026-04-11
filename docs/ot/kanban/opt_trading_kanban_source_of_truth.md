@@ -72,7 +72,7 @@ Cette synthèse est un résumé vivant du kanban. Elle permet de voir rapidement
 - OT-NET-RECONNECT-01 : preuve “réseau pur” non produite en non-interactif (baseline /shared OK).
 
 ## 4. POINT DE REPRISE SUIVANT
-- GO_OT_TRAE_AGENTS_V1_OPEN_01 (suite V1 ; ouverture explicite Agents V1 uniquement ; ne pas lancer automatiquement).
+- GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 (suite V1 ; ouverture explicite MCP Policy V1 uniquement ; ne pas lancer automatiquement).
 
 ## 5. ÉTAT — STARTER PACK (OUVERTURE / CLÔTURE / CONTINUITÉ)
 
@@ -93,13 +93,13 @@ Cette synthèse est un résumé vivant du kanban. Elle permet de voir rapidement
   - closing : `docs/ot/closings/OT_TRAE_STARTERPACK_GATING_PROOF_01_CLOSING.txt`
 
 ## 6. POINT DE REPRISE SUIVANT (DOCS)
-- GO_OT_TRAE_AGENTS_V1_OPEN_01 :
+- GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 :
   - relire `docs/ot/kanban/opt_trading_kanban_source_of_truth.md` + dernier `docs/ot/closings/OT_*_CLOSING*.txt`
-  - décider explicitement de l’ouverture Agents V1 (sans ouvrir Skills/MCP)
+  - décider explicitement de l’ouverture MCP Policy V1 (sans exécution MCP)
 
 ## 7. POINT DE REPRISE SUIVANT (OPS)
-- GO_OT_TRAE_AGENTS_V1_OPEN_01 :
-  - même objectif (ouverture explicite Agents V1 uniquement, sans lancement automatique)
+- GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 :
+  - même objectif (ouverture explicite MCP Policy V1 uniquement, sans lancement automatique)
 
 ## 8. MODULES — VALIDATED_PROMPT_FACTORY
 
@@ -182,9 +182,9 @@ Ordre retenu :
 4. MCP
 
 ## 10. POINT ACTIF CONSERVÉ
-- GO_OT_TRAE_AGENTS_V1_OPEN_01
-  - décision (ouverture Rules) : `docs/ot/trae/OT_TRAE_RULES_V1_OPEN_DECISION_01.md`
-  - closing (ouverture Rules) : `docs/ot/closings/OT_TRAE_RULES_V1_OPEN_01_CLOSING.txt`
+- GO_OT_TRAE_MCP_POLICY_V1_OPEN_01
+  - décision (ouverture Skills) : `docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md`
+  - closing (ouverture Skills) : `docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt`
 
 ## 11. POINT CANDIDAT SI OUVERTURE DU CHANTIER TRAE V1
-- GO_OT_TRAE_AGENTS_V1_OPEN_01 (sélection explicite, sans lancement automatique)
+- GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 (sélection explicite, sans lancement automatique)
