@@ -27,6 +27,7 @@ Cette synthèse est un résumé vivant du kanban. Elle permet de voir rapidement
 | Runtime vs snapshot repo | DIVERGENT / SUIVI | gouvernance ops | NON CONFIRMÉ MAIS ACCEPTÉ (invariant documenté) | GO_OT_NEXT_MISSION_SELECTION_01 |
 | Trae pré-V1 (statut global) | PRE_V1_COHERENT_AVEC_DELTAS_FINAUX | orchestration / système | non | GO_OT_NEXT_MISSION_SELECTION_01 |
 | CONTRADICTOIRE (cadrage) | CLOSE (CADRÉ / OPPOSABLE) | gouvernance | non | GO_OT_NEXT_MISSION_SELECTION_01 |
+| journal_de_bord — matrice GO active | ÉTABLI / ACTIVE | outillage opérateur | non | GO_OT_NEXT_MISSION_SELECTION_01 |
 | Rules Trae V1 | ÉTABLI / GELÉ (PRE-V1, OPPOSABLE) | couche V1 | oui | gel pré-V1 acté (doc-only) ; suite: GO_OT_NEXT_MISSION_SELECTION_01 |
 | Agents Trae V1 | ÉTABLI / GELÉ (PRE-V1, OPPOSABLE) | couche V1 | oui | gel pré-V1 acté (doc-only) ; suite: GO_OT_NEXT_MISSION_SELECTION_01 |
 | Skills Trae V1 | ÉTABLI / GELÉ (PRE-V1, OPPOSABLE) | couche V1 | oui | gel pré-V1 acté (doc-only) ; suite: GO_OT_NEXT_MISSION_SELECTION_01 |
@@ -115,6 +116,14 @@ Cette synthèse est un résumé vivant du kanban. Elle permet de voir rapidement
 
 ### POINT DE REPRISE
 - Néant spécifique au module (validé bout-en-bout).
+
+## 8B. OUTILLAGE — JOURNAL_DE_BORD
+
+### ÉTABLI
+- `journal_de_bord` dispose d’une vue générée des GO actifs :
+  - `journal/index/ACTIVE_GO_MATRIX.md`
+  - `journal/index/ACTIVE_GO_MATRIX.json`
+- Cette vue est dérivée des docs canoniques et ne remplace pas le kanban.
 
 ## 9. TRAE — SOCLE / OUTILLAGE / V1
 
