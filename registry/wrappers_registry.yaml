@@ -203,6 +203,15 @@
   status: active
   notes: "Gestion positions"
 
+- wrapper_name: cmd-perf_engine
+  wrapper_family: cmd
+  target_module: perf_engine
+  target_script: scripts/cmd.sh
+  install_location: /usr/local/bin/cmd-perf_engine
+  audience: system
+  status: active
+  notes: "Collecte de métriques de performance"
+
 - wrapper_name: cmd-shared_sshfs_permanent
   wrapper_family: cmd
   target_module: shared_sshfs_permanent
