@@ -1,0 +1,56 @@
+OT_ADMIN_TRADING_SIMEX_UPSTREAM_FAILURE_HARDENING_EVIDENCE_CLOSEOUT_01 - CLOSING
+Date (America/Montreal) : 2026-04-11
+Statut : CLOSE
+Classe : PATCH_LOCAL
+
+1. Objet
+Fermer proprement la preuve machine du hardening SimEx sur `admin-trading` après merge de `GO_ADMIN_TRADING_SIMEX_UPSTREAM_FAILURE_HARDENING_01`, sans nouveau patch code, et distinguer explicitement ce qui est prouvé sur la fenêtre post-merge de ce qui ne l'est pas encore.
+
+2. État canonique retenu
+- La PR `simex: harden upstream failure handling for Bitget fetches` est mergée dans `sot/mainline`.
+- Le merge commit canonique retenu pour ce hardening est `671ded3ff550f7121fc6691e6bbf17c411903fd5`.
+- La machine `admin-trading` a été réalignée par `git pull --ff-only` sur ce canon.
+- `cmd-simex sanity` est validé (`PASS`).
+
+3. Preuve machine retenue
+- La machine a bien reçu les changements SimEx hardening lors du pull vers `671ded3`.
+- Les fichiers SimEx patchés sont effectivement mis à jour sur la machine :
+  - `modules/simex_bitget_bridge/app/simex_bitget_bridge.py`
+  - `modules/simex_bitget_bridge/README.md`
+- Une fenêtre post-merge immédiatement observée montre des runs nominaux `YES` et `NO` propres.
+- Les runs `YES` continuent de produire `perf_open` puis `perf_close` avec réponses `ok: True`.
+- Les runs `NO` restent propres, sans blocage, et le service finit normalement (`Deactivated successfully` / `Finished`).
+
+4. Point critique de lecture des logs
+- Une faute DNS avec traceback massif est visible à `2026-04-11 03:03:32` dans la fenêtre longue de logs.
+- Cette faute est antérieure au réalignement machine sur `671ded3` et ne doit donc pas être lue comme une preuve d'échec du patch déjà chargé sur machine.
+- La fenêtre post-merge fournie ensuite commence après le `git pull` vers `671ded3` et montre un nominal préservé.
+
+5. Verdict de preuve
+- Preuve de chargement machine du patch : PROUVÉE
+- Preuve de non-régression du flux nominal : PROUVÉE
+- Preuve live de la nouvelle ligne compacte `upstream_failure: class=...` sur incident post-merge : NON ENCORE PROUVÉE dans la fenêtre fournie
+- Verdict global : PASS / PARTIEL
+
+6. Ce que ce closeout affirme explicitement
+- Le hardening est bien mergé et bien chargé sur `admin-trading`.
+- Le flux nominal SimEx/Perf reste intact post-merge.
+- La preuve post-merge fournie ne contient pas encore d'incident upstream observé avec la nouvelle sortie compacte.
+- Il serait incorrect de prétendre que la nouvelle ligne `upstream_failure` a déjà été prouvée en machine sur cette fenêtre précise.
+
+7. Périmètre explicitement exclu
+- Aucun nouveau patch code.
+- Aucun changement service/timer.
+- Aucune modification Perf.
+- Aucun forçage artificiel de panne réseau.
+
+8. Fichier créé
+- `docs/ot/closings/OT_ADMIN_TRADING_SIMEX_UPSTREAM_FAILURE_HARDENING_EVIDENCE_CLOSEOUT_01_CLOSING.txt`
+
+9. Suite logique retenue
+- Laisser tourner et observer.
+- À la prochaine faute upstream post-merge, vérifier l'apparition de la ligne compacte `upstream_failure: class=...`.
+- Seulement après cette preuve, considérer la qualification live du hardening comme pleinement prouvée sur le chemin d'échec.
+
+10. Verdict final
+PASS / CLOSEOUT PARTIEL
