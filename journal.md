@@ -11101,3 +11101,15 @@ Remove-Item .\<untracked_file>
 - Exécuter proprement **GO_OT_TRAE_STARTERPACK_GATING_PROOF_01** (doc-only) sans mélange, puis commit/rebase/push; seulement ensuite ouvrir **GO_OT_TRAE_RULES_V1_OPEN_01** (si pas déjà clos canoniquement).
 - Si **GO_OT_TRAE_RULES_V1_OPEN_01** et **GO_OT_TRAE_AGENTS_V1_OPEN_01** sont déjà clos canoniquement (indiqué dans la conversation), enchaîner sur **GO_OT_TRAE_SKILLS_V1_OPEN_01** après vérification Git (diff réel + commit/push).
 - Hors-scope à gérer localement: fichiers Hermes untracked (ex: `docs/hermes/HERMES_OPENCLAW_BRIDGE_CASE_01_RESULT.txt`) à supprimer ou laisser non trackés, mais jamais inclure dans commits Trae.
+
+## 2026-04-11 10:56 — kj
+1) Objectifs:
+—  
+2) Actions:
+—  
+3) Décisions:
+—  
+4) Commandes / Code:
+—  
+5) Points ouverts (next):
+—
