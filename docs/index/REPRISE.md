@@ -13,7 +13,7 @@ topic_keys:
   - continuity
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-11
+updated_at: 2026-04-13
 links:
   - docs/index/GO_INDEX.md
   - docs/index/ACTIVE_STREAMS.md
@@ -24,12 +24,14 @@ links:
 ## Reprendre ici
 - repo : `opt-trading`
 - branche prioritaire : `sot/mainline`
-- flux à lire : `GO_GIT_PROGRESSIVE_MIGRATION_START_13`
+- flux à lire : `GO_UNIFORM_CONTINUITY_HARDENING_01`
 - références prioritaires :
   - `docs/governance/REPO_ROLE.md`
   - `docs/governance/DOC_LAYERS.md`
   - `docs/governance/MEMORY_BRICKS_MAPPING.md`
   - `docs/index/GO_INDEX.md`
   - `docs/index/ACTIVE_STREAMS.md`
-- dernier point établi : gouvernance locale créée et index locaux en cours
-- prochaine action recommandée : poser `NEXT_GO_CANDIDATES.md` et `OPPORTUNITY_LOG.md`, puis choisir un chantier pilote
+  - `docs/chantiers/GO_OPT_TRADING_LOCAL_CONTINUITY_BOOTSTRAP_01/90_closeout.md`
+  - `docs/chantiers/GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01/90_closeout.md`
+- dernier point établi : le bootstrap local et le pilote `memory_bricks` sont PASS, il reste la fermeture documentaire du hardening
+- prochaine action recommandée : finir le hardening documentaire, puis cadrer le prochain lot métier réel
