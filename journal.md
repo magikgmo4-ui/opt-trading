@@ -11113,3 +11113,76 @@ Remove-Item .\<untracked_file>
 —  
 5) Points ouverts (next):
 —
+
+## 2026-04-12 23:10 — note5001
+1) Objectifs:
+- Analyser un signal technique sur XAUUSD (MA50 vs Bollinger Upper).
+- Concevoir une stratégie intraday testable (session 8h) avec règles de risque/SL/TP/pyramide.
+- Mettre en place une méthode uniforme inter-repos (opt-trading canon) intégrant gouvernance, chantiers, continuité, métadonnées/recherche et compatibilité memory_bricks.
+- Auditer/aligner les repos : opt-trading, localcms, openclaw, llm_wiki_minimal; ouvrir hf_trading conforme.
+- Relire le journal (canon puis brut) et extraire la couche « humaine » (intention/choix/pourquoi) sans dériver le cadrage.
+
+2) Actions:
+- Lecture XAUUSD daily: constat MA50 légèrement au-dessus de Bollinger Upper; signal secondaire; surveillance MA100 puis MA50.
+- Conception stratégie trading:
+  - Refus de promettre 100→1000$ en 8h comme objectif responsable; proposition de protocole testable (breakout/pullback, TP partiels, pyramide, kill switch).
+  - Ajustement en stratégie unique TC-PB V2 (pullback EMA20 M5 dans sens M15, SL swing/ATR, TP 1R/2R, pyramide contrôlée).
+  - Reboot « créateur »: stratégie AURIC FLOW V1 (Micro Gold Futures MGC) + kit d’exécution (checklists, routine horaire, sizing conceptuel, journal).
+- Audit GitHub:
+  - Repo hf_trading identifié (magikgmo4-ui/hf_trading) quasi vide → initialisation structure + docs (README, docs/cadrage.md, dossiers .gitkeep) puis alignements partiels avec pattern opt-trading.
+- Mise en place méthode uniforme:
+  - Audit strict depuis ZIPs : opt-trading (modules + wrappers + memory_bricks), localcms (docs reprise/next/closeouts + consumer memory_bricks), openclaw (gouvernance/workflow/kanban), llm_wiki_minimal (pré-consolidation).
+  - Rédaction/validation progressive d’un plan maître consolidé (rôles repos, couches documentaires, pipeline, anti-conflits).
+  - Ajout de métadonnées (frontmatter YAML) + stratégie de recherche ciblée (script/index JSON) et conventions de vocabulaire contrôlé.
+  - Migration Git progressive:
+    - opt-trading: ajout docs/governance, docs/index, docs/next, docs/opportunities + 2 chantiers pilotes canoniques (bootstrap continuité locale; pilote memory_bricks).
+    - openclaw: ajout gouvernance transverse (méthode uniforme, lifecycle, status model, matrice rôles) + index transverses.
+    - localcms: ajout socle minimal + index + 1 chantier pilote consumer memory_bricks.
+    - llm_wiki_minimal: ajout socle minimal + 1 fiche dérivée d’un chantier PASS.
+    - hf_trading: bootstrap conforme (REPO_ROLE, DOC_LAYERS, REPRISE, GO_INDEX, NEXT_GO_CANDIDATES).
+- Hardening index:
+  - Constat d’écart réel: index opt-trading non synchronisés avec pilotes PASS; impossibilité d’update en place via connecteur → ouverture d’un chantier hardening + création d’un “IDE execution pack” décrivant les modifications à faire en Git natif.
+- Journal:
+  - Lecture canon consolidée (journal/canon/JOURNAL_CANON_FULL_20260301_071931.md) puis extraction en lots successifs (LOT_S1→LOT_S23) et ancrage de nombreux blocs “HUMAN_CONTINUITY_*” dans opt-trading/docs/governance.
+  - Bascule vers journal.md brut via upload, lecture par familles (runtime/webhook/perf; quant infra; trading playbooks/PDF; workflow journal multi-machine) + matrices objectif/choix/pourquoi/plan/maturité puis contrainte/succès/risque/reprise.
+  - Priorisation transverse (canon actif vs historique utile vs archive vs hors continuité active immédiate).
+
+3) Décisions:
+- Interprétation initiale: MA50 > Bollinger Upper = signal secondaire, non-trigger.
+- Stratégie trading:
+  - Rejet des promesses 10x en 8h comme “responsable”.
+  - Stratégie unique retenue pour challenge (à un moment): XAUUSD pullback continuation (TC-PB V2) avec pyramide contrôlée; puis changement de cadre “créateur” vers MGC (AURIC FLOW V1) + kit d’exécution.
+- Méthode inter-repos:
+  - opt-trading = canon (exécution/modules + memory_bricks).
+  - openclaw = canon gouvernance/workflow/statuts.
+  - localcms = consumer + continuité projet + consumer memory_bricks.
+  - llm_wiki_minimal = sas de pré-consolidation.
+  - hf_trading hors noyau initial puis bootstrappé conforme.
+- Règle de travail corrigée: commencer par plan maître consolidé, puis lecture journal (pas d’exclusivité “tout humain uniquement dans journal.md” fixée au départ).
+- Connecteur GitHub: impossibilité d’update en place “contents” (sha) → délégation à IDE/Git natif via pack d’instructions, sans modifier les GO existants.
+
+4) Commandes / Code:
+```bash
+# MGC — AURIC FLOW V1 (rappels opératoires)
+# (exécution via ordres stop + SL structurel + TP 1R/2R + runner EMA20 1m)
+
+# Exemples cités (journal/runtime)
+systemctl status perf.service
+systemctl restart perf.service
+journalctl -u perf.service -n 200 --no-pager
+curl http://127.0.0.1:8010/perf/summary
+sqlite3 /opt/trading/perf/perf.db '...'
+
+# Workflow journal (concept)
+ssh admin-trading
+jpt "Titre"
+# coller contenu
+# Ctrl-D
+```
+
+5) Points ouverts (next):
+- Terminer hardening des index opt-trading et localcms via exécution IDE/Git natif (selon IDE_EXECUTION_PACK.md), puis clôturer GO_UNIFORM_CONTINUITY_HARDENING_01 en PASS.
+- Poursuivre lecture exhaustive de journal.md brut (actuellement non complète) et produire un closeout de couverture (fin de lecture + tri canon actif/historique/archive).
+- Continuer l’extraction “5 lots x 4 axes” si requis sur canon/journal (format demandé) mais en garantissant non-redondance et traçabilité.
+- Normalisation historique ciblée: remapper 1–2 chantiers anciens utiles vers le format canon (cadrage/plan/journal_technique/décisions/closeout + métadonnées).
+- Option: définir un outil de recherche docs basé sur frontmatter (filtre repo/go_id/module/status/topic_keys) et export d’index JSON.
