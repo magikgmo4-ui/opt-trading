@@ -14,7 +14,7 @@ topic_keys:
   - governance
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-11
+updated_at: 2026-04-13
 links:
   - docs/governance/REPO_ROLE.md
   - docs/governance/DOC_LAYERS.md
@@ -59,3 +59,27 @@ Il sert à :
 - titre court : démarrage de la migration Git progressive
 - dernier état connu : gouvernance locale initiale créée sur `sot/mainline`
 - lien utile : `docs/governance/REPO_ROLE.md`, `docs/governance/DOC_LAYERS.md`, `docs/governance/MEMORY_BRICKS_MAPPING.md`
+
+### GO_OPT_TRADING_LOCAL_CONTINUITY_BOOTSTRAP_01
+- repo : opt-trading
+- type : continuité locale / bootstrap
+- statut : pass
+- titre court : socle documentaire local posé
+- dernier état connu : closeout PASS avec gouvernance locale, index et reprise locale en place
+- lien utile : `docs/chantiers/GO_OPT_TRADING_LOCAL_CONTINUITY_BOOTSTRAP_01/90_closeout.md`, `docs/index/REPRISE.md`
+
+### GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01
+- repo : opt-trading
+- type : chantier pilote / memory_bricks
+- statut : pass
+- titre court : pilote canonique `memory_bricks`
+- dernier état connu : closeout PASS posé comme second pilote local directement ancré sur `memory_bricks`
+- lien utile : `docs/chantiers/GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01/90_closeout.md`, `docs/governance/MEMORY_BRICKS_MAPPING.md`
+
+### GO_UNIFORM_CONTINUITY_HARDENING_01
+- repo : opt-trading
+- type : hardening documentaire
+- statut : active
+- titre court : réalignement final des index locaux
+- dernier état connu : les index doivent refléter les deux pilotes PASS avant clôture définitive du hardening
+- lien utile : `docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/90_closeout.md`, `docs/index/ACTIVE_STREAMS.md`

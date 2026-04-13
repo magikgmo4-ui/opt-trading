@@ -14,7 +14,7 @@ topic_keys:
   - reprise
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-11
+updated_at: 2026-04-13
 links:
   - docs/index/GO_INDEX.md
 ---
@@ -42,11 +42,11 @@ Il sert à :
 
 ## Flux actifs
 
-### GO_GIT_PROGRESSIVE_MIGRATION_START_13
+### GO_UNIFORM_CONTINUITY_HARDENING_01
 - statut : active
 - repo : opt-trading
 - branche : sot/mainline
 - machine principale : non fixée dans ce document
-- dernier point établi : paquet gouvernance locale créé (`REPO_ROLE.md`, `DOC_LAYERS.md`, `MEMORY_BRICKS_MAPPING.md`)
-- prochaine action : créer les index locaux (`GO_INDEX.md`, `ACTIVE_STREAMS.md`, `REPRISE.md`) puis `NEXT_GO_CANDIDATES.md` et `OPPORTUNITY_LOG.md`
-- blocages : aucun blocage établi à ce stade
+- dernier point établi : `GO_OPT_TRADING_LOCAL_CONTINUITY_BOOTSTRAP_01` et `GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01` sont PASS, avec hardening documentaire restant à fermer proprement
+- prochaine action : finir le hardening documentaire, puis ouvrir le prochain lot métier réel
+- blocages : aucun blocage documentaire résiduel identifié en Git natif

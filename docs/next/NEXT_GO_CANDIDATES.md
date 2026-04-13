@@ -14,7 +14,7 @@ topic_keys:
   - migration
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-11
+updated_at: 2026-04-13
 links:
   - docs/index/GO_INDEX.md
   - docs/index/ACTIVE_STREAMS.md
@@ -25,18 +25,5 @@ links:
 
 ## Candidats actuels
 
-### GO_OPT_TRADING_LOCAL_CONTINUITY_INDEXES_01
-- origine : `GO_GIT_PROGRESSIVE_MIGRATION_START_13`
-- type : continuité locale
-- valeur attendue : compléter la couche locale de reprise et d’orientation
-- condition d’ouverture : paquet index et gouvernance locale stabilisé
-- pourquoi pas maintenant : encore dans le flux actif courant
-- priorité : high
-
-### GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01
-- origine : migration uniforme de continuité
-- type : migration / chantier pilote
-- valeur attendue : valider un premier chantier au format canonique avec dérivation vers `memory_bricks`
-- condition d’ouverture : index locaux et gouvernance minimale en place
-- pourquoi pas maintenant : la couche de continuité locale doit être finalisée d’abord
-- priorité : high
+- aucun nouveau GO local à ouvrir avant la clôture de `GO_UNIFORM_CONTINUITY_HARDENING_01`
+- prochain cadrage utile : un lot métier réel à nommer après fermeture propre du hardening
