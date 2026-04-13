@@ -42,11 +42,4 @@ Il sert à :
 
 ## Flux actifs
 
-### GO_UNIFORM_CONTINUITY_HARDENING_01
-- statut : active
-- repo : opt-trading
-- branche : sot/mainline
-- machine principale : non fixée dans ce document
-- dernier point établi : `GO_OPT_TRADING_LOCAL_CONTINUITY_BOOTSTRAP_01` et `GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01` sont PASS, avec hardening documentaire restant à fermer proprement
-- prochaine action : finir le hardening documentaire, puis ouvrir le prochain lot métier réel
-- blocages : aucun blocage documentaire résiduel identifié en Git natif
+_Aucun flux actif actuellement documenté. Le hardening documentaire est clos. Prochain lot à cadrer : un lot métier réel à nommer._

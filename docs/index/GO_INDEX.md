@@ -79,7 +79,7 @@ Il sert à :
 ### GO_UNIFORM_CONTINUITY_HARDENING_01
 - repo : opt-trading
 - type : hardening documentaire
-- statut : active
+- statut : pass
 - titre court : réalignement final des index locaux
-- dernier état connu : les index doivent refléter les deux pilotes PASS avant clôture définitive du hardening
+- dernier état connu : closeout PASS, index réalignés, aucun blocage documentaire résiduel
 - lien utile : `docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/90_closeout.md`, `docs/index/ACTIVE_STREAMS.md`

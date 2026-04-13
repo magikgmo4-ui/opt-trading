@@ -24,14 +24,13 @@ links:
 ## Reprendre ici
 - repo : `opt-trading`
 - branche prioritaire : `sot/mainline`
-- flux à lire : `GO_UNIFORM_CONTINUITY_HARDENING_01`
+- flux à lire : aucun flux actif bloquant — le hardening documentaire est clos
 - références prioritaires :
   - `docs/governance/REPO_ROLE.md`
   - `docs/governance/DOC_LAYERS.md`
   - `docs/governance/MEMORY_BRICKS_MAPPING.md`
   - `docs/index/GO_INDEX.md`
   - `docs/index/ACTIVE_STREAMS.md`
-  - `docs/chantiers/GO_OPT_TRADING_LOCAL_CONTINUITY_BOOTSTRAP_01/90_closeout.md`
-  - `docs/chantiers/GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01/90_closeout.md`
-- dernier point établi : le bootstrap local et le pilote `memory_bricks` sont PASS, il reste la fermeture documentaire du hardening
-- prochaine action recommandée : finir le hardening documentaire, puis cadrer le prochain lot métier réel
+  - `docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/90_closeout.md`
+- dernier point établi : le bootstrap local, le pilote `memory_bricks` et le hardening documentaire sont tous PASS
+- prochaine action recommandée : cadrer le prochain lot métier réel

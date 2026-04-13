@@ -25,5 +25,5 @@ links:
 
 ## Candidats actuels
 
-- aucun nouveau GO local à ouvrir avant la clôture de `GO_UNIFORM_CONTINUITY_HARDENING_01`
-- prochain cadrage utile : un lot métier réel à nommer après fermeture propre du hardening
+- hardening documentaire clos
+- prochain cadrage utile : un lot métier réel à nommer

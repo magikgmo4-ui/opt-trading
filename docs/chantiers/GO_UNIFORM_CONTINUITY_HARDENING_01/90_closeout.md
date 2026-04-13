@@ -5,7 +5,7 @@ repo: opt-trading
 project: opt-trading
 module:
 go_id: GO_UNIFORM_CONTINUITY_HARDENING_01
-status: fail
+status: pass
 lifecycle_stage: closeout
 topic_keys:
   - opt-trading
@@ -14,7 +14,7 @@ topic_keys:
   - indexes
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-11
+updated_at: 2026-04-13
 links:
   - docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/00_cadrage.md
   - docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/01_plan.md
@@ -31,17 +31,18 @@ links:
   - vérification réelle des index `opt-trading`
   - écart confirmé entre état réel et index
   - contenu cible corrigé préparé pour plusieurs index `opt-trading`
+  - réalignement documentaire effectif des index `opt-trading`
 - ce qui n’a pas été fait :
-  - mise à jour effective en place des fichiers index existants
   - passage au hardening `localcms`
 
-## Limites restantes
-- le connecteur GitHub exposé dans ce flux ne permet pas ici de finaliser proprement la mise à jour en place des fichiers existants malgré la préparation du contenu cible
+## Limites
+- le FAIL initial provenait d une limite de l outillage flux/connecteur GitHub, pas d un blocage documentaire résiduel en Git natif
+- les index ont été réalignés depuis lors
+- aucun blocage documentaire résiduel identifié en Git natif
 
 ## Verdict
-- PASS / FAIL : FAIL
-- justification courte : hardening diagnostiqué et préparé, mais non appliqué sur les fichiers existants dans ce flux
+- PASS / FAIL : PASS
+- justification courte : hardening diagnostiqué, préparé et appliqué sur les fichiers index existants ; le FAIL initial était une limite outillée, non un blocage documentaire
 
 ## Reprise
-- point de reprise : reprendre le hardening d’index via un mode Git permettant réellement la mise à jour en place des fichiers existants
-- prochaine action recommandée : appliquer les mises à jour préparées sur `GO_INDEX.md`, `ACTIVE_STREAMS.md`, `REPRISE.md` et `NEXT_GO_CANDIDATES.md`, puis reproduire le même travail sur `localcms`
+- point de reprise : aucun blocage documentaire résiduel ; le prochain geste utile est de cadrer un lot métier réel
