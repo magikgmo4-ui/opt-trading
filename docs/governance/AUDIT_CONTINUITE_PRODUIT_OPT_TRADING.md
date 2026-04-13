@@ -53,7 +53,7 @@
 - plan valide : `vision_bot` = reception / traitement de captures ; `bot_vision_step2` = interaction Telegram + `/analyze` + artefacts Desk Pro ; direction de maturite = sortir d'une dependance forte a ShareX / Windows-only et stabiliser une chaine vision unifiee
 - etat obtenu : modules existants ; contrat input/output de base repo-source ; chaine partielle mais reelle
 - preuves : `modules/vision_bot/README.md`, `modules/bot_vision_step2/README.md`
-- gap restant : la cible cross-platform finale n'est pas encore materialisee comme spec canonique retrouvee ; ETABLI : pipeline vision vers artefacts Desk Pro existe ; A REVALIDER : la cible finale headless browser cross-platform comme plan produit fige
+- gap restant : ETABLI : le pipeline actuel Bot Vision existe et repose encore sur Windows / ShareX / SFTP cote capture ; A REVALIDER : la cible finale headless browser cross-platform n'est pas encore retrouvee comme spec canonique explicite figee dans le repo
 - prochain GO : clarifier repo-source la cible produit finale Bot Vision ; mesurer l'ecart exact entre pipeline actuel et pipeline cross-platform vise
 
 ## 3. ANNEAU B — REGISTRE COURT DES PROJETS STRUCTURANTS
@@ -69,7 +69,7 @@
 | collector family | ETABLI | vraie famille transverse avec doctrine claire | moins prioritaire que les 3 centres produit retenus | `GO_COLLECTORS_MIGRATION_MAP_01` |
 | Trae / agents / prompt factory / registry | ETABLI | programme transverse reel de structuration/documentation | en arriere-plan par rapport aux produits prioritaires de cette passe | `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md` |
 | surface operateur | ETABLI | couche transverse utile pour usage reel et reprise | sous-jacente a Desk Pro plutot que produit autonome prioritaire | `menu-ops_menu_hub` + runbooks machine |
-| openclaw | A REVALIDER | role repo transverse important dans la methode uniforme | trop peu verrouille comme projet produit concret | gouvernance transverse `openclaw` |
+| openclaw | A REVALIDER | role repo transverse important ; cockpit operateur local repo-prouve ; policy provider/modele prouvee | produit OpenClaw global complet encore non verrouille | `modules/menu_openclaw/docs/GO_OPENCLAW_CHAIN_03.md`, `modules/menu_openclaw/docs/GO_OPENCLAW_USAGE_EXAMPLES_09.md`, `modules/model_provider_openclaw/README.md` |
 | llm_wiki_minimal | PARTIEL | sas de pre-consolidation explicitement etabli | role surtout transverse, pas produit fort d'`opt-trading` | `docs/governance/REPO_ROLE.md` |
 | hf_trading | PARTIEL | repo conforme utile pour extension future | bootstrap trop leger pour peser dans l'anneau A | bootstrap conforme, pas de lot metier etabli |
 | Antigravity | PARTIEL | chantier specialise reel, historiquement utile | peripherique au centre de gravite produit actuel | relecture dediee des closings/notes Antigravity |

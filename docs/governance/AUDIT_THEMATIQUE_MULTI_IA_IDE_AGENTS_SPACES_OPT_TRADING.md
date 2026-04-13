@@ -12,9 +12,9 @@
 | Projet | Besoin initial | Objectif final vise | Etat obtenu | Gap principal | Prochain GO |
 |---|---|---|---|---|---|
 | Trae | structurer le travail assiste IA sans derive entre workflow, kanban, regles, agents et runtime | une couche Trae gouvernee et opposable, ou les missions IA multi-etapes sont reprises proprement sans ambiguite | socle pre-V1 gele, decisions canoniques produites, reprise canonique en place | encore pre-V1, agents/skills non ouverts comme couche runtime active | `GO_OT_TRAE_AGENTS_V1_OPEN_01` si selection explicite |
-| OpenClaw | sortir la gouvernance transverse et borner agents/providers/modeles hors du canon execution `opt-trading` | une couche OpenClaw avec politique provider/modele centralisee, gouvernee et bornee | role repo transverse etabli, `model_provider_openclaw` present | produit OpenClaw global encore peu verrouille | audit/synthese OpenClaw ou lot provider policy V1 |
+| OpenClaw | sortir la gouvernance transverse et borner agents/providers/modeles hors du canon execution `opt-trading` | une couche OpenClaw avec politique provider/modele centralisee, gouvernee et bornee | role repo transverse etabli ; cockpit operateur local partiellement reconstruit ; `model_provider_openclaw` prouve | produit OpenClaw global encore peu verrouille | audit/synthese OpenClaw ou lot provider policy V1 |
 | Hugging Face | exposer certaines surfaces sans deplacer la source de verite hors du repo canonique | une couche Hugging Face de publication propre avec portail public, tools prives, MCP public, assets publics | `portal_static` documente, surfaces nommees, publication target only explicite | peu de preuve d'usage bout-en-bout, chronologie produit limitee | audit publication Hugging Face ou cadrage d'usage des surfaces |
-| DeepSeek / Ollama local | avoir une IA locale exploitable sans dependance exclusive aux APIs externes, avec separation thinking / response | un hub DeepSeek / Ollama local stable, menu unifie, thinking/response pilotables, logs et artefacts lisibles | journal riche installation/usage, `deepseek_hub` present, menu/commandes unifiees | verite runtime encore partagee entre anciens modules, journal, hub | audit runtime DeepSeek / clarification runtime canonique |
+| DeepSeek / Ollama local | avoir une IA locale exploitable sans dependance exclusive aux APIs externes, avec separation thinking / response | un hub DeepSeek / Ollama local stable, menu unifie, thinking/response pilotables, logs et artefacts lisibles | `scripts/student` = runtime canonique actuel, `deepseek_hub` = hub reel d'unification, `deepseek-student` = surface operateur | cible finale unique non figee ; `deepseek_hub` reste candidat d'unification le plus fort | audit runtime DeepSeek / clarification runtime canonique |
 
 ### Trae
 - besoin : structurer le travail assiste IA sans derive entre workflow, kanban, regles, agents et runtime
@@ -28,10 +28,10 @@
 ### OpenClaw
 - besoin : sortir la gouvernance transverse et borner agents/providers/modeles hors du canon execution `opt-trading`
 - objectif final : couche OpenClaw avec politique provider/modele centralisee, gouvernee et bornee
-- plan : `openclaw` = repo de gouvernance transverse ; `opt-trading` = briques locales utiles comme politique provider
-- etat : role transverse fixe ; `model_provider_openclaw` present ; providers/modeles autorises ; matrice agent -> modele/fallback ; regle : aucun agent ne choisit directement son provider/modele
-- preuves : `docs/governance/REPO_ROLE.md`, `modules/model_provider_openclaw/README.md`
-- gap : produit OpenClaw complet pas encore reconstruit ici
+- plan : `openclaw` = repo de gouvernance transverse ; `opt-trading` = cockpit operateur local borne + politique provider/modele
+- etat : role transverse fixe ; cockpit operateur local partiellement reconstruit ; `model_provider_openclaw` present ; providers/modeles autorises ; matrice agent -> modele/fallback ; regle : aucun agent ne choisit directement son provider/modele
+- preuves : `modules/menu_openclaw/docs/GO_OPENCLAW_CHAIN_03.md`, `modules/menu_openclaw/docs/GO_OPENCLAW_USAGE_EXAMPLES_09.md`, `modules/model_provider_openclaw/README.md`
+- gap : produit OpenClaw global complet pas encore verrouille
 - prochain GO : audit/synthese OpenClaw ou lot provider policy V1
 
 ### Hugging Face
@@ -47,9 +47,9 @@
 - besoin : avoir une IA locale exploitable sans dependance exclusive aux APIs externes ; separation thinking / response
 - objectif final : hub DeepSeek / Ollama local stable, menu unifie, thinking/response pilotables, logs et artefacts lisibles
 - plan : installer Ollama local ; separer `deepseek_thinking` et `deepseek_response` ; preferer API HTTP a `ollama run` ; unifier via `deepseek_hub`
-- etat : journal riche installation/usage ; `deepseek_hub` present ; menu/commandes unifiees ; patch des anciens modules
+- etat : `scripts/student` constitue le runtime reel / canonique actuel ; `deepseek_hub` est le hub reel d'unification ; `deepseek-student` est la surface operateur reelle
 - preuves : `journal.md`, `modules/deepseek_hub/README.md`
-- gap : verite runtime encore partagee entre anciens modules, journal, hub
+- gap : aucune cible finale unique n'est encore figee repo-sourcee ; `deepseek_hub` est le candidat d'unification le plus fort, mais la destination finale canonique n'est pas close
 - prochain GO : audit runtime DeepSeek / clarification runtime canonique
 
 ## Registre court Anneau B
@@ -77,4 +77,4 @@
   1. figer une synthese canonique Trae
   2. figer une synthese canonique OpenClaw
   3. clarifier la carte produit Hugging Face spaces
-  4. clarifier le runtime canonique DeepSeek
+  4. clarifier la cible finale DeepSeek entre runtime actuel, candidat d'unification et destination canonique non figee
