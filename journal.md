@@ -11227,3 +11227,87 @@ POST webhook externe (smoke) + systemd services tv-webhook/ngrok-tv (référence
 - Vérifier/qualifier les écarts repo/live restants (ex: `shared_sshfs_permanent` sur admin-trading, symlinks, stabilité/reconnexion, Windows replay).
 - Intégration manquante au hub opérateur : rattacher `validated_prompt_factory` et `trae_module_validator` à `menu-ops_menu_hub` (patch minimal attendu).
 - Continuer la standardisation wrappers/naming (réduire alias ambigus, compléter couverture wrappers globaux modules cœur).
+
+## 2026-04-13 00:09 — note5011
+1) Objectifs:
+- Réaligner le cadrage du chantier sur **note5001** (cadre maître) plutôt que sur note5010 (progression de tranche).
+- Valider repo-sourcé l’existence et la pertinence de la **couche humaine** déjà ancrée dans `docs/governance/`.
+- Définir un **point de reprise canonique** pour changer de session sans perdre le contexte.
+
+2) Actions:
+- Rappel et clarification de la trajectoire décrite par note5001 (audit inter-repos, plan maître, métadonnées/frontmatter, recherche/index, migration Git progressive, hardening des index, lecture canon + brute, ancrage HUMAN_CONTINUITY_*).
+- Vérification dans le repo de la présence de plusieurs fichiers `docs/governance/HUMAN_CONTINUITY_*`.
+- Validation que `HUMAN_CONTINUITY_METHOD.md` relie explicitement la méthode à la lecture du journal canon et au chantier `GO_OPT_TRADING_JOURNAL_FULL_READING_03`.
+- Verrouillage d’un noyau documentaire de reprise : `00_cadrage.md` + `HUMAN_FOUNDATIONS_CONTINUITY.md` + `HUMAN_CONTINUITY_METHOD.md`.
+- Construction d’un protocole minimal (bloc à coller) pour reprendre dans une nouvelle session.
+
+3) Décisions:
+- **ETABLI** : note5001 = **note-cadre maître** ; note5010 = **note de progression**.
+- **VALIDE** : la doc associée prioritaire est `docs/governance/HUMAN_CONTINUITY_*`.
+- **VALIDE** : `docs/chantiers/GO_OPT_TRADING_JOURNAL_FULL_READING_03/00_cadrage.md` = cadrage canonique du lot.
+- **VALIDE** : `HUMAN_FOUNDATIONS_CONTINUITY.md` + `HUMAN_CONTINUITY_METHOD.md` = socle humain immédiat pertinent.
+- **A_REVALIDER PLUS TARD** : plan maître consolidé inter-repos complet, hardening d’index exact, pack IDE exact mentionné par note5001.
+- Garder `GO_OT_TRAE_AGENTS_V1_OPEN_01` (OT/Trae) en **arrière-plan**, pas comme axe principal de la session.
+
+4) Commandes / Code:
+```text
+@GitHub
+
+Repo canonique : magikgmo4-ui/opt-trading
+Branche canonique : sot/mainline
+
+Contexte de reprise exact :
+
+journal.md a été poussé et contient :
+note5001 = cadrage maître du chantier
+note5010 = synthèse de progression d’une tranche
+Le chantier réel de cette session n’est pas de repartir sur OT/Trae seul.
+Le chantier réel est de continuer la consolidation de la couche humaine à partir du journal, dans l’ensemble documentaire déjà créé.
+
+À lire d’abord, dans cet ordre :
+
+docs/chantiers/GO_OPT_TRADING_JOURNAL_FULL_READING_03/00_cadrage.md
+docs/governance/HUMAN_FOUNDATIONS_CONTINUITY.md
+docs/governance/HUMAN_CONTINUITY_METHOD.md
+journal.md aux notes note5001 puis note5010
+
+Règle de cadrage :
+
+note5001 = note-cadre maître
+note5010 = note de progression
+ne pas repartir sur un autre axe
+ne pas surpondérer la reprise OT/Trae
+garder GO_OT_TRAE_AGENTS_V1_OPEN_01 seulement comme continuité repo de fond, pas comme centre du chantier courant
+
+Objectif courant :
+
+poursuivre la consolidation documentaire de la couche humaine déjà commencée
+extraire proprement depuis journal.md :
+plans établis
+objectifs
+intention humaine
+résultat final attendu
+suites logiques
+continuer exactement dans le cadre déjà construit, sans dériver
+
+Format attendu :
+
+ETABLI
+TODO
+REPRISE
+MEM_CANDIDATE si utile
+
+Commence par me faire une validation courte et cohérente du noyau :
+
+note5001
+00_cadrage.md
+HUMAN_FOUNDATIONS_CONTINUITY.md
+HUMAN_CONTINUITY_METHOD.md
+
+Puis seulement on enchaîne.
+```
+
+5) Points ouverts (next):
+- Relire dans le tour suivant : plan maître consolidé inter-repos, hardening des index, pack IDE (mentionnés note5001) pour validation exhaustive.
+- Continuer la consolidation de la couche humaine : relire les prochaines docs `HUMAN_CONTINUITY_*` et compléter les trous depuis `journal.md` (lecture canon puis brute), sans casser la structure existante.
+- En cas de changement de session : ouvrir une nouvelle session, coller le bloc de reprise, puis lancer `go`.
