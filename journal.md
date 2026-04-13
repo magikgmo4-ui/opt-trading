@@ -11186,3 +11186,44 @@ jpt "Titre"
 - Continuer l’extraction “5 lots x 4 axes” si requis sur canon/journal (format demandé) mais en garantissant non-redondance et traçabilité.
 - Normalisation historique ciblée: remapper 1–2 chantiers anciens utiles vers le format canon (cadrage/plan/journal_technique/décisions/closeout + métadonnées).
 - Option: définir un outil de recherche docs basé sur frontmatter (filtre repo/go_id/module/status/topic_keys) et export d’index JSON.
+
+## 2026-04-12 23:13 — note5010
+1) Objectifs:
+- Reprendre la lecture de `journal.md` depuis l’état réel du repo canonique `magikgmo4-ui/opt-trading` (branche `sot/mainline`).
+- Extraire des « blocs humains » courts, classés (ETABLI / HYPOTHESE / A_REVALIDER / OBSOLETE / CANDIDAT_DOC_HUMAINE) et validables.
+- Distinguer strictement : état repo canonique vs chronologie `journal.md` vs preuve live (runtime).
+- Maintenir une continuité par points de reprise GO (GO_OPT_TRADING_JOURNAL_FULL_READING_* puis GO OT Trae).
+
+2) Actions:
+- Validation du point de reprise initial : plan maître → relecture complète `journal.md` → extraction de blocs courts à valider.
+- Rattachement à @GitHub et confirmation de l’accès au repo canonique ; bascule sur la pièce jointe `journal.md` comme source primaire, puis recroisements repo-sourcés.
+- Extraction progressive de blocs humains 01→44 :
+  - 01–08 : origine journal multi-machine, priorité infra quant avant stratégie, pivot live TradingView→webhook, perf/mesure, runtime always-on, invariants (secret/router/lock/systemd), apparition tardive du remote `opt-trading` (à revalider en continuité).
+  - 09–16 (repo-sourcé) : observabilité intégrée (dashboard, métriques, raw_logs JSONL), risk config externalisée, état routeur persistant + checks health PASS/FAIL, architecture engines (registry/router + scripts opérateur) et généralisation du pattern module opérable (cmd/menu/sanity).
+  - 17–20 : rôle canonique du repo (gouvernance), registre central des wrappers (`wrappers_registry.yaml`), inventaire `/usr/local/bin` et gap analysis (problème = cohérence d’exposition/naming/packaging, pas absence de briques).
+  - 21–24 : hiérarchie canonique Desk Pro (opérateur vs admin vs legacy vs module), runtime layer `scripts/admin_trading/`, cartographie multi-machines + doctrine `/shared`, closeout de réalignement doc avec GO de reprise.
+  - 25–28 : routine opérateur (audit OT-OPS-03/03B), matrice routines (ÉTABLIE/PARTIELLE/AMBIGUË), hub opérateur unique mais intégrations manquantes, suppression d’alias globaux ambigus non gouvernés, drill live (preuves services/wrappers ; écarts sur SSHFS/symlink/schedule).
+  - 29–32 : discipline doc (pas de “validé live” sans preuve), requalification `shared_sshfs_permanent` (repo installable vs live incomplet), UX `cmd-shared` (ls/get/put/cat/status/path), standard `/shared` inter-machines (Linux prouvé, Windows cadré via WinSCP/SFTP avec réserve).
+  - 33–36 : drill “session opening à froid” (patch: scan Git HEAD/status plus tôt), audit starter pack (manque d’index unique), doctrine tranchée (starter pack vs workflow_ai vs closings vs TRAE), reprise canonique + GO matrix (vue générée, subordonnée au kanban).
+  - 37–40 : migration OT vers `docs/ot/*` (règle), kanban comme source of truth, vues compactes dérivées (synthèse + ACTIVE_GO_MATRIX), continuité active resserrée à `GO_OT_TRAE_AGENTS_V1_OPEN_01` (owner machine fantome, branche feat dédiée).
+  - 41–44 : borne gating GO/STOP (pas de fausse preuve), ouverture explicite Rules V1 doc-only, maintien Agents V1 comme prochain GO sans ouverture implicite du reste, synchronisation serrée décision/closing/kanban/reprise/GO matrix.
+
+3) Décisions:
+- Ordre de travail confirmé : plan maître → lecture `journal.md` → blocs documentaires à valider, sans figer la couche humaine directement depuis `journal.md`.
+- Ne considérer canonique que ce qui est recroisé avec l’état réel du repo ; marquer en HYPOTHESE/A_REVALIDER ce qui n’est pas prouvé (chronologie fine `journal.md`, anciens remotes Git, etc.).
+- Séparation stricte repo canonique vs preuve live : pas d’assertion “déployé/validé live” sans drill.
+- Doctrine OT/Trae V1 : ouverture “Rules V1” doc-only ; prochain GO actif unique = `GO_OT_TRAE_AGENTS_V1_OPEN_01` (pas d’auto-ouverture Agents/Skills/MCP).
+
+4) Commandes / Code:
+```text
+ssh admin-trading → jpt "titre" → coller → Ctrl-D   (flux de journalisation mentionné)
+git remote set-url origin https://github.com/magikgmo4-ui/opt-trading.git  (référence journal)
+POST webhook externe (smoke) + systemd services tv-webhook/ngrok-tv (références journal)
+```
+
+5) Points ouverts (next):
+- Continuer la reprise `GO_OPT_TRADING_JOURNAL_FULL_READING_12` : chercher 45–48 (ouverture Agents V1 si existante, closings postérieurs au 11 avril, réalignements kanban/reprise/GO matrix).
+- Revenir à une extraction plus “journal.md ligne à ligne” là où le connecteur le permet, pour verrouiller la chronologie historique (éviter reconstruction uniquement par closings/docs).
+- Vérifier/qualifier les écarts repo/live restants (ex: `shared_sshfs_permanent` sur admin-trading, symlinks, stabilité/reconnexion, Windows replay).
+- Intégration manquante au hub opérateur : rattacher `validated_prompt_factory` et `trae_module_validator` à `menu-ops_menu_hub` (patch minimal attendu).
+- Continuer la standardisation wrappers/naming (réduire alias ambigus, compléter couverture wrappers globaux modules cœur).
