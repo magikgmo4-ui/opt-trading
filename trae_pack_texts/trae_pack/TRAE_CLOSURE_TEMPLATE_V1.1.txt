@@ -1,5 +1,8 @@
 TRAE_CLOSURE_TEMPLATE_V1.1 — MODÈLE CANONIQUE DE CLÔTURE
 
+NOTE (opt-trading) : ce template doit refléter la structure canonique de continuité produit/plan validé.
+Champs obligatoires pour la continuité : objectif final visé, état obtenu, établi, gap, prochain GO, reprise, séparation rôles (machine/IA-IDE/repo-produit).
+
 NOTE (opt-trading) : ce fichier est un helper (support de format). La clôture canonique côté repo est `OT_*_CLOSING.txt` avec alignement doc canonique + kanban + point de reprise ; en cas de conflit, le repo prime.
 
 ## 1. OBJECTIF DU TEMPLATE
@@ -12,10 +15,15 @@ Standardiser l’archivage d’un état validé (mission, module, doctrine) afin
 - Fin de session de travail lorsqu’un état validé doit être archivé.
 
 ## 3. CHAMPS OBLIGATOIRES
+- **Objectif final visé** : Rappel de l'objectif initial de la mission.
+- **État obtenu** : Ce qui a été concrètement достиint.
+- **Établi** : Ce qui est maintenant figé comme acquis.
+- **Gap** : Ce qui reste à traiter ou n'a pas pu être fait.
+- **Prochain GO** : Quelle est la prochaine étape GO ?
+- **Reprise** : Point explicite pour relancer l'action future sans ambiguïté.
 - Élément Cible : Nom précis de ce qui est clos.
 - Statut Final : CLOSE.
 - Référence Verdict : Rappel du verdict de review (ACCEPT / ACCEPT_WITH_NOTES).
-- Point de Reprise : Prochaine étape logique ou état stable à reprendre.
 
 ## 4. CHAMPS OPTIONNELS
 - Traçabilité Notes : Liste des TODO créés (si ACCEPT_WITH_NOTES).
@@ -25,19 +33,37 @@ Standardiser l’archivage d’un état validé (mission, module, doctrine) afin
 ## 5. FORMAT CANONIQUE COMPLET
 # CLÔTURE — <NOM_ÉLÉMENT>
 
-## 1. ÉTAT ÉTABLI
+## 1. OBJECTIF FINAL VISÉ
+- [Rappel de l'objectif initial de la mission]
+
+## 2. ÉTAT OBTENU
+- [Ce qui a été concrètement atteint]
+
+## 3. ÉTABLI
+- [Ce qui est maintenant figé comme acquis]
+
+## 4. GAP
+- [Ce qui reste à traiter ou n'a pas pu être fait]
+
+## 5. PROCHAIN GO
+> **GO_<PROCHAINE_ÉTAPE_LOGIQUE>**
+
+## 6. REPRISE
+- [Point explicite pour relancer l'action future sans ambiguïté]
+
+## 7. ÉTAT ÉTABLI (Légacy)
 - **Cible** : <Nom du module / document / mission>
 - **Statut Final** : CLOSE
 - **Verdict de Référence** : [ACCEPT | ACCEPT_WITH_NOTES]
 
-## 2. TRAÇABILITÉ (Si applicable)
+## 8. TRAÇABILITÉ (Si applicable)
 - **Notes / Dettes** :
   - [x] <Référence ticket ou TODO créé>
 - **Artefacts Clés** :
   - <Fichier 1>
   - <Doc A>
 
-## 3. POINT DE REPRISE
+## 7. POINT DE REPRISE (Légacy)
 > **GO_<PROCHAINE_ÉTAPE_LOGIQUE>**
 
 ## 6. RÈGLES DE REMPLISSAGE

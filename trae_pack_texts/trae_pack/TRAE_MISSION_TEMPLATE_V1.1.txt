@@ -1,12 +1,21 @@
 TRAE_MISSION_TEMPLATE_V1.1 — MODÈLE CANONIQUE DE MISSION
 
+NOTE (opt-trading) : ce template doit refléter la structure canonique de continuité produit/plan validé.
+Champs obligatoires pour la continuité : besoin initial, objectif final visé, plan validé, roles (machine/IA/IDE/repo-produit), état réel de départ, gap, prochain GO.
+
 ## 1. OBJECTIF DU TEMPLATE
 Standardiser le format des missions transmises par l’Orchestrator à l’Executor, afin de garantir que chaque mission est bornée, claire, sans ambiguïté et contient toutes les informations nécessaires à une exécution conforme et validable.
 
 ## 2. CHAMPS OBLIGATOIRES
 - ID Mission : Identifiant unique ou titre court.
 - Classification : Type de mission (DIAGNOSTIC_PONCTUEL, PATCH_LOCAL, MODULE_DURABLE, BUNDLE_TRANSFERT).
-- Objectif Unique : Une phrase décrivant le but.
+- **Besoin initial** : Pourquoi cette mission ? Quel besoin concret ?
+- **Objectif final visé** : Quel résultat concret et mesurable est attendu ?
+- **Plan validé** : Quel chemin est validé pour atteindre l'objectif ?
+- **Rôles / Fils** : Machine, IA, IDE, Repo/Produit concernés.
+- **État réel de départ** : Ce qu'on sait de l'état actuel avant exécution.
+- **Gap** : Quel est l'écart entre l'état actuel et l'objectif ?
+- **Prochain GO** : Quelle est la prochaine étape après cette mission ?
 - Scope (Cible) : Liste explicite des fichiers ou dossiers concernés.
 - Scope (Interdit) : Ce qu'il ne faut PAS faire ou toucher.
 - Validation : Comment prouver le succès (commande, test, log).

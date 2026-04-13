@@ -1,10 +1,21 @@
 TRAE_REVIEW_VERDICT_TEMPLATE_V1.1 — MODÈLE CANONIQUE DE REVIEW
 
+NOTE (opt-trading) : ce template doit vérifier que la structure canonique de continuité a été préservée.
+Vérifications obligatoires : besoin initial, cible finale, plan validé, état obtenu, gap, prochain GO, fil machine/IA/IDE/repo-produit.
+
 ## 1. OBJECTIF DU TEMPLATE
 Standardiser la décision finale du Reviewer pour garantir que chaque livrable est audité selon les mêmes critères de scope, de qualité et de sécurité. Le verdict doit être sans appel et basé sur des preuves factuelles.
 
 ## 2. CHAMPS OBLIGATOIRES
 - Verdict : ACCEPT, REJECT ou ACCEPT_WITH_NOTES.
+- **Vérification Continuité Canonique** :
+  - Besoin initial préservé : [OUI/NON]
+  - Cible finale / Objectif final visé préservée : [OUI/NON]
+  - Plan validé respecté : [OUI/NON]
+  - État obtenu documenté : [OUI/NON]
+  - Gap identifié et documenté : [OUI/NON]
+  - Prochain GO explicitement nommé : [OUI/NON]
+  - Fil machine/IA/IDE/repo-produit identifié : [OUI/NON]
 - Analyse des Écarts : Comparaison Scope vs Réel.
 - Vérification des Preuves : Validation des logs et diffs fournis.
 - Contrôle des Standards : Vérification de `cmd`, `menu`, `sanity` (pour modules).
@@ -21,22 +32,31 @@ Standardiser la décision finale du Reviewer pour garantir que chaque livrable e
 ## 1. VERDICT
 [ACCEPT | REJECT | ACCEPT_WITH_NOTES]
 
-## 2. ANALYSE DE CONFORMITÉ
+## 2. VÉRIFICATION CONTINUITÉ CANONIQUE
+- **Besoin initial préservé** : [OUI/NON] — Si NON : <écart détecté>
+- **Cible finale / Objectif final visé préservée** : [OUI/NON] — Si NON : <écart détecté>
+- **Plan validé respecté** : [OUI/NON] — Si NON : <écart détecté>
+- **État obtenu documenté** : [OUI/NON] — Si NON : <écart détecté>
+- **Gap identifié et documenté** : [OUI/NON] — Si NON : <écart détecté>
+- **Prochain GO explicitement nommé** : [OUI/NON] — Si NON : <écart détecté>
+- **Fil machine/IA/IDE/repo-produit identifié** : [OUI/NON] — Si NON : <écart détecté>
+
+## 3. ANALYSE DE CONFORMITÉ
 - **Scope Respecté** : [OUI/NON] (Si NON : lister les fichiers hors scope).
 - **Preuves Valides** : [OUI/NON] (Logs de succès présents et complets ?).
 - **Standards Respectés** : [OUI/NON/NA] (`cmd/menu/sanity` présents ?).
 - **Rollback Défini** : [OUI/NON].
 
-## 3. OBSERVATIONS & ÉCARTS
+## 4. OBSERVATIONS & ÉCARTS
 - <Observation 1>
 - <Écart détecté>
 
-## 4. ACTIONS REQUISES
-- N/A si aucune action n’est demandée.
+## 5. ACTIONS REQUISES
+- N/A si aucune action n'est demandée.
 1. <Action corrective 1>
 2. <Action corrective 2>
 
-## 5. TRAÇABILITÉ
+## 6. TRAÇABILITÉ
 - **Dettes / TODO / Point de reprise** :
   - [ ] <Tâche à créer, note à conserver, ou prochaine action attendue>
 
