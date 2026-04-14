@@ -1,0 +1,61 @@
+PROJECT_CARD_OPENCLAW_01 — CLOSING
+
+Date: 2026-04-14
+
+1. Objet
+Figer une fiche compacte dédiée à OpenClaw pour rendre retrouvables dans un artefact court:
+- but final;
+- plan validé;
+- établi;
+- non établi;
+- reprise.
+
+2. Etat de depart retenu
+- Le gel portefeuille a déjà été mergé dans `sot/mainline`.
+- Trois project cards ont déjà été ouvertes pour Desk Pro, chaîne analytique trading et Bot Vision / ingestion desk.
+- OpenClaw restait un grand ensemble mieux borné sur son périmètre réel que sur sa feuille de route compacte, sans project card courte dédiée.
+
+3. Correctif applique
+- Ajout de:
+  - `docs/ot/project_cards/PROJECT_CARD_OPENCLAW_01.md`
+- La fiche compacte OpenClaw fige:
+  - le but final de cockpit opérateur local sur `db-layer`;
+  - le plan validé;
+  - les points déjà établis;
+  - les limites restantes;
+  - le point de reprise logique suivant.
+
+4. Fichiers touches
+- `docs/ot/project_cards/PROJECT_CARD_OPENCLAW_01.md`
+- `docs/ot/closings/PROJECT_CARD_OPENCLAW_01_CLOSING.txt`
+
+5. Resultat retenu
+- OpenClaw dispose désormais d’une project card courte, distincte des docs module par module et des notes d’usage / evidence.
+- La reprise n’a plus besoin de repasser d’abord par `GO_OPENCLAW_USAGE_EXAMPLES_09` pour retrouver la finalité et la suite logique du chantier.
+- Le prochain manque structurant retenu pour OpenClaw est la feuille de route compacte de maturité, plus que la définition du périmètre réel.
+
+6. Limites restantes
+- La fiche ne remplace pas les docs techniques détaillées ni un audit runtime complet.
+- La fiche ne modifie aucun runtime.
+- Le GO de reprise proposé sert d’ancrage de continuité; il ne vaut pas lancement implicite d’implémentation.
+
+7. Verdict
+PASS
+
+8. Reprise
+- GO porteur: `GO_PROJECT_CARDS_FREEZE_01`
+- fiche ouverte: `PROJECT_CARD_OPENCLAW_01`
+- suite logique: `GO_OPENCLAW_STATE_DIR_READ_09`
+
+ETABLI
+- quatrième project card créée et gelée dans le repo
+
+TODO
+- ouvrir la fiche `validated_prompt_factory`
+- ouvrir ensuite la fiche `module_contextuals_shell`
+
+REPRISE
+- repartir de `PROJECT_CARD_OPENCLAW_01`
+
+MEM_CANDIDATE
+- utile seulement sur demande explicite: pour OpenClaw, la prochaine passe utile reste plus documentaire / diagnostique que produit-large, tant que le besoin opératoire réel ne change pas.
