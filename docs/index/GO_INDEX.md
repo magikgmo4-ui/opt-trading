@@ -52,6 +52,14 @@ Il sert à :
 - dernier état connu : référentiel consolidé validé comme base documentaire
 - lien utile : documentation gouvernance locale et méthode transverse associée
 
+### GO_CONTINUITE_PRODUIT_MULTI_CHANTIER_CANON_01
+- repo : opt-trading
+- type : gouvernance / continuité produit
+- statut : pass
+- titre court : hiérarchie produit multi-chantier canonisée
+- dernier état connu : structuration Couche 0 / Anneau A / Anneau B posée comme source canonique de continuité produit
+- lien utile : `docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md`, `docs/governance/AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md`
+
 ### GO_GIT_PROGRESSIVE_MIGRATION_START_13
 - repo : opt-trading
 - type : migration documentaire

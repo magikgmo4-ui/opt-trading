@@ -25,9 +25,11 @@ links:
 - repo : `opt-trading`
 - branche prioritaire : `sot/mainline`
 - flux à lire : `GO_UNIFORM_CONTINUITY_HARDENING_01`
+- source of truth continuité produit multi-chantier : `docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md`
 - références prioritaires :
   - `docs/governance/REPO_ROLE.md`
   - `docs/governance/DOC_LAYERS.md`
+  - `docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md`
   - `docs/governance/MEMORY_BRICKS_MAPPING.md`
   - `docs/index/GO_INDEX.md`
   - `docs/index/ACTIVE_STREAMS.md`
