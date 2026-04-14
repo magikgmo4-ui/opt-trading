@@ -1,0 +1,60 @@
+OT_PROJECT_PORTFOLIO_OBJECTIVES_VALIDATED_PLANS_01 — CLOSING
+
+Date: 2026-04-13
+
+1. Objet
+Figer dans le repo une vue d’ensemble transversale des projets, briques et modules principaux, en séparant explicitement:
+- objectif final retenu;
+- plan validé reconstitué;
+- état établi;
+- lacune documentaire restante.
+
+2. Etat de depart retenu
+- Le repo contient de nombreux closings, runbooks, README et PRs utiles.
+- La lacune principale constatée en séance n’est pas l’absence de matière, mais l’absence fréquente d’une fiche compacte unique résumant:
+  - but final;
+  - plan validé;
+  - établi;
+  - reprise.
+
+3. Correctif applique
+- Ajout d’un rapport de portefeuille:
+  - `docs/ot/reports/OT_PROJECT_PORTFOLIO_OBJECTIVES_VALIDATED_PLANS_01.md`
+- La note fige explicitement la séparation entre:
+  - ETABLI / repo-verifiable;
+  - PLAN VALIDE RECONSTITUE;
+  - LACUNE DOC.
+
+4. Fichiers touches
+- `docs/ot/reports/OT_PROJECT_PORTFOLIO_OBJECTIVES_VALIDATED_PLANS_01.md`
+- `docs/ot/closings/OT_PROJECT_PORTFOLIO_OBJECTIVES_VALIDATED_PLANS_01_CLOSING.txt`
+
+5. Resultat retenu
+- La vue d’ensemble validée en séance est désormais ancrée dans GitHub.
+- Le manque documentaire structurant est lui-même figé et nommé.
+- La suite naturelle est de décliner ce modèle en fiches plus courtes par grand chantier.
+
+6. Limites restantes
+- Le document reste une vue portefeuille et non une rellecture exhaustive ligne par ligne de tous les modules.
+- Certains plans sont reconstitués à partir de repo + continuité, faute de document source unique déjà figé.
+- Les autres repos visibles hors `opt-trading` et `localcms` n’ont pas encore fait l’objet ici d’une qualification produit complète.
+
+7. Verdict
+PASS
+
+8. Reprise
+- `GO_PROJECT_CARDS_FREEZE_01`
+- première fiche recommandée: `PROJECT_CARD_DESKPRO_01`
+
+ETABLI
+- gel du portefeuille documentaire effectué
+- lacune documentaire principale explicitement consignée
+
+TODO
+- produire les project cards par gros chantier
+
+REPRISE
+- partir de `GO_PROJECT_CARDS_FREEZE_01`
+
+MEM_CANDIDATE
+- utile seulement si explicitement demandé: la continuité doit figer non seulement les preuves et closings, mais aussi le plan validé reconstitué quand il n’existe pas encore comme doc source unique.
