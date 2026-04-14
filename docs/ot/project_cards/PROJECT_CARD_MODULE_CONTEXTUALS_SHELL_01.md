@@ -2,113 +2,43 @@
 
 Date: 2026-04-14
 
-## 1. Objet
+A documenter ? Oui, fiche.
 
-Figer une fiche compacte de reprise pour `module_contextuals_shell`, afin de rendre retrouvables en un seul point:
-- le but final retenu;
-- le plan validé;
-- l’état établi;
-- le non établi;
-- le point de reprise.
+## Objet
+Figer une fiche compacte et uniforme pour module_contextuals_shell.
 
-Cette fiche agrège volontairement:
-- les artefacts repo déjà présents;
-- la continuité validée en séance quand le plan suivi n’existe pas encore comme doc source unique.
+## Besoin initial
+Retrouver en un seul point pourquoi ce socle existe, quelle cible finale a ete retenue, quel plan valide a ete suivi, ce qui est deja etabli et quel est le prochain GO utile.
 
-Elle ne remplace pas le README ni les docs techniques du module.
+## Cible finale / But final
+Faire de module_contextuals_shell un socle partage pour les futurs modules shell, afin de standardiser declaration d actions, lecture robuste, menus dynamiques et routage vers les scripts cibles.
 
-## 2. But final
+## Plan valide
+1. Creer un socle generique au lieu de recoder menu et dispatch dans chaque module shell.
+2. Passer vers une logique declarative d actions via fichiers .ctx.
+3. Fournir lecture, rendu et routage standardises.
+4. Permettre a un menu global de scanner les contextuals des modules et d indexer leurs actions.
+5. Reduire ensuite la friction d adoption par les futurs modules shell.
 
-Faire de `module_contextuals_shell` un socle partagé pour les futurs modules shell, afin de standardiser:
-- la déclaration d’actions via fichiers contextuels;
-- la lecture robuste de ces fichiers;
-- l’affichage de menus dynamiques;
-- le routage vers les scripts cibles.
+## ETABLI
+- Le README identifie explicitement le module comme socle partage pour la gestion des actions contextuelles des modules shell.
+- La cible declaree est tous les futurs modules shell.
+- Le module standardise deja fichiers .ctx, lecture robuste, menus dynamiques et routage des actions.
+- La structure du module couvre lib, contextuals, examples et docs.
+- Une surface operable existe deja via cmd.sh et sanity.sh.
+- Le README explicite deja une integration future avec un menu global capable de scanner les contextuals des modules.
 
-L’objectif retenu n’est pas un module utilisateur final isolé, mais une brique de fondation pour réduire le coût d’intégration et homogénéiser la couche opératoire shell.
+## Gap restant
+Le manque principal restant porte sur le gel court de son adoption par les modules aval, plus que sur sa definition architecturale elle-meme.
 
-## 3. Plan validé
+## Next GO / Reprise
+- GO porteur : GO_PROJECT_CARDS_FREEZE_01
+- Next GO retenu : GO_MODULE_CONTEXTUALS_SHELL_ADOPTION_FREEZE_01
+- Raison : une passe documentaire d adoption est plus utile qu un elargissement artificiel du scope du socle.
 
-1. Créer un socle générique au lieu de recoder menu / dispatch dans chaque module shell.
-2. Passer vers une logique déclarative d’actions via fichiers `.ctx`.
-3. Fournir lecture, rendu et routage standardisés.
-4. Permettre à un menu global de scanner les contextuals des modules et d’indexer leurs actions.
-5. Réduire ensuite la friction d’adoption par les futurs modules shell.
-
-## 4. ETABLI
-
-- Le README du module l’identifie explicitement comme socle partagé pour la gestion des actions contextuelles des modules shell.
-- La cible déclarée est `tous les futurs modules shell`.
-- Le module standardise déjà:
-  - fichiers `.ctx`;
-  - lecture robuste;
-  - menus dynamiques;
-  - routage des actions.
-- La structure du module couvre:
-  - `lib/`;
-  - `contextuals/`;
-  - `examples/`;
-  - `docs/`.
-- Une surface opérable existe déjà via `cmd.sh` et `sanity.sh`.
-- Le README explicite déjà une intégration future avec un menu global capable de scanner les `contextuals/` des modules.
-
-## 5. NON ETABLI
-
-- Il n’existait pas encore, avant cette fiche, une project card courte unique résumant finalité + plan validé + reprise du module.
-- La feuille d’adoption effective par les autres modules shell reste moins figée que la cible architecturale elle-même.
-- Cette fiche ne démontre pas, à elle seule, l’adoption généralisée du socle par l’ensemble des modules shell existants.
-- Cette fiche ne remplace pas une validation multi-environnements complète.
-
-## 6. Reprise
-
-### GO porteur
-`GO_PROJECT_CARDS_FREEZE_01`
-
-### Point de reprise `module_contextuals_shell`
-Par défaut, la reprise logique suivante est:
-`GO_MODULE_CONTEXTUALS_SHELL_ADOPTION_FREEZE_01`
-
-### Pourquoi
-Parce que:
-- le rôle architectural du socle est déjà clair;
-- le manque restant porte surtout sur le gel court de son adoption par les modules aval;
-- une passe documentaire d’adoption est plus utile qu’un élargissement artificiel du scope du socle.
-
-## 7. Périmètre de la fiche
-
-Cette fiche:
-- fige la compréhension validée de `module_contextuals_shell`;
-- ne modifie aucun runtime;
-- n’ouvre pas automatiquement un nouveau patch;
-- sert de support de reprise compact.
-
-## 8. Liens repo utiles
-
-- `modules/module_contextuals_shell/README.md`
-- `modules/module_contextuals_shell/cmd.sh`
-- `modules/module_contextuals_shell/sanity.sh`
-- `modules/module_contextuals_shell/lib/discovery.sh`
-- `modules/module_contextuals_shell/examples/example.ctx`
-
-## 9. ETABLI
-
-- la sixième `PROJECT_CARD` issue du gel portefeuille est ouverte pour `module_contextuals_shell`;
-- le but final, le plan validé, le non établi et la reprise sont désormais figés dans une fiche compacte dédiée;
-- la lacune documentaire est recentrée sur l’adoption effective du socle plus que sur sa définition architecturale.
-
-## 10. TODO
-
-- aucune autre fiche prioritaire immédiate imposée dans cette série courte.
-
-## 11. REPRISE
-
-Point de reprise documentaire:
-`PROJECT_CARD_MODULE_CONTEXTUALS_SHELL_01`
-
-Point de reprise chantier logique:
-`GO_MODULE_CONTEXTUALS_SHELL_ADOPTION_FREEZE_01`
-
-## 12. MEM_CANDIDATE
-
-Utile seulement sur demande explicite:
-- pour `module_contextuals_shell`, le prochain manque structurant est surtout la fixation courte de son adoption par les modules futurs / aval.
+## References repo utiles
+- modules/module_contextuals_shell/README.md
+- modules/module_contextuals_shell/cmd.sh
+- modules/module_contextuals_shell/sanity.sh
+- modules/module_contextuals_shell/lib/discovery.sh
+- modules/module_contextuals_shell/examples/example.ctx
