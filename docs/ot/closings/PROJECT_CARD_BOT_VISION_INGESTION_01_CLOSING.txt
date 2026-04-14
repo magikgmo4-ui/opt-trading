@@ -1,0 +1,61 @@
+PROJECT_CARD_BOT_VISION_INGESTION_01 — CLOSING
+
+Date: 2026-04-14
+
+1. Objet
+Figer une fiche compacte dédiée à Bot Vision / ingestion desk pour rendre retrouvables dans un artefact court:
+- but final;
+- plan validé;
+- établi;
+- non établi;
+- reprise.
+
+2. Etat de depart retenu
+- Le gel portefeuille a déjà été mergé dans `sot/mainline`.
+- Deux project cards ont déjà été ouvertes et figées pour Desk Pro et la chaîne analytique trading.
+- Bot Vision / ingestion desk restait un gros ensemble surtout porté par closeouts runtime, état établi et continuité reconstituée, sans fiche courte unique.
+
+3. Correctif applique
+- Ajout de:
+  - `docs/ot/project_cards/PROJECT_CARD_BOT_VISION_INGESTION_01.md`
+- La fiche compacte Bot Vision / ingestion desk fige:
+  - le but final de la chaîne capture -> transfert -> bridge -> latest.json -> /analyze;
+  - le plan validé;
+  - les points déjà établis;
+  - les limites restantes;
+  - le point de reprise logique suivant.
+
+4. Fichiers touches
+- `docs/ot/project_cards/PROJECT_CARD_BOT_VISION_INGESTION_01.md`
+- `docs/ot/closings/PROJECT_CARD_BOT_VISION_INGESTION_01_CLOSING.txt`
+
+5. Resultat retenu
+- Bot Vision / ingestion desk dispose désormais d’une project card courte, distincte des closeouts techniques et de l’état établi détaillé.
+- La reprise n’a plus besoin de repasser d’abord par `ETABLI_BOT_VISION`, `CLOSEOUT_FINAL_BOT_VISION` et `OT_BOT_VISION_REAL_DATA_01_CLOSING` pour retrouver la finalité et la suite logique du chantier.
+- Le prochain manque structurant retenu pour cette chaîne est l’enrichissement borné des données d’analyse et l’observabilité, plus que la chaîne de transport elle-même.
+
+6. Limites restantes
+- La fiche ne remplace pas les preuves runtime détaillées machine par machine.
+- La fiche ne modifie aucun script ni service.
+- Le GO de reprise proposé sert d’ancrage de continuité; il ne vaut pas lancement implicite d’implémentation.
+
+7. Verdict
+PASS
+
+8. Reprise
+- GO porteur: `GO_PROJECT_CARDS_FREEZE_01`
+- fiche ouverte: `PROJECT_CARD_BOT_VISION_INGESTION_01`
+- suite logique: `GO_OT_BOT_VISION_REAL_DATA_02`
+
+ETABLI
+- troisième project card créée et gelée dans le repo
+
+TODO
+- ouvrir la fiche OpenClaw
+- ouvrir ensuite, si utile, une fiche courte `validated_prompt_factory` ou `module_contextuals_shell`
+
+REPRISE
+- repartir de `PROJECT_CARD_BOT_VISION_INGESTION_01`
+
+MEM_CANDIDATE
+- utile seulement sur demande explicite: pour Bot Vision / ingestion desk, la prochaine passe utile porte davantage sur l’analyse et l’observabilité que sur le transport déjà stabilisé.
