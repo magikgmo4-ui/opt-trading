@@ -1,0 +1,27 @@
+# BOT VISION — SYNTHÈSE CANONIQUE PRODUIT
+
+## 1. Objet
+Ce document synthétise le produit **Bot Vision** dans un format court et opposable, figeant son objectif final et la trajectoire de sortie de dépendance.
+
+## 2. Besoin initial
+Transformer des captures d'écran en analyse exploitable sans subir un workflow fragile ni une dépendance trop forte à une plateforme spécifique (Windows/ShareX).
+
+## 3. Objectif final visé
+Un pipeline vision cross-platform où un provider headless browser unifie ot_vision entre Windows et Linux sans dépendre de ShareX, afin de produire des artefacts Desk Pro exploitables.
+
+## 4. Plan validé
+- ision_bot : Réception et traitement de captures.
+- ot_vision_step2 : Interaction Telegram + analyse + génération d'artefacts Desk Pro.
+- Direction de maturité : Sortir de la dépendance forte à ShareX / Windows-only et stabiliser une chaîne vision unifiée headless.
+
+## 5. État obtenu
+- Modules existants dans le repo (modules/vision_bot, modules/bot_vision_step2).
+- Contrat input/output de base repo-sourcé.
+- Chaîne partielle mais réelle (fortement couplée Windows/ShareX/SFTP).
+
+## 6. Gap restant
+- Le pipeline actuel repose encore sur Windows / ShareX / SFTP côté capture.
+- La cible finale (headless browser cross-platform) n'est pas encore matérialisée comme spécification canonique explicite figée dans le repo.
+
+## 7. Prochain GO recommandé
+> GO_BOT_VISION_CROSS_PLATFORM_SPEC_01 (clarifier repo-source la cible produit finale et mesurer l'écart)
