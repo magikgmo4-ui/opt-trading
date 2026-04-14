@@ -1,0 +1,47 @@
+GO: GO_OPT_TRADING_WORKFLOW_POST_CHANGE_CONSOLIDATION_03
+TYPE: closeout
+STATUS: PASS
+UPDATED_AT: 2026-04-13
+
+BESOIN INITIAL
+- Consolider proprement la famille workflow_post_change_v2*.
+- Aligner l’état réel du repo avec la décision canonique déjà documentée.
+
+ETAT DE DEPART RETENU
+- `docs/status/workflow_post_change_canonique.md` désigne déjà `workflow_post_change_v2` comme canonique.
+- `fix1` / `fix2` sont déjà réputés obsolètes.
+- `fix3` est déjà réputé mergé dans `v2`.
+- incohérence résiduelle réelle: `modules/workflow_post_change_v2/scripts/install_shortcuts.sh` pointe encore vers `workflow_post_change_v2_fix3`.
+
+CORRECTIF MINIMAL APPLIQUE
+- correction du script d’installation des raccourcis du module canonique pour viser `workflow_post_change_v2`
+- ajout d’un marqueur `DEPRECATED.md` dans `workflow_post_change_v2_fix1`
+- ajout d’un marqueur `DEPRECATED.md` dans `workflow_post_change_v2_fix2`
+- ajout d’un document canonique de décision pour cette consolidation
+
+FICHIERS TOUCHES
+- modules/workflow_post_change_v2/scripts/install_shortcuts.sh
+- modules/workflow_post_change_v2_fix1/DEPRECATED.md
+- modules/workflow_post_change_v2_fix2/DEPRECATED.md
+- docs/governance/GO_OPT_TRADING_WORKFLOW_POST_CHANGE_CONSOLIDATION_03.md
+- docs/ot/closings/OT_WORKFLOW_POST_CHANGE_CONSOLIDATION_03_CLOSING.txt
+
+CE QUI RESTE HORS LOT
+- suppression physique des dossiers `fix*`
+- nettoyage historique du registry
+- suppression d’archives / reports anciens
+
+VERDICT
+- PASS
+
+TODO
+- garder `workflow_post_change_v2` comme seul point de continuité
+- ne plus ouvrir de nouveau sibling `workflow_post_change_v2_*`
+- traiter la compaction registry seulement si un GO dédié le demande
+
+REPRISE
+- point canonique: `docs/governance/GO_OPT_TRADING_WORKFLOW_POST_CHANGE_CONSOLIDATION_03.md`
+- survivant live: `modules/workflow_post_change_v2`
+
+MEM_CANDIDATE
+- la famille `workflow_post_change_v2*` est consolidée en continuité autour de `workflow_post_change_v2`; `fix1/fix2` sont obsolètes et `fix3` est seulement historique car déjà mergé.
