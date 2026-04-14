@@ -1,0 +1,60 @@
+PROJECT_CARD_VALIDATED_PROMPT_FACTORY_01 — CLOSING
+
+Date: 2026-04-14
+
+1. Objet
+Figer une fiche compacte dédiée à `validated_prompt_factory` pour rendre retrouvables dans un artefact court:
+- but final;
+- plan validé;
+- établi;
+- non établi;
+- reprise.
+
+2. Etat de depart retenu
+- Le gel portefeuille a déjà été mergé dans `sot/mainline`.
+- Quatre project cards ont déjà été ouvertes pour Desk Pro, chaîne analytique trading, Bot Vision / ingestion desk et OpenClaw.
+- `validated_prompt_factory` disposait déjà d’audits, reports, closings et jalons d’adoption, mais pas d’une project card courte unique.
+
+3. Correctif applique
+- Ajout de:
+  - `docs/ot/project_cards/PROJECT_CARD_VALIDATED_PROMPT_FACTORY_01.md`
+- La fiche compacte `validated_prompt_factory` fige:
+  - le but final de transformation contrôlée vers prompt final;
+  - le plan validé;
+  - les points déjà établis;
+  - les limites restantes;
+  - le point de reprise logique suivant.
+
+4. Fichiers touches
+- `docs/ot/project_cards/PROJECT_CARD_VALIDATED_PROMPT_FACTORY_01.md`
+- `docs/ot/closings/PROJECT_CARD_VALIDATED_PROMPT_FACTORY_01_CLOSING.txt`
+
+5. Resultat retenu
+- `validated_prompt_factory` dispose désormais d’une project card courte, distincte des audits et closings détaillés.
+- La reprise n’a plus besoin de repasser d’abord par les reports/hardening/adoption pour retrouver la finalité et la suite logique du module.
+- Le prochain manque structurant retenu pour cette brique est le gel court de son adoption et de son positionnement d’usage.
+
+6. Limites restantes
+- La fiche ne remplace pas une validation runtime exhaustive multi-environnements.
+- La fiche ne modifie aucun runtime.
+- Le GO de reprise proposé sert d’ancrage de continuité; il ne vaut pas lancement implicite d’implémentation.
+
+7. Verdict
+PASS
+
+8. Reprise
+- GO porteur: `GO_PROJECT_CARDS_FREEZE_01`
+- fiche ouverte: `PROJECT_CARD_VALIDATED_PROMPT_FACTORY_01`
+- suite logique: `GO_VALIDATED_PROMPT_FACTORY_ADOPTION_FREEZE_01`
+
+ETABLI
+- cinquième project card créée et gelée dans le repo
+
+TODO
+- ouvrir la fiche `module_contextuals_shell`
+
+REPRISE
+- repartir de `PROJECT_CARD_VALIDATED_PROMPT_FACTORY_01`
+
+MEM_CANDIDATE
+- utile seulement sur demande explicite: pour `validated_prompt_factory`, la prochaine passe utile porte surtout sur l’adoption et le positionnement d’usage.
