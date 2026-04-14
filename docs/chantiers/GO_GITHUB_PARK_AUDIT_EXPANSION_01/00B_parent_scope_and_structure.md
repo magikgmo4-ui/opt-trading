@@ -1,9 +1,18 @@
 ---
 doc_id: OPT_TRADING_GO_GITHUB_PARK_AUDIT_EXPANSION_01_PARENT_SCOPE
-.doc_type: chantier_addendum
+doc_type: chantier_addendum
 repo: opt-trading
 project: opt-trading
 go_id: GO_GITHUB_PARK_AUDIT_EXPANSION_01
+chantier_parent: github_park_inventory_audit_consolidation
+sous_chantier: GO_GITHUB_PARK_AUDIT_EXPANSION_01
+intention_parent: éviter que les GO suivants soient lus comme des chantiers isolés; préserver la logique parent et la cible finale de repo; faire suivre cette logique dans les sous-chantiers
+cible_finale_parent: descendre du parc vers des consolidations ciblées, pour converger vers un repo consolidé/aligné/ordonné, sans parasites ni historique mal situé
+objectif_sous_chantier: séquencer l’inventaire du parc GitHub en GO spécialisés (branches↔trunks, familles de modules, cartographie fichier par rôle) sans relancer un audit global indistinct
+objectif_local_go: figer la portée parent et la structure parent/sous-chantier/GO pour la série de GO de consolidation
+cible_locale_go: chaque GO suivant explicite chantier parent + sous-chantier + intention/cible finale parent + objectif/cible locale GO + référence canonique principale + point de reprise
+reference_canonique_principale: docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md
+point_de_reprise: GO_GITHUB_PARK_BRANCH_TRUNK_CROSS_AUDIT_01 (depuis docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/00_cadrage.md)
 status: validated
 lifecycle_stage: cadrage
 topic_keys:
@@ -18,6 +27,9 @@ source_kind: canonical
 updated_at: 2026-04-14
 links:
   - docs/governance/SESSION_DOCUMENTATION_GATE.md
+  - docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md
+  - docs/index/REPRISE.md
+  - docs/index/GO_INDEX.md
   - docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/00_cadrage.md
   - docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md
 ---
@@ -127,3 +139,20 @@ Chaque GO doit donc faire suivre explicitement :
 
 Lire ce document comme addendum de portée du chantier parent.
 Les sous-chantiers doivent s’y rattacher explicitement.
+
+---
+
+## Structure minimale à reprendre (front matter)
+
+```yaml
+chantier_parent:
+sous_chantier:
+intention_parent:
+cible_finale_parent:
+objectif_sous_chantier:
+go_id:
+objectif_local_go:
+cible_locale_go:
+reference_canonique_principale:
+point_de_reprise:
+```
