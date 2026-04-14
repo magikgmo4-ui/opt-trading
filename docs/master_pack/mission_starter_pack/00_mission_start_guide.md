@@ -50,6 +50,15 @@ Chaque mission doit être classée dans l'un des types suivants :
 - **SIGNALISATION** : Ajout de documentation/README pour figer un état (Ex: Freeze Note).
 - **RUNBOOK** : Création de procédure opérateur (Doit être testé sur cible).
 
+Continuité canonique (obligatoire avant exécution) :
+- besoin initial
+- objectif final visé
+- plan validé
+- état réel de départ
+- gap
+- prochain GO
+- fils / rôles (machine / IA / IDE / repo-produit)
+
 ## 4. FORMAT DE LIVRABLE STANDARD
 Toute mission doit se conclure par :
 1.  **Rapport de Clôture** (`docs/ot/closings/OT_XXX_CLOSING.txt`) : Résumé des actions, statut final, prochain point de reprise.

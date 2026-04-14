@@ -10,13 +10,35 @@ MISSION_ID
 
 MISSION_CLASS (DIAGNOSTIC / PATCH_LOCAL / MODULE_DURABLE / BUNDLE_TRANSFERT / AUDIT_REALIGNEMENT)
 
+1.1 Continuité (obligatoire)
+
+BESOIN_INITIAL (1–5 lignes)
+
+OBJECTIF_FINAL_VISE (1–5 lignes)
+
+PLAN_VALIDE (1–7 lignes)
+
+ROLES_FILS (séparation explicite)
+- MACHINE
+- IA
+- IDE
+- REPO / PRODUIT
+
+ETAT_REEL_DE_DEPART (faits prouvés uniquement)
+
+ETAT_ETABLI_INITIAL (faits prouvés uniquement)
+
+GAP_RESTANT (1–7 lignes)
+
+PROCHAIN_GO (1 ligne, identifiant GO_* si applicable)
+
+1.2 Cadrage & exécution
+
 OBJECTIF_REFORMULE (1–5 lignes)
 
 SOURCES_CONSULTEES (liens/chemins précis)
 
 SOURCES_MANQUANTES_OU_NON_LUES
-
-ETAT_ETABLI_INITIAL (faits prouvés uniquement)
 
 POINTS_A_CONFIRMER (liste courte)
 
