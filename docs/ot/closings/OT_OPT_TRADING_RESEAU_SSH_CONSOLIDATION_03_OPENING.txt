@@ -16,6 +16,17 @@ INTENTION
   - runtime utile
   - doc/gouvernance
   - legacy
+- faire suivre cette intention dans les prochains GO pour garder une suite fluide
+
+PRODUITS FINAUX VOULUS / OBJECTIFS DU CHANTIER
+- contribuer à un repo 100% consolidé
+- contribuer à un repo aligné
+- contribuer à une structure claire
+- contribuer à une structure ordonnée
+- supprimer les parasites
+- supprimer l’historique mal situé
+- supprimer ou reclasser les items mal structurés / indexés / situés / documentés / canonisés
+- garder visible le target final dans la suite des GO
 
 OBJECTIFS
 - consolider `reseau_ssh*` autour d’une cible canonique unique
@@ -45,4 +56,4 @@ REPRISE
 - cadrage principal : docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md
 
 MEM_CANDIDATE
-- `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03` est désormais ouvert comme chantier ciblé, avec intention explicite de ne plus rouvrir un audit global du parc.
+- `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03` est désormais ouvert comme chantier ciblé, avec intention explicite de ne plus rouvrir un audit global du parc et de faire suivre le target final de consolidation du repo.

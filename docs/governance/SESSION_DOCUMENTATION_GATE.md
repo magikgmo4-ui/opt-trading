@@ -125,7 +125,36 @@ La sortie documentaire doit être :
 
 ---
 
-## 7. Statut
+## 7. Propagation canonique de l’intention et de la cible finale
+
+Quand un chantier structuré est ouvert, la documentation durable doit aussi figer explicitement :
+
+- l’**intention** du chantier
+- le **target final** / produit final voulu
+
+Et ces deux éléments doivent être **reconduits explicitement** dans les GO suivants quand ils appartiennent à la même trajectoire.
+
+### Règle
+Ne pas laisser l’intention et la cible finale uniquement dans une conversation ou dans un seul opening initial.
+
+Les faire suivre dans la documentation canonique pour garder une suite de GO :
+
+- fluide
+- non ambiguë
+- transmissible
+- et alignée sur l’objectif final retenu
+
+### Formulation minimale attendue
+Quand c’est pertinent, faire apparaître explicitement :
+
+- `Intention`
+- `Produits finaux voulus / objectifs du chantier`
+
+Cette règle devient canonique et systématique pour les chantiers structurés où la trajectoire doit rester stable à travers plusieurs GO.
+
+---
+
+## 8. Statut
 
 Fiche de référence de gouvernance.
 

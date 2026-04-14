@@ -41,6 +41,43 @@ Ouvrir le chantier de consolidation ciblée de la famille `reseau_ssh*` dans `op
   - doc/gouvernance
   - legacy
 
+Cette intention doit rester visible et transmissible dans les prochains GO de la même trajectoire.
+
+---
+
+## Produits finaux voulus / objectifs du chantier
+
+### Produit final voulu du GO
+Pour la famille `reseau_ssh*`, obtenir un résultat où chaque élément est clairement trié et assumé comme :
+
+- survivant
+- runtime utile
+- doc/gouvernance
+- legacy
+
+avec :
+
+- une cible canonique unique
+- une continuité non ambiguë
+- une hiérarchie claire entre ce qui reste actif, ce qui doit être conservé comme preuve ou doctrine, et ce qui doit cesser de porter la continuité
+
+### Objectif final de trajectoire
+Contribuer à un repo :
+
+- **100% consolidé**
+- **aligné**
+- à **structure claire**
+- **ordonnée**
+- sans parasite
+- sans historique mal situé
+- sans item mal structuré
+- sans item mal indexé
+- sans item mal situé
+- sans item mal documenté
+- sans item non canonisé
+
+Cet objectif final doit être rappelé comme horizon dans la suite fluide des GO de consolidation.
+
 ---
 
 ## Objectifs
@@ -92,6 +129,11 @@ Obtenir, pour la famille `reseau_ssh*` :
 - une hiérarchie claire des couches runtime / doc / legacy
 - une suppression des ambiguïtés de continuité
 - une reprise propre sans relecture globale du parc
+
+Et, dans la continuité des GO suivants, garder explicites :
+
+- l’intention de consolidation ciblée
+- le target final de repo consolidé et canonisé
 
 ---
 
@@ -176,6 +218,7 @@ Pour cette suite :
 - ne pas rouvrir des familles non prioritaires
 - utiliser la cartographie comme base de tri
 - documenter explicitement ce qui devient survivant, runtime utile, doc/gouvernance, legacy
+- faire suivre explicitement, dans les GO suivants, **l’intention** et le **target final** du chantier pour garder une suite fluide
 
 ---
 
