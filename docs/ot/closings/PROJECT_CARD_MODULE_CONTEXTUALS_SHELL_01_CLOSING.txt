@@ -1,0 +1,60 @@
+PROJECT_CARD_MODULE_CONTEXTUALS_SHELL_01 — CLOSING
+
+Date: 2026-04-14
+
+1. Objet
+Figer une fiche compacte dédiée à `module_contextuals_shell` pour rendre retrouvables dans un artefact court:
+- but final;
+- plan validé;
+- établi;
+- non établi;
+- reprise.
+
+2. Etat de depart retenu
+- Le gel portefeuille a déjà été mergé dans `sot/mainline`.
+- Cinq project cards ont déjà été ouvertes pour Desk Pro, chaîne analytique trading, Bot Vision / ingestion desk, OpenClaw et `validated_prompt_factory`.
+- `module_contextuals_shell` disposait déjà d’un README clair et d’une structure technique lisible, mais pas d’une project card courte unique.
+
+3. Correctif applique
+- Ajout de:
+  - `docs/ot/project_cards/PROJECT_CARD_MODULE_CONTEXTUALS_SHELL_01.md`
+- La fiche compacte `module_contextuals_shell` fige:
+  - le but final de socle partagé pour actions contextuelles shell;
+  - le plan validé;
+  - les points déjà établis;
+  - les limites restantes;
+  - le point de reprise logique suivant.
+
+4. Fichiers touches
+- `docs/ot/project_cards/PROJECT_CARD_MODULE_CONTEXTUALS_SHELL_01.md`
+- `docs/ot/closings/PROJECT_CARD_MODULE_CONTEXTUALS_SHELL_01_CLOSING.txt`
+
+5. Resultat retenu
+- `module_contextuals_shell` dispose désormais d’une project card courte, distincte du README et des docs techniques du module.
+- La reprise n’a plus besoin de repasser d’abord par les docs techniques pour retrouver la finalité et la suite logique du socle.
+- Le prochain manque structurant retenu pour cette brique est la fixation courte de son adoption par les modules aval.
+
+6. Limites restantes
+- La fiche ne remplace pas une validation multi-environnements exhaustive.
+- La fiche ne modifie aucun runtime.
+- Le GO de reprise proposé sert d’ancrage de continuité; il ne vaut pas lancement implicite d’implémentation.
+
+7. Verdict
+PASS
+
+8. Reprise
+- GO porteur: `GO_PROJECT_CARDS_FREEZE_01`
+- fiche ouverte: `PROJECT_CARD_MODULE_CONTEXTUALS_SHELL_01`
+- suite logique: `GO_MODULE_CONTEXTUALS_SHELL_ADOPTION_FREEZE_01`
+
+ETABLI
+- sixième project card créée et gelée dans le repo
+
+TODO
+- aucune autre fiche prioritaire immédiate imposée dans cette série courte
+
+REPRISE
+- repartir de `PROJECT_CARD_MODULE_CONTEXTUALS_SHELL_01`
+
+MEM_CANDIDATE
+- utile seulement sur demande explicite: pour `module_contextuals_shell`, la prochaine passe utile porte surtout sur le gel de son adoption par les modules aval.
