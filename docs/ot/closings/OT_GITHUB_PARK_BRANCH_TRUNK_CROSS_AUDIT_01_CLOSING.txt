@@ -1,0 +1,52 @@
+GO: GO_GITHUB_PARK_BRANCH_TRUNK_CROSS_AUDIT_01
+TYPE: closing
+STATUS: PASS
+UPDATED_AT: 2026-04-14
+
+BESOIN INITIAL
+- Croiser les trunks réellement inspectés via ZIP avec les branches visibles via GitHub.
+- Distinguer branches absorbées, branches encore utiles, branches historiques/parking.
+
+CIBLE FINALE
+- Obtenir une lecture opératoire `trunk ↔ branches` repo par repo.
+- Identifier le vrai nœud restant pour la suite du chantier.
+
+PLAN VALIDE
+1. Reprendre les trunks ZIP déjà lus.
+2. Lister les branches visibles via GitHub.
+3. Rattacher autant que possible les branches aux PR récentes et au trunk absorbant.
+4. Sortir un verdict repo par repo.
+5. Définir le next GO logique.
+
+ETAT ETABLI
+- `opt-trading` concentre l’essentiel de la dette restante branches ↔ trunks.
+- `localcms` est majoritairement absorbé dans `main`, avec une divergence résiduelle de type tooling.
+- `openclaw` est majoritairement absorbé dans `main`, avec une branche doc restante à qualifier (`docs/kanban-resync-04b`).
+- `hf_trading` et `Llm-wiki-minimal` n’ont pas de divergence branches ↔ trunk significative.
+- `Llm-wiki` reste hors parc actif utile.
+
+POINTS SAILLANTS
+- `opt-trading` : beaucoup de branches sont des branches de chantier déjà absorbées dans `sot/mainline`.
+- `feat/project-card-deskpro-01` reste un vrai chantier ouvert.
+- `feat/workflow-post-change-consolidation-03` est redondante côté continuité car la consolidation a déjà été portée sur `sot/mainline`.
+
+FICHIERS AJOUTES
+- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/01_branch_trunk_cross_audit.md
+- docs/ot/closings/OT_GITHUB_PARK_BRANCH_TRUNK_CROSS_AUDIT_01_CLOSING.txt
+
+PREUVE GATING GO/STOP
+- prouvée
+
+LIMITE RESTANTE
+- pas de lecture commit par commit de toutes les branches `opt-trading`
+- pas d’audit détaillé des familles `mimo`, `memory-bricks`, `trading-realtime`, etc. dans ce lot
+
+NEXT GO
+- GO_OPT_TRADING_MODULE_FAMILY_CONSOLIDATION_AUDIT_01
+
+REPRISE
+- rapport canonique : docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/01_branch_trunk_cross_audit.md
+- suite logique : audit de consolidation des familles de modules dans `opt-trading`
+
+MEM_CANDIDATE
+- après le croisement branches ↔ trunks, le vrai nœud actif restant du parc se concentre désormais dans les familles de modules d’`opt-trading`.
