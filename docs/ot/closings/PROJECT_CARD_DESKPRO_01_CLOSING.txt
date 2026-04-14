@@ -1,0 +1,61 @@
+PROJECT_CARD_DESKPRO_01 — CLOSING
+
+Date: 2026-04-13
+
+1. Objet
+Figer une fiche compacte dédiée à Desk Pro pour rendre retrouvables dans un artefact court:
+- but final;
+- plan validé;
+- établi;
+- non établi;
+- reprise.
+
+2. Etat de depart retenu
+- Le gel portefeuille a déjà été mergé dans `sot/mainline`.
+- La lacune principale retenue est l’absence fréquente d’une fiche courte unique par grand chantier.
+- Desk Pro est le premier chantier retenu pour cette déclinaison.
+
+3. Correctif applique
+- Ajout de:
+  - `docs/ot/project_cards/PROJECT_CARD_DESKPRO_01.md`
+- La fiche compacte Desk Pro fige:
+  - le but final multi-machine;
+  - le plan validé;
+  - les points déjà établis;
+  - les limites restantes;
+  - le point de reprise logique suivant.
+
+4. Fichiers touches
+- `docs/ot/project_cards/PROJECT_CARD_DESKPRO_01.md`
+- `docs/ot/closings/PROJECT_CARD_DESKPRO_01_CLOSING.txt`
+
+5. Resultat retenu
+- Desk Pro dispose désormais d’une project card courte, distincte des closings dispersés et des runbooks détaillés.
+- La reprise n’a plus besoin de passer d’abord par le rapport portefeuille pour retrouver la finalité et la suite logique du chantier.
+- Le prochain manque structurant retenu pour Desk Pro reste la preuve opérationnelle du flux inter-machines.
+
+6. Limites restantes
+- La fiche ne remplace pas les preuves runtime détaillées.
+- La fiche ne constitue pas un drill ops à elle seule.
+- Le flux `admin-trading -> /shared -> student/db-layer` n’est pas démontré ici; il est seulement retenu comme prochaine preuve structurante.
+
+7. Verdict
+PASS
+
+8. Reprise
+- GO porteur: `GO_PROJECT_CARDS_FREEZE_01`
+- fiche ouverte: `PROJECT_CARD_DESKPRO_01`
+- suite logique: `OT_DESKPRO_SHARED_EXPORT_CONSUMPTION_DRILL_01`
+
+ETABLI
+- première project card créée et gelée dans le repo
+
+TODO
+- ouvrir la fiche chaîne analytique trading
+- ouvrir ensuite la fiche Bot Vision / ingestion desk
+
+REPRISE
+- repartir de `PROJECT_CARD_DESKPRO_01`
+
+MEM_CANDIDATE
+- utile seulement sur demande explicite: pour Desk Pro, la prochaine preuve structurante est désormais le flux inter-machines, plus que la doctrine d’entrypoints.
