@@ -1,0 +1,61 @@
+PROJECT_CARD_TRADING_ANALYTICS_CHAIN_01 — CLOSING
+
+Date: 2026-04-14
+
+1. Objet
+Figer une fiche compacte dédiée à la chaîne analytique trading pour rendre retrouvables dans un artefact court:
+- but final;
+- plan validé;
+- établi;
+- non établi;
+- reprise.
+
+2. Etat de depart retenu
+- Le gel portefeuille a déjà été mergé dans `sot/mainline`.
+- Une première project card a été ouverte pour Desk Pro.
+- La chaîne analytique trading restait l’un des gros ensembles encore surtout portés par continuité + docs dispersées, sans fiche courte unique.
+
+3. Correctif applique
+- Ajout de:
+  - `docs/ot/project_cards/PROJECT_CARD_TRADING_ANALYTICS_CHAIN_01.md`
+- La fiche compacte chaîne analytique trading fige:
+  - le but final de pipeline analytique réutilisable;
+  - le plan validé de séparation collecte / risque / analyse / probabilité;
+  - les points déjà établis;
+  - les limites restantes;
+  - le point de reprise logique suivant.
+
+4. Fichiers touches
+- `docs/ot/project_cards/PROJECT_CARD_TRADING_ANALYTICS_CHAIN_01.md`
+- `docs/ot/closings/PROJECT_CARD_TRADING_ANALYTICS_CHAIN_01_CLOSING.txt`
+
+5. Resultat retenu
+- La chaîne analytique trading dispose désormais d’une project card courte, distincte des docs collectors, closings et continuités éparses.
+- La reprise n’a plus besoin de repasser d’abord par le rapport portefeuille pour retrouver la finalité et la suite logique du chantier.
+- Le prochain manque structurant retenu pour cette chaîne est la fixation courte et stable de ses interfaces de bout en bout.
+
+6. Limites restantes
+- La fiche ne remplace pas un audit code exhaustif de chaque module de la chaîne.
+- La fiche ne modifie aucun contrat runtime.
+- Le GO de reprise proposé sert d’ancrage de continuité; il ne vaut pas lancement implicite d’implémentation.
+
+7. Verdict
+PASS
+
+8. Reprise
+- GO porteur: `GO_PROJECT_CARDS_FREEZE_01`
+- fiche ouverte: `PROJECT_CARD_TRADING_ANALYTICS_CHAIN_01`
+- suite logique: `GO_TRADING_ANALYTICS_CHAIN_CONTRACT_FREEZE_01`
+
+ETABLI
+- deuxième project card créée et gelée dans le repo
+
+TODO
+- ouvrir la fiche Bot Vision / ingestion desk
+- ouvrir ensuite la fiche OpenClaw si l’on continue la série
+
+REPRISE
+- repartir de `PROJECT_CARD_TRADING_ANALYTICS_CHAIN_01`
+
+MEM_CANDIDATE
+- utile seulement sur demande explicite: pour la chaîne analytique trading, le manque structurant suivant est la fixation courte des interfaces de chaîne plus que l’existence séparée des briques.
