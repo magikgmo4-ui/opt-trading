@@ -25,7 +25,7 @@ links:
 
 Base de pilotage active retenue pour `opt-trading` :
 
-- périmètre = **7 GO non clos uniquement** (`active` / `open`)
+- périmètre = **6 GO non clos uniquement** (`active` / `open`)
 - canon décisionnel = **repo `opt-trading`**
 - bundles zip = **supports secondaires** de lecture, transfert ou exécution IDE
 - exclusion explicite = `pass` et `reference` hors exécution courante
@@ -41,13 +41,12 @@ Base de pilotage active retenue pour `opt-trading` :
 - **Bundles zip** : accélérateurs de lecture / transfert / exécution IDE
 - **Présence dans le repo** : les bundles et supports listés ici sont des noms de supports secondaires ; ils peuvent être absents du repo (non trackés)
 - **Interdiction de dérive** : un bundle zip ne remplace jamais l’état réel du repo
-- **Liste active à piloter** : strictement les 7 GO ci-dessous
+- **Liste active à piloter** : strictement les 6 GO ci-dessous
 
 ## Matrice de reprise canonique
 
 | GO | status | priority | repo canonical refs | supports secondaires (noms) | etat etabli | gap restant | next action |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `GO_UNIFORM_CONTINUITY_HARDENING_02` | open | P0 | `docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_02/00_cadrage.md` | `GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01_bundle_ide.zip`; `GO_MEMORY_CHAIN_CONSOLIDATION_01_bundle.zip`; `GO_MEMORY_CHAIN_CONSOLIDATION_01_patch_SESSION_WORKFLOW_01.zip` | Règles de normalisation retenues, lots figés | Lot docs-only non appliqué, décision sur closings `.txt` encore ouverte | **Lancer `GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01` sur le repo canon** |
 | `GO_GITHUB_PARK_AUDIT_EXPANSION_01` | open | P0 | `docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/00_cadrage.md` | `github_park_file_role_cartography_01_bundle.zip`; `github_repo_inventory_full.json`; `github_repo_inventory_full.md`; `github_repo_inventory_from_zips_v2.md` | Cadrage validé, séquencement en couches établi | Consolidation incomplète sur rattachement branch / trunk / chantier | **Exécuter `GO_GITHUB_PARK_BRANCH_TRUNK_CROSS_AUDIT_01`** |
 | `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01` | active | P0 | `docs/chantiers/GO_TMUX_IDE_OPT_TRADING_CADRAGE_01/00_cadrage.md` | `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01_bundle.zip`; `consolidation_targets_ide_bundle.zip` | Bundle préparé, cadrage ouvert | Validation machine cible / panes / repo réel non prouvée | **Exécuter `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01`** |
 | `GO_GIT_PROGRESSIVE_MIGRATION_START_13` | active | P1 | `docs/chantiers/GO_GIT_PROGRESSIVE_MIGRATION_START_13/00_cadrage.md` | `zip_repos_audit_bundle.zip`; `zip_repos_audit_synthese_complete.md`; `zip_repos_audit_synthese_complete.json`; `zip_docs_line_reading_complete.md` | Dossier minimal ouvert pour GO actif | Suite autonome encore insuffisamment explicitée | **Formaliser la suite opératoire dédiée du chantier de migration avant tout lot d’exécution** |
@@ -56,12 +55,6 @@ Base de pilotage active retenue pour `opt-trading` :
 | `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04` | active | P2 | `docs/chantiers/GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04/00_cadrage.md` | Aucun bundle dédié identifié | Reprise de lecture orientée intention projet engagée | Vérification systématique de l’intention encore partielle | **Poursuivre la lecture de `journal.md` puis croiser brut / canon / intention projet** |
 
 ## Correspondance consolidée GO ↔ supports secondaires (noms)
-
-### Hardening continuité
-- `GO_UNIFORM_CONTINUITY_HARDENING_02`
-  - `GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01_bundle_ide.zip`
-  - `GO_MEMORY_CHAIN_CONSOLIDATION_01_bundle.zip`
-  - `GO_MEMORY_CHAIN_CONSOLIDATION_01_patch_SESSION_WORKFLOW_01.zip`
 
 ### GitHub Park / inventaires
 - `GO_GITHUB_PARK_AUDIT_EXPANSION_01`
@@ -96,7 +89,6 @@ Base de pilotage active retenue pour `opt-trading` :
 ## Priorité opératoire retenue
 
 ### P0
-- `GO_UNIFORM_CONTINUITY_HARDENING_02`
 - `GO_GITHUB_PARK_AUDIT_EXPANSION_01`
 - `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
 

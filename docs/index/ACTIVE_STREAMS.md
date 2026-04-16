@@ -41,9 +41,9 @@ Il sert à :
 
 ---
 
-## Priorité opératoire (7 GO non clos)
+## Priorité opératoire (6 GO non clos)
 
-- P0 : `GO_UNIFORM_CONTINUITY_HARDENING_02`, `GO_GITHUB_PARK_AUDIT_EXPANSION_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
+- P0 : `GO_GITHUB_PARK_AUDIT_EXPANSION_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
 - P1 : `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
 - P2 : `GO_OPT_TRADING_JOURNAL_FULL_READING_03`, `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04`
 
@@ -99,12 +99,6 @@ Il sert à :
 - prochaine action : `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01`
 - blocages : valider la machine cible réelle, adapter les panes utiles, confirmer l’emplacement repo réel et exécuter la validation réelle de `tmux-ide`
 
-### GO_UNIFORM_CONTINUITY_HARDENING_02
-- statut : open
-- repo : opt-trading
-- branche : non précisée dans `docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_02/00_cadrage.md`
-- dernier point établi : règle de normalisation retenue, lot patchable figé, lot ambigu séparé, point de reprise canonique posé sans application des patchs
-- prochaine action : `GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01` seulement après validation du présent cadrage
-- blocages : application docs-only du lot patchable non faite, décision explicite sur les closings `.txt` non prise, bascule d’index éventuelle encore ouverte
-
 ## Flux bloques / en echec
+
+- aucun flux bloqué établi à ce stade
