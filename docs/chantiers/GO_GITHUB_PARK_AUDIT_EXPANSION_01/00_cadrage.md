@@ -132,7 +132,7 @@ But :
 
 ---
 
-## État établi courant
+## ETABLI
 
 ### 1. Canon documentaire de session
 Le gate de session exige que tout chantier documenté préserve au minimum :

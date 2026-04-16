@@ -88,7 +88,7 @@ Descendre du parc vers des consolidations ciblées, sans rouvrir un audit global
 
 ---
 
-## Cible des GO suivants
+## Next GO
 
 Chaque GO suivant doit être documenté comme :
 
@@ -107,7 +107,7 @@ Chaque GO doit donc faire suivre explicitement :
 
 ---
 
-## Plan retenu
+## Plan validé
 
 1. Le chantier parent reste le cadre de référence.
 2. Les GO suivants descendent le travail par étapes.
@@ -128,7 +128,7 @@ Chaque GO doit donc faire suivre explicitement :
 
 ---
 
-## TODO
+## Gap restant
 
 - reprendre explicitement cette structure dans les prochains GO de consolidation
 - garder la séparation entre cible finale parent et cible locale du GO

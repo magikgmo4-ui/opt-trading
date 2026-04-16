@@ -72,7 +72,7 @@ Stabiliser le parc autour d’une répartition claire :
 
 ---
 
-## État établi retenu
+## ETABLI
 
 ### Rôles de repo établis
 
@@ -333,7 +333,7 @@ Les points encore ouverts mais cadrés :
 
 ---
 
-## Prochains GO retenus
+## Next GO
 
 ### GO_GITHUB_PARK_MAGIKGMO_AUDIT_03
 But :
