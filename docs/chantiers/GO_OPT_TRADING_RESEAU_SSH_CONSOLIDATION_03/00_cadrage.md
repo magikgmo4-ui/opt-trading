@@ -201,6 +201,52 @@ Il reste à produire pour cette famille :
 
 ---
 
+## Décision de consolidation — Lot 2
+
+### Décision figée (repo-sourcée)
+- **Survivant canonique confirmé** : `modules/reseau_ssh_step2`
+- **Prérequis utile intermédiaire (à conserver à ce stade)** : `modules/reseau_ssh_step1b`
+- **Legacy / doc-gouv pré-step** : `modules/reseau_ssh`
+
+### Règles de consolidation retenues
+- pas de fusion brutale de `step1b` vers `step2` dans ce lot
+- pas d’archivage immédiat de `step1b`
+- pas de suppression physique dans ce lot
+- consolidation par patch minimal documenté, puis validation
+
+### Ambiguïtés restantes à traiter en Lot 3
+- formaliser explicitement, côté documentation de `step2`, la dépendance de préparation héritée de `step1b` (bootstrap SSH/Windows)
+- décider si certains éléments doc de `reseau_ssh` restent en référence historique ou doivent être reclassés
+
+---
+
+## Patch minimal proposé — Lot 3 (préparation)
+
+### Cible
+Rendre explicite la hiérarchie de continuité sans suppression large :
+
+- `step2` = survivant actif
+- `step1b` = prérequis intermédiaire
+- `step1` = legacy/doc
+
+### Fichiers doc/structure à toucher (proposition)
+- `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md`
+  - figer le verdict Lot 2 et le plan d’exécution Lot 3
+- `modules/reseau_ssh_step2/modules/reseau_ssh/reseau_ssh_step2/README.md`
+  - ajouter une note courte “prérequis step1b” (sans réécrire le fond)
+- `modules/reseau_ssh_step1b/modules/reseau_ssh/reseau_ssh_step1b/README.md`
+  - marquer explicitement le statut “intermédiaire / prérequis”
+- `modules/reseau_ssh/modules/reseau_ssh/reseau_ssh_step1/README.md`
+  - marquer explicitement le statut “legacy / doc-gouv pré-step”
+
+### Hors-scope Lot 3
+- suppression physique de dossiers
+- refactor runtime
+- migration massive de scripts
+- commit/push automatiques
+
+---
+
 ## Next GO interne au chantier
 
 ### Prochaine étape opératoire immédiate
