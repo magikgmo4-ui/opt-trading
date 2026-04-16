@@ -56,6 +56,19 @@ Comme l’impose aussi le starter pack, ce cadrage tient compte de :
 
 ---
 
+## Supports secondaires (hors repo)
+
+- repo-first : la source canonique reste le repo `opt-trading` ; ces supports ne sont que des accélérateurs de lecture / transfert
+- emplacement machine observé : `C:\Users\ghost\bundle_zip\`
+- bundle zip associé :
+  - `github_park_file_role_cartography_01_bundle.zip`
+- supports complémentaires non-zip :
+  - `github_repo_inventory_full.md`
+  - `github_repo_inventory_full.json`
+  - `github_repo_inventory_from_zips_v2.md`
+
+---
+
 ## Besoin initial
 
 Le parc a déjà été :
