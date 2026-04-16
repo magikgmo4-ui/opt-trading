@@ -42,9 +42,9 @@ Il sert à :
 
 ---
 
-## Priorité opératoire (7 GO non clos)
+## Priorité opératoire (6 GO non clos)
 
-- P0 : `GO_UNIFORM_CONTINUITY_HARDENING_02`, `GO_GITHUB_PARK_AUDIT_EXPANSION_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
+- P0 : `GO_GITHUB_PARK_AUDIT_EXPANSION_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
 - P1 : `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
 - P2 : `GO_OPT_TRADING_JOURNAL_FULL_READING_03`, `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04`
 
@@ -159,10 +159,10 @@ Il sert à :
 ### GO_UNIFORM_CONTINUITY_HARDENING_02
 - repo : opt-trading
 - type : hardening documentaire
-- statut : open
+- statut : pass
 - titre court : normalisation des headings workflow / mémoire / documentation
-- dernier état connu : règle de normalisation retenue, lot patchable et lot ambigu figés, sans application
-- lien utile : `docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_02/00_cadrage.md`
+- dernier état connu : cadrage canonique posé + lot patchable appliqué en docs-only ; closeout PASS
+- lien utile : `docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_02/00_cadrage.md`, `docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_02/90_closeout.md`
 
 ### GO_UNIFORM_CONTINUITY_IDE_EXECUTION_PACK_02
 - repo : opt-trading
