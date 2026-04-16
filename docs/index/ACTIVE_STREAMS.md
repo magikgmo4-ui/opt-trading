@@ -79,9 +79,9 @@ Il sert à :
 - statut : active
 - repo : opt-trading
 - branche : `sot/mainline`
-- dernier point établi : le cadre inter-repos est posé, mais la couche humaine vivante n’est pas encore réinjectée proprement dans la continuité stable
-- prochaine action : relire le journal canon complet et produire des blocs de validation humaine fidèles, courts et exploitables
-- blocages : le journal mêle contexte humain utile, commandes, décisions et éléments possiblement obsolètes
+- dernier point établi : lecture figée volontairement à `JOURNAL_MD_BLOCK_15`; `BLOCK_16` et `BLOCK_17` ne sont pas retenus dans la base canonique courante
+- prochaine action : reprendre plus tard à `BLOCK_16` (ligne 4421) seulement si le chantier est rouvert explicitement
+- blocages : au-delà de `BLOCK_15`, les segments lus n’apportent pas encore assez d’arbitrages nouveaux ou de doctrine explicite pour être conservés comme continuité canonique
 
 ### GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03
 - statut : open
