@@ -25,17 +25,17 @@ links:
 ## Règle canonique
 
 - source de vérité : repo `opt-trading`
-- périmètre d’exécution courant : 7 GO non clos (`active` / `open` / `fail`)
+- périmètre d’exécution courant : 6 GO non clos (`active` / `open` / `fail`)
 - `pass` et `reference` : hors exécution courante
 
 ## Priorité opératoire active
 
-- P0 : `GO_UNIFORM_CONTINUITY_HARDENING_01`
-- P1 : `GO_UNIFORM_CONTINUITY_HARDENING_02`, `GO_GITHUB_PARK_AUDIT_EXPANSION_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
-- P2 : `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
-- P3 : `GO_OPT_TRADING_JOURNAL_FULL_READING_03`, `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04`
+- P0 : `GO_GITHUB_PARK_AUDIT_EXPANSION_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
+- P1 : `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
+- P2 : `GO_OPT_TRADING_JOURNAL_FULL_READING_03`, `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04`
+
 
 ## Candidats actuels
 
-- aucun nouveau GO à ouvrir tant que le lot prioritaire des 7 GO non clos n’est pas réaligné/exécuté selon `REPRISE.md`
-- prochaine action immédiate : finaliser le patch local docs-only P0 de continuité documentaire sur les index
+- aucun nouveau GO à ouvrir tant que le lot prioritaire des 6 GO non clos n’est pas réaligné/exécuté selon `REPRISE.md`
+- prochaine action immédiate : exécuter `GO_GITHUB_PARK_AUDIT_EXPANSION_01` (Next GO : `GO_GITHUB_PARK_BRANCH_TRUNK_CROSS_AUDIT_01`)
