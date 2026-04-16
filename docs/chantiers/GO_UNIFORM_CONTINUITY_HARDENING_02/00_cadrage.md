@@ -124,7 +124,7 @@ Ajuster les index de reprise seulement si la continuité active doit être bascu
 
 - aucune occurrence de `GO_UNIFORM_CONTINUITY_HARDENING_02` n’était présente dans le repo avant ce cadrage
 - `GO_UNIFORM_CONTINUITY_HARDENING_01` existe déjà comme flux précédent
-- le closeout `GO_UNIFORM_CONTINUITY_HARDENING_01/90_closeout.md` est en `FAIL` avec reprise explicite via un mode Git permettant réellement la mise à jour en place des fichiers existants
+- le closeout `GO_UNIFORM_CONTINUITY_HARDENING_01/90_closeout.md` est en `PASS` ; `localcms` est hors-scope dans ce flux
 - la gate canonique impose un tronc minimal documentaire et interdit de créer un nouveau système de templates
 - `PRODUCT_CONTINUITY_HIERARCHY_01.md` place ce chantier sur la Couche 0 du socle transverse
 
@@ -263,7 +263,7 @@ Le présent GO exclut :
 - `docs/index/REPRISE.md`
 
 ### Reprise chantier
-- repartir du constat et de la limite exposés dans `GO_UNIFORM_CONTINUITY_HARDENING_01/90_closeout.md`
+- repartir du constat exposé dans `GO_UNIFORM_CONTINUITY_HARDENING_01/90_closeout.md`
 - utiliser le présent cadrage comme nouveau point de reprise canonique pour la suite de normalisation
 
 ### Point de reprise local

@@ -1,0 +1,236 @@
+04_SKILLS_V1_OPERATING_SPEC_01
+
+0. Objet
+04_SKILLS_V1_OPERATING_SPEC_01 définit un addendum opératoire au socle 04_SKILLS_V1.
+Il fixe le contrat de sortie stable (formats, limites, checks minimaux) des skills 4.1 à 4.6.
+Contrainte centrale : ce document complète 04_SKILLS_V1 sans le remplacer.
+
+1. Portée et contraintes
+- repo-first : toute affirmation doit être traçable à une source consultée (repo, docs OT, kanban OT, reprise, observations runtime).
+- non-duplication : ne pas redéfinir ce qui est déjà normé ailleurs ; référencer.
+- doc-only : produire des sorties textuelles structurées ; aucune exécution backend, aucune décision d’architecture backend.
+- pas de backend : ne pas introduire d’API, de DB, de service, ni d’arbitrage backend.
+- pas de module durable : aucun scaffolding/module/scripts requis par cet addendum.
+- runtime-honesty : une capacité non observée ne doit pas être présentée comme acquise.
+
+2. Contrat général des skills (V1)
+2.1 Output stable
+- L’output stable d’un skill est un format à clés fixes (top-level), tel que défini dans 04_SKILLS_V1.
+- Les détails additionnels doivent être encodés à l’intérieur des champs existants (liste, sous-points), sans ajouter de nouvelles clés top-level.
+- Les valeurs doivent être déterministes et comparables (diff-friendly) : listes, items courts, ordre logique, pas de prose longue.
+
+2.2 Sources et traçabilité (repo-first)
+- Toute sortie doit inclure des références minimales à la source (fichier, doc OT, kanban OT, observation), au moins sous forme d’identifiants lisibles.
+- Les citations verbatim sont optionnelles ; les résumés doivent rester fidèles et bornés.
+
+2.3 Interdits transverses
+- Inventer une lecture repo non faite.
+- Inventer une validation (tests, runtime, multi-machine, shared) non exécutée.
+- Utiliser des sources hors périmètre (web, documentation externe) sans demande explicite et sans signaler que c’est hors repo/OT.
+- Transformer un skill en mission complète (exécution, gouvernance concurrente, refonte).
+
+2.4 Checks minimaux transverses
+- Le format top-level est respecté.
+- Les faits (ÉTABLI) et hypothèses sont séparés.
+- Les manques de preuve et sources manquantes sont explicités.
+- Le scope reste borné au besoin de la mission.
+
+3. Spécifications opératoires par skill
+
+3.1 Skill : classify_mission
+SKILL_ID : 4.1 classify_mission
+Référence socle : 04_SKILLS_V1 §4.1 ; classes canoniques dans 03_MISSION_CLASSES_V1
+But opératoire :
+- Produire une classification unique et stable de la demande dans une classe canonique V1.
+- Rendre visibles les ambiguïtés bloquantes ou les éléments manquants avant toute exécution.
+Inputs autorisés :
+- Texte brut de la demande (user_input) et contraintes explicites.
+- Contexte immédiat fourni (résumé, objectifs, interdits, format attendu).
+- Références OT déjà disponibles/consultées (kanban, docs OT) si elles sont citées comme sources.
+- Résumé repo (si une lecture a eu lieu) : zones concernées, signaux (sans interprétation non prouvée).
+Sources interdites :
+- Web et sources externes non demandées.
+- “Mémoire” seule sans recoupement avec repo/OT/reprise.
+- Hypothèses présentées comme faits ; classification basée sur un plan d’action supposé (au lieu du besoin exprimé).
+Output stable :
+MISSION_CLASS
+WHY
+SCOPE_HINT
+RISKS_OR_AMBIGUITIES
+Checks minimaux :
+- MISSION_CLASS ∈ {DIAGNOSTIC, PATCH_LOCAL, MODULE_DURABLE, BUNDLE_TRANSFERT, AUDIT_REALIGNEMENT}.
+- WHY cite les déclencheurs concrets (type de sortie, modification attendue, contrainte doc-only, etc.).
+- SCOPE_HINT contient : autorisé / interdit / borne (1 phrase chacun).
+- RISKS_OR_AMBIGUITIES liste les points bloquants et la source manquante associée si applicable.
+Hors-scope :
+- Proposer un patch, un module, une architecture ou des choix techniques détaillés.
+- Réécrire la mission ; la clarifier est autorisé, la transformer ne l’est pas.
+Notes de non-duplication :
+- Ne pas redéfinir les classes : référencer 03_MISSION_CLASSES_V1.
+- Ne pas redéfinir le modèle de checklist multi-étapes : référencer 08_MULTI_STEP_MISSION_CHECKLIST_V1 si pertinent.
+
+3.2 Skill : extract_established_state
+SKILL_ID : 4.2 extract_established_state
+Référence socle : 04_SKILLS_V1 §4.2 ; politique runtime dans 05_RUNTIME_MCP_POLICY_V1
+But opératoire :
+- Extraire l’état réel prouvé et le séparer strictement de ce qui est à confirmer et des hypothèses.
+- Préparer une base de travail stable et diffable pour les skills suivants.
+Inputs autorisés :
+- Extraits/résumés de fichiers du repo consultés (avec chemins).
+- Extraits/résumés de docs OT consultés (avec noms).
+- Extraits/résumés kanban OT consultés (avec identifiant).
+- Notes de reprise consultées (avec identifiant).
+- Observations runtime (commandes, logs) si elles ont été réellement observées dans la session.
+Sources interdites :
+- Inférences non soutenues par une source.
+- “Suppositions de disponibilité” (MCP, multi-machine, paths, montages) non validées.
+- Réécriture du kanban/doc OT (ce skill observe, il ne gouverne pas).
+Output stable :
+ETABLI
+A_CONFIRMER
+HYPOTHESES
+MISSING_SOURCES
+Checks minimaux :
+- Chaque item ETABLI indique une source minimale (repo/doc/kanban/reprise/observation).
+- A_CONFIRMER et MISSING_SOURCES ne contiennent pas de conclusions, seulement des questions et manques.
+- HYPOTHESES sont formulées comme hypothèses falsifiables (si X alors Y), jamais comme état.
+Hors-scope :
+- Décider d’une solution ; produire un plan d’exécution ; “fixer” une contradiction.
+Notes de non-duplication :
+- Ne pas redéfinir “ÉTABLI vs À CONFIRMER” : référencer 05_RUNTIME_MCP_POLICY_V1 §10.
+
+3.3 Skill : detect_contradictions
+SKILL_ID : 4.3 detect_contradictions
+Référence socle : 04_SKILLS_V1 §4.3 ; frontière repo/shared dans 06_REPO_BOUNDARY_POLICY_V1
+But opératoire :
+- Mettre en évidence les contradictions explicites entre sources, sans les lisser.
+- Produire un inventaire actionnable : quoi contredit quoi, impact, et preuve manquante.
+Inputs autorisés :
+- Paires d’extraits/résumés provenant de sources distinctes (repo, kanban, doc OT, reprise, observation).
+- États précédents issus de extract_established_state (ETABLI/A_CONFIRMER/HYPOTHESES).
+Sources interdites :
+- Synthèses “réconciliées” sans signaler la divergence.
+- Contradictions “psychologiques” (interprétations d’intentions), non basées sur des énoncés sources.
+Output stable :
+CONTRADICTIONS
+MISSING_PROOF
+Checks minimaux :
+- Chaque contradiction identifie au minimum : Sujet, Source_A, Source_B, Nature (divergence, obsolescence, manque), Impact.
+- MISSING_PROOF liste des actions de preuve minimales (quel fichier/commande/doc doit être consulté) sans exécuter.
+Hors-scope :
+- Trancher la vérité finale sans preuve ; modifier le repo ; imposer une nouvelle doctrine.
+Notes de non-duplication :
+- Ne pas redéfinir la frontière repo/shared : référencer 06_REPO_BOUNDARY_POLICY_V1.
+
+3.4 Skill : assess_shared_and_portability
+SKILL_ID : 4.4 assess_shared_and_portability
+Référence socle : 04_SKILLS_V1 §4.4 ; politique shared et multi-machine dans 05_RUNTIME_MCP_POLICY_V1
+But opératoire :
+- Statuer sur la nécessité de shared (repo vs hors repo) et sur la portée multi-machine à expliciter.
+- Rendre la portabilité explicite et falsifiable (valide seulement si preuve).
+Inputs autorisés :
+- Mission class (issue de classify_mission).
+- Type d’artefact demandé (doc, patch, bundle, module, rapport, preuves).
+- Machines cibles explicites si fournies ; sinon hypothèses marquées comme telles.
+- Contexte runtime explicitement observé (si disponible) ; sinon “non observé”.
+Sources interdites :
+- Déclarer un chemin canonique non prouvé.
+- Déclarer multi-machine “validé” sans validation explicite.
+- Dériver vers un design de transfert (hors scope).
+Output stable :
+SHARED_STATUS (requis / recommande / non_requis)
+WHY
+PORTABILITY_STATUS (local / partiel / multi_machine_vise / multi_machine_valide)
+TARGETS
+MACHINE_ASSUMPTIONS
+VALIDATIONS_MISSING
+Checks minimaux :
+- SHARED_STATUS est justifié par la frontière repo/shared (type de livrable, besoin de transfert, preuve/log).
+- PORTABILITY_STATUS est cohérent avec les preuves disponibles (valide uniquement si validé).
+- TARGETS liste les machines explicites ou “non spécifié”.
+- VALIDATIONS_MISSING liste les validations minimales à exiger avant “multi_machine_valide”.
+Notes :
+- Mapping recommandé avec 08_MULTI_STEP_MISSION_CHECKLIST_V1 : local → LOCAL_SEULEMENT ; partiel → PARTIELLEMENT_PORTABLE ; multi_machine_vise → MULTI_MACHINE_VISE ; multi_machine_valide → MULTI_MACHINE_VALIDE.
+Hors-scope :
+- Produire un plan de déploiement, de montage ou d’architecture shared.
+Notes de non-duplication :
+- Ne pas redéfinir les statuts multi-machine : référencer 05_RUNTIME_MCP_POLICY_V1 §4.
+- Ne pas redéfinir les chemins shared : référencer 05_RUNTIME_MCP_POLICY_V1 §6-7.
+
+3.5 Skill : review_scope_compliance
+SKILL_ID : 4.5 review_scope_compliance
+Référence socle : 04_SKILLS_V1 §4.5 ; checklist multi-step dans 08_MULTI_STEP_MISSION_CHECKLIST_V1
+But opératoire :
+- Détecter dérive de scope, omissions d’obligations et usages de sources interdites.
+- Proposer une action corrective minimale (réduire, clarifier, exiger preuve, ou requalifier).
+Inputs autorisés :
+- Mission cadrée (objectif, scope, interdits, contraintes).
+- Sortie proposée (plan, patch proposé, doc, spécification) sous forme de texte structuré.
+- Liste des changements envisagés/produits (si applicable), sans exiger d’exécution.
+- Sources utilisées et statut repo/shared/multi-machine.
+Sources interdites :
+- Révision “au feeling” sans citer les interdits/obligations de la mission.
+- Confondre amélioration qualité générale et conformité au scope.
+Output stable :
+SCOPE_OK
+SCOPE_DRIFT
+MISSING_OBLIGATIONS
+OT_SOURCES_STATUS
+SHARED_PORTABILITY_STATUS
+RECOMMENDED_ACTION
+Checks minimaux :
+- SCOPE_OK ∈ {true, false}.
+- SCOPE_OK exprime uniquement la conformité de scope au moment de la review (ce champ n’est pas un verdict global de mission).
+- SCOPE_DRIFT liste les écarts (ajouts, refactors, décisions) et leur criticité (bloquant / non bloquant).
+- MISSING_OBLIGATIONS liste les livrables attendus absents (ex : rollback, preuves, format, sources).
+- RECOMMENDED_ACTION est une action unique prioritaire (réduire, requalifier, exiger preuve, compléter).
+Hors-scope :
+- Réécrire la sortie ; implémenter à la place de l’executor ; décider d’un design backend.
+Notes de non-duplication :
+- Ne pas redéfinir les tests reviewer : référencer 08_MULTI_STEP_MISSION_CHECKLIST_V1.
+
+3.6 Skill : build_execution_report
+SKILL_ID : 4.6 build_execution_report
+Référence socle : 04_SKILLS_V1 §4.6 ; frontière repo/shared dans 06_REPO_BOUNDARY_POLICY_V1
+But opératoire :
+- Normaliser une exécution en rapport stable, exploitable en review et reprise.
+- Produire un résumé factuel, centré sur preuves/validations et limites.
+Inputs autorisés :
+- Résumé d’exécution (actions réalisées).
+- Liste des fichiers modifiés et nature (créé/modifié/supprimé).
+- Validations exécutées et leurs sorties (même partielles).
+- Contexte machine(s) : OS, paths, statut shared, statut multi-machine.
+- Limites connues et actions non faites.
+Sources interdites :
+- “Validé” sans preuve (logs, sorties de commandes, tests).
+- “Compatible multi-machine” sans validation.
+- Omettre les changements réels (même petits) au profit d’une prose générale.
+Output stable :
+RESUME_D_EXECUTION
+SOURCES_UTILISEES
+CHANGEMENTS
+PREUVES_ET_VALIDATIONS
+STATUT_SHARED
+STATUT_MULTI_MACHINE
+LIMITES
+STATUT_FINAL
+POINT_DE_REPRISE
+PROCHAIN_PAS
+Checks minimaux :
+- SOURCES_UTILISEES liste repo/docs/kanban/reprise/observations réellement consultés.
+- CHANGEMENTS liste les chemins ; pour doc-only, mentionner explicitement “doc-only”.
+- PREUVES_ET_VALIDATIONS contient au moins une preuve ou mention explicite “aucune validation exécutée” + pourquoi.
+- STATUT_FINAL est explicite (OK / PARTIEL / BLOQUE) et justifié par LIMITES.
+- STATUT_FINAL est un statut local du rapport d’exécution ; il ne doit pas être interprété comme un verdict reviewer, un statut de fermeture de GO, ni un statut d’archivage.
+- POINT_DE_REPRISE est actionnable et minimal (1-3 actions).
+Hors-scope :
+- Ajouter des changements non demandés ; transformer le rapport en décision d’architecture.
+Notes de non-duplication :
+- Ne pas redéfinir repo vs shared : référencer 06_REPO_BOUNDARY_POLICY_V1.
+
+4. Annexes (références minimales)
+- 03_MISSION_CLASSES_V1 : classes canoniques.
+- 04_SKILLS_V1 : définitions minimales et clés top-level.
+- 05_RUNTIME_MCP_POLICY_V1 : runtime-honesty, shared, multi-machine.
+- 06_REPO_BOUNDARY_POLICY_V1 : frontière repo/shared/temp/backups.
+- 08_MULTI_STEP_MISSION_CHECKLIST_V1 : checks de conformité en mission multi-step.
