@@ -13,9 +13,10 @@ topic_keys:
   - modules
   - structure
   - canon
+  - unified_module
 surface: modules
 source_kind: canonical
-updated_at: 2026-04-14
+updated_at: 2026-04-16
 links:
   - docs/governance/SESSION_DOCUMENTATION_GATE.md
   - docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/03_file_role_cartography.md
@@ -159,6 +160,11 @@ Et, dans la continuité des GO suivants, garder explicites :
 - appliquer uniquement le minimum nécessaire pour aligner le repo sur cette décision
 - documenter ce qui reste conservé pour historique
 
+### Lot 4 — cadrage du module cible unique
+- fixer explicitement le sous-chantier de convergence vers un module SSH unique
+- documenter ce sous-chantier dans le parent pour ne plus dépendre de la session
+- préparer ensuite un GO enfant dédié avant tout refactor physique
+
 ---
 
 ## État établi courant
@@ -181,7 +187,8 @@ Famille observée :
 Établi à ce stade :
 - il s’agit d’une vraie lignée step-by-step
 - la cible de continuité retenue par les audits précédents est `reseau_ssh_step2`
-- la consolidation physique n’a pas encore été faite
+- la consolidation documentaire racine de la famille a été absorbée sur `sot/mainline`
+- la consolidation physique complète n’a pas encore été faite
 
 ### 3. Rôles séparés
 - rôle repo : `opt-trading` porte le chantier
@@ -198,6 +205,8 @@ Il reste à produire pour cette famille :
 - la preuve détaillée du survivant réel
 - la classification explicite de chaque sibling
 - le correctif minimal de structure / doc / liens si nécessaire
+- le cadrage durable du sous-chantier de convergence vers un module SSH unique
+- l’audit des callers runtime et wrappers avant toute fusion physique
 
 ---
 
@@ -247,12 +256,65 @@ Rendre explicite la hiérarchie de continuité sans suppression large :
 
 ---
 
+## Sous-chantier fixé dans le parent
+
+### GO enfant retenu
+`GO_OPT_TRADING_RESEAU_SSH_UNIFIED_MODULE_CADRAGE_01`
+
+### Besoin initial du sous-chantier
+La famille `reseau_ssh*` est désormais clarifiée côté continuité documentaire, mais reste éclatée physiquement entre :
+
+- `modules/reseau_ssh` (legacy / doc)
+- `modules/reseau_ssh_step1b` (préparation hosts / ssh config / key tests)
+- `modules/reseau_ssh_step2` (WireGuard / firewall / inventory)
+
+Il faut fixer dans le repo, et non dans la session, que la cible finale de trajectoire est bien un **module SSH unique** — sans lancer une fusion brutale sans audit préalable.
+
+### Cible finale du sous-chantier
+Aboutir à un **module canonique unique** couvrant :
+
+- inventory
+- hosts
+- ssh config
+- key tests
+- WireGuard
+- firewall
+- wrappers opérateur
+- sanity
+- documentation d’usage
+
+avec disparition à terme des lignées parallèles actives `step1b` / `step2`, après convergence propre.
+
+### Plan validé du sous-chantier
+1. auditer les callers réels de `modules/reseau_ssh_step1b/scripts/*`
+2. auditer les callers réels de `modules/reseau_ssh_step2/scripts/*`
+3. comparer les surfaces utiles `step1b` et `step2`
+4. définir la structure cible du module SSH unique
+5. définir la stratégie de compatibilité transitoire (wrappers ou rupture assumée)
+6. ouvrir ensuite un GO d’implémentation séparé si et seulement si le cadrage est stabilisé
+
+### État établi du sous-chantier
+- la famille est un candidat clair à la consolidation vers un module unique
+- ce n’est pas encore un candidat à une fusion physique immédiate
+- le blocage principal est l’absence d’audit complet des dépendances entrantes et des wrappers consommés
+
+### Gap restant du sous-chantier
+- cartographie des dépendances entrantes
+- liste des chemins réellement consommés
+- décision de compatibilité
+- design cible unique suffisamment figé pour implémentation
+
+---
+
 ## Next GO interne au chantier
 
 ### Prochaine étape opératoire immédiate
-`GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03` — lot audit détaillé de la famille
+`GO_OPT_TRADING_RESEAU_SSH_UNIFIED_MODULE_CADRAGE_01`
 
-Ce même GO reste le contenant du chantier ; la prochaine action n’est pas un nouveau GO parc, mais l’exécution bornée de cette consolidation ciblée.
+### Position de ce next GO dans le parent
+- `GO_OPT_TRADING_RESEAU_SSH_PHYSICAL_CONSOLIDATION_01` est clos côté patch documentaire minimal
+- le parent reste ouvert
+- la suite naturelle du parent est désormais explicitement le cadrage du module unique SSH
 
 ---
 
@@ -265,9 +327,10 @@ Pour cette suite :
 - utiliser la cartographie comme base de tri
 - documenter explicitement ce qui devient survivant, runtime utile, doc/gouvernance, legacy
 - faire suivre explicitement, dans les GO suivants, **l’intention** et le **target final** du chantier pour garder une suite fluide
+- ne pas lancer de fusion physique `step1b + step2` avant le cadrage du module unique et l’audit de dépendances
 
 ---
 
 ## Statut
 
-**OPEN — cadrage posé, consolidation ciblée à exécuter**
+**OPEN — cadrage parent maintenu, sous-chantier de convergence vers module unique fixé dans le parent**
