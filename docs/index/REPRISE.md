@@ -13,7 +13,7 @@ topic_keys:
   - continuity
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-13
+updated_at: 2026-04-16
 links:
   - docs/index/GO_INDEX.md
   - docs/index/ACTIVE_STREAMS.md
@@ -21,19 +21,89 @@ links:
 
 # REPRISE — opt-trading
 
-## Reprendre ici
-- repo : `opt-trading`
-- branche prioritaire : `sot/mainline`
-- flux à lire : `GO_UNIFORM_CONTINUITY_HARDENING_01`
-- source of truth continuité produit multi-chantier : `docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md`
-- références prioritaires :
-  - `docs/governance/REPO_ROLE.md`
-  - `docs/governance/DOC_LAYERS.md`
-  - `docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md`
-  - `docs/governance/MEMORY_BRICKS_MAPPING.md`
-  - `docs/index/GO_INDEX.md`
-  - `docs/index/ACTIVE_STREAMS.md`
-  - `docs/chantiers/GO_OPT_TRADING_LOCAL_CONTINUITY_BOOTSTRAP_01/90_closeout.md`
-  - `docs/chantiers/GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01/90_closeout.md`
-- dernier point établi : le bootstrap local et le pilote `memory_bricks` sont PASS, il reste la fermeture documentaire du hardening
-- prochaine action recommandée : finir le hardening documentaire, puis cadrer le prochain lot métier réel
+## Point de reprise
+
+Base de pilotage active retenue pour `opt-trading` :
+
+- périmètre = **7 GO non clos uniquement** (`active` / `open`)
+- canon décisionnel = **repo `opt-trading`**
+- bundles zip = **supports secondaires** de lecture, transfert ou exécution IDE
+- exclusion explicite = `pass` et `reference` hors exécution courante
+
+## Sources canoniques
+
+- `docs/index/ACTIVE_STREAMS.md`
+- `docs/index/GO_INDEX.md`
+
+## Règle d’exécution
+
+- **Source canonique principale** : repo `opt-trading`
+- **Bundles zip** : accélérateurs de lecture / transfert / exécution IDE
+- **Présence dans le repo** : les bundles et supports listés ici sont des noms de supports secondaires ; ils peuvent être absents du repo (non trackés)
+- **Interdiction de dérive** : un bundle zip ne remplace jamais l’état réel du repo
+- **Liste active à piloter** : strictement les 7 GO ci-dessous
+
+## Matrice de reprise canonique
+
+| GO | status | priority | repo canonical refs | supports secondaires (noms) | etat etabli | gap restant | next action |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `GO_UNIFORM_CONTINUITY_HARDENING_02` | open | P0 | `docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_02/00_cadrage.md` | `GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01_bundle_ide.zip`; `GO_MEMORY_CHAIN_CONSOLIDATION_01_bundle.zip`; `GO_MEMORY_CHAIN_CONSOLIDATION_01_patch_SESSION_WORKFLOW_01.zip` | Règles de normalisation retenues, lots figés | Lot docs-only non appliqué, décision sur closings `.txt` encore ouverte | **Lancer `GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01` sur le repo canon** |
+| `GO_GITHUB_PARK_AUDIT_EXPANSION_01` | open | P0 | `docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/00_cadrage.md` | `github_park_file_role_cartography_01_bundle.zip`; `github_repo_inventory_full.json`; `github_repo_inventory_full.md`; `github_repo_inventory_from_zips_v2.md` | Cadrage validé, séquencement en couches établi | Consolidation incomplète sur rattachement branch / trunk / chantier | **Exécuter `GO_GITHUB_PARK_BRANCH_TRUNK_CROSS_AUDIT_01`** |
+| `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01` | active | P0 | `docs/chantiers/GO_TMUX_IDE_OPT_TRADING_CADRAGE_01/00_cadrage.md` | `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01_bundle.zip`; `consolidation_targets_ide_bundle.zip` | Bundle préparé, cadrage ouvert | Validation machine cible / panes / repo réel non prouvée | **Exécuter `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01`** |
+| `GO_GIT_PROGRESSIVE_MIGRATION_START_13` | active | P1 | `docs/chantiers/GO_GIT_PROGRESSIVE_MIGRATION_START_13/00_cadrage.md` | `zip_repos_audit_bundle.zip`; `zip_repos_audit_synthese_complete.md`; `zip_repos_audit_synthese_complete.json`; `zip_docs_line_reading_complete.md` | Dossier minimal ouvert pour GO actif | Suite autonome encore insuffisamment explicitée | **Formaliser la suite opératoire dédiée du chantier de migration avant tout lot d’exécution** |
+| `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03` | open | P1 | `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md` | `reseau_ssh_physical_consolidation_bundle_01.zip` | Survivant canonique `reseau_ssh_step2` confirmé, `step1b` gardé comme prérequis intermédiaire | Preuve détaillée du survivant et classification complète de la famille encore incomplètes | **Exécuter l’audit détaillé de la famille réseau/ssh dans ce GO** |
+| `GO_OPT_TRADING_JOURNAL_FULL_READING_03` | active | P2 | `docs/chantiers/GO_OPT_TRADING_JOURNAL_FULL_READING_03/00_cadrage.md` | Aucun bundle dédié identifié | Cadre inter-repos posé | Couche humaine vivante non réinjectée proprement | **Relire le journal canon complet et produire des blocs de validation humaine exploitables** |
+| `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04` | active | P2 | `docs/chantiers/GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04/00_cadrage.md` | Aucun bundle dédié identifié | Reprise de lecture orientée intention projet engagée | Vérification systématique de l’intention encore partielle | **Poursuivre la lecture de `journal.md` puis croiser brut / canon / intention projet** |
+
+## Correspondance consolidée GO ↔ supports secondaires (noms)
+
+### Hardening continuité
+- `GO_UNIFORM_CONTINUITY_HARDENING_02`
+  - `GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01_bundle_ide.zip`
+  - `GO_MEMORY_CHAIN_CONSOLIDATION_01_bundle.zip`
+  - `GO_MEMORY_CHAIN_CONSOLIDATION_01_patch_SESSION_WORKFLOW_01.zip`
+
+### GitHub Park / inventaires
+- `GO_GITHUB_PARK_AUDIT_EXPANSION_01`
+  - `github_park_file_role_cartography_01_bundle.zip`
+  - `github_repo_inventory_full.md`
+  - `github_repo_inventory_full.json`
+  - `github_repo_inventory_from_zips_v2.md`
+
+### IDE / tmux
+- `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
+  - `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01_bundle.zip`
+  - `consolidation_targets_ide_bundle.zip`
+
+### Migration / audits transverses
+- `GO_GIT_PROGRESSIVE_MIGRATION_START_13`
+  - `zip_repos_audit_bundle.zip`
+  - `zip_repos_audit_synthese_complete.md`
+  - `zip_repos_audit_synthese_complete.json`
+  - `zip_docs_line_reading_complete.md`
+
+### Réseau / SSH
+- `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
+  - `reseau_ssh_physical_consolidation_bundle_01.zip`
+
+### Journal
+- `GO_OPT_TRADING_JOURNAL_FULL_READING_03`
+  - aucun bundle dédié identifié
+
+- `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04`
+  - aucun bundle dédié identifié
+
+## Priorité opératoire retenue
+
+### P0
+- `GO_UNIFORM_CONTINUITY_HARDENING_02`
+- `GO_GITHUB_PARK_AUDIT_EXPANSION_01`
+- `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
+
+### P1
+- `GO_GIT_PROGRESSIVE_MIGRATION_START_13`
+- `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
+
+### P2
+- `GO_OPT_TRADING_JOURNAL_FULL_READING_03`
+- `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04`

@@ -41,6 +41,14 @@ Il sert à :
 
 ---
 
+## Priorité opératoire (7 GO non clos)
+
+- P0 : `GO_UNIFORM_CONTINUITY_HARDENING_02`, `GO_GITHUB_PARK_AUDIT_EXPANSION_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
+- P1 : `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
+- P2 : `GO_OPT_TRADING_JOURNAL_FULL_READING_03`, `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04`
+
+---
+
 ## Flux actifs
 
 ### GO_GIT_PROGRESSIVE_MIGRATION_START_13
@@ -100,11 +108,3 @@ Il sert à :
 - blocages : application docs-only du lot patchable non faite, décision explicite sur les closings `.txt` non prise, bascule d’index éventuelle encore ouverte
 
 ## Flux bloques / en echec
-
-### GO_UNIFORM_CONTINUITY_HARDENING_01
-- statut : fail
-- repo : opt-trading
-- branche : `sot/mainline`
-- dernier point établi : hardening diagnostiqué et préparé, mais non appliqué sur les fichiers existants dans ce flux
-- prochaine action : appliquer les mises à jour préparées sur `GO_INDEX.md`, `ACTIVE_STREAMS.md`, `REPRISE.md` et `NEXT_GO_CANDIDATES.md`, puis reproduire le meme travail sur `localcms`
-- blocages : le connecteur GitHub expose dans ce flux une limite qui n’a pas permis de finaliser proprement la mise a jour en place des fichiers existants

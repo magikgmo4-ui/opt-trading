@@ -42,6 +42,14 @@ Il sert à :
 
 ---
 
+## Priorité opératoire (7 GO non clos)
+
+- P0 : `GO_UNIFORM_CONTINUITY_HARDENING_02`, `GO_GITHUB_PARK_AUDIT_EXPANSION_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
+- P1 : `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
+- P2 : `GO_OPT_TRADING_JOURNAL_FULL_READING_03`, `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04`
+
+---
+
 ## Entrées
 
 ### GO_UNIFORM_CONTINUITY_FINAL_MASTER_PLAN_01
@@ -87,9 +95,9 @@ Il sert à :
 ### GO_UNIFORM_CONTINUITY_HARDENING_01
 - repo : opt-trading
 - type : hardening documentaire
-- statut : fail
+- statut : pass
 - titre court : réalignement final des index locaux
-- dernier état connu : hardening diagnostiqué et préparé, mais non appliqué sur les fichiers existants dans ce flux ; closeout FAIL
+- dernier état connu : hardening appliqué sur les index `opt-trading` ; `localcms` hors-scope dans ce flux ; closeout PASS
 - lien utile : `docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/90_closeout.md`, `docs/index/ACTIVE_STREAMS.md`
 
 ### GO_GITHUB_PARK_AUDIT_EXPANSION_01

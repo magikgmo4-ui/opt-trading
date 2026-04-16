@@ -5,7 +5,7 @@ repo: opt-trading
 project: opt-trading
 module:
 go_id: GO_UNIFORM_CONTINUITY_HARDENING_01
-status: fail
+status: pass
 lifecycle_stage: closeout
 topic_keys:
   - opt-trading
@@ -14,7 +14,7 @@ topic_keys:
   - indexes
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-11
+updated_at: 2026-04-16
 links:
   - docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/00_cadrage.md
   - docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/01_plan.md
@@ -24,24 +24,29 @@ links:
 
 ## État de départ retenu
 - état retenu : les index `opt-trading` et `localcms` restaient partiellement en retard par rapport aux pilotes déjà clos
-- périmètre retenu : réaligner les index sans ouvrir de nouveau chantier métier
+- périmètre retenu : réaligner les index `opt-trading` sans ouvrir de nouveau chantier métier
+- hors-scope : ne pas toucher `localcms` dans ce flux, sauf preuve bloquante nouvelle
 
 ## Réalisé
 - ce qui a été fait :
   - vérification réelle des index `opt-trading`
   - écart confirmé entre état réel et index
   - contenu cible corrigé préparé pour plusieurs index `opt-trading`
+  - mise à jour effective en place des index `opt-trading` :
+    - `docs/index/GO_INDEX.md`
+    - `docs/index/ACTIVE_STREAMS.md`
+    - `docs/index/REPRISE.md`
+    - `docs/index/NEXT_GO_CANDIDATES.md`
 - ce qui n’a pas été fait :
-  - mise à jour effective en place des fichiers index existants
-  - passage au hardening `localcms`
+  - `localcms` : hors-scope (pas de hardening exécuté dans ce flux)
 
 ## Limites restantes
-- le connecteur GitHub exposé dans ce flux ne permet pas ici de finaliser proprement la mise à jour en place des fichiers existants malgré la préparation du contenu cible
+- aucune limite bloquante restante dans le périmètre retenu
 
 ## Verdict
-- PASS / FAIL : FAIL
-- justification courte : hardening diagnostiqué et préparé, mais non appliqué sur les fichiers existants dans ce flux
+- PASS / FAIL : PASS
+- justification courte : hardening `opt-trading` appliqué ; `localcms` explicitement hors-scope dans ce flux
 
 ## Reprise
-- point de reprise : reprendre le hardening d’index via un mode Git permettant réellement la mise à jour en place des fichiers existants
-- prochaine action recommandée : appliquer les mises à jour préparées sur `GO_INDEX.md`, `ACTIVE_STREAMS.md`, `REPRISE.md` et `NEXT_GO_CANDIDATES.md`, puis reproduire le même travail sur `localcms`
+- point de reprise : bascule de la reprise canonique sur `GO_UNIFORM_CONTINUITY_HARDENING_02`
+- prochaine action recommandée : exécuter `GO_UNIFORM_CONTINUITY_HARDENING_02` puis, après validation, lancer `GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01`
