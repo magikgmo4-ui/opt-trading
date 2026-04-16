@@ -55,3 +55,45 @@ links:
 - niveau d’autonomie OpenClaw
 - règles exactes de delegation OpenCode
 - discipline tmux (sessions / fenêtres)
+
+## ÉTAT DE REPRISE GLOBAL (FIGÉ)
+
+### Chaîne documentaire runtime validée
+
+1. Parent runtime
+   - GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01
+
+2. Conventions
+   - GO_TMUX_RUNTIME_CONVENTIONS_01
+
+3. Scope orchestration
+   - GO_OPENCLAW_COMMAND_SCOPE_01
+
+4. Contrat persistance
+   - GO_TMUX_RUNTIME_CONTRACT_01
+
+5. Modes opératoires
+   - GO_TMUX_OPENCODE_OPENCLAW_MODES_01
+
+6. Garde-fous transverses
+   - GO_RUNTIME_GUARDRAILS_01
+
+### État actuel
+
+- chaîne documentaire validée jusqu’aux garde-fous
+- politique de supervision NON encore matérialisée dans le repo
+- aucun lot d’implémentation ouvert
+
+### Prochain GO requis
+
+GO_RUNTIME_SUPERVISION_POLICY_01
+
+### Règle de continuité
+
+- ne pas ouvrir de lot d’implémentation avant création de GO_RUNTIME_SUPERVISION_POLICY_01
+- ne pas modifier les lots précédents sauf incohérence réelle
+- reprendre systématiquement depuis ce bloc comme source de vérité runtime
+
+### Point de reprise unique
+
+docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/03_decisions.md
