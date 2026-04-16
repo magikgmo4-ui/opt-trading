@@ -25,7 +25,7 @@ links:
 ## Règle canonique
 
 - source de vérité : repo `opt-trading`
-- périmètre d’exécution courant : 6 GO non clos (`active` / `open` / `fail`)
+- périmètre d’exécution courant : 6 GO non clos (`active` / `open`)
 - `pass` et `reference` : hors exécution courante
 
 ## Priorité opératoire active
@@ -37,5 +37,5 @@ links:
 
 ## Candidats actuels
 
-- aucun nouveau GO à ouvrir tant que le lot prioritaire des 6 GO non clos n’est pas réaligné/exécuté selon `REPRISE.md`
+- aucun nouveau GO à ouvrir tant que le lot prioritaire des 6 GO non clos n’est pas exécuté selon `REPRISE.md`
 - prochaine action immédiate : exécuter `GO_GITHUB_PARK_AUDIT_EXPANSION_01` (Next GO : `GO_GITHUB_PARK_BRANCH_TRUNK_CROSS_AUDIT_01`)
