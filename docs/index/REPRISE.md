@@ -30,6 +30,11 @@ Base de pilotage active retenue pour `opt-trading` :
 - bundles zip = **supports secondaires** de lecture, transfert ou exécution IDE
 - exclusion explicite = `pass` et `reference` hors exécution courante
 
+## Runtime (hors matrice active)
+
+- runtime continuity pointer :
+  - docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/03_decisions.md
+
 ## Sources canoniques
 
 - `docs/index/ACTIVE_STREAMS.md`
