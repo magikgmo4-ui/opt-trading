@@ -4,6 +4,8 @@ set -euo pipefail
 MODULE="shared_sshfs_permanent"
 ENV_FILE="/etc/opt-trading/shared_sshfs_permanent.env"
 SERVICE="shared-sshfs.service"
+MOUNT_SCRIPT="/opt/trading/scripts/shared_sshfs_permanent_mount.sh"
+UMOUNT_SCRIPT="/opt/trading/scripts/shared_sshfs_permanent_umount.sh"
 PASS=0
 FAIL=0
 
@@ -12,6 +14,11 @@ bad(){ echo "FAIL: $*"; FAIL=$((FAIL+1)); }
 
 if command -v sshfs >/dev/null 2>&1; then ok "sshfs present"; else bad "sshfs missing (sudo apt-get install -y sshfs)"; fi
 if command -v fusermount3 >/dev/null 2>&1 || command -v fusermount >/dev/null 2>&1; then ok "fusermount present"; else bad "fusermount missing"; fi
+
+if [[ -e "$MOUNT_SCRIPT" ]]; then ok "runtime script exists: $MOUNT_SCRIPT"; else bad "runtime script missing: $MOUNT_SCRIPT (run modules/shared_sshfs_permanent/INSTALL.sh)"; fi
+if [[ -x "$MOUNT_SCRIPT" ]]; then ok "runtime script executable: $MOUNT_SCRIPT"; else bad "runtime script not executable: $MOUNT_SCRIPT (run modules/shared_sshfs_permanent/INSTALL.sh)"; fi
+if [[ -e "$UMOUNT_SCRIPT" ]]; then ok "runtime script exists: $UMOUNT_SCRIPT"; else bad "runtime script missing: $UMOUNT_SCRIPT (run modules/shared_sshfs_permanent/INSTALL.sh)"; fi
+if [[ -x "$UMOUNT_SCRIPT" ]]; then ok "runtime script executable: $UMOUNT_SCRIPT"; else bad "runtime script not executable: $UMOUNT_SCRIPT (run modules/shared_sshfs_permanent/INSTALL.sh)"; fi
 
 if [[ -f "$ENV_FILE" ]]; then ok "env file exists: $ENV_FILE"; 
   # shellcheck disable=SC1090
