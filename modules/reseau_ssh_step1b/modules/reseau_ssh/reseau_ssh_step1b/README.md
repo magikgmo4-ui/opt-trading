@@ -1,5 +1,11 @@
 # reseau_ssh — Step 1b (Apply: hosts + ssh config + key tests)
 
+## Family status (reseau_ssh*)
+- Not the canonical survivor anymore (active continuity moved to `reseau_ssh_step2`)
+- Kept as a useful prerequisite for Step 2 (bootstrap SSH on Linux + Windows)
+- Legacy / doc pre-step: `reseau_ssh` (step1)
+- Reference decision: `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md`
+
 Linux:
 - Safely installs/updates:
   - /etc/hosts (adds a managed block)
