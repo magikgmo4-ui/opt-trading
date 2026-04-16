@@ -91,3 +91,75 @@ Il sert à :
 - titre court : réalignement final des index locaux
 - dernier état connu : hardening diagnostiqué et préparé, mais non appliqué sur les fichiers existants dans ce flux ; closeout FAIL
 - lien utile : `docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/90_closeout.md`, `docs/index/ACTIVE_STREAMS.md`
+
+### GO_GITHUB_PARK_AUDIT_EXPANSION_01
+- repo : opt-trading
+- type : audit / parc GitHub
+- statut : open
+- titre court : expansion de l’audit du parc GitHub
+- dernier état connu : cadrage validé, chantier séquencé en 3 couches avec GO_GITHUB_PARK_BRANCH_TRUNK_CROSS_AUDIT_01 comme next GO immédiat
+- lien utile : `docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/00_cadrage.md`
+
+### GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04
+- repo : opt-trading
+- type : journal / lecture canonique
+- statut : active
+- titre court : lecture canonique orientée intention projet
+- dernier état connu : reprise de lecture après LOT_S23 avec angle intention / objectif / choix / pourquoi, premier bloc visé LOT_S24 à LOT_S28
+- lien utile : `docs/chantiers/GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04/00_cadrage.md`
+
+### GO_OPT_TRADING_JOURNAL_FULL_READING_03
+- repo : opt-trading
+- type : journal / lecture complète
+- statut : active
+- titre court : lecture complète du journal canon
+- dernier état connu : cadre inter-repos posé, mais couche humaine vivante pas encore réinjectée proprement dans la continuité stable
+- lien utile : `docs/chantiers/GO_OPT_TRADING_JOURNAL_FULL_READING_03/00_cadrage.md`
+
+### GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03
+- repo : opt-trading
+- type : consolidation modules / reseau_ssh
+- statut : open
+- titre court : consolidation ciblée de la famille reseau_ssh*
+- dernier état connu : survivant canonique confirmé modules/reseau_ssh_step2, avec step1b conservé comme prérequis intermédiaire
+- lien utile : `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md`
+
+### GO_RANGE_STRATEGY_V1_STRUCT_01
+- repo : opt-trading
+- type : trading / stratégie range
+- statut : pass
+- titre court : cadrage stratégie range v1
+- dernier état connu : chantier documentaire range strategy v1 aligné sur la gate de session avec ancrage métier trading créé
+- lien utile : `docs/chantiers/GO_RANGE_STRATEGY_V1_STRUCT_01/90_closeout.md`
+
+### GO_STRATEGY_KERNEL_SHARED_LAYER_01
+- repo : opt-trading
+- type : trading / noyau stratégie
+- statut : pass
+- titre court : cadrage noyau stratégie partagé
+- dernier état connu : sujet désormais couvert par un chantier canonique propre, aligné sur l’intention figée et l’état réel du repo
+- lien utile : `docs/chantiers/GO_STRATEGY_KERNEL_SHARED_LAYER_01/90_closeout.md`
+
+### GO_TMUX_IDE_OPT_TRADING_CADRAGE_01
+- repo : opt-trading
+- type : outillage / tmux-ide
+- statut : active
+- titre court : cadrage IDE terminale tmux-ide
+- dernier état connu : bundle préparé, cadrage canonique ouvert, next GO GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01
+- lien utile : `docs/chantiers/GO_TMUX_IDE_OPT_TRADING_CADRAGE_01/00_cadrage.md`
+
+### GO_UNIFORM_CONTINUITY_HARDENING_02
+- repo : opt-trading
+- type : hardening documentaire
+- statut : open
+- titre court : normalisation des headings workflow / mémoire / documentation
+- dernier état connu : règle de normalisation retenue, lot patchable et lot ambigu figés, sans application
+- lien utile : `docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_02/00_cadrage.md`
+
+### GO_UNIFORM_CONTINUITY_IDE_EXECUTION_PACK_02
+- repo : opt-trading
+- type : pack IDE / transmission
+- statut : pass
+- titre court : pack d’exécution IDE pour le hardening
+- dernier état connu : chantier documentaire de transmission complet et immédiatement exploitable par l’IDE
+- lien utile : `docs/chantiers/GO_UNIFORM_CONTINUITY_IDE_EXECUTION_PACK_02/IDE_EXECUTION_PACK.md`
