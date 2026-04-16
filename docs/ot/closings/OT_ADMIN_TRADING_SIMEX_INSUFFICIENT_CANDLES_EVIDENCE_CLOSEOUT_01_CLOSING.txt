@@ -1,0 +1,58 @@
+OT_ADMIN_TRADING_SIMEX_INSUFFICIENT_CANDLES_EVIDENCE_CLOSEOUT_01 - CLOSING
+Date (America/Montreal) : 2026-04-16
+Statut : CLOSE
+Classe : PATCH_LOCAL
+
+1. Objet
+Fermer proprement la preuve machine du hardening SimEx sur `admin-trading` pour le chemin `NF_INSUFFICIENT_CANDLES`, après merge de `GO_ADMIN_TRADING_SIMEX_INSUFFICIENT_CANDLES_HARDENING_01`, sans nouveau patch code ni changement runtime.
+
+2. État canonique retenu
+- La PR `simex: harden insufficient candles upstream path` est mergée dans `sot/mainline`.
+- Le merge commit canonique retenu pour ce hardening est `ad8345f34a2d2fc23e8efb98aa08f3053bb9360a`.
+- La machine `admin-trading` a été réalignée par `git pull --ff-only` sur ce canon.
+- `cmd-simex sanity` est validé (`PASS`).
+
+3. Preuve machine retenue
+- Après mise à jour machine, le runner sort en ligne compacte sur le chemin `Not enough candles` :
+  - `upstream_failure: class=NF_INSUFFICIENT_CANDLES ...`
+- Cette preuve live est observée à plusieurs reprises sur la fenêtre post-merge, notamment :
+  - `2026-04-16 09:20:00`
+  - `2026-04-16 09:25:01`
+  - `2026-04-16 09:30:02`
+- Sur ces occurrences, le service finit proprement :
+  - `Deactivated successfully`
+  - `Finished simex-bitget.service`
+- Aucun traceback massif ni `status=1/FAILURE` n'est observé sur ce chemin post-merge.
+
+4. Non-régression nominale
+- Après les occurrences `NF_INSUFFICIENT_CANDLES`, le runner continue à produire des runs nominaux `YES` et `NO` propres.
+- Les runs `YES` continuent de produire `perf_open` puis `perf_close` avec réponses `ok: True`.
+- Le timer 5 minutes reste actif et le cycle runtime continue normalement.
+
+5. Verdict de preuve
+- Preuve de chargement machine du patch : PROUVÉE
+- Preuve live de la nouvelle ligne compacte `NF_INSUFFICIENT_CANDLES` : PROUVÉE
+- Preuve d'absence de traceback massif sur ce chemin post-merge : PROUVÉE
+- Preuve de non-régression du flux nominal : PROUVÉE
+- Verdict global : PASS / COMPLET
+
+6. Ce que ce closeout affirme explicitement
+- Le hardening `NF_INSUFFICIENT_CANDLES` est bien mergé et bien chargé sur `admin-trading`.
+- Le chemin d'échec ancien `Not enough candles -> traceback -> exit 1` n'est plus la forme observée sur la fenêtre post-merge fournie.
+- Le flux nominal SimEx/Perf reste intact après ce hardening.
+
+7. Périmètre explicitement exclu
+- Aucun nouveau patch code.
+- Aucun changement service/timer.
+- Aucune modification Perf.
+- Aucun forçage artificiel de panne.
+
+8. Fichier créé
+- `docs/ot/closings/OT_ADMIN_TRADING_SIMEX_INSUFFICIENT_CANDLES_EVIDENCE_CLOSEOUT_01_CLOSING.txt`
+
+9. Suite logique retenue
+- Laisser tourner et observer.
+- Ouvrir un nouveau chantier uniquement si d'autres familles d'échec runtime non durcies apparaissent en machine.
+
+10. Verdict final
+PASS / CLOSEOUT COMPLET
