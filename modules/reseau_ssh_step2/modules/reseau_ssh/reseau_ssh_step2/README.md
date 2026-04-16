@@ -1,5 +1,13 @@
 # reseau_ssh — Step 2 (WireGuard VPN + Firewall plan)
 
+## Family status (reseau_ssh*)
+- Canonical survivor (active continuity): `reseau_ssh_step2`
+- Kept prerequisite: `reseau_ssh_step1b` (hosts + ssh config + key tests)
+- Legacy / doc pre-step: `reseau_ssh` (step1)
+- Reference decision: `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md`
+
+Prerequisite note: Step 2 assumes the SSH baseline from Step 1b is in place (or equivalent), so hostnames/aliases and key-based SSH access are already stable before WireGuard rollout.
+
 ## Goal
 - Add a **management WireGuard network** between:
   - admin-trading (hub) → db-layer, student, (optional) cursor-ai
