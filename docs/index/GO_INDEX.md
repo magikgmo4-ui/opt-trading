@@ -14,7 +14,7 @@ topic_keys:
   - governance
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-16
+updated_at: 2026-04-17
 links:
   - docs/governance/REPO_ROLE.md
   - docs/governance/DOC_LAYERS.md
@@ -107,6 +107,30 @@ Il sert à :
 - titre court : expansion de l’audit du parc GitHub
 - dernier état connu : cadrage validé, chantier séquencé en 3 couches avec GO_GITHUB_PARK_BRANCH_TRUNK_CROSS_AUDIT_01 comme next GO immédiat
 - lien utile : `docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/00_cadrage.md`
+
+### GO_GITHUB_PARK_AUDIT_EXPANSION_ISOLATE_01
+- repo : opt-trading
+- type : patch local / doc-only
+- statut : pass
+- titre court : isolation des modifications locales audit GitHub Park
+- dernier état connu : les 2 docs locaux du chantier GitHub Park ont été isolés sur branche dédiée avec commit `a4ce731` et worktree propre
+- lien utile : `docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/02_journal_technique.md`, `docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/03_decisions.md`
+
+### GO_INTEG_TRADING_DUAL_STACK_DOC_ONLY_INTEGRATION_01
+- repo : opt-trading
+- type : intégration doc-only
+- statut : pass
+- titre court : intégration bornée du pack trading dual stack
+- dernier état connu : intégration via checkout borné sur `docs/trading/*` sans merge global, commit `5d46981`, worktree propre
+- lien utile : `docs/trading/02_ETABLI_TRADING_DUAL_STACK_V1_0.txt`, `docs/trading/03_KANBAN_TRADING_DUAL_STACK_V1_0.txt`, `docs/trading/04_REPRISE_TRADING_DUAL_STACK_V1_0.txt`, `docs/trading/TRADING_DUAL_STACK_V1_0_CLARIFIED.md`
+
+### GO_COLLECTORS_LIFECYCLE_COMPAT_CADRAGE_01
+- repo : opt-trading
+- type : cadrage module durable / collectors
+- statut : open
+- titre court : cadrage compatibilité lifecycle collectors
+- dernier état connu : diagnostic repo-first réalisé sur `origin/inventory/collectors-baseline-01` avec verdict `RE-SCOPE` (risque cassant sur `relref()/relative_to(MODULE_DIR)` si `OUTPUT_DIR` est relatif au root projet), écarts spec/runtime tracés
+- lien utile : `docs/COLLECTORS_LIFECYCLE_COMPAT_SPEC_01.md`
 
 ### GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04
 - repo : opt-trading
