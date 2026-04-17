@@ -1,0 +1,57 @@
+03_KANBAN_TRADING_DUAL_STACK_V1_0
+
+STATUS
+ACTIVE
+
+DATE
+2026-04-03
+
+K01 - Vision duale LAB + REALTIME
+STATUS: CLOSE / PASS
+NOTE: Conservée sans changement.
+
+K02 - Noyau commun frame + strategy + logs
+STATUS: CLOSE / PASS
+NOTE: Confirmé comme base canonique.
+
+K03 - Cadre trader humain discipliné
+STATUS: CLOSE / PASS
+NOTE: Sessions, kill zones, boring trader, risk, limites.
+
+K04 - Audit multi-rôles
+STATUS: CLOSE / PASS
+NOTE: Direction validée.
+
+K05 - Débat contradictoire simulé + arbitrage
+STATUS: CLOSE / PASS
+NOTE: V1 clarifiée obtenue.
+
+K06 - Clarification V1.0
+STATUS: CLOSE / PASS
+NOTE: Contrats, guards, réalisme minimal, gates.
+
+K07 - Séparation V1.0 / V1.1
+STATUS: CLOSE / PASS
+NOTE: Scope clarifié, surcharge évitée.
+
+K08 - Doc canonique principale
+STATUS: READY
+NOTE: Contenu prêt à déposer.
+
+K09 - Fichier établi
+STATUS: READY
+NOTE: Contenu prêt.
+
+K10 - Fichier reprise
+STATUS: READY
+NOTE: Contenu prêt.
+
+K11 - GO chaîne déjà établi
+STATUS: READY
+NOTE: Suite enchaînable sans nouveau recadrage.
+
+POINT GLOBAL
+Le plan est validé.
+La V1.0 est clarifiée.
+Le pack documentaire est prêt.
+La suite peut se faire par GO séquentiels sans rouvrir la vision.
