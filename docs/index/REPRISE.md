@@ -13,7 +13,7 @@ topic_keys:
   - continuity
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-16
+updated_at: 2026-04-17
 links:
   - docs/index/GO_INDEX.md
   - docs/index/ACTIVE_STREAMS.md
@@ -25,7 +25,7 @@ links:
 
 Base de pilotage active retenue pour `opt-trading` :
 
-- périmètre = **6 GO non clos uniquement** (`active` / `open`)
+- périmètre = **5 GO non clos uniquement** (`active` / `open`)
 - canon décisionnel = **repo `opt-trading`**
 - bundles zip = **supports secondaires** de lecture, transfert ou exécution IDE
 - exclusion explicite = `pass` et `reference` hors exécution courante
@@ -46,13 +46,12 @@ Base de pilotage active retenue pour `opt-trading` :
 - **Bundles zip** : accélérateurs de lecture / transfert / exécution IDE
 - **Présence dans le repo** : les bundles et supports listés ici sont des noms de supports secondaires ; ils peuvent être absents du repo (non trackés)
 - **Interdiction de dérive** : un bundle zip ne remplace jamais l’état réel du repo
-- **Liste active à piloter** : strictement les 6 GO ci-dessous
+- **Liste active à piloter** : strictement les 5 GO ci-dessous
 
 ## Matrice de reprise canonique
 
 | GO | status | priority | repo canonical refs | supports secondaires (noms) | etat etabli | gap restant | next action |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `GO_GITHUB_PARK_AUDIT_EXPANSION_01` | open | P0 | `docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/00_cadrage.md` | `github_park_file_role_cartography_01_bundle.zip`; `github_repo_inventory_full.json`; `github_repo_inventory_full.md`; `github_repo_inventory_from_zips_v2.md` | Cadrage validé, séquencement en couches établi | Consolidation incomplète sur rattachement branch / trunk / chantier | **Exécuter `GO_GITHUB_PARK_BRANCH_TRUNK_CROSS_AUDIT_01`** |
 | `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01` | active | P0 | `docs/chantiers/GO_TMUX_IDE_OPT_TRADING_CADRAGE_01/00_cadrage.md` | `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01_bundle.zip`; `consolidation_targets_ide_bundle.zip` | Bundle préparé, cadrage ouvert | Validation machine cible / panes / repo réel non prouvée | **Exécuter `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01`** |
 | `GO_GIT_PROGRESSIVE_MIGRATION_START_13` | active | P1 | `docs/chantiers/GO_GIT_PROGRESSIVE_MIGRATION_START_13/00_cadrage.md` | `zip_repos_audit_bundle.zip`; `zip_repos_audit_synthese_complete.md`; `zip_repos_audit_synthese_complete.json`; `zip_docs_line_reading_complete.md` | Dossier minimal ouvert pour GO actif | Suite autonome encore insuffisamment explicitée | **Formaliser la suite opératoire dédiée du chantier de migration avant tout lot d’exécution** |
 | `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03` | open | P1 | `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md` | `reseau_ssh_physical_consolidation_bundle_01.zip` | Survivant canonique `reseau_ssh_step2` confirmé, `step1b` gardé comme prérequis intermédiaire | Preuve détaillée du survivant et classification complète de la famille encore incomplètes | **Exécuter l’audit détaillé de la famille réseau/ssh dans ce GO** |
@@ -63,6 +62,9 @@ Base de pilotage active retenue pour `opt-trading` :
 
 ### GitHub Park / inventaires
 - `GO_GITHUB_PARK_AUDIT_EXPANSION_01`
+  - chantier parent clos (`PASS`)
+  - closeout : `docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/90_closeout.md`
+  - cible consolidée : `docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/04_branch_trunk_cross_audit_target.md`
   - `github_park_file_role_cartography_01_bundle.zip`
   - `github_repo_inventory_full.md`
   - `github_repo_inventory_full.json`
@@ -95,7 +97,6 @@ Base de pilotage active retenue pour `opt-trading` :
 ## Priorité opératoire retenue
 
 ### P0
-- `GO_GITHUB_PARK_AUDIT_EXPANSION_01`
 - `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
 
 ### P1
