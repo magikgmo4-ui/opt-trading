@@ -36,6 +36,14 @@ Ce document référence les GO connus et utiles à la continuité locale de `opt
 
 ---
 
+## Forms / LocalCMS (cadrage)
+
+- GO_LOCALCMS_FORMS_INTEGRATION_DOC_01  
+  → docs/chantiers/GO_LOCALCMS_FORMS_INTEGRATION_DOC_01/00_cadrage.md  
+  → intégration future forms compatible avec localcms existant (doc-only)
+
+---
+
 ## Règles
 
 - l’index référence et synthétise
