@@ -42,9 +42,9 @@ Il sert à :
 
 ---
 
-## Priorité opératoire (6 GO non clos)
+## Priorité opératoire (5 GO non clos)
 
-- P0 : `GO_GITHUB_PARK_AUDIT_EXPANSION_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
+- P0 : `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
 - P1 : `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
 - P2 : `GO_OPT_TRADING_JOURNAL_FULL_READING_03`, `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04`
 
@@ -103,10 +103,10 @@ Il sert à :
 ### GO_GITHUB_PARK_AUDIT_EXPANSION_01
 - repo : opt-trading
 - type : audit / parc GitHub
-- statut : open
+- statut : pass
 - titre court : expansion de l’audit du parc GitHub
-- dernier état connu : cadrage validé, chantier séquencé en 3 couches avec GO_GITHUB_PARK_BRANCH_TRUNK_CROSS_AUDIT_01 comme next GO immédiat
-- lien utile : `docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/00_cadrage.md`
+- dernier état connu : cible finale atteinte ; cross-audit consolidé et intégrité canonique `GO_INDEX ↔ 04_branch_trunk_cross_audit_target.md` rétablie sur `sot/mainline`
+- lien utile : `docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/90_closeout.md`, `docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/04_branch_trunk_cross_audit_target.md`
 
 ### GO_GITHUB_PARK_AUDIT_EXPANSION_ISOLATE_01
 - repo : opt-trading
