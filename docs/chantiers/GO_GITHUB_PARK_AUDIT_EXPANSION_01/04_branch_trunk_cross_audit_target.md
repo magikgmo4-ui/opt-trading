@@ -1,79 +1,61 @@
 ---
-doc_id: OPT_TRADING_GO_GITHUB_PARK_BRANCH_TRUNK_CROSS_AUDIT_01_TARGET
-doc_type: chantier_target
+doc_id: OPT_TRADING_GO_GITHUB_PARK_BRANCH_TRUNK_CROSS_AUDIT_TARGET_01
+doc_type: chantier_report
 repo: opt-trading
 project: opt-trading
-go_id: GO_GITHUB_PARK_BRANCH_TRUNK_CROSS_AUDIT_01
-status: validated
+go_id: GO_GITHUB_PARK_AUDIT_EXPANSION_01
+status: active
 lifecycle_stage: planning
 topic_keys:
   - github
   - branches
   - trunks
-  - audit
-  - park
+  - convergence
+  - canonical
 surface: park
 source_kind: canonical
 updated_at: 2026-04-17
 links:
-  - docs/index/GO_INDEX.md
   - docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/00_cadrage.md
   - docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/01_branch_trunk_cross_audit.md
-  - docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/03_decisions.md
   - docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/04_consolidation_targets_and_go_list.md
-  - docs/governance/GITHUB_PARK_CONSOLIDATION_DECISION_02.md
+  - docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/03_decisions.md
 ---
 
-# GO_GITHUB_PARK_BRANCH_TRUNK_CROSS_AUDIT_01 - TARGET
-
-## Positionnement (role)
-
-- `01_branch_trunk_cross_audit.md` = rapport d'audit execute (preuves et details d'execution).
-- Ce document (`04_*_target`) = cible/synthese consolidee, stable pour l'index et la reprise.
-
----
+# 04_branch_trunk_cross_audit_target — cible de convergence
 
 ## Besoin initial
-
-Apres la cartographie initiale du parc GitHub, figer une cible finale lisible du cross-audit trunk/branches/roles pour eviter la perte de continuite.
-
----
+- disposer d’une cible explicite pour la convergence `branches ↔ trunk` sans dépendre d’une session
+- éviter la création d’un canon parallèle à côté de `opt-trading` / `sot/mainline`
 
 ## Cible finale
+- le tronc canonique reste `opt-trading` sur `sot/mainline`
+- les branches servent à isoler des chantiers, audits ou refactors, puis doivent être rattachées (absorbées, closées ou reclassées)
+- aucune surface d’exécution (cockpit local ou distant) ne devient une source de vérité supérieure au repo
 
-Produire une synthese opposable qui confirme:
+### Séparation explicite des couches (rappel)
+- Trae : cockpit local de construction (dev / doc / repo)
+- OpenClaw : cockpit distant d’exploitation runtime / trading
+- tmux : persistance session/runtime
+- Telegram : contrôle léger / notification / déclenchement distant
+- Git + docs : canon de continuité, de reprise et de vérité
 
-- le repo canon principal
-- les repos secondaires utiles
-- les repos a geler
-- les repos a archiver ou repurposer
-
----
+## Plan validé
+1. s’appuyer sur l’audit croisé `branches ↔ trunks` comme lecture opératoire (repo par repo)
+2. distinguer, pour chaque branche, sa classe réelle : absorbée, utile, historique/parking, ou à requalifier
+3. converger vers un tronc lisible en supprimant les ambiguïtés de canon :
+   - pas de “canon cockpit”
+   - pas de “canon zip”
+   - pas de doc de décision hors repo
 
 ## ETABLI
+- rapport canonique présent : `docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/01_branch_trunk_cross_audit.md`
+- closeout présent : `docs/ot/closings/OT_GITHUB_PARK_BRANCH_TRUNK_CROSS_AUDIT_01_CLOSING.txt`
+- `docs/index/GO_INDEX.md` référence ce fichier comme cible de convergence du chantier GitHub Park
 
-- repo canon principal: `opt-trading`
-- branche canonique de continuite: `sot/mainline`
-- cross-audit de reference disponible: `01_branch_trunk_cross_audit.md`
-- decisions complementaires disponibles: `03_decisions.md`
-- cible de consolidation disponible: `04_consolidation_targets_and_go_list.md`
+## Gap restant
+- matérialiser, repo par repo, la suite opératoire de convergence à partir de l’audit (actions explicites, bornées, repo-first)
+- éviter tout glissement vers un canon parallèle (cockpit, bundles, notes de session)
 
----
-
-## CONTRADICTIONS
-
-- Aucune contradiction bloquante sur la cible documentaire.
-- Les drifts d'inventaire branches doivent rester traites comme des derives de run et non comme des contradictions canoniques tant qu'ils ne contredisent pas l'etat Git reel.
-
----
-
-## REPRISE
-
-- point de reprise local: `GO_GITHUB_PARK_BRANCH_TRUNK_CROSS_AUDIT_01`
-- suite logique du parent: appliquer les consolidations ciblees listees dans `04_consolidation_targets_and_go_list.md`
-
----
-
-## VERDICT
-
-PASS
+## Next GO
+- se conformer au `Next GO` du chantier parent `GO_GITHUB_PARK_AUDIT_EXPANSION_01` et à la matrice `docs/index/REPRISE.md`
