@@ -27,6 +27,11 @@ links:
 - OpenClaw = orchestration
 - Telegram = interface distante
 
+### D1b — Modèle double cockpit + canon
+- Trae = cockpit local de construction (dev / doc / repo)
+- le repo Git + docs reste la source canonique de continuité
+- les cockpits (local ou distant) ne remplacent pas le canon
+
 ### D2 — Nature du système
 - le système est considéré comme un runtime vivant continu
 - on sort du modèle session locale IDE

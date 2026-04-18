@@ -36,7 +36,7 @@ links:
 
 ## État de départ retenu
 - besoin retenu : piloter `opt-trading` depuis n’importe où avec continuité de session, agents IA actifs et contrôle distant sans dépendre du SSH en continu
-- état établi de la session : le plan logique du setup a été validé, mais il n’est pas encore figé dans la documentation Git du repo
+- état établi de la session : le plan logique du setup a été validé et doit être figé dans la documentation Git du repo pour éviter une dépendance à la session
 - état technique retenu : la cible distingue explicitement `tmux`, `OpenCode`, `OpenClaw` et `Telegram` avec des rôles séparés
 - contrainte de méthode : ce chantier ouvre le parent documentaire et borne les sous-chantiers sans lancer encore l’implémentation
 - statut documentaire : parent ouvert pour figer le cadre de travail ; canonisation documentaire fine reportée à une passe ultérieure
@@ -47,11 +47,34 @@ links:
 
 ## Cible finale retenue
 Mettre en place une architecture d’utilisation où :
+- `Trae` porte le cockpit local de construction (dev / doc / repo)
 - `tmux` porte la persistance runtime
 - `OpenCode` porte la production / code engine
 - `OpenClaw` porte l’orchestration / control plane
 - `Telegram` porte l’interface distante
+- le repo Git + `docs/chantiers` + `docs/index` reste la source canonique de continuité
 - l’ensemble forme un système vivant en continu plutôt qu’une simple session locale
+
+## Plan gelé hors session (double cockpit + couches)
+
+### Besoin initial
+- clarifier les surfaces d’opération et leurs rôles pour rendre la reprise possible sans relire une session
+
+### Plan validé
+- séparer explicitement cockpit local (`Trae`), cockpit distant (`OpenClaw`), persistance runtime (`tmux`), contrôle léger (`Telegram`) et canon (`Git + docs`)
+- propager cette séparation dans les décisions runtime et les cibles de convergence associées
+- garder repo-first : le canon prime sur les surfaces d’exécution
+
+### ETABLI
+- ce parent runtime est déjà matérialisé dans `docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/`
+- la séparation `tmux` / `OpenCode` / `OpenClaw` / `Telegram` est déjà posée comme décision structurante
+
+### Gap restant
+- articulation opératoire détaillée `Trae` ↔ runtime distant non encore formalisée au-delà de la séparation des rôles
+- supervision runtime encore à matérialiser dans le repo
+
+### Next GO
+- GO_RUNTIME_SUPERVISION_POLICY_01
 
 ## Sous-chantiers pressentis
 - `GO_TMUX_RUNTIME_CONVENTIONS_01`
@@ -69,3 +92,8 @@ Mettre en place une architecture d’utilisation où :
 ## Critères PASS / FAIL
 - PASS si : le parent fige clairement le besoin, la cible, la répartition des rôles et le découpage en sous-chantiers avec un point de reprise net
 - FAIL si : les rôles restent ambigus, les sous-chantiers ne sont pas explicités ou le parent pousse déjà vers l’implémentation
+
+## Séparation des couches
+- rôle machine : runtime distant et persistance session (`tmux`)
+- rôle IA / IDE : cockpit local de construction et d’édition (`Trae`)
+- rôle repo / produit : `opt-trading` comme canon, `sot/mainline` comme branche de continuité
