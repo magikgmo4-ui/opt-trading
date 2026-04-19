@@ -8,6 +8,7 @@
 - **journal/index/ACTIVE_GO_MATRIX.md** : matrice compacte générée des GO actifs / reprise
 - **docs/ot/trading/00_TRADING_DUAL_STACK_LAB_REALTIME_V1.md** : cadrage canonique dual Lab + Real-Time V1, analyse multi-rôles, garde-fous, et trigger `GO_OT_TRADING_DUAL_STACK_V1_01`
 - **docs/master_pack/mission_starter_pack/00_mission_start_guide.md** : point d’entrée unique (ouverture de session)
+- **docs/governance/CHATGPT_PROFILE_BASELINE_2026_04_19.md** : baseline datée des custom instructions et de la mémoire sauvegardée retenues pour la continuité ChatGPT
 - **docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt** : modèle officiel missions longues / multi-étapes
 - **docs/ARCHITECTURE.md** : architecture (flux, persistance, composants)
 - **docs/API.md** : endpoints + exemples `curl`
