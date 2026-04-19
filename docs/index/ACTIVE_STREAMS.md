@@ -41,11 +41,11 @@ Il sert à :
 
 ---
 
-## Priorité opératoire (6 GO non clos)
+## Priorité opératoire (7 GO non clos)
 
 - P0 : `GO_GITHUB_PARK_AUDIT_EXPANSION_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
 - P1 : `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
-- P2 : `GO_OPT_TRADING_JOURNAL_FULL_READING_03`, `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04`
+- P2 : `GO_OPT_TRADING_JOURNAL_FULL_READING_03`, `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04`, `GO_EXTRACTEUR_TAGS_CANONICAL_METHOD_01`
 
 ---
 
@@ -98,6 +98,14 @@ Il sert à :
 - dernier point établi : bundle préparé, cadrage canonique ouvert
 - prochaine action : `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01`
 - blocages : valider la machine cible réelle, adapter les panes utiles, confirmer l’emplacement repo réel et exécuter la validation réelle de `tmux-ide`
+
+### GO_EXTRACTEUR_TAGS_CANONICAL_METHOD_01
+- statut : open
+- repo : opt-trading
+- branche : `sot/mainline`
+- dernier point établi : méthode canonique documentée et ancrée dans `docs/chantiers/GO_EXTRACTEUR_TAGS_CANONICAL_METHOD_01/EXTRACTEUR_TAGS__METHODE_CANONIQUE_V1.md`
+- prochaine action : formaliser `EXTRACTEUR_TAGS__ROUTAGE_TABLE_V1` puis `EXTRACTEUR_TAGS__TOOLS_MCP_TARGET_V1`
+- blocages : table de routage initiale et liste cible des tools MCP non encore figées
 
 ## Flux bloques / en echec
 
