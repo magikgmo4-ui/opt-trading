@@ -56,6 +56,33 @@
   status: active
   notes: "Sanity Validateur"
 
+- wrapper_name: menu-kil_v1
+  wrapper_family: menu
+  target_module: kil_v1
+  target_script: menu.sh
+  install_location: /usr/local/bin/menu-kil_v1
+  audience: operator
+  status: active
+  notes: "Menu KIL V1"
+
+- wrapper_name: cmd-kil_v1
+  wrapper_family: cmd
+  target_module: kil_v1
+  target_script: cmd.sh
+  install_location: /usr/local/bin/cmd-kil_v1
+  audience: operator
+  status: active
+  notes: "CLI KIL V1"
+
+- wrapper_name: sanity-kil_v1
+  wrapper_family: sanity
+  target_module: kil_v1
+  target_script: sanity.sh
+  install_location: /usr/local/bin/sanity-kil_v1
+  audience: system
+  status: active
+  notes: "Sanity KIL V1"
+
 - wrapper_name: menu-ui_registry_msi
   wrapper_family: menu
   target_module: ui_registry_msi
