@@ -20,6 +20,8 @@ links:
   - docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/01_branch_trunk_cross_audit.md
   - docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/04_consolidation_targets_and_go_list.md
   - docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/03_decisions.md
+  - docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md
+  - docs/chantiers/GO_GIT_BRANCH_HOUSEKEEPING_METHOD_01/90_closeout.md
 ---
 
 # 04_branch_trunk_cross_audit_target — cible de convergence
@@ -52,10 +54,12 @@ links:
 - rapport canonique présent : `docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/01_branch_trunk_cross_audit.md`
 - closeout présent : `docs/ot/closings/OT_GITHUB_PARK_BRANCH_TRUNK_CROSS_AUDIT_01_CLOSING.txt`
 - `docs/index/GO_INDEX.md` référence ce fichier comme cible de convergence du chantier GitHub Park
+- la méthode récurrente de tri et suppression des branches est désormais figée dans `docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md`
+- le chantier documentaire `GO_GIT_BRANCH_HOUSEKEEPING_METHOD_01` a sorti cette règle de la session et l’a rattachée à la cible de convergence
 
 ## Gap restant
 - matérialiser, repo par repo, la suite opératoire de convergence à partir de l’audit (actions explicites, bornées, repo-first)
-- éviter tout glissement vers un canon parallèle (cockpit, bundles, notes de session)
+- exécuter les futurs ménages réels branche par branche à partir de la méthode canonique désormais figée, sans reconstituer la règle depuis une session
 
 ## Next GO
 - se conformer au `Next GO` du chantier parent `GO_GITHUB_PARK_AUDIT_EXPANSION_01` et à la matrice `docs/index/REPRISE.md`
