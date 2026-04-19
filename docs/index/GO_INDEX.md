@@ -214,3 +214,11 @@ Ce document référence les GO connus et utiles à la continuité locale de `opt
 - titre court : chantier parent UI opt-trading producer → localcms consumer
 - dernier état connu : cadrage parent posé ; `opt-trading` reste producer canonique et `localcms` consumer UI ; reprise recommandée sur `GO_OPT_TRADING_UI_LOCALCMS_INVENTORY_01`
 - lien utile : `docs/chantiers/GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01/01_cadrage_parent.md`
+
+### GO_EXTRACTEUR_TAGS_CANONICAL_METHOD_01
+- repo : opt-trading
+- type : gouvernance / extraction / documentation
+- statut : reference
+- titre court : méthode canonique d’extraction par tags
+- dernier état connu : fiche de référence initiale créée sur `sot/mainline` pour séparer extraction, classification, routage mémoire vs doc et écriture contrôlée
+- lien utile : `docs/chantiers/GO_EXTRACTEUR_TAGS_CANONICAL_METHOD_01/EXTRACTEUR_TAGS__METHODE_CANONIQUE_V1.md`
