@@ -1,0 +1,95 @@
+{
+  "topic": {
+    "title": "Prompt standardization for evaluation runs",
+    "topic_text": "Assess whether a prompt template can be reused safely across repeated evaluation campaigns.",
+    "domain": "governance",
+    "requested_goal": "Produce a reusable prompt and a durable memory decision.",
+    "source_refs": [
+      "docs/ot/trae/01_RULES_V1.txt",
+      "workflow_ai/WORKFLOW.md"
+    ]
+  },
+  "policies": {
+    "framing": {
+      "policy_id": "framing-v1",
+      "policy_version": "1.0",
+      "policy_text": "Objective, scope, out_of_scope and known_risks are mandatory."
+    },
+    "evaluation": {
+      "policy_id": "evaluation-v1",
+      "policy_version": "1.0",
+      "policy_text": "Separate evidence quality from rhetoric and detect unsupported truth claims."
+    },
+    "promotion": {
+      "policy_id": "promotion-v1",
+      "policy_version": "1.0",
+      "policy_text": "LAB is permissive, STANDARD requires curation, STRICT requires external validation."
+    }
+  },
+  "framing": {
+    "objective_reframed": "Determine if the prompt can be reused as a standard KIL question without confusing answer quality and truth.",
+    "scope_allowed": [
+      "evaluate one canonical prompt",
+      "compare two candidate answers",
+      "promote only safe memory output"
+    ],
+    "out_of_scope": [
+      "UI work",
+      "provider integration",
+      "semantic search"
+    ],
+    "assumptions": [
+      "The sample answers are operator supplied fixtures."
+    ],
+    "known_risks": [
+      "Unsupported truth claims",
+      "Evaluator rhetoric bias"
+    ]
+  },
+  "question": {
+    "question_text": "What evidence and controls are required before promoting a prompt evaluation pattern to durable knowledge?",
+    "question_type": "governance",
+    "expected_answer_mode": "structured_text",
+    "prompt_template_id": "kil.standard.question.v1",
+    "normalization_rules": [
+      "strip",
+      "collapse_whitespace"
+    ]
+  },
+  "responses": [
+    {
+      "target_label": "candidate_a",
+      "surface": "fixture",
+      "machine": "student",
+      "operator": "test_operator",
+      "response_text": "Use a fixed template, keep a policy file, record the evidence, and keep citations to the governing documents.",
+      "source_citations": [
+        "docs/ot/trae/01_RULES_V1.txt",
+        "workflow_ai/WORKFLOW.md"
+      ],
+      "external_validation": true
+    },
+    {
+      "target_label": "candidate_b",
+      "surface": "fixture",
+      "machine": "student",
+      "operator": "test_operator",
+      "response_text": "This definitely solves everything and is guaranteed to be the best forever!!!",
+      "source_citations": [],
+      "external_validation": false
+    }
+  ],
+  "comparison": {
+    "enabled": true,
+    "basis": "highest_evaluation_score"
+  },
+  "capitalization": {
+    "target_level": "STRICT",
+    "type": "decision",
+    "tags": [
+      "kil",
+      "prompt",
+      "governance"
+    ]
+  }
+}

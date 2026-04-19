@@ -46,6 +46,28 @@
   priority: low
   dependencies: []
 
+- module_name: kil_v1
+  domain: operator_tools
+  machine_target: student
+  operator_visible: true
+  ui_related: false
+  description: "Noyau minimal de campagne KIL V1"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: high
+  dependencies: []
+
+- module_name: memory_bricks
+  domain: operator_tools
+  machine_target: student
+  operator_visible: true
+  ui_related: false
+  description: "Surface CLI minimale Memory Bricks V1"
+  wrappers_expected: ["cmd", "sanity"]
+  status: active
+  priority: high
+  dependencies: []
+
 - module_name: ops_menu_hub
   domain: operator_tools
   machine_target: msi_db_layer
