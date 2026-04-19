@@ -15,7 +15,7 @@ topic_keys:
   - memory_bricks
 surface: governance
 source_kind: canonical
-updated_at: 2026-04-11
+updated_at: 2026-04-18
 links:
   - docs/governance/REPO_ROLE.md
 ---
@@ -95,7 +95,7 @@ Rendre visible l’état courant et les suites naturelles.
 - `docs/index/GO_INDEX.md`
 - `docs/index/ACTIVE_STREAMS.md`
 - `docs/index/REPRISE.md`
-- `docs/next/NEXT_GO_CANDIDATES.md`
+- `docs/index/NEXT_GO_CANDIDATES.md`
 - `docs/opportunities/OPPORTUNITY_LOG.md`
 
 ### Fonction

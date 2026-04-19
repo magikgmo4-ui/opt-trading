@@ -14,7 +14,7 @@ topic_keys:
   - reprise
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-16
+updated_at: 2026-04-19
 links:
   - docs/index/GO_INDEX.md
 ---
@@ -41,15 +41,55 @@ Il sert à :
 
 ---
 
-## Priorité opératoire (7 GO non clos)
+## Priorité opératoire (10 GO non clos)
 
-- P0 : `GO_GITHUB_PARK_AUDIT_EXPANSION_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
-- P1 : `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
-- P2 : `GO_OPT_TRADING_JOURNAL_FULL_READING_03`, `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04`, `GO_EXTRACTEUR_TAGS_CANONICAL_METHOD_01`
+- P0 : `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
+- P1 : `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`, `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
+- P2 : `GO_OPT_TRADING_JOURNAL_FULL_READING_03`, `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04`
 
 ---
 
 ## Flux actifs
+
+### GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01
+- statut : active
+- repo : opt-trading
+- branche : `sot/mainline`
+- dernier point établi : chantier parent ouvert pour réaligner la continuité index (repo-first, doc-only)
+- prochaine action : appliquer le LOT 1 (index) puis LOT 2 (hiérarchie journal) selon `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/00_cadrage.md`
+- blocages : aucun blocage explicite ; patchs uniquement si gap réel
+
+### GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01
+- statut : active
+- repo : opt-trading
+- branche : `sot/mainline`
+- dernier point établi : parent PHASE 2 LOT 3 ouvert ; `REPO_SURFACES_MAP.md` posé comme carte humaine des surfaces
+- prochaine action : stabiliser les ajustements de structure canonique sans dupliquer `registry/*`
+- blocages : aucun blocage explicite ; priorité aux écarts réellement observés
+
+### GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01
+- statut : active
+- repo : opt-trading
+- branche : `sot/mainline`
+- dernier point établi : parent PHASE 2 LOT 4 ouvert ; `REPO_ROOT_POLICY.md` posé pour la racine interne
+- prochaine action : consolider les règles de reclassement racine par arbitrages documentés
+- blocages : aucun blocage explicite ; ne pas redéfinir la frontière repo/hors-repo
+
+### GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01
+- statut : active
+- repo : opt-trading
+- branche : `sot/mainline`
+- dernier point établi : parent PHASE 3 LOT 5 ouvert ; fiches status familles créées et rattachées à l’audit
+- prochaine action : figer survivant/transition/legacy/archive des familles en gap-only
+- blocages : aucun blocage explicite ; pas de duplication des preuves existantes
+
+### GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01
+- statut : active
+- repo : opt-trading
+- branche : `sot/mainline`
+- dernier point établi : parent PHASE 3 LOT 6 ouvert ; scope/exception clarifiés dans `registry/README.md`
+- prochaine action : consolider la couverture déclarative sans créer de doctrine parallèle
+- blocages : aucun blocage explicite ; rester sur la source canonique `registry/README.md`
 
 ### GO_GIT_PROGRESSIVE_MIGRATION_START_13
 - statut : active
@@ -58,14 +98,6 @@ Il sert à :
 - dernier point établi : dossier chantier dédié minimal désormais ouvert pour un GO déjà actif dans l’index
 - prochaine action : expliciter une suite dédiée seulement si la migration progressive doit être poursuivie comme chantier autonome distinct
 - blocages : aucun blocage explicite établi dans `docs/chantiers/GO_GIT_PROGRESSIVE_MIGRATION_START_13/00_cadrage.md`
-
-### GO_GITHUB_PARK_AUDIT_EXPANSION_01
-- statut : open
-- repo : opt-trading
-- branche : non précisée dans `docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/00_cadrage.md`
-- dernier point établi : cadrage validé, chantier séquencé, next GO défini
-- prochaine action : lancer `GO_GITHUB_PARK_BRANCH_TRUNK_CROSS_AUDIT_01`
-- blocages : la consolidation reste partielle tant que le rattachement `branch ↔ trunk ↔ chantier`, le découpage complet des familles de modules et la cartographie fichier par fichier ne sont pas produits
 
 ### GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04
 - statut : active
@@ -98,14 +130,6 @@ Il sert à :
 - dernier point établi : bundle préparé, cadrage canonique ouvert
 - prochaine action : `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01`
 - blocages : valider la machine cible réelle, adapter les panes utiles, confirmer l’emplacement repo réel et exécuter la validation réelle de `tmux-ide`
-
-### GO_EXTRACTEUR_TAGS_CANONICAL_METHOD_01
-- statut : open
-- repo : opt-trading
-- branche : `sot/mainline`
-- dernier point établi : méthode canonique documentée et ancrée dans `docs/chantiers/GO_EXTRACTEUR_TAGS_CANONICAL_METHOD_01/EXTRACTEUR_TAGS__METHODE_CANONIQUE_V1.md`
-- prochaine action : formaliser `EXTRACTEUR_TAGS__ROUTAGE_TABLE_V1` puis `EXTRACTEUR_TAGS__TOOLS_MCP_TARGET_V1`
-- blocages : table de routage initiale et liste cible des tools MCP non encore figées
 
 ## Flux bloques / en echec
 

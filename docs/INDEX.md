@@ -11,6 +11,8 @@
 - **docs/governance/CHATGPT_PROFILE_BASELINE_2026_04_19.md** : baseline datée des custom instructions et de la mémoire sauvegardée retenues pour la continuité ChatGPT
 - **docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt** : modèle officiel missions longues / multi-étapes
 - **docs/ARCHITECTURE.md** : architecture (flux, persistance, composants)
+- **docs/architecture/REPO_SURFACES_MAP.md** : carte humaine des surfaces top-level (référence ; `registry/*` reste machine-readable)
+- **docs/governance/REPO_ROOT_POLICY.md** : politique racine canonique interne du repo
 - **docs/API.md** : endpoints + exemples `curl`
 - **docs/RUNBOOK.md** : ops/debug (systemd, logs, réseau Windows/LAN)
 - **docs/SCHEMAS.md** : schéma unique Event → Trade → Perf + adaptateur

@@ -13,17 +13,21 @@ topic_keys:
   - continuity
   - migration
 surface: chantier
-source_kind: canonical
-updated_at: 2026-04-13
+source_kind: deprecated
+updated_at: 2026-04-18
 links:
   - docs/index/GO_INDEX.md
   - docs/index/ACTIVE_STREAMS.md
   - docs/index/REPRISE.md
 ---
 
-# NEXT_GO_CANDIDATES — opt-trading
+# NEXT_GO_CANDIDATES — opt-trading (déclassé)
 
-## Candidats actuels
+Ce fichier n’est plus une source canonique.
 
-- aucun nouveau GO local à ouvrir avant la clôture de `GO_UNIFORM_CONTINUITY_HARDENING_01`
-- prochain cadrage utile : un lot métier réel à nommer après fermeture propre du hardening
+Source canonique unique :
+- `docs/index/NEXT_GO_CANDIDATES.md`
+
+Règle :
+- ne pas éditer `docs/next/NEXT_GO_CANDIDATES.md`
+- maintenir uniquement ce stub pour compatibilité / redirection

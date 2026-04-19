@@ -47,3 +47,9 @@ Vue d'ensemble méta des registres centraux et de leurs consommateurs.
 
 ## Note Importante
 Ce registre décrit la vérité **repo/package**. Il ne prouve pas, à lui seul, l’état réel du déploiement live (wrappers installés, unités systemd actives, etc.).
+
+## Périmètre et exceptions
+- périmètre principal : description déclarative versionnée des machines/modules/surfaces/wrappers
+- limite : la couverture registry n’implique pas exhaustivité live ni preuve runtime
+- exception explicitée : certains packs machine desk_pro restent hors `wrappers_registry.yaml` (voir `docs/ot/trae/OT_DESKPRO_MACHINE_PACK_WRAPPERS_REGISTRY_DECISION_01.md`)
+- règle : documenter les exceptions dans ce README plutôt que créer une doctrine parallèle

@@ -14,7 +14,7 @@ topic_keys:
   - governance
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-18
+updated_at: 2026-04-19
 links:
   - docs/governance/REPO_ROLE.md
   - docs/governance/DOC_LAYERS.md
@@ -53,11 +53,24 @@ Ce document référence les GO connus et utiles à la continuité locale de `opt
 
 ---
 
-## Priorité opératoire (5 GO non clos)
+## Priorité opératoire (10 GO non clos)
 
-- P0 : `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
-- P1 : `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
+- P0 : `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
+- P1 : `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`, `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
 - P2 : `GO_OPT_TRADING_JOURNAL_FULL_READING_03`, `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04`
+
+Le passage de 10 à 11 GO non clos a correspondu à l’ouverture PHASE 4 du parent :
+- `GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01`
+
+Ce GO est désormais clos (PASS), donc le périmètre opératoire courant revient à 10 GO non clos.
+
+Le passage de 8 à 10 GO non clos correspond à l’ouverture PHASE 3 des parents :
+- `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`
+- `GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01`
+
+Le passage de 6 à 8 GO non clos correspond à l’ouverture PHASE 2 des parents :
+- `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`
+- `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`
 
 ---
 
@@ -110,6 +123,46 @@ Ce document référence les GO connus et utiles à la continuité locale de `opt
 - titre court : réalignement final des index locaux
 - dernier état connu : hardening appliqué sur les index `opt-trading` ; `localcms` hors-scope dans ce flux ; closeout PASS
 - lien utile : `docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/90_closeout.md`, `docs/index/ACTIVE_STREAMS.md`
+
+### GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01
+- repo : opt-trading
+- type : patch local / doc-only
+- statut : active
+- titre court : réalignement continuité index
+- dernier état connu : chantier parent ouvert pour réaligner `docs/index/*` et déclasser `docs/next/NEXT_GO_CANDIDATES.md`
+- lien utile : `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/00_cadrage.md`, `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/03_decisions.md`
+
+### GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01
+- repo : opt-trading
+- type : patch local / doc-only
+- statut : active
+- titre court : carte canonique des surfaces du repo
+- dernier état connu : parent PHASE 2 LOT 3 ouvert ; carte humaine `REPO_SURFACES_MAP.md` posée sans duplication de `registry/*`
+- lien utile : `docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/00_cadrage.md`, `docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/03_decisions.md`, `docs/architecture/REPO_SURFACES_MAP.md`
+
+### GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01
+- repo : opt-trading
+- type : patch local / doc-only
+- statut : active
+- titre court : politique racine canonique interne du repo
+- dernier état connu : parent PHASE 2 LOT 4 ouvert ; `REPO_ROOT_POLICY.md` posé sans redéfinir la frontière repo/hors-repo
+- lien utile : `docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/00_cadrage.md`, `docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/03_decisions.md`, `docs/governance/REPO_ROOT_POLICY.md`
+
+### GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01
+- repo : opt-trading
+- type : patch local / doc-only
+- statut : active
+- titre court : familles mixtes / lignées runtime-exception
+- dernier état connu : parent PHASE 3 LOT 5 ouvert ; fiches status courtes posées et rattachées à l’audit famille
+- lien utile : `docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/00_cadrage.md`, `docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/03_decisions.md`
+
+### GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01
+- repo : opt-trading
+- type : patch local / doc-only
+- statut : active
+- titre court : réalignement scope registry
+- dernier état connu : parent PHASE 3 LOT 6 ouvert ; `registry/README.md` complété sur périmètre/exceptions
+- lien utile : `docs/chantiers/GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01/00_cadrage.md`, `docs/chantiers/GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01/03_decisions.md`, `registry/README.md`
 
 ### GO_GITHUB_PARK_AUDIT_EXPANSION_01
 - repo : opt-trading
@@ -207,6 +260,14 @@ Ce document référence les GO connus et utiles à la continuité locale de `opt
 - titre court : normalisation des headings workflow / mémoire / documentation
 - dernier état connu : cadrage canonique posé + lot patchable appliqué en docs-only ; closeout PASS
 - lien utile : `docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_02/00_cadrage.md`, `docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_02/90_closeout.md`
+
+### GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01
+- repo : opt-trading
+- type : exécution doc-only (lot fermé)
+- statut : pass
+- titre court : application normalisation headings (workflow / mémoire / documentation)
+- dernier état connu : closeout PASS ; patch headings-only limité au lot fermé, sans réécriture de fond
+- lien utile : `docs/chantiers/GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01/00_cadrage.md`, `docs/chantiers/GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01/02_journal_technique.md`, `docs/chantiers/GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01/03_decisions.md`, `docs/chantiers/GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01/90_closeout.md`
 
 ### GO_UNIFORM_CONTINUITY_IDE_EXECUTION_PACK_02
 - repo : opt-trading

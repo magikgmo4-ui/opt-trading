@@ -63,7 +63,7 @@ Les points suivants sont retenus comme établis à ce stade :
 - La suite logique validée est d'ouvrir un chantier documentaire propre dans le repo canonique.
 - Aucun patch runtime, aucun backtest, aucun module d'exécution n'est encore engagé par ce document.
 
-## 7. Plan validé reconstitué
+## 7. Plan validé
 
 Le plan validé reconstitué pour `Range Strategy V1` est :
 
@@ -75,7 +75,7 @@ Le plan validé reconstitué pour `Range Strategy V1` est :
 6. Préparer une journalisation et une évaluation statistique futures.
 7. Seulement ensuite décider s'il faut une déclinaison module, sheet, ou backtest.
 
-## 8. Écart restant
+## 8. Gap restant
 
 Le chantier n'établit pas encore :
 
@@ -96,7 +96,7 @@ Ce chantier n'autorise pas encore :
 - de déployer un système automatique ;
 - de confondre cadrage documentaire et validation statistique.
 
-## 10. Prochain GO logique
+## 10. Next GO
 
 `GO_RANGE_STRATEGY_V1_RULES_01`
 

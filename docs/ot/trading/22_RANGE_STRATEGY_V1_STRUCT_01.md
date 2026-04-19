@@ -16,13 +16,13 @@ Il sert à figer :
 
 Il ne vaut ni validation statistique, ni backtest, ni ouverture runtime.
 
-## BESOIN INITIAL
+## Besoin initial
 
 Le besoin initial retenu est de construire une stratégie de trading en range simple, lisible et disciplinée, à partir d'actifs connus pour présenter régulièrement des phases de range relativement stables et exploitables.
 
 L'objectif n'est pas de multiplier les actifs ni de surcharger la logique, mais de partir d'un petit noyau d'actifs faciles à lire et à comparer.
 
-## CIBLE FINALE VISÉE
+## Cible finale
 
 La cible finale visée est une stratégie `Range Strategy V1` qui :
 - reste simple ;
@@ -73,7 +73,7 @@ Le produit visé est d'abord un cadre stratégique exploitable, documentable, te
 - le chantier est désormais replacé dans la couche canonique `docs/chantiers/` + `docs/ot/trading/`.
 - aucun patch runtime, aucun module d'exécution, aucun backtest et aucune preuve statistique ne sont encore ouverts ici.
 
-## PLAN VALIDÉ RECONSTITUÉ
+## Plan validé
 
 Le plan validé reconstitué pour `Range Strategy V1` est le suivant :
 1. figer le noyau d'actifs de référence ;
@@ -85,7 +85,7 @@ Le plan validé reconstitué pour `Range Strategy V1` est le suivant :
 7. préparer ensuite seulement une couche d'évaluation statistique ou de backtest ;
 8. décider en dernier lieu si une déclinaison module, sheet ou bundle est justifiée.
 
-## GAP RESTANT
+## Gap restant
 
 Le chantier n'établit pas encore :
 - les règles exactes d'entrée / sortie ;
@@ -96,7 +96,7 @@ Le chantier n'établit pas encore :
 - le protocole de comparaison inter-actifs ;
 - la forme de livraison future la plus pertinente.
 
-## NEXT GO
+## Next GO
 
 `GO_RANGE_STRATEGY_V1_RULES_01`
 

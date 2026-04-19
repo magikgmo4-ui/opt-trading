@@ -16,9 +16,10 @@ topic_keys:
   - journal
 surface: governance
 source_kind: canonical
-updated_at: 2026-04-11
+updated_at: 2026-04-18
 links:
   - journal/canon/JOURNAL_CANON_FULL_20260301_071931.md
+  - docs/governance/JOURNAL_HIERARCHY.md
   - docs/governance/HUMAN_FOUNDATIONS_CONTINUITY.md
   - docs/governance/HUMAN_CONTINUITY_ADAPTATION.md
   - docs/governance/HUMAN_CONTINUITY_OPERABILITY.md
@@ -99,3 +100,7 @@ Elle doit aussi rester :
 
 Bloc humain complémentaire.
 À utiliser comme référence d’usage du canon de continuité, sans le substituer aux closeouts, index, reprises ni à la compaction.
+
+## 7. Hiérarchie journal (rappel)
+La hiérarchie des surfaces journal est fixée par :
+- `docs/governance/JOURNAL_HIERARCHY.md`

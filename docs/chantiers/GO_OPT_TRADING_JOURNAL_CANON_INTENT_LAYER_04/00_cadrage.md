@@ -6,11 +6,12 @@ project: opt-trading
 go_id: GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04
 status: active
 lifecycle_stage: cadrage
-updated_at: 2026-04-12
+updated_at: 2026-04-18
 source_kind: canonical
 links:
   - journal/canon/JOURNAL_CANON_FULL_20260301_071931.md
   - journal.md
+  - docs/governance/JOURNAL_HIERARCHY.md
 ---
 
 # GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04
@@ -18,6 +19,8 @@ links:
 ## Objet
 
 Reprendre la lecture du journal canon en changeant explicitement l’angle d’extraction.
+
+Le journal canon est une archive de lecture (voir `docs/governance/JOURNAL_HIERARCHY.md`).
 
 Le chantier précédent a produit une couche humaine solide sur les méthodes de travail, la continuité, la reprise, les clôtures, les couches et la gouvernance documentaire.
 

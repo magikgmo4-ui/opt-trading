@@ -15,8 +15,12 @@ topic_keys:
   - memory_bricks
 surface: repo
 source_kind: canonical
-updated_at: 2026-04-11
-links: []
+updated_at: 2026-04-18
+links:
+  - docs/governance/DOC_LAYERS.md
+  - docs/governance/REPO_ROOT_POLICY.md
+  - docs/index/REPRISE.md
+  - docs/ot/trae/06_REPO_BOUNDARY_POLICY_V1.txt
 ---
 
 # REPO_ROLE — opt-trading
@@ -174,6 +178,7 @@ Ce document ne fixe pas encore :
 - le rôle exact final de `journal.md`
 - le mapping détaillé champ par champ vers `memory_bricks`
 - les templates détaillés de chaque type documentaire local
+- la liste exhaustive d’objets autorisés à la racine (portée dans `REPO_ROOT_POLICY.md`)
 
 Ces éléments sont traités dans des documents dédiés.
 

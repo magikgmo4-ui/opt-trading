@@ -14,9 +14,11 @@ topic_keys:
   - reading
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-11
+updated_at: 2026-04-18
 links:
   - journal/canon/JOURNAL_CANON_FULL_20260301_071931.md
+  - journal.md
+  - docs/governance/JOURNAL_HIERARCHY.md
 ---
 
 # 00_cadrage — GO_OPT_TRADING_JOURNAL_FULL_READING_03
@@ -30,7 +32,7 @@ links:
 
 ## État de départ retenu
 - état repo retenu : le cadre inter-repos est posé, mais la couche humaine vivante n’est pas encore réinjectée proprement dans la continuité stable
-- source canon retenue : `journal/canon/JOURNAL_CANON_FULL_20260301_071931.md`
+- source canon retenue : `journal/canon/JOURNAL_CANON_FULL_20260301_071931.md` (archive de lecture ; voir `docs/governance/JOURNAL_HIERARCHY.md`)
 - limites connues : le journal contient à la fois du contexte humain utile, des commandes, des décisions et des éléments possiblement obsolètes
 
 ## Objectif du lot

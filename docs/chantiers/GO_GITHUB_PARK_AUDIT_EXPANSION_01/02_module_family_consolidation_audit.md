@@ -374,6 +374,15 @@ Verdict :
    - legacy
    - archive
 
+## Rattachement PHASE 3 — fiches status courtes
+
+Ces fiches sont des dérivés de lecture (pas un nouveau parent actif) :
+- `docs/status/reseau_ssh_canonique.md`
+- `docs/status/deepseek_student_canonique.md`
+- `docs/status/desk_pro_stack_canonique.md`
+- `docs/status/bot_vision_canonique.md`
+- `docs/status/workflow_post_change_canonique.md` (déjà existante ; pas de doublon)
+
 ---
 
 ## Limites réelles
