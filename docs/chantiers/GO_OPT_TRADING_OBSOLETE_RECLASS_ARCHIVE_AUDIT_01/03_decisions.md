@@ -149,6 +149,11 @@ Exclusions :
 - ne pas toucher `modules/workflow_post_change_v2`
 - ne pas faire de sweep global des docs (mise à jour bornée au parent)
 
+Statut :
+- clos et poussé
+- SHA canonique : `f0aceb1`
+- HEAD publié courant : `1d54322`
+
 ## REPRISE
 Point de reprise unique :
 - `docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/02_journal_technique.md`
