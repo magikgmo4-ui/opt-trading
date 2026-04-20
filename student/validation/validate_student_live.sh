@@ -277,7 +277,8 @@ fi
 if [[ "$REPAIR" -eq 1 && "$ERRORS" -gt 0 ]]; then
   echo -e "${YEL}[--repair] Lancement de install_shortcuts.sh ...${RST}"
   bash "$ROOT/bin/install_shortcuts.sh"
-  echo -e "${GRN}Réparation appliquée. Relancer la validation sans --repair pour vérifier.${RST}"
+  echo -e "${INFO} Revalidation post-réparation...${RST}"
+  exec bash "$0"
 fi
 
 [[ "$ERRORS" -eq 0 ]]
