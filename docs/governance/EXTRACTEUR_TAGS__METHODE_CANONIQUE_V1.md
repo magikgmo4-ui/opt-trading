@@ -1,3 +1,26 @@
+---
+doc_id: OPT_TRADING_EXTRACTEUR_TAGS_METHODE_CANONIQUE_V1
+doc_type: governance
+repo: opt-trading
+project: opt-trading
+module: session_extraction
+go_id: GO_EXTRACTEUR_TAGS_CANONICAL_METHOD_01
+status: reference
+lifecycle_stage: governance
+topic_keys:
+  - opt-trading
+  - extracteur_tags
+  - routing
+  - documentation
+  - memory
+surface: governance
+source_kind: canonical
+updated_at: 2026-04-20
+links:
+  - docs/governance/DOC_LAYERS.md
+  - docs/index/GO_INDEX.md
+---
+
 # EXTRACTEUR_TAGS__METHODE_CANONIQUE_V1
 
 ## 1_CIBLE_MASTER

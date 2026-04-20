@@ -15,7 +15,7 @@ topic_keys:
   - memory_bricks
 surface: governance
 source_kind: canonical
-updated_at: 2026-04-18
+updated_at: 2026-04-20
 links:
   - docs/governance/REPO_ROLE.md
 ---
@@ -83,6 +83,18 @@ Porter un lot de travail borné.
 - valider
 - clore
 - reprendre
+
+### Méthode de clôture / canonisation
+Lorsqu'un lot est canonisé comme fermé, son nom canonique clos peut être normalisé sous la forme `..._CLOS`.
+
+Cette normalisation sert à :
+- distinguer explicitement un lot clos d'un simple cadrage ou d'un lot encore ouvert
+- garder une continuité plus lisible entre dossier chantier clos et index fermés
+
+Règle locale :
+- la normalisation `..._CLOS` est autorisée au moment de la canonisation fermée
+- elle n'impose pas de campagne globale rétroactive sur les anciens GO clos
+- elle doit rester bornée aux cas explicitement réalignés
 
 ---
 
