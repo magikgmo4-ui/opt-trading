@@ -12,7 +12,7 @@ topic_keys:
   - go_index
   - continuity
   - governance
-surface: chantier
+surface: continuity
 source_kind: canonical
 updated_at: 2026-04-20
 links:
@@ -76,7 +76,6 @@ Normalisation retenue :
 | GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01 | GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/03_decisions.md` |
 | GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01 | GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/03_decisions.md` |
 | GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01 | GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01/03_decisions.md`<br>`registry/README.md` |
-| GO_COLLECTORS_LIFECYCLE_COMPAT_CADRAGE_01 | GO_COLLECTORS_LIFECYCLE_COMPAT_CADRAGE_01 | — | OPEN | non | `docs/index/GO_INDEX.md`<br>`docs/COLLECTORS_LIFECYCLE_COMPAT_SPEC_01.md` |
 | GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04 | GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04/00_cadrage.md` |
 | GO_OPT_TRADING_JOURNAL_FULL_READING_03 | GO_OPT_TRADING_JOURNAL_FULL_READING_03 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_JOURNAL_FULL_READING_03/00_cadrage.md` |
 | GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03 | GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03 | — | OPEN | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md` |
@@ -88,7 +87,7 @@ Normalisation retenue :
 | GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01 | GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01 | GO_OPT_TRADING_UI_LOCALCMS_MATRIX_01 | REFERENCE | non | `docs/chantiers/GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01/01_cadrage_parent.md` |
 | GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01 | GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01 | GO_OPT_TRADING_UI_LOCALCMS_CONTRACTS_01 | REFERENCE | non | `docs/chantiers/GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01/01_cadrage_parent.md` |
 | GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01 | GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01 | GO_OPT_TRADING_UI_LOCALCMS_PILOT_READONLY_01 | REFERENCE | non | `docs/chantiers/GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01/01_cadrage_parent.md` |
-| GO_EXTRACTEUR_TAGS_CANONICAL_METHOD_01 | GO_EXTRACTEUR_TAGS_CANONICAL_METHOD_01 | — | REFERENCE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_EXTRACTEUR_TAGS_CANONICAL_METHOD_01/EXTRACTEUR_TAGS__METHODE_CANONIQUE_V1.md` |
+| GO_EXTRACTEUR_TAGS_CANONICAL_METHOD_01 | GO_EXTRACTEUR_TAGS_CANONICAL_METHOD_01 | — | REFERENCE | non | `docs/index/GO_INDEX.md`<br>`docs/governance/EXTRACTEUR_TAGS__METHODE_CANONIQUE_V1.md` |
 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | — | ACTIVE | oui | `docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/00_cadrage.md`<br>`docs/index/REPRISE.md` |
 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO_TMUX_RUNTIME_CONVENTIONS_01 | REFERENCE | non | `docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/00_cadrage.md` |
 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO_OPENCLAW_COMMAND_SCOPE_01 | REFERENCE | non | `docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/00_cadrage.md` |
@@ -187,14 +186,6 @@ Le passage de 6 à 8 GO non clos correspond à l’ouverture PHASE 2 des parents
 - dernier état connu : parent PHASE 3 LOT 6 ouvert ; `registry/README.md` complété sur périmètre/exceptions
 - lien utile : `docs/chantiers/GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01/00_cadrage.md`, `docs/chantiers/GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01/03_decisions.md`, `registry/README.md`
 
-### GO_COLLECTORS_LIFECYCLE_COMPAT_CADRAGE_01
-- repo : opt-trading
-- type : cadrage module durable / collectors
-- statut : open
-- titre court : cadrage compatibilité lifecycle collectors
-- dernier état connu : diagnostic repo-first réalisé sur `origin/inventory/collectors-baseline-01` avec verdict `RE-SCOPE` (risque cassant sur `relref()/relative_to(MODULE_DIR)` si `OUTPUT_DIR` est relatif au root projet), écarts spec/runtime tracés
-- lien utile : `docs/COLLECTORS_LIFECYCLE_COMPAT_SPEC_01.md`
-
 ### GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04
 - repo : opt-trading
 - type : journal / lecture canonique
@@ -241,4 +232,4 @@ Le passage de 6 à 8 GO non clos correspond à l’ouverture PHASE 2 des parents
 - statut : reference
 - titre court : méthode canonique d’extraction par tags
 - dernier état connu : fiche de référence initiale créée sur `sot/mainline` pour séparer extraction, classification, routage mémoire vs doc et écriture contrôlée
-- lien utile : `docs/chantiers/GO_EXTRACTEUR_TAGS_CANONICAL_METHOD_01/EXTRACTEUR_TAGS__METHODE_CANONIQUE_V1.md`
+- lien utile : `docs/governance/EXTRACTEUR_TAGS__METHODE_CANONIQUE_V1.md`
