@@ -13,7 +13,7 @@ topic_keys:
   - continuity
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-19
+updated_at: 2026-04-20
 links:
   - docs/index/GO_INDEX.md
   - docs/index/ACTIVE_STREAMS.md
@@ -26,7 +26,7 @@ links:
 
 Base de pilotage active retenue pour `opt-trading` :
 
-- périmètre = **10 GO non clos uniquement** (`active` / `open`)
+- périmètre = **11 GO non clos uniquement** (`active` / `open`)
 - canon décisionnel = **repo `opt-trading`**
 - bundles zip = **supports secondaires** de lecture, transfert ou exécution IDE
 - exclusion explicite = `pass` et `reference` hors exécution courante
@@ -52,7 +52,7 @@ Base de pilotage active retenue pour `opt-trading` :
 - **Présence dans le repo** : les bundles et supports listés ici sont des noms de supports secondaires ; ils peuvent être absents du repo (non trackés)
 - **Interdiction de dérive** : un bundle zip ne remplace jamais l’état réel du repo
 - **Hiérarchie journal** : `journal.md` = brut vivant ; `journal/index/*` = dérivé ; `journal/canon/*` = archive (voir `docs/governance/JOURNAL_HIERARCHY.md`)
-- **Liste active à piloter** : strictement les 10 GO ci-dessous
+- **Liste active à piloter** : strictement les 11 GO ci-dessous
 
 ## Matrice de reprise canonique
 
@@ -60,6 +60,7 @@ Base de pilotage active retenue pour `opt-trading` :
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01` | active | P0 | `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/00_cadrage.md`; `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/03_decisions.md` | Aucun bundle canonique | Chantier parent ouvert pour réaligner la continuité index | Contradictions d’index + concurrence NEXT + hiérarchie journal à propager | **Exécuter LOT 1 : réaligner `docs/index/*` et déclasser `docs/next/NEXT_GO_CANDIDATES.md`** |
 | `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01` | active | P0 | `docs/chantiers/GO_TMUX_IDE_OPT_TRADING_CADRAGE_01/00_cadrage.md` | `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01_bundle.zip`; `consolidation_targets_ide_bundle.zip` | Bundle préparé, cadrage ouvert | Validation machine cible / panes / repo réel non prouvée | **Exécuter `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01`** |
+| `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01` | active | P0 | `docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/00_cadrage.md`; `docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/03_decisions.md` | `OPT_TRADING_OBSOLETE_RECLASS_AUDIT_BUNDLE.zip` | Parent ouvert (audit/qualification repo-first, doc-only, non destructif) | Matrice canonique à produire + plan de lots physiques futurs | **Produire la matrice (PHASE C) puis le plan de lots (PHASE D)** |
 | `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01` | active | P1 | `docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/00_cadrage.md`; `docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/03_decisions.md` | Aucun bundle canonique | Parent PHASE 2 LOT 3 ouvert ; carte humaine des surfaces publiée | Arbitrages de structure canonique à poursuivre selon écarts réels | **Consolider la carte des surfaces et ses points d’ancrage sans dupliquer `registry/*`** |
 | `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01` | active | P1 | `docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/00_cadrage.md`; `docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/03_decisions.md` | Aucun bundle canonique | Parent PHASE 2 LOT 4 ouvert ; politique racine posée | Arbitrages de reclassement racine encore ouverts | **Consolider les classes racine et les arbitrages documentés sans chevaucher la politique frontière** |
 | `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01` | active | P1 | `docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/00_cadrage.md`; `docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/03_decisions.md` | Aucun bundle canonique | Parent PHASE 3 LOT 5 ouvert ; fiches status courtes publiées | Arbitrages de lignée encore ouverts sur plusieurs familles mixtes | **Consolider survivant/transition/legacy/archive en gap-only** |

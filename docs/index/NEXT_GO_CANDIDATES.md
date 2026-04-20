@@ -13,7 +13,7 @@ topic_keys:
   - continuity
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-19
+updated_at: 2026-04-20
 links:
   - docs/index/GO_INDEX.md
   - docs/index/ACTIVE_STREAMS.md
@@ -25,7 +25,7 @@ links:
 ## Règle canonique
 
 - source de vérité : repo `opt-trading`
-- périmètre d’exécution courant : 10 GO non clos (`active` / `open`)
+- périmètre d’exécution courant : 11 GO non clos (`active` / `open`)
 - `pass` et `reference` : hors exécution courante
 - `docs/index/NEXT_GO_CANDIDATES.md` est une matrice par **chantier parent actif**
 - cardinalité : **1 parent actif → 1 next GO primaire** (ou explicitement “aucun nouveau GO”)
@@ -33,7 +33,7 @@ links:
 
 ## Priorité opératoire active
 
-- P0 : `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
+- P0 : `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`, `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01`
 - P1 : `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`, `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
 - P2 : `GO_OPT_TRADING_JOURNAL_FULL_READING_03`, `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04`
 
@@ -43,6 +43,7 @@ links:
 | --- | --- | --- | --- | --- | --- |
 | `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01` | active | P0 | aucun nouveau GO | exécuter LOT 1 (index) puis LOT 2 (hiérarchie journal) | `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/00_cadrage.md` |
 | `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01` | active | P0 | `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01` | exécuter l’implémentation de base tmux-ide sur machine cible | `docs/chantiers/GO_TMUX_IDE_OPT_TRADING_CADRAGE_01/00_cadrage.md` |
+| `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01` | active | P0 | aucun nouveau GO | produire la matrice canonique (PHASE C) puis le plan de lots physiques futurs (PHASE D) | `docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/00_cadrage.md` |
 | `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01` | active | P1 | aucun nouveau GO | consolider la carte des surfaces et ses points d’ancrage documentaires | `docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/00_cadrage.md` |
 | `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01` | active | P1 | aucun nouveau GO | consolider la politique racine et les arbitrages de reclassement documentaire | `docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/00_cadrage.md` |
 | `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01` | active | P1 | aucun nouveau GO | consolider la lecture canonique des lignées mixtes sans duplication de preuves | `docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/00_cadrage.md` |

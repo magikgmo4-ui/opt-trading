@@ -14,7 +14,7 @@ topic_keys:
   - reprise
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-19
+updated_at: 2026-04-20
 links:
   - docs/index/GO_INDEX.md
 ---
@@ -41,9 +41,9 @@ Il sert à :
 
 ---
 
-## Priorité opératoire (10 GO non clos)
+## Priorité opératoire (11 GO non clos)
 
-- P0 : `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
+- P0 : `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`, `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01`
 - P1 : `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`, `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
 - P2 : `GO_OPT_TRADING_JOURNAL_FULL_READING_03`, `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04`
 
@@ -58,6 +58,14 @@ Il sert à :
 - dernier point établi : chantier parent ouvert pour réaligner la continuité index (repo-first, doc-only)
 - prochaine action : appliquer le LOT 1 (index) puis LOT 2 (hiérarchie journal) selon `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/00_cadrage.md`
 - blocages : aucun blocage explicite ; patchs uniquement si gap réel
+
+### GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01
+- statut : active
+- repo : opt-trading
+- branche : `sot/mainline`
+- dernier point établi : parent ouvert ; audit repo-first non destructif des familles obsolete / déclassé / archive / legacy / sous arbitrage
+- prochaine action : produire la matrice canonique (PHASE C), puis le plan de lots physiques futurs (PHASE D) sans exécution
+- blocages : aucun blocage explicite ; aucune action physique avant validation (matrice + lot + risque + rollback)
 
 ### GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01
 - statut : active
