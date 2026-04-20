@@ -2,6 +2,8 @@
 
 > Source : machines/*/fiche_machine.md, machines/*/reseau.md, machines/*/roles.md, machines/*/snapshot/*.txt  
 > Règles : SECURITY_REDACTION_RULES.md (aucun secret, LAN-only)
+> Note 2026-04-20 : le LAN actif observé depuis `cursor-ai` est `192.168.0.0/24`.
+> Les adresses `192.168.16.x` dans les snapshots/rapports historiques correspondent à l'ancien routeur et ne doivent plus être lues comme LAN actif par défaut.
 
 ---
 
@@ -9,12 +11,12 @@
 
 | Machine        | OS                    | IP LAN          | Rôle                              | Ports clés                                   |
 |----------------|------------------------|-----------------|-----------------------------------|----------------------------------------------|
-| **admin-trading** | Debian 12 (bookworm)  | 192.168.16.155  | OPS / bastion / APIs trading      | 22 (SSH), 8000, 8010 (API/UI), 51820         |
-| **cursor-ai**     | Windows 10 Pro (22621)| 192.168.16.224  | Poste de dev (Cursor, UI, browser)| —                                            |
-| **db-layer**      | Ubuntu 24.04 LTS      | 192.168.16.179  | DB / services backend persistants | 22, 53, 9100, 32400 (Plex), algo-hf-api      |
-| **student**       | Debian 12 (bookworm)  | 192.168.16.103  | Sandbox / POC / agents            | 22, 8020 (ingest API), fail2ban              |
+| **admin-trading** | Debian 12 (bookworm)  | 192.168.0.111   | OPS / bastion / APIs trading      | 22 (SSH), 8000, 8010 (API/UI), 51820         |
+| **cursor-ai**     | Windows 10 Pro (22621)| 192.168.0.177   | Poste de dev (Cursor, UI, browser)| —                                            |
+| **db-layer**      | Ubuntu 24.04 LTS      | 192.168.0.100   | DB / services backend persistants | 22, 53, 9100, 32400 (Plex), algo-hf-api      |
+| **student**       | Debian 12 (bookworm)  | 192.168.0.142   | Sandbox / POC / agents            | 22, 8020 (ingest API), fail2ban              |
 
-**Réseau** : subnet 192.168.16.0/24 — toutes les machines sont en LAN uniquement.
+**Réseau** : subnet actif 192.168.0.0/24 — toutes les machines restent en LAN privé uniquement.
 
 ---
 
@@ -60,7 +62,7 @@ cursor-ai (Windows)                    admin-trading / db-layer / student (Linux
 
 | Règle | Détail |
 |-------|--------|
-| **LAN-only** | Aucune exposition WAN directe. Ports et services accessibles uniquement sur 192.168.16.0/24. |
+| **LAN-only** | Aucune exposition WAN directe. Ports et services accessibles uniquement sur le LAN actif 192.168.0.0/24 et/ou le WG de gestion 10.66.66.0/24. |
 | **Aucun secret** | Pas de clés API, tokens, webhooks, .env complet, clés privées dans les docs/prompts. |
 | **Redaction** | URLs de tunnel, credentials → remplacer par `<REDACTED>` ou `***`. |
 | **Autorisé** | IP privées (192.168.x.x), ports internes, chemins locaux, noms de services. |

@@ -9,12 +9,14 @@
 - RAM: 7,7Gi       4,2Gi       360Mi       719Mi       4,1Gi       3,5Gi
 
 ## Réseau (LAN)
-- Subnet: 192.168.16.0/24
+- Subnet: 192.168.0.0/24
 - Interface: wlo1
-- IP: 192.168.16.155/24
-- Gateway: 192.168.16.1
-- DNS: 192.168.16.1, fd28:6d79:9ba0::1
+- IP: 192.168.0.111/24
+- Gateway: 192.168.0.1
+- DNS: 192.168.0.1
 - Ports en écoute (snapshot): 22, 631, 4040, 5353, 8000, 8010, 42029, 51385, 51820
+
+Note 2026-04-20: `192.168.16.155/24` est une valeur de snapshot historique (ancien routeur).
 
 ## Stockage (extrait)
 ### df / volumes

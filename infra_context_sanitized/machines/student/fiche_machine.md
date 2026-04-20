@@ -9,12 +9,14 @@
 - RAM: 7,6Gi       605Mi       6,4Gi       1,6Mi       907Mi       7,0Gi
 
 ## Réseau (LAN)
-- Subnet: 192.168.16.0/24
+- Subnet: 192.168.0.0/24
 - Interface: eno1
-- IP: 192.168.16.103/24
-- Gateway: 192.168.16.1
+- IP: 192.168.0.142/24
+- Gateway: 192.168.0.1
 - DNS: 1.1.1.1, 8.8.8.8
 - Ports en écoute (snapshot): 22, 631, 5353, 8020, 45095, 59623
+
+Note 2026-04-20: `192.168.16.103/24` est une valeur de snapshot historique (ancien routeur).
 
 ## Stockage (extrait)
 ### df / volumes

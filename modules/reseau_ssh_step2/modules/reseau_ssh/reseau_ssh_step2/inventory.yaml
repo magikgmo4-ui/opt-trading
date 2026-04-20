@@ -1,5 +1,6 @@
 # reseau_ssh_step2 inventory (WireGuard + firewall)
-# LAN: 192.168.16.0/24
+# LAN actif: 192.168.0.0/24
+# Ancien LAN 192.168.16.0/24: historique / ancien routeur
 # WG net: 10.66.66.0/24 (management-only)
 hosts:
   admin-trading:
@@ -9,7 +10,7 @@ hosts:
     wg_listen_port: 51821
   db-layer:
     role: linux-client
-    lan_ip: 192.168.16.179
+    lan_ip: 192.168.0.100
     wg_ip: 10.66.66.2/24
   student:
     role: linux-client
@@ -17,12 +18,12 @@ hosts:
     wg_ip: 10.66.66.3/24
   cursor-ai:
     role: windows-client
-    lan_ip: 192.168.16.224
+    lan_ip: 192.168.0.177
     wg_ip: 10.66.66.4/24
 
 # Policy defaults (safe)
 policy:
-  allowed_lan_cidr: 192.168.16.0/24
+  allowed_lan_cidr: 192.168.0.0/24
   allowed_wg_cidr: 10.66.66.0/24
   wg_interface: wg-mgmt
   wg_mtu: 1420

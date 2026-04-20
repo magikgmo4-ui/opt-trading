@@ -1,7 +1,8 @@
 # Step 2 Plan (WireGuard + Firewall)
 
 ## Network
-- LAN: 192.168.16.0/24
+- LAN actif: 192.168.0.0/24
+- Ancien LAN 192.168.16.0/24: historique / ancien routeur
 - WireGuard mgmt: 10.66.66.0/24
   - admin-trading: 10.66.66.1
   - db-layer:      10.66.66.2
@@ -11,7 +12,7 @@
 ## Design
 Hub-and-spoke:
 - admin-trading listens on UDP/51820 on LAN.
-- Clients connect to 192.168.16.155:51820.
+- Clients connect to 192.168.0.111:51820.
 
 AllowedIPs:
 - By default, only 10.66.66.0/24. (No LAN routing.)

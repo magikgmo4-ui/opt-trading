@@ -2,6 +2,8 @@
 
 > Document de référence lisible pour les 4 machines du stack trading.
 > Source : fiches + rôles + snapshots (sans données sensibles).
+> Note 2026-04-20 : LAN actif observé depuis `cursor-ai` = `192.168.0.0/24`.
+> Les valeurs `192.168.16.x` issues des snapshots du 2026-02-26 sont historiques (ancien routeur).
 
 ---
 
@@ -18,11 +20,11 @@
 | **Disque** | 219 Go (ext4 sur /) |
 
 **Réseau (LAN)**
-- Subnet : 192.168.16.0/24
+- Subnet : 192.168.0.0/24
 - Interface : wlo1 (Wi-Fi)
-- IP : 192.168.16.155
-- Gateway : 192.168.16.1
-- DNS : 192.168.16.1
+- IP : 192.168.0.111
+- Gateway : 192.168.0.1
+- DNS : 192.168.0.1
 
 **Ports en écoute** : 22, 631, 4040, 5353, 8000, 8010, 42029, 51385, 51820
 
@@ -54,11 +56,11 @@
 | **Disques** | C: ~589 Go, D: ~1 To, E: ~1.5 To (NTFS) |
 
 **Réseau (LAN)**
-- Subnet : 192.168.16.0/24
-- Interface LAN : Wi-Fi (Intel Wi-Fi 6 AX201 160 MHz)
-- IP : 192.168.16.224
-- Gateway : 192.168.16.1
-- DNS : 192.168.16.1
+- Subnet : 192.168.0.0/24
+- Interface LAN : Ethernet
+- IP : 192.168.0.177
+- Gateway : 192.168.0.1
+- DNS : 192.168.0.1
 
 **Rôle**
 - Poste de dev principal (Cursor, UI, navigateur)
@@ -83,11 +85,11 @@
 | **Disque** | 915 Go (ext4 sur /) |
 
 **Réseau (LAN)**
-- Subnet : 192.168.16.0/24
+- Subnet : 192.168.0.0/24
 - Interface : enp4s0 (Ethernet)
-- IP : 192.168.16.179
-- Gateway : 192.168.16.1
-- DNS : 192.168.16.1
+- IP : 192.168.0.100
+- Gateway : 192.168.0.1
+- DNS :
 
 **Ports en écoute** : 22, 53, 631, 1901, 5353, 9100, 32400, 32401, 32410–32414, 32600, 34211, 36397, 36708, 40225, 43128, 44539, 50803, 51821, 56112, 60399
 
@@ -119,10 +121,10 @@
 | **Disques** | 28 Go /, 200 Go /home (LVM sur nvme, LUKS) |
 
 **Réseau (LAN)**
-- Subnet : 192.168.16.0/24
+- Subnet : 192.168.0.0/24
 - Interface : eno1 (Ethernet)
-- IP : 192.168.16.103
-- Gateway : 192.168.16.1
+- IP : 192.168.0.142
+- Gateway : 192.168.0.1
 - DNS : 1.1.1.1, 8.8.8.8
 
 **Ports en écoute** : 22, 631, 5353, 8020, 45095, 59623
@@ -142,14 +144,14 @@
 
 ---
 
-## Vue d’ensemble réseau (LAN 192.168.16.0/24)
+## Vue d’ensemble réseau active (LAN 192.168.0.0/24)
 
 | Machine        | IP             | Interface |
 |----------------|----------------|-----------|
-| admin-trading  | 192.168.16.155 | wlo1      |
-| cursor-ai      | 192.168.16.224 | Wi-Fi     |
-| db-layer       | 192.168.16.179 | enp4s0    |
-| student        | 192.168.16.103 | eno1      |
+| admin-trading  | 192.168.0.111  | wlo1      |
+| cursor-ai      | 192.168.0.177  | Ethernet  |
+| db-layer       | 192.168.0.100  | enp4s0    |
+| student        | 192.168.0.142  | eno1      |
 
 ---
 
