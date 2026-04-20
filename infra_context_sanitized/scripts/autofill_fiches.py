@@ -5,6 +5,35 @@ from datetime import datetime
 
 ROOT = Path(__file__).resolve().parents[1]
 MACHINES = ["admin-trading", "cursor-ai", "db-layer", "student"]
+ACTIVE_LAN = {
+    "admin-trading": {
+        "subnet": "192.168.0.0/24",
+        "ip": "192.168.0.111/24",
+        "gateway": "192.168.0.1",
+        "dns": "192.168.0.1",
+        "note": "Note 2026-04-20: `192.168.16.155/24` est une valeur de snapshot historique (ancien routeur).",
+    },
+    "cursor-ai": {
+        "subnet": "192.168.0.0/24",
+        "iface": "Ethernet",
+        "ip": "192.168.0.177/24",
+        "gateway": "192.168.0.1",
+        "dns": "192.168.0.1",
+        "note": "Note 2026-04-20: l'ancienne IP `192.168.16.224/24` est historique/deprecated apres changement de routeur.",
+    },
+    "db-layer": {
+        "subnet": "192.168.0.0/24",
+        "ip": "192.168.0.100/24",
+        "gateway": "192.168.0.1",
+        "note": "Note 2026-04-20: `192.168.16.179/24` est une valeur de snapshot historique (ancien routeur).",
+    },
+    "student": {
+        "subnet": "192.168.0.0/24",
+        "ip": "192.168.0.142/24",
+        "gateway": "192.168.0.1",
+        "note": "Note 2026-04-20: `192.168.16.103/24` est une valeur de snapshot historique (ancien routeur).",
+    },
+}
 
 ROLE_MAP = {
   "admin-trading": ("OPS / main services host", [
@@ -169,6 +198,13 @@ def parse_windows(text: str) -> dict:
 def write_md(machine: str, info: dict):
     mdir = ROOT / "machines" / machine
     now = datetime.now().isoformat(timespec="seconds")
+    lan = ACTIVE_LAN.get(machine, {})
+    subnet = lan.get("subnet", info.get("subnet", ""))
+    iface = lan.get("iface", info.get("iface", ""))
+    ip = lan.get("ip", info.get("ip", ""))
+    gateway = lan.get("gateway", info.get("gateway", ""))
+    dns = lan.get("dns", info.get("dns", ""))
+    note = lan.get("note", "")
     (mdir / "fiche_machine.md").write_text(f"""# Fiche Machine — {machine}
 
 ## Identité
@@ -180,12 +216,14 @@ def write_md(machine: str, info: dict):
 - RAM: {info.get("memory","")}
 
 ## Réseau (LAN)
-- Subnet: 192.168.16.0/24
-- Interface: {info.get("iface","")}
-- IP: {info.get("ip","")}
-- Gateway: {info.get("gateway","")}
-- DNS: {info.get("dns","")}
+- Subnet: {subnet}
+- Interface: {iface}
+- IP: {ip}
+- Gateway: {gateway}
+- DNS: {dns}
 - Ports en écoute (snapshot): {info.get("ports","")}
+
+{note}
 
 ## Stockage (extrait)
 ### df / volumes
@@ -213,14 +251,16 @@ def write_md(machine: str, info: dict):
 
     (mdir / "reseau.md").write_text(f"""# Réseau — {machine} (LAN only)
 
-- Subnet: 192.168.16.0/24
-- IP: {info.get("ip","")}
-- Interface: {info.get("iface","")}
-- Gateway: {info.get("gateway","")}
-- DNS: {info.get("dns","")}
+- Subnet: {subnet}
+- IP: {ip}
+- Interface: {iface}
+- Gateway: {gateway}
+- DNS: {dns}
 
 ## Ports en écoute (snapshot)
 {info.get("ports","")}
+
+{note}
 
 ## Règles
 - Pas d’exposition WAN directe
