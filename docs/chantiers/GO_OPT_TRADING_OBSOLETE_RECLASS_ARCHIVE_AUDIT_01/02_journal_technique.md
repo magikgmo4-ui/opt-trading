@@ -244,6 +244,19 @@ Constat repo-first :
   - aucun changement sur `bitget_bridge.py`
   - aucun changement sur `journal_add.sh`
 
+### Étape 12 — Application en cours : GO_OPT_TRADING_WORKFLOW_LEGACY_RECLASS_01
+- moves appliqués vers `_archive/legacy_modules/` pour :
+  - `modules/workflow_post_change_v2_fix1`
+  - `modules/workflow_post_change_v2_fix2`
+  - `modules/workflow_post_change_v2_fix3`
+  - `_archive/workflow_post_change_v2_broken_backup`
+- registre ajusté :
+  - suppression de l’entrée `module_name: workflow_post_change_v2_fix3` dans `registry/modules_registry.yaml`
+- exclusions confirmées :
+  - ne pas toucher `modules/workflow_post_change_v2`
+  - ne pas sweep les docs historiques hors parent
+  - ne pas réécrire les scripts archivés sans décision explicite
+
 ### REPRISE
 Point de reprise unique :
 - revue finale du lot appliqué puis décision de clôture parent ou ouverture du lot suivant validé

@@ -133,6 +133,22 @@ Critères PASS / FAIL
   - aucun changement `bitget_bridge.py`
   - aucun changement `journal_add.sh`
 
+## D11 — GO_OPT_TRADING_WORKFLOW_LEGACY_RECLASS_01 (reclassement archive minimal)
+Périmètre strict :
+- `modules/workflow_post_change_v2_fix1`
+- `modules/workflow_post_change_v2_fix2`
+- `modules/workflow_post_change_v2_fix3`
+- `_archive/workflow_post_change_v2_broken_backup`
+
+Décision :
+- reclassement vers `_archive/legacy_modules/` (pas de suppression)
+- suppression de l’entrée `module_name: workflow_post_change_v2_fix3` dans `registry/modules_registry.yaml`
+- ne pas ajouter d’entrée “archive” dans ce registre
+
+Exclusions :
+- ne pas toucher `modules/workflow_post_change_v2`
+- ne pas faire de sweep global des docs (mise à jour bornée au parent)
+
 ## REPRISE
 Point de reprise unique :
 - `docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/02_journal_technique.md`

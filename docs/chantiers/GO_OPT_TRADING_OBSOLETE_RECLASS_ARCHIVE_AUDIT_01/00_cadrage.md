@@ -68,6 +68,11 @@ GROUPE 2 — reliquats `workflow_post_change` :
 - `modules/workflow_post_change_v2`
 - `_archive/workflow_post_change_v2_broken_backup`
 
+Application en cours — `GO_OPT_TRADING_WORKFLOW_LEGACY_RECLASS_01` :
+- reclassement validé vers `_archive/legacy_modules/` pour les variantes legacy et le backup cassé
+- retrait de l’entrée `workflow_post_change_v2_fix3` du registre des modules
+- conservation stricte de `modules/workflow_post_change_v2` hors périmètre
+
 GROUPE 3 — docs historiques dispersées :
 - `docs/CLOSEOUT_FINAL_BOT_VISION.txt`
 - `docs/ETABLI_BOT_VISION.txt`

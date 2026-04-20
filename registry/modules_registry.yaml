@@ -35,17 +35,6 @@
   priority: critical
   dependencies: []
 
-- module_name: workflow_post_change_v2_fix3
-  domain: operator_tools
-  machine_target: any
-  operator_visible: false
-  ui_related: false
-  description: "Hook post-change (Fix Source)"
-  wrappers_expected: ["cmd"]
-  status: deprecated_merged
-  priority: low
-  dependencies: []
-
 - module_name: kil_v1
   domain: operator_tools
   machine_target: student
