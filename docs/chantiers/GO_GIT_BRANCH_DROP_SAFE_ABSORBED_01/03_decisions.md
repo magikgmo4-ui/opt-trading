@@ -12,7 +12,7 @@
 | `feat/workflow-post-change-consolidation-03` | non | oui | oui | aucune | suppression remote candidate |
 | `fix/collectors-lifecycle-compat-relref-01b` | non | oui | oui | aucune | suppression remote candidate |
 
-## Preuves
+## Preuves avant execution
 
 - **Branches distantes presentes** : les sept refs `origin/*` du lot ont ete observees dans le repo reel
 - **Branches deja absorbees** : chacune ressort merged dans `origin/sot/mainline`
@@ -33,3 +33,18 @@ git branch -r | grep -E 'origin/(feat/GO_OPT_TRADING_GO_INDEX_CLOSED_ENTRIES_CAN
 - ne faire aucune suppression locale dans ce passage
 - ne pas tenter de supprimer localement `feat/student-validation-bitget-readonly-01` tant que le worktree `/tmp/opt-trading-consolidate-validated-extracts-01` existe
 - ne pas melanger ce GO avec `backup/main-before-filter`
+
+## Resultat d'execution
+
+- **Branches supprimees reellement cote remote** :
+  - `feat/GO_OPT_TRADING_GO_INDEX_CLOSED_ENTRIES_CANON_01`
+  - `feat/project-card-deskpro-01`
+  - `feat/reseau-ssh-consolidation-lot2-freeze-01`
+  - `feat/reseau-ssh-consolidation-lot3-minimal-01`
+  - `feat/student-validation-bitget-readonly-01`
+  - `feat/workflow-post-change-consolidation-03`
+  - `fix/collectors-lifecycle-compat-relref-01b`
+- **Verification post-prune** : apres `git fetch origin --prune`, ces sept refs n'apparaissent plus dans `git branch -r`
+- **Garde locale maintenue** : `feat/student-validation-bitget-readonly-01` reste presente localement et non supprimee dans ce passage a cause du worktree `/tmp/opt-trading-consolidate-validated-extracts-01`
+- **Hors perimetre maintenu** : `backup/main-before-filter` n'a pas ete touchee
+- **Sujet separe observe** : `origin/doc/GO_OPENCLAW_STATE_DIR_READ_09` est apparue pendant le fetch et doit etre traitee dans un GO dedie ulterieur
