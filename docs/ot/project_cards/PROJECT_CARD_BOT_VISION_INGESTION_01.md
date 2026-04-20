@@ -94,8 +94,8 @@ Cette fiche:
 ## 8. Liens repo utiles
 
 - `docs/ot/reports/OT_PROJECT_PORTFOLIO_OBJECTIVES_VALIDATED_PLANS_01.md`
-- `docs/ETABLI_BOT_VISION.txt`
-- `docs/CLOSEOUT_FINAL_BOT_VISION.txt`
+- `docs/ot/closings/bot_vision/ETABLI_BOT_VISION.txt`
+- `docs/ot/closings/bot_vision/CLOSEOUT_FINAL_BOT_VISION.txt`
 - `docs/ot/closings/OT_BOT_VISION_REAL_DATA_01_CLOSING.txt`
 - `scripts/desk_bridge/bridge_vision_to_desk_inbox.sh`
 

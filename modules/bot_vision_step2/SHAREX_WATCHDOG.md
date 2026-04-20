@@ -14,7 +14,7 @@ Ajouter un check minimal et non destructif pour detecter une panne silencieuse d
 - motif surveille: `screen_*.png`
 - seuil par defaut: `15` minutes
 
-Le chemin par defaut vient du residuel canonique mentionnant `watch_telegram.ps1` sur `C:\monitor\screens` dans `docs/RESIDUEL_BOT_VISION.txt`.
+Le chemin par defaut vient du residuel canonique mentionnant `watch_telegram.ps1` sur `C:\monitor\screens` dans `docs/ot/closings/bot_vision/RESIDUEL_BOT_VISION.txt`.
 Le script reste configurable via `-WatchPath` si le poste Windows utilise un autre dossier local ShareX.
 
 ## Usage nominal

@@ -4,7 +4,7 @@ Date UTC: 2026-04-04T01:53:00Z
 Etat reel constate au depart
 - La chaine Bot Vision principale etait deja stabilisee et ne devait pas etre rouverte.
 - Le residuel canonique retenu etait l'absence de monitoring automatique de ShareX AutoCapture.
-- Le besoin exact etait deja cadre dans `docs/REPRISE_BOT_VISION.txt` et `docs/RESIDUEL_BOT_VISION.txt`.
+- Le besoin exact etait deja cadre dans `docs/REPRISE_BOT_VISION.txt` et `docs/ot/closings/bot_vision/RESIDUEL_BOT_VISION.txt`.
 - La source Linux reelle des captures traitees est `/srv/sftp/shared_files/shared/vision_processed`.
 
 Patch minimal applique
