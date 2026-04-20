@@ -15,6 +15,7 @@ env/
 *.key
 *.pem
 *.crt
+.secrets/bitget.env
 
 # Runtime / state / logs
 state/
