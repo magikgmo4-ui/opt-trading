@@ -15,7 +15,7 @@ topic_keys:
   - restart
 surface: governance
 source_kind: canonical
-updated_at: 2026-04-14
+updated_at: 2026-04-20
 links:
   - docs/INDEX.md
   - docs/master_pack/mission_starter_pack/00_mission_start_guide.md
@@ -154,7 +154,48 @@ Cette règle devient canonique et systématique pour les chantiers structurés o
 
 ---
 
-## 8. Statut
+## 8. Maintenance obligatoire du tableau canonique des chantiers
+
+Quand un **parent**, un **chantier** ou un **sous-chantier** est :
+
+- créé
+- renommé
+- reclassé
+- rerattaché
+- archivé
+- clos
+- ou réouvert
+
+le tableau canonique des chantiers doit être mis à jour dans le même lot documentaire.
+
+Référence canonique à maintenir :
+- `docs/index/GO_INDEX.md`
+
+### Contrôle de complétude
+
+Le tableau canonique ne peut être considéré cohérent que si :
+
+- chaque entrée `### GO_...` de `docs/index/GO_INDEX.md` a au moins une ligne dans le tableau
+- chaque dossier direct de `docs/chantiers/` a au moins une ligne correspondante
+- chaque sous-chantier explicitement retenu est sourcé
+- chaque champ `STATUT` et `DOSSIER_PRESENT` est cohérent avec l’état réel du repo
+
+### Règle de non-oubli
+
+Aucun chantier nouveau ne doit rester seulement dans :
+
+- un dossier
+- un cadrage
+- un plan
+- un closeout
+- une reprise locale
+- ou une fiche isolée
+
+sans être reflété dans le tableau canonique.
+
+---
+
+## 9. Statut
 
 Fiche de référence de gouvernance.
 
