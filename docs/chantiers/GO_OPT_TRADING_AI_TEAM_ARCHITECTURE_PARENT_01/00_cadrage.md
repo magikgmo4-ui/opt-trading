@@ -7,11 +7,12 @@
 ## 2_INITIAL_PROJECT_DOC
 
 Document de référence initial du projet pour ce chantier parent :
-`docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/00_cadrage.md`
+`docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/01_initial_project_doc.md`
 
 Rôle :
 - fiche de référence obligatoire du parent ;
 - transport initial complet du besoin ;
+- plan initial intégral validé ;
 - base canonique autonome pour la suite des GO enfants ;
 - ne doit pas être réécrit implicitement hors changement réel de projet.
 
@@ -68,6 +69,7 @@ Livrable de cette phase :
 - Marblism est traité comme source d’inspiration produit, non comme framework dev-first confirmé ;
 - la reconstruction interne doit être pensée comme architecture durable, séparable du produit observé ;
 - le parent présent sert de base de continuité indépendante de la session ;
+- une fiche dédiée `01_initial_project_doc.md` fait désormais partie du set d’ouverture ;
 - aucun setup technique final n’est encore validé ;
 - aucun GO enfant n’est encore ouvert dans ce parent.
 
@@ -78,19 +80,20 @@ NEXT_GO logique :
 
 Étapes validées vers la cible de phase :
 1. Fixer le cadre canonique du parent.
-2. Ancrer les blocs structurants et tags au bon niveau.
-3. Éviter toute confusion entre :
+2. Créer la fiche dédiée `01_initial_project_doc.md`.
+3. Ancrer les blocs structurants et tags au bon niveau.
+4. Éviter toute confusion entre :
    - observation produit,
    - hypothèses techniques,
    - architecture cible.
-4. Préparer la filiation documentaire des GO enfants.
-5. Conserver le parent en doc-only.
+5. Préparer la filiation documentaire des GO enfants.
+6. Conserver le parent en doc-only.
 
 ## 9_SELECTED_SOLUTION
 
 Approche retenue :
 - chantier parent documentaire unique ;
-- séparation stricte entre cadrage, journal technique, décisions ;
+- séparation stricte entre cadrage, fiche initiale, journal technique, décisions ;
 - usage explicite des tags d’état ;
 - continuité par état canonique + point de reprise ;
 - aucune dérive immédiate vers implémentation sans GO enfant dédié.
@@ -99,13 +102,14 @@ Approche retenue :
 
 Setup documentaire retenu pour le parent :
 - `00_cadrage.md` : cadre canonique complet ;
+- `01_initial_project_doc.md` : fiche initiale figée du projet/plan ;
 - `02_journal_technique.md` : journal borné des actions réellement faites ;
 - `03_decisions.md` : décisions validées, exclusions, verdict, reprise.
 
 ## 11_KEY_DECISIONS
 
 - Le dépôt canonique de travail pour ce chantier est `magikgmo4-ui/opt-trading`.
-- Le parent est ouvert en doc-only sur la branche dédiée `go_repos_agent-role_initial_01`.
+- Le parent est ouvert en doc-only sur la branche dédiée `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`.
 - Marblism n’est pas traité comme base technique interne directe.
 - Les frameworks open source / dev-first comparables feront l’objet d’un travail séparé et tracé.
 - Le parent doit rester 100% autonome et réutilisable hors session.
@@ -145,11 +149,12 @@ Il manque encore :
 ## 16_TODO
 
 Actions suivantes concrètes :
-1. Ouvrir un GO enfant d’audit documentaire ciblé.
-2. Recenser les docs utiles au développement.
-3. Établir un comparatif structuré des modèles proches.
-4. Produire un schéma d’architecture canonique interne.
-5. Préparer le GO de setup MVP.
+1. Valider le set d’ouverture du parent.
+2. Ouvrir un GO enfant d’audit documentaire ciblé.
+3. Recenser les docs utiles au développement.
+4. Établir un comparatif structuré des modèles proches.
+5. Produire un schéma d’architecture canonique interne.
+6. Préparer le GO de setup MVP.
 
 ## 17_RESUME_POINT
 
@@ -178,6 +183,7 @@ TAGS :
 
 Blocs à extraire :
 - `AI_TEAM_PARENT_CADRAGE_CANONIQUE`
+- `AI_TEAM_PARENT_INITIAL_PROJECT_DOC_REF`
 - `AI_TEAM_PARENT_INVARIANTS`
 - `AI_TEAM_PARENT_NEXT_GO`
 
