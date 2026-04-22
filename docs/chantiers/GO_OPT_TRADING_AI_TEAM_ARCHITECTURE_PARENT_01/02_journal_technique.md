@@ -13,31 +13,26 @@ Journal borné aux actions réellement exécutées pour l’ouverture du chantie
 3. Création d’une nouvelle branche dédiée alignée sur le nom du chantier parent :
    - `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
 4. Mise à jour du cadrage pour intégrer une fiche dédiée `01_initial_project_doc.md`.
-5. Création du fichier initial du projet.
-6. Création du présent journal technique.
-7. Préparation du fichier de décisions du parent.
+5. Création du fichier initial du projet :
+   - `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/01_initial_project_doc.md`
+6. Création du présent journal technique :
+   - `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/02_journal_technique.md`
+7. Création du fichier de décisions du parent :
+   - `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/03_decisions.md`
+8. Alignement du workspace réel sur la branche :
+   - `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
+9. Vérification réelle de présence des 4 fichiers du parent.
+10. Relance d’un audit documentaire strict sur le contenu réel présent.
 
 ### Bornes
 
 - aucune implémentation technique runtime ;
 - aucune modification hors périmètre documentaire du parent ;
-- aucune ouverture de GO enfant à ce stade.
-
-## HYPOTHESE
-
-- L’ancienne branche `go_repos_agent-role_initial_01` peut rester présente tant qu’un nettoyage explicite n’est pas demandé.
-- Le set d’ouverture documentaire est maintenant proche du complet attendu.
-
-## TODO
-
-- vérifier la cohérence inter-fichiers ;
-- valider le set d’ouverture ;
-- corriger les écarts restants ;
-- ouvrir le premier GO enfant quand le parent sera validé.
+- aucun GO enfant ouvert à ce stade.
 
 ## REPRISE
 
 Point de reprise opératoire :
 - branche canonique du parent : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
 - dossier parent : `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/`
-- prochain contrôle : validation documentaire du set d’ouverture.
+- prochain contrôle : audit documentaire strict après correction minimale du set d’ouverture.
