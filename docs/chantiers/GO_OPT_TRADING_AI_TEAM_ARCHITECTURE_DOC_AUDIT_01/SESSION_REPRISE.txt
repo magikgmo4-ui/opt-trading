@@ -62,8 +62,8 @@ Livrable vise pour ce GO enfant :
 - branche canonique de reprise : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
 - fichier canonique de session : `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/SESSION_REPRISE.txt`
 - ancre GitHub validee : commit `304fdf5`
-- etat GitHub de depart etabli : ouverture enfant publiee + `SESSION_REPRISE` publie, mais passe 3 pas encore prouvee sur remote avant ce lot de publication
-- prochaine action coherente confirmee par le fichier : `PASSE 3 - AUDIT TECHNIQUE DETAILLE SOURCE PAR SOURCE`
+- passe 3 publiee sur remote via le commit `1941db7`
+- prochaine action coherente confirmee par le fichier : `SYNTHESE D'ARCHITECTURE CIBLE INTERNE PAR AXES`
 
 8_VALIDATED_PLAN
 
@@ -124,56 +124,46 @@ Livrable vise pour ce GO enfant :
 
 15_REMAINING_GAP
 
-- Il manquait, avant la publication de ce lot, un commit publie contenant la version passe 3 de `00_cadrage.md`, `02_journal_technique.md` et `03_decisions.md` ;
-- la preuve canonique finale reste a revalider cote GitHub apres commit et push de ce lot ;
 - aucune conclusion de stack finale ne doit etre ajoutee dans ce GO.
 
 16_TODO
 
-1. publier les fichiers locaux de passe 3 sur la branche canonique reelle ;
-2. revalider cote GitHub le contenu des 4 fichiers ;
-3. seulement ensuite declarer la passe 3 comme canonique publiee ;
-4. puis ouvrir la suite logique documentaire.
+1. produire une synthese d'architecture cible interne par axes ;
+2. repartir de la matrice comparative consolidee deja publiee ;
+3. distinguer primitives indispensables, options de confort et dependances ecosysteme ;
+4. conserver ce chantier en `doc-only` sans choisir de stack finale.
 
 17_RESUME_POINT
 
 - branche : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
-- etat GitHub de depart : ouverture enfant publiee + `SESSION_REPRISE` publie, mais passe 3 non encore prouvee sur remote avant ce lot
-- prochaine action : commit + push de la passe 3 locale, puis relecture GitHub
+- etat GitHub courant : passe 3 publiee sur remote via `1941db7`
+- prochaine action : reprendre sur la synthese d'architecture cible interne par axes, sans rouvrir le parent ni choisir de stack finale
 
 GO_PROMPT
 
 ```text
 GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01
-PUBLICATION GITHUB DE LA PASSE 3
+SYNTHESE D'ARCHITECTURE CIBLE INTERNE PAR AXES
 
 Objectif:
-publier la passe 3 locale sur la branche canonique sans sortir du cadre doc-only.
+transformer l'audit publie en synthese d'architecture interne exploitable, toujours en doc-only et sans conclure sur une stack finale.
 
 Contraintes:
 - rester sur GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01
-- ne publier que:
-  - docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/00_cadrage.md
-  - docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/02_journal_technique.md
-  - docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/03_decisions.md
-  - docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/SESSION_REPRISE.txt
+- repartir de la matrice comparative deja publiee
 - ne prendre aucune decision de stack finale
 - journaliser seulement le reel execute
 
 Sortie attendue:
-- commit publie
-- hash du commit
-- preuve git status propre
-- preuve push origin
-- resume canonique de reprise
+- synthese par axes : roles, orchestration, memoire, HITL, surfaces, observabilite, securite
+- distinction entre primitives indispensables, options de confort et dependances ecosysteme
+- nouveau point de reprise canonique
 ```
 
 GITHUB_REMOTE_STATUS_PASSE3
 
-- `00_cadrage.md` existe sur GitHub, mais etait encore un bornage d'ouverture avant ce lot de publication ;
-- `02_journal_technique.md` etait encore un journal d'ouverture / publication initiale avant ce lot ;
-- `03_decisions.md` portait encore les decisions d'ouverture avec verdict `PASS_GO_CHILD_OPENING` avant ce lot ;
-- `SESSION_REPRISE.txt` etait bien publie et ancre par `304fdf5`.
+- `00_cadrage.md`, `02_journal_technique.md`, `03_decisions.md` et `SESSION_REPRISE.txt` sont publies sur remote dans leur etat post-passe 3 ;
+- la publication de passe 3 est prouvee sur `origin/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` via `1941db7`.
 
 NEXT_PASS_03_EXECUTION_BASE
 
@@ -181,13 +171,6 @@ NEXT_PASS_03_EXECUTION_BASE
 - fichier principal de la passe 3 : `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/02_journal_technique.md`
 - fichier de decisions : `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/03_decisions.md`
 - invariant : aucune conclusion de stack finale dans ce GO
-
-NEXT_STEP_PUBLISH_PASS3
-
-- commit des 4 fichiers de passe 3 sur `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
-- push `origin/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
-- relecture GitHub des 4 fichiers
-- ensuite seulement declaration de canonicalite publiee
 
 18_TO_DOCUMENT
 
@@ -199,7 +182,6 @@ TAGS a extraire :
 
 Blocs :
 - `GITHUB_REMOTE_STATUS_PASSE3`
-- `NEXT_STEP_PUBLISH_PASS3`
 
 19_TO_REMEMBER
 
