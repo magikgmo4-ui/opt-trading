@@ -58,9 +58,9 @@ Obligations explicites :
 
 ## Synthese courante
 
-- branches remote : `92`
+- branches remote : `89`
 - branches locales : `11`
-- entrees totales suivies dans le tableau : `98`
+- entrees totales suivies dans le tableau : `95`
 - comparaison de reference : `origin/sot/mainline`
 
 | CANON_STATUS | COUNT |
@@ -71,7 +71,7 @@ Obligations explicites :
 | `ABSORBED` | 48 |
 | `REDUNDANT` | 1 |
 | `REVIEW` | 22 |
-| `DROP_REMOTE_CANDIDATE` | 10 |
+| `DROP_REMOTE_CANDIDATE` | 7 |
 | `DROP_LOCAL_ONLY` | 5 |
 
 ## Legende de lecture
@@ -95,9 +95,6 @@ Obligations explicites :
 | `docs/github-park-parent-closeout-01` | remote | DIVERGED | 1 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/github-park-pass-close-01` | remote | DIVERGED | 4 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/go-openclaw-evidence-01-v1` | remote | ABSORBED | 0 | 345 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
-| `docs/hermes-openclaw-bridge-05-closeout-01` | remote | ABSORBED | 0 | 312 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Hermes absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_HERMES_ABSORBED_RECLASS_01` |
-| `docs/hermes-openclaw-exec01-result-01` | remote | ABSORBED | 0 | 316 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Hermes absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_HERMES_ABSORBED_RECLASS_01` |
-| `docs/hermes-result-case01-v1` | remote | ABSORBED | 0 | 327 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Hermes absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_HERMES_ABSORBED_RECLASS_01` |
 | `docs/index-simex-link-01` | remote | ABSORBED | 0 | 295 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/memory-bricks-localcms-contract-alignment-01` | remote | DIVERGED | 5 | 61 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/openclaw-alignment-decision-07` | remote | ABSORBED | 0 | 295 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
@@ -198,6 +195,7 @@ Obligations explicites :
 - sous-lot GitHub park / closeout absorbe puis supprime du remote : `closeout/collectors-lifecycle-compat-01`, `docs/github-park-audit-expansion-closeout-01`, `docs/github-park-branch-trunk-cross-audit-01` -> reclassification doc-only deja publiee, suppression executee, donc lignes retirees du tableau courant
 - nouvelle branche distante observee pendant `fetch --prune` : `origin/METHODE_MULTI_MACHINE_GIT_SYNC` -> entree ajoutee avec statut `REVIEW` en attente d'audit separe
 - sous-lot Hermes absorbe reclassifie sans suppression dans ce passage : `docs/hermes-openclaw-bridge-05-closeout-01`, `docs/hermes-openclaw-exec01-result-01`, `docs/hermes-result-case01-v1` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_HERMES_ABSORBED_RECLASS_01`
+- sous-lot Hermes absorbe puis supprime du remote : `docs/hermes-openclaw-bridge-05-closeout-01`, `docs/hermes-openclaw-exec01-result-01`, `docs/hermes-result-case01-v1` -> reclassification doc-only deja publiee, suppression executee, donc lignes retirees du tableau courant
 
 ## Point de reprise
 
