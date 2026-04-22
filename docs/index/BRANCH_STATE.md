@@ -40,7 +40,7 @@ Elle sert a :
 - repo : `opt-trading`
 - branche canonique : `sot/mainline`
 - base de comparaison : `origin/sot/mainline`
-- snapshot de reference : `origin/sot/mainline@39f931c`
+- snapshot de reference : `origin/sot/mainline@f16c794`
 - date de reference : `2026-04-22`
 - perimetre : branches locales et distantes presentes apres `fetch --prune`
 
@@ -68,10 +68,10 @@ Obligations explicites :
 | `KEEP_ACTIVE` | 2 |
 | `KEEP_REFERENCE` | 1 |
 | `KEEP_SNAPSHOT` | 9 |
-| `ABSORBED` | 27 |
+| `ABSORBED` | 13 |
 | `REDUNDANT` | 1 |
 | `REVIEW` | 22 |
-| `DROP_REMOTE_CANDIDATE` | 7 |
+| `DROP_REMOTE_CANDIDATE` | 21 |
 | `DROP_LOCAL_ONLY` | 5 |
 
 ## Legende de lecture
@@ -107,8 +107,8 @@ Obligations explicites :
 | `feat/antigravity-binance-v1` | remote | ABSORBED | 0 | 611 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/cards01` | remote | ABSORBED | 0 | 113 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/collectors-lifecycle-wrapper-harmonization-01` | remote | ABSORBED | 0 | 339 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/engines-plugin` | remote | ABSORBED | 0 | 784 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/execution-engine` | remote | ABSORBED | 0 | 780 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
+| `feat/engines-plugin` | remote | ABSORBED | 0 | 784 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche runtime absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_RUNTIME_ENGINE_HELPERS_ABSORBED_RECLASS_01` |
+| `feat/execution-engine` | remote | ABSORBED | 0 | 780 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche runtime absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_RUNTIME_ENGINE_HELPERS_ABSORBED_RECLASS_01` |
 | `feat/go-openclaw-chain-03-v1` | remote | ABSORBED | 0 | 338 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/go-strategy-docs-v1` | remote | DIVERGED | 1 | 661 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/journal-full-reading-macro-plan-recenter` | local | DIVERGED | 3 | 77 | `DROP_LOCAL_ONLY` | `review_or_drop_local` | Branche seulement locale non canonisee sur origin | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
@@ -124,25 +124,25 @@ Obligations explicites :
 | `feat/mimo-open-observer-market-calendar-v1` | both | ABSORBED | 0 | 550 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/mimo-scheduler-promotion` | remote | ABSORBED | 0 | 523 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/openclaw-registry-expose-01` | remote | ABSORBED | 0 | 451 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/persistent-state` | remote | ABSORBED | 0 | 773 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/position-engine` | remote | ABSORBED | 0 | 777 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/position-guard` | remote | ABSORBED | 0 | 769 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
+| `feat/persistent-state` | remote | ABSORBED | 0 | 773 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche runtime absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_RUNTIME_ENGINE_HELPERS_ABSORBED_RECLASS_01` |
+| `feat/position-engine` | remote | ABSORBED | 0 | 777 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche runtime absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_RUNTIME_ENGINE_HELPERS_ABSORBED_RECLASS_01` |
+| `feat/position-guard` | remote | ABSORBED | 0 | 769 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche runtime absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_RUNTIME_ENGINE_HELPERS_ABSORBED_RECLASS_01` |
 | `feat/project-card-module-contextuals-shell-01` | remote | DIVERGED | 1 | 146 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/project-card-openclaw-01` | remote | DIVERGED | 1 | 146 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/project-card-validated-prompt-factory-01` | remote | DIVERGED | 1 | 146 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/range-strategy-v1-struct` | remote | ABSORBED | 0 | 166 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/student-mimo-bitget-live-equity` | both | DIVERGED | 23 | 615 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/student-mimo-qualification` | both | DIVERGED | 21 | 615 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/student-ops-helpers-01` | remote | ABSORBED | 0 | 351 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
+| `feat/student-ops-helpers-01` | remote | ABSORBED | 0 | 351 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche runtime absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_RUNTIME_ENGINE_HELPERS_ABSORBED_RECLASS_01` |
 | `feat/student-validation-bitget-readonly-01` | local | ABSORBED | 0 | 28 | `DROP_LOCAL_ONLY` | `review_or_drop_local` | Branche seulement locale non canonisee sur origin | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/trading-realtime-v1-event-bridge` | remote | ABSORBED | 0 | 406 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/trading-realtime-v1-export` | remote | ABSORBED | 0 | 398 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/trading-realtime-v1-guardrails` | remote | ABSORBED | 0 | 391 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/trading-realtime-v1-reporting` | remote | ABSORBED | 0 | 402 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/trading-realtime-v1-runtime-loop` | remote | ABSORBED | 0 | 393 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/trading-realtime-v1-timer` | remote | ABSORBED | 0 | 387 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feature/hf-publish-helper-fix-01` | remote | ABSORBED | 0 | 623 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feature/hf-tools-private-config-fix-01` | remote | ABSORBED | 0 | 614 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
+| `feat/trading-realtime-v1-event-bridge` | remote | ABSORBED | 0 | 406 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche runtime absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_RUNTIME_ENGINE_HELPERS_ABSORBED_RECLASS_01` |
+| `feat/trading-realtime-v1-export` | remote | ABSORBED | 0 | 398 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche runtime absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_RUNTIME_ENGINE_HELPERS_ABSORBED_RECLASS_01` |
+| `feat/trading-realtime-v1-guardrails` | remote | ABSORBED | 0 | 391 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche runtime absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_RUNTIME_ENGINE_HELPERS_ABSORBED_RECLASS_01` |
+| `feat/trading-realtime-v1-reporting` | remote | ABSORBED | 0 | 402 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche runtime absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_RUNTIME_ENGINE_HELPERS_ABSORBED_RECLASS_01` |
+| `feat/trading-realtime-v1-runtime-loop` | remote | ABSORBED | 0 | 393 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche runtime absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_RUNTIME_ENGINE_HELPERS_ABSORBED_RECLASS_01` |
+| `feat/trading-realtime-v1-timer` | remote | ABSORBED | 0 | 387 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche runtime absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_RUNTIME_ENGINE_HELPERS_ABSORBED_RECLASS_01` |
+| `feature/hf-publish-helper-fix-01` | remote | ABSORBED | 0 | 623 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche helpers absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_RUNTIME_ENGINE_HELPERS_ABSORBED_RECLASS_01` |
+| `feature/hf-tools-private-config-fix-01` | remote | ABSORBED | 0 | 614 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche helpers absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_RUNTIME_ENGINE_HELPERS_ABSORBED_RECLASS_01` |
 | `go/openclaw-sync-02-doc` | remote | ABSORBED | 0 | 306 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
 | `go_repos_agent-role_initial_01` | remote | DIVERGED | 1 | 21 | `KEEP_REFERENCE` | `exclude_cleanup` | Branche de reference pour le parent AI team architecture | `GO_GIT_GO_REPOS_AGENT_ROLE_INITIAL_CLASSIFICATION_01` |
 | `integ/trading-dual-stack-doc-pack-01` | remote | DIVERGED | 4 | 522 | `REVIEW` | `manual_review` | Famille sensible a revue manuelle obligatoire | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
@@ -179,6 +179,7 @@ Obligations explicites :
 - sous-lot Simex absorbe puis supprime du remote : `docs/index-simex-link-01`, `docs/simex-presets-01`, `feat/admin-trading-simex-insufficient-candles-evidence-closeout-01`, `feat/admin-trading-simex-insufficient-candles-hardening-01`, `feat/admin-trading-simex-runtime-evidence-closeout-01`, `feat/admin-trading-simex-upstream-failure-hardening-01`, `feat/admin-trading-simex-upstream-hardening-evidence-closeout-01`, `feat/admin-trading-simex-upstream-hardening-evidence-upgrade-01`, `feat/fantome-simex-module-durable-01`, `feat/simex-env-bridge-01`, `feat/simex-units-contract-01`, `feat/simex-wrappers-01` -> reclassification doc-only deja publiee, suppression executee, donc lignes retirees du tableau courant
 - sous-lot Product / cards / session absorbe reclassifie sans suppression dans ce passage : `feat/product-target-canon`, `feat/project-card-bot-vision-ingestion-01`, `feat/project-card-trading-analytics-chain-01`, `feat/project-cards-canonical-alignment-01`, `feat/project-cards-gate-alignment-01`, `feat/project-portfolio-validated-plans-freeze-01`, `feat/session-documentation-gate`, `feat/docs-index-chantier-inventory-sync-01`, `feat/OT_DESKPRO_RELEASE_OPS_DRILL_01` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_PRODUCT_CARDS_SESSION_ABSORBED_RECLASS_01`
 - sous-lot Product / cards / session absorbe puis supprime du remote : `feat/product-target-canon`, `feat/project-card-bot-vision-ingestion-01`, `feat/project-card-trading-analytics-chain-01`, `feat/project-cards-canonical-alignment-01`, `feat/project-cards-gate-alignment-01`, `feat/project-portfolio-validated-plans-freeze-01`, `feat/session-documentation-gate`, `feat/docs-index-chantier-inventory-sync-01`, `feat/OT_DESKPRO_RELEASE_OPS_DRILL_01` -> reclassification doc-only deja publiee, suppression executee, donc lignes retirees du tableau courant
+- sous-lot Runtime / engine / helpers absorbe reclassifie sans suppression dans ce passage : `feat/engines-plugin`, `feat/execution-engine`, `feat/persistent-state`, `feat/position-engine`, `feat/position-guard`, `feat/student-ops-helpers-01`, `feat/trading-realtime-v1-event-bridge`, `feat/trading-realtime-v1-export`, `feat/trading-realtime-v1-guardrails`, `feat/trading-realtime-v1-reporting`, `feat/trading-realtime-v1-runtime-loop`, `feat/trading-realtime-v1-timer`, `feature/hf-publish-helper-fix-01`, `feature/hf-tools-private-config-fix-01` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_RUNTIME_ENGINE_HELPERS_ABSORBED_RECLASS_01`
 
 ## Point de reprise
 
