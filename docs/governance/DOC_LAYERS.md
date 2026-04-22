@@ -84,6 +84,28 @@ Porter un lot de travail borné.
 - clore
 - reprendre
 
+### Convention locale de nommage futur des GO
+
+Règle locale à retenir pour les futurs GO :
+
+`GO_<SCOPE>_<PRODUCT_OR_SURFACE>_<ROLE>_<OBJECT>_<NN>`
+
+Décisions locales :
+- `<PRODUCT_OR_SURFACE>` doit provenir de `2_INITIAL_PROJECT_DOC`
+- si `2_INITIAL_PROJECT_DOC` ne porte pas encore explicitement le `PRODUCT_OR_SURFACE` canonique, il faut d'abord l'y canoniser avant d'ouvrir le GO
+- tous les tokens du GO doivent rester stables, uppercase et séparés par `_`
+- `<ROLE>` est un rôle structurel issu d'un vocabulaire canonique contrôlé ; `PARENT` et `CHILD` sont des rôles structurels et ne sont autorisés que si la structure parent / sous-chantier est réelle
+- en l'état, le vocabulaire contrôlé explicite déjà canonisé pour les rôles structurels est `PARENT` / `CHILD`; aucune étiquette décorative n'est autorisée à la place
+- `<OBJECT>` doit provenir d'un vocabulaire canonique contrôlé ; à défaut de lexique global séparé déjà canonisé, il faut reprendre un token objet déjà stabilisé par la source canonique gouvernante du lot et ne pas inventer de taxonomie excessive
+- `<NN>` est obligatoire, placé en suffixe final, comporte au minimum deux chiffres, et sert à éviter les collisions, distinguer les séries ou itérations, permettre une réouverture propre et stabiliser les références documentaires
+- aucune campagne rétroactive massive n'est autorisée sans GO dédié
+
+Exemples validés :
+- `GO_OPT_DESKPRO_PARENT_AUDIT_01`
+- `GO_OPT_DESKPRO_CHILD_ALIGNMENT_01`
+- `GO_OPT_TMUX_PARENT_CADRAGE_01`
+- `GO_OPT_TMUX_CHILD_RUNTIME_CONTRACT_01`
+
 ### Méthode de clôture / canonisation
 Lorsqu'un lot est canonisé comme fermé, son nom canonique clos peut être normalisé sous la forme `..._CLOS`.
 

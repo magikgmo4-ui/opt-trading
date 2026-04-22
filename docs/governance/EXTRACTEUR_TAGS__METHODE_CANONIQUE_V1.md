@@ -35,6 +35,10 @@ Documenter la méthode canonique : **extraction par tags**, puis **routage contr
 **Type**  
 Fiche de référence initiale figée.
 
+**Règle canonique liée au nommage GO**  
+Lorsque `2_INITIAL_PROJECT_DOC` décrit explicitement un produit ou une surface stable, ce token canonique devient la source à reprendre telle quelle, sans variante locale, pour `<PRODUCT_OR_SURFACE>` dans les GO dérivés.  
+Si ce `PRODUCT_OR_SURFACE` n'est pas encore explicité dans `2_INITIAL_PROJECT_DOC`, il doit y être canonisé avant la création du GO, sans dériver une seconde source parallèle.
+
 ## 3_INITIAL_NEED
 
 Valider et ancrer la bonne méthode pour :
