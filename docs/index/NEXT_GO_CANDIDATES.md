@@ -13,7 +13,7 @@ topic_keys:
   - continuity
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-20
+updated_at: 2026-04-22
 links:
   - docs/index/GO_INDEX.md
   - docs/index/ACTIVE_STREAMS.md
@@ -29,6 +29,7 @@ links:
 - `pass` et `reference` : hors exécution courante
 - `docs/index/NEXT_GO_CANDIDATES.md` est une matrice par **chantier parent actif**
 - cardinalité : **1 parent actif → 1 next GO primaire** (ou explicitement “aucun nouveau GO”)
+- si plusieurs parents actifs partagent la même priorité, et qu’un seul porte un `next GO primaire` explicite, ce parent devient le point de départ opératoire par défaut
 - `docs/index/REPRISE.md` est un support opératoire ; il ne remplace pas cette matrice
 
 ## Priorité opératoire active
