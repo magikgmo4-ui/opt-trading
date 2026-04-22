@@ -7,14 +7,15 @@ Le chantier parent est ouvert pour cadrer une architecture d’équipe d’agent
 ## 2. Décisions
 
 - Le nom canonique du chantier parent est `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`.
-- La branche dédiée de référence est désormais `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`.
-- Le set documentaire d’ouverture comprend désormais :
+- La branche dédiée de référence est `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`.
+- Le set documentaire d’ouverture du parent comprend :
   - `00_cadrage.md`
   - `01_initial_project_doc.md`
   - `02_journal_technique.md`
   - `03_decisions.md`
 - La fiche `01_initial_project_doc.md` est reconnue comme la fiche dédiée pour `2_INITIAL_PROJECT_DOC`.
-- Le parent reste doc-only jusqu’à validation formelle et ouverture d’un GO enfant spécifique.
+- Le journal technique est borné au factuel exécuté uniquement.
+- Le parent reste doc-only jusqu’à ouverture d’un GO enfant spécifique.
 
 ## 3. Exclusions
 
@@ -25,10 +26,10 @@ Le chantier parent est ouvert pour cadrer une architecture d’équipe d’agent
 
 ## 4. Verdict
 
-- `PASS_DOC_OPENING_SET_PARTIAL_COMPLETE`
-- set d’ouverture parent désormais structuré et exploitable ;
-- validation documentaire finale encore recommandée avant ouverture d’enfant.
+- `PASS_DOC_OPENING_SET_COMPLETE`
+- set d’ouverture parent complet, cohérent et exploitable hors session ;
+- ouverture d’un GO enfant désormais autorisable sous réserve de bornage explicite du nouveau chantier.
 
 ## 5. Point de reprise
 
-Reprendre sur la branche `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, relire les 4 fichiers du parent, exécuter le prompt de validation documentaire, puis corriger/valider avant d’ouvrir le premier GO enfant.
+Reprendre sur la branche `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, utiliser `7_CANONICAL_STATE` comme base de continuité, puis ouvrir le premier GO enfant documentaire ou d’architecture avec bornage explicite et sans réinterpréter les hypothèses comme des faits.
