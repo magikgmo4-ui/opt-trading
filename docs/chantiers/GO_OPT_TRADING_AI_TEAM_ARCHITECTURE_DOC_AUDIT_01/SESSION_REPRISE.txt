@@ -1,190 +1,207 @@
-GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01 — SESSION_REPRISE
+GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01
+
+SESSION_REPRISE_GITHUB_ANCHOR
+
+- commit GitHub valide : `304fdf557a6f1580fc235498cbe8f9add32f62a6`
+- repo : `magikgmo4-ui/opt-trading`
+- branche canonique : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
+- fichier canonique : `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/SESSION_REPRISE.txt`
+- objet de l'ancre : support de reprise autonome pour `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01`
 
 1_MASTER_TARGET
-Établir, par audit documentaire réel, une base comparative canonique pour une future architecture interne d’équipe d’agents spécialisés, sans conclure prématurément sur une stack finale et sans glisser vers l’implémentation.
+
+Etablir, par audit documentaire reel, une base comparative canonique pour une future architecture interne d'equipe d'agents specialises, sans conclure prematurement sur une stack finale et sans glisser vers l'implementation.
 
 2_INITIAL_PROJECT_DOC
-Parent de référence :
-- docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/00_cadrage.md
-- docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/01_initial_project_doc.md
-- docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/02_journal_technique.md
-- docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/03_decisions.md
+
+Parent de reference :
+- `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/00_cadrage.md`
+- `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/01_initial_project_doc.md`
+- `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/02_journal_technique.md`
+- `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/03_decisions.md`
 
 Enfant courant :
-- docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/00_cadrage.md
-- docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/02_journal_technique.md
-- docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/03_decisions.md
+- `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/00_cadrage.md`
+- `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/02_journal_technique.md`
+- `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/03_decisions.md`
+- `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/SESSION_REPRISE.txt`
 
 3_INITIAL_NEED
-Étudier les sources documentaires utiles pour modéliser une équipe d’agents spécialisés inspirée du modèle opératoire observé chez Marblism, puis comparer les frameworks techniques pertinents sans choisir encore une stack finale.
+
+Etudier les sources documentaires utiles pour modeliser une equipe d'agents specialises inspiree du modele operatoire observe chez Marblism, puis comparer les frameworks techniques pertinents sans choisir encore une stack finale.
 
 4_MASTER_PROJECT_PLAN
-- traiter Marblism comme référence produit observée tant qu’aucune doc technique exploitable n’est établie ;
+
+- traiter Marblism comme reference produit observee tant qu'aucune doc technique exploitable n'est etablie ;
 - auditer CrewAI, LangGraph, AutoGen et OpenAI Agents SDK comme sources techniques principales ;
 - comparer les sources axe par axe ;
-- séparer explicitement faits établis, hypothèses, gaps et claims marketing non exploitables ;
-- préparer ensuite une matrice comparative suffisamment robuste pour ouvrir un futur GO d’architecture.
+- separer explicitement faits etablis, hypotheses, gaps et claims marketing non exploitables ;
+- preparer ensuite une matrice comparative suffisamment robuste pour ouvrir un futur GO d'architecture.
 
 5_GO_PLAN
-GO courant :
-- GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01
 
-Séquence logique :
-- passe 1 : ouverture et cadrage de l’audit ;
-- passe 2 : première cartographie des sources et axes ;
-- passe 3 : audit technique détaillé source par source ;
-- passe 4 : matrice comparative consolidée ;
-- passe 5 : closeout documentaire et ouverture éventuelle d’un GO architecture.
+GO courant :
+- `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01`
+
+Sequence logique :
+- passe 1 : ouverture et cadrage de l'audit ;
+- passe 2 : premiere cartographie des sources et axes ;
+- passe 3 : audit technique detaille source par source ;
+- passe 4 : matrice comparative consolidee ;
+- passe 5 : closeout documentaire et ouverture eventuelle d'un GO architecture.
 
 6_FINAL_TARGET
-Livrable visé pour ce GO enfant :
-- une matrice comparative détaillée source par source ;
-- une séparation stricte entre preuves documentées, hypothèses et gaps ;
-- un socle documentaire stable pour une future architecture interne d’équipe d’agents.
+
+Livrable vise pour ce GO enfant :
+- une matrice comparative detaillee source par source ;
+- une separation stricte entre preuves documentees, hypotheses et gaps ;
+- un socle documentaire stable pour une future architecture interne d'equipe d'agents.
 
 7_CANONICAL_STATE
-État courant retenu :
-- branche canonique : GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01 ;
-- parent validé documentairement ;
-- GO enfant GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01 ouvert et publié sur origin ;
-- commit d’ouverture enfant confirmé : 702c9a3 ;
-- première passe d’audit réel déjà lancée ;
-- Marblism = référence produit observée ;
-- CrewAI, LangGraph, AutoGen, OpenAI Agents SDK = sources techniques principales ;
-- axes comparatifs stabilisés :
-  1. rôles / spécialisation d’agents
-  2. orchestration / coordination
-  3. handoffs / délégation
-  4. mémoire / sessions / contexte partagé
-  5. guardrails / contrôle
-  6. human-in-the-loop
-  7. observabilité / tracing
-  8. exécution durable / reprise
-  9. outils / intégrations
+
+- branche canonique de reprise : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
+- fichier canonique de session : `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/SESSION_REPRISE.txt`
+- ancre GitHub validee : commit `304fdf5`
+- etat GitHub de depart etabli : ouverture enfant publiee + `SESSION_REPRISE` publie, mais passe 3 pas encore prouvee sur remote avant ce lot de publication
+- prochaine action coherente confirmee par le fichier : `PASSE 3 - AUDIT TECHNIQUE DETAILLE SOURCE PAR SOURCE`
 
 8_VALIDATED_PLAN
-Étapes validées à ce stade :
-- parent ouvert puis corrigé jusqu’au PASS documentaire ;
-- branche canonique alignée sur le nom du parent ;
-- GO enfant d’audit documentaire ouvert ;
-- première passe réelle déjà effectuée ;
-- passe 2 préparée avec matrice provisoire et axes stabilisés ;
-- prochaine étape correcte : passe 3 détaillée, source par source.
+
+- parent ouvert puis corrige jusqu'au PASS documentaire ;
+- branche canonique alignee sur le nom du parent ;
+- GO enfant d'audit documentaire ouvert ;
+- axes comparatifs stabilises ;
+- prochaine etape correcte : passe 3 detaillee, source par source, puis publication GitHub ciblee.
 
 9_SELECTED_SOLUTION
-Approche retenue :
-- audit doc-only ;
-- Marblism limité à une lecture produit/opérateur ;
-- frameworks techniques audités à partir de leurs docs cœur ;
-- aucune décision finale de stack tant que la matrice détaillée n’est pas consolidée.
+
+- audit `doc-only` ;
+- Marblism limite a une lecture produit / operateur ;
+- frameworks techniques audites a partir de leurs docs coeur ;
+- aucune decision finale de stack tant que la matrice detaillee n'est pas consolidee.
 
 10_SELECTED_SETUP
-Setup documentaire et de continuité :
-- repo : magikgmo4-ui/opt-trading
-- branche : GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01
-- parent : GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01
-- enfant : GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01
-- fichier de reprise session : docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/SESSION_REPRISE.txt
+
+- repo : `magikgmo4-ui/opt-trading`
+- branche : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
+- parent : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
+- enfant : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01`
+- fichier de reprise session : `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/SESSION_REPRISE.txt`
 
 11_KEY_DECISIONS
-- Le parent est validé et n’a pas à être recadré.
-- Le GO enfant courant reste strictement doc-only.
-- Marblism n’est pas une base technique directe à ce stade.
-- Les frameworks à approfondir en priorité sont CrewAI, LangGraph, AutoGen et OpenAI Agents SDK.
-- La suite correcte est la passe 3 d’audit technique détaillé, pas le choix final d’une stack.
+
+- Le parent est valide et n'a pas a etre recadre.
+- Le GO enfant courant reste strictement `doc-only`.
+- Marblism n'est pas une base technique directe a ce stade.
+- Les frameworks a approfondir en priorite sont CrewAI, LangGraph, AutoGen et OpenAI Agents SDK.
+- La suite correcte est la passe 3 d'audit technique detaille, pas le choix final d'une stack.
 
 12_INVARIANTS
+
 - Ne pas traiter Marblism comme source technique sans preuve documentaire explicite.
 - Ne pas choisir une stack finale dans ce GO.
-- Ne pas glisser vers l’implémentation.
-- Journal = réel exécuté uniquement.
-- Décisions = arbitrages validés uniquement.
-- Utiliser 7_CANONICAL_STATE comme base de reprise.
-- Ne pas réinterpréter les hypothèses comme des faits.
+- Ne pas glisser vers l'implementation.
+- Journal = reel execute uniquement.
+- Decisions = arbitrages valides uniquement.
+- Utiliser `7_CANONICAL_STATE` comme base de reprise.
+- Ne pas reinterpretter les hypotheses comme des faits.
 
 13_ESTABLISHED
-- Le GO enfant est publié sur la branche canonique.
-- Les sources principales et le périmètre d’audit sont posés.
-- Une première matrice de collecte existe déjà.
-- Les axes de comparaison sont assez stables pour lancer la passe 3.
-- Marblism fournit surtout un signal produit/opérateur, pas de base technique détaillée établie.
+
+- Le support de reprise ne depend plus de la session.
+- Le chantier enfant reste cadre en `doc-only`.
+- La reprise ne doit pas rouvrir le cadrage parent.
+- Cote GitHub, `SESSION_REPRISE.txt` est bien ancre par `304fdf5`.
+- Avant ce lot de publication, `00_cadrage.md`, `02_journal_technique.md` et `03_decisions.md` etaient encore lisibles comme documents d'ouverture, pas comme resultat complet de passe 3.
 
 14_HYPOTHESIS
-- Les frameworks techniques fourniront l’essentiel de la matière utile pour l’architecture interne.
-- CrewAI sera probablement fort sur la modélisation orientée équipe ;
-- LangGraph sera probablement fort sur l’orchestration durable et l’état ;
-- OpenAI Agents SDK sera probablement fort sur handoffs, guardrails, sessions et tracing ;
+
+- Les frameworks techniques fourniront l'essentiel de la matiere utile pour l'architecture interne.
+- CrewAI sera probablement fort sur la modelisation orientee equipe.
+- LangGraph sera probablement fort sur l'orchestration durable et l'etat.
+- OpenAI Agents SDK sera probablement fort sur handoffs, guardrails, sessions et tracing.
 - AutoGen sera probablement utile pour la lecture multi-couches et event-driven.
 
 15_REMAINING_GAP
-Il manque encore :
-- la lecture détaillée des pages cœur de chaque source ;
-- une matrice comparative axe × source × niveau de preuve ;
-- une séparation explicite entre primitives natives, patterns recommandés, extensions optionnelles et claims marketing ;
-- un closeout documentaire du GO enfant.
+
+- Il manquait, avant la publication de ce lot, un commit publie contenant la version passe 3 de `00_cadrage.md`, `02_journal_technique.md` et `03_decisions.md` ;
+- la preuve canonique finale reste a revalider cote GitHub apres commit et push de ce lot ;
+- aucune conclusion de stack finale ne doit etre ajoutee dans ce GO.
 
 16_TODO
-Prochaines actions :
-1. lancer la passe 3 d’audit technique détaillé source par source ;
-2. lire les pages cœur sur orchestration, mémoire/sessions, handoffs, HITL, tracing/observability, tools/integrations ;
-3. consigner uniquement le réel exécuté dans 02_journal_technique.md ;
-4. mettre à jour 03_decisions.md seulement sur arbitrage validé ;
-5. construire la matrice comparative consolidée ;
-6. préparer ensuite le closeout ou l’ouverture d’un GO architecture si justifié.
+
+1. publier les fichiers locaux de passe 3 sur la branche canonique reelle ;
+2. revalider cote GitHub le contenu des 4 fichiers ;
+3. seulement ensuite declarer la passe 3 comme canonique publiee ;
+4. puis ouvrir la suite logique documentaire.
 
 17_RESUME_POINT
-Point de reprise opératoire :
-- se placer sur la branche GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01 ;
-- repartir du GO enfant GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01 ;
-- utiliser ce fichier comme rappel rapide ;
-- reprendre ensuite la passe 3 d’audit technique détaillé source par source ;
-- ne pas rouvrir le cadrage parent ;
-- ne pas conclure sur une stack finale dans ce GO.
+
+- branche : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
+- etat GitHub de depart : ouverture enfant publiee + `SESSION_REPRISE` publie, mais passe 3 non encore prouvee sur remote avant ce lot
+- prochaine action : commit + push de la passe 3 locale, puis relecture GitHub
 
 GO_PROMPT
+
+```text
 GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01
-PASSE 3 — AUDIT TECHNIQUE DETAILLE SOURCE PAR SOURCE
+PUBLICATION GITHUB DE LA PASSE 3
 
-Mission :
-approfondir l’audit documentaire réel des frameworks retenus sans conclure sur une stack finale.
+Objectif:
+publier la passe 3 locale sur la branche canonique sans sortir du cadre doc-only.
 
-Sources prioritaires :
-- CrewAI
-- LangGraph
-- AutoGen
-- OpenAI Agents SDK
-- Marblism seulement comme référence produit observée
+Contraintes:
+- rester sur GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01
+- ne publier que:
+  - docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/00_cadrage.md
+  - docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/02_journal_technique.md
+  - docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/03_decisions.md
+  - docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/SESSION_REPRISE.txt
+- ne prendre aucune decision de stack finale
+- journaliser seulement le reel execute
 
-Axes obligatoires :
-1. rôles / spécialisation d’agents
-2. orchestration / coordination
-3. handoffs / délégation
-4. mémoire / sessions / contexte partagé
-5. guardrails / contrôle
-6. human-in-the-loop
-7. observabilité / tracing
-8. exécution durable / reprise
-9. outils / intégrations
+Sortie attendue:
+- commit publie
+- hash du commit
+- preuve git status propre
+- preuve push origin
+- resume canonique de reprise
+```
 
-Sortie attendue :
-- ETABLI par source
-- HYPOTHESE par source
-- GAPS par source
-- matrice détaillée :
-  - source
-  - axe
-  - preuve explicite
-  - ce qui est réellement documenté
-  - limite
-  - intérêt pour architecture interne
-- section séparée :
-  - claims marketing non exploitables techniquement
-- point de reprise explicite
+GITHUB_REMOTE_STATUS_PASSE3
 
-Contraintes :
-- doc-only
-- aucune décision finale de stack
-- aucune implémentation
-- ne pas traiter Marblism comme source technique sans preuve documentaire explicite
-- journal = réel exécuté uniquement
-- décisions = arbitrages validés uniquement
+- `00_cadrage.md` existe sur GitHub, mais etait encore un bornage d'ouverture avant ce lot de publication ;
+- `02_journal_technique.md` etait encore un journal d'ouverture / publication initiale avant ce lot ;
+- `03_decisions.md` portait encore les decisions d'ouverture avec verdict `PASS_GO_CHILD_OPENING` avant ce lot ;
+- `SESSION_REPRISE.txt` etait bien publie et ancre par `304fdf5`.
+
+NEXT_PASS_03_EXECUTION_BASE
+
+- dossier de travail local : `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/`
+- fichier principal de la passe 3 : `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/02_journal_technique.md`
+- fichier de decisions : `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/03_decisions.md`
+- invariant : aucune conclusion de stack finale dans ce GO
+
+NEXT_STEP_PUBLISH_PASS3
+
+- commit des 4 fichiers de passe 3 sur `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
+- push `origin/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
+- relecture GitHub des 4 fichiers
+- ensuite seulement declaration de canonicalite publiee
+
+18_TO_DOCUMENT
+
+TAGS a extraire :
+- `7_CANONICAL_STATE`
+- `13_ESTABLISHED`
+- `15_REMAINING_GAP`
+- `17_RESUME_POINT`
+
+Blocs :
+- `GITHUB_REMOTE_STATUS_PASSE3`
+- `NEXT_STEP_PUBLISH_PASS3`
+
+19_TO_REMEMBER
+
+- Aucun nouveau Memory Brick a pousser.
+- L'information utile releve de la continuite projet, pas d'une memoire utilisateur durable.
