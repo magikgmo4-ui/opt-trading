@@ -58,9 +58,9 @@ Obligations explicites :
 
 ## Synthese courante
 
-- branches remote : `94`
+- branches remote : `92`
 - branches locales : `11`
-- entrees totales suivies dans le tableau : `100`
+- entrees totales suivies dans le tableau : `98`
 - comparaison de reference : `origin/sot/mainline`
 
 | CANON_STATUS | COUNT |
@@ -70,8 +70,8 @@ Obligations explicites :
 | `KEEP_SNAPSHOT` | 9 |
 | `ABSORBED` | 51 |
 | `REDUNDANT` | 1 |
-| `REVIEW` | 21 |
-| `DROP_REMOTE_CANDIDATE` | 10 |
+| `REVIEW` | 22 |
+| `DROP_REMOTE_CANDIDATE` | 7 |
 | `DROP_LOCAL_ONLY` | 5 |
 
 ## Legende de lecture
@@ -87,13 +87,11 @@ Obligations explicites :
 | BRANCH | SCOPE | STATUS_VS_SOT_MAINLINE | AHEAD_BY | BEHIND_BY | CANON_STATUS | ACTION | JUSTIFICATION | LAST_REVIEW_GO |
 | --- | --- | --- | ---: | ---: | --- | --- | --- | --- |
 | `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` | remote | DIVERGED | 9 | 21 | `KEEP_ACTIVE` | `keep_under_review` | Parent AI team architecture encore vivant cote branche | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
+| `METHODE_MULTI_MACHINE_GIT_SYNC` | remote | DIVERGED | 14 | 32 | `REVIEW` | `manual_review` | Nouvelle branche distante observee pendant le prune, hors sous-lot courant, a auditer separement | `GO_GIT_GITHUB_PARK_CLOSEOUT_ABSORBED_RECLASS_01` |
 | `audit/opt-trading-20260320a` | remote | DIVERGED | 20 | 615 | `REVIEW` | `manual_review` | Famille sensible a revue manuelle obligatoire | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `backup/mimo-b038db9` | local | DIVERGED | 18 | 625 | `KEEP_SNAPSHOT` | `exclude_cleanup` | Snapshot local de reprise MiMo | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `closeout/collectors-lifecycle-compat-01` | remote | ABSORBED | 0 | 345 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche closeout absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_GITHUB_PARK_CLOSEOUT_ABSORBED_RECLASS_01` |
 | `doc/GO_OPENCLAW_INFRA_BASELINE_01` | remote | DIVERGED | 1 | 261 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/chatgpt-profile-baseline-index-01` | remote | ABSORBED | 0 | 44 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `docs/github-park-audit-expansion-closeout-01` | remote | ABSORBED | 0 | 57 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche GitHub park absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_GITHUB_PARK_CLOSEOUT_ABSORBED_RECLASS_01` |
-| `docs/github-park-branch-trunk-cross-audit-01` | remote | ABSORBED | 0 | 59 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche GitHub park absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_GITHUB_PARK_CLOSEOUT_ABSORBED_RECLASS_01` |
 | `docs/github-park-parent-closeout-01` | remote | DIVERGED | 1 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/github-park-pass-close-01` | remote | DIVERGED | 4 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/go-openclaw-evidence-01-v1` | remote | ABSORBED | 0 | 345 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
@@ -197,6 +195,8 @@ Obligations explicites :
 - branche absorbee puis supprimee du remote : `origin/doc/GO_OPENCLAW_STATE_DIR_READ_09` -> reclassification doc-only deja publiee, suppression executee, donc absente du tableau courant
 - sous-lot OpenClaw absorbe reclassifie sans suppression dans ce passage : `docs/go-openclaw-evidence-01-v1`, `docs/openclaw-alignment-decision-07`, `docs/openclaw-alignment-exception-08`, `docs/openclaw-alignment-read-06`, `docs/openclaw-policy-runtime-alignment-05`, `docs/openclaw-state-dir-vigilance-03`, `go/openclaw-sync-02-doc` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01`
 - sous-lot GitHub park / closeout absorbe reclassifie sans suppression dans ce passage : `closeout/collectors-lifecycle-compat-01`, `docs/github-park-audit-expansion-closeout-01`, `docs/github-park-branch-trunk-cross-audit-01` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_GITHUB_PARK_CLOSEOUT_ABSORBED_RECLASS_01`
+- sous-lot GitHub park / closeout absorbe puis supprime du remote : `closeout/collectors-lifecycle-compat-01`, `docs/github-park-audit-expansion-closeout-01`, `docs/github-park-branch-trunk-cross-audit-01` -> reclassification doc-only deja publiee, suppression executee, donc lignes retirees du tableau courant
+- nouvelle branche distante observee pendant `fetch --prune` : `origin/METHODE_MULTI_MACHINE_GIT_SYNC` -> entree ajoutee avec statut `REVIEW` en attente d'audit separe
 
 ## Point de reprise
 
