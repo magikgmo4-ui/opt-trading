@@ -355,6 +355,12 @@ Le prochain lot actif doit être choisi explicitement :
 
 Ce choix ne peut pas être déduit du merge documentaire seul.
 
+Arbitrage désormais retenu :
+
+- ouverture explicite du lot `GO_OPT_TRADING_RESEAU_SSH_PHYSICAL_CONSOLIDATION_02`
+- bornage initial à la machine 01 `db-layer` uniquement
+- baseline, rollback, smoke tests et verdict `PASS/FAIL` obligatoires avant toute extension
+
 ---
 
 ## Règle issue de ce cadrage
