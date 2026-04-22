@@ -40,7 +40,7 @@ Elle sert a :
 - repo : `opt-trading`
 - branche canonique : `sot/mainline`
 - base de comparaison : `origin/sot/mainline`
-- snapshot de reference : `origin/sot/mainline@2fdd3d0c`
+- snapshot de reference : `origin/sot/mainline@5180cc4`
 - date de reference : `2026-04-22`
 - perimetre : branches locales et distantes presentes apres `fetch --prune`
 
@@ -68,10 +68,10 @@ Obligations explicites :
 | `KEEP_ACTIVE` | 2 |
 | `KEEP_REFERENCE` | 1 |
 | `KEEP_SNAPSHOT` | 9 |
-| `ABSORBED` | 62 |
+| `ABSORBED` | 61 |
 | `REDUNDANT` | 1 |
 | `REVIEW` | 21 |
-| `DROP_REMOTE_CANDIDATE` | 0 |
+| `DROP_REMOTE_CANDIDATE` | 1 |
 | `DROP_LOCAL_ONLY` | 5 |
 
 ## Legende de lecture
@@ -91,7 +91,7 @@ Obligations explicites :
 | `backup/mimo-b038db9` | local | DIVERGED | 18 | 625 | `KEEP_SNAPSHOT` | `exclude_cleanup` | Snapshot local de reprise MiMo | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `closeout/collectors-lifecycle-compat-01` | remote | ABSORBED | 0 | 345 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `doc/GO_OPENCLAW_INFRA_BASELINE_01` | remote | DIVERGED | 1 | 261 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `doc/GO_OPENCLAW_STATE_DIR_READ_09` | remote | ABSORBED | 0 | 254 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
+| `doc/GO_OPENCLAW_STATE_DIR_READ_09` | remote | ABSORBED | 0 | 254 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_STATE_DIR_READ_09_CLASSIFICATION_01` |
 | `docs/chatgpt-profile-baseline-index-01` | remote | ABSORBED | 0 | 44 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/github-park-audit-expansion-closeout-01` | remote | ABSORBED | 0 | 57 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/github-park-branch-trunk-cross-audit-01` | remote | ABSORBED | 0 | 59 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
@@ -194,6 +194,7 @@ Obligations explicites :
 - branche conservee explicitement hors cleanup : `origin/go_repos_agent-role_initial_01` -> `KEEP_REFERENCE` via `GO_GIT_GO_REPOS_AGENT_ROLE_INITIAL_CLASSIFICATION_01`
 - branche absorbee puis supprimee du remote : `origin/doc/GO_OPENCLAW_STATE_DIR_REPAIR_10` -> correction doc-only en `DROP_REMOTE_CANDIDATE`, suppression executee, donc absente du tableau courant
 - branche d'isolation supprimee du remote : `origin/codex/reseau-ssh-runtime-compat-retirement-01-isolate`, absente du tableau courant apres `fetch --prune`
+- branche reclassifiee sans suppression dans ce passage : `origin/doc/GO_OPENCLAW_STATE_DIR_READ_09` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_OPENCLAW_STATE_DIR_READ_09_CLASSIFICATION_01`
 
 ## Point de reprise
 
