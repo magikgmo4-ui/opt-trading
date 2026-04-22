@@ -40,7 +40,7 @@ Elle sert a :
 - repo : `opt-trading`
 - branche canonique : `sot/mainline`
 - base de comparaison : `origin/sot/mainline`
-- snapshot de reference : `origin/sot/mainline@f16c794`
+- snapshot de reference : `origin/sot/mainline@b092f48`
 - date de reference : `2026-04-22`
 - perimetre : branches locales et distantes presentes apres `fetch --prune`
 
@@ -68,10 +68,10 @@ Obligations explicites :
 | `KEEP_ACTIVE` | 2 |
 | `KEEP_REFERENCE` | 1 |
 | `KEEP_SNAPSHOT` | 9 |
-| `ABSORBED` | 13 |
+| `ABSORBED` | 3 |
 | `REDUNDANT` | 1 |
 | `REVIEW` | 22 |
-| `DROP_REMOTE_CANDIDATE` | 7 |
+| `DROP_REMOTE_CANDIDATE` | 17 |
 | `DROP_LOCAL_ONLY` | 5 |
 
 ## Legende de lecture
@@ -104,24 +104,24 @@ Obligations explicites :
 | `docs/skills-usage-cross-review-01` | remote | DIVERGED | 1 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/tmux-opencode-openclaw-runtime-01` | remote | DIVERGED | 1 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/GO_CONTINUITE_PRODUIT_MULTI_CHANTIER_CANON_01` | remote | DIVERGED | 13 | 251 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/antigravity-binance-v1` | remote | ABSORBED | 0 | 611 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/cards01` | remote | ABSORBED | 0 | 113 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/collectors-lifecycle-wrapper-harmonization-01` | remote | ABSORBED | 0 | 339 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/go-openclaw-chain-03-v1` | remote | ABSORBED | 0 | 338 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
+| `feat/antigravity-binance-v1` | remote | ABSORBED | 0 | 611 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Mimo ou misc absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_MIMO_MISC_ABSORBED_RECLASS_01` |
+| `feat/cards01` | remote | ABSORBED | 0 | 113 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Mimo ou misc absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_MIMO_MISC_ABSORBED_RECLASS_01` |
+| `feat/collectors-lifecycle-wrapper-harmonization-01` | remote | ABSORBED | 0 | 339 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Mimo ou misc absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_MIMO_MISC_ABSORBED_RECLASS_01` |
+| `feat/go-openclaw-chain-03-v1` | remote | ABSORBED | 0 | 338 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Mimo ou misc absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_MIMO_MISC_ABSORBED_RECLASS_01` |
 | `feat/go-strategy-docs-v1` | remote | DIVERGED | 1 | 661 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/journal-full-reading-macro-plan-recenter` | local | DIVERGED | 3 | 77 | `DROP_LOCAL_ONLY` | `review_or_drop_local` | Branche seulement locale non canonisee sur origin | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/memory-bricks-v2-bricks-list` | remote | ABSORBED | 0 | 521 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
+| `feat/memory-bricks-v2-bricks-list` | remote | ABSORBED | 0 | 521 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Mimo ou misc absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_MIMO_MISC_ABSORBED_RECLASS_01` |
 | `feat/memory-bricks-v2-find` | remote | DIVERGED | 1 | 458 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/memory-bricks-v2-health-status` | remote | DIVERGED | 1 | 528 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/memory-bricks-v2-health-status-clean` | remote | DIVERGED | 1 | 441 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/mimo-gate-replay` | remote | ABSORBED | 0 | 547 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
+| `feat/mimo-gate-replay` | remote | ABSORBED | 0 | 547 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Mimo ou misc absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_MIMO_MISC_ABSORBED_RECLASS_01` |
 | `feat/mimo-open-observer-doc-pack-v0` | remote | DIVERGED | 22 | 847 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/mimo-open-observer-doc-pack-v0-clean` | remote | ABSORBED | 0 | 571 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
+| `feat/mimo-open-observer-doc-pack-v0-clean` | remote | ABSORBED | 0 | 571 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Mimo ou misc absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_MIMO_MISC_ABSORBED_RECLASS_01` |
 | `feat/mimo-open-observer-doc-pack-v0-clean-local` | local | ABSORBED | 0 | 571 | `DROP_LOCAL_ONLY` | `review_or_drop_local` | Branche seulement locale non canonisee sur origin | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/mimo-open-observer-doc-pack-v0-clean-working` | local | DIVERGED | 2 | 573 | `DROP_LOCAL_ONLY` | `review_or_drop_local` | Branche seulement locale non canonisee sur origin | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/mimo-open-observer-market-calendar-v1` | both | ABSORBED | 0 | 550 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/mimo-scheduler-promotion` | remote | ABSORBED | 0 | 523 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/openclaw-registry-expose-01` | remote | ABSORBED | 0 | 451 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
+| `feat/mimo-open-observer-market-calendar-v1` | both | ABSORBED | 0 | 550 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Mimo ou misc absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_MIMO_MISC_ABSORBED_RECLASS_01` |
+| `feat/mimo-scheduler-promotion` | remote | ABSORBED | 0 | 523 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Mimo ou misc absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_MIMO_MISC_ABSORBED_RECLASS_01` |
+| `feat/openclaw-registry-expose-01` | remote | ABSORBED | 0 | 451 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Mimo ou misc absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_MIMO_MISC_ABSORBED_RECLASS_01` |
 | `feat/project-card-module-contextuals-shell-01` | remote | DIVERGED | 1 | 146 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/project-card-openclaw-01` | remote | DIVERGED | 1 | 146 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/project-card-validated-prompt-factory-01` | remote | DIVERGED | 1 | 146 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
@@ -167,6 +167,7 @@ Obligations explicites :
 - sous-lot Product / cards / session absorbe puis supprime du remote : `feat/product-target-canon`, `feat/project-card-bot-vision-ingestion-01`, `feat/project-card-trading-analytics-chain-01`, `feat/project-cards-canonical-alignment-01`, `feat/project-cards-gate-alignment-01`, `feat/project-portfolio-validated-plans-freeze-01`, `feat/session-documentation-gate`, `feat/docs-index-chantier-inventory-sync-01`, `feat/OT_DESKPRO_RELEASE_OPS_DRILL_01` -> reclassification doc-only deja publiee, suppression executee, donc lignes retirees du tableau courant
 - sous-lot Runtime / engine / helpers absorbe reclassifie sans suppression dans ce passage : `feat/engines-plugin`, `feat/execution-engine`, `feat/persistent-state`, `feat/position-engine`, `feat/position-guard`, `feat/student-ops-helpers-01`, `feat/trading-realtime-v1-event-bridge`, `feat/trading-realtime-v1-export`, `feat/trading-realtime-v1-guardrails`, `feat/trading-realtime-v1-reporting`, `feat/trading-realtime-v1-runtime-loop`, `feat/trading-realtime-v1-timer`, `feature/hf-publish-helper-fix-01`, `feature/hf-tools-private-config-fix-01` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_RUNTIME_ENGINE_HELPERS_ABSORBED_RECLASS_01`
 - sous-lot Runtime / engine / helpers absorbe puis supprime du remote : `feat/engines-plugin`, `feat/execution-engine`, `feat/persistent-state`, `feat/position-engine`, `feat/position-guard`, `feat/student-ops-helpers-01`, `feat/trading-realtime-v1-event-bridge`, `feat/trading-realtime-v1-export`, `feat/trading-realtime-v1-guardrails`, `feat/trading-realtime-v1-reporting`, `feat/trading-realtime-v1-runtime-loop`, `feat/trading-realtime-v1-timer`, `feature/hf-publish-helper-fix-01`, `feature/hf-tools-private-config-fix-01` -> reclassification doc-only deja publiee, suppression executee, donc lignes retirees du tableau courant
+- sous-lot Mimo / misc absorbe reclassifie sans suppression dans ce passage : `feat/antigravity-binance-v1`, `feat/cards01`, `feat/collectors-lifecycle-wrapper-harmonization-01`, `feat/go-openclaw-chain-03-v1`, `feat/memory-bricks-v2-bricks-list`, `feat/mimo-gate-replay`, `feat/mimo-open-observer-doc-pack-v0-clean`, `feat/mimo-open-observer-market-calendar-v1`, `feat/mimo-scheduler-promotion`, `feat/openclaw-registry-expose-01` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_MIMO_MISC_ABSORBED_RECLASS_01`
 
 ## Point de reprise
 
