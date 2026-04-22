@@ -40,7 +40,7 @@ Elle sert a :
 - repo : `opt-trading`
 - branche canonique : `sot/mainline`
 - base de comparaison : `origin/sot/mainline`
-- snapshot de reference : `origin/sot/mainline@5180cc4`
+- snapshot de reference : `origin/sot/mainline@aec6422`
 - date de reference : `2026-04-22`
 - perimetre : branches locales et distantes presentes apres `fetch --prune`
 
@@ -68,10 +68,10 @@ Obligations explicites :
 | `KEEP_ACTIVE` | 2 |
 | `KEEP_REFERENCE` | 1 |
 | `KEEP_SNAPSHOT` | 9 |
-| `ABSORBED` | 61 |
+| `ABSORBED` | 51 |
 | `REDUNDANT` | 1 |
 | `REVIEW` | 21 |
-| `DROP_REMOTE_CANDIDATE` | 0 |
+| `DROP_REMOTE_CANDIDATE` | 10 |
 | `DROP_LOCAL_ONLY` | 5 |
 
 ## Legende de lecture
@@ -89,24 +89,24 @@ Obligations explicites :
 | `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` | remote | DIVERGED | 9 | 21 | `KEEP_ACTIVE` | `keep_under_review` | Parent AI team architecture encore vivant cote branche | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `audit/opt-trading-20260320a` | remote | DIVERGED | 20 | 615 | `REVIEW` | `manual_review` | Famille sensible a revue manuelle obligatoire | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `backup/mimo-b038db9` | local | DIVERGED | 18 | 625 | `KEEP_SNAPSHOT` | `exclude_cleanup` | Snapshot local de reprise MiMo | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `closeout/collectors-lifecycle-compat-01` | remote | ABSORBED | 0 | 345 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
+| `closeout/collectors-lifecycle-compat-01` | remote | ABSORBED | 0 | 345 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche closeout absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_GITHUB_PARK_CLOSEOUT_ABSORBED_RECLASS_01` |
 | `doc/GO_OPENCLAW_INFRA_BASELINE_01` | remote | DIVERGED | 1 | 261 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/chatgpt-profile-baseline-index-01` | remote | ABSORBED | 0 | 44 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `docs/github-park-audit-expansion-closeout-01` | remote | ABSORBED | 0 | 57 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `docs/github-park-branch-trunk-cross-audit-01` | remote | ABSORBED | 0 | 59 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
+| `docs/github-park-audit-expansion-closeout-01` | remote | ABSORBED | 0 | 57 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche GitHub park absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_GITHUB_PARK_CLOSEOUT_ABSORBED_RECLASS_01` |
+| `docs/github-park-branch-trunk-cross-audit-01` | remote | ABSORBED | 0 | 59 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche GitHub park absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_GITHUB_PARK_CLOSEOUT_ABSORBED_RECLASS_01` |
 | `docs/github-park-parent-closeout-01` | remote | DIVERGED | 1 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/github-park-pass-close-01` | remote | DIVERGED | 4 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `docs/go-openclaw-evidence-01-v1` | remote | ABSORBED | 0 | 345 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
+| `docs/go-openclaw-evidence-01-v1` | remote | ABSORBED | 0 | 345 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
 | `docs/hermes-openclaw-bridge-05-closeout-01` | remote | ABSORBED | 0 | 312 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/hermes-openclaw-exec01-result-01` | remote | ABSORBED | 0 | 316 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/hermes-result-case01-v1` | remote | ABSORBED | 0 | 327 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/index-simex-link-01` | remote | ABSORBED | 0 | 295 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/memory-bricks-localcms-contract-alignment-01` | remote | DIVERGED | 5 | 61 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `docs/openclaw-alignment-decision-07` | remote | ABSORBED | 0 | 295 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `docs/openclaw-alignment-exception-08` | remote | ABSORBED | 0 | 290 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `docs/openclaw-alignment-read-06` | remote | ABSORBED | 0 | 299 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `docs/openclaw-policy-runtime-alignment-05` | remote | ABSORBED | 0 | 301 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `docs/openclaw-state-dir-vigilance-03` | remote | ABSORBED | 0 | 303 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
+| `docs/openclaw-alignment-decision-07` | remote | ABSORBED | 0 | 295 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
+| `docs/openclaw-alignment-exception-08` | remote | ABSORBED | 0 | 290 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
+| `docs/openclaw-alignment-read-06` | remote | ABSORBED | 0 | 299 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
+| `docs/openclaw-policy-runtime-alignment-05` | remote | ABSORBED | 0 | 301 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
+| `docs/openclaw-state-dir-vigilance-03` | remote | ABSORBED | 0 | 303 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
 | `docs/simex-presets-01` | remote | ABSORBED | 0 | 308 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/skills-usage-cross-review-01` | remote | DIVERGED | 1 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/tmux-opencode-openclaw-runtime-01` | remote | DIVERGED | 1 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
@@ -169,7 +169,7 @@ Obligations explicites :
 | `feat/trading-realtime-v1-timer` | remote | ABSORBED | 0 | 387 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feature/hf-publish-helper-fix-01` | remote | ABSORBED | 0 | 623 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feature/hf-tools-private-config-fix-01` | remote | ABSORBED | 0 | 614 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `go/openclaw-sync-02-doc` | remote | ABSORBED | 0 | 306 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
+| `go/openclaw-sync-02-doc` | remote | ABSORBED | 0 | 306 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
 | `go_repos_agent-role_initial_01` | remote | DIVERGED | 1 | 21 | `KEEP_REFERENCE` | `exclude_cleanup` | Branche de reference pour le parent AI team architecture | `GO_GIT_GO_REPOS_AGENT_ROLE_INITIAL_CLASSIFICATION_01` |
 | `integ/trading-dual-stack-doc-pack-01` | remote | DIVERGED | 4 | 522 | `REVIEW` | `manual_review` | Famille sensible a revue manuelle obligatoire | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `inventory/collectors-baseline-01` | remote | DIVERGED | 6 | 361 | `REVIEW` | `manual_review` | Famille sensible a revue manuelle obligatoire | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
@@ -195,6 +195,8 @@ Obligations explicites :
 - branche d'isolation supprimee du remote : `origin/codex/reseau-ssh-runtime-compat-retirement-01-isolate`, absente du tableau courant apres `fetch --prune`
 - branche reclassifiee sans suppression dans ce passage : `origin/doc/GO_OPENCLAW_STATE_DIR_READ_09` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_OPENCLAW_STATE_DIR_READ_09_CLASSIFICATION_01`
 - branche absorbee puis supprimee du remote : `origin/doc/GO_OPENCLAW_STATE_DIR_READ_09` -> reclassification doc-only deja publiee, suppression executee, donc absente du tableau courant
+- sous-lot OpenClaw absorbe reclassifie sans suppression dans ce passage : `docs/go-openclaw-evidence-01-v1`, `docs/openclaw-alignment-decision-07`, `docs/openclaw-alignment-exception-08`, `docs/openclaw-alignment-read-06`, `docs/openclaw-policy-runtime-alignment-05`, `docs/openclaw-state-dir-vigilance-03`, `go/openclaw-sync-02-doc` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01`
+- sous-lot GitHub park / closeout absorbe reclassifie sans suppression dans ce passage : `closeout/collectors-lifecycle-compat-01`, `docs/github-park-audit-expansion-closeout-01`, `docs/github-park-branch-trunk-cross-audit-01` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_GITHUB_PARK_CLOSEOUT_ABSORBED_RECLASS_01`
 
 ## Point de reprise
 
