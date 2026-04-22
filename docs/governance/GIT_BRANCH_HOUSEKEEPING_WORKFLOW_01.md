@@ -15,11 +15,12 @@ topic_keys:
   - skill
 surface: governance
 source_kind: canonical
-updated_at: 2026-04-17
+updated_at: 2026-04-22
 links:
   - docs/governance/SESSION_DOCUMENTATION_GATE.md
   - docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md
   - docs/index/GO_INDEX.md
+  - docs/index/BRANCH_STATE.md
   - docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/04_branch_trunk_cross_audit_target.md
   - docs/chantiers/GO_GIT_BRANCH_HOUSEKEEPING_METHOD_01/90_closeout.md
 ---
@@ -67,11 +68,28 @@ Ordre minimal :
 - liste des branches locales et distantes
 - résultat `--merged origin/sot/mainline`
 - éventuels commits uniques hors canon
+- état courant canonique des branches : `docs/index/BRANCH_STATE.md`
 - références canoniques utiles :
   - `docs/index/GO_INDEX.md`
+  - `docs/index/BRANCH_STATE.md`
   - `docs/index/REPRISE.md`
   - dossier chantier concerné
   - closeout si présent
+
+---
+
+## Support canonique d'etat courant
+
+Le support canonique unique de l'etat courant du parc branches est :
+
+- `docs/index/BRANCH_STATE.md`
+
+Règle explicite :
+
+1. toute création de branche significative doit y être ajoutée rapidement
+2. toute reclassification (`KEEP`, `REVIEW`, `DELETE_NOW` ou équivalent opératoire) doit y être reflétée
+3. toute suppression locale ou distante réellement exécutée doit y être reflétée dans le même passage
+4. ce support complète `GO_INDEX` pour la surface branches et ne le remplace pas
 
 ---
 
@@ -155,6 +173,11 @@ Supprimer seulement le lot `DELETE_NOW` validé.
 
 ### 5. Journalisation
 Tracer les suppressions réelles dans le support adapté au chantier ou au journal utile, sans créer de canon parallèle.
+
+Mettre également à jour `docs/index/BRANCH_STATE.md` pour refléter :
+- les suppressions exécutées
+- les nouvelles branches apparues
+- les changements de statut
 
 ---
 
