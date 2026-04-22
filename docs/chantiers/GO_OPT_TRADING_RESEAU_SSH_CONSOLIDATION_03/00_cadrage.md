@@ -16,7 +16,7 @@ topic_keys:
   - unified_module
 surface: modules
 source_kind: canonical
-updated_at: 2026-04-16
+updated_at: 2026-04-22
 links:
   - docs/governance/SESSION_DOCUMENTATION_GATE.md
   - docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/03_file_role_cartography.md
@@ -196,6 +196,30 @@ Famille observée :
 - rôle IA/IDE : auditeur puis consolidateur ciblé
 - rôle machine : non engagé tant qu’aucun patch runtime live n’est demandé
 
+### 4. Point de continuité post-merge PR #152
+État Git réel validé pour la reprise :
+
+- branche courante correcte : `sot/mainline`
+- worktree courant : propre
+- tracking : `sot/mainline...origin/sot/mainline`
+- tête réelle : `b35e4d4`
+- merge PR `#152` bien présent dans l’historique réel au commit `bcee8fe`
+- la branche `codex/reseau-ssh-runtime-compat-retirement-01-isolate` reste une branche historique, mais n’est plus la base de reprise active
+
+Établi à ce stade :
+
+- le blocage d’hygiène Git locale est levé
+- il n’y a pas de divergence locale à corriger avant reprise
+- l’état courant est plus avancé que le strict post-merge PR `#152`
+- le lot fusionné par la PR `#152` reste strictement doc-only
+- `NO_GO_PHYSICAL` reste maintenu
+
+Conséquence de continuité :
+
+- le prochain arbitrage n’est plus Git
+- le prochain arbitrage redevient fonctionnel / documentaire
+- la suite admissible est soit un maintien en pilotage doc-only, soit l’ouverture explicite d’un lot physique séparé, borné machine par machine, avec rollback et smoke tests
+
 ---
 
 ## Gap restant
@@ -315,6 +339,21 @@ avec disparition à terme des lignées parallèles actives `step1b` / `step2`, a
 - `GO_OPT_TRADING_RESEAU_SSH_PHYSICAL_CONSOLIDATION_01` est clos côté patch documentaire minimal
 - le parent reste ouvert
 - la suite naturelle du parent est désormais explicitement le cadrage du module unique SSH
+
+### Arbitrage actif après validation Git
+Le parent porte désormais explicitement le point de continuité suivant :
+
+- état Git réel validé sur `sot/mainline`
+- état canonique `reseau_ssh` confirmé
+- lot PR `#152` relu comme lot doc-only uniquement
+- `NO_GO_PHYSICAL` maintenu
+
+Le prochain lot actif doit être choisi explicitement :
+
+- soit continuité doc-only / pilotage
+- soit ouverture d’un lot physique séparé
+
+Ce choix ne peut pas être déduit du merge documentaire seul.
 
 ---
 
