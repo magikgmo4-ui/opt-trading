@@ -14,7 +14,7 @@ topic_keys:
   - patch
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-18
+updated_at: 2026-04-22
 links:
   - docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/00_cadrage.md
   - docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/03_decisions.md
@@ -109,3 +109,25 @@ links:
 
 ### REPRISE (fil “HUMAN_CONTINUITY_*”)
 - si reprise du sweep : partir de `docs/governance/JOURNAL_HIERARCHY.md`, puis relire `docs/governance/HUMAN_CONTINUITY_*` pour aligner uniquement les divergences réelles
+
+## 2026-04-22
+### Étape 6 — Arbitrage final du bundle GO_INDEX_ALIGNMENT_IDE_BUNDLE
+- relecture bornée de `GO_INDEX.md`, `REPRISE.md`, `DOC_LAYERS.md` et des chantiers absorbants
+- arbitrage des écarts résiduels du bundle sans réaudit global
+- ancrage minimal des règles utiles de lecture :
+  - tableau canonique = vérité de liste
+  - `Entrées` = enrichissement seulement
+  - surface documentaire non chantier = support valide mais non chantier
+  - repère dérivé = aide non canonique
+- décision de ne pas ouvrir rétroactivement `GO_OPT_TRADING_GO_INDEX_CANONICAL_ALIGNMENT_01` ni sa suite dédiée
+- dépôt d’un closeout autonome du sujet bundle dans ce chantier absorbant
+
+### ETABLI
+- le bundle est clos canoniquement comme sous-sujet absorbé de `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`
+- les écarts restants sont désormais soit ancrés comme règles minimales, soit écartés, soit absorbés explicitement
+
+### TODO
+- aucun lot bundle résiduel autonome à ouvrir à ce stade
+
+### REPRISE
+- poursuivre uniquement les écarts continuité réellement observés dans le parent `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`

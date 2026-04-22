@@ -15,7 +15,7 @@ topic_keys:
   - next
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-18
+updated_at: 2026-04-22
 links:
   - docs/index/GO_INDEX.md
   - docs/index/ACTIVE_STREAMS.md
@@ -68,6 +68,20 @@ Accepté pour PHASE 1 :
 Report (non exécuté maintenant) :
 - sweep global `docs/governance/HUMAN_CONTINUITY_*` non exécuté en PHASE 1
 - arbitrage conservé ouvert, à reprendre en PHASE 2 ou via une phase dédiée ultérieure
+
+## D7 — Arbitrage final du bundle GO_INDEX_ALIGNMENT_IDE_BUNDLE
+Décisions retenues :
+- `GO_OPT_TRADING_GO_INDEX_CANONICAL_ALIGNMENT_01` est absorbé par `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01` ; aucun nouveau parent canonique n’est ouvert
+- `GO_OPT_TRADING_GO_INDEX_METADATA_COMPLETION_01` est absorbé en gap-only dans le parent de réalignement d’index si des métadonnées restent réellement incomplètes
+- `GO_OPT_TRADING_GO_INDEX_PRE_TABLE_NORMALIZATION_01` est écarté canoniquement : la continuité locale ne retient pas de file séparée “avant tableau” dans `docs/index/*`
+- `GO_OPT_TRADING_GO_INDEX_DERIVED_FAMILY_VIEW_01` est absorbé autrement par les surfaces déjà retenues pour les lectures dérivées de famille : audit famille + `docs/status/*`
+- les notions `SURFACE_DOCUMENTAIRE_NON_CHANTIER` et “repère dérivé non canonique” sont ancrées comme règles de lecture, sans créer de nouvelle couche d’exécution autonome
+- le closeout du sujet bundle est porté par `91_bundle_closeout_go_index_alignment.md` dans ce chantier absorbant
+
+Justification :
+- éviter l’ouverture rétroactive d’un GO nominal doublon
+- conserver une seule chaîne canonique de continuité pour l’alignement d’index
+- ancrer la règle utile, sans importer toute la taxonomie transitoire du bundle
 
 ## REPRISE
 Point de reprise unique :

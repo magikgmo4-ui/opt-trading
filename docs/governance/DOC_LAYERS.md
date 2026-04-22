@@ -15,7 +15,7 @@ topic_keys:
   - memory_bricks
 surface: governance
 source_kind: canonical
-updated_at: 2026-04-20
+updated_at: 2026-04-22
 links:
   - docs/governance/REPO_ROLE.md
 ---
@@ -138,6 +138,12 @@ Rendre visible l’état courant et les suites naturelles.
 - reprise rapide
 - visibilité des prochains GO candidats
 - conservation des opportunités non encore ouvertes
+
+### Règles locales de lecture pour `docs/index/GO_INDEX.md`
+- le `Tableau canonique des chantiers` porte la liste canonique
+- la section `Entrées` enrichit un GO déjà canonisé ; elle n’ajoute pas un GO hors tableau
+- une surface documentaire non chantier peut être référencée comme support ou source, sans devenir un chantier
+- un repère dérivé transverse peut exister comme aide de lecture, mais reste non canonique tant qu’il ne remplace ni la liste ni la priorité ni la reprise
 
 ---
 

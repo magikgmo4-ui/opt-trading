@@ -14,7 +14,7 @@ topic_keys:
   - governance
 surface: continuity
 source_kind: canonical
-updated_at: 2026-04-20
+updated_at: 2026-04-22
 links:
   - docs/governance/REPO_ROLE.md
   - docs/governance/DOC_LAYERS.md
@@ -49,8 +49,12 @@ Ce document référence les GO non clos connus et utiles à la continuité local
 - l’index référence et synthétise
 - il ne remplace ni le dossier chantier ni le closeout
 - `GO_INDEX.md` est l’index opératoire des chantiers non clos
+- le `Tableau canonique des chantiers` est la vérité de liste de `GO_INDEX.md`
+- la section `Entrées` enrichit un GO déjà canonisé dans le tableau ; elle n’ouvre pas un nouveau GO à elle seule
 - lorsqu’un chantier passe en `CLOSED`/`PASS`, il doit être retiré de `docs/index/GO_INDEX.md` et déplacé dans `docs/index/GO_CLOSED_INDEX.md`
 - les entrées `REFERENCE` peuvent rester dans `GO_INDEX.md` si elles sont utiles à la continuité active et ne correspondent pas à une clôture
+- une surface documentaire non chantier peut être citée comme source, support ou référence, mais ne doit pas être listée comme chantier dans le tableau canonique
+- un repère de famille dérivé peut exister comme aide transverse non canonique ; il ne doit ni modifier la liste canonique ni porter la priorité opératoire à la place du tableau
 - les liens doivent pointer vers les artefacts détaillés dès qu’ils existent
 
 ---
