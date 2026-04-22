@@ -58,9 +58,9 @@ Obligations explicites :
 
 ## Synthese courante
 
-- branches remote : `89`
+- branches remote : `77`
 - branches locales : `11`
-- entrees totales suivies dans le tableau : `95`
+- entrees totales suivies dans le tableau : `83`
 - comparaison de reference : `origin/sot/mainline`
 
 | CANON_STATUS | COUNT |
@@ -71,7 +71,7 @@ Obligations explicites :
 | `ABSORBED` | 36 |
 | `REDUNDANT` | 1 |
 | `REVIEW` | 22 |
-| `DROP_REMOTE_CANDIDATE` | 19 |
+| `DROP_REMOTE_CANDIDATE` | 7 |
 | `DROP_LOCAL_ONLY` | 5 |
 
 ## Legende de lecture
@@ -95,31 +95,22 @@ Obligations explicites :
 | `docs/github-park-parent-closeout-01` | remote | DIVERGED | 1 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/github-park-pass-close-01` | remote | DIVERGED | 4 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/go-openclaw-evidence-01-v1` | remote | ABSORBED | 0 | 345 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
-| `docs/index-simex-link-01` | remote | ABSORBED | 0 | 295 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Simex absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_SIMEX_ABSORBED_RECLASS_01` |
 | `docs/memory-bricks-localcms-contract-alignment-01` | remote | DIVERGED | 5 | 61 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/openclaw-alignment-decision-07` | remote | ABSORBED | 0 | 295 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
 | `docs/openclaw-alignment-exception-08` | remote | ABSORBED | 0 | 290 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
 | `docs/openclaw-alignment-read-06` | remote | ABSORBED | 0 | 299 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
 | `docs/openclaw-policy-runtime-alignment-05` | remote | ABSORBED | 0 | 301 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
 | `docs/openclaw-state-dir-vigilance-03` | remote | ABSORBED | 0 | 303 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
-| `docs/simex-presets-01` | remote | ABSORBED | 0 | 308 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Simex absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_SIMEX_ABSORBED_RECLASS_01` |
 | `docs/skills-usage-cross-review-01` | remote | DIVERGED | 1 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/tmux-opencode-openclaw-runtime-01` | remote | DIVERGED | 1 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/GO_CONTINUITE_PRODUIT_MULTI_CHANTIER_CANON_01` | remote | DIVERGED | 13 | 251 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/OT_DESKPRO_RELEASE_OPS_DRILL_01` | remote | ABSORBED | 0 | 260 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/admin-trading-simex-insufficient-candles-evidence-closeout-01` | remote | ABSORBED | 0 | 242 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Simex absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_SIMEX_ABSORBED_RECLASS_01` |
-| `feat/admin-trading-simex-insufficient-candles-hardening-01` | remote | ABSORBED | 0 | 256 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Simex absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_SIMEX_ABSORBED_RECLASS_01` |
-| `feat/admin-trading-simex-runtime-evidence-closeout-01` | remote | ABSORBED | 0 | 275 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Simex absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_SIMEX_ABSORBED_RECLASS_01` |
-| `feat/admin-trading-simex-upstream-failure-hardening-01` | remote | ABSORBED | 0 | 265 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Simex absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_SIMEX_ABSORBED_RECLASS_01` |
-| `feat/admin-trading-simex-upstream-hardening-evidence-closeout-01` | remote | ABSORBED | 0 | 262 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Simex absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_SIMEX_ABSORBED_RECLASS_01` |
-| `feat/admin-trading-simex-upstream-hardening-evidence-upgrade-01` | remote | ABSORBED | 0 | 260 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Simex absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_SIMEX_ABSORBED_RECLASS_01` |
 | `feat/antigravity-binance-v1` | remote | ABSORBED | 0 | 611 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/cards01` | remote | ABSORBED | 0 | 113 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/collectors-lifecycle-wrapper-harmonization-01` | remote | ABSORBED | 0 | 339 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/docs-index-chantier-inventory-sync-01` | remote | ABSORBED | 0 | 92 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/engines-plugin` | remote | ABSORBED | 0 | 784 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/execution-engine` | remote | ABSORBED | 0 | 780 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/fantome-simex-module-durable-01` | remote | ABSORBED | 0 | 288 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Simex absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_SIMEX_ABSORBED_RECLASS_01` |
 | `feat/go-openclaw-chain-03-v1` | remote | ABSORBED | 0 | 338 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/go-strategy-docs-v1` | remote | DIVERGED | 1 | 661 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/journal-full-reading-macro-plan-recenter` | local | DIVERGED | 3 | 77 | `DROP_LOCAL_ONLY` | `review_or_drop_local` | Branche seulement locale non canonisee sur origin | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
@@ -149,9 +140,6 @@ Obligations explicites :
 | `feat/project-portfolio-validated-plans-freeze-01` | remote | ABSORBED | 0 | 178 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/range-strategy-v1-struct` | remote | ABSORBED | 0 | 166 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/session-documentation-gate` | remote | ABSORBED | 0 | 172 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/simex-env-bridge-01` | remote | ABSORBED | 0 | 314 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Simex absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_SIMEX_ABSORBED_RECLASS_01` |
-| `feat/simex-units-contract-01` | remote | ABSORBED | 0 | 280 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Simex absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_SIMEX_ABSORBED_RECLASS_01` |
-| `feat/simex-wrappers-01` | remote | ABSORBED | 0 | 349 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche Simex absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_SIMEX_ABSORBED_RECLASS_01` |
 | `feat/student-mimo-bitget-live-equity` | both | DIVERGED | 23 | 615 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/student-mimo-qualification` | both | DIVERGED | 21 | 615 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/student-ops-helpers-01` | remote | ABSORBED | 0 | 351 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
@@ -197,6 +185,7 @@ Obligations explicites :
 - sous-lot Hermes absorbe reclassifie sans suppression dans ce passage : `docs/hermes-openclaw-bridge-05-closeout-01`, `docs/hermes-openclaw-exec01-result-01`, `docs/hermes-result-case01-v1` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_HERMES_ABSORBED_RECLASS_01`
 - sous-lot Hermes absorbe puis supprime du remote : `docs/hermes-openclaw-bridge-05-closeout-01`, `docs/hermes-openclaw-exec01-result-01`, `docs/hermes-result-case01-v1` -> reclassification doc-only deja publiee, suppression executee, donc lignes retirees du tableau courant
 - sous-lot Simex absorbe reclassifie sans suppression dans ce passage : `docs/index-simex-link-01`, `docs/simex-presets-01`, `feat/admin-trading-simex-insufficient-candles-evidence-closeout-01`, `feat/admin-trading-simex-insufficient-candles-hardening-01`, `feat/admin-trading-simex-runtime-evidence-closeout-01`, `feat/admin-trading-simex-upstream-failure-hardening-01`, `feat/admin-trading-simex-upstream-hardening-evidence-closeout-01`, `feat/admin-trading-simex-upstream-hardening-evidence-upgrade-01`, `feat/fantome-simex-module-durable-01`, `feat/simex-env-bridge-01`, `feat/simex-units-contract-01`, `feat/simex-wrappers-01` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_SIMEX_ABSORBED_RECLASS_01`
+- sous-lot Simex absorbe puis supprime du remote : `docs/index-simex-link-01`, `docs/simex-presets-01`, `feat/admin-trading-simex-insufficient-candles-evidence-closeout-01`, `feat/admin-trading-simex-insufficient-candles-hardening-01`, `feat/admin-trading-simex-runtime-evidence-closeout-01`, `feat/admin-trading-simex-upstream-failure-hardening-01`, `feat/admin-trading-simex-upstream-hardening-evidence-closeout-01`, `feat/admin-trading-simex-upstream-hardening-evidence-upgrade-01`, `feat/fantome-simex-module-durable-01`, `feat/simex-env-bridge-01`, `feat/simex-units-contract-01`, `feat/simex-wrappers-01` -> reclassification doc-only deja publiee, suppression executee, donc lignes retirees du tableau courant
 
 ## Point de reprise
 
