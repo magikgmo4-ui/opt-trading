@@ -59,8 +59,8 @@ Obligations explicites :
 ## Synthese courante
 
 - branches remote : `35`
-- branches locales : `11`
-- entrees totales suivies dans le tableau : `42`
+- branches locales : `5`
+- entrees totales suivies dans le tableau : `36`
 - comparaison de reference : `origin/sot/mainline`
 
 | CANON_STATUS | COUNT |
@@ -72,7 +72,7 @@ Obligations explicites :
 | `REDUNDANT` | 1 |
 | `REVIEW` | 22 |
 | `DROP_REMOTE_CANDIDATE` | 0 |
-| `DROP_LOCAL_ONLY` | 6 |
+| `DROP_LOCAL_ONLY` | 0 |
 
 ## Legende de lecture
 
@@ -98,25 +98,19 @@ Obligations explicites :
 | `docs/tmux-opencode-openclaw-runtime-01` | remote | DIVERGED | 1 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/GO_CONTINUITE_PRODUIT_MULTI_CHANTIER_CANON_01` | remote | DIVERGED | 13 | 251 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/go-strategy-docs-v1` | remote | DIVERGED | 1 | 661 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/journal-full-reading-macro-plan-recenter` | local | DIVERGED | 3 | 77 | `DROP_LOCAL_ONLY` | `review_or_drop_local` | Branche seulement locale non canonisee sur origin | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/memory-bricks-v2-find` | remote | DIVERGED | 1 | 458 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/memory-bricks-v2-health-status` | remote | DIVERGED | 1 | 528 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/memory-bricks-v2-health-status-clean` | remote | DIVERGED | 1 | 441 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/mimo-open-observer-market-calendar-v1` | local | ABSORBED | 0 | 550 | `DROP_LOCAL_ONLY` | `review_or_drop_local` | Branche locale restante apres suppression remote du sous-lot Mimo / misc | `GO_GIT_MIMO_MISC_ABSORBED_RECLASS_01` |
 | `feat/mimo-open-observer-doc-pack-v0` | remote | DIVERGED | 22 | 847 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/mimo-open-observer-doc-pack-v0-clean-local` | local | ABSORBED | 0 | 571 | `DROP_LOCAL_ONLY` | `review_or_drop_local` | Branche seulement locale non canonisee sur origin | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/mimo-open-observer-doc-pack-v0-clean-working` | local | DIVERGED | 2 | 573 | `DROP_LOCAL_ONLY` | `review_or_drop_local` | Branche seulement locale non canonisee sur origin | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/project-card-module-contextuals-shell-01` | remote | DIVERGED | 1 | 146 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/project-card-openclaw-01` | remote | DIVERGED | 1 | 146 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/project-card-validated-prompt-factory-01` | remote | DIVERGED | 1 | 146 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/student-mimo-bitget-live-equity` | both | DIVERGED | 23 | 615 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/student-mimo-qualification` | both | DIVERGED | 21 | 615 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/student-validation-bitget-readonly-01` | local | ABSORBED | 0 | 28 | `DROP_LOCAL_ONLY` | `review_or_drop_local` | Branche seulement locale non canonisee sur origin | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `go_repos_agent-role_initial_01` | remote | DIVERGED | 1 | 21 | `KEEP_REFERENCE` | `exclude_cleanup` | Branche de reference pour le parent AI team architecture | `GO_GIT_GO_REPOS_AGENT_ROLE_INITIAL_CLASSIFICATION_01` |
 | `integ/trading-dual-stack-doc-pack-01` | remote | DIVERGED | 4 | 522 | `REVIEW` | `manual_review` | Famille sensible a revue manuelle obligatoire | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `inventory/collectors-baseline-01` | remote | DIVERGED | 6 | 361 | `REVIEW` | `manual_review` | Famille sensible a revue manuelle obligatoire | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `main` | both | DIVERGED | 3 | 847 | `REDUNDANT` | `review_alignment` | Tronc historique secondaire en divergence avec le canon sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `opencode/shiny-engine` | local | ABSORBED | 0 | 532 | `DROP_LOCAL_ONLY` | `review_or_drop_local` | Branche seulement locale non canonisee sur origin | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `promo/mimo-v2-bounded-01` | remote | DIVERGED | 3 | 364 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `save/admin-trading-2026-04-01` | remote | DIVERGED | 27 | 625 | `KEEP_SNAPSHOT` | `exclude_cleanup` | Branche snapshot nommee save/* a conserver jusqu a arbitrage explicite | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `save/admin-trading-post-reset-2026-04-04` | remote | DIVERGED | 1 | 409 | `KEEP_SNAPSHOT` | `exclude_cleanup` | Branche snapshot nommee save/* a conserver jusqu a arbitrage explicite | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
@@ -154,6 +148,7 @@ Obligations explicites :
 - reliquat OpenClaw `DROP_REMOTE_CANDIDATE` supprime du remote : `docs/go-openclaw-evidence-01-v1`, `docs/openclaw-alignment-decision-07`, `docs/openclaw-alignment-exception-08`, `docs/openclaw-alignment-read-06`, `docs/openclaw-policy-runtime-alignment-05`, `docs/openclaw-state-dir-vigilance-03`, `go/openclaw-sync-02-doc` -> suppression executee, donc lignes retirees du tableau courant
 - sous-lot absorbe non `sot/*` a faible risque reclassifie sans suppression dans ce passage : `docs/chatgpt-profile-baseline-index-01`, `feat/range-strategy-v1-struct` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_ABSORBED_NON_SOT_LOW_RISK_RECLASS_01`
 - sous-lot absorbe non `sot/*` a faible risque supprime du remote : `docs/chatgpt-profile-baseline-index-01`, `feat/range-strategy-v1-struct` -> reclassification doc-only deja publiee, suppression executee, donc lignes retirees du tableau courant
+- passe `DROP_LOCAL_ONLY` terminee : `feat/journal-full-reading-macro-plan-recenter`, `feat/mimo-open-observer-market-calendar-v1`, `feat/mimo-open-observer-doc-pack-v0-clean-local`, `feat/mimo-open-observer-doc-pack-v0-clean-working`, `feat/student-validation-bitget-readonly-01`, `opencode/shiny-engine` -> branches locales retirees du tableau courant; sauvegarde locale du worktree journal dans `/.bundle_reviews/drop_local_only_backups/journal-full-reading-macro-plan-recenter`
 
 ## Point de reprise
 
