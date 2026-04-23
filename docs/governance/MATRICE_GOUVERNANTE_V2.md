@@ -15,8 +15,11 @@ topic_keys:
   - git
 surface: governance
 source_kind: canonical
-updated_at: 2026-04-22
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+point_de_reprise: "Section Role documentaire"
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_CANONIZATION_01/00_cadrage.md
   - docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_CANONIZATION_01/03_decisions.md
   - docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_CANONIZATION_01/90_closeout.md
@@ -30,7 +33,19 @@ links:
 
 ## Objet
 
-Fixer la matrice gouvernante V2 comme surface canonique de gouvernance pour `opt-trading`, a partir du bundle clos `matrice_gouvernante_bundle_v1`, sans rouvrir ses passes.
+Fixer la matrice gouvernante V2 comme annexe stable secondaire de gouvernance pour `opt-trading`.
+
+Elle reste une surface canonique importante du corpus stable.
+Depuis la publication de `MATRICE_DOC_OPS_MASTER_MATRIX_01.md`, elle n'est plus la surface maitresse souveraine transverse.
+
+---
+
+## Role documentaire
+
+- `role_actuel` : annexe stable de gouvernance
+- `role_cible` : socle structurel secondaire relu sous la matrice maitre
+- `souverainete` : non souveraine face a `MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
+- `lecture_de_reprise` : lire d'abord `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`, puis revenir ici pour le detail structurel historiquement promu
 
 ---
 
