@@ -15,10 +15,11 @@ topic_keys:
   - parent_chantier
 surface: chantier
 source_kind: canonical
-reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md
-point_de_reprise: "Section 14. TODO"
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+point_de_reprise: "Section Next GO"
 updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md
   - docs/governance/MATRICE_GOUVERNANTE_V2.md
   - docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md
@@ -73,6 +74,7 @@ Produire une matrice maîtresse unique, gouvernante et canonique qui fusionne :
 
 ## ETABLI
 
+- `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md` existe desormais comme matrice maitre finale unique de gouvernance
 - `docs/governance/MATRICE_GOUVERNANTE_V2.md` fixe déjà le socle structurel
 - `docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md` fixe déjà la sous-couche de dérivation
 - `docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md` et `docs/governance/AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md` portent déjà la continuité produit
@@ -82,9 +84,9 @@ Produire une matrice maîtresse unique, gouvernante et canonique qui fusionne :
 
 ## Gap restant
 
-- aucune surface unique ne rassemble aujourd'hui toutes les dimensions utiles
-- l'ordre de lecture produit -> parent -> GO -> Git n'est pas encore fixé dans un seul document maître
-- la hiérarchie canon maître / annexe / dérivé / opératoire n'est pas encore rassemblée dans une même surface souveraine
+- l'alignement / deduplication / reclassement des surfaces proches n'est pas encore execute
+- certaines surfaces utiles restent encore annexes, derivees ou non souveraines et doivent etre recalees a partir de la matrice maitre
+- le parent doit encore propager cette reference sans ouvrir de chantier concurrent
 
 ## Plan validé
 
@@ -135,9 +137,9 @@ Et non l'inverse.
 Aucun sous-GO imposé à ce stade.
 
 La suite immédiate correcte est :
-- produire la matrice maîtresse unique dans le cadre du présent parent
+- lancer le lot d'alignement / deduplication / reclassement des surfaces proches a partir de la matrice maitre deja redigee
 
 ## PASS / FAIL
 
 - PASS : le parent aboutit à une matrice unique réellement gouvernante
-- FAIL : le parent se disperse en notes latérales ou en lots techniques non recroisés
+- FAIL : le parent se disperse en notes latérales, en parents concurrents ou en lots techniques non recroisés

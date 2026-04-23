@@ -13,7 +13,7 @@ topic_keys:
   - continuity
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-20
+updated_at: 2026-04-23
 links:
   - docs/index/GO_INDEX.md
   - docs/index/ACTIVE_STREAMS.md
@@ -58,7 +58,7 @@ Base de pilotage active retenue pour `opt-trading` :
 
 | GO | status | priority | repo canonical refs | supports secondaires (noms) | etat etabli | gap restant | next action |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01` | open | P0 | `docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md`; `docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/01_cadrage_parent.md` | Aucun bundle canonique | Plan maître complet ancré ; parent dédié ouvert pour fusion gouvernante | La matrice unique finale n'existe pas encore comme surface canonique unique | **Produire la matrice maître unique à partir du recroisement produit -> parent -> GO -> Git** |
+| `GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01` | open | P0 | `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`; `docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md`; `docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/01_cadrage_parent.md` | Aucun bundle canonique | Matrice maître finale unique rédigée ; parent dédié maintenu comme enveloppe canonique | L'alignement / deduplication / reclassement des surfaces proches n'est pas encore execute | **Lancer le lot d'alignement des surfaces proches a partir de la matrice maitre deja publiee** |
 | `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01` | active | P0 | `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/00_cadrage.md`; `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/03_decisions.md` | Aucun bundle canonique | Chantier parent ouvert pour réaligner la continuité index | Contradictions d’index + concurrence NEXT + hiérarchie journal à propager | **Exécuter LOT 1 : réaligner `docs/index/*` et déclasser `docs/next/NEXT_GO_CANDIDATES.md`** |
 | `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01` | active | P0 | `docs/chantiers/GO_TMUX_IDE_OPT_TRADING_CADRAGE_01/00_cadrage.md` | `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01_bundle.zip`; `consolidation_targets_ide_bundle.zip` | Bundle préparé, cadrage ouvert | Validation machine cible / panes / repo réel non prouvée | **Exécuter `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01`** |
 | `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01` | active | P0 | `docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/00_cadrage.md`; `docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/03_decisions.md` | `OPT_TRADING_OBSOLETE_RECLASS_AUDIT_BUNDLE.zip` | Parent ouvert (audit/qualification repo-first, doc-only, non destructif) | Matrice canonique à produire + plan de lots physiques futurs | **Produire la matrice (PHASE C) puis le plan de lots (PHASE D)** |

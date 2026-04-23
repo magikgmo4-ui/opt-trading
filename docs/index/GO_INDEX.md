@@ -14,7 +14,7 @@ topic_keys:
   - governance
 surface: continuity
 source_kind: canonical
-updated_at: 2026-04-22
+updated_at: 2026-04-23
 links:
   - docs/governance/REPO_ROLE.md
   - docs/governance/DOC_LAYERS.md
@@ -73,7 +73,7 @@ Normalisation retenue :
 | PARENT | CHANTIER | SOUS_CHANTIER | STATUT | DOSSIER_PRESENT | SOURCE |
 | --- | --- | --- | --- | --- | --- |
 | GO_UNIFORM_CONTINUITY_FINAL_MASTER_PLAN_01 | GO_UNIFORM_CONTINUITY_FINAL_MASTER_PLAN_01 | — | REFERENCE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_UNIFORM_CONTINUITY_FINAL_MASTER_PLAN_01/00_cadrage.md` |
-| GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01 | GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01 | — | OPEN | oui | `docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md`<br>`docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/01_cadrage_parent.md` |
+| GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01 | GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01 | — | OPEN | oui | `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`<br>`docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md`<br>`docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/01_cadrage_parent.md` |
 | GO_GIT_PROGRESSIVE_MIGRATION_START_13 | GO_GIT_PROGRESSIVE_MIGRATION_START_13 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_GIT_PROGRESSIVE_MIGRATION_START_13/00_cadrage.md` |
 | GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01 | GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/03_decisions.md` |
 | GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01 | GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/03_decisions.md`<br>`docs/architecture/REPO_SURFACES_MAP.md` |
@@ -139,8 +139,8 @@ Le passage de 6 à 8 GO non clos correspond à l’ouverture PHASE 2 des parents
 - type : gouvernance / chantier parent / doc-only
 - statut : open
 - titre court : matrice maître doc ops
-- dernier état connu : plan maître complet ancré comme document canonique ; parent ouvert pour produire une matrice unique gouvernante
-- lien utile : `docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md`, `docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/01_cadrage_parent.md`
+- dernier état connu : matrice maître finale unique rédigée et publiée comme surface canonique ; parent maintenu ouvert pour le lot d'alignement des surfaces proches
+- lien utile : `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`, `docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md`, `docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/01_cadrage_parent.md`
 
 ### GO_UNIFORM_CONTINUITY_FINAL_MASTER_PLAN_01
 - repo : opt-trading

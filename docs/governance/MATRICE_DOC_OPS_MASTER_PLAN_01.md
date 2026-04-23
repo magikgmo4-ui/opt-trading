@@ -19,6 +19,7 @@ reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.m
 point_de_reprise: "Section 17. RESUME_POINT"
 updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/MATRICE_GOUVERNANTE_V2.md
   - docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md
   - docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md
@@ -50,6 +51,11 @@ Il fixe :
 - la forme correcte du livrable final
 
 Il doit empêcher que le prochain lot reparte d'une synthèse latérale au lieu d'une matrice gouvernante unique.
+
+Statut d'execution au `2026-04-23` :
+- la matrice maitre finale issue de ce plan existe desormais dans `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
+- le present document reste la base validee du parent
+- il ne doit plus etre lu comme "lot suivant" a produire, mais comme plan d'ancrage deja materialise
 
 ---
 
@@ -341,13 +347,14 @@ Le parent dérive si :
 
 ## 14. TODO
 
-Le prochain geste juste est :
-1. repartir de tout ce qui a été synthétisé
-2. recroiser avec l'existant réel du repo
-3. produire un seul document maître
-4. faire de ce document la référence à respecter à l'avenir
+Le prochain geste juste n'est plus de produire la matrice maitre : elle existe desormais.
 
-Dans le présent passage, seule l'ancre de plan complète est posée.
+Le lot suivant correct devient :
+1. repartir de `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
+2. aligner / dedupliquer / reclasser les surfaces proches a partir de cette matrice
+3. maintenir le parent `MATRICE_DOC_OPS` comme parent unique de cette trajectoire
+
+Le present plan reste l'ancre validee de depart.
 
 ---
 
@@ -375,6 +382,10 @@ Le point de sortie correct du parent n'est pas :
 
 Le point de sortie correct est :
 - une matrice maître unique, publiée comme surface canonique gouvernante
+
+Statut au `2026-04-23` :
+- ce point de sortie a ete atteint avec `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
+- le parent reste ouvert pour le lot d'alignement / deduplication qui suit
 
 ---
 
