@@ -1,4 +1,32 @@
+---
+doc_id: OPT_TRADING_STATUS_DEEPSEEK_STUDENT_CANONIQUE
+doc_type: family_status
+repo: opt-trading
+project: opt-trading
+module: deepseek_student
+go_id:
+status: reference
+lifecycle_stage: continuity
+topic_keys:
+  - opt-trading
+  - status
+  - deepseek_student
+  - family
+surface: continuity
+source_kind: derived
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+updated_at: 2026-04-23
+links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+---
+
 # DEEPSEEK_STUDENT — STATUT CANONIQUE
+
+## Role aligne avec la matrice maitre
+
+- role actuel : fiche courte de lignee `deepseek*` cote student
+- role cible : surface derivee de qualification famille
+- cette fiche ne remplace ni la matrice maitre, ni une decision produit finale, ni le chantier qui arbitre survivant / legacy
 
 ## Objet
 Fiche courte de lignée pour la famille `deepseek*` côté surface student.

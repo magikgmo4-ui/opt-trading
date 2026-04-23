@@ -1,4 +1,32 @@
+---
+doc_id: OPT_TRADING_STATUS_RESEAU_SSH_CANONIQUE
+doc_type: family_status
+repo: opt-trading
+project: opt-trading
+module: reseau_ssh
+go_id:
+status: reference
+lifecycle_stage: continuity
+topic_keys:
+  - opt-trading
+  - status
+  - reseau_ssh
+  - family
+surface: continuity
+source_kind: derived
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+updated_at: 2026-04-23
+links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+---
+
 # RESEAU_SSH — STATUT CANONIQUE
+
+## Role aligne avec la matrice maitre
+
+- role actuel : fiche courte de lignee `reseau_ssh*`
+- role cible : surface derivee de qualification famille
+- cette fiche ne remplace ni la matrice maitre, ni la doctrine Git, ni l'arbitrage final de reclassement physique
 
 ## Objet
 Fiche courte de lignée pour la famille `reseau_ssh*`, en complément de l’audit famille.

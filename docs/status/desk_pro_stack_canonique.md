@@ -1,4 +1,32 @@
+---
+doc_id: OPT_TRADING_STATUS_DESK_PRO_STACK_CANONIQUE
+doc_type: family_status
+repo: opt-trading
+project: opt-trading
+module: desk_pro
+go_id:
+status: reference
+lifecycle_stage: continuity
+topic_keys:
+  - opt-trading
+  - status
+  - desk_pro
+  - family
+surface: continuity
+source_kind: derived
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+updated_at: 2026-04-23
+links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+---
+
 # DESK_PRO_STACK — STATUT CANONIQUE
+
+## Role aligne avec la matrice maitre
+
+- role actuel : fiche courte de stack / lignee `desk_pro*`
+- role cible : surface derivee de qualification famille
+- cette fiche ne remplace ni la matrice maitre, ni la lecture produit globale Desk Pro, ni un arbitrage final de stack
 
 ## Objet
 Fiche courte de lignée/stack pour `desk_pro*` et `desk_*`.

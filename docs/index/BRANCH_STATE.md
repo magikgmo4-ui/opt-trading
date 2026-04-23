@@ -14,11 +14,13 @@ topic_keys:
   - index
 surface: index
 source_kind: canonical
-updated_at: 2026-04-22
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md
   - docs/index/GO_INDEX.md
   - docs/index/REPRISE.md
+  - docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/02_alignment_surfaces_proches.md
   - docs/chantiers/GO_GIT_GO_REPOS_AGENT_ROLE_INITIAL_CLASSIFICATION_01/03_decisions.md
   - docs/chantiers/GO_GIT_OPENCLAW_STATE_DIR_REPAIR_10_CLASSIFICATION_01/03_decisions.md
 ---
@@ -34,6 +36,13 @@ Elle sert a :
 - eviter de repartir de zero a chaque session de housekeeping
 - tracer les classifications deja decidees
 - completer `docs/index/GO_INDEX.md` pour la surface branches
+
+## Role aligne avec la matrice maitre
+
+- role actuel : photo canonique de la surface branches
+- role cible : surface operatoire borne aux branches seulement
+- cette fiche ne gouverne ni la continuite produit, ni la structure parent / sous-GO / GO simple, ni le nommage
+- la remise a jour exhaustive du tableau releve du prochain lot de housekeeping branches ; le present lot borne seulement le role de la surface
 
 ## En-tete canonique
 
@@ -125,6 +134,8 @@ Obligations explicites :
 
 ## Journal minimal
 
+- branche de lot doc-only `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01_ALIGNMENT_01` ouverte pour isoler l'alignement des surfaces proches sans elargir la PR `#156` du lot precedent ; meme parent documentaire conserve
+- branche active du parent `GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01` : support Git a maintenir comme branche active du chantier maitre documentaire ; son integration exhaustive dans le tableau releve du prochain refresh housekeeping borne
 - creation du support canonique `docs/index/BRANCH_STATE.md`
 - branche conservee explicitement hors cleanup : `origin/go_repos_agent-role_initial_01` -> `KEEP_REFERENCE` via `GO_GIT_GO_REPOS_AGENT_ROLE_INITIAL_CLASSIFICATION_01`
 - branche absorbee puis supprimee du remote : `origin/doc/GO_OPENCLAW_STATE_DIR_REPAIR_10` -> correction doc-only en `DROP_REMOTE_CANDIDATE`, suppression executee, donc absente du tableau courant

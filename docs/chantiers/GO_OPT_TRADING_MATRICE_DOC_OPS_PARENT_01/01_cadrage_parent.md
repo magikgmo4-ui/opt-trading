@@ -21,6 +21,7 @@ updated_at: 2026-04-23
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md
+  - docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/02_alignment_surfaces_proches.md
   - docs/governance/MATRICE_GOUVERNANTE_V2.md
   - docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md
   - docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md
@@ -75,6 +76,7 @@ Produire une matrice maîtresse unique, gouvernante et canonique qui fusionne :
 ## ETABLI
 
 - `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md` existe desormais comme matrice maitre finale unique de gouvernance
+- `docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/02_alignment_surfaces_proches.md` qualifie les surfaces proches, leurs roles cibles et le patch doc-only borne
 - `docs/governance/MATRICE_GOUVERNANTE_V2.md` fixe déjà le socle structurel
 - `docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md` fixe déjà la sous-couche de dérivation
 - `docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md` et `docs/governance/AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md` portent déjà la continuité produit
@@ -84,9 +86,9 @@ Produire une matrice maîtresse unique, gouvernante et canonique qui fusionne :
 
 ## Gap restant
 
-- l'alignement / deduplication / reclassement des surfaces proches n'est pas encore execute
-- certaines surfaces utiles restent encore annexes, derivees ou non souveraines et doivent etre recalees a partir de la matrice maitre
-- le parent doit encore propager cette reference sans ouvrir de chantier concurrent
+- aucune fusion physique ni suppression sensible n'a encore ete executee sur les surfaces proches
+- certaines surfaces restent seulement recadrees de role et pourront necessiter un lot complementaire borne si un ecart subsiste
+- le parent doit garder cette trajectoire sans rouvrir de synthese laterale ni de parent concurrent
 
 ## Plan validé
 
@@ -118,7 +120,8 @@ Produire une matrice maîtresse unique, gouvernante et canonique qui fusionne :
 
 - repo canonique : `opt-trading`
 - base canonique : `origin/sot/mainline`
-- support Git local du présent passage : `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01`
+- branche parent de reference : `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01`
+- support Git local du present lot d'alignement : `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01_ALIGNMENT_01`
 
 ## Effet attendu sur la trajectoire produit
 
@@ -137,7 +140,7 @@ Et non l'inverse.
 Aucun sous-GO imposé à ce stade.
 
 La suite immédiate correcte est :
-- lancer le lot d'alignement / deduplication / reclassement des surfaces proches a partir de la matrice maitre deja redigee
+- n'ouvrir un lot complementaire doc-only borne que si un ecart d'alignement subsiste apres le present passage
 
 ## PASS / FAIL
 

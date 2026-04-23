@@ -1,4 +1,32 @@
+---
+doc_id: OPT_TRADING_STATUS_BOT_VISION_CANONIQUE
+doc_type: family_status
+repo: opt-trading
+project: opt-trading
+module: bot_vision
+go_id:
+status: reference
+lifecycle_stage: continuity
+topic_keys:
+  - opt-trading
+  - status
+  - bot_vision
+  - family
+surface: continuity
+source_kind: derived
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+updated_at: 2026-04-23
+links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+---
+
 # BOT_VISION — STATUT CANONIQUE
+
+## Role aligne avec la matrice maitre
+
+- role actuel : fiche courte de lignee vision
+- role cible : surface derivee de qualification famille
+- cette fiche ne remplace ni la matrice maitre, ni une synthese produit souveraine, ni le chantier parent qui arbitre la famille
 
 ## Objet
 Fiche courte de lignée pour la famille vision (`bot_vision`, `bot_vision_step2`, `vision_bot`).

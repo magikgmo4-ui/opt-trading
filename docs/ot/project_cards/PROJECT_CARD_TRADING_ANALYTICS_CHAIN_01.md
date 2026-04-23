@@ -1,4 +1,33 @@
+---
+doc_id: OPT_TRADING_PROJECT_CARD_TRADING_ANALYTICS_CHAIN_01
+doc_type: project_card
+repo: opt-trading
+project: opt-trading
+module: trading_analytics
+go_id:
+status: reference
+lifecycle_stage: continuity
+topic_keys:
+  - opt-trading
+  - project_card
+  - trading_analytics
+  - continuity
+  - product
+surface: continuity
+source_kind: operational_support
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+updated_at: 2026-04-23
+links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+---
+
 # PROJECT_CARD_TRADING_ANALYTICS_CHAIN_01
+
+## Role aligne avec la matrice maitre
+
+- role actuel : fiche compacte de reprise pour la chaine analytique trading
+- role cible : surface operatoire de reprise produit / pipeline
+- cette fiche ne remplace ni la matrice maitre, ni les specs detaillees, ni les closeouts par module
 
 Date: 2026-04-14
 
