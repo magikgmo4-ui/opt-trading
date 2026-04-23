@@ -1,3 +1,32 @@
+---
+doc_id: OPT_TRADING_PROJECT_SNAPSHOT_GLOBAL_2026_04_18
+doc_type: architecture_snapshot
+repo: opt-trading
+project: opt-trading
+module:
+go_id:
+status: snapshot
+lifecycle_stage: architecture
+topic_keys:
+  - opt-trading
+  - snapshot
+  - architecture
+  - continuity
+surface: architecture
+source_kind: snapshot
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+updated_at: 2026-04-23
+links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+  - docs/architecture/REPO_SURFACES_MAP.md
+---
+
+## Role aligne avec la matrice maitre
+
+- role actuel : snapshot global ponctuel de reprise
+- role cible : snapshot / archive de lecture
+- ce document peut aider a se reorienter, mais il ne gouverne ni la hierarchie documentaire, ni la continuite produit, ni la structure Git
+
 ## Classification  
 **diagnostic ponctuel — reconstruction mémoire opérationnelle**
 

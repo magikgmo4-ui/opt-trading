@@ -1,4 +1,33 @@
+---
+doc_id: OPT_TRADING_PROJECT_CARD_BOT_VISION_INGESTION_01
+doc_type: project_card
+repo: opt-trading
+project: opt-trading
+module: bot_vision
+go_id:
+status: reference
+lifecycle_stage: continuity
+topic_keys:
+  - opt-trading
+  - project_card
+  - bot_vision
+  - continuity
+  - product
+surface: continuity
+source_kind: operational_support
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+updated_at: 2026-04-23
+links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+---
+
 # PROJECT_CARD_BOT_VISION_INGESTION_01
+
+## Role aligne avec la matrice maitre
+
+- role actuel : fiche compacte de reprise pour Bot Vision / ingestion desk
+- role cible : surface operatoire de reprise produit
+- cette fiche ne remplace ni la matrice maitre, ni une synthese produit canonique, ni les closeouts, ni les preuves runtime
 
 Date: 2026-04-14
 
