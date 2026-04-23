@@ -41,15 +41,23 @@ Il sert à :
 
 ---
 
-## Priorité opératoire (11 GO non clos)
+## Priorité opératoire (12 GO non clos)
 
-- P0 : `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`, `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01`
+- P0 : `GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01`, `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`, `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01`
 - P1 : `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`, `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
 - P2 : `GO_OPT_TRADING_JOURNAL_FULL_READING_03`, `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04`
 
 ---
 
 ## Flux actifs
+
+### GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01
+- statut : open
+- repo : opt-trading
+- branche : `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01`
+- dernier point établi : plan maître complet ancré dans `docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md` et parent chantier dédié ouvert
+- prochaine action : produire la matrice maître unique en recroisant produit, GO, nommage, surfaces et branches
+- blocages : aucun blocage explicite ; ne pas dériver vers une synthèse latérale ni vers des sous-lots techniques prématurés
 
 ### GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01
 - statut : active

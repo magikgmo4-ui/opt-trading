@@ -73,6 +73,7 @@ Normalisation retenue :
 | PARENT | CHANTIER | SOUS_CHANTIER | STATUT | DOSSIER_PRESENT | SOURCE |
 | --- | --- | --- | --- | --- | --- |
 | GO_UNIFORM_CONTINUITY_FINAL_MASTER_PLAN_01 | GO_UNIFORM_CONTINUITY_FINAL_MASTER_PLAN_01 | — | REFERENCE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_UNIFORM_CONTINUITY_FINAL_MASTER_PLAN_01/00_cadrage.md` |
+| GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01 | GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01 | — | OPEN | oui | `docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md`<br>`docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/01_cadrage_parent.md` |
 | GO_GIT_PROGRESSIVE_MIGRATION_START_13 | GO_GIT_PROGRESSIVE_MIGRATION_START_13 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_GIT_PROGRESSIVE_MIGRATION_START_13/00_cadrage.md` |
 | GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01 | GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/03_decisions.md` |
 | GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01 | GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/03_decisions.md`<br>`docs/architecture/REPO_SURFACES_MAP.md` |
@@ -102,11 +103,14 @@ Normalisation retenue :
 
 ---
 
-## Priorité opératoire (12 GO non clos)
+## Priorité opératoire (13 GO non clos)
 
-- P0 : `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`, `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01`
+- P0 : `GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01`, `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`, `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01`
 - P1 : `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`, `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
 - P2 : `GO_OPT_TRADING_JOURNAL_FULL_READING_03`, `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04`, `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
+
+Le passage de 12 à 13 GO non clos correspond à l'ouverture du parent :
+- `GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01`
 
 Le passage de 11 à 12 GO non clos correspond à l'ouverture du parent :
 - `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
@@ -129,6 +133,14 @@ Le passage de 6 à 8 GO non clos correspond à l’ouverture PHASE 2 des parents
 ---
 
 ## Entrées
+
+### GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01
+- repo : opt-trading
+- type : gouvernance / chantier parent / doc-only
+- statut : open
+- titre court : matrice maître doc ops
+- dernier état connu : plan maître complet ancré comme document canonique ; parent ouvert pour produire une matrice unique gouvernante
+- lien utile : `docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md`, `docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/01_cadrage_parent.md`
 
 ### GO_UNIFORM_CONTINUITY_FINAL_MASTER_PLAN_01
 - repo : opt-trading
