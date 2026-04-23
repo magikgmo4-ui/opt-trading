@@ -13,7 +13,7 @@ topic_keys:
   - continuity
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-22
+updated_at: 2026-04-23
 links:
   - docs/index/GO_INDEX.md
   - docs/index/ACTIVE_STREAMS.md
@@ -42,7 +42,7 @@ links:
 
 | parent (actif) | status | priority | next GO primaire | next action (résumé) | refs canoniques |
 | --- | --- | --- | --- | --- | --- |
-| `GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01` | open | P0 | aucun nouveau GO | produire la matrice maître unique à partir du plan ancré et du recroisement canonique réel du repo | `docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/01_cadrage_parent.md` |
+| `GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01` | open | P0 | aucun nouveau GO | lancer l'alignement / deduplication / reclassement des surfaces proches a partir de la matrice maître deja publiee | `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`<br>`docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/01_cadrage_parent.md` |
 | `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01` | active | P0 | aucun nouveau GO | exécuter LOT 1 (index) puis LOT 2 (hiérarchie journal) | `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/00_cadrage.md` |
 | `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01` | active | P0 | `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01` | exécuter l’implémentation de base tmux-ide sur machine cible | `docs/chantiers/GO_TMUX_IDE_OPT_TRADING_CADRAGE_01/00_cadrage.md` |
 | `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01` | active | P0 | aucun nouveau GO | produire la matrice canonique (PHASE C) puis le plan de lots physiques futurs (PHASE D) | `docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/00_cadrage.md` |

@@ -14,7 +14,7 @@ topic_keys:
   - reprise
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-20
+updated_at: 2026-04-23
 links:
   - docs/index/GO_INDEX.md
 ---
@@ -55,8 +55,8 @@ Il sert à :
 - statut : open
 - repo : opt-trading
 - branche : `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01`
-- dernier point établi : plan maître complet ancré dans `docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md` et parent chantier dédié ouvert
-- prochaine action : produire la matrice maître unique en recroisant produit, GO, nommage, surfaces et branches
+- dernier point établi : matrice maître finale unique rédigée dans `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md` ; le parent reste l'enveloppe canonique de cette trajectoire
+- prochaine action : aligner / dedupliquer / reclasser les surfaces proches sans ouvrir de parent concurrent
 - blocages : aucun blocage explicite ; ne pas dériver vers une synthèse latérale ni vers des sous-lots techniques prématurés
 
 ### GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01
