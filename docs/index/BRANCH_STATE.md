@@ -40,7 +40,7 @@ Elle sert a :
 - repo : `opt-trading`
 - branche canonique : `sot/mainline`
 - base de comparaison : `origin/sot/mainline`
-- snapshot de reference : `origin/sot/mainline@92c0be8`
+- snapshot de reference : `origin/sot/mainline@93aa5c0`
 - date de reference : `2026-04-22`
 - perimetre : branches locales et distantes presentes apres `fetch --prune`
 
@@ -66,9 +66,9 @@ Obligations explicites :
 | CANON_STATUS | COUNT |
 | --- | ---: |
 | `KEEP_ACTIVE` | 2 |
-| `KEEP_REFERENCE` | 1 |
+| `KEEP_REFERENCE` | 2 |
 | `KEEP_SNAPSHOT` | 9 |
-| `ABSORBED` | 1 |
+| `ABSORBED` | 0 |
 | `REDUNDANT` | 1 |
 | `REVIEW` | 22 |
 | `DROP_REMOTE_CANDIDATE` | 0 |
@@ -120,7 +120,7 @@ Obligations explicites :
 | `save/db-layer-2026-04-01` | remote | DIVERGED | 1 | 701 | `KEEP_SNAPSHOT` | `exclude_cleanup` | Branche snapshot nommee save/* a conserver jusqu a arbitrage explicite | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `save/fantome-YYYY-MM-DD` | remote | DIVERGED | 1 | 552 | `KEEP_SNAPSHOT` | `exclude_cleanup` | Branche snapshot nommee save/* a conserver jusqu a arbitrage explicite | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `save/student-2026-04-01` | remote | DIVERGED | 22 | 615 | `KEEP_SNAPSHOT` | `exclude_cleanup` | Branche snapshot nommee save/* a conserver jusqu a arbitrage explicite | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `sot/build` | remote | ABSORBED | 0 | 815 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
+| `sot/build` | remote | ABSORBED | 0 | 815 | `KEEP_REFERENCE` | `exclude_cleanup` | Branche technique sensible `sot/*` conservee comme reference historique de build et hygiene repo | `GO_GIT_SOT_BUILD_AUDIT_01` |
 | `sot/mainline` | both | SELF | 0 | 0 | `KEEP_ACTIVE` | `protect_mainline` | Tronc canonique de continuite | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 
 ## Journal minimal
@@ -149,6 +149,7 @@ Obligations explicites :
 - sous-lot absorbe non `sot/*` a faible risque reclassifie sans suppression dans ce passage : `docs/chatgpt-profile-baseline-index-01`, `feat/range-strategy-v1-struct` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_ABSORBED_NON_SOT_LOW_RISK_RECLASS_01`
 - sous-lot absorbe non `sot/*` a faible risque supprime du remote : `docs/chatgpt-profile-baseline-index-01`, `feat/range-strategy-v1-struct` -> reclassification doc-only deja publiee, suppression executee, donc lignes retirees du tableau courant
 - passe `DROP_LOCAL_ONLY` terminee : `feat/journal-full-reading-macro-plan-recenter`, `feat/mimo-open-observer-market-calendar-v1`, `feat/mimo-open-observer-doc-pack-v0-clean-local`, `feat/mimo-open-observer-doc-pack-v0-clean-working`, `feat/student-validation-bitget-readonly-01`, `opencode/shiny-engine` -> branches locales retirees du tableau courant; sauvegarde locale du worktree journal dans `/.bundle_reviews/drop_local_only_backups/journal-full-reading-macro-plan-recenter`
+- audit dedie de `origin/sot/build` : branche absorbee mais conservee en `KEEP_REFERENCE` comme reference technique sensible de famille `sot/*` via `GO_GIT_SOT_BUILD_AUDIT_01`
 
 ## Point de reprise
 
