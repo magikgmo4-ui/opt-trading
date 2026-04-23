@@ -58,9 +58,9 @@ Obligations explicites :
 
 ## Synthese courante
 
-- branches remote : `44`
+- branches remote : `37`
 - branches locales : `11`
-- entrees totales suivies dans le tableau : `51`
+- entrees totales suivies dans le tableau : `44`
 - comparaison de reference : `origin/sot/mainline`
 
 | CANON_STATUS | COUNT |
@@ -71,7 +71,7 @@ Obligations explicites :
 | `ABSORBED` | 3 |
 | `REDUNDANT` | 1 |
 | `REVIEW` | 22 |
-| `DROP_REMOTE_CANDIDATE` | 7 |
+| `DROP_REMOTE_CANDIDATE` | 0 |
 | `DROP_LOCAL_ONLY` | 6 |
 
 ## Legende de lecture
@@ -94,13 +94,7 @@ Obligations explicites :
 | `docs/chatgpt-profile-baseline-index-01` | remote | ABSORBED | 0 | 44 | `ABSORBED` | `review_for_drop` | Branche deja absorbee dans origin/sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/github-park-parent-closeout-01` | remote | DIVERGED | 1 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/github-park-pass-close-01` | remote | DIVERGED | 4 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `docs/go-openclaw-evidence-01-v1` | remote | ABSORBED | 0 | 345 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
 | `docs/memory-bricks-localcms-contract-alignment-01` | remote | DIVERGED | 5 | 61 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `docs/openclaw-alignment-decision-07` | remote | ABSORBED | 0 | 295 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
-| `docs/openclaw-alignment-exception-08` | remote | ABSORBED | 0 | 290 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
-| `docs/openclaw-alignment-read-06` | remote | ABSORBED | 0 | 299 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
-| `docs/openclaw-policy-runtime-alignment-05` | remote | ABSORBED | 0 | 301 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
-| `docs/openclaw-state-dir-vigilance-03` | remote | ABSORBED | 0 | 303 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
 | `docs/skills-usage-cross-review-01` | remote | DIVERGED | 1 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `docs/tmux-opencode-openclaw-runtime-01` | remote | DIVERGED | 1 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/GO_CONTINUITE_PRODUIT_MULTI_CHANTIER_CANON_01` | remote | DIVERGED | 13 | 251 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
@@ -120,7 +114,6 @@ Obligations explicites :
 | `feat/student-mimo-bitget-live-equity` | both | DIVERGED | 23 | 615 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/student-mimo-qualification` | both | DIVERGED | 21 | 615 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `feat/student-validation-bitget-readonly-01` | local | ABSORBED | 0 | 28 | `DROP_LOCAL_ONLY` | `review_or_drop_local` | Branche seulement locale non canonisee sur origin | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `go/openclaw-sync-02-doc` | remote | ABSORBED | 0 | 306 | `DROP_REMOTE_CANDIDATE` | `prepare_remote_drop` | Branche OpenClaw absorbee, sans commit propre, reclassifiee pour suppression remote separee | `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01` |
 | `go_repos_agent-role_initial_01` | remote | DIVERGED | 1 | 21 | `KEEP_REFERENCE` | `exclude_cleanup` | Branche de reference pour le parent AI team architecture | `GO_GIT_GO_REPOS_AGENT_ROLE_INITIAL_CLASSIFICATION_01` |
 | `integ/trading-dual-stack-doc-pack-01` | remote | DIVERGED | 4 | 522 | `REVIEW` | `manual_review` | Famille sensible a revue manuelle obligatoire | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `inventory/collectors-baseline-01` | remote | DIVERGED | 6 | 361 | `REVIEW` | `manual_review` | Famille sensible a revue manuelle obligatoire | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
@@ -160,6 +153,7 @@ Obligations explicites :
 - sous-lot Runtime / engine / helpers absorbe puis supprime du remote : `feat/engines-plugin`, `feat/execution-engine`, `feat/persistent-state`, `feat/position-engine`, `feat/position-guard`, `feat/student-ops-helpers-01`, `feat/trading-realtime-v1-event-bridge`, `feat/trading-realtime-v1-export`, `feat/trading-realtime-v1-guardrails`, `feat/trading-realtime-v1-reporting`, `feat/trading-realtime-v1-runtime-loop`, `feat/trading-realtime-v1-timer`, `feature/hf-publish-helper-fix-01`, `feature/hf-tools-private-config-fix-01` -> reclassification doc-only deja publiee, suppression executee, donc lignes retirees du tableau courant
 - sous-lot Mimo / misc absorbe reclassifie sans suppression dans ce passage : `feat/antigravity-binance-v1`, `feat/cards01`, `feat/collectors-lifecycle-wrapper-harmonization-01`, `feat/go-openclaw-chain-03-v1`, `feat/memory-bricks-v2-bricks-list`, `feat/mimo-gate-replay`, `feat/mimo-open-observer-doc-pack-v0-clean`, `feat/mimo-open-observer-market-calendar-v1`, `feat/mimo-scheduler-promotion`, `feat/openclaw-registry-expose-01` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_MIMO_MISC_ABSORBED_RECLASS_01`
 - sous-lot Mimo / misc absorbe puis supprime du remote : `feat/antigravity-binance-v1`, `feat/cards01`, `feat/collectors-lifecycle-wrapper-harmonization-01`, `feat/go-openclaw-chain-03-v1`, `feat/memory-bricks-v2-bricks-list`, `feat/mimo-gate-replay`, `feat/mimo-open-observer-doc-pack-v0-clean`, `feat/mimo-open-observer-market-calendar-v1`, `feat/mimo-scheduler-promotion`, `feat/openclaw-registry-expose-01` -> suppression remote executee; seule la branche locale `feat/mimo-open-observer-market-calendar-v1` reste au tableau
+- reliquat OpenClaw `DROP_REMOTE_CANDIDATE` supprime du remote : `docs/go-openclaw-evidence-01-v1`, `docs/openclaw-alignment-decision-07`, `docs/openclaw-alignment-exception-08`, `docs/openclaw-alignment-read-06`, `docs/openclaw-policy-runtime-alignment-05`, `docs/openclaw-state-dir-vigilance-03`, `go/openclaw-sync-02-doc` -> suppression executee, donc lignes retirees du tableau courant
 
 ## Point de reprise
 
