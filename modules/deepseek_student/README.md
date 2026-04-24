@@ -15,3 +15,9 @@ Il ne contient **PAS** les scripts de production (`daily-ai-report`, etc.).
 3. Pour toute intervention sur le reporting IA, voir `scripts/student/`.
 
 Voir `docs/ot/trae/OT_OPS_04B_STUDENT_RUNTIME_FREEZE_NOTE.md` pour plus de détails.
+
+## Statut de famille
+- `deepseek_student` reste une cible de transition / consolidation
+- il n'est pas la verite runtime actuelle
+- le candidat module unifie le plus avance est `deepseek_hub`
+- `deepseek_response` et `deepseek_thinking` restent des satellites de compatibilite

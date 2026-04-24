@@ -36,3 +36,11 @@
 Pour revenir en arrière:
 - `sudo install -m 0755 <backup>/deepseek_thinking_cmd.sh /opt/trading/modules/deepseek_thinking/scripts/deepseek_thinking_cmd.sh`
 - `sudo install -m 0755 <backup>/deepseek_response_cmd.sh /opt/trading/modules/deepseek_response/scripts/deepseek_response_cmd.sh`
+
+## Statut de famille
+- `deepseek_hub` est le candidat module unifie le plus avance dans la famille `deepseek*`
+- il n'ecrase pas la verite runtime actuelle, qui reste `scripts/student/`
+- il orchestre encore des modules de compatibilite :
+  - `deepseek_thinking`
+  - `deepseek_response`
+  - `deepseek_student` pour les roadmaps

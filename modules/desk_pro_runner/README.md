@@ -50,3 +50,8 @@ Use the provided scripts in `scripts/`:
 1.  **Run**: Trigger `desk_pro_orchestrator` to execute the pipeline.
 2.  **View**: Trigger `desk_pro_dashboard` to render the results.
 3.  **Export**: Save reports for archiving or distribution.
+
+## Family status
+- `desk_pro_runner` is the module-level operator facade of the Desk Pro stack
+- the live admin wrapper remains `scripts/admin_trading/desk_pro_cmd.sh`
+- it is not the sole survivor of the family; it sits above `desk_pro_orchestrator` and `desk_pro_dashboard`

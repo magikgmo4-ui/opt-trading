@@ -43,12 +43,17 @@ Fiche courte de lignée pour la famille `deepseek*` côté surface student.
 ## ETABLI
 - la famille `deepseek*` est confirmée comme famille parallèle à clarifier
 - runbook opératoire student existant et exploitable
+- vérité runtime actuelle confirmée dans `scripts/student/`
+- `deepseek_hub` confirmé comme façade module unifiée la plus avancée
+- `deepseek_response` / `deepseek_thinking` toujours utiles en compatibilité
+- `deepseek_student` confirmé comme module de transition incomplet
 
 ## Survivant / Transition / Legacy / Archive
-- survivant fonctionnel actuel : non figé à ce stade (clarification encore ouverte)
-- survivant canonique final : à confirmer (non figé dans ce lot)
-- transition : `deepseek_student` (surface opératoire à consolider)
-- legacy : non tranché dans ce lot
+- survivant fonctionnel actuel : `scripts/student/` hors `modules/`
+- survivant module candidat : `deepseek_hub`
+- survivant canonique final : à confirmer plus tard ; non figé dans ce lot
+- transition : `deepseek_student`
+- legacy : `deepseek_response` et `deepseek_thinking` restent en compatibilité, sans suppression autorisée dans ce lot
 - archive : non figé dans ce lot
 
 ## Liens de preuve
@@ -56,4 +61,5 @@ Fiche courte de lignée pour la famille `deepseek*` côté surface student.
 - `docs/student_deepseek_runbook.md`
 
 ## Reprise
-- reprendre dans `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01` pour figer survivant/legacy de la lignée deepseek
+- reprise immédiate documentée dans `GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01`
+- arbitrage structurel final à reprendre plus loin si une vraie bascule de `scripts/student/` vers `modules/` est lancée

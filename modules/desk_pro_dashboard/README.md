@@ -47,3 +47,7 @@ Use the provided scripts in `scripts/`:
 - **Terminal**: ASCII table and summary.
 - **JSON**: Structured view model.
 - **HTML**: Simple, self-contained report with CSS styling.
+
+## Family status
+- `desk_pro_dashboard` is the visualization and export surface of the Desk Pro stack
+- it is not a standalone survivor; it consumes orchestrator outputs and is surfaced by `desk_pro_runner`

@@ -13,3 +13,7 @@ Ce répertoire racine est conservé comme point d'entrée de statut pour la fami
 ## Continuité de famille
 - prérequis intermédiaire conservé : `modules/reseau_ssh_step1b/`
 - survivant canonique de la famille : `modules/reseau_ssh_step2/`
+
+## Frontière de suite
+- ne pas confondre cette lignée `reseau_ssh*` avec la suite adjacente `shared / sftp / sshfs / winscp`
+- `reseau_ssh` reste un repère legacy de la baseline SSH, pas la surface de partage inter-machines

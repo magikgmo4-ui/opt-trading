@@ -82,3 +82,8 @@ export VISION_BOT_SHELL_CMD='ollama run llava "Analyse ce screenshot: {prompt}" 
 ## Notes sécurité
 - Le module ne supprime pas les fichiers par défaut: il les déplace vers `vision_processed`.
 - Les outputs sont écrits dans l’outbox sous forme `.md` + `.txt` (texte brut).
+
+## Statut de famille
+- `vision_bot` est retenu comme point d'entree capture / inbox-outbox de la chaine operatoire transitoire
+- il opere avec `bot_vision_step2`, qui porte l'analyse Vision / Telegram et la generation d'artefacts
+- `bot_vision` reste la verticale historique `step1`

@@ -15,3 +15,7 @@ Run:
 - `modules/desk_capture_inputs/scripts/sanity_check.sh`
 - `modules/desk_capture_inputs/scripts/cmd.sh extract_once`
 - `modules/desk_capture_inputs/scripts/cmd.sh print_latest`
+
+## Statut de stack
+- satellite d'extraction d'inputs pour la stack Desk Pro
+- adjacent a la stack, sans etre un entrypoint operateur principal

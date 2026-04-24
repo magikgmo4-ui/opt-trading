@@ -24,6 +24,11 @@ Surface partagee Desk Pro pour l'API `/desk/*`, le rendu UI embarque et la logiq
 - centre de gravite fonctionnel de la suite Desk Pro
 - a lire avec `modules/desk_pro_runner/README.md` et `modules/desk_pro_orchestrator/README.md`
 
+## Statut de stack
+- `desk_pro` n'est pas l'unique survivant de la famille
+- il est le centre de gravite partage API / UI / service de la stack
+- la facade operatoire module reste `desk_pro_runner`
+
 ## Notes de consolidation
 - ne pas confondre cette surface partagee avec les facades operateur `desk_pro_runner` ou `desk_pro_dashboard`
 - les frontieres `desk_pro` / `desk_common` / `desk_pro_*` doivent etre clarifiees avant tout move physique

@@ -27,3 +27,7 @@ Installs:
 - /usr/local/bin/menu-desk_snapshot_ingest
 - /usr/local/bin/cmd-desk_snapshot_ingest
 - /usr/local/bin/sanity-desk_snapshot_ingest
+
+## Statut de stack
+- satellite d'ingestion en amont de Desk Pro
+- adjacent a la stack, sans etre un substitut a `desk_pro_runner`, `desk_pro_orchestrator` ou `desk_pro_dashboard`

@@ -24,6 +24,11 @@ links:
   - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/05_step_02_hygiene_documentaire_batch2_openclaw.md
   - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/06_step_02_hygiene_documentaire_batch3_core.md
   - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/07_step_02_hygiene_documentaire_batch4_verticales.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/08_step_03_family_decision_bot_vision.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/09_step_03_family_decision_deepseek.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/10_step_03_family_decision_reseau_ssh.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/11_step_03b_consolidation_eval_reseau_share_transfer.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/12_step_03_family_decision_desk.md
   - docs/status/desk_pro_stack_canonique.md
   - docs/status/deepseek_student_canonique.md
   - docs/status/reseau_ssh_canonique.md
@@ -88,7 +93,7 @@ Ce plan est volontairement conservateur :
   - revert doc-only
 
 ## Step 03 — figer les survivants / transition / compatibilite
-- statut : pending
+- statut : complete
 - objectif : ne plus laisser de familles step-by-step sans statut operatoire clair
 - familles cibles :
   - `deepseek*`
@@ -98,6 +103,31 @@ Ce plan est volontairement conservateur :
 - action attendue :
   - confirmer survivant, transition, legacy, compat
   - aligner les docs courtes `docs/status/*` avec les README modules
+- preuve observee (famille `bot_vision*`) :
+  - [08_step_03_family_decision_bot_vision.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/08_step_03_family_decision_bot_vision.md)
+  - paire operatoire transitoire fixee : `vision_bot` + `bot_vision_step2`
+  - `bot_vision` reclasse en verticale historique `step1`
+- preuve observee (famille `deepseek*`) :
+  - [09_step_03_family_decision_deepseek.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/09_step_03_family_decision_deepseek.md)
+  - verite runtime actuelle confirmee hors `modules/` : `scripts/student/`
+  - candidat module unifie fixe : `deepseek_hub`
+  - `deepseek_response` / `deepseek_thinking` maintenus en compatibilite
+  - `deepseek_student` confirme comme transition non runtime
+- preuve observee (famille `reseau_ssh*`) :
+  - [10_step_03_family_decision_reseau_ssh.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/10_step_03_family_decision_reseau_ssh.md)
+  - survivant confirme : `reseau_ssh_step2`
+  - transition / prerequis confirme : `reseau_ssh_step1b`
+  - legacy confirme : `reseau_ssh`
+  - separation de lignee fixee par rapport a `shared*` et `winscp_transfer`
+- preuve observee (step 03b - evaluation de suite) :
+  - [11_step_03b_consolidation_eval_reseau_share_transfer.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/11_step_03b_consolidation_eval_reseau_share_transfer.md)
+  - consolidation documentaire de suite recommandee
+  - fusion physique non recommandee dans ce lot
+- preuve observee (famille `desk_*`) :
+  - [12_step_03_family_decision_desk.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/12_step_03_family_decision_desk.md)
+  - stack multi-composants confirmee, sans survivant unique
+  - roles fixes : `desk_pro`, `desk_pro_runner`, `desk_pro_orchestrator`, `desk_pro_dashboard`, `desk_common`
+  - satellites adjacents distingues : `desk_snapshot_ingest`, `desk_capture_inputs`, `desk_analyze`, `desk_state`, `desk_retention`
 - preuve attendue :
   - decision explicite par famille
 - rollback :
@@ -186,4 +216,4 @@ Ce plan est volontairement conservateur :
 Au terme de ce plan, `modules/` doit devenir lisible par suites, sans remettre en cause les modules encore actifs ni casser les wrappers.
 
 ## Point de reprise
-Poursuivre avec `Step 03` : figer survivants, transitions et compatibilites des familles `deepseek*`, `reseau_ssh*`, `bot_vision*` et `desk_*`.
+`Step 03` est complete. Basculer vers `Step 04` pour les cartes de role P1.

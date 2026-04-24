@@ -26,3 +26,7 @@ Optional:
 ## Quick
 modules/desk_analyze/scripts/sanity_check.sh
 modules/desk_analyze/scripts/cmd.sh preview
+
+## Statut de stack
+- satellite d'analyse consolidee a partir des snapshots locaux
+- adjacent a la stack Desk Pro, sans etre le centre de gravite de la suite

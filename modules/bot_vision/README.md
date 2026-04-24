@@ -20,8 +20,8 @@ Verticale vision historique de la famille Bot Vision, encore presente comme `ste
   - `docs/status/bot_vision_canonique.md`
 
 ## Statut
-- actif mais ambigu au niveau famille
-- surface de transition / heritage plus que survivant clairement fige
+- actif comme verticale historique
+- legacy `step1`, pas survivant operatoire de la famille
 
 ## Notes de consolidation
 - ne pas considerer `bot_vision` comme survivant automatique de la famille
@@ -29,4 +29,6 @@ Verticale vision historique de la famille Bot Vision, encore presente comme `ste
   - `bot_vision` = step 1 skeleton / generation placeholder
   - `bot_vision_step2` = point d'appui operatoire documente
   - `vision_bot` = flux inbox/outbox et traitement capture
+- paire operatoire transitoire retenue a ce stade :
+  - `vision_bot` + `bot_vision_step2`
 - releve du futur lot `VISION_FAMILY_SURVIVOR_DECISION`

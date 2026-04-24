@@ -44,11 +44,13 @@ Fiche courte de lignée pour la famille vision (`bot_vision`, `bot_vision_step2`
 ## ETABLI
 - coexistence parallèle confirmée avec mélange nomenclature step/nom final
 - risque de confusion survivant/entrée runtime reconnu
+- paire opératoire transitoire confirmée : `vision_bot` + `bot_vision_step2`
+- `bot_vision` confirmé comme héritage `step1`, utile pour trajectoire et placeholder mais non survivant implicite
 
 ## Survivant / Transition / Legacy / Archive
-- survivant : non figé à ce stade (clarification encore ouverte)
-- transition : `bot_vision_step2` reste un point d’appui opératoire documenté
-- legacy : non tranché dans ce lot
+- survivant : aucun module unique figé dans ce lot ; la chaîne opératoire transitoire retenue est `vision_bot` + `bot_vision_step2`
+- transition : `vision_bot` porte la capture / inbox-outbox ; `bot_vision_step2` porte l’analyse Vision / Telegram et les artefacts Desk Pro
+- legacy : `bot_vision`
 - archive : non figé dans ce lot
 
 ## Liens de preuve
@@ -57,4 +59,5 @@ Fiche courte de lignée pour la famille vision (`bot_vision`, `bot_vision_step2`
 - `docs/ot/project_cards/PROJECT_CARD_BOT_VISION_INGESTION_01.md`
 
 ## Reprise
-- reprendre dans `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01` pour figer survivant et frontières de la famille vision
+- reprise immédiate documentée dans `GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01`
+- arbitrage structurel final à reprendre plus loin dans `VISION_FAMILY_SURVIVOR_DECISION` si un survivant unique doit être matérialisé

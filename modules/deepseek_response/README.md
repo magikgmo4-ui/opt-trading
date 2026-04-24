@@ -15,7 +15,7 @@ Module specialise pour produire des reponses finales DeepSeek cote `student`, av
 
 ## Statut
 - actif en compatibilite operatoire
-- famille a consolider avec `deepseek_hub`
+- non survivant de famille a ce stade ; conserve car orchestre par `deepseek_hub`
 
 ## Notes de consolidation
 - `deepseek_hub` indique deja qu'il unifie et corrige `deepseek_response`

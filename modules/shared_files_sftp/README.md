@@ -17,3 +17,8 @@ Ce module configure/diagnostique la couche **serveur SFTP** sur `admin-trading` 
 - `menu-shared_files_sftp`
 - `sanity-shared_files_sftp`
 
+## Statut de suite
+- couche serveur SFTP de la surface `shared`
+- adjacente a `reseau_ssh_step2`, mais non incluse dans la lignée `reseau_ssh*`
+- a lire avec `shared_sshfs_permanent` et `winscp_transfer` selon le mode de transport cible
+
