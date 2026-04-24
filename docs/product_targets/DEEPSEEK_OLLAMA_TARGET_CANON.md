@@ -1,4 +1,41 @@
+---
+doc_id: OPT_TRADING_DEEPSEEK_OLLAMA_TARGET_CANON
+doc_type: product_target
+repo: opt-trading
+project: opt-trading
+module:
+go_id:
+status: validated
+lifecycle_stage: reprise
+topic_keys:
+  - opt-trading
+  - product_target
+  - deepseek
+  - ollama
+  - student
+search_tags:
+  - surface:continuity
+  - doc_role:carte
+surface: continuity
+source_kind: canonical
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+point_de_reprise: "Section 4. ECART EXACT"
+updated_at: 2026-04-23
+links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+  - docs/governance/MATRICE_GOUVERNANTE_V2.md
+  - docs/product_targets/RUNTIME_TO_TARGET_MAPPING.md
+  - docs/status/deepseek_student_canonique.md
+---
+
 # DEEPSEEK / OLLAMA — TARGET CANON
+
+## Role documentaire
+
+- role_actuel: annexe produit partielle sur la ligne DeepSeek / Ollama cote student
+- role_cible: annexe produit non souveraine alignee sur la matrice maitre doc ops ; V2 reste une annexe stable secondaire utile
+- souverainete: ne remplace ni la matrice, ni `GO_INDEX.md`, ni une synthese produit transverse
+- lecture_de_reprise: lire cette fiche apres `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`, puis recroiser `MATRICE_GOUVERNANTE_V2.md` avant de revalider le mapping runtime associe
 
 ## 1. OBJECTIF PRODUIT DESIRE (ETABLI)
 

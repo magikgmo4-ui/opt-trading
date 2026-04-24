@@ -15,8 +15,10 @@ topic_keys:
   - registry_derived
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-22
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/MATRICE_GOUVERNANTE_V2.md
   - docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md
   - docs/governance/EXTRACTEUR_TAGS__METHODE_CANONIQUE_V1.md
@@ -27,14 +29,15 @@ links:
 
 ## Objet
 
-Ouvrir un GO doc-only separe, post-canonisation de `docs/governance/MATRICE_GOUVERNANTE_V2.md`, dedie a la derivation controlee des metadonnees, tags de recherche, groupes d'objets et registry derive.
+Ouvrir un GO doc-only separe, post-publication de `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`, dedie a la derivation controlee des metadonnees, tags de recherche, groupes d'objets et registry derive.
 
 ---
 
 ## Besoin initial
 
-La matrice gouvernante V2 est maintenant figee comme doctrine de structure.
-Il faut ouvrir un lot distinct pour definir ce qui peut etre derive d'elle, sans :
+La matrice maitre DOC OPS est maintenant fixee comme doctrine de structure.
+`docs/governance/MATRICE_GOUVERNANTE_V2.md` reste une annexe stable secondaire utile au recroisement.
+Il faut ouvrir un lot distinct pour definir ce qui peut etre derive de ce cadre, sans :
 - modifier la matrice
 - rouvrir la synchronisation documentaire reelle
 - remonter les tags / metadata au-dessus du noyau canonique
@@ -43,7 +46,7 @@ Il faut ouvrir un lot distinct pour definir ce qui peut etre derive d'elle, sans
 
 ## Intention
 
-Definir une doctrine legere, stable et controlee pour les derives documentaires, subordonnee a la matrice gouvernante V2 et sans effet de bord sur la souverainete canonique.
+Definir une doctrine legere, stable et controlee pour les derives documentaires, subordonnee a la matrice maitre DOC OPS, avec V2 conservee comme annexe stable secondaire et sans effet de bord sur la souverainete canonique.
 
 ---
 
@@ -64,7 +67,8 @@ Disposer d'une base de doctrine qui permette ensuite de deriver des enrichisseme
 
 ## ETAT_DEPART_RETENU
 
-- `docs/governance/MATRICE_GOUVERNANTE_V2.md` est canonique et figee pour ce lot
+- `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md` est le maitre canonique souverain pour ce lot
+- `docs/governance/MATRICE_GOUVERNANTE_V2.md` reste une annexe stable secondaire
 - `GO_INDEX.md` reste la verite de liste
 - `REPRISE.md` reste operatoire seulement
 - `BRANCH_STATE.md` reste limite a la surface branches

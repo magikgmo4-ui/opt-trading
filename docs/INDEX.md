@@ -12,8 +12,11 @@
 - **docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt** : modèle officiel missions longues / multi-étapes
 - **docs/ARCHITECTURE.md** : architecture (flux, persistance, composants)
 - **docs/architecture/REPO_SURFACES_MAP.md** : carte humaine des surfaces top-level (référence ; `registry/*` reste machine-readable)
-- **docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md** : plan maître canonique du parent `MATRICE_DOC_OPS`, ancrant la cible d’une matrice unique produit → parent → GO → Git
-- **docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md** : matrice maître finale unique de gouvernance, référence souveraine produit → parent → GO → Git pour `opt-trading`
+- **docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md** : matrice maître canonique souveraine (produit, parent/sous-GO, support Git, propagation, placement)
+- **docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md** : plan historique rattaché à la matrice maître
+- **docs/governance/MATRICE_GOUVERNANTE_V2.md** : annexe stable secondaire relue sous la matrice maître
+- **docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md** : doctrine légère de dérivation contrôlée pour frontmatter enrichi, `search_tags`, groupes d’objets et registry dérivé
+- **docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md** : annexe stable de continuité produit relue sous la matrice maître
 - **docs/governance/REPO_ROOT_POLICY.md** : politique racine canonique interne du repo
 - **docs/API.md** : endpoints + exemples `curl`
 - **docs/RUNBOOK.md** : ops/debug (systemd, logs, réseau Windows/LAN)

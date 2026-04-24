@@ -14,8 +14,10 @@ topic_keys:
   - governance
 surface: governance
 source_kind: canonical
-updated_at: 2026-04-18
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - journal.md
   - journal/index/ACTIVE_GO_MATRIX.md
   - journal/canon/JOURNAL_CANON_FULL_20260301_071931.md
@@ -28,6 +30,9 @@ links:
 Fixer une hiérarchie opposable des surfaces journal afin d’éviter :
 - confusion entre brut vivant, dérivés opératoires et archives
 - dérive des index de continuité vers des sources non canoniques
+
+Cette hiérarchie journal est subordonnee a l'etat reel prouve puis a `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`.
+Elle ne remplace ni la gouvernance maitre ni la verite de liste portee par `docs/index/GO_INDEX.md`.
 
 ## Hiérarchie retenue
 ### 1) journal.md — brut vivant

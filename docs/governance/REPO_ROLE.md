@@ -15,8 +15,11 @@ topic_keys:
   - memory_bricks
 surface: repo
 source_kind: canonical
-updated_at: 2026-04-18
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+point_de_reprise: "Section 1. Role principal"
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/DOC_LAYERS.md
   - docs/governance/REPO_ROOT_POLICY.md
   - docs/index/REPRISE.md
@@ -34,6 +37,11 @@ Il sert à éviter :
 - les dérives documentaires
 - les conflits de source de vérité
 - les réouvertures de chantier mal cadrées
+
+Hiérarchie d'autorité locale :
+- l'état réel prouvé du repo prime
+- `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md` gouverne le rôle du repo dans la lecture produit / parent / GO / Git
+- ce document explicite seulement le rôle local de `opt-trading` dans ce cadre
 
 ---
 

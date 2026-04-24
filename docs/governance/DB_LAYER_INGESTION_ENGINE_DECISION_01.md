@@ -1,5 +1,11 @@
 # DB LAYER — INGESTION ENGINE DECISION 01
 
+## Lecture canonique
+
+- lire cette decision apres `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
+- utiliser `docs/governance/MATRICE_GOUVERNANTE_V2.md` seulement comme annexe stable secondaire si un recroisement est utile
+- ne pas utiliser cette decision a la place des surfaces souveraines de continuite ou de liste
+
 ## 1. Objet
 - Ce document décide le niveau moteur / DDL minimal pour l’ingestion future côté `db-layer`.
 - Il ne remplace ni la spec pipeline, ni le mapping logique, ni la décision de schéma physique minimal.

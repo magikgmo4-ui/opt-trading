@@ -1,5 +1,11 @@
 # AUDIT CONTINUITE PRODUIT — OPT-TRADING
 
+## LECTURE CANONIQUE
+
+- lire ce document apres `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
+- utiliser `docs/governance/MATRICE_GOUVERNANTE_V2.md` seulement comme annexe stable secondaire si un recroisement est utile
+- ne pas utiliser cet audit a la place des surfaces souveraines ou des index actifs
+
 ## 1. COUCHE 0 — SOCLE TRANSVERSE
 
 | Element | Role | Pourquoi au socle transverse | Etat |

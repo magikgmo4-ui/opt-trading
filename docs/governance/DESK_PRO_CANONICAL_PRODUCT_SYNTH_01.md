@@ -1,5 +1,10 @@
 # DESK PRO — SYNTHÈSE CANONIQUE PRODUIT
 
+## Lecture canonique
+
+- lire cette synthese apres `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
+- recroiser `docs/governance/MATRICE_GOUVERNANTE_V2.md` seulement comme annexe stable secondaire si utile
+
 ## 1. Objet
 - Ce document synthétise le produit **Desk Pro** (multi-machine) dans un format court et opposable.
 - Il ne remplace pas les runbooks détaillés (procédures opérateur, commandes, diagnostics).

@@ -1,5 +1,11 @@
 # DB LAYER — INGESTION PHYSICAL SCHEMA DECISION 01
 
+## Lecture canonique
+
+- lire cette decision apres `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
+- utiliser `docs/governance/MATRICE_GOUVERNANTE_V2.md` seulement comme annexe stable secondaire si un recroisement est utile
+- ne pas utiliser cette decision a la place des surfaces souveraines de continuite ou de liste
+
 ## 1. Objet
 - Ce document décide le schéma physique minimal futur de l’ingestion côté `db-layer`.
 - Il ne remplace ni la spec pipeline ni le mapping logique.

@@ -15,8 +15,10 @@ topic_keys:
   - continuity
 surface: memory
 source_kind: canonical
-updated_at: 2026-04-11
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/REPO_ROLE.md
   - docs/governance/DOC_LAYERS.md
 ---
@@ -31,6 +33,9 @@ Il sert à éviter :
 - l’écriture de briques comme seconde narration libre
 - les contradictions entre doc longue et compaction
 - la perte de traçabilité entre documents stabilisés et forme compacte
+
+La derivation vers `memory_bricks` est subordonnee a l'etat reel prouve puis a `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`.
+`memory_bricks` reste une compaction derivee et non un premier niveau de lecture.
 
 ---
 
@@ -56,7 +61,7 @@ Les champs d’une brique doivent dériver en priorité de documents stabilisés
 - `03_decisions.md`
 - `90_closeout.md`
 - `docs/index/REPRISE.md` si utile
-- `docs/next/NEXT_GO_CANDIDATES.md` si utile
+- `docs/index/NEXT_GO_CANDIDATES.md` si utile
 
 Les sources brutes non stabilisées ne sont pas privilégiées.
 

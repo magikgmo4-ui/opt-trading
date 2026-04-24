@@ -1,5 +1,11 @@
 # AUDIT — IA / IDE / WORKFLOW ROLE ALIGNMENT — OPT-TRADING
 
+## LECTURE CANONIQUE
+
+- lire cet audit apres `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
+- garder `docs/governance/MATRICE_GOUVERNANTE_V2.md` comme annexe stable secondaire seulement si un recroisement est utile
+- ne pas utiliser cet audit a la place des surfaces souveraines ou des index actifs
+
 ## Besoin initial
 - Éviter les confusions (assistant externe vs produit vs repo transverse vs IDE vs machine) qui cassent la continuité et le scope des missions.
 

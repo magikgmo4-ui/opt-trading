@@ -1,5 +1,11 @@
 # AUDIT THEMATIQUE — MULTI IA / IDE / AGENTS / SPACES — OPT-TRADING
 
+## LECTURE CANONIQUE
+
+- lire cet audit apres `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
+- garder `docs/governance/MATRICE_GOUVERNANTE_V2.md` comme annexe stable secondaire seulement si un recroisement est utile
+- cette coupe thematique reste subordonnee au cadre maitre et ne le remplace pas
+
 - ce document ne remplace pas l'audit maitre de continuite produit
 - il constitue une coupe thematique parallele
 - la Couche 0 transverse reste heritee du cadre maitre :

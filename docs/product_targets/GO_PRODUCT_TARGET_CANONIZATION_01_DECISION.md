@@ -1,4 +1,42 @@
+---
+doc_id: OPT_TRADING_GO_PRODUCT_TARGET_CANONIZATION_01_DECISION
+doc_type: product_target_decision
+repo: opt-trading
+project: opt-trading
+module:
+go_id: GO_PRODUCT_TARGET_CANONIZATION_01
+status: validated
+lifecycle_stage: consolidation
+topic_keys:
+  - opt-trading
+  - product_target
+  - decision
+  - student
+  - deepseek
+  - openclaw
+search_tags:
+  - surface:continuity
+  - doc_role:decision
+surface: continuity
+source_kind: canonical
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+point_de_reprise: "Section 4. DECISION"
+updated_at: 2026-04-23
+links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+  - docs/governance/MATRICE_GOUVERNANTE_V2.md
+  - docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md
+  - docs/product_targets/RUNTIME_TO_TARGET_MAPPING.md
+---
+
 # GO_PRODUCT_TARGET_CANONIZATION_01
+
+## Role documentaire
+
+- role_actuel: decision locale du lot `product_targets` avec arbitrage encore marque `A_REVALIDER`
+- role_cible: annexe de decision bornee, utile pour la reprise mais non souveraine a elle seule
+- souverainete: ne redefinit ni la hierarchie produit transverse, ni le canon du repo
+- lecture_de_reprise: relire cette decision apres `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`, puis recroiser `MATRICE_GOUVERNANTE_V2.md` et verifier les cibles et le mapping derives
 
 ## 1. QUESTION
 

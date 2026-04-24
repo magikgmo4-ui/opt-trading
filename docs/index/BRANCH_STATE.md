@@ -14,8 +14,11 @@ topic_keys:
   - index
 surface: index
 source_kind: canonical
-updated_at: 2026-04-22
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+point_de_reprise: "Section Tableau canonique"
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md
   - docs/index/GO_INDEX.md
   - docs/index/REPRISE.md
@@ -34,6 +37,13 @@ Elle sert a :
 - eviter de repartir de zero a chaque session de housekeeping
 - tracer les classifications deja decidees
 - completer `docs/index/GO_INDEX.md` pour la surface branches
+
+## Hierarchie de lecture
+
+- l'etat reel Git prouve prime
+- `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md` gouverne la place du support Git
+- `docs/index/BRANCH_STATE.md` est canonique pour la surface branches seulement
+- `docs/index/BRANCH_STATE.md` ne gouverne ni la continuite produit ni la structure parent / GO
 
 ## En-tete canonique
 

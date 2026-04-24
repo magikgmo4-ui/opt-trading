@@ -15,8 +15,10 @@ topic_keys:
   - journal
 surface: governance
 source_kind: canonical
-updated_at: 2026-04-11
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - journal/canon/JOURNAL_CANON_FULL_20260301_071931.md
   - docs/governance/HUMAN_FOUNDATIONS_CONTINUITY.md
   - docs/governance/HUMAN_CONTINUITY_ADAPTATION.md

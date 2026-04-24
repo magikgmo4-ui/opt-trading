@@ -15,8 +15,11 @@ topic_keys:
   - skill
 surface: governance
 source_kind: canonical
-updated_at: 2026-04-22
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+point_de_reprise: "Section Procedure operatoire minimale"
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/SESSION_DOCUMENTATION_GATE.md
   - docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md
   - docs/index/GO_INDEX.md
@@ -41,11 +44,13 @@ Elle sert à :
 
 ## Base canonique
 
+- gouvernance d'ensemble : `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
 - repo canonique : `opt-trading`
 - branche canonique de continuité : `sot/mainline`
 - base de comparaison opératoire : `origin/sot/mainline`
 - l’état réel du repo prime sur la mémoire et les hypothèses
 - la doc canonique du repo prime sur la logique reconstruite en session
+- `BRANCH_STATE.md` reste une surface branche ; il ne gouverne pas la continuité produit
 
 ---
 
