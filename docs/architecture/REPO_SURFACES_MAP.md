@@ -19,6 +19,7 @@ point_de_reprise: "Section Surfaces top-level (lecture canonique)"
 updated_at: 2026-04-24
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+  - docs/governance/REPO_ROOT_POLICY.md
   - registry/README.md
   - registry/meta_index.yaml
   - registry/ui_surfaces_registry.yaml
@@ -37,21 +38,26 @@ Fournir une carte humaine de lecture des surfaces du repo, sans remplacer les re
 
 ## Surfaces top-level (lecture canonique)
 - `docs/` : gouvernance, architecture, chantiers et continuité canonique
+- `registry/` : registres déclaratifs machine-readable
+- `workflow_ai/` : doctrine locale d'execution IA et templates opposables
 - `modules/` : modules durables et couches fonctionnelles
 - `scripts/` : wrappers et exécution opératoire
-- `registry/` : registres déclaratifs machine-readable
-- `perf/` : couche performance et persistance associée
 - `shared/`, `schemas/`, `adapters/` : briques transverses runtime
+- `perf/` : couche performance et persistance associée
 - `tools/` : outillage d’appui opératoire
-- `student/` : surface de travail et sous-produits embarqués
-- `workflow_ai/` : doctrine locale d'execution IA et templates opposables
-- `infra_context_sanitized/` : contexte infra sanitizé (support, continuité)
 - `deploy_module_multi_machine/` : outillage/continuité déploiement multi-machine
 - `packages/` : paquets et workspaces embarqués
 - `tradingview/` : surfaces liées à TradingView (support/exécution selon sous-dossiers)
+- `state/` : etat runtime léger et checkpoints techniques
+- `data/` : sorties, artefacts et sous-produits métier
+- `student/` : surface de travail et sous-produits embarqués
+- `contracts/` : contrats spécialisés de domaine
+- `audit/` : preuves ponctuelles et packs d'audit
+- `tests/` : surface top-level de test actuellement faible et partiellement diffuse
 
 ## Articulation de référence
 - architecture runtime : `docs/ARCHITECTURE.md`
+- politique racine : `docs/governance/REPO_ROOT_POLICY.md`
 - surfaces déclaratives : `registry/ui_surfaces_registry.yaml`
 - index de registres : `registry/meta_index.yaml`
 
@@ -59,8 +65,11 @@ Fournir une carte humaine de lecture des surfaces du repo, sans remplacer les re
 - ce document ne duplique pas les entrées détaillées `registry/*`
 - ce document n’impose pas de reclassement physique des fichiers
 
-## Surfaces secondaires / archive
+## Surfaces locales / archive
 - `_archive/` : archive locale (hors surface active)
+- `tmp/` : transit, bundles et essais locaux
+- `__pycache__/`, `.ruff_cache/`, `.uv-cache/`, `.uv-python/` : caches et runtimes locaux
+- `.secrets/` : support sensible local, non canonique
 
 ## Sous-surface documentaire notable
 - `docs/ot/trae/trae_pack_texts/README.md` : entree documentaire du support legacy Trae

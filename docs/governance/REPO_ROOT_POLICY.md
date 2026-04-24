@@ -19,6 +19,7 @@ point_de_reprise: "Section Regles racine"
 updated_at: 2026-04-24
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+  - docs/architecture/REPO_SURFACES_MAP.md
   - docs/ot/trae/06_REPO_BOUNDARY_POLICY_V1.txt
   - docs/governance/REPO_ROLE.md
   - docs/INDEX.md
@@ -36,10 +37,15 @@ Elle fixe seulement l'application locale à la racine de `opt-trading`.
 - ce document traite ce qui reste à la racine **dans le repo**
 - la frontière repo/hors-repo reste portée par `docs/ot/trae/06_REPO_BOUNDARY_POLICY_V1.txt`
 
+## Articulation avec la carte des surfaces
+- la carte complete des repertoires top-level est portee par `docs/architecture/REPO_SURFACES_MAP.md`
+- le present document fixe d'abord la discipline de la racine minimale, des fichiers top-level et des exceptions explicites
+
 ## Règles racine
 - ne laisser à la racine que les éléments ayant une valeur d’entrée, d’exécution ou de compatibilité explicite
 - rattacher tout objet racine à une catégorie documentée (runtime, support, legacy, ou en attente d’arbitrage)
 - éviter les dépôts opportunistes non qualifiés à la racine
+- aucune nouvelle documentation de support, preuve ponctuelle, export machine, pack legacy ou helper contextuel ne doit remonter à la racine
 
 ## Classes d’objets racine
 - **Entrée produit/runtime** : artefacts d’accès immédiat à l’exécution
@@ -47,14 +53,23 @@ Elle fixe seulement l'application locale à la racine de `opt-trading`.
 - **Legacy toléré** : éléments conservés pour compatibilité, explicitement marqués
 - **Arbitrage ouvert** : objets à reclasser dans un chantier dédié ultérieur
 
-## Objets racine classés
+## Fichiers racine legitimes observes au 2026-04-24
 - `README.md` : point d'entree repo minimal (quickstart / verification)
+- `requirements.txt` : dependances Python repo-first
+- `.env.example` : exemple minimal de configuration locale
+- `webhook_server.py` : entrypoint runtime historique et toujours actif, encore reference par la doc canonique et les scripts de verification
+
+## Surfaces top-level explicitement tolerees par la politique racine
 - `workflow_ai/` : doctrine locale d'execution IA et templates opposables
 - `deploy_module_multi_machine/` : outillage valide de deploiement multi-machine
 - `_archive/` : archive locale assumee, hors surface active
 
 ## Objets racine encore sous arbitrage
-- `bitget_bridge.py` : shim legacy conserve en racine en attente d'un lot dedie
+- `bitget_bridge.py` : shim legacy conserve en racine par prudence ; aucun caller repo explicite n'est confirme au `2026-04-24`, mais le move reste differe jusqu'a un lot dedie
+
+## Garde-fou local-only
+- `_archive/`, `tmp/`, `__pycache__/`, `.ruff_cache/`, `.uv-cache/`, `.uv-python/`, `.secrets/` ne sont ni des sources de verite ni des prerequis de lecture canonique
+- ces surfaces ne doivent jamais etre promues comme justification pour remonter d'autres artefacts a la racine
 
 ## Lot de retrait applique
 - `journal.md` : supprime comme surface de continuite locale obsolete

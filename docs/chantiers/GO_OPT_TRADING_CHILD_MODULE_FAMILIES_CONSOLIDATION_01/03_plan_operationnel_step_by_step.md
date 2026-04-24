@@ -1,0 +1,189 @@
+---
+doc_id: GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01_PLAN
+doc_type: chantier_execution_plan
+repo: opt-trading
+project: opt-trading
+module: modules
+go_id: GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01
+status: open
+lifecycle_stage: execution_plan
+topic_keys:
+  - opt-trading
+  - modules
+  - consolidation
+  - plan
+  - steps
+surface: chantier
+source_kind: canonical
+updated_at: 2026-04-24
+links:
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/00_cadrage.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/01_liste_modules.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/02_ensembles_a_consolider.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/04_step_02_hygiene_documentaire_batch1.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/05_step_02_hygiene_documentaire_batch2_openclaw.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/06_step_02_hygiene_documentaire_batch3_core.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/07_step_02_hygiene_documentaire_batch4_verticales.md
+  - docs/status/desk_pro_stack_canonique.md
+  - docs/status/deepseek_student_canonique.md
+  - docs/status/reseau_ssh_canonique.md
+  - docs/status/bot_vision_canonique.md
+---
+
+# Plan operationnel step-by-step
+
+## Regle
+Ce plan est volontairement conservateur :
+- pas de move physique avant clarification des callers et du survivant par famille
+- chaque step doit produire une preuve, une decision et un rollback
+
+## Step 00 — baseline inventaire
+- statut : complete
+- objectif : figer la liste reelle des modules et la couverture `README`
+- preuve :
+  - [01_liste_modules.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/01_liste_modules.md)
+- sortie :
+  - `85` modules
+  - `58` avec `README`
+  - `27` sans `README`
+
+## Step 01 — figer les ensembles
+- statut : complete
+- objectif : separer familles a consolider, familles a coordonner et surfaces a laisser separees
+- preuve :
+  - [02_ensembles_a_consolider.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/02_ensembles_a_consolider.md)
+
+## Step 02 — hygiene documentaire minimale
+- statut : complete
+- objectif : rendre les familles actives lisibles avant toute action plus forte
+- scope prioritaire :
+  - `desk_pro`
+  - `desk_common`
+  - `deepseek_response`
+  - `deepseek_thinking`
+  - famille `openclaw*`
+  - `auth`, `env`, `health`, `perf`, `router`, `webhook`, `workflow_post_change_v2`
+- action attendue :
+  - ajouter ou completer les `README`
+  - expliciter role, entrypoints, dependances, survivant/transition si la famille est ambigue
+- preuve observee (batch 1) :
+  - [04_step_02_hygiene_documentaire_batch1.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/04_step_02_hygiene_documentaire_batch1.md)
+  - couverture `README` passee de `58/85` a `69/85`
+  - modules sans `README` restants : `16`
+- preuve observee (batch 2 OpenClaw) :
+  - [05_step_02_hygiene_documentaire_batch2_openclaw.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/05_step_02_hygiene_documentaire_batch2_openclaw.md)
+  - couverture `README` passee de `69/85` a `76/85`
+  - modules sans `README` restants : `9`
+- preuve observee (batch 3 core wrappers) :
+  - [06_step_02_hygiene_documentaire_batch3_core.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/06_step_02_hygiene_documentaire_batch3_core.md)
+  - couverture `README` passee de `76/85` a `80/85`
+  - modules sans `README` restants : `5`
+- preuve observee (batch 4 verticales specialisees) :
+  - [07_step_02_hygiene_documentaire_batch4_verticales.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/07_step_02_hygiene_documentaire_batch4_verticales.md)
+  - couverture `README` passee de `80/85` a `85/85`
+  - modules sans `README` restants : `0`
+- reste a faire :
+  - aucun
+- rollback :
+  - revert doc-only
+
+## Step 03 — figer les survivants / transition / compatibilite
+- statut : pending
+- objectif : ne plus laisser de familles step-by-step sans statut operatoire clair
+- familles cibles :
+  - `deepseek*`
+  - `reseau_ssh*`
+  - `bot_vision*`
+  - `desk_pro*` / `desk_*`
+- action attendue :
+  - confirmer survivant, transition, legacy, compat
+  - aligner les docs courtes `docs/status/*` avec les README modules
+- preuve attendue :
+  - decision explicite par famille
+- rollback :
+  - revert doc-only
+
+## Step 04 — suites P1
+- statut : pending
+- objectif : produire les cartes de role et frontieres des familles prioritaires
+- familles :
+  - `Desk Pro`
+  - `DeepSeek/student`
+  - `reseau/share/transfer`
+- action attendue :
+  - carte composants
+  - entrypoint canonique
+  - satellites
+  - points de duplication
+  - risques de consolidation
+- preuve attendue :
+  - note de decision par famille
+  - aucun move physique tant que les callers ne sont pas audites
+- rollback :
+  - aucun si analyse seule
+
+## Step 05 — suites P2
+- statut : pending
+- objectif : traiter les familles importantes mais moins urgentes
+- familles :
+  - `Registry/UI/navigation`
+  - `Openclaw`
+  - `Collectors / market intelligence`
+  - `Vision`
+- action attendue :
+  - distinguer ce qui doit etre harmonise, mutualise, ou laisser separe
+- preuve attendue :
+  - plan par famille
+- rollback :
+  - aucun si analyse seule
+
+## Step 06 — contrats plutot que fusion
+- statut : pending
+- objectif : durcir les familles a garder separees
+- familles :
+  - `Engine pipeline`
+  - `Runtime edge / platform`
+  - `Repo / tooling / authoring`
+- action attendue :
+  - normaliser contracts, wrappers, ownership, README
+  - ne pas lancer de fusion physique
+- preuve attendue :
+  - conventions lisibles et roles stables
+- rollback :
+  - revert doc-only si modification documentaire
+
+## Step 07 — moves physiques a faible risque seulement
+- statut : conditional
+- objectif : n'autoriser que les consolidations prouvees sans casse
+- preconditions :
+  - survivant confirme
+  - callers verifies
+  - rollback explicite
+  - docs et wrappers mis a jour
+- exemples potentiels :
+  - reclassement de modules purement compat
+  - mutualisation de scripts/doc dans une suite deja figee
+
+## Step 08 — closeout ou sous-lots d'execution
+- statut : pending
+- objectif : decider si ce child reste un plan, ou devient parent d'execution par famille
+- sous-lots d'execution recommandes si besoin :
+  - `DESK_PRO_STACK_CONSOLIDATION`
+  - `DEEPSEEK_FAMILY_CONSOLIDATION`
+  - `RESEAU_SHARE_TRANSFER_CONSOLIDATION`
+  - `OPENCLAW_FAMILY_CONSOLIDATION`
+  - `VISION_FAMILY_SURVIVOR_DECISION`
+
+## Ordre recommande
+1. hygiene `README` sur les modules actifs et ambigus
+2. families `Desk Pro`, `DeepSeek`, `reseau_ssh`
+3. suites `Registry/UI`, `Openclaw`, `Collectors`
+4. `Vision`
+5. conventions `engines` / `runtime edge` / `repo tooling`
+6. seulement ensuite, moves physiques
+
+## Resultat attendu
+Au terme de ce plan, `modules/` doit devenir lisible par suites, sans remettre en cause les modules encore actifs ni casser les wrappers.
+
+## Point de reprise
+Poursuivre avec `Step 03` : figer survivants, transitions et compatibilites des familles `deepseek*`, `reseau_ssh*`, `bot_vision*` et `desk_*`.
