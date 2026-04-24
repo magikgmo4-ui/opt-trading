@@ -5,7 +5,7 @@ repo: opt-trading
 project: opt-trading
 module: modules
 go_id: GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01
-status: in_progress
+status: complete
 lifecycle_stage: execution
 topic_keys:
   - opt-trading
@@ -28,7 +28,7 @@ links:
 # Step 03 - famille `bot_vision*`
 
 ## Statut
-In progress.
+Complete.
 
 ## Objet
 Figer le statut operatoire de la famille vision sans lancer de move physique ni pretendre qu'un survivant unique existe deja.

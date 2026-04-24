@@ -5,7 +5,7 @@ repo: opt-trading
 project: opt-trading
 module: modules
 go_id: GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01
-status: in_progress
+status: complete
 lifecycle_stage: execution
 topic_keys:
   - opt-trading
@@ -31,7 +31,7 @@ links:
 # Step 03 - famille `reseau_ssh*`
 
 ## Statut
-In progress.
+Complete.
 
 ## Objet
 Figer la lignée `reseau_ssh*` et la distinguer clairement des modules adjacents de partage et de transfert.

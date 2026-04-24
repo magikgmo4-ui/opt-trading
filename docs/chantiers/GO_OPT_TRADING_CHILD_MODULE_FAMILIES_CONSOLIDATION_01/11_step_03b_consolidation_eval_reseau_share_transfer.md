@@ -5,7 +5,7 @@ repo: opt-trading
 project: opt-trading
 module: modules
 go_id: GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01
-status: in_progress
+status: complete
 lifecycle_stage: execution
 topic_keys:
   - opt-trading
@@ -30,7 +30,7 @@ links:
 # Step 03b - evaluation des consolidations possibles
 
 ## Statut
-In progress.
+Complete.
 
 ## Objet
 Evaluer les consolidations possibles de la suite élargie `reseau / partage / transfert` après clarification de la lignée `reseau_ssh*`.

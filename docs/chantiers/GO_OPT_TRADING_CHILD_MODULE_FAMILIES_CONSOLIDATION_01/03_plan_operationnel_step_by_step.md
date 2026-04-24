@@ -29,6 +29,9 @@ links:
   - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/10_step_03_family_decision_reseau_ssh.md
   - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/11_step_03b_consolidation_eval_reseau_share_transfer.md
   - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/12_step_03_family_decision_desk.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/13_step_04_role_map_desk_pro.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/14_step_04_role_map_deepseek_student.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/15_step_04_role_map_reseau_share_transfer.md
   - docs/status/desk_pro_stack_canonique.md
   - docs/status/deepseek_student_canonique.md
   - docs/status/reseau_ssh_canonique.md
@@ -134,7 +137,7 @@ Ce plan est volontairement conservateur :
   - revert doc-only
 
 ## Step 04 — suites P1
-- statut : pending
+- statut : complete
 - objectif : produire les cartes de role et frontieres des familles prioritaires
 - familles :
   - `Desk Pro`
@@ -146,9 +149,22 @@ Ce plan est volontairement conservateur :
   - satellites
   - points de duplication
   - risques de consolidation
-- preuve attendue :
-  - note de decision par famille
-  - aucun move physique tant que les callers ne sont pas audites
+- preuve observee (suite `Desk Pro`) :
+  - [13_step_04_role_map_desk_pro.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/13_step_04_role_map_desk_pro.md)
+  - hierarchie d'entrypoints figee :
+    - `menu-ops_menu_hub`
+    - `scripts/admin_trading/desk_pro_cmd.sh`
+    - `cmd-desk_pro_runner`
+  - frontieres P1 confirmees entre coeur produit, facade operatoire, pipeline, rendu et support minimal
+- preuve observee (suite `DeepSeek/student`) :
+  - [14_step_04_role_map_deepseek_student.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/14_step_04_role_map_deepseek_student.md)
+  - runtime actuel confirme : `scripts/student/`
+  - facade module candidate confirmee : `deepseek_hub`
+  - compatibilites maintenues : `deepseek_response`, `deepseek_thinking`
+- preuve observee (suite `reseau/share/transfer`) :
+  - [15_step_04_role_map_reseau_share_transfer.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/15_step_04_role_map_reseau_share_transfer.md)
+  - baseline, surface canonique et modes d'acces specialises distingues
+  - aucun move physique autorise dans ce lot
 - rollback :
   - aucun si analyse seule
 
@@ -216,4 +232,8 @@ Ce plan est volontairement conservateur :
 Au terme de ce plan, `modules/` doit devenir lisible par suites, sans remettre en cause les modules encore actifs ni casser les wrappers.
 
 ## Point de reprise
-`Step 03` est complete. Basculer vers `Step 04` pour les cartes de role P1.
+`Step 04` est complete. Basculer vers `Step 05` pour les suites P2 :
+- `Registry/UI/navigation`
+- `Openclaw`
+- `Collectors / market intelligence`
+- `Vision`

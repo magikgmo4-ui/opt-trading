@@ -5,7 +5,7 @@ repo: opt-trading
 project: opt-trading
 module: modules
 go_id: GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01
-status: in_progress
+status: complete
 lifecycle_stage: execution
 topic_keys:
   - opt-trading
@@ -31,7 +31,7 @@ links:
 # Step 03 - famille `deepseek*`
 
 ## Statut
-In progress.
+Complete.
 
 ## Objet
 Figer la lecture operatoire de la famille `deepseek*` sans confondre runtime actif, facade module unifiee, compatibilite legacy et cible de consolidation inachevee.
