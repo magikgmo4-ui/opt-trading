@@ -20,3 +20,7 @@ Unzip à la racine du repo `/opt/trading`, puis:
 
 ## Config
 `cp modules/desk_state/config/desk_state.env.example modules/desk_state/config/desk_state.env`
+
+## Statut de stack
+- satellite de state canonique pour Desk Pro
+- adjacent a la stack, sans remplacer `desk_pro`, `desk_pro_runner`, `desk_pro_orchestrator` ou `desk_pro_dashboard`

@@ -14,3 +14,11 @@ Ce répertoire racine est conservé comme point d'entrée de statut pour la fami
 - ne pas fusionner ni supprimer physiquement `step1b` dans ce lot
 - ne pas déplacer les wrappers racine dans ce lot
 - ne pas toucher au runtime live dans ce lot sans audit dédié
+
+## Frontière de suite
+- `reseau_ssh_step2` reste le survivant de la lignée `reseau_ssh*`
+- il est adjacent, mais non fusionné, avec :
+  - `shared` pour la surface canonique inter-machines
+  - `shared_files_sftp` pour l'exposition serveur
+  - `shared_sshfs_permanent` pour le montage Linux
+  - `winscp_transfer` pour le workflow Windows

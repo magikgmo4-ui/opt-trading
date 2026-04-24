@@ -44,11 +44,18 @@ Fiche courte de lignée/stack pour `desk_pro*` et `desk_*`.
 ## ETABLI
 - `desk_pro*` est une stack à cartographier (pas un doublon simple)
 - `desk_*` hors `desk_pro*` forme un sous-système adjacent à frontière encore à préciser
+- `desk_pro` confirmé comme centre de gravité partagé API / UI / service
+- `desk_pro_runner` confirmé comme façade opératoire module
+- `desk_pro_orchestrator` confirmé comme pipeline d'exécution
+- `desk_pro_dashboard` confirmé comme surface de visualisation / export
+- `desk_common` confirmé comme support partagé minimal
+- runtime admin réel confirmé hors `modules/` via `scripts/admin_trading/desk_pro_cmd.sh`
+- `desk_snapshot_ingest`, `desk_capture_inputs`, `desk_analyze`, `desk_state`, `desk_retention` confirmés comme satellites adjacents
 
 ## Survivant / Transition / Legacy / Archive
-- survivant : non figé à ce stade (stack multi-composants)
+- survivant : stack multi-composants ; pas de survivant unique
 - transition : consolidation documentaire des rôles par composant
-- legacy : non tranché dans ce lot
+- legacy : pas de module legacy figé dans ce lot ; les wrappers legacy restent hors `modules/`
 - archive : non figé dans ce lot
 
 ## Liens de preuve
@@ -57,4 +64,5 @@ Fiche courte de lignée/stack pour `desk_pro*` et `desk_*`.
 - `docs/ot/trae/OT_DESKPRO_MACHINE_PACK_WRAPPERS_REGISTRY_DECISION_01.md`
 
 ## Reprise
-- reprendre dans `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01` pour figer les rôles stack et les exceptions associées
+- reprise immédiate documentée dans `GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01`
+- basculer ensuite en cartographie `Step 04` pour détailler les frontières P1 de la stack

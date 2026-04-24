@@ -183,7 +183,7 @@ Quand un chantier concerne `opt-trading`, le repo doit porter au minimum :
 ## 8. Limites
 
 Ce document ne fixe pas encore :
-- le rôle exact final de `journal.md`
+- la politique finale de reclassement des supports legacy locaux
 - le mapping détaillé champ par champ vers `memory_bricks`
 - les templates détaillés de chaque type documentaire local
 - la liste exhaustive d’objets autorisés à la racine (portée dans `REPO_ROOT_POLICY.md`)

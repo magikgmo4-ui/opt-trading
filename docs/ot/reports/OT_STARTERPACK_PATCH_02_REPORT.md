@@ -22,7 +22,7 @@ Date (America/Montreal) : 2026-03-14
 - Condition de clôture propre : doc canonique touchée + kanban source of truth + point de reprise alignés.
 
 ### 2.4 Statut exact des packs TRAE
-- `trae_pack_texts/trae_pack/*` : helpers/support (transport/cadrage/continuité), non sources de vérité principales du repo.
+- `docs/ot/trae/trae_pack_texts/trae_pack/*` : helpers/support (transport/cadrage/continuité), non sources de vérité principales du repo.
 - En cas de conflit, la doctrine repo (starter pack + workflow_ai + kanban) prime.
 
 ## 3. PRIORITÉ CANONIQUE EN CAS DE CONFLIT
@@ -41,8 +41,8 @@ Date (America/Montreal) : 2026-03-14
 - `docs/master_pack/mission_starter_pack/00_mission_start_guide.md`
 - `docs/master_pack/mission_starter_pack/01_mission_template.md`
 - `workflow_ai/WORKFLOW.md`
-- `trae_pack_texts/trae_pack/TRAE_SESSION_OPENING_PACK_V1.1.txt`
-- `trae_pack_texts/trae_pack/TRAE_CLOSURE_TEMPLATE_V1.1.txt`
+- `docs/ot/trae/trae_pack_texts/trae_pack/TRAE_SESSION_OPENING_PACK_V1.1.txt`
+- `docs/ot/trae/trae_pack_texts/trae_pack/TRAE_CLOSURE_TEMPLATE_V1.1.txt`
 - `opt_trading_kanban_source_of_truth_2026-03-13_updated.md`
 
 ## 6. VERDICT

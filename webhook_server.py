@@ -70,7 +70,6 @@ BASE_DIR = pathlib.Path("/opt/trading")
 STATE_DIR = BASE_DIR / "state"
 STATE_DIR.mkdir(parents=True, exist_ok=True)
 
-JOURNAL_PATH = BASE_DIR / "journal.md"
 EVENTS_JSONL = STATE_DIR / "events.jsonl"
 ROUTER_STATE = STATE_DIR / "router_state.json"
 RISK_CONFIG = STATE_DIR / "risk_config.json"
@@ -144,6 +143,9 @@ def write_json_file(path: pathlib.Path, obj: Any) -> None:
 def append_jsonl(path: pathlib.Path, obj: Dict[str, Any]) -> None:
     with path.open("a", encoding="utf-8") as f:
         f.write(json.dumps(obj, ensure_ascii=False) + "\n")
+
+def record_event(evt: Dict[str, Any]) -> None:
+    append_jsonl(EVENTS_JSONL, evt)
 
 def ensure_router_state() -> Dict[str, Any]:
     st = read_json_file(ROUTER_STATE, {})
@@ -359,39 +361,6 @@ def enforce_lock(engine: str) -> None:
     if engine in AGGRESSIVE_ENGINES and active in AGGRESSIVE_ENGINES:
         raise HTTPException(status_code=409, detail=f"Engine locked: active_engine={active}")
 
-def write_journal_entry(evt: Dict[str, Any]) -> None:
-    ts_local = datetime.now().strftime("%Y-%m-%d %H:%M")
-    engine = evt.get("engine", "")
-    signal = evt.get("signal", "")
-    symbol = evt.get("symbol", "")
-    tf = evt.get("tf", "")
-    price = evt.get("price", 0)
-    tp = evt.get("tp", 0)
-    sl = evt.get("sl", 0)
-    reason = evt.get("reason", "")
-
-    entry = []
-    entry.append(f"\n## {ts_local} | TV Webhook | {engine} | {symbol} {tf} | {signal}\n")
-    entry.append(f"1. **Signal**: `{signal}`\n")
-    entry.append(f"2. **Engine**: `{engine}`\n")
-    entry.append(f"3. **Symbol/TF**: `{symbol}` / `{tf}`\n")
-    entry.append(f"4. **Price**: `{price}`\n")
-    entry.append(f"5. **TP**: `{tp}`\n")
-    entry.append(f"6. **SL**: `{sl}`\n")
-    if reason != "":
-        entry.append(f"7. **Reason**: {reason}\n")
-        entry.append("8. **Payload brut**:\n")
-    else:
-        entry.append("7. **Payload brut**:\n")
-
-    entry.append("```json\n")
-    entry.append(json.dumps(evt, ensure_ascii=False, indent=2))
-    entry.append("\n```\n")
-
-    with JOURNAL_PATH.open("a", encoding="utf-8") as f:
-        f.write("".join(entry))
-
-
 @app.post("/tv")
 async def tv_webhook(req: Request):
     payload = await req.json()
@@ -484,8 +453,7 @@ async def tv_webhook(req: Request):
         "risk_real_usd": q.get("risk_real_usd", None),
 }
 
-    append_jsonl(EVENTS_JSONL, evt)
-    write_journal_entry(evt)
+    record_event(evt)
 
     # Telegram notify (simple, readable)
     if TELEGRAM_ENABLED:

@@ -8,3 +8,10 @@ Goal (your spec):
 Notes:
 - We do NOT assume "last 4 screenshots". We assume ONE dashboard screenshot that contains 4 charts.
 - Mosaic is optional. We can crop quadrants (01..04) for Desk Pro / Send all.
+
+## Family status
+- `bot_vision_step2` is not treated as the single final survivor of the family
+- current transitory operational chain is:
+  - `vision_bot` for capture / inbox-outbox
+  - `bot_vision_step2` for Telegram + Vision analysis + Desk Pro artifacts
+- `bot_vision` remains the legacy `step1` skeleton

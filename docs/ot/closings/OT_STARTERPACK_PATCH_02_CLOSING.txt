@@ -17,8 +17,8 @@ Date (America/Montreal) : 2026-03-14
 - `docs/master_pack/mission_starter_pack/00_mission_start_guide.md`
 - `docs/master_pack/mission_starter_pack/01_mission_template.md`
 - `workflow_ai/WORKFLOW.md`
-- `trae_pack_texts/trae_pack/TRAE_SESSION_OPENING_PACK_V1.1.txt`
-- `trae_pack_texts/trae_pack/TRAE_CLOSURE_TEMPLATE_V1.1.txt`
+- `docs/ot/trae/trae_pack_texts/trae_pack/TRAE_SESSION_OPENING_PACK_V1.1.txt`
+- `docs/ot/trae/trae_pack_texts/trae_pack/TRAE_CLOSURE_TEMPLATE_V1.1.txt`
 - `opt_trading_kanban_source_of_truth_2026-03-13_updated.md`
 - `OT_STARTERPACK_PATCH_02_REPORT.md`
 - `OT_STARTERPACK_PATCH_02_CLOSING.txt`

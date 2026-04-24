@@ -17,7 +17,7 @@ topic_keys:
   - audit
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-20
+updated_at: 2026-04-24
 links:
   - docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/00_cadrage.md
   - docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/03_decisions.md
@@ -49,7 +49,7 @@ links:
 
 ### Étape 2 — Sous-lot A1 : recroisement continuité canonique
 - index canoniques lus : `docs/index/*`
-- politiques canoniques lues : `REPO_ROOT_POLICY`, `REPO_SURFACES_MAP`, `JOURNAL_HIERARCHY`
+- politiques canoniques lues : `REPO_ROOT_POLICY`, `REPO_SURFACES_MAP`, `HUMAN_*`
 - constat : le périmètre opératoire est piloté par 11 GO non clos (incluant ce parent)
 
 ### Étape 3 — Sous-lot B1 : objets racine sous arbitrage (GROUPE 1)
@@ -61,7 +61,6 @@ Constat repo-first (présence physique confirmée) :
 - `smartmoney.txt`
 - `bitget_bridge.py`
 - `_archive/`
-- `trae_pack_texts/`
 - `.gitignore.bak*`
 
 ### Étape 4 — Sous-lot B2 : reliquats workflow_post_change (GROUPE 2)
@@ -78,7 +77,7 @@ Constat repo-first :
 
 ### Étape 6 — Sous-lot B4 : supports locaux non canoniques (GROUPE 4)
 Constat repo-first :
-- `trae_pack_texts/trae_pack/*` existe comme bibliothèque locale de textes
+- `docs/ot/trae/trae_pack_texts/trae_pack/*` existe comme bibliothèque locale de textes
 
 ### Étape 7 — PHASE C : matrice d’objets (v0)
 
@@ -100,7 +99,7 @@ Constat repo-first :
 | `docs/CLOSEOUT_FINAL_BOT_VISION.txt` | legacy toléré | doc historique en `docs/` ; doublonne potentiellement des traces `docs/status/*` | faible | archiver | choisir surface archive doc | validation lot “docs historiques” |
 | `docs/ETABLI_BOT_VISION.txt` | legacy toléré | doc historique en `docs/` | faible | archiver | choisir surface archive doc | validation lot “docs historiques” |
 | `docs/RESIDUEL_BOT_VISION.txt` | legacy toléré | doc historique en `docs/` | faible | archiver | choisir surface archive doc | validation lot “docs historiques” |
-| `trae_pack_texts/trae_pack/*` | legacy toléré | bibliothèque locale de textes Trae ; utile mais hors canon Git | faible | laisser en place | expliciter politique d’archive locale | validation lot “supports locaux” |
+| `docs/ot/trae/trae_pack_texts/trae_pack/*` | legacy toléré | bibliothèque locale de textes Trae ; utile mais hors canon Git ; désormais rangée sous `docs/` | faible | laisser en place | expliciter politique d’archive locale | validation lot “supports locaux” |
 
 ### Étape 8 — PHASE D : plan de lots futurs (v0)
 - lot quick wins sûrs :
@@ -263,3 +262,30 @@ Constat repo-first :
 ### REPRISE
 Point de reprise unique :
 - ouverture d’un seul prochain sous-lot opératoire depuis la matrice parent
+
+### Étape 13 — Lot racine appliqué (A/B/C) + articulation Trae/IDE
+Constat repo-first avant action :
+- `Readme`, `TOOLBOX.txt`, `UI_URLS.md`, `smartmoney.txt`, `strategy_logic.py` et `validated_prompt_factory_role_preface.patch` etaient encore physiquement presents en racine
+- `workflow_ai/`, `deploy_module_multi_machine/` et `_archive/` restaient des surfaces racine structurelles ; `trae_pack_texts/` etait le support documentaire a sortir de la racine
+- `bitget_bridge.py` demeurait le seul fichier racine a risque operatoire non traite
+
+Actions appliquees :
+- `Readme` -> `README.md`
+- fusion doc de `TOOLBOX.txt` dans `docs/admin_trading_desk_pro_quick_reference.md`
+- fusion doc de `UI_URLS.md` dans `docs/desk_pro_multi_machine_quick_reference.md`
+- archivage des copies legacy de `TOOLBOX.txt`, `UI_URLS.md`, `smartmoney.txt` et `validated_prompt_factory_role_preface.patch` sous `_archive/root_backups/`
+- move de `strategy_logic.py` vers `modules/decision_engine/app/strategy_logic.py`
+- move de `trae_pack_texts/` vers `docs/ot/trae/trae_pack_texts/`
+- ajustement de `scripts/verify_all.sh` pour compiler le nouveau chemin
+
+Synthèse Trae/IDE retenue :
+- `workflow_ai/` = doctrine d'execution et templates opposables
+- `modules/validated_prompt_factory/` = generation de prompts structures
+- `deploy_module_multi_machine/` = deploiement multi-machine depuis `admin-trading`
+- `docs/ot/trae/trae_pack_texts/` = support local legacy, non canonique
+
+Etat residuel apres lot :
+- `bitget_bridge.py` reste en arbitrage
+- `_archive/` reste archive locale assumee
+- `workflow_ai/` reste en racine sans deplacement physique
+- `docs/ot/trae/trae_pack_texts/` reste dans le repo comme support local non canonique, mais n'encombre plus la racine

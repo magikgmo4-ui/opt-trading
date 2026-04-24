@@ -14,7 +14,7 @@ if [[ -z "${SHARED_DIR:-}" ]]; then
 else
   SHARED_DIR="$SHARED_DIR"
 fi
-LOGDIR="${LOGDIR:-$ROOT/journal/tmp}"
+LOGDIR="${LOGDIR:-$ROOT/tmp/logs}"
 mkdir -p "$LOGDIR" || true
 
 ts() { date +"%Y%m%d_%H%M%S"; }
@@ -39,7 +39,7 @@ Usage:
 Env overrides:
   ROOT=/opt/trading
   SHARED_DIR=/shared   (or /srv/sftp/shared_files/shared)
-  LOGDIR=/opt/trading/journal/tmp
+  LOGDIR=/opt/trading/tmp/logs
 USAGE
 }
 

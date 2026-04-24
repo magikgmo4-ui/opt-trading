@@ -4,7 +4,7 @@ doc_type: intent
 repo: opt-trading
 project: opt-trading
 module:
-go_id: GO_OPT_TRADING_JOURNAL_FULL_READING_03
+go_id: GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01
 status: reference
 lifecycle_stage: governance
 topic_keys:
@@ -12,22 +12,19 @@ topic_keys:
   - human_layer
   - continuity
   - governance
-  - journal
 surface: governance
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
-updated_at: 2026-04-23
+updated_at: 2026-04-24
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
-  - journal/canon/JOURNAL_CANON_FULL_20260301_071931.md
-  - docs/chantiers/GO_OPT_TRADING_JOURNAL_FULL_READING_03/00_cadrage.md
 ---
 
 # HUMAN_FOUNDATIONS_CONTINUITY
 
 ## Objet
 
-Ce document fixe les fondations humaines de la continuité, telles qu’elles ressortent de la lecture du journal canon.
+Ce document fixe les fondations humaines de la continuité, telles qu’elles ressortent des extractions de continuité conservées.
 
 Il ne remplace pas le détail des chantiers, closeouts, index ou formes compactes.
 Il sert à préserver l’intention de fond, l’objectif humain et la logique générale des choix, afin que la continuité ne se réduise pas à un état technique ou à un canon vidé de son sens.

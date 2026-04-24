@@ -7,6 +7,7 @@
 
 ## 1. CONTEXTE DE DÉPART
 - **Sources lues** : `docs/master_pack/00_current_state_and_standards.md`, [Autres sources pertinentes]
+- **Sources manquantes / non relues** : [Si applicable]
 - **État supposé** : [Ce qu'on croit savoir avant de commencer]
 - **Risques identifiés** : [Ex: Confusion runtime, Impact prod, etc.]
 
@@ -22,9 +23,19 @@ Standard de mission (Orchestrator) : cadrer via `docs/ot/trae/12_ORCHESTRATOR_EN
 Si la mission comporte 3 étapes ou plus, ou implique repo+shared, ou plusieurs machines, utiliser : `docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt`.
 
 ## 3. RÈGLES SPÉCIFIQUES
+- **Scope autorisé** : [Fichiers / dossiers explicitement autorisés]
+- **Hors-scope** : [Ce qui ne doit pas être touché]
+- **Preuve attendue** : [Commande, log, diff, screenshot, artefact]
+- **Rollback prévu** : [Commande ou procédure explicite]
 - [Règle 1 : Ne pas toucher à X]
 - [Règle 2 : Vérifier Y sur la machine Z]
 - [Règle 3 : Format de sortie attendu]
+
+Rappels :
+- une mission doit rester atomique et vérifiable
+- une validation du type "ça doit marcher" n'est pas acceptable
+- `modules/validated_prompt_factory/README.md` peut aider à générer un prompt structuré, mais ne remplace pas ce contrat de mission
+- `docs/ot/trae/trae_pack_texts/README.md` est un support legacy de lecture, non la source canonique de mission
 
 ## 4. LIVRABLES ATTENDUS
 1.  `OT_[ID]_[NOM]_REPORT.md`

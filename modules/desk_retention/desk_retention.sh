@@ -9,7 +9,7 @@ KEEP_DAYS="${KEEP_DAYS:-7}"
 PRUNE_EMPTY_DIRS="${PRUNE_EMPTY_DIRS:-1}"
 PRUNE_PATHS="${PRUNE_PATHS:-/opt/trading/desk/snapshots}"
 EXCLUDE_REGEX="${EXCLUDE_REGEX:-latest\.json$|history\.jsonl$|\.keep$}"
-LOG_DIR="${LOG_DIR:-/opt/trading/journal/tmp}"
+LOG_DIR="${LOG_DIR:-/opt/trading/tmp/logs}"
 
 if [ -f "$CFG" ]; then
   # shellcheck disable=SC1090

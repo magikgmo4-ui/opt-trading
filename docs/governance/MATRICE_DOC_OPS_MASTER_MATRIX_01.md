@@ -121,8 +121,8 @@ Ordre d'arbitrage retenu :
 3. annexes canoniques stables
 4. surfaces operatoires canoniques
 5. dossiers chantier
-6. derives / compaction / registry / index journaux
-7. brut vivant et archives
+6. derives / compaction / registry / supports extraits
+7. archives et historiques
 
 Effet :
 - la realite prouvee arbitre les contradictions
@@ -160,11 +160,11 @@ Effet :
 - `memory_bricks`
 - `search_tags`
 - registry derive
-- `journal/index/*`
+- `docs/governance/HUMAN_*`
 
-`brut / archive`
-- `journal.md`
-- `journal/canon/*`
+`archive / historique`
+- `docs/ot/closings/*`
+- `_archive/`
 
 ### 1.4 Articulation gouvernance / chantier / continuite / compaction / branche
 
@@ -545,9 +545,7 @@ Si un ecart subsiste :
 | reprise operatoire | `docs/index/REPRISE.md` | interne a la surface | une verite de liste ou une doctrine complete |
 | etat branches | `docs/index/BRANCH_STATE.md` | interne a la surface | la doctrine generale du chantier |
 | registry machine-readable | `registry/*` | `registry/meta_index.yaml` | une source souveraine de structure |
-| journal brut | `journal.md` | aucune indexation canonique active | une gouvernance stable |
-| journal derive | `journal/index/*` | aucune substitution a `docs/index/*` | un index souverain |
-| archive journal | `journal/canon/*` | archive / preuve | une surface active |
+| resultats extraits de continuite | `docs/governance/HUMAN_*` | `docs/INDEX.md` | une surface de pilotage ou de liste |
 | racine repo | racine + `REPO_ROOT_POLICY.md` | categorie documentee si objet durable | un depot opportuniste non qualifie |
 
 ### 8.2 Frontieres minimales
@@ -557,7 +555,7 @@ Si un ecart subsiste :
 - `docs/index/` : surfaces actives de continuite
 - `docs/chantiers/` : dossiers de lots bornes
 - `registry/*` : supports machine-readable derives
-- `journal*` : brut vivant, derives, archives
+- `docs/governance/HUMAN_*` : resultats extraits de continuite, conserves comme references
 - racine repo : seulement les objets a valeur d'entree, d'execution, de compatibilite ou d'arbitrage documente
 
 ### 8.3 Surfaces proches pertinentes mais non souveraines

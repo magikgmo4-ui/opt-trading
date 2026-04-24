@@ -1,1 +1,0 @@
-Validation: git status clean

@@ -46,6 +46,8 @@ Fiche courte de lignée pour la famille `reseau_ssh*`, en complément de l’aud
 - runtime alignment clos sur `admin-trading`, `student`, `db-layer` : les entrypoints courts convergent vers `scripts/reseau_ssh/`
 - LAN actif observé depuis `cursor-ai` : `192.168.0.0/24`
 - ancien LAN `192.168.16.0/24` : historique / ancien routeur, à ne plus lire comme LAN actif par défaut
+- recroisement effectué avec `shared`, `shared_files_sftp`, `shared_sshfs_permanent`, `winscp_transfer`
+- ces surfaces sont adjacentes au même domaine opératoire, sans appartenir à la lignée `reseau_ssh*`
 
 ## Inventaire LAN actif
 | Machine | LAN actif | WG |
@@ -61,9 +63,16 @@ Fiche courte de lignée pour la famille `reseau_ssh*`, en complément de l’aud
 - legacy : `reseau_ssh` (selon arbitrage final de consolidation)
 - archive : non figé dans ce lot
 
+## Surfaces adjacentes
+- `shared` : surface canonique inter-machines
+- `shared_files_sftp` : exposition serveur SFTP de `shared`
+- `shared_sshfs_permanent` : montage client Linux de `shared`
+- `winscp_transfer` : workflow Windows / inbox-outbox sur la même surface
+
 ## Liens de preuve
 - `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md`
 - `docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/02_module_family_consolidation_audit.md`
 
 ## Reprise
-- reprendre dans `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03` pour arbitrage final de reclassement physique
+- reprise immédiate documentée dans `GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01`
+- reprendre dans `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03` si un arbitrage final de reclassement physique devient nécessaire

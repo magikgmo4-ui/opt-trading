@@ -4,7 +4,7 @@ doc_type: intent
 repo: opt-trading
 project: opt-trading
 module:
-go_id: GO_OPT_TRADING_JOURNAL_FULL_READING_03
+go_id: GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01
 status: reference
 lifecycle_stage: governance
 topic_keys:
@@ -12,14 +12,12 @@ topic_keys:
   - human_layer
   - continuity
   - conditions
-  - journal
 surface: governance
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
-updated_at: 2026-04-23
+updated_at: 2026-04-24
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
-  - journal/canon/JOURNAL_CANON_FULL_20260301_071931.md
   - docs/governance/HUMAN_FOUNDATIONS_CONTINUITY.md
   - docs/governance/HUMAN_CONTINUITY_ADAPTATION.md
   - docs/governance/HUMAN_CONTINUITY_OPERABILITY.md
@@ -33,14 +31,13 @@ links:
   - docs/governance/HUMAN_CONTINUITY_DECISION_BOUNDS.md
   - docs/governance/HUMAN_CONTINUITY_MATURITY.md
   - docs/governance/HUMAN_CONTINUITY_OWNERSHIP.md
-  - docs/chantiers/GO_OPT_TRADING_JOURNAL_FULL_READING_03/00_cadrage.md
 ---
 
 # HUMAN_CONTINUITY_CONDITIONS
 
 ## Objet
 
-Ce document fixe les principes humains de conditions de validité de la continuité, tels qu’ils ressortent de la lecture du journal canon.
+Ce document fixe les principes humains de conditions de validité de la continuité, tels qu’ils ressortent des extractions de continuité conservées.
 
 Il complète les blocs humains déjà posés en explicitant la visibilité des préconditions réelles de reprise, la distinction entre signes utiles et signaux fiables, la conservation des raisons de simplification, et l’explicitation de ce qui reste non arbitré.
 

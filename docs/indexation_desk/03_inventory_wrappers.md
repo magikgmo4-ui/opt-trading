@@ -44,7 +44,7 @@ These modules have internal `scripts/menu.sh`, `scripts/cmd.sh`, `scripts/sanity
 The following wrappers exist globally and should be checked against actual module layout / intent:
 - `cmd-bot_vision_step2`, `menu-bot_vision_step2`, `sanity-bot_vision_step2`
 - `cmd-deepseek_hub`, `menu-deepseek_hub`, `sanity-deepseek_hub`
-- `cmd-journal_de_bord`, `menu-journal_de_bord`, `sanity-journal_de_bord`
+- `cmd-journal_de_bord`, `menu-journal_de_bord`, `sanity-journal_de_bord` (legacy retire depuis)
 - `cmd-shared_sshfs_permanent`
 
 ## Naming inconsistencies observed

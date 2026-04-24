@@ -17,7 +17,7 @@ topic_keys:
   - repo_hygiene
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-20
+updated_at: 2026-04-24
 links:
   - docs/index/GO_INDEX.md
   - docs/index/ACTIVE_STREAMS.md
@@ -25,7 +25,6 @@ links:
   - docs/index/NEXT_GO_CANDIDATES.md
   - docs/governance/REPO_ROOT_POLICY.md
   - docs/architecture/REPO_SURFACES_MAP.md
-  - docs/governance/JOURNAL_HIERARCHY.md
   - docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/02_journal_technique.md
   - docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/03_decisions.md
 ---
@@ -54,12 +53,11 @@ GROUPE 1 — objets racine sous arbitrage (selon `REPO_ROOT_POLICY.md`) :
 - `Readme`
 - `TOOLBOX.txt`
 - `UI_URLS.md`
-- `journal_add.sh`
 - `smartmoney.txt`
 - `bitget_bridge.py`
 - `_archive/`
-- `trae_pack_texts/`
 - `.gitignore.bak*`
+- surfaces journal retirees du repo canonique (lot execute)
 
 GROUPE 2 — reliquats `workflow_post_change` :
 - `modules/workflow_post_change_v2_fix1`
@@ -80,7 +78,7 @@ GROUPE 3 — docs historiques dispersées :
 - `docs/RESIDUEL_BOT_VISION.txt`
 
 GROUPE 4 — surfaces support non canoniques à surveiller :
-- `trae_pack_texts/trae_pack/*`
+- `docs/ot/trae/trae_pack_texts/trae_pack/*`
 - autres groupes réellement observés comme dispersés / legacy / déclassés / ambigus (repo-first uniquement)
 
 ## Méthode imposée

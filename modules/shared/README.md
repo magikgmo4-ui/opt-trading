@@ -56,3 +56,11 @@ Notes :
 - Les chemins `relpath` sont relatifs à la racine `shared` (ex: `_bundles/x.zip`, `README.txt`).
 - Par défaut, `cmd-shared` vise `/shared` si présent, sinon `/srv/sftp/shared_files/shared`.
 
+## Statut de suite
+- `shared` est la surface canonique inter-machines
+- il ne fait pas partie de la lignée `reseau_ssh*`
+- il s'articule avec :
+  - `shared_files_sftp` pour l'exposition serveur
+  - `shared_sshfs_permanent` pour le montage Linux
+  - `winscp_transfer` pour le workflow Windows
+

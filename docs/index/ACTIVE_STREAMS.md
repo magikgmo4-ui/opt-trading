@@ -52,11 +52,11 @@ Il sert à :
 
 ---
 
-## Priorité opératoire (15 GO non clos retenus)
+## Priorité opératoire (14 GO non clos retenus)
 
 - P0 : `GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01`, `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`, `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01`
-- P1 : `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`, `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
-- P2 : `GO_OPT_TRADING_JOURNAL_FULL_READING_03`, `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04`, `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01`, `GO_OPT_TRADING_PARENT_NAMING_CANON_01`
+- P1 : `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`, `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`, `GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
+- P2 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01`, `GO_OPT_TRADING_PARENT_NAMING_CANON_01`
 
 ---
 
@@ -75,7 +75,7 @@ Il sert à :
 - repo : opt-trading
 - branche : `sot/mainline`
 - dernier point établi : chantier parent ouvert pour réaligner la continuité index (repo-first, doc-only)
-- prochaine action : appliquer le LOT 1 (index) puis LOT 2 (hiérarchie journal) selon `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/00_cadrage.md`
+- prochaine action : appliquer le LOT 1 (index) puis LOT 2 (retrait du journal et réalignement continuité) selon `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/00_cadrage.md`
 - blocages : aucun blocage explicite ; patchs uniquement si gap réel
 
 ### GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01
@@ -102,6 +102,14 @@ Il sert à :
 - prochaine action : consolider les règles de reclassement racine par arbitrages documentés
 - blocages : aucun blocage explicite ; ne pas redéfinir la frontière repo/hors-repo
 
+### GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01
+- statut : active
+- repo : opt-trading
+- branche : `sot/mainline`
+- dernier point établi : `trae_pack_texts/` a été déplacé sous `docs/ot/trae/trae_pack_texts/` ; un `README.md` repo-native y porte désormais la synthèse vivante, et `trae_pack/` est requalifié en archive de lecture compatible doc/IDE
+- prochaine action : vérifier après push si le lot peut passer en closeout doc-only, sans réactiver les anciens templates comme doctrine vivante
+- blocages : ne pas re-promouvoir ces packs comme source canonique ; éviter toute duplication doctrinale avec `workflow_ai/` et le starter pack
+
 ### GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01
 - statut : active
 - repo : opt-trading
@@ -125,22 +133,6 @@ Il sert à :
 - dernier point établi : dossier chantier dédié minimal désormais ouvert pour un GO déjà actif dans l’index
 - prochaine action : expliciter une suite dédiée seulement si la migration progressive doit être poursuivie comme chantier autonome distinct
 - blocages : aucun blocage explicite établi dans `docs/chantiers/GO_GIT_PROGRESSIVE_MIGRATION_START_13/00_cadrage.md`
-
-### GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04
-- statut : active
-- repo : opt-trading
-- branche : non précisée dans `docs/chantiers/GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04/00_cadrage.md`
-- dernier point établi : reprise de lecture après `LOT_S23` avec un nouvel angle orienté intention projet / objectif / choix / pourquoi
-- prochaine action : enchaîner sur la lecture de `journal.md`, vérifier le même manque d’intention projet, puis croiser brut et canon
-- blocages : aucun blocage explicite établi dans `docs/chantiers/GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04/00_cadrage.md`
-
-### GO_OPT_TRADING_JOURNAL_FULL_READING_03
-- statut : active
-- repo : opt-trading
-- branche : `sot/mainline`
-- dernier point établi : lecture figée volontairement à `JOURNAL_MD_BLOCK_15`; `BLOCK_16` et `BLOCK_17` ne sont pas retenus dans la base canonique courante
-- prochaine action : reprendre plus tard à `BLOCK_16` (ligne 4421) seulement si le chantier est rouvert explicitement
-- blocages : au-delà de `BLOCK_15`, les segments lus n’apportent pas encore assez d’arbitrages nouveaux ou de doctrine explicite pour être conservés comme continuité canonique
 
 ### GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01
 - statut : open

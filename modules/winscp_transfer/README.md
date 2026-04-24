@@ -43,3 +43,8 @@ Par défaut:
 - student host = "student"
 Tu peux override:
 - `STUDENT_HOST=192.168.16.103 cmd-winscp_transfer send student file.zip`
+
+## Statut de suite
+- workflow Windows <-> Linux de transfert sur la surface `shared`
+- adjacent a `reseau_ssh_step2`, mais non inclus dans la lignée `reseau_ssh*`
+- specialise dans l'inbox/outbox et le push/pull operatoire, pas dans la baseline SSH ni le montage `sshfs`

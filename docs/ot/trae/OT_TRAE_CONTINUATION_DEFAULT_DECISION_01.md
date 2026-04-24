@@ -7,7 +7,7 @@ Canoniser la suite principale du plan Trae après la reprise neutre, en remplaç
 
 ## 2. Éléments établis (contexte)
 - Le chantier prioritaire Trae a été clôturé (pré‑V1, CONTRADICTOIRE, runtime/snapshot, adoption proof) et la reprise neutre `GO_OT_NEXT_MISSION_SELECTION_01` était conservée comme point actif.
-- Le kanban reste la source de vérité ; le journal_de_bord est secondaire.
+- Le kanban reste la source de vérité ; les extractions de continuité ne sont que des supports secondaires.
 - Le backlog post‑V1 est explicitement réservé pour après le freeze minimal V1.
 
 ## 3. Décision canonique (suite imposée)

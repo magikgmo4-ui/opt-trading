@@ -22,3 +22,7 @@ Safe-by-default:
 
 ## Timer (optionnel)
 `modules/desk_retention/scripts/cmd.sh install_timer`
+
+## Statut de stack
+- satellite d'hygiene et de retention autour des artefacts Desk Pro
+- adjacent a la stack, sans etre un composant coeur de la suite

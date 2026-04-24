@@ -73,3 +73,7 @@ The orchestrator executes modules in this specific order:
 ## Future Integration
 - **Upstream**: Triggered by Cron, Admin Dashboard, or Manual Event.
 - **Downstream**: Pushes final state to Dashboard, Database, and Notification Services.
+
+## Family status
+- `desk_pro_orchestrator` is the execution backbone of the Desk Pro stack
+- it is not an isolated survivor; it works under `desk_pro_runner` and with `desk_pro_dashboard`

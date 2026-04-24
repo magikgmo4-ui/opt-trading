@@ -54,20 +54,18 @@ Si un dossier chantier possède un `90_closeout.md` avec `status: pass` :
 
 ## D5 — Parent actif PHASE 1 (non-doublon)
 `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01` est assumé comme :
-- le parent opératoire ciblé pour PHASE 1 (LOT 1 continuité index + LOT 2 hiérarchie journal)
+- le parent opératoire ciblé pour PHASE 1 (LOT 1 continuité index + LOT 2 retrait du journal et réalignement continuité)
 - un nouveau parent actif canonique pour la continuité locale `opt-trading`
 
 Non-doublon confirmé :
 - ce parent ne duplique pas un “parent continuity index” existant
 - les chantiers `GO_UNIFORM_CONTINUITY_*` existants sont des pilotes/hardening déjà clos (PASS) ou des références ; ils ne portent pas ce rôle opératoire PHASE 1
 
-## D6 — Sweep HUMAN_CONTINUITY_* (report explicite)
+## D6 — Sweep HUMAN_CONTINUITY_* (retenu)
 Accepté pour PHASE 1 :
-- patch minimal sur `docs/governance/HUMAN_CONTINUITY_CANON_USAGE.md`
-
-Report (non exécuté maintenant) :
-- sweep global `docs/governance/HUMAN_CONTINUITY_*` non exécuté en PHASE 1
-- arbitrage conservé ouvert, à reprendre en PHASE 2 ou via une phase dédiée ultérieure
+- sweep global `docs/governance/HUMAN_CONTINUITY_*`
+- retrait des références `journal.md`, `journal/canon/*` et `JOURNAL_HIERARCHY`
+- conservation des seuls blocs extraits utiles à la continuité
 
 ## D7 — Arbitrage final du bundle GO_INDEX_ALIGNMENT_IDE_BUNDLE
 Décisions retenues :
@@ -85,4 +83,4 @@ Justification :
 
 ## REPRISE
 Point de reprise unique :
-- `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/02_journal_technique.md`
+- `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/03_decisions.md`

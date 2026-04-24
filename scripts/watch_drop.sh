@@ -1,10 +1,9 @@
-\
 #!/usr/bin/env bash
 set -euo pipefail
 DROP="/opt/trading/drop"
 ARCH="/opt/trading/archive"
-JSON="/opt/trading/journal/events/events.jsonl"
-mkdir -p "$DROP" "$ARCH"
+JSON="/opt/trading/state/events.jsonl"
+mkdir -p "$DROP" "$ARCH" "$(dirname "$JSON")"
 
 inotifywait -m -e close_write,moved_to --format '%w%f' "$DROP" | while read -r f; do
   TS="$(date -Is)"
