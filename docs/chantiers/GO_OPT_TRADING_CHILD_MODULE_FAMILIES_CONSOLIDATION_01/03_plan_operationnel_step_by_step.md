@@ -36,10 +36,14 @@ links:
   - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/17_step_05_family_plan_openclaw.md
   - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/18_step_05_family_plan_collectors_market_intelligence.md
   - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/19_step_05_family_plan_vision.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/20_step_06_family_contracts_engine_pipeline.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/21_step_06_family_contracts_runtime_edge_platform.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/22_step_06_family_contracts_repo_tooling_authoring.md
   - docs/status/desk_pro_stack_canonique.md
   - docs/status/deepseek_student_canonique.md
   - docs/status/reseau_ssh_canonique.md
   - docs/status/bot_vision_canonique.md
+  - docs/status/workflow_post_change_canonique.md
 ---
 
 # Plan operationnel step-by-step
@@ -208,7 +212,7 @@ Ce plan est volontairement conservateur :
   - aucun si analyse seule
 
 ## Step 06 — contrats plutot que fusion
-- statut : pending
+- statut : complete
 - objectif : durcir les familles a garder separees
 - familles :
   - `Engine pipeline`
@@ -217,8 +221,16 @@ Ce plan est volontairement conservateur :
 - action attendue :
   - normaliser contracts, wrappers, ownership, README
   - ne pas lancer de fusion physique
-- preuve attendue :
-  - conventions lisibles et roles stables
+- preuve observee (famille `Engine pipeline`) :
+  - [20_step_06_family_contracts_engine_pipeline.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/20_step_06_family_contracts_engine_pipeline.md)
+  - ordre de pipeline reafirme via `desk_pro_orchestrator`
+  - `engines` confirme comme coordination legere, pas megamodule
+- preuve observee (famille `Runtime edge / platform`) :
+  - [21_step_06_family_contracts_runtime_edge_platform.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/21_step_06_family_contracts_runtime_edge_platform.md)
+  - frontieres fixees entre `env`, `auth`, `modules/webhook`, `webhook_server.py`, `perf/perf_app.py`, facades shell et `shared`
+- preuve observee (famille `Repo / tooling / authoring`) :
+  - [22_step_06_family_contracts_repo_tooling_authoring.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/22_step_06_family_contracts_repo_tooling_authoring.md)
+  - sous-roles explicites entre audit, validation, hygiene repo, install, authoring et post-change
 - rollback :
   - revert doc-only si modification documentaire
 
@@ -256,7 +268,10 @@ Ce plan est volontairement conservateur :
 Au terme de ce plan, `modules/` doit devenir lisible par suites, sans remettre en cause les modules encore actifs ni casser les wrappers.
 
 ## Point de reprise
-`Step 05` est complete. Basculer vers `Step 06` pour les familles a garder separees avec contrats renforces :
-- `Engine pipeline`
-- `Runtime edge / platform`
-- `Repo / tooling / authoring`
+`Step 06` est complete. Basculer vers `Step 07` seulement si un move faible risque est explicitement justifie par :
+- survivant confirme
+- callers verifies
+- rollback explicite
+- docs et wrappers deja realignes
+
+Sinon, basculer directement vers `Step 08` pour closeout ou sous-lots d'execution.
