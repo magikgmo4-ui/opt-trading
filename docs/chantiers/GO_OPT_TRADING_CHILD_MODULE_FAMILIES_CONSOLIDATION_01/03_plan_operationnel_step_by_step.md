@@ -39,6 +39,9 @@ links:
   - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/20_step_06_family_contracts_engine_pipeline.md
   - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/21_step_06_family_contracts_runtime_edge_platform.md
   - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/22_step_06_family_contracts_repo_tooling_authoring.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/90_closeout.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/91_synthese_resultats.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/92_plans_execution_sous_lots.md
   - docs/status/desk_pro_stack_canonique.md
   - docs/status/deepseek_student_canonique.md
   - docs/status/reseau_ssh_canonique.md
@@ -247,7 +250,7 @@ Ce plan est volontairement conservateur :
   - mutualisation de scripts/doc dans une suite deja figee
 
 ## Step 08 — closeout ou sous-lots d'execution
-- statut : pending
+- statut : complete
 - objectif : decider si ce child reste un plan, ou devient parent d'execution par famille
 - sous-lots d'execution recommandes si besoin :
   - `DESK_PRO_STACK_CONSOLIDATION`
@@ -255,6 +258,15 @@ Ce plan est volontairement conservateur :
   - `RESEAU_SHARE_TRANSFER_CONSOLIDATION`
   - `OPENCLAW_FAMILY_CONSOLIDATION`
   - `VISION_FAMILY_SURVIVOR_DECISION`
+- decision retenue :
+  - `Step 07` n'est pas declenche dans ce child
+  - aucun move faible risque n'est suffisamment prouve a l'echelle globale de `modules/`
+  - le child est clos comme baseline de planification / consolidation
+  - l'execution repart ensuite par sous-lots bornes
+- preuve observee :
+  - [90_closeout.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/90_closeout.md)
+  - [91_synthese_resultats.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/91_synthese_resultats.md)
+  - [92_plans_execution_sous_lots.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/92_plans_execution_sous_lots.md)
 
 ## Ordre recommande
 1. hygiene `README` sur les modules actifs et ambigus
@@ -268,10 +280,7 @@ Ce plan est volontairement conservateur :
 Au terme de ce plan, `modules/` doit devenir lisible par suites, sans remettre en cause les modules encore actifs ni casser les wrappers.
 
 ## Point de reprise
-`Step 06` est complete. Basculer vers `Step 07` seulement si un move faible risque est explicitement justifie par :
-- survivant confirme
-- callers verifies
-- rollback explicite
-- docs et wrappers deja realignes
-
-Sinon, basculer directement vers `Step 08` pour closeout ou sous-lots d'execution.
+Le child est clos comme baseline.
+Point de reprise recommande :
+- `docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/92_plans_execution_sous_lots.md`
+- ouvrir ensuite un sous-lot d'execution borne plutot que prolonger ce child
