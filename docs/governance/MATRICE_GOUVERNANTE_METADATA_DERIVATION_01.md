@@ -19,10 +19,11 @@ search_tags:
   - closeout:reference
 surface: governance
 source_kind: canonical
-reference_canonique_principale: docs/governance/MATRICE_GOUVERNANTE_V2.md
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 point_de_reprise: "Section Perimetre pilote"
-updated_at: 2026-04-22
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/MATRICE_GOUVERNANTE_V2.md
   - docs/governance/EXTRACTEUR_TAGS__METHODE_CANONIQUE_V1.md
   - docs/governance/DOC_LAYERS.md
@@ -42,14 +43,25 @@ Fixer une doctrine legere et controlee de derivation pour :
 - les groupes d'objets
 - le registry derive
 
-Cette doctrine vient apres la matrice gouvernante V2.
-Elle ne modifie pas la doctrine de la matrice.
+Cette doctrine vient apres la matrice maitre `MATRICE_DOC_OPS_MASTER_MATRIX_01.md`.
+Elle conserve `MATRICE_GOUVERNANTE_V2.md` comme annexe structurelle stable de second niveau.
+Elle ne modifie pas la doctrine de la matrice maitre.
+
+---
+
+## Role documentaire
+
+- `role_actuel` : annexe stable de derivation metadata / frontmatter / registry
+- `role_cible` : sous-couche canonique de derivation relue sous la matrice maitre
+- `souverainete` : non souveraine face a `MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
+- `lecture_de_reprise` : lire d'abord `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`, puis `docs/governance/MATRICE_GOUVERNANTE_V2.md`, puis revenir ici pour la doctrine de derivation
 
 ---
 
 ## Priorite canonique
 
-La matrice gouvernante V2 prime sur cette doctrine.
+La matrice maitre prime sur cette doctrine.
+`MATRICE_GOUVERNANTE_V2.md` reste l'annexe structurelle stable de reference en second niveau.
 
 Regles de priorite :
 - `GO_INDEX.md` reste la verite de liste
@@ -70,7 +82,7 @@ La doctrine couvre seulement :
 Hors perimetre :
 - synchronisation documentaire reelle
 - correction des contradictions locales de fond
-- modification de la matrice gouvernante V2
+- modification de la matrice maitre
 - promotion de `REPRISE.md` ou `BRANCH_STATE.md` au-dessus de leur role retenu
 - cas `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
 
@@ -82,7 +94,8 @@ Hors perimetre :
 
 Le frontmatter enrichi est derive a partir :
 - du noyau canonique deja etabli
-- de la matrice gouvernante V2
+- de la matrice maitre
+- de `MATRICE_GOUVERNANTE_V2.md`
 - du document source reel
 
 Le frontmatter enrichi ne doit pas :
@@ -111,8 +124,8 @@ Schema de preuve :
 - un enrichissement n'a pas le droit de "completer" la structure d'un document si cette structure n'est pas deja etablie dans le repo
 
 Source attendue par famille :
-- parent / sous-GO : `GO_INDEX.md`, dossier chantier prouve, ou matrice gouvernante V2
-- produit : matrice gouvernante V2, fiche produit canonique, ou document source qui porte explicitement cette couche
+- parent / sous-GO : `GO_INDEX.md`, dossier chantier prouve, ou `MATRICE_GOUVERNANTE_V2.md`
+- produit : matrice maitre, `MATRICE_GOUVERNANTE_V2.md`, fiche produit canonique, ou document source qui porte explicitement cette couche
 - reprise / reference : document source lui-meme ou reference canonique explicite
 
 Forme recommandee du frontmatter enrichi :
@@ -302,6 +315,7 @@ La doctrine est la non-souverainete et la tracabilite de derivation.
 ## Controles
 
 Toute derivation doit rester compatible avec :
+- `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
 - `docs/governance/MATRICE_GOUVERNANTE_V2.md`
 - `docs/index/GO_INDEX.md`
 - la surface documentaire reelle du document source
