@@ -1,6 +1,45 @@
+---
+doc_id: OPT_TRADING_PROJECT_CARD_BOT_VISION_INGESTION_01
+doc_type: project_card
+repo: opt-trading
+project: opt-trading
+module:
+go_id: GO_PROJECT_CARDS_FREEZE_01
+status: validated
+lifecycle_stage: reprise
+topic_keys:
+  - opt-trading
+  - project_card
+  - bot_vision
+  - ingestion
+  - continuity
+search_tags:
+  - surface:continuity
+  - doc_role:carte
+  - product:bot_vision
+  - flow:operational_support
+surface: continuity
+source_kind: canonical
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+point_de_reprise: "Section 6. Reprise"
+updated_at: 2026-04-23
+links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+  - docs/governance/MATRICE_GOUVERNANTE_V2.md
+  - docs/governance/BOT_VISION_CANONICAL_PRODUCT_SYNTH_01.md
+  - docs/status/bot_vision_canonique.md
+---
+
 # PROJECT_CARD_BOT_VISION_INGESTION_01
 
 Date: 2026-04-14
+
+## Role documentaire
+
+- role_actuel: fiche compacte de reprise Bot Vision / ingestion
+- role_cible: fiche operatoire compacte non souveraine, alignee sur la synthese produit et la matrice
+- souverainete: ne remplace ni la synthese produit canonique, ni les closeouts, ni les index actifs
+- lecture_de_reprise: lire d'abord `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`, puis recroiser `MATRICE_GOUVERNANTE_V2.md` et la synthese produit Bot Vision avant d'utiliser cette fiche pour retrouver le prochain geste local
 
 ## 1. Objet
 

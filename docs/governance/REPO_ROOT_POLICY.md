@@ -14,8 +14,11 @@ topic_keys:
   - policy
 surface: governance
 source_kind: canonical
-updated_at: 2026-04-18
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+point_de_reprise: "Section Regles racine"
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/ot/trae/06_REPO_BOUNDARY_POLICY_V1.txt
   - docs/governance/REPO_ROLE.md
   - docs/INDEX.md
@@ -25,6 +28,9 @@ links:
 
 ## Objet
 Fixer la politique canonique de la racine interne du repo.
+
+Cette politique est subordonnée à l'état réel prouvé puis à `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`.
+Elle fixe seulement l'application locale à la racine de `opt-trading`.
 
 ## Portée
 - ce document traite ce qui reste à la racine **dans le repo**

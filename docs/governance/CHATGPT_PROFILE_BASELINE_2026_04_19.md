@@ -15,8 +15,10 @@ topic_keys:
   - governance
 surface: governance
 source_kind: canonical
-updated_at: 2026-04-19
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/SESSION_DOCUMENTATION_GATE.md
   - docs/index/REPRISE.md
   - docs/index/GO_INDEX.md

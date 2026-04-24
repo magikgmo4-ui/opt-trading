@@ -13,8 +13,10 @@ topic_keys:
   - modules
 surface: module_family
 source_kind: canonical
-updated_at: 2026-04-13
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/status/workflow_post_change_canonique.md
   - docs/governance/GITHUB_PARK_CONSOLIDATION_DECISION_02.md
 ---

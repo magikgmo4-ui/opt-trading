@@ -13,8 +13,14 @@ topic_keys:
   - routing
   - documentation
   - memory
+search_tags:
+  - surface:governance
+  - doc_role:regle_stable
+  - closeout:reference
 surface: governance
 source_kind: canonical
+reference_canonique_principale: docs/governance/EXTRACTEUR_TAGS__METHODE_CANONIQUE_V1.md
+point_de_reprise: "Section 17_RESUME_POINT"
 updated_at: 2026-04-20
 links:
   - docs/governance/DOC_LAYERS.md

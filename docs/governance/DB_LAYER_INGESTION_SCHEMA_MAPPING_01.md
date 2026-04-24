@@ -1,5 +1,11 @@
 # DB LAYER — INGESTION SCHEMA MAPPING 01
 
+## Lecture canonique
+
+- lire cette specification apres `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
+- utiliser `docs/governance/MATRICE_GOUVERNANTE_V2.md` seulement comme annexe stable secondaire si un recroisement est utile
+- ne pas utiliser cette specification a la place des surfaces souveraines de continuite ou de liste
+
 ## 1. Objet
 - Ce document spécifie le **mapping logique** d’ingestion futur côté `db-layer` : artefacts Desk Pro → entités/tables logiques cibles.
 - Il ne remplace pas les runbooks actuels (consultation/diagnostic).

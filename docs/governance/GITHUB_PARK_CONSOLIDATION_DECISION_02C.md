@@ -15,8 +15,10 @@ topic_keys:
   - llm_wiki
 surface: repo
 source_kind: canonical
-updated_at: 2026-04-14
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/GITHUB_PARK_CONSOLIDATION_DECISION_02.md
   - docs/governance/GITHUB_PARK_CONSOLIDATION_DECISION_02B.md
 ---

@@ -1,4 +1,42 @@
+---
+doc_id: OPT_TRADING_STATUS_DESK_PRO_STACK_CANONIQUE
+doc_type: family_status
+repo: opt-trading
+project: opt-trading
+module:
+go_id:
+status: validated
+lifecycle_stage: consolidation
+topic_keys:
+  - opt-trading
+  - status
+  - desk_pro
+  - module_family
+  - continuity
+search_tags:
+  - surface:module_family
+  - doc_role:carte
+  - product:desk_pro
+surface: module_family
+source_kind: canonical
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+point_de_reprise: "Section Reprise"
+updated_at: 2026-04-23
+links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+  - docs/governance/MATRICE_GOUVERNANTE_V2.md
+  - docs/governance/DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md
+  - docs/ot/project_cards/PROJECT_CARD_DESKPRO_01.md
+---
+
 # DESK_PRO_STACK — STATUT CANONIQUE
+
+## Role documentaire
+
+- role_actuel: fiche courte de statut de stack pour `desk_pro*` et surfaces adjacentes
+- role_cible: fiche annexe de consolidation de lignee, non souveraine
+- souverainete: ne remplace ni la synthese produit Desk Pro, ni les runbooks, ni les decisions de structure
+- lecture_de_reprise: lire d'abord `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`, puis recroiser `MATRICE_GOUVERNANTE_V2.md` et la synthese Desk Pro avant d'utiliser cette fiche pour lire les frontieres de stack et de transition
 
 ## Objet
 Fiche courte de lignée/stack pour `desk_pro*` et `desk_*`.

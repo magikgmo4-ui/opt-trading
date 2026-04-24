@@ -14,8 +14,11 @@ topic_keys:
   - structure
 surface: architecture
 source_kind: canonical
-updated_at: 2026-04-18
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+point_de_reprise: "Section Surfaces top-level (lecture canonique)"
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - registry/README.md
   - registry/meta_index.yaml
   - registry/ui_surfaces_registry.yaml
@@ -28,8 +31,9 @@ links:
 Fournir une carte humaine de lecture des surfaces du repo, sans remplacer les registres machine-readable.
 
 ## Règle de source
+- l'etat reel prouve et la carte des surfaces validee par le maitre priment
 - source machine-readable : `registry/*`
-- cette carte est une lecture humaine de référence pour la continuité
+- cette carte est une lecture humaine de reference pour la continuite, non souveraine hors de son perimetre
 
 ## Surfaces top-level (lecture canonique)
 - `docs/` : gouvernance, architecture, chantiers et continuité canonique

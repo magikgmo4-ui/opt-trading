@@ -1,6 +1,43 @@
+---
+doc_id: OPT_TRADING_PROJECT_CARD_MODULE_CONTEXTUALS_SHELL_01
+doc_type: project_card
+repo: opt-trading
+project: opt-trading
+module: module_contextuals_shell
+go_id: GO_PROJECT_CARDS_FREEZE_01
+status: validated
+lifecycle_stage: reprise
+topic_keys:
+  - opt-trading
+  - project_card
+  - module_contextuals_shell
+  - shell
+  - continuity
+search_tags:
+  - surface:continuity
+  - doc_role:carte
+surface: continuity
+source_kind: canonical
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+point_de_reprise: "Section 6. Reprise"
+updated_at: 2026-04-23
+links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+  - docs/governance/MATRICE_GOUVERNANTE_V2.md
+  - modules/module_contextuals_shell/README.md
+  - docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md
+---
+
 # PROJECT_CARD_MODULE_CONTEXTUALS_SHELL_01
 
 Date: 2026-04-14
+
+## Role documentaire
+
+- role_actuel: fiche compacte de reprise module / socle shell
+- role_cible: fiche operatoire compacte non souveraine pour une brique de support
+- souverainete: ne remplace ni la matrice, ni le README module, ni un audit d'adoption complet
+- lecture_de_reprise: lire d'abord `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`, puis recroiser `MATRICE_GOUVERNANTE_V2.md` avant d'utiliser cette fiche pour retrouver le prochain gel utile
 
 ## 1. Objet
 

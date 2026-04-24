@@ -14,9 +14,13 @@ topic_keys:
   - reprise
 surface: chantier
 source_kind: canonical
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+point_de_reprise: "Section Flux actifs"
 updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/index/GO_INDEX.md
+  - docs/index/REPRISE.md
 ---
 
 # ACTIVE_STREAMS — opt-trading
@@ -39,25 +43,24 @@ Il sert à :
 - prendre `docs/chantiers/` comme source primaire du statut observable
 - pour chaque flux, garder un dernier point établi et une prochaine action claire
 
+## Hiérarchie active
+
+- l'etat reel des dossiers chantier et du repo prime
+- `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md` gouverne la lecture produit / parent / GO / Git
+- `docs/index/GO_INDEX.md` reste la verite de liste et de cardinalite retenue
+- `docs/index/ACTIVE_STREAMS.md` reste une surface operatoire de lecture de l'actif ou du bloque
+
 ---
 
-## Priorité opératoire (12 GO non clos)
+## Priorité opératoire (14 GO non clos retenus)
 
-- P0 : `GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01`, `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`, `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01`
+- P0 : `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`, `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01`
 - P1 : `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`, `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
-- P2 : `GO_OPT_TRADING_JOURNAL_FULL_READING_03`, `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04`
+- P2 : `GO_OPT_TRADING_JOURNAL_FULL_READING_03`, `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04`, `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01`, `GO_OPT_TRADING_PARENT_NAMING_CANON_01`
 
 ---
 
 ## Flux actifs
-
-### GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01
-- statut : open
-- repo : opt-trading
-- branche : `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01`
-- dernier point établi : matrice maître finale unique rédigée dans `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md` ; le parent reste l'enveloppe canonique de cette trajectoire
-- prochaine action : aligner / dedupliquer / reclasser les surfaces proches sans ouvrir de parent concurrent
-- blocages : aucun blocage explicite ; ne pas dériver vers une synthèse latérale ni vers des sous-lots techniques prématurés
 
 ### GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01
 - statut : active
@@ -130,6 +133,30 @@ Il sert à :
 - dernier point établi : lecture figée volontairement à `JOURNAL_MD_BLOCK_15`; `BLOCK_16` et `BLOCK_17` ne sont pas retenus dans la base canonique courante
 - prochaine action : reprendre plus tard à `BLOCK_16` (ligne 4421) seulement si le chantier est rouvert explicitement
 - blocages : au-delà de `BLOCK_15`, les segments lus n’apportent pas encore assez d’arbitrages nouveaux ou de doctrine explicite pour être conservés comme continuité canonique
+
+### GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01
+- statut : open
+- repo : opt-trading
+- branche : `origin/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
+- dernier point établi : parent AI team intégré doc-only dans `GO_INDEX.md` avec statut `OPEN`
+- prochaine action : utiliser cette entrée comme point de reprise si un GO enfant dédié d’audit documentaire doit être rouvert
+- blocages : dossier parent complet non matérialisé dans cette copie locale ; reprise à garder repo-first sur l’état prouvé
+
+### GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01
+- statut : open
+- repo : opt-trading
+- branche : `sot/mainline`
+- dernier point établi : doctrine légère de dérivation ouverte sous la matrice maître, avec pilote borné avant toute application plus large
+- prochaine action : poursuivre le pilote documentaire borné avant toute extension repo-wide
+- blocages : ne pas rouvrir la matrice, ni promouvoir les dérivés au-dessus des surfaces souveraines
+
+### GO_OPT_TRADING_PARENT_NAMING_CANON_01
+- statut : open
+- repo : opt-trading
+- branche : `sot/mainline`
+- dernier point établi : parent naming canon ouvert en audit-only ; aucun renommage réel dans le lot initial
+- prochaine action : reprendre sur `GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01` avant tout lot d’application
+- blocages : aucun nouveau `<PRODUCT_OR_SURFACE>` ne doit être tenu pour valide sans preuve canonique ; aucune campagne rétroactive immédiate
 
 ### GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03
 - statut : open

@@ -15,8 +15,10 @@ topic_keys:
   - decision
 surface: repo
 source_kind: canonical
-updated_at: 2026-04-13
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/REPO_ROLE.md
   - docs/ot/README.md
 ---

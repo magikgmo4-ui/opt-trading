@@ -15,8 +15,12 @@ topic_keys:
   - git
 surface: governance
 source_kind: canonical
-updated_at: 2026-04-22
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+point_de_reprise: "Lire la matrice maitre, puis utiliser V2 comme annexe stable secondaire"
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+  - docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md
   - docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_CANONIZATION_01/00_cadrage.md
   - docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_CANONIZATION_01/03_decisions.md
   - docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_CANONIZATION_01/90_closeout.md
@@ -28,29 +32,36 @@ links:
 
 # MATRICE_GOUVERNANTE_V2
 
+## Statut de lecture
+
+- role_actuel: annexe canonique stable secondaire issue du lot V2
+- role_cible: surface annexe stable de recroisement, subordonnee a `MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
+- souverainete: ne remplace plus la matrice maitre doc ops ; sert de canon stable secondaire utile
+- lecture_de_reprise: lire d'abord `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`, puis utiliser V2 pour le detail historique et de recroisement
+
 ## Objet
 
-Fixer la matrice gouvernante V2 comme surface canonique de gouvernance pour `opt-trading`, a partir du bundle clos `matrice_gouvernante_bundle_v1`, sans rouvrir ses passes.
+Conserver la matrice gouvernante V2 comme annexe canonique stable secondaire pour `opt-trading`, a partir du bundle clos `matrice_gouvernante_bundle_v1`, sans rouvrir ses passes et sans la promouvoir au-dessus de la matrice maitre doc ops.
 
 ---
 
 ## 1. Cible
 
-Produire une surface gouvernante unique, transmissible sans memoire de session, qui ordonne :
+Conserver une surface gouvernante stable, transmissible sans memoire de session, qui documente la V2 ayant servi de base au maitre doc ops et qui ordonne :
 - la continuite produit
 - les flux parent / sous-GO
 - le support Git
 - l'ouverture / fermeture / propagation
 - le placement / l'indexation minimale
 
-Cette matrice gouverne la structure.
-Elle ne remplace ni l'etat reel du repo, ni les index operatoires, ni les annexes derivees.
+Cette annexe conserve la structure V2 utile.
+Elle ne remplace ni l'etat reel du repo, ni la matrice maitre doc ops, ni les index operatoires, ni les annexes derivees.
 
 ---
 
 ## 2. Hierarchie d'autorite
 
-Ordre canonique :
+Ordre V2 conserve comme detail annexe :
 1. etat reel local prouve
 2. gouvernance canonique
 3. continuite active

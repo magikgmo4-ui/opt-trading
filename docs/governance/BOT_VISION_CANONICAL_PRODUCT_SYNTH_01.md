@@ -1,5 +1,10 @@
 # BOT VISION — SYNTHÈSE CANONIQUE PRODUIT
 
+## Lecture canonique
+
+- lire cette synthese apres `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
+- recroiser `docs/governance/MATRICE_GOUVERNANTE_V2.md` seulement comme annexe stable secondaire si utile
+
 ## 1. Objet
 Ce document synthétise le produit **Bot Vision** dans un format court et opposable, figeant son objectif final et la trajectoire de sortie de dépendance.
 
@@ -7,11 +12,11 @@ Ce document synthétise le produit **Bot Vision** dans un format court et opposa
 Transformer des captures d'écran en analyse exploitable sans subir un workflow fragile ni une dépendance trop forte à une plateforme spécifique (Windows/ShareX).
 
 ## 3. Cible finale
-Un pipeline vision cross-platform où un provider headless browser unifie ot_vision entre Windows et Linux sans dépendre de ShareX, afin de produire des artefacts Desk Pro exploitables.
+Un pipeline vision cross-platform où un provider headless browser unifie `bot_vision` entre Windows et Linux sans dépendre de ShareX, afin de produire des artefacts Desk Pro exploitables.
 
 ## 4. Plan validé
-- ision_bot : Réception et traitement de captures.
-- ot_vision_step2 : Interaction Telegram + analyse + génération d'artefacts Desk Pro.
+- `vision_bot` : réception et traitement de captures.
+- `bot_vision_step2` : interaction Telegram + analyse + génération d'artefacts Desk Pro.
 - Direction de maturité : Sortir de la dépendance forte à ShareX / Windows-only et stabiliser une chaîne vision unifiée headless.
 
 ## 5. ETABLI

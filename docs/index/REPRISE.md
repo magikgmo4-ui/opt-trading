@@ -13,8 +13,11 @@ topic_keys:
   - continuity
 surface: chantier
 source_kind: canonical
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+point_de_reprise: "Section Matrice de reprise canonique"
 updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/index/GO_INDEX.md
   - docs/index/ACTIVE_STREAMS.md
   - docs/governance/JOURNAL_HIERARCHY.md
@@ -26,8 +29,8 @@ links:
 
 Base de pilotage active retenue pour `opt-trading` :
 
-- périmètre = **12 GO non clos uniquement** (`active` / `open`)
-- canon décisionnel = **repo `opt-trading`**
+- périmètre = **14 GO non clos retenus** (`active` / `open`)
+- canon décisionnel = **état réel du repo `opt-trading`, relu sous la matrice maître**
 - bundles zip = **supports secondaires** de lecture, transfert ou exécution IDE
 - exclusion explicite = `pass` et `reference` hors exécution courante
 
@@ -42,23 +45,24 @@ Base de pilotage active retenue pour `opt-trading` :
 
 ## Sources canoniques
 
+- `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
 - `docs/index/ACTIVE_STREAMS.md`
 - `docs/index/GO_INDEX.md`
 
 ## Règle d’exécution
 
-- **Source canonique principale** : repo `opt-trading`
+- **Source canonique principale** : état réel prouvé du repo `opt-trading`
+- **Hiérarchie de lecture** : état réel -> `MATRICE_DOC_OPS_MASTER_MATRIX_01.md` -> annexes stables -> `GO_INDEX.md` -> surfaces opératoires
 - **Bundles zip** : accélérateurs de lecture / transfert / exécution IDE
 - **Présence dans le repo** : les bundles et supports listés ici sont des noms de supports secondaires ; ils peuvent être absents du repo (non trackés)
 - **Interdiction de dérive** : un bundle zip ne remplace jamais l’état réel du repo
 - **Hiérarchie journal** : `journal.md` = brut vivant ; `journal/index/*` = dérivé ; `journal/canon/*` = archive (voir `docs/governance/JOURNAL_HIERARCHY.md`)
-- **Liste active à piloter** : strictement les 12 GO ci-dessous
+- **Liste active à piloter** : strictement les 14 GO ci-dessous
 
 ## Matrice de reprise canonique
 
 | GO | status | priority | repo canonical refs | supports secondaires (noms) | etat etabli | gap restant | next action |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01` | open | P0 | `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`; `docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md`; `docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/01_cadrage_parent.md` | Aucun bundle canonique | Matrice maître finale unique rédigée ; parent dédié maintenu comme enveloppe canonique | L'alignement / deduplication / reclassement des surfaces proches n'est pas encore execute | **Lancer le lot d'alignement des surfaces proches a partir de la matrice maitre deja publiee** |
 | `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01` | active | P0 | `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/00_cadrage.md`; `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/03_decisions.md` | Aucun bundle canonique | Chantier parent ouvert pour réaligner la continuité index | Contradictions d’index + concurrence NEXT + hiérarchie journal à propager | **Exécuter LOT 1 : réaligner `docs/index/*` et déclasser `docs/next/NEXT_GO_CANDIDATES.md`** |
 | `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01` | active | P0 | `docs/chantiers/GO_TMUX_IDE_OPT_TRADING_CADRAGE_01/00_cadrage.md` | `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01_bundle.zip`; `consolidation_targets_ide_bundle.zip` | Bundle préparé, cadrage ouvert | Validation machine cible / panes / repo réel non prouvée | **Exécuter `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01`** |
 | `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01` | active | P0 | `docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/00_cadrage.md`; `docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/03_decisions.md` | `OPT_TRADING_OBSOLETE_RECLASS_AUDIT_BUNDLE.zip` | Parent ouvert (audit/qualification repo-first, doc-only, non destructif) | Matrice canonique à produire + plan de lots physiques futurs | **Produire la matrice (PHASE C) puis le plan de lots (PHASE D)** |
@@ -70,3 +74,6 @@ Base de pilotage active retenue pour `opt-trading` :
 | `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03` | open | P1 | `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md` | `reseau_ssh_physical_consolidation_bundle_01.zip` | Survivant canonique `reseau_ssh_step2` confirmé, `step1b` gardé comme prérequis intermédiaire | Preuve détaillée du survivant et classification complète de la famille encore incomplètes | **Exécuter l’audit détaillé de la famille réseau/ssh dans ce GO** |
 | `GO_OPT_TRADING_JOURNAL_FULL_READING_03` | active | P2 | `docs/chantiers/GO_OPT_TRADING_JOURNAL_FULL_READING_03/00_cadrage.md`; `docs/chantiers/GO_OPT_TRADING_JOURNAL_FULL_READING_03/03_decision_freeze_after_block_15.md` | Aucun bundle dédié identifié | Lecture figée volontairement à `JOURNAL_MD_BLOCK_15`; `BLOCK_16` et `BLOCK_17` explicitement exclus de la base canonique courante | Couche humaine utile encore incomplète au-delà de `BLOCK_15`, sans arbitrage suffisant pour valider `BLOCK_16`/`BLOCK_17` | **Reprendre plus tard à `BLOCK_16` (ligne 4421) seulement si le chantier est rouvert explicitement** |
 | `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04` | active | P2 | `docs/chantiers/GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04/00_cadrage.md` | Aucun bundle dédié identifié | Reprise de lecture orientée intention projet engagée | Vérification systématique de l’intention encore partielle | **Poursuivre la lecture de `journal.md` puis croiser brut / canon / intention projet** |
+| `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` | open | P2 | `docs/index/GO_INDEX.md`; `docs/chantiers/GO_GIT_AI_TEAM_ARCHITECTURE_PARENT_DOC_ONLY_INTEGRATION_01/03_decisions.md` | Aucun bundle dédié identifié | Parent AI team intégré doc-only dans `GO_INDEX.md` avec statut `OPEN` | Dossier parent complet non matérialisé dans cette copie locale ; reprise enfant encore non réouverte | **Utiliser l’entrée `OPEN` comme base si un GO enfant d’audit documentaire doit être relancé** |
+| `GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01` | open | P2 | `docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01/00_cadrage.md`; `docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01/03_decisions.md`; `docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md` | Aucun bundle canonique | Doctrine légère de dérivation ouverte, bornée à un pilote documentaire post-maître | Pilotage borné encore à finir avant toute extension plus large | **Poursuivre le pilote documentaire borné sans rouvrir la matrice ni la synchronisation réelle** |
+| `GO_OPT_TRADING_PARENT_NAMING_CANON_01` | open | P2 | `docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_01/01_cadrage_parent.md`; `docs/governance/NAMING_CANON_POLICY_01.md` | Aucun bundle canonique | Parent naming ouvert en audit-only ; aucun renommage réel inclus dans le lot initial | Inventaire réel, rapport V1 du module et qualification des exceptions legacy restent à produire | **Reprendre sur `GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01` avant tout lot d’application** |

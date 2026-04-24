@@ -15,8 +15,10 @@ topic_keys:
   - registry_derived
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-22
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md
   - docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01/03_decisions.md
 ---
@@ -33,7 +35,7 @@ links:
 
 ### Etape 2 — Controles
 - definir les checks minimaux de derivation
-- verifier la compatibilite avec `MATRICE_GOUVERNANTE_V2.md`
+- verifier la compatibilite avec `MATRICE_DOC_OPS_MASTER_MATRIX_01.md`, puis avec `MATRICE_GOUVERNANTE_V2.md` comme annexe stable secondaire
 - exclure tout usage souverain de `REPRISE.md` et `BRANCH_STATE.md`
 
 ### Etape 3 — Pilote borne

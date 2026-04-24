@@ -15,8 +15,12 @@ topic_keys:
   - restart
 surface: governance
 source_kind: canonical
-updated_at: 2026-04-20
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+point_de_reprise: "Section 3. References canoniques a consulter"
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+  - docs/governance/MATRICE_GOUVERNANTE_V2.md
   - docs/INDEX.md
   - docs/master_pack/mission_starter_pack/00_mission_start_guide.md
   - journal/index/ACTIVE_GO_MATRIX.md
@@ -31,6 +35,12 @@ Cette fiche fixe la règle de session minimale pour décider s’il faut produir
 
 Elle ne crée pas un nouveau système de templates.
 Elle s’appuie sur le canon déjà en place dans le repo.
+
+Hiérarchie minimale de lecture :
+- état réel prouvé
+- `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
+- annexes stables utiles au recroisement
+- surfaces opératoires concernées
 
 ---
 
@@ -78,6 +88,8 @@ Cette fiche n’écrase pas le canon existant. Elle renvoie vers lui.
 
 Références minimales :
 
+- `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md` : matrice maître souveraine de gouvernance documentaire
+- `docs/governance/MATRICE_GOUVERNANTE_V2.md` : annexe stable secondaire utile si un recroisement fin est nécessaire
 - `docs/INDEX.md` : navigation documentaire canonique
 - `docs/master_pack/mission_starter_pack/00_mission_start_guide.md` : point d’entrée de session
 - `journal/index/ACTIVE_GO_MATRIX.md` : état actif compact des GO

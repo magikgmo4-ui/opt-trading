@@ -16,8 +16,10 @@ topic_keys:
   - mini_rerun
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-22
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01/04_ajustement_doctrinal.md
   - docs/index/GO_INDEX.md
   - docs/index/NEXT_GO_CANDIDATES.md
@@ -64,7 +66,7 @@ authority_level: index_canonique_de_liste
 
 ### Check de non-regression
 
-- coherence avec `MATRICE_GOUVERNANTE_V2.md` : oui, priorite conservee comme verite de liste
+- coherence avec `MATRICE_DOC_OPS_MASTER_MATRIX_01.md` : oui, priorite conservee comme verite de liste via `GO_INDEX.md`
 - coherence avec `GO_INDEX.md` : oui, aucune derivation ne depasse le role etabli par le document
 - absence de seconde doctrine par les tags : oui, le role fonctionnel derive reste explicatif seulement
 - absence de taxonomie parallele : oui, `canonical_list_index` ne cree pas de nouvelle famille d'objets, il clarifie seulement le role reel
@@ -111,7 +113,7 @@ authority_level: index_operatoire_derive
 
 ### Check de non-regression
 
-- coherence avec `MATRICE_GOUVERNANTE_V2.md` : oui, tant que la surface reste navigationnelle et non souveraine
+- coherence avec `MATRICE_DOC_OPS_MASTER_MATRIX_01.md` : oui, tant que la surface reste navigationnelle et non souveraine
 - coherence avec `GO_INDEX.md` : oui, si `GO_INDEX.md` garde la priorite sur toute liste et toute cardinalite
 - absence de seconde doctrine par les tags : oui, aucun tag ne porte une verite structurelle
 - absence de taxonomie parallele : oui, la qualification `operational_next_matrix` decrit un usage et non une nouvelle doctrine
@@ -152,7 +154,7 @@ topic_keys:
 ### Frontmatter enrichi derivable et prouvable
 
 ```yaml
-reference_canonique_principale: docs/governance/MATRICE_GOUVERNANTE_V2.md
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 intention_produit: "poser une continuite produit hierarchisee en 3 niveaux"
 produit_final_voulu: "preserver la trajectoire produit et le paysage global du projet"
 point_de_reprise: "Section 2. Modele de continuite"
@@ -160,7 +162,7 @@ point_de_reprise: "Section 2. Modele de continuite"
 
 ### Check de non-regression
 
-- coherence avec `MATRICE_GOUVERNANTE_V2.md` : oui, le document reste dans la couche produit au-dessus des GO
+- coherence avec `MATRICE_DOC_OPS_MASTER_MATRIX_01.md` : oui, le document reste dans la couche produit au-dessus des GO
 - coherence avec `GO_INDEX.md` : oui, il ne concurrence pas la verite de liste
 - absence de seconde doctrine par les tags : oui, aucun `product:*` fin n'est requis pour deriver le document
 - absence de taxonomie parallele : oui, le document reste multi-produits sans reduction artificielle a un centre unique

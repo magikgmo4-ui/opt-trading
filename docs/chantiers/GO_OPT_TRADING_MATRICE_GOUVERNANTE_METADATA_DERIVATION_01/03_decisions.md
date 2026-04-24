@@ -15,8 +15,10 @@ topic_keys:
   - decisions
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-22
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md
   - docs/governance/MATRICE_GOUVERNANTE_V2.md
   - docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01/01_plan.md
@@ -29,7 +31,7 @@ links:
 
 | sujet | constat | decision | justification |
 | --- | --- | --- | --- |
-| priorite canonique | la matrice V2 est deja canonique | `MATRIX_FIRST_DERIVATION_SECOND` | la structure doit rester au-dessus des derives |
+| priorite canonique | la matrice maitre DOC OPS gouverne le lot, V2 reste une annexe stable secondaire | `MATRIX_FIRST_DERIVATION_SECOND` | la structure doit rester au-dessus des derives |
 | frontmatter enrichi | peut etre utile pour recroisement et lecture | `ALLOW_PROVABLE_ENRICHMENT_ONLY` | aucun champ derive ne doit inventer une structure absente |
 | search tags | utiles pour recherche | `KEEP_SEARCH_TAGS_DERIVED_AND_CONTROLLED` | les tags ne doivent pas gouverner la structure |
 | groupes d'objets | utiles comme vues de recroisement | `ALLOW_GROUP_BUCKETS_AS_DERIVED_VIEWS` | eviter toute seconde taxonomie souveraine |
@@ -42,6 +44,7 @@ links:
 ## Gardes
 
 - pas de reouverture de la matrice
+- pas d'inversion du rang entre la matrice maitre et V2
 - pas de correction documentaire reelle hors doctrine
 - pas de chantier metadata / tags comme moteur de gouvernance
 - pas de requalification de `GO_INDEX.md`, `REPRISE.md`, `BRANCH_STATE.md`

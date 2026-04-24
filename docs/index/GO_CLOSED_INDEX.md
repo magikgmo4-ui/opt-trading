@@ -14,7 +14,7 @@ topic_keys:
   - governance
 surface: continuity
 source_kind: canonical
-updated_at: 2026-04-20
+updated_at: 2026-04-22
 links:
   - docs/index/GO_INDEX.md
   - docs/governance/REPO_ROLE.md
@@ -50,6 +50,7 @@ Normalisation retenue :
 
 | PARENT | CHANTIER | SOUS_CHANTIER | STATUT | DOSSIER_PRESENT | SOURCE |
 | --- | --- | --- | --- | --- | --- |
+| GO_OPT_TRADING_MATRICE_GOUVERNANTE_CANONIZATION_01 | GO_OPT_TRADING_MATRICE_GOUVERNANTE_CANONIZATION_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_CANONIZATION_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_CANONIZATION_01/90_closeout.md`<br>`docs/governance/MATRICE_GOUVERNANTE_V2.md` |
 | GO_CONTINUITE_PRODUIT_MULTI_CHANTIER_CANON_01 | GO_CONTINUITE_PRODUIT_MULTI_CHANTIER_CANON_01 | — | CLOSED | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_CONTINUITE_PRODUIT_MULTI_CHANTIER_CANON_01/00_cadrage.md` |
 | GO_OPT_TRADING_LOCAL_CONTINUITY_BOOTSTRAP_01 | GO_OPT_TRADING_LOCAL_CONTINUITY_BOOTSTRAP_01 | — | CLOSED | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_LOCAL_CONTINUITY_BOOTSTRAP_01/90_closeout.md` |
 | GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01 | GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01 | — | CLOSED | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01/90_closeout.md` |
@@ -74,6 +75,14 @@ Normalisation retenue :
 ## Entrées closes/pass
 
 Ces entrées détaillées sont sorties de `docs/index/GO_INDEX.md`.
+
+### GO_OPT_TRADING_MATRICE_GOUVERNANTE_CANONIZATION_01
+- repo : opt-trading
+- type : gouvernance / doc-only / canonisation
+- statut : pass
+- titre court : promotion canonique de la matrice gouvernante V2
+- dernier état connu : la matrice V2 issue du bundle clos a été promue dans `docs/governance/` avec maintien de `GO_INDEX.md` comme vérité de liste, `REPRISE.md` comme surface opératoire seulement, `BRANCH_STATE.md` comme surface branches, et limite AI team conservée comme report borné
+- lien utile : `docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_CANONIZATION_01/90_closeout.md`, `docs/governance/MATRICE_GOUVERNANTE_V2.md`
 
 ### GO_CONTINUITE_PRODUIT_MULTI_CHANTIER_CANON_01
 - repo : opt-trading

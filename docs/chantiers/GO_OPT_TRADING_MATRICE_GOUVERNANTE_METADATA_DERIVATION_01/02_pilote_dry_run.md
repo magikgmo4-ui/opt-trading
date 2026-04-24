@@ -16,8 +16,10 @@ topic_keys:
   - dry_run
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-22
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/MATRICE_GOUVERNANTE_V2.md
   - docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md
   - docs/index/GO_INDEX.md
@@ -45,11 +47,13 @@ Executer un pilote controle de derivation sur un perimetre borne, en dry-run seu
 - les champs enrichis proposes n'ont de valeur qu'en presence d'une preuve textuelle ou canonique
 - les `search_tags` sont des facettes de recherche et non une seconde doctrine
 - le `group_bucket` principal est une vue derivee stable et non une nouvelle structure souveraine
+- `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md` gouverne la lecture du pilote
+- `docs/governance/MATRICE_GOUVERNANTE_V2.md` n'est lue ici qu'en annexe stable secondaire
 - `GO_INDEX.md` reste la verite de liste
 
 ---
 
-## Document 1 - `docs/governance/MATRICE_GOUVERNANTE_V2.md`
+## Document 1 - `docs/governance/MATRICE_GOUVERNANTE_V2.md` (annexe stable secondaire)
 
 ### Objet canonique principal
 
@@ -58,12 +62,12 @@ Executer un pilote controle de derivation sur un perimetre borne, en dry-run seu
 ### Frontmatter enrichi derivable et prouvable
 
 ```yaml
-reference_canonique_principale: docs/governance/MATRICE_GOUVERNANTE_V2.md
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 point_de_reprise: "Section RESUME_POINT"
 ```
 
 Justification :
-- le document est lui-meme la reference canonique de gouvernance
+- le document reste une annexe stable secondaire relue sous la matrice maitre
 - le point de reprise est explicitement porte par la section de resume final
 - aucun champ parent, sous-GO, produit centre ou support Git supplementaire n'est ajoute car non necessaire ou non prouve a ce niveau
 
@@ -86,8 +90,8 @@ surface: governance
 doc_type: governance_matrix
 canonical_object: matrice_gouvernante_v2
 group_bucket: governance_rules
-authority_level: gouvernance_canonique
-reference_canonique_principale: docs/governance/MATRICE_GOUVERNANTE_V2.md
+authority_level: annexe_stable_secondaire
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 topic_keys: [opt-trading, matrice_gouvernante, governance, continuity, git]
 search_tags: [surface:governance, doc_role:regle_stable, closeout:reference]
 is_derived: true
@@ -97,7 +101,7 @@ updated_at: 2026-04-22
 
 ### Check de non-regression
 
-- coherence avec `MATRICE_GOUVERNANTE_V2.md` : oui, objet identique a la surface souveraine
+- coherence avec `MATRICE_DOC_OPS_MASTER_MATRIX_01.md` : oui, V2 reste relue comme annexe stable secondaire
 - coherence avec `GO_INDEX.md` : oui, le document reste hors verite de liste mais y est reference comme surface canonique
 - absence de seconde doctrine par les tags : oui, les tags ne portent ni parent, ni produit, ni support Git
 - absence de taxonomie parallele : oui, `governance_rules` decrit un role documentaire stable deja prevu par la doctrine
@@ -113,14 +117,14 @@ updated_at: 2026-04-22
 ### Frontmatter enrichi derivable et prouvable
 
 ```yaml
-reference_canonique_principale: docs/governance/MATRICE_GOUVERNANTE_V2.md
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 objectif_local_go: "fixer une doctrine legere et controlee de derivation"
 cible_locale_go: "frontmatter enrichi, search_tags, groupes d'objets et registre derive non souverain"
 point_de_reprise: "Section Perimetre pilote"
 ```
 
 Justification :
-- la subordination a `MATRICE_GOUVERNANTE_V2.md` est explicite
+- la subordination a la matrice maitre est explicite
 - l'objectif local et la cible locale sont explicites dans l'objet et la doctrine
 - aucun parent n'est ajoute car `GO_INDEX.md` ne prouve pas de parent pour ce GO
 
@@ -145,7 +149,7 @@ doc_type: governance_policy
 canonical_object: metadata_derivation_doctrine
 group_bucket: governance_rules
 authority_level: gouvernance_canonique_subordonnee
-reference_canonique_principale: docs/governance/MATRICE_GOUVERNANTE_V2.md
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 topic_keys: [opt-trading, matrice_gouvernante, metadata, search_tags, registry_derived]
 search_tags: [surface:governance, doc_role:regle_stable, flow:go_simple, closeout:reference]
 is_derived: true
@@ -155,7 +159,7 @@ updated_at: 2026-04-22
 
 ### Check de non-regression
 
-- coherence avec `MATRICE_GOUVERNANTE_V2.md` : oui, la doctrine se declare explicitement posterieure et subordonnee
+- coherence avec `MATRICE_DOC_OPS_MASTER_MATRIX_01.md` : oui, la doctrine se declare explicitement posterieure et subordonnee
 - coherence avec `GO_INDEX.md` : oui, le GO existe comme GO simple ouvert sans parent prouve
 - absence de seconde doctrine par les tags : oui, les tags decrivent une surface et un role, sans remplacer la doctrine
 - absence de taxonomie parallele : oui, `metadata_derivation_doctrine` reste un objet unique et `governance_rules` reste un bucket derive autorise
@@ -209,7 +213,7 @@ updated_at: 2026-04-22
 
 ### Check de non-regression
 
-- coherence avec `MATRICE_GOUVERNANTE_V2.md` : oui, la matrice reconnait explicitement `GO_INDEX.md` comme verite de liste
+- coherence avec `MATRICE_DOC_OPS_MASTER_MATRIX_01.md` : oui, la matrice maitre reconnait explicitement `GO_INDEX.md` comme verite de liste
 - coherence avec `GO_INDEX.md` : oui, aucune derivation n'etend sa portee au-dela de l'index de liste
 - absence de seconde doctrine par les tags : oui, le tag `doc_role:index` n'ajoute aucune regle de structure
 - absence de taxonomie parallele : oui, `continuity_indexes` ne remplace pas le tableau canonique des chantiers
@@ -291,7 +295,7 @@ updated_at: 2026-04-22
 ### Frontmatter enrichi derivable et prouvable
 
 ```yaml
-reference_canonique_principale: docs/governance/MATRICE_GOUVERNANTE_V2.md
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 intention_produit: "poser une continuite produit hierarchisee en 3 niveaux"
 produit_final_voulu: "preserver la trajectoire produit et le paysage global du projet"
 point_de_reprise: "Section 2. Modele de continuite"
@@ -322,7 +326,7 @@ doc_type: product_continuity_note
 canonical_object: product_continuity_hierarchy
 group_bucket: product_continuity
 authority_level: continuite_produit_canonique
-reference_canonique_principale: docs/governance/MATRICE_GOUVERNANTE_V2.md
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 topic_keys: [opt-trading, product_continuity, hierarchy]
 search_tags: [surface:governance, surface:continuite, doc_role:regle_stable]
 is_derived: true
@@ -332,7 +336,7 @@ updated_at: 2026-04-22
 
 ### Check de non-regression
 
-- coherence avec `MATRICE_GOUVERNANTE_V2.md` : oui, le document renforce le principe `produit d'abord`
+- coherence avec `MATRICE_DOC_OPS_MASTER_MATRIX_01.md` : oui, le document renforce le principe `produit d'abord`
 - coherence avec `GO_INDEX.md` : oui, il reste au-dessus de la liste des GO et ne la concurrence pas
 - absence de seconde doctrine par les tags : oui, aucun tag produit fin n'est utilise pour substituer la hierarchie
 - absence de taxonomie parallele : oui, le bucket `product_continuity` correspond a une couche deja prevue dans la doctrine
@@ -351,7 +355,7 @@ updated_at: 2026-04-22
 - les `search_tags` peuvent rester legers si on les borne a surface, role documentaire, flux operatoire minimal et statut documentaire
 - un `group_bucket` principal suffit pour chaque document du pilote
 - le registre derive peut etre alimente avec un schema simple et non souverain
-- `MATRICE_GOUVERNANTE_V2.md` et `GO_INDEX.md` suffisent comme axes de non-regression du pilote
+- `MATRICE_DOC_OPS_MASTER_MATRIX_01.md` et `GO_INDEX.md` suffisent comme axes primaires de non-regression du pilote ; V2 reste une annexe secondaire utile au recroisement
 
 ## A_AJUSTER
 

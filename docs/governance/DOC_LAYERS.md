@@ -13,10 +13,17 @@ topic_keys:
   - governance
   - continuity
   - memory_bricks
+search_tags:
+  - surface:governance
+  - doc_role:regle_stable
+  - closeout:reference
 surface: governance
 source_kind: canonical
-updated_at: 2026-04-22
+reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+point_de_reprise: "Section 8. Pipeline local cible"
+updated_at: 2026-04-23
 links:
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/REPO_ROLE.md
 ---
 
@@ -30,6 +37,12 @@ Il sert à distinguer les fonctions documentaires et à éviter :
 - les doublons de source de vérité
 - les mélanges entre doc longue, chantier, continuité et compaction
 - les dérivations implicites non tracées
+
+Hiérarchie de lecture :
+- l'etat reel prouve prime
+- `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md` gouverne les couches
+- `docs/governance/MATRICE_GOUVERNANTE_V2.md` reste une annexe stable secondaire
+- ce document explicite l'application locale de ces couches dans `opt-trading`
 
 ---
 
@@ -91,8 +104,8 @@ Règle locale à retenir pour les futurs GO :
 `GO_<SCOPE>_<PRODUCT_OR_SURFACE>_<ROLE>_<OBJECT>_<NN>`
 
 Décisions locales :
-- `<PRODUCT_OR_SURFACE>` doit provenir de `2_INITIAL_PROJECT_DOC`
-- si `2_INITIAL_PROJECT_DOC` ne porte pas encore explicitement le `PRODUCT_OR_SURFACE` canonique, il faut d'abord l'y canoniser avant d'ouvrir le GO
+- `<PRODUCT_OR_SURFACE>` doit provenir d'un produit, d'une famille ou d'une surface deja stabilise(e) par le canon produit ou la carte de surfaces
+- `2_INITIAL_PROJECT_DOC` peut servir de source operatoire secondaire si ce token y est deja aligne avec ce canon, mais ne suffit plus comme source souveraine unique
 - tous les tokens du GO doivent rester stables, uppercase et séparés par `_`
 - `<ROLE>` est un rôle structurel issu d'un vocabulaire canonique contrôlé ; `PARENT` et `CHILD` sont des rôles structurels et ne sont autorisés que si la structure parent / sous-chantier est réelle
 - en l'état, le vocabulaire contrôlé explicite déjà canonisé pour les rôles structurels est `PARENT` / `CHILD`; aucune étiquette décorative n'est autorisée à la place
