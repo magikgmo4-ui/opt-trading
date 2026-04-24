@@ -50,8 +50,8 @@ Elle sert a :
 - repo : `opt-trading`
 - branche canonique : `sot/mainline`
 - base de comparaison : `origin/sot/mainline`
-- snapshot de reference : `origin/sot/mainline@93aa5c0`
-- date de reference : `2026-04-22`
+- snapshot de reference : `origin/sot/mainline@64df21f`
+- date de reference : `2026-04-24`
 - perimetre : branches locales et distantes presentes apres `fetch --prune`
 
 ## Regle canonique de maintenance
@@ -61,28 +61,25 @@ Toute decision touchant une branche doit mettre a jour cette fiche dans le meme 
 Obligations explicites :
 - tout ajout de branche significative doit creer ou mettre a jour une ligne ici
 - toute suppression locale ou remote executee doit retirer la ligne courante et laisser une trace concise dans le journal minimal
-- toute reclassification (`KEEP_ACTIVE`, `KEEP_REFERENCE`, `KEEP_SNAPSHOT`, `ABSORBED`, `REDUNDANT`, `REVIEW`, `DROP_REMOTE_CANDIDATE`, `DROP_LOCAL_ONLY`) doit etre refletee ici
+- toute reclassification (`KEEP_ACTIVE`, `KEEP_REFERENCE`, `DROP_MERGED`, `DROP_LOCAL_ONLY`, `A_VERIFIER`) doit etre refletee ici
 - toute nouvelle branche `GO_*`, `audit/*`, `save/*`, `inventory/*`, `integ/*` doit etre classee rapidement ici
 - cette fiche ne remplace pas `docs/index/GO_INDEX.md`
 - cette fiche complete `docs/index/GO_INDEX.md` pour l'etat du parc branches
 
 ## Synthese courante
 
-- branches remote : `36`
-- branches locales : `6`
-- entrees totales suivies dans le tableau : `37`
+- branches remote : `42`
+- branches locales : `40`
+- entrees totales suivies dans le tableau : `70`
 - comparaison de reference : `origin/sot/mainline`
 
 | CANON_STATUS | COUNT |
 | --- | ---: |
-| `KEEP_ACTIVE` | 3 |
-| `KEEP_REFERENCE` | 2 |
-| `KEEP_SNAPSHOT` | 9 |
-| `ABSORBED` | 0 |
-| `REDUNDANT` | 1 |
-| `REVIEW` | 22 |
-| `DROP_REMOTE_CANDIDATE` | 0 |
-| `DROP_LOCAL_ONLY` | 0 |
+| `KEEP_ACTIVE` | 2 |
+| `KEEP_REFERENCE` | 16 |
+| `DROP_MERGED` | 4 |
+| `DROP_LOCAL_ONLY` | 15 |
+| `A_VERIFIER` | 33 |
 
 ## Legende de lecture
 
@@ -96,72 +93,86 @@ Obligations explicites :
 
 | BRANCH | SCOPE | STATUS_VS_SOT_MAINLINE | AHEAD_BY | BEHIND_BY | CANON_STATUS | ACTION | JUSTIFICATION | LAST_REVIEW_GO |
 | --- | --- | --- | ---: | ---: | --- | --- | --- | --- |
-| `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` | remote | DIVERGED | 9 | 21 | `KEEP_ACTIVE` | `keep_under_review` | Parent AI team architecture encore vivant cote branche | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `go/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01` | both | AHEAD_ONLY | 6 | 0 | `KEEP_ACTIVE` | `keep_under_review` | Branche parent dediee de reprise repo-first encore vivante ; elle ne doit pas ouvrir les 5 parents specialises avant controle des branches et des ouverts | `GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01` |
-| `METHODE_MULTI_MACHINE_GIT_SYNC` | remote | DIVERGED | 14 | 32 | `REVIEW` | `manual_review` | Nouvelle branche distante observee pendant le prune, hors sous-lot courant, a auditer separement | `GO_GIT_GITHUB_PARK_CLOSEOUT_ABSORBED_RECLASS_01` |
-| `audit/opt-trading-20260320a` | remote | DIVERGED | 20 | 615 | `REVIEW` | `manual_review` | Famille sensible a revue manuelle obligatoire | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `backup/mimo-b038db9` | local | DIVERGED | 18 | 625 | `KEEP_SNAPSHOT` | `exclude_cleanup` | Snapshot local de reprise MiMo | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `doc/GO_OPENCLAW_INFRA_BASELINE_01` | remote | DIVERGED | 1 | 261 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `docs/github-park-parent-closeout-01` | remote | DIVERGED | 1 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `docs/github-park-pass-close-01` | remote | DIVERGED | 4 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `docs/memory-bricks-localcms-contract-alignment-01` | remote | DIVERGED | 5 | 61 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `docs/skills-usage-cross-review-01` | remote | DIVERGED | 1 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `docs/tmux-opencode-openclaw-runtime-01` | remote | DIVERGED | 1 | 60 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/GO_CONTINUITE_PRODUIT_MULTI_CHANTIER_CANON_01` | remote | DIVERGED | 13 | 251 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/go-strategy-docs-v1` | remote | DIVERGED | 1 | 661 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/memory-bricks-v2-find` | remote | DIVERGED | 1 | 458 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/memory-bricks-v2-health-status` | remote | DIVERGED | 1 | 528 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/memory-bricks-v2-health-status-clean` | remote | DIVERGED | 1 | 441 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/mimo-open-observer-doc-pack-v0` | remote | DIVERGED | 22 | 847 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/project-card-module-contextuals-shell-01` | remote | DIVERGED | 1 | 146 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/project-card-openclaw-01` | remote | DIVERGED | 1 | 146 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/project-card-validated-prompt-factory-01` | remote | DIVERGED | 1 | 146 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/student-mimo-bitget-live-equity` | both | DIVERGED | 23 | 615 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `feat/student-mimo-qualification` | both | DIVERGED | 21 | 615 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `go_repos_agent-role_initial_01` | remote | DIVERGED | 1 | 21 | `KEEP_REFERENCE` | `exclude_cleanup` | Branche de reference pour le parent AI team architecture | `GO_GIT_GO_REPOS_AGENT_ROLE_INITIAL_CLASSIFICATION_01` |
-| `integ/trading-dual-stack-doc-pack-01` | remote | DIVERGED | 4 | 522 | `REVIEW` | `manual_review` | Famille sensible a revue manuelle obligatoire | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `inventory/collectors-baseline-01` | remote | DIVERGED | 6 | 361 | `REVIEW` | `manual_review` | Famille sensible a revue manuelle obligatoire | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `main` | both | DIVERGED | 3 | 847 | `REDUNDANT` | `review_alignment` | Tronc historique secondaire en divergence avec le canon sot/mainline | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `promo/mimo-v2-bounded-01` | remote | DIVERGED | 3 | 364 | `REVIEW` | `manual_review` | Branche non absorbee ou divergente a reclassifier explicitement | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `save/admin-trading-2026-04-01` | remote | DIVERGED | 27 | 625 | `KEEP_SNAPSHOT` | `exclude_cleanup` | Branche snapshot nommee save/* a conserver jusqu a arbitrage explicite | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `save/admin-trading-post-reset-2026-04-04` | remote | DIVERGED | 1 | 409 | `KEEP_SNAPSHOT` | `exclude_cleanup` | Branche snapshot nommee save/* a conserver jusqu a arbitrage explicite | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `save/admin-trading-pre-reset-deskpro-2026-04-04` | remote | DIVERGED | 6 | 528 | `KEEP_SNAPSHOT` | `exclude_cleanup` | Branche snapshot nommee save/* a conserver jusqu a arbitrage explicite | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `save/admin-trading-pre-reset-git-fleet-2026-04-04` | remote | DIVERGED | 8 | 528 | `KEEP_SNAPSHOT` | `exclude_cleanup` | Branche snapshot nommee save/* a conserver jusqu a arbitrage explicite | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `save/cursor-ai-2026-04-01` | remote | DIVERGED | 1 | 598 | `KEEP_SNAPSHOT` | `exclude_cleanup` | Branche snapshot nommee save/* a conserver jusqu a arbitrage explicite | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `save/db-layer-2026-04-01` | remote | DIVERGED | 1 | 701 | `KEEP_SNAPSHOT` | `exclude_cleanup` | Branche snapshot nommee save/* a conserver jusqu a arbitrage explicite | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `save/fantome-YYYY-MM-DD` | remote | DIVERGED | 1 | 552 | `KEEP_SNAPSHOT` | `exclude_cleanup` | Branche snapshot nommee save/* a conserver jusqu a arbitrage explicite | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `save/student-2026-04-01` | remote | DIVERGED | 22 | 615 | `KEEP_SNAPSHOT` | `exclude_cleanup` | Branche snapshot nommee save/* a conserver jusqu a arbitrage explicite | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
-| `sot/build` | remote | ABSORBED | 0 | 815 | `KEEP_REFERENCE` | `exclude_cleanup` | Branche technique sensible `sot/*` conservee comme reference historique de build et hygiene repo | `GO_GIT_SOT_BUILD_AUDIT_01` |
-| `sot/mainline` | both | SELF | 0 | 0 | `KEEP_ACTIVE` | `protect_mainline` | Tronc canonique de continuite | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
+| `audit/opt-trading-20260320a` | remote | DIVERGED | 20 | 662 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `backup/pre_push_2026_03_14` | local | ABSORBED | 0 | 714 | `KEEP_REFERENCE` | `exclude_cleanup` | Snapshot / backup / rescue conserve comme reference et rollback potentiel | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `backup/sot-mainline-before-rebase-2026-04-09` | local | DIVERGED | 1 | 397 | `KEEP_REFERENCE` | `exclude_cleanup` | Snapshot / backup / rescue conserve comme reference et rollback potentiel | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `codex/remove-infra-context-sanitized` | both | ABSORBED | 0 | 8 | `DROP_MERGED` | `delete_after_doc_patch` | Branche deja absorbee par `origin/sot/mainline` ; conservation active non prouvee | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `codex/reseau-ssh-runtime-compat-retirement-01` | local | DIVERGED | 1 | 55 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `codex/reseau-ssh-runtime-compat-retirement-01-isolate` | local | ABSORBED | 0 | 53 | `DROP_LOCAL_ONLY` | `delete_local_after_doc_patch` | Branche locale deja absorbee par `origin/sot/mainline` et sans remote actif a conserver | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `codex/root-surface-reclass-01` | local | DIVERGED | 2 | 7 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `codex/sot-mainline-backup-a885f0b-prepublish-2026-04-22` | local | DIVERGED | 2 | 58 | `KEEP_REFERENCE` | `exclude_cleanup` | Snapshot / backup / rescue conserve comme reference et rollback potentiel | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `doc/GO_OPENCLAW_INFRA_BASELINE_01` | remote | DIVERGED | 1 | 308 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `docs/github-park-branch-trunk-cross-audit-01` | local | ABSORBED | 0 | 106 | `DROP_LOCAL_ONLY` | `delete_local_after_doc_patch` | Branche locale deja absorbee par `origin/sot/mainline` et sans remote actif a conserver | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `docs/github-park-parent-closeout-01` | remote | DIVERGED | 1 | 107 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `docs/github-park-pass-close-01` | remote | DIVERGED | 4 | 107 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `docs/memory-bricks-localcms-contract-alignment-01` | both | DIVERGED | 5 | 108 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `docs/skills-usage-cross-review-01` | both | DIVERGED | 1 | 107 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `docs/tmux-opencode-openclaw-runtime-01` | both | DIVERGED | 1 | 107 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/bot-vision-watchdog-01` | local | ABSORBED | 0 | 428 | `DROP_LOCAL_ONLY` | `delete_local_after_doc_patch` | Branche locale deja absorbee par `origin/sot/mainline` et sans remote actif a conserver | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/engines-plugin` | local | ABSORBED | 0 | 831 | `DROP_LOCAL_ONLY` | `delete_local_after_doc_patch` | Branche locale deja absorbee par `origin/sot/mainline` et sans remote actif a conserver | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/execution-engine` | local | ABSORBED | 0 | 827 | `DROP_LOCAL_ONLY` | `delete_local_after_doc_patch` | Branche locale deja absorbee par `origin/sot/mainline` et sans remote actif a conserver | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/GO_CONTINUITE_PRODUIT_MULTI_CHANTIER_CANON_01` | both | DIVERGED | 13 | 298 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/go-strategy-docs-v1` | remote | DIVERGED | 1 | 708 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/journal-api-extractor-bootstrap` | local | DIVERGED | 2 | 235 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/journal-api-extractor-v1` | local | DIVERGED | 6 | 235 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/memory-bricks-api-v2-minimal-impl-01` | local | ABSORBED | 0 | 107 | `DROP_LOCAL_ONLY` | `delete_local_after_doc_patch` | Branche locale deja absorbee par `origin/sot/mainline` et sans remote actif a conserver | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/memory-bricks-v2-find` | remote | DIVERGED | 1 | 505 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/memory-bricks-v2-health-status` | remote | DIVERGED | 1 | 575 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/memory-bricks-v2-health-status-clean` | remote | DIVERGED | 1 | 488 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/mimo-open-observer-doc-pack-v0` | remote | DIVERGED | 22 | 894 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/opt-trading-index-hardening` | local | DIVERGED | 2 | 235 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/persistent-state` | local | ABSORBED | 0 | 820 | `DROP_LOCAL_ONLY` | `delete_local_after_doc_patch` | Branche locale deja absorbee par `origin/sot/mainline` et sans remote actif a conserver | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/position-engine` | local | ABSORBED | 0 | 824 | `DROP_LOCAL_ONLY` | `delete_local_after_doc_patch` | Branche locale deja absorbee par `origin/sot/mainline` et sans remote actif a conserver | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/position-guard` | local | ABSORBED | 0 | 816 | `DROP_LOCAL_ONLY` | `delete_local_after_doc_patch` | Branche locale deja absorbee par `origin/sot/mainline` et sans remote actif a conserver | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/product-target-canon` | local | ABSORBED | 0 | 228 | `DROP_LOCAL_ONLY` | `delete_local_after_doc_patch` | Branche locale deja absorbee par `origin/sot/mainline` et sans remote actif a conserver | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/project-card-module-contextuals-shell-01` | remote | DIVERGED | 1 | 193 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/project-card-openclaw-01` | remote | DIVERGED | 1 | 193 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/project-card-validated-prompt-factory-01` | remote | DIVERGED | 1 | 193 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/reseau-ssh-consolidation-lot2-freeze-01` | local | ABSORBED | 0 | 157 | `DROP_LOCAL_ONLY` | `delete_local_after_doc_patch` | Branche locale deja absorbee par `origin/sot/mainline` et sans remote actif a conserver | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/reseau-ssh-consolidation-lot3-minimal-01` | local | ABSORBED | 0 | 143 | `DROP_LOCAL_ONLY` | `delete_local_after_doc_patch` | Branche locale deja absorbee par `origin/sot/mainline` et sans remote actif a conserver | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/risk-engine` | local | ABSORBED | 0 | 835 | `DROP_LOCAL_ONLY` | `delete_local_after_doc_patch` | Branche locale deja absorbee par `origin/sot/mainline` et sans remote actif a conserver | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/student-mimo-bitget-live-equity` | remote | DIVERGED | 23 | 662 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/student-mimo-qualification` | remote | DIVERGED | 21 | 662 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `fix/desk-ui-toolbox` | local | ABSORBED | 0 | 863 | `DROP_LOCAL_ONLY` | `delete_local_after_doc_patch` | Branche locale deja absorbee par `origin/sot/mainline` et sans remote actif a conserver | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` | remote | DIVERGED | 10 | 68 | `KEEP_ACTIVE` | `keep_under_review` | Parent AI team encore present comme support Git d un flux actif reel | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `go_repos_agent-role_initial_01` | remote | DIVERGED | 1 | 68 | `KEEP_REFERENCE` | `exclude_cleanup` | Branche de reference conservee explicitement hors cleanup | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `go/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01` | both | ABSORBED | 0 | 1 | `DROP_MERGED` | `delete_after_doc_patch` | Branche deja absorbee par `origin/sot/mainline` ; conservation active non prouvee | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01` | both | DIVERGED | 2 | 15 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01_ALIGNMENT_01` | both | DIVERGED | 1 | 15 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `go/GO_OPT_TRADING_MATRICE_GOUVERNANTE_PROMOTION_01` | both | ABSORBED | 0 | 19 | `DROP_MERGED` | `delete_after_doc_patch` | Branche deja absorbee par `origin/sot/mainline` ; conservation active non prouvee | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `go/matrice-doc-ops-propagation-01` | remote | DIVERGED | 2 | 14 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `go/matrice-maitre-plan-doc-01` | remote | ABSORBED | 0 | 18 | `DROP_MERGED` | `delete_after_doc_patch` | Branche deja absorbee par `origin/sot/mainline` ; conservation active non prouvee | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `integ/trading-dual-stack-doc-pack-01` | remote | DIVERGED | 4 | 569 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `inventory/collectors-baseline-01` | remote | DIVERGED | 6 | 408 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `main` | both | DIVERGED | 3 | 894 | `KEEP_REFERENCE` | `exclude_cleanup` | Tronc historique secondaire conserve en reference seulement | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `METHODE_MULTI_MACHINE_GIT_SYNC` | remote | DIVERGED | 14 | 68 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `opencode/brave-river` | local | DIVERGED | 2 | 235 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `opencode/cosmic-circuit` | local | DIVERGED | 1 | 156 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `promo/mimo-v2-bounded-01` | remote | DIVERGED | 3 | 411 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `rescue/derivatives-local-2026-04-09` | local | DIVERGED | 1 | 428 | `KEEP_REFERENCE` | `exclude_cleanup` | Snapshot / backup / rescue conserve comme reference et rollback potentiel | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `rescue/sot-mainline-local-2964fea` | local | DIVERGED | 1 | 702 | `KEEP_REFERENCE` | `exclude_cleanup` | Snapshot / backup / rescue conserve comme reference et rollback potentiel | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `save/admin-trading-2026-04-01` | remote | DIVERGED | 27 | 672 | `KEEP_REFERENCE` | `exclude_cleanup` | Snapshot / backup / rescue conserve comme reference et rollback potentiel | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `save/admin-trading-post-reset-2026-04-04` | remote | DIVERGED | 1 | 456 | `KEEP_REFERENCE` | `exclude_cleanup` | Snapshot / backup / rescue conserve comme reference et rollback potentiel | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `save/admin-trading-pre-reset-deskpro-2026-04-04` | remote | DIVERGED | 6 | 575 | `KEEP_REFERENCE` | `exclude_cleanup` | Snapshot / backup / rescue conserve comme reference et rollback potentiel | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `save/admin-trading-pre-reset-git-fleet-2026-04-04` | remote | DIVERGED | 8 | 575 | `KEEP_REFERENCE` | `exclude_cleanup` | Snapshot / backup / rescue conserve comme reference et rollback potentiel | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `save/cursor-ai-2026-04-01` | both | DIVERGED | 1 | 645 | `KEEP_REFERENCE` | `exclude_cleanup` | Snapshot / backup / rescue conserve comme reference et rollback potentiel | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `save/db-layer-2026-04-01` | remote | DIVERGED | 1 | 748 | `KEEP_REFERENCE` | `exclude_cleanup` | Snapshot / backup / rescue conserve comme reference et rollback potentiel | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `save/fantome-YYYY-MM-DD` | remote | DIVERGED | 1 | 599 | `KEEP_REFERENCE` | `exclude_cleanup` | Snapshot / backup / rescue conserve comme reference et rollback potentiel | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `save/student-2026-04-01` | remote | DIVERGED | 22 | 662 | `KEEP_REFERENCE` | `exclude_cleanup` | Snapshot / backup / rescue conserve comme reference et rollback potentiel | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `sot/build` | remote | ABSORBED | 0 | 862 | `KEEP_REFERENCE` | `exclude_cleanup` | Branche technique sensible `sot/*` conservee comme reference | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `sot/mainline` | both | SELF | 0 | 0 | `KEEP_ACTIVE` | `protect_mainline` | Tronc canonique de continuite | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `tmp_GO_DB_LAYER_INGESTION_PRECONDITIONS_PATCH_01` | local | ABSORBED | 0 | 210 | `DROP_LOCAL_ONLY` | `delete_local_after_doc_patch` | Branche locale deja absorbee par `origin/sot/mainline` et sans remote actif a conserver | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `wip/GO_GITHUB_PARK_AUDIT_EXPANSION_ISOLATE_01` | local | DIVERGED | 1 | 123 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
 
 ## Journal minimal
 
-- nouvelle branche parent de reprise repo-first classee `KEEP_ACTIVE` : `go/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01` -> branche dediee a conserver sous revue tant que les etapes `BRANCH_CLEANUP` puis `OPEN_WORK_CONTROL` ne sont pas executees
-- creation du support canonique `docs/index/BRANCH_STATE.md`
-- branche conservee explicitement hors cleanup : `origin/go_repos_agent-role_initial_01` -> `KEEP_REFERENCE` via `GO_GIT_GO_REPOS_AGENT_ROLE_INITIAL_CLASSIFICATION_01`
-- branche absorbee puis supprimee du remote : `origin/doc/GO_OPENCLAW_STATE_DIR_REPAIR_10` -> correction doc-only en `DROP_REMOTE_CANDIDATE`, suppression executee, donc absente du tableau courant
-- branche d'isolation supprimee du remote : `origin/codex/reseau-ssh-runtime-compat-retirement-01-isolate`, absente du tableau courant apres `fetch --prune`
-- branche reclassifiee sans suppression dans ce passage : `origin/doc/GO_OPENCLAW_STATE_DIR_READ_09` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_OPENCLAW_STATE_DIR_READ_09_CLASSIFICATION_01`
-- branche absorbee puis supprimee du remote : `origin/doc/GO_OPENCLAW_STATE_DIR_READ_09` -> reclassification doc-only deja publiee, suppression executee, donc absente du tableau courant
-- sous-lot OpenClaw absorbe reclassifie sans suppression dans ce passage : `docs/go-openclaw-evidence-01-v1`, `docs/openclaw-alignment-decision-07`, `docs/openclaw-alignment-exception-08`, `docs/openclaw-alignment-read-06`, `docs/openclaw-policy-runtime-alignment-05`, `docs/openclaw-state-dir-vigilance-03`, `go/openclaw-sync-02-doc` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01`
-- sous-lot GitHub park / closeout absorbe reclassifie sans suppression dans ce passage : `closeout/collectors-lifecycle-compat-01`, `docs/github-park-audit-expansion-closeout-01`, `docs/github-park-branch-trunk-cross-audit-01` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_GITHUB_PARK_CLOSEOUT_ABSORBED_RECLASS_01`
-- sous-lot GitHub park / closeout absorbe puis supprime du remote : `closeout/collectors-lifecycle-compat-01`, `docs/github-park-audit-expansion-closeout-01`, `docs/github-park-branch-trunk-cross-audit-01` -> reclassification doc-only deja publiee, suppression executee, donc lignes retirees du tableau courant
-- nouvelle branche distante observee pendant `fetch --prune` : `origin/METHODE_MULTI_MACHINE_GIT_SYNC` -> entree ajoutee avec statut `REVIEW` en attente d'audit separe
-- sous-lot Hermes absorbe reclassifie sans suppression dans ce passage : `docs/hermes-openclaw-bridge-05-closeout-01`, `docs/hermes-openclaw-exec01-result-01`, `docs/hermes-result-case01-v1` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_HERMES_ABSORBED_RECLASS_01`
-- sous-lot Hermes absorbe puis supprime du remote : `docs/hermes-openclaw-bridge-05-closeout-01`, `docs/hermes-openclaw-exec01-result-01`, `docs/hermes-result-case01-v1` -> reclassification doc-only deja publiee, suppression executee, donc lignes retirees du tableau courant
-- sous-lot Simex absorbe reclassifie sans suppression dans ce passage : `docs/index-simex-link-01`, `docs/simex-presets-01`, `feat/admin-trading-simex-insufficient-candles-evidence-closeout-01`, `feat/admin-trading-simex-insufficient-candles-hardening-01`, `feat/admin-trading-simex-runtime-evidence-closeout-01`, `feat/admin-trading-simex-upstream-failure-hardening-01`, `feat/admin-trading-simex-upstream-hardening-evidence-closeout-01`, `feat/admin-trading-simex-upstream-hardening-evidence-upgrade-01`, `feat/fantome-simex-module-durable-01`, `feat/simex-env-bridge-01`, `feat/simex-units-contract-01`, `feat/simex-wrappers-01` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_SIMEX_ABSORBED_RECLASS_01`
-- sous-lot Simex absorbe puis supprime du remote : `docs/index-simex-link-01`, `docs/simex-presets-01`, `feat/admin-trading-simex-insufficient-candles-evidence-closeout-01`, `feat/admin-trading-simex-insufficient-candles-hardening-01`, `feat/admin-trading-simex-runtime-evidence-closeout-01`, `feat/admin-trading-simex-upstream-failure-hardening-01`, `feat/admin-trading-simex-upstream-hardening-evidence-closeout-01`, `feat/admin-trading-simex-upstream-hardening-evidence-upgrade-01`, `feat/fantome-simex-module-durable-01`, `feat/simex-env-bridge-01`, `feat/simex-units-contract-01`, `feat/simex-wrappers-01` -> reclassification doc-only deja publiee, suppression executee, donc lignes retirees du tableau courant
-- sous-lot Product / cards / session absorbe reclassifie sans suppression dans ce passage : `feat/product-target-canon`, `feat/project-card-bot-vision-ingestion-01`, `feat/project-card-trading-analytics-chain-01`, `feat/project-cards-canonical-alignment-01`, `feat/project-cards-gate-alignment-01`, `feat/project-portfolio-validated-plans-freeze-01`, `feat/session-documentation-gate`, `feat/docs-index-chantier-inventory-sync-01`, `feat/OT_DESKPRO_RELEASE_OPS_DRILL_01` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_PRODUCT_CARDS_SESSION_ABSORBED_RECLASS_01`
-- sous-lot Product / cards / session absorbe puis supprime du remote : `feat/product-target-canon`, `feat/project-card-bot-vision-ingestion-01`, `feat/project-card-trading-analytics-chain-01`, `feat/project-cards-canonical-alignment-01`, `feat/project-cards-gate-alignment-01`, `feat/project-portfolio-validated-plans-freeze-01`, `feat/session-documentation-gate`, `feat/docs-index-chantier-inventory-sync-01`, `feat/OT_DESKPRO_RELEASE_OPS_DRILL_01` -> reclassification doc-only deja publiee, suppression executee, donc lignes retirees du tableau courant
-- sous-lot Runtime / engine / helpers absorbe reclassifie sans suppression dans ce passage : `feat/engines-plugin`, `feat/execution-engine`, `feat/persistent-state`, `feat/position-engine`, `feat/position-guard`, `feat/student-ops-helpers-01`, `feat/trading-realtime-v1-event-bridge`, `feat/trading-realtime-v1-export`, `feat/trading-realtime-v1-guardrails`, `feat/trading-realtime-v1-reporting`, `feat/trading-realtime-v1-runtime-loop`, `feat/trading-realtime-v1-timer`, `feature/hf-publish-helper-fix-01`, `feature/hf-tools-private-config-fix-01` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_RUNTIME_ENGINE_HELPERS_ABSORBED_RECLASS_01`
-- sous-lot Runtime / engine / helpers absorbe puis supprime du remote : `feat/engines-plugin`, `feat/execution-engine`, `feat/persistent-state`, `feat/position-engine`, `feat/position-guard`, `feat/student-ops-helpers-01`, `feat/trading-realtime-v1-event-bridge`, `feat/trading-realtime-v1-export`, `feat/trading-realtime-v1-guardrails`, `feat/trading-realtime-v1-reporting`, `feat/trading-realtime-v1-runtime-loop`, `feat/trading-realtime-v1-timer`, `feature/hf-publish-helper-fix-01`, `feature/hf-tools-private-config-fix-01` -> reclassification doc-only deja publiee, suppression executee, donc lignes retirees du tableau courant
-- sous-lot Mimo / misc absorbe reclassifie sans suppression dans ce passage : `feat/antigravity-binance-v1`, `feat/cards01`, `feat/collectors-lifecycle-wrapper-harmonization-01`, `feat/go-openclaw-chain-03-v1`, `feat/memory-bricks-v2-bricks-list`, `feat/mimo-gate-replay`, `feat/mimo-open-observer-doc-pack-v0-clean`, `feat/mimo-open-observer-market-calendar-v1`, `feat/mimo-scheduler-promotion`, `feat/openclaw-registry-expose-01` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_MIMO_MISC_ABSORBED_RECLASS_01`
-- sous-lot Mimo / misc absorbe puis supprime du remote : `feat/antigravity-binance-v1`, `feat/cards01`, `feat/collectors-lifecycle-wrapper-harmonization-01`, `feat/go-openclaw-chain-03-v1`, `feat/memory-bricks-v2-bricks-list`, `feat/mimo-gate-replay`, `feat/mimo-open-observer-doc-pack-v0-clean`, `feat/mimo-open-observer-market-calendar-v1`, `feat/mimo-scheduler-promotion`, `feat/openclaw-registry-expose-01` -> suppression remote executee; seule la branche locale `feat/mimo-open-observer-market-calendar-v1` reste au tableau
-- reliquat OpenClaw `DROP_REMOTE_CANDIDATE` supprime du remote : `docs/go-openclaw-evidence-01-v1`, `docs/openclaw-alignment-decision-07`, `docs/openclaw-alignment-exception-08`, `docs/openclaw-alignment-read-06`, `docs/openclaw-policy-runtime-alignment-05`, `docs/openclaw-state-dir-vigilance-03`, `go/openclaw-sync-02-doc` -> suppression executee, donc lignes retirees du tableau courant
-- sous-lot absorbe non `sot/*` a faible risque reclassifie sans suppression dans ce passage : `docs/chatgpt-profile-baseline-index-01`, `feat/range-strategy-v1-struct` -> `DROP_REMOTE_CANDIDATE` via `GO_GIT_ABSORBED_NON_SOT_LOW_RISK_RECLASS_01`
-- sous-lot absorbe non `sot/*` a faible risque supprime du remote : `docs/chatgpt-profile-baseline-index-01`, `feat/range-strategy-v1-struct` -> reclassification doc-only deja publiee, suppression executee, donc lignes retirees du tableau courant
-- passe `DROP_LOCAL_ONLY` terminee : `feat/journal-full-reading-macro-plan-recenter`, `feat/mimo-open-observer-market-calendar-v1`, `feat/mimo-open-observer-doc-pack-v0-clean-local`, `feat/mimo-open-observer-doc-pack-v0-clean-working`, `feat/student-validation-bitget-readonly-01`, `opencode/shiny-engine` -> branches locales retirees du tableau courant; sauvegarde locale du worktree journal dans `/.bundle_reviews/drop_local_only_backups/journal-full-reading-macro-plan-recenter`
-- audit dedie de `origin/sot/build` : branche absorbee mais conservee en `KEEP_REFERENCE` comme reference technique sensible de famille `sot/*` via `GO_GIT_SOT_BUILD_AUDIT_01`
+- photo canonique rafraichie sur `origin/sot/mainline@64df21f` apres `fetch --all --prune`
+- branche parent de reprise `go/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01` requalifiee `DROP_MERGED` : le parent reste ouvert dans la continuite, mais sa branche dediee est maintenant absorbee par `sot/mainline`
+- branches gardees actives : `sot/mainline`, `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
+- branches gardees en reference : `go_repos_agent-role_initial_01`, `main`, `sot/build`, familles `backup/*`, `rescue/*`, `save/*`
+- suppressions immediates preparees sans execution : `codex/remove-infra-context-sanitized`, `go/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01`, `go/GO_OPT_TRADING_MATRICE_GOUVERNANTE_PROMOTION_01`, `go/matrice-maitre-plan-doc-01`, plus le lot local absorbe en `DROP_LOCAL_ONLY`
+- entree stale retiree du tableau : `backup/mimo-b038db9`
+- branches encore divergentes ou ahead requalifiees en `A_VERIFIER` en attente d'arbitrage explicite ; aucune suppression executee dans ce passage
 
 ## Point de reprise
 
@@ -169,4 +180,6 @@ Pour toute nouvelle session de housekeeping :
 - repartir de `docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md`
 - charger d'abord `docs/index/BRANCH_STATE.md`
 - verifier le delta Git reel depuis la date et le commit de reference
-- mettre a jour cette fiche avant toute suppression effective
+- executer uniquement les suppressions qualifiees `DROP_MERGED` et `DROP_LOCAL_ONLY` apres validation explicite
+- refaire `git fetch --all --prune`
+- passer ensuite a `GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01`
