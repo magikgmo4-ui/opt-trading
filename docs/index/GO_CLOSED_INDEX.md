@@ -14,7 +14,7 @@ topic_keys:
   - governance
 surface: continuity
 source_kind: canonical
-updated_at: 2026-04-22
+updated_at: 2026-04-24
 links:
   - docs/index/GO_INDEX.md
   - docs/governance/REPO_ROLE.md
@@ -69,6 +69,7 @@ Normalisation retenue :
 | UNIFORM_CONTINUITY_HARDENING | GO_UNIFORM_CONTINUITY_HARDENING_02 | GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01 | CLOSED | oui | `docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_02/00_cadrage.md`<br>`docs/chantiers/GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01/90_closeout.md` |
 | GO_UNIFORM_CONTINUITY_IDE_EXECUTION_PACK_02 | GO_UNIFORM_CONTINUITY_IDE_EXECUTION_PACK_02 | — | CLOSED | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_UNIFORM_CONTINUITY_IDE_EXECUTION_PACK_02/00_cadrage.md` |
 | GO_COLLECTORS_LIFECYCLE_COMPAT_CLOS | GO_COLLECTORS_LIFECYCLE_COMPAT_CLOS | — | CLOSED | oui | `docs/chantiers/GO_COLLECTORS_LIFECYCLE_COMPAT_CLOS/00_cadrage.md`<br>`docs/chantiers/GO_COLLECTORS_LIFECYCLE_COMPAT_CLOS/90_closeout.md` |
+| GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01 | GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/90_closeout.md` |
 
 ---
 
@@ -195,3 +196,11 @@ Ces entrées détaillées sont sorties de `docs/index/GO_INDEX.md`.
 - titre court : séquence lifecycle compat collectors canonisée en lot fermé
 - dernier état connu : séquence baseline -> scope -> spec -> closeout canonisée sous une forme close `_CLOS` ; closeout historique conservé ; aucun next GO ouvert automatiquement
 - lien utile : `docs/chantiers/GO_COLLECTORS_LIFECYCLE_COMPAT_CLOS/00_cadrage.md`, `docs/chantiers/GO_COLLECTORS_LIFECYCLE_COMPAT_CLOS/90_closeout.md`, `docs/COLLECTORS_LIFECYCLE_COMPAT_CLOSEOUT_01.md`
+
+### GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01
+- repo : opt-trading
+- type : sous-lot d'execution / suite modules / openclaw
+- statut : pass
+- titre court : consolidation bornee de la suite OpenClaw
+- dernier état connu : sous-lot ferme en doc-only apres cartographie de suite, matrice des wrappers, runbook unique, conventions de famille et audit de duplication ; aucun patch shell transverse publie
+- lien utile : `docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/90_closeout.md`, `docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/03_step_01_matrice_wrappers.md`, `docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/04_step_02_runbook_de_suite.md`
