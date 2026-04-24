@@ -32,6 +32,10 @@ links:
   - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/13_step_04_role_map_desk_pro.md
   - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/14_step_04_role_map_deepseek_student.md
   - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/15_step_04_role_map_reseau_share_transfer.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/16_step_05_family_plan_registry_ui_navigation.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/17_step_05_family_plan_openclaw.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/18_step_05_family_plan_collectors_market_intelligence.md
+  - docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/19_step_05_family_plan_vision.md
   - docs/status/desk_pro_stack_canonique.md
   - docs/status/deepseek_student_canonique.md
   - docs/status/reseau_ssh_canonique.md
@@ -169,7 +173,7 @@ Ce plan est volontairement conservateur :
   - aucun si analyse seule
 
 ## Step 05 — suites P2
-- statut : pending
+- statut : complete
 - objectif : traiter les familles importantes mais moins urgentes
 - familles :
   - `Registry/UI/navigation`
@@ -178,8 +182,28 @@ Ce plan est volontairement conservateur :
   - `Vision`
 - action attendue :
   - distinguer ce qui doit etre harmonise, mutualise, ou laisser separe
-- preuve attendue :
-  - plan par famille
+- preuve observee (suite `Registry/UI/navigation`) :
+  - [16_step_05_family_plan_registry_ui_navigation.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/16_step_05_family_plan_registry_ui_navigation.md)
+  - `registry/` confirme comme source de verite declarative
+  - `localcms` qualifie comme consumer UI externe eventuel, non absorbable dans ce lot
+- preuve observee (suite `Openclaw`) :
+  - [17_step_05_family_plan_openclaw.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/17_step_05_family_plan_openclaw.md)
+  - chaine fixee :
+    - `install_module_openclaw`
+    - `model_provider_openclaw`
+    - `openclaw_config_modulaire`
+    - `configure_openclaw`
+    - `gateway_openclaw`
+    - `doctor_openclaw`
+    - `evidence_openclaw`
+- preuve observee (suite `Collectors / market intelligence`) :
+  - [18_step_05_family_plan_collectors_market_intelligence.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/18_step_05_family_plan_collectors_market_intelligence.md)
+  - `collectors_core` confirme comme fondation partagee
+  - separation explicite entre collecte, facade `marketdata` et intelligence aval
+- preuve observee (suite `Vision`) :
+  - [19_step_05_family_plan_vision.md](/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/19_step_05_family_plan_vision.md)
+  - paire operatoire transitoire relue sans figer un survivant unique
+  - prochain besoin pointe vers une spec cross-platform ou une decision de survivant
 - rollback :
   - aucun si analyse seule
 
@@ -232,8 +256,7 @@ Ce plan est volontairement conservateur :
 Au terme de ce plan, `modules/` doit devenir lisible par suites, sans remettre en cause les modules encore actifs ni casser les wrappers.
 
 ## Point de reprise
-`Step 04` est complete. Basculer vers `Step 05` pour les suites P2 :
-- `Registry/UI/navigation`
-- `Openclaw`
-- `Collectors / market intelligence`
-- `Vision`
+`Step 05` est complete. Basculer vers `Step 06` pour les familles a garder separees avec contrats renforces :
+- `Engine pipeline`
+- `Runtime edge / platform`
+- `Repo / tooling / authoring`
