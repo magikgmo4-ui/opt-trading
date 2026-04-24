@@ -1,4 +1,3 @@
-\
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -7,7 +6,8 @@ usage() {
 cmd-perm_fix_student
 
 Usage:
-  cmd-perm_fix_student fix_journal     # fix perms for /opt/trading/journal (+ archives/tmp)
+  cmd-perm_fix_student fix_runtime     # fix perms for state/tmp/_student_archive runtime paths
+  cmd-perm_fix_student fix_journal     # legacy alias of fix_runtime
   cmd-perm_fix_student fix_all         # (optional) fix perms for entire /opt/trading (more intrusive)
   cmd-perm_fix_student ollama_test     # test ollama CLI + local API (127.0.0.1:11434)
   cmd-perm_fix_student status          # quick status/diagnostic
@@ -36,14 +36,13 @@ fix_paths() {
   group="$(id -gn "$user" 2>/dev/null || echo "$user")"
 
   local -a paths=(
-    "/opt/trading/journal"
+    "/opt/trading/state"
     "/opt/trading/_student_archive"
     "/opt/trading/tmp"
-    "/opt/trading/journal/tmp"
-    "/opt/trading/journal/steps"
+    "/opt/trading/tmp/logs"
   )
 
-  echo "== fixing permissions for journal-related paths"
+  echo "== fixing permissions for runtime-related paths"
   echo "User:Group => ${user}:${group}"
   for p in "${paths[@]}"; do
     if [[ -e "$p" ]]; then
@@ -58,12 +57,7 @@ fix_paths() {
     fi
   done
 
-  if [[ -d /opt/trading/journal ]]; then
-    find /opt/trading/journal -type f \( -name "*.md" -o -name "*.txt" -o -name "*.log" \) \
-      -exec chmod u+rw,g+rw,o-rwx {} + || true
-  fi
-
-  echo "OK: journal permissions fixed."
+  echo "OK: runtime permissions fixed."
 }
 
 fix_all_opt() {
@@ -126,18 +120,23 @@ status() {
   echo "-- whoami / id"
   whoami
   id
-  echo "-- journal unreadable files (if any)"
-  if [[ -d /opt/trading/journal ]]; then
-    find /opt/trading/journal -type f ! -readable -printf '%m %u:%g %p\n' | head -n 200 || true
-  else
-    echo "(journal dir missing)"
+  echo "-- runtime unreadable files (if any)"
+  local found=0
+  for p in /opt/trading/state /opt/trading/tmp /opt/trading/_student_archive; do
+    if [[ -d "$p" ]]; then
+      found=1
+      find "$p" -type f ! -readable -printf '%m %u:%g %p\n' | head -n 200 || true
+    fi
+  done
+  if [[ "$found" -eq 0 ]]; then
+    echo "(runtime dirs missing)"
   fi
 }
 
 main() {
   local cmd="${1:-help}"
   case "$cmd" in
-    fix_journal|"")
+    fix_runtime|fix_journal|"")
       need_sudo
       fix_paths
       ;;

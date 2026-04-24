@@ -1,6 +1,6 @@
 # repo_hygiene — Module d’hygiène repo (Source-of-Truth)
 
-Objectif : éliminer les causes de confusion **Git/machines/journal** en détectant (et corrigeant prudemment) les artefacts et pièges suivants :
+Objectif : éliminer les causes de confusion **Git/machines/artefacts locaux** en détectant (et corrigeant prudemment) les artefacts et pièges suivants :
 
 - Fichiers qui commencent par une ligne `\` (erreur fréquente → scripts/templates cassés)
 - Artefacts SQLite runtime (`*.db-wal`, `*.db-shm`, `*.sqlite-wal`, `*.sqlite-shm`)
@@ -31,4 +31,4 @@ cmd-repo_hygiene cleanup-artifacts --apply
 
 ## Notes
 - `.gitignore` est étendu pour ignorer WAL/SHM + `*.bak_*`.
-- Si `journal.md` est tracké, le module **ne le retire pas** (car destructif). Il te donne la commande à exécuter si tu veux le dé-tracker plus tard.
+- Si un artefact local legacy est tracké, le module **ne le retire pas** (car destructif). Il te donne la commande à exécuter si tu veux le dé-tracker plus tard.

@@ -16,7 +16,7 @@ surface: architecture
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 point_de_reprise: "Section Surfaces top-level (lecture canonique)"
-updated_at: 2026-04-23
+updated_at: 2026-04-24
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - registry/README.md
@@ -44,12 +44,11 @@ Fournir une carte humaine de lecture des surfaces du repo, sans remplacer les re
 - `shared/`, `schemas/`, `adapters/` : briques transverses runtime
 - `tools/` : outillage d’appui opératoire
 - `student/` : surface de travail et sous-produits embarqués
-- `workflow_ai/` : doctrine et outillage IA embarqués
+- `workflow_ai/` : doctrine locale d'execution IA et templates opposables
 - `infra_context_sanitized/` : contexte infra sanitizé (support, continuité)
 - `deploy_module_multi_machine/` : outillage/continuité déploiement multi-machine
 - `packages/` : paquets et workspaces embarqués
 - `tradingview/` : surfaces liées à TradingView (support/exécution selon sous-dossiers)
-- `journal.md`, `journal/` : brut vivant, index dérivés, archives de lecture
 
 ## Articulation de référence
 - architecture runtime : `docs/ARCHITECTURE.md`
@@ -62,7 +61,21 @@ Fournir une carte humaine de lecture des surfaces du repo, sans remplacer les re
 
 ## Surfaces secondaires / archive
 - `_archive/` : archive locale (hors surface active)
-- `trae_pack_texts/` : bibliothèque locale de textes Trae (support)
+
+## Sous-surface documentaire notable
+- `docs/ot/trae/trae_pack_texts/README.md` : entree documentaire du support legacy Trae
+- `docs/ot/trae/trae_pack_texts/trae_pack/` : archive de lecture legacy, non requise par la continuite canonique
+
+## Ensemble Trae / IDE (lecture de coherence)
+- `workflow_ai/` : doctrine d'execution gated et templates opposables
+- `modules/validated_prompt_factory/` : outil operateur de generation de prompts structures
+- `deploy_module_multi_machine/` : outillage de deploiement multi-machine et de continuite terrain
+- `docs/ot/trae/trae_pack_texts/README.md` : synthese repo-native du support legacy Trae
+- `docs/ot/trae/trae_pack_texts/trae_pack/` : archive de lecture utile pour l'IDE, non canonique
+
+Règle :
+- ces quatre surfaces forment un ensemble pratique de travail Trae/IDE
+- en cas de conflit, la couche canonique repo-first prime (`docs/`, `workflow_ai/`, `registry/`, `modules/`)
 
 ## REPRISE
 - mise à jour continue via `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`

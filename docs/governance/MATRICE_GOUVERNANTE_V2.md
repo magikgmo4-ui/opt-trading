@@ -243,9 +243,7 @@ La matrice retient une symetrie stricte :
 | etat branches | `docs/index/BRANCH_STATE.md` | interne a la surface | support branches |
 | carte humaine | `docs/architecture/` ou `docs/INDEX.md` | navigation | annexe |
 | registre machine-readable | `registry/*` | `registry/meta_index.yaml` | derive / support |
-| journal brut | `journal.md` | aucune indexation canonique active | hors noyau |
-| journal derive | `journal/index/*` | aucune substitution a `docs/index/*` | support |
-| journal archive | `journal/canon/*` | aucune substitution a `docs/index/*` | preuve / archive |
+| resultats extraits de continuite | `docs/governance/HUMAN_*` | `docs/INDEX.md` | support stable |
 
 Regles de placement :
 - une regle stable ne doit pas etre cachee dans un chantier

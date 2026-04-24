@@ -27,7 +27,6 @@ Cette synthèse est un résumé vivant du kanban. Elle permet de voir rapidement
 | Runtime vs snapshot repo | DIVERGENT / SUIVI | gouvernance ops | NON CONFIRMÉ MAIS ACCEPTÉ (invariant documenté) | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
 | Trae pré-V1 (statut global) | PRE_V1_COHERENT_AVEC_DELTAS_FINAUX | orchestration / système | non | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
 | CONTRADICTOIRE (cadrage) | CLOSE (CADRÉ / OPPOSABLE) | gouvernance | non | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
-| journal_de_bord — matrice GO active | ÉTABLI / ACTIVE | outillage opérateur | non | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
 | Rules Trae V1 | ACTIVE (V1_OPEN) | couche V1 | oui | ouverture actée (doc-only) ; suite: GO_OT_TRAE_AGENTS_V1_OPEN_01 |
 | Agents Trae V1 | ÉTABLI / GELÉ (PRE-V1, OPPOSABLE) | couche V1 | oui | gel pré-V1 acté (doc-only) ; suite: GO_OT_TRAE_AGENTS_V1_OPEN_01 |
 | Skills Trae V1 | ÉTABLI / GELÉ (PRE-V1, OPPOSABLE) | couche V1 | oui | gel pré-V1 acté (doc-only) ; suite: GO_OT_TRAE_AGENTS_V1_OPEN_01 |
@@ -119,18 +118,10 @@ Cette synthèse est un résumé vivant du kanban. Elle permet de voir rapidement
 ### POINT DE REPRISE
 - Néant spécifique au module (validé bout-en-bout).
 
-## 8B. OUTILLAGE — JOURNAL_DE_BORD
-
-### ÉTABLI
-- `journal_de_bord` dispose d’une vue générée des GO actifs :
-  - `journal/index/ACTIVE_GO_MATRIX.md`
-  - `journal/index/ACTIVE_GO_MATRIX.json`
-- Cette vue est dérivée des docs canoniques et ne remplace pas le kanban.
-
 ## 9. TRAE — SOCLE / OUTILLAGE / V1
 
 ### ÉTABLI
-- Un socle doctrinal Trae existe déjà dans le repo (helpers dans `trae_pack_texts/trae_pack/`).
+- Un socle doctrinal Trae existe déjà dans le repo (helpers dans `docs/ot/trae/trae_pack_texts/trae_pack/`).
 - Le repo canonique reste prioritaire sur les packs helpers Trae.
 - `validated_prompt_factory` est réel et clos.
 - `trae_module_validator` est réel et exploitable (déclaré `active` en registry, wrappers présents, smoke prouvé via closings wrappers).
@@ -160,7 +151,7 @@ Reprise de session (canonique) :
 - Décision canonique : `docs/ot/trae/OT_TRAE_CONTRADICTOIRE_CADRAGE_DECISION_01.md`
 - Closing : `docs/ot/closings/OT_TRAE_CONTRADICTOIRE_CADRAGE_01_CLOSING.txt`
 - Taxonomie repo vs taxonomie doctrinale Trae :
-  - objectif : définir une table de correspondance stable (où vit quoi : `docs/`, `workflow_ai/`, `modules/`, `registry/`, `trae_pack_texts/`) vs couches Trae (Rules/Agents/Skills/MCP).
+  - objectif : définir une table de correspondance stable (où vit quoi : `docs/`, `workflow_ai/`, `modules/`, `registry/`, `docs/ot/trae/trae_pack_texts/`) vs couches Trae (Rules/Agents/Skills/MCP).
   - sortie attendue : un mapping “emplacement → rôle → statut canonique”, sans refactor.
 - Standard module récent vs exceptions legacy :
   - objectif : lister ce qui est “standard opposable” (wrappers cmd/menu/sanity, registry, scripts) et ce qui reste “legacy toléré” ;

@@ -20,8 +20,8 @@ Valider “en session réelle” (au sens : flux actionnable à partir du repo, 
 - `docs/INDEX.md`
 - `docs/ROADMAP.md`
 - `opt_trading_kanban_source_of_truth_2026-03-13_updated.md`
-- `trae_pack_texts/trae_pack/TRAE_SESSION_OPENING_PACK_V1.1.txt`
-- `trae_pack_texts/trae_pack/TRAE_CLOSURE_TEMPLATE_V1.1.txt`
+- `docs/ot/trae/trae_pack_texts/trae_pack/TRAE_SESSION_OPENING_PACK_V1.1.txt`
+- `docs/ot/trae/trae_pack_texts/trae_pack/TRAE_CLOSURE_TEMPLATE_V1.1.txt`
 
 ## 3. VÉRIFICATION DE L’OUVERTURE CANONIQUE
 ### ÉTABLI

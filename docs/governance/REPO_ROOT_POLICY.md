@@ -16,7 +16,7 @@ surface: governance
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 point_de_reprise: "Section Regles racine"
-updated_at: 2026-04-23
+updated_at: 2026-04-24
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/ot/trae/06_REPO_BOUNDARY_POLICY_V1.txt
@@ -47,17 +47,41 @@ Elle fixe seulement l'application locale à la racine de `opt-trading`.
 - **Legacy toléré** : éléments conservés pour compatibilité, explicitement marqués
 - **Arbitrage ouvert** : objets à reclasser dans un chantier dédié ultérieur
 
-## Objets racine actuellement sous arbitrage
-Les objets suivants sont considérés comme sous arbitrage de reclassement (aucun déplacement dans ce lot) :
-- `Readme`
-- `TOOLBOX.txt`
-- `UI_URLS.md`
-- `journal_add.sh`
-- `smartmoney.txt`
-- `bitget_bridge.py`
-- `_archive/`
-- `trae_pack_texts/`
-- `.gitignore.bak*`
+## Objets racine classés
+- `README.md` : point d'entree repo minimal (quickstart / verification)
+- `workflow_ai/` : doctrine locale d'execution IA et templates opposables
+- `deploy_module_multi_machine/` : outillage valide de deploiement multi-machine
+- `_archive/` : archive locale assumee, hors surface active
+
+## Objets racine encore sous arbitrage
+- `bitget_bridge.py` : shim legacy conserve en racine en attente d'un lot dedie
+
+## Lot de retrait applique
+- `journal.md` : supprime comme surface de continuite locale obsolete
+- `journal/` : supprime ; les resultats extraits utiles sont conserves sous forme documentaire dans `docs/governance/HUMAN_*`
+- `modules/journal_de_bord/` : supprime comme outillage operatoire obsolete
+- `tools/journal_from_paste.py` : supprime avec l'abandon de la journalisation repo
+
+## Lot de reclassement racine applique
+- `Readme` -> `README.md`
+- `TOOLBOX.txt` : contenu fusionne dans `docs/admin_trading_desk_pro_quick_reference.md`, copie legacy archivee sous `_archive/root_backups/TOOLBOX_root_legacy_2026-04-24.txt`
+- `UI_URLS.md` : contenu fusionne dans `docs/desk_pro_multi_machine_quick_reference.md`, copie legacy archivee sous `_archive/root_backups/UI_URLS_root_legacy_2026-04-24.md`
+- `smartmoney.txt` : copie racine archivee sous `_archive/root_backups/smartmoney_root_legacy_2026-04-24.txt` ; surface active retenue = `tradingview/smartmoney_webhook_server_compat.pine`
+- `strategy_logic.py` : reclassé vers `modules/decision_engine/app/strategy_logic.py`
+- `validated_prompt_factory_role_preface.patch` : archive sous `_archive/root_backups/validated_prompt_factory_role_preface_2026-04-01.patch`
+- `.gitignore.bak*` : aucun artefact present en racine ; backup observe sous `_archive/root_backups/.gitignore.bak2.20260219_111605`
+- `trae_pack_texts/` : deplace hors racine vers `docs/ot/trae/trae_pack_texts/`
+
+## Ensemble Trae/IDE (lecture de coherence)
+- `workflow_ai/` : doctrine gated, GO/STOP, templates opposables
+- `modules/validated_prompt_factory/` : generation de prompts structures pour session, patch, module et transfert
+- `deploy_module_multi_machine/` : propagation multi-machine depuis `admin-trading`
+- `docs/ot/trae/trae_pack_texts/README.md` : entree documentaire du support legacy Trae
+- `docs/ot/trae/trae_pack_texts/trae_pack/` : archive de lecture gardee pour compatibilite documentaire
+
+Regle retenue :
+- l'ensemble est coherent comme pack de travail Trae/IDE, mais seule la couche repo-first canonique prime en cas de conflit
+- `docs/ot/trae/trae_pack_texts/trae_pack/` ne doit pas redevenir une source de continuite opposable
 
 ## Limites
 - ce document ne déplace aucun fichier à lui seul
@@ -65,3 +89,4 @@ Les objets suivants sont considérés comme sous arbitrage de reclassement (aucu
 
 ## REPRISE
 - suivi via `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`
+- lot dedie ouvert : `GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01`

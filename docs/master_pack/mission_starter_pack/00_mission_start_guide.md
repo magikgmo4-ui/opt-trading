@@ -22,12 +22,17 @@ Priorité canonique en cas de conflit :
 2.  Workflow canonique projet (`workflow_ai/WORKFLOW.md`)
 3.  Starter pack mission (`docs/master_pack/mission_starter_pack/*`)
 4.  Kanban (source of truth)
-5.  Packs TRAE (helpers)
 
-Packs TRAE (helpers, non canoniques repo) :
-- `trae_pack_texts/trae_pack/TRAE_SESSION_OPENING_PACK_V1.1.txt`
-- `trae_pack_texts/trae_pack/TRAE_CLOSURE_TEMPLATE_V1.1.txt`
-Ils servent de support “transport / cadrage / continuité” et ne doivent pas contredire le starter pack repo.
+Supports locaux legacy éventuels :
+- `docs/ot/trae/trae_pack_texts/README.md` est l'entrée documentaire du pack Trae legacy.
+- `docs/ot/trae/trae_pack_texts/trae_pack/` est une archive de lecture conservée pour compatibilité doc/IDE.
+- aucun pack TRAE local n’est requis pour ouvrir une session canonique dans le repo.
+
+Surfaces Trae/IDE a articuler si la mission les utilise :
+- `workflow_ai/` = doctrine d'execution opposable
+- `modules/validated_prompt_factory/` = generation de prompts structures a partir d'une synthese validee
+- `deploy_module_multi_machine/` = deploiement multi-machine valide ; reference documentaire = `docs/deploy_module_multi_machine_continuity.md`
+- `docs/ot/trae/trae_pack_texts/README.md` = support legacy de lecture et de continuite IDE, non source de verite
 
 ## 1. SOURCES DE VÉRITÉ ABSOLUES (À LIRE EN PREMIER)
 Avant toute action, l'agent **DOIT** lire :

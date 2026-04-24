@@ -23,7 +23,6 @@ links:
   - docs/governance/MATRICE_GOUVERNANTE_V2.md
   - docs/INDEX.md
   - docs/master_pack/mission_starter_pack/00_mission_start_guide.md
-  - journal/index/ACTIVE_GO_MATRIX.md
   - docs/governance/HUMAN_CONTINUITY_TRANSMISSION.md
 ---
 
@@ -92,7 +91,7 @@ Références minimales :
 - `docs/governance/MATRICE_GOUVERNANTE_V2.md` : annexe stable secondaire utile si un recroisement fin est nécessaire
 - `docs/INDEX.md` : navigation documentaire canonique
 - `docs/master_pack/mission_starter_pack/00_mission_start_guide.md` : point d’entrée de session
-- `journal/index/ACTIVE_GO_MATRIX.md` : état actif compact des GO
+- `docs/index/REPRISE.md` : surface opératoire de reprise
 - `docs/governance/HUMAN_CONTINUITY_TRANSMISSION.md` : principes humains de transmission
 
 ---

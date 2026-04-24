@@ -1,4 +1,3 @@
-\
 #!/usr/bin/env bash
 set -euo pipefail
 cat > /opt/trading/ingest/app.py <<'EOF'
@@ -8,7 +7,7 @@ import json, os, socket
 
 APP = FastAPI()
 HOST = socket.gethostname()
-JSON_PATH = "/opt/trading/journal/events/events.jsonl"
+JSON_PATH = "/opt/trading/state/events.jsonl"
 KEY_PATH = "/opt/trading/ingest/INGEST_API_KEY"
 
 def get_key() -> str:

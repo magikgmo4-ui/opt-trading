@@ -68,14 +68,13 @@ LOT 1 — continuité index :
 - déclasser `docs/next/NEXT_GO_CANDIDATES.md`
 - propager la règle closeout PASS ⇒ dossier clos
 
-LOT 2 — hiérarchie journal :
-- fixer `journal.md` comme brut vivant
-- fixer `journal/index/*` comme dérivé opératoire
-- fixer `journal/canon/*` comme archive / historique
-- réaligner `docs/governance/HUMAN_CONTINUITY_*`
+LOT 2 — retrait du journal et réalignement continuité :
+- retirer `journal.md`, `journal/` et `modules/journal_de_bord/` comme surfaces opératoires obsolètes
+- conserver uniquement les extractions de continuité utiles dans `docs/governance/HUMAN_*`
+- réaligner les docs canoniques et les scripts encore branchés sur le journal
 
 ---
 
 ## REPRISE
 Point de reprise local :
-- `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/02_journal_technique.md`
+- `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/03_decisions.md`

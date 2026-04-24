@@ -1,4 +1,3 @@
-\
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -168,7 +167,7 @@ fetch_student() {
   local remote_path="${1:-}"
   local outbox_sub="${2:-}"
   if [[ -z "$remote_path" ]]; then
-    echo "ERROR: remote_path required (ex: /opt/trading/journal/steps/step_x.md)"
+    echo "ERROR: remote_path required (ex: /opt/trading/state/events.jsonl)"
     exit 1
   fi
 

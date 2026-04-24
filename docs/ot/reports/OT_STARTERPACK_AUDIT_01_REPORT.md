@@ -33,8 +33,8 @@ Date (America/Montreal) : 2026-03-14
 - [OT_SVC_01_CLOSING.txt](file:///c:/Users/ghost/opt-trading/docs/ot/closings/OT_SVC_01_CLOSING.txt)
 
 ### 2.5 Packs TRAE (continuité / ouverture / clôture)
-- [TRAE_SESSION_OPENING_PACK_V1.1.txt](file:///c:/Users/ghost/opt-trading/trae_pack_texts/trae_pack/TRAE_SESSION_OPENING_PACK_V1.1.txt)
-- [TRAE_CLOSURE_TEMPLATE_V1.1.txt](file:///c:/Users/ghost/opt-trading/trae_pack_texts/trae_pack/TRAE_CLOSURE_TEMPLATE_V1.1.txt)
+- [TRAE_SESSION_OPENING_PACK_V1.1.txt](file:///c:/Users/ghost/opt-trading/docs/ot/trae/trae_pack_texts/trae_pack/TRAE_SESSION_OPENING_PACK_V1.1.txt)
+- [TRAE_CLOSURE_TEMPLATE_V1.1.txt](file:///c:/Users/ghost/opt-trading/docs/ot/trae/trae_pack_texts/trae_pack/TRAE_CLOSURE_TEMPLATE_V1.1.txt)
 
 ## 3. ÉTABLI (OPPOSABLE AU REPO)
 

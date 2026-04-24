@@ -14,5 +14,5 @@
 4) Sanity:
    sanity-repo_hygiene
 
-If you want to de-track journal.md later (ONLY if you decide):
-   git rm --cached journal.md
+If you want to de-track a legacy tracked local artifact later (ONLY if you decide):
+   git rm --cached <file>

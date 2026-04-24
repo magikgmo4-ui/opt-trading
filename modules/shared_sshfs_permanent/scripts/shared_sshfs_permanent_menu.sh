@@ -2,7 +2,7 @@
 set -euo pipefail
 
 MODULE="shared_sshfs_permanent"
-LOG_DIR="/opt/trading/journal/tmp"
+LOG_DIR="/opt/trading/tmp/logs"
 mkdir -p "$LOG_DIR"
 TS="$(date +%Y%m%d_%H%M%S)"
 LOG_FILE="$LOG_DIR/${MODULE}_menu_${TS}.log"

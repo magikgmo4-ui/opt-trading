@@ -4,7 +4,7 @@
 - **Date (America/Montreal)**: 2026-03-07
 - **Titre**: Indexation complète Desk / MSI / Dell / Debian avant extension écran réseau et reprise API
 - **Source brute**: `/opt/trading/_work/indexation_desk/raw_inventory_20260307_054013.log`
-- **Journal seed**: `/opt/trading/journal/steps/step_20260307_054013_indexation_desk.md`
+- **Session seed historique**: preuve opératoire retirée du canon journal depuis
 
 ## But de la phase
 Créer une cartographie fiable, exploitable et non destructive de l’existant pour :
@@ -32,7 +32,7 @@ Créer une cartographie fiable, exploitable et non destructive de l’existant p
 
 ## Contraintes de travail
 - **lecture / structuration seulement** sauf mini-ajustement documentaire si nécessaire
-- toute future modif devra être **minimale, traçable, sanity-checkée et journalisée**
+- toute future modif devra être **minimale, traçable, sanity-checkée et documentée**
 - ne pas rouvrir le chantier `student_deepseek_ops_v1.0_hotfix2` sauf régression
 - conserver l’état stable déjà validé sur `origin/sot/mainline`
 

@@ -62,13 +62,13 @@ Clore le sujet du bundle `GO_INDEX_ALIGNMENT_IDE_BUNDLE` sans ouvrir rétroactiv
 ## Fichiers touchés
 - `docs/index/GO_INDEX.md`
 - `docs/governance/DOC_LAYERS.md`
-- `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/02_journal_technique.md`
 - `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/03_decisions.md`
 - `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/91_bundle_closeout_go_index_alignment.md`
 
 ## Diff synthétique
 - ancrage des règles minimales de lecture manquantes dans `GO_INDEX.md`
 - ancrage gouvernance minimal dans `DOC_LAYERS.md`
+- retrait de la note technique obsolète dédiée à l'ancienne hiérarchie journal
 - arbitrage explicite du bundle ajouté au chantier absorbant
 - closeout autonome du sujet bundle ajouté
 

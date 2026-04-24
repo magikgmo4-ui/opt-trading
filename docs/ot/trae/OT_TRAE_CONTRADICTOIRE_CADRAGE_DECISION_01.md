@@ -22,7 +22,7 @@ La taxonomie Trae “Rules / Agents / Skills / MCP” n’est pas encore ouverte
 
 ### 2.2 Standard opposable (règle)
 - Le repo (`docs/master_pack`, `workflow_ai`, `docs/ot`, `registry`, `modules`) est la source de vérité du projet.
-- Les “packs Trae” (`trae_pack_texts/trae_pack/*`) sont des helpers transport/format, non opposables quand ils contredisent le repo.
+- Les contenus `docs/ot/trae/trae_pack_texts/` sont des supports locaux legacy, non opposables quand ils contredisent le repo.
 
 ### 2.3 Legacy toléré
 - Toute formulation Trae (packs) est tolérée si elle ne contredit pas le starter pack, le workflow, le kanban, ou la registry.
@@ -42,7 +42,7 @@ La taxonomie Trae “Rules / Agents / Skills / MCP” n’est pas encore ouverte
 | `registry/*_registry.yaml` | Inventaires modules/wrappers | Rules (inventory) | OPPOSABLE |
 | `modules/*` | Capacités versionnées (outils) | Implémentation (hors V1) | OPPOSABLE |
 | `scripts/*` | Runtime layers & exceptions (prod) | Runtime (source finale) | OPPOSABLE |
-| `trae_pack_texts/trae_pack/*` | Helpers Trae | Helpers (non canonique) | SUPPORT |
+| `docs/ot/trae/trae_pack_texts/` | Supports locaux legacy | Helpers (non canonique, non requis) | SUPPORT |
 
 ### 2.5 Risque si non clarifié
 - Confusion “où est la vérité” (packs vs repo) → dérive et missions incohérentes.

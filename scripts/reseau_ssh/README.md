@@ -52,5 +52,5 @@ Dans le menu:
 - `windows/` : scripts PowerShell (OpenSSH + firewall + WireGuard)
 - `templates/` : snippets sshd/fail2ban
 
-## Journal (à coller dans ton journal /opt/trading/journal)
-Voir `journal/2026-03-01_go_network.md`.
+## Note
+Documenter désormais la continuité réseau dans `docs/` plutôt que dans une surface journal locale.

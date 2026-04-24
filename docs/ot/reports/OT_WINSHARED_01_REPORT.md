@@ -50,7 +50,7 @@ Date (America/Montreal) : 2026-03-13
 
 ## 8. COMMANDES EXÉCUTÉES
 - Aucune commande exécutée sur le poste `cursor-ai` (pas de replay direct Windows dans cette mission).
-- Sources utilisées : docs repo + journal/steps.
+- Sources utilisées : docs repo + traces opératoires historiques depuis retirées du canon.
 
 ## 9. VERDICT FINAL
 - Standard Windows défini : WinSCP/SFTP vers `admin-trading` `/shared` avec chemin local recommandé.

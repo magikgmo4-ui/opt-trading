@@ -16,7 +16,7 @@
 ### Methode uniforme + couche humaine
 - besoin initial : eviter qu'une continuite correcte garde l'etat technique mais perde plan valide, but final et logique humaine
 - objectif vise : une continuite capable de transmettre etat + trajectoire produit + reprise utile
-- preuves : `docs/chantiers/GO_OPT_TRADING_JOURNAL_FULL_READING_03/00_cadrage.md`, `docs/governance/HUMAN_FOUNDATIONS_CONTINUITY.md`, `docs/governance/HUMAN_CONTINUITY_METHOD.md`, `journal.md` notes `note5001`, `note5010`, `note5011`
+- preuves : `docs/governance/HUMAN_FOUNDATIONS_CONTINUITY.md`, `docs/governance/HUMAN_CONTINUITY_METHOD.md`, `docs/governance/HUMAN_CONTINUITY_TRANSMISSION.md`
 - etat : gouvernance, couche humaine, lecture journal et hierarchie de reprise posees
 - gap : application encore incomplete projet par projet
 

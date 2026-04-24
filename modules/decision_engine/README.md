@@ -8,7 +8,7 @@ The Decision Engine is the final logic layer before risk management. It synthesi
 - **Explain**: Provide a clear rationale for every decision.
 
 ## Structure
-- `app/`: Python source code (decision logic, rule evaluation).
+- `app/`: Python source code (`decision_engine.py`, `strategy_logic.py`).
 - `config/`: Configuration templates and sample inputs.
 - `scripts/`: Standard shell wrappers (`cmd.sh`, `menu.sh`, `sanity_check.sh`).
 

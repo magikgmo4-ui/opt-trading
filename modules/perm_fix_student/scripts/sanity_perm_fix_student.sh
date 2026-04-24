@@ -1,4 +1,3 @@
-\
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -11,17 +10,23 @@ if [[ ! -d /opt/trading ]]; then
   FAIL=1
 fi
 
-if [[ -d /opt/trading/journal ]]; then
-  unreadable="$(find /opt/trading/journal -type f ! -readable | head -n 1 || true)"
-  if [[ -n "$unreadable" ]]; then
-    echo "WARN: unreadable journal files exist (run: sudo cmd-perm_fix_student fix_journal)"
-    echo "Example: $unreadable"
-    FAIL=1
-  else
-    echo "OK: journal files readable"
+FOUND=0
+for p in /opt/trading/state /opt/trading/tmp /opt/trading/_student_archive; do
+  if [[ -d "$p" ]]; then
+    FOUND=1
+    unreadable="$(find "$p" -type f ! -readable | head -n 1 || true)"
+    if [[ -n "$unreadable" ]]; then
+      echo "WARN: unreadable runtime files exist (run: sudo cmd-perm_fix_student fix_runtime)"
+      echo "Example: $unreadable"
+      FAIL=1
+    else
+      echo "OK: runtime files readable under $p"
+    fi
   fi
-else
-  echo "WARN: /opt/trading/journal missing"
+done
+
+if [[ "$FOUND" -eq 0 ]]; then
+  echo "WARN: runtime dirs missing (/opt/trading/state, /opt/trading/tmp, /opt/trading/_student_archive)"
 fi
 
 if command -v ollama >/dev/null 2>&1; then

@@ -20,7 +20,7 @@
 | Trae | structurer le travail assiste IA sans derive entre workflow, kanban, regles, agents et runtime | une couche Trae gouvernee et opposable, ou les missions IA multi-etapes sont reprises proprement sans ambiguite | socle pre-V1 gele, decisions canoniques produites, reprise canonique en place | encore pre-V1, agents/skills non ouverts comme couche runtime active | `GO_OT_TRAE_AGENTS_V1_OPEN_01` si selection explicite |
 | OpenClaw | sortir la gouvernance transverse et borner agents/providers/modeles hors du canon execution `opt-trading` | une couche OpenClaw avec politique provider/modele centralisee, gouvernee et bornee | role repo transverse etabli, `model_provider_openclaw` present | produit OpenClaw global encore peu verrouille | audit/synthese OpenClaw ou lot provider policy V1 |
 | Hugging Face | exposer certaines surfaces sans deplacer la source de verite hors du repo canonique | une couche Hugging Face de publication propre avec portail public, tools prives, MCP public, assets publics | `portal_static` documente, surfaces nommees, publication target only explicite | peu de preuve d'usage bout-en-bout, chronologie produit limitee | audit publication Hugging Face ou cadrage d'usage des surfaces |
-| DeepSeek / Ollama local | avoir une IA locale exploitable sans dependance exclusive aux APIs externes, avec separation thinking / response | un hub DeepSeek / Ollama local stable, menu unifie, thinking/response pilotables, logs et artefacts lisibles | journal riche installation/usage, `deepseek_hub` present, menu/commandes unifiees | verite runtime encore partagee entre anciens modules, journal, hub | audit runtime DeepSeek / clarification runtime canonique |
+| DeepSeek / Ollama local | avoir une IA locale exploitable sans dependance exclusive aux APIs externes, avec separation thinking / response | un hub DeepSeek / Ollama local stable, menu unifie, thinking/response pilotables, logs et artefacts lisibles | `deepseek_hub` present, menu/commandes unifiees et runbook disponible | verite runtime encore partagee entre anciens modules et hub | audit runtime DeepSeek / clarification runtime canonique |
 
 ### Trae
 - besoin : structurer le travail assiste IA sans derive entre workflow, kanban, regles, agents et runtime
@@ -53,9 +53,9 @@
 - besoin : avoir une IA locale exploitable sans dependance exclusive aux APIs externes ; separation thinking / response
 - objectif final : hub DeepSeek / Ollama local stable, menu unifie, thinking/response pilotables, logs et artefacts lisibles
 - plan : installer Ollama local ; separer `deepseek_thinking` et `deepseek_response` ; preferer API HTTP a `ollama run` ; unifier via `deepseek_hub`
-- etat : journal riche installation/usage ; `deepseek_hub` present ; menu/commandes unifiees ; patch des anciens modules
-- preuves : `journal.md`, `modules/deepseek_hub/README.md`
-- gap : verite runtime encore partagee entre anciens modules, journal, hub
+- etat : `deepseek_hub` present ; menu/commandes unifiees ; runbook disponible ; patch des anciens modules
+- preuves : `modules/deepseek_hub/README.md`, `docs/student_deepseek_runbook.md`
+- gap : verite runtime encore partagee entre anciens modules et hub
 - prochain GO : audit runtime DeepSeek / clarification runtime canonique
 
 ## Registre court Anneau B
@@ -63,13 +63,13 @@
 | Nom | Statut | Pourquoi il reste dans la continuite | Pourquoi il n'est pas prioritaire dans cette passe | Point de reprise minimal |
 |---|---|---|---|---|
 | Hermes | PARTIEL | vrai axe experimental de generation / memoire de travail, avec bridge borne vers OpenClaw | trop borne et explicitement non generalise pour devenir centre de gravite principal | `docs/hermes/00_overview.md`, `docs/hermes/03_bridge_openclaw.md`, `docs/hermes/HERMES_OPENCLAW_BRIDGE_CASE_01_RESULT_2026-04-09.txt` |
-| Claude | PARTIEL | role reel dans le journal comme executeur documentaire, notamment pour LocalCMS | interface externe / assistant, moins couche repo-native canonique | `journal.md` passages `workflow-claude` et LocalCMS |
-| ChatGPT | PARTIEL | role reel comme source de conversation capturee puis orchestrateur/validateur dans certaines sequences | interface externe / assistant, pas produit repo-natif principal | `journal/canon/JOURNAL_CANON_FULL_20260301_071931.md`, `journal.md` passages ChatGPT |
+| Claude | A REVALIDER | presence historique d'assistance documentaire non retenue dans le canon actif | interface externe / assistant, moins couche repo-native canonique | aucune preuve repo active conservee |
+| ChatGPT | A REVALIDER | presence historique d'orchestration documentaire non retenue dans le canon actif | interface externe / assistant, pas produit repo-natif principal | aucune preuve repo active conservee |
 | MiMo | A REVALIDER | vraie ligne specialisee trading via `mimo_open_observer` | le nom fort du produit reste peu verrouille dans cette passe thematique | `modules/mimo_open_observer/README.md` |
 | Antigravity | PARTIEL | chantier specialise reel et historiquement utile | peripherique a l'axe multi IA principal de cette passe | relecture dediee des closings/notes Antigravity |
-| OpenAI | PARTIEL | fondation historique importante pour journalisation et reflexion sur agents/tool calling | backend / assistant externe plutot que produit repo-structurant actuel | `journal/canon/JOURNAL_CANON_FULL_20260301_071931.md`, `journal.md` passages OpenAI |
+| OpenAI | A REVALIDER | fondation historique importante mais preuves brutes retirees du canon actif | backend / assistant externe plutot que produit repo-structurant actuel | aucune preuve repo active conservee |
 | llm_wiki_minimal | PARTIEL | utile comme sas de pre-consolidation autour de l'ecosysteme IA/doc | role transverse, pas produit prioritaire ici | `docs/governance/REPO_ROLE.md` |
-| hf_trading | PARTIEL | extension repo utile proche de l'axe Hugging Face | bootstrap encore leger, pas assez riche pour Anneau A | `journal.md` passages bootstrap `hf_trading` |
+| hf_trading | PARTIEL | extension repo utile proche de l'axe Hugging Face | bootstrap encore leger, pas assez riche pour Anneau A | `docs/governance/GITHUB_PARK_CONSOLIDATION_DECISION_02.md` |
 
 ## Conclusion operatoire
 

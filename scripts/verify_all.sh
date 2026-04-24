@@ -22,7 +22,7 @@ mkdir -p tmp
   python3 -m py_compile webhook_server.py
   python3 -m py_compile perf/perf_app.py
   python3 -m py_compile adapters/webhook_to_perf.py
-  python3 -m py_compile strategy_logic.py
+  python3 -m py_compile modules/decision_engine/app/strategy_logic.py
   echo "OK py_compile"
   echo
 

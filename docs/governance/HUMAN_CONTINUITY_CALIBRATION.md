@@ -4,7 +4,7 @@ doc_type: intent
 repo: opt-trading
 project: opt-trading
 module:
-go_id: GO_OPT_TRADING_JOURNAL_FULL_READING_03
+go_id: GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01
 status: reference
 lifecycle_stage: governance
 topic_keys:
@@ -12,28 +12,25 @@ topic_keys:
   - human_layer
   - continuity
   - calibration
-  - journal
 surface: governance
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
-updated_at: 2026-04-23
+updated_at: 2026-04-24
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
-  - journal/canon/JOURNAL_CANON_FULL_20260301_071931.md
   - docs/governance/HUMAN_FOUNDATIONS_CONTINUITY.md
   - docs/governance/HUMAN_CONTINUITY_ADAPTATION.md
   - docs/governance/HUMAN_CONTINUITY_OPERABILITY.md
   - docs/governance/HUMAN_CONTINUITY_TRANSMISSION.md
   - docs/governance/HUMAN_CONTINUITY_CORRECTION.md
   - docs/governance/HUMAN_CONTINUITY_TIME.md
-  - docs/chantiers/GO_OPT_TRADING_JOURNAL_FULL_READING_03/00_cadrage.md
 ---
 
 # HUMAN_CONTINUITY_CALIBRATION
 
 ## Objet
 
-Ce document fixe les principes humains de calibration de la continuité, tels qu’ils ressortent de la lecture du journal canon.
+Ce document fixe les principes humains de calibration de la continuité, tels qu’ils ressortent des extractions de continuité conservées.
 
 Il complète les blocs humains déjà posés en explicitant les exigences de proportionnalité selon l’enjeu réel, de stabilité des repères malgré la souplesse des chemins, de simplicité de surface avec profondeur accessible, et d’articulation entre cadre commun et latitude locale.
 

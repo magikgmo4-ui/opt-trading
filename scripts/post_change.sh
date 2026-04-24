@@ -32,40 +32,12 @@ if [ -z "$MODULE" ] || [ -z "$TITLE" ] || [ -z "$MESSAGE" ]; then
 fi
 
 BASE="/opt/trading"
-HOST="$(hostname)"
-USER_NAME="$(id -un)"
-TS_ISO="$(TZ=America/Montreal date -Iseconds)"
-TS_FILE="$(TZ=America/Montreal date +%Y%m%d_%H%M%S)"
-
-JDIR="$BASE/journal/steps"
-mkdir -p "$JDIR"
-ENTRY="$JDIR/step_${TS_FILE}_${MODULE}.md"
 
 JOURNAL_BLOCK=""
 if [ ! -t 0 ]; then JOURNAL_BLOCK="$(cat || true)"; fi
-
-cat >"$ENTRY" <<EOF
-# Step — ${MODULE} — ${TS_ISO}
-
-## Meta
-- from_host: ${HOST}
-- from_user: ${USER_NAME}
-- module: ${MODULE}
-- title: ${TITLE}
-
-## Message
-${MESSAGE}
-
-## Journal (structured)
-EOF
-
 if [ -n "${JOURNAL_BLOCK// /}" ]; then
-  printf "%s\n" "$JOURNAL_BLOCK" >>"$ENTRY"
-else
-  echo "*(no extra journal block provided)*" >>"$ENTRY"
+  echo "INFO: inline notes received, but local journal capture is retired."
 fi
-
-echo "OK: wrote journal entry: $ENTRY"
 
 LOG_SCRIPT="$BASE/scripts/log_event_to_student.sh"
 PUSH_SCRIPT="$BASE/scripts/push_and_log.sh"
@@ -81,12 +53,8 @@ if [ $DID_LOG -eq 0 ]; then
   else echo "WARN: log_event_to_student.sh missing; skipping ndjson log"; fi
 fi
 
-# FIX3: no sudo on student; /opt/trading is student-owned in this setup
 if [ $NO_STUDENT_COPY -eq 0 ]; then
-  STUDENT_DIR="/opt/trading/_student_archive/journals/steps"
-  ssh student "mkdir -p '$STUDENT_DIR'"
-  scp "$ENTRY" "student:$STUDENT_DIR/"
-  echo "OK: copied journal entry to student:$STUDENT_DIR/"
+  echo "SKIP: student copy retired with local journal removal"
 else
   echo "SKIP: student copy disabled"
 fi
@@ -99,4 +67,4 @@ else
   echo "SKIP: deepseek trigger disabled"
 fi
 
-echo "OK post_change v2 (fix3): module=$MODULE"
+echo "OK post_change v2: module=$MODULE"

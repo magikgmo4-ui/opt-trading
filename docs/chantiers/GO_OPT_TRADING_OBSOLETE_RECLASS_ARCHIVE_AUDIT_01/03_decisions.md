@@ -16,7 +16,7 @@ topic_keys:
   - reclass
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-20
+updated_at: 2026-04-24
 links:
   - docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/00_cadrage.md
   - docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/02_journal_technique.md
@@ -76,7 +76,7 @@ Il n’est pas un chantier :
 ## D7 — Exclusions
 - ne pas rouvrir les lots déjà clos PASS
 - ne pas confondre “hors actif” avec “supprimable”
-- ne pas créer de doctrine parallèle : référencer `REPO_ROOT_POLICY`, `REPO_SURFACES_MAP`, `JOURNAL_HIERARCHY`, `docs/index/*`
+- ne pas créer de doctrine parallèle : référencer `REPO_ROOT_POLICY`, `REPO_SURFACES_MAP`, `docs/governance/HUMAN_*`, `docs/index/*`
 
 ## D8 — Preuve repo-first des callers/usages (PHASE B)
 Pour tout item à risque :
@@ -107,7 +107,6 @@ Cible d’archivage canonique proposée :
 Exclusions :
 - ne pas traiter `workflow_post_change_v2` (hors lot)
 - ne pas traiter `bitget_bridge.py` (hors lot)
-- ne pas traiter `journal_add.sh` (hors lot)
 - ne pas déplacer d’autres fichiers hors périmètre
 
 Risque :
@@ -131,7 +130,6 @@ Critères PASS / FAIL
 - Contrainte de non-élargissement respectée :
   - aucun changement `workflow_post_change_v2`
   - aucun changement `bitget_bridge.py`
-  - aucun changement `journal_add.sh`
 
 ## D11 — GO_OPT_TRADING_WORKFLOW_LEGACY_RECLASS_01 (reclassement archive minimal)
 Périmètre strict :
@@ -157,3 +155,52 @@ Statut :
 ## REPRISE
 Point de reprise unique :
 - `docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/02_journal_technique.md`
+
+## D12 — Retrait physique des surfaces journal (validé et exécuté)
+Exécution validée et appliquée :
+- suppression de `journal.md`
+- suppression de `journal/`
+- suppression de `modules/journal_de_bord/`
+- suppression de `tools/journal_from_paste.py`
+- suppression de `journal_add.sh`
+
+Règle retenue :
+- seule la couche d'extractions de continuité conservée sous `docs/governance/HUMAN_*` demeure opposable pour l'héritage issu des lectures historiques
+
+## D13 — Reclassement racine minimal (validé et exécuté)
+Exécution validée et appliquée :
+- `Readme` renommé en `README.md`
+- `TOOLBOX.txt` et `UI_URLS.md` sortis de la racine ; contenu fusionné dans la doc rapide existante, copies legacy archivées sous `_archive/root_backups/`
+- `smartmoney.txt` sorti de la racine et archivé sous `_archive/root_backups/` ; la surface active conservée est `tradingview/smartmoney_webhook_server_compat.pine`
+- `strategy_logic.py` rattaché à `modules/decision_engine/app/strategy_logic.py`
+- `validated_prompt_factory_role_preface.patch` archivé sous `_archive/root_backups/`
+- `trae_pack_texts/` déplacé vers `docs/ot/trae/trae_pack_texts/`
+
+Contraintes retenues :
+- ne pas toucher `bitget_bridge.py`
+- ne pas toucher `_archive/`
+- ne pas déplacer `workflow_ai/`
+- ne pas casser `scripts/verify_all.sh`
+
+## D14 — Ensemble Trae/IDE (validé doc-only)
+Décision retenue :
+- `workflow_ai/`, `modules/validated_prompt_factory/`, `deploy_module_multi_machine/` et `docs/ot/trae/trae_pack_texts/` sont lus comme un ensemble pratique de travail Trae/IDE
+- cet ensemble n'est pas une nouvelle doctrine parallele
+- statut des 4 surfaces :
+  - `workflow_ai/` = opposable
+  - `modules/validated_prompt_factory/` = module operateur actif
+  - `deploy_module_multi_machine/` = outillage de continuite/deploiement actif
+  - `docs/ot/trae/trae_pack_texts/` = support local legacy non canonique
+
+Règle de precedence :
+- le repo-first canonique prime toujours sur les packs locaux et aides IDE
+
+## D15 — Déplacement documentaire de `trae_pack_texts/` (validé et exécuté)
+Exécution validée et appliquée :
+- move physique de `trae_pack_texts/` vers `docs/ot/trae/trae_pack_texts/`
+- réalignement des références documentaires actives et historiques vers le nouveau chemin
+- ouverture d'un lot dédié `GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01` pour la révision du contenu et du statut du pack
+
+Règle retenue :
+- le pack reste un helper legacy non canonique
+- son emplacement normalisé est désormais documentaire, pas racine

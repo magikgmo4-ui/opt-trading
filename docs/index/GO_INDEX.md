@@ -93,11 +93,10 @@ Normalisation retenue :
 | GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01 | GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/03_decisions.md` |
 | GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01 | GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/03_decisions.md`<br>`docs/architecture/REPO_SURFACES_MAP.md` |
 | GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01 | GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/03_decisions.md`<br>`docs/governance/REPO_ROOT_POLICY.md` |
+| GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01 | GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01/03_decisions.md`<br>`docs/ot/trae/trae_pack_texts/trae_pack/TRAE_SESSION_OPENING_PACK_V1.1.txt` |
 | GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01 | GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/03_decisions.md` |
 | GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01 | GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/03_decisions.md` |
 | GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01 | GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01/03_decisions.md`<br>`registry/README.md` |
-| GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04 | GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04/00_cadrage.md` |
-| GO_OPT_TRADING_JOURNAL_FULL_READING_03 | GO_OPT_TRADING_JOURNAL_FULL_READING_03 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_JOURNAL_FULL_READING_03/00_cadrage.md` |
 | GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03 | GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03 | — | OPEN | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md` |
 | GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03 | GO_OPT_TRADING_RESEAU_SSH_UNIFIED_MODULE_CADRAGE_01 | — | OPEN | oui | `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_UNIFIED_MODULE_CADRAGE_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md` |
 | GO_TMUX_IDE_OPT_TRADING_CADRAGE_01 | GO_TMUX_IDE_OPT_TRADING_CADRAGE_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_TMUX_IDE_OPT_TRADING_CADRAGE_01/00_cadrage.md` |
@@ -122,25 +121,28 @@ Normalisation retenue :
 
 ---
 
-## Priorité opératoire (15 GO non clos)
+## Priorité opératoire (14 GO non clos)
 
 - P0 : `GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01`, `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`, `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01`
-- P1 : `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`, `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
-- P2 : `GO_OPT_TRADING_JOURNAL_FULL_READING_03`, `GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04`, `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01`, `GO_OPT_TRADING_PARENT_NAMING_CANON_01`
-
-Le passage de 14 a 15 GO non clos retenus correspond a l'ouverture du parent :
-- `GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01`
+- P1 : `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`, `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`, `GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
+- P2 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01`, `GO_OPT_TRADING_PARENT_NAMING_CANON_01`
 
 Le passage de 13 a 14 GO non clos retenus correspond a l'ouverture du GO :
-- `GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01`
+- `GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01`
 
 Le passage de 12 a 13 GO non clos retenus correspond a l'ouverture du parent :
-- `GO_OPT_TRADING_PARENT_NAMING_CANON_01`
+- `GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01`
 
-Le passage de 11 a 12 GO non clos retenus correspond a l'ouverture du parent :
-- `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
+Le passage de 11 a 12 GO non clos retenus correspond a l'ouverture du GO :
+- `GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01`
 
 Le passage de 10 a 11 GO non clos retenus correspond a l'ouverture du parent :
+- `GO_OPT_TRADING_PARENT_NAMING_CANON_01`
+
+Le passage de 9 a 10 GO non clos retenus correspond a l'ouverture du parent :
+- `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
+
+Le passage de 8 a 9 GO non clos retenus correspond a l'ouverture du parent :
 - `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01`
 
 Le parent `GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01` reste ouvert et canonique dans le tableau, mais n'est pas retenu dans cette priorisation operatoire resserree.
@@ -217,6 +219,14 @@ Le passage de 6 à 8 GO non clos correspond à l’ouverture PHASE 2 des parents
 - dernier état connu : parent PHASE 2 LOT 4 ouvert ; `REPO_ROOT_POLICY.md` posé sans redéfinir la frontière repo/hors-repo
 - lien utile : `docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/00_cadrage.md`, `docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/03_decisions.md`, `docs/governance/REPO_ROOT_POLICY.md`
 
+### GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01
+- repo : opt-trading
+- type : patch local / doc-only / reclassement documentaire
+- statut : active
+- titre court : révision et relocalisation documentaire de `trae_pack_texts`
+- dernier état connu : le pack legacy Trae a été déplacé de la racine vers `docs/ot/trae/trae_pack_texts/` ; un lot dédié reste ouvert pour qualifier son contenu, son usage et sa place exacte dans la continuité
+- lien utile : `docs/chantiers/GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01/00_cadrage.md`, `docs/chantiers/GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01/03_decisions.md`, `docs/ot/trae/README.md`
+
 ### GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01
 - repo : opt-trading
 - type : audit / qualification / préparation reclassement physique
@@ -240,22 +250,6 @@ Le passage de 6 à 8 GO non clos correspond à l’ouverture PHASE 2 des parents
 - titre court : réalignement scope registry
 - dernier état connu : parent PHASE 3 LOT 6 ouvert ; `registry/README.md` complété sur périmètre/exceptions
 - lien utile : `docs/chantiers/GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01/00_cadrage.md`, `docs/chantiers/GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01/03_decisions.md`, `registry/README.md`
-
-### GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04
-- repo : opt-trading
-- type : journal / lecture canonique
-- statut : active
-- titre court : lecture canonique orientée intention projet
-- dernier état connu : reprise de lecture après LOT_S23 avec angle intention / objectif / choix / pourquoi, premier bloc visé LOT_S24 à LOT_S28
-- lien utile : `docs/chantiers/GO_OPT_TRADING_JOURNAL_CANON_INTENT_LAYER_04/00_cadrage.md`
-
-### GO_OPT_TRADING_JOURNAL_FULL_READING_03
-- repo : opt-trading
-- type : journal / lecture complète
-- statut : active
-- titre court : lecture complète du journal canon
-- dernier état connu : cadre inter-repos posé, mais couche humaine vivante pas encore réinjectée proprement dans la continuité stable
-- lien utile : `docs/chantiers/GO_OPT_TRADING_JOURNAL_FULL_READING_03/00_cadrage.md`
 
 ### GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03
 - repo : opt-trading

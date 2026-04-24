@@ -4,8 +4,6 @@
 - **docs/simex/SIMEX_PRESETS.md** : presets opérateur (SIMEX_* env) + commandes Bitget→Perf
 - **docs/simex/SIMEX_UNITS_CONTRACT.md** : contrat canonique des unités SimEx (`SIMEX_UNITS_V1`) + compat legacy
 - **docs/ot/kanban/opt_trading_kanban_source_of_truth.md** : kanban (source of truth) + points de reprise
-- **docs/ot/journal/OT_JOURNAL_GO_MATRIX_V1.md** : spécification canonique courte de la matrice GO active générée
-- **journal/index/ACTIVE_GO_MATRIX.md** : matrice compacte générée des GO actifs / reprise
 - **docs/ot/trading/00_TRADING_DUAL_STACK_LAB_REALTIME_V1.md** : cadrage canonique dual Lab + Real-Time V1, analyse multi-rôles, garde-fous, et trigger `GO_OT_TRADING_DUAL_STACK_V1_01`
 - **docs/master_pack/mission_starter_pack/00_mission_start_guide.md** : point d’entrée unique (ouverture de session)
 - **docs/governance/CHATGPT_PROFILE_BASELINE_2026_04_19.md** : baseline datée des custom instructions et de la mémoire sauvegardée retenues pour la continuité ChatGPT
@@ -30,4 +28,3 @@
 - `perf/perf_app.py` : API perf + SQLite + UI `/perf/ui`
 - `adapters/webhook_to_perf.py` : mapping webhook → perf_event
 - `shared/telegram_notify.py` : notifications Telegram
-- `tools/journal_from_paste.py` : génération d’entrées `journal.md`

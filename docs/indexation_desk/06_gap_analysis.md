@@ -59,7 +59,7 @@ Certains wrappers globaux existent alors que l’inventaire standard `modules/**
 ### Exemples à vérifier
 - `bot_vision_step2`
 - `deepseek_hub`
-- `journal_de_bord`
+- `journal_de_bord` (legacy retire depuis)
 - `shared_sshfs_permanent`
 
 ### Hypothèses

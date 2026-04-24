@@ -12,7 +12,22 @@ Rendre le travail avec Cursor (ou tout agent) **prévisible**, **audit-able**, e
 - Continuité : `docs/ot/kanban/opt_trading_kanban_source_of_truth.md` + dernière clôture pertinente
 - Synthèse kanban : `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md`
 - Modèle officiel missions longues / multi-étapes : `docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt`
-- Packs TRAE : helpers (support), non sources de vérité du repo
+- Prompt generation : `modules/validated_prompt_factory/README.md`
+- Déploiement multi-machine : `docs/deploy_module_multi_machine_continuity.md`
+- Legacy Trae/IDE : `docs/ot/trae/trae_pack_texts/README.md`
+
+## Chaîne de responsabilité
+- Orchestrator : cadre la mission, borne le scope, fixe la preuve attendue et le rollback.
+- Executor : réalise le changement, liste les fichiers touchés et apporte les preuves.
+- Reviewer : vérifie scope, preuves, standards et rollback, puis prononce le verdict.
+- Si la mission est floue, si la preuve manque, ou si le rollback est absent, la chaîne doit se bloquer ou conclure à `REJECT`.
+
+## Verdicts et statuts
+- `ACCEPT` : livrable conforme, prouvé, intégrable sans réserve.
+- `ACCEPT_WITH_NOTES` : livrable conforme avec écarts mineurs explicitement tracés.
+- `REJECT` : livrable non acceptable en l'état.
+- `CLOSE` : état archivé après verdict positif et alignement doc + kanban + point de reprise.
+- `POINT DE REPRISE` : prochaine étape logique exploitable pour la continuité.
 
 ## Gates
 ### Gate 0 — Cadre
@@ -43,18 +58,20 @@ Avant tout nouveau module / correction :
 
 ### Gate 4..N — Implémentation incrémentale
 Chaque incrément doit livrer :
-1) fichiers
+1) fichiers touchés
 2) résumé diff
-3) commandes
-4) expected output
-5) rollback
+3) commandes exécutées
+4) preuve observée ou output attendu
+5) rollback exact
+6) notes ou dettes résiduelles si nécessaire
 
 ### Gate N+1 — Clôture (DOC + KANBAN + REPRISE)
 Une brique/mission/module n’est pas considérée “clôturée proprement” tant que la même séquence de travail n’a pas produit :
 1) mise à jour de la documentation canonique concernée,
 2) mise à jour du kanban / source of truth,
 3) vérification et mise à jour de la synthèse opérationnelle du kanban si un statut, une preuve, un point de reprise, une interdiction de réouverture ou l’ordre des briques a changé,
-4) point de reprise propre (next step explicite).
+4) point de reprise propre (next step explicite),
+5) passage éventuel en `CLOSE` uniquement après verdict positif et archivage cohérent.
 
 ## Validation
 À la fin de chaque Gate :

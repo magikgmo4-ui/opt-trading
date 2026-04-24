@@ -37,7 +37,7 @@ Date (America/Montreal) : 2026-03-14
 - **Impact** : reprise moins robuste après compression/changement de session.
 - **Preuves** :
   - Le kanban existe : [opt_trading_kanban_source_of_truth_2026-03-13_updated.md](file:///c:/Users/ghost/opt-trading/opt_trading_kanban_source_of_truth_2026-03-13_updated.md).
-  - Les packs TRAE existent : [TRAE_SESSION_OPENING_PACK_V1.1.txt](file:///c:/Users/ghost/opt-trading/trae_pack_texts/trae_pack/TRAE_SESSION_OPENING_PACK_V1.1.txt), [TRAE_CLOSURE_TEMPLATE_V1.1.txt](file:///c:/Users/ghost/opt-trading/trae_pack_texts/trae_pack/TRAE_CLOSURE_TEMPLATE_V1.1.txt).
+  - Les packs TRAE existent : [TRAE_SESSION_OPENING_PACK_V1.1.txt](file:///c:/Users/ghost/opt-trading/docs/ot/trae/trae_pack_texts/trae_pack/TRAE_SESSION_OPENING_PACK_V1.1.txt), [TRAE_CLOSURE_TEMPLATE_V1.1.txt](file:///c:/Users/ghost/opt-trading/docs/ot/trae/trae_pack_texts/trae_pack/TRAE_CLOSURE_TEMPLATE_V1.1.txt).
   - Mais `docs/master_pack/mission_starter_pack` ne désigne pas clairement “lire kanban + dernière clôture + point de reprise” comme bloc d’ouverture.
 - **Statut** : recommandation de raccord canonique.
 
