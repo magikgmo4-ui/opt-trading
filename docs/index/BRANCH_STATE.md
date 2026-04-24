@@ -16,7 +16,7 @@ surface: index
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 point_de_reprise: "Section Tableau canonique"
-updated_at: 2026-04-23
+updated_at: 2026-04-24
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md
@@ -68,14 +68,14 @@ Obligations explicites :
 
 ## Synthese courante
 
-- branches remote : `35`
-- branches locales : `5`
-- entrees totales suivies dans le tableau : `36`
+- branches remote : `36`
+- branches locales : `6`
+- entrees totales suivies dans le tableau : `37`
 - comparaison de reference : `origin/sot/mainline`
 
 | CANON_STATUS | COUNT |
 | --- | ---: |
-| `KEEP_ACTIVE` | 2 |
+| `KEEP_ACTIVE` | 3 |
 | `KEEP_REFERENCE` | 2 |
 | `KEEP_SNAPSHOT` | 9 |
 | `ABSORBED` | 0 |
@@ -97,6 +97,7 @@ Obligations explicites :
 | BRANCH | SCOPE | STATUS_VS_SOT_MAINLINE | AHEAD_BY | BEHIND_BY | CANON_STATUS | ACTION | JUSTIFICATION | LAST_REVIEW_GO |
 | --- | --- | --- | ---: | ---: | --- | --- | --- | --- |
 | `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` | remote | DIVERGED | 9 | 21 | `KEEP_ACTIVE` | `keep_under_review` | Parent AI team architecture encore vivant cote branche | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
+| `go/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01` | both | AHEAD_ONLY | 6 | 0 | `KEEP_ACTIVE` | `keep_under_review` | Branche parent dediee de reprise repo-first encore vivante ; elle ne doit pas ouvrir les 5 parents specialises avant controle des branches et des ouverts | `GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01` |
 | `METHODE_MULTI_MACHINE_GIT_SYNC` | remote | DIVERGED | 14 | 32 | `REVIEW` | `manual_review` | Nouvelle branche distante observee pendant le prune, hors sous-lot courant, a auditer separement | `GO_GIT_GITHUB_PARK_CLOSEOUT_ABSORBED_RECLASS_01` |
 | `audit/opt-trading-20260320a` | remote | DIVERGED | 20 | 615 | `REVIEW` | `manual_review` | Famille sensible a revue manuelle obligatoire | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
 | `backup/mimo-b038db9` | local | DIVERGED | 18 | 625 | `KEEP_SNAPSHOT` | `exclude_cleanup` | Snapshot local de reprise MiMo | `GO_GIT_BRANCH_STATE_CANON_CREATE_01` |
@@ -135,6 +136,7 @@ Obligations explicites :
 
 ## Journal minimal
 
+- nouvelle branche parent de reprise repo-first classee `KEEP_ACTIVE` : `go/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01` -> branche dediee a conserver sous revue tant que les etapes `BRANCH_CLEANUP` puis `OPEN_WORK_CONTROL` ne sont pas executees
 - creation du support canonique `docs/index/BRANCH_STATE.md`
 - branche conservee explicitement hors cleanup : `origin/go_repos_agent-role_initial_01` -> `KEEP_REFERENCE` via `GO_GIT_GO_REPOS_AGENT_ROLE_INITIAL_CLASSIFICATION_01`
 - branche absorbee puis supprimee du remote : `origin/doc/GO_OPENCLAW_STATE_DIR_REPAIR_10` -> correction doc-only en `DROP_REMOTE_CANDIDATE`, suppression executee, donc absente du tableau courant
