@@ -24,25 +24,27 @@ links:
   - docs/index/NEXT_GO_CANDIDATES.md
   - docs/index/ACTIVE_STREAMS.md
   - docs/index/REPRISE.md
+  - docs/governance/NAMING_CANON_POLICY_01.md
 ---
 
 # GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01
 
 ## Classification
-gouvernance + chantier parent + orchestration de reprise projet / machine
+gouvernance + chantier parent + orchestration de reprise repo-first avant structuration projet / machine
 
 ## Role recommande
-architecte de continuite repo-first + arbitre d'ouverture des parents structurants
+architecte de continuite repo-first + arbitre de reprise des flux ouverts + preparateur des futurs parents structurants
 
 ## Besoin initial
-Repartir du bon pied apres canonisation de la matrice, gerer proprement les chantiers et branches encore ouverts, puis ouvrir sans conflit des parents structurants lisibles par projet et par machine.
+Ne plus dependre de la session pour repartir du bon pied apres canonisation de la matrice. Geler un plan unique qui commence par controler tout ce qui reste ouvert ou non termine, gerer proprement les branches encore actives ou residuelles, puis seulement ensuite preparer l'ouverture future de parents specialises par projet ou par machine.
 
 ## Cible finale
-Disposer d'un plan canonique unique permettant :
-- de qualifier les branches et chantiers encore ouverts
-- de repartir d'une base propre `sot/mainline`
-- d'ouvrir proprement 5 chantiers parents specialises, repartis entre lecture projet et lecture machine
-- de verifier que chaque parent respecte la matrice maitre sur le nommage, le frontmatter, le rattachement produit, les surfaces de continuite et le support Git
+Disposer d'un parent canonique unique qui fixe sans ambiguite :
+- l'ordre de reprise reel apres la matrice
+- la gestion propre des branches et chantiers encore ouverts
+- la regle "un seul flux principal a la fois"
+- le fait que l'ouverture future de 5 parents specialises ne vient qu'apres controle des ouverts / non termines
+- la verification finale que les futurs parents respecteront la matrice maitre sur le nommage, le frontmatter, le rattachement produit, les surfaces de continuite et le support Git
 
 ## Source canonique
 - Repo canonique : `opt-trading`
@@ -54,30 +56,29 @@ Disposer d'un plan canonique unique permettant :
 - `NEXT_GO_CANDIDATES.md` reste la matrice parent actif -> next GO primaire
 - `ACTIVE_STREAMS.md` et `REPRISE.md` restent operatoires et non souverains pour la liste
 - les branches sont des supports Git et non des substituts a la trajectoire produit
-- le prochain risque n'est plus doctrinal ; il porte sur la gestion propre des branches / chantiers ouverts et sur l'ouverture sans conflit des futurs parents structurants
+- le prochain risque n'est plus doctrinal ; il porte sur la gestion propre des branches / chantiers ouverts et sur la reprise sans conflit des flux encore actifs
+- l'ouverture de 5 parents specialises par projet / machine n'est pas l'etape immediate ; elle vient seulement apres controle de tout ce qui reste ouvert ou non termine
 
 ## Plan valide
 
-### Axe 1 - Hygiene de reprise
-Qualifier les branches et chantiers ouverts restants, supprimer les branches merged sans utilite, et repartir depuis `sot/mainline` propre.
+### Axe 1 - Hygiene Git immediate
+Qualifier les branches encore ouvertes, merged ou de reference, supprimer les branches merged sans utilite, et repartir depuis `sot/mainline` propre.
 
-### Axe 2 - Carte cible projet / machine
-Figer la repartition cible des 5 parents a ouvrir, avec un rattachement principal explicite :
-- centre de gravite produit
-- famille de soutien
-- ou couche methode / transmission
-- machine cible si le parent est machine-first
+### Axe 2 - Controle des chantiers ouverts / non termines
+Relire les surfaces actives (`GO_INDEX.md`, `ACTIVE_STREAMS.md`, `NEXT_GO_CANDIDATES.md`, `REPRISE.md`) pour figer :
+- ce qui est encore ouvert / actif / non termine
+- ce qui reste vraiment prioritaire
+- ce qui peut rester en reference ou hors execution courante
+- quel parent devient le point de depart operatoire reel
 
-### Axe 3 - Ouverture canonique des 5 parents
-Ouvrir les 5 parents un par un avec :
-- nom canonique stabilise
-- dossier parent reel
-- frontmatter noyau correct
-- support Git justifie
-- propagation dans `GO_INDEX.md`, `NEXT_GO_CANDIDATES.md`, `ACTIVE_STREAMS.md`, `REPRISE.md` et `BRANCH_STATE.md` si necessaire
+### Axe 3 - Reprise d'un seul flux principal
+Repartir ensuite sur un seul flux principal a la fois, au lieu de relancer plusieurs chantiers en parallele. La recommandation actuelle issue de la session est de repartir d'abord par la continuite active / index si aucun autre arbitrage reel ne s'impose.
 
-### Axe 4 - Validation de conformite
-Verifier pour chaque parent :
+### Axe 4 - Structuration future projet / machine
+Seulement apres les axes 1 a 3, figer la carte cible d'ouverture de 5 parents specialises, repartis entre lecture projet et lecture machine, puis les ouvrir proprement sans conflit.
+
+### Axe 5 - Validation finale de conformite
+Verifier pour chaque parent ouvert :
 - lecture produit -> parent -> GO -> Git
 - absence de parent ou sous-GO decoratif
 - respect du `PRODUCT_OR_SURFACE`
@@ -86,43 +87,52 @@ Verifier pour chaque parent :
 
 ## Anti-cibles
 Ne pas faire :
-- ouverture simultanee opportuniste des 5 parents sans carte cible prealablement validee
+- ouverture immediate des 5 parents specialises sans avoir d'abord controle les ouverts / non termines
 - multiplication de branches sans besoin d'isolement reel
 - creation de parents decoratifs pour imiter une structure non prouvee
 - confusion entre parents produit, parents machine et support Git
-- fermeture implicite ou suppression de branche sans propagation documentaire
+- reouverture de la doctrine au lieu de repartir operatoirement depuis les surfaces canoniques
+- reprise simultanee de plusieurs flux principaux sans arbitrage explicite
 
 ## Gap restant
 Il reste a produire :
-1. l'inventaire qualifie des branches et chantiers ouverts restants
-2. la carte cible des 5 parents a ouvrir
-3. l'ouverture canonique des 5 parents specialises
-4. la verification finale de conformite selon la matrice
+1. l'inventaire qualifie des branches ouvertes / merged / de reference
+2. le controle explicite des chantiers encore ouverts ou non termines
+3. le choix du point de depart operatoire principal
+4. la carte cible future des 5 parents a ouvrir
+5. l'ouverture canonique de ces parents et l'audit final de conformite
 
 ## GO suivants proposes
 
 ### GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01
 Inventaire et arbitrage des branches ouvertes / merged / de reference.
 
+### GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01
+Controle repo-first de tout ce qui reste ouvert / non termine dans les surfaces actives.
+
+### GO_OPT_TRADING_DOC_OPS_CHILD_PRIMARY_RESTART_01
+Formalisation du point de depart operatoire principal et de l'ordre de reprise effectif.
+
 ### GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_TARGET_MAP_01
-Carte cible des 5 parents projet / machine a ouvrir.
+Carte cible future des 5 parents projet / machine a ouvrir, seulement apres les etapes precedentes.
 
 ### GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01
 Ouverture canonique des 5 parents specialises, un par un, avec propagation complete.
 
 ### GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01
-Verification finale que chaque parent respecte la matrice.
+Verification finale que les parents ouverts respectent la matrice.
 
 ## TODO
 - qualifier les branches ouvertes restantes
-- figer la carte cible projet / machine
-- ouvrir les 5 parents specialises
+- controler tout ce qui reste ouvert / non termine
+- choisir un seul flux principal de reprise
+- seulement ensuite figer la carte cible des 5 parents
+- ouvrir les futurs parents specialises
 - verifier leur conformite a la matrice
-- reclore les branches de support devenues inutiles
 
 ## REPRISE
 Point de reprise recommande :
 `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01`
 
 Sequence :
-branches/chantiers ouverts -> carte cible des 5 parents -> ouverture canonique -> audit de conformite
+branches ouvertes / merged / reference -> controle des ouverts / non termines -> point de depart principal -> carte cible future des 5 parents -> ouverture canonique -> audit de conformite
