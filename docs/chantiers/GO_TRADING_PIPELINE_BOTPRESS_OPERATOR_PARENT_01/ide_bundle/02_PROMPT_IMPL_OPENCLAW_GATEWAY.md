@@ -1,39 +1,57 @@
-# PROMPT — OPENCLAW GATEWAY
+# PROMPT — ADAPTER LE GATEWAY OPENCLAW EXISTANT POUR BOTPRESS
 
 ## OBJECTIF
 
-Créer un endpoint local permettant à Botpress de déclencher des actions.
+Adapter l'integration Botpress vers le Gateway OpenClaw deja existant.
 
-## SPEC
+Ce prompt ne doit pas creer un nouveau gateway.
 
-Endpoint:
-POST /api/operator/execute
+## ETAT CANONIQUE
 
-## INPUT
+- OpenClaw Gateway existe deja.
+- Botpress doit l'appeler comme surface d'orchestration.
+- Le travail porte sur le contrat d'appel, l'adapter Botpress, la securite et les tests.
 
-{
-  "intent": "...",
-  "payload": {},
-  "meta": {}
-}
+## A FAIRE
 
-## ACTION
+1. Identifier l'endpoint OpenClaw reel deja disponible.
+2. Documenter :
+   - URL locale ou reseau
+   - methode HTTP
+   - auth ou token si present
+   - payload accepte
+   - format de reponse
+   - erreurs connues
+3. Creer seulement si necessaire un adapter mince cote Botpress.
+4. Ajouter un smoke test Botpress -> OpenClaw existant.
+5. Journaliser la trace dans opt-trading si le contrat le permet.
 
-Router vers:
-- student scripts
-- trading labs
-- LONA
+## A NE PAS FAIRE
 
-## OUTPUT
+- ne pas recreer OpenClaw Gateway
+- ne pas dupliquer le gateway
+- ne pas deplacer la logique OpenClaw
+- ne pas ajouter de trade reel
+- ne pas ajouter de push Git automatique
 
-{
-  "status": "success",
-  "result": {},
-  "safety": {}
-}
+## CONTRAT CIBLE A DOCUMENTER
 
-## CONTRAINTES
+Le contrat exact doit venir du gateway existant.
 
-- timeout
-- gestion erreurs
-- logs
+Si un wrapper d'adaptation est necessaire, il doit rester minimal :
+
+- recevoir une intention Botpress
+- convertir vers le payload attendu par OpenClaw
+- appeler OpenClaw
+- retourner une reponse normalisee a Botpress
+
+## SORTIE ATTENDUE
+
+Produire un rapport avec :
+
+- endpoint OpenClaw reel identifie
+- ecart entre payload Botpress et payload OpenClaw
+- adapter requis ou non
+- smoke test propose
+- limites restantes
+- prochain GO logique
