@@ -42,8 +42,18 @@ Règle: Une branche n’est supprimable que si elle est absorbée dans origin/so
 
 | BRANCH | SCOPE | STATUS_VS_SOT_MAINLINE | AHEAD_BY | BEHIND_BY | CANON_STATUS | ACTION | JUSTIFICATION | NEXT_ACTION |
 | --- | --- | --- | ---: | ---: | --- | --- | --- | --- |
-
-%PLACEHOLDER%
+| audit/opt-trading-20260320a | remote | DIVERGED | 20 | 662 | A_VERIFIER | manual_review | Branche divergente → approfondir | DEEPER_REVIEW |
+| codex/reseau-ssh-runtime-compat-retirement-01 | local | DIVERGED | 1 | 55 | A_VERIFIER | manual_review | Divergence locale; revue nécessaire | DEEPER_REVIEW |
+| codex/root-surface-reclass-01 | local | DIVERGED | 2 | 7 | A_VERIFIER | manual_review | Surface de classement à valider | DEEPER_REVIEW |
+| doc/GO_OPENCLAW_INFRA_BASELINE_01 | remote | DIVERGED | 1 | 308 | A_VERIFIER | manual_review | Base infra baseline; vérification nécessaire | DEEPER_REVIEW |
+| docs/github-park-parent-closeout-01 | remote | DIVERGED | 1 | 107 | A_VERIFIER | manual_review | Park parent: review needed | DEEPER_REVIEW |
+| docs/github-park-pass-close-01 | remote | DIVERGED | 4 | 107 | A_VERIFIER | manual_review | Park pass: review needed | DEEPER_REVIEW |
+| docs/memory-bricks-localcms-contract-alignment-01 | remote | DIVERGED | 5 | 108 | A_VERIFIER | manual_review | Memory-bricks alignment: needs review | DEEPER_REVIEW |
+| docs/skills-usage-cross-review-01 | both | DIVERGED | 1 | 107 | A_VERIFIER | manual_review | Cross-review in progress | DEEPER_REVIEW |
+| docs/tmux-opencode-openclaw-runtime-01 | both | DIVERGED | 1 | 107 | A_VERIFIER | manual_review | Tmux/OpenClaw: verify integration | DEEPER_REVIEW |
+| feat/GO_CONTINUITE_PRODUIT_MULTI_CHANTIER_CANON_01 | remote | DIVERGED | 13 | 298 | A_VERIFIER | manual_review | Continuity: needs review | DEEPER_REVIEW |
+| feat/go-strategy-docs-v1 | remote | DIVERGED | 1 | 708 | A_VERIFIER | manual_review | Go strategy docs: review | DEEPER_REVIEW |
+| feat/journal-api-extractor-bootstrap | local | DIVERGED | 2 | 235 | A_VERIFIER | manual_review | Journal API bootstrap: review | DEEPER_REVIEW |
 
 ## HYPOTHESIS
 - Hypothèses non validées concernant certains candidats DROP ou des doublons.
