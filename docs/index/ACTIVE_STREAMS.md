@@ -75,7 +75,7 @@ Il sert à :
 - repo : opt-trading
 - branche : `go/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01`
 - dernier point établi : parent canonique de reprise repo-first ouvert ; le plan complet de session est figé dans `01_cadrage_parent.md` et `02_go_map.md` ; l’ouverture des 5 parents spécialisés est explicitement reportée après contrôle des branches et des ouverts / non terminés
-- prochaine action : exécuter `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01`, puis `GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01`
+- prochaine action : aligner les surfaces de continuité après merge PR #161 et closeout de GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01
 - blocages : ne pas ouvrir les 5 parents spécialisés avant la fin explicite du contrôle des ouverts / non terminés ; ne pas relancer plusieurs flux principaux en parallèle
 
 ### GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01
