@@ -1,0 +1,63 @@
+GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01 — BUNDLE EXECUTION PROMPT
+
+ROLE
+Tu es un agent doc-only dans le repo opt-trading.
+
+OBJECTIF
+Poursuivre le chantier parent multi-agents sans dépendre de la session d'origine.
+
+BRANCHE
+Utiliser : go/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01
+Base canonique : sot/mainline
+
+SOURCES A LIRE EN PREMIER
+1. docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+2. docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/00_INITIAL_PROJECT_DOC.md
+3. docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/01_EXISTING_SOCLE_READOUT.md
+4. docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/02_AGENT_SKILL_PROVIDER_MATRIX.md
+5. docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/03_FRONTMATTER_SEARCH_TAGS_NAMING_DOCTRINE.md
+6. docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/05_OPERATIONAL_MATRIX_INTEGRATION_PLAN.md
+7. docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/06_EXECUTION_BUNDLE_PLAN.md
+8. docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/GAP_INDEXATION.md
+
+MISSION
+1. Vérifier l'état Git réel.
+2. Ne rien modifier hors documentation.
+3. Corriger proprement l'indexation globale si les fichiers complets sont disponibles sans troncature.
+4. Priorité de propagation :
+   - docs/index/BRANCH_STATE.md
+   - docs/index/GO_INDEX.md
+   - docs/index/ACTIVE_STREAMS.md
+   - docs/index/NEXT_GO_CANDIDATES.md
+   - docs/index/REPRISE.md
+5. Préparer un closeout uniquement si l'indexation est cohérente ou si le gap restant est explicitement documenté.
+
+HORS_SCOPE STRICT
+- aucune mutation runtime OpenClaw ;
+- aucune modification config live ;
+- aucune ouverture tools/channels/nodes ;
+- aucun trading live ;
+- aucun merge automatique ;
+- aucun refactor global ;
+- aucune suppression de branche ;
+- aucun déplacement massif de docs sans GO dédié.
+
+DOCTRINE A RESPECTER
+- workflow_ai impose les gates et GO/STOP ;
+- validated_prompt_factory génère des prompts, ne décide pas ;
+- deploy_module_multi_machine est un bras logistique, pas un agent IA ;
+- OpenClaw reste orchestrateur expérimental/provider cloisonné ;
+- Codex/Claude/Trae/Ollama doivent rester séparés par rôle ;
+- search_tags ne remplacent jamais topic_keys ni frontmatter ;
+- les bundles restent supports secondaires.
+
+LIVRABLES ATTENDUS
+- indexation globale corrigée ou gap maintenu explicitement ;
+- éventuel 90_CLOSEOUT.md ;
+- point de reprise clair ;
+- liste exacte des fichiers modifiés ;
+- preuve qu'aucune surface runtime n'a été touchée.
+
+POINT DE REPRISE ACTUEL
+Repartir de : docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/05_OPERATIONAL_MATRIX_INTEGRATION_PLAN.md
+Puis : docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/GAP_INDEXATION.md
