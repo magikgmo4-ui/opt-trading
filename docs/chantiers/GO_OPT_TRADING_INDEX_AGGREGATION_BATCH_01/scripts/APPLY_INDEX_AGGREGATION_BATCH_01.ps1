@@ -20,7 +20,7 @@ function Write-Text($Path, $Content) {
 }
 
 function Ensure-Contains($Content, $Needle, $Label) {
-  if ($Content -notlike "*$Needle*") { Fail "Anchor not found in $Label: $Needle" }
+  if ($Content -notlike "*$Needle*") { Fail "Anchor not found in ${Label}: $Needle" }
 }
 
 function Insert-BeforeAnchor($Path, $Anchor, $Block, $UniqueNeedle) {
@@ -201,3 +201,4 @@ git diff --stat
 if ($LASTEXITCODE -ne 0) { Fail 'git diff --stat failed' }
 
 Write-Host 'Batch application completed. Review diff, then git add/commit/push.'
+

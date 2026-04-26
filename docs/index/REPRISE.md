@@ -1,4 +1,4 @@
----
+﻿---
 doc_id: OPT_TRADING_REPRISE
 doc_type: reprise
 repo: opt-trading
@@ -62,6 +62,7 @@ Base de pilotage active retenue pour `opt-trading` :
 
 | GO | status | priority | repo canonical refs | supports secondaires (noms) | etat etabli | gap restant | next action |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01` | open | P1 | `docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/PARENT_STATE.md`; `docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/INDEX_PATCH.md`; `docs/governance/PARENT_CONTINUITY_INDEX_INBOX_METHOD_01.md` | continuitÃ© parent locale complÃ¨te posÃ©e ; mÃ©thode local-first et inbox atomique mergÃ©es ; OpenClaw bornÃ© hors runtime dans ce chantier | entrÃ©e d'index agrÃ©gÃ©e par `GO_OPT_TRADING_INDEX_AGGREGATION_BATCH_01`; closeout final Ã©ventuel Ã  produire | ouvrir `GO_OPT_TRADING_PARENT_CONTINUITY_INDEX_INBOX_METHOD_01` seulement si une promotion additionnelle est requise, sinon surveiller les prochains INDEX_PATCH |
 | `GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01` | open | P0 | `docs/chantiers/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01/01_cadrage_parent.md`; `docs/chantiers/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01/02_go_map.md` | Aucun bundle canonique | Parent canonique de reprise repo-first ouvert ; l'ordre de session est figé et l'ouverture des 5 parents spécialisés est explicitement différée | Qualification des branches ouvertes / merged / de référence, contrôle des ouverts / non terminés, choix du flux principal unique, puis seulement carte cible future et ouverture canonique des 5 parents | **Exécuter `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01`, puis `GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01`** |
 | `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01` | active | P0 | `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/00_cadrage.md`; `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/03_decisions.md` | Aucun bundle canonique | Chantier parent ouvert pour réaligner la continuité index | Contradictions d’index + concurrence NEXT + hiérarchie journal à propager | **Exécuter LOT 1 : réaligner `docs/index/*` et déclasser `docs/next/NEXT_GO_CANDIDATES.md`** |
 | `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01` | active | P0 | `docs/chantiers/GO_TMUX_IDE_OPT_TRADING_CADRAGE_01/00_cadrage.md` | `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01_bundle.zip`; `consolidation_targets_ide_bundle.zip` | Bundle préparé, cadrage ouvert | Validation machine cible / panes / repo réel non prouvée | **Exécuter `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01`** |
