@@ -14,6 +14,8 @@ done
 RESEAU_SSH_SOURCE_DIR="$(cd "$(dirname "$RESEAU_SSH_SOURCE_PATH")" && pwd -P)"
 # shellcheck source=./_reseau_ssh_common.sh
 source "$RESEAU_SSH_SOURCE_DIR/_reseau_ssh_common.sh"
+# shellcheck source=./_reseau_ssh_wireguard.sh
+source "$RESEAU_SSH_SOURCE_DIR/_reseau_ssh_wireguard.sh"
 
 echo "=== reseau_ssh sanity (canonical facade) ==="
 reseau_ssh_print_info
@@ -21,11 +23,10 @@ echo
 
 [ -d "$RESEAU_SSH_MODULE_DIR" ] || { echo "FAIL: module root missing"; exit 2; }
 [ -d "$RESEAU_SSH_TOP_DIR" ] || { echo "FAIL: scripts dir missing"; exit 2; }
+[ -d "$RESEAU_SSH_WIREGUARD_DIR" ] || { echo "FAIL: wireguard payload missing"; exit 2; }
 [ -x "$RESEAU_SSH_TOP_MENU" ] || { echo "FAIL: top-level menu missing"; exit 2; }
 [ -x "$RESEAU_SSH_TOP_CMD" ] || { echo "FAIL: top-level cmd missing"; exit 2; }
-[ -x "$RESEAU_SSH_IMPL_CMD" ] || { echo "FAIL: nested step2 cmd missing"; exit 2; }
-[ -x "$RESEAU_SSH_IMPL_MENU" ] || { echo "FAIL: nested step2 menu missing"; exit 2; }
-[ -x "$RESEAU_SSH_IMPL_SANITY" ] || { echo "FAIL: nested step2 sanity missing"; exit 2; }
+[ -f "$RESEAU_SSH_WG_INVENTORY" ] || { echo "FAIL: wireguard inventory missing"; exit 2; }
 
 echo "OK: facade preflight"
 echo
@@ -60,9 +61,9 @@ ip a show wg0 2>/dev/null || true
 echo
 
 if [ "${RESEAU_SSH_SKIP_DEEP_SANITY:-0}" = "1" ]; then
-  echo "SKIP: deep delegated step2 sanity disabled by RESEAU_SSH_SKIP_DEEP_SANITY=1"
+  echo "SKIP: wireguard deep sanity disabled by RESEAU_SSH_SKIP_DEEP_SANITY=1"
   exit 0
 fi
 
-echo "[step2 delegated sanity]"
-exec bash "$RESEAU_SSH_IMPL_SANITY"
+echo "[wireguard internal sanity]"
+reseau_ssh_wireguard_sanity

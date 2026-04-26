@@ -14,7 +14,7 @@ topic_keys:
   - governance
 surface: continuity
 source_kind: canonical
-updated_at: 2026-04-25
+updated_at: 2026-04-26
 links:
   - docs/index/GO_INDEX.md
   - docs/governance/REPO_ROLE.md
@@ -203,7 +203,7 @@ Ces entrées détaillées sont sorties de `docs/index/GO_INDEX.md`.
 - type : consolidation modules / reseau_ssh
 - statut : pass
 - titre court : consolidation intégrale de la famille reseau_ssh
-- dernier état connu : un seul module top-level actif `modules/reseau_ssh` reste en place ; l'implémentation `reseau_ssh_step2` est interne au canonique ; un seul jeu d'alias publiés `menu/cmd/sanity-reseau_ssh` reste en place ; `db-layer`, `admin-trading`, `student` et `fantome` passent `sanity-reseau_ssh`
+- dernier état connu : un seul module top-level actif `modules/reseau_ssh` reste en place ; la logique publiée vit dans `modules/reseau_ssh/scripts/*` ; les payloads internes utiles vivent dans `modules/reseau_ssh/wireguard/*` et `modules/reseau_ssh/baseline/*` ; aucun sous-arbre `modules/reseau_ssh/modules/*` ni `modules/reseau_ssh/wireguard/scripts/*` ne subsiste ; un seul jeu d'alias publiés `menu/cmd/sanity-reseau_ssh` reste en place ; `db-layer`, `admin-trading`, `student` et `fantome` passent `sanity-reseau_ssh`
 - lien utile : `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/90_closeout.md`, `docs/status/reseau_ssh_canonique.md`
 
 ### GO_OPT_TRADING_RESEAU_SSH_UNIFIED_MODULE_CADRAGE_01

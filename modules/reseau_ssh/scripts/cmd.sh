@@ -14,6 +14,8 @@ done
 RESEAU_SSH_SOURCE_DIR="$(cd "$(dirname "$RESEAU_SSH_SOURCE_PATH")" && pwd -P)"
 # shellcheck source=./_reseau_ssh_common.sh
 source "$RESEAU_SSH_SOURCE_DIR/_reseau_ssh_common.sh"
+# shellcheck source=./_reseau_ssh_wireguard.sh
+source "$RESEAU_SSH_SOURCE_DIR/_reseau_ssh_wireguard.sh"
 # shellcheck source=./_reseau_ssh_baseline.sh
 source "$RESEAU_SSH_SOURCE_DIR/_reseau_ssh_baseline.sh"
 # shellcheck source=./_reseau_ssh_transition.sh
@@ -39,13 +41,14 @@ case "$cmd" in
     exec bash "$RESEAU_SSH_TOP_SANITY" "$@"
     ;;
   wg-install|wg-genkeys|wg-showpub|wg-render|wg-render-windows|wg-apply|wg-up|wg-down|wg-status|fw-dry-run|fw-apply)
-    reseau_ssh_require_exec "$RESEAU_SSH_IMPL_CMD"
-    exec bash "$RESEAU_SSH_IMPL_CMD" "$cmd" "$@"
+    reseau_ssh_wireguard_dispatch "$cmd" "$@"
     ;;
   wg-show)
     echo "INFO: wg-show is deprecated; delegating to wg-status." >&2
-    reseau_ssh_require_exec "$RESEAU_SSH_IMPL_CMD"
-    exec bash "$RESEAU_SSH_IMPL_CMD" wg-status "$@"
+    reseau_ssh_wireguard_dispatch wg-status "$@"
+    ;;
+  wireguard-sanity|wireguard-menu)
+    reseau_ssh_wireguard_dispatch "$cmd" "$@"
     ;;
   bootstrap|ssh-hardening-safe|ssh-lockdown)
     echo "INFO: $cmd is handled by the canonical reseau_ssh facade." >&2
@@ -100,7 +103,7 @@ Canonical facade:
   menu
   sanity
 
-Step 2 implementation:
+WireGuard payload (absorbed from former step2):
   wg-install
   wg-genkeys
   wg-showpub
@@ -118,6 +121,8 @@ Canonical SSH bootstrap / hardening:
   ssh-hardening-safe
   ssh-lockdown
   wg-show               # deprecated alias to wg-status
+  wireguard-menu
+  wireguard-sanity
 
 Baseline commands (absorbed from archived step1b):
   baseline-dry-run

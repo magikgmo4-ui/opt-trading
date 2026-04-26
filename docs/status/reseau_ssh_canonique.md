@@ -20,7 +20,7 @@ surface: module_family
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 point_de_reprise: "Section Reprise"
-updated_at: 2026-04-25
+updated_at: 2026-04-26
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/MATRICE_GOUVERNANTE_V2.md
@@ -41,9 +41,9 @@ links:
 ## ETABLI
 - module canonique final retenu : `reseau_ssh`
 - surface canonique repo-side en place : `modules/reseau_ssh`
-- implementation interne utile : `modules/reseau_ssh/modules/reseau_ssh/reseau_ssh_step2`
+- payload WireGuard interne : `modules/reseau_ssh/wireguard`
+- payload baseline interne : `modules/reseau_ssh/baseline`
 - ancien occupant top-level archive : `_archive/legacy_modules/reseau_ssh_step1`
-- ancien pre-step archive repo-side : `_archive/legacy_modules/reseau_ssh_step1b`
 - wrappers racine historiques archives : `_archive/legacy_modules/reseau_ssh_root_wrappers_legacy`
 - registre repo-side aligne : `modules_registry` et `wrappers_registry`
 - aliases courts machine-side repointes vers le canonique sur `db-layer`, `admin-trading`, `student`, `fantome`
@@ -54,12 +54,15 @@ links:
 - les alias suffixes `menu/cmd/sanity-reseau_ssh_step2` sont retires
 - les repertoires machine-side `reseau_ssh_step2` sont deplaces en archive locale sur `db-layer`, `admin-trading`, `student`, `fantome`
 - interface publiee finale prouvee : `menu-reseau_ssh`, `cmd-reseau_ssh`, `sanity-reseau_ssh`
+- plus aucun sous-module runtime `reseau_ssh_step2` n'est requis par la facade canonique
+- plus aucun sous-arbre repo-side `modules/reseau_ssh/modules/*` n'est present
+- plus aucun script interne `modules/reseau_ssh/wireguard/scripts/*` n'est present
+- plus aucune dependance runtime archivee n'est requise pour `baseline-*`
 - recroisement effectue avec `shared`, `shared_files_sftp`, `shared_sshfs_permanent`, `winscp_transfer`
 
 ## Survivant / Transition / Legacy / Archive
 - survivant : `reseau_ssh`
-- implementation interne : `reseau_ssh_step2`
-- archive repo-side : `_archive/legacy_modules/reseau_ssh_step1b`
+- payload interne : `wireguard`, `baseline`
 - runtime legacy archive : `_archive/legacy_modules/reseau_ssh_runtime_rollback_only`
 - archive : `_archive/legacy_modules/reseau_ssh_step1`, `_archive/legacy_modules/reseau_ssh_root_wrappers_legacy`
 - archive machine-side :
@@ -84,7 +87,8 @@ links:
 - cleanup machine-side step1b : `GO_OPT_TRADING_RESEAU_SSH_STEP1B_MACHINE_CLEANUP_01`
 - correction environnement `fantome` : `GO_OPT_TRADING_RESEAU_SSH_FANTOME_PYYAML_FIX_01`
 - retraite compat step2 : `GO_OPT_TRADING_RESEAU_SSH_STEP2_COMPAT_RETIREMENT_01`
-- etat final : stream `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03` clos ; un seul module top-level actif et une seule interface publiee
+- flatten physique final : `GO_OPT_TRADING_RESEAU_SSH_PHYSICAL_FLATTENING_01`
+- etat final : stream `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03` clos ; un seul module top-level actif, une seule interface publiee, aucun backend `step2` executable separe, validation `PASS` sur `db-layer`, `admin-trading`, `student`, `fantome`
 
 ## Target
 1 module canonique par famille.

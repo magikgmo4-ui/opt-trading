@@ -22,14 +22,9 @@ RESEAU_SSH_MODULE_NAME="$(basename "$RESEAU_SSH_MODULE_DIR")"
 RESEAU_SSH_CANONICAL_NAME="reseau_ssh"
 RESEAU_SSH_REPO_ROOT="$(cd "$RESEAU_SSH_MODULE_DIR/../.." && pwd -P)"
 
-RESEAU_SSH_IMPL_DIR="$RESEAU_SSH_MODULE_DIR/modules/reseau_ssh/reseau_ssh_step2"
-RESEAU_SSH_IMPL_CMD="$RESEAU_SSH_IMPL_DIR/scripts/reseau_ssh_cmd.sh"
-RESEAU_SSH_IMPL_MENU="$RESEAU_SSH_IMPL_DIR/scripts/reseau_ssh_menu.sh"
-RESEAU_SSH_IMPL_SANITY="$RESEAU_SSH_IMPL_DIR/scripts/sanity_check.sh"
-
 RESEAU_SSH_ARCHIVE_RUNTIME_DIR="$RESEAU_SSH_REPO_ROOT/_archive/legacy_modules/reseau_ssh_runtime_rollback_only"
-
-RESEAU_SSH_ARCHIVE_STEP1B_DIR="$RESEAU_SSH_REPO_ROOT/_archive/legacy_modules/reseau_ssh_step1b/modules/reseau_ssh/reseau_ssh_step1b"
+RESEAU_SSH_WIREGUARD_DIR="$RESEAU_SSH_MODULE_DIR/wireguard"
+RESEAU_SSH_BASELINE_DIR="$RESEAU_SSH_MODULE_DIR/baseline"
 
 RESEAU_SSH_TOP_CMD="$RESEAU_SSH_TOP_DIR/cmd.sh"
 RESEAU_SSH_TOP_MENU="$RESEAU_SSH_TOP_DIR/menu.sh"
@@ -60,8 +55,8 @@ name=$RESEAU_SSH_CANONICAL_NAME
 entry_real=$RESEAU_SSH_ENTRY_REAL
 module_root=$RESEAU_SSH_MODULE_DIR
 repo_root=$RESEAU_SSH_REPO_ROOT
-impl_dir=$RESEAU_SSH_IMPL_DIR
+wireguard_dir=$RESEAU_SSH_WIREGUARD_DIR
+baseline_dir=$RESEAU_SSH_BASELINE_DIR
 archive_runtime_dir=$RESEAU_SSH_ARCHIVE_RUNTIME_DIR
-archive_step1b_dir=$RESEAU_SSH_ARCHIVE_STEP1B_DIR
 EOF
 }

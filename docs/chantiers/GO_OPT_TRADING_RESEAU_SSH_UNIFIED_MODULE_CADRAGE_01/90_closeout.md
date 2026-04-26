@@ -14,7 +14,7 @@ topic_keys:
   - closeout
 surface: modules
 source_kind: canonical
-updated_at: 2026-04-25
+updated_at: 2026-04-26
 links:
   - docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/90_closeout.md
 ---
@@ -27,6 +27,8 @@ Le cadrage de module unique a atteint sa cible :
 
 - un seul module top-level actif
 - une seule interface publiee
+- les payloads utiles sont internes au module canonique
+- aucun sous-arbre runtime `modules/.../reseau_ssh_step2` separe
 - les surfaces legacy et compat sont archivees ou retirees
 
 Le chantier enfant est absorbe dans le closeout final du parent.

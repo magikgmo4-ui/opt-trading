@@ -1,4 +1,4 @@
-# reseau_ssh_step2 inventory (WireGuard + firewall)
+# reseau_ssh wireguard inventory (payload interne)
 # LAN actif: 192.168.0.0/24
 # Ancien LAN 192.168.16.0/24: historique / ancien routeur
 # WG net: 10.66.66.0/24 (management-only)

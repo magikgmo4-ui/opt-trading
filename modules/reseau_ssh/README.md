@@ -10,7 +10,8 @@ Ce répertoire racine est conservé comme point d'entrée de statut pour la fami
 - interface publiée finale : `menu-reseau_ssh`, `cmd-reseau_ssh`, `sanity-reseau_ssh`
 
 ## Référence détaillée
-- `modules/reseau_ssh/modules/reseau_ssh/reseau_ssh_step2/README.md`
+- `modules/reseau_ssh/wireguard/README.md`
+- `modules/reseau_ssh/baseline/README.md`
 
 ## Scripts utiles
 - `modules/reseau_ssh/scripts/install_canonical_shortcuts.sh` : préparation du repointage machine-side des alias courts
@@ -19,18 +20,19 @@ Ce répertoire racine est conservé comme point d'entrée de statut pour la fami
 ## Notes
 - les wrappers racine historiques ont déjà été archivés sous `_archive/legacy_modules/reseau_ssh_root_wrappers_legacy/`
 - ne pas toucher au runtime live hors lot dédié
-- `step1b` est maintenant archivé repo-side sous `_archive/legacy_modules/reseau_ssh_step1b/`
+- les capacités utiles de `step1b` sont maintenant internalisées sous `modules/reseau_ssh/baseline/`
 - `step2` suffixé est maintenant retiré comme surface publiée et archivé machine-side
 
 ## Frontière de suite
 - `reseau_ssh` est maintenant la surface canonique top-level de la lignée `reseau_ssh*`
-- l'implémentation nested `reseau_ssh_step2` reste interne à ce module
+- la logique opératoire publiée vit dans `modules/reseau_ssh/scripts/*`
+- le payload WireGuard / firewall interne vit dans `modules/reseau_ssh/wireguard/*`
+- le payload baseline SSH / hosts / Windows interne vit dans `modules/reseau_ssh/baseline/*`
 - `bootstrap`, `ssh-hardening-safe` et `ssh-lockdown` sont maintenant absorbés dans `modules/reseau_ssh/scripts/*`
-- les commandes `baseline-*` sont maintenant absorbées dans `modules/reseau_ssh/scripts/*`
+- les commandes `baseline-*` sont maintenant absorbées dans `modules/reseau_ssh/scripts/*` sans dépendance runtime externe
 - l'ancien runtime `scripts/reseau_ssh/` est maintenant archivé repo-side sous `_archive/legacy_modules/reseau_ssh_runtime_rollback_only/`
-- l'ancien prérequis `step1b` est maintenant archivé repo-side sous `_archive/legacy_modules/reseau_ssh_step1b/`
 - les alias suffixés `*_reseau_ssh_step2` sont retirés du registre et des machines
-- il n'existe plus qu'un module top-level actif et un seul jeu d'alias publiés
+- il n'existe plus qu'un module top-level actif, un seul jeu d'alias publiés, et plus aucun sous-module exécutable `step2`
 - il est adjacent, mais non fusionné, avec :
   - `shared` pour la surface canonique inter-machines
   - `shared_files_sftp` pour l'exposition serveur

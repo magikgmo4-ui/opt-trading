@@ -14,6 +14,8 @@ done
 RESEAU_SSH_SOURCE_DIR="$(cd "$(dirname "$RESEAU_SSH_SOURCE_PATH")" && pwd -P)"
 # shellcheck source=./_reseau_ssh_common.sh
 source "$RESEAU_SSH_SOURCE_DIR/_reseau_ssh_common.sh"
+# shellcheck source=./_reseau_ssh_wireguard.sh
+source "$RESEAU_SSH_SOURCE_DIR/_reseau_ssh_wireguard.sh"
 
 CMD="$RESEAU_SSH_TOP_CMD"
 
@@ -27,7 +29,7 @@ while true; do
   echo "2) Bootstrap (packages + UFW + Fail2Ban) [SAFE]"
   echo "3) SSH hardening SAFE (drop-in)"
   echo "4) SSH lockdown (disable password auth)"
-  echo "5) WireGuard / firewall menu (step2 implementation)"
+  echo "5) WireGuard / firewall menu"
   echo "6) Baseline dry-run"
   echo "7) Baseline apply"
   echo "8) Baseline hostname"
@@ -44,8 +46,7 @@ while true; do
     3) sudo bash "$CMD" ssh-hardening-safe ;;
     4) sudo bash "$CMD" ssh-lockdown ;;
     5)
-      reseau_ssh_require_exec "$RESEAU_SSH_IMPL_MENU"
-      bash "$RESEAU_SSH_IMPL_MENU"
+      reseau_ssh_wireguard_menu
       ;;
     6) bash "$CMD" baseline-dry-run ;;
     7) bash "$CMD" baseline-apply ;;
