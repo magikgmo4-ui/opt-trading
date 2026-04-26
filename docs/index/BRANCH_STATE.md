@@ -179,3 +179,17 @@ Pour toute nouvelle session de housekeeping :
 
 - Statut envisagé: suppression sequenceée et journalisation; main/sot/mainline protégés.
 - Prochaine étape: exécuter les suppressions localement puis à distance, puis mettre à jour BRANCH_STATE.md et ajouter un closeout court.
+
+## Delete Final Status (remote audit)
+
+- Branch: audit/opt-trading-20260320a | local: LOCAL_ABSENT | remote: REMOTE_ABSENT
+- Branch: docs/github-park-parent-closeout-01 | local: LOCAL_ABSENT | remote: REMOTE_ABSENT
+- Branch: docs/github-park-pass-close-01 | local: LOCAL_ABSENT | remote: REMOTE_ABSENT
+- Branch: feat/journal-api-extractor-bootstrap | local: LOCAL_DELETED | remote: REMOTE_ABSENT
+- Branch: feat/journal-api-extractor-v1 | local: LOCAL_ABSENT | remote: REMOTE_ABSENT
+- Branch: feat/mimo-open-observer-doc-pack-v0 | local: LOCAL_DELETED | remote: REMOTE_DELETED
+- Branch: feat/student-mimo-qualification | local: LOCAL_ABSENT | remote: REMOTE_DELETED
+- Branch: METHODE_MULTI_MACHINE_GIT_SYNC | local: LOCAL_ABSENT | remote: REMOTE_ABSENT
+- Branch: wip/GO_GITHUB_PARK_AUDIT_EXPANSION_ISOLATE_01 | local: LOCAL_ABSENT | remote: REMOTE_ABSENT
+
+Note: Si une suppression distante échoue pour des credentials, elle est notée comme DELETE_ATTEMPTED_NOT_CONFIRMED et ne doit pas être présentée comme supprimée dans BRANCH_STATE.md.
