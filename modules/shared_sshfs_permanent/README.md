@@ -36,7 +36,7 @@ cmd-shared_sshfs_permanent status
 
 ## Statut de suite
 - client Linux de montage permanent de la surface `shared`
-- adjacent a `reseau_ssh_step2`, mais non inclus dans la lignée `reseau_ssh*`
+- adjacent a `reseau_ssh`, mais non inclus dans la lignée `reseau_ssh*`
 - complement naturel de `shared_files_sftp` :
   - `shared_files_sftp` expose
   - `shared_sshfs_permanent` monte

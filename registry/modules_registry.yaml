@@ -270,6 +270,17 @@
   priority: medium
   dependencies: []
 
+- module_name: reseau_ssh
+  domain: infrastructure
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Facade canonique reseau/ssh: baseline, WG/firewall et compat transitoire"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: high
+  dependencies: []
+
 - module_name: perf_engine
   domain: monitoring
   machine_target: admin_trading

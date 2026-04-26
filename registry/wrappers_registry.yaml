@@ -293,6 +293,60 @@
   status: active
   notes: "Sanity minimal surface canonique /shared"
 
+- wrapper_name: cmd-reseau_ssh
+  wrapper_family: cmd
+  target_module: reseau_ssh
+  target_script: scripts/cmd.sh
+  install_location: /usr/local/bin/cmd-reseau_ssh
+  audience: system
+  status: active
+  notes: "Facade canonique reseau/ssh; repointage machine-side encore separe"
+
+- wrapper_name: menu-reseau_ssh
+  wrapper_family: menu
+  target_module: reseau_ssh
+  target_script: scripts/menu.sh
+  install_location: /usr/local/bin/menu-reseau_ssh
+  audience: system
+  status: active
+  notes: "Menu canonique reseau/ssh; repointage machine-side encore separe"
+
+- wrapper_name: sanity-reseau_ssh
+  wrapper_family: sanity
+  target_module: reseau_ssh
+  target_script: scripts/sanity_check.sh
+  install_location: /usr/local/bin/sanity-reseau_ssh
+  audience: system
+  status: active
+  notes: "Sanity canonique reseau/ssh; repointage machine-side encore separe"
+
+- wrapper_name: cmd-reseau_ssh_step2
+  wrapper_family: cmd
+  target_module: reseau_ssh
+  target_script: scripts/cmd.sh
+  install_location: /usr/local/bin/cmd-reseau_ssh_step2
+  audience: system
+  status: active
+  notes: "Compat transitoire suffixee vers le module canonique reseau_ssh"
+
+- wrapper_name: menu-reseau_ssh_step2
+  wrapper_family: menu
+  target_module: reseau_ssh
+  target_script: scripts/menu.sh
+  install_location: /usr/local/bin/menu-reseau_ssh_step2
+  audience: system
+  status: active
+  notes: "Compat transitoire suffixee vers le module canonique reseau_ssh"
+
+- wrapper_name: sanity-reseau_ssh_step2
+  wrapper_family: sanity
+  target_module: reseau_ssh
+  target_script: scripts/sanity_check.sh
+  install_location: /usr/local/bin/sanity-reseau_ssh_step2
+  audience: system
+  status: active
+  notes: "Compat transitoire suffixee vers le module canonique reseau_ssh"
+
 - wrapper_name: cmd-shared_files_sftp
   wrapper_family: cmd
   target_module: shared_files_sftp
