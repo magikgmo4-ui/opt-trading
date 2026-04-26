@@ -49,6 +49,7 @@ links:
 - plus aucun alias `step1b` publie sur `db-layer`, `admin-trading`, `student`, `fantome`
 - les repertoires machine-side `step1b` ont ete deplaces en archive locale sur `db-layer`, `admin-trading`, `student`, `fantome`
 - les scripts canonique `reseau_ssh` ont ete resynchronises machine-side apres cleanup pour conserver `baseline-*`
+- `fantome` dispose maintenant de `python3-yaml` et repasse le deep sanity complet
 - recroisement effectue avec `shared`, `shared_files_sftp`, `shared_sshfs_permanent`, `winscp_transfer`
 
 ## Survivant / Transition / Legacy / Archive
@@ -75,7 +76,8 @@ links:
 - archive rollback repo-side : `GO_OPT_TRADING_RESEAU_SSH_ROLLBACK_ARCHIVE_01`
 - archive step1b repo-side : `GO_OPT_TRADING_RESEAU_SSH_STEP1B_ARCHIVE_01`
 - cleanup machine-side step1b : `GO_OPT_TRADING_RESEAU_SSH_STEP1B_MACHINE_CLEANUP_01`
-- prochaine reduction ciblee : qualifier le gap `PyYAML` sur `fantome` ou clore la famille avec ce point d'environnement borne
+- correction environnement `fantome` : `GO_OPT_TRADING_RESEAU_SSH_FANTOME_PYYAML_FIX_01`
+- prochaine reduction ciblee : closeout documentaire final de la famille `reseau_ssh`
 
 ## Target
 1 module canonique par famille.
