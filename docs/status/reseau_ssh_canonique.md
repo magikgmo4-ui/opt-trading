@@ -47,6 +47,8 @@ links:
 - registre repo-side aligne : `modules_registry` et `wrappers_registry`
 - aliases courts machine-side repointes vers le canonique sur `db-layer`, `admin-trading`, `student`, `fantome`
 - plus aucun alias `step1b` publie sur `db-layer`, `admin-trading`, `student`, `fantome`
+- les repertoires machine-side `step1b` ont ete deplaces en archive locale sur `db-layer`, `admin-trading`, `student`, `fantome`
+- les scripts canonique `reseau_ssh` ont ete resynchronises machine-side apres cleanup pour conserver `baseline-*`
 - recroisement effectue avec `shared`, `shared_files_sftp`, `shared_sshfs_permanent`, `winscp_transfer`
 
 ## Survivant / Transition / Legacy / Archive
@@ -55,6 +57,9 @@ links:
 - archive repo-side : `_archive/legacy_modules/reseau_ssh_step1b`
 - runtime legacy archive : `_archive/legacy_modules/reseau_ssh_runtime_rollback_only`
 - archive : `_archive/legacy_modules/reseau_ssh_step1`, `_archive/legacy_modules/reseau_ssh_root_wrappers_legacy`
+- archive machine-side :
+  - `/opt/trading/_archive/legacy_modules/reseau_ssh_step1b_machine_2026-04-25`
+  - `/home/fantome/opt-trading/_archive/legacy_modules/reseau_ssh_step1b_machine_2026-04-25`
 
 ## Surfaces adjacentes
 - `shared` : surface canonique inter-machines
@@ -69,7 +74,8 @@ links:
 - absorption backend compat : `GO_OPT_TRADING_RESEAU_SSH_COMPAT_BACKEND_ABSORPTION_01`
 - archive rollback repo-side : `GO_OPT_TRADING_RESEAU_SSH_ROLLBACK_ARCHIVE_01`
 - archive step1b repo-side : `GO_OPT_TRADING_RESEAU_SSH_STEP1B_ARCHIVE_01`
-- prochaine reduction ciblee : cleanup machine-side des repertoires `step1b` residuels
+- cleanup machine-side step1b : `GO_OPT_TRADING_RESEAU_SSH_STEP1B_MACHINE_CLEANUP_01`
+- prochaine reduction ciblee : qualifier le gap `PyYAML` sur `fantome` ou clore la famille avec ce point d'environnement borne
 
 ## Target
 1 module canonique par famille.

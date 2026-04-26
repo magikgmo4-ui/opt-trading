@@ -162,9 +162,9 @@ Il sert à :
 - statut : open
 - repo : opt-trading
 - branche : non précisée dans `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md`
-- dernier point établi : `db-layer`, `admin-trading`, `student` et `fantome` pointent maintenant leurs alias courts vers `modules/reseau_ssh/scripts/*` avec PASS ; le runtime legacy `scripts/reseau_ssh` est archivé repo-side ; les commandes `baseline-*` sont absorbées ; `step1b` est archivé repo-side ; plus aucun alias `step1b` n'est publié sur les 4 hôtes
-- prochaine action : nettoyer les répertoires `step1b` résiduels côté machines sans toucher au canonique
-- blocages : ne pas supprimer les copies machine-side avant runbook dédié et rollback explicite
+- dernier point établi : `db-layer`, `admin-trading`, `student` et `fantome` pointent maintenant leurs alias courts vers `modules/reseau_ssh/scripts/*` ; `scripts/reseau_ssh` et `step1b` sont archivés repo-side ; les répertoires machine-side `step1b` ont été déplacés en archive locale ; `db-layer`, `admin-trading` et `student` passent `baseline-*` + `sanity-reseau_ssh`; `fantome` passe `baseline-*` + `RESEAU_SSH_SKIP_DEEP_SANITY=1 sanity-reseau_ssh`
+- prochaine action : décider si le gap `PyYAML` de `fantome` doit être corrigé ou explicitement accepté comme limite d'environnement
+- blocages : `fantome` échoue encore au deep sanity complet faute de module Python `yaml`
 
 ### GO_TMUX_IDE_OPT_TRADING_CADRAGE_01
 - statut : active
