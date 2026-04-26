@@ -4,7 +4,7 @@ doc_type: initial_project_doc
 repo: opt-trading
 project: opt-trading
 module: multi_agents
- go_id: GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01
+go_id: GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01
 status: open
 lifecycle_stage: cadrage
 topic_keys:
