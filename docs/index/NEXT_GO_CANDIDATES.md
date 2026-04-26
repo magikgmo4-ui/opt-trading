@@ -68,3 +68,14 @@ links:
 | `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` | open | P2 | aucun nouveau GO | utiliser l’entrée `OPEN` comme base si un futur GO enfant d’audit documentaire doit être rouvert | `docs/index/GO_INDEX.md`; `docs/chantiers/GO_GIT_AI_TEAM_ARCHITECTURE_PARENT_DOC_ONLY_INTEGRATION_01/03_decisions.md` |
 | `GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01` | open | P2 | aucun nouveau GO | poursuivre le pilote documentaire borné avant toute extension plus large | `docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01/00_cadrage.md`; `docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01/03_decisions.md` |
 | `GO_OPT_TRADING_PARENT_NAMING_CANON_01` | open | P2 | `GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01` | reprendre l’inventaire repo-first des écarts de nommage avant tout lot d’application | `docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_01/01_cadrage_parent.md`; `docs/governance/NAMING_CANON_POLICY_01.md` |
+
+- ### GO_OPT_TRADING_DOC_OPS_CHILD_PRIMARY_RESTART_01
+- statut : planned
+- objectif : restart the operation chain after closeout du seed arbitration
+- repo : opt-trading
+- branche : sot/mainline
+- prochaine action : démarrer le prochain GO primaire une fois le restart validé
+- refs canoniques : docs/index/NEXT_GO_CANDIDATES.md
+- statut : planned
+- objectif : restart l’enchaînement des GO enfants après fermeture/closeout du seed arb
+- prochain action : à définir après le closeout des seeds
