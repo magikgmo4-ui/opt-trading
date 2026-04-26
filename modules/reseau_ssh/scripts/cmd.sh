@@ -119,7 +119,7 @@ Canonical SSH bootstrap / hardening:
   ssh-lockdown
   wg-show               # deprecated alias to wg-status
 
-Baseline compat (step1b):
+Baseline commands (absorbed from archived step1b):
   baseline-dry-run
   baseline-apply
   baseline-hostname <admin-trading|db-layer|student>

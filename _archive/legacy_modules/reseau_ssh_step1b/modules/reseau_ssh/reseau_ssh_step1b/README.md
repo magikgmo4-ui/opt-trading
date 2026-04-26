@@ -7,9 +7,10 @@
 - Reference decision: `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md`
 
 ## Current classification
-- `archive_candidate`
+- `archive_backup`
 - not a valid final survivor
-- retained only for final audit of non-published helpers before archival
+- archived repo-side after final audit of non-published helpers
+- machine-side copies may still remain until dedicated cleanup
 
 Linux:
 - Safely installs/updates:

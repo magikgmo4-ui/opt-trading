@@ -29,7 +29,7 @@ RESEAU_SSH_IMPL_SANITY="$RESEAU_SSH_IMPL_DIR/scripts/sanity_check.sh"
 
 RESEAU_SSH_ARCHIVE_RUNTIME_DIR="$RESEAU_SSH_REPO_ROOT/_archive/legacy_modules/reseau_ssh_runtime_rollback_only"
 
-RESEAU_SSH_STEP1B_DIR="$RESEAU_SSH_REPO_ROOT/modules/reseau_ssh_step1b/modules/reseau_ssh/reseau_ssh_step1b"
+RESEAU_SSH_ARCHIVE_STEP1B_DIR="$RESEAU_SSH_REPO_ROOT/_archive/legacy_modules/reseau_ssh_step1b/modules/reseau_ssh/reseau_ssh_step1b"
 
 RESEAU_SSH_TOP_CMD="$RESEAU_SSH_TOP_DIR/cmd.sh"
 RESEAU_SSH_TOP_MENU="$RESEAU_SSH_TOP_DIR/menu.sh"
@@ -62,6 +62,6 @@ module_root=$RESEAU_SSH_MODULE_DIR
 repo_root=$RESEAU_SSH_REPO_ROOT
 impl_dir=$RESEAU_SSH_IMPL_DIR
 archive_runtime_dir=$RESEAU_SSH_ARCHIVE_RUNTIME_DIR
-step1b_dir=$RESEAU_SSH_STEP1B_DIR
+archive_step1b_dir=$RESEAU_SSH_ARCHIVE_STEP1B_DIR
 EOF
 }

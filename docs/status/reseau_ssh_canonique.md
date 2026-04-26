@@ -41,17 +41,18 @@ links:
 - module canonique final retenu : `reseau_ssh`
 - surface canonique repo-side en place : `modules/reseau_ssh`
 - implementation interne utile : `modules/reseau_ssh/modules/reseau_ssh/reseau_ssh_step2`
-- transition utile : `modules/reseau_ssh_step1b`
 - ancien occupant top-level archive : `_archive/legacy_modules/reseau_ssh_step1`
+- ancien pre-step archive repo-side : `_archive/legacy_modules/reseau_ssh_step1b`
 - wrappers racine historiques archives : `_archive/legacy_modules/reseau_ssh_root_wrappers_legacy`
 - registre repo-side aligne : `modules_registry` et `wrappers_registry`
 - aliases courts machine-side repointes vers le canonique sur `db-layer`, `admin-trading`, `student`, `fantome`
+- plus aucun alias `step1b` publie sur `db-layer`, `admin-trading`, `student`, `fantome`
 - recroisement effectue avec `shared`, `shared_files_sftp`, `shared_sshfs_permanent`, `winscp_transfer`
 
 ## Survivant / Transition / Legacy / Archive
 - survivant : `reseau_ssh`
 - implementation interne : `reseau_ssh_step2`
-- archive candidate : `reseau_ssh_step1b`
+- archive repo-side : `_archive/legacy_modules/reseau_ssh_step1b`
 - runtime legacy archive : `_archive/legacy_modules/reseau_ssh_runtime_rollback_only`
 - archive : `_archive/legacy_modules/reseau_ssh_step1`, `_archive/legacy_modules/reseau_ssh_root_wrappers_legacy`
 
@@ -67,7 +68,8 @@ links:
 - compat retirement : `GO_OPT_TRADING_RESEAU_SSH_RUNTIME_COMPAT_RETIREMENT_01`
 - absorption backend compat : `GO_OPT_TRADING_RESEAU_SSH_COMPAT_BACKEND_ABSORPTION_01`
 - archive rollback repo-side : `GO_OPT_TRADING_RESEAU_SSH_ROLLBACK_ARCHIVE_01`
-- prochaine reduction ciblee : archivage ou retrait borne de `reseau_ssh_step1b`
+- archive step1b repo-side : `GO_OPT_TRADING_RESEAU_SSH_STEP1B_ARCHIVE_01`
+- prochaine reduction ciblee : cleanup machine-side des repertoires `step1b` residuels
 
 ## Target
 1 module canonique par famille.
