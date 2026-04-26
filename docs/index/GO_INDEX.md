@@ -256,7 +256,7 @@ Le passage de 6 à 8 GO non clos correspond à l’ouverture PHASE 2 des parents
 - type : consolidation modules / reseau_ssh
 - statut : open
 - titre court : consolidation ciblée de la famille reseau_ssh*
-- dernier état connu : `modules/reseau_ssh` est le canonique repo-side ; `db-layer`, `admin-trading`, `student` et `fantome` ont maintenant leurs alias courts repointés vers le canonique avec PASS ; le runtime legacy `scripts/reseau_ssh` est archivé repo-side ; `step1b` reste en transition
+- dernier état connu : `modules/reseau_ssh` est le canonique repo-side ; `db-layer`, `admin-trading`, `student` et `fantome` ont maintenant leurs alias courts repointés vers le canonique avec PASS ; le runtime legacy `scripts/reseau_ssh` est archivé repo-side ; les commandes `baseline-*` sont absorbées ; `step1b` est maintenant `archive_candidate`
 - lien utile : `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md`, `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CANONICAL_RENAME_REGISTRY_01/01_plan_operationnel_step_by_step.md`, `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_MACHINE_SIDE_REPOINT_01/10_step_09_execution_resultats.md`
 
 ### GO_TMUX_IDE_OPT_TRADING_CADRAGE_01

@@ -2,14 +2,14 @@
 
 ## Family status (reseau_ssh*)
 - Not the canonical surface anymore (active continuity moved to top-level `reseau_ssh`)
-- Kept as a useful prerequisite for Step 2 (bootstrap SSH on Linux + Windows)
+- No longer used by the canonical `baseline-*` commands
 - Legacy / doc pre-step: `_archive/legacy_modules/reseau_ssh_step1`
 - Reference decision: `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md`
 
 ## Current classification
-- `compat_temporaire`
+- `archive_candidate`
 - not a valid final survivor
-- retained only while baseline hosts/ssh/hostname capabilities are still needed before full absorption or retirement
+- retained only for final audit of non-published helpers before archival
 
 Linux:
 - Safely installs/updates:
@@ -30,3 +30,6 @@ Recommended order:
 2) student: apply_linux --apply
 3) db-layer: apply_linux --apply
 4) cursor-ai: apply_cursor_ai.ps1 (PowerShell admin)
+
+## Target
+1 module canonique par famille.

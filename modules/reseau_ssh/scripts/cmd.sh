@@ -14,6 +14,8 @@ done
 RESEAU_SSH_SOURCE_DIR="$(cd "$(dirname "$RESEAU_SSH_SOURCE_PATH")" && pwd -P)"
 # shellcheck source=./_reseau_ssh_common.sh
 source "$RESEAU_SSH_SOURCE_DIR/_reseau_ssh_common.sh"
+# shellcheck source=./_reseau_ssh_baseline.sh
+source "$RESEAU_SSH_SOURCE_DIR/_reseau_ssh_baseline.sh"
 # shellcheck source=./_reseau_ssh_transition.sh
 source "$RESEAU_SSH_SOURCE_DIR/_reseau_ssh_transition.sh"
 
@@ -70,28 +72,22 @@ EOF
     exit 2
     ;;
   baseline-dry-run)
-    reseau_ssh_require_exec "$RESEAU_SSH_STEP1B_CMD"
-    exec bash "$RESEAU_SSH_STEP1B_CMD" dry-run "$@"
+    reseau_ssh_baseline_apply_linux "$@"
     ;;
   baseline-apply)
-    reseau_ssh_require_exec "$RESEAU_SSH_STEP1B_CMD"
-    exec bash "$RESEAU_SSH_STEP1B_CMD" apply "$@"
+    reseau_ssh_baseline_apply_linux --apply "$@"
     ;;
   baseline-hostname)
-    reseau_ssh_require_exec "$RESEAU_SSH_STEP1B_CMD"
-    exec bash "$RESEAU_SSH_STEP1B_CMD" hostname "$@"
+    reseau_ssh_baseline_apply_hostname "$@"
     ;;
   baseline-sanity)
-    reseau_ssh_require_exec "$RESEAU_SSH_STEP1B_CMD"
-    exec bash "$RESEAU_SSH_STEP1B_CMD" sanity "$@"
+    reseau_ssh_baseline_sanity "$@"
     ;;
   baseline-show-hosts)
-    reseau_ssh_require_exec "$RESEAU_SSH_STEP1B_CMD"
-    exec bash "$RESEAU_SSH_STEP1B_CMD" show-hosts "$@"
+    reseau_ssh_baseline_show_hosts "$@"
     ;;
   baseline-show-ssh)
-    reseau_ssh_require_exec "$RESEAU_SSH_STEP1B_CMD"
-    exec bash "$RESEAU_SSH_STEP1B_CMD" show-ssh "$@"
+    reseau_ssh_baseline_show_ssh "$@"
     ;;
   help|-h|--help|"")
     cat <<'EOF'

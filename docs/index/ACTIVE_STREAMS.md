@@ -162,9 +162,9 @@ Il sert à :
 - statut : open
 - repo : opt-trading
 - branche : non précisée dans `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md`
-- dernier point établi : `db-layer`, `admin-trading`, `student` et `fantome` pointent maintenant leurs alias courts vers `modules/reseau_ssh/scripts/*` avec PASS ; le runtime legacy `scripts/reseau_ssh` est archivé repo-side ; `step1b` reste la seule transition active
-- prochaine action : qualifier `step1b`
-- blocages : ne pas retirer `step1b` avant qualification complète des usages résiduels
+- dernier point établi : `db-layer`, `admin-trading`, `student` et `fantome` pointent maintenant leurs alias courts vers `modules/reseau_ssh/scripts/*` avec PASS ; le runtime legacy `scripts/reseau_ssh` est archivé repo-side ; les commandes `baseline-*` sont absorbées ; `step1b` passe en `archive_candidate`
+- prochaine action : arbitrer l’archivage ou le retrait borné de `step1b`
+- blocages : ne pas retirer `step1b` avant audit final des helpers non publiés
 
 ### GO_TMUX_IDE_OPT_TRADING_CADRAGE_01
 - statut : active

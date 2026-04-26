@@ -51,7 +51,7 @@ links:
 ## Survivant / Transition / Legacy / Archive
 - survivant : `reseau_ssh`
 - implementation interne : `reseau_ssh_step2`
-- transition : `reseau_ssh_step1b`
+- archive candidate : `reseau_ssh_step1b`
 - runtime legacy archive : `_archive/legacy_modules/reseau_ssh_runtime_rollback_only`
 - archive : `_archive/legacy_modules/reseau_ssh_step1`, `_archive/legacy_modules/reseau_ssh_root_wrappers_legacy`
 
@@ -67,7 +67,7 @@ links:
 - compat retirement : `GO_OPT_TRADING_RESEAU_SSH_RUNTIME_COMPAT_RETIREMENT_01`
 - absorption backend compat : `GO_OPT_TRADING_RESEAU_SSH_COMPAT_BACKEND_ABSORPTION_01`
 - archive rollback repo-side : `GO_OPT_TRADING_RESEAU_SSH_ROLLBACK_ARCHIVE_01`
-- prochaine reduction ciblee : `reseau_ssh_step1b`
+- prochaine reduction ciblee : archivage ou retrait borne de `reseau_ssh_step1b`
 
 ## Target
 1 module canonique par famille.

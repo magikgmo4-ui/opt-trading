@@ -3,7 +3,7 @@
 ## Family status (reseau_ssh*)
 - Canonical top-level module: `reseau_ssh`
 - Internal implementation layer: `modules/reseau_ssh/modules/reseau_ssh/reseau_ssh_step2`
-- Kept prerequisite: `reseau_ssh_step1b` (hosts + ssh config + key tests)
+- Former prerequisite: `reseau_ssh_step1b` is now an archive candidate after baseline absorption into `modules/reseau_ssh`
 - Archived legacy step1: `_archive/legacy_modules/reseau_ssh_step1`
 - Reference decision: `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md`
 
