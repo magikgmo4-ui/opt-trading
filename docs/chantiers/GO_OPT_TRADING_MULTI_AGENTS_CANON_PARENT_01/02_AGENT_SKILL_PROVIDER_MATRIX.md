@@ -28,13 +28,15 @@ search_tags:
   - ide:trae
   - agent:codex
   - agent:claude
+  - agent:codexoauth_observed
 surface: chantier
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
-point_de_reprise: "03_FRONTMATTER_SEARCH_TAGS_NAMING_DOCTRINE.md"
+point_de_reprise: "10_CROSS_CHANTIERS_OPENCLAW_TMUX_AGENTS_REVIEW.md"
 updated_at: 2026-04-26
 links:
   - docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/01_EXISTING_SOCLE_READOUT.md
+  - docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/10_CROSS_CHANTIERS_OPENCLAW_TMUX_AGENTS_REVIEW.md
   - docs/ot/trae/04_SKILLS_V1.txt
   - docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt
   - workflow_ai/WORKFLOW.md
@@ -44,6 +46,7 @@ links:
   - docs/product_targets/DEEPSEEK_OLLAMA_TARGET_CANON.md
   - modules/menu_openclaw/docs/GO_OPENCLAW_CHAIN_03.md
   - modules/model_provider_openclaw/docs/GO_OPENCLAW_PROVIDER_POLICY_04.md
+  - modules/model_provider_openclaw/docs/GO_OPENCLAW_POLICY_RUNTIME_ALIGNMENT_05.md
 ---
 
 # 02_AGENT_SKILL_PROVIDER_MATRIX — Multi-agents
@@ -211,13 +214,39 @@ OpenClaw ne remplace pas :
 
 ## 9. Mapping OpenClaw agents
 
-| Agent OpenClaw | Role possible | Provider policy | Equivalent externe |
-| --- | --- | --- | --- |
-| `orchestrateur` | route mission locale bornee | provider autorise + limites | ChatGPT gouvernance / Trae mission driver |
-| `builder` | generation patch/script borne | provider autorise + fallback | Claude/Codex selon contexte |
-| `reviewer` | verification scope/preuve | provider autorise + limites strictes | Claude review / Codex review |
-| `lab` | experimentation locale | provider local ou fallback | Ollama sandbox |
-| `codexoauth` | integration Codex/OAuth observee | a qualifier | Codex bridge potentiel |
+| Agent OpenClaw | Role possible | Provider policy | Equivalent externe | Statut canonique |
+| --- | --- | --- | --- | --- |
+| `orchestrateur` | route mission locale bornee | provider autorise + limites | ChatGPT gouvernance / Trae mission driver | canonique policy V1 |
+| `builder` | generation patch/script borne | provider autorise + fallback | Claude/Codex selon contexte | canonique policy V1 |
+| `reviewer` | verification scope/preuve | provider autorise + limites strictes | Claude review / Codex review | canonique policy V1 ; ecart runtime observe a suivre |
+| `lab` | experimentation locale | provider local ou fallback | Ollama sandbox | canonique policy V1 ; fallback runtime observe a suivre |
+| `codexoauth` | integration Codex/OAuth observee | hors policy V1 observee | Codex bridge potentiel | visible runtime / policy-gap / a qualifier |
+
+### 9.1 Note codexoauth
+
+`codexoauth` est visible cote runtime OpenClaw, mais il est hors policy V1 observee dans `model_provider_openclaw`.
+
+Statut retenu :
+
+```text
+runtime-visible / policy-gap / a qualifier
+```
+
+Il ne doit pas etre promu agent canonique global sans GO dedie.
+
+GO possible si besoin :
+
+```text
+GO_OPENCLAW_CODEXOAUTH_POLICY_QUALIFICATION_01
+```
+
+Objectif de ce futur GO :
+
+- verifier son role exact ;
+- verifier s'il doit entrer dans la policy V1 ou une V2 ;
+- verifier ses limites provider/model ;
+- determiner s'il s'agit d'un bridge Codex, d'un agent OAuth, ou d'une surface runtime transitoire ;
+- documenter la decision sans modifier le runtime.
 
 ## 10. Sequence multi-agents recommandee
 
@@ -238,6 +267,12 @@ La doctrine multi-agents doit utiliser cette separation comme base canonique :
 Doctrine != Agent != Skill != Provider != Orchestrateur != Deployer != Prompt Generator != Bridge
 ```
 
+Decision additionnelle :
+
+```text
+codexoauth != agent canonique global tant que sa qualification policy/runtime n'est pas prouvee.
+```
+
 ## 12. Point de reprise
 
-Prochain document : `03_FRONTMATTER_SEARCH_TAGS_NAMING_DOCTRINE.md`.
+Prochain document de reprise : `10_CROSS_CHANTIERS_OPENCLAW_TMUX_AGENTS_REVIEW.md`.
