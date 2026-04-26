@@ -1,0 +1,196 @@
+BUNDLE_IDE_CHERRY_PICK_TRANSFER_METHOD
+GO_OPT_TRADING_MULTI_AGENTS_CHERRY_PICK_TRANSFER_METHOD_01
+
+OBJECTIF
+Préparer et consolider dans l'IDE la méthode canonique de préparation cherry-pick pour agents / IDE / branches multi-machines, sur la branche go/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01.
+
+BRANCHE
+- repo: magikgmo4-ui/opt-trading
+- branche: go/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01
+- base canonique: sot/mainline
+- type: doc-only
+
+CONTRAINTES
+- Aucune mutation runtime.
+- Aucun patch OpenClaw runtime.
+- Aucun trading live.
+- Aucun merge automatique.
+- Ne pas modifier les gros index globaux directement.
+- Garder la continuité locale dans docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/.
+- Si réalignement requis: git pull --rebase.
+- Si push forcé requis: git push --force-with-lease.
+
+SURFACES CRÉÉES / À VÉRIFIER
+- docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/13_CHERRY_PICK_TRANSFER_METHOD.md
+- docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/CHERRY_PICK_INVENTORY_TEMPLATE.md
+- docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/BUNDLE_IDE_CHERRY_PICK_TRANSFER_METHOD.txt
+
+SURFACES À METTRE À JOUR SI NÉCESSAIRE
+- docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/02_AGENT_SKILL_PROVIDER_MATRIX.md
+- docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/03_FRONTMATTER_SEARCH_TAGS_NAMING_DOCTRINE.md
+- docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/05_OPERATIONAL_MATRIX_INTEGRATION_PLAN.md
+- docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/PARENT_STATE.md
+- docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/NEXT.md
+- docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/ACTIVE.md
+- docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/DECISIONS.md
+
+COMMANDE INITIALE IDE / TERMINAL
+
+```bash
+git fetch origin
+git checkout go/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01
+git status --short --branch
+git branch -vv
+```
+
+SI LA BRANCHE DOIT ÊTRE RÉALIGNÉE
+
+```bash
+git pull --rebase origin sot/mainline
+git status --short --branch
+```
+
+TRAVAIL À EFFECTUER
+
+1. Vérifier que 13_CHERRY_PICK_TRANSFER_METHOD.md contient l'intégralité de la réponse source intégrée.
+2. Vérifier que CHERRY_PICK_INVENTORY_TEMPLATE.md est utilisable directement par un agent, IDE ou opérateur.
+3. Ajouter dans 02_AGENT_SKILL_PROVIDER_MATRIX.md une ligne ou section:
+   Cherry-pick inventory = Git transfer method / prepared selection layer.
+   Non agent, non skill, non provider, non orchestrateur.
+4. Ajouter dans 03_FRONTMATTER_SEARCH_TAGS_NAMING_DOCTRINE.md:
+   - doc_type: cherry_pick_inventory
+   - topic_keys git/cherry_pick/transfer/branch_sync/multi_agents
+   - search_tags git:cherry_pick, transfer:selective, doc_role:cherry_pick_inventory, agent_procedure:required, ide_procedure:required
+5. Ajouter dans 05_OPERATIONAL_MATRIX_INTEGRATION_PLAN.md:
+   Phase H — Cherry-pick readiness / transfert sélectif Git.
+6. Mettre à jour PARENT_STATE.md, NEXT.md, ACTIVE.md et DECISIONS.md pour indiquer que la méthode est ajoutée au parent.
+7. Ne pas toucher aux index globaux.
+
+BLOC À AJOUTER DANS 02_AGENT_SKILL_PROVIDER_MATRIX.md
+
+```md
+## Cherry-pick inventory — Git transfer method
+
+`CHERRY_PICK_INVENTORY.md` est une méthode de transfert Git sélectif. Elle prépare la reprise de commits depuis une branche agent / IDE / machine vers une branche cible.
+
+Elle n'est pas un agent, pas un skill, pas un provider, pas un orchestrateur et pas une gouvernance.
+
+| Surface | Type canonique | Rôle valide | Entrée | Sortie | Limite |
+|---|---|---|---|---|---|
+| `CHERRY_PICK_INVENTORY.md` | Git transfer method | préparer la reprise sélective de commits | branche source + base + commits | commande cherry-pick prête + validations | ne remplace pas closeout, index global ou décision de merge |
+```
+
+BLOC À AJOUTER DANS 03_FRONTMATTER_SEARCH_TAGS_NAMING_DOCTRINE.md
+
+```md
+## Cherry-pick inventory
+
+Doc type recommandé :
+
+```yaml
+doc_type: cherry_pick_inventory
+```
+
+Topic keys recommandés :
+
+```yaml
+topic_keys:
+  - git
+  - cherry_pick
+  - transfer
+  - branch_sync
+  - multi_agents
+```
+
+Search tags recommandés :
+
+```yaml
+search_tags:
+  - git:cherry_pick
+  - transfer:selective
+  - doc_role:cherry_pick_inventory
+  - agent_procedure:required
+  - ide_procedure:required
+```
+
+Surface recommandée :
+
+```text
+docs/chantiers/<GO_ID>/CHERRY_PICK_INVENTORY.md
+```
+```
+
+BLOC À AJOUTER DANS 05_OPERATIONAL_MATRIX_INTEGRATION_PLAN.md
+
+```md
+### Phase H — Cherry-pick readiness / transfert sélectif Git
+
+Statut : DONE initial / à consolider selon l'IDE.
+
+Livrables :
+
+- `13_CHERRY_PICK_TRANSFER_METHOD.md` ;
+- `CHERRY_PICK_INVENTORY_TEMPLATE.md` ;
+- `BUNDLE_IDE_CHERRY_PICK_TRANSFER_METHOD.txt`.
+
+Critères :
+
+- chaque branche agent/IDE doit pouvoir produire un inventaire ;
+- chaque commit transférable doit être listé ;
+- chaque commit doit avoir rôle, dépendance, fichiers touchés, statut ;
+- les exclusions doivent être documentées ;
+- la commande `git cherry-pick ...` doit être prête ;
+- une variante `git cherry-pick -n ...` doit être prévue ;
+- le test sur branche temporaire doit être obligatoire avant propagation.
+```
+
+VALIDATION IDE
+
+```bash
+git status --short --branch
+git diff --stat origin/sot/mainline..HEAD
+git log --oneline -10
+```
+
+COMMIT PROPOSÉ SI PATCH LOCAL SUPPLÉMENTAIRE
+
+```bash
+git add docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/
+git commit -m "docs: integrate cherry-pick transfer method in multi-agents canon"
+git push
+```
+
+SI PUSH FORCÉ REQUIS
+
+```bash
+git push --force-with-lease
+```
+
+CLOSEOUT ATTENDU
+
+```md
+# CLOSEOUT — GO_OPT_TRADING_MULTI_AGENTS_CHERRY_PICK_TRANSFER_METHOD_01
+
+## État de départ
+Méthode cherry-pick non canonisée dans le parent multi-agents.
+
+## Correctif appliqué
+Ajout d'une méthode de transfert Git sélectif, d'un template d'inventaire et d'un bundle IDE.
+
+## Fichiers touchés
+- 13_CHERRY_PICK_TRANSFER_METHOD.md
+- CHERRY_PICK_INVENTORY_TEMPLATE.md
+- BUNDLE_IDE_CHERRY_PICK_TRANSFER_METHOD.txt
+- fichiers de continuité locale si modifiés
+
+## Vérifications
+- git status --short --branch
+- git diff --stat origin/sot/mainline..HEAD
+- lecture des liens locaux
+
+## Verdict
+PASS si doc-only, aucun runtime touché, méthode reprise clairement depuis le parent.
+
+## Point de reprise
+Reprendre depuis 13_CHERRY_PICK_TRANSFER_METHOD.md ou ce bundle IDE.
+```
