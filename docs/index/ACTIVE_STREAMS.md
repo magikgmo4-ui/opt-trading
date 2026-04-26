@@ -1,4 +1,4 @@
----
+﻿---
 doc_id: OPT_TRADING_ACTIVE_STREAMS
 doc_type: reprise
 repo: opt-trading
@@ -61,6 +61,14 @@ Il sert à :
 ---
 
 ## Flux actifs
+
+### GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01
+- statut : active
+- repo : opt-trading
+- branche : `go/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01`
+- dernier point Ã©tabli : chantier parent doc-only mergÃ© pour canoniser la doctrine multi-agents, avec continuitÃ© parent locale et inbox atomique
+- prochaine action : appliquer le prÃ©sent batch d'agrÃ©gation, puis ouvrir `GO_OPT_TRADING_PARENT_CONTINUITY_INDEX_INBOX_METHOD_01` seulement si une promotion additionnelle est requise
+- blocages : aucun runtime ; entrÃ©e agrÃ©gÃ©e depuis `INDEX_PATCH.md`
 
 ### GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01
 - statut : open

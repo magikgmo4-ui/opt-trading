@@ -1,12 +1,12 @@
----
+﻿---
 doc_id: OPT_TRADING_INDEX_INBOX_MULTI_AGENTS_CANON_PARENT_01
 doc_type: index_inbox_entry
 repo: opt-trading
 project: opt-trading
 module: multi_agents
 go_id: GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01
-status: ready
-lifecycle_stage: inbox
+status: applied
+lifecycle_stage: aggregated
 topic_keys:
   - opt-trading
   - index_inbox
@@ -16,8 +16,8 @@ topic_keys:
 search_tags:
   - surface:index_inbox
   - doc_role:index_inbox_entry
-  - aggregation:pending
-  - index:local_first
+  - aggregation:applied
+  - index:global_synced
 surface: index
 source_kind: derived
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
@@ -33,7 +33,7 @@ links:
 
 ```yaml
 go_id: GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01
-status: ready
+status: applied
 priority: P1
 branch: go/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01
 parent_ref: docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/PARENT_STATE.md
@@ -45,7 +45,7 @@ next_action: >-
   NEXT_GO_CANDIDATES et REPRISE via un batch dédié.
 index_patch_ref: docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/INDEX_PATCH.md
 updated_at: 2026-04-26
-aggregation_status: pending
+aggregation_status: applied
 ```
 
 ## Note
