@@ -1,0 +1,7 @@
+05_DASHBOARD_SPEC
+
+VIEW_01 GO actifs
+VIEW_02 GO bloques
+VIEW_03 GO sans preuve
+VIEW_04 GO par machine
+VIEW_05 NEXT_GO
