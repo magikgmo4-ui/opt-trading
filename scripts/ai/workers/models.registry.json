@@ -1,0 +1,29 @@
+{
+  "schema_version": "0.1-draft",
+  "go_id": "GO_OPT_TRADING_STRICT_WORKERS_PARENT_01",
+  "validation_source": "https://opencode.ai/zen/v1/models",
+  "validated_at": "2026-04-26",
+  "default_status": "DRAFT_ONLY",
+  "models": {
+    "glm-5.1": {"config_id": "opencode/glm-5.1", "status": "VERIFIED", "autonomy_max": "A2", "roles": ["PATCH_DRAFT", "TESTPLAN", "CHERRY_PICK_INVENTORY", "REVIEW_DRAFT"]},
+    "glm-5": {"config_id": "opencode/glm-5", "status": "VERIFIED", "autonomy_max": "A2", "roles": ["PATCH_DRAFT", "DOC_DRAFT", "TESTPLAN"]},
+    "kimi-k2.5": {"config_id": "opencode/kimi-k2.5", "status": "VERIFIED", "autonomy_max": "A2", "roles": ["READ_INVENTORY", "PATCH_DRAFT", "CHERRY_PICK_INVENTORY"]},
+    "kimi-k2.6": {"config_id": "opencode/kimi-k2.6", "status": "VERIFIED", "autonomy_max": "A2", "roles": ["PATCH_DRAFT", "TESTPLAN", "CHERRY_PICK_INVENTORY"]},
+    "minimax-m2.7": {"config_id": "opencode/minimax-m2.7", "status": "VERIFIED", "autonomy_max": "A2", "roles": ["READ_INVENTORY", "DOC_DRAFT", "PATCH_DRAFT", "TESTPLAN"]},
+    "minimax-m2.5": {"config_id": "opencode/minimax-m2.5", "status": "VERIFIED", "autonomy_max": "A2", "roles": ["READ_INVENTORY", "DOC_DRAFT", "FAST_TRIAGE", "CLOSEOUT_DRAFT"]},
+    "minimax-m2.5-free": {"config_id": "opencode/minimax-m2.5-free", "status": "VERIFIED_FREE", "autonomy_max": "A1", "roles": ["READ_INVENTORY", "FAST_TRIAGE"]},
+    "qwen3.6-plus": {"config_id": "opencode/qwen3.6-plus", "status": "VERIFIED", "autonomy_max": "A2", "roles": ["DOC_DRAFT", "TESTPLAN", "PATCH_DRAFT", "REVIEW_DRAFT"]},
+    "qwen3.5-plus": {"config_id": "opencode/qwen3.5-plus", "status": "VERIFIED", "autonomy_max": "A2", "roles": ["READ_INVENTORY", "DOC_DRAFT", "FAST_TRIAGE", "CLOSEOUT_DRAFT"]},
+    "big-pickle": {"config_id": "opencode/big-pickle", "status": "VERIFIED", "autonomy_max": "A2", "roles": ["READ_INVENTORY", "PATCH_DRAFT", "DOC_DRAFT", "TESTPLAN"]},
+    "hy3-preview-free": {"config_id": "opencode/hy3-preview-free", "status": "VERIFIED_FREE", "autonomy_max": "A1", "roles": ["READ_INVENTORY", "DOC_DRAFT"]},
+    "ling-2.6-flash-free": {"config_id": "opencode/ling-2.6-flash-free", "status": "VERIFIED_FREE", "autonomy_max": "A1", "roles": ["FAST_TRIAGE", "READ_INVENTORY"]},
+    "nemotron-3-super-free": {"config_id": "opencode/nemotron-3-super-free", "status": "VERIFIED_FREE", "autonomy_max": "A1", "roles": ["READ_INVENTORY", "DOC_DRAFT"]},
+    "gpt-5-nano": {"config_id": "opencode/gpt-5-nano", "status": "VERIFIED", "autonomy_max": "A1", "roles": ["FAST_TRIAGE", "READ_INVENTORY"]},
+    "mimo-v2-pro": {"config_id": null, "status": "ABSENT_CURRENT_ENDPOINT", "autonomy_max": "A0", "roles": []},
+    "mimo-v2-omni": {"config_id": null, "status": "ABSENT_CURRENT_ENDPOINT", "autonomy_max": "A0", "roles": []},
+    "mimo-v2.5-pro": {"config_id": null, "status": "ABSENT_CURRENT_ENDPOINT", "autonomy_max": "A0", "roles": []},
+    "mimo-v2.5": {"config_id": null, "status": "ABSENT_CURRENT_ENDPOINT", "autonomy_max": "A0", "roles": []},
+    "deepseek-v4-pro": {"config_id": null, "status": "ABSENT_CURRENT_ENDPOINT", "autonomy_max": "A0", "roles": []},
+    "deepseek-v4-flash": {"config_id": null, "status": "ABSENT_CURRENT_ENDPOINT", "autonomy_max": "A0", "roles": []}
+  }
+}
