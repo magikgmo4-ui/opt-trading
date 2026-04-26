@@ -1,0 +1,20 @@
+﻿Delete plan started: 2026-04-26T16:39:31.2282198-04:00
+Processing audit/opt-trading-20260320a
+Local audit/opt-trading-20260320a not found
+Remote audit/opt-trading-20260320a not found
+Processing docs/github-park-parent-closeout-01
+Local docs/github-park-parent-closeout-01 not found
+Remote docs/github-park-parent-closeout-01 not found
+Processing docs/github-park-pass-close-01
+Local docs/github-park-pass-close-01 not found
+Remote docs/github-park-pass-close-01 not found
+Processing feat/journal-api-extractor-bootstrap
+Deleting local feat/journal-api-extractor-bootstrap
+Deleted branch feat/journal-api-extractor-bootstrap (was 4b08a90).
+Remote feat/journal-api-extractor-bootstrap not found
+Processing feat/journal-api-extractor-v1
+Local feat/journal-api-extractor-v1 not found
+Remote feat/journal-api-extractor-v1 not found
+Processing feat/mimo-open-observer-doc-pack-v0
+Local feat/mimo-open-observer-doc-pack-v0 not found
+Deleting remote feat/mimo-open-observer-doc-pack-v0

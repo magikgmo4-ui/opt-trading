@@ -163,3 +163,33 @@ Pour toute nouvelle session de housekeeping :
 - charger d'abord `docs/index/BRANCH_STATE.md`
 - verifier le delta Git reel depuis la date et le commit de reference
 - ouvrir `GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01`
+
+## Phase Delete (GO_OPT_TRADING_BRANCH_ARBITRATION_DELETE_AND_BRANCH_STATE_03)
+
+- Branches A_SUPPRIMER prévues pour suppression locale et distante (dans le cadre de ce lot):
+- audit/opt-trading-20260320a
+- docs/github-park-parent-closeout-01
+- docs/github-park-pass-close-01
+- feat/journal-api-extractor-bootstrap
+- feat/journal-api-extractor-v1
+- feat/mimo-open-observer-doc-pack-v0
+- feat/student-mimo-qualification
+- METHODE_MULTI_MACHINE_GIT_SYNC
+- wip/GO_GITHUB_PARK_AUDIT_EXPANSION_ISOLATE_01
+
+- Statut envisagé: suppression sequenceée et journalisation; main/sot/mainline protégés.
+- Prochaine étape: exécuter les suppressions localement puis à distance, puis mettre à jour BRANCH_STATE.md et ajouter un closeout court.
+
+## Delete Final Status (remote audit)
+
+- Branch: audit/opt-trading-20260320a | local: LOCAL_ABSENT | remote: REMOTE_ABSENT
+- Branch: docs/github-park-parent-closeout-01 | local: LOCAL_ABSENT | remote: REMOTE_ABSENT
+- Branch: docs/github-park-pass-close-01 | local: LOCAL_ABSENT | remote: REMOTE_ABSENT
+- Branch: feat/journal-api-extractor-bootstrap | local: LOCAL_DELETED | remote: REMOTE_ABSENT
+- Branch: feat/journal-api-extractor-v1 | local: LOCAL_ABSENT | remote: REMOTE_ABSENT
+- Branch: feat/mimo-open-observer-doc-pack-v0 | local: LOCAL_DELETED | remote: REMOTE_DELETED
+- Branch: feat/student-mimo-qualification | local: LOCAL_ABSENT | remote: REMOTE_DELETED
+- Branch: METHODE_MULTI_MACHINE_GIT_SYNC | local: LOCAL_ABSENT | remote: REMOTE_ABSENT
+- Branch: wip/GO_GITHUB_PARK_AUDIT_EXPANSION_ISOLATE_01 | local: LOCAL_ABSENT | remote: REMOTE_ABSENT
+
+Note: Si une suppression distante échoue pour des credentials, elle est notée comme DELETE_ATTEMPTED_NOT_CONFIRMED et ne doit pas être présentée comme supprimée dans BRANCH_STATE.md.
