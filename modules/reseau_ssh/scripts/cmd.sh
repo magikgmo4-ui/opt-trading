@@ -64,7 +64,8 @@ Use the canonical workflow instead:
   cmd-reseau_ssh wg-status
 
 If you explicitly need the legacy compat backend, call it directly:
-  bash "$RESEAU_SSH_COMPAT_CMD" "$cmd" ...
+  restore it from:
+  $RESEAU_SSH_ARCHIVE_RUNTIME_DIR
 EOF
     exit 2
     ;;
@@ -116,7 +117,7 @@ Step 2 implementation:
   fw-dry-run
   fw-apply
 
-Compat backend:
+Canonical SSH bootstrap / hardening:
   bootstrap
   ssh-hardening-safe
   ssh-lockdown

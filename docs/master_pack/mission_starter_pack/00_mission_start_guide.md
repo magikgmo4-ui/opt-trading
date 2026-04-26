@@ -42,7 +42,7 @@ Avant toute action, l'agent **DOIT** lire :
     - `docs/ot/trae/OT_OPS_05B_DESK_PRO_ENTRYPOINT_MATRIX.md` (entrypoints Desk Pro)
 
 ## 2. RÈGLES D'OR (ANTI-DÉRIVE)
-1.  **Respecter le Runtime Machine** : Ne jamais supprimer ou modifier `scripts/student/`, `scripts/admin_trading/`, `scripts/reseau_ssh/` sans preuve absolue. Ce sont les couches d'intégration actives.
+1.  **Respecter le Runtime Machine** : Ne jamais supprimer ou modifier `scripts/student/` ou `scripts/admin_trading/` sans preuve absolue. Pour `reseau_ssh`, la surface active est maintenant `modules/reseau_ssh/`; l'ancien runtime repo-side est archivé sous `_archive/legacy_modules/reseau_ssh_runtime_rollback_only/`.
 2.  **Méfiance sur les Modules** : Un dossier dans `modules/` n'est pas forcément un exécutable (Ex: `modules/desk_pro/` est une librairie core, `modules/deepseek_student/` est incomplet).
 3.  **Pas de Wrapper Spéculatif** : Ne jamais créer de wrapper distant (admin -> student) tant que le besoin n'est pas prouvé par un ticket opérateur.
 4.  **Usage du Hub** : L'entrypoint opérateur par défaut est `menu-ops_menu_hub`.

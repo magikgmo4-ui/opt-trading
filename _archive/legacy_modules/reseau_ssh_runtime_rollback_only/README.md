@@ -1,10 +1,10 @@
-# reseau_ssh — backend compat runtime
+# reseau_ssh — archive rollback runtime
 
 ## Statut
 - module canonique repo-side : `modules/reseau_ssh`
-- rôle courant : surface legacy conservée pour rollback et appel explicite seulement
+- rôle courant : archive repo-side conservée pour restauration explicite seulement
 - état machine-side prouvé : les alias courts `menu/cmd/sanity-reseau_ssh` pointent maintenant vers `modules/reseau_ssh/scripts/*` sur `db-layer`, `admin-trading`, `student`, `fantome`
-- sortie visée : maintien temporaire en rollback-only, puis archive quand le retrait ne présentera plus de risque opératoire
+- état repo-side : déjà archivé sous `_archive/legacy_modules/reseau_ssh_runtime_rollback_only/`
 
 ## Ce que ce dossier contient encore
 - `reseau_ssh_menu.sh` : menu runtime historique
@@ -14,7 +14,7 @@
 
 ## Règle de lecture
 - pour la doctrine canonique et la consolidation de famille : lire `modules/reseau_ssh/`
-- pour l'état runtime machine-side encore actif : lire `scripts/reseau_ssh/`
+- pour l'archive repo-side : lire `_archive/legacy_modules/reseau_ssh_runtime_rollback_only/`
 - ne pas re-promouvoir ce dossier comme survivant canonique de famille
 
 ## Point de bascule
@@ -28,10 +28,10 @@ Le repointage machine-side est déjà exécuté sur :
 - `student`
 - `fantome`
 
-Le lot restant est repo-side :
-- conserver ce dossier hors flux canonique
-- éviter toute republication legacy des alias courts
-- décider ensuite l'issue finale : `rollback_only` -> `archive_backup`
+Le lot repo-side est clos pour cette surface :
+- ce dossier est hors flux canonique
+- aucune republication legacy des alias courts n'est encore admise
+- toute restauration doit etre explicite et documentee
 
 ## Etat des wrappers racine historiques
 Les anciens wrappers racine :
@@ -51,3 +51,6 @@ Les commandes suivantes ne sont plus publiées par la façade canonique et ne re
 - `wg-server-init`
 - `wg-client-init`
 - `wg-add-peer`
+
+## Target
+1 module canonique par famille.

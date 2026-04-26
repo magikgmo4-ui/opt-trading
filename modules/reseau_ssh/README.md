@@ -24,7 +24,7 @@ Ce répertoire racine est conservé comme point d'entrée de statut pour la fami
 - `reseau_ssh` est maintenant la surface canonique top-level de la lignée `reseau_ssh*`
 - l'implémentation nested `reseau_ssh_step2` reste interne à ce module
 - `bootstrap`, `ssh-hardening-safe` et `ssh-lockdown` sont maintenant absorbés dans `modules/reseau_ssh/scripts/*`
-- `scripts/reseau_ssh/` reste seulement une surface `rollback_only`
+- l'ancien runtime `scripts/reseau_ssh/` est maintenant archivé repo-side sous `_archive/legacy_modules/reseau_ssh_runtime_rollback_only/`
 - il est adjacent, mais non fusionné, avec :
   - `shared` pour la surface canonique inter-machines
   - `shared_files_sftp` pour l'exposition serveur

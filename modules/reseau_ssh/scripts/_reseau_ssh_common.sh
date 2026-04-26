@@ -27,10 +27,7 @@ RESEAU_SSH_IMPL_CMD="$RESEAU_SSH_IMPL_DIR/scripts/reseau_ssh_cmd.sh"
 RESEAU_SSH_IMPL_MENU="$RESEAU_SSH_IMPL_DIR/scripts/reseau_ssh_menu.sh"
 RESEAU_SSH_IMPL_SANITY="$RESEAU_SSH_IMPL_DIR/scripts/sanity_check.sh"
 
-RESEAU_SSH_COMPAT_DIR="$RESEAU_SSH_REPO_ROOT/scripts/reseau_ssh"
-RESEAU_SSH_COMPAT_CMD="$RESEAU_SSH_COMPAT_DIR/reseau_ssh_cmd.sh"
-RESEAU_SSH_COMPAT_MENU="$RESEAU_SSH_COMPAT_DIR/reseau_ssh_menu.sh"
-RESEAU_SSH_COMPAT_SANITY="$RESEAU_SSH_COMPAT_DIR/sanity_reseau_ssh.sh"
+RESEAU_SSH_ARCHIVE_RUNTIME_DIR="$RESEAU_SSH_REPO_ROOT/_archive/legacy_modules/reseau_ssh_runtime_rollback_only"
 
 RESEAU_SSH_STEP1B_DIR="$RESEAU_SSH_REPO_ROOT/modules/reseau_ssh_step1b/modules/reseau_ssh/reseau_ssh_step1b"
 RESEAU_SSH_STEP1B_CMD="$RESEAU_SSH_STEP1B_DIR/scripts/reseau_ssh_cmd.sh"
@@ -65,7 +62,7 @@ entry_real=$RESEAU_SSH_ENTRY_REAL
 module_root=$RESEAU_SSH_MODULE_DIR
 repo_root=$RESEAU_SSH_REPO_ROOT
 impl_dir=$RESEAU_SSH_IMPL_DIR
-compat_dir=$RESEAU_SSH_COMPAT_DIR
+archive_runtime_dir=$RESEAU_SSH_ARCHIVE_RUNTIME_DIR
 step1b_dir=$RESEAU_SSH_STEP1B_DIR
 EOF
 }

@@ -52,7 +52,7 @@ links:
 - survivant : `reseau_ssh`
 - implementation interne : `reseau_ssh_step2`
 - transition : `reseau_ssh_step1b`
-- compat runtime : `scripts/reseau_ssh` reste encore present comme surface `rollback_only`, mais plus comme backend appele par la facade canonique ni comme point d'entree court sur les 4 machines ciblees
+- runtime legacy archive : `_archive/legacy_modules/reseau_ssh_runtime_rollback_only`
 - archive : `_archive/legacy_modules/reseau_ssh_step1`, `_archive/legacy_modules/reseau_ssh_root_wrappers_legacy`
 
 ## Surfaces adjacentes
@@ -66,7 +66,8 @@ links:
 - machine-side : `GO_OPT_TRADING_RESEAU_SSH_MACHINE_SIDE_REPOINT_01`
 - compat retirement : `GO_OPT_TRADING_RESEAU_SSH_RUNTIME_COMPAT_RETIREMENT_01`
 - absorption backend compat : `GO_OPT_TRADING_RESEAU_SSH_COMPAT_BACKEND_ABSORPTION_01`
-- prochaine reduction ciblee : `GO_OPT_TRADING_RESEAU_SSH_TRANSITION_COMMANDS_ABSORPTION_01`, puis `reseau_ssh_step1b`
+- archive rollback repo-side : `GO_OPT_TRADING_RESEAU_SSH_ROLLBACK_ARCHIVE_01`
+- prochaine reduction ciblee : `reseau_ssh_step1b`
 
 ## Target
 1 module canonique par famille.
