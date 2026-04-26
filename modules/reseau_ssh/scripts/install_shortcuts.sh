@@ -1,9 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
-ROOT="/opt/trading"
-BIN="/usr/local/bin"
-sudo ln -sf "$ROOT/modules/reseau_ssh/scripts/menu.sh" "$BIN/menu-reseau_ssh_step2"
-sudo ln -sf "$ROOT/modules/reseau_ssh/scripts/cmd.sh" "$BIN/cmd-reseau_ssh_step2"
-sudo ln -sf "$ROOT/modules/reseau_ssh/scripts/sanity_check.sh" "$BIN/sanity-reseau_ssh_step2"
-echo "OK: installed compat shortcuts for reseau_ssh_step2 from canonical module reseau_ssh"
-ls -l "$BIN/menu-reseau_ssh_step2" "$BIN/cmd-reseau_ssh_step2" "$BIN/sanity-reseau_ssh_step2"
+SOURCE_PATH="${BASH_SOURCE[0]}"
+while [ -L "$SOURCE_PATH" ]; do
+  SOURCE_DIR="$(cd "$(dirname "$SOURCE_PATH")" && pwd -P)"
+  SOURCE_PATH="$(readlink "$SOURCE_PATH")"
+  case "$SOURCE_PATH" in
+    /*) ;;
+    *) SOURCE_PATH="$SOURCE_DIR/$SOURCE_PATH" ;;
+  esac
+done
+SCRIPTS_DIR="$(cd "$(dirname "$SOURCE_PATH")" && pwd -P)"
+
+echo "INFO: reseau_ssh_step2 compat shortcuts are retired."
+echo "INFO: installing canonical reseau_ssh shortcuts instead."
+exec bash "$SCRIPTS_DIR/install_canonical_shortcuts.sh"

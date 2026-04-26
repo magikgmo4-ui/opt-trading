@@ -31,19 +31,12 @@ echo
 show_cmd menu-reseau_ssh
 show_cmd cmd-reseau_ssh
 show_cmd sanity-reseau_ssh
-show_cmd menu-reseau_ssh_step2
-show_cmd cmd-reseau_ssh_step2
-show_cmd sanity-reseau_ssh_step2
 
 echo
 show_link /usr/local/bin/menu-reseau_ssh
 show_link /usr/local/bin/cmd-reseau_ssh
 show_link /usr/local/bin/sanity-reseau_ssh
-show_link /usr/local/bin/menu-reseau_ssh_step2
-show_link /usr/local/bin/cmd-reseau_ssh_step2
-show_link /usr/local/bin/sanity-reseau_ssh_step2
 
 echo
 show_link /opt/trading/scripts/reseau_ssh
 show_link /opt/trading/modules/reseau_ssh
-show_link /opt/trading/modules/reseau_ssh_step1b

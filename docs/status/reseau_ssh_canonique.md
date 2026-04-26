@@ -28,6 +28,7 @@ links:
   - docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CANONICAL_CLASSIFICATION_01/02_plan_operationnel_step_by_step.md
   - docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_RUNTIME_CONVERGENCE_TO_CANONICAL_01/02_plan_operationnel_step_by_step.md
   - docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CANONICAL_RENAME_REGISTRY_01/01_plan_operationnel_step_by_step.md
+  - docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/90_closeout.md
 ---
 
 # RESEAU_SSH — STATUT CANONIQUE
@@ -50,6 +51,9 @@ links:
 - les repertoires machine-side `step1b` ont ete deplaces en archive locale sur `db-layer`, `admin-trading`, `student`, `fantome`
 - les scripts canonique `reseau_ssh` ont ete resynchronises machine-side apres cleanup pour conserver `baseline-*`
 - `fantome` dispose maintenant de `python3-yaml` et repasse le deep sanity complet
+- les alias suffixes `menu/cmd/sanity-reseau_ssh_step2` sont retires
+- les repertoires machine-side `reseau_ssh_step2` sont deplaces en archive locale sur `db-layer`, `admin-trading`, `student`, `fantome`
+- interface publiee finale prouvee : `menu-reseau_ssh`, `cmd-reseau_ssh`, `sanity-reseau_ssh`
 - recroisement effectue avec `shared`, `shared_files_sftp`, `shared_sshfs_permanent`, `winscp_transfer`
 
 ## Survivant / Transition / Legacy / Archive
@@ -61,6 +65,8 @@ links:
 - archive machine-side :
   - `/opt/trading/_archive/legacy_modules/reseau_ssh_step1b_machine_2026-04-25`
   - `/home/fantome/opt-trading/_archive/legacy_modules/reseau_ssh_step1b_machine_2026-04-25`
+  - `/opt/trading/_archive/legacy_modules/reseau_ssh_step2_machine_2026-04-25_final`
+  - `/home/fantome/opt-trading/_archive/legacy_modules/reseau_ssh_step2_machine_2026-04-25_final`
 
 ## Surfaces adjacentes
 - `shared` : surface canonique inter-machines
@@ -77,7 +83,8 @@ links:
 - archive step1b repo-side : `GO_OPT_TRADING_RESEAU_SSH_STEP1B_ARCHIVE_01`
 - cleanup machine-side step1b : `GO_OPT_TRADING_RESEAU_SSH_STEP1B_MACHINE_CLEANUP_01`
 - correction environnement `fantome` : `GO_OPT_TRADING_RESEAU_SSH_FANTOME_PYYAML_FIX_01`
-- prochaine reduction ciblee : closeout documentaire final de la famille `reseau_ssh`
+- retraite compat step2 : `GO_OPT_TRADING_RESEAU_SSH_STEP2_COMPAT_RETIREMENT_01`
+- etat final : stream `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03` clos ; un seul module top-level actif et une seule interface publiee
 
 ## Target
 1 module canonique par famille.

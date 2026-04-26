@@ -14,7 +14,7 @@ topic_keys:
   - governance
 surface: continuity
 source_kind: canonical
-updated_at: 2026-04-22
+updated_at: 2026-04-25
 links:
   - docs/index/GO_INDEX.md
   - docs/governance/REPO_ROLE.md
@@ -69,6 +69,8 @@ Normalisation retenue :
 | UNIFORM_CONTINUITY_HARDENING | GO_UNIFORM_CONTINUITY_HARDENING_02 | GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01 | CLOSED | oui | `docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_02/00_cadrage.md`<br>`docs/chantiers/GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01/90_closeout.md` |
 | GO_UNIFORM_CONTINUITY_IDE_EXECUTION_PACK_02 | GO_UNIFORM_CONTINUITY_IDE_EXECUTION_PACK_02 | — | CLOSED | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_UNIFORM_CONTINUITY_IDE_EXECUTION_PACK_02/00_cadrage.md` |
 | GO_COLLECTORS_LIFECYCLE_COMPAT_CLOS | GO_COLLECTORS_LIFECYCLE_COMPAT_CLOS | — | CLOSED | oui | `docs/chantiers/GO_COLLECTORS_LIFECYCLE_COMPAT_CLOS/00_cadrage.md`<br>`docs/chantiers/GO_COLLECTORS_LIFECYCLE_COMPAT_CLOS/90_closeout.md` |
+| GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03 | GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/90_closeout.md` |
+| GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03 | GO_OPT_TRADING_RESEAU_SSH_UNIFIED_MODULE_CADRAGE_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_UNIFIED_MODULE_CADRAGE_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_UNIFIED_MODULE_CADRAGE_01/90_closeout.md` |
 
 ---
 
@@ -195,3 +197,19 @@ Ces entrées détaillées sont sorties de `docs/index/GO_INDEX.md`.
 - titre court : séquence lifecycle compat collectors canonisée en lot fermé
 - dernier état connu : séquence baseline -> scope -> spec -> closeout canonisée sous une forme close `_CLOS` ; closeout historique conservé ; aucun next GO ouvert automatiquement
 - lien utile : `docs/chantiers/GO_COLLECTORS_LIFECYCLE_COMPAT_CLOS/00_cadrage.md`, `docs/chantiers/GO_COLLECTORS_LIFECYCLE_COMPAT_CLOS/90_closeout.md`, `docs/COLLECTORS_LIFECYCLE_COMPAT_CLOSEOUT_01.md`
+
+### GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03
+- repo : opt-trading
+- type : consolidation modules / reseau_ssh
+- statut : pass
+- titre court : consolidation intégrale de la famille reseau_ssh
+- dernier état connu : un seul module top-level actif `modules/reseau_ssh` reste en place ; l'implémentation `reseau_ssh_step2` est interne au canonique ; un seul jeu d'alias publiés `menu/cmd/sanity-reseau_ssh` reste en place ; `db-layer`, `admin-trading`, `student` et `fantome` passent `sanity-reseau_ssh`
+- lien utile : `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/90_closeout.md`, `docs/status/reseau_ssh_canonique.md`
+
+### GO_OPT_TRADING_RESEAU_SSH_UNIFIED_MODULE_CADRAGE_01
+- repo : opt-trading
+- type : unification de module / reseau_ssh
+- statut : pass
+- titre court : cadrage de module unique absorbe
+- dernier état connu : le cadrage a atteint sa cible et est absorbé dans le closeout final du parent `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
+- lien utile : `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_UNIFIED_MODULE_CADRAGE_01/90_closeout.md`, `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/90_closeout.md`

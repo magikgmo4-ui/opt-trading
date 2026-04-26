@@ -52,10 +52,10 @@ Il sert à :
 
 ---
 
-## Priorité opératoire (14 GO non clos retenus)
+## Priorité opératoire (13 GO non clos retenus)
 
 - P0 : `GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01`, `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`, `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01`
-- P1 : `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`, `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`, `GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
+- P1 : `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`, `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`, `GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`
 - P2 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01`, `GO_OPT_TRADING_PARENT_NAMING_CANON_01`
 
 ---
@@ -157,14 +157,6 @@ Il sert à :
 - dernier point établi : parent naming canon ouvert en audit-only ; aucun renommage réel dans le lot initial
 - prochaine action : reprendre sur `GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01` avant tout lot d’application
 - blocages : aucun nouveau `<PRODUCT_OR_SURFACE>` ne doit être tenu pour valide sans preuve canonique ; aucune campagne rétroactive immédiate
-
-### GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03
-- statut : open
-- repo : opt-trading
-- branche : non précisée dans `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md`
-- dernier point établi : `db-layer`, `admin-trading`, `student` et `fantome` pointent maintenant leurs alias courts vers `modules/reseau_ssh/scripts/*` ; `scripts/reseau_ssh` et `step1b` sont archivés repo-side ; les répertoires machine-side `step1b` ont été déplacés en archive locale ; les 4 hôtes passent désormais `baseline-*` + `sanity-reseau_ssh`
-- prochaine action : closeout documentaire final de la famille `reseau_ssh`
-- blocages : aucun blocage runtime `reseau_ssh` restant ; simple warning d'hygiène `apt` sur `fantome` (sources dupliquées)
 
 ### GO_TMUX_IDE_OPT_TRADING_CADRAGE_01
 - statut : active
