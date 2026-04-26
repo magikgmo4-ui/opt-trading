@@ -28,7 +28,7 @@ links:
 
 Base de pilotage active retenue pour `opt-trading` :
 
-- périmètre = **14 GO non clos retenus** (`active` / `open`)
+- perimetre = **14 GO non clos retenus** (`active` / `open`)
 - canon décisionnel = **état réel du repo `opt-trading`, relu sous la matrice maître**
 - bundles zip = **supports secondaires** de lecture, transfert ou exécution IDE
 - exclusion explicite = `pass` et `reference` hors exécution courante
@@ -56,7 +56,7 @@ Base de pilotage active retenue pour `opt-trading` :
 - **Présence dans le repo** : les bundles et supports listés ici sont des noms de supports secondaires ; ils peuvent être absents du repo (non trackés)
 - **Interdiction de dérive** : un bundle zip ne remplace jamais l’état réel du repo
 - **Extraction de continuité** : seuls les resultats documentaires extraits conserves sous `docs/governance/HUMAN_*` font encore foi comme archive utile
-- **Liste active à piloter** : strictement les 14 GO ci-dessous
+- **Liste active a piloter** : strictement les 14 GO ci-dessous
 
 ## Matrice de reprise canonique
 

@@ -34,6 +34,9 @@ Chaque sous-lot doit rester borne :
 ### 1. `GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01`
 - priorite : `P1`
 - nature : structuration + conventions + eventuelles mutualisations legeres
+- etat courant :
+  - lance et clos doc-only le `2026-04-24`
+  - voir `docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/90_closeout.md`
 - objectif :
   - consolider la suite OpenClaw comme cockpit local borne
   - harmoniser wrappers, docs et chainage install -> policy -> config -> gateway -> doctor -> evidence
@@ -193,12 +196,11 @@ Chaque sous-lot doit rester borne :
   - conventions repo/tooling
 
 ## Ordre recommande
-1. `GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01`
-2. `GO_OPT_TRADING_RESEAU_SHARE_TRANSFER_CONSOLIDATION_01`
-3. `GO_OPT_TRADING_DEEPSEEK_FAMILY_CONSOLIDATION_01`
-4. `GO_OPT_TRADING_VISION_FAMILY_SURVIVOR_DECISION_01`
-5. `GO_OPT_TRADING_DESK_PRO_STACK_CONSOLIDATION_01`
-6. lots de contrats transverses selon besoin
+1. `GO_OPT_TRADING_RESEAU_SHARE_TRANSFER_CONSOLIDATION_01`
+2. `GO_OPT_TRADING_DEEPSEEK_FAMILY_CONSOLIDATION_01`
+3. `GO_OPT_TRADING_VISION_FAMILY_SURVIVOR_DECISION_01`
+4. `GO_OPT_TRADING_DESK_PRO_STACK_CONSOLIDATION_01`
+5. lots de contrats transverses selon besoin
 
 ## Gate de lancement
 Avant d'ouvrir un sous-lot d'execution, verifier :
