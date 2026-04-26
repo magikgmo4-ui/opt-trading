@@ -163,3 +163,19 @@ Pour toute nouvelle session de housekeeping :
 - charger d'abord `docs/index/BRANCH_STATE.md`
 - verifier le delta Git reel depuis la date et le commit de reference
 - ouvrir `GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01`
+
+## Phase Delete (GO_OPT_TRADING_BRANCH_ARBITRATION_DELETE_AND_BRANCH_STATE_03)
+
+- Branches A_SUPPRIMER prévues pour suppression locale et distante (dans le cadre de ce lot):
+- audit/opt-trading-20260320a
+- docs/github-park-parent-closeout-01
+- docs/github-park-pass-close-01
+- feat/journal-api-extractor-bootstrap
+- feat/journal-api-extractor-v1
+- feat/mimo-open-observer-doc-pack-v0
+- feat/student-mimo-qualification
+- METHODE_MULTI_MACHINE_GIT_SYNC
+- wip/GO_GITHUB_PARK_AUDIT_EXPANSION_ISOLATE_01
+
+- Statut envisagé: suppression sequenceée et journalisation; main/sot/mainline protégés.
+- Prochaine étape: exécuter les suppressions localement puis à distance, puis mettre à jour BRANCH_STATE.md et ajouter un closeout court.
