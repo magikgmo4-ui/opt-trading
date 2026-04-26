@@ -1,0 +1,5 @@
+M	docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/90_closeout.md
+M	docs/index/ACTIVE_STREAMS.md
+M	docs/index/GO_INDEX.md
+M	docs/index/REPRISE.md
+M	docs/next/NEXT_GO_CANDIDATES.md

@@ -1,0 +1,154 @@
+diff --git a/docs/ot/project_cards/PROJECT_CARD_VALIDATED_PROMPT_FACTORY_01.md b/docs/ot/project_cards/PROJECT_CARD_VALIDATED_PROMPT_FACTORY_01.md
+index 9788b68..f43c12d 100644
+--- a/docs/ot/project_cards/PROJECT_CARD_VALIDATED_PROMPT_FACTORY_01.md
++++ b/docs/ot/project_cards/PROJECT_CARD_VALIDATED_PROMPT_FACTORY_01.md
+@@ -2,108 +2,44 @@
+ 
+ Date: 2026-04-14
+ 
+-## 1. Objet
+-
+-Figer une fiche compacte de reprise pour `validated_prompt_factory`, afin de rendre retrouvables en un seul point:
+-- le but final retenu;
+-- le plan valid├®;
+-- lÔÇÖ├®tat ├®tabli;
+-- le non ├®tabli;
+-- le point de reprise.
+-
+-Cette fiche agr├¿ge volontairement:
+-- les artefacts repo d├®j├á pr├®sents;
+-- la continuit├® valid├®e en s├®ance quand le plan suivi nÔÇÖexiste pas encore comme doc source unique.
+-
+-Elle ne remplace pas les audits, reports, closings ni rapports dÔÇÖadoption d├®j├á pr├®sents.
+-
+-## 2. But final
+-
+-Faire de `validated_prompt_factory` une brique durable qui transforme une mati├¿re d├®j├á valid├®e en prompt final exploitable, dans le bon mode dÔÇÖusage, avec une surface de commande op├®rable et des garde-fous document├®s.
+-
+-LÔÇÖobjectif retenu nÔÇÖest pas seulement un g├®n├®rateur de texte, mais une ├®tape de transformation contr├┤l├®e entre synth├¿se valid├®e et prompt final r├®utilisable.
+-
+-## 3. Plan valid├®
+-
+-1. Partir dÔÇÖune mati├¿re d├®j├á valid├®e plut├┤t que de g├®n├®rer ├á partir de z├®ro.
+-2. La convertir en prompt final exploitable pour plusieurs modes dÔÇÖusage.
+-3. Exposer une surface op├®rable via wrappers / sanity / commandes de module.
+-4. Durcir ensuite usage r├®el, coh├®rence documentaire et adoption.
+-5. Traiter les ├®carts dÔÇÖenvironnement ou de structure sans casser le r├┤le central du module.
+-
+-## 4. ETABLI
+-
+-- Le repo contient d├®j├á un audit, des reports et plusieurs closings sur `validated_prompt_factory`.
+-- Le module est bien pr├®sent comme brique durable avec `sanity.sh`.
+-- Les documents existants couvrent:
+-  - audit du module;
+-  - report principal;
+-  - closing initial;
+-  - hardening;
+-  - real use;
+-  - adoption.
+-- Un report a d├®j├á retenu que le module est valid├® structurellement, avec une doc corrig├®e malgr├® un contexte dÔÇÖex├®cution Windows imparfait.
+-- La continuit├® retenue pour cette brique la place comme transformateur de synth├¿se valid├®e vers prompt final en mode appropri├®.
+-
+-## 5. NON ETABLI
+-
+-- Il nÔÇÖexistait pas encore, avant cette fiche, une project card courte unique r├®sumant finalit├® + plan valid├® + reprise du module.
+-- La place exacte du module dans la cha├«ne compl├¿te humaine/machine restait surtout reconstitu├®e via reports et continuit├®, plus que fig├®e dans une fiche unique.
+-- Cette fiche ne remplace pas une validation runtime compl├¿te sur tous les environnements shell/Windows/Linux.
+-- Cette fiche ne tranche pas de nouvelle extension fonctionnelle; elle g├¿le dÔÇÖabord la compr├®hension valid├®e du module.
+-
+-## 6. Reprise
+-
+-### GO porteur
+-`GO_PROJECT_CARDS_FREEZE_01`
+-
+-### Point de reprise `validated_prompt_factory`
+-Par d├®faut, la reprise logique suivante est:
+-`GO_VALIDATED_PROMPT_FACTORY_ADOPTION_FREEZE_01`
+-
+-### Pourquoi
+-Parce que:
+-- la brique est d├®j├á suffisamment cadr├®e dans son r├┤le;
+-- le besoin documentaire restant porte davantage sur son positionnement dÔÇÖusage et son adoption que sur sa simple existence structurelle;
+-- une passe de gel dÔÇÖadoption est plus utile quÔÇÖune ouverture artificielle dÔÇÖun nouveau scope produit.
+-
+-## 7. P├®rim├¿tre de la fiche
+-
+-Cette fiche:
+-- fige la compr├®hension valid├®e de `validated_prompt_factory`;
+-- ne modifie aucun runtime;
+-- nÔÇÖouvre pas automatiquement un nouveau patch;
+-- sert de support de reprise compact.
+-
+-## 8. Liens repo utiles
+-
+-- `docs/ot/trae/OT_MODULE_01_VALIDATED_PROMPT_FACTORY_AUDIT.md`
+-- `docs/ot/reports/OT_MODULE_01_VALIDATED_PROMPT_FACTORY_REPORT.md`
+-- `docs/ot/closings/OT_MODULE_01_VALIDATED_PROMPT_FACTORY_CLOSING.txt`
+-- `docs/ot/closings/OT_MODULE_02_VALIDATED_PROMPT_FACTORY_HARDENING_CLOSING.txt`
+-- `docs/ot/closings/OT_MODULE_01_VALIDATED_PROMPT_FACTORY_REAL_USE_CLOSING.txt`
+-- `docs/ot/closings/OT_MODULE_03_VALIDATED_PROMPT_FACTORY_ADOPTION_CLOSING.txt`
+-- `modules/validated_prompt_factory/sanity.sh`
+-
+-## 9. ETABLI
+-
+-- la cinqui├¿me `PROJECT_CARD` issue du gel portefeuille est ouverte pour `validated_prompt_factory`;
+-- le but final, le plan valid├®, le non ├®tabli et la reprise sont d├®sormais fig├®s dans une fiche compacte d├®di├®e;
+-- la lacune documentaire est recentr├®e sur le positionnement dÔÇÖusage et lÔÇÖadoption plus que sur la structure m├¬me du module.
+-
+-## 10. TODO
+-
+-- produire la fiche `module_contextuals_shell`.
+-
+-## 11. REPRISE
+-
+-Point de reprise documentaire:
+-`PROJECT_CARD_VALIDATED_PROMPT_FACTORY_01`
+-
+-Point de reprise chantier logique:
+-`GO_VALIDATED_PROMPT_FACTORY_ADOPTION_FREEZE_01`
+-
+-## 12. MEM_CANDIDATE
+-
+-Utile seulement sur demande explicite:
+-- pour `validated_prompt_factory`, le prochain manque structurant est davantage le gel court de lÔÇÖadoption et du positionnement dÔÇÖusage que la structure du module elle-m├¬me.
++A documenter ? Oui, fiche.
++
++## Objet
++Figer une fiche compacte et uniforme pour validated_prompt_factory.
++
++## Besoin initial
++Retrouver en un seul point pourquoi cette brique existe, quelle cible finale a ete retenue, quel plan valide a ete suivi, ce qui est deja etabli et quel est le prochain GO utile.
++
++## Cible finale / But final
++Faire de validated_prompt_factory une brique durable qui transforme une matiere deja validee en prompt final exploitable, dans le bon mode d usage, avec une surface de commande operable et des garde-fous documentes.
++
++## Plan valide
++1. Partir d une matiere deja validee.
++2. La convertir en prompt final exploitable pour plusieurs modes d usage.
++3. Exposer une surface operable via wrappers, sanity et commandes de module.
++4. Durcir ensuite usage reel, coherence documentaire et adoption.
++5. Traiter les ecarts d environnement ou de structure sans casser le role central du module.
++
++## ETABLI
++- Le repo contient deja audit, reports et closings sur validated_prompt_factory.
++- Le module est present comme brique durable avec sanity.sh.
++- Les documents existants couvrent audit, report principal, closing initial, hardening, real use et adoption.
++- Un report a deja retenu que le module est valide structurellement, avec une doc corrigee malgre un contexte d execution Windows imparfait.
++- La continuite retenue place cette brique comme transformateur de synthese validee vers prompt final en mode approprie.
++
++## Gap restant
++Le manque principal restant porte sur le gel court de son adoption et de son positionnement d usage, plus que sur la structure du module elle-meme.
++
++## Next GO / Reprise
++- GO porteur : GO_PROJECT_CARDS_FREEZE_01
++- Next GO retenu : GO_VALIDATED_PROMPT_FACTORY_ADOPTION_FREEZE_01
++- Raison : une passe de gel d adoption est plus utile qu une ouverture artificielle d un nouveau scope produit.
++
++## References repo utiles
++- docs/ot/trae/OT_MODULE_01_VALIDATED_PROMPT_FACTORY_AUDIT.md
++- docs/ot/reports/OT_MODULE_01_VALIDATED_PROMPT_FACTORY_REPORT.md
++- docs/ot/closings/OT_MODULE_01_VALIDATED_PROMPT_FACTORY_CLOSING.txt
++- docs/ot/closings/OT_MODULE_02_VALIDATED_PROMPT_FACTORY_HARDENING_CLOSING.txt
++- docs/ot/closings/OT_MODULE_01_VALIDATED_PROMPT_FACTORY_REAL_USE_CLOSING.txt
++- docs/ot/closings/OT_MODULE_03_VALIDATED_PROMPT_FACTORY_ADOPTION_CLOSING.txt
++- modules/validated_prompt_factory/sanity.sh

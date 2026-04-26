@@ -1,0 +1,867 @@
+diff --git a/docs/architecture/PROJECT_SNAPSHOT_GLOBAL_2026-04-18.md b/docs/architecture/PROJECT_SNAPSHOT_GLOBAL_2026-04-18.md
+index ac384dd..80a73e3 100644
+--- a/docs/architecture/PROJECT_SNAPSHOT_GLOBAL_2026-04-18.md
++++ b/docs/architecture/PROJECT_SNAPSHOT_GLOBAL_2026-04-18.md
+@@ -1,3 +1,32 @@
++---
++doc_id: OPT_TRADING_PROJECT_SNAPSHOT_GLOBAL_2026_04_18
++doc_type: architecture_snapshot
++repo: opt-trading
++project: opt-trading
++module:
++go_id:
++status: snapshot
++lifecycle_stage: architecture
++topic_keys:
++  - opt-trading
++  - snapshot
++  - architecture
++  - continuity
++surface: architecture
++source_kind: snapshot
++reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++updated_at: 2026-04-23
++links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++  - docs/architecture/REPO_SURFACES_MAP.md
++---
++
++## Role aligne avec la matrice maitre
++
++- role actuel : snapshot global ponctuel de reprise
++- role cible : snapshot / archive de lecture
++- ce document peut aider a se reorienter, mais il ne gouverne ni la hierarchie documentaire, ni la continuite produit, ni la structure Git
++
+ ## Classification  
+ **diagnostic ponctuel ÔÇö reconstruction m├®moire op├®rationnelle**
+ 
+@@ -310,4 +339,4 @@ Repartir via :
+ - ou GO_TRADING_STATS_PIPELINE
+ 
+ ## MEM_CANDIDATE
+-Vue consolid├®e projets / infra / chantiers utilisable comme snapshot de reprise global.
+\ No newline at end of file
++Vue consolid├®e projets / infra / chantiers utilisable comme snapshot de reprise global.
+diff --git a/docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/01_cadrage_parent.md b/docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/01_cadrage_parent.md
+index 6491faf..3eb1f05 100644
+--- a/docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/01_cadrage_parent.md
++++ b/docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/01_cadrage_parent.md
+@@ -21,6 +21,7 @@ updated_at: 2026-04-23
+ links:
+   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+   - docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md
++  - docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/02_alignment_surfaces_proches.md
+   - docs/governance/MATRICE_GOUVERNANTE_V2.md
+   - docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md
+   - docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md
+@@ -75,6 +76,7 @@ Produire une matrice ma├«tresse unique, gouvernante et canonique qui fusionne :
+ ## ETABLI
+ 
+ - `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md` existe desormais comme matrice maitre finale unique de gouvernance
++- `docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/02_alignment_surfaces_proches.md` qualifie les surfaces proches, leurs roles cibles et le patch doc-only borne
+ - `docs/governance/MATRICE_GOUVERNANTE_V2.md` fixe d├®j├á le socle structurel
+ - `docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md` fixe d├®j├á la sous-couche de d├®rivation
+ - `docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md` et `docs/governance/AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md` portent d├®j├á la continuit├® produit
+@@ -84,9 +86,9 @@ Produire une matrice ma├«tresse unique, gouvernante et canonique qui fusionne :
+ 
+ ## Gap restant
+ 
+-- l'alignement / deduplication / reclassement des surfaces proches n'est pas encore execute
+-- certaines surfaces utiles restent encore annexes, derivees ou non souveraines et doivent etre recalees a partir de la matrice maitre
+-- le parent doit encore propager cette reference sans ouvrir de chantier concurrent
++- aucune fusion physique ni suppression sensible n'a encore ete executee sur les surfaces proches
++- certaines surfaces restent seulement recadrees de role et pourront necessiter un lot complementaire borne si un ecart subsiste
++- le parent doit garder cette trajectoire sans rouvrir de synthese laterale ni de parent concurrent
+ 
+ ## Plan valid├®
+ 
+@@ -118,7 +120,8 @@ Produire une matrice ma├«tresse unique, gouvernante et canonique qui fusionne :
+ 
+ - repo canonique : `opt-trading`
+ - base canonique : `origin/sot/mainline`
+-- support Git local du pr├®sent passage : `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01`
++- branche parent de reference : `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01`
++- support Git local du present lot d'alignement : `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01_ALIGNMENT_01`
+ 
+ ## Effet attendu sur la trajectoire produit
+ 
+@@ -137,7 +140,7 @@ Et non l'inverse.
+ Aucun sous-GO impos├® ├á ce stade.
+ 
+ La suite imm├®diate correcte est :
+-- lancer le lot d'alignement / deduplication / reclassement des surfaces proches a partir de la matrice maitre deja redigee
++- n'ouvrir un lot complementaire doc-only borne que si un ecart d'alignement subsiste apres le present passage
+ 
+ ## PASS / FAIL
+ 
+diff --git a/docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/02_alignment_surfaces_proches.md b/docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/02_alignment_surfaces_proches.md
+new file mode 100644
+index 0000000..a7ed72c
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/02_alignment_surfaces_proches.md
+@@ -0,0 +1,145 @@
++---
++doc_id: GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01_ALIGNMENT_02
++doc_type: chantier_alignment
++repo: opt-trading
++project: opt-trading
++module: governance
++go_id: GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01
++status: reference
++lifecycle_stage: decisions
++topic_keys:
++  - opt-trading
++  - matrice_doc_ops
++  - alignment
++  - nearby_surfaces
++  - doc_only
++surface: chantier
++source_kind: canonical
++reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++point_de_reprise: "Section 7 - Point de reprise"
++updated_at: 2026-04-23
++links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++  - docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md
++  - docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/01_cadrage_parent.md
++  - docs/next/NEXT_GO_CANDIDATES.md
++  - docs/product_targets/GO_PRODUCT_TARGET_CANONIZATION_01_DECISION.md
++  - docs/product_targets/RUNTIME_TO_TARGET_MAPPING.md
++  - docs/ot/project_cards/PROJECT_CARD_DESKPRO_01.md
++  - docs/status/desk_pro_stack_canonique.md
++  - docs/architecture/PROJECT_SNAPSHOT_GLOBAL_2026-04-18.md
++  - docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md
++  - docs/index/BRANCH_STATE.md
++---
++
++# ALIGNMENT_SURFACES_PROCHES_02
++
++## 1. Objet
++
++Executer le lot doc-only borne d'alignement des surfaces proches a partir de `MATRICE_DOC_OPS_MASTER_MATRIX_01.md`.
++
++Ce lot ne :
++- re-redige pas la matrice maitre
++- n'ouvre pas de parent concurrent
++- ne lance pas de suppression physique sensible
++- ne traite pas des surfaces hors perimetre
++
++Support Git du present passage :
++- branche parent de reference : `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01`
++- branche de lot doc-only isolee : `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01_ALIGNMENT_01`
++
++Il qualifie et recadre le role des surfaces proches pour qu'aucune ne reste lue comme seconde reference souveraine transverse.
++
++---
++
++## 2. Tableau de qualification
++
++| Surface | Role actuel | Role cible | Decision doc-only retenue |
++| --- | --- | --- | --- |
++| `docs/next/NEXT_GO_CANDIDATES.md` | stub de redirection deja declass├® | compat / redirection seulement | conserver, clarifier le statut compat et le renvoi vers la matrice maitre + `docs/index/NEXT_GO_CANDIDATES.md` |
++| `docs/product_targets/GO_PRODUCT_TARGET_CANONIZATION_01_DECISION.md` | note de decision partielle `A_REVALIDER` | derive de revalidation produit | conserver, marquer comme non souverain et derive |
++| `docs/product_targets/RUNTIME_TO_TARGET_MAPPING.md` | mapping partiel runtime -> cible | derive de mapping produit | conserver, marquer comme derive et non souverain |
++| `docs/ot/project_cards/*` | fiches compactes de reprise produit / famille | surfaces operatoires de reprise bornees | conserver, recadrer comme operatoires et non souveraines |
++| `docs/status/*` | fiches courtes de lignee / famille | derives de qualification famille | conserver, recadrer comme derives de famille |
++| `docs/architecture/PROJECT_SNAPSHOT_GLOBAL_2026-04-18.md` | vue globale ponctuelle | snapshot / archive de lecture | conserver, marquer comme snapshot non gouvernant |
++| `docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md` | continuite produit haute, sans frontmatter | annexe canonique stable sous la matrice maitre | conserver, ajouter noyau frontmatter et borne d'autorite |
++| `docs/index/BRANCH_STATE.md` | photo operatoire des branches | surface operatoire branches seulement | conserver, recadrer explicitement sous la matrice maitre ; pas de reclassification exhaustive dans ce lot |
++
++---
++
++## 3. Doublons souverains reels
++
++Doublon souverain transverse reel : aucun second document ne concurrence `MATRICE_DOC_OPS_MASTER_MATRIX_01.md` comme matrice maitre transversale.
++
++Doublons ou recouvrements a clarifier :
++- doublon de nom : `docs/next/NEXT_GO_CANDIDATES.md` versus `docs/index/NEXT_GO_CANDIDATES.md`
++- recouvrement partiel sur la continuite produit : `PRODUCT_CONTINUITY_HIERARCHY_01.md`, `project_cards/*`, `status/*`, `product_targets/*`
++- recouvrement partiel sur la vue globale : `PROJECT_SNAPSHOT_GLOBAL_2026-04-18.md`
++- recouvrement partiel sur la lecture Git : `BRANCH_STATE.md`
++
++Regle retenue :
++- la matrice maitre reste seule souveraine
++- les surfaces proches gardent un role borne, explicite et compatible
++
++---
++
++## 4. Categories cibles retenues
++
++### Annexes stables
++
++- `docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md`
++
++### Surfaces operatoires
++
++- `docs/ot/project_cards/*`
++- `docs/index/BRANCH_STATE.md`
++
++### Surfaces derivees
++
++- `docs/product_targets/GO_PRODUCT_TARGET_CANONIZATION_01_DECISION.md`
++- `docs/product_targets/RUNTIME_TO_TARGET_MAPPING.md`
++- `docs/status/*`
++
++### Surfaces snapshot / compat
++
++- `docs/architecture/PROJECT_SNAPSHOT_GLOBAL_2026-04-18.md`
++- `docs/next/NEXT_GO_CANDIDATES.md`
++
++---
++
++## 5. Plan de patch doc-only borne
++
++Le patch borne de ce lot est :
++1. ajouter un marquage de role explicite sur chaque surface du perimetre
++2. ajouter un noyau frontmatter minimal quand il manque et que le document reste vivant
++3. ajouter le renvoi vers `MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
++4. ne pas supprimer physiquement les surfaces sensibles
++5. ne pas deplacer physiquement les fichiers dans ce lot
++
++Ce lot ne fait pas :
++- de fusion physique
++- de reclassement hors perimetre
++- de campagne naming
++- de refresh exhaustif du parc branches
++
++---
++
++## 6. Effet attendu
++
++Apres ce lot :
++- la matrice maitre reste l'unique reference souveraine transverse
++- les surfaces proches ont un role clarifie
++- aucun doublon souverain n'est laisse ambigu
++- la reprise reste compatible
++
++---
++
++## 7. Point de reprise
++
++Si un lot suivant reste necessaire, il devra rester :
++- doc-only
++- borne
++- centre sur les surfaces explicitement recadrees ici
++
++Le prochain geste naturel devient, seulement si un ecart subsiste :
++- un lot de patch doc-only borne d'alignement complementaire
+diff --git a/docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md b/docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md
+index e38d9b4..e089280 100644
+--- a/docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md
++++ b/docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md
+@@ -1,5 +1,35 @@
++---
++doc_id: OPT_TRADING_PRODUCT_CONTINUITY_HIERARCHY_01
++doc_type: governance_product_hierarchy
++repo: opt-trading
++project: opt-trading
++module:
++go_id:
++status: reference
++lifecycle_stage: governance
++topic_keys:
++  - opt-trading
++  - product_continuity
++  - hierarchy
++  - governance
++surface: governance
++source_kind: canonical
++reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++updated_at: 2026-04-23
++links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++  - docs/governance/AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md
++  - docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md
++---
++
+ # PRODUCT CONTINUITY HIERARCHY ÔÇö 01
+ 
++## Role aligne avec la matrice maitre
++
++- role actuel : hierarchie canonique de continuite produit
++- role cible : annexe canonique stable sous `MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
++- ce document precise la couche produit, mais ne remplace ni la matrice maitre, ni la doctrine de nommage, ni la doctrine Git, ni les surfaces operatoires
++
+ ## 1. Objet
+ Ce document pose la structuration canonique multi-chantier du projet opt-trading.
+ Il remplace l'inventaire historique par une continuit├® produit hi├®rarchis├®e en 3 niveaux, garantissant la pr├®servation de la trajectoire produit, des objectifs finaux et du paysage global.
+diff --git a/docs/index/BRANCH_STATE.md b/docs/index/BRANCH_STATE.md
+index eea47b6..59708cc 100644
+--- a/docs/index/BRANCH_STATE.md
++++ b/docs/index/BRANCH_STATE.md
+@@ -14,11 +14,13 @@ topic_keys:
+   - index
+ surface: index
+ source_kind: canonical
+-updated_at: 2026-04-22
++updated_at: 2026-04-23
+ links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+   - docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md
+   - docs/index/GO_INDEX.md
+   - docs/index/REPRISE.md
++  - docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/02_alignment_surfaces_proches.md
+   - docs/chantiers/GO_GIT_GO_REPOS_AGENT_ROLE_INITIAL_CLASSIFICATION_01/03_decisions.md
+   - docs/chantiers/GO_GIT_OPENCLAW_STATE_DIR_REPAIR_10_CLASSIFICATION_01/03_decisions.md
+ ---
+@@ -35,6 +37,13 @@ Elle sert a :
+ - tracer les classifications deja decidees
+ - completer `docs/index/GO_INDEX.md` pour la surface branches
+ 
++## Role aligne avec la matrice maitre
++
++- role actuel : photo canonique de la surface branches
++- role cible : surface operatoire borne aux branches seulement
++- cette fiche ne gouverne ni la continuite produit, ni la structure parent / sous-GO / GO simple, ni le nommage
++- la remise a jour exhaustive du tableau releve du prochain lot de housekeeping branches ; le present lot borne seulement le role de la surface
++
+ ## En-tete canonique
+ 
+ - repo : `opt-trading`
+@@ -125,6 +134,8 @@ Obligations explicites :
+ 
+ ## Journal minimal
+ 
++- branche de lot doc-only `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01_ALIGNMENT_01` ouverte pour isoler l'alignement des surfaces proches sans elargir la PR `#156` du lot precedent ; meme parent documentaire conserve
++- branche active du parent `GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01` : support Git a maintenir comme branche active du chantier maitre documentaire ; son integration exhaustive dans le tableau releve du prochain refresh housekeeping borne
+ - creation du support canonique `docs/index/BRANCH_STATE.md`
+ - branche conservee explicitement hors cleanup : `origin/go_repos_agent-role_initial_01` -> `KEEP_REFERENCE` via `GO_GIT_GO_REPOS_AGENT_ROLE_INITIAL_CLASSIFICATION_01`
+ - branche absorbee puis supprimee du remote : `origin/doc/GO_OPENCLAW_STATE_DIR_REPAIR_10` -> correction doc-only en `DROP_REMOTE_CANDIDATE`, suppression executee, donc absente du tableau courant
+diff --git a/docs/next/NEXT_GO_CANDIDATES.md b/docs/next/NEXT_GO_CANDIDATES.md
+index 01815fd..1029208 100644
+--- a/docs/next/NEXT_GO_CANDIDATES.md
++++ b/docs/next/NEXT_GO_CANDIDATES.md
+@@ -14,11 +14,13 @@ topic_keys:
+   - migration
+ surface: chantier
+ source_kind: deprecated
+-updated_at: 2026-04-18
++updated_at: 2026-04-23
+ links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+   - docs/index/GO_INDEX.md
+   - docs/index/ACTIVE_STREAMS.md
+   - docs/index/REPRISE.md
++  - docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/02_alignment_surfaces_proches.md
+ ---
+ 
+ # NEXT_GO_CANDIDATES ÔÇö opt-trading (d├®class├®)
+@@ -27,7 +29,15 @@ Ce fichier nÔÇÖest plus une source canonique.
+ 
+ Source canonique unique :
+ - `docs/index/NEXT_GO_CANDIDATES.md`
++- `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md` pour la hi├®rarchie d'autorit├®
++
++## Role aligne avec la matrice maitre
++
++- role actuel : stub de redirection de la surface `NEXT_GO_CANDIDATES`
++- role cible : compat / redirection seulement
++- interdit : porter une priorite operatoire, une nouvelle liste ou une doctrine concurrente
+ 
+ R├¿gle :
+-- ne pas ├®diter `docs/next/NEXT_GO_CANDIDATES.md`
++- ne pas utiliser `docs/next/NEXT_GO_CANDIDATES.md` comme surface active
+ - maintenir uniquement ce stub pour compatibilit├® / redirection
++- seules mises a jour admises ici : clarification du statut deprecated, du renvoi ou de la compatibilite
+diff --git a/docs/ot/project_cards/PROJECT_CARD_BOT_VISION_INGESTION_01.md b/docs/ot/project_cards/PROJECT_CARD_BOT_VISION_INGESTION_01.md
+index a50efa2..d69ad46 100644
+--- a/docs/ot/project_cards/PROJECT_CARD_BOT_VISION_INGESTION_01.md
++++ b/docs/ot/project_cards/PROJECT_CARD_BOT_VISION_INGESTION_01.md
+@@ -1,5 +1,34 @@
++---
++doc_id: OPT_TRADING_PROJECT_CARD_BOT_VISION_INGESTION_01
++doc_type: project_card
++repo: opt-trading
++project: opt-trading
++module: bot_vision
++go_id:
++status: reference
++lifecycle_stage: continuity
++topic_keys:
++  - opt-trading
++  - project_card
++  - bot_vision
++  - continuity
++  - product
++surface: continuity
++source_kind: operational_support
++reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++updated_at: 2026-04-23
++links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++---
++
+ # PROJECT_CARD_BOT_VISION_INGESTION_01
+ 
++## Role aligne avec la matrice maitre
++
++- role actuel : fiche compacte de reprise pour Bot Vision / ingestion desk
++- role cible : surface operatoire de reprise produit
++- cette fiche ne remplace ni la matrice maitre, ni une synthese produit canonique, ni les closeouts, ni les preuves runtime
++
+ Date: 2026-04-14
+ 
+ ## 1. Objet
+diff --git a/docs/ot/project_cards/PROJECT_CARD_DESKPRO_01.md b/docs/ot/project_cards/PROJECT_CARD_DESKPRO_01.md
+index d539f64..062d1b6 100644
+--- a/docs/ot/project_cards/PROJECT_CARD_DESKPRO_01.md
++++ b/docs/ot/project_cards/PROJECT_CARD_DESKPRO_01.md
+@@ -1,5 +1,34 @@
++---
++doc_id: OPT_TRADING_PROJECT_CARD_DESKPRO_01
++doc_type: project_card
++repo: opt-trading
++project: opt-trading
++module: desk_pro
++go_id:
++status: reference
++lifecycle_stage: continuity
++topic_keys:
++  - opt-trading
++  - project_card
++  - desk_pro
++  - continuity
++  - product
++surface: continuity
++source_kind: operational_support
++reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++updated_at: 2026-04-23
++links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++---
++
+ # PROJECT_CARD_DESKPRO_01
+ 
++## Role aligne avec la matrice maitre
++
++- role actuel : fiche compacte de reprise pour Desk Pro
++- role cible : surface operatoire de reprise produit
++- cette fiche ne remplace ni la matrice maitre, ni une synthese produit canonique, ni les closeouts, ni les runbooks
++
+ Date: 2026-04-13
+ 
+ ## 1. Objet
+diff --git a/docs/ot/project_cards/PROJECT_CARD_MODULE_CONTEXTUALS_SHELL_01.md b/docs/ot/project_cards/PROJECT_CARD_MODULE_CONTEXTUALS_SHELL_01.md
+index a9857ae..4521cda 100644
+--- a/docs/ot/project_cards/PROJECT_CARD_MODULE_CONTEXTUALS_SHELL_01.md
++++ b/docs/ot/project_cards/PROJECT_CARD_MODULE_CONTEXTUALS_SHELL_01.md
+@@ -1,5 +1,34 @@
++---
++doc_id: OPT_TRADING_PROJECT_CARD_MODULE_CONTEXTUALS_SHELL_01
++doc_type: project_card
++repo: opt-trading
++project: opt-trading
++module: module_contextuals_shell
++go_id:
++status: reference
++lifecycle_stage: continuity
++topic_keys:
++  - opt-trading
++  - project_card
++  - module_contextuals_shell
++  - continuity
++  - support_family
++surface: continuity
++source_kind: operational_support
++reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++updated_at: 2026-04-23
++links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++---
++
+ # PROJECT_CARD_MODULE_CONTEXTUALS_SHELL_01
+ 
++## Role aligne avec la matrice maitre
++
++- role actuel : fiche compacte de reprise pour une brique de support shell
++- role cible : surface operatoire de reprise famille / module
++- cette fiche ne remplace ni la matrice maitre, ni les docs techniques du module, ni une doctrine transverse
++
+ Date: 2026-04-14
+ 
+ ## 1. Objet
+diff --git a/docs/ot/project_cards/PROJECT_CARD_OPENCLAW_01.md b/docs/ot/project_cards/PROJECT_CARD_OPENCLAW_01.md
+index fa7f3d2..7d85d89 100644
+--- a/docs/ot/project_cards/PROJECT_CARD_OPENCLAW_01.md
++++ b/docs/ot/project_cards/PROJECT_CARD_OPENCLAW_01.md
+@@ -1,5 +1,34 @@
++---
++doc_id: OPT_TRADING_PROJECT_CARD_OPENCLAW_01
++doc_type: project_card
++repo: opt-trading
++project: opt-trading
++module: openclaw
++go_id:
++status: reference
++lifecycle_stage: continuity
++topic_keys:
++  - opt-trading
++  - project_card
++  - openclaw
++  - continuity
++  - support_family
++surface: continuity
++source_kind: operational_support
++reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++updated_at: 2026-04-23
++links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++---
++
+ # PROJECT_CARD_OPENCLAW_01
+ 
++## Role aligne avec la matrice maitre
++
++- role actuel : fiche compacte de reprise pour OpenClaw dans `opt-trading`
++- role cible : surface operatoire de reprise famille / support produit
++- cette fiche ne remplace ni la matrice maitre, ni un canon produit souverain, ni les docs module par module
++
+ Date: 2026-04-14
+ 
+ ## 1. Objet
+diff --git a/docs/ot/project_cards/PROJECT_CARD_TRADING_ANALYTICS_CHAIN_01.md b/docs/ot/project_cards/PROJECT_CARD_TRADING_ANALYTICS_CHAIN_01.md
+index fcdf4cf..a63725a 100644
+--- a/docs/ot/project_cards/PROJECT_CARD_TRADING_ANALYTICS_CHAIN_01.md
++++ b/docs/ot/project_cards/PROJECT_CARD_TRADING_ANALYTICS_CHAIN_01.md
+@@ -1,5 +1,34 @@
++---
++doc_id: OPT_TRADING_PROJECT_CARD_TRADING_ANALYTICS_CHAIN_01
++doc_type: project_card
++repo: opt-trading
++project: opt-trading
++module: trading_analytics
++go_id:
++status: reference
++lifecycle_stage: continuity
++topic_keys:
++  - opt-trading
++  - project_card
++  - trading_analytics
++  - continuity
++  - product
++surface: continuity
++source_kind: operational_support
++reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++updated_at: 2026-04-23
++links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++---
++
+ # PROJECT_CARD_TRADING_ANALYTICS_CHAIN_01
+ 
++## Role aligne avec la matrice maitre
++
++- role actuel : fiche compacte de reprise pour la chaine analytique trading
++- role cible : surface operatoire de reprise produit / pipeline
++- cette fiche ne remplace ni la matrice maitre, ni les specs detaillees, ni les closeouts par module
++
+ Date: 2026-04-14
+ 
+ ## 1. Objet
+diff --git a/docs/ot/project_cards/PROJECT_CARD_VALIDATED_PROMPT_FACTORY_01.md b/docs/ot/project_cards/PROJECT_CARD_VALIDATED_PROMPT_FACTORY_01.md
+index 9788b68..897b1a2 100644
+--- a/docs/ot/project_cards/PROJECT_CARD_VALIDATED_PROMPT_FACTORY_01.md
++++ b/docs/ot/project_cards/PROJECT_CARD_VALIDATED_PROMPT_FACTORY_01.md
+@@ -1,5 +1,34 @@
++---
++doc_id: OPT_TRADING_PROJECT_CARD_VALIDATED_PROMPT_FACTORY_01
++doc_type: project_card
++repo: opt-trading
++project: opt-trading
++module: validated_prompt_factory
++go_id:
++status: reference
++lifecycle_stage: continuity
++topic_keys:
++  - opt-trading
++  - project_card
++  - validated_prompt_factory
++  - continuity
++  - support_family
++surface: continuity
++source_kind: operational_support
++reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++updated_at: 2026-04-23
++links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++---
++
+ # PROJECT_CARD_VALIDATED_PROMPT_FACTORY_01
+ 
++## Role aligne avec la matrice maitre
++
++- role actuel : fiche compacte de reprise pour `validated_prompt_factory`
++- role cible : surface operatoire de reprise famille / module
++- cette fiche ne remplace ni la matrice maitre, ni les audits, ni les reports, ni les closings d'adoption
++
+ Date: 2026-04-14
+ 
+ ## 1. Objet
+diff --git a/docs/product_targets/GO_PRODUCT_TARGET_CANONIZATION_01_DECISION.md b/docs/product_targets/GO_PRODUCT_TARGET_CANONIZATION_01_DECISION.md
+index 0a4c6df..54ff77e 100644
+--- a/docs/product_targets/GO_PRODUCT_TARGET_CANONIZATION_01_DECISION.md
++++ b/docs/product_targets/GO_PRODUCT_TARGET_CANONIZATION_01_DECISION.md
+@@ -1,5 +1,34 @@
++---
++doc_id: OPT_TRADING_GO_PRODUCT_TARGET_CANONIZATION_01_DECISION
++doc_type: product_target_decision
++repo: opt-trading
++project: opt-trading
++module: product_targets
++go_id:
++status: reference
++lifecycle_stage: continuity
++topic_keys:
++  - opt-trading
++  - product_targets
++  - target_decision
++  - revalidation
++surface: continuity
++source_kind: derived
++reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++updated_at: 2026-04-23
++links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++  - docs/product_targets/RUNTIME_TO_TARGET_MAPPING.md
++---
++
+ # GO_PRODUCT_TARGET_CANONIZATION_01
+ 
++## Role aligne avec la matrice maitre
++
++- role actuel : note de decision partielle sur des cibles produit
++- role cible : support derive de revalidation produit
++- ce document ne fixe pas une souverainete transverse ; son statut `A_REVALIDER` interdit de le lire comme canon maitre
++
+ ## 1. QUESTION
+ 
+ Quelle cible produit canonique finale doit etre retenue pour:
+diff --git a/docs/product_targets/RUNTIME_TO_TARGET_MAPPING.md b/docs/product_targets/RUNTIME_TO_TARGET_MAPPING.md
+index f7c9882..e6cf872 100644
+--- a/docs/product_targets/RUNTIME_TO_TARGET_MAPPING.md
++++ b/docs/product_targets/RUNTIME_TO_TARGET_MAPPING.md
+@@ -1,5 +1,34 @@
++---
++doc_id: OPT_TRADING_RUNTIME_TO_TARGET_MAPPING
++doc_type: product_target_mapping
++repo: opt-trading
++project: opt-trading
++module: product_targets
++go_id:
++status: reference
++lifecycle_stage: continuity
++topic_keys:
++  - opt-trading
++  - runtime
++  - product_targets
++  - mapping
++surface: continuity
++source_kind: derived
++reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++updated_at: 2026-04-23
++links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++  - docs/product_targets/GO_PRODUCT_TARGET_CANONIZATION_01_DECISION.md
++---
++
+ # RUNTIME TO TARGET MAPPING
+ 
++## Role aligne avec la matrice maitre
++
++- role actuel : mapping de lecture runtime -> cible
++- role cible : support derive de mapping produit
++- ce document n'est pas une decision canonique finale ; il reste subordonne a la matrice maitre et a la revalidation produit
++
+ ## 1. RUNTIME ACTUEL (ETABLI)
+ 
+ - scripts/student/
+diff --git a/docs/status/bot_vision_canonique.md b/docs/status/bot_vision_canonique.md
+index 6cf3470..e02b1be 100644
+--- a/docs/status/bot_vision_canonique.md
++++ b/docs/status/bot_vision_canonique.md
+@@ -1,5 +1,33 @@
++---
++doc_id: OPT_TRADING_STATUS_BOT_VISION_CANONIQUE
++doc_type: family_status
++repo: opt-trading
++project: opt-trading
++module: bot_vision
++go_id:
++status: reference
++lifecycle_stage: continuity
++topic_keys:
++  - opt-trading
++  - status
++  - bot_vision
++  - family
++surface: continuity
++source_kind: derived
++reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++updated_at: 2026-04-23
++links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++---
++
+ # BOT_VISION ÔÇö STATUT CANONIQUE
+ 
++## Role aligne avec la matrice maitre
++
++- role actuel : fiche courte de lignee vision
++- role cible : surface derivee de qualification famille
++- cette fiche ne remplace ni la matrice maitre, ni une synthese produit souveraine, ni le chantier parent qui arbitre la famille
++
+ ## Objet
+ Fiche courte de lign├®e pour la famille vision (`bot_vision`, `bot_vision_step2`, `vision_bot`).
+ 
+diff --git a/docs/status/deepseek_student_canonique.md b/docs/status/deepseek_student_canonique.md
+index 27840f1..2fa2c27 100644
+--- a/docs/status/deepseek_student_canonique.md
++++ b/docs/status/deepseek_student_canonique.md
+@@ -1,5 +1,33 @@
++---
++doc_id: OPT_TRADING_STATUS_DEEPSEEK_STUDENT_CANONIQUE
++doc_type: family_status
++repo: opt-trading
++project: opt-trading
++module: deepseek_student
++go_id:
++status: reference
++lifecycle_stage: continuity
++topic_keys:
++  - opt-trading
++  - status
++  - deepseek_student
++  - family
++surface: continuity
++source_kind: derived
++reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++updated_at: 2026-04-23
++links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++---
++
+ # DEEPSEEK_STUDENT ÔÇö STATUT CANONIQUE
+ 
++## Role aligne avec la matrice maitre
++
++- role actuel : fiche courte de lignee `deepseek*` cote student
++- role cible : surface derivee de qualification famille
++- cette fiche ne remplace ni la matrice maitre, ni une decision produit finale, ni le chantier qui arbitre survivant / legacy
++
+ ## Objet
+ Fiche courte de lign├®e pour la famille `deepseek*` c├┤t├® surface student.
+ 
+diff --git a/docs/status/desk_pro_stack_canonique.md b/docs/status/desk_pro_stack_canonique.md
+index 06f209d..0f4f804 100644
+--- a/docs/status/desk_pro_stack_canonique.md
++++ b/docs/status/desk_pro_stack_canonique.md
+@@ -1,5 +1,33 @@
++---
++doc_id: OPT_TRADING_STATUS_DESK_PRO_STACK_CANONIQUE
++doc_type: family_status
++repo: opt-trading
++project: opt-trading
++module: desk_pro
++go_id:
++status: reference
++lifecycle_stage: continuity
++topic_keys:
++  - opt-trading
++  - status
++  - desk_pro
++  - family
++surface: continuity
++source_kind: derived
++reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++updated_at: 2026-04-23
++links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++---
++
+ # DESK_PRO_STACK ÔÇö STATUT CANONIQUE
+ 
++## Role aligne avec la matrice maitre
++
++- role actuel : fiche courte de stack / lignee `desk_pro*`
++- role cible : surface derivee de qualification famille
++- cette fiche ne remplace ni la matrice maitre, ni la lecture produit globale Desk Pro, ni un arbitrage final de stack
++
+ ## Objet
+ Fiche courte de lign├®e/stack pour `desk_pro*` et `desk_*`.
+ 
+diff --git a/docs/status/reseau_ssh_canonique.md b/docs/status/reseau_ssh_canonique.md
+index faea73b..d417d64 100644
+--- a/docs/status/reseau_ssh_canonique.md
++++ b/docs/status/reseau_ssh_canonique.md
+@@ -1,5 +1,33 @@
++---
++doc_id: OPT_TRADING_STATUS_RESEAU_SSH_CANONIQUE
++doc_type: family_status
++repo: opt-trading
++project: opt-trading
++module: reseau_ssh
++go_id:
++status: reference
++lifecycle_stage: continuity
++topic_keys:
++  - opt-trading
++  - status
++  - reseau_ssh
++  - family
++surface: continuity
++source_kind: derived
++reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++updated_at: 2026-04-23
++links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++---
++
+ # RESEAU_SSH ÔÇö STATUT CANONIQUE
+ 
++## Role aligne avec la matrice maitre
++
++- role actuel : fiche courte de lignee `reseau_ssh*`
++- role cible : surface derivee de qualification famille
++- cette fiche ne remplace ni la matrice maitre, ni la doctrine Git, ni l'arbitrage final de reclassement physique
++
+ ## Objet
+ Fiche courte de lign├®e pour la famille `reseau_ssh*`, en compl├®ment de lÔÇÖaudit famille.
+ 
+diff --git a/docs/status/workflow_post_change_canonique.md b/docs/status/workflow_post_change_canonique.md
+index c615046..80f08ad 100644
+--- a/docs/status/workflow_post_change_canonique.md
++++ b/docs/status/workflow_post_change_canonique.md
+@@ -1,5 +1,33 @@
++---
++doc_id: OPT_TRADING_STATUS_WORKFLOW_POST_CHANGE_CANONIQUE
++doc_type: family_status
++repo: opt-trading
++project: opt-trading
++module: workflow_post_change_v2
++go_id:
++status: reference
++lifecycle_stage: continuity
++topic_keys:
++  - opt-trading
++  - status
++  - workflow_post_change
++  - family
++surface: continuity
++source_kind: derived
++reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++updated_at: 2026-04-23
++links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++---
++
+ # WORKFLOW POST-CHANGE (CANONIQUE)
+ 
++## Role aligne avec la matrice maitre
++
++- role actuel : fiche courte de statut module / patch canonique
++- role cible : surface derivee de qualification famille / module
++- cette fiche ne remplace ni la matrice maitre, ni un closeout, ni une politique transverse de workflow
++
+ **Statut :** ACTIVE / PATCHED (2026-03-12)
+ **Module Cible :** `modules/workflow_post_change_v2`
+ **Script M├®tier :** `scripts/post_change.sh`

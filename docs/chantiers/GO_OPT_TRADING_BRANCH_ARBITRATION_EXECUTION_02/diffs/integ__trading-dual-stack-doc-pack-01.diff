@@ -1,0 +1,493 @@
+diff --git a/docs/trading/02_ETABLI_TRADING_DUAL_STACK_V1_0.txt b/docs/trading/02_ETABLI_TRADING_DUAL_STACK_V1_0.txt
+new file mode 100644
+index 0000000..cd28683
+--- /dev/null
++++ b/docs/trading/02_ETABLI_TRADING_DUAL_STACK_V1_0.txt
+@@ -0,0 +1,72 @@
++02_ETABLI_TRADING_DUAL_STACK_V1_0
++
++STATUS
++ETABLI
++
++DATE
++2026-04-03
++
++OBJET
++Architecture canonique duale pour syst├¿mes de trading disciplin├®s.
++
++CE QUI EST ETABLI
++1. Le syst├¿me cible est structur├® en deux niveaux:
++   - LAB
++   - REALTIME
++
++2. Le LAB et le REALTIME partagent un noyau commun:
++   - Trader Frame
++   - Strategy
++   - Logs compatibles
++
++3. Le cadre trader humain est conserv├® comme objet canonique:
++   - sessions
++   - kill zones
++   - boring trader
++   - limites de trades
++   - risk management
++   - stop apr├¿s pertes
++   - interdictions disciplinaires
++
++4. La V1.0 impose des contrats minimums:
++   - Market Data Contract
++   - Trader Frame Contract
++   - Strategy Contract
++   - Execution Mode Contract
++   - Logging/Event Contract
++   - Promotion/Qualification Contract
++
++5. La V1.0 impose un r├®alisme minimal du LAB:
++   - spread
++   - slippage minimal
++   - replay policy explicite
++
++6. La V1.0 impose des guards live minimums:
++   - max_daily_loss
++   - max_consecutive_losses
++   - spread_guard
++   - data_gap_guard
++   - kill_switch
++   - fallback_mode
++
++7. Les modes REALTIME retenus sont:
++   - observe
++   - confirm
++   - auto
++
++8. La promotion du LAB vers le REALTIME est gouvern├®e par des gates explicites:
++   - research
++   - shadow_observe
++   - confirm_ready
++   - auto_limited
++   - auto_approved
++
++9. Les sujets suivants sortent de V1.0 et restent pour V1.1:
++   - setup quality score
++   - explainability enrichie
++   - realism tiers multiples
++   - ranking avanc├®
++   - contexte march├® enrichi
++
++RESULTAT
++La V1.0 est consid├®r├®e assez claire pour ├¬tre canonis├®e en documentation sans rouvrir le d├®bat de fond.
+diff --git a/docs/trading/03_KANBAN_TRADING_DUAL_STACK_V1_0.txt b/docs/trading/03_KANBAN_TRADING_DUAL_STACK_V1_0.txt
+new file mode 100644
+index 0000000..b2768cb
+--- /dev/null
++++ b/docs/trading/03_KANBAN_TRADING_DUAL_STACK_V1_0.txt
+@@ -0,0 +1,57 @@
++03_KANBAN_TRADING_DUAL_STACK_V1_0
++
++STATUS
++ACTIVE
++
++DATE
++2026-04-03
++
++K01 - Vision duale LAB + REALTIME
++STATUS: CLOSE / PASS
++NOTE: Conserv├®e sans changement.
++
++K02 - Noyau commun frame + strategy + logs
++STATUS: CLOSE / PASS
++NOTE: Confirm├® comme base canonique.
++
++K03 - Cadre trader humain disciplin├®
++STATUS: CLOSE / PASS
++NOTE: Sessions, kill zones, boring trader, risk, limites.
++
++K04 - Audit multi-r├┤les
++STATUS: CLOSE / PASS
++NOTE: Direction valid├®e.
++
++K05 - D├®bat contradictoire simul├® + arbitrage
++STATUS: CLOSE / PASS
++NOTE: V1 clarifi├®e obtenue.
++
++K06 - Clarification V1.0
++STATUS: CLOSE / PASS
++NOTE: Contrats, guards, r├®alisme minimal, gates.
++
++K07 - S├®paration V1.0 / V1.1
++STATUS: CLOSE / PASS
++NOTE: Scope clarifi├®, surcharge ├®vit├®e.
++
++K08 - Doc canonique principale
++STATUS: READY
++NOTE: Contenu pr├¬t ├á d├®poser.
++
++K09 - Fichier ├®tabli
++STATUS: READY
++NOTE: Contenu pr├¬t.
++
++K10 - Fichier reprise
++STATUS: READY
++NOTE: Contenu pr├¬t.
++
++K11 - GO cha├«ne d├®j├á ├®tabli
++STATUS: READY
++NOTE: Suite encha├«nable sans nouveau recadrage.
++
++POINT GLOBAL
++Le plan est valid├®.
++La V1.0 est clarifi├®e.
++Le pack documentaire est pr├¬t.
++La suite peut se faire par GO s├®quentiels sans rouvrir la vision.
+diff --git a/docs/trading/04_REPRISE_TRADING_DUAL_STACK_V1_0.txt b/docs/trading/04_REPRISE_TRADING_DUAL_STACK_V1_0.txt
+new file mode 100644
+index 0000000..a3c05b6
+--- /dev/null
++++ b/docs/trading/04_REPRISE_TRADING_DUAL_STACK_V1_0.txt
+@@ -0,0 +1,24 @@
++04_REPRISE_TRADING_DUAL_STACK_V1_0
++
++POINT DE REPRISE
++TRADING_DUAL_STACK_V1_0_CLARIFIED est ├®tabli comme base documentaire canonique propos├®e.
++
++ETAT REEL
++- Vision duale LAB + REALTIME valid├®e
++- Noyau commun valid├®
++- Cadre trader humain valid├®
++- Contrats minimums valid├®s
++- R├®alisme minimal LAB valid├®
++- Guards live valid├®s
++- Promotion gates valid├®s
++- V1.1 repouss├®e proprement
++
++PROCHAINES ETAPES ENCHAINEES
++1. GO_TRADING_DUAL_STACK_V1_0_DOC_CANONICALIZE_01
++2. GO_TRADING_DUAL_STACK_V1_0_CONTRACTS_DETAIL_01
++3. GO_MIMO_DUAL_STACK_FIRST_SCOPE_01
++4. GO_MIMO_LAB_RUNNER_V1_01
++5. GO_MIMO_REALTIME_OBSERVE_V1_01
++
++REGLE
++Ne pas rouvrir le d├®bat de fond tant quÔÇÖun point canonique r├®el nÔÇÖentre pas en contradiction avec la V1.0 clarifi├®e.
+diff --git a/docs/trading/TRADING_DUAL_STACK_V1_0_CLARIFIED.md b/docs/trading/TRADING_DUAL_STACK_V1_0_CLARIFIED.md
+new file mode 100644
+index 0000000..7c22325
+--- /dev/null
++++ b/docs/trading/TRADING_DUAL_STACK_V1_0_CLARIFIED.md
+@@ -0,0 +1,316 @@
++# TRADING_DUAL_STACK_V1_0_CLARIFIED
++
++## STATUS
++PROPOSED_CANONICAL_V1_0
++
++## PURPOSE
++D├®finir une architecture canonique ├á deux niveaux pour les strat├®gies de trading disciplin├®es :
++
++- un niveau LAB pour backtest / simulation / comparaison
++- un niveau REALTIME pour observation / validation / ex├®cution
++- un cadre trader humain partag├®
++- des logs comparables
++- une progression propre de la recherche vers lÔÇÖapplication r├®elle
++
++## DESIGN DECISION
++La V1.0 clarifi├®e retient :
++- une architecture duale LAB + REALTIME
++- un noyau commun
++- des contrats explicites minimums
++- un r├®alisme minimal du LAB
++- des guards live obligatoires
++- une promotion par gates
++
++La V1.0 rejette :
++- la complexification pr├®matur├®e
++- le full auto large imm├®diat
++- lÔÇÖouverture trop t├┤t de V1.1
++- la d├®rive dÔÇÖimpl├®mentation sans contrats
++
++---
++
++## 1. CANONICAL PRINCIPLES
++
++### 1.1 DUAL STACK
++Le syst├¿me est structur├® en deux niveaux distincts :
++- LAB
++- REALTIME
++
++### 1.2 SHARED CORE
++Le LAB et le REALTIME partagent le m├¬me noyau logique :
++- m├¬me cadre trader
++- m├¬me strat├®gie
++- m├¬mes journaux
++- m├¬mes identifiants de variantes
++
++### 1.3 HUMAN TRADER FRAME
++Le syst├¿me doit pouvoir exprimer un cadre proche dÔÇÖun trader humain disciplin├® :
++- horaires
++- sessions
++- kill zones
++- boring trader
++- max trades par session
++- max trades par jour
++- risk management
++- stop apr├¿s pertes
++- interdictions disciplinaires
++
++### 1.4 PROMOTION BY GATES
++Le passage du LAB au REALTIME ne doit jamais ├¬tre implicite.
++Toute promotion doit passer par des ├®tats de qualification d├®finis.
++
++### 1.5 COMPARABLE LOGGING
++Le LAB et le REALTIME doivent produire des journaux compatibles pour :
++- audit
++- comparaison
++- analyse des ├®carts
++- qualification continue
++
++---
++
++## 2. SCOPE OF V1.0
++
++### INCLUDED IN V1.0
++- s├®paration LAB / REALTIME
++- noyau commun
++- cadre trader commun
++- contrats explicites minimum
++- r├®alisme minimal du LAB
++- guards live minimum
++- modes observe / confirm / auto
++- promotion gates minimum
++
++### EXCLUDED FROM V1.0
++- setup quality score avanc├®
++- explainability op├®rateur enrichie
++- realism tiers multiples
++- ranking multi-crit├¿res avanc├®
++- contexte march├® enrichi
++- orchestration multi-strat├®gies complexe
++
++---
++
++## 3. CONTRACTS
++
++### 3.1 MARKET DATA CONTRACT
++Le syst├¿me doit figer au minimum :
++- timezone canonique
++- granularit├®s autoris├®es
++- sources de donn├®es autoris├®es
++- politique de bougie incompl├¿te
++- politique de replay historique
++- gestion minimale des trous de donn├®es
++
++### 3.2 TRADER FRAME CONTRACT
++Le frame trader d├®crit la discipline commune :
++- timezone
++- sessions
++- kill zones
++- limites journali├¿res
++- limites par session
++- r├¿gles de risque
++- r├¿gles disciplinaires
++- cooldowns ├®ventuels
++
++### 3.3 STRATEGY CONTRACT
++La strat├®gie d├®crit :
++- setup
++- conditions dÔÇÖactivation
++- direction
++- entr├®e
++- invalidation
++- stop
++- TP
++- BE
++- conditions de sortie
++
++### 3.4 EXECUTION MODE CONTRACT
++Le REALTIME doit supporter :
++- observe
++- confirm
++- auto
++
++### 3.5 LOGGING AND EVENT CONTRACT
++Le syst├¿me doit produire :
++- event logs
++- trade logs
++- summaries comparables
++
++### 3.6 PROMOTION / QUALIFICATION CONTRACT
++Le syst├¿me doit pouvoir affecter un ├®tat de qualification ├á chaque strat├®gie / variante.
++
++---
++
++## 4. LAB LAYER
++
++### 4.1 PURPOSE
++Le LAB sert ├á :
++- backtester
++- simuler
++- comparer
++- classer
++- qualifier
++
++### 4.2 MANDATORY BEHAVIOR
++Le LAB doit :
++- respecter le Trader Frame
++- rejouer les donn├®es historiques
++- appliquer la strat├®gie
++- simuler les r├®sultats
++- journaliser chaque ├®v├®nement utile
++- produire des m├®triques comparables
++
++### 4.3 MINIMAL REALISM IN V1.0
++Le LAB ne doit pas ├¬tre purement id├®al.
++V1.0 impose au minimum :
++- spread pris en compte
++- slippage minimal simul├®
++- politique claire dÔÇÖex├®cution/replay
++- hypoth├¿ses explicites sur les fills
++
++---
++
++## 5. REALTIME LAYER
++
++### 5.1 PURPOSE
++Le REALTIME sert ├á :
++- observer
++- d├®tecter
++- proposer
++- ex├®cuter
++- journaliser la r├®alit├® live
++
++### 5.2 MODES
++
++#### OBSERVE
++- d├®tection
++- log
++- aucune ex├®cution
++
++#### CONFIRM
++- d├®tection
++- proposition
++- validation humaine
++- ex├®cution si valid├®
++
++#### AUTO
++- d├®tection
++- ex├®cution autonome
++- r├®serv├® aux variantes qualifi├®es
++
++---
++
++## 6. HUMAN TRADER FRAME
++
++Le syst├¿me doit pouvoir exprimer un cadre du type :
++- timezone = America/Montreal
++- sessions autoris├®es
++- kill zones autoris├®es
++- max_trades_per_session
++- max_trades_per_day
++- stop_day_after_x_losses
++- risk_per_trade
++- rr_min
++- no_trade_outside_session
++- no_immediate_reentry_same_setup
++
++Ce cadre doit ├¬tre partag├® entre LAB et REALTIME.
++
++---
++
++## 7. LIVE OPERATIONAL GUARDS
++
++V1.0 impose des garde-fous minimums pour le REALTIME :
++- max_daily_loss
++- max_consecutive_losses
++- spread_guard
++- data_gap_guard
++- kill_switch
++- fallback_mode
++
++Aucune ex├®cution autonome ne doit ├¬tre consid├®r├®e propre sans ces protections.
++
++---
++
++## 8. PROMOTION GATES
++
++Le syst├¿me doit permettre au minimum les ├®tats suivants :
++- research
++- shadow_observe
++- confirm_ready
++- auto_limited
++- auto_approved
++
++La promotion ne doit jamais d├®pendre dÔÇÖun jugement implicite non trac├®.
++
++---
++
++## 9. LOGGING REQUIREMENTS
++
++### 9.1 EVENT LOG
++├ëv├®nements minimaux recommand├®s :
++- session_open
++- session_closed
++- setup_detected
++- setup_rejected
++- entry_triggered
++- trade_opened
++- be_moved
++- tp_hit
++- sl_hit
++- trade_closed
++- day_stopped
++
++### 9.2 TRADE LOG
++Chaque trade doit pouvoir contenir au minimum :
++- strategy_id
++- variant_id
++- mode
++- session_name
++- timestamp_open
++- timestamp_close
++- direction
++- entry
++- sl
++- tp
++- risk_pct
++- rr_planned
++- result
++- r_realized
++- mae
++- mfe
++- reason_entry
++- reason_exit
++
++---
++
++## 10. CANONICAL ARBITRATION RESULT
++
++La V1 initiale a ├®t├® conserv├®e sur le fond.
++La clarification a ajout├® les ├®l├®ments n├®cessaires pour ├®viter une impl├®mentation trop philosophique ou trop floue.
++
++Le r├®sultat retenu est :
++- m├¬me vision g├®n├®rale
++- meilleure s├®paration des responsabilit├®s
++- guards et gates rendus explicites
++- V1.0 et V1.1 s├®par├®es proprement
++
++---
++
++## 11. V1.1 CANDIDATE TOPICS
++Sujets retenus plus tard :
++- setup quality score
++- operator explainability
++- realism profiles (optimistic / realistic / stressed)
++- ranking multi-crit├¿res
++- contexte march├® enrichi
++
++---
++
++## 12. CANONICAL RESUMPTION POINT
++Apr├¿s validation documentaire V1.0 :
++- d├®tailler les contrats
++- choisir le premier p├®rim├¿tre concret
++- cadrer le premier couple LAB / REALTIME sur Gold / Session / FVG
++
++END_OF_DOCUMENT

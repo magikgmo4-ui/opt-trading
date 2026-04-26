@@ -1,0 +1,937 @@
+diff --git a/docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONSUMER/00B_parent_scope_and_structure.md b/docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONSUMER/00B_parent_scope_and_structure.md
+new file mode 100644
+index 0000000..6921b2c
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONSUMER/00B_parent_scope_and_structure.md
+@@ -0,0 +1,169 @@
++---
++doc_id: OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONSUMER_PARENT_SCOPE
++doc_type: chantier_addendum
++repo: opt-trading
++project: memory_bricks
++module: memory_bricks
++go_id: GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONSUMER
++chantier_parent: opt_trading_memory_bricks_localcms_consumer
++sous_chantier: GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01
++intention_parent: aligner proprement le canon memory_bricks de opt-trading avec un consumer reel LocalCMS, sans melanger spec, implementation et adaptation UI, et sans sauter directement a un patch technique non cadre
++cible_finale_parent: obtenir une chaine producer consumer claire, stable et documentee entre opt-trading et LocalCMS, avec contrat minimal valide, ordre d'implementation explicite, fallback assume si necessaire, et reprise propre par GO successifs
++objectif_sous_chantier: ouvrir la trajectoire consumer par un premier cadrage de contrat entre le canon opt-trading et la surface reelle LocalCMS
++objectif_local_go: figer le contrat minimal cible, les ecarts reels producer consumer, le mode de convergence retenu et le point de reprise avant toute implementation
++cible_locale_go: matrice canon vs consumer + decisions de contrat + ordre des GO suivants + reprise
++reference_canonique_principale: modules/memory_bricks/docs/SPEC_MEMORY_BRICKS_API_V2_READONLY.md
++point_de_reprise: docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONSUMER/00B_parent_scope_and_structure.md
++status: open
++lifecycle_stage: cadrage
++topic_keys:
++  - opt-trading
++  - memory_bricks
++  - localcms
++  - consumer
++  - contract
++  - parent_chantier
++  - continuity
++surface: governance
++source_kind: canonical
++updated_at: 2026-04-17
++links:
++  - modules/memory_bricks/docs/SPEC_MEMORY_BRICKS_API_V2_READONLY.md
++  - docs/governance/MEMORY_BRICKS_MAPPING.md
++  - docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md
++  - docs/governance/SESSION_DOCUMENTATION_GATE.md
++  - docs/index/REPRISE.md
++  - docs/index/GO_INDEX.md
++  - docs/chantiers/GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01/90_closeout.md
++---
++
++# GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONSUMER ÔÇö Port├®e parent et structure
++
++## Objet
++
++Figer explicitement qu'un chantier parent consumer existe d├®sormais pour la trajectoire :
++
++- `opt-trading` comme source canonique `memory_bricks`
++- `LocalCMS` comme consumer r├®el
++- convergence progressive du contrat, sans sauter directement ├á l'impl├®mentation
++
++---
++
++## Besoin initial
++
++├ëviter que les prochains GO sur `memory_bricks` Ôåö `LocalCMS` soient lus comme des chantiers isol├®s ou techniques, sans lien avec une cible finale consumer document├®e.
++
++---
++
++## Intention
++
++- garder un chantier parent clair c├┤t├® consumer
++- s├®parer canon producer / consumer r├®el / adaptation locale
++- faire suivre cette logique dans les sous-chantiers
++- ├®viter de confondre cadrage de contrat, impl├®mentation API et patch UI
++
++---
++
++## Produits finaux voulus / objectifs du chantier parent
++
++Le chantier parent vise une trajectoire compl├¿te de convergence producer/consumer avec :
++
++- un contrat minimal lisible et stable
++- une s├®paration explicite entre V1 fichier local et V2 HTTP read-only
++- une d├®cision claire sur le mode principal et le fallback
++- un ordre d'impl├®mentation s├╗r
++- une continuit├® documentaire propre entre `opt-trading` et `LocalCMS`
++
++L'horizon final vis├® est :
++
++- un producer `memory_bricks` canonique c├┤t├® `opt-trading`
++- un consumer `LocalCMS` align├® sur un contrat valid├®
++- une reprise plus simple
++- moins d'ambigu├»t├® entre spec, export, endpoint et rendu UI
++- une trajectoire d├®coup├®e en GO propres
++
++---
++
++## Cible finale du chantier parent
++
++Obtenir une cha├«ne producer/consumer claire, stable et document├®e entre `opt-trading` et `LocalCMS`, sans rouvrir un audit global ├á chaque ├®tape et sans patch technique pr├®matur├®.
++
++---
++
++## Next GO
++
++Chaque GO suivant doit ├¬tre document├® comme :
++
++- une ├®tape
++- ou un sous-chantier
++
++├á l'int├®rieur du chantier parent consumer.
++
++Chaque GO doit donc faire suivre explicitement :
++
++- le besoin initial parent
++- l'intention parent
++- la cible finale du chantier parent
++- la cible locale du GO
++- la r├®f├®rence canonique principale
++- le point de reprise
++
++---
++
++## Plan valid├®
++
++1. Le chantier parent consumer devient le cadre de r├®f├®rence.
++2. Le premier sous-chantier cadre le contrat minimal cible.
++3. Les GO suivants pourront ensuite s├®parer :
++   - impl├®mentation producer c├┤t├® `opt-trading`
++   - adaptation consumer c├┤t├® `LocalCMS`
++   - fallback et transition
++4. La continuit├® documentaire doit conserver :
++   - le parent
++   - le sous-chantier
++   - la cible finale commune
++   - le point de reprise
++
++---
++
++## ETABLI
++
++- `opt-trading` porte d├®j├á la spec canonique `memory_bricks`
++- `LocalCMS` existe d├®j├á comme consumer r├®el
++- la spec V2 read-only n'est pas encore verrouill├®e par un consumer r├®el
++- un chantier parent consumer manquait encore pour porter cette trajectoire
++- le prochain pas logique est un cadrage de contrat, pas un patch technique imm├®diat
++
++---
++
++## Gap restant
++
++- ouvrir le premier sous-chantier de contract alignment
++- figer la matrice canon vs consumer
++- d├®cider le mode cible : V1 fichier, V2 HTTP, ou hybride avec fallback
++- ordonner les GO techniques ult├®rieurs
++
++---
++
++## REPRISE
++
++Lire ce document comme addendum de port├®e du chantier parent consumer.
++
++Les sous-chantiers `memory_bricks` Ôåö `LocalCMS` doivent d├®sormais s'y rattacher explicitement.
++
++---
++
++## Structure minimale ├á reprendre (front matter)
++
++```yaml
++chantier_parent:
++sous_chantier:
++intention_parent:
++cible_finale_parent:
++objectif_sous_chantier:
++go_id:
++objectif_local_go:
++cible_locale_go:
++reference_canonique_principale:
++point_de_reprise:
++```
+diff --git a/docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/00_cadrage.md b/docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/00_cadrage.md
+new file mode 100644
+index 0000000..0e383cd
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/00_cadrage.md
+@@ -0,0 +1,228 @@
++---
++doc_id: GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01_CADRAGE
++doc_type: chantier_cadrage
++repo: opt-trading
++project: memory_bricks
++module: memory_bricks
++go_id: GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01
++chantier_parent: opt_trading_memory_bricks_localcms_consumer
++sous_chantier: GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01
++intention_parent: aligner proprement le canon memory_bricks de opt-trading avec un consumer reel LocalCMS, sans melanger spec, implementation et adaptation UI, et sans sauter directement a un patch technique non cadre
++cible_finale_parent: obtenir une chaine producer consumer claire, stable et documentee entre opt-trading et LocalCMS, avec contrat minimal valide, ordre d'implementation explicite, fallback assume si necessaire, et reprise propre par GO successifs
++objectif_sous_chantier: figer le contrat minimal cible entre la spec memory_bricks de opt-trading et la surface consumer reelle de LocalCMS
++objectif_local_go: produire un cadrage canonique du contrat producer consumer avant toute implementation
++cible_locale_go: inventaire des ecarts + matrice canon/consumer + decisions de contrat + ordre des GO suivants + reprise
++reference_canonique_principale: modules/memory_bricks/docs/SPEC_MEMORY_BRICKS_API_V2_READONLY.md
++point_de_reprise: docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/00_cadrage.md
++status: open
++lifecycle_stage: cadrage
++topic_keys:
++  - opt-trading
++  - memory_bricks
++  - localcms
++  - contract_alignment
++  - consumer
++  - readonly_api
++surface: governance
++source_kind: canonical
++updated_at: 2026-04-17
++links:
++  - modules/memory_bricks/docs/SPEC_MEMORY_BRICKS_API_V2_READONLY.md
++  - docs/governance/MEMORY_BRICKS_MAPPING.md
++  - docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md
++  - docs/governance/SESSION_DOCUMENTATION_GATE.md
++  - docs/index/REPRISE.md
++  - docs/index/GO_INDEX.md
++  - docs/chantiers/GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01/90_closeout.md
++  - docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONSUMER/00B_parent_scope_and_structure.md
++---
++
++# GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01 ÔÇö Cadrage
++
++## Objet
++
++Ouvrir le premier sous-chantier de convergence entre :
++
++- le canon `memory_bricks` port├® par `opt-trading`
++- la surface consumer r├®elle port├®e par `LocalCMS`
++
++Ce GO ne met en oeuvre ni endpoint, ni patch UI.
++Il cadre d'abord le contrat.
++
++---
++
++## Besoin initial
++
++├ëviter une impl├®mentation pr├®matur├®e d'une API ou d'un patch consumer sans avoir fig├® :
++
++- le contrat minimal r├®ellement utile
++- le niveau d'alignement attendu
++- le mode de transition retenu
++
++---
++
++## Intention
++
++Rendre la trajectoire producer/consumer plus s├╗re et plus rejouable en figeant d'abord :
++
++- le canon de r├®f├®rence
++- la surface consumer r├®elle
++- les ├®carts importants
++- les confirmations n├®cessaires
++- l'ordre de travail
++
++---
++
++## Produits finaux voulus / objectifs du chantier parent
++
++Le chantier parent vise une trajectoire compl├¿te de convergence producer/consumer avec :
++
++- un contrat minimal lisible et stable
++- une s├®paration explicite entre V1 fichier local et V2 HTTP read-only
++- une d├®cision claire sur le mode principal et le fallback
++- un ordre d'impl├®mentation s├╗r
++- une continuit├® documentaire propre entre `opt-trading` et `LocalCMS`
++
++---
++
++## Cible finale du chantier parent
++
++Obtenir une cha├«ne producer/consumer claire, stable et document├®e entre `opt-trading` et `LocalCMS`, sans rouvrir un audit global ├á chaque ├®tape et sans patch technique pr├®matur├®.
++
++---
++
++## Plan valid├®
++
++### GO_1 ÔÇö pr├®sent cadrage
++- inventorier le canon r├®ellement fix├® c├┤t├® `opt-trading`
++- inventorier la surface consumer r├®ellement ├®tablie c├┤t├® `LocalCMS`
++- lister les ├®carts structurels utiles
++- d├®cider le contrat minimal cible
++- d├®cider l'ordre des GO suivants
++- ne rien impl├®menter dans ce GO
++
++### GO_2 ÔÇö impl├®mentation minimale producer
++GO candidat :
++`GO_OPT_TRADING_MEMORY_BRICKS_API_V2_MINIMAL_IMPL_01`
++
++But :
++- impl├®menter seulement le plus petit sous-ensemble read-only valid├® par le cadrage
++
++### GO_3 ÔÇö adoption consumer
++GO candidat :
++`GO_LOCALCMS_MEMORY_BRICKS_HTTP_CONSUMER_ADOPT_01`
++
++But :
++- faire adopter le contrat minimal c├┤t├® consumer, sans casser le chemin existant si un fallback est retenu
++
++### GO_4 ÔÇö fallback / transition / hardening
++GO candidat :
++`GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_TRANSITION_HARDENING_01`
++
++But :
++- figer le mode cible final et fermer la transition
++
++---
++
++## ETABLI
++
++- la source canonique c├┤t├® repo est `opt-trading`
++- `MEMORY_BRICKS_MAPPING.md` fixe que `memory_bricks` est une forme compacte d├®riv├®e
++- la spec V2 read-only existe comme spec de contrat
++- `LocalCMS` est d├®j├á un consumer r├®el
++- le lot `memory_view` c├┤t├® `LocalCMS` a d├®j├á ├®t├® stabilis├® et ne doit pas ├¬tre rouvert par d├®faut
++- un cadrage producer/consumer explicite manquait encore
++
++---
++
++## P├®rim├¿tre du pr├®sent GO
++
++### Inclus
++- comparaison canon `opt-trading` vs consumer `LocalCMS`
++- matrice de contrat
++- d├®cisions d'alignement
++- s├®quencement des GO suivants
++
++### Exclus
++- impl├®mentation FastAPI ou ├®quivalent
++- patch runtime de `memory_bricks`
++- patch UI `LocalCMS`
++- migration de donn├®es
++- bascule de mode en production
++
++---
++
++## Matrice ├á produire dans ce GO
++
++Le GO doit figer au minimum :
++
++- format de liste :
++  - array plat
++  - ou envelope `{items,total,limit,offset}`
++- besoin r├®el de pagination
++- besoin r├®el de `content_markdown`
++- besoin r├®el de `links`
++- besoin r├®el des indexes bruts
++- strat├®gie de fallback :
++  - V1 fichier
++  - V2 HTTP
++  - hybride
++
++---
++
++## R├┤les s├®par├®s
++
++### R├┤le repo / produit
++- `opt-trading` = canon producer
++- `LocalCMS` = consumer
++
++### R├┤le IA / IDE
++- cadrer le contrat
++- s├®parer confirm├® / ├á confirmer
++- ordonner les prochains GO
++
++### R├┤le machine
++- aucun runtime engag├® ├á ce stade
++- docs-only
++
++---
++
++## Gap restant
++
++Il manque encore avant toute impl├®mentation :
++
++- une matrice canon vs consumer fig├®e
++- une d├®cision sur le contrat minimal r├®ellement requis
++- une d├®cision sur la strat├®gie de transition
++- une priorisation explicite des GO techniques
++
++---
++
++## Next GO
++
++Sous r├®serve du cadrage confirm├®, la suite naturelle est :
++
++`GO_OPT_TRADING_MEMORY_BRICKS_API_V2_MINIMAL_IMPL_01`
++
++puis :
++
++`GO_LOCALCMS_MEMORY_BRICKS_HTTP_CONSUMER_ADOPT_01`
++
++---
++
++## REPRISE
++
++### Reprise globale
++- `docs/index/REPRISE.md`
++
++### Reprise chantier parent
++- `docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONSUMER/00B_parent_scope_and_structure.md`
++
++### Point de reprise local
++- `docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/00_cadrage.md`
++
++---
++
++## Statut
++
++**OPEN ÔÇö chantier parent consumer pos├® ; sous-chantier de contract alignment ouvert ; aucune impl├®mentation encore engag├®e**
+diff --git a/docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/01_plan.md b/docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/01_plan.md
+new file mode 100644
+index 0000000..2d9226c
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/01_plan.md
+@@ -0,0 +1,99 @@
++---
++doc_id: GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01_PLAN
++doc_type: chantier_plan
++go_id: GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01
++chantier_parent: opt_trading_memory_bricks_localcms_consumer
++sous_chantier: GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01
++point_de_reprise: docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/00_cadrage.md
++status: open
++updated_at: 2026-04-17
++---
++
++# GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01 ÔÇö Plan
++
++## Objet
++
++Produire la matrice canon vs consumer, figer le contrat minimal cible, puis ordonner les GO techniques suivants sans ouvrir d'impl├®mentation dans ce lot.
++
++---
++
++## Besoin initial
++
++Comparer proprement le canon `memory_bricks` port├® par `opt-trading` avec la surface consumer r├®ellement ├®tablie dans `LocalCMS`, afin d'├®viter :
++
++- une impl├®mentation V2 trop large
++- une adoption consumer pr├®matur├®e
++- une rupture du chemin V1 d├®j├á r├®el
++
++---
++
++## Cible finale
++
++Sortir du pr├®sent GO avec :
++
++- une matrice canon / consumer remplie
++- les ├®carts r├®ellement utiles explicit├®s
++- un contrat minimal V2 retenu
++- une strat├®gie de transition fig├®e
++- la liste des GO suivants ordonn├®e
++
++---
++
++## ├ëtapes retenues
++
++1. Relire le canon `opt-trading`
++   - `modules/memory_bricks/docs/SPEC_MEMORY_BRICKS_API_V2_READONLY.md`
++   - `docs/governance/MEMORY_BRICKS_MAPPING.md`
++   - `docs/chantiers/GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01/90_closeout.md`
++
++2. Relire la surface consumer `LocalCMS`
++   - consumer `memory_view` d├®j├á ├®tabli
++   - contrat V1 r├®ellement consomm├® :
++     - `index/index_full.json`
++     - `bricks/MB-*.md`
++
++3. Produire la matrice canon / consumer
++   - mode d'acc├¿s
++   - shape de liste
++   - d├®tail brique
++   - status / health
++   - pagination
++   - links
++   - find
++   - indexes bruts
++
++4. Figer les d├®cisions minimales de contrat
++   - sous-ensemble V2 retenu
++   - shape JSON retenue
++   - maintien ou non du fallback V1
++   - strat├®gie de transition
++
++5. Ordonner les GO suivants
++   - impl├®mentation producer minimale
++   - adoption consumer
++   - hardening / transition
++
++6. Pr├®parer le closeout du cadrage
++   - sans fermer le lot avant validation r├®elle des d├®cisions
++
++---
++
++## Livrables attendus
++
++- matrice canon / consumer dans `02_journal_technique.md`
++- d├®cisions retenues dans `03_decisions.md`
++- strat├®gie de transition explicit├®e
++- liste ordonn├®e des GO suivants
++- point de reprise pr├¬t pour fermeture du GO
++
++---
++
++## Hors p├®rim├¿tre
++
++Le pr├®sent GO n'inclut pas :
++
++- l'impl├®mentation FastAPI ou ├®quivalent
++- un patch runtime du module `memory_bricks`
++- un patch UI `LocalCMS`
++- une migration de donn├®es
++- une bascule forc├®e du consumer vers HTTP
+diff --git a/docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/02_journal_technique.md b/docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/02_journal_technique.md
+new file mode 100644
+index 0000000..b49b8fd
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/02_journal_technique.md
+@@ -0,0 +1,105 @@
++---
++doc_id: GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01_JOURNAL
++doc_type: chantier_journal
++go_id: GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01
++chantier_parent: opt_trading_memory_bricks_localcms_consumer
++sous_chantier: GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01
++point_de_reprise: docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/00_cadrage.md
++status: open
++updated_at: 2026-04-17
++---
++
++# GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01 ÔÇö Journal technique
++
++## Objet
++
++Comparer le canon `memory_bricks` port├® par `opt-trading` avec la surface consumer r├®elle d├®j├á ├®tablie dans `LocalCMS`, puis figer le contrat minimal utile avant toute impl├®mentation.
++
++---
++
++## Sources retenues
++
++### Canon producer
++- `modules/memory_bricks/docs/SPEC_MEMORY_BRICKS_API_V2_READONLY.md`
++- `docs/governance/MEMORY_BRICKS_MAPPING.md`
++- `docs/chantiers/GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01/90_closeout.md`
++
++### Consumer r├®el
++- consumer `memory_view` d├®j├á ouvert et stabilis├® c├┤t├® `LocalCMS`
++- contrat V1 r├®ellement consomm├® :
++  - `index/index_full.json`
++  - `bricks/MB-*.md`
++
++---
++
++## ├ëtat r├®el retenu
++
++### C├┤t├® `opt-trading`
++- `memory_bricks` est canonique comme forme compacte d├®riv├®e
++- une spec V2 HTTP read-only existe
++- cette V2 reste une spec, pas encore verrouill├®e par un consumer r├®el
++
++### C├┤t├® `LocalCMS`
++- un consumer r├®el existe d├®j├á
++- il consomme une forme V1 fichier
++- il ne prouve pas encore le besoin complet de toute la V2 HTTP
++
++---
++
++## Matrice canon / consumer
++
++| ├ël├®ment | Canon `opt-trading` | R├®el `LocalCMS` | ├ëcart observ├® | Impact |
++|---|---|---|---|---|
++| Source d'├®tat | `_state/memory_bricks` via backend V1 | export local de fichiers | oui | transition ├á g├®rer |
++| Mode d'acc├¿s | HTTP V2 propos├®e | fichiers locaux V1 | oui | contrat ├á converger |
++| Liste | `GET /bricks` | `index/index_full.json` | oui | shape ├á figer |
++| D├®tail | `GET /bricks/{id}` | `bricks/MB-*.md` | faible | conserver markdown utile |
++| Health | `GET /health` | absent | oui | facile ├á ajouter |
++| Status | `GET /status` | absent comme surface standard | oui | utile pour diagnostic |
++| Pagination | `limit/offset` propos├®s | non prouv├®s utiles | oui | peut ├¬tre diff├®r├®e |
++| Links | endpoint d├®di├® propos├® | non prouv├® utile | oui | reporter |
++| Find | endpoint propos├® | non prouv├® utile | oui | reporter |
++| Indexes bruts | propos├®s | d├®j├á pr├®sents en V1 fichier | partiel | optionnel |
++
++---
++
++## Lecture technique retenue
++
++Le consumer `LocalCMS` ne justifie pas encore l'impl├®mentation de toute la V2.
++
++Le plus petit contrat utile et d├®fendable est :
++- `GET /health`
++- `GET /status`
++- `GET /bricks`
++- `GET /bricks/{id}`
++
++Le chemin recommand├® est une transition hybride :
++- conservation du fallback V1 fichier
++- ouverture d'un chemin V2 HTTP minimal
++- adoption progressive c├┤t├® consumer
++
++---
++
++## Risques identifi├®s
++
++- impl├®menter trop large sans besoin prouv├®
++- casser un consumer V1 d├®j├á stable
++- figer trop t├┤t pagination / links / search sans validation d'usage r├®el
++
++---
++
++## Recommandation
++
++Valider un sous-ensemble minimal V2, puis d├®couper la suite en :
++1. impl├®mentation producer minimale
++2. adoption consumer
++3. hardening / transition
++
++---
++
++## Historique des entr├®es
++
++| Date | Entr├®e |
++|---|---|
++| 2026-04-17 | Ouverture du journal ÔÇö cadrage non encore commenc├® |
++| 2026-04-17 | Matrice canon / consumer remplie et lecture technique minimale retenue |
+diff --git a/docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/03_decisions.md b/docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/03_decisions.md
+new file mode 100644
+index 0000000..a4ad8c9
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/03_decisions.md
+@@ -0,0 +1,141 @@
++---
++doc_id: GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01_DECISIONS
++doc_type: chantier_decisions
++go_id: GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01
++chantier_parent: opt_trading_memory_bricks_localcms_consumer
++sous_chantier: GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01
++point_de_reprise: docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/00_cadrage.md
++status: open
++updated_at: 2026-04-17
++---
++
++# GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01 ÔÇö D├®cisions
++
++## D├®cisions retenues
++
++### D-01 ÔÇö Repo canonique du chantier
++**Retenu : `opt-trading`**
++
++Justification :
++- le canon `memory_bricks` est port├® par `opt-trading`
++- le chantier traite d'abord du contrat producer / consumer
++
++### D-02 ÔÇö Consumer de r├®f├®rence
++**Retenu : `LocalCMS`**
++
++Justification :
++- consumer r├®el d├®j├á existant
++- surface `memory_view` d├®j├á stabilis├®e
++
++### D-03 ÔÇö Contrat V2 impl├®ment├® dans ce cycle
++**Retenu : sous-ensemble minimal seulement**
++
++Sous-ensemble retenu :
++- `GET /health`
++- `GET /status`
++- `GET /bricks`
++- `GET /bricks/{id}`
++
++### D-04 ÔÇö Shape de la liste
++**Retenu : envelope structur├®e**
++
++Shape retenue :
++
++```json
++{
++  "items": [],
++  "total": 0,
++  "limit": 50,
++  "offset": 0
++}
++```
++
++Justification :
++- coh├®rent avec la spec V2
++- plus stable qu'un array plat
++- extensible sans casser le consumer
++
++### D-05 ÔÇö Pagination
++**Retenu : support conserv├® dans le contrat, complexit├® non prioritaire**
++
++Justification :
++- la spec la pr├®voit
++- le consumer r├®el n'a pas encore prouv├® un besoin fort
++- garder `limit/offset` sans en faire un sujet bloquant
++
++### D-06 ÔÇö `content_markdown`
++**Retenu : oui**
++
++Justification :
++- le consumer V1 lit d├®j├á le markdown brut des briques
++- l'├®quivalence fonctionnelle est utile
++
++### D-07 ÔÇö Endpoint `links`
++**Retenu : report├®**
++
++Justification :
++- besoin non prouv├® ├á ce stade
++- pas n├®cessaire pour le contrat minimal
++
++### D-08 ÔÇö Endpoint `find`
++**Retenu : report├®**
++
++Justification :
++- besoin non prouv├®
++- sujet utile mais non minimal
++
++### D-09 ÔÇö Indexes bruts
++**Retenu : optionnels / non prioritaires**
++
++Justification :
++- le consumer V1 a d├®j├á une logique fichier
++- non n├®cessaire pour ouvrir la V2 minimale
++
++### D-10 ÔÇö Strat├®gie de transition
++**Retenu : hybride avec fallback V1 fichier**
++
++Justification :
++- prot├¿ge le consumer existant
++- permet une adoption progressive
++- ├®vite une bascule brutale
++
++---
++
++## Impacts
++
++- la suite du chantier ne doit pas viser toute la V2 d'un seul bloc
++- le prochain GO utile est une impl├®mentation producer minimale
++- l'adoption consumer doit venir apr├¿s, avec fallback explicite
++- `links`, `find` et `indexes/*` sortent du p├®rim├¿tre minimal
++
++---
++
++## GO suivants retenus
++
++### GO suivant 1
++`GO_OPT_TRADING_MEMORY_BRICKS_API_V2_MINIMAL_IMPL_01`
++
++Objet :
++- impl├®menter le sous-ensemble V2 minimal c├┤t├® producer
++
++### GO suivant 2
++`GO_LOCALCMS_MEMORY_BRICKS_HTTP_CONSUMER_ADOPT_01`
++
++Objet :
++- faire adopter le chemin HTTP minimal c├┤t├® consumer, avec fallback V1 si n├®cessaire
++
++### GO suivant 3
++`GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_TRANSITION_HARDENING_01`
++
++Objet :
++- fermer la transition
++- clarifier le mode principal final
++
++---
++
++## Historique
++
++| Date | D├®cision | Statut |
++|---|---|---|
++| 2026-04-17 | Ouverture ÔÇö aucune d├®cision encore fig├®e | open |
++| 2026-04-17 | Contrat minimal V2, shape envelope et strat├®gie hybride retenus | validated |
+diff --git a/docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/90_closeout.md b/docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/90_closeout.md
+new file mode 100644
+index 0000000..65f1013
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/90_closeout.md
+@@ -0,0 +1,159 @@
++---
++doc_id: GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01_CLOSEOUT
++doc_type: chantier_closeout
++go_id: GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01
++chantier_parent: opt_trading_memory_bricks_localcms_consumer
++sous_chantier: GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01
++point_de_reprise: docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/00_cadrage.md
++status: pass
++updated_at: 2026-04-17
++---
++
++# GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01 ÔÇö Closeout
++
++## ├ëtat de d├®part retenu
++
++Le chantier est parti d'un ├®cart r├®el entre :
++
++- le canon `memory_bricks` port├® par `opt-trading`
++- la surface consumer r├®ellement ├®tablie dans `LocalCMS`
++
++├Ç l'ouverture du GO :
++- `opt-trading` disposait d├®j├á d'une spec V2 read-only c├┤t├® producer
++- `LocalCMS` disposait d├®j├á d'un consumer r├®el c├┤t├® `memory_view`
++- aucun cadrage producer / consumer explicite n'├®tait encore fig├® dans le repo canonique pour verrouiller le contrat minimal utile
++
++---
++
++## R├®alis├®
++
++Le pr├®sent GO a permis de :
++
++- ouvrir le chantier parent consumer d├®di├® ├á la trajectoire `memory_bricks` -> `LocalCMS`
++- ouvrir le sous-chantier `GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01`
++- poser un plan de cadrage explicite
++- remplir la matrice canon / consumer
++- expliciter les ├®carts r├®ellement utiles
++- retenir un contrat V2 minimal d├®fendable
++- figer la strat├®gie de transition recommand├®e
++- ordonner les GO techniques suivants
++
++Le pr├®sent GO n'a pas r├®alis├® :
++- d'impl├®mentation HTTP V2
++- de patch runtime c├┤t├® `memory_bricks`
++- de patch consumer c├┤t├® `LocalCMS`
++- de bascule de mode en production
++
++---
++
++## Cible locale atteinte
++
++La cible locale du GO est consid├®r├®e comme atteinte :
++
++- inventaire des ├®carts : fait
++- matrice canon / consumer : faite
++- d├®cisions de contrat : fig├®es
++- ordre des GO suivants : fig├®
++- point de reprise : clarifi├®
++
++Le chantier a donc rempli sa fonction de cadrage sans d├®border vers l'impl├®mentation.
++
++---
++
++## Livrables produits
++
++- `docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONSUMER/00B_parent_scope_and_structure.md`
++- `docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/00_cadrage.md`
++- `docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/01_plan.md`
++- `docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/02_journal_technique.md`
++- `docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/03_decisions.md`
++- `docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/90_closeout.md`
++
++Livrables effectivement stabilis├®s dans le GO :
++- chantier parent consumer
++- cadrage du sous-chantier
++- plan
++- journal technique avec matrice canon / consumer
++- d├®cisions retenues
++- closeout du cadrage
++
++---
++
++## D├®cisions retenues
++
++Le cadrage a retenu les d├®cisions structurantes suivantes :
++
++- repo canonique du chantier : `opt-trading`
++- consumer de r├®f├®rence : `LocalCMS`
++- sous-ensemble V2 minimal retenu :
++  - `GET /health`
++  - `GET /status`
++  - `GET /bricks`
++  - `GET /bricks/{id}`
++- shape de liste retenue : envelope structur├®e `{items,total,limit,offset}`
++- `content_markdown` retenu dans le contrat minimal
++- `links` report├®
++- `find` report├®
++- `indexes/*` non prioritaires
++- strat├®gie de transition retenue : hybride avec fallback V1 fichier
++
++---
++
++## Validations ex├®cut├®es
++
++- coh├®rence du chantier parent et du sous-chantier dans le repo canonique `opt-trading`
++- coh├®rence du lot avec `SPEC_MEMORY_BRICKS_API_V2_READONLY.md`
++- coh├®rence du lot avec `MEMORY_BRICKS_MAPPING.md`
++- coh├®rence documentaire entre cadrage, plan, journal, d├®cisions et closeout
++- propagation correcte du front matter utile : `chantier_parent`, `sous_chantier`, `go_id`, `point_de_reprise`
++
++---
++
++## Limites restantes
++
++Les limites restantes sont explicites et assum├®es :
++
++- aucune impl├®mentation producer V2 n'est encore r├®alis├®e
++- aucun consumer HTTP `LocalCMS` n'est encore adopt├®
++- la strat├®gie hybride est cadr├®e mais pas encore mat├®rialis├®e
++- les endpoints `links`, `find` et `indexes/*` restent hors p├®rim├¿tre du lot minimal
++
++---
++
++## Verdict
++
++**PASS**
++
++Justification :
++- le GO a rempli int├®gralement son r├┤le de cadrage
++- les d├®cisions minimales de contrat sont maintenant fig├®es
++- le prochain lot technique peut s'ouvrir sans r├®ouvrir le d├®bat de fond producer / consumer
++
++---
++
++## Next GO confirm├®
++
++`GO_OPT_TRADING_MEMORY_BRICKS_API_V2_MINIMAL_IMPL_01`
++
++Objet :
++- impl├®menter le sous-ensemble V2 minimal c├┤t├® producer `opt-trading`
++
++Suite logique apr├¿s ce GO :
++- `GO_LOCALCMS_MEMORY_BRICKS_HTTP_CONSUMER_ADOPT_01`
++- `GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_TRANSITION_HARDENING_01`
++
++---
++
++## REPRISE
++
++### Reprise globale
++- `docs/index/REPRISE.md`
++
++### Reprise chantier parent
++- `docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONSUMER/00B_parent_scope_and_structure.md`
++
++### Reprise locale du GO ferm├®
++- `docs/chantiers/GO_OPT_TRADING_MEMORY_BRICKS_LOCALCMS_CONTRACT_ALIGNMENT_01/90_closeout.md`
++
++### Reprise du GO suivant
++- ouvrir `GO_OPT_TRADING_MEMORY_BRICKS_API_V2_MINIMAL_IMPL_01` sans rouvrir le d├®bat de cadrage du contrat minimal

@@ -1,0 +1,2214 @@
+diff --git a/docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/90_closeout.md b/docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/90_closeout.md
+new file mode 100644
+index 0000000..92d225a
+--- /dev/null
++++ b/docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/90_closeout.md
+@@ -0,0 +1,48 @@
++---
++doc_id: GO_UNIFORM_CONTINUITY_HARDENING_01_CLOSEOUT
++doc_type: closeout
++repo: opt-trading
++project: opt-trading
++module:
++go_id: GO_UNIFORM_CONTINUITY_HARDENING_01
++status: pass
++lifecycle_stage: closeout
++topic_keys:
++  - opt-trading
++  - continuity
++  - hardening
++  - indexes
++surface: chantier
++source_kind: canonical
++updated_at: 2026-04-13
++links:
++  - docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/00_cadrage.md
++  - docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/01_plan.md
++---
++
++# 90_closeout ÔÇö GO_UNIFORM_CONTINUITY_HARDENING_01
++
++## ├ëtat de d├®part retenu
++- ├®tat retenu : les index `opt-trading` et `localcms` restaient partiellement en retard par rapport aux pilotes d├®j├á clos
++- p├®rim├¿tre retenu : r├®aligner les index sans ouvrir de nouveau chantier m├®tier
++
++## R├®alis├®
++- ce qui a ├®t├® fait :
++  - v├®rification r├®elle des index `opt-trading`
++  - ├®cart confirm├® entre ├®tat r├®el et index
++  - contenu cible corrig├® pr├®par├® pour plusieurs index `opt-trading`
++  - r├®alignement documentaire effectif des index `opt-trading`
++- ce qui nÔÇÖa pas ├®t├® fait :
++  - passage au hardening `localcms`
++
++## Limites
++- le FAIL initial provenait d une limite de l outillage flux/connecteur GitHub, pas d un blocage documentaire r├®siduel en Git natif
++- les index ont ├®t├® r├®align├®s depuis lors
++- aucun blocage documentaire r├®siduel identifi├® en Git natif
++
++## Verdict
++- PASS / FAIL : PASS
++- justification courte : hardening diagnostiqu├®, pr├®par├® et appliqu├® sur les fichiers index existants ; le FAIL initial ├®tait une limite outill├®e, non un blocage documentaire
++
++## Reprise
++- point de reprise : aucun blocage documentaire r├®siduel ; le prochain geste utile est de cadrer un lot m├®tier r├®el
+diff --git a/docs/governance/AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md b/docs/governance/AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md
+new file mode 100644
+index 0000000..8132d2c
+--- /dev/null
++++ b/docs/governance/AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md
+@@ -0,0 +1,88 @@
++# AUDIT CONTINUITE PRODUIT ÔÇö OPT-TRADING
++
++## 1. COUCHE 0 ÔÇö SOCLE TRANSVERSE
++
++| Element | Role | Pourquoi au socle transverse | Etat |
++|---|---|---|---|
++| Methode uniforme + couche humaine | gouvernance / continuite | fixe comment conserver et transmettre l'etat, la trajectoire produit et la reprise | ETABLI |
++| memory_bricks | compaction derivee | fixe comment compacter sans remplacer la doc longue ni creer une memoire concurrente | ETABLI |
++
++### Methode uniforme + couche humaine
++- besoin initial : eviter qu'une continuite correcte garde l'etat technique mais perde plan valide, but final et logique humaine
++- objectif vise : une continuite capable de transmettre etat + trajectoire produit + reprise utile
++- preuves : `docs/chantiers/GO_OPT_TRADING_JOURNAL_FULL_READING_03/00_cadrage.md`, `docs/governance/HUMAN_FOUNDATIONS_CONTINUITY.md`, `docs/governance/HUMAN_CONTINUITY_METHOD.md`, `journal.md` notes `note5001`, `note5010`, `note5011`
++- etat : gouvernance, couche humaine, lecture journal et hierarchie de reprise posees
++- gap : application encore incomplete projet par projet
++
++### memory_bricks
++- besoin initial : compacter sans perdre contexte ni creer memoire concurrente
++- objectif vise : compaction derivee, tracable, utile a la reprise, fondee sur docs stabilisees
++- preuves : `docs/governance/MEMORY_BRICKS_MAPPING.md`, `docs/governance/REPO_ROLE.md`, `docs/chantiers/GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01/90_closeout.md`
++- etat : role canonique et pilote documentaire PASS etablis
++- gap : derivation reguliere depuis trajectoires produit stabilisees encore non systematique
++
++## 2. ANNEAU A ÔÇö PRODUITS PRIORITAIRES
++
++| Projet | Besoin initial | Objectif final vise | Etat obtenu | Gap principal | Prochain GO |
++|---|---|---|---|---|---|
++| Desk Pro | depasser UI/modules isoles et obtenir un cockpit operateur exploitable | cockpit paper trading multi-machine, pilote sur `admin-trading`, exporte vers `/shared`, consultable sur `student`, preparant l'ingestion future `db-layer` | runbooks, hierarchie operateur, flux run/export et contrat multi-machine etablis | vision finale unifiee encore eclatee ; ingestion reelle cote `db-layer` non faite | synthese canonique Desk Pro ou lot ingestion future `/shared` |
++| Trading Dual Stack V1 | eviter lab d'un cote et live de l'autre | framework trading unique avec meme noyau LAB/REALTIME, trader discipline, validation avant autonomie, journalisation exploitable | schemas, config V1, chaine LAB, comparator, chaine REALTIME minimale et closeout canonique etablis | V1 close mais bornee, sans broker, sans ordre reel, sans auto-trading | uniquement si besoin reel, depuis `GO_OT_TRADING_REALTIME_V1_CHAIN_CLOSED_01` |
++| Bot Vision | transformer des captures en analyse exploitable sans workflow fragile ni dependance trop forte a une plateforme | un pipeline vision cross-platform ou un provider headless browser unifie `bot_vision` entre Windows et Linux sans dependre de ShareX, afin de produire des artefacts Desk Pro exploitables | modules presents, contrat input/output de base repo-source, chaine partielle mais reelle | cible cross-platform finale non materialisee comme spec canonique retrouvee | clarifier repo-source la cible produit finale Bot Vision et mesurer l'ecart exact |
++
++### Desk Pro
++- besoin initial : depasser UI/modules isoles ; obtenir un cockpit operateur reellement exploitable
++- objectif final vise : cockpit paper trading multi-machine, pilote sur `admin-trading`, exporte vers `/shared`, consultable sur `student`, preparant ingestion future `db-layer`
++- plan valide : hierarchie canonique des surfaces ; runs logges/rejouables ; dashboard + journal + export ; partage `/shared` ; distribution des usages par machine
++- etat obtenu : entree operateur canonique ; flux run/export repo-source ; contrat de consultation multi-machine ; procedure release/tag
++- preuves : `docs/admin_trading_desk_pro_runbook.md`, `docs/student_desk_pro_runbook.md`, `docs/db_layer_desk_pro_runbook.md`, `docs/desk_pro_release_ops_runbook.md`
++- gap : vision finale unifiee encore eclatee entre runbooks, modules et journal ; ingestion reelle cote `db-layer` non faite
++- prochain GO : synthese canonique Desk Pro ou lot ingestion future `/shared`
++
++### Trading Dual Stack V1
++- besoin initial : eviter lab d'un cote et live de l'autre
++- objectif final vise : framework trading unique, LAB et REALTIME avec meme noyau, trader discipline, validation avant autonomie, journalisation exploitable
++- plan valide : LAB + REAL-TIME ; noyau commun `frame / strategy / execution / analytics` ; V1 etroite `XAUUSD` / `America/Montreal` / `18:00` / `00:00` ; REALTIME borne a observation puis validation ; full auto hors perimetre
++- etat obtenu : schemas, config V1, chaine LAB, comparator, chaine REALTIME minimale ; REALTIME V1 close repo/canonique
++- preuves : `docs/ot/trading/00_TRADING_DUAL_STACK_LAB_REALTIME_V1.md`, `docs/ot/trading/02_TRADING_DUAL_STACK_CORE_SPEC_V1.md`, `docs/ot/trading/INDEX.md`, `docs/ot/trading/21_TRADING_REALTIME_V1_CLOSEOUT_01.md`
++- gap : V1 close mais bornee ; sans broker ; sans ordre reel ; sans auto-trading
++- prochain GO : uniquement si besoin reel, depuis `GO_OT_TRADING_REALTIME_V1_CHAIN_CLOSED_01`
++
++### Bot Vision
++- besoin initial : transformer des captures en analyse exploitable ; eviter un workflow fragile et trop dependant d'une plateforme
++- objectif final vise : un pipeline vision cross-platform ou un provider headless browser unifie `bot_vision` entre Windows et Linux sans dependre de ShareX, afin de produire des artefacts Desk Pro exploitables
++- plan valide : `vision_bot` = reception / traitement de captures ; `bot_vision_step2` = interaction Telegram + `/analyze` + artefacts Desk Pro ; direction de maturite = sortir d'une dependance forte a ShareX / Windows-only et stabiliser une chaine vision unifiee
++- etat obtenu : modules existants ; contrat input/output de base repo-source ; chaine partielle mais reelle
++- preuves : `modules/vision_bot/README.md`, `modules/bot_vision_step2/README.md`
++- gap restant : ETABLI : le pipeline actuel Bot Vision existe et repose encore sur Windows / ShareX / SFTP cote capture ; A REVALIDER : la cible finale headless browser cross-platform n'est pas encore retrouvee comme spec canonique explicite figee dans le repo
++- prochain GO : clarifier repo-source la cible produit finale Bot Vision ; mesurer l'ecart exact entre pipeline actuel et pipeline cross-platform vise
++
++## 3. ANNEAU B ÔÇö REGISTRE COURT DES PROJETS STRUCTURANTS
++
++| Projet | Statut | Pourquoi il reste dans la continuite | Pourquoi il n'est pas prioritaire ici | Point de reprise minimal |
++|---|---|---|---|---|
++| webhook | ETABLI | point d'entree runtime central de la chaine signaux | mieux lu comme brique structurante au service de la trajectoire produit globale | recroiser runtime signaux avec Desk Pro / trading |
++| perf | ETABLI | couche monitor-only claire, utile a la discipline trading et au desk | partiellement absorbe par Desk Pro | etat `/perf` + recroisement avec flux Desk |
++| quant | ETABLI | fondation historique de la logique recherche avant execution | moins central aujourd'hui que Desk Pro / trading dual stack | journal canon fevrier + lot lecture journal |
++| LocalCMS | ETABLI | vrai produit consumer structure, utile a la continuite inter-repos | hors centre du repo canonique `opt-trading` dans cette passe | role consumer + continuite locale `localcms` |
++| Student | ETABLI | role machine durable de consultation et reprise | traite ici comme satellite machine de Desk Pro | `docs/student_desk_pro_runbook.md` |
++| db-layer | PARTIEL | role machine durable et futur aval d'ingestion | satellite machine de Desk Pro, produit futur incomplet | `docs/db_layer_desk_pro_runbook.md` |
++| collector family | ETABLI | vraie famille transverse avec doctrine claire | moins prioritaire que les 3 centres produit retenus | `GO_COLLECTORS_MIGRATION_MAP_01` |
++| Trae / agents / prompt factory / registry | ETABLI | programme transverse reel de structuration/documentation | en arriere-plan par rapport aux produits prioritaires de cette passe | `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md` |
++| surface operateur | ETABLI | couche transverse utile pour usage reel et reprise | sous-jacente a Desk Pro plutot que produit autonome prioritaire | `menu-ops_menu_hub` + runbooks machine |
++| openclaw | A REVALIDER | role repo transverse important ; cockpit operateur local repo-prouve ; policy provider/modele prouvee | produit OpenClaw global complet encore non verrouille | `modules/menu_openclaw/docs/GO_OPENCLAW_CHAIN_03.md`, `modules/menu_openclaw/docs/GO_OPENCLAW_USAGE_EXAMPLES_09.md`, `modules/model_provider_openclaw/README.md` |
++| llm_wiki_minimal | PARTIEL | sas de pre-consolidation explicitement etabli | role surtout transverse, pas produit fort d'`opt-trading` | `docs/governance/REPO_ROLE.md` |
++| hf_trading | PARTIEL | repo conforme utile pour extension future | bootstrap trop leger pour peser dans l'anneau A | bootstrap conforme, pas de lot metier etabli |
++| Antigravity | PARTIEL | chantier specialise reel, historiquement utile | peripherique au centre de gravite produit actuel | relecture dediee des closings/notes Antigravity |
++
++## 4. CONCLUSION OPERATOIRE
++
++- cadre clarifie en 3 niveaux :
++  - Couche 0 ÔÇö Socle transverse
++  - Anneau A ÔÇö Produits prioritaires
++  - Anneau B ÔÇö Registre court
++- ce decoupage repond mieux au probleme de continuite produit
++- suite la plus utile :
++  1. figer une synthese produit canonique pour Desk Pro
++  2. figer une synthese produit canonique pour Trading Dual Stack V1
++  3. clarifier repo-source la cible produit finale de Bot Vision
++  4. deriver ensuite seulement les memory_bricks depuis ces syntheses stabilisees
+diff --git a/docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md b/docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md
+new file mode 100644
+index 0000000..a941304
+--- /dev/null
++++ b/docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md
+@@ -0,0 +1,182 @@
++# AUDIT ÔÇö IA / IDE / WORKFLOW ROLE ALIGNMENT ÔÇö OPT-TRADING
++
++## Besoin initial
++- ├ëviter les confusions (assistant externe vs produit vs repo transverse vs IDE vs machine) qui cassent la continuit├® et le scope des missions.
++
++## Objectif final vis├®
++- Disposer dÔÇÖune cartographie compacte et opposable du **r├┤le workflow canonique** des entr├®es IA/IDE/couples outil-produit, repo-sourc├®e, sans ouvrir de patch runtime.
++
++## Plan valid├®
++- Lire les audits de gouvernance + entrypoints Trae d├®j├á fix├®s.
++- Pour chaque entr├®e demand├®e, ne citer que des preuves repo-sourc├®es (docs/README/runbooks/modules) ; journal = secondaire.
++- Produire : tableau ex├®cutif + fiches courtes (nature, r├┤le workflow, limites, confusion, point dÔÇÖentr├®e canonique) + statut (ETABLI/PARTIEL/A_REVALIDER).
++
++## ├ëtat ├®tabli
++- La structure canonique de continuit├® est d├®j├á inject├®e dans les templates et entrypoints Trae (docs OT Trae + starter pack).
++- Les audits produit et th├®matiques existent et servent de sources de v├®rit├® secondaires/compl├®mentaires ├á cet audit (ne pas les remplacer).
++
++## Gap
++- Les r├┤les workflow des assistants / IDE / couples outil-produit restaient m├®lang├®s ou implicites, et certains noms forts sont surpromis malgr├® des preuves repo limit├®es.
++
++## Prochain GO
++> GO_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_01
++
++---
++
++## 1. Objet
++- Ce document ne remplace ni lÔÇÖaudit ma├«tre de continuit├® produit ([AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md](file:///c:/Users/ghost/opt-trading/docs/governance/AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md)) ni la coupe th├®matique multi-IA ([AUDIT_THEMATIQUE_MULTI_IA_IDE_AGENTS_SPACES_OPT_TRADING.md](file:///c:/Users/ghost/opt-trading/docs/governance/AUDIT_THEMATIQUE_MULTI_IA_IDE_AGENTS_SPACES_OPT_TRADING.md)).
++- Il fixe le **r├┤le workflow canonique** des assistants / IDE / couples outil-produit list├®s, avec s├®paration explicite :
++  - r├┤le machine
++  - r├┤le IA / IDE
++  - r├┤le repo / produit
++  - r├┤le workflow
++  - limites / hors-scope
++
++## 2. R├¿gle de lecture (opposable)
++Pour chaque entr├®e ci-dessous :
++- **Nature** : IA / IDE / repo transverse / produit / assistant externe / bridge born├®.
++- **R├┤le workflow canonique** : ├á quoi sert cette entr├®e dans le workflow (cadrage/ex├®cution/validation/production dÔÇÖartefacts).
++- **Ce que ce nÔÇÖest pas** : anti-confusions explicites.
++- **Point dÔÇÖentr├®e canonique** : chemin repo ou commande wrapper/menu/cmd document├®e.
++- **Limites / hors-scope** : ce que lÔÇÖentr├®e ne doit pas faire.
++- **Statut** : ETABLI (preuves claires), PARTIEL (preuve locale + cible finale non fig├®e), A_REVALIDER (preuves insuffisantes ou absentes).
++
++## 3. Tableau ex├®cutif
++
++| Entr├®e | Nature | R├┤le workflow canonique | Ce que ce nÔÇÖest pas | Point dÔÇÖentr├®e canonique | Statut |
++|---|---|---|---|---|---|
++| Trae | Couche workflow (doc opposable) | Gouverner missions (cadrage ÔåÆ ex├®cution ÔåÆ review ÔåÆ close), continuit├®, gates, points de reprise | Produit m├®tier principal ; runtime/agents actifs par d├®faut | [docs/ot/trae/OT_TRAE_SESSION_REPRISE.md](file:///c:/Users/ghost/opt-trading/docs/ot/trae/OT_TRAE_SESSION_REPRISE.md) + [00_mission_start_guide.md](file:///c:/Users/ghost/opt-trading/docs/master_pack/mission_starter_pack/00_mission_start_guide.md) | ETABLI |
++| ChatGPT | Assistant externe | Cadrage/synth├¿se/validation conversationnelle, entr├®e ÔÇ£sessionÔÇØ dans des prompts valid├®s | Source de v├®rit├® repo-native ; workflow opposable autonome | [validated_prompt_factory/README.md](file:///c:/Users/ghost/opt-trading/modules/validated_prompt_factory/README.md) | PARTIEL |
++| Claude / LocalCMS | Assistant externe + produit (hors repo) | Claude : ex├®cution/doc ponctuelle ; LocalCMS : produit consumer distinct (r├®f├®renc├®) | Confondre lÔÇÖassistant et le produit ; promouvoir LocalCMS comme produit central dÔÇÖopt-trading | [AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md](file:///c:/Users/ghost/opt-trading/docs/governance/AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md) (registre) | PARTIEL |
++| OpenClaw / Hermes | Repo transverse + bridge born├® | OpenClaw : cockpit op├®rateur local + policy provider/mod├¿les ; Hermes : axe exp├®rimental de g├®n├®ration avec bridge born├® vers OpenClaw | Un ÔÇ£produit unique g├®n├®ralÔÇØ ; fusion HermesÔåÆOpenClaw sans borne | OpenClaw : [GO_OPENCLAW_CHAIN_03.md](file:///c:/Users/ghost/opt-trading/modules/menu_openclaw/docs/GO_OPENCLAW_CHAIN_03.md) ; Hermes : [docs/hermes/00_overview.md](file:///c:/Users/ghost/opt-trading/docs/hermes/00_overview.md) + [generate.sh](file:///c:/Users/ghost/opt-trading/tools/hermes_bridge/generate.sh) | OpenClaw ETABLI / Hermes PARTIEL |
++| DeepSeek / Ollama | IA locale + hub op├®rateur | IA locale (student) avec hub dÔÇÖunification, s├®paration thinking/response, surface op├®rateur | Cible finale d├®j├á close ; substitution du runtime sans mission d├®di├®e | [deepseek_hub/README.md](file:///c:/Users/ghost/opt-trading/modules/deepseek_hub/README.md) + [student_deepseek_runbook.md](file:///c:/Users/ghost/opt-trading/docs/student_deepseek_runbook.md) | PARTIEL |
++| Antigravity / Gemini | Axe sp├®cialis├® + assistant (├á prouver) | Antigravity : chantier sp├®cialis├® (r├®f├®renc├®), ├á recontextualiser ; Gemini : non prouv├® repo-sourc├® dans ce repo | Surpromouvoir sans preuve ; confondre ÔÇ£outil/IDEÔÇØ et ÔÇ£assistantÔÇØ | Antigravity : audits gouvernance (r├®f├®rences) ; Gemini : N/A | Antigravity PARTIEL / Gemini A_REVALIDER |
++| MiMoPro | Nom fort (├á revalider) | Ne pas surpromouvoir : distinguer ligne sp├®cialis├®e prouv├®e (mimo_open_observer) vs ÔÇ£MiMoProÔÇØ produit global | Confondre ÔÇ£MiMoProÔÇØ et ÔÇ£mimo_open_observerÔÇØ ; ├®tendre en produit global sans preuve | [mimo_open_observer/README.md](file:///c:/Users/ghost/opt-trading/modules/mimo_open_observer/README.md) + [MIMO_V2_PRO_FREE_CLOSEOUT.md](file:///c:/Users/ghost/opt-trading/student/docs/MIMO_V2_PRO_FREE_CLOSEOUT.md) | A_REVALIDER |
++
++## 4. Fiches courtes par entr├®e
++
++### 4.1 Trae
++- **Nature** : couche de workflow opposable (doc repo-sourc├®e).
++- **R├┤le workflow canonique** : imposer un cadre mission clair (cadrage ÔåÆ ex├®cution ÔåÆ review ÔåÆ close), avec continuit├® (besoin/objectif/plan/├®tat/gap/GO).
++- **R├┤le repo / produit** : structure documentaire OT Trae (d├®cisions, entrypoints, checklists) ; starter pack mission projet.
++- **R├┤le machine** : N/A (doc-only).
++- **Ce que ce nÔÇÖest pas** :
++  - un produit m├®tier principal (Desk Pro / Trading Dual Stack / etc.)
++  - une plateforme dÔÇÖagents runtime active par d├®faut
++- **Point dÔÇÖentr├®e canonique** :
++  - [OT_TRAE_SESSION_REPRISE.md](file:///c:/Users/ghost/opt-trading/docs/ot/trae/OT_TRAE_SESSION_REPRISE.md)
++  - [docs/ot/trae/README.md](file:///c:/Users/ghost/opt-trading/docs/ot/trae/README.md)
++  - [12_ORCHESTRATOR_ENTRYPOINT_V1.txt](file:///c:/Users/ghost/opt-trading/docs/ot/trae/12_ORCHESTRATOR_ENTRYPOINT_V1.txt)
++- **Confusions ├á ├®viter** : Trae (workflow) Ôëá runtime Ôëá agents V1 Ôëá produit m├®tier.
++- **Statut** : ETABLI (preuves doc OT + audits).
++- **Point de reprise minimal** : reprendre via lÔÇÖentrypoint Trae, cadrer la mission, puis appliquer le GO indiqu├® par kanban/closing.
++
++### 4.2 ChatGPT
++- **Nature** : assistant externe (conversationnel).
++- **R├┤le workflow canonique** : cadrage/synth├¿se/validation ; support de g├®n├®ration contr├┤l├®e via ÔÇ£sessionÔÇØ dans un module repo (pas source de v├®rit├®).
++- **R├┤le repo / produit** : encapsul├®/consomm├® via un module repo-sourc├® quand besoin (ex: g├®n├®ration de prompts valid├®s).
++- **R├┤le machine** : N/A (sauf capture journaling si appliqu├®).
++- **Ce que ce nÔÇÖest pas** :
++  - une source de v├®rit├® repo-native
++  - un workflow opposable ├á lui seul
++- **Point dÔÇÖentr├®e canonique** : [validated_prompt_factory/README.md](file:///c:/Users/ghost/opt-trading/modules/validated_prompt_factory/README.md) (mode ÔÇ£chatgpt_sessionÔÇØ).
++- **Confusions ├á ├®viter** : ChatGPT (assistant externe) Ôëá Trae (workflow) Ôëá module repo.
++- **Statut** : PARTIEL (preuve via module + journal secondaire ; pas de r├┤le ÔÇ£canonique globalÔÇØ au-del├á).
++- **Point de reprise minimal** : passer par une mission cadr├®e Trae si on veut industrialiser/figer un usage.
++
++### 4.3 Claude / LocalCMS
++- **Nature** :
++  - Claude : assistant externe.
++  - LocalCMS : produit consumer distinct (r├®f├®renc├® dans opt-trading, mais non pr├®sent comme repo ici).
++- **R├┤le workflow canonique** :
++  - Claude : ex├®cution/doc ponctuelle quand explicitement cadr├®e (pas de promotion automatique).
++  - LocalCMS : rappeler quÔÇÖil existe comme produit s├®par├® ; opt-trading ne doit pas lÔÇÖabsorber sans preuve.
++- **R├┤le repo / produit** : LocalCMS est hors du repo opt-trading ; ici on ne garde quÔÇÖune r├®f├®rence de continuit├®.
++- **R├┤le machine** : N/A dans ce repo.
++- **Ce que ce nÔÇÖest pas** :
++  - Claude Ôëá LocalCMS
++  - LocalCMS Ôëá produit central dÔÇÖopt-trading
++- **Point dÔÇÖentr├®e canonique (repo-sourc├®)** : registre LocalCMS dans [AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md](file:///c:/Users/ghost/opt-trading/docs/governance/AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md).
++- **Confusions ├á ├®viter** : ÔÇ£assistant externeÔÇØ Ôëá ÔÇ£produit consumerÔÇØ Ôëá ÔÇ£repo transverseÔÇØ.
++- **Statut** : PARTIEL (preuve de r├┤le conceptuel uniquement dans ce repo ; entrypoint du produit hors p├®rim├¿tre).
++- **Point de reprise minimal** : si besoin, pointer explicitement vers le repo LocalCMS et son entrypoint interne (hors scope de ce document).
++
++### 4.4 OpenClaw / Hermes
++
++#### OpenClaw
++- **Nature** : couche transverse (cockpit op├®rateur local + gouvernance provider/mod├¿les) dans opt-trading.
++- **R├┤le workflow canonique** : offrir une surface op├®rateur born├®e + une policy provider/mod├¿le centralis├®e pour ├®viter que les scripts/agents choisissent arbitrairement.
++- **R├┤le repo / produit** : modules et docs dans `modules/menu_openclaw/` et `modules/model_provider_openclaw/`.
++- **R├┤le machine** : principalement local (surface op├®rateur), avec portabilit├® born├®e selon usages.
++- **Ce que ce nÔÇÖest pas** : un ÔÇ£produit global uniqueÔÇØ qui remplace Desk Pro / trading ; une normalisation implicite de toutes les couches IA.
++- **Point dÔÇÖentr├®e canonique** :
++  - [GO_OPENCLAW_CHAIN_03.md](file:///c:/Users/ghost/opt-trading/modules/menu_openclaw/docs/GO_OPENCLAW_CHAIN_03.md)
++  - [model_provider_openclaw/README.md](file:///c:/Users/ghost/opt-trading/modules/model_provider_openclaw/README.md)
++- **Confusions ├á ├®viter** : OpenClaw (cockpit/policy) Ôëá Hermes (bridge exp├®rimental).
++- **Statut** : ETABLI (preuves modules/docs).
++
++#### Hermes
++- **Nature** : axe exp├®rimental + bridge born├® vers OpenClaw.
++- **R├┤le workflow canonique** : g├®n├®rer des scripts/artefacts encadr├®s (horodat├®s + logs), consommables par une ex├®cution born├®e ; ne pas se pr├®senter comme ÔÇ£syst├¿me centralÔÇØ.
++- **R├┤le repo / produit** : docs Hermes + outil de g├®n├®ration dans `tools/hermes_bridge/`.
++- **R├┤le machine** : N/A (outil local, doc-only ici).
++- **Ce que ce nÔÇÖest pas** : un assistant g├®n├®rique ; une plateforme dÔÇÖex├®cution non gouvern├®e.
++- **Point dÔÇÖentr├®e canonique** :
++  - [docs/hermes/00_overview.md](file:///c:/Users/ghost/opt-trading/docs/hermes/00_overview.md)
++  - [tools/hermes_bridge/generate.sh](file:///c:/Users/ghost/opt-trading/tools/hermes_bridge/generate.sh)
++- **Statut** : PARTIEL (bridge born├® prouv├®, mais r├┤le volontairement non g├®n├®ralis├®).
++
++### 4.5 DeepSeek / Ollama
++- **Nature** : IA locale (Ollama + mod├¿les) + surfaces op├®rateur + hub dÔÇÖunification.
++- **R├┤le workflow canonique** : fournir une IA locale exploitable (notamment sur machine student) avec s├®paration thinking/response et une surface op├®rateur unifi├®e via hub.
++- **R├┤le repo / produit** : `modules/deepseek_hub/` formalise le hub ; runbooks documentent les entrypoints c├┤t├® machine.
++- **R├┤le machine** : fortement li├® ├á `student` (runtime actuel) ; multi-machine = ├á cadrer mission par mission.
++- **Ce que ce nÔÇÖest pas** :
++  - une cible finale d├®j├á close (la ÔÇ£destination canonique finaleÔÇØ nÔÇÖest pas verrouill├®e)
++  - un pr├®texte pour patcher runtime sans mission d├®di├®e
++- **Point dÔÇÖentr├®e canonique** :
++  - [deepseek_hub/README.md](file:///c:/Users/ghost/opt-trading/modules/deepseek_hub/README.md)
++  - [student_deepseek_runbook.md](file:///c:/Users/ghost/opt-trading/docs/student_deepseek_runbook.md)
++- **Confusions ├á ├®viter** : runtime machine `scripts/student` Ôëá module hub repo Ôëá assistant externe.
++- **Statut** : PARTIEL (hub prouv├®, mais cible finale non fig├®e).
++
++### 4.6 Antigravity / Gemini
++- **Antigravity**
++  - **Nature** : chantier sp├®cialis├® (r├®f├®renc├® en gouvernance).
++  - **R├┤le workflow canonique** : conserver comme axe p├®riph├®rique document├® ; ne pas le promouvoir comme centre de gravit├® multi-IA sans relecture d├®di├®e.
++  - **Point dÔÇÖentr├®e canonique (repo-sourc├®)** : r├®f├®rences gouvernance uniquement :
++    - [AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md](file:///c:/Users/ghost/opt-trading/docs/governance/AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md)
++    - [AUDIT_THEMATIQUE_MULTI_IA_IDE_AGENTS_SPACES_OPT_TRADING.md](file:///c:/Users/ghost/opt-trading/docs/governance/AUDIT_THEMATIQUE_MULTI_IA_IDE_AGENTS_SPACES_OPT_TRADING.md)
++  - **Statut** : PARTIEL (pas dÔÇÖentrypoint d├®di├® rep├®r├® dans ce repo).
++- **Gemini**
++  - **Nature** : assistant/moteur externe suppos├® (non prouv├® ici).
++  - **R├┤le workflow canonique** : N/A tant quÔÇÖaucune preuve repo-sourc├®e nÔÇÖest identifi├®e.
++  - **Point dÔÇÖentr├®e canonique** : N/A (aucune occurrence repo).
++  - **Statut** : A_REVALIDER.
++
++### 4.7 MiMoPro
++- **Nature** : nom fort ├á revalider ; la preuve repo-sourc├®e la plus solide est une **ligne sp├®cialis├®e** (mimo_open_observer) + un closeout E2E ÔÇ£V2 Pro FreeÔÇØ.
++- **R├┤le workflow canonique** : ne pas confondre ÔÇ£MiMoProÔÇØ avec la ligne prouv├®e ; traiter ÔÇ£MiMoProÔÇØ comme label tant que le produit global nÔÇÖest pas fig├®.
++- **R├┤le repo / produit** :
++  - Ligne prouv├®e : [mimo_open_observer/README.md](file:///c:/Users/ghost/opt-trading/modules/mimo_open_observer/README.md)
++  - Closeout E2E : [MIMO_V2_PRO_FREE_CLOSEOUT.md](file:///c:/Users/ghost/opt-trading/student/docs/MIMO_V2_PRO_FREE_CLOSEOUT.md)
++- **R├┤le machine** : d├®pend des flux trading/collecte ; non consolid├® ici.
++- **Ce que ce nÔÇÖest pas** : une promotion automatique en produit global transverse.
++- **Point dÔÇÖentr├®e canonique** :
++  - pour la ligne prouv├®e : `modules/mimo_open_observer/` (cmd/menu document├®s dans le README)
++  - pour ÔÇ£MiMoProÔÇØ : closeout E2E ci-dessus (pas dÔÇÖentrypoint unique consolid├®)
++- **Confusions ├á ├®viter** : MiMoPro (nom fort) Ôëá mimo_open_observer (ligne sp├®cialis├®e prouv├®e).
++- **Statut** : A_REVALIDER (nom fort non verrouill├® comme produit global).
++
++## 5. Conclusion op├®ratoire
++- R├┤les canoniques clarifi├®s :
++  - Trae = workflow opposable (doc repo-sourc├®e) ; pas un produit m├®tier.
++  - ChatGPT/Claude = assistants externes ; utilisables mais non sources de v├®rit├®.
++  - OpenClaw = couche transverse (cockpit/policy) ; Hermes = bridge exp├®rimental born├®.
++  - DeepSeek/Ollama = IA locale prouv├®e (hub + runbooks) mais cible finale non close.
++  - Antigravity = axe p├®riph├®rique r├®f├®renc├® ; Gemini = absent repo-sourc├®.
++  - MiMoPro = nom fort ├á revalider ; ne pas confondre avec la ligne mimo_open_observer prouv├®e.
++- Confusions ├á ├®viter (rappel) : assistant externe Ôëá IDE Ôëá produit Ôëá repo transverse Ôëá machine Ôëá workflow.
++- Suites possibles (hors scope de ce document) :
++  - Si besoin : mission d├®di├®e ÔÇ£synth├¿se canonique OpenClawÔÇØ ou ÔÇ£clarification runtime DeepSeekÔÇØ.
++  - Si ÔÇ£MiMoProÔÇØ doit devenir un produit : d├®cision repo-sourc├®e + entrypoint canonique consolid├®.
+diff --git a/docs/governance/AUDIT_THEMATIQUE_MULTI_IA_IDE_AGENTS_SPACES_OPT_TRADING.md b/docs/governance/AUDIT_THEMATIQUE_MULTI_IA_IDE_AGENTS_SPACES_OPT_TRADING.md
+new file mode 100644
+index 0000000..ce9cc51
+--- /dev/null
++++ b/docs/governance/AUDIT_THEMATIQUE_MULTI_IA_IDE_AGENTS_SPACES_OPT_TRADING.md
+@@ -0,0 +1,80 @@
++# AUDIT THEMATIQUE ÔÇö MULTI IA / IDE / AGENTS / SPACES ÔÇö OPT-TRADING
++
++- ce document ne remplace pas l'audit maitre de continuite produit
++- il constitue une coupe thematique parallele
++- la Couche 0 transverse reste heritee du cadre maitre :
++  - methode uniforme + couche humaine
++  - memory_bricks
++- Rattachement : depend du cadre maitre de continuite produit, ne le remplace pas
++
++## Tableau executif Anneau A
++
++| Projet | Besoin initial | Objectif final vise | Etat obtenu | Gap principal | Prochain GO |
++|---|---|---|---|---|---|
++| Trae | structurer le travail assiste IA sans derive entre workflow, kanban, regles, agents et runtime | une couche Trae gouvernee et opposable, ou les missions IA multi-etapes sont reprises proprement sans ambiguite | socle pre-V1 gele, decisions canoniques produites, reprise canonique en place | encore pre-V1, agents/skills non ouverts comme couche runtime active | `GO_OT_TRAE_AGENTS_V1_OPEN_01` si selection explicite |
++| OpenClaw | sortir la gouvernance transverse et borner agents/providers/modeles hors du canon execution `opt-trading` | une couche OpenClaw avec politique provider/modele centralisee, gouvernee et bornee | role repo transverse etabli ; cockpit operateur local partiellement reconstruit ; `model_provider_openclaw` prouve | produit OpenClaw global encore peu verrouille | audit/synthese OpenClaw ou lot provider policy V1 |
++| Hugging Face | exposer certaines surfaces sans deplacer la source de verite hors du repo canonique | une couche Hugging Face de publication propre avec portail public, tools prives, MCP public, assets publics | `portal_static` documente, surfaces nommees, publication target only explicite | peu de preuve d'usage bout-en-bout, chronologie produit limitee | audit publication Hugging Face ou cadrage d'usage des surfaces |
++| DeepSeek / Ollama local | avoir une IA locale exploitable sans dependance exclusive aux APIs externes, avec separation thinking / response | un hub DeepSeek / Ollama local stable, menu unifie, thinking/response pilotables, logs et artefacts lisibles | `scripts/student` = runtime canonique actuel, `deepseek_hub` = hub reel d'unification, `deepseek-student` = surface operateur | cible finale unique non figee ; `deepseek_hub` reste candidat d'unification le plus fort | audit runtime DeepSeek / clarification runtime canonique |
++
++### Trae
++- besoin : structurer le travail assiste IA sans derive entre workflow, kanban, regles, agents et runtime
++- objectif final : couche Trae gouvernee et opposable ; missions IA multi-etapes reprises proprement sans ambiguite
++- plan : socle pre-V1 documente ; gel `Rules / Agents / Skills / MCP Policy` sans surpromesse ; decisions / closings / reprise / alignement kanban ; `Rules V1` doc-only avant toute ouverture ulterieure
++- etat : `validated_prompt_factory` clos ; `trae_module_validator` actif formalise ; Trae pre-V1 acte ; `Rules V1` ouvert doc-only ; reprise canonique Trae en place
++- preuves : `docs/ot/trae/README.md`, `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md`, `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`, `docs/ot/trae/OT_TRAE_PRE_V1_CLOSEOUT_STATUS_DECISION_01.md`
++- gap : pas encore de plateforme agents active au-dela du pre-V1 gele
++- prochain GO : `GO_OT_TRAE_AGENTS_V1_OPEN_01` si selection explicite
++
++### OpenClaw
++- besoin : sortir la gouvernance transverse et borner agents/providers/modeles hors du canon execution `opt-trading`
++- objectif final : couche OpenClaw avec politique provider/modele centralisee, gouvernee et bornee
++- plan : `openclaw` = repo de gouvernance transverse ; `opt-trading` = cockpit operateur local borne + politique provider/modele
++- etat : role transverse fixe ; cockpit operateur local partiellement reconstruit ; `model_provider_openclaw` present ; providers/modeles autorises ; matrice agent -> modele/fallback ; regle : aucun agent ne choisit directement son provider/modele
++- preuves : `modules/menu_openclaw/docs/GO_OPENCLAW_CHAIN_03.md`, `modules/menu_openclaw/docs/GO_OPENCLAW_USAGE_EXAMPLES_09.md`, `modules/model_provider_openclaw/README.md`
++- gap : produit OpenClaw global complet pas encore verrouille
++- prochain GO : audit/synthese OpenClaw ou lot provider policy V1
++
++### Hugging Face
++- besoin : exposer certaines surfaces sans deplacer la source de verite hors du repo canonique
++- objectif final : couche Hugging Face de publication propre avec portail public, tools prives, MCP public, assets publics
++- plan : `opt-trading/sot/mainline` reste source de verite ; Hugging Face = publication target only ; separation portail public / tools prives / MCP public / assets publics
++- etat : `portal_static` documente ; surfaces Hugging Face nommees ; publication target only explicite
++- preuves : `modules/hf_free_platform/spaces/portal_static/README.md`
++- gap : peu de preuve d'usage bout-en-bout ; chronologie produit limitee
++- prochain GO : audit publication Hugging Face ou cadrage d'usage des surfaces
++
++### DeepSeek / Ollama local
++- besoin : avoir une IA locale exploitable sans dependance exclusive aux APIs externes ; separation thinking / response
++- objectif final : hub DeepSeek / Ollama local stable, menu unifie, thinking/response pilotables, logs et artefacts lisibles
++- plan : installer Ollama local ; separer `deepseek_thinking` et `deepseek_response` ; preferer API HTTP a `ollama run` ; unifier via `deepseek_hub`
++- etat : `scripts/student` constitue le runtime reel / canonique actuel ; `deepseek_hub` est le hub reel d'unification ; `deepseek-student` est la surface operateur reelle
++- preuves : `journal.md`, `modules/deepseek_hub/README.md`
++- gap : aucune cible finale unique n'est encore figee repo-sourcee ; `deepseek_hub` est le candidat d'unification le plus fort, mais la destination finale canonique n'est pas close
++- prochain GO : audit runtime DeepSeek / clarification runtime canonique
++
++## Registre court Anneau B
++
++| Nom | Statut | Pourquoi il reste dans la continuite | Pourquoi il n'est pas prioritaire dans cette passe | Point de reprise minimal |
++|---|---|---|---|---|
++| Hermes | PARTIEL | vrai axe experimental de generation / memoire de travail, avec bridge borne vers OpenClaw | trop borne et explicitement non generalise pour devenir centre de gravite principal | `docs/hermes/00_overview.md`, `docs/hermes/03_bridge_openclaw.md`, `docs/hermes/HERMES_OPENCLAW_BRIDGE_CASE_01_RESULT_2026-04-09.txt` |
++| Claude | PARTIEL | role reel dans le journal comme executeur documentaire, notamment pour LocalCMS | interface externe / assistant, moins couche repo-native canonique | `journal.md` passages `workflow-claude` et LocalCMS |
++| ChatGPT | PARTIEL | role reel comme source de conversation capturee puis orchestrateur/validateur dans certaines sequences | interface externe / assistant, pas produit repo-natif principal | `journal/canon/JOURNAL_CANON_FULL_20260301_071931.md`, `journal.md` passages ChatGPT |
++| MiMo | A REVALIDER | vraie ligne specialisee trading via `mimo_open_observer` | le nom fort du produit reste peu verrouille dans cette passe thematique | `modules/mimo_open_observer/README.md` |
++| Antigravity | PARTIEL | chantier specialise reel et historiquement utile | peripherique a l'axe multi IA principal de cette passe | relecture dediee des closings/notes Antigravity |
++| OpenAI | PARTIEL | fondation historique importante pour journalisation et reflexion sur agents/tool calling | backend / assistant externe plutot que produit repo-structurant actuel | `journal/canon/JOURNAL_CANON_FULL_20260301_071931.md`, `journal.md` passages OpenAI |
++| llm_wiki_minimal | PARTIEL | utile comme sas de pre-consolidation autour de l'ecosysteme IA/doc | role transverse, pas produit prioritaire ici | `docs/governance/REPO_ROLE.md` |
++| hf_trading | PARTIEL | extension repo utile proche de l'axe Hugging Face | bootstrap encore leger, pas assez riche pour Anneau A | `journal.md` passages bootstrap `hf_trading` |
++
++## Conclusion operatoire
++
++- cette coupe thematique confirme 4 centres de gravite actuels :
++  - Trae
++  - OpenClaw
++  - Hugging Face
++  - DeepSeek / Ollama local
++- Anneau B conserve les autres axes utiles sans brouiller la lecture prioritaire
++- suite logique :
++  1. figer une synthese canonique Trae
++  2. figer une synthese canonique OpenClaw
++  3. clarifier la carte produit Hugging Face spaces
++  4. clarifier la cible finale DeepSeek entre runtime actuel, candidat d'unification et destination canonique non figee
+diff --git a/docs/governance/BOT_VISION_CANONICAL_PRODUCT_SYNTH_01.md b/docs/governance/BOT_VISION_CANONICAL_PRODUCT_SYNTH_01.md
+new file mode 100644
+index 0000000..9927eef
+--- /dev/null
++++ b/docs/governance/BOT_VISION_CANONICAL_PRODUCT_SYNTH_01.md
+@@ -0,0 +1,27 @@
++# BOT VISION ÔÇö SYNTH├êSE CANONIQUE PRODUIT
++
++## 1. Objet
++Ce document synth├®tise le produit **Bot Vision** dans un format court et opposable, figeant son objectif final et la trajectoire de sortie de d├®pendance.
++
++## 2. Besoin initial
++Transformer des captures d'├®cran en analyse exploitable sans subir un workflow fragile ni une d├®pendance trop forte ├á une plateforme sp├®cifique (Windows/ShareX).
++
++## 3. Objectif final vis├®
++Un pipeline vision cross-platform o├╣ un provider headless browser unifie ot_vision entre Windows et Linux sans d├®pendre de ShareX, afin de produire des artefacts Desk Pro exploitables.
++
++## 4. Plan valid├®
++- ision_bot : R├®ception et traitement de captures.
++- ot_vision_step2 : Interaction Telegram + analyse + g├®n├®ration d'artefacts Desk Pro.
++- Direction de maturit├® : Sortir de la d├®pendance forte ├á ShareX / Windows-only et stabiliser une cha├«ne vision unifi├®e headless.
++
++## 5. ├ëtat obtenu
++- Modules existants dans le repo (modules/vision_bot, modules/bot_vision_step2).
++- Contrat input/output de base repo-sourc├®.
++- Cha├«ne partielle mais r├®elle (fortement coupl├®e Windows/ShareX/SFTP).
++
++## 6. Gap restant
++- Le pipeline actuel repose encore sur Windows / ShareX / SFTP c├┤t├® capture.
++- La cible finale (headless browser cross-platform) n'est pas encore mat├®rialis├®e comme sp├®cification canonique explicite fig├®e dans le repo.
++
++## 7. Prochain GO recommand├®
++> GO_BOT_VISION_CROSS_PLATFORM_SPEC_01 (clarifier repo-source la cible produit finale et mesurer l'├®cart)
+diff --git a/docs/governance/DB_LAYER_INGESTION_ENGINE_DECISION_01.md b/docs/governance/DB_LAYER_INGESTION_ENGINE_DECISION_01.md
+new file mode 100644
+index 0000000..626d12d
+--- /dev/null
++++ b/docs/governance/DB_LAYER_INGESTION_ENGINE_DECISION_01.md
+@@ -0,0 +1,153 @@
++# DB LAYER ÔÇö INGESTION ENGINE DECISION 01
++
++## 1. Objet
++- Ce document d├®cide le niveau moteur / DDL minimal pour lÔÇÖingestion future c├┤t├® `db-layer`.
++- Il ne remplace ni la spec pipeline, ni le mapping logique, ni la d├®cision de sch├®ma physique minimal.
++- Il ne prouve pas une impl├®mentation existante : aucune ingestion DB runtime nÔÇÖest actuellement ├®tablie.
++
++## 2. Besoin initial
++- D├®passer le niveau sch├®ma abstrait et pr├®parer une impl├®mentation future sans ambigu├»t├® excessive.
++- ├ëviter un codage ad hoc au moment de lÔÇÖingestion minimale (choix moteur implicite, DDL improvis├®).
++
++## 3. Objectif final vis├®
++- Disposer dÔÇÖune d├®cision opposable sur :
++  - moteur retenu ou non retenu (niveau de figement)
++  - niveau de figement du DDL minimal (gabarit vs dialecte exact)
++  - conditions minimales pour ouvrir lÔÇÖimpl├®mentation
++
++## 4. ├ëtat ├®tabli actuel
++
++### 4.1 Fil machine
++- `admin-trading` = production / export vers `/shared/desk_pro/latest/`
++- `student` = consultation
++- `db-layer` = consultation + pr├®paration ingestion future (pas dÔÇÖingestion DB prouv├®e)
++
++### 4.2 Fil repo / produit
++- Spec pipeline : [DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md](file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md)
++- Mapping logique : [DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md](file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md)
++- Sch├®ma physique minimal V1 : [DB_LAYER_INGESTION_PHYSICAL_SCHEMA_DECISION_01.md](file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_INGESTION_PHYSICAL_SCHEMA_DECISION_01.md)
++- ├ëtat ├®tabli :
++  - moteur DB final : non fig├®
++  - DDL exact (dialecte/types) : non fig├®
++  - aucune impl├®mentation runtime (DB + DDL appliqu├® + job) nÔÇÖest prouv├®e
++
++Gap restant (constat) :
++- D├®cider ce qui peut ├¬tre fig├® sur le moteur et le niveau ÔÇ£DDL minimalÔÇØ sans inventer un moteur non prouv├®.
++
++## 5. Options moteur r├®ellement justifiables
++
++### Option A ÔÇö Moteur fig├® maintenant
++- Ce que ├ºa permet :
++  - DDL exact et imm├®diatement ex├®cutable (types/contraintes/index selon moteur)
++  - ouverture directe dÔÇÖune impl├®mentation minimale born├®e
++- Ce que ├ºa fige :
++  - moteur, tooling dÔÇÖexploitation, migrations/backups
++- Ce que ├ºa impose trop t├┤t :
++  - une contrainte dÔÇÖops et de d├®ploiement non prouv├®e dans lÔÇÖ├®tat ├®tabli
++- Verdict : non retenue (aucune preuve repo-sourc├®e imposant un moteur DB final pour cette ingestion).
++
++### Option B ÔÇö Moteur non fig├®, DDL minimal g├®n├®rique fig├®
++- Ce que ├ºa permet :
++  - un contrat ÔÇ£DDL gabaritÔÇØ opposable et stable (tables/champs/PK/UNIQUE/index minimaux)
++  - une impl├®mentation future sans d├®rive, tout en laissant le moteur DB libre
++- Ce que ├ºa fige :
++  - la structure physique minimale (tables/collections d├®j├á d├®cid├®es), les contraintes minimales, les index minimaux
++- Ce que ├ºa nÔÇÖimpose pas :
++  - dialecte exact, types DB exacts, migrations, tuning
++- Verdict : retenue.
++
++## 6. D├®cision retenue
++DECISION : moteur non fig├®, DDL minimal g├®n├®rique fig├®.
++
++- **Moteur** : NON FIG├ë.
++- **DDL minimal** : FIG├ë au niveau ÔÇ£gabaritÔÇØ (structure + contraintes/index minimaux), NON FIG├ë au niveau ÔÇ£dialecte ex├®cutableÔÇØ.
++- **Niveau opposable** : ce document + la d├®cision de sch├®ma physique minimal d├®finissent le contrat dÔÇÖimpl├®mentation.
++
++Conditions minimales pour ouvrir lÔÇÖimpl├®mentation :
++1) une d├®cision explicite sur le moteur (ou un stockage cible concret) ;
++2) la traduction du gabarit DDL en DDL ex├®cutable (dialecte + types) ;
++3) une strat├®gie minimale de migration/rollback (m├¬me si mono-version) ;
++4) une strat├®gie minimale de runtime gating (comment prouver SUCCESS/SKIPPED/FAIL sans surpromesse).
++
++## 7. DDL minimal retenu (gabarit, pas dialecte)
++Le DDL ci-dessous est un **gabarit**. Les types exacts restent non fig├®s tant que le moteur nÔÇÖest pas d├®cid├®.
++
++### 7.1 `runs`
++- Champs minimaux (gabarit) :
++  - `run_key` (PK, NOT NULL)
++  - `run_id` (NULLABLE)
++  - `run_timestamp` (NULLABLE)
++  - `source_path` (NOT NULL)
++  - `ingest_observed_at_utc` (NOT NULL)
++  - `ingest_status` (NOT NULL) ÔÇö `SUCCESS` / `SKIPPED` / `FAIL`
++  - `ingest_reason` (NULLABLE)
++- Contraintes minimales :
++  - UNIQUE(`run_key`)
++  - `run_key` non vide
++- Index minimaux :
++  - index sur `ingest_observed_at_utc`
++  - index sur `run_timestamp` (si disponible)
++
++### 7.2 `run_module_counts`
++- Champs minimaux :
++  - `run_key` (NOT NULL, 1:1 avec `runs`)
++  - `modules_ok_count` (NULLABLE)
++  - `modules_failed_count` (NULLABLE)
++- Contraintes minimales :
++  - UNIQUE(`run_key`)
++- Index minimaux :
++  - index sur `run_key`
++
++### 7.3 `portfolio_snapshots`
++- Champs minimaux :
++  - `run_key` (NOT NULL, 1:1 avec `runs`)
++  - `portfolio_state` (NULLABLE)
++  - `exposure_profile` (NULLABLE)
++  - `total_max_risk_pct` (NULLABLE)
++  - `portfolio_summary` (NULLABLE)
++- Contraintes minimales :
++  - UNIQUE(`run_key`)
++- Index minimaux :
++  - index sur `run_key`
++
++## 8. Invariants moteur / ├®criture
++- Idempotence : `run_key` est lÔÇÖunique cl├® dÔÇÖidempotence ; jamais de doublon logique.
++- Ordre dÔÇÖ├®criture minimal : ├®crire `runs` dÔÇÖabord (statut/raison inclus), puis les tables 1:1 si disponibles.
++- Artefact requis absent (`run_summary.json`) : produire `runs` en `SKIPPED` avec raison explicite, sans ├®crire les tables d├®riv├®es.
++- Artefact optionnel absent (`portfolio_engine.json`) : `runs` peut ├¬tre `SUCCESS`, `portfolio_snapshots` est omis.
++- Tra├ºabilit├® minimale : chaque tentative doit produire une ligne `runs` avec `ingest_status` et `ingest_reason` si non succ├¿s.
++- Compatibilit├® future : sch├®ma extensible (ajout colonnes/tables si de nouveaux artefacts deviennent prouv├®s).
++
++## 9. Choix fig├®s vs non fig├®s
++
++### Fig├®s / ETABLIS (par cette d├®cision)
++- Moteur DB : non fig├® (d├®cision explicite de ne pas figer).
++- DDL minimal : fig├® au niveau gabarit (champs/contraintes/index minimaux par table).
++- Contrat dÔÇÖimpl├®mentation : idempotence/tra├ºabilit├® et comportements SKIPPED/SUCCESS/FAIL.
++
++### NON FIG├ëS
++- Moteur DB final / stockage cible concret.
++- DDL exact ex├®cutable (dialecte, types, migrations).
++- Migrations/rollback.
++- R├®tention/archivage/backfill.
++- Scheduling / jobs automatiques.
++- Temps r├®el, tuning, indexation avanc├®e.
++- D├®ploiement runtime.
++
++## 10. Ce que cette d├®cision nÔÇÖautorise pas encore
++- Pas dÔÇÖimpl├®mentation runtime.
++- Pas de service.
++- Pas de job automatique.
++- Pas de promesse de temps r├®el.
++- Pas de promotion de `db-layer` en produit fini.
++
++## 11. Prochain GO recommand├®
++> GO_DB_LAYER_INGESTION_ENGINE_FINAL_CHOICE_01
++
++## 12. R├®f├®rences canoniques minimales
++- [DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md](file:///c:/Users/ghost/opt-trading/docs/governance/DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md)
++- [DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md](file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md)
++- [DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md](file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md)
++- [DB_LAYER_INGESTION_PHYSICAL_SCHEMA_DECISION_01.md](file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_INGESTION_PHYSICAL_SCHEMA_DECISION_01.md)
++- [db_layer_desk_pro_runbook.md](file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_runbook.md)
++- [db_layer_desk_pro_quick_reference.md](file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_quick_reference.md)
+diff --git a/docs/governance/DB_LAYER_INGESTION_PHYSICAL_SCHEMA_DECISION_01.md b/docs/governance/DB_LAYER_INGESTION_PHYSICAL_SCHEMA_DECISION_01.md
+new file mode 100644
+index 0000000..69636d3
+--- /dev/null
++++ b/docs/governance/DB_LAYER_INGESTION_PHYSICAL_SCHEMA_DECISION_01.md
+@@ -0,0 +1,164 @@
++# DB LAYER ÔÇö INGESTION PHYSICAL SCHEMA DECISION 01
++
++## 1. Objet
++- Ce document d├®cide le sch├®ma physique minimal futur de lÔÇÖingestion c├┤t├® `db-layer`.
++- Il ne remplace ni la spec pipeline ni le mapping logique.
++- Il ne prouve pas une impl├®mentation existante : aucune ingestion DB runtime nÔÇÖest actuellement ├®tablie.
++
++## 2. Besoin initial
++- D├®passer la seule logique abstraite (entit├®s/mapping) en pr├®parant une impl├®mentation future sans ambigu├»t├®.
++- ├ëviter une d├®rive ad hoc au moment du codage (tables, cl├®s, contraintes, indexes, tra├ºabilit├®).
++- Rester compatible avec lÔÇÖ├®tat ├®tabli : production Desk Pro inchang├®e, lecture depuis `/shared/desk_pro/latest/`.
++
++## 3. Objectif final vis├®
++- Disposer dÔÇÖune base de d├®cision physique minimale opposable :
++  - tables/collections physiques minimales
++  - cl├®s minimales (unicit├®, idempotence)
++  - contraintes minimales (NOT NULL / UNIQUE)
++  - index minimaux (requ├¬tes usuelles)
++  - tra├ºabilit├® minimale (statut/erreurs)
++- Sans figer plus que ce que le repo permet (moteur DB, scheduling, r├®tention).
++
++## 4. ├ëtat ├®tabli actuel
++
++### 4.1 Fil machine
++- `admin-trading` = production / export vers `/shared/desk_pro/latest/`
++- `student` = consultation
++- `db-layer` = consultation + pr├®paration ingestion future (pas dÔÇÖingestion DB prouv├®e)
++
++### 4.2 Fil repo / produit
++- Spec pipeline pos├®e : [DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md](file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md)
++- Mapping logique pos├®e : [DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md](file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md)
++- Artefacts source minimaux prouv├®s (c├┤t├® consommation `db-layer`) :
++  - `run_summary.json` (requis)
++  - `portfolio_engine.json` (optionnel)
++- Aucune impl├®mentation physique (DB + DDL + job) nÔÇÖest pr├®sente/prouv├®e.
++
++## 5. Options de d├®cision physique
++
++### Option A ÔÇö Moteur DB fig├® maintenant
++- Permet : DDL strict, types/indices optimis├®s, impl├®mentation imm├®diate born├®e.
++- Fige trop t├┤t : moteur, tooling, proc├®dures dÔÇÖexploitation, migration/backup.
++- Statut : non retenue (aucune preuve repo-sourc├®e imposant un moteur DB final).
++
++### Option B ÔÇö Moteur non fig├®, sch├®ma physique minimal V1 fig├® (g├®n├®rique)
++- Permet : pr├®parer lÔÇÖimpl├®mentation sans ambigu├»t├® sur tables/contraintes/index, tout en laissant le moteur libre.
++- Fige trop t├┤t : moins de d├®tails DDL (types exacts, index avanc├®s) ; n├®cessite une passe ult├®rieure ÔÇ£DDL concretÔÇØ au moment de choisir le moteur.
++- Statut : retenue (compatible avec lÔÇÖ├®tat ├®tabli + respecte ÔÇ£ne pas figer un moteur DBÔÇØ).
++
++### Option C ÔÇö Aucune d├®cision physique (A_REVALIDER)
++- Permet : rester au niveau logique uniquement.
++- Co├╗t : risque de d├®rive ad hoc au moment de coder.
++- Statut : non retenue (le mapping logique est suffisamment pr├®cis pour figer un socle physique minimal).
++
++## 6. D├®cision retenue
++DECISION : moteur non fig├®, sch├®ma physique minimal V1 fig├®.
++
++- **Moteur** : NON FIG├ë.
++- **Niveau opposable** : tables minimales + cl├®s + contraintes minimales + index minimaux + invariants de tra├ºabilit├®.
++- **Non opposable ici** : DDL exact, types DB exacts, tuning, migrations, scheduling, r├®tention.
++
++## 7. Sch├®ma physique minimal retenu
++Le sch├®ma ci-dessous doit pouvoir ├¬tre mat├®rialis├® dans nÔÇÖimporte quel moteur (SQL ou non) sans changer le contrat logique.
++
++### 7.1 Table / collection physique `runs`
++- R├┤le : registre physique des runs ing├®r├®s (ou tent├®s), cl├® dÔÇÖidempotence.
++- Cl├® primaire : `run_key` (string).
++- Colonnes/champs minimaux :
++  - `run_key` (PK, NOT NULL)
++  - `run_id` (string, NULLABLE)
++  - `run_timestamp` (string ou timestamp, NULLABLE)
++  - `source_path` (string, NOT NULL) ÔÇö valeur attendue : `/shared/desk_pro/latest/`
++  - `ingest_observed_at_utc` (timestamp, NOT NULL)
++  - `ingest_status` (string, NOT NULL) ÔÇö `SUCCESS` / `SKIPPED` / `FAIL`
++  - `ingest_reason` (string, NULLABLE) ÔÇö raison explicite si `SKIPPED`/`FAIL`
++- Contraintes minimales :
++  - UNIQUE(`run_key`)
++  - CHECK : `run_key` non vide
++- Index minimaux :
++  - index sur `ingest_observed_at_utc`
++  - index sur `run_timestamp` (si disponible)
++
++### 7.2 Table / collection physique `run_module_counts`
++- R├┤le : r├®sum├® physique minimal de sant├® modules par run.
++- Cl├® primaire : `run_key` (ou PK technique + UNIQUE(`run_key`)).
++- Colonnes/champs minimaux :
++  - `run_key` (FK logique vers `runs.run_key`, NOT NULL)
++  - `modules_ok_count` (int, NULLABLE)
++  - `modules_failed_count` (int, NULLABLE)
++- Contraintes minimales :
++  - UNIQUE(`run_key`)
++- Index minimaux :
++  - index sur `run_key`
++
++### 7.3 Table / collection physique `portfolio_snapshots`
++- R├┤le : snapshot physique minimal portefeuille/risque associ├® ├á un run (si artefact pr├®sent).
++- Cl├® primaire : `run_key` (ou PK technique + UNIQUE(`run_key`)).
++- Colonnes/champs minimaux :
++  - `run_key` (FK logique vers `runs.run_key`, NOT NULL)
++  - `portfolio_state` (string/json, NULLABLE)
++  - `exposure_profile` (string/json, NULLABLE)
++  - `total_max_risk_pct` (float, NULLABLE)
++  - `portfolio_summary` (string, NULLABLE)
++- Contraintes minimales :
++  - UNIQUE(`run_key`)
++- Index minimaux :
++  - index sur `run_key`
++
++## 8. Invariants physiques minimaux
++
++### 8.1 Unicit├® / idempotence
++- `run_key` est lÔÇÖunique cl├® dÔÇÖidempotence.
++- Toute ├®criture doit respecter : un `run_key` d├®j├á pr├®sent ne cr├®e pas de doublon.
++- Les tables `run_module_counts` et `portfolio_snapshots` sont au maximum 1 ligne par `run_key`.
++
++### 8.2 Ordre dÔÇÖ├®criture minimal
++- Cr├®er/mettre ├á jour `runs` en premier (statut/raison inclus), puis remplir les tables associ├®es si les artefacts/valeurs existent.
++
++### 8.3 Artefacts obligatoires / optionnels
++- Si `run_summary.json` absent : enregistrer un `runs` en `SKIPPED` avec `ingest_reason` explicite, sans ├®crire `run_module_counts` ni `portfolio_snapshots`.
++- Si `portfolio_engine.json` absent : `runs` peut ├¬tre `SUCCESS` ; `portfolio_snapshots` nÔÇÖest pas ├®crit.
++
++### 8.4 Tra├ºabilit├® minimale
++- Chaque tentative doit produire une ligne `runs` (SUCCESS/SKIPPED/FAIL).
++- `ingest_reason` est obligatoire d├¿s que `ingest_status != SUCCESS`.
++
++### 8.5 Compatibilit├® future minimale
++- Le sch├®ma doit tol├®rer lÔÇÖajout futur :
++  - de nouvelles colonnes/champs
++  - de nouvelles tables/collections (si de nouveaux artefacts Desk Pro deviennent prouv├®s)
++  - dÔÇÖun ÔÇ£raw storeÔÇØ s├®par├® si une d├®cision ult├®rieure lÔÇÖexige
++
++## 9. Choix fig├®s vs non fig├®s
++
++### Fig├®s / ETABLIS (par cette d├®cision)
++- Moteur DB non fig├®.
++- Tables physiques minimales : `runs`, `run_module_counts`, `portfolio_snapshots`.
++- Unicit├®/idempotence par `run_key`.
++- Statuts et tra├ºabilit├® minimale via `runs.ingest_status` + `runs.ingest_reason`.
++- Index minimaux sur `run_key` et timestamps dÔÇÖobservation.
++
++### NON FIG├ëS
++- Moteur DB final.
++- DDL exact (types pr├®cis, contraintes sp├®cifiques, migrations).
++- Scheduling et automatisation (service/timer/cron).
++- R├®tention/archivage/backfill.
++- Tuning et indexation avanc├®e.
++- Temps r├®el.
++
++## 10. Ce que cette d├®cision nÔÇÖautorise pas encore
++- Pas dÔÇÖimpl├®mentation runtime.
++- Pas de service / cron / timer.
++- Pas de promesse de temps r├®el.
++- Pas de promotion de `db-layer` en produit fini.
++
++## 11. Prochain GO recommand├®
++> GO_DB_LAYER_INGESTION_MINIMAL_IMPL_01
++
++## 12. R├®f├®rences canoniques minimales
++- [DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md](file:///c:/Users/ghost/opt-trading/docs/governance/DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md)
++- [DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md](file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md)
++- [DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md](file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md)
++- [db_layer_desk_pro_runbook.md](file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_runbook.md)
++- [db_layer_desk_pro_quick_reference.md](file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_quick_reference.md)
++- [admin_trading_desk_pro_runbook.md](file:///c:/Users/ghost/opt-trading/docs/admin_trading_desk_pro_runbook.md)
+diff --git a/docs/governance/DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md b/docs/governance/DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md
+new file mode 100644
+index 0000000..f2603db
+--- /dev/null
++++ b/docs/governance/DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md
+@@ -0,0 +1,166 @@
++# DB LAYER ÔÇö INGESTION SCHEMA MAPPING 01
++
++## 1. Objet
++- Ce document sp├®cifie le **mapping logique** dÔÇÖingestion futur c├┤t├® `db-layer` : artefacts Desk Pro ÔåÆ entit├®s/tables logiques cibles.
++- Il ne remplace pas les runbooks actuels (consultation/diagnostic).
++- Il ne prouve pas une impl├®mentation existante : aucune ingestion DB runtime nÔÇÖest actuellement ├®tablie.
++
++## 2. Besoin initial
++- D├®passer la simple lecture de `/shared/desk_pro/latest/`.
++- Pr├®parer un sch├®ma logique stable et opposable pour une ingestion future.
++- ├ëviter une impl├®mentation ad hoc sans contrat de donn├®es explicite.
++
++## 3. Objectif final vis├®
++- D├®finir un sch├®ma logique cible pour les artefacts Desk Pro **r├®ellement prouv├®s** comme sources minimales.
++- Permettre une ingestion future lisible, idempotente et tra├ºable, sans casser la cha├«ne actuelle.
++- Maintenir la s├®paration :
++  - production Desk Pro (`admin-trading`)
++  - distribution inter-machines (`/shared`)
++  - ingestion future (`db-layer`)
++
++Plan valid├® (r├®sum├®) :
++- Partir de `/shared/desk_pro/latest/`.
++- Ne retenir que les artefacts repo-sourc├®s prouv├®s.
++- Produire : entit├®s logiques + mapping + invariants (sans code, sans choix DB).
++
++## 4. ├ëtat ├®tabli actuel
++
++### 4.1 Fil machine
++- `admin-trading` = production / export vers `/shared/desk_pro/latest/`
++- `student` = consultation
++- `db-layer` = consultation + pr├®paration ingestion future (pas dÔÇÖingestion DB prouv├®e)
++
++### 4.2 Fil repo / produit
++- Surface source canonique : `/shared/desk_pro/latest/`.
++- Artefacts source minimaux prouv├®s par les wrappers `db-layer` :
++  - `run_summary.json` (requis)
++  - `portfolio_engine.json` (optionnel, consomm├® si pr├®sent)
++- Wrappers/scripts pr├®sents :
++  - `scripts/db_layer/desk_pro_db_cmd.sh`
++  - `scripts/db_layer/desk_pro_db_latest_shared_info.sh`
++- Aucune ingestion DB r├®elle impl├®ment├®e (ETABLI).
++
++Gap restant (constat) :
++- Le sch├®ma logique et le mapping opposable manquaient ; le moteur DB, le sch├®ma physique et le scheduling restent non fig├®s.
++
++## 5. Artefacts source minimaux
++Ne pas inventer : cette liste ne contient que les artefacts explicitement consomm├®s par les scripts `db-layer`.
++
++### 5.1 `run_summary.json` (requis)
++- R├┤le : identifiant de run + r├®sum├® minimal du run.
++- Champs minimum observ├®s comme recherch├®s (grep) :
++  - `run_id` ou `run_timestamp` (au moins un des deux pour la cl├® logique de run)
++  - `modules_ok`, `modules_failed` (si pr├®sents)
++  - `summary` (si pr├®sent)
++
++### 5.2 `portfolio_engine.json` (optionnel)
++- R├┤le : snapshot portefeuille/risque lisible (si pr├®sent).
++- Champs minimum observ├®s comme recherch├®s (grep) :
++  - `portfolio_state`
++  - `exposure_profile`
++  - `total_max_risk_pct`
++  - `summary` (si pr├®sent)
++
++## 6. Entit├®s / tables logiques propos├®es
++Sch├®ma logique cible, sans choix de moteur DB.
++
++### 6.1 Entit├® `runs`
++- R├┤le : repr├®senter une ex├®cution Desk Pro (un run) ├á ing├®rer.
++- Cl├® logique : `run_key` (d├®riv├®e de `run_id` si pr├®sent, sinon de `run_timestamp`).
++- Champs minimaux :
++  - `run_key`
++  - `run_id` (nullable)
++  - `run_timestamp` (nullable)
++  - `source_path` (ex : `/shared/desk_pro/latest/`)
++  - `ingest_observed_at_utc` (timestamp dÔÇÖobservation c├┤t├® ingestion)
++- Provenance :
++  - `run_id`, `run_timestamp` depuis `run_summary.json`
++  - le reste est contextuel ingestion (non source Desk Pro)
++
++### 6.2 Entit├® `run_module_counts`
++- R├┤le : stocker un r├®sum├® minimal ÔÇ£OK/FAILEDÔÇØ des modules du run.
++- Cl├® logique : (`run_key`)
++- Champs minimaux :
++  - `run_key`
++  - `modules_ok_count` (nullable)
++  - `modules_failed_count` (nullable)
++- Provenance : `modules_ok`, `modules_failed` depuis `run_summary.json` (si pr├®sents).
++
++### 6.3 Entit├® `portfolio_snapshots`
++- R├┤le : stocker un ├®tat portefeuille/risque associ├® ├á un run (si artefact pr├®sent).
++- Cl├® logique : (`run_key`)
++- Champs minimaux :
++  - `run_key`
++  - `portfolio_state` (nullable)
++  - `exposure_profile` (nullable)
++  - `total_max_risk_pct` (nullable)
++  - `portfolio_summary` (nullable)
++- Provenance : `portfolio_engine.json` (si pr├®sent).
++
++## 7. Mapping artefact ÔåÆ sch├®ma logique
++
++| Artefact source | Entit├®(s) cible(s) | Champs minimaux attendus | Transformation minimale | Notes / limites |
++|---|---|---|---|---|
++| `run_summary.json` | `runs`, `run_module_counts` | `run_id` ou `run_timestamp` | Construire `run_key` depuis `run_id` sinon `run_timestamp` ; extraire `modules_ok/modules_failed` si pr├®sents | Si aucun identifiant nÔÇÖest pr├®sent, ingestion SKIPPED (non opposable) |
++| `portfolio_engine.json` | `portfolio_snapshots` | `portfolio_state`, `exposure_profile`, `total_max_risk_pct` | Extraire les champs si pr├®sents ; associer au `run_key` issu du run_summary | Optionnel : absence nÔÇÖest pas bloquante |
++
++## 8. Invariants de reprise et dÔÇÖingestion
++Sans code : invariants minimaux ├á respecter par toute impl├®mentation future.
++
++### 8.1 Idempotence minimale
++- Un `run_key` d├®j├á ing├®r├® ne doit pas cr├®er de doublon logique.
++- Le mapping doit ├¬tre d├®terministe : m├¬mes artefacts ÔåÆ m├¬mes valeurs (├á champs non d├®terministes pr├¿s, ex : timestamps dÔÇÖingestion).
++
++### 8.2 Cl├® de run
++- `run_key` est obligatoire.
++- Priorit├® :
++  1) `run_id` si pr├®sent
++  2) sinon `run_timestamp`
++- Si ni `run_id` ni `run_timestamp` ne sont pr├®sents : ingestion **SKIPPED** avec raison explicite.
++
++### 8.3 Artefact manquant / partiel
++- Si `/shared` non mont├® ou `/shared/desk_pro/latest/` absent : ingestion **SKIPPED** (no-op).
++- Si `run_summary.json` absent : ingestion **SKIPPED** (contrat source minimal non satisfait).
++- Si `portfolio_engine.json` absent : ingestion continue (entit├® `portfolio_snapshots` non produite).
++- Si champ attendu absent dans un artefact pr├®sent : valeur NULL + note de tra├ºabilit├®.
++
++### 8.4 Tra├ºabilit├® minimale
++- Pour chaque tentative : journaliser `run_key` (si d├®ductible), liste dÔÇÖartefacts vus, et un statut :
++  - `SUCCESS` / `SKIPPED` / `FAIL`
++- Conserver un pointeur ÔÇ£dernier run ing├®r├®ÔÇØ (m├®canisme non fig├®).
++
++## 9. Choix fig├®s vs non fig├®s
++
++### Fig├®s / ETABLIS
++- Source : `/shared/desk_pro/latest/`.
++- Artefact requis : `run_summary.json`.
++- Artefact optionnel : `portfolio_engine.json`.
++- Objectif : ingestion future c├┤t├® `db-layer` sans patcher le producteur Desk Pro.
++
++### NON FIG├ëS
++- Moteur DB exact et stockage cible.
++- Sch├®ma physique final (DDL, types, index).
++- Scheduling et fr├®quence.
++- R├®tention et archivage.
++- Backfill historique vs latest-only.
++- Concurrence et strat├®gie dÔÇÖatomicit├® (snapshot local, locks, etc.).
++
++## 10. Ce que cette spec nÔÇÖautorise pas encore
++- Pas dÔÇÖimpl├®mentation runtime.
++- Pas de migration implicite.
++- Pas de choix DB forc├®.
++- Pas de promesse de temps r├®el.
++- Pas de surpromotion de `db-layer`.
++- Pas de confusion de p├®rim├¿tre avec `desk_snapshot_ingest` (screenshots inbox ÔåÆ snapshots), hors sujet ici.
++
++## 11. Prochain GO recommand├®
++> GO_DB_LAYER_INGESTION_PHYSICAL_SCHEMA_DECISION_01
++
++## 12. R├®f├®rences canoniques minimales
++- [DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md](file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md)
++- [DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md](file:///c:/Users/ghost/opt-trading/docs/governance/DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md)
++- [db_layer_desk_pro_runbook.md](file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_runbook.md)
++- [db_layer_desk_pro_quick_reference.md](file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_quick_reference.md)
++- [desk_pro_multi_machine_map.md](file:///c:/Users/ghost/opt-trading/docs/desk_pro_multi_machine_map.md)
++- [admin_trading_desk_pro_runbook.md](file:///c:/Users/ghost/opt-trading/docs/admin_trading_desk_pro_runbook.md)
++- [desk_snapshot_ingest README](file:///c:/Users/ghost/opt-trading/modules/desk_snapshot_ingest/README.md)
+diff --git a/docs/governance/DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md b/docs/governance/DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md
+new file mode 100644
+index 0000000..8b301f4
+--- /dev/null
++++ b/docs/governance/DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md
+@@ -0,0 +1,130 @@
++# DB LAYER ÔÇö SHARED TO DB INGESTION SPEC 01
++
++## 1. Objet
++- Ce document sp├®cifie lÔÇÖingestion future c├┤t├® `db-layer`, ├á partir de la surface source Desk Pro partag├®e via `/shared`.
++- Il ne remplace pas les runbooks actuels (consultation/diagnostic).
++- Il ne prouve pas une impl├®mentation existante : aucune ingestion DB runtime nÔÇÖest actuellement ├®tablie.
++
++## 2. Besoin initial
++- D├®passer la simple consultation de `/shared/desk_pro/latest/` sur `db-layer`.
++- Pr├®parer un aval exploitable pour stockage et exploitation ult├®rieure (sans casser la cha├«ne actuelle Desk Pro).
++- Conserver une s├®paration propre entre :
++  - production Desk Pro (`admin-trading`)
++  - distribution inter-machines (`/shared`)
++  - ingestion future (`db-layer`)
++
++## 3. Objectif final vis├®
++- Pipeline canonique de type :
++  - `/shared/desk_pro/latest/` ÔåÆ `db-layer` ÔåÆ stockage cible
++- Ingestion born├®e, lisible, reproductible :
++  - idempotente (rejouable sans doublons)
++  - tra├ºable (logs + reprise)
++  - tol├®rante aux absences partielles dÔÇÖartefacts
++- Consommation des artefacts Desk Pro sans modifier le producteur (pas de patch runtime Desk Pro dans ce lot).
++
++## 4. ├ëtat ├®tabli actuel
++
++### 4.1 Fil machine
++- `admin-trading` = production / pilotage / export
++  - ex├®cute les runs Desk Pro
++  - exporte vers `/shared/desk_pro/latest/`
++- `student` = consultation
++- `db-layer` = consultation + pr├®paration ingestion future
++  - lit `/shared/desk_pro/latest/`
++  - wrappers de consultation pr├®sents
++  - aucun job dÔÇÖingestion DB prouv├®
++
++### 4.2 Fil repo / produit
++- Surface source canonique actuelle : `/shared/desk_pro/latest/`.
++- Artefacts source minimaux r├®ellement prouv├®s (c├┤t├® consommation `db-layer`) :
++  - `run_summary.json` (test├® explicitement comme pr├®sence attendue)
++  - `portfolio_engine.json` (lu si pr├®sent, non requis)
++- Wrappers / commandes de consultation `db-layer` r├®ellement pr├®sents (repo-sourc├®s) :
++  - `scripts/db_layer/desk_pro_db_cmd.sh` (status/summary/sanity/shared-info)
++  - `scripts/db_layer/desk_pro_db_latest_shared_info.sh` (lecture /shared + affichage champs)
++- Limites actuelles (ETABLI) :
++  - pas de pipeline `db-layer` impl├®ment├®
++  - pas de stockage DB prouv├®
++  - pas de scheduling/job dÔÇÖingestion prouv├®
++
++## 5. Contrat source minimal
++Ce contrat liste uniquement ce que le repo prouve aujourdÔÇÖhui comme source minimale.
++
++- **Producteur source** : `admin-trading` (export final vers `/shared/desk_pro/latest/`).
++- **Surface source canonique** : `/shared/desk_pro/latest/`.
++- **Artefact minimal requis** :
++  - `run_summary.json` (le pack `db-layer` le v├®rifie comme indicateur ÔÇ£Shared Latest: AVAILABLEÔÇØ).
++- **Artefacts candidats (optionnels)** :
++  - `portfolio_engine.json` (consomm├® si pr├®sent)
++  - autres fichiers pr├®sents dans `/shared/desk_pro/latest/` (non contractualis├®s ici)
++- **Point dÔÇÖentr├®e machine actuel (`db-layer`)** :
++  - `desk-pro-db-shared-info` (wrapper) et/ou `scripts/db_layer/desk_pro_db_latest_shared_info.sh` (script)
++
++## 6. Pipeline cible propos├® (sans code)
++Pipeline propos├® c├┤t├® `db-layer`, con├ºu pour ├¬tre compatible avec lÔÇÖ├®tat actuel (consultation) et ajoutable sans toucher ├á `admin-trading`.
++
++1. **Lecture de la surface**
++   - Lire `/shared/desk_pro/latest/` comme source.
++   - Ne pas supposer que `/shared` est toujours mont├® : d├®tecter et sortir proprement (mode ÔÇ£no-opÔÇØ).
++
++2. **Validation minimale**
++   - Exiger au minimum la pr├®sence de `run_summary.json`.
++   - Extraire un identifiant de run (ex : `run_id` ou `run_timestamp` si pr├®sent) pour :
++     - la d├®duplication
++     - lÔÇÖidempotence
++     - la tra├ºabilit├®
++
++3. **Snapshot local (recommand├®)**
++   - Copier les artefacts n├®cessaires dans une zone locale `db-layer` (spool) avant transformation.
++   - Objectif : ├®viter dÔÇÖing├®rer un ├®tat ÔÇ£en cours de remplacementÔÇØ si `/shared/desk_pro/latest/` bouge pendant la lecture.
++
++4. **Transformation (mapping)**
++   - Mapper les champs utiles vers un format dÔÇÖingestion cible (sch├®ma ├á d├®finir).
++   - Conserver une version brute (raw) des JSON sources ing├®r├®s pour audit/rejeu si n├®cessaire.
++
++5. **├ëcriture vers stockage cible**
++   - ├ëcrire dans le stockage cible (type non fig├®).
++   - Garantir lÔÇÖidempotence : un run d├®j├á ing├®r├® nÔÇÖest pas r├®├®crit ou est r├®├®crit de mani├¿re d├®terministe.
++
++6. **Tra├ºabilit├® / logs / reprise**
++   - Produire un log dÔÇÖingestion horodat├®, avec :
++     - identifiant run
++     - liste dÔÇÖartefacts ing├®r├®s
++     - statut (SUCCESS/FAIL/SKIPPED)
++     - raison explicite en cas de SKIPPED/FAIL
++   - Conserver un pointeur ÔÇ£dernier run ing├®r├®ÔÇØ (m├®canisme non fig├® : fichier state local, table DB, etc.).
++
++## 7. Choix d├®j├á fig├®s vs non fig├®s
++
++### Fig├®s / ETABLIS
++- Source = `/shared/desk_pro/latest/`.
++- Producteur = `admin-trading` ; consommateur = `db-layer`.
++- `db-layer` dispose aujourdÔÇÖhui dÔÇÖune surface de consultation (wrappers/scripts) qui lit `run_summary.json` et peut lire `portfolio_engine.json` si pr├®sent.
++- Le montage `/shared` est une brique canonique inter-machines (doctrine `shared` + montage SSHFS permanent possible).
++
++### NON FIG├ëS
++- Type exact de base / stockage cible (PostgreSQL, SQLite, timeseries, fichiers, etc.).
++- Sch├®ma final (tables/collections, cl├®s, index, versioning).
++- Scheduling (cron/systemd timer/manual) et fr├®quence dÔÇÖingestion.
++- Politique de r├®tention / archivage.
++- Strat├®gie de backfill (historique) vs latest-only.
++- Strat├®gie de coh├®rence (atomicit├® de snapshot) et gestion de concurrence.
++
++## 8. Ce que cette spec nÔÇÖautorise pas encore
++- Pas dÔÇÖimpl├®mentation runtime (pas de scripts nouveaux, pas de services, pas de module dÔÇÖingestion).
++- Pas de migration DB implicite.
++- Pas de promesse de temps r├®el.
++- Pas de surpromotion de `db-layer` en produit ÔÇ£d├®j├á finiÔÇØ.
++- Pas de confusion de p├®rim├¿tre avec `desk_snapshot_ingest` (pipeline screenshots inbox ÔåÆ snapshots), qui nÔÇÖest pas lÔÇÖingestion Desk Pro depuis `/shared/desk_pro/latest/`.
++
++## 9. Prochain GO recommand├®
++> GO_DB_LAYER_INGESTION_SCHEMA_MAPPING_SPEC_01
++
++## 10. R├®f├®rences canoniques minimales
++- [DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md](file:///c:/Users/ghost/opt-trading/docs/governance/DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md)
++- [db_layer_desk_pro_runbook.md](file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_runbook.md)
++- [db_layer_desk_pro_quick_reference.md](file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_quick_reference.md)
++- [desk_pro_multi_machine_map.md](file:///c:/Users/ghost/opt-trading/docs/desk_pro_multi_machine_map.md)
++- [admin_trading_desk_pro_runbook.md](file:///c:/Users/ghost/opt-trading/docs/admin_trading_desk_pro_runbook.md)
++- [shared README](file:///c:/Users/ghost/opt-trading/modules/shared/README.md)
++- [shared_sshfs_permanent README](file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/README.md)
+diff --git a/docs/governance/DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md b/docs/governance/DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md
+new file mode 100644
+index 0000000..c4154dd
+--- /dev/null
++++ b/docs/governance/DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md
+@@ -0,0 +1,71 @@
++# DESK PRO ÔÇö SYNTH├êSE CANONIQUE PRODUIT
++
++## 1. Objet
++- Ce document synth├®tise le produit **Desk Pro** (multi-machine) dans un format court et opposable.
++- Il ne remplace pas les runbooks d├®taill├®s (proc├®dures op├®rateur, commandes, diagnostics).
++
++## 2. Besoin initial
++- D├®passer des UI/modules isol├®s.
++- Obtenir un cockpit op├®rateur r├®ellement exploitable (discipline dÔÇÖexploitation, runs rejouables, artefacts lisibles).
++
++## 3. Objectif final vis├®
++- Cockpit **paper trading** multi-machine :
++  - pilot├® sur `admin-trading`
++  - export├® vers `/shared/desk_pro/latest/`
++  - consultable sur `student`
++  - pr├®parant lÔÇÖaval `db-layer` (ingestion future, non impl├®ment├®e)
++
++## 4. Plan valid├®
++- Hi├®rarchie canonique des surfaces op├®ratoires (entrypoints/wrappers explicites).
++- Runs logg├®s et rejouables (log horodat├® + liens `latest`).
++- Dashboard + journal + export.
++- Partage via `/shared` comme surface de distribution inter-machines.
++- S├®paration explicite des usages par machine (production vs consultation).
++
++## 5. ├ëtat obtenu
++S├®paration explicite : **fil produit/repo** vs **fil machine**.
++
++### 5.1 Fil produit / repo
++- Point dÔÇÖentr├®e op├®rateur canonique : `menu-ops_menu_hub` (session).
++- Wrapper admin (orchestration / utilitaires) : `scripts/admin_trading/desk_pro_cmd.sh` (status, run-logged, logs, journal, export/copy vers `/shared`).
++- Backend direct (CLI runner) : `cmd-desk_pro_runner` (ex: dashboard-latest).
++- Export r├®seau prouv├® : copie des artefacts finaux vers `/shared/desk_pro/latest/`.
++- Journal de session prouv├® c├┤t├® admin : `data/logs/desk_pro/session_journal.log`.
++- Release ops prouv├®e (proc├®dure de tag + v├®rification Linux) : runbook d├®di├®.
++
++### 5.2 Fil machine
++- `admin-trading` = **production / pilotage / export**
++  - ex├®cute les runs
++  - produit logs/artefacts locaux sous `data/`
++  - copie vers `/shared/desk_pro/latest/`
++- `student` = **consultation**
++  - lit `/shared/desk_pro/latest/`
++  - wrappers d├®di├®s : `desk-pro-student*` (sanity, status, shared-info)
++- `db-layer` = **consultation + pr├®paration ├á ingestion future**
++  - lit `/shared/desk_pro/latest/`
++  - wrappers d├®di├®s : `desk-pro-db*` (sanity, status, shared-info)
++  - ingestion DB : non impl├®ment├®e dans lÔÇÖ├®tat ├®tabli
++
++## 6. Gap restant
++- Synth├¿se produit ÔÇ£unifi├®eÔÇØ encore dispers├®e entre runbooks (ce document la fixe, mais sans remplacer les runbooks).
++- Ingestion r├®elle c├┤t├® `db-layer` non faite (seulement consultation + pr├®paration).
++- Un closage ÔÇ£produit completÔÇØ resterait conditionn├® ├á :
++  - une sp├®cification opposable de lÔÇÖingestion depuis `/shared/desk_pro/latest/` vers une DB (contrat donn├®es, fr├®quence, erreurs, rollback)
++  - une preuve de validation end-to-end c├┤t├® `db-layer` (hors scope ici)
++
++## 7. Ce que Desk Pro nÔÇÖest pas
++- Pas du trading r├®el prouv├® (cible : paper trading op├®rable).
++- Pas une ingestion DB impl├®ment├®e (seulement une pr├®paration/documentation c├┤t├® `db-layer`).
++- Pas un produit `db-layer` autonome (Desk Pro reste pilot├® par `admin-trading` et distribu├® via `/shared`).
++
++## 8. Prochain GO recommand├®
++> GO_DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01
++
++## 9. R├®f├®rences canoniques minimales
++- [AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md](file:///c:/Users/ghost/opt-trading/docs/governance/AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md)
++- [admin_trading_desk_pro_runbook.md](file:///c:/Users/ghost/opt-trading/docs/admin_trading_desk_pro_runbook.md)
++- [student_desk_pro_runbook.md](file:///c:/Users/ghost/opt-trading/docs/student_desk_pro_runbook.md)
++- [db_layer_desk_pro_runbook.md](file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_runbook.md)
++- [desk_pro_multi_machine_map.md](file:///c:/Users/ghost/opt-trading/docs/desk_pro_multi_machine_map.md)
++- [desk_pro_release_ops_runbook.md](file:///c:/Users/ghost/opt-trading/docs/desk_pro_release_ops_runbook.md)
++- [db_layer_desk_pro_quick_reference.md](file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_quick_reference.md)
+diff --git a/docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md b/docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md
+new file mode 100644
+index 0000000..e38d9b4
+--- /dev/null
++++ b/docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md
+@@ -0,0 +1,32 @@
++# PRODUCT CONTINUITY HIERARCHY ÔÇö 01
++
++## 1. Objet
++Ce document pose la structuration canonique multi-chantier du projet opt-trading.
++Il remplace l'inventaire historique par une continuit├® produit hi├®rarchis├®e en 3 niveaux, garantissant la pr├®servation de la trajectoire produit, des objectifs finaux et du paysage global.
++
++## 2. Mod├¿le de continuit├® (3 niveaux)
++
++### Couche 0 ÔÇö Socle transverse
++Fondations garantissant la m├®thode et la m├®moire du projet.
++- **M├®thode uniforme + couche humaine** : Fixe comment conserver et transmettre l'├®tat, la trajectoire produit et la reprise.
++- **memory_bricks** : Compaction d├®riv├®e, tra├ºable, utile ├á la reprise.
++
++### Anneau A ÔÇö Produits prioritaires (Centres de gravit├®)
++Les vrais produits finis avec des r├®sultats op├®ratoires cibl├®s.
++- **Desk Pro** : Cockpit paper trading exploitable, multi-machine, op├®rable sur la surface canonique.
++- **Trading Dual Stack V1** : Framework commun LAB + REALTIME born├®, gardant un noyau de r├¿gles coh├®rent.
++- **Bot Vision** : Pipeline vision cross-platform o├╣ un provider headless browser unifie bot_vision entre Windows et Linux sans d├®pendre de ShareX, produisant des artefacts Desk Pro exploitables.
++
++### Anneau B ÔÇö Registre court des projets structurants
++Paysage global conserv├® pour ne pas perdre l'historique et les briques de soutien.
++- **webhook** : Point d'entr├®e runtime central (cha├«ne signaux).
++- **perf** : Couche monitor-only (discipline trading).
++- **quant** : Logique recherche avant ex├®cution.
++- **LocalCMS** : Consumer structur├®, continuit├® inter-repos.
++- **Student / db-layer** : Satellites machines de Desk Pro.
++- **collector family** : Famille transverse d'ingestion.
++- **Trae / agents / prompt factory** : Outillage de structuration IA.
++- **surface op├®rateur / openclaw** : Cockpits locaux et briques d'usage.
++
++## 3. R├¿gle de d├®rivation
++La d├®rivation des memory_bricks ne s'effectue **qu'apr├¿s** la stabilisation des synth├¿ses produit (fiches produit finales) de l'Anneau A.
+diff --git a/docs/governance/TRADING_DUAL_STACK_CANONICAL_PRODUCT_SYNTH_01.md b/docs/governance/TRADING_DUAL_STACK_CANONICAL_PRODUCT_SYNTH_01.md
+new file mode 100644
+index 0000000..1737bb2
+Binary files /dev/null and b/docs/governance/TRADING_DUAL_STACK_CANONICAL_PRODUCT_SYNTH_01.md differ
+diff --git a/docs/index/ACTIVE_STREAMS.md b/docs/index/ACTIVE_STREAMS.md
+new file mode 100644
+index 0000000..6e7d6e9
+--- /dev/null
++++ b/docs/index/ACTIVE_STREAMS.md
+@@ -0,0 +1,45 @@
++---
++doc_id: OPT_TRADING_ACTIVE_STREAMS
++doc_type: reprise
++repo: opt-trading
++project: opt-trading
++module:
++go_id:
++status: reference
++lifecycle_stage: reprise
++topic_keys:
++  - opt-trading
++  - active_streams
++  - continuity
++  - reprise
++surface: chantier
++source_kind: canonical
++updated_at: 2026-04-13
++links:
++  - docs/index/GO_INDEX.md
++---
++
++# ACTIVE_STREAMS ÔÇö opt-trading
++
++## Objet
++
++Ce document r├®f├®rence les flux r├®ellement actifs ou bloqu├®s dans `opt-trading`.
++
++Il sert ├á :
++- distinguer lÔÇÖactif du simple historique
++- rendre la reprise imm├®diate plus lisible
++- ├®viter la confusion entre chantier en cours et candidat futur
++
++---
++
++## R├¿gles
++
++- ne r├®f├®rencer ici que ce qui est r├®ellement actif ou bloqu├®
++- ne pas y mettre les simples opportunit├®s ni les archives mortes
++- pour chaque flux, garder un dernier point ├®tabli et une prochaine action claire
++
++---
++
++## Flux actifs
++
++_Aucun flux actif actuellement document├®. Le hardening documentaire est clos. Prochain lot ├á cadrer : un lot m├®tier r├®el ├á nommer._
+diff --git a/docs/index/GO_INDEX.md b/docs/index/GO_INDEX.md
+new file mode 100644
+index 0000000..036f421
+--- /dev/null
++++ b/docs/index/GO_INDEX.md
+@@ -0,0 +1,85 @@
++---
++doc_id: OPT_TRADING_GO_INDEX
++doc_type: reprise
++repo: opt-trading
++project: opt-trading
++module:
++go_id:
++status: reference
++lifecycle_stage: governance
++topic_keys:
++  - opt-trading
++  - go_index
++  - continuity
++  - governance
++surface: chantier
++source_kind: canonical
++updated_at: 2026-04-13
++links:
++  - docs/governance/REPO_ROLE.md
++  - docs/governance/DOC_LAYERS.md
++---
++
++# GO_INDEX ÔÇö opt-trading
++
++## Objet
++
++Ce document r├®f├®rence les GO connus et utiles ├á la continuit├® locale de `opt-trading`.
++
++Il sert ├á :
++- garder une vue compacte des chantiers connus
++- ├®viter la disparition des GO dans lÔÇÖhistorique diffus
++- fournir un point dÔÇÖentr├®e vers les dossiers chantier, closeouts et reprises
++
++---
++
++## R├¿gles
++
++- lÔÇÖindex r├®f├®rence et synth├®tise
++- il ne remplace ni le dossier chantier ni le closeout
++- les GO clos, actifs, bloqu├®s ou archiv├®s peuvent y figurer si leur continuit├® locale le justifie
++- les liens doivent pointer vers les artefacts d├®taill├®s d├¿s quÔÇÖils existent
++
++---
++
++## Entr├®es
++
++### GO_UNIFORM_CONTINUITY_FINAL_MASTER_PLAN_01
++- repo : opt-trading
++- type : gouvernance / continuit├®
++- statut : reference
++- titre court : plan ma├«tre uniforme de continuit├®
++- dernier ├®tat connu : r├®f├®rentiel consolid├® valid├® comme base documentaire
++- lien utile : documentation gouvernance locale et m├®thode transverse associ├®e
++
++### GO_GIT_PROGRESSIVE_MIGRATION_START_13
++- repo : opt-trading
++- type : migration documentaire
++- statut : active
++- titre court : d├®marrage de la migration Git progressive
++- dernier ├®tat connu : gouvernance locale initiale cr├®├®e sur `sot/mainline`
++- lien utile : `docs/governance/REPO_ROLE.md`, `docs/governance/DOC_LAYERS.md`, `docs/governance/MEMORY_BRICKS_MAPPING.md`
++
++### GO_OPT_TRADING_LOCAL_CONTINUITY_BOOTSTRAP_01
++- repo : opt-trading
++- type : continuit├® locale / bootstrap
++- statut : pass
++- titre court : socle documentaire local pos├®
++- dernier ├®tat connu : closeout PASS avec gouvernance locale, index et reprise locale en place
++- lien utile : `docs/chantiers/GO_OPT_TRADING_LOCAL_CONTINUITY_BOOTSTRAP_01/90_closeout.md`, `docs/index/REPRISE.md`
++
++### GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01
++- repo : opt-trading
++- type : chantier pilote / memory_bricks
++- statut : pass
++- titre court : pilote canonique `memory_bricks`
++- dernier ├®tat connu : closeout PASS pos├® comme second pilote local directement ancr├® sur `memory_bricks`
++- lien utile : `docs/chantiers/GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01/90_closeout.md`, `docs/governance/MEMORY_BRICKS_MAPPING.md`
++
++### GO_UNIFORM_CONTINUITY_HARDENING_01
++- repo : opt-trading
++- type : hardening documentaire
++- statut : pass
++- titre court : r├®alignement final des index locaux
++- dernier ├®tat connu : closeout PASS, index r├®align├®s, aucun blocage documentaire r├®siduel
++- lien utile : `docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/90_closeout.md`, `docs/index/ACTIVE_STREAMS.md`
+diff --git a/docs/index/REPRISE.md b/docs/index/REPRISE.md
+new file mode 100644
+index 0000000..53da92f
+--- /dev/null
++++ b/docs/index/REPRISE.md
+@@ -0,0 +1,36 @@
++---
++doc_id: OPT_TRADING_REPRISE
++doc_type: reprise
++repo: opt-trading
++project: opt-trading
++module:
++go_id:
++status: reference
++lifecycle_stage: reprise
++topic_keys:
++  - opt-trading
++  - reprise
++  - continuity
++surface: chantier
++source_kind: canonical
++updated_at: 2026-04-13
++links:
++  - docs/index/GO_INDEX.md
++  - docs/index/ACTIVE_STREAMS.md
++---
++
++# REPRISE ÔÇö opt-trading
++
++## Reprendre ici
++- repo : `opt-trading`
++- branche prioritaire : `sot/mainline`
++- flux ├á lire : aucun flux actif bloquant ÔÇö le hardening documentaire est clos
++- r├®f├®rences prioritaires :
++  - `docs/governance/REPO_ROLE.md`
++  - `docs/governance/DOC_LAYERS.md`
++  - `docs/governance/MEMORY_BRICKS_MAPPING.md`
++  - `docs/index/GO_INDEX.md`
++  - `docs/index/ACTIVE_STREAMS.md`
++  - `docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/90_closeout.md`
++- dernier point ├®tabli : le bootstrap local, le pilote `memory_bricks` et le hardening documentaire sont tous PASS
++- prochaine action recommand├®e : cadrer le prochain lot m├®tier r├®el
+diff --git a/docs/master_pack/mission_starter_pack/00_mission_start_guide.md b/docs/master_pack/mission_starter_pack/00_mission_start_guide.md
+index b8f5e0d..268cff4 100644
+--- a/docs/master_pack/mission_starter_pack/00_mission_start_guide.md
++++ b/docs/master_pack/mission_starter_pack/00_mission_start_guide.md
+@@ -50,6 +50,15 @@ Chaque mission doit ├¬tre class├®e dans l'un des types suivants :
+ - **SIGNALISATION** : Ajout de documentation/README pour figer un ├®tat (Ex: Freeze Note).
+ - **RUNBOOK** : Cr├®ation de proc├®dure op├®rateur (Doit ├¬tre test├® sur cible).
+ 
++Continuit├® canonique (obligatoire avant ex├®cution) :
++- besoin initial
++- objectif final vis├®
++- plan valid├®
++- ├®tat r├®el de d├®part
++- gap
++- prochain GO
++- fils / r├┤les (machine / IA / IDE / repo-produit)
++
+ ## 4. FORMAT DE LIVRABLE STANDARD
+ Toute mission doit se conclure par :
+ 1.  **Rapport de Cl├┤ture** (`docs/ot/closings/OT_XXX_CLOSING.txt`) : R├®sum├® des actions, statut final, prochain point de reprise.
+diff --git a/docs/master_pack/mission_starter_pack/01_mission_template.md b/docs/master_pack/mission_starter_pack/01_mission_template.md
+index d2786bb..34fefd9 100644
+--- a/docs/master_pack/mission_starter_pack/01_mission_template.md
++++ b/docs/master_pack/mission_starter_pack/01_mission_template.md
+@@ -5,28 +5,55 @@
+ **TYPE (legacy, d├®pr├®ci├®) :** [AUDIT / PATCH / MODULE / SIGNALISATION / RUNBOOK] (optionnel)
+ **OBJECTIF :** [Description courte et pr├®cise]
+ 
+-## 1. CONTEXTE DE D├ëPART
++## 1. BESOIN INITIAL
++- [Quel besoin concret justifie cette mission ?]
++- [Pourquoi faut-il le traiter maintenant ?]
++
++## 2. OBJECTIF FINAL VIS├ë
++- [Quel r├®sultat concret et mesurable est attendu ├á la fin ?]
++- [Quelle est la cible finale / ├®tat cible ?]
++
++## 3. PLAN VALID├ë
++- [Comment va-t-on atteindre l'objectif ?]
++- [Quelle m├®thode / quel chemin ?]
++- [Qu'est-ce qui est valid├® comme chemin correct ?]
++
++## 4. R├öLES / FILS
++- **Machine** : [Quelle machine est impliqu├®e ?]
++- **IA** : [Quel mod├¿le / agent est utilis├® ?]
++- **IDE** : [Quel environnement est favoris├® ?]
++- **Repo / Produit** : [Quel repo ou produit est concern├® ?]
++
++## 5. ├ëTAT R├ëEL DE D├ëPART
+ - **Sources lues** : `docs/master_pack/00_current_state_and_standards.md`, [Autres sources pertinentes]
+ - **├ëtat suppos├®** : [Ce qu'on croit savoir avant de commencer]
+ - **Risques identifi├®s** : [Ex: Confusion runtime, Impact prod, etc.]
+ 
+-## 2. PLAN D'ACTION (5 PASSES)
++## 6. GAP INITIAL
++- [Quel est l'├®cart entre l'├®tat actuel et l'objectif ?]
++- [Qu'est-ce qui manque actuellement ?]
++
++## 7. PROCHAIN GO / SORTIE ATTENDUE
++- [Quelle est la prochaine ├®tape GO apr├¿s cette mission ?]
++- [Quel livrable est attendu ?]
++
++## 8. PLAN D'ACTION (5 PASSES)
+ 1.  **Inventaire / Analyse** : V├®rifier la r├®alit├® terrain.
+ 2.  **D├®finition de la Cible** : Ce qu'on veut obtenir exactement.
+ 3.  **Ex├®cution / R├®daction** : Le travail proprement dit.
+ 4.  **Validation / V├®rification** : Prouver que ├ºa marche (ou que c'est coh├®rent).
+ 5.  **Cl├┤ture / Documentation** : Figer le r├®sultat et mettre ├á jour le Master Pack.
+ 
+-R├¿gle dÔÇÖex├®cution : conduire lÔÇÖimpl├®mentation via `workflow_ai/WORKFLOW.md` (gates) et ses templates (`specs.md` / `tasks.md`).
++R├¿gle d'ex├®cution : conduire l'impl├®mentation via `workflow_ai/WORKFLOW.md` (gates) et ses templates (`specs.md` / `tasks.md`).
+ Standard de mission (Orchestrator) : cadrer via `docs/ot/trae/12_ORCHESTRATOR_ENTRYPOINT_V1.txt` avant ex├®cution.
+ Si la mission comporte 3 ├®tapes ou plus, ou implique repo+shared, ou plusieurs machines, utiliser : `docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt`.
+ 
+-## 3. R├êGLES SP├ëCIFIQUES
++## 9. R├êGLES SP├ëCIFIQUES
+ - [R├¿gle 1 : Ne pas toucher ├á X]
+ - [R├¿gle 2 : V├®rifier Y sur la machine Z]
+ - [R├¿gle 3 : Format de sortie attendu]
+ 
+-## 4. LIVRABLES ATTENDUS
++## 10. LIVRABLES ATTENDUS
+ 1.  `OT_[ID]_[NOM]_REPORT.md`
+ 2.  `OT_[ID]_CLOSING.txt`
+ 3.  [Autres fichiers cl├®s]
+diff --git a/docs/next/NEXT_GO_CANDIDATES.md b/docs/next/NEXT_GO_CANDIDATES.md
+new file mode 100644
+index 0000000..68f638b
+--- /dev/null
++++ b/docs/next/NEXT_GO_CANDIDATES.md
+@@ -0,0 +1,29 @@
++---
++doc_id: OPT_TRADING_NEXT_GO_CANDIDATES
++doc_type: next_candidate
++repo: opt-trading
++project: opt-trading
++module:
++go_id:
++status: reference
++lifecycle_stage: next
++topic_keys:
++  - opt-trading
++  - next
++  - continuity
++  - migration
++surface: chantier
++source_kind: canonical
++updated_at: 2026-04-13
++links:
++  - docs/index/GO_INDEX.md
++  - docs/index/ACTIVE_STREAMS.md
++  - docs/index/REPRISE.md
++---
++
++# NEXT_GO_CANDIDATES ÔÇö opt-trading
++
++## Candidats actuels
++
++- hardening documentaire clos
++- prochain cadrage utile : un lot m├®tier r├®el ├á nommer
+diff --git a/docs/ot/closings/OT_TRAE_AGENTS_V1_OPEN_01_CLOSING.txt b/docs/ot/closings/OT_TRAE_AGENTS_V1_OPEN_01_CLOSING.txt
+new file mode 100644
+index 0000000..500d7ba
+--- /dev/null
++++ b/docs/ot/closings/OT_TRAE_AGENTS_V1_OPEN_01_CLOSING.txt
+@@ -0,0 +1,44 @@
++OT_TRAE_AGENTS_V1_OPEN_01 - CLOSING
++Date (America/Montreal) : 2026-04-11
++Statut : CLOSE
++Classe : PATCH_LOCAL
++
++1. Objet
++Ouvrir explicitement la trajectoire Trae V1 par la couche Agents uniquement, apr├¿s cl├┤ture de `GO_OT_TRAE_RULES_V1_OPEN_01`, en restant strictement doc-only, sans runtime, sans code, et sans ouverture automatique Skills/MCP.
++
++2. Pr├®-requis v├®rifi├®s
++- Closing Rules V1 open pr├®sent : `docs/ot/closings/OT_TRAE_RULES_V1_OPEN_01_CLOSING.txt`
++- Point actif initial : `GO_OT_TRAE_AGENTS_V1_OPEN_01`
++- Socle Agents V1 existant : `docs/ot/trae/02_AGENTS_V1.txt`
++- D├®cision de gel pr├®ÔÇæV1 Agents existante : `docs/ot/trae/OT_TRAE_AGENTS_PRE_V1_GEL_DECISION_01.md`
++
++3. Actions r├®alis├®es
++- D├®cision dÔÇÖouverture Agents V1 : `docs/ot/trae/OT_TRAE_AGENTS_V1_OPEN_DECISION_01.md`
++- Alignement minimal kanban / synth├¿se / reprise / matrice GO pour refl├®ter :
++  - Agents V1 = ouvert explicitement (Agents uniquement)
++  - point de reprise suivant = `GO_OT_TRAE_SKILLS_V1_OPEN_01` (sans lancement automatique)
++
++4. Bornes opposables confirm├®es
++- Agents V1 uniquement ; Skills/MCP restent non ouverts automatiquement.
++- Doc-only strict : aucun patch runtime, aucun patch code.
++
++5. Fichiers touch├®s
++- Cr├®├® : `docs/ot/trae/OT_TRAE_AGENTS_V1_OPEN_DECISION_01.md`
++- Cr├®├® : `docs/ot/closings/OT_TRAE_AGENTS_V1_OPEN_01_CLOSING.txt`
++- Modifi├® : `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`
++- Modifi├® : `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md`
++- Modifi├® : `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md`
++- Modifi├® : `journal/index/ACTIVE_GO_MATRIX.json`
++- Modifi├® : `journal/index/ACTIVE_GO_MATRIX.md`
++
++6. P├®rim├¿tre explicitement exclu
++- Aucun patch runtime.
++- Aucun patch code / scripts / modules.
++- Aucune ouverture automatique Skills/MCP (V1).
++- Aucun commit/push.
++
++7. Verdict
++PASS / CLOSE (AGENTS V1 OUVERT EXPLICITEMENT)
++
++8. Point de reprise suivant
++GO_OT_TRAE_SKILLS_V1_OPEN_01
+diff --git a/docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt b/docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt
+new file mode 100644
+index 0000000..79f080a
+--- /dev/null
++++ b/docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt
+@@ -0,0 +1,44 @@
++OT_TRAE_SKILLS_V1_OPEN_01 - CLOSING
++Date (America/Montreal) : 2026-04-11
++Statut : CLOSE
++Classe : PATCH_LOCAL
++
++1. Objet
++Ouvrir explicitement la trajectoire Trae V1 par la couche Skills uniquement, apr├¿s cl├┤ture de `GO_OT_TRAE_AGENTS_V1_OPEN_01`, en restant strictement doc-only, sans runtime, sans code, et sans ouverture automatique MCP.
++
++2. Pr├®-requis v├®rifi├®s
++- Closing Agents V1 open pr├®sent : `docs/ot/closings/OT_TRAE_AGENTS_V1_OPEN_01_CLOSING.txt`
++- Point actif initial : `GO_OT_TRAE_SKILLS_V1_OPEN_01`
++- Socle Skills V1 existant : `docs/ot/trae/04_SKILLS_V1.txt`
++- D├®cision de gel pr├®ÔÇæV1 Skills existante : `docs/ot/trae/OT_TRAE_SKILLS_PRE_V1_GEL_DECISION_01.md`
++
++3. Actions r├®alis├®es
++- D├®cision dÔÇÖouverture Skills V1 : `docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md`
++- Alignement minimal kanban / synth├¿se / reprise / matrice GO pour refl├®ter :
++  - Skills V1 = ouvert explicitement (Skills uniquement)
++  - point de reprise suivant = `GO_OT_TRAE_MCP_POLICY_V1_OPEN_01` (sans lancement automatique)
++
++4. Bornes opposables confirm├®es
++- Skills V1 uniquement ; MCP Policy reste non ouverte automatiquement.
++- Doc-only strict : aucun patch runtime, aucun patch code.
++
++5. Fichiers touch├®s
++- Cr├®├® : `docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md`
++- Cr├®├® : `docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt`
++- Modifi├® : `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`
++- Modifi├® : `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md`
++- Modifi├® : `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md`
++- Modifi├® : `journal/index/ACTIVE_GO_MATRIX.json`
++- Modifi├® : `journal/index/ACTIVE_GO_MATRIX.md`
++
++6. P├®rim├¿tre explicitement exclu
++- Aucun patch runtime.
++- Aucun patch code / scripts / modules.
++- Aucune ouverture automatique MCP (V1).
++- Aucun commit/push.
++
++7. Verdict
++PASS / CLOSE (SKILLS V1 OUVERT EXPLICITEMENT)
++
++8. Point de reprise suivant
++GO_OT_TRAE_MCP_POLICY_V1_OPEN_01
+diff --git a/docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md b/docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md
+index b6e9640..b156ad7 100644
+--- a/docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md
++++ b/docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md
+@@ -6,18 +6,18 @@ Source : construite ├á partir de `docs/ot/kanban/opt_trading_kanban_source_of_tr
+ 
+ | Bloc | ├ëtat | Nature | R├®ouverture | Suite |
+ |---|---|---|---|---|
+-| SHARED / SSHFS | ├ëTABLI / STABLE | infra | non | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+-| Starter Pack / Opening | ├ëTABLI / STABLE | doctrine repo | non | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
++| SHARED / SSHFS | ├ëTABLI / STABLE | infra | non | GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 |
++| Starter Pack / Opening | ├ëTABLI / STABLE | doctrine repo | non | GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 |
+ | validated_prompt_factory | CLOSE | outil op├®rateur | non | aucune |
+-| trae_module_validator | ├ëTABLI / ACTIVE (FORMALIS├ë) | outil op├®rateur | non | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+-| Socle doctrinal Trae | ├ëTABLI / PARTIEL | helper doctrinal | CONFIRM├ë PARTIELLEMENT (adoption) | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+-| Runtime vs snapshot repo | DIVERGENT / SUIVI | gouvernance ops | NON CONFIRM├ë MAIS ACCEPT├ë (invariant document├®) | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+-| Trae pr├®-V1 (statut global) | PRE_V1_COHERENT_AVEC_DELTAS_FINAUX | orchestration / syst├¿me | non | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+-| CONTRADICTOIRE (cadrage) | CLOSE (CADR├ë / OPPOSABLE) | gouvernance | non | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+-| Rules Trae V1 | ACTIVE (V1_OPEN) | couche V1 | oui | ouverture act├®e (doc-only) ; suite: GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+-| Agents Trae V1 | ├ëTABLI / GEL├ë (PRE-V1, OPPOSABLE) | couche V1 | oui | gel pr├®-V1 act├® (doc-only) ; suite: GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+-| Skills Trae V1 | ├ëTABLI / GEL├ë (PRE-V1, OPPOSABLE) | couche V1 | oui | gel pr├®-V1 act├® (doc-only) ; suite: GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+-| MCP Policy V1 | ├ëTABLI / GEL├ë (PRE-V1, OPPOSABLE) | gouvernance | oui | gel pr├®-V1 act├® (doc-only) ; suite: GO_OT_TRAE_AGENTS_V1_OPEN_01 |
++| trae_module_validator | ├ëTABLI / ACTIVE (FORMALIS├ë) | outil op├®rateur | non | GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 |
++| Socle doctrinal Trae | ├ëTABLI / PARTIEL | helper doctrinal | CONFIRM├ë PARTIELLEMENT (adoption) | GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 |
++| Runtime vs snapshot repo | DIVERGENT / SUIVI | gouvernance ops | NON CONFIRM├ë MAIS ACCEPT├ë (invariant document├®) | GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 |
++| Trae pr├®-V1 (statut global) | PRE_V1_COHERENT_AVEC_DELTAS_FINAUX | orchestration / syst├¿me | non | GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 |
++| CONTRADICTOIRE (cadrage) | CLOSE (CADR├ë / OPPOSABLE) | gouvernance | non | GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 |
++| Rules Trae V1 | ACTIVE (V1_OPEN) | couche V1 | oui | ouverture act├®e (doc-only) ; suite: GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 |
++| Agents Trae V1 | ACTIVE (V1_OPEN) | couche V1 | oui | ouverture act├®e (doc-only) ; gel pr├®-V1 d├®j├á act├® ; suite: GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 |
++| Skills Trae V1 | ACTIVE (V1_OPEN) | couche V1 | oui | ouverture act├®e (doc-only) ; gel pr├®-V1 d├®j├á act├® ; suite: GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 |
++| MCP Policy V1 | ├ëTABLI / GEL├ë (PRE-V1, OPPOSABLE) | gouvernance | oui | gel pr├®-V1 act├® (doc-only) ; suite: GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 |
+ 
+ ## R├¿gle de maintenance
+ - mettre ├á jour ce tableau ├á chaque closing qui change un statut, une preuve r├®elle, un point de reprise, une interdiction de r├®ouverture ou lÔÇÖordre logique de la suite ;
+diff --git a/docs/ot/kanban/opt_trading_kanban_source_of_truth.md b/docs/ot/kanban/opt_trading_kanban_source_of_truth.md
+index b849106..20cedcd 100644
+--- a/docs/ot/kanban/opt_trading_kanban_source_of_truth.md
++++ b/docs/ot/kanban/opt_trading_kanban_source_of_truth.md
+@@ -72,7 +72,7 @@ Cette synth├¿se est un r├®sum├® vivant du kanban. Elle permet de voir rapidement
+ - OT-NET-RECONNECT-01 : preuve ÔÇ£r├®seau purÔÇØ non produite en non-interactif (baseline /shared OK).
+ 
+ ## 4. POINT DE REPRISE SUIVANT
+-- GO_OT_TRAE_AGENTS_V1_OPEN_01 (suite V1 ; ouverture explicite Agents V1 uniquement ; ne pas lancer automatiquement).
++- GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 (suite V1 ; ouverture explicite MCP Policy V1 uniquement ; ne pas lancer automatiquement).
+ 
+ ## 5. ├ëTAT ÔÇö STARTER PACK (OUVERTURE / CL├öTURE / CONTINUIT├ë)
+ 
+@@ -93,13 +93,13 @@ Cette synth├¿se est un r├®sum├® vivant du kanban. Elle permet de voir rapidement
+   - closing : `docs/ot/closings/OT_TRAE_STARTERPACK_GATING_PROOF_01_CLOSING.txt`
+ 
+ ## 6. POINT DE REPRISE SUIVANT (DOCS)
+-- GO_OT_TRAE_AGENTS_V1_OPEN_01 :
++- GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 :
+   - relire `docs/ot/kanban/opt_trading_kanban_source_of_truth.md` + dernier `docs/ot/closings/OT_*_CLOSING*.txt`
+-  - d├®cider explicitement de lÔÇÖouverture Agents V1 (sans ouvrir Skills/MCP)
++  - d├®cider explicitement de lÔÇÖouverture MCP Policy V1 (sans ex├®cution MCP)
+ 
+ ## 7. POINT DE REPRISE SUIVANT (OPS)
+-- GO_OT_TRAE_AGENTS_V1_OPEN_01 :
+-  - m├¬me objectif (ouverture explicite Agents V1 uniquement, sans lancement automatique)
++- GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 :
++  - m├¬me objectif (ouverture explicite MCP Policy V1 uniquement, sans lancement automatique)
+ 
+ ## 8. MODULES ÔÇö VALIDATED_PROMPT_FACTORY
+ 
+@@ -182,9 +182,9 @@ Ordre retenu :
+ 4. MCP
+ 
+ ## 10. POINT ACTIF CONSERV├ë
+-- GO_OT_TRAE_AGENTS_V1_OPEN_01
+-  - d├®cision (ouverture Rules) : `docs/ot/trae/OT_TRAE_RULES_V1_OPEN_DECISION_01.md`
+-  - closing (ouverture Rules) : `docs/ot/closings/OT_TRAE_RULES_V1_OPEN_01_CLOSING.txt`
++- GO_OT_TRAE_MCP_POLICY_V1_OPEN_01
++  - d├®cision (ouverture Skills) : `docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md`
++  - closing (ouverture Skills) : `docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt`
+ 
+ ## 11. POINT CANDIDAT SI OUVERTURE DU CHANTIER TRAE V1
+-- GO_OT_TRAE_AGENTS_V1_OPEN_01 (s├®lection explicite, sans lancement automatique)
++- GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 (s├®lection explicite, sans lancement automatique)
+diff --git a/docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt b/docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt
+index 64e93ab..3cf12b0 100644
+--- a/docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt
++++ b/docs/ot/trae/08_MULTI_STEP_MISSION_CHECKLIST_V1.txt
+@@ -28,6 +28,26 @@ TITRE
+ MISSION_CLASS_GLOBALE
+ OBJECTIF_GLOBAL
+ 
++BESOIN_INITIAL
++
++OBJECTIF_FINAL_VISE
++
++PLAN_VALIDE
++
++ROLES_FILS (s├®paration explicite)
++- MACHINE
++- IA
++- IDE
++- REPO / PRODUIT
++
++ETAT_REEL_DE_DEPART (faits prouv├®s uniquement)
++
++ETAT_ETABLI_INITIAL (faits prouv├®s uniquement)
++
++GAP_RESTANT
++
++PROCHAIN_GO
++
+ SOURCES_OT_OBLIGATOIRES
+ - ├®tat r├®el
+ - repo
+diff --git a/docs/ot/trae/12_ORCHESTRATOR_ENTRYPOINT_V1.txt b/docs/ot/trae/12_ORCHESTRATOR_ENTRYPOINT_V1.txt
+index 299ad47..a92f874 100644
+--- a/docs/ot/trae/12_ORCHESTRATOR_ENTRYPOINT_V1.txt
++++ b/docs/ot/trae/12_ORCHESTRATOR_ENTRYPOINT_V1.txt
+@@ -10,14 +10,36 @@ MISSION_ID
+ 
+ MISSION_CLASS (DIAGNOSTIC / PATCH_LOCAL / MODULE_DURABLE / BUNDLE_TRANSFERT / AUDIT_REALIGNEMENT)
+ 
++1.1 Continuit├® (obligatoire)
++
++BESOIN_INITIAL (1ÔÇô5 lignes)
++
++OBJECTIF_FINAL_VISE (1ÔÇô5 lignes)
++
++PLAN_VALIDE (1ÔÇô7 lignes)
++
++ROLES_FILS (s├®paration explicite)
++- MACHINE
++- IA
++- IDE
++- REPO / PRODUIT
++
++ETAT_REEL_DE_DEPART (faits prouv├®s uniquement)
++
++ETAT_ETABLI_INITIAL (faits prouv├®s uniquement)
++
++GAP_RESTANT (1ÔÇô7 lignes)
++
++PROCHAIN_GO (1 ligne, identifiant GO_* si applicable)
++
++1.2 Cadrage & ex├®cution
++
+ OBJECTIF_REFORMULE (1ÔÇô5 lignes)
+ 
+ SOURCES_CONSULTEES (liens/chemins pr├®cis)
+ 
+ SOURCES_MANQUANTES_OU_NON_LUES
+ 
+-ETAT_ETABLI_INITIAL (faits prouv├®s uniquement)
+-
+ POINTS_A_CONFIRMER (liste courte)
+ 
+ CONTRADICTIONS_DETECTEES (si aucune : ÔÇ£N├®antÔÇØ)
+diff --git a/docs/ot/trae/OT_TRAE_AGENTS_V1_OPEN_DECISION_01.md b/docs/ot/trae/OT_TRAE_AGENTS_V1_OPEN_DECISION_01.md
+new file mode 100644
+index 0000000..645c12b
+--- /dev/null
++++ b/docs/ot/trae/OT_TRAE_AGENTS_V1_OPEN_DECISION_01.md
+@@ -0,0 +1,42 @@
++# GO_OT_TRAE_AGENTS_V1_OPEN_01 ÔÇö D├ëCISION CANONIQUE (OUVERTURE AGENTS V1)
++
++Date (America/Montreal) : 2026-04-11
++
++## 1. Objet
++Ouvrir explicitement la trajectoire Trae V1 par la couche **Agents V1** uniquement, apr├¿s cl├┤ture de `GO_OT_TRAE_RULES_V1_OPEN_01`, en restant strictement doc-only (sans runtime, sans code) et sans ouvrir automatiquement Skills/MCP.
++
++## 2. Contexte ├®tabli
++- La couche Rules V1 est ouverte explicitement (doc-only) :
++  - d├®cision : `docs/ot/trae/OT_TRAE_RULES_V1_OPEN_DECISION_01.md`
++  - closing : `docs/ot/closings/OT_TRAE_RULES_V1_OPEN_01_CLOSING.txt`
++- Le socle Agents V1 est d├®j├á mat├®rialis├® dans le repo : `docs/ot/trae/02_AGENTS_V1.txt`
++- Un gel pr├®ÔÇæV1 opposable (doc-only) existe d├®j├á pour Agents :
++  - d├®cision : `docs/ot/trae/OT_TRAE_AGENTS_PRE_V1_GEL_DECISION_01.md`
++  - closing : `docs/ot/closings/OT_TRAE_AGENTS_V1_01_CLOSING.txt`
++- LÔÇÖordre canonique V1 est : Rules -> Agents -> Skills -> MCP.
++
++## 3. D├®cision canonique (ouverture Agents V1)
++- La couche **Agents V1** est d├®sormais consid├®r├®e **ouverte explicitement** pour `opt-trading` (doc-only).
++- Le socle normatif Agents V1 opposable est : `docs/ot/trae/02_AGENTS_V1.txt`.
++- Cette ouverture Agents V1 **ne remplace pas** le gel pr├®ÔÇæV1 Agents existant ; elle le rend simplement opposable comme couche suivante ouverte (apr├¿s Rules).
++
++## 4. Bornes opposables
++- **Borne 1 (scope Agents uniquement)** : lÔÇÖouverture de Agents V1 nÔÇÖimplique aucune ouverture automatique de `Skills` ni de `MCP Policy`.
++- **Borne 2 (doc-only)** : lÔÇÖouverture de Agents V1 est une bascule documentaire ; elle nÔÇÖautorise ni nÔÇÖexige aucun patch runtime ou code.
++- **Borne 3 (opposabilit├®)** : toute mission Trae ult├®rieure est tenue de respecter `02_AGENTS_V1.txt` (obligations minimales des r├┤les, sorties attendues, non-invention, scope, preuve, point de reprise).
++
++## 5. Artefacts canoniques minimaux
++- Socle Agents V1 : `docs/ot/trae/02_AGENTS_V1.txt`
++- D├®cision dÔÇÖouverture : `docs/ot/trae/OT_TRAE_AGENTS_V1_OPEN_DECISION_01.md`
++- Closing : `docs/ot/closings/OT_TRAE_AGENTS_V1_OPEN_01_CLOSING.txt`
++- R├®f├®rences opposables (pr├®ÔÇærequis / coh├®rence) :
++  - `docs/ot/trae/OT_TRAE_RULES_V1_OPEN_DECISION_01.md`
++  - `docs/ot/trae/OT_TRAE_AGENTS_PRE_V1_GEL_DECISION_01.md`
++
++## 6. Cons├®quences (synchronisation)
++- Le kanban, la synth├¿se, la reprise de session et la matrice des GO actifs doivent refl├®ter :
++  - Agents V1 = ouvert explicitement (Agents uniquement)
++  - point de reprise suivant = `GO_OT_TRAE_SKILLS_V1_OPEN_01` (sans lancement automatique)
++
++## 7. Point de reprise
++- `GO_OT_TRAE_SKILLS_V1_OPEN_01`
+diff --git a/docs/ot/trae/OT_TRAE_SESSION_REPRISE.md b/docs/ot/trae/OT_TRAE_SESSION_REPRISE.md
+index b40446b..3708a0b 100644
+--- a/docs/ot/trae/OT_TRAE_SESSION_REPRISE.md
++++ b/docs/ot/trae/OT_TRAE_SESSION_REPRISE.md
+@@ -6,7 +6,20 @@ Derni├¿re mise ├á jour (America/Montreal) : 2026-04-11
+ ## 1. Objet
+ Fichier canonique de continuit├® pour reprendre une session Trae sur `opt-trading` sans rouvrir de chantier technique.
+ 
+-## 2. Chemins canoniques (sources de v├®rit├®)
++## 2. Continuit├® active (lot en cours)
++- **Besoin initial** : N├®ant / <├á renseigner>
++- **Objectif final vis├®** : N├®ant / <├á renseigner>
++- **Plan valid├®** : N├®ant / <├á renseigner>
++- **├ëtat ├®tabli / obtenu** : N├®ant / <├á renseigner>
++- **Gap restant** : N├®ant / <├á renseigner>
++- **Prochain GO** : N├®ant / GO_<...>
++- **Fils / r├┤les (s├®paration explicite)** :
++  - **Machine** : <...>
++  - **IA** : <...>
++  - **IDE** : <...>
++  - **Repo / Produit** : `opt-trading`
++
++## 3. Chemins canoniques (sources de v├®rit├®)
+ - Kanban (source of truth) : `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`
+ - Synth├¿se kanban : `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md`
+ - Workflow (doctrine gated) : `workflow_ai/WORKFLOW.md`
+@@ -18,12 +31,12 @@ Fichier canonique de continuit├® pour reprendre une session Trae sur `opt-tradin
+ Legacy conserv├® (ne pas promouvoir) :
+ - `opt_trading_kanban_source_of_truth_2026-03-13_updated.md` (racine, legacy)
+ 
+-## 3. Ce qui est ├®tabli dans cette session
+-### 3.1 Canonicalisation docs OT (OK)
++## 4. Ce qui est ├®tabli dans cette session
++### 4.1 Canonicalisation docs OT (OK)
+ - Kanban canonique + synth├¿se en place.
+ - Workflow gated + sync en place.
+ 
+-### 3.2 Migration OT_* hors de la racine (OK)
++### 4.2 Migration OT_* hors de la racine (OK)
+ - Tous les `OT_*` pr├®c├®demment ├á la racine ont ├®t├® migr├®s vers :
+   - `docs/ot/closings/`
+   - `docs/ot/reports/`
+@@ -31,10 +44,10 @@ Legacy conserv├® (ne pas promouvoir) :
+   - `docs/ot/trae/`
+ - Le legacy root est conserv├® uniquement pour tra├ºabilit├® : `opt_trading_kanban_source_of_truth_2026-03-13_updated.md`.
+ 
+-### 3.3 R├®f├®rences non-OT repoint├®es (OK)
++### 4.3 R├®f├®rences non-OT repoint├®es (OK)
+ - Les r├®f├®rences documentaires non-OT prioritaires pointent d├®sormais vers les chemins canoniques `docs/ot/*`.
+ 
+-### 3.4 R├®gularisations Trae stabilis├®es (OK)
++### 4.4 R├®gularisations Trae stabilis├®es (OK)
+ D├®cisions canoniques produites :
+ - `trae_module_validator` : ACTIVE (FORMALIS├ë)  
+   - d├®cision : `docs/ot/trae/OT_TRAE_MODULE_VALIDATOR_STATUS_DECISION_01.md`
+@@ -45,39 +58,48 @@ D├®cisions canoniques produites :
+   - d├®cision : `docs/ot/trae/OT_TRAE_RUNTIME_SNAPSHOT_ALIGNMENT_DECISION_01.md`
+   - closing : `docs/ot/closings/OT_TRAE_RUNTIME_SNAPSHOT_ALIGNMENT_CHECK_01_CLOSING.txt`
+ 
+-### 3.5 Bloc CONTRADICTOIRE cadr├® (OK)
++### 4.5 Bloc CONTRADICTOIRE cadr├® (OK)
+ - Cadrage canonique (repo-first + grandfathering standard/legacy + pas de normalisation implicite + V1 non automatique) :  
+   - d├®cision : `docs/ot/trae/OT_TRAE_CONTRADICTOIRE_CADRAGE_DECISION_01.md`
+   - closing : `docs/ot/closings/OT_TRAE_CONTRADICTOIRE_CADRAGE_01_CLOSING.txt`
+ 
+-### 3.6 Trae pr├®ÔÇæV1 ÔÇö closeout (OK)
++### 4.6 Trae pr├®ÔÇæV1 ÔÇö closeout (OK)
+ - Statut global pr├®ÔÇæV1 act├® : `PRE_V1_COHERENT_AVEC_DELTAS_FINAUX` (sans surpromesse `V1_READY`).
+ - D├®cision : `docs/ot/trae/OT_TRAE_PRE_V1_CLOSEOUT_STATUS_DECISION_01.md`
+ - Closing : `docs/ot/closings/OT_TRAE_PRE_V1_CLOSEOUT_01_CLOSING.txt`
+ 
+-### 3.7 Continuit├® Trae par d├®faut (OK)
++### 4.7 Continuit├® Trae par d├®faut (OK)
+ - D├®cision : `docs/ot/trae/OT_TRAE_CONTINUATION_DEFAULT_DECISION_01.md`
+ - Closing : `docs/ot/closings/OT_TRAE_CONTINUATION_DEFAULT_DECISION_01_CLOSING.txt`
+ 
+-### 3.8 Gating GO/STOP ÔÇö borne canonique (OK)
++### 4.8 Gating GO/STOP ÔÇö borne canonique (OK)
+ - Preuve opposable dÔÇÖune pratique ÔÇ£GO/STOP ├á chaque GateÔÇØ : non d├®montr├®e doc-only.
+ - Borne canonique document├®e : oui.
+ - Closing : `docs/ot/closings/OT_TRAE_STARTERPACK_GATING_PROOF_01_CLOSING.txt`
+ 
+-### 3.9 Rules V1 ÔÇö ouverture explicite (OK)
++### 4.9 Rules V1 ÔÇö ouverture explicite (OK)
+ - D├®cision : `docs/ot/trae/OT_TRAE_RULES_V1_OPEN_DECISION_01.md`
+ - Closing : `docs/ot/closings/OT_TRAE_RULES_V1_OPEN_01_CLOSING.txt`
+ 
+-## 4. Ce quÔÇÖil ne faut pas rouvrir dans la reprise
++### 4.10 Agents V1 ÔÇö ouverture explicite (OK)
++- D├®cision : `docs/ot/trae/OT_TRAE_AGENTS_V1_OPEN_DECISION_01.md`
++- Closing : `docs/ot/closings/OT_TRAE_AGENTS_V1_OPEN_01_CLOSING.txt`
++
++### 4.11 Skills V1 ÔÇö ouverture explicite (OK)
++- D├®cision : `docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md`
++- Closing : `docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt`
++
++## 5. Ce quÔÇÖil ne faut pas rouvrir dans la reprise
+ - Ne pas ouvrir automatiquement Rules/Agents/Skills/MCP (V1) sans s├®lection explicite.
+ - Ne pas ÔÇ£normaliserÔÇØ (d├®placer/refactor) les couches runtime ou legacy sans mission d├®di├®e.
+ - Ne pas r├®activer des missions `CLOSE` sans besoin prouv├®.
+ - Ne pas recr├®er des OT_* ├á la racine du repo.
+ 
+-## 5. Point de reprise global
+-- Point de reprise actuel : `GO_OT_TRAE_AGENTS_V1_OPEN_01`
++## 6. Point de reprise global
++- Point de reprise actuel : `GO_OT_TRAE_MCP_POLICY_V1_OPEN_01`
+ 
+-## 6. Proc├®dure de reprise (checklist minimaliste)
++## 7. Proc├®dure de reprise (checklist minimaliste)
++0) Renseigner / v├®rifier le bloc **Continuit├® active** (besoin, objectif final, plan valid├®, ├®tat ├®tabli/obtenu, gap, prochain GO, fils)
+ 1) Lire `docs/master_pack/00_current_state_and_standards.md`
+ 2) Lire la derni├¿re cl├┤ture pertinente sous `docs/ot/closings/` (dont `OT_TRAE_PRE_V1_CLOSEOUT_01_CLOSING.txt` si mission Trae)
+ 3) Lire le kanban + la synth├¿se :
+@@ -85,4 +107,4 @@ D├®cisions canoniques produites :
+    - `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md`
+ 4) Relire les d├®cisions Trae (si mission li├®e) :
+    - `docs/ot/trae/OT_TRAE_*_DECISION_01.md`
+-5) Appliquer le point de reprise : `GO_OT_TRAE_AGENTS_V1_OPEN_01`
++5) Appliquer le point de reprise : `GO_OT_TRAE_MCP_POLICY_V1_OPEN_01`
+diff --git a/docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md b/docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md
+new file mode 100644
+index 0000000..f57bef0
+--- /dev/null
++++ b/docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md
+@@ -0,0 +1,42 @@
++# GO_OT_TRAE_SKILLS_V1_OPEN_01 ÔÇö D├ëCISION CANONIQUE (OUVERTURE SKILLS V1)
++
++Date (America/Montreal) : 2026-04-11
++
++## 1. Objet
++Ouvrir explicitement la trajectoire Trae V1 par la couche **Skills V1** uniquement, apr├¿s cl├┤ture de `GO_OT_TRAE_AGENTS_V1_OPEN_01`, en restant strictement doc-only (sans runtime, sans code) et sans ouvrir automatiquement MCP.
++
++## 2. Contexte ├®tabli
++- La couche Agents V1 est ouverte explicitement (doc-only) :
++  - d├®cision : `docs/ot/trae/OT_TRAE_AGENTS_V1_OPEN_DECISION_01.md`
++  - closing : `docs/ot/closings/OT_TRAE_AGENTS_V1_OPEN_01_CLOSING.txt`
++- Le socle Skills V1 est d├®j├á mat├®rialis├® dans le repo : `docs/ot/trae/04_SKILLS_V1.txt`
++- Un gel pr├®ÔÇæV1 opposable (doc-only) existe d├®j├á pour Skills :
++  - d├®cision : `docs/ot/trae/OT_TRAE_SKILLS_PRE_V1_GEL_DECISION_01.md`
++  - closing : `docs/ot/closings/OT_TRAE_SKILLS_V1_01_CLOSING.txt`
++- LÔÇÖordre canonique V1 est : Rules -> Agents -> Skills -> MCP.
++
++## 3. D├®cision canonique (ouverture Skills V1)
++- La couche **Skills V1** est d├®sormais consid├®r├®e **ouverte explicitement** pour `opt-trading` (doc-only).
++- Le socle normatif Skills V1 opposable est : `docs/ot/trae/04_SKILLS_V1.txt`.
++- Cette ouverture Skills V1 ne constitue pas une ouverture MCP : elle pr├®pare uniquement la couche suivante, qui reste ├á s├®lectionner explicitement.
++
++## 4. Bornes opposables
++- **Borne 1 (scope Skills uniquement)** : lÔÇÖouverture de Skills V1 nÔÇÖimplique aucune ouverture automatique de `MCP Policy`.
++- **Borne 2 (doc-only)** : lÔÇÖouverture de Skills V1 est une bascule documentaire ; elle nÔÇÖautorise ni nÔÇÖexige aucun patch runtime ou code.
++- **Borne 3 (opposabilit├®)** : toute mission Trae ult├®rieure est tenue de respecter `04_SKILLS_V1.txt` (skills born├®s, inputs/outputs fixes, hors-scope explicite, non-invention).
++
++## 5. Artefacts canoniques minimaux
++- Socle Skills V1 : `docs/ot/trae/04_SKILLS_V1.txt`
++- D├®cision dÔÇÖouverture : `docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md`
++- Closing : `docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt`
++- R├®f├®rences opposables (pr├®ÔÇærequis / coh├®rence) :
++  - `docs/ot/trae/OT_TRAE_AGENTS_V1_OPEN_DECISION_01.md`
++  - `docs/ot/trae/OT_TRAE_SKILLS_PRE_V1_GEL_DECISION_01.md`
++
++## 6. Cons├®quences (synchronisation)
++- Le kanban, la synth├¿se, la reprise de session et la matrice des GO actifs doivent refl├®ter :
++  - Skills V1 = ouvert explicitement (Skills uniquement)
++  - point de reprise suivant = `GO_OT_TRAE_MCP_POLICY_V1_OPEN_01` (sans lancement automatique)
++
++## 7. Point de reprise
++- `GO_OT_TRAE_MCP_POLICY_V1_OPEN_01`
+diff --git a/journal/index/ACTIVE_GO_MATRIX.json b/journal/index/ACTIVE_GO_MATRIX.json
+index e2bbacb..96fab6f 100644
+--- a/journal/index/ACTIVE_GO_MATRIX.json
++++ b/journal/index/ACTIVE_GO_MATRIX.json
+@@ -8,8 +8,8 @@
+   },
+   "rows": [
+     {
+-      "go_id": "GO_OT_TRAE_AGENTS_V1_OPEN_01",
+-      "title": "ouverture Agents V1 (s├®lection explicite, non automatique)",
++      "go_id": "GO_OT_TRAE_MCP_POLICY_V1_OPEN_01",
++      "title": "ouverture MCP Policy V1 (s├®lection explicite, non automatique)",
+       "nature": "trae_continuity_default",
+       "owner_machine": "fantome",
+       "repo": "magikgmo4-ui/opt-trading",
+@@ -17,19 +17,19 @@
+       "work_branch": "feat/GO_FANTOME_JOURNAL_GO_MATRIX_PATCH_01",
+       "state": "ACTIVE",
+       "last_established": "2026-04-11",
+-      "next_step": "docs: suite continuit├® Trae V1 : `GO_OT_TRAE_AGENTS_V1_OPEN_01` -> `GO_OT_TRAE_SKILLS_V1_OPEN_01`",
++      "next_step": "docs: suite continuit├® Trae V1 : `GO_OT_TRAE_MCP_POLICY_V1_OPEN_01` -> `GO_OT_NEXT_MISSION_SELECTION_01`",
+       "canonical_docs": [
+         "docs/master_pack/00_current_state_and_standards.md",
+         "docs/master_pack/mission_starter_pack/00_mission_start_guide.md",
+         "docs/ot/kanban/opt_trading_kanban_source_of_truth.md",
+         "docs/ot/trae/OT_TRAE_SESSION_REPRISE.md",
+-        "docs/ot/trae/OT_TRAE_RULES_V1_OPEN_DECISION_01.md",
+-        "docs/ot/closings/OT_TRAE_RULES_V1_OPEN_01_CLOSING.txt"
++        "docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md",
++        "docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt"
+       ],
+       "evidence_refs": [
+         "docs/ot/kanban/opt_trading_kanban_source_of_truth.md:74",
+-        "docs/ot/trae/OT_TRAE_RULES_V1_OPEN_DECISION_01.md:3",
+-        "docs/ot/closings/OT_TRAE_RULES_V1_OPEN_01_CLOSING.txt:1"
++        "docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md:3",
++        "docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt:1"
+       ],
+       "updated_at": "2026-04-11T00:10:00-04:00",
+       "tags": [
+diff --git a/journal/index/ACTIVE_GO_MATRIX.md b/journal/index/ACTIVE_GO_MATRIX.md
+index 03c8643..81338f2 100644
+--- a/journal/index/ACTIVE_GO_MATRIX.md
++++ b/journal/index/ACTIVE_GO_MATRIX.md
+@@ -6,10 +6,10 @@ Source rule: this matrix is generated from canonical docs and machine git contex
+ 
+ | go_id | state | owner_machine | work_branch | last_established | next_step |
+ |---|---|---|---|---|---|
+-| `GO_OT_TRAE_AGENTS_V1_OPEN_01` | `ACTIVE` | `fantome` | `feat/GO_FANTOME_JOURNAL_GO_MATRIX_PATCH_01` | `2026-04-11` | docs: suite continuit├® Trae V1 : `GO_OT_TRAE_AGENTS_V1_OPEN_01` -> `GO_OT_TRAE_SKILLS_V1_OPEN_01` |
++| `GO_OT_TRAE_MCP_POLICY_V1_OPEN_01` | `ACTIVE` | `fantome` | `feat/GO_FANTOME_JOURNAL_GO_MATRIX_PATCH_01` | `2026-04-11` | docs: suite continuit├® Trae V1 : `GO_OT_TRAE_MCP_POLICY_V1_OPEN_01` -> `GO_OT_NEXT_MISSION_SELECTION_01` |
+ 
+-## GO_OT_TRAE_AGENTS_V1_OPEN_01
+-- title: `ouverture Agents V1 (s├®lection explicite, non automatique)`
++## GO_OT_TRAE_MCP_POLICY_V1_OPEN_01
++- title: `ouverture MCP Policy V1 (s├®lection explicite, non automatique)`
+ - nature: `trae_continuity_default`
+ - owner_machine: `fantome`
+ - repo: `magikgmo4-ui/opt-trading`
+@@ -17,8 +17,8 @@ Source rule: this matrix is generated from canonical docs and machine git contex
+ - work_branch: `feat/GO_FANTOME_JOURNAL_GO_MATRIX_PATCH_01`
+ - state: `ACTIVE`
+ - last_established: `2026-04-11`
+-- next_step: docs: `GO_OT_TRAE_AGENTS_V1_OPEN_01` -> `GO_OT_TRAE_SKILLS_V1_OPEN_01`
+-- canonical_docs: `docs/master_pack/00_current_state_and_standards.md`; `docs/master_pack/mission_starter_pack/00_mission_start_guide.md`; `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`; `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md`; `docs/ot/trae/OT_TRAE_RULES_V1_OPEN_DECISION_01.md`; `docs/ot/closings/OT_TRAE_RULES_V1_OPEN_01_CLOSING.txt`
+-- evidence_refs: `docs/ot/trae/OT_TRAE_RULES_V1_OPEN_DECISION_01.md:3`; `docs/ot/closings/OT_TRAE_RULES_V1_OPEN_01_CLOSING.txt:1`; `docs/ot/kanban/opt_trading_kanban_source_of_truth.md:74`; `docs/ot/kanban/opt_trading_kanban_source_of_truth.md:176`; `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md:65`
++- next_step: docs: `GO_OT_TRAE_MCP_POLICY_V1_OPEN_01` -> `GO_OT_NEXT_MISSION_SELECTION_01`
++- canonical_docs: `docs/master_pack/00_current_state_and_standards.md`; `docs/master_pack/mission_starter_pack/00_mission_start_guide.md`; `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`; `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md`; `docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md`; `docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt`
++- evidence_refs: `docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md:3`; `docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt:1`; `docs/ot/kanban/opt_trading_kanban_source_of_truth.md:74`; `docs/ot/kanban/opt_trading_kanban_source_of_truth.md:184`; `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md:75`
+ - updated_at: `2026-04-11T00:10:00-04:00`
+ - tags: `active, fantome, trae_continuity_default, sot_mainline`
+diff --git a/trae_pack_texts/trae_pack/TRAE_CLOSURE_TEMPLATE_V1.1.txt b/trae_pack_texts/trae_pack/TRAE_CLOSURE_TEMPLATE_V1.1.txt
+index bbb535b..2100798 100644
+--- a/trae_pack_texts/trae_pack/TRAE_CLOSURE_TEMPLATE_V1.1.txt
++++ b/trae_pack_texts/trae_pack/TRAE_CLOSURE_TEMPLATE_V1.1.txt
+@@ -1,5 +1,8 @@
+ TRAE_CLOSURE_TEMPLATE_V1.1 ÔÇö MOD├êLE CANONIQUE DE CL├öTURE
+ 
++NOTE (opt-trading) : ce template doit refl├®ter la structure canonique de continuit├® produit/plan valid├®.
++Champs obligatoires pour la continuit├® : objectif final vis├®, ├®tat obtenu, ├®tabli, gap, prochain GO, reprise, s├®paration r├┤les (machine/IA-IDE/repo-produit).
++
+ NOTE (opt-trading) : ce fichier est un helper (support de format). La cl├┤ture canonique c├┤t├® repo est `OT_*_CLOSING.txt` avec alignement doc canonique + kanban + point de reprise ; en cas de conflit, le repo prime.
+ 
+ ## 1. OBJECTIF DU TEMPLATE
+@@ -12,10 +15,15 @@ Standardiser lÔÇÖarchivage dÔÇÖun ├®tat valid├® (mission, module, doctrine) afin
+ - Fin de session de travail lorsquÔÇÖun ├®tat valid├® doit ├¬tre archiv├®.
+ 
+ ## 3. CHAMPS OBLIGATOIRES
++- **Objectif final vis├®** : Rappel de l'objectif initial de la mission.
++- **├ëtat obtenu** : Ce qui a ├®t├® concr├¿tement ð┤ð¥ÐüÐéð©int.
++- **├ëtabli** : Ce qui est maintenant fig├® comme acquis.
++- **Gap** : Ce qui reste ├á traiter ou n'a pas pu ├¬tre fait.
++- **Prochain GO** : Quelle est la prochaine ├®tape GO ?
++- **Reprise** : Point explicite pour relancer l'action future sans ambigu├»t├®.
+ - ├ël├®ment Cible : Nom pr├®cis de ce qui est clos.
+ - Statut Final : CLOSE.
+ - R├®f├®rence Verdict : Rappel du verdict de review (ACCEPT / ACCEPT_WITH_NOTES).
+-- Point de Reprise : Prochaine ├®tape logique ou ├®tat stable ├á reprendre.
+ 
+ ## 4. CHAMPS OPTIONNELS
+ - Tra├ºabilit├® Notes : Liste des TODO cr├®├®s (si ACCEPT_WITH_NOTES).
+@@ -25,19 +33,37 @@ Standardiser lÔÇÖarchivage dÔÇÖun ├®tat valid├® (mission, module, doctrine) afin
+ ## 5. FORMAT CANONIQUE COMPLET
+ # CL├öTURE ÔÇö <NOM_├ëL├ëMENT>
+ 
+-## 1. ├ëTAT ├ëTABLI
++## 1. OBJECTIF FINAL VIS├ë
++- [Rappel de l'objectif initial de la mission]
++
++## 2. ├ëTAT OBTENU
++- [Ce qui a ├®t├® concr├¿tement atteint]
++
++## 3. ├ëTABLI
++- [Ce qui est maintenant fig├® comme acquis]
++
++## 4. GAP
++- [Ce qui reste ├á traiter ou n'a pas pu ├¬tre fait]
++
++## 5. PROCHAIN GO
++> **GO_<PROCHAINE_├ëTAPE_LOGIQUE>**
++
++## 6. REPRISE
++- [Point explicite pour relancer l'action future sans ambigu├»t├®]
++
++## 7. ├ëTAT ├ëTABLI (L├®gacy)
+ - **Cible** : <Nom du module / document / mission>
+ - **Statut Final** : CLOSE
+ - **Verdict de R├®f├®rence** : [ACCEPT | ACCEPT_WITH_NOTES]
+ 
+-## 2. TRA├çABILIT├ë (Si applicable)
++## 8. TRA├çABILIT├ë (Si applicable)
+ - **Notes / Dettes** :
+   - [x] <R├®f├®rence ticket ou TODO cr├®├®>
+ - **Artefacts Cl├®s** :
+   - <Fichier 1>
+   - <Doc A>
+ 
+-## 3. POINT DE REPRISE
++## 7. POINT DE REPRISE (L├®gacy)
+ > **GO_<PROCHAINE_├ëTAPE_LOGIQUE>**
+ 
+ ## 6. R├êGLES DE REMPLISSAGE
+diff --git a/trae_pack_texts/trae_pack/TRAE_MISSION_TEMPLATE_V1.1.txt b/trae_pack_texts/trae_pack/TRAE_MISSION_TEMPLATE_V1.1.txt
+index 5a06186..6657191 100644
+--- a/trae_pack_texts/trae_pack/TRAE_MISSION_TEMPLATE_V1.1.txt
++++ b/trae_pack_texts/trae_pack/TRAE_MISSION_TEMPLATE_V1.1.txt
+@@ -1,12 +1,21 @@
+ TRAE_MISSION_TEMPLATE_V1.1 ÔÇö MOD├êLE CANONIQUE DE MISSION
+ 
++NOTE (opt-trading) : ce template doit refl├®ter la structure canonique de continuit├® produit/plan valid├®.
++Champs obligatoires pour la continuit├® : besoin initial, objectif final vis├®, plan valid├®, roles (machine/IA/IDE/repo-produit), ├®tat r├®el de d├®part, gap, prochain GO.
++
+ ## 1. OBJECTIF DU TEMPLATE
+ Standardiser le format des missions transmises par lÔÇÖOrchestrator ├á lÔÇÖExecutor, afin de garantir que chaque mission est born├®e, claire, sans ambigu├»t├® et contient toutes les informations n├®cessaires ├á une ex├®cution conforme et validable.
+ 
+ ## 2. CHAMPS OBLIGATOIRES
+ - ID Mission : Identifiant unique ou titre court.
+ - Classification : Type de mission (DIAGNOSTIC_PONCTUEL, PATCH_LOCAL, MODULE_DURABLE, BUNDLE_TRANSFERT).
+-- Objectif Unique : Une phrase d├®crivant le but.
++- **Besoin initial** : Pourquoi cette mission ? Quel besoin concret ?
++- **Objectif final vis├®** : Quel r├®sultat concret et mesurable est attendu ?
++- **Plan valid├®** : Quel chemin est valid├® pour atteindre l'objectif ?
++- **R├┤les / Fils** : Machine, IA, IDE, Repo/Produit concern├®s.
++- **├ëtat r├®el de d├®part** : Ce qu'on sait de l'├®tat actuel avant ex├®cution.
++- **Gap** : Quel est l'├®cart entre l'├®tat actuel et l'objectif ?
++- **Prochain GO** : Quelle est la prochaine ├®tape apr├¿s cette mission ?
+ - Scope (Cible) : Liste explicite des fichiers ou dossiers concern├®s.
+ - Scope (Interdit) : Ce qu'il ne faut PAS faire ou toucher.
+ - Validation : Comment prouver le succ├¿s (commande, test, log).
+diff --git a/trae_pack_texts/trae_pack/TRAE_REVIEW_VERDICT_TEMPLATE_V1.1.txt b/trae_pack_texts/trae_pack/TRAE_REVIEW_VERDICT_TEMPLATE_V1.1.txt
+index d4fdd4b..b1f8c4e 100644
+--- a/trae_pack_texts/trae_pack/TRAE_REVIEW_VERDICT_TEMPLATE_V1.1.txt
++++ b/trae_pack_texts/trae_pack/TRAE_REVIEW_VERDICT_TEMPLATE_V1.1.txt
+@@ -1,10 +1,21 @@
+ TRAE_REVIEW_VERDICT_TEMPLATE_V1.1 ÔÇö MOD├êLE CANONIQUE DE REVIEW
+ 
++NOTE (opt-trading) : ce template doit v├®rifier que la structure canonique de continuit├® a ├®t├® pr├®serv├®e.
++V├®rifications obligatoires : besoin initial, cible finale, plan valid├®, ├®tat obtenu, gap, prochain GO, fil machine/IA/IDE/repo-produit.
++
+ ## 1. OBJECTIF DU TEMPLATE
+ Standardiser la d├®cision finale du Reviewer pour garantir que chaque livrable est audit├® selon les m├¬mes crit├¿res de scope, de qualit├® et de s├®curit├®. Le verdict doit ├¬tre sans appel et bas├® sur des preuves factuelles.
+ 
+ ## 2. CHAMPS OBLIGATOIRES
+ - Verdict : ACCEPT, REJECT ou ACCEPT_WITH_NOTES.
++- **V├®rification Continuit├® Canonique** :
++  - Besoin initial pr├®serv├® : [OUI/NON]
++  - Cible finale / Objectif final vis├® pr├®serv├®e : [OUI/NON]
++  - Plan valid├® respect├® : [OUI/NON]
++  - ├ëtat obtenu document├® : [OUI/NON]
++  - Gap identifi├® et document├® : [OUI/NON]
++  - Prochain GO explicitement nomm├® : [OUI/NON]
++  - Fil machine/IA/IDE/repo-produit identifi├® : [OUI/NON]
+ - Analyse des ├ëcarts : Comparaison Scope vs R├®el.
+ - V├®rification des Preuves : Validation des logs et diffs fournis.
+ - Contr├┤le des Standards : V├®rification de `cmd`, `menu`, `sanity` (pour modules).
+@@ -21,22 +32,31 @@ Standardiser la d├®cision finale du Reviewer pour garantir que chaque livrable e
+ ## 1. VERDICT
+ [ACCEPT | REJECT | ACCEPT_WITH_NOTES]
+ 
+-## 2. ANALYSE DE CONFORMIT├ë
++## 2. V├ëRIFICATION CONTINUIT├ë CANONIQUE
++- **Besoin initial pr├®serv├®** : [OUI/NON] ÔÇö Si NON : <├®cart d├®tect├®>
++- **Cible finale / Objectif final vis├® pr├®serv├®e** : [OUI/NON] ÔÇö Si NON : <├®cart d├®tect├®>
++- **Plan valid├® respect├®** : [OUI/NON] ÔÇö Si NON : <├®cart d├®tect├®>
++- **├ëtat obtenu document├®** : [OUI/NON] ÔÇö Si NON : <├®cart d├®tect├®>
++- **Gap identifi├® et document├®** : [OUI/NON] ÔÇö Si NON : <├®cart d├®tect├®>
++- **Prochain GO explicitement nomm├®** : [OUI/NON] ÔÇö Si NON : <├®cart d├®tect├®>
++- **Fil machine/IA/IDE/repo-produit identifi├®** : [OUI/NON] ÔÇö Si NON : <├®cart d├®tect├®>
++
++## 3. ANALYSE DE CONFORMIT├ë
+ - **Scope Respect├®** : [OUI/NON] (Si NON : lister les fichiers hors scope).
+ - **Preuves Valides** : [OUI/NON] (Logs de succ├¿s pr├®sents et complets ?).
+ - **Standards Respect├®s** : [OUI/NON/NA] (`cmd/menu/sanity` pr├®sents ?).
+ - **Rollback D├®fini** : [OUI/NON].
+ 
+-## 3. OBSERVATIONS & ├ëCARTS
++## 4. OBSERVATIONS & ├ëCARTS
+ - <Observation 1>
+ - <├ëcart d├®tect├®>
+ 
+-## 4. ACTIONS REQUISES
+-- N/A si aucune action nÔÇÖest demand├®e.
++## 5. ACTIONS REQUISES
++- N/A si aucune action n'est demand├®e.
+ 1. <Action corrective 1>
+ 2. <Action corrective 2>
+ 
+-## 5. TRA├çABILIT├ë
++## 6. TRA├çABILIT├ë
+ - **Dettes / TODO / Point de reprise** :
+   - [ ] <T├óche ├á cr├®er, note ├á conserver, ou prochaine action attendue>
+ 

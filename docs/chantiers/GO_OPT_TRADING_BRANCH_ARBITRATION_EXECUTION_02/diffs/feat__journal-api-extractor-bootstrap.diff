@@ -1,0 +1,900 @@
+diff --git a/docs/ot/closings/OT_TRAE_AGENTS_V1_OPEN_01_CLOSING.txt b/docs/ot/closings/OT_TRAE_AGENTS_V1_OPEN_01_CLOSING.txt
+new file mode 100644
+index 0000000..500d7ba
+--- /dev/null
++++ b/docs/ot/closings/OT_TRAE_AGENTS_V1_OPEN_01_CLOSING.txt
+@@ -0,0 +1,44 @@
++OT_TRAE_AGENTS_V1_OPEN_01 - CLOSING
++Date (America/Montreal) : 2026-04-11
++Statut : CLOSE
++Classe : PATCH_LOCAL
++
++1. Objet
++Ouvrir explicitement la trajectoire Trae V1 par la couche Agents uniquement, apr├¿s cl├┤ture de `GO_OT_TRAE_RULES_V1_OPEN_01`, en restant strictement doc-only, sans runtime, sans code, et sans ouverture automatique Skills/MCP.
++
++2. Pr├®-requis v├®rifi├®s
++- Closing Rules V1 open pr├®sent : `docs/ot/closings/OT_TRAE_RULES_V1_OPEN_01_CLOSING.txt`
++- Point actif initial : `GO_OT_TRAE_AGENTS_V1_OPEN_01`
++- Socle Agents V1 existant : `docs/ot/trae/02_AGENTS_V1.txt`
++- D├®cision de gel pr├®ÔÇæV1 Agents existante : `docs/ot/trae/OT_TRAE_AGENTS_PRE_V1_GEL_DECISION_01.md`
++
++3. Actions r├®alis├®es
++- D├®cision dÔÇÖouverture Agents V1 : `docs/ot/trae/OT_TRAE_AGENTS_V1_OPEN_DECISION_01.md`
++- Alignement minimal kanban / synth├¿se / reprise / matrice GO pour refl├®ter :
++  - Agents V1 = ouvert explicitement (Agents uniquement)
++  - point de reprise suivant = `GO_OT_TRAE_SKILLS_V1_OPEN_01` (sans lancement automatique)
++
++4. Bornes opposables confirm├®es
++- Agents V1 uniquement ; Skills/MCP restent non ouverts automatiquement.
++- Doc-only strict : aucun patch runtime, aucun patch code.
++
++5. Fichiers touch├®s
++- Cr├®├® : `docs/ot/trae/OT_TRAE_AGENTS_V1_OPEN_DECISION_01.md`
++- Cr├®├® : `docs/ot/closings/OT_TRAE_AGENTS_V1_OPEN_01_CLOSING.txt`
++- Modifi├® : `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`
++- Modifi├® : `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md`
++- Modifi├® : `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md`
++- Modifi├® : `journal/index/ACTIVE_GO_MATRIX.json`
++- Modifi├® : `journal/index/ACTIVE_GO_MATRIX.md`
++
++6. P├®rim├¿tre explicitement exclu
++- Aucun patch runtime.
++- Aucun patch code / scripts / modules.
++- Aucune ouverture automatique Skills/MCP (V1).
++- Aucun commit/push.
++
++7. Verdict
++PASS / CLOSE (AGENTS V1 OUVERT EXPLICITEMENT)
++
++8. Point de reprise suivant
++GO_OT_TRAE_SKILLS_V1_OPEN_01
+diff --git a/docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt b/docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt
+new file mode 100644
+index 0000000..79f080a
+--- /dev/null
++++ b/docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt
+@@ -0,0 +1,44 @@
++OT_TRAE_SKILLS_V1_OPEN_01 - CLOSING
++Date (America/Montreal) : 2026-04-11
++Statut : CLOSE
++Classe : PATCH_LOCAL
++
++1. Objet
++Ouvrir explicitement la trajectoire Trae V1 par la couche Skills uniquement, apr├¿s cl├┤ture de `GO_OT_TRAE_AGENTS_V1_OPEN_01`, en restant strictement doc-only, sans runtime, sans code, et sans ouverture automatique MCP.
++
++2. Pr├®-requis v├®rifi├®s
++- Closing Agents V1 open pr├®sent : `docs/ot/closings/OT_TRAE_AGENTS_V1_OPEN_01_CLOSING.txt`
++- Point actif initial : `GO_OT_TRAE_SKILLS_V1_OPEN_01`
++- Socle Skills V1 existant : `docs/ot/trae/04_SKILLS_V1.txt`
++- D├®cision de gel pr├®ÔÇæV1 Skills existante : `docs/ot/trae/OT_TRAE_SKILLS_PRE_V1_GEL_DECISION_01.md`
++
++3. Actions r├®alis├®es
++- D├®cision dÔÇÖouverture Skills V1 : `docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md`
++- Alignement minimal kanban / synth├¿se / reprise / matrice GO pour refl├®ter :
++  - Skills V1 = ouvert explicitement (Skills uniquement)
++  - point de reprise suivant = `GO_OT_TRAE_MCP_POLICY_V1_OPEN_01` (sans lancement automatique)
++
++4. Bornes opposables confirm├®es
++- Skills V1 uniquement ; MCP Policy reste non ouverte automatiquement.
++- Doc-only strict : aucun patch runtime, aucun patch code.
++
++5. Fichiers touch├®s
++- Cr├®├® : `docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md`
++- Cr├®├® : `docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt`
++- Modifi├® : `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`
++- Modifi├® : `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md`
++- Modifi├® : `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md`
++- Modifi├® : `journal/index/ACTIVE_GO_MATRIX.json`
++- Modifi├® : `journal/index/ACTIVE_GO_MATRIX.md`
++
++6. P├®rim├¿tre explicitement exclu
++- Aucun patch runtime.
++- Aucun patch code / scripts / modules.
++- Aucune ouverture automatique MCP (V1).
++- Aucun commit/push.
++
++7. Verdict
++PASS / CLOSE (SKILLS V1 OUVERT EXPLICITEMENT)
++
++8. Point de reprise suivant
++GO_OT_TRAE_MCP_POLICY_V1_OPEN_01
+diff --git a/docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md b/docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md
+index b6e9640..b156ad7 100644
+--- a/docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md
++++ b/docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md
+@@ -6,18 +6,18 @@ Source : construite ├á partir de `docs/ot/kanban/opt_trading_kanban_source_of_tr
+ 
+ | Bloc | ├ëtat | Nature | R├®ouverture | Suite |
+ |---|---|---|---|---|
+-| SHARED / SSHFS | ├ëTABLI / STABLE | infra | non | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+-| Starter Pack / Opening | ├ëTABLI / STABLE | doctrine repo | non | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
++| SHARED / SSHFS | ├ëTABLI / STABLE | infra | non | GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 |
++| Starter Pack / Opening | ├ëTABLI / STABLE | doctrine repo | non | GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 |
+ | validated_prompt_factory | CLOSE | outil op├®rateur | non | aucune |
+-| trae_module_validator | ├ëTABLI / ACTIVE (FORMALIS├ë) | outil op├®rateur | non | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+-| Socle doctrinal Trae | ├ëTABLI / PARTIEL | helper doctrinal | CONFIRM├ë PARTIELLEMENT (adoption) | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+-| Runtime vs snapshot repo | DIVERGENT / SUIVI | gouvernance ops | NON CONFIRM├ë MAIS ACCEPT├ë (invariant document├®) | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+-| Trae pr├®-V1 (statut global) | PRE_V1_COHERENT_AVEC_DELTAS_FINAUX | orchestration / syst├¿me | non | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+-| CONTRADICTOIRE (cadrage) | CLOSE (CADR├ë / OPPOSABLE) | gouvernance | non | GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+-| Rules Trae V1 | ACTIVE (V1_OPEN) | couche V1 | oui | ouverture act├®e (doc-only) ; suite: GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+-| Agents Trae V1 | ├ëTABLI / GEL├ë (PRE-V1, OPPOSABLE) | couche V1 | oui | gel pr├®-V1 act├® (doc-only) ; suite: GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+-| Skills Trae V1 | ├ëTABLI / GEL├ë (PRE-V1, OPPOSABLE) | couche V1 | oui | gel pr├®-V1 act├® (doc-only) ; suite: GO_OT_TRAE_AGENTS_V1_OPEN_01 |
+-| MCP Policy V1 | ├ëTABLI / GEL├ë (PRE-V1, OPPOSABLE) | gouvernance | oui | gel pr├®-V1 act├® (doc-only) ; suite: GO_OT_TRAE_AGENTS_V1_OPEN_01 |
++| trae_module_validator | ├ëTABLI / ACTIVE (FORMALIS├ë) | outil op├®rateur | non | GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 |
++| Socle doctrinal Trae | ├ëTABLI / PARTIEL | helper doctrinal | CONFIRM├ë PARTIELLEMENT (adoption) | GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 |
++| Runtime vs snapshot repo | DIVERGENT / SUIVI | gouvernance ops | NON CONFIRM├ë MAIS ACCEPT├ë (invariant document├®) | GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 |
++| Trae pr├®-V1 (statut global) | PRE_V1_COHERENT_AVEC_DELTAS_FINAUX | orchestration / syst├¿me | non | GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 |
++| CONTRADICTOIRE (cadrage) | CLOSE (CADR├ë / OPPOSABLE) | gouvernance | non | GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 |
++| Rules Trae V1 | ACTIVE (V1_OPEN) | couche V1 | oui | ouverture act├®e (doc-only) ; suite: GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 |
++| Agents Trae V1 | ACTIVE (V1_OPEN) | couche V1 | oui | ouverture act├®e (doc-only) ; gel pr├®-V1 d├®j├á act├® ; suite: GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 |
++| Skills Trae V1 | ACTIVE (V1_OPEN) | couche V1 | oui | ouverture act├®e (doc-only) ; gel pr├®-V1 d├®j├á act├® ; suite: GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 |
++| MCP Policy V1 | ├ëTABLI / GEL├ë (PRE-V1, OPPOSABLE) | gouvernance | oui | gel pr├®-V1 act├® (doc-only) ; suite: GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 |
+ 
+ ## R├¿gle de maintenance
+ - mettre ├á jour ce tableau ├á chaque closing qui change un statut, une preuve r├®elle, un point de reprise, une interdiction de r├®ouverture ou lÔÇÖordre logique de la suite ;
+diff --git a/docs/ot/kanban/opt_trading_kanban_source_of_truth.md b/docs/ot/kanban/opt_trading_kanban_source_of_truth.md
+index b849106..20cedcd 100644
+--- a/docs/ot/kanban/opt_trading_kanban_source_of_truth.md
++++ b/docs/ot/kanban/opt_trading_kanban_source_of_truth.md
+@@ -72,7 +72,7 @@ Cette synth├¿se est un r├®sum├® vivant du kanban. Elle permet de voir rapidement
+ - OT-NET-RECONNECT-01 : preuve ÔÇ£r├®seau purÔÇØ non produite en non-interactif (baseline /shared OK).
+ 
+ ## 4. POINT DE REPRISE SUIVANT
+-- GO_OT_TRAE_AGENTS_V1_OPEN_01 (suite V1 ; ouverture explicite Agents V1 uniquement ; ne pas lancer automatiquement).
++- GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 (suite V1 ; ouverture explicite MCP Policy V1 uniquement ; ne pas lancer automatiquement).
+ 
+ ## 5. ├ëTAT ÔÇö STARTER PACK (OUVERTURE / CL├öTURE / CONTINUIT├ë)
+ 
+@@ -93,13 +93,13 @@ Cette synth├¿se est un r├®sum├® vivant du kanban. Elle permet de voir rapidement
+   - closing : `docs/ot/closings/OT_TRAE_STARTERPACK_GATING_PROOF_01_CLOSING.txt`
+ 
+ ## 6. POINT DE REPRISE SUIVANT (DOCS)
+-- GO_OT_TRAE_AGENTS_V1_OPEN_01 :
++- GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 :
+   - relire `docs/ot/kanban/opt_trading_kanban_source_of_truth.md` + dernier `docs/ot/closings/OT_*_CLOSING*.txt`
+-  - d├®cider explicitement de lÔÇÖouverture Agents V1 (sans ouvrir Skills/MCP)
++  - d├®cider explicitement de lÔÇÖouverture MCP Policy V1 (sans ex├®cution MCP)
+ 
+ ## 7. POINT DE REPRISE SUIVANT (OPS)
+-- GO_OT_TRAE_AGENTS_V1_OPEN_01 :
+-  - m├¬me objectif (ouverture explicite Agents V1 uniquement, sans lancement automatique)
++- GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 :
++  - m├¬me objectif (ouverture explicite MCP Policy V1 uniquement, sans lancement automatique)
+ 
+ ## 8. MODULES ÔÇö VALIDATED_PROMPT_FACTORY
+ 
+@@ -182,9 +182,9 @@ Ordre retenu :
+ 4. MCP
+ 
+ ## 10. POINT ACTIF CONSERV├ë
+-- GO_OT_TRAE_AGENTS_V1_OPEN_01
+-  - d├®cision (ouverture Rules) : `docs/ot/trae/OT_TRAE_RULES_V1_OPEN_DECISION_01.md`
+-  - closing (ouverture Rules) : `docs/ot/closings/OT_TRAE_RULES_V1_OPEN_01_CLOSING.txt`
++- GO_OT_TRAE_MCP_POLICY_V1_OPEN_01
++  - d├®cision (ouverture Skills) : `docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md`
++  - closing (ouverture Skills) : `docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt`
+ 
+ ## 11. POINT CANDIDAT SI OUVERTURE DU CHANTIER TRAE V1
+-- GO_OT_TRAE_AGENTS_V1_OPEN_01 (s├®lection explicite, sans lancement automatique)
++- GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 (s├®lection explicite, sans lancement automatique)
+diff --git a/docs/ot/trae/OT_TRAE_AGENTS_V1_OPEN_DECISION_01.md b/docs/ot/trae/OT_TRAE_AGENTS_V1_OPEN_DECISION_01.md
+new file mode 100644
+index 0000000..645c12b
+--- /dev/null
++++ b/docs/ot/trae/OT_TRAE_AGENTS_V1_OPEN_DECISION_01.md
+@@ -0,0 +1,42 @@
++# GO_OT_TRAE_AGENTS_V1_OPEN_01 ÔÇö D├ëCISION CANONIQUE (OUVERTURE AGENTS V1)
++
++Date (America/Montreal) : 2026-04-11
++
++## 1. Objet
++Ouvrir explicitement la trajectoire Trae V1 par la couche **Agents V1** uniquement, apr├¿s cl├┤ture de `GO_OT_TRAE_RULES_V1_OPEN_01`, en restant strictement doc-only (sans runtime, sans code) et sans ouvrir automatiquement Skills/MCP.
++
++## 2. Contexte ├®tabli
++- La couche Rules V1 est ouverte explicitement (doc-only) :
++  - d├®cision : `docs/ot/trae/OT_TRAE_RULES_V1_OPEN_DECISION_01.md`
++  - closing : `docs/ot/closings/OT_TRAE_RULES_V1_OPEN_01_CLOSING.txt`
++- Le socle Agents V1 est d├®j├á mat├®rialis├® dans le repo : `docs/ot/trae/02_AGENTS_V1.txt`
++- Un gel pr├®ÔÇæV1 opposable (doc-only) existe d├®j├á pour Agents :
++  - d├®cision : `docs/ot/trae/OT_TRAE_AGENTS_PRE_V1_GEL_DECISION_01.md`
++  - closing : `docs/ot/closings/OT_TRAE_AGENTS_V1_01_CLOSING.txt`
++- LÔÇÖordre canonique V1 est : Rules -> Agents -> Skills -> MCP.
++
++## 3. D├®cision canonique (ouverture Agents V1)
++- La couche **Agents V1** est d├®sormais consid├®r├®e **ouverte explicitement** pour `opt-trading` (doc-only).
++- Le socle normatif Agents V1 opposable est : `docs/ot/trae/02_AGENTS_V1.txt`.
++- Cette ouverture Agents V1 **ne remplace pas** le gel pr├®ÔÇæV1 Agents existant ; elle le rend simplement opposable comme couche suivante ouverte (apr├¿s Rules).
++
++## 4. Bornes opposables
++- **Borne 1 (scope Agents uniquement)** : lÔÇÖouverture de Agents V1 nÔÇÖimplique aucune ouverture automatique de `Skills` ni de `MCP Policy`.
++- **Borne 2 (doc-only)** : lÔÇÖouverture de Agents V1 est une bascule documentaire ; elle nÔÇÖautorise ni nÔÇÖexige aucun patch runtime ou code.
++- **Borne 3 (opposabilit├®)** : toute mission Trae ult├®rieure est tenue de respecter `02_AGENTS_V1.txt` (obligations minimales des r├┤les, sorties attendues, non-invention, scope, preuve, point de reprise).
++
++## 5. Artefacts canoniques minimaux
++- Socle Agents V1 : `docs/ot/trae/02_AGENTS_V1.txt`
++- D├®cision dÔÇÖouverture : `docs/ot/trae/OT_TRAE_AGENTS_V1_OPEN_DECISION_01.md`
++- Closing : `docs/ot/closings/OT_TRAE_AGENTS_V1_OPEN_01_CLOSING.txt`
++- R├®f├®rences opposables (pr├®ÔÇærequis / coh├®rence) :
++  - `docs/ot/trae/OT_TRAE_RULES_V1_OPEN_DECISION_01.md`
++  - `docs/ot/trae/OT_TRAE_AGENTS_PRE_V1_GEL_DECISION_01.md`
++
++## 6. Cons├®quences (synchronisation)
++- Le kanban, la synth├¿se, la reprise de session et la matrice des GO actifs doivent refl├®ter :
++  - Agents V1 = ouvert explicitement (Agents uniquement)
++  - point de reprise suivant = `GO_OT_TRAE_SKILLS_V1_OPEN_01` (sans lancement automatique)
++
++## 7. Point de reprise
++- `GO_OT_TRAE_SKILLS_V1_OPEN_01`
+diff --git a/docs/ot/trae/OT_TRAE_SESSION_REPRISE.md b/docs/ot/trae/OT_TRAE_SESSION_REPRISE.md
+index b40446b..b04b49d 100644
+--- a/docs/ot/trae/OT_TRAE_SESSION_REPRISE.md
++++ b/docs/ot/trae/OT_TRAE_SESSION_REPRISE.md
+@@ -68,6 +68,14 @@ D├®cisions canoniques produites :
+ - D├®cision : `docs/ot/trae/OT_TRAE_RULES_V1_OPEN_DECISION_01.md`
+ - Closing : `docs/ot/closings/OT_TRAE_RULES_V1_OPEN_01_CLOSING.txt`
+ 
++### 3.10 Agents V1 ÔÇö ouverture explicite (OK)
++- D├®cision : `docs/ot/trae/OT_TRAE_AGENTS_V1_OPEN_DECISION_01.md`
++- Closing : `docs/ot/closings/OT_TRAE_AGENTS_V1_OPEN_01_CLOSING.txt`
++
++### 3.11 Skills V1 ÔÇö ouverture explicite (OK)
++- D├®cision : `docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md`
++- Closing : `docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt`
++
+ ## 4. Ce quÔÇÖil ne faut pas rouvrir dans la reprise
+ - Ne pas ouvrir automatiquement Rules/Agents/Skills/MCP (V1) sans s├®lection explicite.
+ - Ne pas ÔÇ£normaliserÔÇØ (d├®placer/refactor) les couches runtime ou legacy sans mission d├®di├®e.
+@@ -75,7 +83,7 @@ D├®cisions canoniques produites :
+ - Ne pas recr├®er des OT_* ├á la racine du repo.
+ 
+ ## 5. Point de reprise global
+-- Point de reprise actuel : `GO_OT_TRAE_AGENTS_V1_OPEN_01`
++- Point de reprise actuel : `GO_OT_TRAE_MCP_POLICY_V1_OPEN_01`
+ 
+ ## 6. Proc├®dure de reprise (checklist minimaliste)
+ 1) Lire `docs/master_pack/00_current_state_and_standards.md`
+@@ -85,4 +93,4 @@ D├®cisions canoniques produites :
+    - `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md`
+ 4) Relire les d├®cisions Trae (si mission li├®e) :
+    - `docs/ot/trae/OT_TRAE_*_DECISION_01.md`
+-5) Appliquer le point de reprise : `GO_OT_TRAE_AGENTS_V1_OPEN_01`
++5) Appliquer le point de reprise : `GO_OT_TRAE_MCP_POLICY_V1_OPEN_01`
+diff --git a/docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md b/docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md
+new file mode 100644
+index 0000000..f57bef0
+--- /dev/null
++++ b/docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md
+@@ -0,0 +1,42 @@
++# GO_OT_TRAE_SKILLS_V1_OPEN_01 ÔÇö D├ëCISION CANONIQUE (OUVERTURE SKILLS V1)
++
++Date (America/Montreal) : 2026-04-11
++
++## 1. Objet
++Ouvrir explicitement la trajectoire Trae V1 par la couche **Skills V1** uniquement, apr├¿s cl├┤ture de `GO_OT_TRAE_AGENTS_V1_OPEN_01`, en restant strictement doc-only (sans runtime, sans code) et sans ouvrir automatiquement MCP.
++
++## 2. Contexte ├®tabli
++- La couche Agents V1 est ouverte explicitement (doc-only) :
++  - d├®cision : `docs/ot/trae/OT_TRAE_AGENTS_V1_OPEN_DECISION_01.md`
++  - closing : `docs/ot/closings/OT_TRAE_AGENTS_V1_OPEN_01_CLOSING.txt`
++- Le socle Skills V1 est d├®j├á mat├®rialis├® dans le repo : `docs/ot/trae/04_SKILLS_V1.txt`
++- Un gel pr├®ÔÇæV1 opposable (doc-only) existe d├®j├á pour Skills :
++  - d├®cision : `docs/ot/trae/OT_TRAE_SKILLS_PRE_V1_GEL_DECISION_01.md`
++  - closing : `docs/ot/closings/OT_TRAE_SKILLS_V1_01_CLOSING.txt`
++- LÔÇÖordre canonique V1 est : Rules -> Agents -> Skills -> MCP.
++
++## 3. D├®cision canonique (ouverture Skills V1)
++- La couche **Skills V1** est d├®sormais consid├®r├®e **ouverte explicitement** pour `opt-trading` (doc-only).
++- Le socle normatif Skills V1 opposable est : `docs/ot/trae/04_SKILLS_V1.txt`.
++- Cette ouverture Skills V1 ne constitue pas une ouverture MCP : elle pr├®pare uniquement la couche suivante, qui reste ├á s├®lectionner explicitement.
++
++## 4. Bornes opposables
++- **Borne 1 (scope Skills uniquement)** : lÔÇÖouverture de Skills V1 nÔÇÖimplique aucune ouverture automatique de `MCP Policy`.
++- **Borne 2 (doc-only)** : lÔÇÖouverture de Skills V1 est une bascule documentaire ; elle nÔÇÖautorise ni nÔÇÖexige aucun patch runtime ou code.
++- **Borne 3 (opposabilit├®)** : toute mission Trae ult├®rieure est tenue de respecter `04_SKILLS_V1.txt` (skills born├®s, inputs/outputs fixes, hors-scope explicite, non-invention).
++
++## 5. Artefacts canoniques minimaux
++- Socle Skills V1 : `docs/ot/trae/04_SKILLS_V1.txt`
++- D├®cision dÔÇÖouverture : `docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md`
++- Closing : `docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt`
++- R├®f├®rences opposables (pr├®ÔÇærequis / coh├®rence) :
++  - `docs/ot/trae/OT_TRAE_AGENTS_V1_OPEN_DECISION_01.md`
++  - `docs/ot/trae/OT_TRAE_SKILLS_PRE_V1_GEL_DECISION_01.md`
++
++## 6. Cons├®quences (synchronisation)
++- Le kanban, la synth├¿se, la reprise de session et la matrice des GO actifs doivent refl├®ter :
++  - Skills V1 = ouvert explicitement (Skills uniquement)
++  - point de reprise suivant = `GO_OT_TRAE_MCP_POLICY_V1_OPEN_01` (sans lancement automatique)
++
++## 7. Point de reprise
++- `GO_OT_TRAE_MCP_POLICY_V1_OPEN_01`
+diff --git a/journal/index/ACTIVE_GO_MATRIX.json b/journal/index/ACTIVE_GO_MATRIX.json
+index e2bbacb..96fab6f 100644
+--- a/journal/index/ACTIVE_GO_MATRIX.json
++++ b/journal/index/ACTIVE_GO_MATRIX.json
+@@ -8,8 +8,8 @@
+   },
+   "rows": [
+     {
+-      "go_id": "GO_OT_TRAE_AGENTS_V1_OPEN_01",
+-      "title": "ouverture Agents V1 (s├®lection explicite, non automatique)",
++      "go_id": "GO_OT_TRAE_MCP_POLICY_V1_OPEN_01",
++      "title": "ouverture MCP Policy V1 (s├®lection explicite, non automatique)",
+       "nature": "trae_continuity_default",
+       "owner_machine": "fantome",
+       "repo": "magikgmo4-ui/opt-trading",
+@@ -17,19 +17,19 @@
+       "work_branch": "feat/GO_FANTOME_JOURNAL_GO_MATRIX_PATCH_01",
+       "state": "ACTIVE",
+       "last_established": "2026-04-11",
+-      "next_step": "docs: suite continuit├® Trae V1 : `GO_OT_TRAE_AGENTS_V1_OPEN_01` -> `GO_OT_TRAE_SKILLS_V1_OPEN_01`",
++      "next_step": "docs: suite continuit├® Trae V1 : `GO_OT_TRAE_MCP_POLICY_V1_OPEN_01` -> `GO_OT_NEXT_MISSION_SELECTION_01`",
+       "canonical_docs": [
+         "docs/master_pack/00_current_state_and_standards.md",
+         "docs/master_pack/mission_starter_pack/00_mission_start_guide.md",
+         "docs/ot/kanban/opt_trading_kanban_source_of_truth.md",
+         "docs/ot/trae/OT_TRAE_SESSION_REPRISE.md",
+-        "docs/ot/trae/OT_TRAE_RULES_V1_OPEN_DECISION_01.md",
+-        "docs/ot/closings/OT_TRAE_RULES_V1_OPEN_01_CLOSING.txt"
++        "docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md",
++        "docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt"
+       ],
+       "evidence_refs": [
+         "docs/ot/kanban/opt_trading_kanban_source_of_truth.md:74",
+-        "docs/ot/trae/OT_TRAE_RULES_V1_OPEN_DECISION_01.md:3",
+-        "docs/ot/closings/OT_TRAE_RULES_V1_OPEN_01_CLOSING.txt:1"
++        "docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md:3",
++        "docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt:1"
+       ],
+       "updated_at": "2026-04-11T00:10:00-04:00",
+       "tags": [
+diff --git a/journal/index/ACTIVE_GO_MATRIX.md b/journal/index/ACTIVE_GO_MATRIX.md
+index 03c8643..81338f2 100644
+--- a/journal/index/ACTIVE_GO_MATRIX.md
++++ b/journal/index/ACTIVE_GO_MATRIX.md
+@@ -6,10 +6,10 @@ Source rule: this matrix is generated from canonical docs and machine git contex
+ 
+ | go_id | state | owner_machine | work_branch | last_established | next_step |
+ |---|---|---|---|---|---|
+-| `GO_OT_TRAE_AGENTS_V1_OPEN_01` | `ACTIVE` | `fantome` | `feat/GO_FANTOME_JOURNAL_GO_MATRIX_PATCH_01` | `2026-04-11` | docs: suite continuit├® Trae V1 : `GO_OT_TRAE_AGENTS_V1_OPEN_01` -> `GO_OT_TRAE_SKILLS_V1_OPEN_01` |
++| `GO_OT_TRAE_MCP_POLICY_V1_OPEN_01` | `ACTIVE` | `fantome` | `feat/GO_FANTOME_JOURNAL_GO_MATRIX_PATCH_01` | `2026-04-11` | docs: suite continuit├® Trae V1 : `GO_OT_TRAE_MCP_POLICY_V1_OPEN_01` -> `GO_OT_NEXT_MISSION_SELECTION_01` |
+ 
+-## GO_OT_TRAE_AGENTS_V1_OPEN_01
+-- title: `ouverture Agents V1 (s├®lection explicite, non automatique)`
++## GO_OT_TRAE_MCP_POLICY_V1_OPEN_01
++- title: `ouverture MCP Policy V1 (s├®lection explicite, non automatique)`
+ - nature: `trae_continuity_default`
+ - owner_machine: `fantome`
+ - repo: `magikgmo4-ui/opt-trading`
+@@ -17,8 +17,8 @@ Source rule: this matrix is generated from canonical docs and machine git contex
+ - work_branch: `feat/GO_FANTOME_JOURNAL_GO_MATRIX_PATCH_01`
+ - state: `ACTIVE`
+ - last_established: `2026-04-11`
+-- next_step: docs: `GO_OT_TRAE_AGENTS_V1_OPEN_01` -> `GO_OT_TRAE_SKILLS_V1_OPEN_01`
+-- canonical_docs: `docs/master_pack/00_current_state_and_standards.md`; `docs/master_pack/mission_starter_pack/00_mission_start_guide.md`; `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`; `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md`; `docs/ot/trae/OT_TRAE_RULES_V1_OPEN_DECISION_01.md`; `docs/ot/closings/OT_TRAE_RULES_V1_OPEN_01_CLOSING.txt`
+-- evidence_refs: `docs/ot/trae/OT_TRAE_RULES_V1_OPEN_DECISION_01.md:3`; `docs/ot/closings/OT_TRAE_RULES_V1_OPEN_01_CLOSING.txt:1`; `docs/ot/kanban/opt_trading_kanban_source_of_truth.md:74`; `docs/ot/kanban/opt_trading_kanban_source_of_truth.md:176`; `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md:65`
++- next_step: docs: `GO_OT_TRAE_MCP_POLICY_V1_OPEN_01` -> `GO_OT_NEXT_MISSION_SELECTION_01`
++- canonical_docs: `docs/master_pack/00_current_state_and_standards.md`; `docs/master_pack/mission_starter_pack/00_mission_start_guide.md`; `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`; `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md`; `docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md`; `docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt`
++- evidence_refs: `docs/ot/trae/OT_TRAE_SKILLS_V1_OPEN_DECISION_01.md:3`; `docs/ot/closings/OT_TRAE_SKILLS_V1_OPEN_01_CLOSING.txt:1`; `docs/ot/kanban/opt_trading_kanban_source_of_truth.md:74`; `docs/ot/kanban/opt_trading_kanban_source_of_truth.md:184`; `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md:75`
+ - updated_at: `2026-04-11T00:10:00-04:00`
+ - tags: `active, fantome, trae_continuity_default, sot_mainline`
+diff --git a/modules/journal_api_extractor/README.md b/modules/journal_api_extractor/README.md
+new file mode 100644
+index 0000000..4686d37
+--- /dev/null
++++ b/modules/journal_api_extractor/README.md
+@@ -0,0 +1,54 @@
++## journal_api_extractor
++
++Module durable minimal pour amorcer l'extraction du journal API dans `opt-trading`.
++
++### Portee de LOT_01
++
++- creation du squelette stable du module
++- point d'entree CLI minimal
++- lecture d'un sample JSONL
++- ecriture d'un output JSON minimal
++- commandes `sanity`, `full` et `validate`
++
++### Hors scope pour LOT_01
++
++- segmentation reelle des messages
++- extraction de signaux reelle
++- construction d'objets metier complets
++- incremental reel
++- rattachement projet et vues canoniques
++
++### Commandes minimales
++
++Depuis `modules/journal_api_extractor/` :
++
++```bash
++python journal_api_extractor.py sanity
++python journal_api_extractor.py full --input inputs/sample_journal.jsonl
++python journal_api_extractor.py validate
++```
++
++### Structure
++
++```text
++modules/journal_api_extractor/
++  README.md
++  cmd.sh
++  menu.sh
++  sanity_check.sh
++  requirements.txt
++  journal_api_extractor.py
++  app/
++    cli/
++    stores/
++  inputs/
++  output/
++  state/
++  tests/
++```
++
++### Sorties minimales
++
++- `sanity` ecrit `output/bootstrap_check.json`
++- `full` ecrit `output/full_report.json`
++- `validate` verifie la presence des fichiers attendus et la coherence minimale
+diff --git a/modules/journal_api_extractor/app/__init__.py b/modules/journal_api_extractor/app/__init__.py
+new file mode 100644
+index 0000000..a620b30
+--- /dev/null
++++ b/modules/journal_api_extractor/app/__init__.py
+@@ -0,0 +1 @@
++"""journal_api_extractor application package."""
+diff --git a/modules/journal_api_extractor/app/cli/__init__.py b/modules/journal_api_extractor/app/cli/__init__.py
+new file mode 100644
+index 0000000..1d8aa1a
+--- /dev/null
++++ b/modules/journal_api_extractor/app/cli/__init__.py
+@@ -0,0 +1 @@
++"""CLI package for journal_api_extractor."""
+diff --git a/modules/journal_api_extractor/app/cli/commands_run.py b/modules/journal_api_extractor/app/cli/commands_run.py
+new file mode 100644
+index 0000000..1273b57
+--- /dev/null
++++ b/modules/journal_api_extractor/app/cli/commands_run.py
+@@ -0,0 +1,42 @@
++from __future__ import annotations
++
++from pathlib import Path
++
++from app.constants import (
++    FIELDS_VERSION,
++    FULL_OUTPUT_NAME,
++    PIPELINE_VERSION,
++    RULES_VERSION,
++    SCHEMA_VERSION,
++)
++from app.stores.jsonl_store import load_jsonl_entries
++from app.stores.output_store import write_json_output
++
++
++def run_full_command(config, input_path: Path) -> int:
++    resolved_input = _resolve_input_path(config.module_root, input_path)
++    entries = load_jsonl_entries(resolved_input)
++    output_path = config.output_dir / FULL_OUTPUT_NAME
++
++    report = {
++        "entry_count": len(entries),
++        "input_path": str(resolved_input),
++        "output_path": str(output_path),
++        "schema_version": SCHEMA_VERSION,
++        "rules_version": RULES_VERSION,
++        "fields_version": FIELDS_VERSION,
++        "pipeline_version": PIPELINE_VERSION,
++    }
++    write_json_output(output_path, report)
++
++    print("PASS full")
++    print(f"entries_read={report['entry_count']}")
++    print(f"input_path={report['input_path']}")
++    print(f"output_path={report['output_path']}")
++    return 0
++
++
++def _resolve_input_path(module_root: Path, input_path: Path) -> Path:
++    if input_path.is_absolute():
++        return input_path
++    return (module_root / input_path).resolve()
+diff --git a/modules/journal_api_extractor/app/cli/commands_validate.py b/modules/journal_api_extractor/app/cli/commands_validate.py
+new file mode 100644
+index 0000000..cae6312
+--- /dev/null
++++ b/modules/journal_api_extractor/app/cli/commands_validate.py
+@@ -0,0 +1,60 @@
++from __future__ import annotations
++
++from pathlib import Path
++
++from app.constants import REQUIRED_PATHS, SAMPLE_INPUT_RELATIVE, SANITY_OUTPUT_NAME
++from app.errors import ValidationError
++from app.stores.jsonl_store import load_jsonl_entries
++from app.stores.output_store import write_json_output
++
++
++def run_sanity_command(config) -> int:
++    try:
++        _check_required_paths(config.module_root)
++        sample_path = (config.module_root / SAMPLE_INPUT_RELATIVE).resolve()
++        entries = load_jsonl_entries(sample_path)
++        output_path = config.output_dir / SANITY_OUTPUT_NAME
++        write_json_output(
++            output_path,
++            {
++                "status": "PASS",
++                "checked_entries": len(entries),
++                "sample_path": str(sample_path),
++                "output_path": str(output_path),
++            },
++        )
++    except Exception as exc:  # pragma: no cover - CLI guard
++        print(f"FAIL sanity: {exc}")
++        return 1
++
++    print("PASS sanity")
++    print(f"entries_checked={len(entries)}")
++    print(f"output_path={output_path}")
++    return 0
++
++
++def run_validate_command(config) -> int:
++    try:
++        _check_required_paths(config.module_root)
++        sample_path = (config.module_root / SAMPLE_INPUT_RELATIVE).resolve()
++        entries = load_jsonl_entries(sample_path)
++        if not entries:
++            raise ValidationError("Sample JSONL is empty")
++    except Exception as exc:  # pragma: no cover - CLI guard
++        print(f"FAIL validate: {exc}")
++        return 1
++
++    print("PASS validate")
++    print(f"required_paths={len(REQUIRED_PATHS)}")
++    print(f"sample_entries={len(entries)}")
++    return 0
++
++
++def _check_required_paths(module_root: Path) -> None:
++    missing = []
++    for relative_path in REQUIRED_PATHS:
++        candidate = module_root / relative_path
++        if not candidate.exists():
++            missing.append(relative_path)
++    if missing:
++        raise ValidationError(f"Missing required paths: {', '.join(missing)}")
+diff --git a/modules/journal_api_extractor/app/cli/main.py b/modules/journal_api_extractor/app/cli/main.py
+new file mode 100644
+index 0000000..a8e4daa
+--- /dev/null
++++ b/modules/journal_api_extractor/app/cli/main.py
+@@ -0,0 +1,35 @@
++from __future__ import annotations
++
++import argparse
++from pathlib import Path
++
++from app.cli.commands_run import run_full_command
++from app.cli.commands_validate import run_sanity_command, run_validate_command
++from app.config import build_config
++
++
++def build_parser() -> argparse.ArgumentParser:
++    parser = argparse.ArgumentParser(prog="journal_api_extractor")
++    subparsers = parser.add_subparsers(dest="command", required=True)
++
++    subparsers.add_parser("sanity")
++    subparsers.add_parser("validate")
++
++    full_parser = subparsers.add_parser("full")
++    full_parser.add_argument("--input", required=True, help="Path to input JSONL file")
++    return parser
++
++
++def main(argv: list[str] | None = None) -> int:
++    parser = build_parser()
++    args = parser.parse_args(argv)
++    config = build_config()
++
++    if args.command == "sanity":
++        return run_sanity_command(config)
++    if args.command == "validate":
++        return run_validate_command(config)
++    if args.command == "full":
++        return run_full_command(config, Path(args.input))
++    parser.error(f"Unsupported command: {args.command}")
++    return 2
+diff --git a/modules/journal_api_extractor/app/config.py b/modules/journal_api_extractor/app/config.py
+new file mode 100644
+index 0000000..47a38f5
+--- /dev/null
++++ b/modules/journal_api_extractor/app/config.py
+@@ -0,0 +1,22 @@
++from __future__ import annotations
++
++from dataclasses import dataclass
++from pathlib import Path
++
++
++@dataclass(frozen=True)
++class AppConfig:
++    module_root: Path
++    inputs_dir: Path
++    output_dir: Path
++    state_dir: Path
++
++
++def build_config(module_root: Path | None = None) -> AppConfig:
++    root = (module_root or Path(__file__).resolve().parent.parent).resolve()
++    return AppConfig(
++        module_root=root,
++        inputs_dir=root / "inputs",
++        output_dir=root / "output",
++        state_dir=root / "state",
++    )
+diff --git a/modules/journal_api_extractor/app/constants.py b/modules/journal_api_extractor/app/constants.py
+new file mode 100644
+index 0000000..accfe83
+--- /dev/null
++++ b/modules/journal_api_extractor/app/constants.py
+@@ -0,0 +1,35 @@
++from __future__ import annotations
++
++SCHEMA_VERSION = 1
++RULES_VERSION = 1
++FIELDS_VERSION = 1
++PIPELINE_VERSION = 1
++
++SAMPLE_INPUT_RELATIVE = "inputs/sample_journal.jsonl"
++SANITY_OUTPUT_NAME = "bootstrap_check.json"
++FULL_OUTPUT_NAME = "full_report.json"
++
++REQUIRED_PATHS = (
++    "README.md",
++    "cmd.sh",
++    "menu.sh",
++    "sanity_check.sh",
++    "requirements.txt",
++    "journal_api_extractor.py",
++    "app/__init__.py",
++    "app/config.py",
++    "app/constants.py",
++    "app/errors.py",
++    "app/types.py",
++    "app/cli/__init__.py",
++    "app/cli/main.py",
++    "app/cli/commands_run.py",
++    "app/cli/commands_validate.py",
++    "app/stores/__init__.py",
++    "app/stores/jsonl_store.py",
++    "app/stores/output_store.py",
++    "inputs/sample_journal.jsonl",
++    "output/.gitkeep",
++    "state/.gitkeep",
++    "tests/__init__.py",
++)
+diff --git a/modules/journal_api_extractor/app/errors.py b/modules/journal_api_extractor/app/errors.py
+new file mode 100644
+index 0000000..c90928a
+--- /dev/null
++++ b/modules/journal_api_extractor/app/errors.py
+@@ -0,0 +1,6 @@
++class JournalApiExtractorError(Exception):
++    """Base exception for the module."""
++
++
++class ValidationError(JournalApiExtractorError):
++    """Raised when module validation fails."""
+diff --git a/modules/journal_api_extractor/app/stores/__init__.py b/modules/journal_api_extractor/app/stores/__init__.py
+new file mode 100644
+index 0000000..73a8ed4
+--- /dev/null
++++ b/modules/journal_api_extractor/app/stores/__init__.py
+@@ -0,0 +1 @@
++"""Stores package for journal_api_extractor."""
+diff --git a/modules/journal_api_extractor/app/stores/jsonl_store.py b/modules/journal_api_extractor/app/stores/jsonl_store.py
+new file mode 100644
+index 0000000..62ed078
+--- /dev/null
++++ b/modules/journal_api_extractor/app/stores/jsonl_store.py
+@@ -0,0 +1,48 @@
++from __future__ import annotations
++
++import json
++from pathlib import Path
++
++from app.errors import ValidationError
++
++REQUIRED_ENTRY_KEYS = (
++    "entry_id",
++    "session_id",
++    "message_index",
++    "speaker",
++    "content_raw",
++    "created_at",
++    "source_kind",
++)
++
++
++def load_jsonl_entries(path: Path) -> list[dict]:
++    if not path.exists():
++        raise ValidationError(f"Input file not found: {path}")
++
++    entries: list[dict] = []
++    with path.open("r", encoding="utf-8") as handle:
++        for line_number, raw_line in enumerate(handle, start=1):
++            line = raw_line.strip()
++            if not line:
++                continue
++            try:
++                entry = json.loads(line)
++            except json.JSONDecodeError as exc:
++                raise ValidationError(
++                    f"Invalid JSONL at line {line_number}: {exc.msg}"
++                ) from exc
++            _validate_entry(entry, line_number)
++            entries.append(entry)
++
++    if not entries:
++        raise ValidationError(f"No entries found in input file: {path}")
++    return entries
++
++
++def _validate_entry(entry: dict, line_number: int) -> None:
++    missing_keys = [key for key in REQUIRED_ENTRY_KEYS if key not in entry]
++    if missing_keys:
++        raise ValidationError(
++            f"Missing keys at line {line_number}: {', '.join(missing_keys)}"
++        )
+diff --git a/modules/journal_api_extractor/app/stores/output_store.py b/modules/journal_api_extractor/app/stores/output_store.py
+new file mode 100644
+index 0000000..c4e17df
+--- /dev/null
++++ b/modules/journal_api_extractor/app/stores/output_store.py
+@@ -0,0 +1,11 @@
++from __future__ import annotations
++
++import json
++from pathlib import Path
++
++
++def write_json_output(path: Path, payload: dict) -> None:
++    path.parent.mkdir(parents=True, exist_ok=True)
++    with path.open("w", encoding="utf-8") as handle:
++        json.dump(payload, handle, indent=2, sort_keys=True)
++        handle.write("\n")
+diff --git a/modules/journal_api_extractor/app/types.py b/modules/journal_api_extractor/app/types.py
+new file mode 100644
+index 0000000..58e4679
+--- /dev/null
++++ b/modules/journal_api_extractor/app/types.py
+@@ -0,0 +1,13 @@
++from __future__ import annotations
++
++from typing import TypedDict
++
++
++class JournalEntry(TypedDict):
++    entry_id: str
++    session_id: str
++    message_index: int
++    speaker: str
++    content_raw: str
++    created_at: str
++    source_kind: str
+diff --git a/modules/journal_api_extractor/cmd.sh b/modules/journal_api_extractor/cmd.sh
+new file mode 100644
+index 0000000..9d856be
+--- /dev/null
++++ b/modules/journal_api_extractor/cmd.sh
+@@ -0,0 +1,19 @@
++#!/usr/bin/env bash
++set -euo pipefail
++
++case "${1:-}" in
++  sanity)
++    python journal_api_extractor.py sanity
++    ;;
++  full)
++    shift
++    python journal_api_extractor.py full "$@"
++    ;;
++  validate)
++    python journal_api_extractor.py validate
++    ;;
++  *)
++    echo "Usage: ./cmd.sh {sanity|full|validate}"
++    exit 1
++    ;;
++esac
+diff --git a/modules/journal_api_extractor/inputs/sample_journal.jsonl b/modules/journal_api_extractor/inputs/sample_journal.jsonl
+new file mode 100644
+index 0000000..bc3bceb
+--- /dev/null
++++ b/modules/journal_api_extractor/inputs/sample_journal.jsonl
+@@ -0,0 +1,3 @@
++{"entry_id":"entry-001","session_id":"session-alpha","message_index":1,"speaker":"system","content_raw":"Journal API extraction bootstrap initialized.","created_at":"2026-04-13T09:00:00Z","source_kind":"api"}
++{"entry_id":"entry-002","session_id":"session-alpha","message_index":2,"speaker":"user","content_raw":"Run a minimal durable extractor bootstrap.","created_at":"2026-04-13T09:00:03Z","source_kind":"api"}
++{"entry_id":"entry-003","session_id":"session-alpha","message_index":3,"speaker":"assistant","content_raw":"LOT_01 creates only the executable skeleton and basic checks.","created_at":"2026-04-13T09:00:07Z","source_kind":"api"}
+diff --git a/modules/journal_api_extractor/journal_api_extractor.py b/modules/journal_api_extractor/journal_api_extractor.py
+new file mode 100644
+index 0000000..ba37667
+--- /dev/null
++++ b/modules/journal_api_extractor/journal_api_extractor.py
+@@ -0,0 +1,5 @@
++from app.cli.main import main
++
++
++if __name__ == "__main__":
++    raise SystemExit(main())
+diff --git a/modules/journal_api_extractor/menu.sh b/modules/journal_api_extractor/menu.sh
+new file mode 100644
+index 0000000..09e1100
+--- /dev/null
++++ b/modules/journal_api_extractor/menu.sh
+@@ -0,0 +1,28 @@
++#!/usr/bin/env bash
++set -euo pipefail
++
++while true; do
++  echo "1) sanity"
++  echo "2) full"
++  echo "3) validate"
++  echo "4) quit"
++  read -r -p "Choice: " choice
++
++  case "$choice" in
++    1)
++      python journal_api_extractor.py sanity
++      ;;
++    2)
++      python journal_api_extractor.py full --input inputs/sample_journal.jsonl
++      ;;
++    3)
++      python journal_api_extractor.py validate
++      ;;
++    4)
++      exit 0
++      ;;
++    *)
++      echo "Invalid choice"
++      ;;
++  esac
++done
+diff --git a/modules/journal_api_extractor/output/.gitkeep b/modules/journal_api_extractor/output/.gitkeep
+new file mode 100644
+index 0000000..e69de29
+diff --git a/modules/journal_api_extractor/requirements.txt b/modules/journal_api_extractor/requirements.txt
+new file mode 100644
+index 0000000..800b29a
+--- /dev/null
++++ b/modules/journal_api_extractor/requirements.txt
+@@ -0,0 +1 @@
++# No external dependencies required for LOT_01.
+diff --git a/modules/journal_api_extractor/sanity_check.sh b/modules/journal_api_extractor/sanity_check.sh
+new file mode 100644
+index 0000000..f9cbed4
+--- /dev/null
++++ b/modules/journal_api_extractor/sanity_check.sh
+@@ -0,0 +1,9 @@
++#!/usr/bin/env bash
++set -euo pipefail
++
++if python journal_api_extractor.py sanity; then
++  echo "PASS"
++else
++  echo "FAIL"
++  exit 1
++fi
+diff --git a/modules/journal_api_extractor/state/.gitkeep b/modules/journal_api_extractor/state/.gitkeep
+new file mode 100644
+index 0000000..e69de29
+diff --git a/modules/journal_api_extractor/tests/__init__.py b/modules/journal_api_extractor/tests/__init__.py
+new file mode 100644
+index 0000000..e346405
+--- /dev/null
++++ b/modules/journal_api_extractor/tests/__init__.py
+@@ -0,0 +1 @@
++"""Tests package placeholder for LOT_01."""

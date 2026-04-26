@@ -1,0 +1,77 @@
+diff --git a/modules/memory_bricks/app/api_v2_server.py b/modules/memory_bricks/app/api_v2_server.py
+index f598a9b..22dbae1 100644
+--- a/modules/memory_bricks/app/api_v2_server.py
++++ b/modules/memory_bricks/app/api_v2_server.py
+@@ -182,6 +182,53 @@ def _to_brick_list_item(row: dict[str, object]) -> dict[str, object]:
+     return item
+ 
+ 
++def _build_excerpt(detail: dict[str, object], query_text: str, max_length: int = 160) -> str:
++    searchable_parts = []
++    for field in ("title", "summary_short", "resume_point", "content_markdown"):
++        value = detail.get(field)
++        if isinstance(value, str) and value:
++            searchable_parts.append(value)
++
++    haystack = "\n\n".join(searchable_parts)
++    haystack_lower = haystack.lower()
++    query_lower = query_text.lower()
++    index = haystack_lower.find(query_lower)
++    if index == -1:
++        return haystack[:max_length].strip()
++
++    start = max(0, index - 40)
++    end = min(len(haystack), index + len(query_text) + 80)
++    excerpt = haystack[start:end].strip()
++    if start > 0:
++        excerpt = "..." + excerpt
++    if end < len(haystack):
++        excerpt = excerpt + "..."
++    return excerpt
++
++
++def _find_bricks(query_text: str) -> list[dict[str, str]]:
++    rows = []
++    for path in sorted(get_bricks_dir().glob("MB-*.md")):
++        brick_id = path.name.split("__", 1)[0]
++        detail = _load_brick_detail(brick_id)
++        searchable_parts = []
++        for field in ("title", "summary_short", "resume_point", "content_markdown"):
++            value = detail.get(field)
++            if isinstance(value, str) and value:
++                searchable_parts.append(value)
++        haystack = "\n\n".join(searchable_parts)
++        if query_text.lower() not in haystack.lower():
++            continue
++        rows.append(
++            {
++                "id": str(detail.get("id") or brick_id),
++                "title": str(detail.get("title") or brick_id),
++                "excerpt": _build_excerpt(detail, query_text),
++            }
++        )
++    return rows
++
++
+ @app.get("/health")
+ def health():
+     """Sanity check: API is alive."""
+@@ -280,6 +327,18 @@ def get_brick(brick_id: str):
+         return JSONResponse(status_code=404, content={"error": "Brick not found"})
+ 
+ 
++@app.get("/find")
++def find_bricks(text: str | None = None, limit: int = Query(default=50, ge=0), offset: int = Query(default=0, ge=0)):
++    query_text = (text or "").strip()
++    if not query_text:
++        return JSONResponse(status_code=400, content={"error": "Query text cannot be empty"})
++
++    matches = _find_bricks(query_text)
++    total = len(matches)
++    items = matches[offset : offset + limit]
++    return {"items": items, "total": total, "query": query_text}
++
++
+ def main() -> None:
+     import uvicorn
+ 

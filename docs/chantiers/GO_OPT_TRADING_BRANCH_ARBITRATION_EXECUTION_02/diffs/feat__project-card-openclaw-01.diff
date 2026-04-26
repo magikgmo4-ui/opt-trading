@@ -1,0 +1,160 @@
+diff --git a/docs/ot/project_cards/PROJECT_CARD_OPENCLAW_01.md b/docs/ot/project_cards/PROJECT_CARD_OPENCLAW_01.md
+index fa7f3d2..84e5fd2 100644
+--- a/docs/ot/project_cards/PROJECT_CARD_OPENCLAW_01.md
++++ b/docs/ot/project_cards/PROJECT_CARD_OPENCLAW_01.md
+@@ -2,118 +2,40 @@
+ 
+ Date: 2026-04-14
+ 
+-## 1. Objet
+-
+-Figer une fiche compacte de reprise pour OpenClaw, afin de rendre retrouvables en un seul point:
+-- le but final retenu;
+-- le plan valid├®;
+-- lÔÇÖ├®tat ├®tabli;
+-- le non ├®tabli;
+-- le point de reprise.
+-
+-Cette fiche agr├¿ge volontairement:
+-- les artefacts repo d├®j├á pr├®sents;
+-- la continuit├® valid├®e en s├®ance quand le plan suivi nÔÇÖexiste pas encore comme doc source unique.
+-
+-Elle ne remplace pas les docs module par module ni les notes dÔÇÖ├®vidence d├®j├á existantes.
+-
+-## 2. But final
+-
+-Fixer OpenClaw, dans `opt-trading`, comme un cockpit op├®rateur local sur `db-layer`, centr├® sur:
+-- lÔÇÖinstallation;
+-- la configuration;
+-- la gateway locale;
+-- le diagnostic;
+-- lÔÇÖexport de preuves;
+-- la policy provider/model.
+-
+-LÔÇÖobjectif retenu nÔÇÖest pas une plateforme multi-machine g├®n├®ralis├®e ni un serving expos├®, mais une cha├«ne op├®rateur locale born├®e et diagnostiquable.
+-
+-## 3. Plan valid├®
+-
+-1. Documenter le p├®rim├¿tre r├®el OpenClaw au lieu dÔÇÖextrapoler un produit plus large.
+-2. Outiller proprement le poste op├®rateur local sur `db-layer`.
+-3. Stabiliser la cha├«ne install -> config -> gateway -> doctor -> evidence -> policy.
+-4. Garder explicites les fronti├¿res de non-p├®rim├¿tre.
+-5. NÔÇÖouvrir un chantier plus large que sur besoin op├®ratoire r├®el et v├®rifiable.
+-
+-## 4. ETABLI
+-
+-- Une doc d├®di├®e a d├®j├á fix├® le projet cible r├®el OpenClaw dans `opt-trading`.
+-- Le projet cible r├®el retenu est un cockpit op├®rateur local sur `db-layer`.
+-- La cha├«ne document├®e est: install -> config -> gateway -> configure -> doctor -> evidence -> policy.
+-- Les usages utiles prouv├®s couvrent:
+-  - `menu_openclaw` comme hub de reprise;
+-  - lecture policy provider/model;
+-  - validation de config;
+-  - diagnostic runtime;
+-  - pilotage de gateway locale via `tmux`;
+-  - export de preuves documentaires.
+-- Les fronti├¿res de non-p├®rim├¿tre sont d├®j├á explicites:
+-  - pas de serving expos├®;
+-  - pas de cloud GPU actif;
+-  - pas de bridge g├®n├®ralis├® au-del├á du cas born├®;
+-  - pas de runtime multi-machine hors `db-layer`;
+-  - pas de mutation automatique de config live;
+-  - pas de migration runtime d├®j├á d├®cid├®e vers le repo d├®di├® `openclaw`.
+-
+-## 5. NON ETABLI
+-
+-- Il nÔÇÖexistait pas encore, avant cette fiche, une project card courte unique r├®sumant finalit├® + plan valid├® + reprise OpenClaw.
+-- Une feuille de route compacte de niveaux de maturit├® futurs reste encore moins fig├®e que le p├®rim├¿tre actuel lui-m├¬me.
+-- Cette fiche ne d├®montre pas un nouveau bridge g├®n├®ralis├® ni une orchestration automatique multi-modules.
+-- Cette fiche ne remplace pas un audit runtime machine complet sur `db-layer`.
+-
+-## 6. Reprise
+-
+-### GO porteur
+-`GO_PROJECT_CARDS_FREEZE_01`
+-
+-### Point de reprise OpenClaw
+-Par d├®faut, la reprise logique suivante reste:
+-`GO_OPENCLAW_STATE_DIR_READ_09`
+-
+-### Pourquoi
+-Parce que:
+-- le p├®rim├¿tre r├®el a d├®j├á ├®t├® born├®;
+-- le prochain travail utile reste un raffinement documentaire / diagnostique prudent, sans r├®ouvrir artificiellement un produit plus large;
+-- la position repo actuelle recommande de conserver la borne documentaire tant quÔÇÖun besoin op├®ratoire r├®el ne justifie pas un case suivant.
+-
+-## 7. P├®rim├¿tre de la fiche
+-
+-Cette fiche:
+-- fige la compr├®hension valid├®e dÔÇÖOpenClaw dans `opt-trading`;
+-- ne modifie aucun runtime;
+-- nÔÇÖouvre pas automatiquement un nouveau bridge case;
+-- sert de support de reprise compact.
+-
+-## 8. Liens repo utiles
+-
+-- `modules/menu_openclaw/docs/GO_OPENCLAW_USAGE_EXAMPLES_09.md`
+-- `modules/menu_openclaw/docs/GO_OPENCLAW_CHAIN_03.md`
+-- `modules/menu_openclaw/docs/README.md`
+-- `modules/menu_openclaw/docs/RUNBOOK.txt`
+-
+-## 9. ETABLI
+-
+-- la quatri├¿me `PROJECT_CARD` issue du gel portefeuille est ouverte pour OpenClaw;
+-- le but final, le plan valid├®, le non ├®tabli et la reprise sont d├®sormais fig├®s dans une fiche compacte d├®di├®e;
+-- la lacune documentaire est recentr├®e sur la feuille de route de maturit├® plus que sur la d├®finition du p├®rim├¿tre r├®el.
+-
+-## 10. TODO
+-
+-- produire la fiche ├®quivalente pour `validated_prompt_factory`;
+-- produire ensuite la fiche `module_contextuals_shell`.
+-
+-## 11. REPRISE
+-
+-Point de reprise documentaire:
+-`PROJECT_CARD_OPENCLAW_01`
+-
+-Point de reprise chantier logique:
+-`GO_OPENCLAW_STATE_DIR_READ_09`
+-
+-## 12. MEM_CANDIDATE
+-
+-Utile seulement sur demande explicite:
+-- pour OpenClaw, la force actuelle du repo est la bonne borne du p├®rim├¿tre r├®el; la lacune restante est surtout la feuille de route compacte de maturit├®, pas la d├®finition du projet cible.
++A documenter ? Oui, fiche.
++
++## Objet
++Figer une fiche compacte et uniforme pour OpenClaw.
++
++## Besoin initial
++Retrouver en un seul point pourquoi OpenClaw existe dans opt-trading, quelle cible finale a ete retenue, quel plan valide a ete suivi, ce qui est deja etabli et quel est le prochain GO utile.
++
++## Cible finale / But final
++Fixer OpenClaw, dans opt-trading, comme un cockpit operateur local sur db-layer, centre sur installation, configuration, gateway locale, diagnostic, export de preuves et policy provider/model.
++
++## Plan valide
++1. Documenter le perimetre reel.
++2. Outiller le poste operateur local sur db-layer.
++3. Stabiliser la chaine install -> config -> gateway -> doctor -> evidence -> policy.
++4. Garder explicites les frontieres de non-perimetre.
++5. N ouvrir un chantier plus large que sur besoin operatoire reel et verifiable.
++
++## ETABLI
++- Projet cible reel deja fixe comme cockpit operateur local sur db-layer.
++- Chaine deja documentee : install -> config -> gateway -> configure -> doctor -> evidence -> policy.
++- Usages prouves : menu, policy provider/model, validation config, diagnostic runtime, gateway locale, export de preuves.
++- Frontieres explicites : pas de serving expose, pas de runtime multi-machine generalise, pas de migration runtime deja decidee vers le repo openclaw.
++
++## Gap restant
++Le manque principal restant est une feuille de route compacte de maturite plus qu une redefinition du perimetre reel.
++
++## Next GO / Reprise
++- GO porteur : GO_PROJECT_CARDS_FREEZE_01
++- Next GO retenu : GO_OPENCLAW_STATE_DIR_READ_09
++- Raison : reprise documentaire / diagnostique prudente tant qu aucun besoin operatoire reel ne justifie un elargissement produit.
++
++## References repo utiles
++- modules/menu_openclaw/docs/GO_OPENCLAW_USAGE_EXAMPLES_09.md
++- modules/menu_openclaw/docs/GO_OPENCLAW_CHAIN_03.md
++- modules/menu_openclaw/docs/README.md
++- modules/menu_openclaw/docs/RUNBOOK.txt

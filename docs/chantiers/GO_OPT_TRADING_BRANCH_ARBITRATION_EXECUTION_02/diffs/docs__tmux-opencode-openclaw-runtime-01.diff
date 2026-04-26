@@ -1,0 +1,74 @@
+diff --git a/docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/00_cadrage.md b/docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/00_cadrage.md
+index 9a1a1f3..0e014e1 100644
+--- a/docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/00_cadrage.md
++++ b/docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/00_cadrage.md
+@@ -36,7 +36,7 @@ links:
+ 
+ ## ├ëtat de d├®part retenu
+ - besoin retenu : piloter `opt-trading` depuis nÔÇÖimporte o├╣ avec continuit├® de session, agents IA actifs et contr├┤le distant sans d├®pendre du SSH en continu
+-- ├®tat ├®tabli de la session : le plan logique du setup a ├®t├® valid├®, mais il nÔÇÖest pas encore fig├® dans la documentation Git du repo
++- ├®tat ├®tabli de la session : le plan logique du setup a ├®t├® valid├® et doit ├¬tre fig├® dans la documentation Git du repo pour ├®viter une d├®pendance ├á la session
+ - ├®tat technique retenu : la cible distingue explicitement `tmux`, `OpenCode`, `OpenClaw` et `Telegram` avec des r├┤les s├®par├®s
+ - contrainte de m├®thode : ce chantier ouvre le parent documentaire et borne les sous-chantiers sans lancer encore lÔÇÖimpl├®mentation
+ - statut documentaire : parent ouvert pour figer le cadre de travail ; canonisation documentaire fine report├®e ├á une passe ult├®rieure
+@@ -47,12 +47,35 @@ links:
+ 
+ ## Cible finale retenue
+ Mettre en place une architecture dÔÇÖutilisation o├╣ :
++- `Trae` porte le cockpit local de construction (dev / doc / repo)
+ - `tmux` porte la persistance runtime
+ - `OpenCode` porte la production / code engine
+ - `OpenClaw` porte lÔÇÖorchestration / control plane
+ - `Telegram` porte lÔÇÖinterface distante
++- le repo Git + `docs/chantiers` + `docs/index` reste la source canonique de continuit├®
+ - lÔÇÖensemble forme un syst├¿me vivant en continu plut├┤t quÔÇÖune simple session locale
+ 
++## Plan gel├® hors session (double cockpit + couches)
++
++### Besoin initial
++- clarifier les surfaces dÔÇÖop├®ration et leurs r├┤les pour rendre la reprise possible sans relire une session
++
++### Plan valid├®
++- s├®parer explicitement cockpit local (`Trae`), cockpit distant (`OpenClaw`), persistance runtime (`tmux`), contr├┤le l├®ger (`Telegram`) et canon (`Git + docs`)
++- propager cette s├®paration dans les d├®cisions runtime et les cibles de convergence associ├®es
++- garder repo-first : le canon prime sur les surfaces dÔÇÖex├®cution
++
++### ETABLI
++- ce parent runtime est d├®j├á mat├®rialis├® dans `docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/`
++- la s├®paration `tmux` / `OpenCode` / `OpenClaw` / `Telegram` est d├®j├á pos├®e comme d├®cision structurante
++
++### Gap restant
++- articulation op├®ratoire d├®taill├®e `Trae` Ôåö runtime distant non encore formalis├®e au-del├á de la s├®paration des r├┤les
++- supervision runtime encore ├á mat├®rialiser dans le repo
++
++### Next GO
++- GO_RUNTIME_SUPERVISION_POLICY_01
++
+ ## Sous-chantiers pressentis
+ - `GO_TMUX_RUNTIME_CONVENTIONS_01`
+ - `GO_OPENCLAW_COMMAND_SCOPE_01`
+@@ -69,3 +92,8 @@ Mettre en place une architecture dÔÇÖutilisation o├╣ :
+ ## Crit├¿res PASS / FAIL
+ - PASS si : le parent fige clairement le besoin, la cible, la r├®partition des r├┤les et le d├®coupage en sous-chantiers avec un point de reprise net
+ - FAIL si : les r├┤les restent ambigus, les sous-chantiers ne sont pas explicit├®s ou le parent pousse d├®j├á vers lÔÇÖimpl├®mentation
++
++## S├®paration des couches
++- r├┤le machine : runtime distant et persistance session (`tmux`)
++- r├┤le IA / IDE : cockpit local de construction et dÔÇÖ├®dition (`Trae`)
++- r├┤le repo / produit : `opt-trading` comme canon, `sot/mainline` comme branche de continuit├®
+diff --git a/docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/03_decisions.md b/docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/03_decisions.md
+index 60090e4..6934a45 100644
+--- a/docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/03_decisions.md
++++ b/docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/03_decisions.md
+@@ -27,6 +27,11 @@ links:
+ - OpenClaw = orchestration
+ - Telegram = interface distante
+ 
++### D1b ÔÇö Mod├¿le double cockpit + canon
++- Trae = cockpit local de construction (dev / doc / repo)
++- le repo Git + docs reste la source canonique de continuit├®
++- les cockpits (local ou distant) ne remplacent pas le canon
++
+ ### D2 ÔÇö Nature du syst├¿me
+ - le syst├¿me est consid├®r├® comme un runtime vivant continu
+ - on sort du mod├¿le session locale IDE

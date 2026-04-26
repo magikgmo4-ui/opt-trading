@@ -1,0 +1,193 @@
+diff --git a/docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/90_closeout.md b/docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/90_closeout.md
+index 12f43c2..c06d0ce 100644
+--- a/docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/90_closeout.md
++++ b/docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/90_closeout.md
+@@ -5,7 +5,7 @@ repo: opt-trading
+ project: opt-trading
+ module:
+ go_id: GO_UNIFORM_CONTINUITY_HARDENING_01
+-status: fail
++status: pass
+ lifecycle_stage: closeout
+ topic_keys:
+   - opt-trading
+@@ -14,7 +14,7 @@ topic_keys:
+   - indexes
+ surface: chantier
+ source_kind: canonical
+-updated_at: 2026-04-11
++updated_at: 2026-04-13
+ links:
+   - docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/00_cadrage.md
+   - docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/01_plan.md
+@@ -28,20 +28,17 @@ links:
+ 
+ ## Réalisé
+ - ce qui a été fait :
+-  - vérification réelle des index `opt-trading`
+-  - écart confirmé entre état réel et index
+-  - contenu cible corrigé préparé pour plusieurs index `opt-trading`
+-- ce qui n’a pas été fait :
+-  - mise à jour effective en place des fichiers index existants
+-  - passage au hardening `localcms`
++  - mise à jour effective des index `opt-trading`
++  - mise à jour effective des index `localcms`
++  - commits documentaires réalisés dans les deux repos pour tracer le hardening réel
+ 
+ ## Limites restantes
+-- le connecteur GitHub exposé dans ce flux ne permet pas ici de finaliser proprement la mise à jour en place des fichiers existants malgré la préparation du contenu cible
++- hardening clos ; la suite relève désormais d'un lot métier séparé ou d'une lecture `journal.md`
+ 
+ ## Verdict
+-- PASS / FAIL : FAIL
+-- justification courte : hardening diagnostiqué et préparé, mais non appliqué sur les fichiers existants dans ce flux
++- PASS / FAIL : PASS
++- justification courte : corrections réellement appliquées et commités dans `opt-trading` et `localcms`
+ 
+ ## Reprise
+-- point de reprise : reprendre le hardening d’index via un mode Git permettant réellement la mise à jour en place des fichiers existants
+-- prochaine action recommandée : appliquer les mises à jour préparées sur `GO_INDEX.md`, `ACTIVE_STREAMS.md`, `REPRISE.md` et `NEXT_GO_CANDIDATES.md`, puis reproduire le même travail sur `localcms`
++- point de reprise : ouvrir le prochain lot utile maintenant que le hardening est clos
++- prochaine action recommandée : lancer ensuite la lecture de `journal.md` ou cadrer le prochain lot métier, sans faire cette lecture dans ce lot
+diff --git a/docs/index/ACTIVE_STREAMS.md b/docs/index/ACTIVE_STREAMS.md
+index 81068fe..35fe2e7 100644
+--- a/docs/index/ACTIVE_STREAMS.md
++++ b/docs/index/ACTIVE_STREAMS.md
+@@ -14,7 +14,7 @@ topic_keys:
+   - reprise
+ surface: chantier
+ source_kind: canonical
+-updated_at: 2026-04-11
++updated_at: 2026-04-13
+ links:
+   - docs/index/GO_INDEX.md
+ ---
+@@ -42,11 +42,11 @@ Il sert à :
+ 
+ ## Flux actifs
+ 
+-### GO_GIT_PROGRESSIVE_MIGRATION_START_13
++### GO_UNIFORM_CONTINUITY_HARDENING_01
+ - statut : active
+ - repo : opt-trading
+ - branche : sot/mainline
+ - machine principale : non fixée dans ce document
+-- dernier point établi : paquet gouvernance locale créé (`REPO_ROLE.md`, `DOC_LAYERS.md`, `MEMORY_BRICKS_MAPPING.md`)
+-- prochaine action : créer les index locaux (`GO_INDEX.md`, `ACTIVE_STREAMS.md`, `REPRISE.md`) puis `NEXT_GO_CANDIDATES.md` et `OPPORTUNITY_LOG.md`
++- dernier point établi : `GO_OPT_TRADING_LOCAL_CONTINUITY_BOOTSTRAP_01`, `GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01` et `GO_UNIFORM_CONTINUITY_IDE_EXECUTION_PACK_02` sont PASS
++- prochaine action : appliquer le hardening réel des index, puis clôturer le hardening
+ - blocages : aucun blocage établi à ce stade
+diff --git a/docs/index/GO_INDEX.md b/docs/index/GO_INDEX.md
+index af6f594..313617a 100644
+--- a/docs/index/GO_INDEX.md
++++ b/docs/index/GO_INDEX.md
+@@ -14,7 +14,7 @@ topic_keys:
+   - governance
+ surface: chantier
+ source_kind: canonical
+-updated_at: 2026-04-11
++updated_at: 2026-04-13
+ links:
+   - docs/governance/REPO_ROLE.md
+   - docs/governance/DOC_LAYERS.md
+@@ -59,3 +59,35 @@ Il sert à :
+ - titre court : démarrage de la migration Git progressive
+ - dernier état connu : gouvernance locale initiale créée sur `sot/mainline`
+ - lien utile : `docs/governance/REPO_ROLE.md`, `docs/governance/DOC_LAYERS.md`, `docs/governance/MEMORY_BRICKS_MAPPING.md`
++
++### GO_OPT_TRADING_LOCAL_CONTINUITY_BOOTSTRAP_01
++- repo : opt-trading
++- type : continuité locale / bootstrap
++- statut : pass
++- titre court : socle documentaire local posé
++- dernier état connu : closeout PASS avec gouvernance locale, index et reprise locale en place
++- lien utile : `docs/chantiers/GO_OPT_TRADING_LOCAL_CONTINUITY_BOOTSTRAP_01/90_closeout.md`, `docs/index/REPRISE.md`
++
++### GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01
++- repo : opt-trading
++- type : chantier pilote / memory_bricks
++- statut : pass
++- titre court : pilote canonique `memory_bricks`
++- dernier état connu : closeout PASS posé comme second pilote local directement ancré sur `memory_bricks`
++- lien utile : `docs/chantiers/GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01/90_closeout.md`, `docs/governance/MEMORY_BRICKS_MAPPING.md`
++
++### GO_UNIFORM_CONTINUITY_HARDENING_01
++- repo : opt-trading
++- type : hardening documentaire
++- statut : active
++- titre court : réalignement final des index locaux
++- dernier état connu : bootstrap local, pilote `memory_bricks` et pack IDE sont PASS ; le hardening reste actif jusqu'au réalignement réel des index
++- lien utile : `docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_01/90_closeout.md`, `docs/index/ACTIVE_STREAMS.md`
++
++### GO_UNIFORM_CONTINUITY_IDE_EXECUTION_PACK_02
++- repo : opt-trading
++- type : transmission / pack IDE
++- statut : pass
++- titre court : pack de transmission IDE exécuté
++- dernier état connu : pack PASS disponible pour appliquer le hardening documentaire local sans rouvrir de chantier métier
++- lien utile : `docs/chantiers/GO_UNIFORM_CONTINUITY_IDE_EXECUTION_PACK_02/IDE_EXECUTION_PACK.md`, `docs/chantiers/GO_UNIFORM_CONTINUITY_IDE_EXECUTION_PACK_02/90_closeout.md`
+diff --git a/docs/index/REPRISE.md b/docs/index/REPRISE.md
+index 9dd2aac..ac2d11e 100644
+--- a/docs/index/REPRISE.md
++++ b/docs/index/REPRISE.md
+@@ -13,7 +13,7 @@ topic_keys:
+   - continuity
+ surface: chantier
+ source_kind: canonical
+-updated_at: 2026-04-11
++updated_at: 2026-04-13
+ links:
+   - docs/index/GO_INDEX.md
+   - docs/index/ACTIVE_STREAMS.md
+@@ -24,12 +24,14 @@ links:
+ ## Reprendre ici
+ - repo : `opt-trading`
+ - branche prioritaire : `sot/mainline`
+-- flux à lire : `GO_GIT_PROGRESSIVE_MIGRATION_START_13`
++- flux à lire : `GO_UNIFORM_CONTINUITY_HARDENING_01`
+ - références prioritaires :
+   - `docs/governance/REPO_ROLE.md`
+   - `docs/governance/DOC_LAYERS.md`
+   - `docs/governance/MEMORY_BRICKS_MAPPING.md`
+   - `docs/index/GO_INDEX.md`
+   - `docs/index/ACTIVE_STREAMS.md`
+-- dernier point établi : gouvernance locale créée et index locaux en cours
+-- prochaine action recommandée : poser `NEXT_GO_CANDIDATES.md` et `OPPORTUNITY_LOG.md`, puis choisir un chantier pilote
++  - `docs/chantiers/GO_OPT_TRADING_LOCAL_CONTINUITY_BOOTSTRAP_01/90_closeout.md`
++  - `docs/chantiers/GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01/90_closeout.md`
++- dernier point établi : gouvernance locale, bootstrap local et pilote `memory_bricks` sont posés ; le pack IDE est PASS pour exécuter le hardening réel des index
++- prochaine action recommandée : finir le hardening documentaire réel des index, puis ouvrir le prochain lot métier réel
+diff --git a/docs/next/NEXT_GO_CANDIDATES.md b/docs/next/NEXT_GO_CANDIDATES.md
+index bf4f925..9faf179 100644
+--- a/docs/next/NEXT_GO_CANDIDATES.md
++++ b/docs/next/NEXT_GO_CANDIDATES.md
+@@ -14,7 +14,7 @@ topic_keys:
+   - migration
+ surface: chantier
+ source_kind: canonical
+-updated_at: 2026-04-11
++updated_at: 2026-04-13
+ links:
+   - docs/index/GO_INDEX.md
+   - docs/index/ACTIVE_STREAMS.md
+@@ -25,18 +25,5 @@ links:
+ 
+ ## Candidats actuels
+ 
+-### GO_OPT_TRADING_LOCAL_CONTINUITY_INDEXES_01
+-- origine : `GO_GIT_PROGRESSIVE_MIGRATION_START_13`
+-- type : continuité locale
+-- valeur attendue : compléter la couche locale de reprise et d’orientation
+-- condition d’ouverture : paquet index et gouvernance locale stabilisé
+-- pourquoi pas maintenant : encore dans le flux actif courant
+-- priorité : high
+-
+-### GO_OPT_TRADING_CHANTIER_PILOTE_MEMORY_BRICKS_01
+-- origine : migration uniforme de continuité
+-- type : migration / chantier pilote
+-- valeur attendue : valider un premier chantier au format canonique avec dérivation vers `memory_bricks`
+-- condition d’ouverture : index locaux et gouvernance minimale en place
+-- pourquoi pas maintenant : la couche de continuité locale doit être finalisée d’abord
+-- priorité : high
++- aucun nouveau GO local prioritaire à ouvrir avant la fin de `GO_UNIFORM_CONTINUITY_HARDENING_01`
++- prochain cadrage utile : un lot métier réel à nommer après fermeture propre du hardening

@@ -1,0 +1,189 @@
+diff --git a/modules/menu_openclaw/docs/GO_OPENCLAW_INFRA_BASELINE_01.md b/modules/menu_openclaw/docs/GO_OPENCLAW_INFRA_BASELINE_01.md
+new file mode 100644
+index 0000000..fb47873
+--- /dev/null
++++ b/modules/menu_openclaw/docs/GO_OPENCLAW_INFRA_BASELINE_01.md
+@@ -0,0 +1,182 @@
++# GO_OPENCLAW_INFRA_BASELINE_01
++
++## Classification
++
++Type : diagnostic ponctuel
++Statut : READY
++
++## But
++
++Fixer le baseline infra retenu pour l usage OpenClaw dans `opt-trading`, sans le confondre avec une preuve machine d├®j├á revalid├®e.
++
++Ce GO :
++
++- fixe la d├®cision infra
++- fixe le cloisonnement cible
++- rappelle que `db-layer` est le point d entr├®e canonique
++- interdit l exposition publique par d├®faut
++- impose que la suite parte d un read-only machine-sourc├®
++
++Ce GO n est pas :
++
++- un GO de preuve machine
++- un GO de r├®paration
++- un GO de patch runtime
++- un GO de patch policy
++
++## Repo canonique
++
++- Repo canonique : `opt-trading`
++- Branche canonique : `sot/mainline`
++
++## Port├®e
++
++D├®cision infra documentaire uniquement.
++
++Aucune mutation runtime.
++Aucune correction de config.
++Aucune ouverture WAN.
++Aucun m├®lange pr├®matur├® avec OPS trading.
++
++## ETABLI
++
++├Ç ce stade, les points suivants peuvent ├¬tre tenus comme ├®tablis dans le canon documentaire courant :
++
++- OpenClaw est cadr├® dans `opt-trading` comme cockpit op├®rateur local sur `db-layer`
++- le runtime documentaire de r├®f├®rence est `openclaw@db-layer`
++- le workspace documentaire de r├®f├®rence est `/home/openclaw/.openclaw/workspace-orchestrateur`
++- la config documentaire de r├®f├®rence est `~/.openclaw/openclaw.json`
++- la gateway loopback `ws://127.0.0.1:18789` a d├®j├á une preuve documentaire
++- un second state dir `/home/ghost/.openclaw` est document├® comme point de vigilance
++- le canon actuel ne justifie pas de patch imm├®diat sur `reviewer`, `lab` ou `codexoauth`
++
++## BASELINE INFRA RETENUE
++
++Le baseline infra retenu pour la suite du chantier est le suivant :
++
++### H├┤te canonique
++
++- `db-layer` = h├┤te canonique OpenClaw
++
++### Surfaces s├®par├®es
++
++- `Windows` = surface op├®rateur vis├®e pour UI / capture / pilotage
++- `admin-trading` = OPS trading s├®par├® du runtime OpenClaw principal
++- `fantome` = candidat futur seulement si un besoin r├®el d isolement suppl├®mentaire appara├«t
++
++### Baseline technique vis├®e
++
++- OpenClaw reste d abord local sur `db-layer`
++- gateway / dashboard / websocket restent en loopback
++- port attendu : `18789`
++- bind attendu : `127.0.0.1`
++- ex├®cution prudente en user-space
++- sandbox active
++- `browser.enabled = false`
++- `tools.elevated.enabled = false`
++- `tools.loopDetection.enabled = true`
++- aucune exposition WAN par d├®faut
++
++### R├¿gles de s├®paration
++
++- ne pas h├®berger le runtime OpenClaw principal sur `Windows`
++- ne pas m├®langer trop t├┤t OpenClaw et runtime trading sur `admin-trading`
++- ne pas exposer publiquement la gateway tant que le baseline n est pas qualifi├®
++- toute correction doit partir de l ├®tat r├®el observ├® sur `db-layer`
++
++## A CONFIRMER DANS LE GO SUIVANT
++
++Les points suivants ne sont pas re-prouv├®s par ce GO et doivent rester ├á confirmer dans la prochaine passe machine :
++
++- state dir r├®ellement actif maintenant
++- config r├®ellement active maintenant
++- logs r├®ellement actifs maintenant
++- ├®tat r├®el gateway / dashboard / doctor maintenant
++- impact r├®el ou non du double state dir
++- conformit├® machine r├®elle ├á la baseline vis├®e
++
++## ORDRE DE CHANTIER RETENU
++
++L ordre de chantier valid├® est :
++
++1. v├®rifier l ├®tat r├®el OpenClaw sur `db-layer`
++2. fermer le diagnostic state dir / config / logs / doctor
++3. statuer sur la stabilit├® du runtime local canonique
++4. produire les preuves runtime mises ├á jour
++5. seulement ensuite d├®cider les acc├¿s op├®rateur depuis `Windows`
++6. reporter toute extension vers `admin-trading` ou `fantome` en phase 2
++
++## GO IMM├ëDIAT DE REPRISE
++
++Le GO imm├®diat de reprise est :
++
++- `GO_OPENCLAW_STATE_DIR_READ_09`
++
++## P├ëRIM├êTRE DE LECTURE DU GO IMM├ëDIAT
++
++Le `READ_09` doit rester strictement lecture-only et couvrir :
++
++- identification du state dir r├®ellement utilis├®
++- v├®rification de la config active
++- v├®rification des logs actifs
++- v├®rification de `doctor`, `gateway` et `dashboard`
++- confirmation du caract├¿re r├®el, neutre ou bloquant du double state dir
++
++## GO INTERDITS AVANT VERDICT DU READ_09
++
++Aucun patch ni r├®paration avant fermeture du `READ_09`.
++
++Les GO suivants sont explicitement interdits avant verdict machine-sourc├® :
++
++- `GO_OPENCLAW_STATE_DIR_REPAIR_10`
++- `GO_OPENCLAW_ALIGNMENT_RUNTIME_PATCH_11`
++- `GO_OPENCLAW_POLICY_V2_12`
++
++## SORTIES AUTORIS├ëES DU READ_09
++
++La sortie d├®cisionnelle du `READ_09` doit ├¬tre strictement l une des suivantes :
++
++- `NO-OP`
++- `REPAIR LOCAL`
++- `PATCH RUNTIME`
++- `PATCH POLICY`
++
++## NON ETABLI
++
++Ce GO n ├®tablit pas :
++
++- que la baseline technique vis├®e soit d├®j├á conforme en machine dans cette passe
++- que le double state dir ait d├®j├á un impact qualifi├®
++- qu une r├®paration soit d├®j├á n├®cessaire
++- qu un patch runtime soit d├®j├á justifi├®
++- qu une policy V2 soit d├®j├á requise
++
++## HORS P├ëRIM├êTRE
++
++- toute r├®paration du state dir
++- toute mutation de `~/.openclaw/openclaw.json`
++- toute modification de la gateway en exposition r├®seau
++- toute extension OpenClaw vers `admin-trading`
++- toute bascule du runtime principal vers `Windows`
++- toute g├®n├®ralisation infra non prouv├®e
++- tout patch policy avant lecture machine r├®elle
++
++## CONDITION DE CLOSE
++
++Ce GO est clos si :
++
++- la s├®paration entre d├®cision infra et preuve machine est explicite
++- `db-layer` est fix├® comme point d entr├®e canonique
++- le baseline infra retenu est ├®crit sans sur-vendre son statut de preuve
++- le `GO_OPENCLAW_STATE_DIR_READ_09` est ouvert explicitement comme premier GO op├®ratoire r├®el
++- aucun patch n est ouvert avant verdict machine-sourc├®
++
++## POINT DE REPRISE SUIVANT
++
++- `GO_OPENCLAW_STATE_DIR_READ_09`
++
++Ensuite seulement, selon verdict :
++
++- `GO_OPENCLAW_STATE_DIR_REPAIR_10`
++- `GO_OPENCLAW_ALIGNMENT_RUNTIME_PATCH_11`
++- `GO_OPENCLAW_POLICY_V2_12`
+\ No newline at end of file

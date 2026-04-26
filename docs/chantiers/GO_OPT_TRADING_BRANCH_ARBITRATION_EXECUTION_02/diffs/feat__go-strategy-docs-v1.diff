@@ -1,0 +1,48 @@
+diff --git a/docs/strategy/INDEX.md b/docs/strategy/INDEX.md
+new file mode 100644
+index 0000000..407ec4d
+--- /dev/null
++++ b/docs/strategy/INDEX.md
+@@ -0,0 +1,42 @@
++# STRATEGY ÔÇö INDEX
++
++Zone documentaire d├®di├®e aux strat├®gies ├á cadrer avant conformit├® et impl├®mentation dans le moteur commun de trading.
++
++## R├┤le
++
++Cette zone sert ├á :
++- figer les versions documentaires des strat├®gies ;
++- distinguer les variantes d├®butant et avanc├®es ;
++- pr├®parer la conformit├® avec le noyau commun `frame / strategy / execution / analytics` ;
++- pr├®parer lÔÇÖint├®gration dans le moteur utilis├® aussi comme bot FVG.
++
++## Documents
++
++- `GO_01_STRATEGY_NAME_NEWBIE_V1.md`
++- `GO_XX_STRATEGY_NAME_PRO_V2.md`
++
++## R├¿gles de conformit├® minimales
++
++Avant impl├®mentation, chaque strat├®gie doit pr├®ciser :
++- `strategy_id`
++- `variant_id`
++- instrument cible
++- session / timezone
++- d├®clencheur dÔÇÖentr├®e
++- invalidation
++- stop
++- take profit / gestion
++- filtres
++- cas interdits
++- ├®v├®nements et m├®triques ├á journaliser
++
++## Alignement canonique
++
++Cette zone compl├¿te le cadrage canonique d├®j├á pos├® dans :
++- `docs/ot/trading/00_TRADING_DUAL_STACK_LAB_REALTIME_V1.md`
++
++## Point de reprise
++
++- partir dÔÇÖabord du document de strat├®gie ;
++- valider ensuite la conformit├® moteur ;
++- seulement apr├¿s, ouvrir lÔÇÖimpl├®mentation effective.

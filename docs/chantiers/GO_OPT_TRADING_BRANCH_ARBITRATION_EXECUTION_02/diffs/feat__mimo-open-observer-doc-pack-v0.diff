@@ -1,0 +1,1212 @@
+diff --git a/.gitignore b/.gitignore
+index 609edf7..7bf45d4 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -43,3 +43,19 @@ envs/
+ !modules/env/
+ !modules/env/__init__.py
+ !modules/env/env.py
++
++# --- student / ingest secrets ---
++ingest/INGEST_API_KEY
++ingest/venv/
++ingest/__pycache__/
++scripts/runlog
++
++# general secrets/env
++.env
++.env.*
++*API_KEY*
++*SECRET*
++*TOKEN*
++*PASSWORD*
++*.key
++*.pem
+diff --git a/modules/mimo_open_observer/README.md b/modules/mimo_open_observer/README.md
+new file mode 100644
+index 0000000..1c2992e
+--- /dev/null
++++ b/modules/mimo_open_observer/README.md
+@@ -0,0 +1,38 @@
++# mimo_open_observer
++
++## Description
++Module doc-first pour observer XAUUSD ├á l'ouverture, d├®tecter le premier FVG sur les 5 premi├¿res bougies M1 de 18:00 (America/Montreal), journaliser l'├®v├®nement brut, puis enrichir avec des outcomes simples ├á +30m / +60m.
++
++## Statut
++- phase: doc_pack_v0
++- impl├®mentation: non commenc├®e
++- but de cette branche: verrouiller la spec, le pseudo-code et le plan d'indexation avant d├®veloppement
++
++## Workflow retenu
++Cha├«ne canonique:
++1. detect
++2. raw journal
++3. outcome sampling
++4. stats
++
++## P├®rim├¿tre V0
++- symbol: XAUUSD
++- timezone: America/Montreal
++- fen├¬tre: 18:00
++- jours: dim ÔåÆ jeu
++- scope: M1x5
++- signal: premier FVG seulement
++- tag: sweep / no_sweep
++- horizons: +30m / +60m
++
++## Structure module
++- `cmd.sh`
++- `menu.sh`
++- `sanity.sh`
++- `config/mimo_open_observer.yaml`
++- `docs/`
++- `registry_patch/`
++- `scripts/`
++
++## Remarque
++Ce pack suit le mod├¿le `opt-trading` (module durable + wrappers + registres) et l'esprit `localcms` (doc d'ouverture structur├®e, index compact, continuit├® de session).
+diff --git a/modules/mimo_open_observer/cmd.sh b/modules/mimo_open_observer/cmd.sh
+new file mode 100644
+index 0000000..83c9da2
+--- /dev/null
++++ b/modules/mimo_open_observer/cmd.sh
+@@ -0,0 +1,27 @@
++#!/usr/bin/env bash
++set -euo pipefail
++SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
++cmd="${1:-help}"
++
++case "$cmd" in
++  help)
++    cat <<'EOF'
++mimo_open_observer (doc pack v0)
++
++Commands:
++  help           Show this help
++  docs-index     Show docs index path
++  sanity         Run doc-pack sanity
++EOF
++    ;;
++  docs-index)
++    echo "$SCRIPT_DIR/docs/00_SESSION_INDEX_MIMO_OPEN_OBSERVER_V0.txt"
++    ;;
++  sanity)
++    bash "$SCRIPT_DIR/sanity.sh"
++    ;;
++  *)
++    echo "Unknown command: $cmd" >&2
++    exit 1
++    ;;
++esac
+diff --git a/modules/mimo_open_observer/config/mimo_open_observer.yaml b/modules/mimo_open_observer/config/mimo_open_observer.yaml
+new file mode 100644
+index 0000000..66fc2dc
+--- /dev/null
++++ b/modules/mimo_open_observer/config/mimo_open_observer.yaml
+@@ -0,0 +1,28 @@
++version: v0
++module_name: mimo_open_observer
++status: doc_pack_only
++
++symbol: XAUUSD
++timezone: America/Montreal
++
++windows:
++  open_1800:
++    enabled: true
++    hour: 18
++    minute: 0
++    weekdays: [sun, mon, tue, wed, thu]
++
++scope:
++  type: M1x5
++  bars: 5
++
++sampling:
++  horizons_minutes: [30, 60]
++
++paths:
++  raw_events: data/events/events_raw.jsonl
++  enriched_events: data/events/events_enriched.jsonl
++  reports_dir: data/reports
++
++provider:
++  mode: fixture
+diff --git a/modules/mimo_open_observer/docs/00_SESSION_INDEX_MIMO_OPEN_OBSERVER_V0.txt b/modules/mimo_open_observer/docs/00_SESSION_INDEX_MIMO_OPEN_OBSERVER_V0.txt
+new file mode 100644
+index 0000000..e580e33
+--- /dev/null
++++ b/modules/mimo_open_observer/docs/00_SESSION_INDEX_MIMO_OPEN_OBSERVER_V0.txt
+@@ -0,0 +1,31 @@
++MIMO OPEN OBSERVER ÔÇö SESSION INDEX V0
++
++1. 00_SESSION_INDEX_MIMO_OPEN_OBSERVER_V0.txt
++   Point d'entr├®e canonique du pack doc.
++
++2. 01_WORKFLOW_MACHINE_MIMO_OPEN_OBSERVER_V0.txt
++   Cadre machine-first / workflow / s├®paration dev student -> cible admin-trading.
++
++3. 02_ETABLI_MIMO_OPEN_OBSERVER_V0.txt
++   Ce qui est verrouill├® et prouv├® au niveau documentaire.
++
++4. 03_SPEC_LOCKED_MIMO_OPEN_OBSERVER_V0.md
++   P├®rim├¿tre fonctionnel V0 verrouill├®.
++
++5. 04_BUILD_PLAN_MIMO_OPEN_OBSERVER_V0.md
++   Plan de build par paliers (K1..K7).
++
++6. 05_FILE_SPEC_MIMO_OPEN_OBSERVER_V0.md
++   Sp├®cification fichier par fichier.
++
++7. 06_PSEUDOCODE_PACK_MIMO_OPEN_OBSERVER_V0.md
++   Pseudo-code pr├®cis de chaque fichier du module.
++
++8. 07_REGISTRY_INDEX_PLAN_MIMO_OPEN_OBSERVER_V0.md
++   Plan d'indexation module + wrappers + docs.
++
++9. registry_patch/modules_registry.entry.yaml
++   Entr├®e propos├®e pour modules_registry.
++
++10. registry_patch/wrappers_registry.entries.yaml
++    Entr├®es propos├®es pour wrappers_registry.
+diff --git a/modules/mimo_open_observer/docs/01_WORKFLOW_MACHINE_MIMO_OPEN_OBSERVER_V0.txt b/modules/mimo_open_observer/docs/01_WORKFLOW_MACHINE_MIMO_OPEN_OBSERVER_V0.txt
+new file mode 100644
+index 0000000..d95b9e7
+--- /dev/null
++++ b/modules/mimo_open_observer/docs/01_WORKFLOW_MACHINE_MIMO_OPEN_OBSERVER_V0.txt
+@@ -0,0 +1,17 @@
++WORKFLOW MACHINE ÔÇö MIMO OPEN OBSERVER V0
++
++But:
++- construire d'abord le socle sur student
++- d├®ployer plus tard sur admin-trading sans refondre le noyau
++
++S├®paration retenue:
++- student: labo, fixtures, replay, qualification, stats
++- admin-trading: future ex├®cution planifi├®e / live ops
++
++Cha├«ne canonique:
++- detect -> raw journal -> sample -> stats
++
++R├¿gle:
++- pas d'ex├®cution auto en V0
++- pas de PnL compliqu├®
++- pas de retest / HTF / news en V0
+diff --git a/modules/mimo_open_observer/docs/02_ETABLI_MIMO_OPEN_OBSERVER_V0.txt b/modules/mimo_open_observer/docs/02_ETABLI_MIMO_OPEN_OBSERVER_V0.txt
+new file mode 100644
+index 0000000..4e60120
+--- /dev/null
++++ b/modules/mimo_open_observer/docs/02_ETABLI_MIMO_OPEN_OBSERVER_V0.txt
+@@ -0,0 +1,13 @@
++ETABLI ÔÇö MIMO OPEN OBSERVER V0
++
++- module_name retenu: mimo_open_observer
++- actif retenu: XAUUSD
++- fuseau retenu: America/Montreal
++- fen├¬tre retenue V0: 18:00
++- jours retenus V0: dimanche ├á jeudi
++- scope retenu V0: M1x5
++- signal retenu: premier FVG seulement
++- tag retenu: sweep / no_sweep
++- horizons outcomes V0: +30m / +60m
++- source de v├®rit├®: events_raw.jsonl
++- enriched + stats: d├®riv├®s
+diff --git a/modules/mimo_open_observer/docs/03_SPEC_LOCKED_MIMO_OPEN_OBSERVER_V0.md b/modules/mimo_open_observer/docs/03_SPEC_LOCKED_MIMO_OPEN_OBSERVER_V0.md
+new file mode 100644
+index 0000000..651fda7
+--- /dev/null
++++ b/modules/mimo_open_observer/docs/03_SPEC_LOCKED_MIMO_OPEN_OBSERVER_V0.md
+@@ -0,0 +1,25 @@
++# SPEC LOCKED ÔÇö MIMO OPEN OBSERVER V0
++
++## Mission
++Observer XAUUSD ├á 18:00 (America/Montreal), d├®tecter le premier FVG sur les 5 premi├¿res M1, journaliser un ├®v├®nement brut, puis enrichir avec des outcomes simples ├á +30m / +60m.
++
++## P├®rim├¿tre
++- symbol: XAUUSD
++- window: OPEN_1800
++- weekdays: sun..thu
++- scope: M1x5
++- first valid FVG only
++- one canonical event per window
++
++## FVG
++- bullish: low(c3) > high(c1)
++- bearish: high(c3) < low(c1)
++
++## Sweep
++- true si un extr├¬me de la premi├¿re M1 est pris avant ou au moment du triplet gagnant
++- sides: high | low | both | none
++
++## Journal
++- raw append-only
++- enriched derived
++- stats derived
+diff --git a/modules/mimo_open_observer/docs/04_BUILD_PLAN_MIMO_OPEN_OBSERVER_V0.md b/modules/mimo_open_observer/docs/04_BUILD_PLAN_MIMO_OPEN_OBSERVER_V0.md
+new file mode 100644
+index 0000000..ff2dcb2
+--- /dev/null
++++ b/modules/mimo_open_observer/docs/04_BUILD_PLAN_MIMO_OPEN_OBSERVER_V0.md
+@@ -0,0 +1,31 @@
++# BUILD PLAN ÔÇö MIMO OPEN OBSERVER V0
++
++## K1
++- structure module
++- README
++- config
++- models
++
++## K2
++- data_provider
++- utils_time
++- fixtures
++
++## K3
++- window_detector
++- runner_detect
++
++## K4
++- event_journal
++
++## K5
++- outcome_sampler
++- runner_sample
++
++## K6
++- stats_builder
++- runner_stats
++
++## K7
++- cmd/menu/sanity
++- scripts/install_shortcuts.sh
+diff --git a/modules/mimo_open_observer/docs/05_FILE_SPEC_MIMO_OPEN_OBSERVER_V0.md b/modules/mimo_open_observer/docs/05_FILE_SPEC_MIMO_OPEN_OBSERVER_V0.md
+new file mode 100644
+index 0000000..aeb3cc4
+--- /dev/null
++++ b/modules/mimo_open_observer/docs/05_FILE_SPEC_MIMO_OPEN_OBSERVER_V0.md
+@@ -0,0 +1,34 @@
++# FILE SPEC ÔÇö MIMO OPEN OBSERVER V0
++
++## app/config.py
++Charger le YAML, valider le p├®rim├¿tre V0, exposer une config pure.
++
++## app/models.py
++D├®finir Bar, RawEvent, EnrichedEvent, helpers to_dict/from_dict.
++
++## app/data_provider.py
++Servir les bougies OHLC et les prix ponctuels via une interface unique.
++
++## app/utils_time.py
++G├®rer timezone, jours actifs, fen├¬tres, offsets +30m / +60m.
++
++## app/window_detector.py
++Lire M1x5, d├®tecter le premier FVG, calculer sweep, produire RawEvent.
++
++## app/event_journal.py
++Append-only raw + enriched, anti-doublons, lecture tail.
++
++## app/outcome_sampler.py
++Compl├®ter +30m / +60m, delta, outcome.
++
++## app/stats_builder.py
++Lire enriched et sortir summary / by_direction / by_sweep / by_weekday.
++
++## app/runner_detect.py
++CLI detect_once / detect_range.
++
++## app/runner_sample.py
++CLI sample_pending.
++
++## app/runner_stats.py
++CLI build_stats / show_stats.
+diff --git a/modules/mimo_open_observer/docs/06_PSEUDOCODE_PACK_MIMO_OPEN_OBSERVER_V0.md b/modules/mimo_open_observer/docs/06_PSEUDOCODE_PACK_MIMO_OPEN_OBSERVER_V0.md
+new file mode 100644
+index 0000000..3851df4
+--- /dev/null
++++ b/modules/mimo_open_observer/docs/06_PSEUDOCODE_PACK_MIMO_OPEN_OBSERVER_V0.md
+@@ -0,0 +1,141 @@
++# PSEUDOCODE PACK ÔÇö MIMO OPEN OBSERVER V0
++
++## app/config.py
++```python
++def load_config(config_path=None):
++    path = resolve_default_or_custom_config(config_path)
++    raw = read_yaml(path)
++    assert raw["symbol"] == "XAUUSD"
++    assert raw["timezone"] == "America/Montreal"
++    assert raw["windows"]["open_1800"]["enabled"] is True
++    assert raw["scope"]["type"] == "M1x5"
++    assert raw["sampling"]["horizons_minutes"] == [30, 60]
++    return raw
++```
++
++## app/models.py
++```python
++@dataclass
++class Bar:
++    ts_open: datetime
++    ts_close: datetime
++    open: float
++    high: float
++    low: float
++    close: float
++    timeframe: str = "M1"
++
++@dataclass
++class RawEvent:
++    ...
++
++@dataclass
++class EnrichedEvent(RawEvent):
++    price_plus_30m: float | None = None
++    price_plus_60m: float | None = None
++    delta_30m: float | None = None
++    delta_60m: float | None = None
++    outcome_30m: str | None = None
++    outcome_60m: str | None = None
++```
++
++## app/data_provider.py
++```python
++def get_m1_bars(symbol, start_ts, end_ts, config):
++    mode = config["provider"]["mode"]
++    if mode == "fixture":
++        rows = load_fixture_rows(symbol, start_ts, end_ts, config)
++        bars = [row_to_bar(x) for x in rows]
++        return sort_and_filter(bars, start_ts, end_ts)
++    raise NotImplementedError("provider mode not yet implemented")
++
++def get_price_at(symbol, ts, config):
++    bars = get_m1_bars(symbol, floor_to_minute(ts), ceil_to_minute(ts), config)
++    if not bars:
++        return None
++    return bars[0].close
++```
++
++## app/utils_time.py
++```python
++def is_active_weekday(dt_local):
++    return dt_local.weekday_name in ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"]
++
++def build_window_ts(date_value, tz_name, hour=18, minute=0):
++    return localized_datetime(date_value, tz_name, hour, minute)
++
++def add_minutes(ts, minutes):
++    return ts + timedelta(minutes=minutes)
++```
++
++## app/window_detector.py
++```python
++def find_first_fvg(bars):
++    triplets = [(0,1,2), (1,2,3), (2,3,4)]
++    for a,b,c in triplets:
++        b1, b2, b3 = bars[a], bars[b], bars[c]
++        if b3.low > b1.high:
++            return {"direction": "bullish", "top": b3.low, "bottom": b1.high, "signal_bar_index": c, "signal_ts": b3.ts_close, "price_at_signal": b3.close}
++        if b3.high < b1.low:
++            return {"direction": "bearish", "top": b1.low, "bottom": b3.high, "signal_bar_index": c, "signal_ts": b3.ts_close, "price_at_signal": b3.close}
++    return None
++
++def compute_sweep(bars, signal_bar_index):
++    ref_high = bars[0].high
++    ref_low = bars[0].low
++    sweep_high = any(bar.high > ref_high for bar in bars[:signal_bar_index+1])
++    sweep_low = any(bar.low < ref_low for bar in bars[:signal_bar_index+1])
++    if sweep_high and sweep_low:
++        return True, "both"
++    if sweep_high:
++        return True, "high"
++    if sweep_low:
++        return True, "low"
++    return False, "none"
++```
++
++## app/event_journal.py
++```python
++def read_jsonl(path): ...
++def existing_ids(path): ...
++def append_raw_event(event, path): ...
++def append_enriched_event(event, path): ...
++```
++
++## app/outcome_sampler.py
++```python
++def compute_outcome(direction, price_at_signal, future_price): ...
++def enrich_event(raw_event, config, provider): ...
++def sample_pending(raw_path, enriched_path, config, provider): ...
++```
++
++## app/stats_builder.py
++```python
++def build_stats(enriched_events): ...
++def write_reports(stats, reports_dir): ...
++```
++
++## app/runner_detect.py
++```python
++def main(argv):
++    cfg = load_config()
++    provider = build_provider(cfg)
++    dispatch_detect_command(argv, cfg, provider)
++```
++
++## app/runner_sample.py
++```python
++def main(argv):
++    cfg = load_config()
++    provider = build_provider(cfg)
++    sample_pending(...)
++```
++
++## app/runner_stats.py
++```python
++def main(argv):
++    cfg = load_config()
++    rows = read_jsonl(cfg["paths"]["enriched_events"])
++    stats = build_stats(rows)
++    write_reports(...)
++```
+diff --git a/modules/mimo_open_observer/docs/07_REGISTRY_INDEX_PLAN_MIMO_OPEN_OBSERVER_V0.md b/modules/mimo_open_observer/docs/07_REGISTRY_INDEX_PLAN_MIMO_OPEN_OBSERVER_V0.md
+new file mode 100644
+index 0000000..f25e504
+--- /dev/null
++++ b/modules/mimo_open_observer/docs/07_REGISTRY_INDEX_PLAN_MIMO_OPEN_OBSERVER_V0.md
+@@ -0,0 +1,29 @@
++# REGISTRY + INDEX PLAN ÔÇö MIMO OPEN OBSERVER V0
++
++## Central registry target
++This module is designed to be indexed in:
++- `registry/modules_registry.yaml`
++- `registry/wrappers_registry.yaml`
++
++## Proposed module entry
++See:
++- `../registry_patch/modules_registry.entry.yaml`
++
++## Proposed wrapper entries
++See:
++- `../registry_patch/wrappers_registry.entries.yaml`
++
++## Docs indexing
++Primary docs index:
++- `docs/00_SESSION_INDEX_MIMO_OPEN_OBSERVER_V0.txt`
++
++Secondary entrypoints:
++- `README.md`
++- `docs/06_PSEUDOCODE_PACK_MIMO_OPEN_OBSERVER_V0.md`
++
++## Intent
++Keep the module discoverable by:
++- path (`modules/mimo_open_observer`)
++- wrappers naming (`cmd/menu/sanity`)
++- explicit registry patch files
++- compact docs index
+diff --git a/modules/mimo_open_observer/menu.sh b/modules/mimo_open_observer/menu.sh
+new file mode 100644
+index 0000000..6a6e0c8
+--- /dev/null
++++ b/modules/mimo_open_observer/menu.sh
+@@ -0,0 +1,15 @@
++#!/usr/bin/env bash
++set -euo pipefail
++SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
++
++echo "mimo_open_observer :: doc pack v0"
++echo "1) show docs index"
++echo "2) run sanity"
++echo "3) exit"
++read -r -p "> " choice
++
++case "${choice:-3}" in
++  1) echo "$SCRIPT_DIR/docs/00_SESSION_INDEX_MIMO_OPEN_OBSERVER_V0.txt" ;;
++  2) bash "$SCRIPT_DIR/sanity.sh" ;;
++  *) exit 0 ;;
++esac
+diff --git a/modules/mimo_open_observer/registry_patch/modules_registry.entry.yaml b/modules/mimo_open_observer/registry_patch/modules_registry.entry.yaml
+new file mode 100644
+index 0000000..bf1da70
+--- /dev/null
++++ b/modules/mimo_open_observer/registry_patch/modules_registry.entry.yaml
+@@ -0,0 +1,11 @@
++# Proposed append entry for registry/modules_registry.yaml
++- module_name: mimo_open_observer
++  domain: analysis_engines
++  machine_target: student
++  operator_visible: true
++  ui_related: false
++  description: "Observateur d'ouverture XAUUSD (FVG M1x5 + journal + stats simples)"
++  wrappers_expected: ["menu", "cmd", "sanity"]
++  status: planned_doc_pack_v0
++  priority: medium
++  dependencies: []
+diff --git a/modules/mimo_open_observer/registry_patch/wrappers_registry.entries.yaml b/modules/mimo_open_observer/registry_patch/wrappers_registry.entries.yaml
+new file mode 100644
+index 0000000..e0998c5
+--- /dev/null
++++ b/modules/mimo_open_observer/registry_patch/wrappers_registry.entries.yaml
+@@ -0,0 +1,27 @@
++# Proposed append entries for registry/wrappers_registry.yaml
++- wrapper_name: menu-mimo_open_observer
++  wrapper_family: menu
++  target_module: mimo_open_observer
++  target_script: menu.sh
++  install_location: /usr/local/bin/menu-mimo_open_observer
++  audience: operator
++  status: planned_doc_pack_v0
++  notes: "Menu observateur ouverture XAUUSD"
++
++- wrapper_name: cmd-mimo_open_observer
++  wrapper_family: cmd
++  target_module: mimo_open_observer
++  target_script: cmd.sh
++  install_location: /usr/local/bin/cmd-mimo_open_observer
++  audience: operator
++  status: planned_doc_pack_v0
++  notes: "CLI observateur ouverture XAUUSD"
++
++- wrapper_name: sanity-mimo_open_observer
++  wrapper_family: sanity
++  target_module: mimo_open_observer
++  target_script: sanity.sh
++  install_location: /usr/local/bin/sanity-mimo_open_observer
++  audience: system
++  status: planned_doc_pack_v0
++  notes: "Sanity doc pack observateur ouverture XAUUSD"
+diff --git a/modules/mimo_open_observer/sanity.sh b/modules/mimo_open_observer/sanity.sh
+new file mode 100644
+index 0000000..0a21ed1
+--- /dev/null
++++ b/modules/mimo_open_observer/sanity.sh
+@@ -0,0 +1,18 @@
++#!/usr/bin/env bash
++set -euo pipefail
++SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
++
++required=(
++  "$SCRIPT_DIR/README.md"
++  "$SCRIPT_DIR/docs/00_SESSION_INDEX_MIMO_OPEN_OBSERVER_V0.txt"
++  "$SCRIPT_DIR/docs/06_PSEUDOCODE_PACK_MIMO_OPEN_OBSERVER_V0.md"
++  "$SCRIPT_DIR/config/mimo_open_observer.yaml"
++  "$SCRIPT_DIR/registry_patch/modules_registry.entry.yaml"
++  "$SCRIPT_DIR/registry_patch/wrappers_registry.entries.yaml"
++)
++
++for p in "${required[@]}"; do
++  [ -f "$p" ] || { echo "FAIL missing: $p" >&2; exit 1; }
++done
++
++echo "PASS: mimo_open_observer doc pack v0 sanity OK"
+diff --git a/modules/mimo_open_observer/scripts/install_shortcuts.sh b/modules/mimo_open_observer/scripts/install_shortcuts.sh
+new file mode 100644
+index 0000000..08d2c9f
+--- /dev/null
++++ b/modules/mimo_open_observer/scripts/install_shortcuts.sh
+@@ -0,0 +1,10 @@
++#!/usr/bin/env bash
++set -euo pipefail
++SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
++MODULE_DIR="$(dirname "$SCRIPT_DIR")"
++
++sudo ln -sfn "$MODULE_DIR/scripts/mimo_open_observer_cmd.sh" /usr/local/bin/cmd-mimo_open_observer
++sudo ln -sfn "$MODULE_DIR/scripts/mimo_open_observer_menu.sh" /usr/local/bin/menu-mimo_open_observer
++sudo ln -sfn "$MODULE_DIR/scripts/mimo_open_observer_sanity.sh" /usr/local/bin/sanity-mimo_open_observer
++
++echo "OK shortcuts installed"
+diff --git a/modules/mimo_open_observer/scripts/mimo_open_observer_cmd.sh b/modules/mimo_open_observer/scripts/mimo_open_observer_cmd.sh
+new file mode 100644
+index 0000000..8c5eb6b
+--- /dev/null
++++ b/modules/mimo_open_observer/scripts/mimo_open_observer_cmd.sh
+@@ -0,0 +1,5 @@
++#!/usr/bin/env bash
++set -euo pipefail
++SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
++MODULE_DIR="$(dirname "$SCRIPT_DIR")"
++exec bash "$MODULE_DIR/cmd.sh" "$@"
+diff --git a/modules/mimo_open_observer/scripts/mimo_open_observer_menu.sh b/modules/mimo_open_observer/scripts/mimo_open_observer_menu.sh
+new file mode 100644
+index 0000000..25c4653
+--- /dev/null
++++ b/modules/mimo_open_observer/scripts/mimo_open_observer_menu.sh
+@@ -0,0 +1,5 @@
++#!/usr/bin/env bash
++set -euo pipefail
++SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
++MODULE_DIR="$(dirname "$SCRIPT_DIR")"
++exec bash "$MODULE_DIR/menu.sh" "$@"
+diff --git a/modules/mimo_open_observer/scripts/mimo_open_observer_sanity.sh b/modules/mimo_open_observer/scripts/mimo_open_observer_sanity.sh
+new file mode 100644
+index 0000000..77f0b43
+--- /dev/null
++++ b/modules/mimo_open_observer/scripts/mimo_open_observer_sanity.sh
+@@ -0,0 +1,5 @@
++#!/usr/bin/env bash
++set -euo pipefail
++SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
++MODULE_DIR="$(dirname "$SCRIPT_DIR")"
++exec bash "$MODULE_DIR/sanity.sh" "$@"
+diff --git a/scripts/fail2ban_cmd.sh b/scripts/fail2ban_cmd.sh
+new file mode 100755
+index 0000000..421fd7c
+--- /dev/null
++++ b/scripts/fail2ban_cmd.sh
+@@ -0,0 +1,17 @@
++#!/usr/bin/env bash
++set -euo pipefail
++SOCK="/run/fail2ban/fail2ban.sock"
++w(){ for i in $(seq 1 40); do [ -S "$SOCK" ] && return 0; sleep 0.25; done; echo "no socket"; exit 1; }
++c(){ sudo /usr/bin/fail2ban-client -s "$SOCK" "$@"; }
++
++case "${1:-}" in
++  status)   w; c status | sed -n "1,120p"; echo; c status sshd ;;
++  restart)  sudo /bin/systemctl restart fail2ban; w; /opt/trading/scripts/fail2ban_sanity_check.sh ;;
++  logs)     sudo journalctl -u fail2ban -b --no-pager -n 120 ;;
++  bans)     w; c status sshd | sed -n "1,220p" ;;
++  unban)    w; c set sshd unbanip "${2:?missing ip}"; c status sshd | sed -n "1,140p" ;;
++  recidive) w; c status recidive || true ;;
++  recidive-bans) w; c status recidive | sed -n "1,220p" || true ;;
++  recidive-unban) w; c set recidive unbanip "${2:?missing ip}" || true; c status recidive | sed -n "1,160p" || true ;;
++  *) echo "usage: cmd-fail2ban {status|restart|logs|bans|unban IP|recidive|recidive-bans|recidive-unban IP}"; exit 2 ;;
++esac
+diff --git a/scripts/fail2ban_menu.sh b/scripts/fail2ban_menu.sh
+new file mode 100755
+index 0000000..1b3040b
+--- /dev/null
++++ b/scripts/fail2ban_menu.sh
+@@ -0,0 +1,29 @@
++#!/usr/bin/env bash
++set -euo pipefail
++
++CMD="/opt/trading/scripts/fail2ban_cmd.sh"
++
++while true; do
++  echo
++  echo "=== Fail2Ban Menu ==="
++  echo "1) Status"
++  echo "2) Restart + Sanity"
++  echo "3) Logs"
++  echo "4) Show bans (sshd)"
++  echo "5) Unban IP"
++  echo "q) Quit"
++  read -r -p "> " choice
++
++  case "$choice" in
++    1) "$CMD" status ;;
++    2) "$CMD" restart ;;
++    3) "$CMD" logs ;;
++    4) "$CMD" bans ;;
++    5)
++      read -r -p "IP to unban: " ip
++      "$CMD" unban "$ip"
++      ;;
++    q|Q) exit 0 ;;
++    *) echo "Invalid choice" ;;
++  esac
++done
+diff --git a/scripts/fail2ban_sanity_check.sh b/scripts/fail2ban_sanity_check.sh
+new file mode 100755
+index 0000000..2ddfdd8
+--- /dev/null
++++ b/scripts/fail2ban_sanity_check.sh
+@@ -0,0 +1,38 @@
++#!/usr/bin/env bash
++set -euo pipefail
++
++SOCK="/run/fail2ban/fail2ban.sock"
++
++echo "=== Fail2Ban Sanity Check ==="
++echo "Host: $(hostname)"
++echo "Time: $(date -Is)"
++echo
++
++echo "1) systemd status"
++systemctl --no-pager -l status fail2ban | head -n 25 || true
++echo
++
++echo "2) wait for socket"
++for i in $(seq 1 40); do
++  if [[ -S "$SOCK" ]]; then
++    echo "socket OK: $SOCK"
++    break
++  fi
++  sleep 0.25
++done
++[[ -S "$SOCK" ]] || { echo "FAIL: socket missing: $SOCK"; exit 1; }
++echo
++
++echo "3) ping"
++sudo fail2ban-client -s "$SOCK" ping
++echo
++
++echo "4) jail list"
++sudo fail2ban-client -s "$SOCK" status | sed -n "1,120p"
++echo
++
++echo "5) sshd jail"
++sudo fail2ban-client -s "$SOCK" status sshd
++echo
++
++echo "PASS: fail2ban OK"
+diff --git a/scripts/install_student_shortcuts.sh b/scripts/install_student_shortcuts.sh
+new file mode 100755
+index 0000000..5e19439
+--- /dev/null
++++ b/scripts/install_student_shortcuts.sh
+@@ -0,0 +1,10 @@
++\
++#!/usr/bin/env bash
++set -euo pipefail
++BASE="/opt/trading"
++echo "=== Install Student Shortcuts ==="
++sudo ln -sf "$BASE/scripts/student_menu.sh" /usr/local/bin/menu-student
++sudo ln -sf "$BASE/scripts/student_cmd.sh" /usr/local/bin/cmd-student
++sudo ln -sf "$BASE/scripts/student_sanity_check.sh" /usr/local/bin/sanity-student
++sudo ln -sf "$BASE/scripts/runlog" /usr/local/bin/runlog
++echo "OK: /usr/local/bin/menu-student, cmd-student, sanity-student, runlog"
+diff --git a/scripts/rotate_ingest_key.sh b/scripts/rotate_ingest_key.sh
+new file mode 100755
+index 0000000..b919698
+--- /dev/null
++++ b/scripts/rotate_ingest_key.sh
+@@ -0,0 +1,11 @@
++\
++#!/usr/bin/env bash
++set -euo pipefail
++KEY_PATH="/opt/trading/ingest/INGEST_API_KEY"
++sudo mkdir -p /opt/trading/ingest
++openssl rand -hex 24 | sudo tee "$KEY_PATH" >/dev/null
++sudo chown student:student "$KEY_PATH" 2>/dev/null || true
++sudo chmod 600 "$KEY_PATH"
++sudo systemctl restart student-ingest 2>/dev/null || true
++echo "New key:"
++cat "$KEY_PATH"
+diff --git a/scripts/student/student_cmd.sh b/scripts/student/student_cmd.sh
+new file mode 100755
+index 0000000..7827478
+--- /dev/null
++++ b/scripts/student/student_cmd.sh
+@@ -0,0 +1,2 @@
++#!/usr/bin/env bash
++exec /opt/trading/scripts/student/student_cmd.sh "$@"
+diff --git a/scripts/student/student_menu.sh b/scripts/student/student_menu.sh
+new file mode 100755
+index 0000000..0d8ec5f
+--- /dev/null
++++ b/scripts/student/student_menu.sh
+@@ -0,0 +1,40 @@
++#!/usr/bin/env bash
++set -euo pipefail
++CMD="/opt/trading/scripts/student/student_cmd.sh"
++
++ask() { local v; printf "%s" "$1" > /dev/tty; IFS= read -r v < /dev/tty; echo "$v"; }
++pause() { printf "\n[DONE] Enter=menu | q=quit: " > /dev/tty; IFS= read -r x < /dev/tty; [[ "${x:-}" =~ ^[qQ]$ ]] && exit 0; }
++
++while true; do
++  echo
++  echo "=== Student Menu ==="
++  echo "1) Student sanity check"
++  echo "2) SSH status"
++  echo "3) Fail2Ban status (sshd)"
++  echo "4) Fail2Ban logs"
++  echo "5) Fail2Ban restart + sanity"
++  echo "6) Recidive status"
++  echo "7) Recidive bans"
++  echo "8) Recidive unban IP"
++  echo "q) Quit"
++  echo
++
++  choice="$(ask "> ")"
++  case "$choice" in
++    1) echo "[RUNNING] sanity"; "$CMD" sanity; pause ;;
++    2) echo "[RUNNING] ssh-status"; "$CMD" ssh-status; pause ;;
++    3) echo "[RUNNING] fail2ban-status"; "$CMD" fail2ban-status; pause ;;
++    4) echo "[RUNNING] fail2ban-logs"; "$CMD" fail2ban-logs; pause ;;
++    5) echo "[RUNNING] fail2ban-restart"; "$CMD" fail2ban-restart; pause ;;
++    6) echo "[RUNNING] recidive"; "$CMD" recidive; pause ;;
++    7) echo "[RUNNING] recidive-bans"; "$CMD" recidive-bans; pause ;;
++    8)
++      ip="$(ask "IP to unban (recidive): ")"
++      echo "[RUNNING] recidive-unban $ip"
++      "$CMD" recidive-unban "$ip"
++      pause
++      ;;
++    q|Q) exit 0 ;;
++    *) echo "Invalid choice" ;;
++  esac
++done
+diff --git a/scripts/student/student_sanity_check.sh b/scripts/student/student_sanity_check.sh
+new file mode 100755
+index 0000000..a7b4605
+--- /dev/null
++++ b/scripts/student/student_sanity_check.sh
+@@ -0,0 +1,53 @@
++#!/usr/bin/env bash
++set -euo pipefail
++
++t(){ timeout 3 "$@" 2>/dev/null || true; }
++
++echo "=== STUDENT Sanity Check ==="
++date -Is
++echo
++
++echo "[host]"
++t hostnamectl
++echo
++
++echo "[network]"
++t sh -c "ip -4 addr | grep -E 'inet ' | grep -v 127.0.0.1"
++t sh -c "ip -4 route | head -n 20"
++echo
++
++echo "[disk]"
++t lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS | sed 's/^/  /' || true
++echo
++
++echo "[lvm]"
++t sudo -n vgs || true
++t sudo -n lvs || true
++echo
++
++echo "[services]"
++t sh -c 'systemctl is-active --quiet ssh && echo "OK ssh: active" || echo "WARN ssh: not active"'
++t sh -c 'systemctl is-active --quiet fail2ban && echo "OK fail2ban: active" || echo "WARN fail2ban: not active"'
++echo
++
++echo "[ufw]"
++t sudo -n ufw status verbose || true
++echo
++
++echo "PASS: student sanity ok"
++echo
++
++echo "[files]"
++for p in /opt/trading/scripts/student/student_cmd.sh \
++         /opt/trading/scripts/student/student_menu.sh \
++         /opt/trading/scripts/student/student_sanity_check.sh; do
++  [ -f "$p" ] && echo "OK: $p" || echo "WARN: missing $p"
++done
++echo
++
++echo "[ingest key]"
++if [ -f /opt/trading/ingest/INGEST_API_KEY ]; then
++  echo "OK: ingest key file exists"
++else
++  echo "WARN: ingest key missing (expected at /opt/trading/ingest/INGEST_API_KEY)"
++fi
+diff --git a/scripts/student_cmd.sh b/scripts/student_cmd.sh
+new file mode 100755
+index 0000000..a9f0b3d
+--- /dev/null
++++ b/scripts/student_cmd.sh
+@@ -0,0 +1,61 @@
++\
++#!/usr/bin/env bash
++set -euo pipefail
++BASE="/opt/trading"
++MNT="/mnt/usb"
++
++case "${1:-}" in
++  status)
++    systemctl status student-watchdrop --no-pager || true
++    systemctl status student-ingest --no-pager || true
++    ;;
++  restart)
++    sudo systemctl restart student-watchdrop student-ingest
++    sudo systemctl status student-watchdrop --no-pager
++    sudo systemctl status student-ingest --no-pager
++    ;;
++  logs)
++    journalctl -u student-watchdrop -n 200 --no-pager
++    journalctl -u student-ingest -n 200 --no-pager
++    ;;
++  tail-events)
++    tail -n ${2:-20} "$BASE/journal/events/events.jsonl"
++    ;;
++  ingest-key)
++    cat "$BASE/ingest/INGEST_API_KEY"
++    ;;
++  ingest-test)
++    KEY="$(cat "$BASE/ingest/INGEST_API_KEY")"
++    curl -s -X POST http://127.0.0.1:8020/ingest -H "Content-Type: application/json" -H "X-API-Key: $KEY" -d '{"session":"cmd","note":"ingest-test"}'
++    echo ""
++    tail -n 1 "$BASE/journal/events/events.jsonl"
++    ;;
++  rotate-key)
++    bash "$BASE/scripts/rotate_ingest_key.sh"
++    ;;
++  usb-detect)
++    bash "$BASE/scripts/usb_detect_mount.sh"
++    ;;
++  usb-mount-uuid)
++    bash "$BASE/scripts/usb_mount_by_uuid.sh" "${2:-}"
++    ;;
++  usb-backup)
++    bash "$BASE/scripts/usb_backup_student.sh"
++    ;;
++  usb-verify)
++    bash "$BASE/scripts/usb_verify_backup.sh" "${2:-}"
++    ;;
++  open)
++    echo "Base: $BASE"
++    echo "Events: $BASE/journal/events/events.jsonl"
++    echo "Outputs: $BASE/journal/outputs/"
++    echo "Drop: $BASE/drop"
++    echo "Archive: $BASE/archive"
++    echo "Ingest: $BASE/ingest (port 8020)"
++    echo "USB mount: $MNT"
++    ;;
++  *)
++    echo "Usage: cmd-student {status|restart|logs|tail-events [N]|ingest-key|ingest-test|rotate-key|usb-detect|usb-mount-uuid <UUID>|usb-backup|usb-verify <DIR>|open}"
++    exit 1
++    ;;
++esac
+diff --git a/scripts/student_menu.sh b/scripts/student_menu.sh
+new file mode 100755
+index 0000000..78a767b
+--- /dev/null
++++ b/scripts/student_menu.sh
+@@ -0,0 +1,32 @@
++\
++#!/usr/bin/env bash
++set -euo pipefail
++
++while true; do
++  echo ""
++  echo "=== STUDENT MENU (v2) ==="
++  echo "1) Sanity check"
++  echo "2) Service status"
++  echo "3) Service logs (last 200)"
++  echo "4) Tail events.jsonl"
++  echo "5) Test drop -> archive"
++  echo "6) Ingest test (localhost)"
++  echo "7) Rotate ingest key"
++  echo "8) USB detect"
++  echo "9) USB backup to /mnt/usb"
++  echo "q) Quit"
++  read -r -p "Choice: " c
++  case "$c" in
++    1) /opt/trading/scripts/student_sanity_check.sh ;;
++    2) /opt/trading/scripts/student_cmd.sh status ;;
++    3) /opt/trading/scripts/student_cmd.sh logs ;;
++    4) /opt/trading/scripts/student_cmd.sh tail-events 20 ;;
++    5) echo "hello $(date -Is)" > /opt/trading/drop/test.txt; sleep 1; /opt/trading/scripts/student_cmd.sh tail-events 5 ;;
++    6) /opt/trading/scripts/student_cmd.sh ingest-test ;;
++    7) /opt/trading/scripts/student_cmd.sh rotate-key ;;
++    8) /opt/trading/scripts/student_cmd.sh usb-detect ;;
++    9) /opt/trading/scripts/student_cmd.sh usb-backup ;;
++    q|Q) exit 0 ;;
++    *) echo "Unknown choice" ;;
++  esac
++done
+diff --git a/scripts/student_sanity_check.sh b/scripts/student_sanity_check.sh
+new file mode 100755
+index 0000000..b2bbea5
+--- /dev/null
++++ b/scripts/student_sanity_check.sh
+@@ -0,0 +1,25 @@
++\
++#!/usr/bin/env bash
++set -euo pipefail
++BASE="/opt/trading"
++echo "=== Student Sanity Check (v2) ==="
++echo "Host: $(hostname)"
++echo "User: $(whoami)"
++echo "IP:   $(ip -br a | tr '\n' ' ' | sed 's/  */ /g')"
++echo "Base: $BASE"
++
++for p in "$BASE/journal/events/events.jsonl" "$BASE/scripts/runlog" "$BASE/scripts/watch_drop.sh" "$BASE/drop" "$BASE/archive"; do
++  [[ -e "$p" ]] && echo "OK: $p" || { echo "MISSING: $p"; exit 1; }
++done
++
++echo ""
++echo "--- services ---"
++systemctl is-active --quiet student-watchdrop && echo "OK: watchdrop active" || echo "WARN: watchdrop inactive"
++systemctl is-active --quiet student-ingest && echo "OK: ingest active" || echo "WARN: ingest inactive"
++
++echo ""
++echo "--- swap ---"
++(command -v swapon >/dev/null 2>&1 && swapon --show) || /sbin/swapon --show || true
++
++echo ""
++echo "PASS: student sanity ok"
+diff --git a/scripts/usb_backup_student.sh b/scripts/usb_backup_student.sh
+new file mode 100755
+index 0000000..e5d5ef9
+--- /dev/null
++++ b/scripts/usb_backup_student.sh
+@@ -0,0 +1,46 @@
++\
++#!/usr/bin/env bash
++set -euo pipefail
++MNT="/mnt/usb"
++BASE="/opt/trading"
++TS="$(date +%Y%m%d_%H%M%S)"
++DEST="$MNT/student_backup_$TS"
++
++if ! mountpoint -q "$MNT"; then
++  echo "ERROR: $MNT is not mounted. Mount your USB first."
++  echo "Hint: lsblk -f ; then sudo mount /dev/sdX1 $MNT"
++  exit 1
++fi
++
++sudo mkdir -p "$DEST"
++sudo chown -R "$USER":"$USER" "$DEST"
++
++echo "Backing up to: $DEST"
++
++# Copy core data
++rsync -a --delete "$BASE/journal/" "$DEST/journal/"
++rsync -a --delete "$BASE/archive/" "$DEST/archive/" || true
++rsync -a --delete "$BASE/ingest/" "$DEST/ingest/" || true
++
++# Exclude venv to keep backup small (can be recreated)
++rm -rf "$DEST/ingest/venv" 2>/dev/null || true
++
++# System snapshots
++mkdir -p "$DEST/system"
++uname -a > "$DEST/system/uname.txt"
++date -Is > "$DEST/system/backup_time.txt"
++hostnamectl > "$DEST/system/hostnamectl.txt" 2>/dev/null || true
++ip -br a > "$DEST/system/ip.txt"
++df -h > "$DEST/system/df.txt"
++lsblk > "$DEST/system/lsblk.txt"
++sudo vgs > "$DEST/system/vgs.txt"
++sudo lvs > "$DEST/system/lvs.txt"
++sudo ufw status verbose > "$DEST/system/ufw_status.txt" 2>/dev/null || true
++systemctl status student-watchdrop --no-pager > "$DEST/system/watchdrop_status.txt" 2>/dev/null || true
++systemctl status student-ingest --no-pager > "$DEST/system/ingest_status.txt" 2>/dev/null || true
++
++# Manifest
++( cd "$DEST" && find . -type f -maxdepth 3 -print0 | xargs -0 sha256sum ) > "$DEST/manifest.sha256"
++
++echo "OK: Backup complete."
++echo "Manifest: $DEST/manifest.sha256"
+diff --git a/scripts/usb_detect_mount.sh b/scripts/usb_detect_mount.sh
+new file mode 100755
+index 0000000..518caf5
+--- /dev/null
++++ b/scripts/usb_detect_mount.sh
+@@ -0,0 +1,8 @@
++\
++#!/usr/bin/env bash
++set -euo pipefail
++echo "=== USB Detect ==="
++lsblk -o NAME,SIZE,FSTYPE,MOUNTPOINT,MODEL | sed 's/^/  /'
++echo ""
++echo "Plug USB, then identify the partition (e.g. /dev/sda1)."
++echo "If already mounted, note the mountpoint."
+diff --git a/scripts/usb_mount_by_uuid.sh b/scripts/usb_mount_by_uuid.sh
+new file mode 100755
+index 0000000..6c78f29
+--- /dev/null
++++ b/scripts/usb_mount_by_uuid.sh
+@@ -0,0 +1,14 @@
++\
++#!/usr/bin/env bash
++set -euo pipefail
++UUID="${1:-}"
++if [[ -z "$UUID" ]]; then
++  echo "Usage: $0 <UUID>"
++  echo "Find UUID with: lsblk -f"
++  exit 1
++fi
++MNT="/mnt/usb"
++sudo mkdir -p "$MNT"
++sudo mount -U "$UUID" "$MNT"
++echo "Mounted at $MNT"
++df -h "$MNT"
+diff --git a/scripts/usb_verify_backup.sh b/scripts/usb_verify_backup.sh
+new file mode 100755
+index 0000000..b400f83
+--- /dev/null
++++ b/scripts/usb_verify_backup.sh
+@@ -0,0 +1,15 @@
++\
++#!/usr/bin/env bash
++set -euo pipefail
++DIR="${1:-}"
++if [[ -z "$DIR" ]]; then
++  echo "Usage: $0 </mnt/usb/student_backup_YYYYMMDD_HHMMSS>"
++  exit 1
++fi
++if [[ ! -f "$DIR/manifest.sha256" ]]; then
++  echo "ERROR: manifest.sha256 not found in $DIR"
++  exit 1
++fi
++echo "Verifying checksums..."
++( cd "$DIR" && sha256sum -c manifest.sha256 )
++echo "OK: verified."
+diff --git a/scripts/watch_drop.sh b/scripts/watch_drop.sh
+new file mode 100755
+index 0000000..1fb47a2
+--- /dev/null
++++ b/scripts/watch_drop.sh
+@@ -0,0 +1,20 @@
++\
++#!/usr/bin/env bash
++set -euo pipefail
++DROP="/opt/trading/drop"
++ARCH="/opt/trading/archive"
++JSON="/opt/trading/journal/events/events.jsonl"
++mkdir -p "$DROP" "$ARCH"
++
++inotifywait -m -e close_write,moved_to --format '%w%f' "$DROP" | while read -r f; do
++  TS="$(date -Is)"
++  DAY="$(date +%F)"
++  mkdir -p "$ARCH/$DAY"
++  BN="$(basename "$f")"
++  DEST="$ARCH/$DAY/$BN"
++  mv "$f" "$DEST"
++  SHA="$(sha256sum "$DEST" | awk '{print $1}')"
++  printf '{"ts":"%s","host":"%s","type":"artifact","title":"drop","path":"%s","sha256":"%s"}\n' \
++    "$TS" "$(hostname)" "$DEST" "$SHA" >> "$JSON"
++  echo "Archived: $DEST"
++done
+diff --git a/scripts/write_ingest_app.sh b/scripts/write_ingest_app.sh
+new file mode 100755
+index 0000000..47b6e27
+--- /dev/null
++++ b/scripts/write_ingest_app.sh
+@@ -0,0 +1,41 @@
++\
++#!/usr/bin/env bash
++set -euo pipefail
++cat > /opt/trading/ingest/app.py <<'EOF'
++from fastapi import FastAPI, Request, Header, HTTPException
++from datetime import datetime, timezone
++import json, os, socket
++
++APP = FastAPI()
++HOST = socket.gethostname()
++JSON_PATH = "/opt/trading/journal/events/events.jsonl"
++KEY_PATH = "/opt/trading/ingest/INGEST_API_KEY"
++
++def get_key() -> str:
++    with open(KEY_PATH, "r", encoding="utf-8") as f:
++        return f.read().strip()
++
++def write_event(evt: dict):
++    os.makedirs(os.path.dirname(JSON_PATH), exist_ok=True)
++    with open(JSON_PATH, "a", encoding="utf-8") as f:
++        f.write(json.dumps(evt, ensure_ascii=False) + "\n")
++
++@APP.get("/ingest/health")
++def health():
++    return {"ok": True, "host": HOST}
++
++@APP.post("/ingest")
++async def ingest(req: Request, x_api_key: str | None = Header(default=None)):
++    if x_api_key is None or x_api_key != get_key():
++        raise HTTPException(status_code=401, detail="invalid api key")
++    payload = await req.json()
++    evt = {
++        "ts": datetime.now(timezone.utc).isoformat(),
++        "host": HOST,
++        "type": "ingest",
++        "payload": payload,
++    }
++    write_event(evt)
++    return {"ok": True}
++EOF
++echo "Wrote /opt/trading/ingest/app.py"

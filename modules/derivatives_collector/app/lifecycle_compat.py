@@ -19,7 +19,6 @@ CONTRACT_VERSION = "v1"
 MODULE_ID = "derivatives_collector"
 FRESHNESS_MAX_AGE_SECONDS = 3600
 MODULE_DIR = Path(__file__).resolve().parent.parent
-PROJECT_ROOT = MODULE_DIR.parent.parent
 
 
 def now_utc() -> datetime:
@@ -69,13 +68,7 @@ def ensure_file(path: Path) -> None:
 
 
 def relref(path: Path) -> str:
-    resolved = path.resolve()
-    for base in (MODULE_DIR, PROJECT_ROOT):
-        try:
-            return resolved.relative_to(base).as_posix()
-        except ValueError:
-            continue
-    return str(resolved)
+    return path.relative_to(MODULE_DIR).as_posix()
 
 
 def provider_id_from_config(config: dict) -> str | None:

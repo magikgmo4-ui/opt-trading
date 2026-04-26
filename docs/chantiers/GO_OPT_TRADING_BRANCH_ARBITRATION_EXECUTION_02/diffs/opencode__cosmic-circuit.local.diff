@@ -1,0 +1,40 @@
+diff --git a/docs/index/GO_INDEX.md b/docs/index/GO_INDEX.md
+index b73c978..51c66cb 100644
+--- a/docs/index/GO_INDEX.md
++++ b/docs/index/GO_INDEX.md
+@@ -14,7 +14,7 @@ topic_keys:
+   - governance
+ surface: chantier
+ source_kind: canonical
+-updated_at: 2026-04-13
++updated_at: 2026-04-16
+ links:
+   - docs/governance/REPO_ROLE.md
+   - docs/governance/DOC_LAYERS.md
+@@ -50,7 +50,7 @@ Il sert à :
+ - statut : reference
+ - titre court : plan maître uniforme de continuité
+ - dernier état connu : référentiel consolidé validé comme base documentaire
+-- lien utile : documentation gouvernance locale et méthode transverse associée
++- lien utile : `docs/chantiers/GO_UNIFORM_CONTINUITY_FINAL_MASTER_PLAN_01/00_cadrage.md`
+ 
+ ### GO_CONTINUITE_PRODUIT_MULTI_CHANTIER_CANON_01
+ - repo : opt-trading
+@@ -58,7 +58,7 @@ Il sert à :
+ - statut : pass
+ - titre court : hiérarchie produit multi-chantier canonisée
+ - dernier état connu : structuration Couche 0 / Anneau A / Anneau B posée comme source canonique de continuité produit
+-- lien utile : `docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md`, `docs/governance/AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md`
++- lien utile : `docs/chantiers/GO_CONTINUITE_PRODUIT_MULTI_CHANTIER_CANON_01/00_cadrage.md`
+ 
+ ### GO_GIT_PROGRESSIVE_MIGRATION_START_13
+ - repo : opt-trading
+@@ -66,7 +66,7 @@ Il sert à :
+ - statut : active
+ - titre court : démarrage de la migration Git progressive
+ - dernier état connu : gouvernance locale initiale créée sur `sot/mainline`
+-- lien utile : `docs/governance/REPO_ROLE.md`, `docs/governance/DOC_LAYERS.md`, `docs/governance/MEMORY_BRICKS_MAPPING.md`
++- lien utile : `docs/chantiers/GO_GIT_PROGRESSIVE_MIGRATION_START_13/00_cadrage.md`
+ 
+ ### GO_OPT_TRADING_LOCAL_CONTINUITY_BOOTSTRAP_01
+ - repo : opt-trading

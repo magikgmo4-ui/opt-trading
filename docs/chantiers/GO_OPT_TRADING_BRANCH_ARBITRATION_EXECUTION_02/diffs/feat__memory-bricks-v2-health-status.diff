@@ -1,0 +1,1586 @@
+diff --git a/modules/memory_bricks/app/__init__.py b/modules/memory_bricks/app/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/modules/memory_bricks/app/api.py b/modules/memory_bricks/app/api.py
+new file mode 100644
+index 0000000..281fb03
+--- /dev/null
++++ b/modules/memory_bricks/app/api.py
+@@ -0,0 +1,8 @@
++"""Future FastAPI surface for memory_bricks (reserved for V2)."""
++
++def get_api_status() -> dict:
++    return {
++        "module": "memory_bricks",
++        "status": "reserved_v2",
++        "message": "API layer intentionally not enabled in V1."
++    }
+diff --git a/modules/memory_bricks/app/api_v2_server.py b/modules/memory_bricks/app/api_v2_server.py
+new file mode 100644
+index 0000000..cbc3588
+--- /dev/null
++++ b/modules/memory_bricks/app/api_v2_server.py
+@@ -0,0 +1,63 @@
++from __future__ import annotations
++
++import sys
++from pathlib import Path
++
++MODULE_DIR = Path(__file__).resolve().parents[1]
++if str(MODULE_DIR) not in sys.path:
++    sys.path.insert(0, str(MODULE_DIR))
++
++from app.core.paths import get_state_root, get_bricks_dir, get_index_dir, get_sequence_path
++from fastapi import FastAPI
++from fastapi.responses import JSONResponse
++
++app = FastAPI(
++    title="memory_bricks API V2",
++    description="Read-only API for memory_bricks module",
++    version="0.1.0-readonly",
++)
++
++
++@app.get("/health")
++def health():
++    """Sanity check: API is alive."""
++    return {"status": "ok", "module": "memory_bricks", "version": "0.1.0-readonly"}
++
++
++@app.get("/status")
++def status():
++    """
++    Return the state of the memory_bricks source.
++    Mirrors V1 query status output.
++    """
++    root = get_state_root()
++    bricks_dir = get_bricks_dir()
++    index_dir = get_index_dir()
++    brick_count = 0
++    if bricks_dir.exists():
++        brick_count = len(list(bricks_dir.glob("MB-*.md")))
++
++    payload = {
++        "root": str(root),
++        "root_exists": root.exists(),
++        "bricks_dir": bricks_dir.exists(),
++        "bricks": brick_count,
++        "index_full": (index_dir / "index_full.json").exists(),
++        "index_short": (index_dir / "index_short.md").exists(),
++        "sequence": get_sequence_path().exists(),
++    }
++
++    if not root.exists():
++        return JSONResponse(status_code=404, content=payload)
++
++    return payload
++
++
++def main() -> None:
++    import uvicorn
++
++    uvicorn.run(app, host="127.0.0.1", port=8112)
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/modules/memory_bricks/app/cli.py b/modules/memory_bricks/app/cli.py
+new file mode 100644
+index 0000000..318332a
+--- /dev/null
++++ b/modules/memory_bricks/app/cli.py
+@@ -0,0 +1,169 @@
++from __future__ import annotations
++
++import argparse
++
++from app.core.constants import ALLOWED_HANDOFF_TARGETS, ALLOWED_STATUSES, ALLOWED_TYPES
++from app.core.paths import ensure_state_dirs
++from app.services.create_brick import create_brick
++from app.services.export_bricks import export_bricks
++from app.services.handoff_bricks import handoff_bricks
++from app.services.link_bricks import link_bricks
++from app.services.list_bricks import list_bricks
++from app.services.merge_bricks import merge_bricks
++from app.services.rebuild_index import rebuild_index
++from app.services.show_brick import show_brick
++from app.services.update_status import update_status
++
++
++def build_parser() -> argparse.ArgumentParser:
++    parser = argparse.ArgumentParser(prog="memory_bricks")
++    sub = parser.add_subparsers(dest="command", required=True)
++
++    p_new = sub.add_parser("new", help="Create a new memory brick.")
++    p_new.add_argument("--type", required=True, choices=sorted(ALLOWED_TYPES))
++    p_new.add_argument("--title", required=True)
++    p_new.add_argument("--ia", required=True)
++    p_new.add_argument("--machine", required=True)
++    p_new.add_argument("--surface", required=True)
++    p_new.add_argument("--project", required=True)
++    p_new.add_argument("--module", required=True)
++    p_new.add_argument("--status", required=True, choices=sorted(ALLOWED_STATUSES))
++    p_new.add_argument("--summary-short", default="")
++    p_new.add_argument("--resume-point", default="")
++    p_new.add_argument("--tags", default="")
++    p_new.add_argument("--repo", default="")
++    p_new.add_argument("--branch", default="")
++    p_new.add_argument("--path", default="")
++    p_new.add_argument("--decisions", default="")
++    p_new.add_argument("--todo", default="")
++    p_new.add_argument("--source-ref", default="")
++    p_new.add_argument("--canonical-ref", default="")
++    p_new.add_argument("--real-state-ref", default="")
++    p_new.add_argument("--validated-by", default="")
++
++    p_list = sub.add_parser("list", help="List bricks.")
++    for arg in ["status", "type", "project", "module", "machine", "ia", "surface", "tag"]:
++        p_list.add_argument(f"--{arg}", default="")
++
++    p_show = sub.add_parser("show", help="Show one brick.")
++    p_show.add_argument("--id", required=True)
++
++    p_status = sub.add_parser("status", help="Update brick status.")
++    p_status.add_argument("--id", required=True)
++    p_status.add_argument("--set", dest="new_status", required=True, choices=sorted(ALLOWED_STATUSES))
++
++    p_link = sub.add_parser("link", help="Link one brick to another.")
++    p_link.add_argument("--id", required=True)
++    p_link.add_argument("--to", required=True)
++
++    p_index = sub.add_parser("index", help="Index operations.")
++    p_index_sub = p_index.add_subparsers(dest="index_command", required=True)
++    p_index_sub.add_parser("rebuild", help="Rebuild indexes.")
++
++    p_merge = sub.add_parser("merge", help="Merge bricks into one export.")
++    p_merge.add_argument("--ids", required=True)
++
++    p_export = sub.add_parser("export", help="Export bricks.")
++    p_export.add_argument("--ids", required=True)
++    p_export.add_argument("--format", required=True, choices=["txt", "md", "json"])
++
++    p_handoff = sub.add_parser("handoff", help="Create IA handoff.")
++    p_handoff.add_argument("--ids", required=True)
++    p_handoff.add_argument("--target", required=True, choices=sorted(ALLOWED_HANDOFF_TARGETS))
++
++    return parser
++
++
++def main() -> int:
++    ensure_state_dirs()
++    parser = build_parser()
++    args = parser.parse_args()
++
++    if args.command == "new":
++        result = create_brick(
++            brick_type=args.type,
++            title=args.title,
++            ia=args.ia,
++            machine=args.machine,
++            surface=args.surface,
++            project=args.project,
++            module_name=args.module,
++            status=args.status,
++            summary_short=args.summary_short,
++            resume_point=args.resume_point,
++            tags=[t.strip() for t in args.tags.split(",") if t.strip()],
++            repo=args.repo,
++            branch=args.branch,
++            path=args.path,
++            decisions=[t.strip() for t in args.decisions.split(",") if t.strip()],
++            todo=[t.strip() for t in args.todo.split(",") if t.strip()],
++            source_ref=[t.strip() for t in args.source_ref.split(",") if t.strip()],
++            canonical_ref=[t.strip() for t in args.canonical_ref.split(",") if t.strip()],
++            real_state_ref=[t.strip() for t in args.real_state_ref.split(",") if t.strip()],
++            validated_by=args.validated_by,
++        )
++        print(f"CREATED: {result['id']}")
++        print(f"FILE: {result['file']}")
++        return 0
++
++    if args.command == "list":
++        filters = {
++            "status": args.status,
++            "type": args.type,
++            "project": args.project,
++            "module": args.module,
++            "machine": args.machine,
++            "ia": args.ia,
++            "surface": args.surface,
++            "tag": args.tag,
++        }
++        rows = list_bricks(filters)
++        for row in rows:
++            print(row)
++        return 0
++
++    if args.command == "show":
++        print(show_brick(args.id))
++        return 0
++
++    if args.command == "status":
++        before, after = update_status(args.id, args.new_status)
++        print(f"UPDATED: {args.id} status={before} -> {after}")
++        return 0
++
++    if args.command == "link":
++        link_bricks(args.id, args.to)
++        print(f"LINKED: {args.id} -> {args.to}")
++        return 0
++
++    if args.command == "index" and args.index_command == "rebuild":
++        paths = rebuild_index()
++        print("INDEX REBUILT:")
++        for path in paths:
++            print(f"- {path}")
++        return 0
++
++    if args.command == "merge":
++        out = merge_bricks(args.ids.split(","))
++        print("MERGE CREATED:")
++        print(f" {out}")
++        return 0
++
++    if args.command == "export":
++        out = export_bricks(args.ids.split(","), args.format)
++        print("EXPORT CREATED:")
++        print(f" {out}")
++        return 0
++
++    if args.command == "handoff":
++        out = handoff_bricks(args.ids.split(","), args.target)
++        print("HANDOFF CREATED:")
++        print(f" {out}")
++        return 0
++
++    parser.print_help()
++    return 1
++
++
++if __name__ == "__main__":
++    raise SystemExit(main())
+diff --git a/modules/memory_bricks/app/core/__init__.py b/modules/memory_bricks/app/core/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/modules/memory_bricks/app/core/clock.py b/modules/memory_bricks/app/core/clock.py
+new file mode 100644
+index 0000000..460e7ef
+--- /dev/null
++++ b/modules/memory_bricks/app/core/clock.py
+@@ -0,0 +1,10 @@
++from __future__ import annotations
++
++from datetime import datetime
++from zoneinfo import ZoneInfo
++
++from app.core.constants import DEFAULT_TIMEZONE
++
++
++def now_iso() -> str:
++    return datetime.now(ZoneInfo(DEFAULT_TIMEZONE)).isoformat(timespec="seconds")
+diff --git a/modules/memory_bricks/app/core/constants.py b/modules/memory_bricks/app/core/constants.py
+new file mode 100644
+index 0000000..f9fe597
+--- /dev/null
++++ b/modules/memory_bricks/app/core/constants.py
+@@ -0,0 +1,15 @@
++from __future__ import annotations
++
++from pathlib import Path
++
++DEFAULT_TIMEZONE = "America/Montreal"
++DEFAULT_PROJECT = "opt-trading"
++DEFAULT_MODULE = "memory_bricks"
++MODULE_ROOT = Path(__file__).resolve().parents[2]
++REPO_ROOT = Path(__file__).resolve().parents[4]
++DEFAULT_STATE_ROOT = REPO_ROOT / "_state" / "memory_bricks"
++
++ALLOWED_STATUSES = {"draft", "open", "mentioned", "resumed", "blocked", "closed"}
++ALLOWED_TYPES = {"session", "decision", "resume_point", "closeout", "issue", "reference", "handoff"}
++ALLOWED_HANDOFF_TARGETS = {"chatgpt", "claude", "generic"}
++ALLOWED_IAS = {"chatgpt", "claude", "trae", "generic"}
+diff --git a/modules/memory_bricks/app/core/frontmatter.py b/modules/memory_bricks/app/core/frontmatter.py
+new file mode 100644
+index 0000000..51b5e04
+--- /dev/null
++++ b/modules/memory_bricks/app/core/frontmatter.py
+@@ -0,0 +1,62 @@
++from __future__ import annotations
++
++import ast
++import json
++
++
++def dump_frontmatter(data: dict[str, object]) -> str:
++    lines: list[str] = []
++    for key, value in data.items():
++        if isinstance(value, list):
++            if not value:
++                lines.append(f"{key}: []")
++                continue
++            lines.append(f"{key}:")
++            for item in value:
++                lines.append(f"  - {json.dumps(str(item), ensure_ascii=False)}")
++            continue
++        if value is None:
++            value = ""
++        lines.append(f"{key}: {json.dumps(str(value), ensure_ascii=False)}")
++    return "\n".join(lines)
++
++
++def parse_frontmatter(text: str) -> dict[str, object]:
++    result: dict[str, object] = {}
++    current_list_key: str | None = None
++
++    for raw_line in text.splitlines():
++        line = raw_line.rstrip()
++        if not line:
++            continue
++        if line.startswith("  - "):
++            if current_list_key is None:
++                raise ValueError(f"Invalid frontmatter list item: {raw_line}")
++            result.setdefault(current_list_key, []).append(_parse_scalar(line[4:]))
++            continue
++        current_list_key = None
++        if ":" not in line:
++            raise ValueError(f"Invalid frontmatter line: {raw_line}")
++        key, value = line.split(":", 1)
++        key = key.strip()
++        value = value.strip()
++        if not key:
++            raise ValueError(f"Invalid frontmatter key: {raw_line}")
++        if not value:
++            result[key] = []
++            current_list_key = key
++            continue
++        result[key] = _parse_scalar(value)
++    return result
++
++
++def _parse_scalar(value: str) -> object:
++    value = value.strip()
++    if value == "[]":
++        return []
++    if value.startswith(("\"", "[", "{")):
++        try:
++            return json.loads(value)
++        except json.JSONDecodeError:
++            return ast.literal_eval(value)
++    return value
+diff --git a/modules/memory_bricks/app/core/id_sequence.py b/modules/memory_bricks/app/core/id_sequence.py
+new file mode 100644
+index 0000000..48492f9
+--- /dev/null
++++ b/modules/memory_bricks/app/core/id_sequence.py
+@@ -0,0 +1,29 @@
++from __future__ import annotations
++
++import json
++
++from app.core.paths import ensure_state_dirs, get_sequence_path
++
++
++def next_brick_id() -> str:
++    ensure_state_dirs()
++    seq_path = get_sequence_path()
++    data = _read_sequence(seq_path)
++    last = int(data.get("last", 0)) + 1
++    data["last"] = last
++    seq_path.write_text(json.dumps(data, indent=2), encoding="utf-8")
++    return f"MB-{last:05d}"
++
++
++def _read_sequence(seq_path) -> dict[str, int]:
++    if not seq_path.exists():
++        return {"last": 0}
++    try:
++        data = json.loads(seq_path.read_text(encoding="utf-8"))
++    except json.JSONDecodeError as exc:
++        raise ValueError(f"Invalid sequence file: {seq_path}") from exc
++    if not isinstance(data, dict):
++        raise ValueError(f"Invalid sequence payload: {seq_path}")
++    if "last" not in data:
++        data["last"] = 0
++    return data
+diff --git a/modules/memory_bricks/app/core/paths.py b/modules/memory_bricks/app/core/paths.py
+new file mode 100644
+index 0000000..481fd0f
+--- /dev/null
++++ b/modules/memory_bricks/app/core/paths.py
+@@ -0,0 +1,46 @@
++from __future__ import annotations
++
++import os
++from pathlib import Path
++
++from app.core.constants import DEFAULT_STATE_ROOT
++
++
++def get_state_root() -> Path:
++    return Path(os.environ.get("MEMORY_BRICKS_STATE_ROOT", str(DEFAULT_STATE_ROOT))).expanduser()
++
++def get_bricks_dir() -> Path:
++    return get_state_root() / "bricks"
++
++def get_index_dir() -> Path:
++    return get_state_root() / "index"
++
++def get_exports_dir() -> Path:
++    return get_state_root() / "exports"
++
++def get_handoffs_dir() -> Path:
++    return get_state_root() / "handoffs"
++
++def get_meta_dir() -> Path:
++    return get_state_root() / "meta"
++
++def get_tmp_dir() -> Path:
++    return get_state_root() / "tmp"
++
++def get_sequence_path() -> Path:
++    return get_meta_dir() / "sequence.json"
++
++def ensure_state_dirs() -> None:
++    for path in [
++        get_bricks_dir(),
++        get_index_dir(),
++        get_index_dir() / "by_project",
++        get_index_dir() / "by_module",
++        get_index_dir() / "by_machine",
++        get_index_dir() / "by_ia",
++        get_exports_dir(),
++        get_handoffs_dir(),
++        get_meta_dir(),
++        get_tmp_dir(),
++    ]:
++        path.mkdir(parents=True, exist_ok=True)
+diff --git a/modules/memory_bricks/app/core/slugify.py b/modules/memory_bricks/app/core/slugify.py
+new file mode 100644
+index 0000000..b0a0183
+--- /dev/null
++++ b/modules/memory_bricks/app/core/slugify.py
+@@ -0,0 +1,10 @@
++from __future__ import annotations
++
++import re
++
++
++def slugify(text: str) -> str:
++    slug = text.lower().strip()
++    slug = re.sub(r"[^a-z0-9]+", "-", slug)
++    slug = re.sub(r"-{2,}", "-", slug).strip("-")
++    return slug or "untitled"
+diff --git a/modules/memory_bricks/app/renderers/__init__.py b/modules/memory_bricks/app/renderers/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/modules/memory_bricks/app/renderers/brick_renderer.py b/modules/memory_bricks/app/renderers/brick_renderer.py
+new file mode 100644
+index 0000000..1819fab
+--- /dev/null
++++ b/modules/memory_bricks/app/renderers/brick_renderer.py
+@@ -0,0 +1,23 @@
++from __future__ import annotations
++
++from app.core.frontmatter import dump_frontmatter
++from app.schemas.brick_schema import BrickModel
++
++
++def render_brick(brick: BrickModel) -> str:
++    data = brick.to_dict()
++    front = dump_frontmatter(data).strip()
++
++    decisions_md = "\n".join(f"- {item}" for item in brick.decisions) or "- "
++    todo_md = "\n".join(f"- {item}" for item in brick.todo) or "- "
++    links_md = "\n".join(f"- {item}" for item in brick.links) or "- "
++
++    return (
++        f"---\n{front}\n---\n\n"
++        f"# {brick.id} ÔÇö {brick.title}\n\n"
++        f"## R├®sum├® court\n{brick.summary_short}\n\n"
++        f"## D├®cisions\n{decisions_md}\n\n"
++        f"## TODO\n{todo_md}\n\n"
++        f"## Reprise\n{brick.resume_point}\n\n"
++        f"## Liens\n{links_md}\n"
++    )
+diff --git a/modules/memory_bricks/app/renderers/handoff_renderer.py b/modules/memory_bricks/app/renderers/handoff_renderer.py
+new file mode 100644
+index 0000000..ba9a847
+--- /dev/null
++++ b/modules/memory_bricks/app/renderers/handoff_renderer.py
+@@ -0,0 +1,41 @@
++from __future__ import annotations
++
++from app.schemas.brick_schema import BrickModel
++
++
++def render_handoff(bricks: list[BrickModel], target: str) -> str:
++    latest = sorted(bricks, key=lambda b: b.date)[-1]
++    lines = [
++        f"HANDOFF {target.upper()} ÔÇö MEMORY_BRICKS",
++        "",
++        "Etat de reprise:",
++        f"- module cible: memory_bricks",
++        f"- statut: {latest.status}",
++        f"- architecture: Python local core + future API-ready layout",
++        "",
++        "Etabli:",
++        "- source primaire = module local",
++        "- LocalCMS = surface humaine future",
++        "- export/handoff = surface IA imm├®diate",
++        "",
++        "Sources:",
++    ]
++    for brick in bricks:
++        lines.append(f"- {brick.id} ÔÇö {brick.title}")
++
++    lines.extend([
++        "",
++        "Travail demand├®:",
++        "- poursuivre l'impl├®mentation selon la spec verrouill├®e",
++        "- respecter les statuts/types fig├®s",
++        "- ne pas d├®river vers UI/API/cloud/mobile",
++        "",
++        "Limites:",
++        "- API active hors p├®rim├¿tre V1",
++        "- LocalCMS r├®serv├® comme surface future",
++        "",
++        "Point de reprise:",
++        latest.resume_point or "-",
++        "",
++    ])
++    return "\n".join(lines)
+diff --git a/modules/memory_bricks/app/renderers/index_renderer.py b/modules/memory_bricks/app/renderers/index_renderer.py
+new file mode 100644
+index 0000000..7d6838d
+--- /dev/null
++++ b/modules/memory_bricks/app/renderers/index_renderer.py
+@@ -0,0 +1,11 @@
++from __future__ import annotations
++
++from app.schemas.brick_schema import BrickModel
++
++
++def render_index_short(bricks: list[BrickModel]) -> str:
++    lines = ["# INDEX BRIQUES", ""]
++    for brick in sorted(bricks, key=lambda b: b.date):
++        lines.append(f"{brick.id} ÔÇö {brick.date[:10]} ÔÇö {brick.ia} ÔÇö {brick.machine} ÔÇö {brick.status} ÔÇö {brick.module}")
++    lines.append("")
++    return "\n".join(lines)
+diff --git a/modules/memory_bricks/app/renderers/merge_renderer.py b/modules/memory_bricks/app/renderers/merge_renderer.py
+new file mode 100644
+index 0000000..9483be2
+--- /dev/null
++++ b/modules/memory_bricks/app/renderers/merge_renderer.py
+@@ -0,0 +1,32 @@
++from __future__ import annotations
++
++from app.schemas.brick_schema import BrickModel
++
++
++def render_merge(bricks: list[BrickModel]) -> str:
++    decisions = []
++    todos = []
++    final_resume = ""
++    for brick in bricks:
++        decisions.extend(item for item in brick.decisions if item not in decisions)
++        todos.extend(item for item in brick.todo if item not in todos)
++        if brick.resume_point:
++            final_resume = brick.resume_point
++
++    lines = ["MERGE MEMORY BRICKS", "", "Sources:"]
++    for brick in bricks:
++        lines.append(f"- {brick.id}")
++    lines.extend(["", "Chronologie:"])
++    for idx, brick in enumerate(bricks, start=1):
++        lines.append(f"{idx}. {brick.id} ÔÇö {brick.title} ÔÇö {brick.summary_short}")
++
++    lines.extend(["", "D├®cisions agr├®g├®es:"])
++    for item in decisions or ["-"]:
++        lines.append(f"- {item}" if item != "-" else item)
++
++    lines.extend(["", "TODO agr├®g├®s:"])
++    for item in todos or ["-"]:
++        lines.append(f"- {item}" if item != "-" else item)
++
++    lines.extend(["", "Point de reprise:", final_resume or "-"])
++    return "\n".join(lines) + "\n"
+diff --git a/modules/memory_bricks/app/schemas/__init__.py b/modules/memory_bricks/app/schemas/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/modules/memory_bricks/app/schemas/brick_schema.py b/modules/memory_bricks/app/schemas/brick_schema.py
+new file mode 100644
+index 0000000..ad4a982
+--- /dev/null
++++ b/modules/memory_bricks/app/schemas/brick_schema.py
+@@ -0,0 +1,104 @@
++from __future__ import annotations
++
++from dataclasses import asdict, dataclass, field
++from datetime import datetime
++import re
++from typing import Any
++
++from app.core.constants import ALLOWED_IAS, ALLOWED_STATUSES, ALLOWED_TYPES, DEFAULT_MODULE, DEFAULT_PROJECT, DEFAULT_TIMEZONE
++
++
++BRICK_ID_RE = re.compile(r"^MB-[0-9]{5}$")
++
++
++@dataclass
++class BrickModel:
++    id: str
++    title: str
++    date: str
++    timezone: str = DEFAULT_TIMEZONE
++    type: str = "reference"
++    status: str = "draft"
++    ia: str = "generic"
++    machine: str = ""
++    surface: str = ""
++    project: str = ""
++    module: str = "memory_bricks"
++    summary_short: str = ""
++    resume_point: str = ""
++    links: list[str] = field(default_factory=list)
++    tags: list[str] = field(default_factory=list)
++    repo: str = ""
++    branch: str = ""
++    path: str = ""
++    source_ref: list[Any] = field(default_factory=list)
++    canonical_ref: list[Any] = field(default_factory=list)
++    real_state_ref: list[Any] = field(default_factory=list)
++    validated_by: str = ""
++    decisions: list[str] = field(default_factory=list)
++    todo: list[str] = field(default_factory=list)
++
++    def __post_init__(self) -> None:
++        self.id = str(self.id).strip()
++        self.title = str(self.title).strip()
++        self.date = str(self.date).strip()
++        self.timezone = str(self.timezone or DEFAULT_TIMEZONE).strip() or DEFAULT_TIMEZONE
++        self.type = str(self.type).strip()
++        self.status = str(self.status).strip()
++        self.ia = str(self.ia).strip()
++        self.machine = str(self.machine).strip()
++        self.surface = str(self.surface).strip()
++        self.project = str(self.project or DEFAULT_PROJECT).strip() or DEFAULT_PROJECT
++        self.module = str(self.module or DEFAULT_MODULE).strip() or DEFAULT_MODULE
++        self.summary_short = str(self.summary_short).strip()
++        self.resume_point = str(self.resume_point).strip()
++        self.repo = str(self.repo).strip()
++        self.branch = str(self.branch).strip()
++        self.path = str(self.path).strip()
++        self.validated_by = str(self.validated_by).strip()
++        self.links = _string_list(self.links)
++        self.tags = _string_list(self.tags)
++        self.source_ref = _string_list(self.source_ref)
++        self.canonical_ref = _string_list(self.canonical_ref)
++        self.real_state_ref = _string_list(self.real_state_ref)
++        self.decisions = _string_list(self.decisions)
++        self.todo = _string_list(self.todo)
++
++    def validate(self) -> None:
++        if not BRICK_ID_RE.fullmatch(self.id):
++            raise ValueError(f"Invalid brick id: {self.id}")
++        if not self.title.strip():
++            raise ValueError("title cannot be empty")
++        try:
++            datetime.fromisoformat(self.date)
++        except ValueError as exc:
++            raise ValueError(f"Invalid date: {self.date}") from exc
++        if self.type not in ALLOWED_TYPES:
++            raise ValueError(f"Invalid type: {self.type}")
++        if self.status not in ALLOWED_STATUSES:
++            raise ValueError(f"Invalid status: {self.status}")
++        if self.ia and self.ia not in ALLOWED_IAS:
++            raise ValueError(f"Invalid ia: {self.ia}")
++        if not self.machine:
++            raise ValueError("machine cannot be empty")
++        if not self.surface:
++            raise ValueError("surface cannot be empty")
++        if not self.project:
++            raise ValueError("project cannot be empty")
++        if not self.module:
++            raise ValueError("module cannot be empty")
++        if not self.summary_short.strip():
++            raise ValueError("summary_short cannot be empty")
++        if len(set(self.links)) != len(self.links):
++            raise ValueError("links cannot contain duplicates")
++
++    def to_dict(self) -> dict[str, Any]:
++        return asdict(self)
++
++
++def _string_list(values: list[Any] | tuple[Any, ...] | None) -> list[str]:
++    if values is None:
++        return []
++    if not isinstance(values, (list, tuple)):
++        raise ValueError("Expected a list value")
++    return [str(value).strip() for value in values if str(value).strip()]
+diff --git a/modules/memory_bricks/app/schemas/export_schema.py b/modules/memory_bricks/app/schemas/export_schema.py
+new file mode 100644
+index 0000000..145c8d7
+--- /dev/null
++++ b/modules/memory_bricks/app/schemas/export_schema.py
+@@ -0,0 +1,10 @@
++from __future__ import annotations
++
++from dataclasses import dataclass
++
++
++@dataclass
++class ExportResult:
++    output_path: str
++    format: str
++    brick_ids: list[str]
+diff --git a/modules/memory_bricks/app/services/__init__.py b/modules/memory_bricks/app/services/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/modules/memory_bricks/app/services/create_brick.py b/modules/memory_bricks/app/services/create_brick.py
+new file mode 100644
+index 0000000..f55bda4
+--- /dev/null
++++ b/modules/memory_bricks/app/services/create_brick.py
+@@ -0,0 +1,61 @@
++from __future__ import annotations
++
++from app.core.clock import now_iso
++from app.core.id_sequence import next_brick_id
++from app.core.slugify import slugify
++from app.renderers.brick_renderer import render_brick
++from app.schemas.brick_schema import BrickModel
++from app.storage.markdown_store import save_brick
++
++
++def create_brick(
++    brick_type: str,
++    title: str,
++    ia: str,
++    machine: str,
++    surface: str,
++    project: str,
++    module_name: str,
++    status: str,
++    summary_short: str = "",
++    resume_point: str = "",
++    tags: list[str] | None = None,
++    repo: str = "",
++    branch: str = "",
++    path: str = "",
++    decisions: list[str] | None = None,
++    todo: list[str] | None = None,
++    source_ref: list[str] | None = None,
++    canonical_ref: list[str] | None = None,
++    real_state_ref: list[str] | None = None,
++    validated_by: str = "",
++) -> dict[str, str]:
++    brick_id = next_brick_id()
++    brick = BrickModel(
++        id=brick_id,
++        title=title,
++        date=now_iso(),
++        type=brick_type,
++        status=status,
++        ia=ia,
++        machine=machine,
++        surface=surface,
++        project=project,
++        module=module_name,
++        summary_short=summary_short or f"{title} ÔÇö {status}",
++        resume_point=resume_point,
++        tags=tags or [],
++        repo=repo,
++        branch=branch,
++        path=path,
++        decisions=decisions or [],
++        todo=todo or [],
++        source_ref=source_ref or [],
++        canonical_ref=canonical_ref or [],
++        real_state_ref=real_state_ref or [],
++        validated_by=validated_by,
++    )
++    brick.validate()
++    content = render_brick(brick)
++    saved = save_brick(brick, content, slugify(title))
++    return {"id": brick_id, "file": str(saved)}
+diff --git a/modules/memory_bricks/app/services/export_bricks.py b/modules/memory_bricks/app/services/export_bricks.py
+new file mode 100644
+index 0000000..c2952b5
+--- /dev/null
++++ b/modules/memory_bricks/app/services/export_bricks.py
+@@ -0,0 +1,28 @@
++from __future__ import annotations
++
++import json
++
++from app.core.paths import get_exports_dir
++from app.renderers.brick_renderer import render_brick
++from app.storage.markdown_store import load_bricks_by_ids
++
++
++def export_bricks(ids: list[str], fmt: str) -> str:
++    bricks = load_bricks_by_ids(ids)
++    normalized_ids = [brick.id for brick in bricks]
++    out = get_exports_dir() / f"export_{'_'.join(normalized_ids)}.{fmt}"
++
++    if fmt == "json":
++        out.write_text(json.dumps([b.to_dict() for b in bricks], indent=2, ensure_ascii=False), encoding="utf-8")
++    elif fmt == "md":
++        out.write_text("\n\n".join(render_brick(brick).rstrip() for brick in bricks) + "\n", encoding="utf-8")
++    else:
++        lines = []
++        for brick in bricks:
++            lines.append(f"{brick.id} | {brick.date} | {brick.status} | {brick.title}")
++            lines.append(f"  summary: {brick.summary_short}")
++            lines.append(f"  resume: {brick.resume_point}")
++            if brick.links:
++                lines.append(f"  links: {', '.join(brick.links)}")
++        out.write_text("\n".join(lines), encoding="utf-8")
++    return str(out)
+diff --git a/modules/memory_bricks/app/services/handoff_bricks.py b/modules/memory_bricks/app/services/handoff_bricks.py
+new file mode 100644
+index 0000000..7f6feee
+--- /dev/null
++++ b/modules/memory_bricks/app/services/handoff_bricks.py
+@@ -0,0 +1,13 @@
++from __future__ import annotations
++
++from app.core.paths import get_handoffs_dir
++from app.renderers.handoff_renderer import render_handoff
++from app.storage.markdown_store import load_bricks_by_ids
++
++
++def handoff_bricks(ids: list[str], target: str) -> str:
++    bricks = load_bricks_by_ids(ids)
++    content = render_handoff(bricks, target)
++    out = get_handoffs_dir() / f"handoff_{target}_{'_'.join(ids)}.txt"
++    out.write_text(content, encoding="utf-8")
++    return str(out)
+diff --git a/modules/memory_bricks/app/services/link_bricks.py b/modules/memory_bricks/app/services/link_bricks.py
+new file mode 100644
+index 0000000..dd4bbe6
+--- /dev/null
++++ b/modules/memory_bricks/app/services/link_bricks.py
+@@ -0,0 +1,17 @@
++from __future__ import annotations
++
++from app.renderers.brick_renderer import render_brick
++from app.storage.markdown_store import load_brick, overwrite_brick
++
++
++def link_bricks(source_id: str, target_id: str) -> None:
++    if source_id == target_id:
++        raise ValueError("Cannot create self-link")
++    source = load_brick(source_id)
++    _ = load_brick(target_id)  # validate target exists
++    if target_id not in source.links:
++        source.links.append(target_id)
++        source.links.sort()
++    source.validate()
++    content = render_brick(source)
++    overwrite_brick(source, content)
+diff --git a/modules/memory_bricks/app/services/list_bricks.py b/modules/memory_bricks/app/services/list_bricks.py
+new file mode 100644
+index 0000000..206220e
+--- /dev/null
++++ b/modules/memory_bricks/app/services/list_bricks.py
+@@ -0,0 +1,28 @@
++from __future__ import annotations
++
++from app.storage.markdown_store import load_all_bricks
++
++
++def list_bricks(filters: dict[str, str]) -> list[str]:
++    rows = []
++    for brick in load_all_bricks():
++        if filters.get("status") and brick.status != filters["status"]:
++            continue
++        if filters.get("type") and brick.type != filters["type"]:
++            continue
++        if filters.get("project") and brick.project != filters["project"]:
++            continue
++        if filters.get("module") and brick.module != filters["module"]:
++            continue
++        if filters.get("machine") and brick.machine != filters["machine"]:
++            continue
++        if filters.get("ia") and brick.ia != filters["ia"]:
++            continue
++        if filters.get("surface") and brick.surface != filters["surface"]:
++            continue
++        if filters.get("tag") and filters["tag"] not in brick.tags:
++            continue
++        rows.append(
++            f"{brick.id} ÔÇö {brick.date[:10]} ÔÇö {brick.ia} ÔÇö {brick.machine} ÔÇö {brick.status} ÔÇö {brick.module}"
++        )
++    return rows
+diff --git a/modules/memory_bricks/app/services/merge_bricks.py b/modules/memory_bricks/app/services/merge_bricks.py
+new file mode 100644
+index 0000000..5b1e9fb
+--- /dev/null
++++ b/modules/memory_bricks/app/services/merge_bricks.py
+@@ -0,0 +1,16 @@
++from __future__ import annotations
++
++from pathlib import Path
++
++from app.core.paths import get_exports_dir
++from app.renderers.merge_renderer import render_merge
++from app.storage.markdown_store import load_bricks_by_ids
++
++
++def merge_bricks(ids: list[str]) -> str:
++    bricks = load_bricks_by_ids(ids)
++    bricks.sort(key=lambda b: b.date)
++    content = render_merge(bricks)
++    output = get_exports_dir() / f"merge_{'_'.join(ids)}.txt"
++    output.write_text(content, encoding="utf-8")
++    return str(output)
+diff --git a/modules/memory_bricks/app/services/rebuild_index.py b/modules/memory_bricks/app/services/rebuild_index.py
+new file mode 100644
+index 0000000..635294d
+--- /dev/null
++++ b/modules/memory_bricks/app/services/rebuild_index.py
+@@ -0,0 +1,47 @@
++from __future__ import annotations
++
++import json
++import re
++
++from app.core.paths import get_index_dir
++from app.renderers.index_renderer import render_index_short
++from app.storage.markdown_store import load_all_bricks
++
++
++def rebuild_index() -> list[str]:
++    bricks = load_all_bricks()
++    index_dir = get_index_dir()
++    short_path = index_dir / "index_short.md"
++    full_path = index_dir / "index_full.json"
++
++    short_path.write_text(render_index_short(bricks), encoding="utf-8")
++    full_path.write_text(
++        json.dumps([b.to_dict() for b in bricks], indent=2, ensure_ascii=False),
++        encoding="utf-8",
++    )
++
++    outputs = [str(short_path), str(full_path)]
++
++    for group_name, key in [
++        ("by_project", "project"),
++        ("by_module", "module"),
++        ("by_machine", "machine"),
++        ("by_ia", "ia"),
++    ]:
++        base = index_dir / group_name
++        for existing in base.glob("*.json"):
++            existing.unlink()
++        grouped = {}
++        for brick in bricks:
++            grouped.setdefault(getattr(brick, key) or "unknown", []).append(brick.to_dict())
++        for bucket, items in grouped.items():
++            out = base / f"{_bucket_name(bucket)}.json"
++            out.write_text(json.dumps(items, indent=2, ensure_ascii=False), encoding="utf-8")
++            outputs.append(str(out))
++    return outputs
++
++
++def _bucket_name(value: str) -> str:
++    sanitized = re.sub(r"[^a-zA-Z0-9_-]+", "-", value.strip())
++    sanitized = re.sub(r"-{2,}", "-", sanitized).strip("-")
++    return sanitized or "unknown"
+diff --git a/modules/memory_bricks/app/services/show_brick.py b/modules/memory_bricks/app/services/show_brick.py
+new file mode 100644
+index 0000000..cd2587d
+--- /dev/null
++++ b/modules/memory_bricks/app/services/show_brick.py
+@@ -0,0 +1,7 @@
++from __future__ import annotations
++
++from app.storage.markdown_store import load_brick_text
++
++
++def show_brick(brick_id: str) -> str:
++    return load_brick_text(brick_id)
+diff --git a/modules/memory_bricks/app/services/update_status.py b/modules/memory_bricks/app/services/update_status.py
+new file mode 100644
+index 0000000..f8478e4
+--- /dev/null
++++ b/modules/memory_bricks/app/services/update_status.py
+@@ -0,0 +1,17 @@
++from __future__ import annotations
++
++from app.core.constants import ALLOWED_STATUSES
++from app.renderers.brick_renderer import render_brick
++from app.storage.markdown_store import load_brick, overwrite_brick
++
++
++def update_status(brick_id: str, new_status: str) -> tuple[str, str]:
++    if new_status not in ALLOWED_STATUSES:
++        raise ValueError(f"Invalid status: {new_status}")
++    brick = load_brick(brick_id)
++    before = brick.status
++    brick.status = new_status
++    brick.validate()
++    content = render_brick(brick)
++    overwrite_brick(brick, content)
++    return before, brick.status
+diff --git a/modules/memory_bricks/app/storage/__init__.py b/modules/memory_bricks/app/storage/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/modules/memory_bricks/app/storage/index_store.py b/modules/memory_bricks/app/storage/index_store.py
+new file mode 100644
+index 0000000..c38baf5
+--- /dev/null
++++ b/modules/memory_bricks/app/storage/index_store.py
+@@ -0,0 +1 @@
++"""Reserved helper store for future richer index handling."""
+diff --git a/modules/memory_bricks/app/storage/markdown_store.py b/modules/memory_bricks/app/storage/markdown_store.py
+new file mode 100644
+index 0000000..152f733
+--- /dev/null
++++ b/modules/memory_bricks/app/storage/markdown_store.py
+@@ -0,0 +1,59 @@
++from __future__ import annotations
++
++from pathlib import Path
++
++from app.core.frontmatter import parse_frontmatter
++from app.core.paths import get_bricks_dir
++from app.schemas.brick_schema import BrickModel
++
++
++def _split_frontmatter(text: str) -> tuple[dict, str]:
++    if not text.startswith("---\n"):
++        raise ValueError("Markdown file missing frontmatter")
++    _, rest = text.split("---\n", 1)
++    front, body = rest.split("\n---\n", 1)
++    return parse_frontmatter(front), body.strip()
++
++def save_brick(brick: BrickModel, content: str, slug: str) -> Path:
++    out = get_bricks_dir() / f"{brick.id}__{slug}.md"
++    out.write_text(content, encoding="utf-8")
++    return out
++
++def _find_path(brick_id: str) -> Path:
++    matches = sorted(get_bricks_dir().glob(f"{brick_id}__*.md"))
++    if not matches:
++        raise FileNotFoundError(f"Brick not found: {brick_id}")
++    if len(matches) > 1:
++        raise ValueError(f"Multiple brick files found for {brick_id}")
++    return matches[0]
++
++def load_brick_text(brick_id: str) -> str:
++    return _find_path(brick_id).read_text(encoding="utf-8")
++
++def load_brick(brick_id: str) -> BrickModel:
++    text = load_brick_text(brick_id)
++    data, _ = _split_frontmatter(text)
++    brick = BrickModel(**data)
++    brick.validate()
++    return brick
++
++def overwrite_brick(brick: BrickModel, content: str) -> None:
++    path = _find_path(brick.id)
++    path.write_text(content, encoding="utf-8")
++
++def load_all_bricks() -> list[BrickModel]:
++    bricks = []
++    for path in sorted(get_bricks_dir().glob("MB-*.md")):
++        data, _ = _split_frontmatter(path.read_text(encoding="utf-8"))
++        brick = BrickModel(**data)
++        brick.validate()
++        bricks.append(brick)
++    return sorted(bricks, key=lambda brick: (brick.date, brick.id))
++
++def load_bricks_by_ids(ids: list[str]) -> list[BrickModel]:
++    unique_ids: list[str] = []
++    for brick_id in ids:
++        normalized = brick_id.strip()
++        if normalized and normalized not in unique_ids:
++            unique_ids.append(normalized)
++    return [load_brick(brick_id) for brick_id in unique_ids]
+diff --git a/modules/memory_bricks/app/storage/sequence_store.py b/modules/memory_bricks/app/storage/sequence_store.py
+new file mode 100644
+index 0000000..53e7946
+--- /dev/null
++++ b/modules/memory_bricks/app/storage/sequence_store.py
+@@ -0,0 +1 @@
++"""Reserved helper store for future richer sequence handling."""
+diff --git a/modules/memory_bricks/app/validators/__init__.py b/modules/memory_bricks/app/validators/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/modules/memory_bricks/app/validators/brick_validator.py b/modules/memory_bricks/app/validators/brick_validator.py
+new file mode 100644
+index 0000000..759f164
+--- /dev/null
++++ b/modules/memory_bricks/app/validators/brick_validator.py
+@@ -0,0 +1,7 @@
++from __future__ import annotations
++
++from app.schemas.brick_schema import BrickModel
++
++
++def validate_brick(brick: BrickModel) -> None:
++    brick.validate()
+diff --git a/modules/memory_bricks/app/validators/link_validator.py b/modules/memory_bricks/app/validators/link_validator.py
+new file mode 100644
+index 0000000..37cabd7
+--- /dev/null
++++ b/modules/memory_bricks/app/validators/link_validator.py
+@@ -0,0 +1,7 @@
++from __future__ import annotations
++
++from app.storage.markdown_store import load_brick
++
++
++def validate_link_target(brick_id: str) -> None:
++    load_brick(brick_id)
+diff --git a/modules/memory_bricks/config/memory_bricks.example.yaml b/modules/memory_bricks/config/memory_bricks.example.yaml
+new file mode 100644
+index 0000000..b8caafb
+--- /dev/null
++++ b/modules/memory_bricks/config/memory_bricks.example.yaml
+@@ -0,0 +1,6 @@
++state_root: /opt/trading/_state/memory_bricks
++timezone: America/Montreal
++allowed_targets:
++  - chatgpt
++  - claude
++  - generic
+diff --git a/modules/memory_bricks/docs/API_EVOLUTION_NOTES_V2.md b/modules/memory_bricks/docs/API_EVOLUTION_NOTES_V2.md
+new file mode 100644
+index 0000000..d47fdbc
+--- /dev/null
++++ b/modules/memory_bricks/docs/API_EVOLUTION_NOTES_V2.md
+@@ -0,0 +1,6 @@
++# API Evolution Notes V2
++
++Recommended next layer:
++- FastAPI wrapper around existing services
++- read-only routes first
++- no refactor of core storage required
+diff --git a/modules/memory_bricks/docs/CLOSEOUT_MEMORY_BRICKS_V1_IMPL_HARDEN_01.md b/modules/memory_bricks/docs/CLOSEOUT_MEMORY_BRICKS_V1_IMPL_HARDEN_01.md
+new file mode 100644
+index 0000000..d329ff3
+--- /dev/null
++++ b/modules/memory_bricks/docs/CLOSEOUT_MEMORY_BRICKS_V1_IMPL_HARDEN_01.md
+@@ -0,0 +1,7 @@
++# CLOSEOUT MEMORY_BRICKS V1 IMPL HARDEN 01
++
++- etat de depart: bootstrap injecte sur `feat/memory-bricks-v1-impl-harden` depuis `8195cdf`, module absent avant extraction
++- durcissements appliques: suppression de la dependance `yaml`, validation stricte `BrickModel`, sequence robuste, state root local configurable, link/status/index/export/merge/handoff fiabilises
++- validation reelle attendue dans cette passe: CLI locale, `sanity_check.sh`, tests `unittest`
++- limites restantes: pas d'API active, pas de LocalCMS, pas d'import navigateur/mobile/cloud
++- point de reprise naturel: `GO_MEMORY_BRICKS_V1_TESTS_HARDEN_02`
+diff --git a/modules/memory_bricks/docs/LOCALCMS_INTEGRATION_NOTES_V1.md b/modules/memory_bricks/docs/LOCALCMS_INTEGRATION_NOTES_V1.md
+new file mode 100644
+index 0000000..3a782c8
+--- /dev/null
++++ b/modules/memory_bricks/docs/LOCALCMS_INTEGRATION_NOTES_V1.md
+@@ -0,0 +1,8 @@
++# LocalCMS Integration Notes V1
++
++Reserved contract:
++- consume index_full.json
++- consume index_short.md
++- consume per-brick JSON export if needed
++
++LocalCMS must remain a consumer, not the source of truth.
+diff --git a/modules/memory_bricks/docs/SPEC_MEMORY_BRICKS_V1.md b/modules/memory_bricks/docs/SPEC_MEMORY_BRICKS_V1.md
+new file mode 100644
+index 0000000..6f9ab5d
+--- /dev/null
++++ b/modules/memory_bricks/docs/SPEC_MEMORY_BRICKS_V1.md
+@@ -0,0 +1,7 @@
++# SPEC MEMORY_BRICKS V1
++
++- module durable local, source de verite sous `_state/memory_bricks`
++- interface V1: `cmd.sh`, `menu.sh`, `sanity_check.sh`, wrappers installables
++- commandes prises en charge: `new`, `list`, `show`, `status`, `link`, `index rebuild`, `export`, `merge`, `handoff`
++- frontmatter stable sans dependance externe, ID `MB-00001`, statuts/types figes
++- LocalCMS, UI, API active, cloud, mobile: hors perimetre V1
+diff --git a/modules/memory_bricks/docs/WORKFLOW_MEMORY_BRICKS_V1.md b/modules/memory_bricks/docs/WORKFLOW_MEMORY_BRICKS_V1.md
+new file mode 100644
+index 0000000..06e6453
+--- /dev/null
++++ b/modules/memory_bricks/docs/WORKFLOW_MEMORY_BRICKS_V1.md
+@@ -0,0 +1,7 @@
++# WORKFLOW MEMORY_BRICKS V1
++
++1. creer une brique via `cmd-memory_bricks new`
++2. relire via `list` ou `show`, puis ajuster `status` ou `link`
++3. reconstruire les index via `index rebuild`
++4. produire `export`, `merge` ou `handoff` selon le besoin de reprise
++5. utiliser LocalCMS plus tard comme surface de lecture, jamais comme source V1
+diff --git a/modules/memory_bricks/scripts/api_v2.sh b/modules/memory_bricks/scripts/api_v2.sh
+new file mode 100755
+index 0000000..bab1a82
+--- /dev/null
++++ b/modules/memory_bricks/scripts/api_v2.sh
+@@ -0,0 +1,30 @@
++#!/usr/bin/env bash
++set -euo pipefail
++
++SOURCE_PATH="${BASH_SOURCE[0]}"
++while [ -h "${SOURCE_PATH}" ]; do
++  SOURCE_DIR="$(cd -P "$(dirname "${SOURCE_PATH}")" && pwd)"
++  LINK_TARGET="$(readlink "${SOURCE_PATH}")"
++  if [[ "${LINK_TARGET}" != /* ]]; then
++    SOURCE_PATH="${SOURCE_DIR}/${LINK_TARGET}"
++  else
++    SOURCE_PATH="${LINK_TARGET}"
++  fi
++done
++
++SCRIPT_DIR="$(cd -P "$(dirname "${SOURCE_PATH}")" && pwd)"
++MODULE_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
++PORT="${MEMORY_BRICKS_API_V2_PORT:-8112}"
++HOST="${MEMORY_BRICKS_API_V2_HOST:-127.0.0.1}"
++
++echo "Starting memory_bricks API V2 (read-only) on ${HOST}:${PORT}"
++echo "Source root: ${MEMORY_BRICKS_STATE_ROOT:-_state/memory_bricks}"
++echo ""
++echo "Endpoints:"
++echo "  GET http://${HOST}:${PORT}/health"
++echo "  GET http://${HOST}:${PORT}/status"
++echo ""
++echo "Press Ctrl+C to stop."
++echo ""
++
++python3 "${MODULE_DIR}/app/api_v2_server.py"
+diff --git a/modules/memory_bricks/scripts/cmd.sh b/modules/memory_bricks/scripts/cmd.sh
+new file mode 100755
+index 0000000..7f67a8f
+--- /dev/null
++++ b/modules/memory_bricks/scripts/cmd.sh
+@@ -0,0 +1,7 @@
++#!/usr/bin/env bash
++set -euo pipefail
++
++MODULE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
++export PYTHONPATH="${MODULE_DIR}:${PYTHONPATH:-}"
++
++python3 "${MODULE_DIR}/app/cli.py" "$@"
+diff --git a/modules/memory_bricks/scripts/install_shortcuts.sh b/modules/memory_bricks/scripts/install_shortcuts.sh
+new file mode 100755
+index 0000000..5ffff5d
+--- /dev/null
++++ b/modules/memory_bricks/scripts/install_shortcuts.sh
+@@ -0,0 +1,14 @@
++#!/usr/bin/env bash
++set -euo pipefail
++
++MODULE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
++BIN_DIR="/usr/local/bin"
++
++sudo ln -sf "${MODULE_DIR}/scripts/cmd.sh" "${BIN_DIR}/cmd-memory_bricks"
++sudo ln -sf "${MODULE_DIR}/scripts/menu.sh" "${BIN_DIR}/menu-memory_bricks"
++sudo ln -sf "${MODULE_DIR}/scripts/sanity_check.sh" "${BIN_DIR}/sanity-memory_bricks"
++
++echo "Installed shortcuts:"
++echo "- ${BIN_DIR}/cmd-memory_bricks"
++echo "- ${BIN_DIR}/menu-memory_bricks"
++echo "- ${BIN_DIR}/sanity-memory_bricks"
+diff --git a/modules/memory_bricks/scripts/menu.sh b/modules/memory_bricks/scripts/menu.sh
+new file mode 100755
+index 0000000..5122598
+--- /dev/null
++++ b/modules/memory_bricks/scripts/menu.sh
+@@ -0,0 +1,31 @@
++#!/usr/bin/env bash
++set -euo pipefail
++
++MODULE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
++CMD="${MODULE_DIR}/scripts/cmd.sh"
++
++echo "== memory_bricks menu =="
++echo "1) Create demo brick"
++echo "2) List bricks"
++echo "3) Rebuild index"
++echo "4) Run sanity"
++read -rp "Choice: " choice
++
++case "${choice}" in
++  1)
++    "${CMD}" new --type resume_point --title "Demo brick" --ia chatgpt --machine admin-trading --surface terminal_linux --project opt-trading --module memory_bricks --status open --summary-short "Demo brick for bootstrap." --resume-point "Inspect generated file."
++    ;;
++  2)
++    "${CMD}" list
++    ;;
++  3)
++    "${CMD}" index rebuild
++    ;;
++  4)
++    "${MODULE_DIR}/scripts/sanity_check.sh"
++    ;;
++  *)
++    echo "Invalid choice"
++    exit 1
++    ;;
++esac
+diff --git a/modules/memory_bricks/scripts/sanity_check.sh b/modules/memory_bricks/scripts/sanity_check.sh
+new file mode 100755
+index 0000000..72a6ab5
+--- /dev/null
++++ b/modules/memory_bricks/scripts/sanity_check.sh
+@@ -0,0 +1,39 @@
++#!/usr/bin/env bash
++set -euo pipefail
++
++MODULE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
++CMD="${MODULE_DIR}/scripts/cmd.sh"
++TMP_ROOT="$(mktemp -d)"
++trap 'rm -rf "${TMP_ROOT}"' EXIT
++
++export MEMORY_BRICKS_STATE_ROOT="${TMP_ROOT}/state"
++
++for rel in app config scripts templates docs tests; do
++  [ -e "${MODULE_DIR}/${rel}" ] || { echo "FAIL: missing ${rel}"; exit 2; }
++done
++
++out_a="$(${CMD} new --type resume_point --title "Sanity source" --ia chatgpt --machine student --surface terminal_linux --project opt-trading --module memory_bricks --status resumed --summary-short "Sanity source brick." --resume-point "Continue sanity." --tags sanity,test --decisions "Keep V1 local" --todo "Run full sanity")"
++out_b="$(${CMD} new --type reference --title "Sanity target" --ia claude --machine student --surface terminal_linux --project opt-trading --module memory_bricks --status open --summary-short "Sanity target brick." --resume-point "Use second brick for link.")"
++
++brick_a="$(printf '%s\n' "${out_a}" | awk -F': ' '/^CREATED:/ {print $2}')"
++brick_b="$(printf '%s\n' "${out_b}" | awk -F': ' '/^CREATED:/ {print $2}')"
++[ -n "${brick_a}" ] && [ -n "${brick_b}" ]
++
++${CMD} show --id "${brick_a}" >/dev/null
++${CMD} status --id "${brick_a}" --set closed >/dev/null
++${CMD} link --id "${brick_a}" --to "${brick_b}" >/dev/null
++${CMD} index rebuild >/dev/null
++
++txt_export="$(${CMD} export --ids "${brick_a},${brick_b}" --format txt | awk '/^ / {print $1}')"
++json_export="$(${CMD} export --ids "${brick_a},${brick_b}" --format json | awk '/^ / {print $1}')"
++merge_export="$(${CMD} merge --ids "${brick_a},${brick_b}" | awk '/^ / {print $1}')"
++handoff_export="$(${CMD} handoff --ids "${brick_a},${brick_b}" --target claude | awk '/^ / {print $1}')"
++
++[ -f "${MEMORY_BRICKS_STATE_ROOT}/index/index_short.md" ] || { echo "FAIL: missing index_short.md"; exit 2; }
++[ -f "${MEMORY_BRICKS_STATE_ROOT}/index/index_full.json" ] || { echo "FAIL: missing index_full.json"; exit 2; }
++[ -f "${txt_export}" ] || { echo "FAIL: missing txt export"; exit 2; }
++[ -f "${json_export}" ] || { echo "FAIL: missing json export"; exit 2; }
++[ -f "${merge_export}" ] || { echo "FAIL: missing merge export"; exit 2; }
++[ -f "${handoff_export}" ] || { echo "FAIL: missing handoff export"; exit 2; }
++
++echo "PASS: memory_bricks sanity OK"
+diff --git a/modules/memory_bricks/templates/brick.md b/modules/memory_bricks/templates/brick.md
+new file mode 100644
+index 0000000..6acd874
+--- /dev/null
++++ b/modules/memory_bricks/templates/brick.md
+@@ -0,0 +1,43 @@
++---
++id: {{id}}
++title: "{{title}}"
++date: "{{date}}"
++timezone: "{{timezone}}"
++type: "{{type}}"
++status: "{{status}}"
++ia: "{{ia}}"
++machine: "{{machine}}"
++surface: "{{surface}}"
++project: "{{project}}"
++module: "{{module}}"
++summary_short: "{{summary_short}}"
++resume_point: "{{resume_point}}"
++links: {{links}}
++tags: {{tags}}
++repo: "{{repo}}"
++branch: "{{branch}}"
++path: "{{path}}"
++source_ref: {{source_ref}}
++canonical_ref: {{canonical_ref}}
++real_state_ref: {{real_state_ref}}
++validated_by: "{{validated_by}}"
++decisions: {{decisions}}
++todo: {{todo}}
++---
++
++# {{id}} ÔÇö {{title}}
++
++## R├®sum├® court
++{{summary_short}}
++
++## D├®cisions
++{{decisions_md}}
++
++## TODO
++{{todo_md}}
++
++## Reprise
++{{resume_point}}
++
++## Liens
++{{links_md}}
+diff --git a/modules/memory_bricks/templates/closeout.md b/modules/memory_bricks/templates/closeout.md
+new file mode 100644
+index 0000000..620cc5e
+--- /dev/null
++++ b/modules/memory_bricks/templates/closeout.md
+@@ -0,0 +1 @@
++Same structure as brick.md but intended for type=closeout.
+diff --git a/modules/memory_bricks/templates/handoff.md b/modules/memory_bricks/templates/handoff.md
+new file mode 100644
+index 0000000..cf98ccb
+--- /dev/null
++++ b/modules/memory_bricks/templates/handoff.md
+@@ -0,0 +1 @@
++Handoff template placeholder for future richer renderers.
+diff --git a/modules/memory_bricks/templates/session.md b/modules/memory_bricks/templates/session.md
+new file mode 100644
+index 0000000..d77fef2
+--- /dev/null
++++ b/modules/memory_bricks/templates/session.md
+@@ -0,0 +1 @@
++Same structure as brick.md but intended for type=session.
+diff --git a/modules/memory_bricks/tests/test_memory_bricks.py b/modules/memory_bricks/tests/test_memory_bricks.py
+new file mode 100644
+index 0000000..26a66d6
+--- /dev/null
++++ b/modules/memory_bricks/tests/test_memory_bricks.py
+@@ -0,0 +1,145 @@
++from __future__ import annotations
++
++import os
++from pathlib import Path
++import subprocess
++import sys
++import tempfile
++import unittest
++
++
++MODULE_DIR = Path(__file__).resolve().parents[1]
++if str(MODULE_DIR) not in sys.path:
++    sys.path.insert(0, str(MODULE_DIR))
++
++from app.schemas.brick_schema import BrickModel
++from app.services.create_brick import create_brick
++from app.services.export_bricks import export_bricks
++from app.services.handoff_bricks import handoff_bricks
++from app.services.link_bricks import link_bricks
++from app.services.list_bricks import list_bricks
++from app.services.merge_bricks import merge_bricks
++from app.services.rebuild_index import rebuild_index
++from app.services.show_brick import show_brick
++from app.services.update_status import update_status
++
++
++class MemoryBricksTestCase(unittest.TestCase):
++    def setUp(self) -> None:
++        self.tmpdir = tempfile.TemporaryDirectory()
++        os.environ["MEMORY_BRICKS_STATE_ROOT"] = str(Path(self.tmpdir.name) / "state")
++
++    def tearDown(self) -> None:
++        os.environ.pop("MEMORY_BRICKS_STATE_ROOT", None)
++        self.tmpdir.cleanup()
++
++    def create_sample(self, **overrides):
++        payload = {
++            "brick_type": "resume_point",
++            "title": "Sample Brick",
++            "ia": "chatgpt",
++            "machine": "student",
++            "surface": "terminal_linux",
++            "project": "opt-trading",
++            "module_name": "memory_bricks",
++            "status": "resumed",
++            "summary_short": "Short summary.",
++            "resume_point": "Continue here.",
++            "tags": ["memory", "test"],
++        }
++        payload.update(overrides)
++        return create_brick(**payload)
++
++    def test_brick_model_validate(self) -> None:
++        brick = BrickModel(
++            id="MB-00001",
++            title="Test",
++            date="2026-03-25T10:00:00-04:00",
++            type="reference",
++            status="draft",
++            ia="chatgpt",
++            machine="student",
++            surface="terminal_linux",
++            project="opt-trading",
++            module="memory_bricks",
++            summary_short="hello",
++            resume_point="next",
++            links=["MB-00002"],
++        )
++        brick.validate()
++
++    def test_create_list_show_status_and_link(self) -> None:
++        first = self.create_sample(title="First Brick")
++        second = self.create_sample(title="Second Brick", brick_type="reference", status="open", ia="claude")
++
++        rows = list_bricks({"status": "", "type": "", "project": "", "module": "", "machine": "", "ia": "", "surface": "", "tag": ""})
++        self.assertEqual(len(rows), 2)
++        self.assertIn(first["id"], rows[0])
++
++        before, after = update_status(first["id"], "closed")
++        self.assertEqual(before, "resumed")
++        self.assertEqual(after, "closed")
++
++        link_bricks(first["id"], second["id"])
++        content = show_brick(first["id"])
++        self.assertIn(second["id"], content)
++        self.assertIn('status: "closed"', content)
++
++    def test_rebuild_export_merge_and_handoff(self) -> None:
++        first = self.create_sample(title="First Brick", decisions=["Keep V1 local"], todo=["Write tests"])
++        second = self.create_sample(title="Second Brick", brick_type="decision", ia="claude", decisions=["Keep V1 local", "Expose handoff"], todo=["Write docs"], summary_short="Second summary.")
++
++        outputs = rebuild_index()
++        self.assertTrue(any(path.endswith("index_short.md") for path in outputs))
++        self.assertTrue(any(path.endswith("index_full.json") for path in outputs))
++
++        txt_path = Path(export_bricks([first["id"], second["id"]], "txt"))
++        json_path = Path(export_bricks([first["id"], second["id"]], "json"))
++        md_path = Path(export_bricks([first["id"], second["id"]], "md"))
++        merge_path = Path(merge_bricks([first["id"], second["id"]]))
++        handoff_path = Path(handoff_bricks([first["id"], second["id"]], "claude"))
++
++        self.assertTrue(txt_path.is_file())
++        self.assertTrue(json_path.is_file())
++        self.assertTrue(md_path.is_file())
++        self.assertTrue(merge_path.is_file())
++        self.assertTrue(handoff_path.is_file())
++        self.assertIn("Keep V1 local", merge_path.read_text(encoding="utf-8"))
++        self.assertIn("HANDOFF CLAUDE", handoff_path.read_text(encoding="utf-8"))
++
++    def test_cli_end_to_end(self) -> None:
++        env = os.environ.copy()
++        cmd = [
++            "bash",
++            str(MODULE_DIR / "scripts" / "cmd.sh"),
++            "new",
++            "--type",
++            "resume_point",
++            "--title",
++            "CLI Brick",
++            "--ia",
++            "chatgpt",
++            "--machine",
++            "student",
++            "--surface",
++            "terminal_linux",
++            "--project",
++            "opt-trading",
++            "--module",
++            "memory_bricks",
++            "--status",
++            "resumed",
++            "--summary-short",
++            "CLI summary.",
++            "--resume-point",
++            "CLI continue.",
++        ]
++        created = subprocess.run(cmd, check=True, capture_output=True, text=True, env=env)
++        self.assertIn("CREATED: MB-00001", created.stdout)
++
++        listed = subprocess.run(["bash", str(MODULE_DIR / "scripts" / "cmd.sh"), "list"], check=True, capture_output=True, text=True, env=env)
++        self.assertIn("MB-00001", listed.stdout)
++
++
++if __name__ == "__main__":
++    unittest.main()

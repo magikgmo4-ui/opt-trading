@@ -1,0 +1,6 @@
+A	docs/COLLECTORS_DERIVATIVES_MAPPING_01.md
+A	docs/COLLECTORS_LIFECYCLE_COMPAT_SCOPE_01.md
+A	docs/COLLECTORS_LIFECYCLE_COMPAT_SPEC_01.md
+A	modules/derivatives_collector/app/lifecycle_compat.py
+A	modules/derivatives_collector/docs/LIFECYCLE_COMPAT_01.md
+A	modules/derivatives_collector/scripts/lifecycle_compat.sh
