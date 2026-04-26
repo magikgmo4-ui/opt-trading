@@ -42,9 +42,11 @@ Certaines zones du repo divergent de la structure modulaire standard pour des ra
 - **Note** : Voir `docs/ot/reports/OT_OPS_04B_FREEZE_REPORT.md`.
 
 ### B. Reseau SSH (EXCEPTION)
-- **Runtime Actif** : `scripts/reseau_ssh/` (Contient `reseau_ssh_cmd.sh`).
-- **Module Source** : `modules/reseau_ssh/` (Archive/Source théorique).
-- **Action** : Utiliser `scripts/reseau_ssh/` pour les opérations réseau.
+- **Module Canonique** : `modules/reseau_ssh/`.
+- **Legacy rollback-only** : `scripts/reseau_ssh/`.
+- **Entrées Courtes Publiées** : `menu-reseau_ssh`, `cmd-reseau_ssh`, `sanity-reseau_ssh` -> `modules/reseau_ssh/scripts/*`.
+- **Wrappers racine historiques** : archivés sous `_archive/legacy_modules/reseau_ssh_root_wrappers_legacy/`.
+- **Action** : utiliser le canonique `modules/reseau_ssh/`; `bootstrap`, `ssh-hardening-safe`, `ssh-lockdown`, le `deep sanity` et les commandes legacy WireGuard ne dépendent plus de `scripts/reseau_ssh/` côté façade canonique.
 
 ### C. Runtime Layers (VALIDE)
 Les dossiers suivants sont des couches d'intégration machine valides, pas des modules :

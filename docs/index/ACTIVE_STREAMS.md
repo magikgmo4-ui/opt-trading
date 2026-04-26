@@ -16,7 +16,7 @@ surface: chantier
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 point_de_reprise: "Section Flux actifs"
-updated_at: 2026-04-24
+updated_at: 2026-04-25
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/index/GO_INDEX.md
@@ -162,9 +162,9 @@ Il sert à :
 - statut : open
 - repo : opt-trading
 - branche : non précisée dans `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md`
-- dernier point établi : survivant canonique confirmé `modules/reseau_ssh_step2`, avec `step1b` conservé comme prérequis intermédiaire à ce stade
-- prochaine action : exécuter le lot audit détaillé de la famille dans ce même GO, sans relancer un audit global du parc
-- blocages : il reste à produire la preuve détaillée du survivant réel, la classification explicite de chaque sibling et le correctif minimal de structure / doc / liens si nécessaire
+- dernier point établi : `db-layer`, `admin-trading`, `student` et `fantome` pointent maintenant leurs alias courts vers `modules/reseau_ssh/scripts/*` avec PASS ; `scripts/reseau_ssh` et `step1b` restent en compat
+- prochaine action : ouvrir le lot suivant de réduction de compatibilité sur `scripts/reseau_ssh`, puis qualifier `step1b`
+- blocages : ne pas retirer `scripts/reseau_ssh` ni `step1b` avant coupe explicite des usages de rollback / compat
 
 ### GO_TMUX_IDE_OPT_TRADING_CADRAGE_01
 - statut : active

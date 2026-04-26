@@ -11,8 +11,9 @@ Ce répertoire racine est conservé comme point d'entrée de statut pour la fami
 - `modules/reseau_ssh_step1b/modules/reseau_ssh/reseau_ssh_step1b/README.md`
 
 ## Continuité de famille
-- legacy / doc pré-step : `modules/reseau_ssh/`
-- survivant canonique de la famille : `modules/reseau_ssh_step2/`
+- legacy / doc pré-step : `_archive/legacy_modules/reseau_ssh_step1`
+- module canonique de la famille : `modules/reseau_ssh/`
+- statut cible : `compat_temporaire`
 
 ## Frontière de suite
 - `reseau_ssh_step1b` prépare la baseline SSH

@@ -1,10 +1,15 @@
 # reseau_ssh — Step 1b (Apply: hosts + ssh config + key tests)
 
 ## Family status (reseau_ssh*)
-- Not the canonical survivor anymore (active continuity moved to `reseau_ssh_step2`)
+- Not the canonical surface anymore (active continuity moved to top-level `reseau_ssh`)
 - Kept as a useful prerequisite for Step 2 (bootstrap SSH on Linux + Windows)
-- Legacy / doc pre-step: `reseau_ssh` (step1)
+- Legacy / doc pre-step: `_archive/legacy_modules/reseau_ssh_step1`
 - Reference decision: `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md`
+
+## Current classification
+- `compat_temporaire`
+- not a valid final survivor
+- retained only while baseline hosts/ssh/hostname capabilities are still needed before full absorption or retirement
 
 Linux:
 - Safely installs/updates:
