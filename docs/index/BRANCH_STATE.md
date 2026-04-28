@@ -16,7 +16,7 @@ surface: index
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 point_de_reprise: "Section Tableau canonique"
-updated_at: 2026-04-24
+updated_at: 2026-04-28
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md
@@ -193,3 +193,6 @@ Pour toute nouvelle session de housekeeping :
 - Branch: wip/GO_GITHUB_PARK_AUDIT_EXPANSION_ISOLATE_01 | local: LOCAL_ABSENT | remote: REMOTE_ABSENT
 
 Note: Si une suppression distante échoue pour des credentials, elle est notée comme DELETE_ATTEMPTED_NOT_CONFIRMED et ne doit pas être présentée comme supprimée dans BRANCH_STATE.md.
+
+## Journal post-merge OpenClaw
+- 2026-04-28 — GO_OPENCLAW_POST_MERGE_BRANCH_STATE_CLEANUP_01 : branche codex/openclaw-family-consolidation-01 supprimée localement et à distance après merge de PR #167 / GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01; aucune ligne active ne doit être recréée pour cette branche. Les branches satellites OpenClaw laissées de côté restent hors périmètre.
