@@ -1,0 +1,19 @@
+ .../README_BUNDLE.md                               | 103 +++++
+ .../bundle_meta/manifest.json                      |  46 +++
+ .../checklists/CHECKLIST_EXECUTION.md              |  61 +++
+ .../prompts/GO_PROMPT_01_CADRAGE_CHILD.md          |  50 +++
+ .../prompts/GO_PROMPT_02_STUDENT_MACHINE_FACTS.md  |  45 ++
+ .../prompts/GO_PROMPT_03_OLLAMA_API_TESTS.md       |  54 +++
+ .../prompts/GO_PROMPT_04_OPENAI_COMPAT_OPENCLAW.md |  54 +++
+ .../GO_PROMPT_05_RAG_READONLY_AND_GO_REPRISE.md    |  60 +++
+ .../00_PARENT_CADRAGE.md                           | 236 +++++++++++
+ .../01_BUNDLE_STORAGE_METHOD.md                    | 217 ++++++++++
+ .../02_BUNDLE_RETRIEVAL_METHOD.md                  | 224 ++++++++++
+ .../03_MATRIX_ADDITION_PROPOSAL.md                 | 173 ++++++++
+ .../04A_DEPLOY_BUNDLE_IMPLEMENTATION_ADDENDUM.md   | 205 +++++++++
+ .../04_BUNDLE_IMPLEMENTATION_METHOD.md             | 456 +++++++++++++++++++++
+ .../05_CROSSCHECK_DEPLOY_MODULE_MULTI_MACHINE.md   | 352 ++++++++++++++++
+ .../06_REAL_USE_RUNBOOK_DEPLOY_BUNDLE.md           | 242 +++++++++++
+ .../90_PARENT_CHECKPOINT.md                        | 276 +++++++++++++
+ ...G_BUNDLES_REPO_STORAGE_PARENT_01_INDEX_ENTRY.md |  69 ++++
+ 18 files changed, 2923 insertions(+)

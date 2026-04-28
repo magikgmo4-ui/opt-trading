@@ -1,0 +1,16 @@
+ .../GO_PROMPT_01_IMPLEMENT_MODULE.md               |  32 ++
+ .../GO_PROMPT_02_VALIDATE_MODULE.md                |  13 +
+ .../README_BUNDLE.md                               | 102 +++++++
+ .../manifest.json                                  |  25 ++
+ .../00_INITIAL_PROJECT_DOC.md                      | 162 ++++++++++
+ .../01_RESEARCH_SYNTHESIS.md                       | 141 +++++++++
+ .../02_INTEGRATION_ARCHITECTURE.md                 |  53 ++++
+ .../03_AIRTABLE_SCHEMA_TRADING_JOURNAL_V1.md       |  58 ++++
+ .../04_PRODUCT_FINISH_PLAN.md                      | 279 +++++++++++++++++
+ .../05_IMPLEMENTATION_SPEC.md                      |  66 ++++
+ .../06_INDEXATION_STATUS.md                        |  53 ++++
+ .../07_RESUME_POINT_CANONICAL.md                   | 183 +++++++++++
+ .../08_SESSION_INDEPENDENT_REPRISE.md              | 335 +++++++++++++++++++++
+ .../09_BUNDLE_REPRISE.md                           |  11 +
+ docs/index/BRANCH_STATE.md                         |  55 ++++
+ 15 files changed, 1568 insertions(+)

@@ -1,0 +1,13 @@
+ .../00_INITIAL_PROJECT_DOC.md                      | 75 ++++++++++++++++++++++
+ .../BRANCH_STATE.md                                | 23 +++++++
+ .../00_README_EXECUTION.txt                        | 24 +++++++
+ .../CLICKUP_IMPLEMENTATION_BUNDLE_V1/01_SCHEMA.txt | 60 +++++++++++++++++
+ .../02_TEMPLATE.txt                                | 28 ++++++++
+ .../03_IMPORT_MAPPING.csv                          |  2 +
+ .../04_CHECKLIST.txt                               | 10 +++
+ .../05_DASHBOARD.txt                               |  7 ++
+ .../06_SYNC_RULES.txt                              | 16 +++++
+ .../07_GO_PROMPT_EXECUTION.txt                     | 24 +++++++
+ .../CLICKUP_IMPLEMENTATION_BUNDLE_V1/INDEX.md      | 21 ++++++
+ .../GAP_INDEXATION.md                              | 23 +++++++
+ 12 files changed, 313 insertions(+)

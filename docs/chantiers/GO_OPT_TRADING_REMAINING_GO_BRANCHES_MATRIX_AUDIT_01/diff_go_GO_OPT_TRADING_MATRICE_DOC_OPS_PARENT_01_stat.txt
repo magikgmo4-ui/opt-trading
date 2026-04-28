@@ -1,0 +1,20 @@
+ .../PROJECT_SNAPSHOT_GLOBAL_2026-04-18.md          |  31 ++++-
+ .../01_cadrage_parent.md                           |  13 +-
+ .../02_alignment_surfaces_proches.md               | 145 +++++++++++++++++++++
+ docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md |  30 +++++
+ docs/index/BRANCH_STATE.md                         |  13 +-
+ docs/next/NEXT_GO_CANDIDATES.md                    |  14 +-
+ .../PROJECT_CARD_BOT_VISION_INGESTION_01.md        |  29 +++++
+ docs/ot/project_cards/PROJECT_CARD_DESKPRO_01.md   |  29 +++++
+ .../PROJECT_CARD_MODULE_CONTEXTUALS_SHELL_01.md    |  29 +++++
+ docs/ot/project_cards/PROJECT_CARD_OPENCLAW_01.md  |  29 +++++
+ .../PROJECT_CARD_TRADING_ANALYTICS_CHAIN_01.md     |  29 +++++
+ .../PROJECT_CARD_VALIDATED_PROMPT_FACTORY_01.md    |  29 +++++
+ .../GO_PRODUCT_TARGET_CANONIZATION_01_DECISION.md  |  29 +++++
+ docs/product_targets/RUNTIME_TO_TARGET_MAPPING.md  |  29 +++++
+ docs/status/bot_vision_canonique.md                |  28 ++++
+ docs/status/deepseek_student_canonique.md          |  28 ++++
+ docs/status/desk_pro_stack_canonique.md            |  28 ++++
+ docs/status/reseau_ssh_canonique.md                |  28 ++++
+ docs/status/workflow_post_change_canonique.md      |  28 ++++
+ 19 files changed, 609 insertions(+), 9 deletions(-)

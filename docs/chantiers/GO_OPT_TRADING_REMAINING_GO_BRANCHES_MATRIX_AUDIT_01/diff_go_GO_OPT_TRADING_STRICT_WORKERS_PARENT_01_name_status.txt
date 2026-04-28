@@ -1,0 +1,14 @@
+A	docs/agents/strict_workers/MODELS_MATRIX_01.md
+A	docs/agents/strict_workers/MODEL_ID_VALIDATION_01.md
+A	docs/agents/strict_workers/OPENCODE_ZEN_MODEL_ID_AUDIT_01.md
+A	docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md
+A	docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01/00_INITIAL_PROJECT_DOC.md
+A	docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01/01_PROGRESS_MODEL_VALIDATION_AND_SMOKE_PACKET.md
+A	docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01/02_READONLY_SMOKE_EXEC_REPORT.md
+A	docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01/03_READONLY_SMOKE_VALIDATION.md
+A	docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01/BRANCH_STATE.md
+A	docs/index/inbox/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01.md
+A	reports/ai/workers/GO_STRICT_WORKERS_READONLY_SMOKE_01.md
+A	scripts/ai/workers/job_packets/GO_STRICT_WORKERS_READONLY_SMOKE_01.json
+A	scripts/ai/workers/models.registry.json
+A	scripts/ai/workers/tasks.index.json

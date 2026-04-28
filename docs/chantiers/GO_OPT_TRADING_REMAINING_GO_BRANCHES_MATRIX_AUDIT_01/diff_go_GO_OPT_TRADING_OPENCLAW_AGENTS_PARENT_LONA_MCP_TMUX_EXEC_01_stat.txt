@@ -1,0 +1,5 @@
+ .../00_PARENT_CHECKPOINT.md                        | 175 +++++++++++++++++++++
+ .../01_SESSION_DOCUMENTATION_INTEGRALE.md          |  23 +++
+ .../17_RESUME_POINT.md                             |  64 ++++++++
+ .../README_BUNDLE.md                               |  74 +++++++++
+ 4 files changed, 336 insertions(+)

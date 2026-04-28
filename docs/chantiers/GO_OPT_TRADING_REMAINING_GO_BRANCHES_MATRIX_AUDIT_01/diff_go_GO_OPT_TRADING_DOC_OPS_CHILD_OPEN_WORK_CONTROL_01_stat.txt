@@ -1,0 +1,125 @@
+ .../reseau_ssh_root_wrappers_legacy/README.md      |  27 ++
+ .../reseau_ssh_cmd.sh                              |   0
+ .../reseau_ssh_menu.sh                             |   0
+ _archive/legacy_modules/reseau_ssh_step1/README.md |  21 ++
+ .../modules/reseau_ssh/reseau_ssh_step1/README.md  |   0
+ .../reseau_ssh_step1/docs/FIREWALL_PLAN.md         |   0
+ .../reseau_ssh_step1/docs/HOSTNAME_POLICY.md       |   0
+ .../reseau_ssh/reseau_ssh_step1/docs/SHORTCUTS.md  |   0
+ .../reseau_ssh_step1/docs/WIREGUARD_PLAN.md        |   0
+ .../reseau_ssh/reseau_ssh_step1/docs/WORKFLOW.md   |   0
+ .../modules/reseau_ssh/reseau_ssh_step1/hosts.yaml |   0
+ .../reseau_ssh_step1/scripts/reseau_ssh_cmd.sh     |   0
+ .../reseau_ssh_step1/scripts/reseau_ssh_menu.sh    |   0
+ .../scripts/sanity_check_reseau_ssh.sh             |   0
+ .../reseau_ssh_step1/templates/ssh_config.template |   0
+ .../00_cadrage.md                                  | 206 +++++++++++++
+ .../01_open_work_inventory.md                      | 130 ++++++++
+ .../02_decisions.md                                |  73 +++++
+ .../03_branch_arbitrage_seed.md                    | 118 +++++++
+ .../BRANCH_STATE.md                                |  60 ++++
+ .../00_cadrage.md                                  |  73 +++++
+ .../01_grille_decision.md                          | 126 ++++++++
+ .../02_plan_operationnel_step_by_step.md           |  63 ++++
+ .../03_priorisation_familles.md                    |  81 +++++
+ .../00_cadrage.md                                  |  71 +++++
+ .../01_inventaire_et_classement_initial.md         |  77 +++++
+ .../02_plan_operationnel_step_by_step.md           |  61 ++++
+ .../03_points_durs.md                              |  57 ++++
+ .../04_step_02_audit_blocage_runtime.md            |  74 +++++
+ .../05_step_03_decision_convergence.md             |  62 ++++
+ .../00_cadrage.md                                  |  56 ++++
+ .../01_plan_operationnel_step_by_step.md           |  52 ++++
+ .../02_step_01_surface_autorisee.md                |  53 ++++
+ .../03_step_02_impl_facade.md                      |  69 +++++
+ .../04_step_03_validation_repo_side.md             |  43 +++
+ .../05_step_04_prepare_commits_pr.md               |  63 ++++
+ .../00_cadrage.md                                  |  50 +++
+ .../01_plan_operationnel_step_by_step.md           |  55 ++++
+ .../02_step_01_move_execution.md                   |  40 +++
+ .../03_step_02_registry_alignment.md               |  46 +++
+ .../04_step_03_active_docs_alignment.md            |  50 +++
+ .../05_step_04_prepare_commits_pr.md               |  63 ++++
+ .../00_cadrage.md                                  |  62 ++++
+ .../01_matrice_commandes.md                        |  54 ++++
+ .../02_plan_operationnel_step_by_step.md           |  59 ++++
+ .../03_prepare_commits_pr.md                       |  58 ++++
+ .../04_step_02_arbitrage_commandes.md              |  87 ++++++
+ .../05_step_03_patch_repo_side.md                  |  50 +++
+ .../06_step_04_cut_deprecated_delegations.md       |  55 ++++
+ .../00_cadrage.md                                  |  69 +++++
+ .../01_plan_operationnel_step_by_step.md           |  82 +++++
+ .../02_step_01_inventaire_et_rollback.md           |  65 ++++
+ .../03_step_02_runbook_db_layer.md                 |  54 ++++
+ .../04_step_03_runbook_admin_trading.md            |  55 ++++
+ .../05_step_04_runbook_student.md                  |  58 ++++
+ .../06_step_05_runbook_fantome.md                  |  66 ++++
+ .../07_step_06_prepare_commits_pr.md               |  59 ++++
+ .../08_step_07_probe_connectivite.md               |  67 ++++
+ .../09_step_08_resultats_inventaire_reel.md        |  81 +++++
+ .../10_step_09_execution_resultats.md              |  73 +++++
+ .../00_cadrage.md                                  | 341 ++++-----------------
+ .../01_inventaire_surfaces_compat.md               |  63 ++++
+ .../02_plan_operationnel_step_by_step.md           |  65 ++++
+ .../03_prepare_commits_pr.md                       |  76 +++++
+ .../04_step_03_audit_wrappers_racine.md            |  68 ++++
+ .../05_step_04_arbitrage_sortie.md                 |  58 ++++
+ .../06_step_05_execution_wrappers_racine.md        |  50 +++
+ .../07_step_06_blocage_backend_compat.md           |  60 ++++
+ .../00_cadrage.md                                  |  53 ++++
+ .../01_matrice_capacites.md                        |  91 ++++++
+ .../02_plan_operationnel_step_by_step.md           |  56 ++++
+ .../03_step_02_matrice_alias_wrappers.md           |  67 ++++
+ .../04_step_03_strategie_absorption.md             |  62 ++++
+ .../05_step_04_plan_bascule_alias_courts.md        |  67 ++++
+ .../00_cadrage.md                                  |  67 ++++
+ .../01_matrice_transition.md                       |  52 ++++
+ .../02_plan_operationnel_step_by_step.md           |  56 ++++
+ .../03_prepare_commits_pr.md                       |  64 ++++
+ .../04_step_02_arbitrage_cible.md                  |  63 ++++
+ .../05_step_03_patch_repo_side.md                  |  47 +++
+ .../06_step_04_cut_backend_delegation.md           |  49 +++
+ docs/index/ACTIVE_STREAMS.md                       |   8 +-
+ docs/index/GO_INDEX.md                             |   6 +-
+ docs/index/REPRISE.md                              |   4 +-
+ docs/master_pack/00_current_state_and_standards.md |   8 +-
+ docs/status/reseau_ssh_canonique.md                |  60 ++--
+ modules/reseau_ssh/README.md                       |  36 ++-
+ .../modules/reseau_ssh/reseau_ssh_step2/README.md  |  14 +-
+ .../reseau_ssh/reseau_ssh_step2/REQUIREMENTS.txt   |   0
+ .../reseau_ssh/reseau_ssh_step2/docs/FIREWALL.md   |   0
+ .../reseau_ssh/reseau_ssh_step2/docs/PLAN.md       |   0
+ .../reseau_ssh/reseau_ssh_step2/docs/WORKFLOW.md   |   0
+ .../reseau_ssh/reseau_ssh_step2/inventory.yaml     |   0
+ .../scripts/install_shortcuts_linux.sh             |   0
+ .../reseau_ssh_step2/scripts/reseau_ssh_cmd.sh     |   0
+ .../reseau_ssh_step2/scripts/reseau_ssh_menu.sh    |   0
+ .../reseau_ssh_step2/scripts/sanity_check.sh       |   0
+ .../reseau_ssh_step2/templates/wg0.client.template |   0
+ .../reseau_ssh_step2/templates/wg0.server.template |   0
+ .../templates/wg0.windows.template                 |   0
+ .../windows/README_WINDOWS_WIREGUARD.md            |   0
+ modules/reseau_ssh/scripts/_reseau_ssh_common.sh   |  71 +++++
+ .../reseau_ssh/scripts/_reseau_ssh_transition.sh   | 126 ++++++++
+ .../scripts/capture_shortcuts_snapshot.sh          |  49 +++
+ modules/reseau_ssh/scripts/cmd.sh                  | 138 +++++++++
+ .../scripts/install_canonical_shortcuts.sh         |  22 ++
+ modules/reseau_ssh/scripts/install_shortcuts.sh    |   9 +
+ modules/reseau_ssh/scripts/menu.sh                 |  64 ++++
+ modules/reseau_ssh/scripts/sanity_check.sh         |  68 ++++
+ modules/reseau_ssh_step1b/README.md                |   5 +-
+ .../modules/reseau_ssh/reseau_ssh_step1b/README.md |   9 +-
+ modules/reseau_ssh_step2/README.md                 |  24 --
+ modules/reseau_ssh_step2/scripts/cmd.sh            |  29 --
+ .../reseau_ssh_step2/scripts/install_shortcuts.sh  |   9 -
+ modules/reseau_ssh_step2/scripts/menu.sh           |  58 ----
+ modules/reseau_ssh_step2/scripts/sanity_check.sh   |  13 -
+ modules/shared_files_sftp/README.md                |   2 +-
+ modules/shared_sshfs_permanent/README.md           |   2 +-
+ modules/winscp_transfer/README.md                  |   2 +-
+ registry/modules_registry.yaml                     |  11 +
+ registry/wrappers_registry.yaml                    |  54 ++++
+ scripts/reseau_ssh/README.md                       | 109 ++++---
+ scripts/reseau_ssh/README_RUNTIME_STATUS.md        |  52 +++-
+ scripts/reseau_ssh/install_reseau_ssh.sh           |  14 +-
+ 124 files changed, 5273 insertions(+), 552 deletions(-)

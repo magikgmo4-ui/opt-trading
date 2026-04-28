@@ -1,0 +1,19 @@
+ .../01_cadrage_parent.md                           | 135 ++++++
+ .../02_research_notes_ace_kg_and_repo_graph.md     | 120 +++++
+ .../03_remaining_gap_todo.md                       |  37 ++
+ .../04_session_decision_snapshot_2026-04-24.md     | 112 +++++
+ .../05_master_plan_final_product.md                | 184 ++++++++
+ .../06_graph_schema_v1.md                          | 457 +++++++++++++++++++
+ .../07_producer_spec_v1.md                         | 215 +++++++++
+ .../08_consumer_ace_kg_method_v1.md                | 184 ++++++++
+ .../09_graph_views_v1.md                           | 503 +++++++++++++++++++++
+ .../12_indexation_alignment_gap_and_patch.md       | 123 +++++
+ .../13_resume_note_bundles_surface_absent.md       |  60 +++
+ .../SESSION_REPRISE.txt                            |  95 ++++
+ .../01_GO_PROMPT_TESTS_ULTRA_CONCRETS.md           |  48 ++
+ .../ide_bundle/02_TEST_PLAN_REPO_KG.md             | 145 ++++++
+ .../ide_bundle/03_ACCEPTANCE_CHECKLIST.md          |  24 +
+ .../ide_bundle/04_EXPECTED_OUTPUTS.md              |  19 +
+ .../ide_bundle/05_OPERATOR_NOTES.md                |  12 +
+ .../ide_bundle/README_BUNDLE.md                    |  76 ++++
+ 18 files changed, 2549 insertions(+)

@@ -1,0 +1,15 @@
+ docs/agents/strict_workers/MODELS_MATRIX_01.md     | 219 ++++++++++++
+ .../strict_workers/MODEL_ID_VALIDATION_01.md       | 154 ++++++++
+ .../OPENCODE_ZEN_MODEL_ID_AUDIT_01.md              | 141 ++++++++
+ .../STRICT_WORKERS_AUTONOMIE_ETROITE_01.md         | 125 +++++++
+ .../00_INITIAL_PROJECT_DOC.md                      | 392 +++++++++++++++++++++
+ ...1_PROGRESS_MODEL_VALIDATION_AND_SMOKE_PACKET.md | 101 ++++++
+ .../02_READONLY_SMOKE_EXEC_REPORT.md               |  34 ++
+ .../03_READONLY_SMOKE_VALIDATION.md                | 100 ++++++
+ .../BRANCH_STATE.md                                |  78 ++++
+ .../GO_OPT_TRADING_STRICT_WORKERS_PARENT_01.md     |  57 +++
+ .../workers/GO_STRICT_WORKERS_READONLY_SMOKE_01.md |  26 ++
+ .../GO_STRICT_WORKERS_READONLY_SMOKE_01.json       |  52 +++
+ scripts/ai/workers/models.registry.json            |  29 ++
+ scripts/ai/workers/tasks.index.json                |  81 +++++
+ 14 files changed, 1589 insertions(+)
