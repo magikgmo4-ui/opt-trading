@@ -16,7 +16,7 @@ surface: index
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 point_de_reprise: "Section Tableau canonique"
-updated_at: 2026-04-28
+updated_at: 2026-04-29
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md
@@ -68,18 +68,18 @@ Obligations explicites :
 
 ## Synthese courante
 
-- branches remote : `54`
-- branches locales : `34`
-- entrees totales suivies dans le tableau : `53`
+- branches remote : `52`
+- branches locales : `33`
+- entrees totales suivies dans le tableau : `51`
 - comparaison de reference : `origin/sot/mainline`
 
 | CANON_STATUS | COUNT |
 | --- | ---: |
-| `KEEP_ACTIVE` | 5 |
+| `KEEP_ACTIVE` | 4 |
 | `KEEP_REFERENCE` | 16 |
 | `DROP_MERGED` | 0 |
 | `DROP_LOCAL_ONLY` | 0 |
-| `A_VERIFIER` | 32 |
+| `A_VERIFIER` | 31 |
 
 ## Legende de lecture
 
@@ -120,10 +120,8 @@ Obligations explicites :
 | `feat/project-card-validated-prompt-factory-01` | remote | DIVERGED | 1 | 193 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
 | `feat/student-mimo-bitget-live-equity` | remote | DIVERGED | 23 | 662 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
 | `feat/student-mimo-qualification` | remote | DIVERGED | 21 | 662 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
-| `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` | remote | DIVERGED | 10 | 68 | `KEEP_ACTIVE` | `keep_under_review` | Parent AI team encore present comme support Git d un flux actif reel | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
 | `go_repos_agent-role_initial_01` | remote | DIVERGED | 1 | 68 | `KEEP_REFERENCE` | `exclude_cleanup` | Branche de reference conservee explicitement hors cleanup | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
 | `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01` | both | DIVERGED | 2 | 15 | `KEEP_ACTIVE` | `keep_under_review` | Parent ouvert explicitement prouve par la matrice, `GO_INDEX.md` et le dossier chantier ; branche doc-only gardee active | `GO_OPT_TRADING_REMAINING_BRANCHES_INDEX_ALIGNMENT_02` |
-| `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01_ALIGNMENT_01` | both | DIVERGED | 1 | 15 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
 | `go/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01` | both | DIVERGED | 4 | 20 | `KEEP_ACTIVE` | `keep_under_review` | Parent ouvert explicitement prouve par `GO_INDEX.md`, `ACTIVE_STREAMS.md`, `REPRISE.md` et `PARENT_STATE.md` ; absence precedente dans `BRANCH_STATE.md` corrigee par ce lot | `GO_OPT_TRADING_REMAINING_BRANCHES_INDEX_ALIGNMENT_02` |
 | `go/matrice-doc-ops-propagation-01` | remote | DIVERGED | 2 | 14 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
 | `integ/trading-dual-stack-doc-pack-01` | remote | DIVERGED | 4 | 569 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
@@ -154,7 +152,9 @@ Obligations explicites :
 - suppressions `DROP_MERGED` executees localement et/ou a distance : `codex/remove-infra-context-sanitized`, `go/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01`, `go/GO_OPT_TRADING_MATRICE_GOUVERNANTE_PROMOTION_01`, `go/matrice-maitre-plan-doc-01`
 - suppressions `DROP_LOCAL_ONLY` executees : `codex/reseau-ssh-runtime-compat-retirement-01-isolate`, `docs/github-park-branch-trunk-cross-audit-01`, `feat/bot-vision-watchdog-01`, `feat/engines-plugin`, `feat/execution-engine`, `feat/memory-bricks-api-v2-minimal-impl-01`, `feat/persistent-state`, `feat/position-engine`, `feat/position-guard`, `feat/product-target-canon`, `feat/reseau-ssh-consolidation-lot2-freeze-01`, `feat/reseau-ssh-consolidation-lot3-minimal-01`, `feat/risk-engine`, `fix/desk-ui-toolbox`, `tmp_GO_DB_LAYER_INGESTION_PRECONDITIONS_PATCH_01`
 - alignement `KEEP_ACTIVE` confirme sans suppression pour `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01` et `go/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01` ; absence precedente de `go/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01` corrigee dans cette fiche
-- branches gardees actives : `sot/mainline`, `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `codex/doc-ops-child-branch-cleanup-01`, `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01`, `go/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01`
+- `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` : `TRANSPORTED_THEN_DELETED` ; dossier parent canonique materialise sous `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/`, branche supprimee a distance, aucun runtime touche
+- `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01_ALIGNMENT_01` : `TRANSPORTED_THEN_DELETED` ; `02_alignment_surfaces_proches.md` et l'ajustement utile du parent ont ete transportes, les retouches laterales hors scope ont ete ignorees, branche supprimee localement et a distance
+- branches gardees actives : `sot/mainline`, `codex/doc-ops-child-branch-cleanup-01`, `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01`, `go/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01`
 - branches gardees en reference : `go_repos_agent-role_initial_01`, `main`, `sot/build`, familles `backup/*`, `rescue/*`, `save/*`
 - branches encore divergentes ou ahead maintenues en `A_VERIFIER` en attente d'arbitrage explicite
 

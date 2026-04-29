@@ -1,0 +1,9 @@
+ .../00_cadrage.md                                  |  49 +++++
+ .../02_journal_technique.md                        | 168 +++++++++++++++++
+ .../03_decisions.md                                |  40 ++++
+ .../SESSION_REPRISE.txt                            | 207 +++++++++++++++++++++
+ .../00_cadrage.md                                  | 196 +++++++++++++++++++
+ .../01_initial_project_doc.md                      | 149 +++++++++++++++
+ .../02_journal_technique.md                        |  38 ++++
+ .../03_decisions.md                                |  35 ++++
+ 8 files changed, 882 insertions(+)
