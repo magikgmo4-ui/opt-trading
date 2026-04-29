@@ -74,9 +74,9 @@ Il sert à :
 - statut : open
 - repo : opt-trading
 - branche : `go/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01`
-- dernier point établi : parent canonique de reprise repo-first ouvert ; `GO_OPT_TRADING_DOC_OPS_CHILD_PRIMARY_RESTART_01` est merge et clos via PR #180 sur `sot/mainline` (`6321e7f`) ; la chaine historique `BRANCH_CLEANUP` -> `OPEN_WORK_CONTROL` -> `CONTINUITY_ALIGNMENT_AFTER_OPEN_WORK_CONTROL` -> `PRIMARY_RESTART` est complete ; l'ouverture des 5 parents specialises reste explicitement reportee
-- prochaine action : materialiser `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_TARGET_MAP_01` pour fixer la carte cible des 5 parents avant tout `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01`
-- blocages : ne pas ouvrir `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01` ni les 5 parents specialises avant PASS explicite du present target map ; ne pas relancer plusieurs flux principaux en parallele
+- dernier point etabli : parent canonique de reprise repo-first ouvert ; PR #181 a merge `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_TARGET_MAP_01` sur `sot/mainline` (`7b75154`) ; le lot courant `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01` ouvre `GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01` et `GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01`, reutilise le parent `localcms` deja existant, et differe `student` ainsi que `fantome`
+- prochaine action : verifier et valider le lot `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01`, puis seulement apres validation humaine envisager `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01`
+- blocages : ne pas ouvrir `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01` dans ce passage ; ne pas creer de parent decoratif pour `localcms`, `student` ou `fantome`
 
 ### GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01
 - statut : active
