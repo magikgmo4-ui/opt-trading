@@ -16,7 +16,7 @@ surface: chantier
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 point_de_reprise: "Section Flux actifs"
-updated_at: 2026-04-25
+updated_at: 2026-04-29
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/index/GO_INDEX.md
@@ -70,12 +70,12 @@ Il sert à :
 - prochaine action : appliquer le prÃ©sent batch d'agrÃ©gation, puis ouvrir `GO_OPT_TRADING_PARENT_CONTINUITY_INDEX_INBOX_METHOD_01` seulement si une promotion additionnelle est requise
 - blocages : aucun runtime ; entrÃ©e agrÃ©gÃ©e depuis `INDEX_PATCH.md`
 
-- ### GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01
+### GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01
 - statut : open
 - repo : opt-trading
 - branche : `go/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01`
-- dernier point établi : parent canonique de reprise repo-first ouvert ; le plan complet de session est figé dans `01_cadrage_parent.md` et `02_go_map.md` ; l’ouverture des 5 parents spécialisés est explicitement reportée après contrôle des branches et des ouverts / non terminés
-- prochaine action : closeout seed arbitration et documenter dans GO_OPT_TRADING_DOC_OPS_CHILD_ARBITRAGE_SEED_01/90_closeout.md
+- dernier point établi : parent canonique de reprise repo-first ouvert ; `GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01` est clos par PR #166 ; l'alignement documentaire des branches est merge par PR #177 et verifie sur `sot/mainline` par PR #178 ; l'ouverture des 5 parents specialises reste explicitement reportee
+- prochaine action : executer `GO_OPT_TRADING_DOC_OPS_CHILD_CONTINUITY_ALIGNMENT_AFTER_OPEN_WORK_CONTROL_01` pour aligner les surfaces de continuite avant tout lancement de `GO_OPT_TRADING_DOC_OPS_CHILD_PRIMARY_RESTART_01`
 - blocages : ne pas ouvrir les 5 parents spécialisés avant la fin explicite du contrôle des ouverts / non terminés ; ne pas relancer plusieurs flux principaux en parallèle
 
 ### GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01
