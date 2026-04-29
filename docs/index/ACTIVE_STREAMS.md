@@ -52,11 +52,11 @@ Il sert à :
 
 ---
 
-## Priorite operatoire (14 GO non clos retenus)
+## Priorite operatoire (10 GO non clos retenus)
 
-- P0 : `GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01`, `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`, `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01`
-- P1 : `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`, `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`, `GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
-- P2 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01`, `GO_OPT_TRADING_PARENT_NAMING_CANON_01`
+- P0 : `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`, `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01`
+- P1 : `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`, `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
+- P2 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_OPT_TRADING_PARENT_NAMING_CANON_01`
 
 ---
 
@@ -69,14 +69,6 @@ Il sert à :
 - dernier point Ã©tabli : chantier parent doc-only mergÃ© pour canoniser la doctrine multi-agents, avec continuitÃ© parent locale et inbox atomique
 - prochaine action : appliquer le prÃ©sent batch d'agrÃ©gation, puis ouvrir `GO_OPT_TRADING_PARENT_CONTINUITY_INDEX_INBOX_METHOD_01` seulement si une promotion additionnelle est requise
 - blocages : aucun runtime ; entrÃ©e agrÃ©gÃ©e depuis `INDEX_PATCH.md`
-
-### GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01
-- statut : open
-- repo : opt-trading
-- branche : `go/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01`
-- dernier point etabli : parent canonique de reprise repo-first ouvert ; PR #182 a merge `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01` sur `sot/mainline` (`8295f60`) ; `GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01` et `GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01` sont ouverts, `localcms` reste fusionne avec le parent UI existant, et `student` ainsi que `fantome` restent differes
-- prochaine action : executer `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01` pour verifier la conformite finale des parents ouverts et la propagation des surfaces de continuite
-- blocages : ne pas ouvrir `GO_OPT_TRADING_MACHINE_STUDENT_PARENT_01`, `GO_OPT_TRADING_MACHINE_FANTOME_SUPPORT_PARENT_01` ou un clone `localcms` pendant ce passage d'audit
 
 ### GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01
 - statut : active
@@ -110,14 +102,6 @@ Il sert à :
 - prochaine action : consolider les règles de reclassement racine par arbitrages documentés
 - blocages : aucun blocage explicite ; ne pas redéfinir la frontière repo/hors-repo
 
-### GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01
-- statut : active
-- repo : opt-trading
-- branche : `sot/mainline`
-- dernier point établi : `trae_pack_texts/` a été déplacé sous `docs/ot/trae/trae_pack_texts/` ; un `README.md` repo-native y porte désormais la synthèse vivante, et `trae_pack/` est requalifié en archive de lecture compatible doc/IDE
-- prochaine action : vérifier après push si le lot peut passer en closeout doc-only, sans réactiver les anciens templates comme doctrine vivante
-- blocages : ne pas re-promouvoir ces packs comme source canonique ; éviter toute duplication doctrinale avec `workflow_ai/` et le starter pack
-
 ### GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01
 - statut : active
 - repo : opt-trading
@@ -125,14 +109,6 @@ Il sert à :
 - dernier point établi : parent PHASE 3 LOT 5 ouvert ; fiches status familles créées et rattachées à l’audit
 - prochaine action : figer survivant/transition/legacy/archive des familles en gap-only
 - blocages : aucun blocage explicite ; pas de duplication des preuves existantes
-
-### GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01
-- statut : active
-- repo : opt-trading
-- branche : `sot/mainline`
-- dernier point établi : parent PHASE 3 LOT 6 ouvert ; scope/exception clarifiés dans `registry/README.md`
-- prochaine action : consolider la couverture déclarative sans créer de doctrine parallèle
-- blocages : aucun blocage explicite ; rester sur la source canonique `registry/README.md`
 
 ### GO_GIT_PROGRESSIVE_MIGRATION_START_13
 - statut : active
@@ -149,14 +125,6 @@ Il sert à :
 - dernier point établi : parent AI team intégré doc-only dans `GO_INDEX.md` avec statut `OPEN`
 - prochaine action : utiliser cette entrée comme point de reprise si un GO enfant dédié d’audit documentaire doit être rouvert
 - blocages : dossier parent complet non matérialisé dans cette copie locale ; reprise à garder repo-first sur l’état prouvé
-
-### GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01
-- statut : open
-- repo : opt-trading
-- branche : `sot/mainline`
-- dernier point établi : doctrine légère de dérivation ouverte sous la matrice maître, avec pilote borné avant toute application plus large
-- prochaine action : poursuivre le pilote documentaire borné avant toute extension repo-wide
-- blocages : ne pas rouvrir la matrice, ni promouvoir les dérivés au-dessus des surfaces souveraines
 
 ### GO_OPT_TRADING_PARENT_NAMING_CANON_01
 - statut : open

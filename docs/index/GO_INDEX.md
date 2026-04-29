@@ -89,24 +89,19 @@ Normalisation retenue :
 | GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01 | GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01 | â€” | OPEN | oui | `docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/00_INITIAL_PROJECT_DOC.md`<br>`docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/PARENT_STATE.md`<br>`docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/INDEX_PATCH.md` |
 | GO_UNIFORM_CONTINUITY_FINAL_MASTER_PLAN_01 | GO_UNIFORM_CONTINUITY_FINAL_MASTER_PLAN_01 | — | REFERENCE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_UNIFORM_CONTINUITY_FINAL_MASTER_PLAN_01/00_cadrage.md` |
 | GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01 | GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01 | — | OPEN | oui | `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`<br>`docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md`<br>`docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/01_cadrage_parent.md` |
-| GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01 | GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01 | — | OPEN | oui | `docs/chantiers/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01/01_cadrage_parent.md`<br>`docs/chantiers/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01/02_go_map.md` |
-| GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01 | GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01 | — | OPEN | oui | `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01/01_conformity_matrix.md`<br>`docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01/02_parent_status_review.md`<br>`docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01/90_closeout.md` |
 | GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01 | GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01 | — | OPEN | oui | `docs/chantiers/GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01/01_cadrage_parent.md`<br>`docs/chantiers/GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01/02_initial_project_doc.md`<br>`docs/chantiers/GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01/03_decisions.md` |
 | GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01 | GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01 | — | OPEN | oui | `docs/chantiers/GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01/01_cadrage_parent.md`<br>`docs/chantiers/GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01/02_initial_project_doc.md`<br>`docs/chantiers/GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01/03_decisions.md` |
 | GO_GIT_PROGRESSIVE_MIGRATION_START_13 | GO_GIT_PROGRESSIVE_MIGRATION_START_13 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_GIT_PROGRESSIVE_MIGRATION_START_13/00_cadrage.md` |
 | GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01 | GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/03_decisions.md` |
 | GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01 | GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/03_decisions.md`<br>`docs/architecture/REPO_SURFACES_MAP.md` |
 | GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01 | GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/03_decisions.md`<br>`docs/governance/REPO_ROOT_POLICY.md` |
-| GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01 | GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01/03_decisions.md`<br>`docs/ot/trae/trae_pack_texts/trae_pack/TRAE_SESSION_OPENING_PACK_V1.1.txt` |
 | GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01 | GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/03_decisions.md` |
 | GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01 | GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/03_decisions.md` |
-| GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01 | GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01/03_decisions.md`<br>`registry/README.md` |
 | GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03 | GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03 | — | OPEN | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md` |
 | GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03 | GO_OPT_TRADING_RESEAU_SSH_UNIFIED_MODULE_CADRAGE_01 | — | OPEN | oui | `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_UNIFIED_MODULE_CADRAGE_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md` |
 | GO_TMUX_IDE_OPT_TRADING_CADRAGE_01 | GO_TMUX_IDE_OPT_TRADING_CADRAGE_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_TMUX_IDE_OPT_TRADING_CADRAGE_01/00_cadrage.md` |
 | GO_LOCALCMS_FORMS_INTEGRATION_DOC_01 | GO_LOCALCMS_FORMS_INTEGRATION_DOC_01 | — | OPEN | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_LOCALCMS_FORMS_INTEGRATION_DOC_01/00_cadrage.md` |
 | GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01 | GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01 | — | OPEN | oui | `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/01_initial_project_doc.md`<br>`docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/03_decisions.md` |
-| GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01 | GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01 | — | OPEN | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01/00_cadrage.md`<br>`docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md` |
 | GO_OPT_TRADING_PARENT_NAMING_CANON_01 | GO_OPT_TRADING_PARENT_NAMING_CANON_01 | — | OPEN | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_01/01_cadrage_parent.md` |
 | GO_OPT_TRADING_PARENT_NAMING_CANON_01 | GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01 | — | OPEN | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_01/01_cadrage_parent.md`<br>`docs/chantiers/GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01/00_cadrage.md` |
 | GO_OPT_TRADING_PARENT_NAMING_CANON_01 | GO_OPT_TRADING_CHILD_NAMING_NORMALIZER_01 | — | OPEN | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_01/01_cadrage_parent.md`<br>`docs/chantiers/GO_OPT_TRADING_CHILD_NAMING_NORMALIZER_01/00_cadrage.md` |
@@ -125,37 +120,27 @@ Normalisation retenue :
 
 ---
 
-## Priorite operatoire (14 GO non clos)
+## Priorite operatoire (10 GO non clos)
 
-- P0 : `GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01`, `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`, `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01`
-- P1 : `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`, `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`, `GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
-- P2 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01`, `GO_OPT_TRADING_PARENT_NAMING_CANON_01`
+- P0 : `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`, `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01`
+- P1 : `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`, `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
+- P2 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_OPT_TRADING_PARENT_NAMING_CANON_01`
 
-Le passage de 13 a 14 GO non clos retenus correspond a l'ouverture du GO :
+Le passage a 10 GO non clos retenus correspond a la sortie des flux actifs de :
+- `GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01`
+- `GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01`
+- `GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01`
 - `GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01`
 
-Le passage de 12 a 13 GO non clos retenus correspond a l'ouverture du parent :
-- `GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01`
-
-Le passage de 11 a 12 GO non clos retenus correspond a l'ouverture du GO :
-- `GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01`
-
-Le passage de 10 a 11 GO non clos retenus correspond a l'ouverture du parent :
-- `GO_OPT_TRADING_PARENT_NAMING_CANON_01`
-
-Le passage de 9 a 10 GO non clos retenus correspond a l'ouverture du parent :
-- `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
-
-Le passage de 8 a 9 GO non clos retenus correspond a l'ouverture du parent :
-- `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01`
-
 Le parent `GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01` reste ouvert et canonique dans le tableau, mais n'est pas retenu dans cette priorisation operatoire resserree.
+
+Le parent `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01` reste ouvert et canonique dans le tableau, mais hors perimetre d'absorption de cette priorisation resserree.
 
 Historique (PHASE 4) :
 - le passage de 10 à 11 GO non clos a correspondu à l’ouverture de `GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01`
 - ce GO est clos (PASS), donc il reste hors exécution courante
 
-Le passage de 8 à 10 GO non clos correspond à l’ouverture PHASE 3 des parents :
+Le passage de 8 à 10 GO non clos a correspondu à l’ouverture PHASE 3 des parents :
 - `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`
 - `GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01`
 
@@ -174,22 +159,6 @@ Le passage de 6 à 8 GO non clos correspond à l’ouverture PHASE 2 des parents
 - titre court : matrice maître doc ops
 - dernier état connu : matrice maître finale unique rédigée et publiée comme surface canonique ; parent maintenu ouvert pour le lot d'alignement des surfaces proches
 - lien utile : `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`, `docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md`, `docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/01_cadrage_parent.md`
-
-### GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01
-- repo : opt-trading
-- type : gouvernance / chantier parent / orchestration de reprise repo-first
-- statut : open
-- titre court : parent canonique de reprise avant structuration project/machine
-- dernier état connu : parent canonique de reprise repo-first ouvert ; PR #182 a merge `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01` sur `sot/mainline` (`8295f60`) ; le sous-GO courant devient `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01` pour valider la conformite finale de `admin-trading` et `db-layer`, tout en confirmant le report de `student` et `fantome` ainsi que la fusion `localcms`
-- lien utile : `docs/chantiers/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01/01_cadrage_parent.md`, `docs/chantiers/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01/02_go_map.md`
-
-### GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01
-- repo : opt-trading
-- type : doc-only / sous-go d'audit final des parents ouverts
-- statut : open
-- titre court : audit final de conformite des parents ouverts
-- dernier état connu : apres merge de PR #182 (`8295f60`), ce sous-go audite `GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01` et `GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01`, confirme le report de `student` et `fantome`, et confirme la fusion `localcms` avec `GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01`
-- lien utile : `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01/00_cadrage.md`, `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01/01_conformity_matrix.md`, `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01/02_parent_status_review.md`, `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01/90_closeout.md`
 
 ### GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01
 - repo : opt-trading
@@ -247,14 +216,6 @@ Le passage de 6 à 8 GO non clos correspond à l’ouverture PHASE 2 des parents
 - dernier état connu : parent PHASE 2 LOT 4 ouvert ; `REPO_ROOT_POLICY.md` posé sans redéfinir la frontière repo/hors-repo
 - lien utile : `docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/00_cadrage.md`, `docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/03_decisions.md`, `docs/governance/REPO_ROOT_POLICY.md`
 
-### GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01
-- repo : opt-trading
-- type : patch local / doc-only / reclassement documentaire
-- statut : active
-- titre court : révision et relocalisation documentaire de `trae_pack_texts`
-- dernier état connu : le pack legacy Trae a été déplacé de la racine vers `docs/ot/trae/trae_pack_texts/` ; un lot dédié reste ouvert pour qualifier son contenu, son usage et sa place exacte dans la continuité
-- lien utile : `docs/chantiers/GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01/00_cadrage.md`, `docs/chantiers/GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01/03_decisions.md`, `docs/ot/trae/README.md`
-
 ### GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01
 - repo : opt-trading
 - type : audit / qualification / préparation reclassement physique
@@ -270,14 +231,6 @@ Le passage de 6 à 8 GO non clos correspond à l’ouverture PHASE 2 des parents
 - titre court : familles mixtes / lignées runtime-exception
 - dernier état connu : parent PHASE 3 LOT 5 ouvert ; fiches status courtes posées et rattachées à l’audit famille
 - lien utile : `docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/00_cadrage.md`, `docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/03_decisions.md`
-
-### GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01
-- repo : opt-trading
-- type : patch local / doc-only
-- statut : active
-- titre court : réalignement scope registry
-- dernier état connu : parent PHASE 3 LOT 6 ouvert ; `registry/README.md` complété sur périmètre/exceptions
-- lien utile : `docs/chantiers/GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01/00_cadrage.md`, `docs/chantiers/GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01/03_decisions.md`, `registry/README.md`
 
 ### GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03
 - repo : opt-trading
@@ -310,14 +263,6 @@ Le passage de 6 à 8 GO non clos correspond à l’ouverture PHASE 2 des parents
 - titre court : parent canonique architecture equipe d'agents
 - dernier état connu : parent materialise sur la ligne courante avec set doc-only d'ouverture complet ; branche dediee toujours active pour la suite du flux parent
 - lien utile : `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/00_cadrage.md`, `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/01_initial_project_doc.md`, `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/03_decisions.md`
-
-### GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01
-- repo : opt-trading
-- type : gouvernance / metadata derivee / doc-only
-- statut : open
-- titre court : doctrine legere de derivation post-matrice
-- dernier état connu : GO ouvert sous la matrice maitre DOC OPS, avec `docs/governance/MATRICE_GOUVERNANTE_V2.md` relue comme annexe stable secondaire pour cadrer frontmatter enrichi, `search_tags`, groupes d'objets et registry derive, sans rouvrir la doctrine matrice ni la synchronisation documentaire reelle
-- lien utile : `docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01/00_cadrage.md`, `docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01/03_decisions.md`, `docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md`
 
 ### GO_OPT_TRADING_PARENT_NAMING_CANON_01
 - repo : opt-trading
