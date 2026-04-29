@@ -75,6 +75,8 @@ Normalisation retenue :
 | GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01 | GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01/10_closeout.md`<br>`docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md` |
 | GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01 | GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01/03_decisions.md`<br>`registry/README.md` |
 | GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01 | GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01/03_decisions.md`<br>`docs/ot/trae/trae_pack_texts/README.md` |
+| GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01 | GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/90_closeout.md`<br>`docs/index/GO_INDEX.md` |
+| GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01 | GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/90_closeout.md`<br>`docs/architecture/REPO_SURFACES_MAP.md` |
 
 ---
 
@@ -249,3 +251,19 @@ Ces entrées détaillées sont sorties de `docs/index/GO_INDEX.md`.
 - titre court : révision et relocalisation documentaire de `trae_pack_texts`
 - dernier état connu : `docs/ot/trae/trae_pack_texts/README.md` est l'entrée vivante, `trae_pack/` est archive de lecture et le pack n'est plus opposable face au canon repo-first
 - lien utile : `docs/ot/trae/trae_pack_texts/README.md`, `docs/chantiers/GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01/03_decisions.md`
+
+### GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01
+- repo : opt-trading
+- type : patch local / doc-only
+- statut : closed
+- titre court : realignement continuite index
+- dernier état connu : la couche `docs/index/*` est coherente, `docs/next/NEXT_GO_CANDIDATES.md` est declassé, et les anciennes surfaces `journal*` ne sont plus actives dans le repo
+- lien utile : `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/90_closeout.md`, `docs/index/GO_INDEX.md`, `docs/next/NEXT_GO_CANDIDATES.md`
+
+### GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01
+- repo : opt-trading
+- type : patch local / doc-only
+- statut : closed
+- titre court : carte canonique des surfaces du repo
+- dernier état connu : `docs/architecture/REPO_SURFACES_MAP.md` est la carte humaine de reference et `docs/INDEX.md` / `docs/ARCHITECTURE.md` sont alignes sans duplication de `registry/*`
+- lien utile : `docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/90_closeout.md`, `docs/architecture/REPO_SURFACES_MAP.md`, `docs/ARCHITECTURE.md`

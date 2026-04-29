@@ -52,10 +52,10 @@ Il sert à :
 
 ---
 
-## Priorite operatoire (10 GO non clos retenus)
+## Priorite operatoire (8 GO non clos retenus)
 
-- P0 : `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`, `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01`
-- P1 : `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`, `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
+- P0 : `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`, `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01`
+- P1 : `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
 - P2 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_OPT_TRADING_PARENT_NAMING_CANON_01`
 
 ---
@@ -70,14 +70,6 @@ Il sert à :
 - prochaine action : appliquer le prÃ©sent batch d'agrÃ©gation, puis ouvrir `GO_OPT_TRADING_PARENT_CONTINUITY_INDEX_INBOX_METHOD_01` seulement si une promotion additionnelle est requise
 - blocages : aucun runtime ; entrÃ©e agrÃ©gÃ©e depuis `INDEX_PATCH.md`
 
-### GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01
-- statut : active
-- repo : opt-trading
-- branche : `sot/mainline`
-- dernier point établi : chantier parent ouvert pour réaligner la continuité index (repo-first, doc-only)
-- prochaine action : appliquer le LOT 1 (index) puis LOT 2 (retrait du journal et réalignement continuité) selon `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/00_cadrage.md`
-- blocages : aucun blocage explicite ; patchs uniquement si gap réel
-
 ### GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01
 - statut : active
 - repo : opt-trading
@@ -85,14 +77,6 @@ Il sert à :
 - dernier point établi : parent ouvert ; audit repo-first non destructif des familles obsolete / déclassé / archive / legacy / sous arbitrage
 - prochaine action : produire la matrice canonique (PHASE C), puis le plan de lots physiques futurs (PHASE D) sans exécution
 - blocages : aucun blocage explicite ; aucune action physique avant validation (matrice + lot + risque + rollback)
-
-### GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01
-- statut : active
-- repo : opt-trading
-- branche : `sot/mainline`
-- dernier point établi : parent PHASE 2 LOT 3 ouvert ; `REPO_SURFACES_MAP.md` posé comme carte humaine des surfaces
-- prochaine action : stabiliser les ajustements de structure canonique sans dupliquer `registry/*`
-- blocages : aucun blocage explicite ; priorité aux écarts réellement observés
 
 ### GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01
 - statut : active

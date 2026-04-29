@@ -92,8 +92,6 @@ Normalisation retenue :
 | GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01 | GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01 | — | OPEN | oui | `docs/chantiers/GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01/01_cadrage_parent.md`<br>`docs/chantiers/GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01/02_initial_project_doc.md`<br>`docs/chantiers/GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01/03_decisions.md` |
 | GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01 | GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01 | — | OPEN | oui | `docs/chantiers/GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01/01_cadrage_parent.md`<br>`docs/chantiers/GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01/02_initial_project_doc.md`<br>`docs/chantiers/GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01/03_decisions.md` |
 | GO_GIT_PROGRESSIVE_MIGRATION_START_13 | GO_GIT_PROGRESSIVE_MIGRATION_START_13 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_GIT_PROGRESSIVE_MIGRATION_START_13/00_cadrage.md` |
-| GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01 | GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/03_decisions.md` |
-| GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01 | GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/03_decisions.md`<br>`docs/architecture/REPO_SURFACES_MAP.md` |
 | GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01 | GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/03_decisions.md`<br>`docs/governance/REPO_ROOT_POLICY.md` |
 | GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01 | GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/03_decisions.md` |
 | GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01 | GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/03_decisions.md` |
@@ -120,33 +118,22 @@ Normalisation retenue :
 
 ---
 
-## Priorite operatoire (10 GO non clos)
+## Priorite operatoire (8 GO non clos)
 
-- P0 : `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`, `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`, `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01`
-- P1 : `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`, `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
+- P0 : `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`, `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01`
+- P1 : `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
 - P2 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_OPT_TRADING_PARENT_NAMING_CANON_01`
 
-Le passage a 10 GO non clos retenus correspond a la sortie des flux actifs de :
-- `GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01`
-- `GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01`
-- `GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01`
-- `GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01`
+Le passage a 8 GO non clos retenus correspond a la sortie des flux actifs de :
+- `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01`
+- `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`
 
 Le parent `GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01` reste ouvert et canonique dans le tableau, mais n'est pas retenu dans cette priorisation operatoire resserree.
 
 Le parent `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01` reste ouvert et canonique dans le tableau, mais hors perimetre d'absorption de cette priorisation resserree.
 
-Historique (PHASE 4) :
-- le passage de 10 à 11 GO non clos a correspondu à l’ouverture de `GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01`
-- ce GO est clos (PASS), donc il reste hors exécution courante
-
-Le passage de 8 à 10 GO non clos a correspondu à l’ouverture PHASE 3 des parents :
-- `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`
-- `GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01`
-
-Le passage de 6 à 8 GO non clos correspond à l’ouverture PHASE 2 des parents :
-- `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`
-- `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`
+Historique recent :
+- le palier precedent a 10 GO non clos correspondait au maintien temporaire de `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01` et `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01` comme actifs avant closeout local
 
 ---
 
@@ -191,22 +178,6 @@ Le passage de 6 à 8 GO non clos correspond à l’ouverture PHASE 2 des parents
 - titre court : démarrage de la migration Git progressive
 - dernier état connu : gouvernance locale initiale créée sur `sot/mainline`
 - lien utile : `docs/chantiers/GO_GIT_PROGRESSIVE_MIGRATION_START_13/00_cadrage.md`, `docs/governance/REPO_ROLE.md`, `docs/governance/DOC_LAYERS.md`, `docs/governance/MEMORY_BRICKS_MAPPING.md`
-
-### GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01
-- repo : opt-trading
-- type : patch local / doc-only
-- statut : active
-- titre court : réalignement continuité index
-- dernier état connu : chantier parent ouvert pour réaligner `docs/index/*` et déclasser `docs/next/NEXT_GO_CANDIDATES.md`
-- lien utile : `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/00_cadrage.md`, `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/03_decisions.md`
-
-### GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01
-- repo : opt-trading
-- type : patch local / doc-only
-- statut : active
-- titre court : carte canonique des surfaces du repo
-- dernier état connu : parent PHASE 2 LOT 3 ouvert ; carte humaine `REPO_SURFACES_MAP.md` posée sans duplication de `registry/*`
-- lien utile : `docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/00_cadrage.md`, `docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/03_decisions.md`, `docs/architecture/REPO_SURFACES_MAP.md`
 
 ### GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01
 - repo : opt-trading
