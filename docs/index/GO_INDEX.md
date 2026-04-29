@@ -100,7 +100,6 @@ Normalisation retenue :
 | GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01 | GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01 | — | OPEN | oui | `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/01_initial_project_doc.md`<br>`docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/03_decisions.md` |
 | GO_OPT_TRADING_PARENT_NAMING_CANON_01 | GO_OPT_TRADING_PARENT_NAMING_CANON_01 | — | OPEN | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_01/01_cadrage_parent.md` |
 | GO_OPT_TRADING_PARENT_NAMING_CANON_01 | GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01 | — | OPEN | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_01/01_cadrage_parent.md`<br>`docs/chantiers/GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01/00_cadrage.md` |
-| GO_OPT_TRADING_PARENT_NAMING_CANON_01 | GO_OPT_TRADING_CHILD_NAMING_NORMALIZER_01 | — | OPEN | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_01/01_cadrage_parent.md`<br>`docs/chantiers/GO_OPT_TRADING_CHILD_NAMING_NORMALIZER_01/00_cadrage.md` |
 | GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01 | GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01 | — | OPEN | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01/01_cadrage_parent.md` |
 | GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01 | GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01 | GO_OPT_TRADING_UI_LOCALCMS_INVENTORY_01 | REFERENCE | non | `docs/chantiers/GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01/01_cadrage_parent.md` |
 | GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01 | GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01 | GO_OPT_TRADING_UI_LOCALCMS_MATRIX_01 | REFERENCE | non | `docs/chantiers/GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01/01_cadrage_parent.md` |
@@ -222,7 +221,7 @@ Historique recent :
 - type : gouvernance / nommage / chantier parent
 - statut : open
 - titre court : parent canonique naming et audit futur
-- dernier état connu : politique par surface subordonnee au canon GO ; pas de renommage reel dans le lot initial ; reprise recommandee sur l'inventaire
+- dernier état connu : politique par surface stable, module audit-only livre, pas de renommage reel dans le lot initial ; reprise recommandee sur l'inventaire
 - lien utile : `docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_01/01_cadrage_parent.md`, `docs/governance/NAMING_CANON_POLICY_01.md`
 
 ### GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01
@@ -230,16 +229,8 @@ Historique recent :
 - type : audit repo-first
 - statut : open
 - titre court : inventaire des ecarts de nommage
-- dernier état connu : cadrage ouvert pour recenser les ecarts sans appliquer de correction
+- dernier état connu : cadrage ouvert pour recenser les ecarts sans appliquer de correction ; aucun inventaire verifiable n'est encore publie dans le repo
 - lien utile : `docs/chantiers/GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01/00_cadrage.md`
-
-### GO_OPT_TRADING_CHILD_NAMING_NORMALIZER_01
-- repo : opt-trading
-- type : module durable audit-only
-- statut : open
-- titre court : module naming_normalizer
-- dernier état connu : squelette V2 pret pour audit, verification de structure GO canonique et rapport
-- lien utile : `docs/chantiers/GO_OPT_TRADING_CHILD_NAMING_NORMALIZER_01/00_cadrage.md`, `modules/naming_normalizer/README.md`
 
 ### GO_EXTRACTEUR_TAGS_CANONICAL_METHOD_01
 - repo : opt-trading

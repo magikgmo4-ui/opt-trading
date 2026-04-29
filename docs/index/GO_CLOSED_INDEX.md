@@ -79,6 +79,7 @@ Normalisation retenue :
 | GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01 | GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/90_closeout.md`<br>`docs/architecture/REPO_SURFACES_MAP.md` |
 | GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01 | GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/03_decisions.md`<br>`docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/90_closeout.md`<br>`docs/governance/REPO_ROOT_POLICY.md` |
 | GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01 | GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/02_journal_technique.md`<br>`docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/90_closeout.md` |
+| GO_OPT_TRADING_PARENT_NAMING_CANON_01 | GO_OPT_TRADING_CHILD_NAMING_NORMALIZER_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_CHILD_NAMING_NORMALIZER_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_CHILD_NAMING_NORMALIZER_01/90_closeout.md`<br>`modules/naming_normalizer/README.md` |
 
 ---
 
@@ -285,3 +286,11 @@ Ces entrées détaillées sont sorties de `docs/index/GO_INDEX.md`.
 - titre court : audit obsolete / archive / legacy / sous arbitrage
 - dernier état connu : la matrice d'audit est jugee suffisante, les lots executes sont documentes et aucun move/delete/archive supplementaire n'est requis pour le closeout
 - lien utile : `docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/90_closeout.md`, `docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/02_journal_technique.md`
+
+### GO_OPT_TRADING_CHILD_NAMING_NORMALIZER_01
+- repo : opt-trading
+- type : module durable audit-only
+- statut : closed
+- titre court : module naming_normalizer
+- dernier état connu : le module audit-only est livre avec README, wrappers shell, moteur Python et configuration declarative, sans apply automatique du repo
+- lien utile : `docs/chantiers/GO_OPT_TRADING_CHILD_NAMING_NORMALIZER_01/90_closeout.md`, `modules/naming_normalizer/README.md`
