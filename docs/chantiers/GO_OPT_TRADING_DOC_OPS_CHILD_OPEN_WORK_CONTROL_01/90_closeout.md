@@ -4,7 +4,7 @@ doc_type: closeout
 repo: opt-trading
 project: opt-trading
 module:
-  go_id: GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01
+go_id: GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01
 status: closed
 lifecycle_stage: closeout
 topic_keys:

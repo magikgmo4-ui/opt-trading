@@ -4,7 +4,7 @@ doc_type: decisions
 repo: opt-trading
 project: opt-trading
 module:
-  go_id: GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01
+go_id: GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01
 status: open
 lifecycle_stage: decisions
 topic_keys:
