@@ -74,9 +74,9 @@ Il sert à :
 - statut : open
 - repo : opt-trading
 - branche : `go/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01`
-- dernier point établi : parent canonique de reprise repo-first ouvert ; `GO_OPT_TRADING_DOC_OPS_CHILD_CONTINUITY_ALIGNMENT_AFTER_OPEN_WORK_CONTROL_01` est merge et clos via PR #179 sur `sot/mainline` (`fe42d78`) ; la chaine historique `BRANCH_CLEANUP` -> `OPEN_WORK_CONTROL` -> `CONTINUITY_ALIGNMENT_AFTER_OPEN_WORK_CONTROL` est complete ; l'ouverture des 5 parents specialises reste explicitement reportee
-- prochaine action : materialiser `GO_OPT_TRADING_DOC_OPS_CHILD_PRIMARY_RESTART_01` pour formaliser le flux operatoire unique retenu avant tout `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_TARGET_MAP_01`
-- blocages : ne pas ouvrir `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_TARGET_MAP_01`, `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01` ni les 5 parents specialises avant PASS explicite du present restart ; ne pas relancer plusieurs flux principaux en parallele
+- dernier point établi : parent canonique de reprise repo-first ouvert ; `GO_OPT_TRADING_DOC_OPS_CHILD_PRIMARY_RESTART_01` est merge et clos via PR #180 sur `sot/mainline` (`6321e7f`) ; la chaine historique `BRANCH_CLEANUP` -> `OPEN_WORK_CONTROL` -> `CONTINUITY_ALIGNMENT_AFTER_OPEN_WORK_CONTROL` -> `PRIMARY_RESTART` est complete ; l'ouverture des 5 parents specialises reste explicitement reportee
+- prochaine action : materialiser `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_TARGET_MAP_01` pour fixer la carte cible des 5 parents avant tout `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01`
+- blocages : ne pas ouvrir `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01` ni les 5 parents specialises avant PASS explicite du present target map ; ne pas relancer plusieurs flux principaux en parallele
 
 ### GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01
 - statut : active
