@@ -77,6 +77,8 @@ Normalisation retenue :
 | GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01 | GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01/03_decisions.md`<br>`docs/ot/trae/trae_pack_texts/README.md` |
 | GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01 | GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/90_closeout.md`<br>`docs/index/GO_INDEX.md` |
 | GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01 | GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/90_closeout.md`<br>`docs/architecture/REPO_SURFACES_MAP.md` |
+| GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01 | GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/03_decisions.md`<br>`docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/90_closeout.md`<br>`docs/governance/REPO_ROOT_POLICY.md` |
+| GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01 | GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/02_journal_technique.md`<br>`docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/90_closeout.md` |
 
 ---
 
@@ -267,3 +269,19 @@ Ces entrées détaillées sont sorties de `docs/index/GO_INDEX.md`.
 - titre court : carte canonique des surfaces du repo
 - dernier état connu : `docs/architecture/REPO_SURFACES_MAP.md` est la carte humaine de reference et `docs/INDEX.md` / `docs/ARCHITECTURE.md` sont alignes sans duplication de `registry/*`
 - lien utile : `docs/chantiers/GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01/90_closeout.md`, `docs/architecture/REPO_SURFACES_MAP.md`, `docs/ARCHITECTURE.md`
+
+### GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01
+- repo : opt-trading
+- type : patch local / doc-only
+- statut : closed
+- titre court : politique racine canonique interne du repo
+- dernier état connu : `REPO_ROOT_POLICY.md` qualifie desormais la racine reelle, y compris le shim `bitget_bridge.py` comme exception legacy de compatibilite explicite, sans arbitrage ouvert residuel
+- lien utile : `docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/90_closeout.md`, `docs/governance/REPO_ROOT_POLICY.md`
+
+### GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01
+- repo : opt-trading
+- type : audit / qualification / préparation reclassement physique
+- statut : closed
+- titre court : audit obsolete / archive / legacy / sous arbitrage
+- dernier état connu : la matrice d'audit est jugee suffisante, les lots executes sont documentes et aucun move/delete/archive supplementaire n'est requis pour le closeout
+- lien utile : `docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/90_closeout.md`, `docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/02_journal_technique.md`
