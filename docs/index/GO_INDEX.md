@@ -90,7 +90,7 @@ Normalisation retenue :
 | GO_UNIFORM_CONTINUITY_FINAL_MASTER_PLAN_01 | GO_UNIFORM_CONTINUITY_FINAL_MASTER_PLAN_01 | — | REFERENCE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_UNIFORM_CONTINUITY_FINAL_MASTER_PLAN_01/00_cadrage.md` |
 | GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01 | GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01 | — | OPEN | oui | `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`<br>`docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md`<br>`docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/01_cadrage_parent.md` |
 | GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01 | GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01 | — | OPEN | oui | `docs/chantiers/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01/01_cadrage_parent.md`<br>`docs/chantiers/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01/02_go_map.md` |
-| GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01 | GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01 | — | OPEN | oui | `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01/01_opening_plan.md`<br>`docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01/02_parent_opening_matrix.md`<br>`docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01/90_closeout.md` |
+| GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01 | GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01 | — | OPEN | oui | `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01/01_conformity_matrix.md`<br>`docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01/02_parent_status_review.md`<br>`docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01/90_closeout.md` |
 | GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01 | GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01 | — | OPEN | oui | `docs/chantiers/GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01/01_cadrage_parent.md`<br>`docs/chantiers/GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01/02_initial_project_doc.md`<br>`docs/chantiers/GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01/03_decisions.md` |
 | GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01 | GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01 | — | OPEN | oui | `docs/chantiers/GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01/01_cadrage_parent.md`<br>`docs/chantiers/GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01/02_initial_project_doc.md`<br>`docs/chantiers/GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01/03_decisions.md` |
 | GO_GIT_PROGRESSIVE_MIGRATION_START_13 | GO_GIT_PROGRESSIVE_MIGRATION_START_13 | — | ACTIVE | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_GIT_PROGRESSIVE_MIGRATION_START_13/00_cadrage.md` |
@@ -180,23 +180,23 @@ Le passage de 6 à 8 GO non clos correspond à l’ouverture PHASE 2 des parents
 - type : gouvernance / chantier parent / orchestration de reprise repo-first
 - statut : open
 - titre court : parent canonique de reprise avant structuration project/machine
-- dernier état connu : parent canonique de reprise repo-first ouvert ; PR #181 a merge `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_TARGET_MAP_01` sur `sot/mainline` (`7b75154`) ; le sous-GO courant devient `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01`, avec ouverture de `admin-trading` et `db-layer`, reutilisation du parent `localcms` existant, et report de `student` ainsi que `fantome`
+- dernier état connu : parent canonique de reprise repo-first ouvert ; PR #182 a merge `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01` sur `sot/mainline` (`8295f60`) ; le sous-GO courant devient `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01` pour valider la conformite finale de `admin-trading` et `db-layer`, tout en confirmant le report de `student` et `fantome` ainsi que la fusion `localcms`
 - lien utile : `docs/chantiers/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01/01_cadrage_parent.md`, `docs/chantiers/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01/02_go_map.md`
 
-### GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01
+### GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01
 - repo : opt-trading
-- type : doc-only / sous-go d'ouverture canonique des parents valides
+- type : doc-only / sous-go d'audit final des parents ouverts
 - statut : open
-- titre court : ouverture canonique borne des parents project/machine defensables
-- dernier état connu : apres merge de PR #181 (`7b75154`), ce sous-go ouvre `GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01` et `GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01`, fusionne le candidat `localcms` avec `GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01`, et differe `student` ainsi que `fantome`
-- lien utile : `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01/00_cadrage.md`, `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01/01_opening_plan.md`, `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01/02_parent_opening_matrix.md`, `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01/90_closeout.md`
+- titre court : audit final de conformite des parents ouverts
+- dernier état connu : apres merge de PR #182 (`8295f60`), ce sous-go audite `GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01` et `GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01`, confirme le report de `student` et `fantome`, et confirme la fusion `localcms` avec `GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01`
+- lien utile : `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01/00_cadrage.md`, `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01/01_conformity_matrix.md`, `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01/02_parent_status_review.md`, `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01/90_closeout.md`
 
 ### GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01
 - repo : opt-trading
 - type : chantier parent machine / doc-only
 - statut : open
 - titre court : parent canonique de la machine admin-trading
-- dernier état connu : parent ouvert dans `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01` sur preuve machine repo-first deja stabilisee par les surfaces `reseau_ssh` et `tmux-ide`
+- dernier état connu : parent ouvert dans `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01` puis audite dans `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01` ; conformite locale validee contre la matrice maitre
 - lien utile : `docs/chantiers/GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01/01_cadrage_parent.md`, `docs/chantiers/GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01/02_initial_project_doc.md`, `docs/chantiers/GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01/03_decisions.md`
 
 ### GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01
@@ -204,7 +204,7 @@ Le passage de 6 à 8 GO non clos correspond à l’ouverture PHASE 2 des parents
 - type : chantier parent machine / doc-only
 - statut : open
 - titre court : parent canonique de la machine db-layer
-- dernier état connu : parent ouvert dans `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01` sur preuve machine repo-first deja stabilisee dans les surfaces `reseau_ssh`
+- dernier état connu : parent ouvert dans `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01` puis audite dans `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01` ; conformite locale validee contre la matrice maitre
 - lien utile : `docs/chantiers/GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01/01_cadrage_parent.md`, `docs/chantiers/GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01/02_initial_project_doc.md`, `docs/chantiers/GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01/03_decisions.md`
 
 ### GO_UNIFORM_CONTINUITY_FINAL_MASTER_PLAN_01
