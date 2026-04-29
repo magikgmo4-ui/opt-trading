@@ -327,6 +327,14 @@ Si aucun parent n'est prouve :
 - le GO est lu comme GO simple
 - `GO_INDEX.md` peut normaliser `PARENT = CHANTIER`
 
+#### 4.1.1 Parents ouverts explicitement prouves sur la ligne courante
+
+Sur la ligne courante `opt-trading`, les parents suivants sont explicitement prouves et doivent rester lisibles dans la lecture canonique :
+
+- `GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01` : prouve par la presente matrice, `GO_INDEX.md` et `docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/`
+- `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01` : prouve par `GO_INDEX.md`, `docs/index/ACTIVE_STREAMS.md`, `docs/index/REPRISE.md` et `docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/`
+- `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` : prouve par `GO_INDEX.md` et `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/`
+
 ### 4.2 Sous-GO prouve ou non
 
 Un sous-GO n'existe que s'il est prouve.

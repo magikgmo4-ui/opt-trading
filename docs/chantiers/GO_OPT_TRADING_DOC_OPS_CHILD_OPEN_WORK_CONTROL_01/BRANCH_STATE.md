@@ -4,7 +4,7 @@ doc_type: branch_state
 repo: opt-trading
 project: opt-trading
 module:
-  go_id: GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01
+go_id: GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01
 status: open
 lifecycle_stage: branch_state
 topic_keys:
