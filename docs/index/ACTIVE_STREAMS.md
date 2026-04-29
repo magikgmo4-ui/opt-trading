@@ -74,9 +74,9 @@ Il sert à :
 - statut : open
 - repo : opt-trading
 - branche : `go/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01`
-- dernier point etabli : parent canonique de reprise repo-first ouvert ; PR #181 a merge `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_TARGET_MAP_01` sur `sot/mainline` (`7b75154`) ; le lot courant `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01` ouvre `GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01` et `GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01`, reutilise le parent `localcms` deja existant, et differe `student` ainsi que `fantome`
-- prochaine action : verifier et valider le lot `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01`, puis seulement apres validation humaine envisager `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01`
-- blocages : ne pas ouvrir `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01` dans ce passage ; ne pas creer de parent decoratif pour `localcms`, `student` ou `fantome`
+- dernier point etabli : parent canonique de reprise repo-first ouvert ; PR #182 a merge `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01` sur `sot/mainline` (`8295f60`) ; `GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01` et `GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01` sont ouverts, `localcms` reste fusionne avec le parent UI existant, et `student` ainsi que `fantome` restent differes
+- prochaine action : executer `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01` pour verifier la conformite finale des parents ouverts et la propagation des surfaces de continuite
+- blocages : ne pas ouvrir `GO_OPT_TRADING_MACHINE_STUDENT_PARENT_01`, `GO_OPT_TRADING_MACHINE_FANTOME_SUPPORT_PARENT_01` ou un clone `localcms` pendant ce passage d'audit
 
 ### GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01
 - statut : active
