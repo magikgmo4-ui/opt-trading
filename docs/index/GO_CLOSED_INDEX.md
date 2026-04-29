@@ -14,7 +14,7 @@ topic_keys:
   - governance
 surface: continuity
 source_kind: canonical
-updated_at: 2026-04-24
+updated_at: 2026-04-29
 links:
   - docs/index/GO_INDEX.md
   - docs/governance/REPO_ROLE.md
@@ -70,6 +70,11 @@ Normalisation retenue :
 | GO_UNIFORM_CONTINUITY_IDE_EXECUTION_PACK_02 | GO_UNIFORM_CONTINUITY_IDE_EXECUTION_PACK_02 | — | CLOSED | oui | `docs/index/GO_INDEX.md`<br>`docs/chantiers/GO_UNIFORM_CONTINUITY_IDE_EXECUTION_PACK_02/00_cadrage.md` |
 | GO_COLLECTORS_LIFECYCLE_COMPAT_CLOS | GO_COLLECTORS_LIFECYCLE_COMPAT_CLOS | — | CLOSED | oui | `docs/chantiers/GO_COLLECTORS_LIFECYCLE_COMPAT_CLOS/00_cadrage.md`<br>`docs/chantiers/GO_COLLECTORS_LIFECYCLE_COMPAT_CLOS/90_closeout.md` |
 | GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01 | GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/90_closeout.md` |
+| GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01 | GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01/01_cadrage_parent.md`<br>`docs/chantiers/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01/02_go_map.md`<br>`docs/chantiers/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_CLOSEOUT_01/90_closeout.md` |
+| GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01 | GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01/90_closeout.md` |
+| GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01 | GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01/10_closeout.md`<br>`docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md` |
+| GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01 | GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01/03_decisions.md`<br>`registry/README.md` |
+| GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01 | GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01/03_decisions.md`<br>`docs/ot/trae/trae_pack_texts/README.md` |
 
 ---
 
@@ -204,3 +209,43 @@ Ces entrées détaillées sont sorties de `docs/index/GO_INDEX.md`.
 - titre court : consolidation bornee de la suite OpenClaw
 - dernier état connu : sous-lot ferme en doc-only apres cartographie de suite, matrice des wrappers, runbook unique, conventions de famille et audit de duplication ; aucun patch shell transverse publie
 - lien utile : `docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/90_closeout.md`, `docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/03_step_01_matrice_wrappers.md`, `docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/04_step_02_runbook_de_suite.md`
+
+### GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01
+- repo : opt-trading
+- type : gouvernance / chantier parent / orchestration de reprise repo-first
+- statut : pass
+- titre court : parent canonique de reprise avant structuration project/machine
+- dernier état connu : closeout dedie publie le 2026-04-29 ; sequence enfant complete, `admin-trading` et `db-layer` conformes, `student` et `fantome` differes, `localcms` fusionne
+- lien utile : `docs/chantiers/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_CLOSEOUT_01/90_closeout.md`, `docs/chantiers/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_CLOSEOUT_01/02_final_state.md`
+
+### GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01
+- repo : opt-trading
+- type : doc-only / sous-go d'audit final des parents ouverts
+- statut : pass
+- titre court : audit final de conformite des parents ouverts
+- dernier état connu : `90_closeout.md` en `pass` ; conformite finale des parents audites et propagation de continuite corrigee
+- lien utile : `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01/90_closeout.md`, `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01/01_conformity_matrix.md`
+
+### GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01
+- repo : opt-trading
+- type : gouvernance / metadata derivee / doc-only
+- statut : closed
+- titre court : doctrine legere de derivation post-matrice
+- dernier état connu : `10_closeout.md` ferme la sequence documentaire et recommande le gel ; reouverture seulement sous condition explicite
+- lien utile : `docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01/10_closeout.md`, `docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md`
+
+### GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01
+- repo : opt-trading
+- type : patch local / doc-only
+- statut : closed
+- titre court : réalignement scope registry
+- dernier état connu : `registry/README.md` clarifie le périmètre, la limite repo/package et les exceptions sans créer de doctrine parallèle
+- lien utile : `registry/README.md`, `docs/chantiers/GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01/03_decisions.md`
+
+### GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01
+- repo : opt-trading
+- type : patch local / doc-only / reclassement documentaire
+- statut : closed
+- titre court : révision et relocalisation documentaire de `trae_pack_texts`
+- dernier état connu : `docs/ot/trae/trae_pack_texts/README.md` est l'entrée vivante, `trae_pack/` est archive de lecture et le pack n'est plus opposable face au canon repo-first
+- lien utile : `docs/ot/trae/trae_pack_texts/README.md`, `docs/chantiers/GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01/03_decisions.md`
