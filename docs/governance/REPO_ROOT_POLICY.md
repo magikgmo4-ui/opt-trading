@@ -15,8 +15,8 @@ topic_keys:
 surface: governance
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
-point_de_reprise: "Section Regles racine"
-updated_at: 2026-04-24
+point_de_reprise: "Section Fichiers racine legitimes observes"
+updated_at: 2026-04-29
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/architecture/REPO_SURFACES_MAP.md
@@ -55,21 +55,25 @@ Elle fixe seulement l'application locale à la racine de `opt-trading`.
 
 ## Fichiers racine legitimes observes au 2026-04-24
 - `README.md` : point d'entree repo minimal (quickstart / verification)
+- `.gitignore` : metadata Git canonique du repo
+- `.gitattributes` : metadata Git canonique du repo
 - `requirements.txt` : dependances Python repo-first
 - `.env.example` : exemple minimal de configuration locale
 - `webhook_server.py` : entrypoint runtime historique et toujours actif, encore reference par la doc canonique et les scripts de verification
+- `bitget_bridge.py` : shim legacy de compatibilite vers `modules/simex_bitget_bridge/app/simex_bitget_bridge.py`, conserve explicitement en racine comme point d'entree historique secondaire
 
 ## Surfaces top-level explicitement tolerees par la politique racine
 - `workflow_ai/` : doctrine locale d'execution IA et templates opposables
 - `deploy_module_multi_machine/` : outillage valide de deploiement multi-machine
 - `_archive/` : archive locale assumee, hors surface active
 
-## Objets racine encore sous arbitrage
-- `bitget_bridge.py` : shim legacy conserve en racine par prudence ; aucun caller repo explicite n'est confirme au `2026-04-24`, mais le move reste differe jusqu'a un lot dedie
+## Exception racine de compatibilite explicite
+- `bitget_bridge.py` : shim legacy minimal, conserve en racine comme alias de compatibilite explicite ; aucun caller repo direct n'est prouve, mais `modules/simex_bitget_bridge/README.md` confirme que le shim reste disponible et les wrappers actifs pointent deja vers le module canonique
 
 ## Garde-fou local-only
 - `_archive/`, `tmp/`, `__pycache__/`, `.ruff_cache/`, `.uv-cache/`, `.uv-python/`, `.secrets/` ne sont ni des sources de verite ni des prerequis de lecture canonique
 - ces surfaces ne doivent jamais etre promues comme justification pour remonter d'autres artefacts a la racine
+- les bundles locaux ignores a la racine (par exemple `GO_*_BUNDLE*` et les `.zip` de travail) restent des artefacts de transit non canoniques ; ils ne reouvrent pas la politique racine
 
 ## Lot de retrait applique
 - `journal.md` : supprime comme surface de continuite locale obsolete
@@ -103,5 +107,5 @@ Regle retenue :
 - ce document ne remplace pas les chantiers de reclassement physique
 
 ## REPRISE
-- suivi via `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`
-- lot dedie ouvert : `GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01`
+- closeout porte par `docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/90_closeout.md`
+- lot dedie `GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01` deja clos

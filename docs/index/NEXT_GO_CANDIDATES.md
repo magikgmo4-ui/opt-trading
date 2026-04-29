@@ -35,7 +35,7 @@ links:
 - gouvernance d'ensemble : `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
 - source de vérité : repo `opt-trading`
 - pour la liste canonique des GO et toute cardinalite systeme, `docs/index/GO_INDEX.md` reste prioritaire
-- périmètre d’exécution courant : 12 GO non clos retenus (`active` / `open`)
+- périmètre d’exécution courant : 10 GO non clos retenus (`active` / `open`)
 - `pass` et `reference` : hors exécution courante
 - `docs/index/NEXT_GO_CANDIDATES.md` est une matrice par **chantier parent actif**
 - cardinalité : **1 parent actif → 1 next GO primaire** (ou explicitement “aucun nouveau GO”)
@@ -45,8 +45,8 @@ links:
 
 ## Priorité opératoire active
 
-- P0 : `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`, `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01`
-- P1 : `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
+- P0 : `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
+- P1 : `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
 - P2 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_OPT_TRADING_PARENT_NAMING_CANON_01`
 
 ## Matrice — parent actif → next GO primaire
@@ -55,8 +55,6 @@ links:
 | --- | --- | --- | --- | --- | --- |
 | `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01` | open | P1 | `GO_OPT_TRADING_PARENT_CONTINUITY_INDEX_INBOX_METHOD_01` | canoniser ou confirmer la mÃ©thode parent-local + inbox + batch aprÃ¨s pilote ; aucun runtime OpenClaw | `docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/PARENT_STATE.md`; `docs/governance/PARENT_CONTINUITY_INDEX_INBOX_METHOD_01.md` |
 | `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01` | active | P0 | `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01` | exécuter l’implémentation de base tmux-ide sur machine cible | `docs/chantiers/GO_TMUX_IDE_OPT_TRADING_CADRAGE_01/00_cadrage.md` |
-| `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01` | active | P0 | aucun nouveau GO | produire la matrice canonique (PHASE C) puis le plan de lots physiques futurs (PHASE D) | `docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/00_cadrage.md` |
-| `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01` | active | P1 | aucun nouveau GO | consolider les arbitrages racine encore ouverts sans rouvrir le lot `trae_pack_texts` | `docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/00_cadrage.md` |
 | `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01` | active | P1 | aucun nouveau GO | consolider la lecture canonique des lignées mixtes sans duplication de preuves | `docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/00_cadrage.md` |
 | `GO_GIT_PROGRESSIVE_MIGRATION_START_13` | active | P1 | aucun nouveau GO | expliciter la suite opératoire avant tout lot d’exécution | `docs/chantiers/GO_GIT_PROGRESSIVE_MIGRATION_START_13/00_cadrage.md` |
 | `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03` | open | P1 | aucun nouveau GO | exécuter l’audit détaillé de la famille réseau/ssh dans ce GO | `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md` |

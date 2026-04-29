@@ -28,7 +28,7 @@ links:
 
 Base de pilotage active retenue pour `opt-trading` :
 
-- perimetre = **8 GO non clos retenus** dans la priorisation resserree (`active` / `open`)
+- perimetre = **6 GO non clos retenus** dans la priorisation resserree (`active` / `open`)
 - canon décisionnel = **état réel du repo `opt-trading`, relu sous la matrice maître**
 - bundles zip = **supports secondaires** de lecture, transfert ou exécution IDE
 - exclusion explicite = `pass` et `reference` hors exécution courante
@@ -56,7 +56,7 @@ Base de pilotage active retenue pour `opt-trading` :
 - **Présence dans le repo** : les bundles et supports listés ici sont des noms de supports secondaires ; ils peuvent être absents du repo (non trackés)
 - **Interdiction de dérive** : un bundle zip ne remplace jamais l’état réel du repo
 - **Extraction de continuité** : seuls les resultats documentaires extraits conserves sous `docs/governance/HUMAN_*` font encore foi comme archive utile
-- **Liste active a piloter** : les 8 GO de la priorisation resserree ci-dessous, avec maintien du parent multi-agents comme reprise locale hors absorption
+- **Liste active a piloter** : les 6 GO de la priorisation resserree ci-dessous, avec maintien du parent multi-agents comme reprise locale hors absorption
 
 ## Matrice de reprise canonique
 
@@ -64,8 +64,6 @@ Base de pilotage active retenue pour `opt-trading` :
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01` | open | P1 | `docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/PARENT_STATE.md`; `docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/INDEX_PATCH.md`; `docs/governance/PARENT_CONTINUITY_INDEX_INBOX_METHOD_01.md` | continuitÃ© parent locale complÃ¨te posÃ©e ; mÃ©thode local-first et inbox atomique mergÃ©es ; OpenClaw bornÃ© hors runtime dans ce chantier | entrÃ©e d'index agrÃ©gÃ©e par `GO_OPT_TRADING_INDEX_AGGREGATION_BATCH_01`; closeout final Ã©ventuel Ã  produire | ouvrir `GO_OPT_TRADING_PARENT_CONTINUITY_INDEX_INBOX_METHOD_01` seulement si une promotion additionnelle est requise, sinon surveiller les prochains INDEX_PATCH |
 | `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01` | active | P0 | `docs/chantiers/GO_TMUX_IDE_OPT_TRADING_CADRAGE_01/00_cadrage.md` | `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01_bundle.zip`; `consolidation_targets_ide_bundle.zip` | Bundle préparé, cadrage ouvert | Validation machine cible / panes / repo réel non prouvée | **Exécuter `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01`** |
-| `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01` | active | P0 | `docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/00_cadrage.md`; `docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/03_decisions.md` | `OPT_TRADING_OBSOLETE_RECLASS_AUDIT_BUNDLE.zip` | Parent ouvert (audit/qualification repo-first, doc-only, non destructif) | Matrice canonique à produire + plan de lots physiques futurs | **Produire la matrice (PHASE C) puis le plan de lots (PHASE D)** |
-| `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01` | active | P1 | `docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/00_cadrage.md`; `docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/03_decisions.md` | Aucun bundle canonique | Parent PHASE 2 LOT 4 ouvert ; politique racine posée | Arbitrages de reclassement racine encore ouverts | **Consolider les classes racine et les arbitrages documentés sans chevaucher la politique frontière** |
 | `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01` | active | P1 | `docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/00_cadrage.md`; `docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/03_decisions.md` | Aucun bundle canonique | Parent PHASE 3 LOT 5 ouvert ; fiches status courtes publiées | Arbitrages de lignée encore ouverts sur plusieurs familles mixtes | **Consolider survivant/transition/legacy/archive en gap-only** |
 | `GO_GIT_PROGRESSIVE_MIGRATION_START_13` | active | P1 | `docs/chantiers/GO_GIT_PROGRESSIVE_MIGRATION_START_13/00_cadrage.md` | `zip_repos_audit_bundle.zip`; `zip_repos_audit_synthese_complete.md`; `zip_repos_audit_synthese_complete.json`; `zip_docs_line_reading_complete.md` | Dossier minimal ouvert pour GO actif | Suite autonome encore insuffisamment explicitée | **Formaliser la suite opératoire dédiée du chantier de migration avant tout lot d’exécution** |
 | `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03` | open | P1 | `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md`; `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CANONICAL_RENAME_REGISTRY_01/01_plan_operationnel_step_by_step.md`; `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_MACHINE_SIDE_REPOINT_01/10_step_09_execution_resultats.md` | `reseau_ssh_physical_consolidation_bundle_01.zip` | `db-layer`, `admin-trading`, `student` et `fantome` ont leurs alias courts repointés vers `modules/reseau_ssh/scripts/*` avec PASS ; `step1b` et `scripts/reseau_ssh` restent en compat | Reste a arbitrer la reduction des compatibilites et le retrait progressif des anciens points d'entree | **Ouvrir le lot de réduction de compatibilité sur `scripts/reseau_ssh`, puis qualifier `step1b`** |
