@@ -28,7 +28,7 @@ links:
 
 Base de pilotage active retenue pour `opt-trading` :
 
-- perimetre = **6 GO non clos retenus** dans la priorisation resserree (`active` / `open`)
+- perimetre = **5 GO non clos retenus** dans la priorisation resserree (`active` / `open`)
 - canon décisionnel = **état réel du repo `opt-trading`, relu sous la matrice maître**
 - bundles zip = **supports secondaires** de lecture, transfert ou exécution IDE
 - exclusion explicite = `pass` et `reference` hors exécution courante
@@ -56,7 +56,7 @@ Base de pilotage active retenue pour `opt-trading` :
 - **Présence dans le repo** : les bundles et supports listés ici sont des noms de supports secondaires ; ils peuvent être absents du repo (non trackés)
 - **Interdiction de dérive** : un bundle zip ne remplace jamais l’état réel du repo
 - **Extraction de continuité** : seuls les resultats documentaires extraits conserves sous `docs/governance/HUMAN_*` font encore foi comme archive utile
-- **Liste active a piloter** : les 6 GO de la priorisation resserree ci-dessous, avec maintien du parent multi-agents comme reprise locale hors absorption
+- **Liste active a piloter** : les 5 GO de la priorisation resserree ci-dessous, avec maintien du parent multi-agents comme reprise locale hors absorption
 
 ## Matrice de reprise canonique
 
@@ -68,4 +68,3 @@ Base de pilotage active retenue pour `opt-trading` :
 | `GO_GIT_PROGRESSIVE_MIGRATION_START_13` | active | P1 | `docs/chantiers/GO_GIT_PROGRESSIVE_MIGRATION_START_13/00_cadrage.md` | `zip_repos_audit_bundle.zip`; `zip_repos_audit_synthese_complete.md`; `zip_repos_audit_synthese_complete.json`; `zip_docs_line_reading_complete.md` | Dossier minimal ouvert pour GO actif | Suite autonome encore insuffisamment explicitée | **Formaliser la suite opératoire dédiée du chantier de migration avant tout lot d’exécution** |
 | `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03` | open | P1 | `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md`; `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CANONICAL_RENAME_REGISTRY_01/01_plan_operationnel_step_by_step.md`; `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_MACHINE_SIDE_REPOINT_01/10_step_09_execution_resultats.md` | `reseau_ssh_physical_consolidation_bundle_01.zip` | `db-layer`, `admin-trading`, `student` et `fantome` ont leurs alias courts repointés vers `modules/reseau_ssh/scripts/*` avec PASS ; `step1b` et `scripts/reseau_ssh` restent en compat | Reste a arbitrer la reduction des compatibilites et le retrait progressif des anciens points d'entree | **Ouvrir le lot de réduction de compatibilité sur `scripts/reseau_ssh`, puis qualifier `step1b`** |
 | `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` | open | P2 | `docs/index/GO_INDEX.md`; `docs/chantiers/GO_GIT_AI_TEAM_ARCHITECTURE_PARENT_DOC_ONLY_INTEGRATION_01/03_decisions.md` | Aucun bundle dédié identifié | Parent AI team intégré doc-only dans `GO_INDEX.md` avec statut `OPEN` | Dossier parent complet non matérialisé dans cette copie locale ; reprise enfant encore non réouverte | **Utiliser l’entrée `OPEN` comme base si un GO enfant d’audit documentaire doit être relancé** |
-| `GO_OPT_TRADING_PARENT_NAMING_CANON_01` | open | P2 | `docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_01/01_cadrage_parent.md`; `docs/governance/NAMING_CANON_POLICY_01.md` | Aucun bundle canonique | Parent naming ouvert ; module `naming_normalizer` livre ; inventaire repo-first produit sans apply | Arbitrage final du closeout parent encore non execute dans un lot dedie | **Ouvrir un lot d’arbitrage de closeout du parent naming a partir de l’inventaire produit** |
