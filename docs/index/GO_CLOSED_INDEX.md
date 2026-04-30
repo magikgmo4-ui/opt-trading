@@ -81,6 +81,7 @@ Normalisation retenue :
 | GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01 | GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/02_journal_technique.md`<br>`docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/90_closeout.md` |
 | GO_OPT_TRADING_PARENT_NAMING_CANON_01 | GO_OPT_TRADING_CHILD_NAMING_NORMALIZER_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_CHILD_NAMING_NORMALIZER_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_CHILD_NAMING_NORMALIZER_01/90_closeout.md`<br>`modules/naming_normalizer/README.md` |
 | GO_OPT_TRADING_PARENT_NAMING_CANON_01 | GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01/90_closeout.md`<br>`modules/naming_normalizer/output/naming_audit_report.md` |
+| GO_OPT_TRADING_PARENT_NAMING_CANON_01 | GO_OPT_TRADING_PARENT_NAMING_CANON_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_01/01_cadrage_parent.md`<br>`docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_01/90_closeout.md`<br>`docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_CLOSEOUT_01/90_closeout.md` |
 
 ---
 
@@ -303,3 +304,11 @@ Ces entrées détaillées sont sorties de `docs/index/GO_INDEX.md`.
 - titre court : inventaire des ecarts de nommage
 - dernier état connu : inventaire repo-first produit sur `docs/chantiers/`, `docs/governance/`, `modules/`, scripts et branches locales, avec classification `CANON / LEGACY_TOLERE / A_CORRIGER_PLUS_TARD / REVIEW_REQUIRED / REFERENCE_ONLY`
 - lien utile : `docs/chantiers/GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01/90_closeout.md`, `modules/naming_normalizer/output/naming_audit_report.md`, `modules/naming_normalizer/output/naming_audit_report.json`
+
+### GO_OPT_TRADING_PARENT_NAMING_CANON_01
+- repo : opt-trading
+- type : gouvernance / nommage / chantier parent
+- statut : closed
+- titre court : parent canonique naming
+- dernier état connu : politique par surface stable, module audit-only livre, inventaire repo-first prouve et aucune application reelle requise pour le closeout parent
+- lien utile : `docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_01/90_closeout.md`, `docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_CLOSEOUT_01/90_closeout.md`, `docs/governance/NAMING_CANON_POLICY_01.md`

@@ -52,11 +52,11 @@ Il sert à :
 
 ---
 
-## Priorite operatoire (6 GO non clos retenus)
+## Priorite operatoire (5 GO non clos retenus)
 
 - P0 : `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
 - P1 : `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
-- P2 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_OPT_TRADING_PARENT_NAMING_CANON_01`
+- P2 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
 
 ---
 
@@ -93,14 +93,6 @@ Il sert à :
 - dernier point établi : parent AI team intégré doc-only dans `GO_INDEX.md` avec statut `OPEN`
 - prochaine action : utiliser cette entrée comme point de reprise si un GO enfant dédié d’audit documentaire doit être rouvert
 - blocages : dossier parent complet non matérialisé dans cette copie locale ; reprise à garder repo-first sur l’état prouvé
-
-### GO_OPT_TRADING_PARENT_NAMING_CANON_01
-- statut : open
-- repo : opt-trading
-- branche : `sot/mainline`
-- dernier point établi : parent naming canon ouvert ; module audit-only livre et inventaire repo-first produit, sans renommage reel
-- prochaine action : ouvrir un lot dedie d’arbitrage de closeout du parent naming
-- blocages : aucun nouveau `<PRODUCT_OR_SURFACE>` ne doit être tenu pour valide sans preuve canonique ; aucune campagne rétroactive immédiate
 
 ### GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03
 - statut : open
