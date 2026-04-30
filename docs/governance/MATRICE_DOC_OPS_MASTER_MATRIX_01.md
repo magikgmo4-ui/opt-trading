@@ -575,6 +575,34 @@ Restent pertinentes mais non souveraines pour la presente matrice :
 - `docs/architecture/PROJECT_SNAPSHOT_GLOBAL_2026-04-18.md` : snapshot ponctuel, pas regle stable
 - `docs/next/NEXT_GO_CANDIDATES.md` : stub de redirection deprecated, non source canonique
 
+### 8.4 Continuité locale des parents et indexation différée
+
+Pour tout nouveau chantier parent, la continuité courante doit être conservée prioritairement dans :
+
+`docs/chantiers/<GO_PARENT>/`
+
+Le dossier parent porte le cadrage, le plan ou état courant, les décisions locales, les gaps, les TODO et le point de reprise.
+
+Une entrée courte atomique doit être créée dans :
+
+`docs/index/inbox/<GO_PARENT>.md`
+
+Cette entrée sert de tampon d'agrégation future.
+
+Les index globaux ne doivent pas être modifiés à chaque micro-avancement. Ils sont modifiés seulement si :
+- le parent devient officiellement actif dans la liste globale ;
+- le parent est fermé ;
+- le statut global change ;
+- le next GO global change ;
+- un batch explicite d'agrégation d'index est ouvert ;
+- un arbitrage branche significatif l'exige.
+
+Effet :
+- chaque parent reste autonome pour la reprise ;
+- les gros index globaux restent lisibles ;
+- l'agrégation globale devient un acte séparé et contrôlé ;
+- `docs/index/inbox/` évite de remplacer les index globaux par un journal de session.
+
 ---
 
 ## Partie 9 - Trunk / branche parent / branche enfant / exceptions
@@ -650,12 +678,13 @@ L'ouverture d'un parent doit figer au minimum :
 - support Git seulement s'il est prouve ou necessaire
 
 Propagation minimale d'ouverture :
-- dossier chantier parent
-- `GO_INDEX.md`
-- `NEXT_GO_CANDIDATES.md` si le parent entre en priorite active
-- `ACTIVE_STREAMS.md` si le flux devient reellement actif
-- `REPRISE.md` si un point de pilotage est necessaire
-- `BRANCH_STATE.md` si une branche dediee significative est ouverte
+- dossier chantier parent ;
+- entrée atomique `docs/index/inbox/<GO_PARENT>.md` ;
+- `GO_INDEX.md` seulement si le parent doit entrer immédiatement dans la liste globale ;
+- `NEXT_GO_CANDIDATES.md` seulement si le parent devient priorite active globale ;
+- `ACTIVE_STREAMS.md` seulement si le flux devient reellement actif globalement ;
+- `REPRISE.md` seulement si un point de pilotage global est necessaire ;
+- `BRANCH_STATE.md` seulement si une branche dediee significative est ouverte ou arbitree.
 
 ### 10.2 Ouverture sous-GO
 
@@ -697,6 +726,14 @@ Propagation minimale a retenir :
 - `ACTIVE_STREAMS.md` pour l'actif reel
 - `REPRISE.md` pour la reprise operatoire
 - surfaces produit si l'etat global change
+
+La propagation globale n'est pas obligatoire pour chaque micro-avancement local.
+
+Par défaut, les évolutions locales restent dans le dossier parent `docs/chantiers/<GO_PARENT>/`.
+
+L'entrée `docs/index/inbox/<GO_PARENT>.md` sert de trace courte en attente d'un batch d'agrégation.
+
+Les index globaux sont réservés aux changements structurels, aux fermetures, aux ouvertures significatives, aux changements de statut global, aux changements de next GO global et aux batchs d'agrégation.
 
 ---
 
