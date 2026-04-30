@@ -1,0 +1,219 @@
+[
+  {
+    "surface": "go_dirs",
+    "path": "docs\\chantiers\\GO_COLLECTORS_LIFECYCLE_COMPAT_CLOS",
+    "current_name": "GO_COLLECTORS_LIFECYCLE_COMPAT_CLOS",
+    "proposed_name": "GO_COLLECTORS_LIFECYCLE_COMPAT_CLOS__MANUAL_REVIEW_REQUIRED",
+    "reason": "Les dossiers directs de docs/chantiers doivent respecter la structure GO_<SCOPE>_<PRODUCT_OR_SURFACE>_<ROLE>_<OBJECT>_<NN>, avec <SCOPE>=1 token, <PRODUCT_OR_SURFACE>=1 a n tokens, <ROLE>=token borne et lisible, <OBJECT>=1 a n tokens et <NN>=2+ chiffres."
+  },
+  {
+    "surface": "go_dirs",
+    "path": "docs\\chantiers\\GO_UNIFORM_CONTINUITY_HARDENING_01",
+    "current_name": "GO_UNIFORM_CONTINUITY_HARDENING_01",
+    "proposed_name": "GO_UNIFORM_CONTINUITY_HARDENING_01__MANUAL_REVIEW_REQUIRED",
+    "reason": "Les dossiers directs de docs/chantiers doivent respecter la structure GO_<SCOPE>_<PRODUCT_OR_SURFACE>_<ROLE>_<OBJECT>_<NN>, avec <SCOPE>=1 token, <PRODUCT_OR_SURFACE>=1 a n tokens, <ROLE>=token borne et lisible, <OBJECT>=1 a n tokens et <NN>=2+ chiffres."
+  },
+  {
+    "surface": "go_dirs",
+    "path": "docs\\chantiers\\GO_UNIFORM_CONTINUITY_HARDENING_02",
+    "current_name": "GO_UNIFORM_CONTINUITY_HARDENING_02",
+    "proposed_name": "GO_UNIFORM_CONTINUITY_HARDENING_02__MANUAL_REVIEW_REQUIRED",
+    "reason": "Les dossiers directs de docs/chantiers doivent respecter la structure GO_<SCOPE>_<PRODUCT_OR_SURFACE>_<ROLE>_<OBJECT>_<NN>, avec <SCOPE>=1 token, <PRODUCT_OR_SURFACE>=1 a n tokens, <ROLE>=token borne et lisible, <OBJECT>=1 a n tokens et <NN>=2+ chiffres."
+  },
+  {
+    "surface": "chantier_docs",
+    "path": "docs\\chantiers\\GO_OPT_TRADING_BRANCH_ARBITRATION_DELETE_AND_BRANCH_STATE_03\\delete_branches.ps1",
+    "current_name": "delete_branches.ps1",
+    "proposed_name": "delete_branches.ps1",
+    "reason": "Les fichiers de chantier doivent être soit ordonnés NN_lower_snake_case, soit des références explicites en UPPER_SNAKE_CASE."
+  },
+  {
+    "surface": "chantier_docs",
+    "path": "docs\\chantiers\\GO_OPT_TRADING_BRANCH_ARBITRATION_DELETE_AND_BRANCH_STATE_03\\delete_results.txt",
+    "current_name": "delete_results.txt",
+    "proposed_name": "delete_results.txt",
+    "reason": "Les fichiers de chantier doivent être soit ordonnés NN_lower_snake_case, soit des références explicites en UPPER_SNAKE_CASE."
+  },
+  {
+    "surface": "chantier_docs",
+    "path": "docs\\chantiers\\GO_OPT_TRADING_BRANCH_ARBITRATION_DELETE_AND_BRANCH_STATE_03\\remote_delete_final_status.txt",
+    "current_name": "remote_delete_final_status.txt",
+    "proposed_name": "remote_delete_final_status.txt",
+    "reason": "Les fichiers de chantier doivent être soit ordonnés NN_lower_snake_case, soit des références explicites en UPPER_SNAKE_CASE."
+  },
+  {
+    "surface": "chantier_docs",
+    "path": "docs\\chantiers\\GO_OPT_TRADING_BRANCH_ARBITRATION_DELETE_AND_BRANCH_STATE_03\\status_before_closeout.txt",
+    "current_name": "status_before_closeout.txt",
+    "proposed_name": "status_before_closeout.txt",
+    "reason": "Les fichiers de chantier doivent être soit ordonnés NN_lower_snake_case, soit des références explicites en UPPER_SNAKE_CASE."
+  },
+  {
+    "surface": "chantier_docs",
+    "path": "docs\\chantiers\\GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01\\06_registry_derived_pilot.yaml",
+    "current_name": "06_registry_derived_pilot.yaml",
+    "proposed_name": "06_registry_derived_pilot.yaml",
+    "reason": "Les fichiers de chantier doivent être soit ordonnés NN_lower_snake_case, soit des références explicites en UPPER_SNAKE_CASE."
+  },
+  {
+    "surface": "chantier_docs",
+    "path": "docs\\chantiers\\GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01\\08_registry_derived_pilot_delta.yaml",
+    "current_name": "08_registry_derived_pilot_delta.yaml",
+    "proposed_name": "08_registry_derived_pilot_delta.yaml",
+    "reason": "Les fichiers de chantier doivent être soit ordonnés NN_lower_snake_case, soit des références explicites en UPPER_SNAKE_CASE."
+  },
+  {
+    "surface": "chantier_docs",
+    "path": "docs\\chantiers\\GO_OPT_TRADING_REMAINING_GO_BRANCHES_POST_ALIGNMENT_VERIFY_04\\local_go_opt_trading_branches_post_alignment.txt",
+    "current_name": "local_go_opt_trading_branches_post_alignment.txt",
+    "proposed_name": "local_go_opt_trading_branches_post_alignment.txt",
+    "reason": "Les fichiers de chantier doivent être soit ordonnés NN_lower_snake_case, soit des références explicites en UPPER_SNAKE_CASE."
+  },
+  {
+    "surface": "chantier_docs",
+    "path": "docs\\chantiers\\GO_OPT_TRADING_REMAINING_GO_BRANCHES_POST_ALIGNMENT_VERIFY_04\\remote_go_opt_trading_branches_post_alignment.txt",
+    "current_name": "remote_go_opt_trading_branches_post_alignment.txt",
+    "proposed_name": "remote_go_opt_trading_branches_post_alignment.txt",
+    "reason": "Les fichiers de chantier doivent être soit ordonnés NN_lower_snake_case, soit des références explicites en UPPER_SNAKE_CASE."
+  },
+  {
+    "surface": "chantier_docs",
+    "path": "docs\\chantiers\\GO_OPT_TRADING_REMAINING_GO_BRANCHES_POST_ALIGNMENT_VERIFY_04\\source_BRANCH_STATE.post_alignment.md",
+    "current_name": "source_BRANCH_STATE.post_alignment.md",
+    "proposed_name": "source_branch_state.post_alignment.md",
+    "reason": "Les fichiers de chantier doivent être soit ordonnés NN_lower_snake_case, soit des références explicites en UPPER_SNAKE_CASE."
+  },
+  {
+    "surface": "chantier_docs",
+    "path": "docs\\chantiers\\GO_OPT_TRADING_REMAINING_GO_BRANCHES_POST_ALIGNMENT_VERIFY_04\\source_GO_INDEX.post_alignment.md",
+    "current_name": "source_GO_INDEX.post_alignment.md",
+    "proposed_name": "source_go_index.post_alignment.md",
+    "reason": "Les fichiers de chantier doivent être soit ordonnés NN_lower_snake_case, soit des références explicites en UPPER_SNAKE_CASE."
+  },
+  {
+    "surface": "chantier_docs",
+    "path": "docs\\chantiers\\GO_OPT_TRADING_REMAINING_GO_BRANCHES_POST_ALIGNMENT_VERIFY_04\\source_MATRICE_DOC_OPS_MASTER_MATRIX_01.post_alignment.md",
+    "current_name": "source_MATRICE_DOC_OPS_MASTER_MATRIX_01.post_alignment.md",
+    "proposed_name": "source_matrice_doc_ops_master_matrix_01.post_alignment.md",
+    "reason": "Les fichiers de chantier doivent être soit ordonnés NN_lower_snake_case, soit des références explicites en UPPER_SNAKE_CASE."
+  },
+  {
+    "surface": "module_scripts",
+    "path": "modules\\shared_sshfs_permanent\\INSTALL.sh",
+    "current_name": "INSTALL.sh",
+    "proposed_name": "install.sh",
+    "reason": "Les scripts directs des modules doivent utiliser lower_snake_case."
+  },
+  {
+    "surface": "local_branches",
+    "path": "branch:GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01",
+    "current_name": "GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01",
+    "proposed_name": "chore/go-opt-trading-ai-team-architecture-parent-01",
+    "reason": "Les branches locales doivent utiliser family/lower-kebab-case, sauf branche GO dediee alignee sur go/<GO_ID>."
+  },
+  {
+    "surface": "local_branches",
+    "path": "branch:backup/pre_push_2026_03_14",
+    "current_name": "backup/pre_push_2026_03_14",
+    "proposed_name": "backup/pre-push-2026-03-14",
+    "reason": "Les branches locales doivent utiliser family/lower-kebab-case, sauf branche GO dediee alignee sur go/<GO_ID>."
+  },
+  {
+    "surface": "local_branches",
+    "path": "branch:codex/doc-ops-child-branch-cleanup-01",
+    "current_name": "codex/doc-ops-child-branch-cleanup-01",
+    "proposed_name": "codex/doc-ops-child-branch-cleanup-01",
+    "reason": "Les branches locales doivent utiliser family/lower-kebab-case, sauf branche GO dediee alignee sur go/<GO_ID>."
+  },
+  {
+    "surface": "local_branches",
+    "path": "branch:codex/doc-ops-child-open-work-control-01",
+    "current_name": "codex/doc-ops-child-open-work-control-01",
+    "proposed_name": "codex/doc-ops-child-open-work-control-01",
+    "reason": "Les branches locales doivent utiliser family/lower-kebab-case, sauf branche GO dediee alignee sur go/<GO_ID>."
+  },
+  {
+    "surface": "local_branches",
+    "path": "branch:codex/module-canonical-consolidation-01",
+    "current_name": "codex/module-canonical-consolidation-01",
+    "proposed_name": "codex/module-canonical-consolidation-01",
+    "reason": "Les branches locales doivent utiliser family/lower-kebab-case, sauf branche GO dediee alignee sur go/<GO_ID>."
+  },
+  {
+    "surface": "local_branches",
+    "path": "branch:codex/repo-directory-synthesis-parent-01",
+    "current_name": "codex/repo-directory-synthesis-parent-01",
+    "proposed_name": "codex/repo-directory-synthesis-parent-01",
+    "reason": "Les branches locales doivent utiliser family/lower-kebab-case, sauf branche GO dediee alignee sur go/<GO_ID>."
+  },
+  {
+    "surface": "local_branches",
+    "path": "branch:codex/reseau-share-transfer-consolidation-01",
+    "current_name": "codex/reseau-share-transfer-consolidation-01",
+    "proposed_name": "codex/reseau-share-transfer-consolidation-01",
+    "reason": "Les branches locales doivent utiliser family/lower-kebab-case, sauf branche GO dediee alignee sur go/<GO_ID>."
+  },
+  {
+    "surface": "local_branches",
+    "path": "branch:codex/reseau-ssh-runtime-compat-retirement-01",
+    "current_name": "codex/reseau-ssh-runtime-compat-retirement-01",
+    "proposed_name": "codex/reseau-ssh-runtime-compat-retirement-01",
+    "reason": "Les branches locales doivent utiliser family/lower-kebab-case, sauf branche GO dediee alignee sur go/<GO_ID>."
+  },
+  {
+    "surface": "local_branches",
+    "path": "branch:codex/root-surface-reclass-01",
+    "current_name": "codex/root-surface-reclass-01",
+    "proposed_name": "codex/root-surface-reclass-01",
+    "reason": "Les branches locales doivent utiliser family/lower-kebab-case, sauf branche GO dediee alignee sur go/<GO_ID>."
+  },
+  {
+    "surface": "local_branches",
+    "path": "branch:codex/sot-mainline-backup-a885f0b-prepublish-2026-04-22",
+    "current_name": "codex/sot-mainline-backup-a885f0b-prepublish-2026-04-22",
+    "proposed_name": "codex/sot-mainline-backup-a885f0b-prepublish-2026-04-22",
+    "reason": "Les branches locales doivent utiliser family/lower-kebab-case, sauf branche GO dediee alignee sur go/<GO_ID>."
+  },
+  {
+    "surface": "local_branches",
+    "path": "branch:codex/winscp-transfer-wrapper-alignment-01",
+    "current_name": "codex/winscp-transfer-wrapper-alignment-01",
+    "proposed_name": "codex/winscp-transfer-wrapper-alignment-01",
+    "reason": "Les branches locales doivent utiliser family/lower-kebab-case, sauf branche GO dediee alignee sur go/<GO_ID>."
+  },
+  {
+    "surface": "local_branches",
+    "path": "branch:feat/GO_CONTINUITE_PRODUIT_MULTI_CHANTIER_CANON_01",
+    "current_name": "feat/GO_CONTINUITE_PRODUIT_MULTI_CHANTIER_CANON_01",
+    "proposed_name": "feat/go-continuite-produit-multi-chantier-canon-01",
+    "reason": "Les branches locales doivent utiliser family/lower-kebab-case, sauf branche GO dediee alignee sur go/<GO_ID>."
+  },
+  {
+    "surface": "local_branches",
+    "path": "branch:go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01_ISOLATED",
+    "current_name": "go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01_ISOLATED",
+    "proposed_name": "go/go-opt-trading-doc-ops-child-open-work-control-01-isolated",
+    "reason": "Les branches locales doivent utiliser family/lower-kebab-case, sauf branche GO dediee alignee sur go/<GO_ID>."
+  },
+  {
+    "surface": "local_branches",
+    "path": "branch:main",
+    "current_name": "main",
+    "proposed_name": "chore/main",
+    "reason": "Les branches locales doivent utiliser family/lower-kebab-case, sauf branche GO dediee alignee sur go/<GO_ID>."
+  },
+  {
+    "surface": "local_branches",
+    "path": "branch:rescue/derivatives-local-2026-04-09",
+    "current_name": "rescue/derivatives-local-2026-04-09",
+    "proposed_name": "rescue/derivatives-local-2026-04-09",
+    "reason": "Les branches locales doivent utiliser family/lower-kebab-case, sauf branche GO dediee alignee sur go/<GO_ID>."
+  },
+  {
+    "surface": "local_branches",
+    "path": "branch:rescue/sot-mainline-local-2964fea",
+    "current_name": "rescue/sot-mainline-local-2964fea",
+    "proposed_name": "rescue/sot-mainline-local-2964fea",
+    "reason": "Les branches locales doivent utiliser family/lower-kebab-case, sauf branche GO dediee alignee sur go/<GO_ID>."
+  }
+]
