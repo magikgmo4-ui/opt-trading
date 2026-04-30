@@ -82,6 +82,7 @@ Normalisation retenue :
 | GO_OPT_TRADING_PARENT_NAMING_CANON_01 | GO_OPT_TRADING_CHILD_NAMING_NORMALIZER_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_CHILD_NAMING_NORMALIZER_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_CHILD_NAMING_NORMALIZER_01/90_closeout.md`<br>`modules/naming_normalizer/README.md` |
 | GO_OPT_TRADING_PARENT_NAMING_CANON_01 | GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01/90_closeout.md`<br>`modules/naming_normalizer/output/naming_audit_report.md` |
 | GO_OPT_TRADING_PARENT_NAMING_CANON_01 | GO_OPT_TRADING_PARENT_NAMING_CANON_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_01/01_cadrage_parent.md`<br>`docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_01/90_closeout.md`<br>`docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_CLOSEOUT_01/90_closeout.md` |
+| GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01 | GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/01_cadrage_parent.md`<br>`docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/90_closeout.md`<br>`docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_CLOSEOUT_01/90_closeout.md` |
 
 ---
 
@@ -312,3 +313,11 @@ Ces entrées détaillées sont sorties de `docs/index/GO_INDEX.md`.
 - titre court : parent canonique naming
 - dernier état connu : politique par surface stable, module audit-only livre, inventaire repo-first prouve et aucune application reelle requise pour le closeout parent
 - lien utile : `docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_01/90_closeout.md`, `docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_CLOSEOUT_01/90_closeout.md`, `docs/governance/NAMING_CANON_POLICY_01.md`
+
+### GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01
+- repo : opt-trading
+- type : gouvernance / chantier parent / doc-only
+- statut : closed
+- titre court : matrice maitre doc ops
+- dernier état connu : matrice maitre finale publiee et souveraine ; les closeouts de gouvernance necessaires sont executes ; aucun lot complementaire propre au parent ne bloque sa fermeture
+- lien utile : `docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/90_closeout.md`, `docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_CLOSEOUT_01/90_closeout.md`, `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
