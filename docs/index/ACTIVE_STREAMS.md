@@ -98,8 +98,8 @@ Il sert à :
 - statut : open
 - repo : opt-trading
 - branche : `sot/mainline`
-- dernier point établi : parent naming canon ouvert en audit-only ; aucun renommage réel dans le lot initial
-- prochaine action : reprendre sur `GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01` avant tout lot d’application
+- dernier point établi : parent naming canon ouvert ; module audit-only livre et inventaire repo-first produit, sans renommage reel
+- prochaine action : ouvrir un lot dedie d’arbitrage de closeout du parent naming
 - blocages : aucun nouveau `<PRODUCT_OR_SURFACE>` ne doit être tenu pour valide sans preuve canonique ; aucune campagne rétroactive immédiate
 
 ### GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03
