@@ -1,0 +1,14 @@
+{
+  "name": "bot_vision_headless",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Headless browser capture for bot_vision pipeline",
+  "scripts": {
+    "check": "node -e \"try{require('playwright');console.log('playwright:OK')}catch(e){console.log('playwright:MISSING')}\"",
+    "capture": "node capture_headless.js",
+    "capture:example": "node capture_headless.js --profile profiles.example.json --once"
+  },
+  "dependencies": {
+    "playwright": "^1.52.0"
+  }
+}
