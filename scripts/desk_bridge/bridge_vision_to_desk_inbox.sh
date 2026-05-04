@@ -22,9 +22,22 @@ need_cmd() { command -v "$1" >/dev/null 2>&1; }
 
 pick_latest() {
   local f=""
-  f="$(ls -1t "$VISION_PROCESSED"/screen_*.png 2>/dev/null | head -n 1 || true)"
+  while IFS= read -r candidate; do
+    # Skip .uploading partial uploads
+    [[ "$candidate" == *.uploading* ]] && continue
+    # Skip empty (0-byte) files
+    [ -s "$candidate" ] || continue
+    f="$candidate"
+    break
+  done < <(ls -1t "$VISION_PROCESSED"/screen_*.png 2>/dev/null 2>&1 || true)
+
   if [[ -z "$f" ]]; then
-    f="$(ls -1t "$VISION_INBOX"/screen_*.png 2>/dev/null | head -n 1 || true)"
+    while IFS= read -r candidate; do
+      [[ "$candidate" == *.uploading* ]] && continue
+      [ -s "$candidate" ] || continue
+      f="$candidate"
+      break
+    done < <(ls -1t "$VISION_INBOX"/screen_*.png 2>/dev/null 2>&1 || true)
   fi
   echo "$f"
 }
@@ -52,9 +65,18 @@ crop_with_python() {
   python3 - "$src" "$outdir" <<'PY'
 from PIL import Image
 import sys
+import os
 
 src = sys.argv[1]
 outdir = sys.argv[2]
+
+if not os.path.exists(src) or os.path.getsize(src) <= 0:
+    print(f"SKIP: invalid input file: {src}")
+    sys.exit(0)
+
+if os.path.basename(src).endswith(".uploading"):
+    print(f"SKIP: partial upload: {src}")
+    sys.exit(0)
 
 im = Image.open(src)
 w, h = im.size
@@ -96,6 +118,16 @@ main() {
   work="/tmp/desk_bridge_${ts}"
   rm -rf "$work"
   mkdir -p "$work"
+
+  # Guard: double-check file is valid before any image processing
+  if [[ "$src" == *.uploading* ]]; then
+    echo "SKIP partial upload: $src" >&2
+    exit 0
+  fi
+  if [ ! -s "$src" ]; then
+    echo "SKIP empty file: $src" >&2
+    exit 0
+  fi
 
   echo "Using source: $src"
   echo "Parsed ts: $ts"
