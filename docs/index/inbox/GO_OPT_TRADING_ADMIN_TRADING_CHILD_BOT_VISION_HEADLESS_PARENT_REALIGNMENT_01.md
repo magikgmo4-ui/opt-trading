@@ -1,0 +1,30 @@
+---
+doc_id: GO_OPT_TRADING_ADMIN_TRADING_CHILD_BOT_VISION_HEADLESS_PARENT_REALIGNMENT_01_INBOX
+doc_type: inbox_entry
+repo: opt-trading
+go_id: GO_OPT_TRADING_ADMIN_TRADING_CHILD_BOT_VISION_HEADLESS_PARENT_REALIGNMENT_01
+parent_go: GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01
+status: closed
+verdict: PASS
+surface: continuity
+source_kind: derived
+updated_at: 2026-05-04
+---
+
+# Inbox: GO_OPT_TRADING_ADMIN_TRADING_CHILD_BOT_VISION_HEADLESS_PARENT_REALIGNMENT_01
+
+## Resume
+
+Realignement: bot_vision_headless rattache comme child sous GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01. Parent specialise ABSORBED. Aucun index patch necessaire.
+
+## Verdict
+
+PASS
+
+## Chantier
+
+docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_CHILD_BOT_VISION_HEADLESS_PARENT_REALIGNMENT_01/
+
+## Next GO
+
+GO_OPT_TRADING_ADMIN_TRADING_CHILD_BOT_VISION_HEADLESS_IMPL_01 (P1)
