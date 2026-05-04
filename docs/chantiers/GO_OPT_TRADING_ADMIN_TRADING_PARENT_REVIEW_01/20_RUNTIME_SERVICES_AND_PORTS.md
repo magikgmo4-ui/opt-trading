@@ -11,79 +11,91 @@ updated_at: 2026-05-04
 
 # 20_RUNTIME_SERVICES_AND_PORTS — admin-trading
 
-## Etat observable
+Etat controle le 2026-05-04 via SSH read-only. Aucun service modifie.
 
-admin-trading est unreachable. L'etat ci-dessous est deduit du repo, des registres et des references documentaires. Aucun controle runtime direct n'a ete possible.
+## Services systemd — etat reel
 
-## Services systemd attendus
+### ACTIFS + RUNNING
 
-### Services actifs probables
+| Service | PID | User | Port | Description |
+| --- | --- | --- | --- | --- |
+| tv-webhook.service | 1466 | ghost | 0.0.0.0:8000 | TradingView Webhook (FastAPI/Uvicorn) |
+| tv-perf.service | 796 | root | 0.0.0.0:8010 | Trading Perf API (FastAPI/Uvicorn) |
+| vision_bot.service | 798 | ghost | - | ShareX inbox -> outbox watch loop |
+| bot_vision_step2.service | 1463 | ghost | - | Telegram /analyze -> Desk Pro artifacts |
+| ngrok-tv.service | 1492 | - | 127.0.0.1:4040 | ngrok tunnel pour TradingView |
 
-| Service | Module | Description | Statut attendu |
-| --- | --- | --- | --- |
-| tv-webhook.service | webhook_server.py | Entrypoint FastAPI webhook TradingView | actif |
-| ngrok-tv.service | - | Tunnel ngrok pour TradingView | actif (si utilise) |
-| vision_bot.service | vision_bot | Watch loop inbox/outbox ShareX -> vision | actif ou arrete |
-| bot_vision_step2.service | bot_vision_step2 | Analyse Vision / Telegram | actif ou arrete |
-| bot_vision_step2_send.service | bot_vision_step2 | Timer envoi Telegram | timer |
-| bot_vision_step2_prune.service | bot_vision_step2 | Timer nettoyage | timer |
-| desk_retention.service | desk_retention | Retention donnees historiques | timer |
+### FAILED (non bloquants)
 
-### Services possibles (non confirmes)
-
-| Service | Module | Notes |
-| --- | --- | --- |
-| perf.service | perf/perf_app.py | FastAPI perf engine |
-| shared_files_sftp | shared_files_sftp | Serveur SFTP /shared |
-
-## Ports attendus
-
-| Port | Service | Protocole | Notes |
-| --- | --- | --- | --- |
-| 22 | SSH | TCP | UNREACHABLE (banner timeout) |
-| 8000 | tv-webhook (FastAPI) | TCP | Entrypoint webhook TradingView |
-| 8010 | perf engine (FastAPI) | TCP | Performance tracking |
-| 8080 | desk_pro (possible) | TCP | Desk Pro API |
-| 51820 | WireGuard (wg0) | UDP | Hub VPN (si actif) |
-| 51821 | WireGuard (wg-mgmt) | UDP | WG management (vu sur db-layer) |
-| 18789 | OpenClaw (non confirme) | TCP | Non attendu sur admin-trading |
-| 18790 | OpenClaw lab (non confirme) | TCP | Non attendu sur admin-trading |
-
-## Processus attendus
-
-### Python / uvicorn
-
-| Processus | Script | Role |
-| --- | --- | --- |
-| uvicorn / python | webhook_server.py | Serveur webhook principal |
-| uvicorn / python | perf/perf_app.py | Serveur performance (si actif) |
-
-### Desk Pro (lancement manuel ou cron)
-
-| Processus | Commande | Role |
-| --- | --- | --- |
-| python -m modules.desk_pro_runner | desk_pro_cmd.sh run | Orchestration Desk Pro |
-
-### Vision / Telegram
-
-| Processus | Script | Role |
-| --- | --- | --- |
-| bash | vision_bot watch | Watch loop captures |
-| python | bot_vision_step2 | Analyse + envoi Telegram |
-
-## Tmux
-
-| Session possible | Contenu |
+| Service | Raison |
 | --- | --- |
-| desk-pro | Desk Pro runner |
-| vision-bot | Vision bot watch |
-| webhook | Webhook server logs |
+| desk_bridge.service | Erreur PIL sur image corrompue (screen_2026-03-06). Input problem, pas bug runtime. |
+| macro-xau.service | /opt/trading/jobs/macro_xau/run.sh manquant. Module non deploye. |
 
-## Etat inconnu (a verifier apres retablissement)
+### INACTIFS (normaux pour timers oneshot)
 
-- Services reellement actifs vs installes mais arretes
-- Ports reellement en ecoute
-- Processus reellement en cours
-- Tmux sessions actives
-- Cron jobs configures
-- .env / secrets (ne pas afficher)
+| Service/Timer | Statut |
+| --- | --- |
+| bot_vision_step2_prune.timer | enabled (oneshot, deja execute) |
+| desk_retention.timer | enabled (oneshot, deja execute) |
+| trading-heartbeat.timer | disabled |
+| bot_vision_step2_send.timer | disabled |
+
+### UNIT FILES
+
+| Fichier | Enabled |
+| --- | --- |
+| tv-webhook.service | enabled |
+| tv-perf.service | enabled |
+| vision_bot.service | enabled |
+| bot_vision_step2.service | enabled |
+| ngrok-tv.service | enabled |
+| desk_bridge.service | static |
+| desk_retention.service | static |
+| trading-heartbeat.service | disabled |
+| perf.service | masked (remplace par tv-perf) |
+
+## Ports en ecoute
+
+| Port | Interface | Processus | Service |
+| --- | --- | --- | --- |
+| 22 | 0.0.0.0 + [::] | sshd | SSH |
+| 8000 | 0.0.0.0 | python (PID 1466) | tv-webhook |
+| 8010 | 0.0.0.0 | python (PID 796) | tv-perf |
+| 4040 | 127.0.0.1 | ngrok (PID 1492) | ngrok web UI |
+| 4096 | 127.0.0.1 | opencode (PID 113971) | OpenCode IDE |
+| 51820 | * | kernel (wg0) | WireGuard principal |
+| 51821 | * | kernel (wg-mgmt) | WireGuard management |
+
+Aucun port 8080, 18789, 18790. Pas d'OpenClaw gateway.
+
+## Processus Python actifs
+
+| PID | User | Commande |
+| --- | --- | --- |
+| 796 | root | uvicorn perf.perf_app:app --host 0.0.0.0 --port 8010 |
+| 798 | ghost | python3 vision_bot.py watch |
+| 1463 | ghost | python bot_vision_step2.py serve |
+| 1466 | ghost | uvicorn webhook_server:app --host 0.0.0.0 --port 8000 |
+
+## Wrapper shortcuts installes
+
+40+ wrappers dans /usr/local/bin/cmd-*, menu-*, sanity-* couvrant :
+- desk_pro, desk_pro_runner, desk_pro_dashboard, desk_analyze, desk_capture_inputs
+- decision_engine, probability_engine, risk_engine, execution_engine, position_engine
+- derivatives_analyzer, derivatives_collector, liquidation_analyzer
+- market_scanner, opportunity_ranker, marketdata
+- vision_bot, bot_vision_step2
+- ops_menu_hub, ops_super, ops_hub
+- journal_engine, journal_de_bord, env, audit, auth
+- deepseek_hub, deepseek_response, deepseek_student, deepseek_thinking
+- modules_registry_reader, machines_registry_reader
+- install_module, git_sync_all, infra_context, deploy_module_multi_machine
+
+## Fichiers .env (listes, non lus)
+
+- /opt/trading/.env (principal)
+- modules/bot_vision_step2/config/bot_vision.env
+- modules/desk_capture_inputs/config/desk_capture_inputs.env
+- modules/desk_retention/config/desk_retention.env
+- modules/auth/secrets.py

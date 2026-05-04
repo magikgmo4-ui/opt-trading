@@ -11,63 +11,66 @@ updated_at: 2026-05-04
 
 # 10_MACHINE_STATE — admin-trading
 
-## Identite connue
+## Identite reelle
 
 | Champ | Valeur |
 | --- | --- |
 | Hostname | admin-trading |
 | IP LAN | 192.168.0.111 |
-| IP VPN (WireGuard) | 10.66.66.1 |
+| IP VPN (WireGuard wg0) | 10.8.0.1 |
+| IP VPN (WireGuard wg-mgmt) | 10.66.66.1 |
 | Port SSH | 22 |
 | User | ghost |
-| Role | Runtime trading reel / orchestration / webhook / Desk Pro |
-| OS | Debian (Linux) |
+| OS | Linux 6.1.0-44-amd64 Debian |
+| Uptime (2026-05-04) | 14 days 21 hours |
+| Load | 2.62 / 1.08 / 0.59 |
+| Home | /home/ghost |
+| Repo | /opt/trading (git: sot/mainline) |
 
-## Connectivite (2026-05-04)
-
-### Depuis cursor-ai (Windows)
-
-| Chemin | Resultat |
-| --- | --- |
-| 192.168.0.111:22 TCP | handshake TCP OK, banner SSH timeout |
-| 10.66.66.1:22 (WireGuard) | timeout |
-| 10.8.0.1:22 (WG tunnel) | timeout |
-
-### Depuis db-layer (192.168.0.100)
+## Connectivite (2026-05-04, apres reprise SSH)
 
 | Chemin | Resultat |
 | --- | --- |
-| ping 192.168.0.111 | "Destination Host Unreachable" |
-| ssh 192.168.0.111:22 | "No route to host" |
-| WireGuard (wg-mgmt) | last handshake: 2 days 21 hours ago |
+| 192.168.0.111:22 | OK |
+| 10.66.66.1:22 (WG) | OK |
+| Ping depuis cursor-ai | OK |
+| Ping depuis db-layer | OK |
 
-### Autres machines
+## WireGuard
 
-| Machine | Statut SSH |
+### wg0 (VPN principal)
+| Champ | Valeur |
 | --- | --- |
-| db-layer (192.168.0.100) | OK |
-| student (192.168.0.142) | OK |
-| fantome (192.168.0.191) | OK |
-| admin-trading (192.168.0.111) | UNREACHABLE |
+| Port | 51820 |
+| Peer | 10.8.0.2 |
 
-## Diagnostic
+### wg-mgmt (VPN management)
+| Champ | Valeur |
+| --- | --- |
+| Port | 51821 |
+| Peers | cursor-ai (10.66.66.4), db-layer (10.66.66.2), student (10.66.66.3) |
+| Handshakes | Tous < 2 min |
 
-- TCP handshake reussit depuis cursor-ai = machine allumee, firewall autorise port 22
-- Banner SSH timeout = daemon SSH probablement bloque / surcharge / inactif
-- Depuis db-layer = pas de route IP = segmentation reseau ou admin-trading sur un autre segment
-- Handshake WireGuard stale (2+ jours) = tunnel WG probablement tombe
-- Machine vraisemblablement en etat degrade — SSH daemon ne repond pas
+## Tmux
 
-## Impact
+Aucune session tmux active.
 
-- Aucun controle runtime possible
-- Aucune verification services / ports / processus
-- Cartographie basee uniquement sur le repo et les registres
-- /shared non monte sur db-layer (car admin-trading = serveur SFTP)
+## Repo Git
 
-## Recommandation immediate
+- Branche: sot/mainline
+- Modifications locales: GO_INDEX.md, ACTIVE_STREAMS.md, REPRISE.md modifies
+- Fichiers supprimes localement: reseau_ssh_step1, reseau_ssh_step1b, reseau_ssh_step2 (anciens modules)
+- Untracked: _archive/legacy_modules/, docs/chantiers/* (runtime/OpenClaw), modules/reseau_ssh/*
 
-Avant tout GO runtime trading, retablir la connectivite admin-trading :
-- Redemarrer physiquement la machine ou recuperer SSH via console
-- Retablir le tunnel WireGuard
-- Verifier l'etat du daemon SSH
+## OpenCode
+
+| Champ | Valeur |
+| --- | --- |
+| Binaire | /usr/local/bin/opencode |
+| Version | 1.4.2 |
+| Port | 127.0.0.1:4096 |
+| Statut | Actif (process opencode) |
+
+## OpenClaw
+
+NON INSTALLE sur admin-trading. Modules documentaires seulement (configure_openclaw, doctor_openclaw, evidence_openclaw). Conformement au plan, OpenClaw principal est sur db-layer (127.0.0.1:18789).

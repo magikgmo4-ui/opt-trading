@@ -13,82 +13,61 @@ updated_at: 2026-05-04
 
 ## Verdict
 
-**FAIL CONTROLE** — admin-trading est unreachable. L'audit read-only a atteint sa limite observable.
+**PASS** — admin-trading est accessible et operationnel. Audit read-only complet termine.
 
-## Raison
+## Resume de l'etat reel
 
-- TCP handshake OK mais banner SSH timeout = machine allumee mais SSH bloque
-- Depuis db-layer = "No route to host"
-- WireGuard handshake stale 2+ jours
-- Aucun controle runtime possible
-- Cartographie realisee uniquement sur base repo/registres
+- **5 services actifs**: tv-webhook (8000), tv-perf (8010), vision_bot, bot_vision_step2, ngrok
+- **2 services failed non bloquants**: desk_bridge (image corrompue), macro-xau (module manquant)
+- **WireGuard**: operationnel, tous les peers connectes (< 2 min handshake)
+- **/shared**: operationnel, SFTP + SSHFS fonctionnels
+- **Desk Pro**: dernier run 2026-04-05 (SUCCESS), donnees presentes dans /shared/desk_pro/latest/
+- **OpenCode 1.4.2**: installe (127.0.0.1:4096), pas OpenClaw
+- **40+ wrappers**: installes dans /usr/local/bin
 
-## Ce qui a ete accompli
+## Prochain GO recommande (P1)
 
-- Index canoniques lus et recroises
-- Chantier parent ADMIN_TRADING_PARENT_01 lu (3 fichiers)
-- Repo scanne integralement (git grep) -> cartographie complete des references
-- Registres lus (machines_registry, modules_registry, ui_surfaces_registry, wrappers_registry)
-- Tentative SSH multi-chemins (LAN, VPN, WG tunnel, jump host)
-- Diagnostic connectivite croisee (db-layer, student, fantome)
-- Cartographie des 18 surfaces trading referencees
-- 10 gaps documentes
+### GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_RUNTIME_REVIEW_01
 
-## Prochain GO recommande (P0)
+Recommandation: auditer le pipeline Desk Pro comme premier chantier runtime.
 
-### GO_OPT_TRADING_ADMIN_TRADING_MACHINE_RECOVERY_01
+Justification:
+- Desk Pro est le coeur metier trading
+- Dernier run il y a ~1 mois, a verifier
+- Services webhook/perf sont actifs et stables
+- Les services failed sont non bloquants
 
-**Objectif**: Retablir la connectivite admin-trading avant tout audit runtime.
+**Objectif**:
+- Verifier l'etat du pipeline Desk Pro (probability -> decision -> risk -> position)
+- Lancer un dry-run ou status check
+- Verifier les sorties dans /shared/desk_pro/latest/
+- Tester cmd-desk_pro_runner status
+- Cartographier les modules manquants ou obsoletes
+- Ne pas modifier le runtime sans GO dedie
 
-**Actions**:
-1. Acces physique ou console a la machine admin-trading
-2. Diagnostiquer etat daemon SSH (bloque? surcharge?)
-3. Redemarrer si necessaire
-4. Verifier connectivite reseau LAN (192.168.0.111)
-5. Relancer WireGuard (wg-quick up wg0, wg-quick up wg-mgmt)
-6. Verifier SSH operationnel
-7. Verifier connectivite depuis db-layer et cursor-ai
+## Prochains GO (dans l'ordre)
 
-**Conditions de succes**:
-- SSH admin-trading fonctionnel
-- WireGuard handshake < 1 minute
-- Ping admin-trading depuis db-layer OK
+### P1: GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_RUNTIME_REVIEW_01
+Pipeline Desk Pro runtime review
 
-## Prochains GO apres recovery (dans l'ordre)
+### P2: GO_OPT_TRADING_ADMIN_TRADING_FAILED_SERVICES_TRIAGE_01
+Trier les 2 services failed :
+- desk_bridge: nettoyer images 0-byte, relancer
+- macro-xau: creer module ou desactiver service
 
-### P1: GO_OPT_TRADING_ADMIN_TRADING_RUNTIME_AUDIT_01
+### P2: GO_OPT_TRADING_ADMIN_TRADING_TIMERS_RESTORE_01
+Reviser les timers desactives :
+- trading-heartbeat (disabled)
+- bot_vision_step2_send (disabled)
 
-Auditer l'etat runtime reel une fois la machine accessible :
-- Services systemd (status, enabled/disabled)
-- Processus actifs
-- Ports en ecoute
-- Tmux sessions
-- Verifier tv-webhook, perf, Desk Pro, vision_bot
-- Distinguer actif / arrete / obsoleted
+### P3: GO_OPT_TRADING_ADMIN_TRADING_OPENCLAW_INTEGRATION_01 (FUTUR)
+Integration OpenClaw sur admin-trading pour runtime trading.
+NE PAS OUVRIR avant stabilisation Desk Pro.
 
-### P2: GO_OPT_TRADING_ADMIN_TRADING_SERVICE_RESTORE_01
+## Decisions
 
-Si des services sont arretes :
-- Relancer tv-webhook.service
-- Relancer vision_bot
-- Verifier ngrok
-- Retablir /shared (SFTP + SSHFS mounts)
-
-### P3: GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_RUNTIME_REVIEW_01
-
-Review ciblee Desk Pro :
-- Verifier pipeline probability -> decision -> risk -> position
-- Verifier /shared/desk_pro/latest/
-- Tester desk_pro_cmd.sh status
-
-### P4: GO_OPT_TRADING_ADMIN_TRADING_OPENCLAW_INTEGRATION_01 (FUTUR)
-
-Integration OpenClaw sur admin-trading pour le runtime trading.
-NE PAS OUVRIR avant stabilisation complete de la machine.
-
-## Decision
-
-- admin-trading doit etre retabli avant toute autre action
-- Aucun GO runtime trading ne peut etre ouvert sans SSH fonctionnel
-- Les 18 surfaces referencees dans les registres sont documentees et pretes pour l'audit
-- La cartographie repo-side est complete
+- admin-trading est operationnel et stable
+- Le coeur runtime (webhook + perf) tourne normalement
+- Aucun service critique n'est down
+- Les failed sont non bloquants
+- Prochaine etape logique: audit Desk Pro
