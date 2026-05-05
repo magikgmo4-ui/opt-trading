@@ -1,0 +1,50 @@
+{
+    "template_version": "v1",
+    "description": "TradingView alert webhook template — non-critical, test only. Do NOT point to production webhook or admin-trading.",
+    "symbol": "BITGET:BTCUSDT.P",
+    "timeframe": "15",
+    "alert_type": "webhook",
+    "condition": {
+        "type": "cross",
+        "frequency": "once_per_bar",
+        "operator": "crossing",
+        "series_1": {
+            "type": "plot",
+            "study": "RSI",
+            "value": "70"
+        },
+        "series_2": {
+            "type": "value",
+            "value": 70
+        }
+    },
+    "webhook": {
+        "url": "http://localhost:9999/test-webhook",
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "note": "Use localhost ONLY for testing. NEVER point to admin-trading or production."
+    },
+    "message_template": "RSI cross > 70 on {{ticker}} @ {{interval}} — price {{close}}",
+    "expected_payload": {
+        "ticker": "BITGET:BTCUSDT.P",
+        "interval": "15",
+        "time": "2026-05-05T00:00:00Z",
+        "close": 0.0,
+        "open": 0.0,
+        "high": 0.0,
+        "low": 0.0,
+        "volume": 0.0,
+        "message": "RSI cross > 70 on BITGET:BTCUSDT.P @ 15 — price ...",
+        "study": "RSI",
+        "condition": "cross > 70"
+    },
+    "safety": {
+        "active": false,
+        "allow_mutation_required": true,
+        "admin_trading_forbidden": true,
+        "production_webhook_forbidden": true,
+        "test_only": true
+    }
+}
