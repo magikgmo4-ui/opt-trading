@@ -1,0 +1,33 @@
+{
+  "schema": "opt_trading_bundle_manifest_v1",
+  "bundle_id": "BUNDLE_CLAUDE_ARTIFACTS_OPERATOR_PACK_01",
+  "bundle_type": "operator_pack",
+  "machine": "cursor-ai",
+  "status": "active",
+  "version": "1.0.0",
+  "created_at": "2026-05-05",
+  "description": "Claude Artifacts Operator Pack — pack operateur cursor-ai standard pour prompts, templates et regles de securite",
+  "files": [
+    {"path": "README.md", "role": "bundle_overview"},
+    {"path": "PROMPT_TEMPLATES.md", "role": "prompt_templates"},
+    {"path": "REPRISE_TEMPLATE.md", "role": "reprise_template"},
+    {"path": "NO_COMMIT_RULES.md", "role": "security_rules"},
+    {"path": "CHECKLIST_EXECUTION.md", "role": "execution_checklist"},
+    {"path": "bundle_meta/manifest.json", "role": "bundle_manifest"}
+  ],
+  "dependencies": {
+    "bundles": [
+      "bundles/ACTIVE_WORKFLOW.md",
+      "bundles/BUNDLE_TYPES.md",
+      "bundles/OPERATOR_FLOW.md",
+      "bundles/NO_RUNTIME_NO_SENSITIVE_RULES.md"
+    ]
+  },
+  "invariants": {
+    "doc_only": true,
+    "no_runtime": true,
+    "no_secrets": true,
+    "no_admin_trading": true,
+    "machine": "cursor-ai"
+  }
+}
