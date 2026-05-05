@@ -18,7 +18,9 @@ updated_at: 2026-05-04
 ## Resume de l'etat reel
 
 - **5 services actifs**: tv-webhook (8000), tv-perf (8010), vision_bot, bot_vision_step2, ngrok
-- **2 services failed non bloquants**: desk_bridge (image corrompue), macro-xau (module manquant)
+- **3 timers actifs**: trading-heartbeat, bot-vision-headless-capture (10min), desk_bridge
+- **1 service failed non bloquant**: macro-xau (module manquant)
+- **desk_bridge**: RESOLVED (guard anti .uploading / 0-byte)
 - **WireGuard**: operationnel, tous les peers connectes (< 2 min handshake)
 - **/shared**: operationnel, SFTP + SSHFS fonctionnels
 - **Desk Pro**: dernier run 2026-04-05 (SUCCESS), donnees presentes dans /shared/desk_pro/latest/

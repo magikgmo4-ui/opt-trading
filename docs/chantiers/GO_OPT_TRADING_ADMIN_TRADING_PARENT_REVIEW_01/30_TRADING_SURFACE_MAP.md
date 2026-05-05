@@ -108,6 +108,11 @@ collectors -> derivatives_analyzer -> probability_engine -> decision_engine
 ShareX (Windows/cursor-ai) -> SFTP -> vision_inbox
      -> vision_bot (watch loop) -> vision_outbox (.md)
      -> bot_vision_step2 (analyse) -> Telegram
+
+Bot Vision Headless (Playwright/Chromium):
+     -> capture_headless.js (timer 10min) -> vision_inbox (PNG + JSON)
+     -> vision_bot -> vision_processed -> vision_outbox
+     -> desk_bridge (guarded) -> desk/snapshots
 ```
 
 ### Modules
@@ -116,6 +121,7 @@ ShareX (Windows/cursor-ai) -> SFTP -> vision_inbox
 | --- | --- | --- |
 | vision_bot | admin_trading | Capture inbox -> outbox via OCR |
 | bot_vision_step2 | admin_trading | Analyse Vision + Telegram |
+| bot_vision_headless | admin_trading | Capture headless Playwright/Chromium (timer 10min) |
 | shared_files_sftp | admin_trading | Serveur SFTP /shared |
 
 ## 7. Perf / Monitoring

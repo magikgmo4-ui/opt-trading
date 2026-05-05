@@ -22,8 +22,8 @@ updated_at: 2026-05-04
 | Port SSH | 22 |
 | User | ghost |
 | OS | Linux 6.1.0-44-amd64 Debian |
-| Uptime (2026-05-04) | 14 days 21 hours |
-| Load | 2.62 / 1.08 / 0.59 |
+| Uptime (2026-05-05) | 15 days 23 hours |
+| Load | 3.11 / 1.47 / 1.20 |
 | Home | /home/ghost |
 | Repo | /opt/trading (git: sot/mainline) |
 

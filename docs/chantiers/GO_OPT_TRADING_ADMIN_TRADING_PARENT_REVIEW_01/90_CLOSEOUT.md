@@ -74,7 +74,7 @@ GO_OPT_TRADING_ADMIN_TRADING_PARENT_REVIEW_01
 
 | Service | Raison | Bloquant |
 | --- | --- | --- |
-| desk_bridge | Image corrompue PIL | Non |
+| desk_bridge | Guard anti .uploading/0-byte ajoute | Non (RESOLVED) |
 | macro-xau | Module absent | Non |
 
 ## Fichiers produits

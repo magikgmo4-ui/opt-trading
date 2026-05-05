@@ -34,11 +34,12 @@ updated_at: 2026-05-04
 
 ## Gaps identifies
 
-### GAP-01: desk_bridge.service — FAILED (FAIBLE)
+### GAP-01: desk_bridge.service — RESOLVED (FAIBLE)
 
 - **Symptome**: Service failed sur image corrompue screen_2026-03-06
 - **Impact**: Bridge vision -> desk inbox bloque sur cette entree
-- **Action**: Supprimer les images 0-byte dans vision_inbox, relancer ou ignorer
+- **Resolution**: Guard anti .uploading / 0-byte ajoute (BRIDGE_GUARD_ADD_01, commit b464173)
+- **Statut**: RESOLVED — service fonctionnel, 4 snapshots traites avec succes
 
 ### GAP-02: macro-xau.service — FAILED (FAIBLE)
 
@@ -46,11 +47,12 @@ updated_at: 2026-05-04
 - **Impact**: Module macro XAU non deploye, service ne peut pas demarrer
 - **Action**: Creer le module ou desactiver le service
 
-### GAP-03: vision_inbox — fichiers 0-byte (FAIBLE)
+### GAP-03: vision_inbox — fichiers 0-byte (RESOLVED)
 
 - **Symptome**: 6 fichiers screen_*.png a 0 octet (mars 2026)
 - **Impact**: Peut bloquer desk_bridge ou vision_bot
-- **Action**: Nettoyer les fichiers 0-byte
+- **Resolution**: Guard anti 0-byte ajoute dans desk_bridge (BRIDGE_GUARD_ADD_01)
+- **Statut**: RESOLVED — desk_bridge ignore maintenant les fichiers vides
 
 ### GAP-04: Desk Pro — dernier run 2026-04-05 (MEDIUM)
 

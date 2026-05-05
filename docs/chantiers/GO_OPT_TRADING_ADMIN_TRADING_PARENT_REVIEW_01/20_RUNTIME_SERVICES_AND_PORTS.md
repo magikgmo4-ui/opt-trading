@@ -11,7 +11,7 @@ updated_at: 2026-05-04
 
 # 20_RUNTIME_SERVICES_AND_PORTS — admin-trading
 
-Etat controle le 2026-05-04 via SSH read-only. Aucun service modifie.
+Etat controle le 2026-05-05 via SSH read-only. Aucun service modifie.
 
 ## Services systemd — etat reel
 
@@ -25,12 +25,25 @@ Etat controle le 2026-05-04 via SSH read-only. Aucun service modifie.
 | bot_vision_step2.service | 1463 | ghost | - | Telegram /analyze -> Desk Pro artifacts |
 | ngrok-tv.service | 1492 | - | 127.0.0.1:4040 | ngrok tunnel pour TradingView |
 
+### TIMERS ACTIFS
+
+| Timer | Prochain trigger | Cible |
+| --- | --- | --- |
+| trading-heartbeat.timer | ~2min | trading-heartbeat.service |
+| bot-vision-headless-capture.timer | ~5min | bot-vision-headless-capture.service |
+| desk_bridge.timer | ~8min | desk_bridge.service |
+
 ### FAILED (non bloquants)
 
 | Service | Raison |
 | --- | --- |
-| desk_bridge.service | Erreur PIL sur image corrompue (screen_2026-03-06). Input problem, pas bug runtime. |
 | macro-xau.service | /opt/trading/jobs/macro_xau/run.sh manquant. Module non deploye. |
+
+### RESOLVED (anciennement failed)
+
+| Service | Raison | Resolution |
+| --- | --- | --- |
+| desk_bridge.service | Erreur PIL sur image corrompue | Guard anti .uploading / 0-byte ajoute (BRIDGE_GUARD_ADD_01) |
 
 ### INACTIFS (normaux pour timers oneshot)
 
@@ -38,7 +51,7 @@ Etat controle le 2026-05-04 via SSH read-only. Aucun service modifie.
 | --- | --- |
 | bot_vision_step2_prune.timer | enabled (oneshot, deja execute) |
 | desk_retention.timer | enabled (oneshot, deja execute) |
-| trading-heartbeat.timer | disabled |
+| trading-heartbeat.timer | active (waiting) |
 | bot_vision_step2_send.timer | disabled |
 
 ### UNIT FILES
@@ -50,7 +63,10 @@ Etat controle le 2026-05-04 via SSH read-only. Aucun service modifie.
 | vision_bot.service | enabled |
 | bot_vision_step2.service | enabled |
 | ngrok-tv.service | enabled |
+| bot-vision-headless-capture.service | disabled (oneshot timer-driven) |
+| bot-vision-headless-capture.timer | enabled |
 | desk_bridge.service | static |
+| desk_bridge.timer | static |
 | desk_retention.service | static |
 | trading-heartbeat.service | disabled |
 | perf.service | masked (remplace par tv-perf) |
