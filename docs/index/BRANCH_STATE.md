@@ -77,10 +77,10 @@ Obligations explicites :
 | --- | ---: |
 | `KEEP_ACTIVE` | 6 |
 | `KEEP_REFERENCE` | 19 |
-| `DROP_MERGED` | 4 |
+| `DROP_MERGED` | 5 |
 | `DROP_LOCAL_ONLY` | 0 |
 | `BLOCKED` | 1 |
-| `A_VERIFIER` | 41 |
+| `A_VERIFIER` | 40 |
 
 ## Legende de lecture
 
@@ -125,7 +125,7 @@ Obligations explicites :
 | `go/GO_OPT_TRADING_AIRTABLE_ORCHESTRATION_PARENT_01` | remote | DIVERGED | 19 | 141 | `A_VERIFIER` | `manual_review` | Branche GO restante presente dans Git mais sans representation canonique complete sur les surfaces doc courantes | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
 | `go/GO_OPT_TRADING_BUNDLES_REPO_STORAGE_PARENT_01` | both | DIVERGED | 18 | 141 | `DROP_MERGED` | `delete_local_and_remote` | Branche doc-only parent bundle storage mergee dans sot/mainline ; branche supprimee localement et a distance | `GO_OPT_TRADING_BUNDLES_REPO_STORAGE_PARENT_REMOTE_CLEANUP_01` |
 | `go/GO_OPT_TRADING_CLAUDE_COWORK_PARENT_LIVE_ARTIFACTS_01` | remote | DIVERGED | 3 | 49 | `A_VERIFIER` | `manual_review` | Branche GO restante presente dans Git mais sans representation canonique complete sur les surfaces doc courantes | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
-| `go/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01` | remote | DIVERGED | 12 | 141 | `A_VERIFIER` | `manual_review` | Branche doc-only parent ClickUp continuity ; non mergee, contenu 12 fichiers / 313 lignes ; a merger ou fermer separement | `GO_OPT_TRADING_DOC_OPS_BRANCH_CLEANUP_MATRIX_METHOD_01` |
+| `go/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01` | remote | DIVERGED | 12 | 141 | `DROP_MERGED` | `delete_local_and_remote` | Branche doc-only parent ClickUp continuity mergee dans sot/mainline (commit c8362b7) ; 12 fichiers / 313 lignes ; branche a supprimer | `GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_REVIEW_MERGE_01` |
 | `go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01` | both | DIVERGED | 6 | 56 | `BLOCKED` | `keep_under_review` | BLOCKED : branche non mergee avec contenu significatif (124 fichiers, reseau_ssh) ; chantier a closeout mais delta reel trop lourd pour une suppression sans merge explicite | `GO_OPT_TRADING_DOC_OPS_BRANCH_CLEANUP_MATRIX_METHOD_01` |
 | `go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01_ISOLATED` | both | BEHIND_ONLY | 0 | 50 | `DROP_MERGED` | `delete_local_and_remote` | Branche merged dans sot/mainline ; supprimee localement et a distance ; worktree nettoye | `GO_OPT_TRADING_DOC_OPS_POST_3_PASS_CANONICAL_REPRISE_01` |
 | `go/GO_OPT_TRADING_INDEX_AGGREGATION_BATCH_01` | both | BEHIND_ONLY | 0 | 16 | `DROP_MERGED` | `delete_local_and_remote` | Branche merged dans sot/mainline ; closeout present ; mention descriptive dans REPRISE.md conservee hors branche ; branche supprimee localement et a distance | `GO_OPT_TRADING_DOC_OPS_BRANCH_CLEANUP_MATRIX_METHOD_01` |
