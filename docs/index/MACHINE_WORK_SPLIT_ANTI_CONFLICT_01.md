@@ -66,22 +66,51 @@ Quand la demande est "chantiers pour <machine>", la reponse doit ressortir direc
 
 ## Bloc CURSOR_AI
 
+### TradingView MCP Observer — CLOSED (transport/docs)
+
 | Branche | Note |
 | --- | --- |
-| `go/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_01` | TradingView MCP observer parent — merged (PR #200), branche supprimee |
-| `go/GO_OPT_TRADING_CURSOR_AI_TRADINGVIEW_OBSERVER_OPERATIONS_PARENT_01` | Operations parent continuation — merged |
-| `go/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_POST_MERGE_REPRISE_01` | Post-merge reprise — merged |
-| `go/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_SHARED_PACKET_01` | Shared packet export — merged |
-| `go/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_ALERT_WEBHOOK_TEMPLATE_01` | Alert webhook template — merged |
-| `go/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_PARENT_CLOSEOUT_01` | Parent closeout — derniere branche cursor-ai |
-| `go/GO_OPT_TRADING_BUNDLES_REPO_STORAGE_PARENT_01` | Bundles repo storage parent |
-| `go/GO_OPT_TRADING_DOC_OPS_CHILD_ACTIVE_GOVERNANCE_CLOSEOUT_REVIEW_01` | Doc ops child active governance closeout review |
-| `go/GO_OPT_TRADING_DOC_OPS_CHILD_CONTINUITY_ALIGNMENT_AFTER_OPEN_WORK_CONTROL_01` | Doc ops child continuity alignment |
-| `go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01` | Doc ops child open work control |
-| `go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01_ISOLATED` | Doc ops child open work control isolated |
-| `go/GO_OPT_TRADING_INDEX_AGGREGATION_BATCH_01` | Index aggregation batch |
-| `go/GO_LIVE_ARTIFACTS_CLAUDE_COWORK_IDE_BUNDLE_01` | Live artifacts Claude cowork IDE bundle — merged |
-| `go/GO_OPT_TRADING_CLAUDE_COWORK_PARENT_LIVE_ARTIFACTS_01` | Claude cowork parent live artifacts — merged |
+| `go/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_01` | Parent — merged (PR #200), branche supprimee |
+| `go/GO_OPT_TRADING_CURSOR_AI_TRADINGVIEW_OBSERVER_OPERATIONS_PARENT_01` | Operations parent — merged, branche supprimee |
+| `go/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_POST_MERGE_REPRISE_01` | Post-merge reprise — merged, branche supprimee |
+| `go/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_SHARED_PACKET_01` | Shared packet — merged, branche supprimee |
+| `go/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_ALERT_WEBHOOK_TEMPLATE_01` | Template — merged, branche supprimee |
+| `go/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_PARENT_CLOSEOUT_01` | Parent closeout — FERME (transport/docs) |
+
+### alert_webhook — ACTIVE_CONTINUITY
+
+| Element | Statut |
+| --- | --- |
+| `GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_ALERT_WEBHOOK_APPLICATION_ACTIVE_01` | CONTINUITE ACTIVE (PR #203) — application non fermee |
+
+### Bundles — APPLICATION_DOCUMENTED_NOT_PRODUCT_CLOSED
+
+| Branche | Note |
+| --- | --- |
+| `go/GO_OPT_TRADING_BUNDLES_REPO_STORAGE_PARENT_01` | Bundles doc — merged, branche supprimee |
+| `go/GO_OPT_TRADING_CURSOR_AI_BUNDLES_APPLICATION_IMPL_01` | Application operateur — merged (PR #202) |
+
+### Live artifacts / Claude cowork — MERGED
+
+| Branche | Note |
+| --- | --- |
+| `go/GO_LIVE_ARTIFACTS_CLAUDE_COWORK_IDE_BUNDLE_01` | IDE bundle — merged (PR #201) |
+| `go/GO_OPT_TRADING_CLAUDE_COWORK_PARENT_LIVE_ARTIFACTS_01` | Claude cowork parent — merged (PR #201) |
+
+### DOC_OPS — HISTORICAL (branches supprimees en cleanup)
+
+| Branche | Note |
+| --- | --- |
+| `go/GO_OPT_TRADING_DOC_OPS_CHILD_ACTIVE_GOVERNANCE_CLOSEOUT_REVIEW_01` | HISTORICAL — supprimee L+R (cleanup) |
+| `go/GO_OPT_TRADING_DOC_OPS_CHILD_CONTINUITY_ALIGNMENT_AFTER_OPEN_WORK_CONTROL_01` | HISTORICAL — supprimee L+R (cleanup) |
+| `go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01_ISOLATED` | HISTORICAL — supprimee L+R (cleanup + worktree) |
+| `go/GO_OPT_TRADING_INDEX_AGGREGATION_BATCH_01` | HISTORICAL — supprimee L+R (cleanup) |
+
+### DOC_OPS — BLOCKED
+
+| Branche | Note |
+| --- | --- |
+| `go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01` | BLOCKED — conservee, delta reseau_ssh non merge |
 
 ### CURSOR_AI — References audit Git
 
