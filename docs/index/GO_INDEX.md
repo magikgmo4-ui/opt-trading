@@ -39,6 +39,7 @@ Ce document référence les GO non clos connus et utiles à la continuité local
 - `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md` gouverne la lecture produit / parent / GO / Git
 - `docs/governance/MATRICE_GOUVERNANTE_V2.md` reste une annexe stable secondaire
 - `docs/index/GO_INDEX.md` reste la verite de liste locale pour les parents, GO simples et sous-entrees retenues
+- `docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md` est la vue de routage machine anti-conflit, subordonnee a ce document, `BRANCH_STATE.md` et `BRANCH_PROJECT_MAP.md`
 
 ---
 

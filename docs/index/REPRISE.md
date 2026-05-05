@@ -47,6 +47,7 @@ Base de pilotage active retenue pour `opt-trading` :
 - `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
 - `docs/index/ACTIVE_STREAMS.md`
 - `docs/index/GO_INDEX.md`
+- `docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md` (routage machine anti-conflit)
 
 ## Règle d’exécution
 

@@ -38,6 +38,8 @@ links:
   - docs/index/ACTIVE_STREAMS.md
   - docs/index/NEXT_GO_CANDIDATES.md
   - docs/index/BRANCH_STATE.md
+  - docs/index/BRANCH_PROJECT_MAP.md
+  - docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md
   - docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/01_cadrage_parent.md
 ---
 
@@ -82,6 +84,8 @@ Le present document recroise explicitement :
 - `docs/index/ACTIVE_STREAMS.md`
 - `docs/index/NEXT_GO_CANDIDATES.md`
 - `docs/index/BRANCH_STATE.md`
+- `docs/index/BRANCH_PROJECT_MAP.md`
+- `docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md`
 
 Verification complementaire `docs/` effectuee sur les surfaces proches non souveraines :
 - `docs/next/NEXT_GO_CANDIDATES.md`
@@ -297,7 +301,11 @@ Dans `satellites machines`, la lecture minimale garde visibles :
 - `admin-trading`
 - `student`
 - `db-layer`
+- `cursor-ai`
+- `fantome`
 - les surfaces operateur locales quand elles portent une preuve de reprise ou d'execution
+
+La vue de routage machine anti-conflit est portee par `docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md`. Cette fiche reste subordonnee a `GO_INDEX.md`, `BRANCH_STATE.md` et `BRANCH_PROJECT_MAP.md`.
 
 ### 3.5 Regle de rattachement global
 
