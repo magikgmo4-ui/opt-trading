@@ -1,4 +1,4 @@
-# 00_START — GO_OPT_TRADING_CURSOR_AI_TRADINGVIEW_OBSERVER_OPERATIONS_PARENT_01
+# 00_START — GO_OPT_TRADING_MACHINE_CURSOR_AI_PARENT_01
 
 ## Role
 
@@ -10,7 +10,7 @@ Ce parent organise tous les GO children cote cursor-ai sans rouvrir le parent fe
 
 | Champ | Valeur |
 |-------|--------|
-| Parent ferme | `GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_01` |
+| Parent produit ferme | `GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_01` |
 | PR | #200 |
 | Merge commit | `718490d` |
 | Base canonique | `sot/mainline` |
@@ -22,12 +22,12 @@ Ce parent organise tous les GO children cote cursor-ai sans rouvrir le parent fe
 ## Arborescence
 
 ```
-GO_OPT_TRADING_CURSOR_AI_TRADINGVIEW_OBSERVER_OPERATIONS_PARENT_01/
+GO_OPT_TRADING_MACHINE_CURSOR_AI_PARENT_01/
   00_START.md                    (ce fichier)
   10_CHILDREN_INDEX.md           (index des children)
-  20_POST_MERGE_REPRISE.md       (GO child 1)
-  30_SHARED_PACKET_OPTION_B.md   (GO child 2)
-  40_ALERT_WEBHOOK_TEMPLATE.md   (GO child 3)
+  20_POST_MERGE_REPRISE.md       (GO child 1 — Phase 8: PASS)
+  30_SHARED_PACKET_OPTION_B.md   (GO child 2 — Phase 9: PENDING)
+  40_ALERT_WEBHOOK_TEMPLATE.md   (GO child 3 — Phase 10: PENDING)
   90_CLOSEOUT.md                 (closeout du parent)
 ```
 
