@@ -18,6 +18,12 @@ links:
 
 # 90_CLOSEOUT — GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01
 
+## NOTE CANONIQUE
+
+Ce fichier est un closeout de phase review/merge uniquement.
+Il ne ferme pas le parent GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01.
+Le parent reste OPEN jusqu'a closeout parent explicite ou final master target atteint.
+
 ## Verdict
 
 **PASS**

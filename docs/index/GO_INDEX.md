@@ -109,7 +109,7 @@ Normalisation retenue :
 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO_TMUX_RUNTIME_CONTRACT_01 | REFERENCE | non | `docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/00_cadrage.md` |
 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO_TMUX_OPENCODE_OPENCLAW_MODES_01 | REFERENCE | non | `docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/00_cadrage.md` |
 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO_RUNTIME_GUARDRAILS_01 | REFERENCE | non | `docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/00_cadrage.md` |
-| GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01 | GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01/00_INITIAL_PROJECT_DOC.md`<br>`docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01/CLICKUP_IMPLEMENTATION_BUNDLE_V1/INDEX.md` |
+| GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01 | GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01 | — | OPEN | oui | `docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01/00_INITIAL_PROJECT_DOC.md`<br>`docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01/CLICKUP_IMPLEMENTATION_BUNDLE_V1/INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01/90_CLOSEOUT.md` |
 
 ---
 
@@ -201,6 +201,15 @@ Historique recent :
 - titre court : parent canonique architecture equipe d'agents
 - dernier état connu : parent materialise sur la ligne courante avec set doc-only d'ouverture complet ; branche dediee toujours active pour la suite du flux parent
 - lien utile : `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/00_cadrage.md`, `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/01_initial_project_doc.md`, `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/03_decisions.md`
+
+### GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01
+- repo : opt-trading
+- type : chantier parent / ClickUp continuity / bundle d'implémentation
+- statut : open
+- titre court : continuité ClickUp parent et bundle d'exécution
+- dernier état connu : bundle doc-only mergé localement dans sot/mainline (c8362b7) ; closeout de phase review/merge produit ; parent non fermé
+- prochaine action : recroiser avec GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01 et GO_OPT_TRADING_STRICT_WORKERS_PARENT_01, puis décider du GO d'implémentation ClickUp
+- lien utile : `docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01/00_INITIAL_PROJECT_DOC.md`, `docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01/CLICKUP_IMPLEMENTATION_BUNDLE_V1/INDEX.md`, `docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01/90_CLOSEOUT.md`
 
 ### GO_EXTRACTEUR_TAGS_CANONICAL_METHOD_01
 - repo : opt-trading

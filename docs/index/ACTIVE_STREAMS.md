@@ -108,7 +108,15 @@ Il sert à :
 - branche : `sot/mainline`
 - dernier point établi : bundle préparé, cadrage canonique ouvert
 - prochaine action : `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01`
-- blocages : valider la machine cible réelle, adapter les panes utiles, confirmer l’emplacement repo réel et exécuter la validation réelle de `tmux-ide`
+- blocages : valider la machine cible réelle, adapter les panes utiles, confirmer l'emplacement repo réel et exécuter la validation réelle de `tmux-ide`
+
+### GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01
+- statut : open
+- repo : opt-trading
+- branche : `origin/go/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01`
+- dernier point établi : bundle ClickUp doc-only audité PASS et mergé localement dans `sot/mainline` (c8362b7) ; push bloqué par auth ; parent non fermé
+- prochaine action : recroiser avec `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` et `go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01`, puis ouvrir le GO d'implémentation ou d'intégration ClickUp
+- blocages : push GitHub auth ; stash `reseau_ssh` à ne pas restaurer avant stabilisation
 
 ## Flux bloques / en echec
 
