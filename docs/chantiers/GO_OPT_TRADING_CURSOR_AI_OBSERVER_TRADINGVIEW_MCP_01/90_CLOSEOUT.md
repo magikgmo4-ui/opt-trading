@@ -15,8 +15,11 @@
 | 9 | Sorties output/ presentes et valides | PASS (6 JSON) |
 | 10 | Aucun secret commite | PASS |
 | 11 | Product sanity 12/12 defini | PASS |
-| 12 | Branche prete pour PR | NON (closeout final pending) |
+| 12 | Branche prete pour PR | **OUI** (closeout final complete) |
 | 13 | Index inbox mis a jour | PASS |
+| 14 | Final closeout cree (99_FINAL_CLOSEOUT.md) | PASS |
+| 15 | Validations finales executees | PASS (tous exit 0) |
+| 16 | Aucun live JSON tracke | PASS |
 
 ## Resume Phase 4 — PASS
 
@@ -70,12 +73,24 @@ docs/chantiers/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_01/90_CLOSEOUT.
 
 ## Prochain GO
 
-**Phase 7** — `GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_FINAL_CLOSEOUT_01`
+**Aucun** — produit local complet. PR pret.
 
-Objectif : closeout produit local complet, PR prete a merge.
+---
 
-**Date** : 2026-05-04
-**Verdict** : Phase 6 PASS. Chantier ouvert, Phase 7 (closeout final) prete.
+## FINAL_CLOSEOUT_STATUS
+
+Final closeout produit local :
+- **PASS**
+- voir [99_FINAL_CLOSEOUT.md](./99_FINAL_CLOSEOUT.md)
+
+Dernier GO :
+`GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_FINAL_CLOSEOUT_01`
+
+Commit final : ce commit.
+
+PR status :
+- **Pret** — branche `go/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_01` -> `sot/mainline`
+- 8 commits, 0 fichiers output live, tous les checks PASS
 
 ---
 
