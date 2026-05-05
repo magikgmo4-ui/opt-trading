@@ -4,28 +4,33 @@
 
 | # | Item | Statut |
 |---|------|--------|
-| 1 | Documentation complète (tous les fichiers 00 à 90) | |
-| 2 | Phase 1 : MCP observer smoke PASS | |
-| 3 | Phase 2 : Inventaire alertes PASS | |
-| 4 | Phase 3 : Wrapper opt-trading PASS | |
-| 5 | Phase 4 : OpenClaw skill PASS | |
-| 6 | Phase 5 : Pont admin-trading (PASS ou SKIPPED avec trace) | |
-| 7 | Phase 6 : Hardening produit PASS | |
-| 8 | Sanity check retourne OK | |
-| 9 | Sorties output/ présentes et valides | |
-| 10 | Aucun secret commité | |
-| 11 | Branche prête pour PR (ou mergée) | |
-| 12 | Index inbox mis à jour | |
+| 1 | Documentation complète (tous les fichiers 00 à 90) | PASS |
+| 2 | Phase 1 : MCP observer smoke | **PARTIAL** |
+| 3 | Phase 2 : Inventaire alertes | PENDING (dépend Phase 1 PASS) |
+| 4 | Phase 3 : Wrapper opt-trading | PENDING |
+| 5 | Phase 4 : OpenClaw skill | PENDING |
+| 6 | Phase 5 : Pont admin-trading | PENDING |
+| 7 | Phase 6 : Hardening produit | PENDING |
+| 8 | Sanity check retourne OK | PENDING |
+| 9 | Sorties output/ présentes et valides | PENDING |
+| 10 | Aucun secret commité | PASS |
+| 11 | Branche prête pour PR | NON (Phase 1 bloquée) |
+| 12 | Index inbox mis à jour | PASS |
 
-## Définition de Done finale
+## Définition de Done
 
-Tous les items cochés = **PASS**.
-Si un item est SKIPPED, la raison doit être documentée dans le fichier de phase correspondant.
+**Statut** : PARTIAL
 
-## Verdict closeout
+**Date** : 2026-05-04
 
-**Statut** : [PASS / PARTIAL / FAIL]
+**Résumé Phase 1** :
+- tradingview-mcp installé hors repo → PASS
+- MCP server démarre → PASS
+- MCP config créée → PASS
+- Claude Code CLI disponible → PASS
+- TradingView Desktop absent sur cursor-ai → **FAIL**
+- Port 9222 inaccessible → **FAIL**
 
-**Date** :
+**Action requise** : Installer TradingView Desktop sur cursor-ai, puis relancer les smokes CDP.
 
-**Décision** :
+**Décision** : Le chantier continue en PARTIAL. La branche reste ouverte. Next GO : installer TradingView Desktop → relancer smoke.
