@@ -98,7 +98,13 @@ Cette fiche n'en est qu'une vue projet/famille.
 | `feat/journal-full-reading-macro-plan-recenter` | `INCONNUE` | `LOW` | probablement doc/methode, mais preuve repo insuffisante |
 | `opencode/shiny-engine` | `INCONNUE` | `LOW` | probablement tooling/IDE, mais preuve repo insuffisante |
 
-## 5) Point de reprise
+## 5) Point de routage machine anti-conflit
+
+- **`docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md`** : vue de routage machine, subordonnee a cette fiche et a `BRANCH_STATE.md`
+- `BRANCH_PROJECT_MAP` reste la vue projet/famille
+- `MACHINE_WORK_SPLIT_ANTI_CONFLICT_01` devient la vue machine anti-conflit, interrogeable directement par "chantiers pour <machine>"
+
+## 6) Point de reprise
 
 Pour toute suite sur cette cartographie :
 1. relire `docs/index/BRANCH_STATE.md`
@@ -106,7 +112,7 @@ Pour toute suite sur cette cartographie :
 3. ajuster ici seulement si le classement projet/famille change reellement
 4. ne pas surclasser un cas faible sans preuve repo/PR/documentaire
 
-## 6) Resume operatoire
+## 7) Resume operatoire
 
 - les branches restantes sont maintenant presque entierement lisibles par projet
 - les branches supprimees du cycle housekeeping sont rattachees a des familles stables
