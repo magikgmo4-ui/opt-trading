@@ -9,7 +9,7 @@
 | 3 | Phase 2 : Inventaire alertes | PASS |
 | 4 | Phase 3 : Wrapper opt-trading | PASS |
 | 5 | Phase 4 : OpenClaw skill | **PASS** |
-| 6 | Phase 5 : Pont admin-trading | PENDING |
+| 6 | Phase 5 : Pont admin-trading | **PASS** |
 | 7 | Phase 6 : Hardening produit | PENDING |
 | 8 | Sanity check retourne OK | PASS (7/7) |
 | 9 | Sorties output/ presentes et valides | PASS (6 JSON) |
@@ -40,9 +40,38 @@ modules/tradingview_observer_openclaw/
   run.ps1
 ```
 
+## Resume Phase 5 — PASS
+
+| Check | Statut |
+|-------|--------|
+| Pont admin-trading evalue sans mutation runtime | PASS |
+| Bridge packet V1 defini | PASS |
+| Option de transfert decidee (Option A) | PASS |
+| Export dry-run script fonctionnel | PASS |
+| Documentation Phase 5 complete | PASS |
+| Aucun output live committe | PASS |
+| Tous les invariants respectes | PASS |
+| Options B/C documentees pour GO futurs | PASS |
+
+## Fichiers ajoutes
+
+```
+modules/tradingview_observer/export_bridge_packet.ps1
+```
+
+## Fichiers mis a jour
+
+```
+docs/chantiers/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_01/50_PHASE_5_ADMIN_TRADING_BRIDGE_OPTIONAL.md
+docs/chantiers/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_01/51_ADMIN_BRIDGE_REVIEW_LOG.md
+docs/chantiers/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_01/90_CLOSEOUT.md
+```
+
 ## Prochain GO
 
-**Phase 5** — Pont optionnel admin-trading
+**Phase 6** — `GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_PRODUCT_HARDENING_01`
 
-**Date** : 2026-05-05
-**Verdict partiel** : Phases 1-4 PASS. Chantier ouvert, Phase 5 prete.
+Objectif : durcir le produit local sans pont admin-trading actif.
+
+**Date** : 2026-05-04
+**Verdict** : Phase 5 PASS. Chantier ouvert, Phase 6 prete.
