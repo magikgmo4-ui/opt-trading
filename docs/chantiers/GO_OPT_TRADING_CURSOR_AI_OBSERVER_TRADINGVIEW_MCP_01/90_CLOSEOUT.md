@@ -10,12 +10,13 @@
 | 4 | Phase 3 : Wrapper opt-trading | PASS |
 | 5 | Phase 4 : OpenClaw skill | **PASS** |
 | 6 | Phase 5 : Pont admin-trading | **PASS** |
-| 7 | Phase 6 : Hardening produit | PENDING |
+| 7 | Phase 6 : Hardening produit | **PASS** |
 | 8 | Sanity check retourne OK | PASS (7/7) |
 | 9 | Sorties output/ presentes et valides | PASS (6 JSON) |
 | 10 | Aucun secret commite | PASS |
-| 11 | Branche prete pour PR | NON (chantier en cours) |
-| 12 | Index inbox mis a jour | PASS |
+| 11 | Product sanity 12/12 defini | PASS |
+| 12 | Branche prete pour PR | NON (closeout final pending) |
+| 13 | Index inbox mis a jour | PASS |
 
 ## Resume Phase 4 — PASS
 
@@ -69,9 +70,50 @@ docs/chantiers/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_01/90_CLOSEOUT.
 
 ## Prochain GO
 
-**Phase 6** — `GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_PRODUCT_HARDENING_01`
+**Phase 7** — `GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_FINAL_CLOSEOUT_01`
 
-Objectif : durcir le produit local sans pont admin-trading actif.
+Objectif : closeout produit local complet, PR prete a merge.
 
 **Date** : 2026-05-04
-**Verdict** : Phase 5 PASS. Chantier ouvert, Phase 6 prete.
+**Verdict** : Phase 6 PASS. Chantier ouvert, Phase 7 (closeout final) prete.
+
+---
+
+## Resume Phase 6 — PASS
+
+| Check | Statut |
+|-------|--------|
+| Scripts durcis (ErrorAction, PSScriptRoot, timestamps) | PASS |
+| cmd.ps1 modes allowed/forbidden | PASS |
+| Wrapper sanity PASS (7/7) | PASS |
+| Wrapper snapshot PASS (6 JSON) | PASS |
+| Bridge packet export PASS | PASS |
+| OpenClaw run.ps1 PASS (sanity/snapshot/bridge) | PASS |
+| Product sanity 12/12 defini | PASS |
+| UTF8 sans BOM sur tous les exports | PASS |
+| Mutation gate verouillee | PASS |
+| Aucun output live committe | PASS |
+| Documentation complete (60_, 70_, 80_, 90_) | PASS |
+
+## Fichiers ajoutes
+
+```
+modules/tradingview_observer/product_sanity.ps1
+```
+
+## Fichiers modifies
+
+```
+modules/tradingview_observer/cmd.ps1
+modules/tradingview_observer/sanity_check.ps1
+modules/tradingview_observer/app/observer_runner.ps1
+modules/tradingview_observer/export_bridge_packet.ps1
+modules/tradingview_observer/README.md
+modules/tradingview_observer_openclaw/run.ps1
+modules/tradingview_observer_openclaw/skill.md
+modules/tradingview_observer_openclaw/README.md
+docs/chantiers/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_01/60_PHASE_6_PRODUCT_HARDENING.md
+docs/chantiers/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_01/70_FINAL_PRODUCT_TARGET.md
+docs/chantiers/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_01/80_RISKS_AND_INVARIANTS.md
+docs/chantiers/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_01/90_CLOSEOUT.md
+```

@@ -1,12 +1,13 @@
-# TradingView Observer → Bridge Packet V1
-# Dry-run only — no transfer, no SSH, no admin-trading mutation.
+# TradingView Observer > Bridge Packet V1
+# Dry-run only. No transfer, no SSH, no admin-trading mutation.
 # Reads output/latest_report.json, produces output/latest_bridge_packet.json.
+# Usage: .\export_bridge_packet.ps1 [-Json]
 param([switch]$Json)
 
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 
-$MOD = Split-Path -Parent $MyInvocation.MyCommand.Path
+$MOD = $PSScriptRoot
 $OUTPUT_DIR = Join-Path $MOD "output"
 $REPORT_PATH = Join-Path $OUTPUT_DIR "latest_report.json"
 $BRIDGE_PATH = Join-Path $OUTPUT_DIR "latest_bridge_packet.json"
@@ -112,9 +113,8 @@ $bridge = [ordered]@{
 }
 
 $bridgeJson = $bridge | ConvertTo-Json -Depth 6
-$bridgeJson | Out-File -FilePath $BRIDGE_PATH -Encoding utf8 -NoNewline -Force
 $bridgeJson = $bridgeJson -replace "`r`n", "`n"
-$bridgeJson | Out-File -FilePath $BRIDGE_PATH -Encoding utf8 -NoNewline -Force
+[System.IO.File]::WriteAllText($BRIDGE_PATH, $bridgeJson, [System.Text.UTF8Encoding]::new($false))
 
 $fileInfo = Get-Item $BRIDGE_PATH
 $sizeKB = [math]::Round($fileInfo.Length / 1024, 1)

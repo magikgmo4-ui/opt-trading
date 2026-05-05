@@ -13,11 +13,13 @@ C:\Users\ghost\opt-trading\modules\tradingview_observer_openclaw\run.ps1
 
 Toutes les commandes ci-dessous sont read-only et sans effet sur TradingView :
 
+### `sanity`
 ```
 .\run.ps1 sanity
 ```
 
-Verifie :
+Verifie (7 checks) :
+- PowerShell strict mode actif
 - Node.js present
 - tradingview-mcp CLI accessible
 - Port CDP 9222 repond
@@ -25,8 +27,9 @@ Verifie :
 - tv state (symbol, TF, studies)
 - tv quote (OHLC)
 - tv alert list (alert count)
-- tv values (indicator values)
+- Mutation verrouillee
 
+### `snapshot`
 ```
 .\run.ps1 snapshot
 ```
@@ -42,6 +45,17 @@ modules/tradingview_observer/output/
   latest_report.json
 ```
 
+### `bridge`
+```
+.\run.ps1 bridge
+```
+
+Exporte le bridge packet V1 (synthese dry-run, sans transfert admin-trading) :
+```
+modules/tradingview_observer/output/
+  latest_bridge_packet.json
+```
+
 ## READ_OUTPUTS
 
 Apres snapshot, OpenClaw peut lire directement :
@@ -52,6 +66,7 @@ Apres snapshot, OpenClaw peut lire directement :
 - `..\tradingview_observer\output\latest_state.json` — etat graphique
 - `..\tradingview_observer\output\latest_alert_inventory.json` — inventaire alertes
 - `..\tradingview_observer\output\latest_values.json` — valeurs indicateurs
+- `..\tradingview_observer\output\latest_bridge_packet.json` — bridge packet V1
 
 ## FORBIDDEN
 
@@ -59,13 +74,16 @@ OpenClaw ne doit JAMAIS :
 
 - Acceder directement au port 9222 (CDP)
 - Appeler tradingview-mcp directement (node ...\src\cli\index.js)
+- Appeler observer_runner.ps1 directement
 - Creer une alerte (alert_create)
 - Supprimer une alerte (alert_delete)
 - Modifier une alerte existante
 - Configurer un webhook
 - Executer un trade
 - Modifier admin-trading
-- Lancer tv launch (demander a l'operateur humain si TradingView est ferme)
+- Lancer `tv launch` (demander a l'operateur humain si TradingView est ferme)
+- Transf erer des donnees vers admin-trading
+- Committer des fichiers output/latest_*.json
 - Contourner le module `tradingview_observer`
 
 ## OPERATION_FLOW
@@ -81,8 +99,9 @@ OpenClaw ne doit JAMAIS :
    - Valeurs des indicateurs si disponibles
    - Nombre d'alertes (actives / expirees / total)
    - Limites connues (webhook invisible, suppression non supportee)
-6. Retourner l'analyse en read-only
-7. NE JAMAIS proposer de mutation sans GO explicite
+6. Optionnel : `.\run.ps1 bridge` pour le bridge packet V1
+7. Retourner l'analyse en read-only
+8. NE JAMAIS proposer de mutation sans GO explicite
 
 ## FAILURE_MODES
 
@@ -92,6 +111,7 @@ OpenClaw ne doit JAMAIS :
 | tradingview-mcp CLI missing | Installation incomplete | Signaler le chemin manquant |
 | JSON parse error | Donnees corrompues | Relire le fichier, signaler l'erreur |
 | report missing | Snapshot non execute | Lancer snapshot d'abord |
+| Wrapper not found | Module non installe | Verifier l'arborescence opt-trading |
 
 ## SAFE_RESPONSE
 
