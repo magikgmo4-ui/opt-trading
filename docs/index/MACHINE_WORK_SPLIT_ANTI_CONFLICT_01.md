@@ -143,6 +143,7 @@ Quand la demande est "chantiers pour <machine>", la reponse doit ressortir direc
 | `go/GO_OPT_TRADING_ADMIN_TRADING_WEBHOOK_RUNTIME_REVIEW_01` | Webhook runtime review |
 | `go/GO_OPT_TRADING_ADMIN_TRADING_WEBHOOK_SIGNAL_DIAG_01` | Webhook signal diag |
 | `go/GO_OPT_TRADING_ADMIN_TRADING_TELEGRAM_WEBHOOK_REAL_USAGE_TEST_01` | Telegram webhook real usage test |
+| `go/GO_OPT_TRADING_ADMIN_TRADING_TELEGRAM_WEBHOOK_TV_TEST_EXECUTION_CLOSEOUT_01` | TV_TEST execution closeout |
 | `go/GO_TRADING_PIPELINE_BOTPRESS_OPERATOR_PARENT_01` | Pipeline Botpress operator parent |
 | `go/GO_OPT_TRADING_STRATEGY_INDICATOR_PARENT_01` | Strategy indicator parent |
 | `go/GO_OPT_TRADING_WEB3_DATA_ADAPTERS_AUDIT_01` | Web3 data adapters audit |
