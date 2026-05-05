@@ -80,8 +80,8 @@ Quand la demande est "chantiers pour <machine>", la reponse doit ressortir direc
 | `go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01` | Doc ops child open work control |
 | `go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01_ISOLATED` | Doc ops child open work control isolated |
 | `go/GO_OPT_TRADING_INDEX_AGGREGATION_BATCH_01` | Index aggregation batch |
-| `go/GO_LIVE_ARTIFACTS_CLAUDE_COWORK_IDE_BUNDLE_01` | Live artifacts Claude cowork IDE bundle |
-| `go/GO_OPT_TRADING_CLAUDE_COWORK_PARENT_LIVE_ARTIFACTS_01` | Claude cowork parent live artifacts |
+| `go/GO_LIVE_ARTIFACTS_CLAUDE_COWORK_IDE_BUNDLE_01` | Live artifacts Claude cowork IDE bundle — merged |
+| `go/GO_OPT_TRADING_CLAUDE_COWORK_PARENT_LIVE_ARTIFACTS_01` | Claude cowork parent live artifacts — merged |
 
 ### CURSOR_AI — References audit Git
 
