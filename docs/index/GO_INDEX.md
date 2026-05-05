@@ -110,10 +110,11 @@ Normalisation retenue :
 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO_TMUX_OPENCODE_OPENCLAW_MODES_01 | REFERENCE | non | `docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/00_cadrage.md` |
 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO_RUNTIME_GUARDRAILS_01 | REFERENCE | non | `docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/00_cadrage.md` |
 | GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01 | GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01 | — | OPEN | oui | `docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01/00_INITIAL_PROJECT_DOC.md`<br>`docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01/CLICKUP_IMPLEMENTATION_BUNDLE_V1/INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01/90_CLOSEOUT.md` |
+| GO_OPT_TRADING_STRICT_WORKERS_PARENT_01 | GO_OPT_TRADING_STRICT_WORKERS_PARENT_01 | — | OPEN | non | branche `go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01`<br>`docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01/00_INITIAL_PROJECT_DOC.md` |
 
 ---
 
-## Priorite operatoire (5 GO non clos)
+## Priorite operatoire (6 GO non clos)
 
 - P0 : `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
 - P1 : `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
@@ -210,6 +211,15 @@ Historique recent :
 - dernier état connu : bundle doc-only mergé localement dans sot/mainline (c8362b7) ; closeout de phase review/merge produit ; parent non fermé
 - prochaine action : recroiser avec GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01 et GO_OPT_TRADING_STRICT_WORKERS_PARENT_01, puis décider du GO d'implémentation ClickUp
 - lien utile : `docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01/00_INITIAL_PROJECT_DOC.md`, `docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01/CLICKUP_IMPLEMENTATION_BUNDLE_V1/INDEX.md`, `docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01/90_CLOSEOUT.md`
+
+### GO_OPT_TRADING_STRICT_WORKERS_PARENT_01
+- repo : opt-trading
+- type : chantier parent / strict workers / agents
+- statut : open
+- titre court : parent canonique strict workers IA a autonomie etroite
+- dernier etat connu : dossier complet sur branche `go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01` (initial_doc, progress, smoke_exec, smoke_validation, closeout draft) ; non merge dans mainline
+- prochaine action : merger le dossier dans mainline ou poursuivre sur branche, puis ouvrir le GO d'implementation strict workers
+- lien utile : branche `go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01`, `docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01/00_INITIAL_PROJECT_DOC.md` (sur branche)
 
 ### GO_EXTRACTEUR_TAGS_CANONICAL_METHOD_01
 - repo : opt-trading

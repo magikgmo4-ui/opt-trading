@@ -118,6 +118,14 @@ Il sert à :
 - prochaine action : recroiser avec `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` et `go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01`, puis ouvrir le GO d'implémentation ou d'intégration ClickUp
 - blocages : push GitHub auth ; stash `reseau_ssh` à ne pas restaurer avant stabilisation
 
+### GO_OPT_TRADING_STRICT_WORKERS_PARENT_01
+- statut : open
+- repo : opt-trading
+- branche : `origin/go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01`
+- dernier point établi : parent strict workers avec dossier complet sur branche (initial_doc, progress, smoke_exec, smoke_validation, closeout draft) ; dossier non merge dans mainline
+- prochaine action : merger le dossier dans `sot/mainline` ou poursuivre la documentation sur branche, puis ouvrir le GO d'implementation strict workers
+- blocages : dossier absent de `sot/mainline` ; `A_VERIFIER` dans BRANCH_STATE ; non cite dans MATRICE_DOC_OPS
+
 ## Flux bloques / en echec
 
 - aucun flux bloqué établi à ce stade

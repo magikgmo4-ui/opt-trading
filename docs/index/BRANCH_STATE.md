@@ -75,12 +75,12 @@ Obligations explicites :
 
 | CANON_STATUS | COUNT |
 | --- | ---: |
-| `KEEP_ACTIVE` | 6 |
+| `KEEP_ACTIVE` | 7 |
 | `KEEP_REFERENCE` | 19 |
 | `DROP_MERGED` | 4 |
 | `DROP_LOCAL_ONLY` | 0 |
 | `BLOCKED` | 1 |
-| `A_VERIFIER` | 41 |
+| `A_VERIFIER` | 40 |
 
 ## Legende de lecture
 
@@ -143,7 +143,7 @@ Obligations explicites :
 | `go/GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` | both | AHEAD_ONLY | 1 | 0 | `KEEP_ACTIVE` | `keep_under_review` | Lot doc-only courant de realignement des representations canoniques encore en cours | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
 | `go/GO_OPT_TRADING_REPO_KG_PARENT_GRAPH_SYSTEM_01` | remote | DIVERGED | 18 | 70 | `A_VERIFIER` | `manual_review` | Branche GO restante presente dans Git mais sans representation canonique complete sur les surfaces doc courantes | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
 | `go/GO_OPT_TRADING_REPO_SURFACES_PARENT_CARTOGRAPHY_01` | remote | DIVERGED | 1 | 70 | `A_VERIFIER` | `manual_review` | Branche GO restante presente dans Git mais sans representation canonique complete sur les surfaces doc courantes | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
-| `go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01` | both | DIVERGED | 15 | 12 | `A_VERIFIER` | `manual_review` | Branche GO restante presente dans Git mais sans representation canonique complete sur les surfaces doc courantes | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
+| `go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01` | both | DIVERGED | 15 | 12 | `KEEP_ACTIVE` | `keep_under_review` | Parent strict workers actif ; dossier complet sur branche (6 fichiers, closeout draft) ; non merge dans mainline ; a integrer ou poursuivre sur branche | `GO_OPT_TRADING_FANTOME_ACTIVE_PARENTS_CROSSCHECK_01` |
 | `go/matrice-doc-ops-propagation-01` | remote | DIVERGED | 2 | 14 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
 | `integ/trading-dual-stack-doc-pack-01` | remote | DIVERGED | 4 | 569 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
 | `inventory/collectors-baseline-01` | remote | DIVERGED | 6 | 408 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
