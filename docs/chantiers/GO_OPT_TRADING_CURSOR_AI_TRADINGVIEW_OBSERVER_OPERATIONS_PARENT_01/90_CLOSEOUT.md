@@ -8,7 +8,7 @@
 | 2 | Children indexes | PASS |
 | 3 | Child 1 (reprise post-merge) | PASS |
 | 4 | Child 2 (shared packet) | PASS |
-| 5 | Child 3 (alert webhook template) | PENDING |
+| 5 | Child 3 (alert webhook template) | PASS_DOC_ONLY |
 | 6 | NEXT_GO defini | PASS (Phase 10) |
 | 7 | NEXT_GO_CANDIDATE admin-trading documente | PASS |
 | 8 | Invariants respectes | PASS |
@@ -18,8 +18,8 @@
 
 ## Verdict partiel
 
-ACTIVE — Parent cursor-ai operationnel. Children 1-2 PASS. Child 3 en attente.
+ACTIVE — Parent cursor-ai operationnel. Children 1-3 PASS. Pret pour parent closeout.
 
 ## Prochain GO
 
-`GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_ALERT_WEBHOOK_TEMPLATE_01` — Phase 10, alert webhook template.
+`GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_PARENT_CLOSEOUT_01`
