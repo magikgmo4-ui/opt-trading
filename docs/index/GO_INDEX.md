@@ -103,6 +103,7 @@ Normalisation retenue :
 | GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01 | GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01 | GO_OPT_TRADING_UI_LOCALCMS_CONTRACTS_01 | REFERENCE | non | `docs/chantiers/GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01/01_cadrage_parent.md` |
 | GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01 | GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01 | GO_OPT_TRADING_UI_LOCALCMS_PILOT_READONLY_01 | REFERENCE | non | `docs/chantiers/GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01/01_cadrage_parent.md` |
 | GO_EXTRACTEUR_TAGS_CANONICAL_METHOD_01 | GO_EXTRACTEUR_TAGS_CANONICAL_METHOD_01 | — | REFERENCE | non | `docs/index/GO_INDEX.md`<br>`docs/governance/EXTRACTEUR_TAGS__METHODE_CANONIQUE_V1.md` |
+| GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01 | GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01 | — | OPEN | oui | `docs/chantiers/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01/REPRISE_DB_LAYER_20260505.md`<br>`docs/index/inbox/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01.md` |
 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | — | ACTIVE | oui | `docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/00_cadrage.md`<br>`docs/index/REPRISE.md` |
 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO_TMUX_RUNTIME_CONVENTIONS_01 | REFERENCE | non | `docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/00_cadrage.md` |
 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO_OPENCLAW_COMMAND_SCOPE_01 | REFERENCE | non | `docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/00_cadrage.md` |
@@ -114,11 +115,14 @@ Normalisation retenue :
 
 ---
 
-## Priorite operatoire (6 GO non clos)
+## Priorite operatoire (7 GO non clos)
 
 - P0 : `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
-- P1 : `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
-- P2 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
+- P1 : `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`, `GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01`
+- P2 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01`
+
+Le passage de 6 a 7 GO non clos retenus correspond a la re-inscription documentaire du parent :
+- `GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01`
 
 Le passage a 5 GO non clos retenus correspond a la sortie de `GO_OPT_TRADING_PARENT_NAMING_CANON_01` apres closeout parent.
 
@@ -194,6 +198,14 @@ Historique recent :
 - titre court : chantier parent UI opt-trading producer → localcms consumer
 - dernier état connu : cadrage parent posé ; `opt-trading` reste producer canonique et `localcms` consumer UI ; reprise recommandée sur `GO_OPT_TRADING_UI_LOCALCMS_INVENTORY_01`
 - lien utile : `docs/chantiers/GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01/01_cadrage_parent.md`
+
+### GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01
+- repo : opt-trading
+- type : reprise documentaire / parent OpenClaw / db-layer
+- statut : open
+- titre court : parent OpenClaw operateur hors continuite canonique a realigner
+- dernier état connu : parent reel prouve sur branche dediee `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01`, non absorbe dans `sot/mainline` ; realignement documentaire requis avant reprise du child TMUX
+- lien utile : `docs/chantiers/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01/REPRISE_DB_LAYER_20260505.md`, `docs/index/inbox/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01.md`
 
 ### GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01
 - repo : opt-trading
