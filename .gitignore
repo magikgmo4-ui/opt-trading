@@ -89,3 +89,6 @@ scripts/runlog
 
 # shared packet staging (Option B — local copy of bridge packets)
 _shared_packets/
+
+modules/bot_vision/headless_capture/node_modules/
+modules/bot_vision/headless_capture/package-lock.json
