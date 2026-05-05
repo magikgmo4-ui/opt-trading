@@ -1,0 +1,3 @@
+# Ignore exported data files — they contain live market data
+*.json
+!.gitkeep
