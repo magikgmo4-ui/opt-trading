@@ -6,7 +6,7 @@
 |---|-------|-----|--------|-------|
 | 1 | `GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_POST_MERGE_REPRISE_01` | Reprise post-merge | **PASS** | 8 |
 | 2 | `GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_SHARED_PACKET_01` | Shared packet Option B | **PASS** | 9 |
-| 3 | `GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_ALERT_WEBHOOK_TEMPLATE_01` | Alert webhook template | PENDING | 10 |
+| 3 | `GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_ALERT_WEBHOOK_TEMPLATE_01` | Alert webhook template | **PASS_DOC_ONLY** | 10 |
 
 ## Child 2 — Shared packet Option B — PASS
 
