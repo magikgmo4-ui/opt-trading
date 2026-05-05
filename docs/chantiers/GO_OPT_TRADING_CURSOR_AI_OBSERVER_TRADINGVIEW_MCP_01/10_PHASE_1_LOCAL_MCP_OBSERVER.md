@@ -19,116 +19,149 @@ Installer tradingview-mcp hors repo opt-trading sur cursor-ai et valider que Cla
 | Node.js | v24.14.0 |
 | npm | 11.9.0 |
 | Claude Code CLI | `C:\Users\ghost\.local\bin\claude.exe` |
-| tradingview-mcp | `C:\Users\ghost\.claude\tools\tradingview-mcp` (commit 4795784, branch main) |
-| TradingView Desktop | **NON INSTALLÉ** sur cursor-ai |
+| tradingview-mcp | `C:\Users\ghost\.claude\tools\tradingview-mcp` (commit 8dc9dc2, main + PR #76 merged) |
+| TradingView Desktop | MSIX v3.1.0.7818, Electron 38.2.2, Chrome 140.0.7339.133 |
+| MCP config | `C:\Users\ghost\.claude\.mcp.json` |
 
-## Setup cible
+## TradingView Desktop — Installation
 
-- TradingView Desktop lancé avec `--remote-debugging-port=9222`
-- Port : `127.0.0.1:9222` uniquement
-- tradingview-mcp installé dans : `C:\Users\ghost\.claude\tools\tradingview-mcp`
-- Claude Code configuré comme client MCP
+- **Méthode** : MSIX téléchargé depuis `https://tvd-packages.tradingview.com/stable/latest/win32/TradingView.msix`
+- **Installation** : `Add-AppxPackage` Powershell
+- **Package** : `TradingView.Desktop_3.1.0.7818_x64__n534cwy3pjxzj`
+- **InstallLocation** : `C:\Program Files\WindowsApps\TradingView.Desktop_3.1.0.7818_x64__n534cwy3pjxzj`
+- **PackageFamilyName** : `TradingView.Desktop_n534cwy3pjxzj`
+- **AUMID** : `TradingView.Desktop_n534cwy3pjxzj!TradingView.Desktop`
+
+## PR #76 — MSIX CDP fix
+
+Le repo `tradingview-mcp` upstream (main) ne supportait pas le lancement MSIX.
+PR #76 (`unknowntrader7`, commit `8dc9dc2`) ajoute :
+- `scripts/launch_msix.ps1` — COM activation via `IApplicationActivationManager`
+- `src/core/health.js` — détection et lancement MSIX automatique
+- La PR a été mergée localement (fast-forward) dans notre clone.
+
+Sans cette PR, `tv launch` échoue silencieusement sur MSIX (le .exe ne peut pas recevoir d'arguments en ligne de commande).
 
 ## Smokes exécutés
 
-### 1. http://127.0.0.1:9222/json/version — FAIL
-
-Port 9222 non accessible. Aucune connexion (TradingView Desktop n'est pas installé).
-
-```
-Port 9222 not reachable: No connection could be made because
-the target machine actively refused it. (127.0.0.1:9222)
-```
-
-### 2. chart_get_state — BLOCKED (TV absent)
-
-### 3. quote_get — BLOCKED (TV absent)
-
-### 4. screenshot — BLOCKED (TV absent)
-
-### 5. data_get_study_values — BLOCKED (TV absent)
-
-### 6. MCP server start — PASS
-
-Le serveur MCP démarre correctement et affiche le message d'avertissement standard :
-
-```
-⚠  tradingview-mcp  |  Unofficial tool. Not affiliated with TradingView Inc. or Anthropic.
-   Ensure your usage complies with TradingView's Terms of Use.
-```
-
-Le serveur attend les messages MCP sur stdin/stdout et est fonctionnel comme processus.
-
-## Installation tradingview-mcp
-
-- Cloné depuis `https://github.com/tradesdontlie/tradingview-mcp.git`
-- 94 packages npm installés
-- 68 outils MCP disponibles dans le serveur (cf CLAUDE.md)
-- Script de lancement Windows : `scripts/launch_tv_debug.bat`
-- Emplacements vérifiés par le script : `%LOCALAPPDATA%\TradingView`, `%PROGRAMFILES%\TradingView`, `WindowsApps`
-
-## TradingView Desktop — Recherche
-
-Emplacements vérifiés (tous vides) :
-- `C:\Users\ghost\AppData\Local\TradingView\`
-- `C:\Program Files\TradingView\`
-- `C:\Program Files (x86)\TradingView\`
-- `C:\Program Files\WindowsApps\TradingView*\`
-- `HKCU/HKLM App Paths`
-- `C:\Users\ghost\AppData\Local\Programs\`
-
-**TradingView Desktop n'est pas installé sur cursor-ai.**
-
-## Configuration MCP
-
-Fichier créé : `C:\Users\ghost\.claude\.mcp.json`
+### 1. http://127.0.0.1:9222/json/version — PASS
 
 ```json
 {
-  "mcpServers": {
-    "tradingview-desktop": {
-      "command": "node",
-      "args": ["C:\\Users\\ghost\\.claude\\tools\\tradingview-mcp\\src\\server.js"]
-    }
-  }
+  "Browser": "Chrome/140.0.7339.133",
+  "Protocol-Version": "1.3",
+  "V8-Version": "14.0.365.4",
+  "webSocketDebuggerUrl": "ws://127.0.0.1:9222/devtools/browser/6c4c31d1-..."
 }
 ```
 
-Aucun fichier existant n'a été écrasé (le fichier n'existait pas avant).
+### 2. tv launch (MSIX) — PASS
+
+```json
+{
+  "success": true,
+  "platform": "win32",
+  "launch_method": "msix",
+  "binary": "TradingView.Desktop_n534cwy3pjxzj!TradingView.Desktop",
+  "pid": 211360,
+  "cdp_port": 9222,
+  "cdp_url": "http://localhost:9222",
+  "browser": "Chrome/140.0.7339.133",
+  "user_agent": "... TradingView/3.1.0 ... Electron/38.2.2 ..."
+}
+```
+
+### 3. tv status (health check) — PASS
+
+```json
+{
+  "success": true,
+  "cdp_connected": true,
+  "target_url": "https://fr.tradingview.com/chart/",
+  "chart_symbol": "TVC:CAC40",
+  "chart_resolution": "D",
+  "chart_type": 1,
+  "api_available": true
+}
+```
+
+### 4. tv state (chart_get_state) — PASS
+
+```json
+{
+  "success": true,
+  "symbol": "TVC:CAC40",
+  "resolution": "D",
+  "chartType": 1,
+  "studies": []
+}
+```
+
+### 5. tv quote (quote_get) — PASS
+
+```json
+{
+  "success": true,
+  "symbol": "TVC:CAC40",
+  "open": 8122.1,
+  "high": 8122.1,
+  "low": 7962.76,
+  "close": 7976.13,
+  "last": 7976.13,
+  "description": "CAC 40",
+  "exchange": "TVC",
+  "type": "index"
+}
+```
+
+### 6. tv alert list (alert_list) — PASS
+
+```json
+{
+  "success": true,
+  "alert_count": 0,
+  "alerts": []
+}
+```
+
+### 7. tv values (data_get_study_values) — PASS (no studies loaded, expected)
+
+```json
+{
+  "success": true,
+  "study_count": 0,
+  "studies": []
+}
+```
 
 ## Résultat
 
-**Statut** : PARTIAL
+**Statut** : PASS
 
 | Check | Statut |
 |-------|--------|
 | tradingview-mcp installé | PASS |
-| npm install OK | PASS |
+| PR #76 MSIX fix appliqué | PASS |
 | MCP server démarre | PASS |
 | MCP config créée | PASS |
 | Claude Code CLI disponible | PASS |
-| TradingView Desktop installé | **FAIL** |
-| Port 9222 accessible | **FAIL** |
-| chart_get_state | BLOCKED |
-| quote_get | BLOCKED |
-| screenshot | BLOCKED |
-| data_get_study_values | BLOCKED |
+| TradingView Desktop installé | PASS |
+| Port 9222 accessible | PASS |
+| tv launch (MSIX COM) | PASS |
+| tv status / health check | PASS |
+| tv state / chart_get_state | PASS |
+| tv quote / quote_get | PASS |
+| tv alert list / alert_list | PASS |
+| tv values / data_get_study_values | PASS |
 
-## Causes du PARTIAL
+## Notes
 
-- TradingView Desktop n'est pas installé sur la machine cursor-ai.
-- Tous les outils MCP sont installés et prêts côté serveur, mais le endpoint CDP (127.0.0.1:9222) n'existe pas.
-- Le blocage est purement logiciel (absence du binaire TradingView.exe).
+- TradingView Desktop sur Windows est **exclusivement MSIX** (même depuis tradingview.com/desktop/).
+- Le lancement CDP nécessite la PR #76 (COM `IApplicationActivationManager`) — le `spawn(exe, [--remote-debugging-port])` natif échoue sur MSIX.
+- La PR #76 a été mergée localement dans notre clone `tradingview-mcp`. Si le repo upstream est mis à jour (merge de la PR), il faudra rebase.
+- Aucune alerte de production présente (0 alertes). Sécurisé pour les phases suivantes.
 
-## Actions requises pour débloquer
+## Prochain GO
 
-1. Installer TradingView Desktop sur cursor-ai depuis https://www.tradingview.com/desktop/
-2. Lancer TradingView Desktop avec `--remote-debugging-port=9222`
-3. Vérifier `http://127.0.0.1:9222/json/version`
-4. Relancer Claude Code pour charger le serveur MCP
-5. Exécuter `tv_health_check` ou `chart_get_state`
-
-## Prochain GO recommandé
-
-Installer TradingView Desktop sur cursor-ai, puis relancer le smoke Phase 1.
-Le chantier documentaire et l'installation MCP sont prêts. Seul le runtime TradingView manque.
+Phase 2 — Alertes TradingView : inventaire et contrôle
+→ `GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_ALERTS_INVENTORY_01`
