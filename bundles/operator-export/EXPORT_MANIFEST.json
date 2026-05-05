@@ -1,0 +1,38 @@
+{
+  "schema": "opt_trading_export_manifest_v1",
+  "export_id": "OPERATOR_EXPORT_CURSOR_AI_01",
+  "machine": "cursor-ai",
+  "created_at": "2026-05-05",
+  "status": "active",
+  "bundles": [
+    {"id": "claude-artifacts", "path": "bundles/claude-artifacts/", "files": 6, "pr": "#206"},
+    {"id": "operator-export", "path": "bundles/operator-export/", "files": 4, "pr": "#212"},
+    {"id": "active-workflow", "path": "bundles/ACTIVE_WORKFLOW.md", "pr": "#207"},
+    {"id": "bundle-types", "path": "bundles/BUNDLE_TYPES.md", "pr": "#207"},
+    {"id": "operator-flow", "path": "bundles/OPERATOR_FLOW.md", "pr": "#207"},
+    {"id": "no-runtime-no-sensitive", "path": "bundles/NO_RUNTIME_NO_SENSITIVE_RULES.md", "pr": "#207"},
+    {"id": "reprise-packet", "path": "bundles/CURSOR_AI_OPERATOR_REPRISE_PACKET.md", "pr": "#209"},
+    {"id": "index", "path": "bundles/README.md", "pr": "#211"}
+  ],
+  "go_sequence": [
+    {"position": "plan", "go": "GO_OPT_TRADING_CURSOR_AI_PARENT_OPERATIONAL_PLAN_01", "pr": "#205"},
+    {"position": "1", "go": "GO_OPT_TRADING_CURSOR_AI_CLAUDE_ARTIFACTS_OPERATOR_PACK_01", "pr": "#206"},
+    {"position": "2", "go": "GO_OPT_TRADING_CURSOR_AI_BUNDLES_APPLICATION_ACTIVE_01", "pr": "#207"},
+    {"position": "3", "go": "GO_OPT_TRADING_CURSOR_AI_ALERT_WEBHOOK_PRE_ADMIN_GATE_SPEC_01", "pr": "#208"},
+    {"position": "4", "go": "GO_OPT_TRADING_CURSOR_AI_OPERATOR_REPRISE_PACKET_01", "pr": "#209"},
+    {"position": "A", "go": "GO_OPT_TRADING_CURSOR_AI_ALERT_WEBHOOK_TEST_SAFE_01", "pr": "#210"},
+    {"position": "B", "go": "GO_OPT_TRADING_CURSOR_AI_BUNDLES_MAINTENANCE_01", "pr": "#211"},
+    {"position": "C", "go": "GO_OPT_TRADING_CURSOR_AI_OPERATOR_EXPORT_01", "pr": "#212"}
+  ],
+  "continuities": {
+    "alert_webhook": "ACTIVE_CONTINUITY",
+    "bundles_product": "APPLICATION_DOCUMENTED_NOT_CLOSED",
+    "bundles_workflow": "ACTIVE",
+    "admin_trading": "CLOSED",
+    "runtime": "NOT_MODIFIED"
+  },
+  "routing": {
+    "file": "docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md",
+    "block": "CURSOR_AI"
+  }
+}
