@@ -86,3 +86,6 @@ scripts/runlog
 *SECRET*
 *TOKEN*
 *PASSWORD*
+
+# shared packet staging (Option B — local copy of bridge packets)
+_shared_packets/
