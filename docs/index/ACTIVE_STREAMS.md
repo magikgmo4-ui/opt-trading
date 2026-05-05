@@ -14,9 +14,10 @@ topic_keys:
   - reprise
 surface: chantier
 source_kind: canonical
-updated_at: 2026-04-20
+updated_at: 2026-05-05
 links:
   - docs/index/GO_INDEX.md
+  - docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/90_PARENT_CLOSEOUT.md
 ---
 
 # ACTIVE_STREAMS — opt-trading
@@ -142,3 +143,13 @@ Il sert à :
 ## Flux bloques / en echec
 
 - aucun flux bloqué établi à ce stade
+
+## Flux clos (phase terminee)
+
+### GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01
+- statut : CLOSED_PHASE_1
+- repo : opt-trading
+- branche : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
+- dernier point etabli : parent AI Team Phase 1 close avec 7 GO enfants PASS. Architecture canonique, MVP runner, registres consolides. 27/27 smokes PASS cumules.
+- prochaine action : Phase 2 — ouverture GO_OPT_TRADING_AI_TEAM_PATCH_DRAFT_01 (5e task type)
+- artefacts : `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/90_PARENT_CLOSEOUT.md`, `modules/ai_team_mvp/`

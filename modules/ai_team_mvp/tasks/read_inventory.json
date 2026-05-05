@@ -1,0 +1,53 @@
+{
+  "task_id": "observer_read_inventory_01",
+  "task_type": "READ_INVENTORY",
+  "worker": "observer",
+  "model": "opencode-go/deepseek-v4-pro",
+  "description": "Lire l'inventaire des chantiers actifs dans docs/chantiers/ et GO_INDEX.md, produire un etat des lieux structure",
+  "task_scope": {
+    "operations": ["read"],
+    "surfaces": [
+      "docs/chantiers/",
+      "docs/index/GO_INDEX.md"
+    ],
+    "max_depth": 3,
+    "file_patterns": ["*.md", "*.txt"],
+    "exclude": [".git", "node_modules", "__pycache__"]
+  },
+  "security": {
+    "no_secrets": true,
+    "no_env_files": true,
+    "no_git_write_ops": true,
+    "no_runtime_write_by_default": true,
+    "requires_external_validation": true,
+    "output_status": "DRAFT_ONLY",
+    "only_verified_models": true,
+    "denied_inputs": [
+      ".env", "**/.env", "**/*secret*", "**/*token*", "**/*credential*",
+      "**/id_rsa", "**/id_ed25519", "**/*.pem", "**/*.key"
+    ],
+    "denied_commands": [
+      "git add", "git commit", "git push", "git rebase", "git merge",
+      "rm -rf", "chmod -R", "chown -R"
+    ]
+  },
+  "required_sections": [
+    "13_ESTABLISHED",
+    "14_HYPOTHESIS",
+    "15_REMAINING_GAP",
+    "16_TODO",
+    "VERDICT_DRAFT_ONLY"
+  ],
+  "smoke": {
+    "required": true,
+    "type": "READ_INVENTORY",
+    "criteria": [
+      "runner_executes_without_error",
+      "output_contains_13_ESTABLISHED",
+      "output_contains_VERDICT_DRAFT_ONLY",
+      "no_git_write_ops",
+      "no_denied_inputs_read",
+      "at_least_one_chantier_listed"
+    ]
+  }
+}

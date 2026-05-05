@@ -1,0 +1,62 @@
+{
+  "task_id": "analyzer_patch_draft_smoke_01",
+  "task_type": "PATCH_DRAFT",
+  "worker": "analyzer",
+  "model": "opencode-go/deepseek-v4-pro",
+  "description": "Produire une proposition de patch (PATCH_DRAFT) sur un fichier non sensible, sans modifier le fichier cible, sans git write",
+  "task_scope": {
+    "operations": ["read", "analyze", "write_patch_proposal"],
+    "target_file": "modules/ai_team_mvp/README.md",
+    "output_target": "modules/ai_team_mvp/drafts/patches/",
+    "file_patterns": ["*.md", "*.txt"],
+    "exclude": [".git", "node_modules", "__pycache__"]
+  },
+  "security": {
+    "no_secrets": true,
+    "no_env_files": true,
+    "no_git_write_ops": true,
+    "no_runtime_write_by_default": true,
+    "requires_external_validation": true,
+    "output_status": "DRAFT_ONLY",
+    "only_verified_models": true,
+    "write_target": "modules/ai_team_mvp/drafts/patches/",
+    "denied_inputs": [
+      ".env", "**/.env", "**/*secret*", "**/*token*", "**/*credential*",
+      "**/id_rsa", "**/id_ed25519", "**/*.pem", "**/*.key"
+    ],
+    "denied_commands": [
+      "git add", "git commit", "git push", "git rebase", "git merge",
+      "git diff", "git apply", "patch",
+      "rm -rf", "chmod -R", "chown -R"
+    ]
+  },
+  "required_sections": [
+    "13_ESTABLISHED",
+    "14_HYPOTHESIS",
+    "15_REMAINING_GAP",
+    "16_TODO",
+    "PATCH_PROPOSAL",
+    "VERDICT_DRAFT_ONLY"
+  ],
+  "patch_draft": {
+    "proposal_only": true,
+    "never_apply": true,
+    "format": "markdown_with_diff",
+    "output_naming": "<task_id>_<timestamp>.md",
+    "overwrite": false
+  },
+  "smoke": {
+    "required": true,
+    "type": "PATCH_DRAFT",
+    "criteria": [
+      "runner_executes_without_error",
+      "patch_proposal_created_in_patches_dir",
+      "target_file_not_modified",
+      "output_contains_PATCH_PROPOSAL",
+      "output_contains_VERDICT_DRAFT_ONLY",
+      "no_git_write_ops",
+      "no_file_modification_outside_patches",
+      "no_denied_inputs_touched"
+    ]
+  }
+}

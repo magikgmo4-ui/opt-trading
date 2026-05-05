@@ -1,0 +1,105 @@
+{
+  "registry": "workers",
+  "version": "1.0.0",
+  "updated_at": "2026-05-05",
+  "source": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CANON_01/01_architecture_cible.md",
+  "security_layer": "Strict Workers (remote go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01)",
+  "workers": [
+    {
+      "role": "observer",
+      "label": "Observer / Collector",
+      "rank": 1,
+      "task_types": [
+        "READ_INVENTORY"
+      ],
+      "responsibility": "Lire des sources externes, extraire des signaux, ne jamais ecrire",
+      "operations": [
+        "read"
+      ],
+      "writes": false,
+      "status": "ACTIVE",
+      "smoke_passed": true,
+      "smoke_date": "2026-05-05",
+      "smoke_result": "PASS (6/6)",
+      "inspiration": "Marblism (pattern operateur) + Strict Workers READ_INVENTORY"
+    },
+    {
+      "role": "analyzer",
+      "label": "Analyzer / Reasoner",
+      "rank": 2,
+      "task_types": [
+        "ANALYZE_INVENTORY",
+        "PATCH_DRAFT"
+      ],
+      "responsibility": "Analyser un contexte borne, proposer un diagnostic ou une synthese",
+      "operations": [
+        "read",
+        "analyze",
+        "write_draft"
+      ],
+      "writes": true,
+      "write_zone": "modules/ai_team_mvp/drafts/",
+      "status": "ACTIVE",
+      "smoke_passed": true,
+      "smoke_date": "2026-05-05",
+      "smoke_result": "PASS (8/8)",
+      "inspiration": "CrewAI (role+goal) + Strict Workers PATCH_DRAFT"
+    },
+    {
+      "role": "documenter",
+      "label": "Documenter / Reporter",
+      "rank": 3,
+      "task_types": [
+        "DOC_DRAFT"
+      ],
+      "responsibility": "Produire un rapport structure, un closeout draft, un testplan",
+      "operations": [
+        "read",
+        "write_draft"
+      ],
+      "writes": true,
+      "write_zone": "modules/ai_team_mvp/drafts/",
+      "status": "ACTIVE",
+      "smoke_passed": true,
+      "smoke_date": "2026-05-05",
+      "smoke_result": "PASS (6/6)",
+      "inspiration": "Strict Workers DOC_DRAFT + CLOSEOUT_DRAFT"
+    },
+    {
+      "role": "orchestrator",
+      "label": "Orchestrator / Supervisor",
+      "rank": 4,
+      "task_types": [
+        "ORCHESTRATOR_CHAIN"
+      ],
+      "responsibility": "Gerer la sequence de taches, les handoffs, arreter au premier echec",
+      "operations": [
+        "chain_execute"
+      ],
+      "writes": false,
+      "status": "ACTIVE",
+      "smoke_passed": true,
+      "smoke_date": "2026-05-05",
+      "smoke_result": "PASS (7/7 chaine 3 etapes)",
+      "inspiration": "AutoGen (Core runtime/messages) + LangGraph (graphe)"
+    },
+    {
+      "role": "gatekeeper",
+      "label": "Gatekeeper / Validator",
+      "rank": 5,
+      "task_types": [
+        "GATEKEEPER_VALIDATE"
+      ],
+      "responsibility": "Verifier les sorties workers, bloquer avant merge/push, valider HITL",
+      "operations": [
+        "validate_human"
+      ],
+      "writes": false,
+      "status": "ACTIVE_HUMAN",
+      "smoke_passed": false,
+      "smoke_date": null,
+      "smoke_result": "HITL: validation humaine obligatoire, pas de smoke automatise",
+      "inspiration": "Strict Workers (denied_commands) + OpenAI Agents SDK (guardrails)"
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "registry": "tasks",
+  "version": "1.0.0",
+  "updated_at": "2026-05-05",
+  "contract": "Strict Workers",
+  "common_security": {
+    "no_secrets": true,
+    "no_env_files": true,
+    "no_git_write_ops": true,
+    "no_runtime_write_by_default": true,
+    "requires_external_validation": true,
+    "output_status": "DRAFT_ONLY",
+    "only_verified_models": true,
+    "model": "opencode-go/deepseek-v4-pro",
+    "denied_inputs": [
+      ".env",
+      "**/.env",
+      "**/*secret*",
+      "**/*token*",
+      "**/*credential*",
+      "**/id_rsa",
+      "**/id_ed25519",
+      "**/*.pem",
+      "**/*.key"
+    ],
+    "denied_commands": [
+      "git add",
+      "git commit",
+      "git push",
+      "git rebase",
+      "git merge",
+      "rm -rf",
+      "chmod -R",
+      "chown -R"
+    ]
+  },
+  "tasks": [
+    {
+      "task_id": "observer_read_inventory_01",
+      "task_type": "READ_INVENTORY",
+      "worker": "observer",
+      "packet": "modules/ai_team_mvp/tasks/read_inventory.json",
+      "description": "Scanner les surfaces doc (docs/chantiers/, GO_INDEX.md), lister les chantiers et fichiers, 0 denied inputs",
+      "operations": [
+        "read"
+      ],
+      "writes": false,
+      "input": "docs/chantiers/**/* + docs/index/GO_INDEX.md",
+      "output": "stdout + modules/ai_team_mvp/drafts/.observer_output_last.txt",
+      "smoke_passed": true,
+      "smoke_date": "2026-05-05",
+      "smoke_criteria": [
+        "runner_executes_without_error",
+        "output_contains_13_ESTABLISHED",
+        "output_contains_VERDICT_DRAFT_ONLY",
+        "no_git_write_ops",
+        "no_denied_inputs_read",
+        "at_least_one_chantier_listed"
+      ],
+      "smoke_result": "6/6 PASS"
+    },
+    {
+      "task_id": "documenter_draft_synthesis_01",
+      "task_type": "DOC_DRAFT",
+      "worker": "documenter",
+      "packet": "modules/ai_team_mvp/tasks/observer_doc_draft.json",
+      "description": "Produire un brouillon documentaire structure au format Strict Workers a partir de la sortie Observer",
+      "operations": [
+        "read",
+        "write_draft"
+      ],
+      "writes": true,
+      "write_zone": "modules/ai_team_mvp/drafts/",
+      "input": "modules/ai_team_mvp/drafts/.observer_output_last.txt",
+      "output": "modules/ai_team_mvp/drafts/documenter_draft_synthesis_01_<ts>.md",
+      "smoke_passed": true,
+      "smoke_date": "2026-05-05",
+      "smoke_criteria": [
+        "runner_executes_without_error",
+        "draft_file_created_in_drafts_dir",
+        "output_contains_13_ESTABLISHED",
+        "output_contains_VERDICT_DRAFT_ONLY",
+        "no_git_write_ops",
+        "no_write_outside_drafts_dir"
+      ],
+      "smoke_result": "6/6 PASS"
+    },
+    {
+      "task_id": "analyzer_analyze_inventory_01",
+      "task_type": "ANALYZE_INVENTORY",
+      "worker": "analyzer",
+      "packet": "modules/ai_team_mvp/tasks/analyze_inventory.json",
+      "description": "Classifier les chantiers par domaine et statut, extraire des patterns statistiques, produire une synthese structuree",
+      "operations": [
+        "read",
+        "analyze",
+        "write_draft"
+      ],
+      "writes": true,
+      "write_zone": "modules/ai_team_mvp/drafts/",
+      "input": "modules/ai_team_mvp/drafts/.observer_output_last.txt + docs/chantiers/",
+      "output": "modules/ai_team_mvp/drafts/analyzer_analyze_inventory_01_<ts>.md",
+      "analysis_domains": [
+        "AI_TEAM",
+        "TRADING",
+        "RESEAU",
+        "REGISTRY",
+        "UI",
+        "INFRA",
+        "CONTINUITE",
+        "DIVERS"
+      ],
+      "analysis_statuses": [
+        "CLOS (closeout present)",
+        "ACTIVE (no closeout)"
+      ],
+      "smoke_passed": true,
+      "smoke_date": "2026-05-05",
+      "smoke_criteria": [
+        "runner_executes_without_error",
+        "analysis_file_created_in_drafts_dir",
+        "output_contains_13_ESTABLISHED",
+        "output_contains_VERDICT_DRAFT_ONLY",
+        "domain_classification_present",
+        "status_classification_present",
+        "no_git_write_ops",
+        "no_write_outside_drafts_dir"
+      ],
+      "smoke_result": "8/8 PASS"
+    },
+    {
+      "task_id": "orchestrator_chain_v2_01",
+      "task_type": "ORCHESTRATOR_CHAIN",
+      "worker": "orchestrator",
+      "packet": "modules/ai_team_mvp/tasks/orchestrator_chain_v2.json",
+      "description": "Chaine sequentielle de 3 sous-taches : READ_INVENTORY \u2192 ANALYZE_INVENTORY \u2192 DOC_DRAFT. Arret au premier echec.",
+      "operations": [
+        "chain_execute"
+      ],
+      "writes": false,
+      "chain_steps": [
+        {
+          "step": 1,
+          "task": "observer_read_inventory_01",
+          "worker": "observer",
+          "type": "READ_INVENTORY"
+        },
+        {
+          "step": 2,
+          "task": "analyzer_analyze_inventory_01",
+          "worker": "analyzer",
+          "type": "ANALYZE_INVENTORY"
+        },
+        {
+          "step": 3,
+          "task": "documenter_draft_synthesis_01",
+          "worker": "documenter",
+          "type": "DOC_DRAFT"
+        }
+      ],
+      "smoke_passed": true,
+      "smoke_date": "2026-05-05",
+      "smoke_criteria": [
+        "chain_executes_completely",
+        "all_3_steps_exit_zero",
+        "intermediate_files_produced",
+        "final_draft_produced",
+        "no_git_write_ops",
+        "no_denied_inputs",
+        "no_write_outside_drafts_dir"
+      ],
+      "smoke_result": "7/7 PASS (3 etapes)"
+    },
+    {
+      "task_id": "analyzer_patch_draft_smoke_01",
+      "task_type": "PATCH_DRAFT",
+      "worker": "analyzer",
+      "packet": "modules/ai_team_mvp/tasks/patch_draft.json",
+      "description": "Produire une proposition de patch (PATCH_DRAFT) sur un fichier non sensible, sans modifier le fichier cible, sans git write",
+      "operations": [
+        "read",
+        "analyze",
+        "write_patch_proposal"
+      ],
+      "writes": true,
+      "write_zone": "modules/ai_team_mvp/drafts/patches/",
+      "input": "fichier cible (read-only)",
+      "output": "modules/ai_team_mvp/drafts/patches/analyzer_patch_draft_smoke_01_<ts>.md",
+      "smoke_passed": true,
+      "smoke_date": "2026-05-05",
+      "smoke_criteria": [
+        "runner_executes_without_error",
+        "patch_proposal_created_in_patches_dir",
+        "target_file_not_modified",
+        "output_contains_PATCH_PROPOSAL",
+        "output_contains_VERDICT_DRAFT_ONLY",
+        "no_git_write_ops",
+        "no_file_modification_outside_patches",
+        "no_denied_inputs_touched"
+      ],
+      "smoke_result": "8/8 PASS"
+    }
+  ]
+}

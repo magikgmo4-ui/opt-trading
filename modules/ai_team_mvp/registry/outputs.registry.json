@@ -1,0 +1,140 @@
+{
+  "registry": "outputs",
+  "version": "1.0.0",
+  "updated_at": "2026-05-05",
+  "output_zone": "modules/ai_team_mvp/drafts/",
+  "rules": {
+    "all_outputs_are_draft_only": true,
+    "never_auto_promoted_to_canon": true,
+    "human_validation_required_before_any_suite": true,
+    "no_output_outside_drafts_dir": true
+  },
+  "outputs": [
+    {
+      "file": ".observer_output_last.txt",
+      "type": "intermediate",
+      "produced_by": "READ_INVENTORY",
+      "consumed_by": [
+        "DOC_DRAFT",
+        "ANALYZE_INVENTORY"
+      ],
+      "format": "text/plain",
+      "ephemeral": true,
+      "description": "Sortie brute stdout de l'Observer, ecrasee a chaque execution"
+    },
+    {
+      "file": "documenter_draft_synthesis_01_<ts>.md",
+      "type": "final_draft",
+      "produced_by": "DOC_DRAFT",
+      "consumed_by": [
+        "Gatekeeper (HITL)"
+      ],
+      "format": "text/markdown",
+      "sections": [
+        "13_ESTABLISHED",
+        "14_HYPOTHESIS",
+        "15_REMAINING_GAP",
+        "16_TODO",
+        "VERDICT_DRAFT_ONLY"
+      ],
+      "ephemeral": false,
+      "description": "Brouillon documentaire final structure au format Strict Workers"
+    },
+    {
+      "file": "analyzer_analyze_inventory_01_<ts>.md",
+      "type": "intermediate_draft",
+      "produced_by": "ANALYZE_INVENTORY",
+      "consumed_by": [
+        "Gatekeeper (HITL)",
+        "DOC_DRAFT (optionnel)"
+      ],
+      "format": "text/markdown",
+      "sections": [
+        "13_ESTABLISHED",
+        "14_HYPOTHESIS",
+        "15_REMAINING_GAP",
+        "16_TODO",
+        "VERDICT_DRAFT_ONLY"
+      ],
+      "classification": {
+        "domains": [
+          "AI_TEAM",
+          "TRADING",
+          "RESEAU",
+          "REGISTRY",
+          "UI",
+          "INFRA",
+          "CONTINUITE",
+          "DIVERS"
+        ],
+        "statuses": [
+          "CLOS",
+          "ACTIVE"
+        ]
+      },
+      "ephemeral": false,
+      "description": "Analyse structurelle des chantiers : classification par domaine et statut, statistiques, patterns"
+    },
+    {
+      "file": "analyzer_patch_draft_smoke_01_<ts>.md",
+      "type": "patch_proposal",
+      "produced_by": "PATCH_DRAFT",
+      "consumed_by": [
+        "Gatekeeper (HITL)"
+      ],
+      "format": "text/markdown",
+      "sections": [
+        "13_ESTABLISHED",
+        "14_HYPOTHESIS",
+        "15_REMAINING_GAP",
+        "16_TODO",
+        "PATCH_PROPOSAL",
+        "VERDICT_DRAFT_ONLY"
+      ],
+      "ephemeral": false,
+      "description": "Proposition de patch au format diff-like. Ne modifie jamais le fichier cible. Validation humaine obligatoire."
+    }
+  ],
+  "smoke_trace": [
+    {
+      "date": "2026-05-05",
+      "task_type": "READ_INVENTORY",
+      "result": "PASS",
+      "chantiers": 34,
+      "fichiers": 109,
+      "denied": 0
+    },
+    {
+      "date": "2026-05-05",
+      "task_type": "DOC_DRAFT",
+      "result": "PASS",
+      "sections_ok": true,
+      "denied": 0
+    },
+    {
+      "date": "2026-05-05",
+      "task_type": "ANALYZE_INVENTORY",
+      "result": "PASS",
+      "domains": 6,
+      "closed": 12,
+      "active": 22,
+      "denied": 0
+    },
+    {
+      "date": "2026-05-05",
+      "task_type": "ORCHESTRATOR_CHAIN",
+      "result": "PASS",
+      "steps": 3,
+      "all_steps_ok": true,
+      "denied": 0
+    },
+    {
+      "date": "2026-05-05",
+      "task_type": "PATCH_DRAFT",
+      "result": "PASS",
+      "target": "modules/ai_team_mvp/README.md",
+      "target_modified": false,
+      "denied": 0
+    }
+  ]
+}

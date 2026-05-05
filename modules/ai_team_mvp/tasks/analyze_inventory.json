@@ -1,0 +1,73 @@
+{
+  "task_id": "analyzer_analyze_inventory_01",
+  "task_type": "ANALYZE_INVENTORY",
+  "worker": "analyzer",
+  "model": "opencode-go/deepseek-v4-pro",
+  "description": "Analyser la sortie Observer READ_INVENTORY : classifier les chantiers par domaine et statut, extraire des patterns, produire une synthese structuree",
+  "task_scope": {
+    "operations": ["read", "analyze", "write_draft"],
+    "input_source": "modules/ai_team_mvp/drafts/.observer_output_last.txt",
+    "output_target": "modules/ai_team_mvp/drafts/",
+    "file_patterns": ["*.md", "*.txt"],
+    "exclude": [".git", "node_modules", "__pycache__"],
+    "max_depth": 2,
+    "surfaces": ["docs/chantiers/"]
+  },
+  "security": {
+    "no_secrets": true,
+    "no_env_files": true,
+    "no_git_write_ops": true,
+    "no_runtime_write_by_default": true,
+    "requires_external_validation": true,
+    "output_status": "DRAFT_ONLY",
+    "only_verified_models": true,
+    "write_target": "modules/ai_team_mvp/drafts/",
+    "denied_inputs": [
+      ".env", "**/.env", "**/*secret*", "**/*token*", "**/*credential*",
+      "**/id_rsa", "**/id_ed25519", "**/*.pem", "**/*.key"
+    ],
+    "denied_commands": [
+      "git add", "git commit", "git push", "git rebase", "git merge",
+      "rm -rf", "chmod -R", "chown -R"
+    ]
+  },
+  "required_sections": [
+    "13_ESTABLISHED",
+    "14_HYPOTHESIS",
+    "15_REMAINING_GAP",
+    "16_TODO",
+    "VERDICT_DRAFT_ONLY"
+  ],
+  "analysis": {
+    "classify_by": ["domain", "status"],
+    "domains": {
+      "AI_TEAM": ["AI_TEAM", "AI TEAM"],
+      "TRADING": ["TRADING", "RANGE", "STRATEGY"],
+      "RESEAU": ["RESEAU", "SSH"],
+      "REGISTRY": ["REGISTRY"],
+      "UI": ["UI_", "LOCALCMS"],
+      "INFRA": ["GIT_", "BRANCH", "TMUX", "ROOT", "CANON_STRUCTURE", "OBSOLETE", "RUNTIME"],
+      "CONTINUITE": ["CONTINUITE", "CONTINUITY", "MEMORY", "UNIFORM", "EXECUTION_PACK", "CHRONIQUE", "HUMAN", "JOURNAL"],
+      "DIVERS": ["GITHUB_PARK", "EXTRACTEUR", "CHANTIER_PILOTE"]
+    },
+    "status_rules": {
+      "CLOS": ["90_closeout.md", "90_CLOSEOUT.md"],
+      "ACTIVE": []
+    },
+    "stats": ["chantier_count", "file_count", "avg_files_per_chantier", "closed_count", "active_count", "domain_distribution"]
+  },
+  "smoke": {
+    "required": true,
+    "type": "ANALYZE_INVENTORY",
+    "criteria": [
+      "runner_executes_without_error",
+      "analysis_file_created_in_drafts_dir",
+      "output_contains_13_ESTABLISHED",
+      "output_contains_VERDICT_DRAFT_ONLY",
+      "domain_classification_present",
+      "status_classification_present",
+      "no_git_write_ops",
+      "no_write_outside_drafts_dir"
+    ]
+  }
+}
