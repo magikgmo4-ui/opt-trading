@@ -1,0 +1,9 @@
+[Interface]
+PrivateKey = {{PRIVATE_KEY}}
+Address = {{WG_IP}}
+
+[Peer]
+PublicKey = {{HUB_PUBLIC_KEY}}
+Endpoint = {{HUB_ENDPOINT}}
+AllowedIPs = {{WG_NET}}
+PersistentKeepalive = {{KEEPALIVE}}

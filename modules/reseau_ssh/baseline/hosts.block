@@ -1,0 +1,6 @@
+# === reseau_ssh BEGIN ===
+192.168.16.155  admin-trading
+192.168.16.179  db-layer
+192.168.16.103  student
+192.168.16.224  cursor-ai
+# === reseau_ssh END ===
