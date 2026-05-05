@@ -68,8 +68,8 @@ Obligations explicites :
 
 ## Synthese courante
 
-- branches remote : `58`
-- branches locales : `38`
+- branches remote : `54`
+- branches locales : `35`
 - entrees totales suivies dans le tableau : `71`
 - comparaison de reference : `origin/sot/mainline`
 
@@ -77,9 +77,10 @@ Obligations explicites :
 | --- | ---: |
 | `KEEP_ACTIVE` | 6 |
 | `KEEP_REFERENCE` | 19 |
-| `DROP_MERGED` | 0 |
+| `DROP_MERGED` | 4 |
 | `DROP_LOCAL_ONLY` | 0 |
-| `A_VERIFIER` | 46 |
+| `BLOCKED` | 1 |
+| `A_VERIFIER` | 41 |
 
 ## Legende de lecture
 
@@ -122,12 +123,12 @@ Obligations explicites :
 | `feat/student-mimo-qualification` | remote | DIVERGED | 21 | 662 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
 | `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` | both | DIVERGED | 10 | 141 | `KEEP_ACTIVE` | `keep_under_review` | Parent AI team actif, dossier canonique materialise sur `sot/mainline` et reflet `GO_INDEX.md` re-aligne dans ce lot | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
 | `go/GO_OPT_TRADING_AIRTABLE_ORCHESTRATION_PARENT_01` | remote | DIVERGED | 19 | 141 | `A_VERIFIER` | `manual_review` | Branche GO restante presente dans Git mais sans representation canonique complete sur les surfaces doc courantes | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
-| `go/GO_OPT_TRADING_BUNDLES_REPO_STORAGE_PARENT_01` | remote | DIVERGED | 18 | 141 | `A_VERIFIER` | `manual_review` | Branche GO restante presente dans Git mais sans representation canonique complete sur les surfaces doc courantes | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
+| `go/GO_OPT_TRADING_BUNDLES_REPO_STORAGE_PARENT_01` | remote | DIVERGED | 18 | 141 | `A_VERIFIER` | `manual_review` | Branche doc-only parent bundle storage ; non mergee, contenu 18 fichiers / 2923 lignes de methodologie documentaire ; a merger ou fermer separement | `GO_OPT_TRADING_DOC_OPS_BRANCH_CLEANUP_MATRIX_METHOD_01` |
 | `go/GO_OPT_TRADING_CLAUDE_COWORK_PARENT_LIVE_ARTIFACTS_01` | remote | DIVERGED | 3 | 49 | `A_VERIFIER` | `manual_review` | Branche GO restante presente dans Git mais sans representation canonique complete sur les surfaces doc courantes | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
-| `go/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01` | remote | DIVERGED | 12 | 141 | `A_VERIFIER` | `manual_review` | Branche GO restante presente dans Git mais sans representation canonique complete sur les surfaces doc courantes | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
-| `go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01` | both | DIVERGED | 6 | 56 | `A_VERIFIER` | `manual_review` | Sous-GO avec dossier et closeout locaux ; frontmatter `go_id` re-aligne dans ce lot, mais statut canonique de la branche encore a arbitrer | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
-| `go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01_ISOLATED` | both | BEHIND_ONLY | 0 | 50 | `A_VERIFIER` | `manual_review` | Branche GO restante presente dans Git sans dossier chantier ni reflet canonique suffisant | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
-| `go/GO_OPT_TRADING_INDEX_AGGREGATION_BATCH_01` | both | BEHIND_ONLY | 0 | 16 | `A_VERIFIER` | `manual_review` | Batch doc-only avec dossier chantier et closeout presents ; maintien en revue tant que sa place canonique n'est pas decidee | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
+| `go/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01` | remote | DIVERGED | 12 | 141 | `A_VERIFIER` | `manual_review` | Branche doc-only parent ClickUp continuity ; non mergee, contenu 12 fichiers / 313 lignes ; a merger ou fermer separement | `GO_OPT_TRADING_DOC_OPS_BRANCH_CLEANUP_MATRIX_METHOD_01` |
+| `go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01` | both | DIVERGED | 6 | 56 | `BLOCKED` | `keep_under_review` | BLOCKED : branche non mergee avec contenu significatif (124 fichiers, reseau_ssh) ; chantier a closeout mais delta reel trop lourd pour une suppression sans merge explicite | `GO_OPT_TRADING_DOC_OPS_BRANCH_CLEANUP_MATRIX_METHOD_01` |
+| `go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01_ISOLATED` | local | BEHIND_ONLY | 0 | 50 | `DROP_MERGED` | `delete_local_only` | Branche merged dans sot/mainline ; remote deja supprimee ; locale bloquee par worktree `opt-trading-open-work-control` | `GO_OPT_TRADING_DOC_OPS_BRANCH_CLEANUP_MATRIX_METHOD_01` |
+| `go/GO_OPT_TRADING_INDEX_AGGREGATION_BATCH_01` | both | BEHIND_ONLY | 0 | 16 | `DROP_MERGED` | `delete_local_and_remote` | Branche merged dans sot/mainline ; closeout present ; mention descriptive dans REPRISE.md conservee hors branche ; branche supprimee localement et a distance | `GO_OPT_TRADING_DOC_OPS_BRANCH_CLEANUP_MATRIX_METHOD_01` |
 | `go/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_01` | remote | DIVERGED | 11 | 141 | `A_VERIFIER` | `manual_review` | Branche GO restante presente dans Git mais sans representation canonique complete sur les surfaces doc courantes | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
 | `go_repos_agent-role_initial_01` | remote | DIVERGED | 1 | 68 | `KEEP_REFERENCE` | `exclude_cleanup` | Branche de reference conservee explicitement hors cleanup | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
 | `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01` | both | DIVERGED | 2 | 88 | `KEEP_ACTIVE` | `keep_under_review` | Parent ouvert explicitement prouve par la matrice, `GO_INDEX.md` et le dossier chantier ; branche doc-only gardee active | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
@@ -178,6 +179,7 @@ Obligations explicites :
 - branches gardees actives : `sot/mainline`, `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `codex/doc-ops-child-branch-cleanup-01`, `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01`, `go/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01`, `go/GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03`
 - branches gardees en reference : `go_repos_agent-role_initial_01`, `main`, `sot/build`, `go/GO_OPT_TRADING_REMAINING_BRANCHES_TRANSPORT_DELETE_03_CANCEL_01`, `go/GO_OPT_TRADING_REMAINING_GO_BRANCHES_MATRIX_AUDIT_01`, `go/GO_OPT_TRADING_REMAINING_GO_BRANCHES_MATRIX_MEMBERSHIP_AUDIT_02`, familles `backup/*`, `rescue/*`, `save/*`
 - branches encore divergentes ou ahead maintenues en `A_VERIFIER` en attente d'arbitrage explicite ou de preuve canonique complementaire
+- lot de nettoyage `GO_OPT_TRADING_DOC_OPS_BRANCH_CLEANUP_MATRIX_METHOD_01` : 3 branches merged supprimees localement et a distance (`ACTIVE_GOVERNANCE_CLOSEOUT_REVIEW_01`, `CONTINUITY_ALIGNMENT_AFTER_OPEN_WORK_CONTROL_01`, `INDEX_AGGREGATION_BATCH_01`) ; 1 branche merged supprimee a distance, locale bloquee par worktree (`OPEN_WORK_CONTROL_01_ISOLATED`) ; 1 branche `BLOCKED` (`OPEN_WORK_CONTROL_01`, non mergee, delta reseau_ssh lourd) ; 2 branches `KEEP` (`BUNDLES_REPO_STORAGE_PARENT_01`, `CLICKUP_PARENT_CONTINUITY_01`, non mergees, doc-only)
 
 ## Point de reprise
 
@@ -185,7 +187,7 @@ Pour toute nouvelle session de housekeeping :
 - repartir de `docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md`
 - charger d'abord `docs/index/BRANCH_STATE.md`
 - verifier le delta Git reel depuis la date et le commit de reference
-- ouvrir `GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01`
+- repartir de `docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md` pour le routage machine anti-conflit
 
 ## Phase Delete (GO_OPT_TRADING_BRANCH_ARBITRATION_DELETE_AND_BRANCH_STATE_03)
 
