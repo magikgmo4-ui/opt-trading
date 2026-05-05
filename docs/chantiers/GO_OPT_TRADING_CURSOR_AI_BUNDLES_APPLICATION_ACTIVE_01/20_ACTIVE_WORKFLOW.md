@@ -43,7 +43,7 @@ Tout futur operateur cursor-ai pourra :
 2. Consulter `bundles/BUNDLE_TYPES.md` pour choisir le type de bundle.
 3. Suivre `bundles/OPERATOR_FLOW.md` pour le flux de creation.
 4. Utiliser `bundles/claude-artifacts/PROMPT_TEMPLATES.md` pour les prompts.
-5. Verifier `bundles/NO_RUNTIME_NO_SECRET_RULES.md` avant commit.
+5. Verifier `bundles/NO_RUNTIME_NO_SENSITIVE_RULES.md` avant commit.
 
 ## Sorties sures
 

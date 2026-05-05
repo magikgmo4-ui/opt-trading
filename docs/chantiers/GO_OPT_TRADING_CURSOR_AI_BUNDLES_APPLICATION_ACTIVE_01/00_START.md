@@ -49,7 +49,7 @@ Passer Bundles de `APPLICATION_DOCUMENTED` a **workflow actif cursor-ai**, sans 
 - `bundles/ACTIVE_WORKFLOW.md`
 - `bundles/BUNDLE_TYPES.md`
 - `bundles/OPERATOR_FLOW.md`
-- `bundles/NO_RUNTIME_NO_SECRET_RULES.md`
+- `bundles/NO_RUNTIME_NO_SENSITIVE_RULES.md`
 
 ## Invariants
 

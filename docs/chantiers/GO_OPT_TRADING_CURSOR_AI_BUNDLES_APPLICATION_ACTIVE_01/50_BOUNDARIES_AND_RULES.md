@@ -5,14 +5,14 @@ repo: opt-trading
 machine: cursor-ai
 status: active
 links:
-  - bundles/NO_RUNTIME_NO_SECRET_RULES.md
+  - bundles/NO_RUNTIME_NO_SENSITIVE_RULES.md
   - bundles/claude-artifacts/NO_COMMIT_RULES.md
   - docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md
 ---
 
 # 50_BOUNDARIES_AND_RULES — Limites Bundles cursor-ai
 
-Les regles completes sont dans `bundles/NO_RUNTIME_NO_SECRET_RULES.md`.
+Les regles completes sont dans `bundles/NO_RUNTIME_NO_SENSITIVE_RULES.md`.
 
 ## Pas de runtime
 

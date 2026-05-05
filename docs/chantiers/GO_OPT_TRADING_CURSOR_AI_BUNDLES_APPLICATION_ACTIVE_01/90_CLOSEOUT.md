@@ -9,7 +9,7 @@ links:
   - bundles/ACTIVE_WORKFLOW.md
   - bundles/BUNDLE_TYPES.md
   - bundles/OPERATOR_FLOW.md
-  - bundles/NO_RUNTIME_NO_SECRET_RULES.md
+  - bundles/NO_RUNTIME_NO_SENSITIVE_RULES.md
   - docs/index/inbox/GO_OPT_TRADING_CURSOR_AI_BUNDLES_APPLICATION_ACTIVE_01.md
 ---
 
@@ -28,7 +28,7 @@ links:
 | `bundles/ACTIVE_WORKFLOW.md` | Definition de Bundles comme workflow actif |
 | `bundles/BUNDLE_TYPES.md` | Types de bundles utilisables |
 | `bundles/OPERATOR_FLOW.md` | Flux operateur Bundles (8 etapes) |
-| `bundles/NO_RUNTIME_NO_SECRET_RULES.md` | Limites no-runtime / no-secret |
+| `bundles/NO_RUNTIME_NO_SENSITIVE_RULES.md` | Limites no-runtime / no-secret |
 
 ### Chantier documentaire (`docs/chantiers/.../`)
 

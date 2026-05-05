@@ -1,5 +1,5 @@
 ---
-doc_id: BUNDLES_NO_RUNTIME_NO_SECRET_RULES_01
+doc_id: BUNDLES_NO_RUNTIME_NO_SENSITIVE_RULES_01
 doc_type: bundle/boundary_rules
 repo: opt-trading
 machine: cursor-ai
@@ -11,7 +11,7 @@ links:
   - docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md
 ---
 
-# NO_RUNTIME_NO_SECRET_RULES — Regles Bundles cursor-ai
+# NO_RUNTIME_NO_SENSITIVE_RULES — Regles Bundles cursor-ai
 
 ## Regles absolues
 

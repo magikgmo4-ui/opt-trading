@@ -40,7 +40,7 @@ Concretement :
 - Ajouter `bundles/ACTIVE_WORKFLOW.md` (definition workflow)
 - Ajouter `bundles/BUNDLE_TYPES.md` (types de bundles)
 - Ajouter `bundles/OPERATOR_FLOW.md` (flux operateur)
-- Ajouter `bundles/NO_RUNTIME_NO_SECRET_RULES.md` (limites)
+- Ajouter `bundles/NO_RUNTIME_NO_SENSITIVE_RULES.md` (limites)
 - Documenter le changement dans `docs/chantiers/`
 
 ## Admin-trading
