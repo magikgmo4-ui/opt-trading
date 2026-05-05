@@ -2,7 +2,7 @@
 # Usage: .\cmd.ps1 [-Sanity] [-Export] [-AllowMutation]
 param([switch]$Sanity, [switch]$Export, [switch]$AllowMutation)
 
-$MOD = $PSScriptRoot
+$MOD = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 if ($Sanity) {
     & "$MOD\sanity_check.ps1"
@@ -11,6 +11,11 @@ if ($Sanity) {
 
 if ($AllowMutation) {
     Write-Host "WARNING: Mutation mode enabled" -ForegroundColor Magenta
+}
+
+if ($Export) {
+    & "$MOD\app\observer_runner.ps1" -AllowMutation:$AllowMutation
+    exit $LASTEXITCODE
 }
 
 # Default: sanity + export

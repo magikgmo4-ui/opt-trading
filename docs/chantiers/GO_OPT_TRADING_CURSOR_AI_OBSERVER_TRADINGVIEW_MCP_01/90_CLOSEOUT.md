@@ -4,46 +4,45 @@
 
 | # | Item | Statut |
 |---|------|--------|
-| 1 | Documentation complète | PASS |
+| 1 | Documentation complete (00-90) | PASS |
 | 2 | Phase 1 : MCP observer smoke | PASS |
 | 3 | Phase 2 : Inventaire alertes | PASS |
-| 4 | Phase 3 : Wrapper opt-trading | **PASS** |
-| 5 | Phase 4 : OpenClaw skill | PENDING |
+| 4 | Phase 3 : Wrapper opt-trading | PASS |
+| 5 | Phase 4 : OpenClaw skill | **PASS** |
 | 6 | Phase 5 : Pont admin-trading | PENDING |
 | 7 | Phase 6 : Hardening produit | PENDING |
 | 8 | Sanity check retourne OK | PASS (7/7) |
-| 9 | Sorties output/ présentes et valides | PASS (6 fichiers JSON) |
-| 10 | Aucun secret commité | PASS |
-| 11 | Branche prête pour PR | NON (chantier en cours) |
-| 12 | Index inbox mis à jour | PASS |
+| 9 | Sorties output/ presentes et valides | PASS (6 JSON) |
+| 10 | Aucun secret commite | PASS |
+| 11 | Branche prete pour PR | NON (chantier en cours) |
+| 12 | Index inbox mis a jour | PASS |
 
-## Résumé Phase 3 — PASS
+## Resume Phase 4 — PASS
 
 | Check | Statut |
 |-------|--------|
-| Module créé dans `modules/tradingview_observer/` | PASS |
-| `sanity_check.ps1` 7/7 checks OK | PASS |
-| `observer_runner.ps1` 6/6 exports OK | PASS |
-| `cmd.ps1` entry point fonctionnel | PASS |
-| Export JSON/MD structure validée | PASS |
-| Read-only par défaut, mutation verrouillée | PASS |
-| Clean de toute dépendance npm ou .env | PASS |
-| Sorties attestées par preuve JSON réelle | PASS |
+| Module OpenClaw cree | PASS |
+| skill.md defini (allowed/forbidden) | PASS |
+| run.ps1 runner safe operationnel | PASS |
+| sanity via OpenClaw runner: 7/7 PASS | PASS |
+| snapshot via OpenClaw runner: 6/6 OK | PASS |
+| Pas d'acces direct CDP depuis OpenClaw | PASS |
+| Pas d'acces direct tradingview-mcp depuis OpenClaw | PASS |
+| Mutation TradingView verrouillee | PASS |
+| Architecture de securite documentee | PASS |
 
-## Fichiers ajoutés au repo
+## Fichiers ajoutes
 
 ```
-modules/tradingview_observer/
+modules/tradingview_observer_openclaw/
   README.md
-  cmd.ps1
-  sanity_check.ps1
-  app/observer_runner.ps1
-  output/.gitkeep
+  skill.md
+  run.ps1
 ```
 
 ## Prochain GO
 
-**Phase 4** — OpenClaw Skill Integration
+**Phase 5** — Pont optionnel admin-trading
 
 **Date** : 2026-05-05
-**Verdict partiel** : Phases 1-3 PASS. Chantier ouvert, Phase 4 prête.
+**Verdict partiel** : Phases 1-4 PASS. Chantier ouvert, Phase 5 prete.
