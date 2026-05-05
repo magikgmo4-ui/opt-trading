@@ -1,0 +1,28 @@
+02_GO_TASK_TEMPLATE
+
+TITLE
+GO_<SCOPE>_<PRODUCT>_<ROLE>_<OBJECT>_<NN>
+
+DESCRIPTION
+- objectif
+- contexte
+- lien repo
+- lien doc
+
+CHAMPS
+GO_ID = obligatoire
+PARENT_GO = si applicable
+MODULE = obligatoire si module impacté
+MACHINE_OWNER = obligatoire si execution machine
+BRANCH = go/<GO_ID>
+BASE_BRANCH = sot/mainline
+DOC_PATH = docs/chantiers/<GO_ID>/
+PR_URL = optionnel
+COMMIT_SHA = optionnel
+VALIDATION_STATUS = NONE/PARTIAL/PASS/FAIL
+NEXT_GO = obligatoire
+RESUME_POINT = obligatoire
+CANON_PROOF_STATUS = obligatoire
+
+REGLE
+Une tâche sans DOC_PATH ou GO_ID est invalide.

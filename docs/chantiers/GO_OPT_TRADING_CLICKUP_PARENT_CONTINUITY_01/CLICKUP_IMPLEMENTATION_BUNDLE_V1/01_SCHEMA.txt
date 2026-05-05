@@ -1,0 +1,60 @@
+01_SCHEMA — CLICKUP V1
+
+WORKSPACE
+- OPT-TRADING OPS
+
+SPACES
+1. CANON_GOVERNANCE
+   Usage: GO parents, gouvernance, matrice, reprise, indexation.
+
+2. MODULES
+   Usage: risk_engine, derivatives_collector, derivatives_analyzer, probability_engine, bot_vision, desk_pro, localcms, reseau_ssh.
+
+3. MACHINES
+   Usage: admin-trading, student, db-layer, cursor-ai.
+
+4. TRADING_OPS
+   Usage: chantiers trading, stratégie, tests, paper/live boundaries.
+
+5. INCIDENTS_DEBUG
+   Usage: bugs, diagnostics, blocages, corrections ciblées.
+
+6. ARCHIVE_CLOSED
+   Usage: GO clos, historiques, références non actives.
+
+STATUTS
+- BACKLOG
+- CADRAGE
+- READY
+- IN_PROGRESS
+- BLOCKED
+- REVIEW
+- PASS
+- FAIL
+- CLOSED
+- ARCHIVED
+
+CHAMPS PERSONNALISES OBLIGATOIRES
+- GO_ID
+- GO_TYPE
+- PARENT_GO
+- MODULE
+- SURFACE
+- MACHINE_OWNER
+- BRANCH
+- BASE_BRANCH
+- DOC_PATH
+- PR_URL
+- COMMIT_SHA
+- VALIDATION_STATUS
+- NEXT_GO
+- RESUME_POINT
+- CANON_PROOF_STATUS
+
+VALEURS RECOMMANDEES
+GO_TYPE: PARENT, CHILD, SIMPLE, DOC_ONLY, PATCH, AUDIT, EXECUTION
+VALIDATION_STATUS: NONE, PARTIAL, PASS, FAIL
+CANON_PROOF_STATUS: MISSING, DOC_PRESENT, BRANCH_PRESENT, COMMIT_PRESENT, PR_PRESENT, CLOSEOUT_PRESENT
+
+REGLE
+Un champ vide est acceptable au cadrage, mais pas au statut PASS/CLOSED.
