@@ -166,3 +166,53 @@ Preuves : `https://openai.github.io/openai-agents-python/`
 ## Verdict PASS / OPEN / FAIL
 
 PASS
+
+## PASSE 3B — STRICT_WORKERS SEED ARTEFACT (INTERNAL)
+
+Preuves : branche `go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01`, `docs/agents/strict_workers/`
+
+### ETABLI
+
+- Strict Workers est un parent actif cote fantome, non merge dans mainline, mais pleinement documente sur sa branche.
+- `STRICT_WORKERS_AUTONOMIE_ETROITE_01.md` definit une doctrine complete : agent a autonomie etroite, couloir ferme, validation externe obligatoire, interdits permanents.
+- `MODELS_MATRIX_01.md` qualifie 14 modeles OpenCode Zen (CONFIRMED_OFFICIAL_DOC) + 6 pending (A_VERIFIER_ENDPOINT), avec quotas 5h/semaine/mois et profils conseilles.
+- `tasks.index.json` definit 6 types de taches autorisees (READ_INVENTORY, PATCH_DRAFT, DOC_DRAFT, TESTPLAN, CHERRY_PICK_INVENTORY, FAST_TRIAGE) avec autonomie max (A1/A2), garde-fous (`no_secrets`, `no_env_files`, `no_git_write_ops`, `no_runtime_write_by_default`), required_sections et preferred_workers.
+- `models.registry.json` liste 14 modeles VERIFIED + 6 modele PENDING.
+- `02_READONLY_SMOKE_EXEC_REPORT.md` et `03_READONLY_SMOKE_VALIDATION.md` prouvent un smoke READ_INVENTORY execute et valide (VALIDATION_PASS_DRAFT_ONLY).
+- `90_CLOSEOUT.md` confirme CLOSEOUT_PARENT_DRAFT_ONLY : phase gelee, aucun PATCH_DRAFT execute, aucun write runtime.
+
+### Positionnement dans l'audit
+
+Strict Workers n'est **pas un framework externe**. C'est un **seed artefact interne** qui peut servir de brique a l'architecture cible :
+
+| Axe | Apport Strict Workers |
+| --- | --- |
+| Modele d'equipe a roles | Non applicable (pas un framework multi-agent) |
+| Orchestration | Runner securise en couloir ferme, pas d'orchestrateur multi-agent |
+| Memoire / etat | Gestion explicite via required_sections (13_ESTABLISHED, 14_HYPOTHESIS, etc.) |
+| Human-in-the-loop | Validation externe obligatoire + consolidation modele fort/humain |
+| Outils / surfaces reelles | Tasks index ferme + denied_inputs/denied_commands |
+| Observabilite | Sortie DRAFT_ONLY structuree + git diff verification |
+| Securite / execution | Garde-fous no_secrets, no_env_files, no_git_write_ops, no_runtime_write_by_default |
+| Modele IA | 14 modeles qualifies avec quotas reels, 6 task types bornes |
+
+### Interet pour l'architecture cible
+
+- Strict Workers fournit deja une **politique de securite complete** (garde-fous, denied inputs/commands, no_runtime_write_by_default) utilisable comme socle.
+- Le **tasks index** et le **format de sortie obligatoire** sont directement transposables en contrats d'architecture.
+- La **matrice de modeles** avec quotas reels evite de speculer sur des capacites IA : les modeles sont prouves et quotas connus.
+- Le **smoke READ_INVENTORY valide** donne une preuve reelle (pas juste une spec) de ce qu'un strict worker peut faire.
+- **Ne remplace pas** un framework d'orchestration ou de memoire (LangGraph, CrewAI, etc.) mais **completerait** n'importe lequel comme couche de securite.
+
+### GAPS
+
+- Aucun runner runtime verrouille (strict workers fonctionne aujourd'hui via OpenCode/OpenClaw manuellement).
+- Aucun PATCH_DRAFT execute (la phase est gelee en DRAFT_ONLY).
+- Aucune integration avec un framework d'orchestration n'est testee.
+- Les modeles pending (MiMo-V2, DeepSeek V4, etc.) restent a confirmer via endpoint.
+
+## REPRISE
+
+- base canonique : `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_DOC_AUDIT_01/SESSION_REPRISE.txt`
+- passe executee ici : `PASSE 3B - STRICT_WORKERS SEED ARTEFACT (INTERNAL)`
+- prochaine suite logique : `PASSE 4 - SYNTHESE D'ARCHITECTURE CIBLE INTERNE PAR AXES`
