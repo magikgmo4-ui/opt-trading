@@ -147,6 +147,7 @@ Quand la demande est "chantiers pour <machine>", la reponse doit ressortir direc
 | `go/GO_OPT_TRADING_ADMIN_TRADING_TELEGRAM_NOTIFICATION_ENABLE_TEST_01` | Telegram notification enable test |
 | `go/GO_OPT_TRADING_ADMIN_TRADING_TV_TEST_RUNTIME_CONFIG_CANONICALIZE_01` | TV_TEST runtime config canonicalize |
 | `go/GO_OPT_TRADING_ADMIN_TRADING_TELEGRAM_NOTIFICATION_EXECUTE_TEST_01` | Telegram notification execute test |
+| `go/GO_OPT_TRADING_ADMIN_TRADING_TELEGRAM_NOTIFICATION_EXECUTION_RESULTS_01` | Telegram notification execution results |
 | `go/GO_TRADING_PIPELINE_BOTPRESS_OPERATOR_PARENT_01` | Pipeline Botpress operator parent |
 | `go/GO_OPT_TRADING_STRATEGY_INDICATOR_PARENT_01` | Strategy indicator parent |
 | `go/GO_OPT_TRADING_WEB3_DATA_ADAPTERS_AUDIT_01` | Web3 data adapters audit |
