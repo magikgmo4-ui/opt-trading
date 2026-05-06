@@ -51,33 +51,35 @@ links:
 
 ### Git
 
-```bash
-git status --short --branch
-git log --oneline -3
+```
+## go/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01...origin/go/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01
+4afbd39 docs: update indices — OpenClaw child TMUX runtime active
+c58b106 docs: add OpenClaw tmux runtime log template
+9e6574b docs: add OpenClaw tmux gateway supervision protocol
 ```
 
 ### OpenClaw Paths
 
-```bash
-bash modules/gateway_openclaw/scripts/cmd.sh paths
+```
+./modules/gateway_openclaw/scripts/cmd.sh present
 ```
 
 ### tmux sessions
 
-```bash
-tmux ls
+```
+no server running on /tmp/tmux-1000/default
 ```
 
 ### Port listener
 
-```bash
-ss -ltnp | grep 18789 || true
+```
+(empty)
 ```
 
 ### Processus
 
-```bash
-ps -ef | grep -i '[o]penclaw' || true
+```
+(empty)
 ```
 
 ---
@@ -96,10 +98,14 @@ ps -ef | grep -i '[o]penclaw' || true
 
 ### Démarrage
 
-```bash
+```
+# Start via sudo -u openclaw (required by gateway)
 tmux new-session -d -s openclaw-gateway
-tmux send-keys -t openclaw-gateway "cd /opt/trading && bash modules/gateway_openclaw/scripts/cmd.sh start" C-m
-sleep 5
+tmux send-keys -t openclaw-gateway "cd /opt/trading" C-m
+tmux send-keys -t openclaw-gateway "bash modules/gateway_openclaw/scripts/cmd.sh start" C-m
+
+# First attempt: FAIL - "exécuter ce module sous l'utilisateur openclaw"
+# Second attempt via cmd.sh stop + start: PASS - gateway started
 ```
 
 ---
@@ -116,22 +122,26 @@ tmux capture-pane -pt openclaw-gateway | tail -100
 
 ### Port et listener
 
-```bash
-ss -ltnp | grep 18789 || true
-lsof -iTCP:18789 -sTCP:LISTEN || true
+```
+LISTEN 0 511 127.0.0.1:18789 0.0.0.0:*
+LISTEN 0 511 [::1]:18789 [::]:*
 ```
 
 ### Santé locale
 
-```bash
-curl -fsS http://127.0.0.1:18789/ || true
-curl -fsS http://127.0.0.1:18789/health || true
+```
+/ -> 200 OK (HTML dashboard)
+/health -> {"ok":true,"status":"live"}
+/status -> 200 OK (HTML dashboard, same as /)
 ```
 
 ### Processus
 
-```bash
-ps -ef | grep -i '[o]penclaw' || true
+```
+openclaw 12951 2801 0 20:05 ? tmux new-session -d -s openclaw-gateway
+openclaw 12952 12951 0 20:05 pts/2 bash -c openclaw gateway run
+openclaw 12954 12952 0 20:05 pts/2 openclaw
+openclaw 12962 12954 42 20:05 pts/2 openclaw-gateway
 ```
 
 ---
@@ -140,17 +150,16 @@ ps -ef | grep -i '[o]penclaw' || true
 
 ### Arrêt
 
-```bash
-tmux kill-session -t openclaw-gateway
+```
+sudo -u openclaw tmux kill-session -t openclaw-gateway
 ```
 
 ### Vérifications post-arrêt
 
-```bash
-tmux has-session -t openclaw-gateway || true
-ss -ltnp | grep 18789 || true
-lsof -iTCP:18789 -sTCP:LISTEN || true
-ps -ef | grep -i '[o]penclaw' || true
+```
+tmux has-session -t openclaw-gateway -> PASS (session stopped)
+ss -ltnp | grep 18789 -> empty (port released)
+ps -ef | grep -i '[o]penclaw' -> empty (no process)
 ```
 
 ---
@@ -172,15 +181,30 @@ ps -ef | grep -i '[o]penclaw' || true
 ## Verdict
 
 ```
-_
+PASS
 ```
+
+**Critères remplis :**
+- [x] session tmux créée sous le nom attendu
+- [x] gateway visible dans tmux session
+- [x] listener actif sur 127.0.0.1:18789 (TCP, loopback only)
+- [x] endpoint /health retourne {"ok":true,"status":"live"}
+- [x] endpoint / retourne dashboard HTML
+- [x] stop libère le port 18789
+- [x] aucun processus zombie
+- [x] pas de modification persistante
+- [x] bridge/WAN/admin-trading non touchés
 
 ---
 
 ## Lessons Learned
 
 ```
-_
+1. Le module gateway_openclaw requiert l'utilisateur openclaw pour le démarrage
+2. Lancer tmux via sudo -u openclaw
+3. cmd.sh start/arrêt gèrent automatiquement l'utilisateur openclaw via TARGET_USER
+4. Le bind loopback 127.0.0.1:18789 fonctionne correctement
+5. Les endpoints HTTP / et /health sont disponibles
 ```
 
 ---
@@ -188,5 +212,7 @@ _
 ## NEXT_GO
 
 ```
-_
+GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01 -> CLOSED (PASS)
+
+Prochaine étape: dépend de la continuité du parent OpenClaw db-layer.
 ```
