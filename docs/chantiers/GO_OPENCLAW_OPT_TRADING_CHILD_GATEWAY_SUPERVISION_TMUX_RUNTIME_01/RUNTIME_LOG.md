@@ -6,7 +6,7 @@ project: opt-trading
 module: openclaw_operator_bridge
 go_id: GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01
 parent_go_id: GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_01
-status: open
+status: closed
 lifecycle_stage: runtime_execution
 surface: docs/chantiers
 source_kind: child_canonical
