@@ -12,6 +12,8 @@ links:
   - docs/product/guides/README.md
   - docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_USAGE_VIEW_01/01_USAGE_VIEW.md
   - docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_USAGE_VIEW_01/02_NEXT_GO_BY_PRODUCT.md
+  - docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_REPO_INVENTORY_01/02_CLASSIFICATION_MATRIX.md
+  - docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_REPO_INVENTORY_01/03_ATLAS_UPDATE_PROPOSAL.md
 ---
 
 # Product Usage Atlas
@@ -26,16 +28,23 @@ Cette vue applique une regle simple : quand plusieurs statuts coexistent, la lec
 
 ### Utilisable maintenant
 
-- `Repo KG` : projection repo-first exploitable maintenant ; NEXT_GO = `GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_REPO_INVENTORY_01`.
+- `Repo KG` : projection repo-first exploitable maintenant ; NEXT_GO = `GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_USER_GUIDES_01`.
 
 ### Utilisable avec limites
 
 - `ClickUp Cockpit` : cockpit operateur utile maintenant, mais encore borne par le plan gratuit ; NEXT_GO = ouvrir un child dedie seulement si besoin reel ou upgrade plan.
+- `Desk Pro` : stack operationnelle avec runbooks, wrappers et dashboard ; survivant unique non fige ; NEXT_GO = `GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01`.
+- `Bot Vision` : chaine vision transitoire active (`vision_bot` + `bot_vision_step2`) ; NEXT_GO = `VISION_FAMILY_SURVIVOR_DECISION`.
+- `TradingView / Telegram Alert Pipeline` : pipeline d'alertes actif, alert webhook en continuite ; NEXT_GO = poursuite GO alert webhook actif.
+- `OpenClaw Runtime` : modules runtime installables, gateway, TMUX supervision en cours ; NEXT_GO = `GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01`.
+- `derivatives_collector` : collecteur canonique derives, convergence doctrinale en cours ; NEXT_GO = `GO_COLLECTORS_BASELINE_INVENTORY_01`.
 
 ### Documente seulement
 
 - `Airtable Orchestration Layer` : produit cadre et documente, pas encore prouve comme usage runtime borne ; NEXT_GO = `GO_OPT_TRADING_AIRTABLE_BRIDGE_CHILD_01`.
 - `OpenClaw Docs Library` : lecture et cartographie documentaire seulement ; NEXT_GO = `GO_OPENCLAW_DBLAYER_DOCS_SOURCE_CARTOGRAPHY_CHILD_01`.
+- `Trading Dual Stack V1 / XAUUSD` : framework documente, schemas/config V1 etablis, LAB operationnel mais sans broker reel ; NEXT_GO = `GO_OT_TRADING_REALTIME_V1_CHAIN_CLOSED_01`.
+- `LocalCMS` : consumer UI externe, cadrage et plan documentes, usage reel a prouver ; NEXT_GO = `GO_LOCALCMS_FORMS_INTEGRATION_DOC_01`.
 
 ### Simule seulement
 
@@ -144,6 +153,140 @@ Cette vue applique une regle simple : quand plusieurs statuts coexistent, la lec
 - `remaining_gaps`: raffiner la cartographie, faire le deep dive des composants et produire une synthese finale unifiee.
 - `next_go`: `GO_OPENCLAW_DBLAYER_DOCS_SOURCE_CARTOGRAPHY_CHILD_01`
 - `do_not_use_notes`: ce n'est pas un wiki final ni une surface runtime.
+
+## DESK_PRO
+
+- `product_name`: Desk Pro
+- `parent_branch`: -- (stack multi-composants, pas de branche unique)
+- `reason_to_exist`: pipeline operationnel de capture, analyse, execution et visualisation desk trading.
+- `final_usage_target`: stack Desk Pro unifiee avec survivant unique, runbooks complets, dashboard produit.
+- `usage_view`: `USABLE_LIMITED`
+- `current_state`: `USABLE_LIMITED`
+- `usable_now`: `limited`
+- `operator_read`: utilisable maintenant avec runbooks et wrappers, mais survivant unique non fige et frontiere desk_pro / desk_* en cours de clarification.
+- `usage_mode`: usage operationnel via runbooks, wrappers cmd/menu/sanity, script admin reel, dashboard.
+- `user_guide`: `none_yet`
+- `canonical_sources`:
+  - `docs/status/desk_pro_stack_canonique.md`
+  - `docs/desk_pro_multi_machine_quick_reference.md`
+  - `docs/governance/DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md`
+- `remaining_gaps`: survivant unique non fige, frontiere desk_pro / desk_* en cours de clarification documentaire.
+- `next_go`: `GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01`
+- `do_not_use_notes`: ne pas confondre la coquille `modules/desk_pro/` (gelee) avec la stack operationnelle.
+
+## BOT_VISION
+
+- `product_name`: Bot Vision
+- `parent_branch`: -- (pipeline multi-modules)
+- `reason_to_exist`: pipeline de capture screenshot -> analyse Vision -> artefacts Desk Pro / Telegram.
+- `final_usage_target`: pipeline vision avec survivant unique, capture headless, artefacts Desk Pro/Telegram.
+- `usage_view`: `USABLE_LIMITED`
+- `current_state`: `USABLE_LIMITED`
+- `usable_now`: `limited`
+- `operator_read`: chaine transitoire active (`vision_bot` + `bot_vision_step2`). `bot_vision` est legacy.
+- `usage_mode`: capture via `vision_bot`, analyse Vision/Telegram et artefacts Desk Pro via `bot_vision_step2`.
+- `user_guide`: `none_yet`
+- `canonical_sources`:
+  - `docs/status/bot_vision_canonique.md`
+  - `docs/governance/BOT_VISION_CANONICAL_PRODUCT_SYNTH_01.md`
+- `remaining_gaps`: survivant unique non fige, transition step2 en cours de stabilisation structurelle.
+- `next_go`: `VISION_FAMILY_SURVIVOR_DECISION`
+- `do_not_use_notes`: ne pas utiliser `bot_vision` (legacy) comme surface active.
+
+## TRADINGVIEW_TELEGRAM_ALERT_PIPELINE
+
+- `product_name`: TradingView / Telegram Alert Pipeline
+- `parent_branch`: -- (pipeline multi-branches)
+- `reason_to_exist`: pipeline de reception d'alertes TradingView -> webhook -> observation -> notification Telegram -> journalisation.
+- `final_usage_target`: pipeline complet avec alertes, webhook, Telegram et Desk Pro, boucle fermee.
+- `usage_view`: `USABLE_LIMITED`
+- `current_state`: `USABLE_LIMITED`
+- `usable_now`: `limited`
+- `operator_read`: utilisable avec alert webhook en continuite active. Parent observer merged, dry-run bridge packet fonctionnel.
+- `usage_mode`: observation TradingView, routage webhook, notification Telegram.
+- `user_guide`: `none_yet`
+- `canonical_sources`:
+  - `docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md`
+  - `docs/chantiers/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_01/90_CLOSEOUT.md`
+- `remaining_gaps`: alert webhook non ferme, export reel et integration Telegram a consolider.
+- `next_go`: poursuite GO alert webhook actif puis closeout continuite.
+- `do_not_use_notes`: `webhook_server.py` (racine) est un runtime historique, le module canonique est `modules/webhook/`.
+
+## OPENCLAW_RUNTIME
+
+- `product_name`: OpenClaw Runtime
+- `parent_branch`: `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01`
+- `reason_to_exist`: orchestrer les appels IA via gateway OpenClaw, agents et supervision au-dessus des surfaces trading.
+- `final_usage_target`: runtime d'orchestration IA complet avec gateway, agents, supervision et synthese unifiee.
+- `usage_view`: `USABLE_LIMITED`
+- `current_state`: `USABLE_LIMITED`
+- `usable_now`: `limited`
+- `operator_read`: modules installables, gateway, cartographie doc (77 sources). TMUX supervision runtime en cours, agents non deployes.
+- `usage_mode`: installation et configuration de modules OpenClaw, gateway, supervision TMUX.
+- `user_guide`: `none_yet`
+- `canonical_sources`:
+  - `docs/product_targets/OPENCLAW_TARGET_CANON.md`
+  - `docs/chantiers/GO_OPENCLAW_DBLAYER_DOCS_RESEARCH_LIBRARY_PARENT_01/`
+  - `docs/chantiers/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01/`
+- `remaining_gaps`: orchestration runtime en construction, agents non deployes, synthese unifiee absente.
+- `next_go`: `GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01`
+- `do_not_use_notes`: ne pas confondre avec OpenClaw Docs Library (`DOC_ONLY`, cartographie documentaire).
+
+## DERIVATIVES_COLLECTOR
+
+- `product_name`: derivatives_collector
+- `parent_branch`: -- (module canonique)
+- `reason_to_exist`: collecter les donnees de marches derives pour le trading, en tant que collecteur canonique.
+- `final_usage_target`: collecteur canonique compatible famille collector, avec doctrine, vocabulaire, artifacts et surface operateur alignes.
+- `usage_view`: `USABLE_LIMITED`
+- `current_state`: `USABLE_LIMITED`
+- `usable_now`: `limited`
+- `operator_read`: module operationnel multi-versions (V3->V13). Convergence doctrinale en cours (phases 0-5).
+- `usage_mode`: collecte de donnees marches derives, export JSON/CSV.
+- `user_guide`: `none_yet`
+- `canonical_sources`:
+  - `docs/COLLECTORS_FAMILY_DOCTRINE_01.md`
+  - `docs/COLLECTORS_MIGRATION_MAP_01.md`
+- `remaining_gaps`: convergence doctrinale (phases 0-5), artifacts/vocabulaire/config/surface operateur a aligner.
+- `next_go`: `GO_COLLECTORS_BASELINE_INVENTORY_01`
+- `do_not_use_notes`: ne pas forcer la migration runtime immediate vers `collectors_core`.
+
+## TRADING_DUAL_STACK_V1_XAUUSD
+
+- `product_name`: Trading Dual Stack V1 / XAUUSD
+- `parent_branch`: -- (framework multi-modules)
+- `reason_to_exist`: framework de trading unifie LAB/REALTIME, perimetre XAUUSD borne, avec observation puis validation avant autonomie.
+- `final_usage_target`: framework LAB/REALTIME avec broker connecte, ordres papier d'abord, puis reel controle.
+- `usage_view`: `DOC_ONLY`
+- `current_state`: `DOC_ONLY`
+- `usable_now`: `no`
+- `operator_read`: schemas/config V1 etablis, LAB operationnel, REALTIME minimale posee. V1 close mais bornee.
+- `usage_mode`: lecture du cadre et des schemas. LAB exploitable pour backtest, REALTIME pour observation.
+- `user_guide`: `none_yet`
+- `canonical_sources`:
+  - `docs/governance/TRADING_DUAL_STACK_CANONICAL_PRODUCT_SYNTH_01.md`
+- `remaining_gaps`: sans broker connecte, sans passage d'ordre reel, sans auto-trading.
+- `next_go`: `GO_OT_TRADING_REALTIME_V1_CHAIN_CLOSED_01` (seulement si besoin d'extension reelle identifie).
+- `do_not_use_notes`: ne pas traiter comme un produit live-ready. Aucun ordre reel.
+
+## LOCALCMS
+
+- `product_name`: LocalCMS
+- `parent_branch`: -- (projet externe consommateur)
+- `reason_to_exist`: consumer UI de opt-trading exploitant /shared, exploration modules, futur cockpit utilisateur.
+- `final_usage_target`: consumer UI operationnel avec lecture /shared, exploration modules et cockpit.
+- `usage_view`: `DOC_ONLY`
+- `current_state`: `DOC_ONLY`
+- `usable_now`: `no`
+- `operator_read`: cadrage et plan documentes, GO consumer parent ouvert. Projet externe sans runtime integre dans le repo.
+- `usage_mode`: lecture du cadrage uniquement. Usage reel a prouver.
+- `user_guide`: `none_yet`
+- `canonical_sources`:
+  - `docs/chantiers/GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01/`
+  - `docs/chantiers/GO_LOCALCMS_FORMS_INTEGRATION_DOC_01/`
+- `remaining_gaps`: projet externe, pas de runtime integre, usage reel a prouver.
+- `next_go`: `GO_LOCALCMS_FORMS_INTEGRATION_DOC_01` puis preuve d'usage reel.
+- `do_not_use_notes`: ne pas traiter comme un produit integre au repo. Reste un consommateur externe.
 
 ## BTC_COINM_ACCUMULATION_ENGINE
 
