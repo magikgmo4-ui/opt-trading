@@ -5,7 +5,7 @@ repo: opt-trading
 project: opt-trading
 module: trading
 go_id: GO_OPT_TRADING_TRADING_CHILD_BTC_COINM_FORMULAS_COMPAT_REVIEW_01
-status: draft_for_user_validation
+status: validated
 lifecycle_stage: child_opening_plan
 topic_keys:
   - opt-trading
@@ -567,7 +567,7 @@ Gold : accumulation / exposition robuste XAUUSD, via surfaces Trading Dual Stack
 
 1. `00_INITIAL_PROJECT_DOC.md` — présent document, validation du plan et copie intégrale des deux réponses.
 2. `01_formulas_compat_review.md` — review formules BTC Bitget + compatibilité modules existants.
-3. `GO_OPT_TRADING_TRADING_CHILD_BTC_COINM_BACKTEST_DATA_PREP_01` — seulement après PASS de 01.
+3. `GO_OPT_TRADING_TRADING_CHILD_BTC_COINM_BACKTEST_DATA_PREP_01` — seulement après PASS du child FORMULAS_COMPAT_REVIEW complet.
 4. `GO_OPT_TRADING_TRADING_CHILD_GOLD_XAUUSD_ACCUMULATION_COMPAT_REVIEW_01` — cadrage Gold séparé, sans double architecture.
 5. `GO_OPT_TRADING_TRADING_CHILD_BTC_GOLD_STRATEGY_UNIFICATION_REVIEW_01` — uniquement après BTC + Gold cadrés.
 
@@ -617,7 +617,7 @@ Gold : accumulation / exposition robuste XAUUSD, via surfaces Trading Dual Stack
 1. Commit + push du présent document.
 2. Validation utilisateur.
 3. Ensuite seulement créer 01_formulas_compat_review.md.
-4. Après PASS de 01, ouvrir backtest data prep.
+4. Après PASS du child FORMULAS_COMPAT_REVIEW complet, ouvrir backtest data prep.
 5. Gold/XAUUSD : child séparé, non inclus dans les formules BTC.
 ```
 

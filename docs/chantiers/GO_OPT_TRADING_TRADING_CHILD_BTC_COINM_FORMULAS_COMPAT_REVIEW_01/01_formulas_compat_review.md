@@ -597,7 +597,7 @@ REFUSE_LIVE_ALWAYS dans ce child
 1. Relire ce `01_formulas_compat_review.md`.
 2. Produire verdict : `PASS / PATCH_REQUIRED / FAIL`.
 3. Si `PATCH_REQUIRED`, corriger ce document.
-4. Si `PASS`, ouvrir `GO_OPT_TRADING_TRADING_CHILD_BTC_COINM_BACKTEST_DATA_PREP_01`.
+4. Si le child complet passe `PASS`, ouvrir `GO_OPT_TRADING_TRADING_CHILD_BTC_COINM_BACKTEST_DATA_PREP_01`.
 5. Ne pas ouvrir Gold/XAUUSD avant décision sur BTC formulas ou avant cadrage explicitement séparé.
 
 ## 17_RESUME_POINT
@@ -607,7 +607,7 @@ REFUSE_LIVE_ALWAYS dans ce child
 Portée : documentation + contrats uniquement.
 Aucun backtest, aucun worker runtime, aucune connexion exchange, aucune nouvelle UI.
 Prochaine action : validation ou correction de ce document.
-BACKTEST_DATA_PREP reste bloqué tant que ce document n'est pas PASS.
+BACKTEST_DATA_PREP reste bloqué tant que le child complet n'est pas PASS.
 ```
 
 ## 18_TO_DOCUMENT

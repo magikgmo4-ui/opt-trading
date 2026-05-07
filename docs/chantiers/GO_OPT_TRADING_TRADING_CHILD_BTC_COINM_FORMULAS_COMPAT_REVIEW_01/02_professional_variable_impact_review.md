@@ -540,9 +540,8 @@ Cette revue professionnelle confirme que la base documentaire est bonne, mais qu
 ## 16_TODO
 
 1. relier explicitement les nouvelles variables au document `02_variables_bounds.md` ;
-2. enrichir `01_formulas_compat_review.md` avec la logique account-level et execution-level ;
-3. garder `BACKTEST_DATA_PREP` bloque tant que ces patches ne sont pas faits ;
-4. ouvrir un futur child Gold/XAUUSD separe si la couche cross-asset doit etre modelisee.
+2. garder `BACKTEST_DATA_PREP` bloque tant que le child complet n'est pas `PASS` ;
+3. ouvrir un futur child Gold/XAUUSD separe si la couche cross-asset doit etre modelisee.
 
 ## 17_RESUME_POINT
 
