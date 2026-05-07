@@ -92,3 +92,4 @@ _shared_packets/
 
 modules/bot_vision/headless_capture/node_modules/
 modules/bot_vision/headless_capture/package-lock.json
+logs/
