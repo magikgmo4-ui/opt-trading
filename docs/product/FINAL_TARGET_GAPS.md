@@ -11,6 +11,7 @@ links:
   - docs/product/PRODUCT_USAGE_ATLAS.md
   - docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_USAGE_VIEW_01/01_USAGE_VIEW.md
   - docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_USAGE_VIEW_01/02_NEXT_GO_BY_PRODUCT.md
+  - docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_REPO_INVENTORY_01/02_CLASSIFICATION_MATRIX.md
 ---
 
 # Final Target Gaps
@@ -24,8 +25,8 @@ Ce document dit pourquoi un produit n'est pas encore `PRODUCT_FINISHED`, meme qu
 | Vue usage | Produits | Sens du gap |
 | --- | --- | --- |
 | `USABLE_NOW` | Repo KG | Le gap sert a enrichir la lecture produit, pas a debloquer un usage deja absent. |
-| `USABLE_LIMITED` | ClickUp Cockpit | Le gap sert a fermer des limites non bloquantes pour l'usage courant. |
-| `DOC_ONLY` | Airtable Orchestration Layer, OpenClaw Docs Library | Le gap sert a passer d'une lecture documentaire a une preuve d'usage plus concrete. |
+| `USABLE_LIMITED` | ClickUp Cockpit, Desk Pro, Bot Vision, TradingView Pipeline, OpenClaw Runtime, derivatives_collector | Le gap sert a fermer des limites non bloquantes ou a consolider la structure. |
+| `DOC_ONLY` | Airtable Orchestration Layer, OpenClaw Docs Library, Trading Dual Stack V1, LocalCMS | Le gap sert a passer d'une lecture documentaire a une preuve d'usage plus concrete. |
 | `SIMULATED_ONLY` | Botpress Adapter | Le gap sert a passer de la simulation vers un reel controle. |
 | `FORBIDDEN_LIVE` | BTC COIN-M Accumulation Engine | Le gap sert d'abord a maintenir l'interdiction live tant que les preuves manquent. |
 
@@ -34,11 +35,18 @@ Ce document dit pourquoi un produit n'est pas encore `PRODUCT_FINISHED`, meme qu
 | Produit | Vue usage | Pourquoi ce n'est pas fini | Gap critique | NEXT_GO |
 | --- | --- | --- | --- | --- |
 | ClickUp Cockpit | `USABLE_LIMITED` | Le cockpit marche, mais le plan gratuit borne encore des parties de l'usage cible | Statuses, dashboards et template restent incomplets | Ouvrir un child dedie seulement si besoin reel ou upgrade plan |
-| Repo KG | `USABLE_NOW` | La projection est exploitable, mais la couverture produit reste bornee au socle initial | Etendre la vue usage a plus de produits et modules du repo | `GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_REPO_INVENTORY_01` |
+| Repo KG | `USABLE_NOW` | La projection est exploitable, la couverture produit est elargie par l'inventaire | Maintenir les guides utilisateur et la couverture produit apres application | `GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_USER_GUIDES_01` |
 | Airtable Orchestration Layer | `DOC_ONLY` | Le produit est bien cadre, mais le bridge repo et la preuve d'usage produit manquent | `modules/airtable_bridge/` + tables finales + exports | `GO_OPT_TRADING_AIRTABLE_BRIDGE_CHILD_01` |
 | Botpress Adapter | `SIMULATED_ONLY` | La simulation est prouvee, pas l'usage reel complet | Telegram reel + webhook reel + credentials hors repo | `GO_TRADING_BOTPRESS_TELEGRAM_REAL_INTEGRATION_01` |
 | OpenClaw Docs Library | `DOC_ONLY` | La cartographie parent existe, pas encore la lecture finale unifiee | Raffinement de cartographie puis synthese finale | `GO_OPENCLAW_DBLAYER_DOCS_SOURCE_CARTOGRAPHY_CHILD_01` |
 | BTC COIN-M Accumulation Engine | `FORBIDDEN_LIVE` | Le cadrage est draft et interdit tout usage live | Validation du parent, formules et invariants avant toute suite | Valider le parent puis ouvrir le child formules dedie |
+| Desk Pro | `USABLE_LIMITED` | Stack operationnelle, mais survivant unique non fige et frontiere desk_pro/desk_* floue | Consolidation structurelle de la stack Desk Pro | `GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01` |
+| Bot Vision | `USABLE_LIMITED` | Chaine transitoire active, mais survivant unique non fige | Transition step2 en cours de stabilisation, pas de survivant unique | `VISION_FAMILY_SURVIVOR_DECISION` |
+| TradingView / Telegram Alert Pipeline | `USABLE_LIMITED` | Pipeline actif, mais alert webhook non ferme et integration Telegram partielle | Closeout alert webhook, export reel, integration Telegram | Poursuite GO alert webhook actif |
+| OpenClaw Runtime | `USABLE_LIMITED` | Modules installables et gateway operationnels, mais orchestration incomplete | Agents non deployes, synthese runtime unifiee absente | `GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01` |
+| derivatives_collector | `USABLE_LIMITED` | Module operationnel, mais convergence doctrinale en cours | Alignement artifacts, vocabulaire, config et surface operateur (phases 0-5) | `GO_COLLECTORS_BASELINE_INVENTORY_01` |
+| Trading Dual Stack V1 / XAUUSD | `DOC_ONLY` | Framework documente, LAB operationnel, mais sans broker reel | Broker connecte, ordres papier, validation avant reel | `GO_OT_TRADING_REALTIME_V1_CHAIN_CLOSED_01` |
+| LocalCMS | `DOC_ONLY` | Cadrage et plan documentes, mais projet externe sans runtime integre | Preuve d'usage reel, integration runtime | `GO_LOCALCMS_FORMS_INTEGRATION_DOC_01` |
 
 ## Interdits explicites
 
@@ -53,3 +61,8 @@ Ce document dit pourquoi un produit n'est pas encore `PRODUCT_FINISHED`, meme qu
 - Repo KG pour naviguer le repo.
 - Botpress pour tester un flux simule borne.
 - OpenClaw docs pour lire et reperer les surfaces.
+- Desk Pro pour operer le desk trading.
+- Bot Vision pour capturer et analyser des screenshots.
+- TradingView Pipeline pour recevoir et router les alertes.
+- OpenClaw Runtime pour installer et configurer la gateway.
+- derivatives_collector pour collecter les donnees marches derives.

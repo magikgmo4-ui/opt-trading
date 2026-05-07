@@ -20,11 +20,18 @@ flowchart TD
 
     subgraph limited["USABLE_LIMITED"]
         clickup["ClickUp Cockpit\nUSABLE_LIMITED"]
+        deskpro["Desk Pro\nUSABLE_LIMITED"]
+        botvision["Bot Vision\nUSABLE_LIMITED"]
+        tvpipeline["TradingView / Telegram Alert Pipeline\nUSABLE_LIMITED"]
+        openclawrt["OpenClaw Runtime\nUSABLE_LIMITED"]
+        dercollector["derivatives_collector\nUSABLE_LIMITED"]
     end
 
     subgraph doconly["DOC_ONLY"]
         airtable["Airtable Orchestration Layer\nDOC_ONLY_READY / GO_LIMITED"]
         openclaw["OpenClaw Docs Library\nDOC_ONLY_READY"]
+        dualstack["Trading Dual Stack V1 / XAUUSD\nDOC_ONLY"]
+        localcms["LocalCMS\nDOC_ONLY"]
     end
 
     subgraph simulated["SIMULATED_ONLY"]
@@ -41,13 +48,27 @@ flowchart TD
     atlas --> botpress
     atlas --> openclaw
     atlas --> btc
+    atlas --> deskpro
+    atlas --> botvision
+    atlas --> tvpipeline
+    atlas --> openclawrt
+    atlas --> dercollector
+    atlas --> dualstack
+    atlas --> localcms
 
-    repokg --> ngrepokg["NEXT_GO\nGO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_REPO_INVENTORY_01"]
+    repokg --> ngrepokg["NEXT_GO\nGO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_USER_GUIDES_01"]
     clickup --> ngclickup["NEXT_GO\nreal need or plan upgrade only"]
     airtable --> ngairtable["NEXT_GO\nGO_OPT_TRADING_AIRTABLE_BRIDGE_CHILD_01"]
     botpress --> ngbotpress["NEXT_GO\nGO_TRADING_BOTPRESS_TELEGRAM_REAL_INTEGRATION_01"]
     openclaw --> ngopenclaw["NEXT_GO\nGO_OPENCLAW_DBLAYER_DOCS_SOURCE_CARTOGRAPHY_CHILD_01"]
     btc --> ngbtc["NEXT_GO\nvalidate parent then formulas child"]
+    deskpro --> ngdeskpro["NEXT_GO\nGO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01"]
+    botvision --> ngbotvision["NEXT_GO\nVISION_FAMILY_SURVIVOR_DECISION"]
+    tvpipeline --> ngtvpipeline["NEXT_GO\npursue active alert webhook GO"]
+    openclawrt --> ngopenclawrt["NEXT_GO\nGO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01"]
+    dercollector --> ngdercollector["NEXT_GO\nGO_COLLECTORS_BASELINE_INVENTORY_01"]
+    dualstack --> ngdualstack["NEXT_GO\nGO_OT_TRADING_REALTIME_V1_CHAIN_CLOSED_01"]
+    localcms --> nglocalcms["NEXT_GO\nGO_LOCALCMS_FORMS_INTEGRATION_DOC_01"]
 
     guides --> gclickup["Guide ClickUp"]
     guides --> grepokg["Guide Repo KG"]
