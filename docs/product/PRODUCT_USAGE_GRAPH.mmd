@@ -1,0 +1,37 @@
+flowchart TD
+    repo["Repo opt-trading\nsource canonique"]
+    presentation["Project Presentation"]
+    atlas["Product Usage Atlas"]
+    matrix["Product Usage Matrix"]
+    gaps["Final Target Gaps"]
+    protocol["Update Protocol"]
+    guides["User Guides"]
+
+    repo --> presentation
+    repo --> atlas
+    atlas --> matrix
+    atlas --> gaps
+    atlas --> protocol
+    atlas --> guides
+
+    clickup["ClickUp Cockpit\nUSABLE_LIMITED"]
+    repokg["Repo KG\nUSABLE_NOW"]
+    airtable["Airtable Orchestration Layer\nDOC_ONLY_READY / GO_LIMITED"]
+    botpress["Botpress Adapter\nSIMULATED_PASS"]
+    openclaw["OpenClaw Docs Library\nDOC_ONLY_READY"]
+    btc["BTC COIN-M Accumulation Engine\nNOT_USABLE_YET / DO_NOT_USE_LIVE"]
+
+    atlas --> clickup
+    atlas --> repokg
+    atlas --> airtable
+    atlas --> botpress
+    atlas --> openclaw
+    atlas --> btc
+
+    guides --> gclickup["Guide ClickUp"]
+    guides --> grepokg["Guide Repo KG"]
+    guides --> gbotpress["Guide Botpress simulated"]
+    guides --> gopenclaw["Guide OpenClaw docs"]
+
+    airtable -. no final guide yet .-> guides
+    btc -. no live guide .-> guides
