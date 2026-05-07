@@ -115,6 +115,7 @@ productType = COIN-FUTURES
 symbol = BTCUSD
 marginCoin = BTC
 marginMode = crossed
+supportMarginCoins
 minTradeNum
 sizeMultiplier
 tick_size
@@ -203,6 +204,9 @@ la cross margin est-elle dediee a cette strategie,
 ou partagee avec d'autres positions/collateraux ?
 ```
 
+Le parent etablit aussi `supportMarginCoins = [BTC, STETH, XRP, ETH, USDE, USDC, BGB]`.
+Donc `ExternalCollateral_t` ne doit pas rester un scalaire opaque : la composition du collateral externe peut changer l'equity, le margin ratio et la liquidation.
+
 En cross margin partagee, d'autres surfaces peuvent changer :
 
 ```text
@@ -219,6 +223,7 @@ capacite d'ajout short
 AccountScope_t = isolated_strategy_account | shared_cross_account
 ExternalPositions_t
 ExternalCollateral_t
+ExternalCollateralBreakdown_t
 ExternalPnL_t
 ```
 
@@ -482,12 +487,19 @@ MarginCreditTimestamp_t
 
 ## 12_NOUVEAUX_REFUS_AUTOMATIQUES
 
+Ces refus s'ajoutent aux refus deja poses dans `01_formulas_compat_review.md` et `04_math_formulas.md` ; ils ne les remplacent pas.
+
 ```text
 REFUSE_BACKTEST si qty_to_notional_fn reste UNKNOWN
+REFUSE_BACKTEST si notional_to_qty_fn reste UNKNOWN
+REFUSE_BACKTEST si pnl_inverse_bitget_short_fn reste UNKNOWN
 REFUSE_BACKTEST si AccountScope_t != isolated_strategy_account
 REFUSE_BACKTEST si ExternalPositions_t est inconnu
 REFUSE_BACKTEST si MarkPrice_t / IndexPrice_t / LastPrice_t ne sont pas distingues
+REFUSE_BACKTEST si funding_sign_for_short ou funding_base_btc restent UNKNOWN
+REFUSE_BACKTEST si l'historique funding exploitable manque
 REFUSE_ADD_SHORT si l'ajout change de risk tier sans stress test tier+1 PASS
+REFUSE_RUNTIME si maintenance_margin_bitget_cross_fn ou margin_ratio_bitget_cross_fn restent UNKNOWN
 REFUSE_RUNTIME si liquidation cross margin exacte reste non figee
 REFUSE_RUNTIME si partial fills / rejected orders ne sont pas pris en compte
 REFUSE_RUNTIME si MarginCreditTimestamp_t n'est pas modele
@@ -495,11 +507,20 @@ REFUSE_RUNTIME si MarginCreditTimestamp_t n'est pas modele
 
 ## 13_CONDITIONS_DE_PASS
 
-Le child ne peut passer a `PASS` que si les points suivants sont documentes et relies au modele :
+Le child, et non ce document pris seul, ne peut passer a `PASS` que si les deux blocs suivants sont documentes et relies au modele :
 
 ```text
+Bloc A - prerequis formules deja bloquants dans 01/04
+- qty_to_notional_fn / notional_to_qty_fn
+- pnl_inverse_bitget_short_fn
+- liquidation_bitget_cross_short_fn
+- maintenance_margin_bitget_cross_fn / margin_ratio_bitget_cross_fn
+- funding_sign_for_short / funding_base_btc
+- historique funding exploitable avant backtest
+
+Bloc B - completude professionnelle ajoutee par cette review
 - MarkPrice_t / IndexPrice_t / LastPrice_t
-- AccountScope_t / ExternalPositions_t
+- AccountScope_t / ExternalPositions_t / ExternalCollateral_t / ExternalCollateralBreakdown_t
 - RiskTier_t / MaintenanceRate_t
 - OrderState_t / FillQty_t / AvgFillPrice_t
 - FundingEventTime_t
