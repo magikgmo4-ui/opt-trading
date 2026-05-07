@@ -14,12 +14,26 @@ flowchart TD
     atlas --> protocol
     atlas --> guides
 
-    clickup["ClickUp Cockpit\nUSABLE_LIMITED"]
-    repokg["Repo KG\nUSABLE_NOW"]
-    airtable["Airtable Orchestration Layer\nDOC_ONLY_READY / GO_LIMITED"]
-    botpress["Botpress Adapter\nSIMULATED_PASS"]
-    openclaw["OpenClaw Docs Library\nDOC_ONLY_READY"]
-    btc["BTC COIN-M Accumulation Engine\nNOT_USABLE_YET / DO_NOT_USE_LIVE"]
+    subgraph now["USABLE_NOW"]
+        repokg["Repo KG\nUSABLE_NOW"]
+    end
+
+    subgraph limited["USABLE_LIMITED"]
+        clickup["ClickUp Cockpit\nUSABLE_LIMITED"]
+    end
+
+    subgraph doconly["DOC_ONLY"]
+        airtable["Airtable Orchestration Layer\nDOC_ONLY_READY / GO_LIMITED"]
+        openclaw["OpenClaw Docs Library\nDOC_ONLY_READY"]
+    end
+
+    subgraph simulated["SIMULATED_ONLY"]
+        botpress["Botpress Adapter\nSIMULATED_PASS"]
+    end
+
+    subgraph forbidden["FORBIDDEN_LIVE"]
+        btc["BTC COIN-M Accumulation Engine\nNOT_USABLE_YET / DO_NOT_USE_LIVE"]
+    end
 
     atlas --> clickup
     atlas --> repokg
@@ -27,6 +41,13 @@ flowchart TD
     atlas --> botpress
     atlas --> openclaw
     atlas --> btc
+
+    repokg --> ngrepokg["NEXT_GO\nGO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_REPO_INVENTORY_01"]
+    clickup --> ngclickup["NEXT_GO\nreal need or plan upgrade only"]
+    airtable --> ngairtable["NEXT_GO\nGO_OPT_TRADING_AIRTABLE_BRIDGE_CHILD_01"]
+    botpress --> ngbotpress["NEXT_GO\nGO_TRADING_BOTPRESS_TELEGRAM_REAL_INTEGRATION_01"]
+    openclaw --> ngopenclaw["NEXT_GO\nGO_OPENCLAW_DBLAYER_DOCS_SOURCE_CARTOGRAPHY_CHILD_01"]
+    btc --> ngbtc["NEXT_GO\nvalidate parent then formulas child"]
 
     guides --> gclickup["Guide ClickUp"]
     guides --> grepokg["Guide Repo KG"]
