@@ -27,6 +27,7 @@ point_de_reprise: "Valider les formules BTC Bitget et leur compatibilité avec l
 updated_at: 2026-05-07
 links:
   - docs/chantiers/GO_OPT_TRADING_TRADING_CHILD_BTC_COINM_FORMULAS_COMPAT_REVIEW_01/00_INITIAL_PROJECT_DOC.md
+  - docs/chantiers/GO_OPT_TRADING_TRADING_CHILD_BTC_COINM_FORMULAS_COMPAT_REVIEW_01/02_professional_variable_impact_review.md
   - docs/chantiers/GO_OPT_TRADING_TRADING_PARENT_BTC_COINM_ACCUMULATION_ENGINE_01/01_initial_project_doc.md
   - docs/chantiers/GO_OPT_TRADING_TRADING_PARENT_BTC_COINM_ACCUMULATION_ENGINE_01/02_variables_bounds.md
   - docs/chantiers/GO_OPT_TRADING_TRADING_PARENT_BTC_COINM_ACCUMULATION_ENGINE_01/03_worker_spec.md
@@ -100,6 +101,7 @@ Sortie attendue du child :
 ```text
 PASS si les formules critiques ont un emplacement d'intégration clair,
 si les UNKNOWN restants sont explicitement bloquants,
+si les blocages account-level et execution-level validés par `02` sont hérités ici,
 et si aucun module/UI/backtest engine doublon n'est requis.
 ```
 
@@ -153,8 +155,10 @@ BTC Bitget COIN-FUTURES formulas compatibility review uniquement.
 - aucun second probability engine ;
 - aucun second risk engine si risk_engine est compatible ;
 - aucune duplication de fonction si une fonction existante peut être adaptée ;
+- la cross margin doit rester modélisée account-level avant PASS ;
+- toute comptabilité future doit rester fill-based et funding-event-based ;
 - BTC et Gold partagent l'objectif produit mais gardent des formules séparées ;
-- BACKTEST_DATA_PREP attend un verdict PASS de ce document.
+- BACKTEST_DATA_PREP attend un verdict PASS du child complet, pas seulement de `02`.
 ```
 
 ## 13_ESTABLISHED — Existant utilisable
@@ -312,6 +316,139 @@ Statut :
 UNKNOWN — doit bloquer tout worker runtime/backtest sérieux.
 ```
 
+## 14B_BLOCKERS_HERITES_DE_02
+
+Le document `02_professional_variable_impact_review.md` est validé comme revue professionnelle.
+
+Conséquence canonique :
+
+```text
+02_PASS != CHILD_PASS
+```
+
+Le présent document hérite donc des blocages suivants avant toute autorisation de `BACKTEST_DATA_PREP`.
+
+### B1 — Cross margin account-level
+
+Variables minimales à relier explicitement au modèle :
+
+```text
+AccountScope_t = isolated_strategy_account | shared_cross_account
+ExternalPositions_t
+ExternalCollateral_t
+ExternalCollateralBreakdown_t
+ExternalPnL_t
+```
+
+Règles :
+
+```text
+- `supportMarginCoins` doit être conservé dans le snapshot contractuel ;
+- une cross margin partagée ne peut pas être traitée comme un simple scalaire de marge ;
+- si le compte n'est pas isolé stratégie ou si l'état externe est inconnu, le backtest reste refusé.
+```
+
+### B2 — Séparation des prix de travail
+
+Variables minimales :
+
+```text
+LastPrice_t
+MarkPrice_t
+IndexPrice_t
+EntryPrice_t
+ExecutionPrice_t
+```
+
+Règle :
+
+```text
+la liquidation doit utiliser `MarkPrice_t` si Bitget s'appuie sur ce prix.
+```
+
+### B3 — Risk tier / maintenance margin dynamique
+
+Variables minimales :
+
+```text
+RiskTier_t
+MaintenanceRate_t
+```
+
+Propagation à figer :
+
+```text
+Q_t_native augmente
+-> notional augmente
+-> risk tier peut changer
+-> maintenance margin rate augmente
+-> liquidation price peut se rapprocher brutalement
+```
+
+### B4 — État d'exécution et partial fills
+
+Variables minimales :
+
+```text
+OrderState_t = planned | submitted | partial | filled | rejected | canceled
+FillQty_t
+AvgFillPrice_t
+UnfilledQty_t
+ExecutionLatency_ms
+```
+
+Règle :
+
+```text
+toute comptabilité runtime/backtest doit être fill-based, pas intent-based.
+```
+
+### B5 — Funding discret et time-based
+
+Variables minimales :
+
+```text
+FundingEventTime_t
+FundingAccrualMode_t
+PositionSizeAtFunding_t
+```
+
+Règle :
+
+```text
+le funding doit être calculé par événement temporel, pas seulement par bougie.
+```
+
+### B6 — DCA spot vers marge avec latence réelle
+
+Variables minimales :
+
+```text
+SpotBuyPrice_t
+SpotFee_t
+TransferLatency_t
+MarginCreditTimestamp_t
+```
+
+Règle :
+
+```text
+ne jamais compter le BTC transféré comme marge avant `MarginCreditTimestamp_t`.
+```
+
+## 14C_MATRICE_BUTTERFLY_EFFECT_MINIMALE
+
+| Variable qui change | Impact direct | Impact secondaire | Garde-fou |
+|---|---|---|---|
+| `P_t` monte | short perd | l'equity peut baisser malgré un collateral USD plus haut | recalcul `Liq_t`, `D_t`, `MR_t` |
+| `P_t` baisse | short gagne | le collateral BTC vaut moins en USD | recalcul NAV BTC/USD |
+| `Q_t_native` augmente | l'exposition short monte | le risk tier peut changer | stress test tier+1 |
+| `r_transfer` augmente | la marge COIN-M augmente | l'accumulation spot diminue | bornes `r_min/r_max` |
+| `fundingRate_t` change | le coût/revenu change | la stratégie peut devenir négative | stress funding 30j |
+| `MarkPrice_t` diverge | la liquidation change | le chart last price peut tromper | utiliser `MarkPrice_t` |
+| `partial fill` | la position réelle diffère du plan | PnL/funding/liquidation faux | comptabilité fill-based |
+| `symbolStatus` change | le trading devient suspendu ou limité | les ordres deviennent non exécutables | freeze |
+
 ## 15_REMAINING_GAP
 
 ```text
@@ -321,6 +458,12 @@ UNKNOWN — doit bloquer tout worker runtime/backtest sérieux.
 - formule liquidation / maintenance cross margin ;
 - risk tiers Bitget ;
 - historique funding avant backtest ;
+- modèle account-level de cross margin (`AccountScope_t`, `ExternalPositions_t`, `ExternalCollateral_t`, `ExternalCollateralBreakdown_t`, `ExternalPnL_t`) ;
+- séparation explicite `LastPrice_t` / `MarkPrice_t` / `IndexPrice_t` / `ExecutionPrice_t` ;
+- logique d'exécution fill-based (`OrderState_t`, `FillQty_t`, `AvgFillPrice_t`, `UnfilledQty_t`) ;
+- timing de funding par événement (`FundingEventTime_t`, `FundingAccrualMode_t`, `PositionSizeAtFunding_t`) ;
+- latence spot -> marge (`TransferLatency_t`, `MarginCreditTimestamp_t`) ;
+- matrice butterfly effect reliée aux refus automatiques ;
 - contrat JSON final compatible trading_lab_v1 ;
 - contrat features compatible probability_engine si scoring requis ;
 - contrat risk compatible risk_engine si disponible.
@@ -337,11 +480,18 @@ UNKNOWN — doit bloquer tout worker runtime/backtest sérieux.
   "symbol": "BTCUSD",
   "marginCoin": "BTC",
   "marginMode": "crossed",
+  "supportMarginCoins": ["BTC", "STETH", "XRP", "ETH", "USDE", "USDC", "BGB"],
   "minTradeNum": 0.0001,
   "sizeMultiplier": 0.0001,
-  "priceEndStep": 0.1,
+  "volumePlace": 4,
+  "pricePlace": 1,
+  "priceEndStep": 1,
+  "tickSize": 0.1,
   "maxLever": 125,
   "fundInterval": 8,
+  "makerFeeRate": 0.0002,
+  "takerFeeRate": 0.0006,
+  "symbolStatus": "normal",
   "source": "api_snapshot_or_official_doc",
   "captured_at": "ISO-8601"
 }
@@ -353,12 +503,33 @@ UNKNOWN — doit bloquer tout worker runtime/backtest sérieux.
 {
   "timestamp": "ISO-8601",
   "symbol": "BTCUSD",
-  "price": 81360.0,
+  "last_price": 81360.0,
+  "mark_price": 81360.0,
+  "index_price": 81359.5,
+  "execution_price": null,
   "qty": 0.0001,
+  "fill_qty": 0.0,
   "side": "short",
   "entry_price": 81360.0,
-  "mark_price": 81360.0,
   "funding_rate": 0.00005,
+  "funding_event_time": "ISO-8601",
+  "funding_accrual_mode": "event_based",
+  "position_size_at_funding": 0.0001,
+  "account_scope": "isolated_strategy_account",
+  "external_positions": [],
+  "external_collateral": 0.0,
+  "external_collateral_breakdown": [],
+  "external_pnl_btc": 0.0,
+  "risk_tier": null,
+  "maintenance_rate": null,
+  "order_state": "planned",
+  "avg_fill_price": null,
+  "unfilled_qty": 0.0001,
+  "execution_latency_ms": null,
+  "spot_buy_price": null,
+  "spot_fee_btc": null,
+  "transfer_latency_ms": null,
+  "margin_credit_timestamp": null,
   "contract_spec_snapshot": {}
 }
 ```
@@ -372,10 +543,22 @@ UNKNOWN — doit bloquer tout worker runtime/backtest sérieux.
   "pnl_usd": null,
   "funding_payment_coin": null,
   "liquidation_distance": null,
+  "margin_ratio": null,
+  "risk_tier": null,
+  "maintenance_rate": null,
+  "blocking_reasons": [
+    "ERR_ACCOUNT_SCOPE_UNKNOWN",
+    "ERR_MARK_PRICE_MODEL_MISSING"
+  ],
   "unknown_fields": [
     "qty_to_notional_fn",
-    "pnl_inverse_sign",
-    "liquidation_cross_margin"
+    "notional_to_qty_fn",
+    "pnl_inverse_bitget_short_fn",
+    "liquidation_bitget_cross_short_fn",
+    "maintenance_margin_bitget_cross_fn",
+    "margin_ratio_bitget_cross_fn",
+    "funding_sign_for_short",
+    "funding_base_btc"
   ],
   "runtime_allowed": false,
   "backtest_allowed": false
@@ -384,11 +567,26 @@ UNKNOWN — doit bloquer tout worker runtime/backtest sérieux.
 
 ## 16_TODO — Refus automatiques
 
+Ces refus héritent de `02_professional_variable_impact_review.md` et de `04_math_formulas.md`.
+
 ```text
 REFUSE_BACKTEST si qty_to_notional_fn == UNKNOWN
-REFUSE_BACKTEST si pnl_inverse_sign == UNKNOWN_SIGN
-REFUSE_BACKTEST si liquidation_cross_margin == UNKNOWN
+REFUSE_BACKTEST si notional_to_qty_fn == UNKNOWN
+REFUSE_BACKTEST si pnl_inverse_bitget_short_fn == UNKNOWN
+REFUSE_BACKTEST si funding_sign_for_short == UNKNOWN
+REFUSE_BACKTEST si funding_base_btc == UNKNOWN
+REFUSE_BACKTEST si liquidation_bitget_cross_short_fn == UNKNOWN
+REFUSE_BACKTEST si maintenance_margin_bitget_cross_fn == UNKNOWN
+REFUSE_BACKTEST si margin_ratio_bitget_cross_fn == UNKNOWN
+REFUSE_BACKTEST si funding_history_exploitable == MISSING
+REFUSE_BACKTEST si AccountScope_t != isolated_strategy_account
+REFUSE_BACKTEST si ExternalPositions_t == UNKNOWN
+REFUSE_BACKTEST si MarkPrice_t / IndexPrice_t / LastPrice_t ne sont pas distingués
 REFUSE_RUNTIME si any_formula_unknown == true
+REFUSE_RUNTIME si liquidation_bitget_cross_short_fn == UNKNOWN
+REFUSE_RUNTIME si partial fills / rejected orders ne sont pas pris en compte
+REFUSE_RUNTIME si MarginCreditTimestamp_t n'est pas modélisé
+REFUSE_ADD_SHORT si changement de risk tier sans stress test tier+1 PASS
 REFUSE_UI_NEW_BUILD si desk_pro_dashboard compatible
 REFUSE_MODULE_NEW_BUILD si trading_lab_v1/probability_engine/risk_engine compatible
 REFUSE_LIVE_ALWAYS dans ce child
