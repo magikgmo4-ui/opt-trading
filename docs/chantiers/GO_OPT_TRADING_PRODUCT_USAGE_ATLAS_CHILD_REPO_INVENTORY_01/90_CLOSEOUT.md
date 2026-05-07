@@ -117,11 +117,18 @@ Voir `04_SYNTHESIS_AND_HYPOTHETICAL_TREE.md` pour l'arbre hypothetique complet (
 
 - 16 surfaces restent KEEP_CANDIDATE faute de preuve suffisante dans ce lot.
 - 10 surfaces sont A AUDITER (role inconnu ou preuve manquante).
-- L'application effective des entrees ADD_TO_ATLAS dans `docs/product/*` est reportee au child `GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_USER_GUIDES_01` ou a un sous-lot dedie.
+- L'application effective des entrees ADD_TO_ATLAS dans `docs/product/*` est le prochain child : `GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_APPLY_REPO_INVENTORY_01`.
+- Les guides utilisateur (`USER_GUIDES`) sont une etape ulterieure, apres application des entrees Atlas.
 - Certaines surfaces (Deepseek Student, Collectors spot, Engines) meritent un sous-lot de consolidation dedie.
 - Les modules sans continuite visible (~11) necessitent un GO d'audit orphelin.
 
 ## NEXT_GO
+
+```text
+GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_APPLY_REPO_INVENTORY_01
+```
+
+Puis ulterieurement :
 
 ```text
 GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_USER_GUIDES_01

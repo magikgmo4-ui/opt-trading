@@ -119,6 +119,8 @@ links:
 
 ## PARTIE 3 -- ARBRE HYPOTHETIQUE
 
+> **NOTE CANONIQUE :** Cet arbre est une hypothese structurante et une aide de priorisation. Il ne promeut aucun produit, ne remplace pas `PRODUCT_USAGE_MATRIX.md`, et ne constitue pas une source canonique. L'ordre de verite reste : (1) `PRODUCT_USAGE_MATRIX.md`, (2) `PRODUCT_USAGE_ATLAS.md`, (3) `FINAL_TARGET_GAPS.md`, (4) `03_ATLAS_UPDATE_PROPOSAL.md`, (5) ce fichier.
+
 ### 3.1 MASTER PLAN PROJECT (architecture logique souhaitee)
 
 ```text
