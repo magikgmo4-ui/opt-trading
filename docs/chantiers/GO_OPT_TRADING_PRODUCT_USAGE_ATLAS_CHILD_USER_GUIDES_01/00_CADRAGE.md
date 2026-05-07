@@ -62,12 +62,33 @@ L'Atlas compte 13 produits, mais seuls 4 ont un guide. Les 9 autres ont besoin d
 
 ## 11_KEY_DECISIONS
 
-- Les guides `USABLE_LIMITED` exposent clairement les limites avant usage.
-- Les guides `DOC_ONLY` sont des guides de lecture, pas des guides d'usage live.
-- Le guide `SIMULATED_ONLY` reste un guide de simulation, pas un guide live.
-- `BTC COIN-M` recoit une notice d'interdiction, pas un guide live.
-- Chaque guide dit explicitement quand ne pas utiliser la surface.
+- `DOC_ONLY` n'est pas toujours "lecture seulement". Il se subdivise en sous-types selon l'etat reel du produit.
+- `SIMULATED_ONLY` n'est pas toujours "test seulement". Il se subdivise selon le niveau de validation et les blocages.
+- Chaque guide doit inclure : `1_MASTER_TARGET`, `FINAL_TARGET`, `CURRENT_STATE`, `USAGE_ALLOWED_NOW`, `USAGE_FORBIDDEN_NOW`, `IMPLEMENTATION_PATH`, `CONTINUITY_STATE`, `REPRISE_POINT`, `TODO`, `REMAINING_GAP`, `NEXT_GO`, `PROMOTION_CONDITIONS`.
+- Les guides `USABLE_LIMITED` exposent clairement les limites avant usage et le chemin vers le produit fini.
+- Les guides `DOC_ONLY` sont adaptes au sous-type : reference (lecture), initial project (reprise), implementation-ready (implementation), blocked (reprise + blocages), archive (ne pas utiliser).
+- Les guides `SIMULATED_ONLY` incluent les resultats du smoke/test, la continuite projet, et les conditions de passage vers l'usage reel.
+- `BTC COIN-M` recoit une notice d'interdiction avec conditions strictes de deblocage, pas un guide live.
 - Chaque guide pointe vers ses sources canoniques et son `NEXT_GO`.
+
+### Sous-types DOC_ONLY
+
+| Sous-type | Sens | Guide adapte |
+| --- | --- | --- |
+| `DOC_ONLY_REFERENCE` | Closeout, archive, historique, preuve | Guide de lecture |
+| `DOC_ONLY_INITIAL_PROJECT` | Document initial de chantier / parent / child | Guide de reprise + continuite |
+| `DOC_ONLY_IMPLEMENTATION_READY` | Spec, cadrage, plan pret pour implementation | Guide d'implementation |
+| `DOC_ONLY_BLOCKED` | Cadre mais bloque par dependance | Guide de reprise + blocages |
+| `DOC_ONLY_ARCHIVE` | Ancien, gele, remplace | Guide archive / ne pas utiliser |
+
+### Sous-types SIMULATED_ONLY
+
+| Sous-type | Sens | Guide adapte |
+| --- | --- | --- |
+| `SIMULATED_ONLY_TESTED` | Smoke/test valide mais pas reel | Guide de test + resultats |
+| `SIMULATED_ONLY_IMPLEMENTATION_READY` | Simulation validee, pret pour le reel | Guide d'implementation reelle + conditions |
+| `SIMULATED_ONLY_BLOCKED_EXTERNAL` | Bloque par credentials, webhook, token | Guide de reprise + prerequis externes + conditions de deblocage |
+| `SIMULATED_ONLY_DO_NOT_LIVE` | Ne doit pas etre utilise live | Notice securite + conditions de promotion |
 
 ## 12_INVARIANTS
 

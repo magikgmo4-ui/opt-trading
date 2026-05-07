@@ -13,32 +13,26 @@ links:
   - docs/product/PRODUCT_USAGE_MATRIX.md
 ---
 
-# 02_GUIDE_COVERAGE_MATRIX - Couverture des guides
+# 02_GUIDE_COVERAGE_MATRIX - Couverture des guides (v2 avec sous-types)
 
-## Etat recherche
+| Produit | Bucket | Sous-type | Guide | 1_MASTER_TARGET | IMPLEMENTATION_PATH | CONTINUITY_STATE | REPRISE_POINT | PROMOTION_CONDITIONS |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Repo KG | `USABLE_NOW` | Usage reel read-only | `REPO_KG.md` | Oui | N/A | N/A | Oui | N/A |
+| ClickUp Cockpit | `USABLE_LIMITED` | Usage limite | `CLICKUP_COCKPIT.md` | Oui | N/A | N/A | Oui | Oui |
+| Desk Pro | `USABLE_LIMITED` | Usage limite / continuite | `DESK_PRO.md` | Oui | Oui | Oui | Oui | Oui |
+| Bot Vision | `USABLE_LIMITED` | Pipeline transitoire | `BOT_VISION.md` | Oui | Oui | Oui | Oui | Oui |
+| TradingView / Telegram Alert Pipeline | `USABLE_LIMITED` | Pipeline partiel | `TRADINGVIEW_TELEGRAM_PIPELINE.md` | Oui | Oui | Oui | Oui | Oui |
+| OpenClaw Runtime | `USABLE_LIMITED` | Runtime en construction | `OPENCLAW_RUNTIME.md` | Oui | Oui | Oui | Oui | Oui |
+| derivatives_collector | `USABLE_LIMITED` | Module / convergence | `DERIVATIVES_COLLECTOR.md` | Oui | Oui | Oui | Oui | Oui |
+| Airtable Orchestration Layer | `DOC_ONLY` | `DOC_ONLY_IMPLEMENTATION_READY` | `AIRTABLE_ORCHESTRATION_LAYER_READONLY.md` | Oui | Oui | Oui | Oui | Oui |
+| OpenClaw Docs Library | `DOC_ONLY` | `DOC_ONLY_REFERENCE` | `OPENCLAW_DOCS_LIBRARY.md` | Partiel | Partiel | Partiel | Oui | Partiel |
+| Trading Dual Stack V1 / XAUUSD | `DOC_ONLY` | `DOC_ONLY_INITIAL_PROJECT` | `TRADING_DUAL_STACK_V1_READONLY.md` | Oui | Oui | Oui | Oui | Oui |
+| LocalCMS | `DOC_ONLY` | `DOC_ONLY_IMPLEMENTATION_READY` | `LOCALCMS_READONLY.md` | Oui | Oui | Oui | Oui | Oui |
+| Botpress Adapter | `SIMULATED_ONLY` | `SIMULATED_ONLY_IMPLEMENTATION_READY` | `BOTPRESS_ADAPTER_SIMULATED.md` | Oui | Oui | Oui | Oui | Oui |
+| BTC COIN-M Accumulation Engine | `FORBIDDEN_LIVE` | Interdiction forte | `BTC_COINM_DO_NOT_USE_LIVE.md` | Oui | N/A | N/A | N/A | Oui |
 
-| Produit | Bucket | Guide | Type | Status |
+## Verifications
+
+| Produit | Dit quand ne pas utiliser | Sources canoniques | NEXT_GO | Surestime le produit ? |
 | --- | --- | --- | --- | --- |
-| Repo KG | `USABLE_NOW` | `REPO_KG.md` | Guide complet | Existant, coherent |
-| ClickUp Cockpit | `USABLE_LIMITED` | `CLICKUP_COCKPIT.md` | Guide avec limites | Existant, coherent |
-| Desk Pro | `USABLE_LIMITED` | `DESK_PRO.md` | Guide avec limites | **NOUVEAU** |
-| Bot Vision | `USABLE_LIMITED` | `BOT_VISION.md` | Guide avec limites | **NOUVEAU** |
-| TradingView / Telegram Alert Pipeline | `USABLE_LIMITED` | `TRADINGVIEW_TELEGRAM_PIPELINE.md` | Guide avec limites | **NOUVEAU** |
-| OpenClaw Runtime | `USABLE_LIMITED` | `OPENCLAW_RUNTIME.md` | Guide avec limites | **NOUVEAU** |
-| derivatives_collector | `USABLE_LIMITED` | `DERIVATIVES_COLLECTOR.md` | Guide avec limites | **NOUVEAU** |
-| Airtable Orchestration Layer | `DOC_ONLY` | `AIRTABLE_ORCHESTRATION_LAYER_READONLY.md` | Guide de lecture | **NOUVEAU** |
-| OpenClaw Docs Library | `DOC_ONLY` | `OPENCLAW_DOCS_LIBRARY.md` | Guide de lecture | Existant, coherent |
-| Trading Dual Stack V1 / XAUUSD | `DOC_ONLY` | `TRADING_DUAL_STACK_V1_READONLY.md` | Guide de lecture | **NOUVEAU** |
-| LocalCMS | `DOC_ONLY` | `LOCALCMS_READONLY.md` | Guide de lecture | **NOUVEAU** |
-| Botpress Adapter | `SIMULATED_ONLY` | `BOTPRESS_ADAPTER_SIMULATED.md` | Guide de simulation | Existant, coherent |
-| BTC COIN-M Accumulation Engine | `FORBIDDEN_LIVE` | `BTC_COINM_DO_NOT_USE_LIVE.md` | Notice d'interdiction | **NOUVEAU** |
-
-## Verifications par guide
-
-| Guide | Dit quand ne pas utiliser | Sources canoniques | NEXT_GO | Surestime le produit ? |
-| --- | --- | --- | --- | --- |
-| REPO_KG.md | Oui | Oui | Oui | Non |
-| CLICKUP_COCKPIT.md | Oui | Oui | Oui | Non |
-| OPENCLAW_DOCS_LIBRARY.md | Oui | Oui | Oui | Non |
-| BOTPRESS_ADAPTER_SIMULATED.md | Oui | Oui | Oui | Non |
-| Tous les nouveaux | Oui | Oui | Oui | Non |
+| Tous | Oui | Oui | Oui | Non |

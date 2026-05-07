@@ -11,72 +11,133 @@ links:
   - docs/governance/BOT_VISION_CANONICAL_PRODUCT_SYNTH_01.md
 ---
 
-# Guide utilisateur - Bot Vision
+# Guide - Bot Vision
+
+## 1_MASTER_TARGET
+
+Pipeline vision avec survivant unique, capture headless, artefacts Desk Pro/Telegram.
+
+## FINAL_TARGET
+
+Pipeline de capture screenshot -> analyse Vision -> artefacts Desk Pro / Telegram, avec un module unique standardise.
+
+## CURRENT_STATE
+
+`USABLE_LIMITED` -- Chaine transitoire active (`vision_bot` + `bot_vision_step2`). `bot_vision` est legacy. Survivant unique non fige.
+
+## USAGE_ALLOWED_NOW
+
+- Capturer des screenshots trading via `vision_bot`.
+- Analyser via `bot_vision_step2`.
+- Produire des artefacts pour Desk Pro ou Telegram.
+- Pipeline headless operationnel (branches admin-trading).
+
+## USAGE_FORBIDDEN_NOW
+
+- Utiliser `bot_vision` (legacy) comme surface active.
+- Traiter Bot Vision comme produit fini sans limites.
+- Trading automatique sans validation humaine.
+
+## IMPLEMENTATION_PATH
+
+1. Figer le survivant unique (vision_bot + bot_vision_step2 -> module final).
+2. Stabiliser la transition step2.
+3. Archiver bot_vision legacy.
+4. Produire un closeout produit.
+
+## CONTINUITY_STATE
+
+Actif -- `VISION_FAMILY_SURVIVOR_DECISION` en attente.
+
+## MACHINE / SURFACE
+
+`admin-trading` (pipeline headless).
+
+## REPRISE_POINT
+
+```text
+docs/status/bot_vision_canonique.md
+docs/governance/BOT_VISION_CANONICAL_PRODUCT_SYNTH_01.md
+```
+
+## TODO
+
+1. Decider le survivant unique (VISION_FAMILY_SURVIVOR_DECISION).
+2. Archiver bot_vision.
+3. Documenter la chaine finale.
+
+## REMAINING_GAP
+
+Survivant unique non fige, transition step2 en cours de stabilisation structurelle.
+
+## NEXT_GO
+
+`VISION_FAMILY_SURVIVOR_DECISION`
+
+## PROMOTION_CONDITIONS
+
+`USABLE_LIMITED` -> `USABLE_NOW` quand :
+- survivant unique fige,
+- chaine operationnelle stabilisee,
+- closeout produit pose.
 
 ## Ce que c'est
 
-Bot Vision est un pipeline de capture screenshot -> analyse Vision -> artefacts Desk Pro / Telegram.
+Pipeline de capture screenshot -> analyse Vision -> artefacts Desk Pro / Telegram.
 
 ## A quoi ca sert
 
-Il sert a capturer des screenshots trading, les analyser via Vision, et produire des artefacts exploitables par Desk Pro et Telegram.
+Capturer des screenshots trading, les analyser via Vision, produire des artefacts exploitables.
 
 ## Quand l'utiliser
 
-- pour capturer des screenshots de marches et les faire analyser ;
-- pour envoyer les resultats d'analyse vers Desk Pro ou Telegram ;
-- pour surveiller un setup visuel via le pipeline headless.
+- Capturer des screenshots de marches.
+- Envoyer les resultats d'analyse vers Desk Pro ou Telegram.
+- Surveiller un setup visuel via le pipeline headless.
 
 ## Quand ne pas l'utiliser
 
-- comme moteur de decision autonome ;
-- comme produit fini sans limites (le survivant unique n'est pas fige) ;
-- pour du trading automatique sans validation humaine.
+- Comme moteur de decision autonome.
+- Comme produit fini sans limites.
+- Pour du trading automatique.
 
 ## Prerequis
 
-- acces au pipeline vision (capture, analyse, artefacts) ;
-- modules actifs : `vision_bot` (capture inbox-outbox), `bot_vision_step2` (analyse Vision/Telegram) ;
-- connaissance de la chaine transitoire actuelle.
+- Modules actifs : `vision_bot` (capture inbox-outbox), `bot_vision_step2` (analyse).
+- Pipeline headless : `scripts/run_bot_vision_headless_capture.sh`.
+- Connaissance de la chaine transitoire actuelle.
 
 ## Commandes / acces
 
 - Capture : `modules/vision_bot/`
 - Analyse : `modules/bot_vision_step2/`
 - Pipeline headless : `scripts/run_bot_vision_headless_capture.sh`
-- Synthese : `docs/governance/BOT_VISION_CANONICAL_PRODUCT_SYNTH_01.md`
 
 ## Procedure simple
 
 1. Capturer un screenshot via `vision_bot`.
 2. Lancer l'analyse via `bot_vision_step2`.
-3. Verifier les artefacts produits dans Desk Pro ou Telegram.
-4. En cas de doute, relire la fiche statut canonique.
+3. Verifier les artefacts dans Desk Pro ou Telegram.
 
 ## Verification PASS
 
-- `vision_bot` capture les screenshots correctement ;
-- `bot_vision_step2` produit des artefacts lisibles ;
-- les artefacts arrivent bien dans Desk Pro ou Telegram ;
-- `bot_vision` (legacy) n'est pas utilise comme surface active.
+- `vision_bot` capture correctement.
+- `bot_vision_step2` produit des artefacts lisibles.
+- `bot_vision` (legacy) n'est pas utilise.
 
 ## Limites
 
-- la chaine est transitoire : `vision_bot` + `bot_vision_step2` forment le survivant actuel, mais aucun module unique n'est fige ;
-- `bot_vision` est explicitement legacy et ne doit pas etre utilise ;
-- la transition vers un survivant unique est en cours.
+- Chaine transitoire, pas de survivant unique.
+- `bot_vision` legacy a ne pas utiliser.
+- Transition step2 en cours.
 
 ## Depannage
 
-- Si `bot_vision` est appele par erreur : utiliser `bot_vision_step2` a la place.
-- Si la capture echoue : verifier les logs de `vision_bot`.
-- Si l'analyse ne produit rien : verifier le bridge vers Desk Pro/Telegram.
+- `bot_vision` appele par erreur : utiliser `bot_vision_step2`.
+- Capture echouee : verifier les logs de `vision_bot`.
+- Analyse sans resultat : verifier le bridge Desk Pro/Telegram.
 
 ## Source canonique
 
 - `docs/status/bot_vision_canonique.md`
 - `docs/governance/BOT_VISION_CANONICAL_PRODUCT_SYNTH_01.md`
-
-## NEXT_GO
-
-`VISION_FAMILY_SURVIVOR_DECISION`

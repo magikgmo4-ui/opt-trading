@@ -11,34 +11,104 @@ links:
   - docs/COLLECTORS_MIGRATION_MAP_01.md
 ---
 
-# Guide utilisateur - derivatives_collector
+# Guide - derivatives_collector
+
+## 1_MASTER_TARGET
+
+Collecteur canonique compatible famille collector, doctrine/vocabulaire/artifacts/config/surface operateur alignes.
+
+## FINAL_TARGET
+
+Module collecteur unifie avec doctrine famille appliquee (phases 0-5), outputs standardises, wrappers operationnels.
+
+## CURRENT_STATE
+
+`USABLE_LIMITED` -- Module operationnel multi-versions (V3->V13). Convergence doctrinale en cours. Artifacts, vocabulaire, config et surface operateur en cours d'alignement.
+
+## USAGE_ALLOWED_NOW
+
+- Collecter des donnees de marches derives.
+- Exporter en JSON/CSV.
+- Suivre la convergence doctrinale (phases 0-5).
+
+## USAGE_FORBIDDEN_NOW
+
+- Forcer une migration runtime immediate vers `collectors_core`.
+- Ajouter un provider supplementaire avant la fin de la convergence.
+- Utiliser comme produit fini sans limites.
+
+## IMPLEMENTATION_PATH
+
+1. Phase 0 : baseline inventory (`GO_COLLECTORS_BASELINE_INVENTORY_01`).
+2. Phase 1 : vocabulary alignment.
+3. Phase 2 : artifact family alignment.
+4. Phase 3 : config boundary alignment.
+5. Phase 4 : operator surface alignment.
+6. Phase 5 : selective runtime extraction decision.
+
+## CONTINUITY_STATE
+
+Actif -- convergence doctrinale en cours.
+
+## MACHINE / SURFACE
+
+`admin-trading` (runtime collecte).
+
+## REPRISE_POINT
+
+```text
+docs/COLLECTORS_MIGRATION_MAP_01.md
+docs/COLLECTORS_FAMILY_DOCTRINE_01.md
+```
+
+## TODO
+
+1. Baseline inventory.
+2. Vocabulary alignment.
+3. Artifact family alignment.
+4. Config boundary alignment.
+5. Operator surface alignment.
+
+## REMAINING_GAP
+
+Convergence doctrinale (phases 0-5), artifacts/vocabulaire/config/surface operateur a aligner.
+
+## NEXT_GO
+
+`GO_COLLECTORS_BASELINE_INVENTORY_01`
+
+## PROMOTION_CONDITIONS
+
+`USABLE_LIMITED` -> `USABLE_NOW` quand :
+- phases 0-5 terminees,
+- doctrine famille appliquee,
+- closeout famille pose.
 
 ## Ce que c'est
 
-derivatives_collector est le collecteur canonique de donnees de marches derives pour le trading.
+Collecteur canonique de donnees de marches derives pour le trading.
 
 ## A quoi ca sert
 
-Il sert a collecter les donnees de marches derives, les exporter en JSON/CSV, et alimenter les moteurs d'analyse et de trading.
+Collecter les donnees marches derives, les exporter, alimenter les moteurs d'analyse.
 
 ## Quand l'utiliser
 
-- pour collecter des donnees de marches derives (futures, options, perps) ;
-- pour exporter les donnees vers les moteurs d'analyse ;
-- pour suivre la convergence doctrinale de la famille collector.
+- Collecter des donnees de marches derives.
+- Exporter vers les moteurs d'analyse.
+- Suivre la convergence doctrinale.
 
 ## Quand ne pas l'utiliser
 
-- comme produit fini sans limites (la convergence doctrinale est en cours) ;
-- pour forcer une migration runtime immediate vers `collectors_core` ;
-- pour ajouter un provider supplementaire avant la fin de la convergence.
+- Comme produit fini (convergence en cours).
+- Pour forcer une migration runtime vers `collectors_core`.
+- Pour ajouter un provider #3 prematurement.
 
 ## Prerequis
 
-- acces au module `modules/derivatives_collector/` ;
-- lecture de `docs/COLLECTORS_FAMILY_DOCTRINE_01.md` ;
-- lecture de `docs/COLLECTORS_MIGRATION_MAP_01.md` ;
-- connaissance des phases 0-5 de convergence.
+- Acces a `modules/derivatives_collector/`.
+- Lecture de `docs/COLLECTORS_FAMILY_DOCTRINE_01.md`.
+- Lecture de `docs/COLLECTORS_MIGRATION_MAP_01.md`.
 
 ## Commandes / acces
 
@@ -48,37 +118,32 @@ Il sert a collecter les donnees de marches derives, les exporter en JSON/CSV, et
 
 ## Procedure simple
 
-1. Verifier l'etat du collector via son wrapper cmd.
-2. Lancer une collecte selon la configuration.
-3. Verifier les exports JSON/CSV produits.
-4. Consulter la migration map pour connaitre la phase de convergence en cours.
-5. Ne pas ajouter de provider supplementaire avant la fin de la convergence.
+1. Verifier l'etat du collector via wrapper cmd.
+2. Lancer une collecte.
+3. Verifier les exports JSON/CSV.
+4. Consulter la migration map pour la phase en cours.
+5. Ne pas ajouter de provider avant convergence.
 
 ## Verification PASS
 
-- le collector produit des exports lisibles ;
-- les donnees sont coherentes avec les marches cibles ;
-- la doctrine famille est respectee ;
-- aucune migration runtime forcee n'est en cours sans validation.
+- Exports lisibles.
+- Donnees coherentes avec les marches cibles.
+- Doctrine famille respectee.
+- Aucune migration runtime forcee.
 
 ## Limites
 
-- la convergence doctrinale est en cours (phases 0-5) ;
-- le vocabulaire, les artifacts, la config et la surface operateur sont en cours d'alignement ;
-- la migration runtime vers `collectors_core` n'est pas immediate ni forcee ;
-- pas de provider supplementaire avant convergence.
+- Convergence doctrinale en cours (phases 0-5).
+- Migration runtime vers `collectors_core` non immediate ni forcee.
+- Pas de provider #3 avant convergence.
 
 ## Depannage
 
-- Si les exports sont incoherents : verifier la config et les logs.
-- Si la doctrine famille n'est pas claire : relire `COLLECTORS_FAMILY_DOCTRINE_01.md`.
-- Si un nouveau provider est necessaire : attendre la fin de la convergence et ouvrir un GO dedie.
+- Exports incoherents : verifier config et logs.
+- Doctrine famille floue : relire `COLLECTORS_FAMILY_DOCTRINE_01.md`.
+- Nouveau provider necessaire : attendre convergence, ouvrir GO dedie.
 
 ## Source canonique
 
 - `docs/COLLECTORS_FAMILY_DOCTRINE_01.md`
 - `docs/COLLECTORS_MIGRATION_MAP_01.md`
-
-## NEXT_GO
-
-`GO_COLLECTORS_BASELINE_INVENTORY_01`
