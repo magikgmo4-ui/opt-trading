@@ -10,6 +10,8 @@ fi
 PERF_BASE="${PERF_BASE:-http://127.0.0.1:8010}"
 PERF_LOG="$BASE_DIR/tmp/perf_dev.log"
 APP="$BASE_DIR/modules/simex_bitget_bridge/app/simex_bitget_bridge.py"
+PERF_CANON_DB="${PERF_CANON_DB:-$BASE_DIR/modules/perf/data/perf.db}"
+PERF_LEGACY_DB="${PERF_LEGACY_DB:-$BASE_DIR/perf/perf.db}"
 
 python_bin() {
   if [[ -x "/opt/trading/venv/bin/python" ]]; then
@@ -24,6 +26,16 @@ python_bin() {
 }
 
 PYTHON_BIN="$(python_bin)"
+
+resolve_perf_db_path() {
+  if [[ -n "${PERF_DB_PATH:-}" ]]; then
+    printf '%s\n' "$PERF_DB_PATH"
+  elif [[ -f "$PERF_CANON_DB" ]]; then
+    printf '%s\n' "$PERF_CANON_DB"
+  else
+    printf '%s\n' "$PERF_LEGACY_DB"
+  fi
+}
 
 require_cmd() {
   command -v "$1" >/dev/null 2>&1 || {
@@ -67,6 +79,7 @@ cmd_status() {
   fi
   pid="$(listener_pid || true)"
   [[ -n "$pid" ]] && printf 'listener_pid=%s\n' "$pid"
+  printf 'perf_db_path=%s\n' "$(resolve_perf_db_path)"
 }
 
 cmd_perf_start() {
@@ -74,7 +87,7 @@ cmd_perf_start() {
   if perf_ready; then
     return 0
   fi
-  nohup "$PYTHON_BIN" -m uvicorn modules.perf.app:app --host 127.0.0.1 --port 8010 >"$PERF_LOG" 2>&1 &
+  PERF_DB_PATH="$(resolve_perf_db_path)" nohup "$PYTHON_BIN" -m uvicorn modules.perf.app:app --host 127.0.0.1 --port 8010 >"$PERF_LOG" 2>&1 &
   wait_perf_ready
 }
 
