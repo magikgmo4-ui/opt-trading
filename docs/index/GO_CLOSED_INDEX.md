@@ -14,7 +14,7 @@ topic_keys:
   - governance
 surface: continuity
 source_kind: canonical
-updated_at: 2026-04-29
+updated_at: 2026-05-06
 links:
   - docs/index/GO_INDEX.md
   - docs/governance/REPO_ROLE.md
@@ -83,6 +83,9 @@ Normalisation retenue :
 | GO_OPT_TRADING_PARENT_NAMING_CANON_01 | GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01/00_cadrage.md`<br>`docs/chantiers/GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01/90_closeout.md`<br>`modules/naming_normalizer/output/naming_audit_report.md` |
 | GO_OPT_TRADING_PARENT_NAMING_CANON_01 | GO_OPT_TRADING_PARENT_NAMING_CANON_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_01/01_cadrage_parent.md`<br>`docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_01/90_closeout.md`<br>`docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_CLOSEOUT_01/90_closeout.md` |
 | GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01 | GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/01_cadrage_parent.md`<br>`docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/90_closeout.md`<br>`docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_CLOSEOUT_01/90_closeout.md` |
+| GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01 | GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_01 | — | CLOSED | oui | `docs/chantiers/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_01/00_INITIAL_PROJECT_DOC.md`<br>`docs/chantiers/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_01/01_TMUX_OPERATOR_PROTOCOL.md` |
+| GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01 | GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01 | — | CLOSED | oui | `docs/chantiers/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01/RUNTIME_LOG.md`<br>`docs/chantiers/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_CLOSEOUT_01/CLOSEOUT_20260505.md` |
+| GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01 | GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_CLOSEOUT_01 | — | CLOSED | oui | `docs/chantiers/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_CLOSEOUT_01/CLOSEOUT_20260505.md` |
 
 ---
 
@@ -321,3 +324,27 @@ Ces entrées détaillées sont sorties de `docs/index/GO_INDEX.md`.
 - titre court : matrice maitre doc ops
 - dernier état connu : matrice maitre finale publiee et souveraine ; les closeouts de gouvernance necessaires sont executes ; aucun lot complementaire propre au parent ne bloque sa fermeture
 - lien utile : `docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01/90_closeout.md`, `docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_CLOSEOUT_01/90_closeout.md`, `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
+
+### GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_01
+- repo : opt-trading
+- type : protocole tmux / db-layer / child OpenClaw
+- statut : closed
+- titre court : protocole de supervision tmux OpenClaw sur db-layer
+- dernier état connu : cadrage et protocole doc-only merges dans `sot/mainline` ; phase child closee avant runtime PASS
+- lien utile : `docs/chantiers/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_01/00_INITIAL_PROJECT_DOC.md`, `docs/chantiers/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_01/01_TMUX_OPERATOR_PROTOCOL.md`, `docs/chantiers/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_CLOSEOUT_01/CLOSEOUT_20260505.md`
+
+### GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01
+- repo : opt-trading
+- type : runtime execution / tmux / db-layer
+- statut : closed
+- titre court : runtime tmux OpenClaw start/status/stop sur db-layer
+- dernier état connu : runtime `PASS` merge via PR #221 ; `RUNTIME_LOG.md` en `status: closed` ; bind `127.0.0.1:18789`, `/health` live, stop OK, aucun zombie
+- lien utile : `docs/chantiers/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01/RUNTIME_LOG.md`, `docs/chantiers/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_CLOSEOUT_01/CLOSEOUT_20260505.md`
+
+### GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_CLOSEOUT_01
+- repo : opt-trading
+- type : closeout / tmux / db-layer / OpenClaw
+- statut : pass
+- titre court : closeout de la chaine OpenClaw parent -> tmux -> runtime sur db-layer
+- dernier état connu : closeout merge via PR #222 ; chaine parent -> child -> runtime declaree `CLOSED` ; aucun `NEXT_GO` requis
+- lien utile : `docs/chantiers/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_CLOSEOUT_01/CLOSEOUT_20260505.md`

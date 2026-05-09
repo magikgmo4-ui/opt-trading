@@ -16,7 +16,7 @@ surface: index
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 point_de_reprise: "Section Tableau canonique"
-updated_at: 2026-04-28
+updated_at: 2026-05-06
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md
@@ -134,9 +134,9 @@ Obligations explicites :
 | `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01` | both | DIVERGED | 2 | 88 | `KEEP_ACTIVE` | `keep_under_review` | Parent ouvert explicitement prouve par la matrice, `GO_INDEX.md` et le dossier chantier ; branche doc-only gardee active | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
 | `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01_ALIGNMENT_01` | both | DIVERGED | 1 | 88 | `A_VERIFIER` | `manual_review` | Branche d'alignement encore presente dans Git sans dossier chantier propre sur la ligne courante ; maintien en revue seulement | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
 | `go/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01` | both | DIVERGED | 4 | 22 | `KEEP_ACTIVE` | `keep_under_review` | Parent ouvert explicitement prouve par `GO_INDEX.md`, `ACTIVE_STREAMS.md`, `REPRISE.md`, `PARENT_STATE.md` et desormais cite explicitement dans la matrice | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
-| `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01` | both | DIVERGED | 9 | 46 | `KEEP_ACTIVE` | `keep_under_review` | Parent reel `db-layer` ; dossier materialise ; child TMUX 01 merge ; child TMUX_RUNTIME 01 ouvert | `GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_DOC_REALIGN_01` |
+| `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01` | both | DIVERGED | 9 | 46 | `KEEP_ACTIVE` | `keep_under_review` | Parent reel `db-layer` conserve comme ancre ; chaine recente child TMUX -> runtime PASS -> closeout mergee dans `sot/mainline` ; aucun `NEXT_GO` obligatoire | `GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_DOC_REALIGN_01` |
 | `go/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_01` | both | BEHIND_ONLY | 0 | 1 | `DROP_MERGED` | `delete_local_and_remote` | Branche cadrage + protocole doc-only mergee dans sot/mainline ; closeout | `GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_01` |
-| `go/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01` | both | AHEAD_ONLY | 1 | 0 | `KEEP_ACTIVE` | `keep_under_review` | Branche runtime tmux start/stop/status sur db-layer ; execution en cours | `GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01` |
+| `go/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01` | both | AHEAD_ONLY | 1 | 0 | `A_VERIFIER` | `manual_review` | Runtime tmux `db-layer` ferme dans `sot/mainline` (PR #221) puis closeout merge (PR #222) ; branche residuelle a nettoyer ou archiver, plus d'execution en cours | `GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_CLOSEOUT_01` |
 | `go/GO_OPT_TRADING_OPENCLAW_AGENTS_PARENT_LIVE_ARTIFACTS_01` | remote | BEHIND_ONLY | 0 | 49 | `A_VERIFIER` | `manual_review` | Branche GO restante presente dans Git mais sans representation canonique complete sur les surfaces doc courantes | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
 | `go/GO_OPT_TRADING_OPENCLAW_AGENTS_PARENT_LONA_MCP_TMUX_EXEC_01` | remote | DIVERGED | 4 | 85 | `A_VERIFIER` | `manual_review` | Branche GO restante presente dans Git mais sans representation canonique complete sur les surfaces doc courantes | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
 | `go/GO_OPT_TRADING_REMAINING_BRANCHES_TRANSPORT_DELETE_03` | both | AHEAD_ONLY | 1 | 0 | `A_VERIFIER` | `manual_review` | Branche de lot transport/prune annule apres restauration des branches source ; maintien en attente d'une decision explicite | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
@@ -184,7 +184,7 @@ Obligations explicites :
 - branches encore divergentes ou ahead maintenues en `A_VERIFIER` en attente d'arbitrage explicite ou de preuve canonique complementaire
 - lot de nettoyage `GO_OPT_TRADING_DOC_OPS_BRANCH_CLEANUP_MATRIX_METHOD_01` : 3 branches merged supprimees localement et a distance (`ACTIVE_GOVERNANCE_CLOSEOUT_REVIEW_01`, `CONTINUITY_ALIGNMENT_AFTER_OPEN_WORK_CONTROL_01`, `INDEX_AGGREGATION_BATCH_01`) ; 1 branche `BLOCKED` (`OPEN_WORK_CONTROL_01`, non mergee, delta reseau_ssh lourd) ; 2 branches `KEEP` (`BUNDLES_REPO_STORAGE_PARENT_01`, `CLICKUP_PARENT_CONTINUITY_01`, non mergees, doc-only)
 - post-lot 3/3 PASS : BUNDLES_REPO_STORAGE mergé dans sot/mainline ; OPEN_WORK_CONTROL_01_ISOLATED completement supprimee (worktree retire, branche locale supprimee) ; CLICKUP_PARENT_CONTINUITY conserve hors lot actif (machine fantome)
-- branche `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01` re-inscrite comme parent reel `db-layer` hors index, a realigner avant reprise du child `GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_01`
+- branche `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01` conservee comme ancre parent `db-layer` ; chaine OpenClaw recente closee dans `sot/mainline` via runtime PASS puis closeout #222 ; aucun `NEXT_GO` obligatoire
 
 ## Point de reprise
 
