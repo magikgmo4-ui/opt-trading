@@ -14,7 +14,7 @@ topic_keys:
   - work_split
 surface: index
 source_kind: canonical
-updated_at: 2026-05-05
+updated_at: 2026-05-09
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/index/BRANCH_STATE.md
@@ -65,6 +65,12 @@ Quand la demande est "chantiers pour <machine>", la reponse doit ressortir direc
 ---
 
 ## Bloc CURSOR_AI
+
+### DOC_OPS — WHY_LAYER_ACTIVE
+
+| Branche | Note |
+| --- | --- |
+| `go/GO_OPT_TRADING_CURSOR_AI_DOC_OPS_CHILD_WHY_LAYER_AUDIT_01` | WHY layer audit — doc-only ; rattache au parent cursor-ai ; aucun runtime ; aucun GO_INDEX |
 
 ### TradingView MCP Observer — CLOSED (transport/docs)
 
