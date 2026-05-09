@@ -45,3 +45,13 @@ bash modules/perf/scripts/perf_db_relocate.sh show-env
 
 Ce script ne change pas le runtime par défaut. Il prépare seulement la copie
 vers le chemin canonique candidat et affiche l'override `PERF_DB_PATH`.
+
+## DB path switch behavior
+
+Les launchers canoniques PERF preferent maintenant :
+
+1. `PERF_DB_PATH` si deja exporte
+2. `modules/perf/data/perf.db` si ce fichier existe
+3. fallback legacy `perf/perf.db`
+
+Le fallback legacy reste automatique.
