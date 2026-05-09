@@ -20,7 +20,7 @@ surface: continuity
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 point_de_reprise: "Section Tableau canonique des chantiers"
-updated_at: 2026-05-06
+updated_at: 2026-05-09
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/REPO_ROLE.md
@@ -189,7 +189,8 @@ Historique recent :
 - type : outillage / tmux-ide
 - statut : active
 - titre court : cadrage IDE terminale tmux-ide
-- dernier état connu : bundle préparé, cadrage canonique ouvert, next GO GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01
+- dernier etat connu : bundle prepare, cadrage canonique ouvert ; le run reel Attention Center est merge en PASS et confirme `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01` comme suite documentaire et operatoire
+- prochaine action : ouvrir `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01` ; machine cible a verifier avant execution ; OpenClaw hors scope pour cette suite
 - lien utile : `docs/chantiers/GO_TMUX_IDE_OPT_TRADING_CADRAGE_01/00_cadrage.md`
 
 ### GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01
