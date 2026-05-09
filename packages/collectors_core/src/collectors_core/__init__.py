@@ -1,6 +1,7 @@
 from .config import load_config_layers, module_env_prefix
 from .errors import CollectorsCoreError, ConfigurationError, HttpRequestError, ValidationError
 from .files import append_jsonl, atomic_write_json, ensure_directory, ensure_file, ensure_writable_directory, load_json, module_relative_path
+from .lifecycle import append_error_record, append_event_record, freshness_state, retry_after_absolute, status_value
 from .timeutil import build_run_id, now_z, parse_z
 
 __all__ = [
@@ -9,15 +10,20 @@ __all__ = [
     "HttpRequestError",
     "ValidationError",
     "append_jsonl",
+    "append_error_record",
+    "append_event_record",
     "atomic_write_json",
     "build_run_id",
     "ensure_directory",
     "ensure_file",
     "ensure_writable_directory",
+    "freshness_state",
     "load_config_layers",
     "load_json",
     "module_env_prefix",
     "module_relative_path",
     "now_z",
     "parse_z",
+    "retry_after_absolute",
+    "status_value",
 ]
