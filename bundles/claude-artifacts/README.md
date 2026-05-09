@@ -35,6 +35,8 @@ Ce pack transforme les artefacts Claude / IDE Bundle / Claude cowork live artifa
 | `PROMPT_TEMPLATES.md` | Templates de prompts operateur (reprise, review, merge, safety, handoff) |
 | `REPRISE_TEMPLATE.md` | Template de fiche de reprise standard |
 | `NO_COMMIT_RULES.md` | Regles de ce qui ne doit jamais etre committe |
+| `CHECKLIST_EXECUTION.md` | Checklist pre-commit, pre-push, pre-PR et post-merge |
+| `bundle_meta/manifest.json` | Manifest technique du pack, dependances et invariants |
 
 ## Invariants
 
@@ -43,10 +45,11 @@ Ce pack transforme les artefacts Claude / IDE Bundle / Claude cowork live artifa
 - Runtime : non modifie.
 - Secrets / .env / tokens : jamais committes.
 - alert_webhook : ACTIVE_CONTINUITY, ne pas marquer comme ferme.
-- Bundles produit : APPLICATION_DOCUMENTED, ne pas marquer comme ferme.
+- Bundles produit : APPLICATION_DOCUMENTED_NOT_PRODUCT_CLOSED, ne pas marquer comme ferme.
 
 ## Usage
 
 1. Lire `PROMPT_TEMPLATES.md` pour les prompts standard.
 2. Utiliser `REPRISE_TEMPLATE.md` pour creer une fiche de reprise.
 3. Verifier `NO_COMMIT_RULES.md` avant tout commit.
+4. Executer `CHECKLIST_EXECUTION.md` avant push et PR.

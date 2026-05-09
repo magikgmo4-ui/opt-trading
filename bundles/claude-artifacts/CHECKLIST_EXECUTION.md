@@ -22,7 +22,7 @@ Checklist d'execution standard pour operateur cursor-ai.
 - [ ] Diff verifie : doc-only, no runtime, no secrets ?
 - [ ] `git diff sot/mainline...HEAD --stat` — cohérent ?
 - [ ] Inbox creee dans `docs/index/inbox/` ?
-- [ ] Chantier complet : 00_START.md ... 90_CLOSEOUT.md ?
+- [ ] Chantier complet : structure canonique (`00_GO_OPEN.md`, `10_SOURCE_STATE.md`, `20_OPERATOR_PACK_SPEC.md`, `30_ARTIFACTS_INDEX.md`, `40_USAGE_WORKFLOW.md`, `90_CLOSEOUT.md`) ou structure legacy equivalent documentee ?
 - [ ] Closeout contient verdict PASS/FAIL et prochain GO ?
 
 ## Apres merge
