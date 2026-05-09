@@ -1,24 +1,32 @@
 # perf
 
-Facade module pour la surface Perf, avec wrappers generiques autour du sous-systeme applicatif.
+Surface canonique compatibilite-first pour la famille PERF.
 
 ## Role
 - fournir des wrappers `cmd/menu/sanity` pour la surface Perf
-- offrir un point d'entree module-compatible, meme si l'app principale vit hors `modules/`
+- exposer une structure canonique sous `modules/perf/`
+- conserver les anciens chemins runtime tant que la migration complete n'est pas validee
 
-## Contenu
+## Structure actuelle
 - `scripts/cmd.sh`
 - `scripts/menu.sh`
 - `scripts/sanity_check.sh`
+- `app.py` -> shim vers `perf/perf_app.py`
+- `webhook.py` -> shim vers `adapters/webhook_to_perf.py`
+- `engine/` -> shim vers `modules/perf_engine/`
 
 ## Integration
-- l'app principale reste `perf/perf_app.py`
-- cette facade sert surtout a l'exposition operateur uniforme de la surface Perf
+- le runtime historique `uvicorn perf.perf_app:app` reste valide
+- le runtime canonique futur peut importer `modules.perf.app:app`
+- le moteur historique `modules.perf_engine.app.perf_engine` reste valide
+- le moteur canonique futur peut importer `modules.perf.engine.app.perf_engine`
 
 ## Statut
-- actif mais mince
-- facade operatoire, pas source principale du code Perf
+- compatibilite non cassante active
+- anciens chemins conserves
+- nouvelle structure canonique disponible pour la suite
 
-## Notes de consolidation
-- ne pas dupliquer ici la logique de `perf/perf_app.py`
-- si la surface Perf est consolidee plus tard, la question est surtout facade vs app, pas fusion de code
+## Notes de restructuration
+- ne pas casser `desk_pro` pendant la convergence
+- ne pas changer le chemin SQLite dans ce lot
+- ne pas retirer les anciens chemins avant validation operatoire
