@@ -20,7 +20,7 @@ surface: chantier
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 point_de_reprise: "Section Matrice - parent actif -> next GO primaire"
-updated_at: 2026-04-29
+updated_at: 2026-05-09
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/index/GO_INDEX.md
@@ -54,7 +54,7 @@ links:
 | parent (actif) | status | priority | next GO primaire | next action (résumé) | refs canoniques |
 | --- | --- | --- | --- | --- | --- |
 | `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01` | open | P1 | `GO_OPT_TRADING_PARENT_CONTINUITY_INDEX_INBOX_METHOD_01` | canoniser ou confirmer la mÃ©thode parent-local + inbox + batch aprÃ¨s pilote ; aucun runtime OpenClaw | `docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/PARENT_STATE.md`; `docs/governance/PARENT_CONTINUITY_INDEX_INBOX_METHOD_01.md` |
-| `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01` | active | P0 | `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01` | exécuter l’implémentation de base tmux-ide sur machine cible | `docs/chantiers/GO_TMUX_IDE_OPT_TRADING_CADRAGE_01/00_cadrage.md` |
+| `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01` | active | P0 | `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01` | executer l'implementation de base tmux-ide apres verification de la machine cible canonique ; OpenClaw hors scope | `docs/chantiers/GO_TMUX_IDE_OPT_TRADING_CADRAGE_01/00_cadrage.md`; `docs/chantiers/GO_OPT_TRADING_CLAUDE_COWORK_CHILD_ATTENTION_CENTER_REAL_RUN_01/90_CLOSEOUT.md` |
 | `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01` | active | P1 | aucun nouveau GO | consolider la lecture canonique des lignées mixtes sans duplication de preuves | `docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/00_cadrage.md` |
 | `GO_GIT_PROGRESSIVE_MIGRATION_START_13` | active | P1 | aucun nouveau GO | expliciter la suite opératoire avant tout lot d’exécution | `docs/chantiers/GO_GIT_PROGRESSIVE_MIGRATION_START_13/00_cadrage.md` |
 | `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03` | open | P1 | aucun nouveau GO | exécuter l’audit détaillé de la famille réseau/ssh dans ce GO | `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md` |

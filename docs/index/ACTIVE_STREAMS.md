@@ -16,7 +16,7 @@ surface: chantier
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 point_de_reprise: "Section Flux actifs"
-updated_at: 2026-04-29
+updated_at: 2026-05-09
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/index/GO_INDEX.md
@@ -106,9 +106,10 @@ Il sert à :
 - statut : active
 - repo : opt-trading
 - branche : `sot/mainline`
-- dernier point établi : bundle préparé, cadrage canonique ouvert
-- prochaine action : `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01`
-- blocages : valider la machine cible réelle, adapter les panes utiles, confirmer l'emplacement repo réel et exécuter la validation réelle de `tmux-ide`
+- dernier point etabli : bundle prepare, cadrage canonique ouvert ; le run reel Attention Center est merge en PASS et confirme `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01` comme suite immediate
+- prochaine action : `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01` apres verification de la machine cible
+- blocages : valider la machine cible reelle, adapter les panes utiles, confirmer l'emplacement repo reel et executer la validation reelle de `tmux-ide`
+- reserve : OpenClaw hors scope pour cette suite ; aucun rattachement machine sans preuve
 
 ### GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01
 - statut : open
