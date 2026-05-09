@@ -112,6 +112,12 @@ Quand la demande est "chantiers pour <machine>", la reponse doit ressortir direc
 | --- | --- |
 | `go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01` | BLOCKED — conservee, delta reseau_ssh non merge |
 
+### DOC_OPS — ACTIVE LOCAL PATCH
+
+| Branche | Note |
+| --- | --- |
+| `go/GO_OPT_TRADING_DOC_OPS_CHILD_GLOBAL_INDEX_FREEZE_RULE_PATCH_01` | Patch matrice doc-only — regle de gel explicite des index globaux ; machine cursor-ai ; ne pas modifier GO_INDEX/NEXT_GO/ACTIVE_STREAMS/REPRISE/BRANCH_STATE |
+
 ### CURSOR_AI — References audit Git
 
 | Branche | Note |
