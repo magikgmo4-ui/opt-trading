@@ -51,6 +51,22 @@ Ensuite, tu peux brancher n'importe quel "moteur" via `VISION_BOT_ENGINE=shell` 
   cmd-vision_bot tail
   ```
 
+## Wrapper unifié de chaîne
+
+Le lot `VISION_RUNTIME_CONSOLIDATION_IMPL_01` ajoute un point d'entree pair-safe :
+
+```bash
+cmd-vision sanity
+cmd-vision paths
+cmd-vision status
+cmd-vision capture-once
+cmd-vision analyze-latest
+menu-vision
+```
+
+Ce wrapper n'efface ni `cmd-vision_bot` ni `cmd-bot_vision_step2`.
+Il orchestre simplement la paire canonique transitoire sans changer les services.
+
 ## ShareX (Windows) — envoi des captures
 Dans ShareX:
 - Destinations -> Custom uploader -> **SFTP**

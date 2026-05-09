@@ -15,3 +15,14 @@ Notes:
   - `vision_bot` for capture / inbox-outbox
   - `bot_vision_step2` for Telegram + Vision analysis + Desk Pro artifacts
 - `bot_vision` remains the legacy `step1` skeleton
+
+## Unified wrapper
+
+The runtime consolidation implementation adds a non-breaking pair wrapper:
+
+```text
+cmd-vision / menu-vision / sanity-vision
+```
+
+These wrappers sit on top of the existing pair and do not replace the current
+module-specific commands.
