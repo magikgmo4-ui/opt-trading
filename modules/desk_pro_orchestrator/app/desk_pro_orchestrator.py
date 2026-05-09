@@ -39,7 +39,7 @@ MODULE_REGISTRY = {
     "risk_engine": "modules.risk_engine.app.risk_engine",
     "execution_engine": "modules.execution_engine.app.execution_engine",
     "position_engine": "modules.position_engine.app.position_engine",
-    "perf_engine": "modules.perf_engine.app.perf_engine",
+    "perf_engine": "modules.perf.engine.app.perf_engine",
     "journal_engine": "modules.journal_engine.app.journal_engine",
     "portfolio_engine": "modules.portfolio_engine.app.portfolio_engine"
 }

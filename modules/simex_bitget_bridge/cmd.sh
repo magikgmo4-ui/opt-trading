@@ -58,7 +58,7 @@ cmd_status() {
   printf 'listener_8010:\n'
   ss -ltnp '( sport = :8010 )' 2>/dev/null || true
   printf 'process_uvicorn_perf:\n'
-  pgrep -af 'uvicorn perf\.perf_app:app|python -m uvicorn perf\.perf_app:app' || true
+  pgrep -af 'uvicorn modules\.perf\.app:app|python -m uvicorn modules\.perf\.app:app|uvicorn perf\.perf_app:app|python -m uvicorn perf\.perf_app:app' || true
   printf 'summary_head240:\n'
   if summary="$(curl -fsS "$PERF_BASE/perf/summary" 2>/dev/null)"; then
     printf '%.240s\n' "$summary"
@@ -74,7 +74,7 @@ cmd_perf_start() {
   if perf_ready; then
     return 0
   fi
-  nohup "$PYTHON_BIN" -m uvicorn perf.perf_app:app --host 127.0.0.1 --port 8010 >"$PERF_LOG" 2>&1 &
+  nohup "$PYTHON_BIN" -m uvicorn modules.perf.app:app --host 127.0.0.1 --port 8010 >"$PERF_LOG" 2>&1 &
   wait_perf_ready
 }
 
