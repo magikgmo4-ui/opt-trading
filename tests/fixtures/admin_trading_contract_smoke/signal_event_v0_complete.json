@@ -1,0 +1,16 @@
+{
+  "key": null,
+  "engine": "USDTM_LONG",
+  "signal": "BUY",
+  "symbol": "BTCUSDT",
+  "tf": "H1",
+  "price": 68000.0,
+  "tp": 69000.0,
+  "sl": 67500.0,
+  "reason": "breakout",
+  "_ts": "2026-05-06T02:20:00+00:00",
+  "_ip": "127.0.0.1",
+  "qty": 0.01,
+  "risk_usd": 50.0,
+  "risk_real_usd": 50.0
+}
