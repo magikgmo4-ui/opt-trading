@@ -17,6 +17,12 @@ def ensure_writable_directory(path: Path) -> None:
         pass
 
 
+def ensure_file(path: Path) -> Path:
+    ensure_directory(path.parent)
+    path.touch(exist_ok=True)
+    return path
+
+
 def atomic_write_json(path: Path, payload: Any) -> None:
     ensure_directory(path.parent)
     with tempfile.NamedTemporaryFile("w", dir=path.parent, delete=False, encoding="utf-8") as handle:

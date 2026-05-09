@@ -5,11 +5,12 @@ import argparse
 import csv
 import json
 import logging
-import sys
 import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from uuid import uuid4
+
+from collectors_core import append_jsonl, atomic_write_json, build_run_id, ensure_file, load_json, module_relative_path, now_z, parse_z
 
 from modules.derivatives_collector.app.derivatives_collector import DerivativesCollector, load_config
 
@@ -24,55 +25,11 @@ PROJECT_ROOT = MODULE_DIR.parent.parent
 
 def now_utc() -> datetime:
     return datetime.now(timezone.utc)
-
-
-def iso_z(value: datetime) -> str:
-    return value.astimezone(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
-
-
-def now_z() -> str:
-    return iso_z(now_utc())
-
-
-def parse_z(value: str) -> datetime:
-    return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(timezone.utc)
-
-
-def build_run_id() -> str:
-    return f"{now_utc().strftime('%Y%m%dT%H%M%SZ')}-{uuid4().hex[:8]}"
-
-
-def load_json(path: Path):
-    if not path.exists():
-        return None
-    with path.open("r", encoding="utf-8") as handle:
-        return json.load(handle)
-
-
-def write_json(path: Path, payload) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", encoding="utf-8") as handle:
-        json.dump(payload, handle, indent=2)
-        handle.write("\n")
-
-
-def append_jsonl(path: Path, payload) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("a", encoding="utf-8") as handle:
-        handle.write(json.dumps(payload))
-        handle.write("\n")
-
-
-def ensure_file(path: Path) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.touch(exist_ok=True)
-
-
 def relref(path: Path) -> str:
     resolved = path.resolve()
     for base in (MODULE_DIR, PROJECT_ROOT):
         try:
-            return resolved.relative_to(base).as_posix()
+            return module_relative_path(base, resolved)
         except ValueError:
             continue
     return str(resolved)
@@ -344,7 +301,7 @@ def run_collection_with_lifecycle(config: dict) -> dict:
     previous_status = load_json(status_path)
     run_id = build_run_id()
     started_at = now_z()
-    write_json(status_path, build_running_status(config, run_id, started_at, previous_status))
+    atomic_write_json(status_path, build_running_status(config, run_id, started_at, previous_status))
     ensure_file(errors_path)
     append_event(config, events_path, run_id, "run_started", "INFO", "derivatives lifecycle compatibility run started", "running")
     append_event(config, events_path, run_id, "source_fetch_started", "INFO", f"collecting derivatives data from {config['DATA_SOURCE']}")
@@ -361,12 +318,12 @@ def run_collection_with_lifecycle(config: dict) -> dict:
         generated_at = now_z()
         manifest = build_manifest(config, run_id, generated_at, outputs["primary_path"], outputs["meta_path"], output_dir)
         latest = build_latest(config, run_id, generated_at, outputs["primary_path"], outputs["meta_path"], outputs["stats"])
-        write_json(manifest_path, manifest)
-        write_json(latest_path, latest)
+        atomic_write_json(manifest_path, manifest)
+        atomic_write_json(latest_path, latest)
         append_event(config, events_path, run_id, "outputs_published", "INFO", "lifecycle compatibility artifacts published")
 
         success_status = build_success_status(config, run_id, generated_at, previous_status, outputs["stats"]["failed"])
-        write_json(status_path, success_status)
+        atomic_write_json(status_path, success_status)
         append_event(config, events_path, run_id, "run_succeeded", "INFO", success_status["message"], success_status["state"])
         return {
             "run_id": run_id,
@@ -380,7 +337,7 @@ def run_collection_with_lifecycle(config: dict) -> dict:
         error_info = classify_error(exc, stage)
         append_error(config, errors_path, run_id, error_info, error_at)
         failure_status = build_failure_status(config, run_id, error_at, previous_status, error_info)
-        write_json(status_path, failure_status)
+        atomic_write_json(status_path, failure_status)
         if stage == "source_fetch":
             append_event(config, events_path, run_id, "source_fetch_failed", "ERROR", error_info["message"], failure_status["state"])
         append_event(config, events_path, run_id, "run_failed", "ERROR", error_info["message"], failure_status["state"])

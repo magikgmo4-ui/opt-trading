@@ -6,6 +6,7 @@ LIFECYCLE_CMD="$MODULE_DIR/scripts/lifecycle_compat.sh"
 
 # Resolve root directory
 cd "$ROOT_DIR" || exit 1
+export PYTHONPATH="$ROOT_DIR/packages/collectors_core/src${PYTHONPATH:+:$PYTHONPATH}"
 
 # Load config if present
 if [ -f "$MODULE_DIR/config/.env" ]; then
