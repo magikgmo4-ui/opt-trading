@@ -1,0 +1,186 @@
+# GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_YAML_DRAFT_01
+# Draft policy only. Not connected to runtime execution.
+# Defaults are deliberately conservative.
+
+policy_version: "0.1"
+policy_id: "OPENCLAW_RUNTIME_SECURITY_POLICY_DRAFT_01"
+status: "draft"
+owner_go: "GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_YAML_DRAFT_01"
+parent_go: "GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_PARENT_01"
+source_schema_doc: "docs/chantiers/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_PARENT_01/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_SCHEMA_01.md"
+
+runtime_execution_enabled: false
+warning_only_default: true
+default_mode: "READ_ONLY"
+validation_mode: "WARNING_ONLY"
+can_fail_ci: false
+can_autofix: false
+
+permission_levels:
+  L0_READ_ONLY:
+    rank: 0
+    default_allowed: true
+    audit: "RECOMMENDED"
+    confirmation: "NONE"
+    description: "Read, list, inspect, summarize."
+  L1_ANALYZE:
+    rank: 1
+    default_allowed: true
+    audit: "RECOMMENDED"
+    confirmation: "NONE"
+    description: "Analyze, detect, score, compare."
+  L2_PLAN:
+    rank: 2
+    default_allowed: true
+    audit: "RECOMMENDED"
+    confirmation: "NONE"
+    execution: "PLAN_ONLY"
+    description: "Propose action plans without applying changes."
+  L3_PROPOSE_PATCH:
+    rank: 3
+    default_allowed: true
+    audit: "REQUIRED_IF_PATCH"
+    confirmation: "SURFACE_DEPENDENT"
+    execution: "PROPOSE_ONLY"
+    description: "Produce patches or diffs without applying them."
+  L4_WRITE_DOC:
+    rank: 4
+    default_allowed: false
+    audit: "REQUIRED"
+    confirmation: "GO_EXPLICIT_OR_HUMAN_CONFIRM"
+    description: "Write bounded documentation under an explicit GO."
+  L5_WRITE_CODE:
+    rank: 5
+    default_allowed: false
+    audit: "REQUIRED"
+    confirmation: "HUMAN_CONFIRM_STRICT"
+    description: "Modify code, scripts, runtime configs, or module behavior."
+  L6_EXECUTE_SAFE:
+    rank: 6
+    default_allowed: false
+    audit: "REQUIRED"
+    confirmation: "HUMAN_CONFIRM_STRICT"
+    description: "Run non-destructive commands with explicit confirmation."
+  L7_EXECUTE_RISKY:
+    rank: 7
+    default_allowed: false
+    audit: "REQUIRED_STRICT"
+    confirmation: "HUMAN_CONFIRM_STRICT"
+    description: "Run service, network, Git push, install, or system operations."
+  L8_DESTRUCTIVE:
+    rank: 8
+    default_allowed: false
+    audit: "REQUIRED_STRICT"
+    confirmation: "BLOCK_DEFAULT"
+    description: "Delete, reset, purge, force, live trading, irreversible production actions."
+
+surfaces:
+  DOCS:
+    max_default_level: "L4_WRITE_DOC"
+    write_requires_go: true
+    audit_required_from: "L4_WRITE_DOC"
+  REPO_CODE:
+    max_default_level: "L3_PROPOSE_PATCH"
+    propose_only_default: true
+    write_requires_confirmation: true
+  GIT:
+    max_default_level: "L3_PROPOSE_PATCH"
+    mutation_requires_confirmation: true
+    force_operations_blocked_default: true
+  SERVICES:
+    max_default_level: "L2_PLAN"
+    execution_blocked_default: true
+  TELEGRAM:
+    max_default_level: "L2_PLAN"
+    send_requires_confirmation: true
+  WORKERS:
+    max_default_level: "L2_PLAN"
+    autonomous_execution_enabled: false
+  FILESYSTEM:
+    max_default_level: "L3_PROPOSE_PATCH"
+    delete_blocked_default: true
+    write_requires_confirmation: true
+  NETWORK:
+    max_default_level: "L2_PLAN"
+    outbound_requires_confirmation: true
+  SECRETS:
+    max_default_level: "L0_READ_ONLY"
+    metadata_only: true
+    values_read_blocked: true
+    values_write_blocked: true
+  MACHINE_OPS:
+    max_default_level: "L2_PLAN"
+    install_reboot_permission_change_blocked_default: true
+  TRADING_RUNTIME:
+    max_default_level: "L2_PLAN"
+    order_execution_blocked_default: true
+
+confirmation:
+  required_from_level: "L5_WRITE_CODE"
+  strict_required_from_level: "L6_EXECUTE_SAFE"
+  required_fields:
+    - "go_id"
+    - "surface"
+    - "permission_level"
+    - "action"
+    - "exact_command_or_patch"
+    - "expected_effect"
+    - "rollback_or_mitigation"
+    - "post_action_evidence"
+
+audit:
+  required_from_level: "L4_WRITE_DOC"
+  required_fields:
+    - "timestamp"
+    - "go_id"
+    - "machine_or_surface"
+    - "actor_or_agent"
+    - "permission_level"
+    - "action_requested"
+    - "files_or_services_touched"
+    - "result"
+    - "resume_link"
+
+promotion:
+  requires:
+    - "explicit_go"
+    - "known_surface"
+    - "known_permission_level"
+    - "risk_qualified"
+    - "confirmation_if_required"
+    - "audit_defined"
+    - "rollback_if_applicable"
+    - "no_secret_exposure"
+    - "no_parent_invariant_violation"
+
+static_validation:
+  mode: "WARNING_ONLY"
+  can_fail_ci: false
+  can_autofix: false
+  warnings:
+    missing_owner_go: true
+    l4_plus_without_audit: true
+    l5_plus_without_confirmation: true
+    secrets_values_allowed: true
+    git_mutation_without_confirmation: true
+    trading_order_execution_allowed: true
+    runtime_execution_enabled_true: true
+
+sample_skills:
+  docs_reader:
+    skill_id: "docs_reader"
+    status: "sample"
+    owner_go: "GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_YAML_DRAFT_01"
+    surfaces:
+      - "DOCS"
+    allowed_levels:
+      - "L0_READ_ONLY"
+      - "L1_ANALYZE"
+      - "L2_PLAN"
+    blocked_levels:
+      - "L5_WRITE_CODE"
+      - "L6_EXECUTE_SAFE"
+      - "L7_EXECUTE_RISKY"
+      - "L8_DESTRUCTIVE"
+    runtime_execution_enabled: false
+    warning_only_default: true
