@@ -14,7 +14,7 @@ topic_keys:
   - work_split
 surface: index
 source_kind: canonical
-updated_at: 2026-05-05
+updated_at: 2026-05-06
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/index/BRANCH_STATE.md
@@ -66,6 +66,12 @@ Quand la demande est "chantiers pour <machine>", la reponse doit ressortir direc
 
 ## Bloc CURSOR_AI
 
+### Operations parent — ACTIVE
+
+| Branche | Note |
+| --- | --- |
+| `go/GO_OPT_TRADING_CURSOR_AI_OPERATIONS_PARENT_PLAN_01` | Parent operations cursor-ai — ACTIVE ; regroupe `alert_webhook`, `Bundles`, `Claude / Live artifacts` ; sans runtime touch |
+
 ### TradingView MCP Observer — CLOSED (transport/docs)
 
 | Branche | Note |
@@ -83,19 +89,19 @@ Quand la demande est "chantiers pour <machine>", la reponse doit ressortir direc
 | --- | --- |
 | `GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_ALERT_WEBHOOK_APPLICATION_ACTIVE_01` | CONTINUITE ACTIVE (PR #203) — application non fermee |
 
-### Bundles — APPLICATION_DOCUMENTED_NOT_PRODUCT_CLOSED
+### Bundles — APPLICATION_DOCUMENTED_A_VALIDER_CONTINUITE_ACTIVE
 
 | Branche | Note |
 | --- | --- |
-| `go/GO_OPT_TRADING_BUNDLES_REPO_STORAGE_PARENT_01` | Bundles doc — merged, branche supprimee |
-| `go/GO_OPT_TRADING_CURSOR_AI_BUNDLES_APPLICATION_IMPL_01` | Application operateur — merged (PR #202) |
+| `go/GO_OPT_TRADING_BUNDLES_REPO_STORAGE_PARENT_01` | Bundles doc — merged, branche supprimee ; support documente |
+| `go/GO_OPT_TRADING_CURSOR_AI_BUNDLES_APPLICATION_IMPL_01` | Application operateur — merged (PR #202) ; continuite active a valider dans matrice / workflow |
 
-### Live artifacts / Claude cowork — MERGED
+### Live artifacts / Claude cowork — ACTIVE_CONTINUITY
 
 | Branche | Note |
 | --- | --- |
-| `go/GO_LIVE_ARTIFACTS_CLAUDE_COWORK_IDE_BUNDLE_01` | IDE bundle — merged (PR #201) |
-| `go/GO_OPT_TRADING_CLAUDE_COWORK_PARENT_LIVE_ARTIFACTS_01` | Claude cowork parent — merged (PR #201) |
+| `go/GO_LIVE_ARTIFACTS_CLAUDE_COWORK_IDE_BUNDLE_01` | IDE bundle — merged (PR #201) ; continuite active cursor-ai |
+| `go/GO_OPT_TRADING_CLAUDE_COWORK_PARENT_LIVE_ARTIFACTS_01` | Claude cowork parent — merged (PR #201) ; continuite active cursor-ai |
 
 ### DOC_OPS — HISTORICAL (branches supprimees en cleanup)
 
