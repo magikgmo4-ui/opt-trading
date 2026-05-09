@@ -50,6 +50,8 @@ envs/
 # runtime data (generated)
 /data/
 **/data/
+!modules/perf/data/
+!modules/perf/data/README.md
 _reseau_audit/
 _student_archive/events/*.ndjson
 _student_archive/
