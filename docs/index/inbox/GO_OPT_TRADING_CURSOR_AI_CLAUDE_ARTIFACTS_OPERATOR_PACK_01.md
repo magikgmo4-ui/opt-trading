@@ -5,26 +5,27 @@ repo: opt-trading
 branch: go/GO_OPT_TRADING_CURSOR_AI_CLAUDE_ARTIFACTS_OPERATOR_PACK_01
 machine: cursor-ai
 status: active
-lifecycle_stage: operator_pack
+lifecycle_stage: operator_pack_refresh
 links:
   - bundles/claude-artifacts/README.md
-  - docs/chantiers/GO_OPT_TRADING_CURSOR_AI_CLAUDE_ARTIFACTS_OPERATOR_PACK_01/00_START.md
+  - docs/chantiers/GO_OPT_TRADING_CURSOR_AI_CLAUDE_ARTIFACTS_OPERATOR_PACK_01/00_GO_OPEN.md
 ---
 
 # GO_OPT_TRADING_CURSOR_AI_CLAUDE_ARTIFACTS_OPERATOR_PACK_01
 
 ## Objet
 
-Transformer les artefacts Claude / IDE Bundle / Claude cowork live artifacts deja integres dans `sot/mainline` en pack operateur cursor-ai stable.
+Regulariser un dossier canonique doc-only pour le pack operateur Claude artifacts propre a `cursor-ai`, en repartant de `sot/mainline` et des artefacts deja merges.
 
-## Chantier
+## Etat source
 
-`docs/chantiers/GO_OPT_TRADING_CURSOR_AI_CLAUDE_ARTIFACTS_OPERATOR_PACK_01/`
+- Canon machine du `2026-05-05` : ce GO reste le meilleur prochain chantier `cursor-ai`.
+- Etat prouve du `2026-05-08` : le pack, Bundles actif et les supports de reprise sont deja presents sur `sot/mainline`.
 
-## Pack bundle
+## Point de reprise
+
+`docs/chantiers/GO_OPT_TRADING_CURSOR_AI_CLAUDE_ARTIFACTS_OPERATOR_PACK_01/00_GO_OPEN.md`
+
+## Bundle cible
 
 `bundles/claude-artifacts/`
-
-## Prochain GO recommande
-
-`GO_OPT_TRADING_CURSOR_AI_BUNDLES_APPLICATION_ACTIVE_01`

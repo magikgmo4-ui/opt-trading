@@ -14,59 +14,58 @@ links:
 
 ## Verdict
 
-**PASS** — Le pack operateur Claude artifacts est cree et prêt a etre merge.
+**PASS** — Le dossier du pack operateur Claude artifacts est regularise au format canonique demande, sans toucher au runtime ni rouvrir de surface hors `cursor-ai`.
 
-## Fichiers crees
+## Base deja mergee sur `sot/mainline`
 
-### Pack bundle (`bundles/claude-artifacts/`)
+- Pack operateur initial merge via PR #206.
+- Workflow Bundles actif documente sur `sot/mainline`.
+- Validation d'usage reel et packet de reprise operateur deja presents sur `sot/mainline`.
 
-| Fichier | Contenu |
+## Regularisation ajoutee dans ce passage
+
+### Nouveaux fichiers canoniques (`docs/chantiers/.../`)
+
+| Fichier | Role |
 | --- | --- |
-| `README.md` | Survol du pack, index, invariants |
-| `PROMPT_TEMPLATES.md` | 5 templates de prompts (reprise, review, merge, safety, handoff) |
-| `REPRISE_TEMPLATE.md` | Template de fiche de reprise standard |
-| `NO_COMMIT_RULES.md` | Regles de securite (secrets, .env, tokens, outputs) |
+| `00_GO_OPEN.md` | Ouverture canonique du chantier |
+| `10_SOURCE_STATE.md` | Etat source et ecarts entre canon machine et repo prouve |
+| `20_OPERATOR_PACK_SPEC.md` | Spec du pack operateur |
+| `30_ARTIFACTS_INDEX.md` | Index des artefacts bundles et traces legacy |
+| `40_USAGE_WORKFLOW.md` | Workflow d'usage operateur |
 
-### Chantier documentaire (`docs/chantiers/.../`)
+### Fichiers mis a jour
 
-| Fichier | Contenu |
+| Fichier | Action |
 | --- | --- |
-| `00_START.md` | Demarrage du GO |
-| `10_SOURCE_BUNDLES_INVENTORY.md` | Inventaire des sources utilisees |
-| `20_OPERATOR_USAGE.md` | Guide d'usage operateur |
-| `30_PROMPT_TEMPLATES.md` | Reference des templates de prompts |
-| `40_BUNDLE_INTEGRATION.md` | Integration avec Bundles |
-| `50_NO_COMMIT_RULES.md` | Regles de non-commit |
-| `90_CLOSEOUT.md` | Ce fichier |
-
-### Fiche inbox
-
-| Fichier | Contenu |
-| --- | --- |
-| `docs/index/inbox/GO_OPT_TRADING_CURSOR_AI_CLAUDE_ARTIFACTS_OPERATOR_PACK_01.md` | Fiche inbox |
+| `bundles/claude-artifacts/README.md` | Index du bundle remis a jour (6 artefacts) |
+| `bundles/claude-artifacts/CHECKLIST_EXECUTION.md` | Checklist alignee sur la structure canonique |
+| `docs/chantiers/GO_OPT_TRADING_CURSOR_AI_CLAUDE_ARTIFACTS_OPERATOR_PACK_01/00_START.md` | Point d'entree historique garde et annote |
+| `docs/chantiers/GO_OPT_TRADING_CURSOR_AI_CLAUDE_ARTIFACTS_OPERATOR_PACK_01/90_CLOSEOUT.md` | Closeout re-ecrit pour ce passage |
+| `docs/index/inbox/GO_OPT_TRADING_CURSOR_AI_CLAUDE_ARTIFACTS_OPERATOR_PACK_01.md` | Inbox courte pointee vers `00_GO_OPEN.md` |
 
 ## Verifications
 
-- [x] Pack Claude artifacts cree (4 fichiers bundle + 7 fichiers chantier + 1 inbox)
+- [x] Diff doc-only limite a `docs/` et `bundles/`
+- [x] Structure canonique demandee presente (`00_GO_OPEN` a `90_CLOSEOUT`)
+- [x] Inbox courte maintenue
 - [x] Contenu doc-only
 - [x] Aucun runtime modifie
-- [x] Admin-trading non ouvert
+- [x] Aucun GO `admin-trading` ouvert
+- [x] TradingView MCP ferme non rouvert
+- [x] `GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01` non touche
 - [x] alert_webhook reste ACTIVE_CONTINUITY
-- [x] Bundles reste APPLICATION_DOCUMENTED / produit non ferme
-- [x] Aucun secret, .env, token ou output sensible committe
+- [x] Bundles reste APPLICATION_DOCUMENTED_NOT_PRODUCT_CLOSED
+- [x] Aucun secret, .env, token ou output sensible documente
+- [x] Google Drive non utilise
 
-## Limites
+## Trace legacy
 
-- Le pack ne contient pas encore `CHECKLIST_EXECUTION.md` (extension future possible).
-- Le pack ne contient pas encore `bundle_meta/manifest.json` (extension future possible).
-- Les prompts sont des templates, pas des instances avec donnees reelles.
+- Les fichiers `10_SOURCE_BUNDLES_INVENTORY.md`, `20_OPERATOR_USAGE.md`, `30_PROMPT_TEMPLATES.md`, `40_BUNDLE_INTEGRATION.md` et `50_NO_COMMIT_RULES.md` sont conserves pour compatibilite documentaire.
+- Aucun arbitrage global n'est refait ici ; le passage regularise seulement le dossier `cursor-ai` demande.
 
-## Prochain GO recommande
+## Point de reprise recommande
 
-Selon la sequence definie dans le plan parent (`80_NEXT_GO_SEQUENCE.md`) :
-
-```text
-GO_OPT_TRADING_CURSOR_AI_BUNDLES_APPLICATION_ACTIVE_01
-```
-
-Position 2 dans la sequence : poursuivre Bundles comme workflow actif.
+- Ouverture canonique : `docs/chantiers/GO_OPT_TRADING_CURSOR_AI_CLAUDE_ARTIFACTS_OPERATOR_PACK_01/00_GO_OPEN.md`
+- Workflow operateur : `docs/chantiers/GO_OPT_TRADING_CURSOR_AI_CLAUDE_ARTIFACTS_OPERATOR_PACK_01/40_USAGE_WORKFLOW.md`
+- Handoff deja merge : `docs/chantiers/GO_OPT_TRADING_CURSOR_AI_OPERATOR_REPRISE_PACKET_01/40_OPERATOR_REPRISE_PACKET.md`
