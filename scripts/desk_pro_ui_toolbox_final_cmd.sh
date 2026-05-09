@@ -10,12 +10,12 @@ usage(){
 }
 
 restart(){
-  echo "=== Restart uvicorn on 8010 (perf.perf_app:app) ==="
-  sudo pkill -f 'uvicorn perf\.perf_app:app' || true
-  sudo pkill -f 'python -m uvicorn perf\.perf_app:app' || true
+  echo "=== Restart uvicorn on 8010 (modules.perf.app:app) ==="
+  sudo pkill -f 'uvicorn modules\.perf\.app:app|uvicorn perf\.perf_app:app' || true
+  sudo pkill -f 'python -m uvicorn modules\.perf\.app:app|python -m uvicorn perf\.perf_app:app' || true
   sleep 1
   mkdir -p /opt/trading/tmp
-  nohup /opt/trading/venv/bin/python -m uvicorn perf.perf_app:app --host 0.0.0.0 --port 8010 > "$LOG" 2>&1 &
+  nohup /opt/trading/venv/bin/python -m uvicorn modules.perf.app:app --host 0.0.0.0 --port 8010 > "$LOG" 2>&1 &
   sleep 1
   sudo ss -ltnp | grep ':8010' || { echo "8010 DOWN"; echo "Log: $LOG"; tail -n 80 "$LOG" || true; exit 1; }
   echo "UP. Log: $LOG"

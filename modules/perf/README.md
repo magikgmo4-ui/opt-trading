@@ -16,15 +16,15 @@ Surface canonique compatibilite-first pour la famille PERF.
 - `engine/` -> shim vers `modules/perf_engine/`
 
 ## Integration
-- le runtime historique `uvicorn perf.perf_app:app` reste valide
-- le runtime canonique futur peut importer `modules.perf.app:app`
-- le moteur historique `modules.perf_engine.app.perf_engine` reste valide
-- le moteur canonique futur peut importer `modules.perf.engine.app.perf_engine`
+- le runtime canonique prefere est `uvicorn modules.perf.app:app`
+- le runtime historique `uvicorn perf.perf_app:app` reste valide par compatibilite
+- le moteur canonique prefere est `modules.perf.engine.app.perf_engine`
+- le moteur historique `modules.perf_engine.app.perf_engine` reste valide par compatibilite
 
 ## Statut
 - compatibilite non cassante active
 - anciens chemins conserves
-- nouvelle structure canonique disponible pour la suite
+- nouvelle structure canonique disponible et referencee par les scripts mis a jour
 
 ## Notes de restructuration
 - ne pas casser `desk_pro` pendant la convergence
