@@ -11,9 +11,11 @@ Surface canonique compatibilite-first pour la famille PERF.
 - `scripts/cmd.sh`
 - `scripts/menu.sh`
 - `scripts/sanity_check.sh`
+- `scripts/perf_db_relocate.sh`
 - `app.py` -> shim vers `perf/perf_app.py`
 - `webhook.py` -> shim vers `adapters/webhook_to_perf.py`
 - `engine/` -> shim vers `modules/perf_engine/`
+- `data/` -> emplacement canonique candidat pour `perf.db`
 
 ## Integration
 - le runtime canonique prefere est `uvicorn modules.perf.app:app`
@@ -30,3 +32,16 @@ Surface canonique compatibilite-first pour la famille PERF.
 - ne pas casser `desk_pro` pendant la convergence
 - ne pas changer le chemin SQLite dans ce lot
 - ne pas retirer les anciens chemins avant validation operatoire
+
+## DB relocation tooling
+
+Un outillage non destructif existe maintenant :
+
+```bash
+bash modules/perf/scripts/perf_db_relocate.sh status
+bash modules/perf/scripts/perf_db_relocate.sh copy
+bash modules/perf/scripts/perf_db_relocate.sh show-env
+```
+
+Ce script ne change pas le runtime par défaut. Il prépare seulement la copie
+vers le chemin canonique candidat et affiche l'override `PERF_DB_PATH`.
