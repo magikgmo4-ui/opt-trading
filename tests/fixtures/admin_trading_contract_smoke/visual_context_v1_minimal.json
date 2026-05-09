@@ -1,0 +1,15 @@
+{
+  "source": "sharex",
+  "capture_id": "screen_tradingview_BTCUSDT.P_H1_2026-05-06_02-20-15",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "captured_at": "2026-05-06T02:20:15+00:00",
+  "image_ref": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_H1_2026-05-06_02-20-15.png",
+  "metadata_ref": null,
+  "payload_hash": null,
+  "chart_source": "tradingview",
+  "status": "ready",
+  "errors": [],
+  "signal_event_ref": null,
+  "desk_snapshot_ref": "BTCUSDT.P_H1_20260506_022015.png"
+}
