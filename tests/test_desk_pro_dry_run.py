@@ -85,3 +85,37 @@ class TestDeskProDryRun:
         result = run_desk_pro_dry_run(v0, desk_snapshot=snap)
         assert result["no_systemd"] is True
         assert result["summary"]["desk_snapshot_present"] is True
+
+    def test_missing_desk_snapshot_is_warn_non_blocking(self):
+        v0 = _load("signal_event_v0_minimal.json")
+        result = run_desk_pro_dry_run(v0)
+        assert result["status"] == "WARN"
+        assert any("desk_snapshot missing" in warning for warning in result["warnings"])
+
+    def test_timer_payload_normalizes_to_warn_without_snapshot(self):
+        timer_payload = {
+            "engine": "DESK_PRO_TIMER",
+            "signal": "BUY",
+            "symbol": "BTCUSDT",
+            "tf": "H1",
+            "_ts": "2026-05-09T10:14:21+00:00",
+        }
+        result = run_desk_pro_dry_run(timer_payload)
+        assert result["status"] == "WARN"
+        assert result["signal_event"]["event_type"] == "signal_event"
+        assert result["signal_event"]["source"] == "tradingview.webhook"
+        assert result["signal_event"]["direction"] == "BUY"
+        assert result["signal_event"]["engine"] == "DESK_PRO_TIMER"
+        assert result["errors"] == []
+
+    def test_timer_payload_validation_is_non_blocking_without_snapshot(self):
+        timer_payload = {
+            "engine": "DESK_PRO_TIMER",
+            "signal": "BUY",
+            "symbol": "BTCUSDT",
+            "tf": "H1",
+            "_ts": "2026-05-09T10:14:21+00:00",
+        }
+        ok, errors = validate_desk_pro_dry_run_inputs(timer_payload)
+        assert ok is True
+        assert errors == []

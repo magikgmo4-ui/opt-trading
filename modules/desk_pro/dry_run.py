@@ -27,7 +27,7 @@ def _validate_visual_context(visual_context: dict | None) -> Tuple[bool, List[st
 
 def _validate_desk_snapshot(desk_snapshot: dict | None) -> Tuple[bool, List[str]]:
     if desk_snapshot is None:
-        return False, ["desk_snapshot missing"]
+        return True, ["desk_snapshot missing: timer-only synthesis"]
     errors: List[str] = []
     for field in ("symbol", "tf", "snapshot_ts", "path"):
         if not desk_snapshot.get(field):
@@ -78,7 +78,9 @@ def build_desk_pro_dry_run_synthesis(
         warnings.extend([m for m in signal_messages if m])
 
     snapshot_ok, snapshot_messages = _validate_desk_snapshot(desk_snapshot)
-    if not snapshot_ok:
+    if desk_snapshot is None:
+        warnings.extend(snapshot_messages)
+    elif not snapshot_ok:
         errors.extend(snapshot_messages)
 
     visual_ok, visual_messages = _validate_visual_context(visual_context)
