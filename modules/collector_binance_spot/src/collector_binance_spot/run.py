@@ -12,15 +12,16 @@ from collectors_core import (
     append_error_record,
     append_event_record,
     atomic_write_json,
+    build_failure_status,
     build_run_id,
+    build_running_status,
+    build_success_status,
     ensure_directory,
     ensure_writable_directory,
-    freshness_state,
-    load_json,
     module_relative_path,
     now_z,
     retry_after_absolute,
-    status_value,
+    safe_previous_status,
 )
 
 from .client import BinanceSpotClient
@@ -62,10 +63,18 @@ def run_collection(module_dir: Path, client: BinanceSpotClient | Any | None = No
 
     run_id = build_run_id()
     run_log_path = config.paths.logs_dir / f"run_{run_id}.jsonl"
-    previous_status = _safe_previous_status(config.paths.status_path)
+    previous_status = safe_previous_status(config.paths.status_path)
 
     started_at = now_z()
-    running_status = _build_running_status(config, run_id, started_at, previous_status)
+    running_status = build_running_status(
+        contract_version=config.contract_version,
+        module_id=config.module_id,
+        provider_id=config.provider_id,
+        run_id=run_id,
+        generated_at=started_at,
+        previous_status=previous_status,
+        max_age_seconds=config.freshness_max_age_seconds,
+    )
     atomic_write_json(config.paths.status_path, running_status)
     append_event_record(
         events_path=config.paths.events_path,
@@ -155,7 +164,14 @@ def run_collection(module_dir: Path, client: BinanceSpotClient | Any | None = No
         )
 
         finished_at = now_z()
-        success_status = _build_success_status(config, run_id, finished_at, previous_status)
+        success_status = build_success_status(
+            contract_version=config.contract_version,
+            module_id=config.module_id,
+            provider_id=config.provider_id,
+            run_id=run_id,
+            generated_at=finished_at,
+            previous_status=previous_status,
+        )
         atomic_write_json(config.paths.status_path, success_status)
         append_event_record(
             events_path=config.paths.events_path,
@@ -196,7 +212,20 @@ def run_collection(module_dir: Path, client: BinanceSpotClient | Any | None = No
             http_status=error_info.http_status,
             retry_after=error_info.retry_after,
         )
-        failure_status = _build_failure_status(config, run_id, error_at, previous_status, error_info)
+        failure_status = build_failure_status(
+            contract_version=config.contract_version,
+            module_id=config.module_id,
+            provider_id=config.provider_id,
+            run_id=run_id,
+            generated_at=error_at,
+            previous_status=previous_status,
+            max_age_seconds=config.freshness_max_age_seconds,
+            error_class=error_info.error_class,
+            error_code=error_info.error_code,
+            retryable=error_info.retryable,
+            retry_after=error_info.retry_after,
+            message=error_info.message,
+        )
         atomic_write_json(config.paths.status_path, failure_status)
         append_event_record(
             events_path=config.paths.events_path,
@@ -245,15 +274,6 @@ def _ensure_runtime_directories(config: BinanceSpotRuntimeConfig) -> None:
 def _ensure_errors_artifact(config: BinanceSpotRuntimeConfig) -> None:
     ensure_directory(config.paths.errors_path.parent)
     config.paths.errors_path.touch(exist_ok=True)
-
-
-def _safe_previous_status(status_path: Path) -> dict[str, Any] | None:
-    payload = load_json(status_path)
-    if payload is None:
-        return None
-    if not isinstance(payload, dict):
-        raise ValidationError("Existing status.json must contain a JSON object")
-    return payload
 
 
 def _build_manifest(
@@ -311,98 +331,6 @@ def _build_latest(
             "entity_type": normalized_payload.get("entity_type"),
             "pair_symbols": list(config.collection_symbols),
         },
-    }
-
-
-def _build_running_status(
-    config: BinanceSpotRuntimeConfig,
-    run_id: str,
-    generated_at: str,
-    previous_status: dict[str, Any] | None,
-) -> dict[str, Any]:
-    return {
-        "contract_version": config.contract_version,
-        "module_id": config.module_id,
-        "provider_id": config.provider_id,
-        "run_id": run_id,
-        "generated_at": generated_at,
-        "state": "running",
-        "freshness_state": freshness_state(previous_status, config.freshness_max_age_seconds, generated_at),
-        "last_event_at": generated_at,
-        "last_success_run_id": status_value(previous_status, "last_success_run_id"),
-        "last_success_at": status_value(previous_status, "last_success_at"),
-        "last_failure_run_id": status_value(previous_status, "last_failure_run_id"),
-        "last_failure_at": status_value(previous_status, "last_failure_at"),
-        "active_run_id": run_id,
-        "last_error_code": status_value(previous_status, "last_error_code"),
-        "retryable": None,
-        "retry_after": None,
-        "message": "run started",
-    }
-
-
-def _build_success_status(
-    config: BinanceSpotRuntimeConfig,
-    run_id: str,
-    generated_at: str,
-    previous_status: dict[str, Any] | None,
-) -> dict[str, Any]:
-    return {
-        "contract_version": config.contract_version,
-        "module_id": config.module_id,
-        "provider_id": config.provider_id,
-        "run_id": run_id,
-        "generated_at": generated_at,
-        "state": "healthy",
-        "freshness_state": "fresh",
-        "last_event_at": generated_at,
-        "last_success_run_id": run_id,
-        "last_success_at": generated_at,
-        "last_failure_run_id": status_value(previous_status, "last_failure_run_id"),
-        "last_failure_at": status_value(previous_status, "last_failure_at"),
-        "active_run_id": None,
-        "last_error_code": None,
-        "retryable": None,
-        "retry_after": None,
-        "message": "run succeeded",
-    }
-
-
-def _build_failure_status(
-    config: BinanceSpotRuntimeConfig,
-    run_id: str,
-    generated_at: str,
-    previous_status: dict[str, Any] | None,
-    error_info: ErrorInfo,
-) -> dict[str, Any]:
-    freshness_state_value = freshness_state(previous_status, config.freshness_max_age_seconds, generated_at)
-    has_previous_success = bool(status_value(previous_status, "last_success_run_id"))
-
-    if error_info.error_class == "non_recoverable" or not has_previous_success:
-        state = "failed"
-    elif freshness_state_value == "stale":
-        state = "stale"
-    else:
-        state = "degraded"
-
-    return {
-        "contract_version": config.contract_version,
-        "module_id": config.module_id,
-        "provider_id": config.provider_id,
-        "run_id": run_id,
-        "generated_at": generated_at,
-        "state": state,
-        "freshness_state": freshness_state_value,
-        "last_event_at": generated_at,
-        "last_success_run_id": status_value(previous_status, "last_success_run_id"),
-        "last_success_at": status_value(previous_status, "last_success_at"),
-        "last_failure_run_id": run_id,
-        "last_failure_at": generated_at,
-        "active_run_id": None,
-        "last_error_code": error_info.error_code,
-        "retryable": error_info.retryable,
-        "retry_after": error_info.retry_after,
-        "message": error_info.message,
     }
 
 
