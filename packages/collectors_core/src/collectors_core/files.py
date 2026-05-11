@@ -17,6 +17,11 @@ def ensure_writable_directory(path: Path) -> None:
         pass
 
 
+def ensure_writable_directories(*paths: Path) -> None:
+    for path in paths:
+        ensure_writable_directory(path)
+
+
 def ensure_file(path: Path) -> Path:
     ensure_directory(path.parent)
     path.touch(exist_ok=True)

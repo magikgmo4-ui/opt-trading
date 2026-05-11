@@ -49,6 +49,18 @@ def safe_previous_status(status_path) -> dict[str, Any] | None:
     return payload
 
 
+def read_status_payload(status_path) -> dict[str, Any] | None:
+    return safe_previous_status(status_path)
+
+
+def status_payload_as_text(status_payload: Mapping[str, Any] | None, empty_message: str) -> str:
+    if status_payload is None:
+        return empty_message
+    import json
+
+    return json.dumps(status_payload, indent=2)
+
+
 def build_running_status(
     *,
     contract_version: str,

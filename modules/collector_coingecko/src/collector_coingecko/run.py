@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import json
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -19,11 +18,13 @@ from collectors_core import (
     build_running_status,
     build_success_status,
     ensure_directory,
-    ensure_writable_directory,
+    ensure_writable_directories,
     module_relative_path,
     now_z,
+    read_status_payload,
     retry_after_absolute,
     safe_previous_status,
+    status_payload_as_text,
 )
 
 from .client import CoinGeckoClient
@@ -229,31 +230,22 @@ def run_collection(module_dir: Path, client: CoinGeckoClient | Any | None = None
 
 def read_status(module_dir: Path) -> dict[str, Any] | None:
     config = load_runtime_config(module_dir)
-    status_payload = load_json(config.paths.status_path)
-    if status_payload is None:
-        return None
-    if not isinstance(status_payload, dict):
-        raise ValidationError("status.json must contain a JSON object")
-    return status_payload
+    return read_status_payload(config.paths.status_path)
 
 
 def status_as_text(module_dir: Path) -> str:
-    status_payload = read_status(module_dir)
-    if status_payload is None:
-        return "No status.json found yet. Run sanity or run first."
-    return json.dumps(status_payload, indent=2)
+    return status_payload_as_text(read_status(module_dir), "No status.json found yet. Run sanity or run first.")
 
 
 def _ensure_runtime_directories(config: CoinGeckoRuntimeConfig) -> None:
-    for path in (
+    ensure_writable_directories(
         config.paths.runtime_dir,
         config.paths.logs_dir,
         config.paths.outputs_dir,
         config.paths.raw_dir,
         config.paths.normalized_dir,
         config.paths.snapshots_dir,
-    ):
-        ensure_writable_directory(path)
+    )
 
 
 def _build_manifest(
