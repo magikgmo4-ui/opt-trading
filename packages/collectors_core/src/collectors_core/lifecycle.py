@@ -228,3 +228,53 @@ def append_error_record(
         payload["retry_after"] = retry_after
 
     append_jsonl(errors_path, payload)
+
+
+def build_manifest_record(
+    *,
+    contract_version: str,
+    module_id: str,
+    provider_id: str | None,
+    run_id: str,
+    generated_at: str,
+    artifacts: Mapping[str, Any],
+    normalized_contract: Mapping[str, Any],
+    compatibility_targets: list[str] | tuple[str, ...],
+    notes: str,
+) -> dict[str, Any]:
+    return {
+        "contract_version": contract_version,
+        "module_id": module_id,
+        "provider_id": provider_id,
+        "run_id": run_id,
+        "generated_at": generated_at,
+        "artifacts": dict(artifacts),
+        "normalized_contract": dict(normalized_contract),
+        "compatibility_targets": list(compatibility_targets),
+        "notes": notes,
+    }
+
+
+def build_latest_record(
+    *,
+    contract_version: str,
+    module_id: str,
+    provider_id: str | None,
+    run_id: str,
+    generated_at: str,
+    schema_version: str | int,
+    data_ref: str,
+    record_count: int,
+    summary: Mapping[str, Any],
+) -> dict[str, Any]:
+    return {
+        "contract_version": contract_version,
+        "module_id": module_id,
+        "provider_id": provider_id,
+        "run_id": run_id,
+        "generated_at": generated_at,
+        "schema_version": schema_version,
+        "data_ref": data_ref,
+        "record_count": record_count,
+        "summary": dict(summary),
+    }
