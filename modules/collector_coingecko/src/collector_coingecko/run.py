@@ -13,6 +13,8 @@ from collectors_core import (
     append_event_record,
     atomic_write_json,
     build_failure_status,
+    build_latest_record,
+    build_manifest_record,
     build_run_id,
     build_running_status,
     build_success_status,
@@ -261,13 +263,13 @@ def _build_manifest(
     raw_capture_path: Path,
     normalized_path: Path,
 ) -> dict[str, Any]:
-    return {
-        "contract_version": config.contract_version,
-        "module_id": config.module_id,
-        "provider_id": config.provider_id,
-        "run_id": run_id,
-        "generated_at": generated_at,
-        "artifacts": {
+    return build_manifest_record(
+        contract_version=config.contract_version,
+        module_id=config.module_id,
+        provider_id=config.provider_id,
+        run_id=run_id,
+        generated_at=generated_at,
+        artifacts={
             "manifest": module_relative_path(config.paths.module_dir, config.paths.manifest_path),
             "status": module_relative_path(config.paths.module_dir, config.paths.status_path),
             "latest": module_relative_path(config.paths.module_dir, config.paths.latest_path),
@@ -277,14 +279,14 @@ def _build_manifest(
             "normalized_output": module_relative_path(config.paths.module_dir, normalized_path),
             "snapshots_dir": module_relative_path(config.paths.module_dir, config.paths.snapshots_dir),
         },
-        "normalized_contract": {
+        normalized_contract={
             "schema_version": config.schema_version,
             "entity_type": "market_snapshot",
             "quote_currency": config.collection_vs_currency,
         },
-        "compatibility_targets": ["opt-trading", "localcms"],
-        "notes": "Pilot CoinGecko oneshot market snapshot",
-    }
+        compatibility_targets=["opt-trading", "localcms"],
+        notes="Pilot CoinGecko oneshot market snapshot",
+    )
 
 
 def _build_latest(
@@ -294,21 +296,21 @@ def _build_latest(
     normalized_path: Path,
     normalized_payload: dict[str, Any],
 ) -> dict[str, Any]:
-    return {
-        "contract_version": config.contract_version,
-        "module_id": config.module_id,
-        "provider_id": config.provider_id,
-        "run_id": run_id,
-        "generated_at": generated_at,
-        "schema_version": config.schema_version,
-        "data_ref": module_relative_path(config.paths.module_dir, normalized_path),
-        "record_count": len(normalized_payload.get("records", [])),
-        "summary": {
+    return build_latest_record(
+        contract_version=config.contract_version,
+        module_id=config.module_id,
+        provider_id=config.provider_id,
+        run_id=run_id,
+        generated_at=generated_at,
+        schema_version=config.schema_version,
+        data_ref=module_relative_path(config.paths.module_dir, normalized_path),
+        record_count=len(normalized_payload.get("records", [])),
+        summary={
             "entity_type": normalized_payload.get("entity_type"),
             "quote_currency": normalized_payload.get("quote_currency"),
             "coin_ids": list(config.collection_coin_ids),
         },
-    }
+    )
 
 
 def _classify_error(exc: Exception) -> ErrorInfo:
