@@ -18,9 +18,9 @@ Transformer les audits Phase 6 en decisions controlees par gap, sans relance run
 
 | Gap | Options | Decision | Gate | Evidence | Status |
 |:----|:--------|:---------|:-----|:---------|:-------|
-| identity | A / B / C | PENDING | PENDING | 01_IDENTITY_AUDIT.md | REVIEW_REQUIRED |
-| sandbox | A / B / C | PENDING | PENDING | 02_SANDBOX_AUDIT.md | REVIEW_REQUIRED |
-| SSH alias | A / B / C | PENDING | PENDING | 03_SSH_ALIAS_AUDIT.md | REVIEW_REQUIRED |
+| identity | A — cle SSH pour `openclaw` / B — wrapper `sudo -> ghost -> ssh` / C — aligner token gateway | SELECTED: A | DOC_GATE_REQUIRED | 01_IDENTITY_AUDIT.md | REVIEW_REQUIRED |
+| sandbox | A — assouplir sandbox / B — config OpenClaw / C — wrapper `openclaw -> sudo -> ghost -> ssh` | SELECTED: B | DOC_GATE_REQUIRED | 02_SANDBOX_AUDIT.md | REVIEW_REQUIRED |
+| SSH alias | A — ajouter alias canonique / B — IP directe / C — recopier depuis docs | SELECTED: A | DOC_GATE_REQUIRED | 03_SSH_ALIAS_AUDIT.md | REVIEW_REQUIRED |
 
 ## Criteres de validation
 
