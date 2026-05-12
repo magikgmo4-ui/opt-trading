@@ -2,12 +2,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
 
 from collectors_core import (
-    ConfigurationError,
-    HttpRequestError,
-    ValidationError,
     append_error_record,
     append_event_record,
     atomic_write_json,
@@ -17,13 +13,13 @@ from collectors_core import (
     build_run_id,
     build_running_status,
     build_success_status,
+    classify_collector_error,
     ensure_directory,
     ensure_file,
     ensure_writable_directories,
     module_relative_path,
     now_z,
     read_status_payload,
-    retry_after_absolute,
     safe_previous_status,
     status_payload_as_text,
 )
@@ -326,20 +322,5 @@ def _build_latest(
 
 
 def _classify_error(exc: Exception) -> ErrorInfo:
-    if isinstance(exc, ConfigurationError):
-        return ErrorInfo("configuration_error", "non_recoverable", False, str(exc), "configuration")
-    if isinstance(exc, ValidationError):
-        return ErrorInfo("validation_error", "non_recoverable", False, str(exc), "validation")
-    if isinstance(exc, HttpRequestError):
-        http_error: Any = exc
-        status_code = http_error.status_code
-        retry_after = retry_after_absolute(http_error.headers)
-        if status_code in {408, 418, 429, 500, 502, 503, 504} or status_code is None:
-            error_class = "recoverable"
-            retryable = True
-        else:
-            error_class = "non_recoverable"
-            retryable = False
-        code_suffix = "unknown" if status_code is None else str(status_code)
-        return ErrorInfo(f"http_{code_suffix}", error_class, retryable, str(http_error), "http", status_code, retry_after)
-    return ErrorInfo("unexpected_error", "non_recoverable", False, str(exc), "runtime")
+    info = classify_collector_error(exc, extra_recoverable_codes={418})
+    return ErrorInfo(info["error_code"], info["error_class"], info["retryable"], info["message"], info["stage"], info["http_status"], info["retry_after"])

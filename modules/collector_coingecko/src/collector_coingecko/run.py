@@ -5,9 +5,6 @@ from pathlib import Path
 from typing import Any
 
 from collectors_core import (
-    ConfigurationError,
-    HttpRequestError,
-    ValidationError,
     append_error_record,
     append_event_record,
     atomic_write_json,
@@ -17,12 +14,12 @@ from collectors_core import (
     build_run_id,
     build_running_status,
     build_success_status,
+    classify_collector_error,
     ensure_directory,
     ensure_writable_directories,
     module_relative_path,
     now_z,
     read_status_payload,
-    retry_after_absolute,
     safe_previous_status,
     status_payload_as_text,
 )
@@ -306,45 +303,13 @@ def _build_latest(
 
 
 def _classify_error(exc: Exception) -> ErrorInfo:
-    if isinstance(exc, ConfigurationError):
-        return ErrorInfo(
-            error_code="configuration_error",
-            error_class="non_recoverable",
-            retryable=False,
-            message=str(exc),
-            stage="configuration",
-        )
-    if isinstance(exc, ValidationError):
-        return ErrorInfo(
-            error_code="validation_error",
-            error_class="non_recoverable",
-            retryable=False,
-            message=str(exc),
-            stage="validation",
-        )
-    if isinstance(exc, HttpRequestError):
-        status_code = exc.status_code
-        retry_after = retry_after_absolute(exc.headers)
-        if status_code in {408, 429, 500, 502, 503, 504} or status_code is None:
-            error_class = "recoverable"
-            retryable = True
-        else:
-            error_class = "non_recoverable"
-            retryable = False
-        code_suffix = "unknown" if status_code is None else str(status_code)
-        return ErrorInfo(
-            error_code=f"http_{code_suffix}",
-            error_class=error_class,
-            retryable=retryable,
-            message=str(exc),
-            stage="http",
-            http_status=status_code,
-            retry_after=retry_after,
-        )
+    info = classify_collector_error(exc)
     return ErrorInfo(
-        error_code="unexpected_error",
-        error_class="non_recoverable",
-        retryable=False,
-        message=str(exc),
-        stage="runtime",
+        error_code=info["error_code"],
+        error_class=info["error_class"],
+        retryable=info["retryable"],
+        message=info["message"],
+        stage=info["stage"],
+        http_status=info["http_status"],
+        retry_after=info["retry_after"],
     )
