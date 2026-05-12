@@ -55,3 +55,18 @@ Les launchers canoniques PERF preferent maintenant :
 3. fallback legacy `perf/perf.db`
 
 Le fallback legacy reste automatique.
+
+## Legacy DB retirement
+
+Une fois la DB canonique en place et validée, le script `perf_db_relocate.sh`
+permet de retirer le legacy en douceur :
+
+```bash
+bash modules/perf/scripts/perf_db_relocate.sh retire
+bash modules/perf/scripts/perf_db_relocate.sh unretire
+```
+
+`retire` renomme `perf/perf.db` en `perf/perf.db.retired_*` (rollback possible).
+`unretire` restaure le plus récent `retired_*` vers le chemin legacy.
+
+Condition obligatoire avant `retire` : la DB canonique doit être présente.
