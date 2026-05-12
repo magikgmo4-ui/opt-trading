@@ -18,6 +18,7 @@ from collectors_core import (
     build_running_status,
     build_success_status,
     ensure_directory,
+    ensure_file,
     ensure_writable_directories,
     module_relative_path,
     now_z,
@@ -62,7 +63,7 @@ def run_sanity(module_dir: Path, client: BinanceSpotClient | Any | None = None) 
 def run_collection(module_dir: Path, client: BinanceSpotClient | Any | None = None) -> dict[str, Any]:
     config = load_runtime_config(module_dir)
     _ensure_runtime_directories(config)
-    _ensure_errors_artifact(config)
+    ensure_file(config.paths.errors_path)
 
     run_id = build_run_id()
     run_log_path = config.paths.logs_dir / f"run_{run_id}.jsonl"
@@ -264,10 +265,6 @@ def _ensure_runtime_directories(config: BinanceSpotRuntimeConfig) -> None:
         config.paths.snapshots_dir,
     )
 
-
-def _ensure_errors_artifact(config: BinanceSpotRuntimeConfig) -> None:
-    ensure_directory(config.paths.errors_path.parent)
-    config.paths.errors_path.touch(exist_ok=True)
 
 
 def _build_manifest(
