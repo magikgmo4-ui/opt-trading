@@ -1,12 +1,13 @@
 from .config import load_config_layers, module_env_prefix
 from .errors import CollectorsCoreError, ConfigurationError, HttpRequestError, ValidationError
 from .files import append_jsonl, atomic_write_json, ensure_directory, ensure_file, ensure_writable_directories, ensure_writable_directory, load_json, module_relative_path
-from .lifecycle import append_error_record, append_event_record, build_failure_status, build_latest_record, build_manifest_record, build_running_status, build_success_status, classify_collector_error, freshness_state, read_status_payload, retry_after_absolute, safe_previous_status, status_payload_as_text, status_value
+from .lifecycle import ErrorInfo, append_error_record, append_event_record, build_failure_status, build_latest_record, build_manifest_record, build_running_status, build_success_status, classify_collector_error, freshness_state, read_status_payload, retry_after_absolute, safe_previous_status, status_payload_as_text, status_value
 from .timeutil import build_run_id, now_z, parse_z
 
 __all__ = [
     "CollectorsCoreError",
     "ConfigurationError",
+    "ErrorInfo",
     "HttpRequestError",
     "ValidationError",
     "append_jsonl",

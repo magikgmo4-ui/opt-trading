@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from dataclasses import dataclass
 from datetime import timedelta
 from typing import Any, Mapping
 from uuid import uuid4
@@ -7,6 +8,17 @@ from uuid import uuid4
 from .files import append_jsonl
 from .errors import ConfigurationError, HttpRequestError, ValidationError
 from .timeutil import now_z, parse_z
+
+
+@dataclass(frozen=True)
+class ErrorInfo:
+    error_code: str
+    error_class: str
+    retryable: bool
+    message: str
+    stage: str
+    http_status: int | None = None
+    retry_after: str | None = None
 
 
 def status_value(status: Mapping[str, Any] | None, key: str) -> Any:
@@ -298,27 +310,27 @@ _HTTP_RECOVERABLE_BASE: set[int] = {408, 429, 500, 502, 503, 504}
 def classify_collector_error(
     exc: Exception,
     extra_recoverable_codes: set[int] | frozenset[int] | None = None,
-) -> dict[str, Any]:
+) -> ErrorInfo:
     if isinstance(exc, ConfigurationError):
-        return {
-            "error_code": "configuration_error",
-            "error_class": "non_recoverable",
-            "retryable": False,
-            "message": str(exc),
-            "stage": "configuration",
-            "http_status": None,
-            "retry_after": None,
-        }
+        return ErrorInfo(
+            error_code="configuration_error",
+            error_class="non_recoverable",
+            retryable=False,
+            message=str(exc),
+            stage="configuration",
+            http_status=None,
+            retry_after=None,
+        )
     if isinstance(exc, ValidationError):
-        return {
-            "error_code": "validation_error",
-            "error_class": "non_recoverable",
-            "retryable": False,
-            "message": str(exc),
-            "stage": "validation",
-            "http_status": None,
-            "retry_after": None,
-        }
+        return ErrorInfo(
+            error_code="validation_error",
+            error_class="non_recoverable",
+            retryable=False,
+            message=str(exc),
+            stage="validation",
+            http_status=None,
+            retry_after=None,
+        )
     if isinstance(exc, HttpRequestError):
         http_err: Any = exc
         status_code = http_err.status_code
@@ -333,21 +345,21 @@ def classify_collector_error(
             error_class = "non_recoverable"
             retryable = False
         code_suffix = "unknown" if status_code is None else str(status_code)
-        return {
-            "error_code": f"http_{code_suffix}",
-            "error_class": error_class,
-            "retryable": retryable,
-            "message": str(http_err),
-            "stage": "http",
-            "http_status": status_code,
-            "retry_after": retry_after,
-        }
-    return {
-        "error_code": "unexpected_error",
-        "error_class": "non_recoverable",
-        "retryable": False,
-        "message": str(exc),
-        "stage": "runtime",
-        "http_status": None,
-        "retry_after": None,
-    }
+        return ErrorInfo(
+            error_code=f"http_{code_suffix}",
+            error_class=error_class,
+            retryable=retryable,
+            message=str(http_err),
+            stage="http",
+            http_status=status_code,
+            retry_after=retry_after,
+        )
+    return ErrorInfo(
+        error_code="unexpected_error",
+        error_class="non_recoverable",
+        retryable=False,
+        message=str(exc),
+        stage="runtime",
+        http_status=None,
+        retry_after=None,
+    )
