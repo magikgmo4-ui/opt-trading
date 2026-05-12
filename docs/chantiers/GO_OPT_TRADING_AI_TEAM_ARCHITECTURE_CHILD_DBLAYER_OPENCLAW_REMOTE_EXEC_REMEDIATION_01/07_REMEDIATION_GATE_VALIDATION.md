@@ -119,7 +119,7 @@ Passer immediatement la gate a `BLOCKED` si :
 | Gate | Final status | Reason | Next action |
 |:-----|:-------------|:-------|:------------|
 | identity doc gate | VALIDATED_PROVISIONING_READY | `/home/openclaw/.ssh` cree (`drwx------`, owner `openclaw:openclaw`), config vide (`-rw-------`) | Prochaine etape : cle SSH |
-| sandbox doc gate | BLOCKED | `find`/`grep` bruités, aucune surface config OpenClaw sandbox specifique localisee (`modules/openclaw_config_modulaire/` candidat a explorer) | Audit cible |
+| sandbox doc gate | VALIDATED_CONFIG_SURFACE_FOUND | `modules/openclaw_config_modulaire/app/agents.json5` : `sandbox {enforce, scope, allow, deny}` ; config runtime `~/.openclaw/openclaw.json` | Analyser regles allow/deny |
 | SSH alias doc gate | VALIDATED_NON_CONNECTIVE | `ssh -G fantome` OK : host `192.168.0.191`, user `fantome`, identity `id_ed25519_fantome` | Gate levee |
 
 ## Gate validation update — local proof pass
@@ -129,7 +129,7 @@ Passer immediatement la gate a `BLOCKED` si :
 | Gate | Evidence | Final status | Reason | Next action |
 |:-----|:---------|:-------------|:-------|:------------|
 | identity doc gate | `/home/openclaw/.ssh` cree (`drwx------`, owner `openclaw:openclaw`, config `-rw-------`) | VALIDATED_PROVISIONING_READY | provisionnement `.ssh` realise | prochaine etape : association cle SSH |
-| sandbox doc gate | `find` / `grep` bruités, aucune surface config OpenClaw sandbox specifique localisee (`modules/openclaw_config_modulaire/` candidat) | BLOCKED | configuration sandbox non identifiee | audit cible config OpenClaw |
+| sandbox doc gate | `modules/openclaw_config_modulaire/app/agents.json5` trouve : `sandbox { enforce: true, scope: "agent", allow/deny }` ; config runtime `~/.openclaw/openclaw.json` | VALIDATED_CONFIG_SURFACE_FOUND | config sandbox localisee sans assouplissement global | prochaine etape : analyser regles allow/deny |
 | SSH alias doc gate | `ssh -G fantome` OK : host `192.168.0.191`, user `fantome`, identity `id_ed25519_fantome` | VALIDATED_NON_CONNECTIVE | alias confirme sans connexion | gate levee |
 
 ### Runtime decision
@@ -141,9 +141,9 @@ RUNTIME_REMAINS_BLOCKED
 Raison :
 
 - identity gate = VALIDATED_PROVISIONING_READY ;
-- sandbox gate = BLOCKED ;
+- sandbox gate = VALIDATED_CONFIG_SURFACE_FOUND ;
 - SSH alias gate = VALIDATED_NON_CONNECTIVE ;
-- aucune execution remote autorisee tant que les blockers ne sont pas leves.
+- aucune execution remote autorisee tant que les gates ne sont pas toutes VALIDATED.
 
 ## NEXT_GO
 
