@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import json
 from copy import deepcopy
+from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
 from modules.desk_pro.signal_event_adapter import (
@@ -151,3 +154,71 @@ def run_desk_pro_dry_run(
         visual_context=visual_context,
         desk_snapshot=desk_snapshot,
     )
+
+
+def build_desk_pro_dry_run_report(synthesis: dict) -> str:
+    """Build a human-readable markdown report from the dry-run synthesis."""
+    ev = synthesis.get("signal_event") or {}
+    lines = [
+        f"# Desk Pro Dry-Run Report",
+        f"",
+        f"**Status:** {synthesis.get('status', 'UNKNOWN')}",
+        f"**Timestamp:** {ev.get('timestamp', 'N/A')}",
+        f"**Engine:** {ev.get('engine', 'N/A')}",
+        f"**Symbol:** {ev.get('symbol', 'N/A')}",
+        f"**Timeframe:** {ev.get('timeframe', 'N/A')}",
+        f"**Direction:** {ev.get('direction', 'N/A')}",
+        f"**Signal Event Present:** {synthesis['summary']['signal_event_present']}",
+        f"**Visual Context Present:** {synthesis['summary']['visual_context_present']}",
+        f"**Desk Snapshot Present:** {synthesis['summary']['desk_snapshot_present']}",
+        f"",
+        f"## Safety Flags",
+        f"",
+        f"- `no_trade`: {synthesis['no_trade']}",
+        f"- `no_telegram`: {synthesis['no_telegram']}",
+        f"- `no_webhook`: {synthesis['no_webhook']}",
+        f"- `no_systemd`: {synthesis['no_systemd']}",
+    ]
+    if synthesis.get("errors"):
+        lines.append(f"")
+        lines.append(f"## Errors")
+        for err in synthesis["errors"]:
+            lines.append(f"- {err}")
+    if synthesis.get("warnings"):
+        lines.append(f"")
+        lines.append(f"## Warnings")
+        for warn in synthesis["warnings"]:
+            lines.append(f"- {warn}")
+    return "\n".join(lines) + "\n"
+
+
+def write_desk_pro_dry_run_artifacts(synthesis: dict, output_dir: Path | str) -> dict:
+    """Write dry-run artifacts to the output directory.
+
+    Returns:
+        dict with written file paths.
+    """
+    out = Path(output_dir)
+    out.mkdir(parents=True, exist_ok=True)
+
+    ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    run_id = synthesis["signal_event"].get("payload_hash", ts)
+
+    latest_json = out / "latest.json"
+    latest_md = out / "latest.md"
+    history_jsonl = out / "history.jsonl"
+
+    latest_json.write_text(json.dumps(synthesis, indent=2, default=str), encoding="utf-8")
+    latest_md.write_text(build_desk_pro_dry_run_report(synthesis), encoding="utf-8")
+
+    with open(history_jsonl, "a", encoding="utf-8") as fh:
+        fh.write(json.dumps(synthesis, default=str) + "\n")
+
+    return {
+        "written_files": {
+            "latest_json": str(latest_json),
+            "latest_md": str(latest_md),
+            "history_jsonl": str(history_jsonl),
+        },
+        "run_id": run_id,
+    }
