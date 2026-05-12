@@ -48,6 +48,7 @@ envs/
 *.zip
 
 # runtime data (generated)
+/runtime/
 /data/
 **/data/
 !modules/perf/data/
