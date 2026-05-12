@@ -1,24 +1,27 @@
 # health
 
-Checks locaux en lecture seule autour du flux webhook, de l'etat router et de la configuration risque.
+Unified observability module for automation surface health checks.
 
-## Role
-- verifier rapidement l'etat minimal des fichiers de runtime
-- controler la coherence `router_state` / registry engines / `risk_config`
+## Commands
 
-## Contenu
-- `checker.py` : checks Python locaux, sans appel reseau
+```bash
+bash modules/health/scripts/health-check          # text output
+bash modules/health/scripts/health-check --json   # JSON machine-readable
+bash modules/health/scripts/health-check perf bot_vision  # filter surfaces
+```
 
-## Checks observes
-- presence et validite JSON de `state/router_state.json`
-- presence d'un `active_engine`
-- presence du moteur dans `modules.engines.registry`
-- presence et lecture de `state/risk_config.json`
+## Status
 
-## Statut
-- actif
-- surface de diagnostic locale mince
+```text
+healthy  = surface is responding correctly
+degraded = surface responds but with issues
+down     = surface is not reachable
+unknown  = could not determine status
+```
 
-## Notes de consolidation
-- garder cette surface separee du monitoring applicatif
-- `health` n'est pas un dashboard ni une couche perf; c'est un check local basique
+## Phase 1 scope
+
+- health check contract JSON
+- registry of 10 automation surfaces
+- cmd-health CLI with text and JSON output
+- no alerting, no dashboard runtime, no circuit breakers

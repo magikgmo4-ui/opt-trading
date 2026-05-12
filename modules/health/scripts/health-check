@@ -1,0 +1,145 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+MOD_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+REPO_ROOT="$(cd "$MOD_DIR/../.." && pwd)"
+
+# ---------------------------------------------------------------------------
+# health-check -- unified automation health check
+#
+# Usage: health-check [--json] [SURFACE...]
+#
+# Checks each registered automation surface using its native sanity/status
+# command and produces a unified report.
+# ---------------------------------------------------------------------------
+
+now_z() {
+  date -u +"%Y-%m-%dT%H:%M:%SZ"
+}
+
+CHECKED_AT="$(now_z)"
+
+# --- registry ---------------------------------------------------------------
+# Each entry:  surface_id  check_cmd  args...  (cmd must exit 0 on healthy)
+# check_cmd is relative to REPO_ROOT unless absolute.
+REGISTRY=(
+  "desk_pro|test -f modules/desk_pro_runner/app/desk_pro_runner.py||"
+  "bot_vision|bash modules/vision_bot/scripts/vision_runtime_sanity.sh||"
+  "tradingview|bash modules/webhook/scripts/sanity_check.sh||"
+  "openclaw|test -d modules/openclaw||"
+  "deepseek|bash modules/deepseek_hub/scripts/sanity_check_deepseek_hub.sh||"
+  "perf|curl -fsS http://127.0.0.1:8010/perf/summary||"
+  "collectors|test -d modules/derivatives_collector||"
+  "repo_kg|python3 -c \"import json; json.load(open('graph_bundle.json'))\"||"
+  "bitget_bridge|test -f modules/simex_bitget_bridge/app/simex_bitget_bridge.py||"
+  "ops_menu|test -f modules/ops_menu_hub/scripts/menu.sh||"
+)
+
+# --- helpers ----------------------------------------------------------------
+
+run_check() {
+  local surface_id="$1"
+  local check_cmd="$2"
+  local args="$3"
+  local detail=""
+
+  cd "$REPO_ROOT" || return 1
+
+  local start_ts rc
+  start_ts=$(date +%s%3N 2>/dev/null || printf '0')
+  set +e
+  eval "$check_cmd" ${args:+"$args"} >/dev/null 2>&1
+  rc=$?
+  set -e
+  local end_ts
+  end_ts=$(date +%s%3N 2>/dev/null || printf '0')
+  local elapsed_ms=$((end_ts - start_ts))
+
+  local status detail
+  if [[ $rc -eq 0 ]]; then
+    status="healthy"
+    detail="check OK (${elapsed_ms}ms)"
+  elif [[ $rc -eq 124 ]]; then
+    status="degraded"
+    detail="check timeout"
+  else
+    status="down"
+    detail="check exit=$rc (${elapsed_ms}ms)"
+  fi
+
+  printf '{"surface":"%s","checked_at":"%s","status":"%s","details":"%s","errors":[%s]}' \
+    "$surface_id" "$CHECKED_AT" "$status" "$detail" \
+    "$([[ $rc -ne 0 ]] && printf '"%s"' "exit_code=$rc" || true)"
+}
+
+# --- main -------------------------------------------------------------------
+
+output_json() {
+  local first=1
+  printf '['
+  for entry in "${REGISTRY[@]}"; do
+    local surface_id check_cmd args
+    surface_id="${entry%%|*}"
+    check_cmd="${entry#*|}"
+    check_cmd="${check_cmd%%|*}"
+    args="${entry##*|}"
+
+    [[ $first -eq 1 ]] || printf ','
+    first=0
+    run_check "$surface_id" "$check_cmd" "$args"
+  done
+  printf ']\n'
+}
+
+output_text() {
+  printf '=== AUTOMATION HEALTH %s ===\n' "$CHECKED_AT"
+  printf '\n'
+  for entry in "${REGISTRY[@]}"; do
+    local surface_id check_cmd args
+    surface_id="${entry%%|*}"
+    check_cmd="${entry#*|}"
+    check_cmd="${check_cmd%%|*}"
+    args="${entry##*|}"
+
+    local result status
+    result="$(run_check "$surface_id" "$check_cmd" "$args")"
+    status="$(printf '%s' "$result" | python3 -c "import sys,json; print(json.load(sys.stdin)['status'])" 2>/dev/null || echo "unknown")"
+
+    local icon
+    case "$status" in
+      healthy)  icon="🟢" ;;
+      degraded) icon="🟡" ;;
+      down)     icon="🔴" ;;
+      *)        icon="⚪" ;;
+    esac
+    printf '%-15s %s %s\n' "$surface_id" "$icon" "$status"
+  done
+}
+
+JSON_MODE=0
+FILTER_SURFACES=()
+for arg in "$@"; do
+  case "$arg" in
+    --json) JSON_MODE=1 ;;
+    *) FILTER_SURFACES+=("$arg") ;;
+  esac
+done
+
+if [[ ${#FILTER_SURFACES[@]} -gt 0 ]]; then
+  # filter registry to only requested surfaces
+  local filtered=()
+  for entry in "${REGISTRY[@]}"; do
+    local sid="${entry%%|*}"
+    for fs in "${FILTER_SURFACES[@]}"; do
+      [[ "$sid" == "$fs" ]] && filtered+=("$entry")
+    done
+  done
+  REGISTRY=("${filtered[@]}")
+fi
+
+if [[ $JSON_MODE -eq 1 ]]; then
+  output_json
+else
+  output_text
+fi
