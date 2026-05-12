@@ -118,9 +118,9 @@ Passer immediatement la gate a `BLOCKED` si :
 
 | Gate | Final status | Reason | Next action |
 |:-----|:-------------|:-------|:------------|
-| identity doc gate | BLOCKED | user `openclaw` existe (`uid=1001`, home `/home/openclaw`), mais `/home/openclaw/.ssh` absent | Provisionner `.ssh` + cle |
-| sandbox doc gate | BLOCKED | `find`/`grep` bruités, aucune surface config OpenClaw sandbox localisée | Audit config OpenClaw ciblé |
-| SSH alias doc gate | VALIDATED_CONFIG_PRESENT | `Host fantome` deja present dans `~/.ssh/config` (`192.168.0.191`, `User fantome`) | Confirmer par `ssh -G fantome` sans connexion |
+| identity doc gate | VALIDATED_PROVISIONING_READY | `/home/openclaw/.ssh` cree (`drwx------`, owner `openclaw:openclaw`), config vide (`-rw-------`) | Prochaine etape : cle SSH |
+| sandbox doc gate | BLOCKED | `find`/`grep` bruités, aucune surface config OpenClaw sandbox specifique localisee (`modules/openclaw_config_modulaire/` candidat a explorer) | Audit cible |
+| SSH alias doc gate | VALIDATED_NON_CONNECTIVE | `ssh -G fantome` OK : host `192.168.0.191`, user `fantome`, identity `id_ed25519_fantome` | Gate levee |
 
 ## Gate validation update — local proof pass
 
@@ -128,9 +128,9 @@ Passer immediatement la gate a `BLOCKED` si :
 
 | Gate | Evidence | Final status | Reason | Next action |
 |:-----|:---------|:-------------|:-------|:------------|
-| identity doc gate | user `openclaw` existe (`uid=1001`, home `/home/openclaw`), mais `/home/openclaw/.ssh` est absent | BLOCKED | provisionnement SSH `openclaw` requis avant toute execution | cadrer creation `.ssh` + association cle sans secret repo |
-| sandbox doc gate | `find` / `grep` bruités, aucune surface config OpenClaw sandbox clairement localisée | BLOCKED | configuration sandbox non identifiee | audit cible config OpenClaw |
-| SSH alias doc gate | `~/.ssh/config` contient deja `Host fantome`, `HostName 192.168.0.191`, `User fantome` | VALIDATED_CONFIG_PRESENT | gap alias absent resolu cote config existante | confirmer par resolution locale `ssh -G fantome` sans connexion |
+| identity doc gate | `/home/openclaw/.ssh` cree (`drwx------`, owner `openclaw:openclaw`, config `-rw-------`) | VALIDATED_PROVISIONING_READY | provisionnement `.ssh` realise | prochaine etape : association cle SSH |
+| sandbox doc gate | `find` / `grep` bruités, aucune surface config OpenClaw sandbox specifique localisee (`modules/openclaw_config_modulaire/` candidat) | BLOCKED | configuration sandbox non identifiee | audit cible config OpenClaw |
+| SSH alias doc gate | `ssh -G fantome` OK : host `192.168.0.191`, user `fantome`, identity `id_ed25519_fantome` | VALIDATED_NON_CONNECTIVE | alias confirme sans connexion | gate levee |
 
 ### Runtime decision
 
@@ -140,9 +140,9 @@ RUNTIME_REMAINS_BLOCKED
 
 Raison :
 
-- identity gate = BLOCKED ;
+- identity gate = VALIDATED_PROVISIONING_READY ;
 - sandbox gate = BLOCKED ;
-- SSH alias gate = VALIDATED_CONFIG_PRESENT seulement ;
+- SSH alias gate = VALIDATED_NON_CONNECTIVE ;
 - aucune execution remote autorisee tant que les blockers ne sont pas leves.
 
 ## NEXT_GO
