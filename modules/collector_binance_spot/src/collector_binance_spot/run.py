@@ -205,7 +205,7 @@ def run_collection(module_dir: Path, client: BinanceSpotClient | Any | None = No
             "status_artifact": module_relative_path(config.paths.module_dir, config.paths.status_path),
         }
     except Exception as exc:
-        error_info = _classify_error(exc)
+        error_info = classify_collector_error(exc, extra_recoverable_codes={418})
         error_at = now_z()
         append_error_record(
             errors_path=config.paths.errors_path,
@@ -318,7 +318,3 @@ def _build_latest(
             "pair_symbols": list(config.collection_symbols),
         },
     )
-
-
-def _classify_error(exc: Exception) -> ErrorInfo:
-    return classify_collector_error(exc, extra_recoverable_codes={418})
