@@ -47,6 +47,9 @@ def sample_tp_triad(rng: random.Random) -> tuple[float, float, float]:
 def generate_one_config(rng: random.Random) -> dict[str, Any]:
     tp1, tp2, runner = sample_tp_triad(rng)
 
+    q_add_raw = _log_uniform(rng, 0.00001, 500.0)
+    q_add_native = max(0.0001, round(q_add_raw / 0.0001) * 0.0001)
+
     return {
         "z_dca": round(_log_uniform(rng, 0.0001, 0.20), 6),
         "z_short": round(_log_uniform(rng, 0.0001, 0.30), 6),
@@ -54,7 +57,7 @@ def generate_one_config(rng: random.Random) -> dict[str, Any]:
         "g_down": round(_log_uniform(rng, 0.0001, 0.30), 6),
         "r_transfer": round(rng.uniform(0.0, 5.0), 4),
         "y_dca_usdt": round(_log_uniform(rng, 1.0, 100000.0), 2),
-        "q_add_native": round(_log_uniform(rng, 0.00001, 500.0), 8),
+        "q_add_native": q_add_native,
         "leverage_target": round(_log_uniform(rng, 0.1, 200.0), 2),
         "tp1": tp1,
         "tp2": tp2,

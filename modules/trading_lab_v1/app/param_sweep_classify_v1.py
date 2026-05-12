@@ -79,27 +79,24 @@ def _classify_primary(run: dict[str, Any],
 
 
 def _is_exchange_impossible(run: dict[str, Any], reasons: list[str]) -> bool:
-    if run.get("exchange_impossible_event_count", 0) > 0:
-        reasons.append("ERR_QTY_OFF_GRID")
-        return True
-
     config = run.get("config", {})
+
     q_add = config.get("q_add_native", 0.001)
-    if q_add < 0.0001:
+    min_trade = 0.0001
+    step = 0.0001
+
+    if q_add < min_trade - 1e-12:
         reasons.append("ERR_QTY_BELOW_MIN")
         return True
-    if q_add % 0.0001 != 0:
+
+    remainder = round(q_add / step, 6) % 1.0
+    if remainder > 0.00001 and abs(remainder - 1.0) > 0.00001:
         reasons.append("ERR_QTY_OFF_GRID")
         return True
 
     lev = config.get("leverage_target", 2)
     if lev > 125 or lev < 1:
         reasons.append("ERR_LEVERAGE_ABOVE_MAX" if lev > 125 else "ERR_LEVERAGE_BELOW_MIN")
-        return True
-
-    marg = config.get("marginCoin", "BTC")
-    if marg != "BTC":
-        reasons.append("ERR_UNSUPPORTED_MARGIN_MODE")
         return True
 
     return False

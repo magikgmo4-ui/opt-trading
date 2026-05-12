@@ -593,13 +593,15 @@ def _sha(obj: Any) -> str:
     return hashlib.sha256(raw.encode()).hexdigest()[:16]
 
 
-def append_jsonl(path: Path, payload: dict[str, Any]) -> None:
+def append_jsonl(path, payload: dict[str, Any]) -> None:
+    path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "a", encoding="utf-8") as fh:
         fh.write(json.dumps(payload, ensure_ascii=False, default=str) + "\n")
 
 
-def load_jsonl(path: Path) -> list[dict[str, Any]]:
+def load_jsonl(path) -> list[dict[str, Any]]:
+    path = Path(path)
     if not path.exists():
         return []
     items: list[dict[str, Any]] = []
