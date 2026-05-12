@@ -1,9 +1,10 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 
 from collectors_core import (
+    ErrorInfo,
     append_error_record,
     append_event_record,
     atomic_write_json,
@@ -27,17 +28,6 @@ from collectors_core import (
 from .client import BinanceSpotClient
 from .config import BinanceSpotRuntimeConfig, load_runtime_config, validate_runtime_requirements
 from .normalize import normalize_pair_market_snapshot
-
-
-@dataclass(frozen=True)
-class ErrorInfo:
-    error_code: str
-    error_class: str
-    retryable: bool
-    message: str
-    stage: str
-    http_status: int | None = None
-    retry_after: str | None = None
 
 
 def run_sanity(module_dir: Path, client: BinanceSpotClient | Any | None = None) -> dict[str, Any]:
@@ -331,5 +321,4 @@ def _build_latest(
 
 
 def _classify_error(exc: Exception) -> ErrorInfo:
-    info = classify_collector_error(exc, extra_recoverable_codes={418})
-    return ErrorInfo(info["error_code"], info["error_class"], info["retryable"], info["message"], info["stage"], info["http_status"], info["retry_after"])
+    return classify_collector_error(exc, extra_recoverable_codes={418})

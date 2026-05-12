@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 from collectors_core import (
+    ErrorInfo,
     append_error_record,
     append_event_record,
     atomic_write_json,
@@ -27,17 +27,6 @@ from collectors_core import (
 from .client import CoinGeckoClient
 from .config import CoinGeckoRuntimeConfig, load_runtime_config, validate_runtime_requirements
 from .normalize import normalize_market_snapshot
-
-
-@dataclass(frozen=True)
-class ErrorInfo:
-    error_code: str
-    error_class: str
-    retryable: bool
-    message: str
-    stage: str
-    http_status: int | None = None
-    retry_after: str | None = None
 
 
 def run_sanity(module_dir: Path, client: CoinGeckoClient | Any | None = None) -> dict[str, Any]:
@@ -296,13 +285,4 @@ def _build_latest(
 
 
 def _classify_error(exc: Exception) -> ErrorInfo:
-    info = classify_collector_error(exc)
-    return ErrorInfo(
-        error_code=info["error_code"],
-        error_class=info["error_class"],
-        retryable=info["retryable"],
-        message=info["message"],
-        stage=info["stage"],
-        http_status=info["http_status"],
-        retry_after=info["retry_after"],
-    )
+    return classify_collector_error(exc)
