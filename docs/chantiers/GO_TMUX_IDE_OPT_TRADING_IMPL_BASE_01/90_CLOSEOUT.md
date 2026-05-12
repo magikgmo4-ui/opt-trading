@@ -42,3 +42,20 @@ Reserve obligatoire:
 
 - verifier la machine cible avant execution
 - ne pas casser `openclaw-gateway`
+
+## Mise a jour apres validation reelle
+
+Le probe reel du `2026-05-11` confirme la topologie, mais la gate d'implementation reste
+partiellement fermee:
+
+- SSH vers `admin-trading`: PASS
+- repo `/opt/trading`: PASS
+- prerequis `tmux` / `node` / `npm`: PASS
+- `tmux-ide`: FAIL (absent)
+- `ide.yml`: FAIL (absent)
+- base Git machine cible pour ce GO: FAIL
+
+Verdict courant du GO:
+
+- topology check: PASS
+- real validation preflight: PARTIAL_PASS
