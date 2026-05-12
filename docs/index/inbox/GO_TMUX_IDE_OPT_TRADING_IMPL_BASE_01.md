@@ -25,3 +25,11 @@ Decision posee:
 Reserve:
 - verifier la machine cible avant execution
 - ne pas casser `openclaw-gateway`
+
+Validation reelle `2026-05-11`:
+- SSH `cursor-ai -> admin-trading`: PASS
+- repo `/opt/trading`: PASS
+- prerequis `tmux` / `node` / `npm`: PASS
+- `tmux-ide`: absent
+- `ide.yml`: absent
+- base Git machine cible pour ce GO: a remettre en canon avant implementation
