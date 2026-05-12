@@ -9,6 +9,9 @@ bash modules/health/scripts/health-check              # text output
 bash modules/health/scripts/health-check --json       # JSON machine-readable
 bash modules/health/scripts/health-check perf         # filter surfaces
 bash modules/health/scripts/health-alert              # alerting (Phase 2)
+bash modules/health/scripts/health-dashboard          # dashboard (Phase 3)
+bash modules/health/scripts/health-dashboard --json   # JSON export
+bash modules/health/scripts/health-dashboard --html   # HTML static
 ```
 
 ## Status
@@ -42,6 +45,14 @@ TELEGRAM_CHAT_ID    → target chat ID
 HEALTH_DOWN_THRESHOLD  → seconds before alert (default 300 = 5 min)
 HEALTH_ALERT_COOLDOWN  → seconds between repeat alerts (default 1800 = 30 min)
 ```
+
+## Phase 3 scope
+
+- health-dashboard: read-only aggregation of health state
+- text matrix with icons, staleness, last_seen
+- JSON export for machine consumption
+- HTML static page (dark theme)
+- no server, no runtime mutation
 
 
 ## Status
