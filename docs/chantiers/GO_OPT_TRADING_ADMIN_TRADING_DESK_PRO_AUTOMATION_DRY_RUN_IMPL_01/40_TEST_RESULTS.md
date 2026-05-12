@@ -1,0 +1,44 @@
+---
+doc_id: GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_DRY_RUN_IMPL_01_TEST_RESULTS
+doc_type: test_results
+repo: opt-trading
+go_id: GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_DRY_RUN_IMPL_01
+status: active
+surface: chantier
+source_kind: canonical
+updated_at: 2026-05-09
+---
+
+# 40_TEST_RESULTS - Test Results
+
+## Commande executee
+
+```bash
+pytest tests/test_signal_event_adapter.py tests/test_admin_trading_contract_compatibility_smoke.py tests/test_desk_pro_dry_run.py -q
+```
+
+## Resultat global
+
+```text
+50 passed in 0.16s
+```
+
+## Couverture dry-run
+
+| Test | Resultat |
+| --- | --- |
+| V0 minimal via adapter | PASS |
+| V1 deja normalise | PASS |
+| visual_context V1 | PASS |
+| desk_snapshot | PASS |
+| no_trade=True | PASS |
+| no_telegram=True | PASS |
+| no_webhook=True | PASS |
+| missing visual_context => WARN | PASS |
+| missing signal field => FAIL/validation false | PASS |
+| aucune dependance runtime live | PASS |
+
+## Non regression
+
+- `tests/test_signal_event_adapter.py` conserve 30 PASS
+- `tests/test_admin_trading_contract_compatibility_smoke.py` conserve 10 PASS
