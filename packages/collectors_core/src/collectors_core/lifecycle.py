@@ -5,7 +5,7 @@ from typing import Any, Mapping
 from uuid import uuid4
 
 from .files import append_jsonl
-from .errors import ValidationError
+from .errors import ConfigurationError, HttpRequestError, ValidationError
 from .timeutil import now_z, parse_z
 
 
@@ -289,4 +289,65 @@ def build_latest_record(
         "data_ref": data_ref,
         "record_count": record_count,
         "summary": dict(summary),
+    }
+
+
+_HTTP_RECOVERABLE_BASE: set[int] = {408, 429, 500, 502, 503, 504}
+
+
+def classify_collector_error(
+    exc: Exception,
+    extra_recoverable_codes: set[int] | frozenset[int] | None = None,
+) -> dict[str, Any]:
+    if isinstance(exc, ConfigurationError):
+        return {
+            "error_code": "configuration_error",
+            "error_class": "non_recoverable",
+            "retryable": False,
+            "message": str(exc),
+            "stage": "configuration",
+            "http_status": None,
+            "retry_after": None,
+        }
+    if isinstance(exc, ValidationError):
+        return {
+            "error_code": "validation_error",
+            "error_class": "non_recoverable",
+            "retryable": False,
+            "message": str(exc),
+            "stage": "validation",
+            "http_status": None,
+            "retry_after": None,
+        }
+    if isinstance(exc, HttpRequestError):
+        http_err: Any = exc
+        status_code = http_err.status_code
+        retry_after = retry_after_absolute(http_err.headers)
+        recoverable = _HTTP_RECOVERABLE_BASE.copy()
+        if extra_recoverable_codes:
+            recoverable.update(extra_recoverable_codes)
+        if status_code in recoverable or status_code is None:
+            error_class = "recoverable"
+            retryable = True
+        else:
+            error_class = "non_recoverable"
+            retryable = False
+        code_suffix = "unknown" if status_code is None else str(status_code)
+        return {
+            "error_code": f"http_{code_suffix}",
+            "error_class": error_class,
+            "retryable": retryable,
+            "message": str(http_err),
+            "stage": "http",
+            "http_status": status_code,
+            "retry_after": retry_after,
+        }
+    return {
+        "error_code": "unexpected_error",
+        "error_class": "non_recoverable",
+        "retryable": False,
+        "message": str(exc),
+        "stage": "runtime",
+        "http_status": None,
+        "retry_after": None,
     }
