@@ -58,7 +58,27 @@ def run_sanity(module_dir: Path, client: BinanceSpotClient | Any | None = None) 
 
 def run_collection(module_dir: Path, client: BinanceSpotClient | Any | None = None) -> dict[str, Any]:
     config = load_runtime_config(module_dir)
-    _ensure_runtime_directories(config)
+    ensure_writable_directories(
+        config.paths.runtime_dir,
+        config.paths.logs_dir,
+        config.paths.outputs_dir,
+        config.paths.raw_dir,
+        config.paths.normalized_dir,
+        config.paths.snapshots_dir,
+    )
+    validate_runtime_requirements(config)
+
+
+def run_collection(module_dir: Path, client: BinanceSpotClient | Any | None = None) -> dict[str, Any]:
+    config = load_runtime_config(module_dir)
+    ensure_writable_directories(
+        config.paths.runtime_dir,
+        config.paths.logs_dir,
+        config.paths.outputs_dir,
+        config.paths.raw_dir,
+        config.paths.normalized_dir,
+        config.paths.snapshots_dir,
+    )
     ensure_file(config.paths.errors_path)
 
     run_id = build_run_id()
@@ -249,17 +269,6 @@ def read_status(module_dir: Path) -> dict[str, Any] | None:
 
 def status_as_text(module_dir: Path) -> str:
     return status_payload_as_text(read_status(module_dir), "No status.json found yet. Run sanity or run first.")
-
-
-def _ensure_runtime_directories(config: BinanceSpotRuntimeConfig) -> None:
-    ensure_writable_directories(
-        config.paths.runtime_dir,
-        config.paths.logs_dir,
-        config.paths.outputs_dir,
-        config.paths.raw_dir,
-        config.paths.normalized_dir,
-        config.paths.snapshots_dir,
-    )
 
 
 

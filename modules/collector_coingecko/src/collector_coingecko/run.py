@@ -42,23 +42,27 @@ class ErrorInfo:
 
 def run_sanity(module_dir: Path, client: CoinGeckoClient | Any | None = None) -> dict[str, Any]:
     config = load_runtime_config(module_dir)
-    _ensure_runtime_directories(config)
+    ensure_writable_directories(
+        config.paths.runtime_dir,
+        config.paths.logs_dir,
+        config.paths.outputs_dir,
+        config.paths.raw_dir,
+        config.paths.normalized_dir,
+        config.paths.snapshots_dir,
+    )
     validate_runtime_requirements(config)
-
-    live_client = client or CoinGeckoClient(config)
-    ping_payload = live_client.ping()
-    return {
-        "module_id": config.module_id,
-        "provider_id": config.provider_id,
-        "status": "ok",
-        "checked_at": now_z(),
-        "ping": ping_payload,
-    }
 
 
 def run_collection(module_dir: Path, client: CoinGeckoClient | Any | None = None) -> dict[str, Any]:
     config = load_runtime_config(module_dir)
-    _ensure_runtime_directories(config)
+    ensure_writable_directories(
+        config.paths.runtime_dir,
+        config.paths.logs_dir,
+        config.paths.outputs_dir,
+        config.paths.raw_dir,
+        config.paths.normalized_dir,
+        config.paths.snapshots_dir,
+    )
 
     run_id = build_run_id()
     run_log_path = config.paths.logs_dir / f"run_{run_id}.jsonl"
@@ -232,17 +236,6 @@ def read_status(module_dir: Path) -> dict[str, Any] | None:
 
 def status_as_text(module_dir: Path) -> str:
     return status_payload_as_text(read_status(module_dir), "No status.json found yet. Run sanity or run first.")
-
-
-def _ensure_runtime_directories(config: CoinGeckoRuntimeConfig) -> None:
-    ensure_writable_directories(
-        config.paths.runtime_dir,
-        config.paths.logs_dir,
-        config.paths.outputs_dir,
-        config.paths.raw_dir,
-        config.paths.normalized_dir,
-        config.paths.snapshots_dir,
-    )
 
 
 def _build_manifest(
