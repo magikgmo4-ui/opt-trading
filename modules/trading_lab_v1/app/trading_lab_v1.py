@@ -562,9 +562,121 @@ def show_last_batch_report(_: list[str]) -> int:
     return 0
 
 
+def _sweep_data_path() -> Path:
+    return REPO_ROOT / "modules" / "trading_lab_v1" / "data" / "btcusd_coinm_backtest_data.jsonl"
+
+
+def param_sweep_run(args: list[str]) -> int:
+    config_path = Path(args[0]) if len(args) > 0 else None
+    data_path = Path(args[1]) if len(args) > 1 else _sweep_data_path()
+    if config_path is None:
+        print("Usage: param-sweep-run <config_json> [data_jsonl]", file=sys.stderr)
+        return 1
+    from . import param_sweep_engine_v1 as eng
+    from . import param_sweep_classify_v1 as clf
+    config = json.loads(config_path.read_text(encoding="utf-8"))
+    candles = eng.load_jsonl(data_path)
+    if not candles:
+        print(json.dumps({"error": "no candles loaded"}, indent=2, ensure_ascii=False))
+        return 1
+    result = eng.simulate_run(config, candles)
+    result = clf.classify_run(result)
+    eng.append_jsonl(eng.RUNS_SUMMARY_JSONL, result)
+    print(json.dumps({k: result[k] for k in (
+        "run_id", "config_hash", "delta_btc_net", "delta_btc_pct",
+        "net_btc_final", "simulation_stop_reason", "classification_primary",
+    )}, indent=2, ensure_ascii=False))
+    return 0
+
+
+def param_sweep_batch(args: list[str]) -> int:
+    if len(args) < 1:
+        print("Usage: param-sweep-batch <campaign_config_json>", file=sys.stderr)
+        return 1
+    import time
+    from . import param_sweep_engine_v1 as eng
+    from . import param_sweep_config_v1 as gen
+    from . import param_sweep_classify_v1 as clf
+
+    campaign = json.loads(Path(args[0]).read_text(encoding="utf-8"))
+    data_path = Path(campaign.get("data_path", str(_sweep_data_path())))
+    count = campaign.get("count", 100)
+    method = campaign.get("method", "random")
+    seed = campaign.get("seed", 0)
+    space = campaign.get("space", {})
+    configs = gen.generate_configs(space, count, method, seed)
+    candles = eng.load_jsonl(data_path)
+
+    t0 = time.time()
+    for i, cfg in enumerate(configs):
+        cfg["config_hash"] = gen.config_hash(cfg)
+        result = eng.simulate_run(cfg, candles)
+        result = clf.classify_run(result)
+        result["batch_id"] = campaign.get("batch_id", "")
+        eng.append_jsonl(eng.RUNS_SUMMARY_JSONL, result)
+        if (i + 1) % 100 == 0:
+            elapsed = time.time() - t0
+            rate = (i + 1) / elapsed if elapsed > 0 else 0
+            eta = (count - i - 1) / rate if rate > 0 else 0
+            print(f"[{i+1}/{count}] rate={rate:.0f}r/s ETA={eta:.0f}s")
+    elapsed = time.time() - t0
+    print(f"Done: {count} runs in {elapsed:.1f}s ({count/elapsed:.0f} r/s)")
+    return 0
+
+
+def param_sweep_report(args: list[str]) -> int:
+    from . import param_sweep_engine_v1 as eng
+    from . import param_sweep_rank_v1 as rank
+    runs = eng.load_jsonl(eng.RUNS_SUMMARY_JSONL)
+    if not runs:
+        print("No sweep runs found.")
+        return 1
+    best = rank.rank_runs(runs, "raw_best")
+    worst = rank.rank_runs(runs, "raw_worst")
+    md_best = rank.format_top_markdown(best, 100, "Top 100 — Raw Best (delta_btc_net)")
+    md_worst = rank.format_top_markdown(worst, 100, "Top 100 — Raw Worst (delta_btc_net)")
+    out_dir = eng.STATE_DIR
+    out_dir.mkdir(parents=True, exist_ok=True)
+    (out_dir / "param_sweep_top_best.md").write_text(md_best, encoding="utf-8")
+    (out_dir / "param_sweep_top_worst.md").write_text(md_worst, encoding="utf-8")
+    print(md_best[:3000])
+    return 0
+
+
+def param_sweep_export(args: list[str]) -> int:
+    import csv
+    from . import param_sweep_engine_v1 as eng
+    runs = eng.load_jsonl(eng.RUNS_SUMMARY_JSONL)
+    if not runs:
+        print("No sweep runs found.")
+        return 1
+    csv_path = eng.STATE_DIR / "param_sweep_runs_summary.csv"
+    cols = [
+        "run_id", "config_hash", "net_btc_initial", "net_btc_final",
+        "delta_btc_net", "delta_btc_pct", "max_drawdown_btc",
+        "liquidation_count", "margin_breach_count", "funding_paid_btc",
+        "funding_received_btc", "fees_btc", "spot_btc_final",
+        "margin_btc_final", "realized_pnl_btc", "unrealized_pnl_btc",
+        "classification_primary", "reject_reasons",
+    ]
+    csv_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(csv_path, "w", newline="", encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, fieldnames=cols, extrasaction="ignore")
+        w.writeheader()
+        for r in runs:
+            r["reject_reasons"] = ";".join(r.get("reject_reasons", []))
+            w.writerow(r)
+    print(f"Exported {len(runs)} runs to {csv_path}")
+    return 0
+
+
 COMMANDS = {
     "batch-report": batch_report,
     "show-last-batch-report": show_last_batch_report,
+    "param-sweep-run": param_sweep_run,
+    "param-sweep-batch": param_sweep_batch,
+    "param-sweep-report": param_sweep_report,
+    "param-sweep-export": param_sweep_export,
 }
 
 
@@ -573,7 +685,7 @@ def main(argv: list[str]) -> int:
     fn = COMMANDS.get(cmd)
     if fn is None:
         print(
-            "Usage: trading_lab_v1.py status|show-profile|show-schemas|show-market-source|show-sessions|show-batch-dates [csv_path] [session_id]|sample-event|sample-trade|materialize-samples|journal-status|run-once [session_id]|extract-features [csv_path] [session_id] [local_date]|analyze-market-input [csv_path] [session_id] [local_date]|batch-run [csv_path] [session_id] [start_date] [end_date]|batch-report [session_id] [start_date] [end_date]|show-last-batch-report",
+            "Usage: trading_lab_v1.py status|show-profile|show-schemas|show-market-source|show-sessions|show-batch-dates [csv_path] [session_id]|sample-event|sample-trade|materialize-samples|journal-status|run-once [session_id]|extract-features [csv_path] [session_id] [local_date]|analyze-market-input [csv_path] [session_id] [local_date]|batch-run [csv_path] [session_id] [start_date] [end_date]|batch-report [session_id] [start_date] [end_date]|show-last-batch-report|param-sweep-run <config_json> [data_jsonl]|param-sweep-batch <campaign_json>|param-sweep-report|param-sweep-export",
             file=sys.stderr,
         )
         return 1
