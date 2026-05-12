@@ -118,17 +118,40 @@ Passer immediatement la gate a `BLOCKED` si :
 
 | Gate | Final status | Reason | Next action |
 |:-----|:-------------|:-------|:------------|
-| identity doc gate | PENDING_REVIEW | Preuve non encore inscrite | Collecter preuve locale |
-| sandbox doc gate | PENDING_REVIEW | Preuve non encore inscrite | Collecter preuve locale |
-| SSH alias doc gate | PENDING_REVIEW | Preuve non encore inscrite | Collecter preuve locale |
+| identity doc gate | BLOCKED | user `openclaw` existe (`uid=1001`, home `/home/openclaw`), mais `/home/openclaw/.ssh` absent | Provisionner `.ssh` + cle |
+| sandbox doc gate | BLOCKED | `find`/`grep` bruités, aucune surface config OpenClaw sandbox localisée | Audit config OpenClaw ciblé |
+| SSH alias doc gate | VALIDATED_CONFIG_PRESENT | `Host fantome` deja present dans `~/.ssh/config` (`192.168.0.191`, `User fantome`) | Confirmer par `ssh -G fantome` sans connexion |
+
+## Gate validation update — local proof pass
+
+### Resultats collectes
+
+| Gate | Evidence | Final status | Reason | Next action |
+|:-----|:---------|:-------------|:-------|:------------|
+| identity doc gate | user `openclaw` existe (`uid=1001`, home `/home/openclaw`), mais `/home/openclaw/.ssh` est absent | BLOCKED | provisionnement SSH `openclaw` requis avant toute execution | cadrer creation `.ssh` + association cle sans secret repo |
+| sandbox doc gate | `find` / `grep` bruités, aucune surface config OpenClaw sandbox clairement localisée | BLOCKED | configuration sandbox non identifiee | audit cible config OpenClaw |
+| SSH alias doc gate | `~/.ssh/config` contient deja `Host fantome`, `HostName 192.168.0.191`, `User fantome` | VALIDATED_CONFIG_PRESENT | gap alias absent resolu cote config existante | confirmer par resolution locale `ssh -G fantome` sans connexion |
+
+### Runtime decision
+
+```text
+RUNTIME_REMAINS_BLOCKED
+```
+
+Raison :
+
+- identity gate = BLOCKED ;
+- sandbox gate = BLOCKED ;
+- SSH alias gate = VALIDATED_CONFIG_PRESENT seulement ;
+- aucune execution remote autorisee tant que les blockers ne sont pas leves.
 
 ## NEXT_GO
 
 Apres collecte des preuves :
 
-1. remplacer chaque `PENDING_REVIEW` par `VALIDATED` ou `BLOCKED`;
-2. documenter la preuve exacte;
+1. remplacer chaque `PENDING_REVIEW` par `VALIDATED` ou `BLOCKED` — fait dans cette mise a jour;
+2. documenter la preuve exacte — fait via `07_GATE_PROOF_LOCAL_OUTPUT.txt`;
 3. si les trois gates sont `VALIDATED`, creer `08_REMEDIATION_APPLY_PLAN.md`;
-4. si une gate est `BLOCKED`, creer `08_REMEDIATION_BLOCKER_REPORT.md`.
+4. si une gate est `BLOCKED`, creer `08_REMEDIATION_BLOCKER_REPORT.md` — fait.
 
 Runtime reste interdit dans ce document.
