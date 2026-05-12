@@ -43,5 +43,9 @@ case "$CMD" in
   live-export-status) python3 "$LIVE_EXPORT_APP" status ;;
   export-last-live-observation) python3 "$LIVE_EXPORT_APP" export-last ;;
   export-live-observation) python3 "$LIVE_EXPORT_APP" export-new "$A2" "$A3" "$A4" "$A5" ;;
-  *) echo "Usage: cmd.sh <command>"; exit 1 ;;
+  param-sweep-run) python3 "$APP" param-sweep-run "$A2" "$A3" ;;
+  param-sweep-batch) python3 "$APP" param-sweep-batch "$A2" ;;
+  param-sweep-report) python3 "$APP" param-sweep-report ;;
+  param-sweep-export) python3 "$APP" param-sweep-export ;;
+  *) echo "Usage: cmd.sh <command>"; exit 1 ;; 
 esac
