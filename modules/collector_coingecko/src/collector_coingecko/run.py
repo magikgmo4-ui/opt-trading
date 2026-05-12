@@ -182,7 +182,7 @@ def run_collection(module_dir: Path, client: CoinGeckoClient | Any | None = None
             "status_artifact": module_relative_path(config.paths.module_dir, config.paths.status_path),
         }
     except Exception as exc:
-        error_info = _classify_error(exc)
+        error_info = classify_collector_error(exc)
         error_at = now_z()
         append_error_record(
             errors_path=config.paths.errors_path,
@@ -292,17 +292,4 @@ def _build_latest(
             "quote_currency": normalized_payload.get("quote_currency"),
             "coin_ids": list(config.collection_coin_ids),
         },
-    )
-
-
-def _classify_error(exc: Exception) -> ErrorInfo:
-    info = classify_collector_error(exc)
-    return ErrorInfo(
-        error_code=info["error_code"],
-        error_class=info["error_class"],
-        retryable=info["retryable"],
-        message=info["message"],
-        stage=info["stage"],
-        http_status=info["http_status"],
-        retry_after=info["retry_after"],
     )

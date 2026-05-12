@@ -66,19 +66,6 @@ def run_collection(module_dir: Path, client: BinanceSpotClient | Any | None = No
         config.paths.normalized_dir,
         config.paths.snapshots_dir,
     )
-    validate_runtime_requirements(config)
-
-
-def run_collection(module_dir: Path, client: BinanceSpotClient | Any | None = None) -> dict[str, Any]:
-    config = load_runtime_config(module_dir)
-    ensure_writable_directories(
-        config.paths.runtime_dir,
-        config.paths.logs_dir,
-        config.paths.outputs_dir,
-        config.paths.raw_dir,
-        config.paths.normalized_dir,
-        config.paths.snapshots_dir,
-    )
     ensure_file(config.paths.errors_path)
 
     run_id = build_run_id()
@@ -215,7 +202,7 @@ def run_collection(module_dir: Path, client: BinanceSpotClient | Any | None = No
             "status_artifact": module_relative_path(config.paths.module_dir, config.paths.status_path),
         }
     except Exception as exc:
-        error_info = _classify_error(exc)
+        error_info = classify_collector_error(exc, extra_recoverable_codes={418})
         error_at = now_z()
         append_error_record(
             errors_path=config.paths.errors_path,
@@ -328,8 +315,3 @@ def _build_latest(
             "pair_symbols": list(config.collection_symbols),
         },
     )
-
-
-def _classify_error(exc: Exception) -> ErrorInfo:
-    info = classify_collector_error(exc, extra_recoverable_codes={418})
-    return ErrorInfo(info["error_code"], info["error_class"], info["retryable"], info["message"], info["stage"], info["http_status"], info["retry_after"])
