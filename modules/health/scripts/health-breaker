@@ -1,0 +1,68 @@
+#!/usr/bin/env python3
+"""Circuit breaker dry-run. Reads health-check JSON, simulates breaker state."""
+
+import json, os, sys, time, subprocess
+from pathlib import Path
+
+def main():
+    json_mode = '--json' in sys.argv
+    fail_trip = int(os.environ.get('HEALTH_FAIL_TRIP', 3))
+    protected = set(os.environ.get('HEALTH_PROTECTED', 'tradingview perf bot_vision').split())
+    breaker_dir = Path(os.environ.get('BREAKER_STATE_DIR', '_work/health/breaker'))
+    breaker_dir.mkdir(parents=True, exist_ok=True)
+
+    repo_root = Path(__file__).resolve().parents[3]
+    health_check = repo_root / 'modules' / 'health' / 'scripts' / 'health-check'
+    result = subprocess.run([str(health_check), '--json'], capture_output=True, text=True, cwd=str(repo_root))
+    try:
+        data = json.loads(result.stdout)
+    except json.JSONDecodeError:
+        data = []
+
+    now_ts = int(time.time())
+    out = []
+    for s in data:
+        sid = s['surface']
+        status = s['status']
+        sf = breaker_dir / f'{sid}.breaker'
+        cons, tripped_since = 0, 0
+        if sf.exists():
+            for line in sf.read_text().splitlines():
+                if line.startswith('consecutive_fail='):
+                    cons = int(line.split('=', 1)[1])
+                elif line.startswith('tripped_since='):
+                    tripped_since = int(line.split('=', 1)[1])
+        wt = 0
+        reason = 'ok'
+        prot = sid in protected
+        if status == 'down':
+            cons += 1
+            if cons >= fail_trip:
+                wt = 1
+                reason = 'would_trip_but_protected' if prot else 'would_trip'
+                if tripped_since == 0:
+                    tripped_since = now_ts
+            else:
+                reason = f'consecutive_fail_{cons}'
+        elif status == 'degraded':
+            reason = 'degraded_no_trip'
+        else:
+            cons = wt = tripped_since = 0
+            reason = 'reset'
+        sf.write_text(f'consecutive_fail={cons}\nwould_trip={wt}\nlast_check={now_ts}\ntripped_since={tripped_since}\n')
+        if json_mode:
+            out.append({
+                'surface': sid, 'status': status,
+                'consecutive_fail': cons, 'threshold': fail_trip,
+                'would_trip': bool(wt), 'protected': prot,
+                'reason': reason,
+                'checked_at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
+            })
+        else:
+            icon = '\U0001F7E1' if (wt and prot) else ('\U0001F534' if wt else '\U0001F7E2')
+            print(f'{sid:<15} {icon} {reason:<25} fail={cons}/{fail_trip} prot={prot}')
+    if json_mode:
+        print(json.dumps(out, indent=2))
+
+if __name__ == '__main__':
+    main()
