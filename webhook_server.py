@@ -14,6 +14,7 @@ from shared.logger import setup_logger
 from modules.risk_engine.app.risk_calculator import RiskCalculator
 from modules.execution_engine.executor import Executor
 from modules.position_engine.position_manager import PositionManager
+from modules.webhook.paper_guards import evaluate_paper_test_runtime_guards
 import modules.engines.registry as registry
 
 load_env(); ensure_dirs()
@@ -361,6 +362,24 @@ def enforce_lock(engine: str) -> None:
     if engine in AGGRESSIVE_ENGINES and active in AGGRESSIVE_ENGINES:
         raise HTTPException(status_code=409, detail=f"Engine locked: active_engine={active}")
 
+def require_paper_test_runtime_guards() -> Dict[str, Any]:
+    st = ensure_router_state()
+    guard = evaluate_paper_test_runtime_guards(
+        active_engine=st.get("active_engine"),
+        adapter_names=executor.adapters.keys(),
+    )
+    if not guard["ok"]:
+        log.warning(f"PAPER_TEST RUNTIME GUARD BLOCKED: {guard['reasons']}")
+        raise HTTPException(
+            status_code=409,
+            detail={
+                "error": "PAPER_TEST_RUNTIME_GUARD_FAILED",
+                "reasons": guard["reasons"],
+                "guards": guard["guards"],
+            },
+        )
+    return guard
+
 @app.post("/tv")
 async def tv_webhook(req: Request):
     payload = await req.json()
@@ -391,6 +410,9 @@ async def tv_webhook(req: Request):
     if signal not in ("BUY", "SELL"):
         raise HTTPException(status_code=400, detail="signal must be BUY or SELL")
 
+    if engine == "PAPER_TEST":
+        require_paper_test_runtime_guards()
+
     enforce_lock(engine)
 
     # If engine is aggressive, set lock to it when first used
@@ -412,7 +434,7 @@ async def tv_webhook(req: Request):
 
     # --- PERF: OPEN trade ledger (non-bloquant) ---
     # --- ignore TEST engines for perf ledger ---
-    if engine == "TV_TEST" or engine.startswith("TEST_") or engine.startswith("_TEST_"):
+    if engine in ("TV_TEST", "PAPER_TEST") or engine.startswith("TEST_") or engine.startswith("_TEST_"):
         pass
     else:
         perf_side = "LONG" if signal == "BUY" else "SHORT"
@@ -503,6 +525,14 @@ def api_state():
         "updated_at": st.get("updated_at"),
         "ts": iso_utc(utc_now()),
     }
+
+@app.get("/api/paper/guards")
+def api_paper_guards():
+    st = ensure_router_state()
+    return evaluate_paper_test_runtime_guards(
+        active_engine=st.get("active_engine"),
+        adapter_names=executor.adapters.keys(),
+    )
 
 @app.get("/api/events")
 def api_events(limit: int = 50):
