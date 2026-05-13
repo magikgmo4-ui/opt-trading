@@ -261,3 +261,24 @@ def load_latest_desk_snapshot(
         "source": entry.get("source"),
     }
     return snapshot_dict
+
+
+def load_latest_visual_context(
+    vc_path: Path | str,
+) -> dict | None:
+    """Load a visual_context entry from a JSON or JSONL file.
+
+    The file is expected to contain a dict with fields
+    ``source``, ``capture_id``, ``symbol``, ``timeframe``,
+    ``captured_at``, ``image_ref``, and ``status``.
+    """
+    path = Path(vc_path)
+    if not path.exists():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return None
+    if not isinstance(data, dict):
+        return None
+    return data

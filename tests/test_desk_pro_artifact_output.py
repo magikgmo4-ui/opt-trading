@@ -5,6 +5,7 @@ from modules.desk_pro.dry_run import (
     build_desk_pro_dry_run_report,
     build_desk_pro_dry_run_synthesis,
     load_latest_desk_snapshot,
+    load_latest_visual_context,
     run_desk_pro_dry_run,
     write_desk_pro_dry_run_artifacts,
 )
@@ -133,6 +134,48 @@ class TestDeskSnapshotInput:
         snap = {"symbol": "BTCUSDT.P", "tf": "H1", "snapshot_ts": "now", "path": "/tmp/test.png"}
         v0 = _load("signal_event_v0_minimal.json")
         result = run_desk_pro_dry_run(v0, desk_snapshot=snap)
+        assert result["no_trade"] is True
+        assert result["no_telegram"] is True
+        assert result["no_webhook"] is True
+        assert result["no_systemd"] is True
+
+
+class TestVisualContextInput:
+    def test_load_visual_context_from_file(self, tmp_path):
+        vc = _load("visual_context_v1_minimal.json")
+        f = tmp_path / "vc.json"
+        f.write_text(json.dumps(vc))
+        result = load_latest_visual_context(f)
+        assert result is not None
+        assert result["capture_id"] == vc["capture_id"]
+
+    def test_load_visual_context_none_if_missing(self, tmp_path):
+        f = tmp_path / "nonexistent.json"
+        result = load_latest_visual_context(f)
+        assert result is None
+
+    def test_dry_run_with_visual_context_resolves_warning(self, tmp_path):
+        vc = _load("visual_context_v1_minimal.json")
+        snap = {"symbol": "BTCUSDT.P", "tf": "H1", "snapshot_ts": "now", "path": "/tmp/test.png"}
+        v0 = _load("signal_event_v0_minimal.json")
+        result = run_desk_pro_dry_run(v0, visual_context=vc, desk_snapshot=snap)
+        assert result["summary"]["visual_context_present"] is True
+        assert "visual_context missing" not in str(result["warnings"])
+
+    def test_dry_run_combined_inputs_returns_pass(self, tmp_path):
+        vc = _load("visual_context_v1_minimal.json")
+        snap = {"symbol": "BTCUSDT.P", "tf": "H1", "snapshot_ts": "now", "path": "/tmp/test.png"}
+        v0 = _load("signal_event_v0_complete.json")
+        result = run_desk_pro_dry_run(v0, visual_context=vc, desk_snapshot=snap)
+        assert result["summary"]["visual_context_present"] is True
+        assert result["summary"]["desk_snapshot_present"] is True
+        assert "missing" not in str(result["warnings"])
+
+    def test_combined_inputs_keep_safety_flags(self, tmp_path):
+        vc = _load("visual_context_v1_minimal.json")
+        snap = {"symbol": "BTCUSDT.P", "tf": "H1", "snapshot_ts": "now", "path": "/tmp/test.png"}
+        v0 = _load("signal_event_v0_complete.json")
+        result = run_desk_pro_dry_run(v0, visual_context=vc, desk_snapshot=snap)
         assert result["no_trade"] is True
         assert result["no_telegram"] is True
         assert result["no_webhook"] is True
