@@ -4,6 +4,7 @@ from pathlib import Path
 from modules.desk_pro.dry_run import (
     build_desk_pro_dry_run_report,
     build_desk_pro_dry_run_synthesis,
+    load_latest_desk_snapshot,
     run_desk_pro_dry_run,
     write_desk_pro_dry_run_artifacts,
 )
@@ -96,3 +97,43 @@ class TestDeskProArtifactOutput:
         synthesis = build_desk_pro_dry_run_synthesis(v1)
         report = build_desk_pro_dry_run_report(synthesis)
         assert "BUY" in report
+
+
+class TestDeskSnapshotInput:
+    def test_load_latest_snapshot_returns_matching_entry(self, tmp_path):
+        index = {
+            "BTCUSDT.P": {"symbol": "BTCUSDT.P", "tf": "H1", "snapshot_ts": "2026-05-12T23:55:46", "path": "/tmp/test.png"},
+        }
+        f = tmp_path / "index.json"
+        f.write_text(json.dumps(index))
+        result = load_latest_desk_snapshot(f, target_symbol="BTCUSDT")
+        assert result is not None
+        assert result["symbol"] == "BTCUSDT.P"
+
+    def test_load_latest_snapshot_returns_none_if_missing(self, tmp_path):
+        f = tmp_path / "nonexistent.json"
+        result = load_latest_desk_snapshot(f, target_symbol="BTCUSDT")
+        assert result is None
+
+    def test_load_latest_snapshot_returns_none_if_no_match(self, tmp_path):
+        index = {"ETHUSDT.P": {"symbol": "ETHUSDT.P", "tf": "H1", "snapshot_ts": "now", "path": "/tmp/e.png"}}
+        f = tmp_path / "index.json"
+        f.write_text(json.dumps(index))
+        result = load_latest_desk_snapshot(f, target_symbol="BTCUSDT")
+        assert result is None
+
+    def test_dry_run_with_filled_snapshot_shows_present(self, tmp_path):
+        snap = {"symbol": "BTCUSDT.P", "tf": "H1", "snapshot_ts": "now", "path": "/tmp/test.png"}
+        v0 = _load("signal_event_v0_minimal.json")
+        result = run_desk_pro_dry_run(v0, desk_snapshot=snap)
+        assert result["summary"]["desk_snapshot_present"] is True
+        assert "desk_snapshot missing" not in str(result["warnings"])
+
+    def test_snapshot_enrichment_keeps_safety_flags(self, tmp_path):
+        snap = {"symbol": "BTCUSDT.P", "tf": "H1", "snapshot_ts": "now", "path": "/tmp/test.png"}
+        v0 = _load("signal_event_v0_minimal.json")
+        result = run_desk_pro_dry_run(v0, desk_snapshot=snap)
+        assert result["no_trade"] is True
+        assert result["no_telegram"] is True
+        assert result["no_webhook"] is True
+        assert result["no_systemd"] is True
