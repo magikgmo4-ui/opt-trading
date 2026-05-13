@@ -6,6 +6,7 @@ branch: go/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_MANUAL_UI_COMPLETION_01
 go_id: GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_MANUAL_UI_COMPLETION_01
 machine: fantome
 status: pass
+updated_at: 2026-05-13
 lifecycle_stage: manual_ui_completion_closeout
 links:
   - docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_MANUAL_UI_COMPLETION_01/10_MANUAL_STEPS.md
@@ -17,7 +18,7 @@ links:
 
 ## Verdict
 
-**PASS** — Cockpit ClickUp operationnel. Custom Fields actifs et remplis. Statuses/dashboards/template limites sur plan gratuit mais OK pour la suite.
+**PASS_LIMITED_WITH_FREE_WORKAROUNDS** — Cockpit ClickUp operationnel. Custom Fields actifs et remplis. Les 3 elements SKIP ne bloquent pas le flux. ClickUp reste le cockpit principal, aucun remplacement requis.
 
 ## Checklist
 
@@ -25,10 +26,10 @@ links:
 | --- | --- | --- | --- |
 | 1 | ClickApp Custom Fields active | DONE | API (PUT space features `custom_fields:enabled`) |
 | 2 | 15 champs personnalises crees | DONE | API — tous sur list GO_ACTIVE |
-| 3 | 10 statuses personnalises | SKIP | API limitee plan gratuit (seuls to do/complete) |
+| 3 | 10 statuses personnalises | FREE_PLAN_WORKAROUND | A revalider en UI ClickUp ; fallback gratuit : champ `workflow_status` ou tags |
 | 4 | Custom fields remplis 2 taches | DONE | API — toutes les valeurs OK |
-| 5 | 5 Dashboards | SKIP | API non disponible plan gratuit |
-| 6 | Template GO_TASK_TEMPLATE | SKIP | API non disponible plan gratuit |
+| 5 | 5 Dashboards | FREE_PLAN_WORKAROUND | Remplaces par vues ClickUp filtrees (Table, Board, Calendar) + cockpit Markdown/GitHub leger exporte depuis API |
+| 6 | Template GO_TASK_TEMPLATE | FREE_PLAN_WORKAROUND | Templates dispo sur tous les plans ClickUp — a revalider via UI ; fallback : `docs/templates/GO_TASK_TEMPLATE.md` + script API |
 | 7 | Cockpit verifie utilisable | DONE | Navigation, fields, tasks OK |
 
 ## Execution API
@@ -60,12 +61,15 @@ links:
 | `86b9tqe3y` | GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01 | Fields OK |
 | `86b9tqe46` | GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_EXECUTION_01 | Fields OK |
 
-### Limites plan gratuit irremediables sans upgrade
+### Workarounds gratuits (ClickUp Free)
 
-- Statuses: seuls `to do` / `complete` disponibles
-- Dashboards: creation UI uniquement
-- Template: creation UI uniquement
-- Spaces: max 5 (4 crees + 1 existant)
+- **Custom statuses** : a retester directement dans l'UI ClickUp (Space settings > Statuses). Si le plan gratuit les restreint a `to do` / `complete`, utiliser un champ custom `workflow_status` (dropdown) ou des tags pour refleter les 10 etats canoniques (BACKLOG→ARCHIVED).
+
+- **Dashboards** : les dashboards avances sont reserves au plan Business. Contournement gratuit : utiliser les Vues ClickUp filtrees disponibles sur Free (Table, Board, Calendar) pour chaque cas d'usage (GO actifs, bloques, par machine, sans preuve, NEXT_GO). Completer par un cockpit Markdown dans le repo ou une Google Sheet generee depuis l'API ClickUp.
+
+- **GO_TASK_TEMPLATE** : les templates sont disponibles sur tous les plans ClickUp (https://help.clickup.com/hc/en-us/articles/6326066114455). A creer via UI (List GO_ACTIVE > ellipsis > Templates > Save as Template). Fallback : stocker le template dans `docs/templates/GO_TASK_TEMPLATE.md` et l'appliquer par script API.
+
+- **Spaces** : max 5 sur Free (4 crees + 1 existant) — suffisant pour le perimetre actuel (CANON_GOVERNANCE, MODULES, MACHINES, TRADING_OPS).
 
 ## Cockpit ClickUp
 
@@ -79,10 +83,10 @@ links:
 
 ## Prochain GO
 
-ClickUp PASS → suite apps valide :
+ClickUp PASS_LIMITED_WITH_FREE_WORKAROUNDS → recroiser les parents actifs fantome :
 
 ```text
-GO_OPT_TRADING_REPO_KG_PARENT_GRAPH_SYSTEM_01
+go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01
 ```
 
 ## 17_RESUME_POINT
