@@ -282,3 +282,23 @@ def load_latest_visual_context(
     if not isinstance(data, dict):
         return None
     return data
+
+
+def load_latest_signal_event(
+    signal_path: Path | str,
+) -> dict | None:
+    """Load a signal_event entry from a JSON file.
+
+    The file is expected to contain a dict with fields compatible with
+    the signal_event adapter (V0 or V1 shape).
+    """
+    path = Path(signal_path)
+    if not path.exists():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return None
+    if not isinstance(data, dict):
+        return None
+    return data

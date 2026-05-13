@@ -5,6 +5,7 @@ from modules.desk_pro.dry_run import (
     build_desk_pro_dry_run_report,
     build_desk_pro_dry_run_synthesis,
     load_latest_desk_snapshot,
+    load_latest_signal_event,
     load_latest_visual_context,
     run_desk_pro_dry_run,
     write_desk_pro_dry_run_artifacts,
@@ -176,6 +177,40 @@ class TestVisualContextInput:
         snap = {"symbol": "BTCUSDT.P", "tf": "H1", "snapshot_ts": "now", "path": "/tmp/test.png"}
         v0 = _load("signal_event_v0_complete.json")
         result = run_desk_pro_dry_run(v0, visual_context=vc, desk_snapshot=snap)
+        assert result["no_trade"] is True
+        assert result["no_telegram"] is True
+        assert result["no_webhook"] is True
+        assert result["no_systemd"] is True
+
+
+class TestSignalEventInput:
+    def test_load_signal_event_from_file(self, tmp_path):
+        se = _load("signal_event_v0_complete.json")
+        f = tmp_path / "se.json"
+        f.write_text(json.dumps(se))
+        result = load_latest_signal_event(f)
+        assert result is not None
+        assert result["symbol"] == se["symbol"]
+
+    def test_load_signal_event_none_if_missing(self, tmp_path):
+        f = tmp_path / "nonexistent.json"
+        result = load_latest_signal_event(f)
+        assert result is None
+
+    def test_dry_run_with_v0_signal_normalizes(self, tmp_path):
+        vc = _load("visual_context_v1_minimal.json")
+        snap = {"symbol": "BTCUSDT.P", "tf": "H1", "snapshot_ts": "now", "path": "/tmp/test.png"}
+        se = _load("signal_event_v0_complete.json")
+        result = run_desk_pro_dry_run(se, visual_context=vc, desk_snapshot=snap)
+        assert result["signal_event"]["event_type"] == "signal_event"
+        assert result["signal_event"]["direction"] == "BUY"
+
+    def test_three_inputs_no_input_missing_warnings(self, tmp_path):
+        v0 = _load("signal_event_v0_complete.json")
+        vc = _load("visual_context_v1_minimal.json")
+        snap = {"symbol": "BTCUSDT.P", "tf": "H1", "snapshot_ts": "now", "path": "/tmp/test.png"}
+        result = run_desk_pro_dry_run(v0, visual_context=vc, desk_snapshot=snap)
+        assert "missing" not in str(result["warnings"])
         assert result["no_trade"] is True
         assert result["no_telegram"] is True
         assert result["no_webhook"] is True
