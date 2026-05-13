@@ -9,6 +9,7 @@ bash modules/health/scripts/health-check              # text output
 bash modules/health/scripts/health-check --json       # JSON machine-readable
 bash modules/health/scripts/health-check perf         # filter surfaces
 bash modules/health/scripts/health-alert              # alerting (Phase 2)
+bash modules/health/scripts/health-breaker            # breaker dry-run (Phase 4)
 ```
 
 ## Status
