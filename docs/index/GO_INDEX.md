@@ -340,3 +340,13 @@ Historique recent :
 - verdict : PARTIAL (spécifié, non implémenté)
 - payload : aucun (doc-only)
 - lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_RISK_LIMITS_AND_KILL_SWITCH_01/90_CLOSEOUT.md`
+
+### GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_RISK_LIMITS_AND_KILL_SWITCH_IMPL_01
+- repo : opt-trading
+- type : implementation / risk limits + kill switch
+- statut : COMPLETE
+- titre court : implémentation risk limits et kill switch
+- dernier etat connu : risk limits et kill switch implémentés et testés ; endpoints fonctionnels ; production non ouverte
+- verdict : PASS_IMPLEMENTED
+- payload : aucun (runtime changes only)
+- lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_RISK_LIMITS_AND_KILL_SWITCH_IMPL_01/90_CLOSEOUT.md`

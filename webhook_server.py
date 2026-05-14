@@ -91,6 +91,101 @@ ALL_ENGINES = {"COINM_SHORT", "USDTM_LONG", "GOLD_CFD_LONG", "TV_TEST", "NGROK_T
 
 PERF_URL = os.environ.get("PERF_URL", "http://127.0.0.1:8010")
 
+# -------------------- Risk Limits --------------------
+TRADE_ALLOWED = os.getenv("TRADE_ALLOWED", "false").strip().lower() in ("true", "1", "yes", "on")
+RISK_MAX_NOTIONAL = float(os.getenv("RISK_MAX_NOTIONAL", "1000"))
+RISK_MAX_POSITION_SIZE = float(os.getenv("RISK_MAX_POSITION_SIZE", "0.01"))
+RISK_MAX_DAILY_LOSS = float(os.getenv("RISK_MAX_DAILY_LOSS", "100"))
+RISK_MAX_OPEN_POSITIONS = int(os.getenv("RISK_MAX_OPEN_POSITIONS", "3"))
+RISK_MAX_ORDERS_PER_HOUR = int(os.getenv("RISK_MAX_ORDERS_PER_HOUR", "10"))
+RISK_ALLOWED_SYMBOLS = set(s.strip() for s in os.getenv("RISK_ALLOWED_SYMBOLS", "BTC/USDT,ETH/USDT").split(",") if s.strip())
+
+DAILY_PNL_FILE = STATE_DIR / "daily_pnl.json"
+ORDER_COUNT_FILE = STATE_DIR / "order_count.json"
+
+def _load_json_file(path: pathlib.Path, default=None):
+    try:
+        with open(path) as f:
+            return json.load(f)
+    except Exception:
+        return default if default is not None else {}
+
+def _save_json_file(path: pathlib.Path, data):
+    with open(path, "w") as f:
+        json.dump(data, f, indent=2)
+
+def _get_daily_pnl() -> dict:
+    data = _load_json_file(DAILY_PNL_FILE, {"date": "", "pnl": 0.0, "trades": 0})
+    today = utc_now().strftime("%Y-%m-%d")
+    if data.get("date") != today:
+        data = {"date": today, "pnl": 0.0, "trades": 0}
+        _save_json_file(DAILY_PNL_FILE, data)
+    return data
+
+def _update_daily_pnl(pnl_change: float):
+    data = _get_daily_pnl()
+    data["pnl"] += pnl_change
+    data["trades"] += 1
+    _save_json_file(DAILY_PNL_FILE, data)
+
+def _get_order_count() -> dict:
+    data = _load_json_file(ORDER_COUNT_FILE, {"hour": 0, "count": 0})
+    current_hour = utc_now().hour
+    if data.get("hour") != current_hour:
+        data = {"hour": current_hour, "count": 0}
+        _save_json_file(ORDER_COUNT_FILE, data)
+    return data
+
+def _increment_order_count():
+    data = _get_order_count()
+    data["count"] += 1
+    _save_json_file(ORDER_COUNT_FILE, data)
+
+def check_trade_allowed():
+    """Check if trading is allowed (kill switch level 1)."""
+    if not TRADE_ALLOWED:
+        raise HTTPException(
+            status_code=403,
+            detail={"error": "TRADE_NOT_ALLOWED", "reason": "Kill switch active: TRADE_ALLOWED=false"}
+        )
+
+def check_risk_limits(engine: str, symbol: str, qty: float, notional: float):
+    """Enforce risk limits before execution."""
+    errors = []
+    
+    # Check allowed symbols (for production engines)
+    if engine not in ("PAPER_TEST", "TV_TEST") and RISK_ALLOWED_SYMBOLS and symbol not in RISK_ALLOWED_SYMBOLS:
+        errors.append(f"Symbol {symbol} not in allowed list: {RISK_ALLOWED_SYMBOLS}")
+    
+    # Check notional limit
+    if notional > RISK_MAX_NOTIONAL:
+        errors.append(f"Notional {notional} exceeds max {RISK_MAX_NOTIONAL}")
+    
+    # Check position size
+    if qty > RISK_MAX_POSITION_SIZE:
+        errors.append(f"Position size {qty} exceeds max {RISK_MAX_POSITION_SIZE}")
+    
+    # Check daily loss
+    daily = _get_daily_pnl()
+    if daily["pnl"] < -RISK_MAX_DAILY_LOSS:
+        errors.append(f"Daily loss {abs(daily['pnl'])} exceeds max {RISK_MAX_DAILY_LOSS}")
+    
+    # Check open positions
+    positions = _load_json_file(STATE_DIR / "positions.json", {})
+    if len(positions) >= RISK_MAX_OPEN_POSITIONS:
+        errors.append(f"Open positions {len(positions)} exceeds max {RISK_MAX_OPEN_POSITIONS}")
+    
+    # Check order rate
+    order_count = _get_order_count()
+    if order_count["count"] >= RISK_MAX_ORDERS_PER_HOUR:
+        errors.append(f"Orders this hour {order_count['count']} exceeds max {RISK_MAX_ORDERS_PER_HOUR}")
+    
+    if errors:
+        raise HTTPException(
+            status_code=429,
+            detail={"error": "RISK_LIMIT_EXCEEDED", "reasons": errors}
+        )
+
 def _http_json(url: str, method: str = "GET", payload: dict | None = None, timeout: int = 15):
     import json as _json
     import urllib.request as _ur
@@ -410,6 +505,9 @@ async def tv_webhook(req: Request):
     if signal not in ("BUY", "SELL"):
         raise HTTPException(status_code=400, detail="signal must be BUY or SELL")
 
+    # Kill switch check (level 1)
+    check_trade_allowed()
+
     if engine == "PAPER_TEST":
         require_paper_test_runtime_guards()
 
@@ -428,6 +526,10 @@ async def tv_webhook(req: Request):
     # Guard: never ledger trades with qty/risk = 0
     if (not q.get("qty")) or ((q.get("risk_real_usd") or 0) <= 0 and (q.get("risk_usd") or 0) <= 0):
         raise HTTPException(status_code=400, detail="Risk quote invalid (qty/risk is 0)")
+
+    # Risk limits enforcement (for production engines)
+    notional = q["qty"] * price if price else 0
+    check_risk_limits(engine, symbol, q["qty"], notional)
 
     side = "LONG" if signal == "BUY" else "SHORT"
     risk_for_perf = q.get("risk_real_usd") or q.get("risk_usd") or 0.0
@@ -560,6 +662,49 @@ async def api_reset_lock(req: Request):
         raise HTTPException(status_code=403, detail="Forbidden")
     st = set_router_state(None)
     return {"ok": True, "state": st}
+
+@app.post("/api/kill-switch")
+async def api_kill_switch(req: Request):
+    """Kill switch endpoint - level 1 (soft stop) only."""
+    body = await req.json()
+    if not isinstance(body, dict):
+        raise HTTPException(status_code=400, detail="JSON must be object")
+    
+    level = body.get("level", 1)
+    
+    if level == 1:
+        # Soft stop: set TRADE_ALLOWED=false in env
+        os.environ["TRADE_ALLOWED"] = "false"
+        log.warning("KILL SWITCH LEVEL 1: TRADE_ALLOWED=false")
+        return {"ok": True, "level": 1, "action": "soft_stop", "trade_allowed": False}
+    else:
+        raise HTTPException(status_code=400, detail="Only level 1 (soft stop) supported via API")
+
+@app.get("/api/risk/status")
+def api_risk_status():
+    """Get current risk limits and status."""
+    daily = _get_daily_pnl()
+    orders = _get_order_count()
+    positions = _load_json_file(STATE_DIR / "positions.json", {})
+    
+    return {
+        "ok": True,
+        "trade_allowed": TRADE_ALLOWED,
+        "risk_limits": {
+            "max_notional": RISK_MAX_NOTIONAL,
+            "max_position_size": RISK_MAX_POSITION_SIZE,
+            "max_daily_loss": RISK_MAX_DAILY_LOSS,
+            "max_open_positions": RISK_MAX_OPEN_POSITIONS,
+            "max_orders_per_hour": RISK_MAX_ORDERS_PER_HOUR,
+            "allowed_symbols": list(RISK_ALLOWED_SYMBOLS),
+        },
+        "current": {
+            "daily_pnl": daily["pnl"],
+            "daily_trades": daily["trades"],
+            "orders_this_hour": orders["count"],
+            "open_positions": len(positions),
+        }
+    }
 
 
 # -------------------- Dashboard (Trading Ops) --------------------
