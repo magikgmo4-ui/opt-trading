@@ -3,6 +3,10 @@
 The validator reads Markdown fixture documents, extracts YAML-like fenced
 policy snippets, evaluates the snippets against the WHY lint fixture contract,
 and reports whether observed verdicts match expected verdicts.
+
+It also provides a bounded V1 real-document scan mode. The V1 scan is
+read-only/report-only and is deliberately limited to the WHY lint parent
+chantier folder.
 """
 
 from __future__ import annotations
@@ -180,9 +184,52 @@ SECURITY_VERDICTS = {
     "FAIL_CI_BLOCKING_ENABLED",
 }
 
+WHY_LINT_PARENT_SUFFIX = (
+    "docs",
+    "chantiers",
+    "GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01",
+)
+
+DOC_SCAN_SKIP_FILENAMES = {
+    "GO_OPT_TRADING_DOC_OPS_WHY_LINT_STATIC_VALIDATOR_FIXTURE_CORPUS_01.md",
+}
+
+DOC_SCAN_REQUIRED_MARKERS = (
+    ("WHY", "WHY_GAP", "REVIEW_REQUIRED", "MISSING_WHY_SECTION"),
+    ("FINAL_TARGET", "WHY_GAP", "REVIEW_REQUIRED", "MISSING_FINAL_TARGET"),
+    ("12_INVARIANTS", "GOVERNANCE_DRIFT", "GOVERNANCE_ALIGNMENT_REQUIRED", "MISSING_INVARIANTS"),
+    ("17_RESUME_POINT", "WHY_GAP", "REVIEW_REQUIRED", "MISSING_RESUME_POINT"),
+)
+
+RUNTIME_IMPLICATION_PATTERNS = (
+    (r"(?i)autofix_allowed\s*[:=]\s*true", "FAIL_AUTOFIX_ENABLED", "AUTOFIX_ENABLED"),
+    (r"(?i)runtime_binding\s*[:=]\s*true", "FAIL_RUNTIME_BINDING_ENABLED", "RUNTIME_BINDING_ENABLED"),
+    (r"(?i)can_fail_ci\s*[:=]\s*true", "FAIL_CI_BLOCKING_ENABLED", "CI_BLOCKING_ENABLED"),
+    (r"(?i)execute_command\s*[:=]\s*true", "FAIL_RUNTIME_BINDING_ENABLED", "EXECUTE_COMMAND_ENABLED"),
+    (r"(?i)apply_patch\s*[:=]\s*true", "FAIL_AUTOFIX_ENABLED", "APPLY_PATCH_ENABLED"),
+)
+
+SECRET_RISK_PATTERNS = (
+    (r"-----BEGIN [A-Z ]*PRIVATE KEY-----", "PRIVATE_KEY_BLOCK"),
+    (r"(?i)api[_-]?key\s*[:=]\s*[A-Za-z0-9_\-]{20,}", "API_KEY_LIKE_VALUE"),
+    (r"(?i)token\s*[:=]\s*[A-Za-z0-9_\-]{24,}", "TOKEN_LIKE_VALUE"),
+    (r"(?i)credential\s*[:=]\s*[A-Za-z0-9_\-]{16,}", "CREDENTIAL_LIKE_VALUE"),
+)
+
+SAFE_PLACEHOLDERS = {
+    "EXAMPLE_REDACTED_TOKEN",
+    "FAKE_SECRET_DO_NOT_USE",
+    "DUMMY_CREDENTIAL_BLOCKED",
+    "FAKE_PRIVATE_KEY_BLOCKED",
+}
+
 
 class FixtureFormatError(Exception):
     """Raised when the fixture document cannot be parsed safely."""
+
+
+class DocScanFormatError(Exception):
+    """Raised when real-doc scan input is outside the V1 safe contract."""
 
 
 @dataclass(frozen=True)
@@ -241,6 +288,57 @@ class ValidationReport:
             "status": self.status,
             "total_fixtures": self.total_fixtures,
             "unexpected_security_findings": self.unexpected_security_findings,
+        }
+
+
+@dataclass(frozen=True)
+class DocScanFinding:
+    file: str
+    finding_id: str
+    family: str
+    severity: str
+    verdict: str
+    gate_required: str
+    trace_required: bool
+    eval_required: bool
+    message: str
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "eval_required": self.eval_required,
+            "family": self.family,
+            "file": self.file,
+            "finding_id": self.finding_id,
+            "gate_required": self.gate_required,
+            "message": self.message,
+            "severity": self.severity,
+            "trace_required": self.trace_required,
+            "verdict": self.verdict,
+        }
+
+
+@dataclass(frozen=True)
+class DocScanReport:
+    scan_root: str
+    scanned_files: tuple[str, ...]
+    skipped_files: tuple[str, ...]
+    findings: tuple[DocScanFinding, ...]
+    status: str
+    exit_code: int
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "exit_code": self.exit_code,
+            "findings": [finding.to_dict() for finding in self.findings],
+            "scan_root": self.scan_root,
+            "scanned_files": list(self.scanned_files),
+            "skipped_files": list(self.skipped_files),
+            "status": self.status,
+            "summary": {
+                "findings": len(self.findings),
+                "scanned_files": len(self.scanned_files),
+                "skipped_files": len(self.skipped_files),
+            },
         }
 
 
@@ -386,6 +484,63 @@ def run_validation(fixtures_path: str | Path) -> ValidationReport:
     )
 
 
+def run_doc_scan(scan_root: str | Path) -> DocScanReport:
+    """Scan the WHY lint parent chantier Markdown files in read-only mode."""
+    root = Path(scan_root)
+    _validate_doc_scan_root(root)
+
+    scanned: list[str] = []
+    skipped: list[str] = []
+    findings: list[DocScanFinding] = []
+
+    for path in sorted(root.glob("*.md")):
+        relative = _display_path(path)
+        if path.name in DOC_SCAN_SKIP_FILENAMES:
+            skipped.append(relative)
+            continue
+
+        try:
+            markdown = path.read_text(encoding="utf-8")
+        except OSError as exc:
+            findings.append(
+                DocScanFinding(
+                    file=relative,
+                    finding_id="UNREADABLE_MARKDOWN_FILE",
+                    family="OBSERVABILITY_GAP",
+                    severity="R1",
+                    verdict="NEED_MORE_EVIDENCE",
+                    gate_required="REVIEW_REQUIRED",
+                    trace_required=True,
+                    eval_required=True,
+                    message=f"file could not be read: {exc}",
+                )
+            )
+            continue
+
+        scanned.append(relative)
+        findings.extend(_scan_markdown_document(path, markdown))
+
+    secret_findings = [finding for finding in findings if finding.verdict == "FAIL_SECRET_RISK"]
+    if secret_findings:
+        status = "FAIL_SECRET_RISK"
+        exit_code = 3
+    elif findings:
+        status = "FINDINGS_PRESENT"
+        exit_code = 1
+    else:
+        status = "PASS"
+        exit_code = 0
+
+    return DocScanReport(
+        scan_root=_display_path(root),
+        scanned_files=tuple(scanned),
+        skipped_files=tuple(skipped),
+        findings=tuple(findings),
+        status=status,
+        exit_code=exit_code,
+    )
+
+
 def render_text_report(report: ValidationReport) -> str:
     lines = [
         "WHY Lint Static Validator Report",
@@ -416,11 +571,45 @@ def render_json_report(report: ValidationReport) -> str:
     return json.dumps(report.to_dict(), indent=2, sort_keys=True) + "\n"
 
 
+def render_doc_scan_text_report(report: DocScanReport) -> str:
+    lines = [
+        "WHY Lint Real Docs Scan Report",
+        f"scan_root: {report.scan_root}",
+        f"scanned_files: {len(report.scanned_files)}",
+        f"skipped_files: {len(report.skipped_files)}",
+        f"findings: {len(report.findings)}",
+        f"status: {report.status}",
+        f"exit_code: {report.exit_code}",
+        "scanned:",
+    ]
+    lines.extend(f"- {path}" for path in report.scanned_files)
+    lines.append("skipped:")
+    lines.extend(f"- {path}" for path in report.skipped_files)
+    lines.append("findings:")
+    for finding in report.findings:
+        lines.append(
+            "- "
+            f"{finding.file}: id={finding.finding_id}; verdict={finding.verdict}; "
+            f"family={finding.family}; severity={finding.severity}; gate={finding.gate_required}; "
+            f"message={finding.message}"
+        )
+    return "\n".join(lines) + "\n"
+
+
+def render_doc_scan_json_report(report: DocScanReport) -> str:
+    return json.dumps(report.to_dict(), indent=2, sort_keys=True) + "\n"
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
-        description="Validate WHY lint Markdown fixtures locally in read-only/report-only mode."
+        description="Validate WHY lint Markdown fixtures or scan bounded WHY lint docs locally."
     )
-    parser.add_argument("--fixtures", required=True, help="Path to the Markdown fixture corpus.")
+    input_group = parser.add_mutually_exclusive_group(required=True)
+    input_group.add_argument("--fixtures", help="Path to the Markdown fixture corpus.")
+    input_group.add_argument(
+        "--scan-docs",
+        help="Path to the WHY lint parent chantier folder for V1 read-only document scanning.",
+    )
     parser.add_argument(
         "--format",
         choices=("text", "json"),
@@ -428,6 +617,22 @@ def main(argv: list[str] | None = None) -> int:
         help="Report format printed to stdout. Default: text.",
     )
     args = parser.parse_args(argv)
+
+    if args.scan_docs:
+        try:
+            doc_report = run_doc_scan(args.scan_docs)
+        except DocScanFormatError as exc:
+            print(f"WHY Lint Real Docs Scan Report\nstatus: FAIL_FORMAT\nexit_code: 2\nerror: {exc}")
+            return 2
+        except Exception as exc:  # pragma: no cover - controlled fallback for CLI safety.
+            print(f"WHY Lint Real Docs Scan Report\nstatus: FAIL_INTERNAL\nexit_code: 4\nerror: {exc}")
+            return 4
+
+        if args.format == "json":
+            print(render_doc_scan_json_report(doc_report), end="")
+        else:
+            print(render_doc_scan_text_report(doc_report), end="")
+        return doc_report.exit_code
 
     try:
         report = run_validation(args.fixtures)
@@ -443,6 +648,93 @@ def main(argv: list[str] | None = None) -> int:
     else:
         print(render_text_report(report), end="")
     return report.exit_code
+
+
+def _scan_markdown_document(path: Path, markdown: str) -> list[DocScanFinding]:
+    findings: list[DocScanFinding] = []
+    display_path = _display_path(path)
+
+    for marker, family, gate, finding_id in DOC_SCAN_REQUIRED_MARKERS:
+        if not _document_contains_marker(markdown, marker):
+            findings.append(
+                DocScanFinding(
+                    file=display_path,
+                    finding_id=finding_id,
+                    family=family,
+                    severity="R3",
+                    verdict="NEED_MORE_EVIDENCE",
+                    gate_required=gate,
+                    trace_required=True,
+                    eval_required=True,
+                    message=f"required marker not found: {marker}",
+                )
+            )
+
+    for pattern, verdict, finding_id in RUNTIME_IMPLICATION_PATTERNS:
+        if re.search(pattern, markdown):
+            family = "RUNTIME_SECURITY_GAP" if verdict == "FAIL_RUNTIME_BINDING_ENABLED" else "GOVERNANCE_DRIFT"
+            gate = "GATE_RUNTIME" if verdict == "FAIL_RUNTIME_BINDING_ENABLED" else "GOVERNANCE_ALIGNMENT_REQUIRED"
+            findings.append(
+                DocScanFinding(
+                    file=display_path,
+                    finding_id=finding_id,
+                    family=family,
+                    severity="R1",
+                    verdict=verdict,
+                    gate_required=gate,
+                    trace_required=True,
+                    eval_required=True,
+                    message="doc-only or warning-only document contains forbidden active implication",
+                )
+            )
+
+    secret_risk = _detect_doc_secret_risk(markdown)
+    if secret_risk is not None:
+        findings.append(
+            DocScanFinding(
+                file=display_path,
+                finding_id=secret_risk,
+                family="RUNTIME_SECURITY_GAP",
+                severity="R0",
+                verdict="FAIL_SECRET_RISK",
+                gate_required="GATE_SECRET",
+                trace_required=True,
+                eval_required=True,
+                message="secret-like material detected outside safe placeholders",
+            )
+        )
+
+    return findings
+
+
+def _validate_doc_scan_root(root: Path) -> None:
+    if not root.exists():
+        raise DocScanFormatError(f"scan root does not exist: {root}")
+    if not root.is_dir():
+        raise DocScanFormatError(f"scan root is not a directory: {root}")
+    if tuple(root.parts[-len(WHY_LINT_PARENT_SUFFIX) :]) != WHY_LINT_PARENT_SUFFIX:
+        expected = "/".join(WHY_LINT_PARENT_SUFFIX)
+        raise DocScanFormatError(f"V1 scan root must end with {expected}: {root}")
+
+
+def _document_contains_marker(markdown: str, marker: str) -> bool:
+    if marker == "WHY":
+        return bool(re.search(r"(?mi)^##\s+WHY\s*$", markdown))
+    return marker in markdown
+
+
+def _detect_doc_secret_risk(markdown: str) -> str | None:
+    scrubbed = markdown
+    for placeholder in SAFE_PLACEHOLDERS:
+        scrubbed = scrubbed.replace(placeholder, "SAFE_PLACEHOLDER")
+    for pattern, finding_id in SECRET_RISK_PATTERNS:
+        if re.search(pattern, scrubbed):
+            return finding_id
+    return None
+
+
+def _display_path(path: Path) -> str:
+    return path.as_posix()
 
 
 def _evaluate_fixture(fixture: Fixture) -> tuple[str, str | None, str]:
