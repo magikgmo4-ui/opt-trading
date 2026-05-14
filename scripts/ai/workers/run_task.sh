@@ -16,7 +16,11 @@ set -euo pipefail
 
 TIMEOUT_SEC=120
 MAX_OUTPUT_LINES=500
-REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || cd "$(dirname "$0")/../../.." && pwd)"
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null)"
+if [ -z "$REPO_ROOT" ]; then
+    echo "ERROR: not inside a git repository" >&2
+    exit 1
+fi
 TASKS_INDEX="$REPO_ROOT/scripts/ai/workers/tasks.index.json"
 MODELS_REGISTRY="$REPO_ROOT/scripts/ai/workers/models.registry.json"
 OUTPUT_DIR="$REPO_ROOT/reports/ai/workers"
