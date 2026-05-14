@@ -14,7 +14,7 @@ topic_keys:
   - governance
 surface: continuity
 source_kind: canonical
-updated_at: 2026-05-09
+updated_at: 2026-05-14
 links:
   - docs/index/GO_INDEX.md
   - docs/governance/REPO_ROLE.md
@@ -87,6 +87,14 @@ Normalisation retenue :
 | GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01 | GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01 | — | CLOSED | oui | `docs/chantiers/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01/RUNTIME_LOG.md`<br>`docs/chantiers/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_CLOSEOUT_01/CLOSEOUT_20260505.md` |
 | GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01 | GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_CLOSEOUT_01 | — | CLOSED | oui | `docs/chantiers/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_CLOSEOUT_01/CLOSEOUT_20260505.md` |
 | GO_OPT_TRADING_CLAUDE_COWORK_CHILD_ATTENTION_CENTER_PROMPT_01 | GO_OPT_TRADING_CLAUDE_COWORK_CHILD_ATTENTION_CENTER_REAL_RUN_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_CLAUDE_COWORK_CHILD_ATTENTION_CENTER_REAL_RUN_01/00_GO_OPEN.md`<br>`docs/chantiers/GO_OPT_TRADING_CLAUDE_COWORK_CHILD_ATTENTION_CENTER_REAL_RUN_01/90_CLOSEOUT.md`<br>`docs/index/inbox/GO_OPT_TRADING_CLAUDE_COWORK_CHILD_ATTENTION_CENTER_REAL_RUN_01.md` |
+| GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_01 | GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_01/90_CLOSEOUT.md`<br>`docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_01/90_PARENT_CHECKPOINT.md` |
+| GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_01 | GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_REVIEW_REALIGN_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_REVIEW_REALIGN_01/00_REALIGN_PLAN.md` |
+| GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_RUNTIME_BASELINE_ADOPTION_01 | GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_RUNTIME_BASELINE_ADOPTION_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_RUNTIME_BASELINE_ADOPTION_01/CHECKPOINT.md` |
+| GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_CAPABILITY_GATE_AND_FALLBACK_01 | GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_CAPABILITY_GATE_AND_FALLBACK_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_CAPABILITY_GATE_AND_FALLBACK_01/CHECKPOINT.md` |
+| GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_FIRST_CONTROLLED_CONSUMER_01 | GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_FIRST_CONTROLLED_CONSUMER_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_FIRST_CONTROLLED_CONSUMER_01/CHECKPOINT.md` |
+| GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_CONTROLLED_USAGE_RUNBOOK_01 | GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_CONTROLLED_USAGE_RUNBOOK_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_CONTROLLED_USAGE_RUNBOOK_01/CHECKPOINT.md` |
+| GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_SESSION_RETENTION_POLICY_01 | GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_SESSION_RETENTION_POLICY_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_SESSION_RETENTION_POLICY_01/CHECKPOINT.md` |
+| GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_SESSION_RETENTION_ENFORCEMENT_01 | GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_SESSION_RETENTION_ENFORCEMENT_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_SESSION_RETENTION_ENFORCEMENT_01/CHECKPOINT.md` |
 
 ---
 
@@ -358,3 +366,67 @@ Ces entrées détaillées sont sorties de `docs/index/GO_INDEX.md`.
 - titre court : closeout de la chaine OpenClaw parent -> tmux -> runtime sur db-layer
 - dernier état connu : closeout merge via PR #222 ; chaine parent -> child -> runtime declaree `CLOSED` ; aucun `NEXT_GO` requis
 - lien utile : `docs/chantiers/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_CLOSEOUT_01/CLOSEOUT_20260505.md`
+
+### GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_01
+- repo : opt-trading
+- type : chantier parent machine / doc-only / Ollama local
+- statut : closed
+- titre court : parent Local Ollama pour student
+- dernier état connu : closeout PASS dans `90_CLOSEOUT.md` ; parent valide, student rattache comme machine Ollama sur preuve runtime reelle ; OpenClaw lab differe ; aucun merge aveugle de la branche autorise ; gap d'indexation declare au checkpoint puis resolu dans le lot de reparation
+- lien utile : `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_01/90_CLOSEOUT.md`, `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_01/90_PARENT_CHECKPOINT.md`, `docs/index/inbox/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_01.md`
+
+### GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_REVIEW_REALIGN_01
+- repo : opt-trading
+- type : realignement doc-only / child parent
+- statut : closed
+- titre court : realignement du parent Local Ollama
+- dernier état connu : PR #251 merged ; realignement student Local Ollama parent complete
+- lien utile : `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_REVIEW_REALIGN_01/00_REALIGN_PLAN.md`
+
+### GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_RUNTIME_BASELINE_ADOPTION_01
+- repo : opt-trading
+- type : standardisation agent / doc-only
+- statut : closed
+- titre court : adoption baseline runtime Student/Ollama
+- dernier état connu : FULL_PASS ; chaine Student/Ollama complete ; provider local CPU, smoke canonique, politique retention, enforcement, baseline adoption fixes ; ferme dans le cadre de Student/Ollama FULLY_CLOSED
+- lien utile : `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_RUNTIME_BASELINE_ADOPTION_01/CHECKPOINT.md`
+
+### GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_CAPABILITY_GATE_AND_FALLBACK_01
+- repo : opt-trading
+- type : gouvernance agent / doc-only
+- statut : closed
+- titre court : gate capacite et fallback pour Student/Ollama
+- dernier état connu : livrables produits (capability gate, model task boundary, runbook escalation) ; 0.5B = probe pipeline, pas worker decisionnel ; ferme apres merge dans le cadre Student/Ollama FULLY_CLOSED
+- lien utile : `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_CAPABILITY_GATE_AND_FALLBACK_01/CHECKPOINT.md`
+
+### GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_FIRST_CONTROLLED_CONSUMER_01
+- repo : opt-trading
+- type : execution controlee / doc-only
+- statut : closed
+- titre court : premier consommateur controle Student/Ollama
+- dernier état connu : FIRST_CONSUMER_PASS ; pipeline agent fonctionnel ; modele 0.5B ne suit pas instructions exactes ; pas de trading/worker ; ferme dans le cadre Student/Ollama FULLY_CLOSED
+- lien utile : `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_FIRST_CONTROLLED_CONSUMER_01/CHECKPOINT.md`
+
+### GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_CONTROLLED_USAGE_RUNBOOK_01
+- repo : opt-trading
+- type : runbook / doc-only
+- statut : closed
+- titre court : runbook usage controle Student/Ollama
+- dernier état connu : baseline runtime ADOPTED ; runbook usage controle DRAFT ; ferme apres merge ; baseline Student/Ollama complete : validation -> politique -> enforcement -> baseline adoption -> usage runbook
+- lien utile : `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_CONTROLLED_USAGE_RUNBOOK_01/CHECKPOINT.md`
+
+### GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_SESSION_RETENTION_POLICY_01
+- repo : opt-trading
+- type : politique / doc-only
+- statut : closed
+- titre court : politique de retention de session Student/Ollama
+- dernier état connu : politique documentee ; runbook rotation documente ; ferme dans le cadre Student/Ollama FULLY_CLOSED
+- lien utile : `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_SESSION_RETENTION_POLICY_01/CHECKPOINT.md`
+
+### GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_SESSION_RETENTION_ENFORCEMENT_01
+- repo : opt-trading
+- type : enforcement / scripts
+- statut : closed
+- titre court : enforcement retention de session Student/Ollama
+- dernier état connu : plan d'enforcement, script diagnostic, script purge produits ; ferme dans le cadre Student/Ollama FULLY_CLOSED
+- lien utile : `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_SESSION_RETENTION_ENFORCEMENT_01/CHECKPOINT.md`

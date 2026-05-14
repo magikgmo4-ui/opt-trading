@@ -14,7 +14,7 @@ topic_keys:
   - work_split
 surface: index
 source_kind: canonical
-updated_at: 2026-05-09
+updated_at: 2026-05-14
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/index/BRANCH_STATE.md
@@ -178,37 +178,51 @@ Quand la demande est "chantiers pour <machine>", la reponse doit ressortir direc
 
 ---
 
-## Bloc STUDENT / OLLAMA
+## Bloc STUDENT / OLLAMA — CLOSED_FINAL
+
+**État : Student/Ollama est CLOSED_FINAL. Aucun chantier actif, aucun GO ouvert, aucun flux runtime. La chaîne complète audit → indexation → décision → exécution → réconciliation est PASS.**
+
+### STATUT (Student/Ollama)
+
+| Élément | Statut |
+| --- | --- |
+| Runtime | CLOSED |
+| Audit post-fermeture | PASS |
+| Indexation | REPAIRED |
+| Remote cleanup decision | PASS |
+| Remote cleanup execution | EXECUTED (33 branches supprimées) |
+| Count reconciliation | PASS |
+| GO actifs student | 0 |
+| NEXT_STUDENT_GO | NONE — CLOSED_FINAL, aucun flux actif, aucun GO ouvert |
+
+### BRANCHES RESTANTES (KEEP_ARCHIVE uniquement)
 
 | Branche | Note |
 | --- | --- |
-| `go/GO_OPT_TRADING_MACHINE_STUDENT_PARENT_01` | Machine student parent |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_01` | Local Ollama parent |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_CANONICAL_INDEX_AGGREGATION_01` | Canonical index aggregation |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_SELECTIVE_PROPAGATION_01` | Selective propagation |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_CLOSEOUT_01` | Lab closeout |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_GATEWAY_SESSION_FIX_01` | Gateway session fix |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_INSTALL_APPLY_01` | Install apply |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_INSTALL_AUTHORIZATION_01` | Install authorization |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_INSTALL_DRYRUN_01` | Install dryrun |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_INSTALL_SOURCE_PROOF_01` | Install source proof |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_LOCAL_OLLAMA_BINDING_SMOKE_01` | Local Ollama binding smoke |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_MODEL_PULL_EVAL_01` | Model pull eval 01 |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_MODEL_PULL_EVAL_01_RETRY` | Model pull eval retry |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_MODEL_PULL_EVAL_03` | Model pull eval 03 |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_MODEL_PULL_EVAL_04` | Model pull eval 04 |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_MODEL_PULL_EVAL_04_RETRY` | Model pull eval 04 retry |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_NETWORK_DIAG_01` | Network diag |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_OLLAMA_DISK_FIX_01` | Ollama disk fix |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_OLLAMA_E2E_SMOKE_01` | Ollama E2E smoke |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_OLLAMA_MODEL_EVALUATION_01` | Ollama model evaluation |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_OLLAMA_PROVIDER_ROUTING_AUDIT_01` | Provider routing audit |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_OLLAMA_PROVIDER_SWITCH_APPLY_01` | Provider switch apply |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_OLLAMA_PROVIDER_SWITCH_DRYRUN_01` | Provider switch dryrun |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_QUALIFICATION_01` | Qualification |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_SCOPE_VALIDATION_01` | Scope validation |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_TIMEOUT_TUNING_01` | Timeout tuning |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_WORKSPACE_SLIM_01` | Workspace slim |
+| `save/student-2026-04-01` | Snapshot machine student ; rollback potentiel |
+| `feat/student-mimo-bitget-live-equity` | Branche historique pré-Ollama ; reference phase MIMO |
+| `go/GO_OPT_TRADING_MACHINE_STUDENT_PARENT_01` | Parent machine student ; DEFERRED per doc-ops ; reference d'intention |
+
+### HISTORIQUE (branches supprimées — ne sont plus des chantiers actifs)
+
+Tous les GO et branches Student/Ollama suivants ont été mergés, clos, puis supprimés du remote. Leurs dossiers chantier restent sur mainline pour référence. Voir `docs/index/GO_CLOSED_INDEX.md` pour la liste complète.
+
+- **Parents (4)** : `LOCAL_OLLAMA_PARENT_01`, `CANONICAL_INDEX_AGGREGATION_01`, `REVIEW_REALIGN_01`, `SELECTIVE_PROPAGATION_01`
+- **Lab children (23)** : toutes les branches `CHILD_STUDENT_OPENCLAW_LAB_*` — closeouts PASS, dossiers sur mainline
+- **Agent standardization (6)** : `STUDENT_AGENT_CAPABILITY_GATE_AND_FALLBACK_01`, `FIRST_CONTROLLED_CONSUMER_01`, `CONTROLLED_USAGE_RUNBOOK_01`, `RUNTIME_BASELINE_ADOPTION_01`, `SESSION_RETENTION_POLICY_01`, `SESSION_RETENTION_ENFORCEMENT_01` — tous ABSORBED
+
+### PROCHAIN GO STUDENT
+
+**NEXT_STUDENT_GO: NONE**
+
+Justification :
+- Student/Ollama runtime : CLOSED
+- Aucun GO actif dans `GO_INDEX.md`
+- Aucun flux actif dans `ACTIVE_STREAMS.md`
+- 33 branches supprimées, 3 KEEP_ARCHIVE conservées
+- Standard agent disponible pour futur besoin validé sur une autre surface
+
+Le prochain mouvement machine doit cibler une autre surface : `cursor-ai`, `admin-trading`, `db-layer` ou `fantome`. Voir `docs/index/GO_INDEX.md` et `docs/index/ACTIVE_STREAMS.md` pour les flux actifs.
 
 ---
 

@@ -16,7 +16,7 @@ surface: index
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 point_de_reprise: "Section Tableau canonique"
-updated_at: 2026-05-06
+updated_at: 2026-05-14
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md
@@ -68,19 +68,19 @@ Obligations explicites :
 
 ## Synthese courante
 
-- branches remote : `55`
+- branches remote : `33`
 - branches locales : `36`
-- entrees totales suivies dans le tableau : `72`
+- entrees totales suivies dans le tableau : `83`
 - comparaison de reference : `origin/sot/mainline`
 
 | CANON_STATUS | COUNT |
 | --- | ---: |
 | `KEEP_ACTIVE` | 7 |
-| `KEEP_REFERENCE` | 19 |
-| `DROP_MERGED` | 4 |
+| `KEEP_REFERENCE` | 21 |
+| `DROP_MERGED` | 16 |
 | `DROP_LOCAL_ONLY` | 0 |
 | `BLOCKED` | 1 |
-| `A_VERIFIER` | 41 |
+| `A_VERIFIER` | 38 |
 
 ## Legende de lecture
 
@@ -119,8 +119,8 @@ Obligations explicites :
 | `feat/project-card-module-contextuals-shell-01` | remote | DIVERGED | 1 | 193 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
 | `feat/project-card-openclaw-01` | remote | DIVERGED | 1 | 193 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
 | `feat/project-card-validated-prompt-factory-01` | remote | DIVERGED | 1 | 193 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
-| `feat/student-mimo-bitget-live-equity` | remote | DIVERGED | 23 | 662 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
-| `feat/student-mimo-qualification` | remote | DIVERGED | 21 | 662 | `A_VERIFIER` | `manual_review` | Branche divergente ou ahead encore non justifiee pour suppression | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
+| `feat/student-mimo-bitget-live-equity` | remote | DIVERGED | 23 | 1480 | `KEEP_REFERENCE` | `exclude_cleanup` | Branche historique student/mimo ; Student/Ollama surface FULLY_CLOSED ; conservee comme reference historique | `GO_OPT_TRADING_MACHINE_STUDENT_POST_AGENT_CLOSURE_INDEXATION_REPAIR_01` |
+| `feat/student-mimo-qualification` | remote | DIVERGED | 21 | 662 | `DROP_MERGED` | `delete_local_and_remote` | Branche student/mimo deja supprimee a distance (Delete Final Status REMOTE_DELETED) ; mise a jour de la classification dans ce lot | `GO_OPT_TRADING_MACHINE_STUDENT_POST_AGENT_CLOSURE_INDEXATION_REPAIR_01` |
 | `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` | both | DIVERGED | 10 | 141 | `KEEP_ACTIVE` | `keep_under_review` | Parent AI team actif, dossier canonique materialise sur `sot/mainline` et reflet `GO_INDEX.md` re-aligne dans ce lot | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
 | `go/GO_OPT_TRADING_AIRTABLE_ORCHESTRATION_PARENT_01` | remote | DIVERGED | 19 | 141 | `A_VERIFIER` | `manual_review` | Branche GO restante presente dans Git mais sans representation canonique complete sur les surfaces doc courantes | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
 | `go/GO_OPT_TRADING_BUNDLES_REPO_STORAGE_PARENT_01` | both | DIVERGED | 18 | 141 | `DROP_MERGED` | `delete_local_and_remote` | Branche doc-only parent bundle storage mergee dans sot/mainline ; branche supprimee localement et a distance | `GO_OPT_TRADING_BUNDLES_REPO_STORAGE_PARENT_REMOTE_CLEANUP_01` |
@@ -129,7 +129,17 @@ Obligations explicites :
 | `go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01` | both | DIVERGED | 6 | 56 | `BLOCKED` | `keep_under_review` | BLOCKED : branche non mergee avec contenu significatif (124 fichiers, reseau_ssh) ; chantier a closeout mais delta reel trop lourd pour une suppression sans merge explicite | `GO_OPT_TRADING_DOC_OPS_BRANCH_CLEANUP_MATRIX_METHOD_01` |
 | `go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01_ISOLATED` | both | BEHIND_ONLY | 0 | 50 | `DROP_MERGED` | `delete_local_and_remote` | Branche merged dans sot/mainline ; supprimee localement et a distance ; worktree nettoye | `GO_OPT_TRADING_DOC_OPS_POST_3_PASS_CANONICAL_REPRISE_01` |
 | `go/GO_OPT_TRADING_INDEX_AGGREGATION_BATCH_01` | both | BEHIND_ONLY | 0 | 16 | `DROP_MERGED` | `delete_local_and_remote` | Branche merged dans sot/mainline ; closeout present ; mention descriptive dans REPRISE.md conservee hors branche ; branche supprimee localement et a distance | `GO_OPT_TRADING_DOC_OPS_BRANCH_CLEANUP_MATRIX_METHOD_01` |
-| `go/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_01` | remote | DIVERGED | 11 | 141 | `A_VERIFIER` | `manual_review` | Branche GO restante presente dans Git mais sans representation canonique complete sur les surfaces doc courantes | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
+| `go/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_01` | remote | DIVERGED | 12 | 886 | `DROP_MERGED` | `delete_local_and_remote` | Student/Ollama parent ; surface FULLY_CLOSED ; closeout PASS dans `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_01/90_CLOSEOUT.md` | `GO_OPT_TRADING_MACHINE_STUDENT_POST_AGENT_CLOSURE_INDEXATION_REPAIR_01` |
+| `go/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_CANONICAL_INDEX_AGGREGATION_01` | remote | DIVERGED | 1 | 695 | `DROP_MERGED` | `delete_local_and_remote` | Student/Ollama sub-parent ; surface FULLY_CLOSED | `GO_OPT_TRADING_MACHINE_STUDENT_POST_AGENT_CLOSURE_INDEXATION_REPAIR_01` |
+| `go/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_REVIEW_REALIGN_01` | remote | ABSORBED | 0 | 449 | `DROP_MERGED` | `delete_local_and_remote` | Student/Ollama sub-parent ; PR #251 merged ; surface FULLY_CLOSED | `GO_OPT_TRADING_MACHINE_STUDENT_POST_AGENT_CLOSURE_INDEXATION_REPAIR_01` |
+| `go/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_SELECTIVE_PROPAGATION_01` | remote | DIVERGED | 1 | 695 | `DROP_MERGED` | `delete_local_and_remote` | Student/Ollama sub-parent ; surface FULLY_CLOSED | `GO_OPT_TRADING_MACHINE_STUDENT_POST_AGENT_CLOSURE_INDEXATION_REPAIR_01` |
+| `go/GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_CAPABILITY_GATE_AND_FALLBACK_01` | remote | ABSORBED | 0 | 43 | `DROP_MERGED` | `delete_local_and_remote` | Agent standardization chain ; surface FULLY_CLOSED | `GO_OPT_TRADING_MACHINE_STUDENT_POST_AGENT_CLOSURE_INDEXATION_REPAIR_01` |
+| `go/GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_FIRST_CONTROLLED_CONSUMER_01` | remote | ABSORBED | 0 | 51 | `DROP_MERGED` | `delete_local_and_remote` | Agent standardization chain ; surface FULLY_CLOSED | `GO_OPT_TRADING_MACHINE_STUDENT_POST_AGENT_CLOSURE_INDEXATION_REPAIR_01` |
+| `go/GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_CONTROLLED_USAGE_RUNBOOK_01` | remote | ABSORBED | 0 | 69 | `DROP_MERGED` | `delete_local_and_remote` | Agent standardization chain ; surface FULLY_CLOSED | `GO_OPT_TRADING_MACHINE_STUDENT_POST_AGENT_CLOSURE_INDEXATION_REPAIR_01` |
+| `go/GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_RUNTIME_BASELINE_ADOPTION_01` | remote | ABSORBED | 0 | 71 | `DROP_MERGED` | `delete_local_and_remote` | Agent standardization chain ; FULL_PASS ; surface FULLY_CLOSED | `GO_OPT_TRADING_MACHINE_STUDENT_POST_AGENT_CLOSURE_INDEXATION_REPAIR_01` |
+| `go/GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_SESSION_RETENTION_POLICY_01` | remote | ABSORBED | 0 | 829 | `DROP_MERGED` | `delete_local_and_remote` | Agent standardization chain ; surface FULLY_CLOSED | `GO_OPT_TRADING_MACHINE_STUDENT_POST_AGENT_CLOSURE_INDEXATION_REPAIR_01` |
+| `go/GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_SESSION_RETENTION_ENFORCEMENT_01` | remote | ABSORBED | 0 | 75 | `DROP_MERGED` | `delete_local_and_remote` | Agent standardization chain ; surface FULLY_CLOSED | `GO_OPT_TRADING_MACHINE_STUDENT_POST_AGENT_CLOSURE_INDEXATION_REPAIR_01` |
+| `go/GO_OPT_TRADING_MACHINE_STUDENT_PARENT_01` | remote | DIVERGED | 2 | 683 | `KEEP_REFERENCE` | `exclude_cleanup` | Machine student parent ; DEFERRED per doc-ops decision ; jamais ouvert formellement ; conserve comme reference | `GO_OPT_TRADING_MACHINE_STUDENT_POST_AGENT_CLOSURE_INDEXATION_REPAIR_01` |
 | `go_repos_agent-role_initial_01` | remote | DIVERGED | 1 | 68 | `KEEP_REFERENCE` | `exclude_cleanup` | Branche de reference conservee explicitement hors cleanup | `GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01` |
 | `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01` | both | DIVERGED | 2 | 88 | `KEEP_ACTIVE` | `keep_under_review` | Parent ouvert explicitement prouve par la matrice, `GO_INDEX.md` et le dossier chantier ; branche doc-only gardee active | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
 | `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01_ALIGNMENT_01` | both | DIVERGED | 1 | 88 | `A_VERIFIER` | `manual_review` | Branche d'alignement encore presente dans Git sans dossier chantier propre sur la ligne courante ; maintien en revue seulement | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
@@ -185,6 +195,8 @@ Obligations explicites :
 - lot de nettoyage `GO_OPT_TRADING_DOC_OPS_BRANCH_CLEANUP_MATRIX_METHOD_01` : 3 branches merged supprimees localement et a distance (`ACTIVE_GOVERNANCE_CLOSEOUT_REVIEW_01`, `CONTINUITY_ALIGNMENT_AFTER_OPEN_WORK_CONTROL_01`, `INDEX_AGGREGATION_BATCH_01`) ; 1 branche `BLOCKED` (`OPEN_WORK_CONTROL_01`, non mergee, delta reseau_ssh lourd) ; 2 branches `KEEP` (`BUNDLES_REPO_STORAGE_PARENT_01`, `CLICKUP_PARENT_CONTINUITY_01`, non mergees, doc-only)
 - post-lot 3/3 PASS : BUNDLES_REPO_STORAGE mergé dans sot/mainline ; OPEN_WORK_CONTROL_01_ISOLATED completement supprimee (worktree retire, branche locale supprimee) ; CLICKUP_PARENT_CONTINUITY conserve hors lot actif (machine fantome)
 - branche `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01` conservee comme ancre parent `db-layer` ; chaine OpenClaw recente closee dans `sot/mainline` via runtime PASS puis closeout #222 ; aucun `NEXT_GO` obligatoire
+- classification Student/Ollama post-fermeture appliquee dans ce lot `GO_OPT_TRADING_MACHINE_STUDENT_POST_AGENT_CLOSURE_INDEXATION_REPAIR_01` : `feat/student-mimo-bitget-live-equity` reclassee KEEP_REFERENCE ; `feat/student-mimo-qualification` et `go/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_01` reclassees DROP_MERGED ; 10 branches Student/Ollama manquantes ajoutees en DROP_MERGED ; `go/GO_OPT_TRADING_MACHINE_STUDENT_PARENT_01` ajoutee en KEEP_REFERENCE (DEFERRED)
+- execution suppression remote Student/Ollama dans `GO_OPT_TRADING_MACHINE_STUDENT_REMOTE_BRANCH_CLEANUP_EXECUTION_01` : 33 branches DELETE_CONFIRMED supprimees (4 parents + 23 lab children + 6 agent standardization) via `git push origin --delete` ; seules les 3 branches KEEP_ARCHIVE conservees : `save/student-2026-04-01`, `feat/student-mimo-bitget-live-equity`, `go/GO_OPT_TRADING_MACHINE_STUDENT_PARENT_01`
 
 ## Point de reprise
 
