@@ -270,3 +270,13 @@ Historique recent :
 - verdict : PASS_CONFIG
 - payload PAPER_TEST : non envoyé
 - lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PAPER_FLAGS_CONFIG_01/90_CLOSEOUT.md`
+
+### GO_OPT_TRADING_ADMIN_TRADING_PAPER_TEST_RETRY_01
+- repo : opt-trading
+- type : execution / PAPER_TEST
+- statut : COMPLETE
+- titre court : exécution PAPER_TEST contrôlée via paper adapter
+- dernier etat connu : PAPER_TEST envoyé et exécuté ; position BTC/USDT ouverte en simulation ; guards ok:true avant et après
+- verdict : PASS_PAPER_TEST_EXECUTED
+- payload PAPER_TEST : envoyé (paper adapter, aucun trade réel)
+- lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PAPER_TEST_RETRY_01/90_CLOSEOUT.md`
