@@ -93,11 +93,16 @@ EOF
 }
 
 # ─── Parse & render prompt ───
-echo "$VALIDATION_JSON" | python3 << 'PYEOF'
+VALIDATION_FILE="$OUTPUT_DIR/.validation_${JOB_BASENAME}.json"
+echo "$VALIDATION_JSON" > "$VALIDATION_FILE"
+export VALIDATION_FILE
+
+python3 << PYEOF
 import json, sys, os
 from datetime import datetime, timezone
 
-d = json.loads(sys.stdin.read())
+with open(os.environ['VALIDATION_FILE']) as f:
+    d = json.load(f)
 job_id = d['job_id']
 output_dir = os.environ['OUTPUT_DIR_PATH']
 prompt_file = os.path.join(output_dir, f'{job_id}_PROMPT.txt')
@@ -165,3 +170,5 @@ if d['warnings']:
     for w in d['warnings']:
         print(f'WARNING: {w}')
 PYEOF
+
+rm -f "$VALIDATION_FILE"
