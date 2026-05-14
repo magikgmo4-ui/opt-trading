@@ -330,3 +330,13 @@ Historique recent :
 - verdict : PASS_CONDITIONS_DEFINED
 - payload : aucun (doc-only)
 - lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_READINESS_CONDITIONS_01/90_CLOSEOUT.md`
+
+### GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_RISK_LIMITS_AND_KILL_SWITCH_01
+- repo : opt-trading
+- type : production readiness / risk limits + kill switch
+- statut : COMPLETE
+- titre court : spécification risk limits et kill switch production
+- dernier etat connu : risk limits et kill switch spécifiés ; rollback plan documenté ; validation gates définis ; production non ouverte
+- verdict : PARTIAL (spécifié, non implémenté)
+- payload : aucun (doc-only)
+- lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_RISK_LIMITS_AND_KILL_SWITCH_01/90_CLOSEOUT.md`
