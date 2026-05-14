@@ -280,3 +280,13 @@ Historique recent :
 - verdict : PASS_PAPER_TEST_EXECUTED
 - payload PAPER_TEST : envoyé (paper adapter, aucun trade réel)
 - lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PAPER_TEST_RETRY_01/90_CLOSEOUT.md`
+
+### GO_OPT_TRADING_ADMIN_TRADING_PAPER_POSITION_CLOSE_01
+- repo : opt-trading
+- type : position close / paper
+- statut : COMPLETE
+- titre court : fermer position paper BTC/USDT du retry
+- dernier etat connu : position BTC/USDT BUY 0.1 @ 65000.0 fermée ; positions préexistantes inchangées ; guards ok:true
+- verdict : PASS_POSITION_CLOSED
+- payload : aucun (édition directe positions.json)
+- lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PAPER_POSITION_CLOSE_01/90_CLOSEOUT.md`
