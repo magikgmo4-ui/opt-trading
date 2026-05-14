@@ -15,7 +15,7 @@ topic_keys:
 surface: product
 source_kind: canonical_draft
 reference_canonique_principale: docs/chantiers/GO_OPT_TRADING_AUTOMATION_OBSERVABILITY_IMPL_PHASE4_CIRCUIT_BREAKER_01/90_CLOSEOUT.md
-point_de_reprise: "Phase 4 livree: breaker dry-run."
+point_de_reprise: "Phase 4 livrée: breaker dry-run, aucun trip réel."
 updated_at: 2026-05-13
 links:
   - docs/chantiers/GO_OPT_TRADING_AUTOMATION_OBSERVABILITY_IMPL_PHASE4_CIRCUIT_BREAKER_01/00_CADRAGE.md
@@ -29,8 +29,21 @@ links:
 VERDICT = PASS
 ```
 
-## 2_CHAINE OBSERVABILITY CLOSE
+## 2_RESULTAT
 
 ```text
-#327 MATRIX -> #328 PLAN -> #329 P1 -> #330 P2 -> #331 P3 -> #335 README -> #336 P4
+health-breaker livré:
+- dry-run uniquement
+- compteur par surface, seuil 3
+- surfaces protégées
+- sortie texte + JSON
+- état persistant
+- aucun trip réel
+```
+
+## 3_CHAINE OBSERVABILITY CLOSE
+
+```text
+#327 MATRIX → #328 PLAN → #329 P1(check) → #330 P2(alert)
+→ #331 P3(dashboard) → #335 README → #337 P4(breaker)
 ```

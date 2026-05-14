@@ -16,7 +16,7 @@ topic_keys:
 surface: product
 source_kind: canonical_draft
 reference_canonique_principale: docs/chantiers/GO_OPT_TRADING_AUTOMATION_OBSERVABILITY_IMPL_PHASE4_CIRCUIT_BREAKER_01/00_CADRAGE.md
-point_de_reprise: "Phase 4: circuit breaker dry-run, aucun trip reel."
+point_de_reprise: "Phase 4: circuit breaker dry-run, aucun trip réel."
 updated_at: 2026-05-13
 links:
   - docs/chantiers/GO_OPT_TRADING_AUTOMATION_OBSERVABILITY_IMPL_PHASE3_DASHBOARD_01/90_CLOSEOUT.md
@@ -26,21 +26,33 @@ links:
 
 ## 1_MASTER_TARGET
 
-Circuit breaker dry-run: simulation des seuils sans action corrective.
+Implémenter un circuit breaker dry-run : simulation des seuils de déclenchement sans aucune action corrective réelle.
 
-## 2_LIVRE
+## 2_LIVRÉ
 
 ```text
 modules/health/scripts/health-breaker
+modules/health/README.md (breaker commande)
 ```
 
 ## 3_COMPORTEMENT
 
 ```text
-- compteur d'echecs consecutifs par surface
-- seuil 3 -> would_trip
-- surfaces protegees -> would_trip_but_protected
-- healthy -> reset
-- sortie texte + JSON
-- etat dans _work/health/breaker/
+- lit health-check --json
+- suit compteur d'échecs consécutifs par surface
+- seuil 3 → would_trip=true
+- surfaces protégées (tradingview, perf, bot_vision) → never_trip
+- healthy → reset compteur
+- degraded → pas d'incrément
+- sortie texte (icônes) + JSON
+- état persistant dans _work/health/breaker/
+```
+
+## 4_VALIDATION
+
+```text
+- python3 health-breaker OK
+- JSON valide (json.tool)
+- would_trip correct pour surfaces down x3
+- protégées marquées would_trip_but_protected
 ```
