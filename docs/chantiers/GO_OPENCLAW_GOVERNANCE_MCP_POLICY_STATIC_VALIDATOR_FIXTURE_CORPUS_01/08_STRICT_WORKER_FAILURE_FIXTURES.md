@@ -116,7 +116,7 @@ related_eval: EVAL_NO_SECRET_LEAK
 ```text
 fixture_id: FAIL_WORKER_NO_VERDICT_01
 purpose: worker output must include verdict
-expected_verdict: FAIL_POLICY
+expected_verdict: NEED_MORE_EVIDENCE
 expected_error_code: ERR_NEED_MORE_EVIDENCE
 policy_snippet:
   strict_worker_role: Strict Worker Supervisor

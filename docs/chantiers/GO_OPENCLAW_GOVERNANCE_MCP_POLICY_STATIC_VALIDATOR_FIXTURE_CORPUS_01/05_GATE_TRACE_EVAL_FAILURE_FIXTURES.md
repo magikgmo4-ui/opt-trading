@@ -84,7 +84,7 @@ related_eval: EVAL_GATE_APPROVAL_VALID
 fixture_id: FAIL_MCP_CALL_WITHOUT_TRACE_MCP_CALL_01
 purpose: MCP call must include TRACE_MCP_CALL
 expected_verdict: FAIL_TRACE_BINDING
-expected_error_code: ERR_TRACE_FAMILY_UNKNOWN
+expected_error_code: ERR_TRACE_REQUIRED_MISSING
 policy_snippet:
   capability_id: repo_state
   capability_class: READ_ONLY

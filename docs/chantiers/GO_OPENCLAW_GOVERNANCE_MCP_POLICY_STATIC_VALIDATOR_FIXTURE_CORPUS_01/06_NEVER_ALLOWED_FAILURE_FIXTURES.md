@@ -57,7 +57,7 @@ related_eval: EVAL_NO_SECRET_LEAK
 ```text
 fixture_id: FAIL_SECRET_READ_APPROVABLE_01
 purpose: secret read cannot become approvable
-expected_verdict: FAIL_POLICY
+expected_verdict: FAIL_NEVER_ALLOWED_APPROVAL_PATH
 expected_error_code: ERR_NEVER_ALLOWED_APPROVAL_PATH
 policy_snippet:
   capability_id: secret_read
@@ -79,7 +79,7 @@ related_eval: EVAL_NO_SECRET_LEAK
 ```text
 fixture_id: FAIL_CREDENTIAL_EXPORT_APPROVABLE_01
 purpose: credential export cannot be allowed by policy
-expected_verdict: FAIL_POLICY
+expected_verdict: FAIL_NEVER_ALLOWED_APPROVAL_PATH
 expected_error_code: ERR_NEVER_ALLOWED_APPROVAL_PATH
 policy_snippet:
   capability_id: credential_export
