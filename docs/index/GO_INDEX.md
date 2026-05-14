@@ -300,3 +300,13 @@ Historique recent :
 - verdict : PASS_CYCLE_COMPLETE
 - payload : aucun (documentation only)
 - lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PAPER_TEST_CYCLE_CLOSEOUT_01/90_CLOSEOUT.md`
+
+### GO_OPT_TRADING_ADMIN_TRADING_PAPER_SCENARIOS_EXPANSION_01
+- repo : opt-trading
+- type : paper scenarios / expansion
+- statut : COMPLETE
+- titre court : scénarios paper additionnels (SELL, invalid, guard fail, ledger)
+- dernier etat connu : 5/5 scénarios PASS ; positions nettoyées ; guards ok:true
+- verdict : PASS_ALL_SCENARIOS
+- payload : PAPER_TEST (paper adapter)
+- lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PAPER_SCENARIOS_EXPANSION_01/90_CLOSEOUT.md`
