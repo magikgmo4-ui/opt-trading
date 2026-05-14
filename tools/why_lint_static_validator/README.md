@@ -3,26 +3,45 @@
 ## Objectif
 
 `why_lint_static_validator.py` est un outil local read-only/report-only pour le
-corpus Markdown WHY lint.
+corpus Markdown WHY lint et, en V1, pour un scan borne des documents reels du
+chantier parent WHY lint.
 
 Il lit les fixtures, extrait les blocs de regles fences en Markdown, valide les
 champs attendus, calcule un verdict statique et compare ce verdict au verdict
 attendu par la fixture.
 
+Le mode `--scan-docs` lit uniquement des fichiers Markdown dans le dossier parent
+WHY lint autorise. Il produit un rapport, sans modifier les sources.
+
 ## Usage local
 
-Commande principale :
+Commande principale fixtures :
 
 ```bash
 python tools/why_lint_static_validator/why_lint_static_validator.py \
   --fixtures docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01/GO_OPT_TRADING_DOC_OPS_WHY_LINT_STATIC_VALIDATOR_FIXTURE_CORPUS_01.md
 ```
 
-Rapport JSON :
+Rapport JSON fixtures :
 
 ```bash
 python tools/why_lint_static_validator/why_lint_static_validator.py \
   --fixtures docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01/GO_OPT_TRADING_DOC_OPS_WHY_LINT_STATIC_VALIDATOR_FIXTURE_CORPUS_01.md \
+  --format json
+```
+
+Scan V1 des documents reels du parent WHY lint :
+
+```bash
+python tools/why_lint_static_validator/why_lint_static_validator.py \
+  --scan-docs docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01
+```
+
+Rapport JSON scan V1 :
+
+```bash
+python tools/why_lint_static_validator/why_lint_static_validator.py \
+  --scan-docs docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01 \
   --format json
 ```
 
@@ -39,6 +58,7 @@ python tools/why_lint_static_validator/why_lint_static_validator.py --help
 - report-only ;
 - deterministic ;
 - aucune modification des fixtures ;
+- aucune modification des documents scannes ;
 - aucun patch automatique ;
 - aucun runtime ;
 - aucun MCP live ;
@@ -46,15 +66,44 @@ python tools/why_lint_static_validator/why_lint_static_validator.py --help
 - aucun secret reel recherche ou lu ;
 - aucune CI bloquante.
 
+## Mode `--scan-docs` V1
+
+Le mode V1 est volontairement borne au dossier :
+
+```text
+docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01
+```
+
+Il scanne les fichiers `*.md` de ce dossier seulement.
+
+Il ignore explicitement le corpus de fixtures :
+
+```text
+GO_OPT_TRADING_DOC_OPS_WHY_LINT_STATIC_VALIDATOR_FIXTURE_CORPUS_01.md
+```
+
+Il signale notamment :
+
+- section `WHY` manquante ;
+- `FINAL_TARGET` manquant ;
+- `12_INVARIANTS` manquant ;
+- `17_RESUME_POINT` manquant ;
+- implication runtime interdite dans un document read-only/report-only ;
+- implication autofix interdite ;
+- implication CI bloquante interdite ;
+- motif secret-like inattendu.
+
+Ce mode ne scanne pas tout le repo et ne modifie aucun fichier.
+
 ## Limites
 
 - Le parseur accepte seulement le sous-ensemble YAML utilise dans les fences du
   corpus Markdown.
 - La detection secret-like est limitee a des motifs factices ou structurels dans
-  les fixtures.
-- La validation reste bornee au corpus de fixtures, pas aux documents reels du
-  repo.
+  les fixtures et a des motifs prudents dans le scan doc.
+- Le scan de documents reels est limite au parent WHY lint.
 - Le rapport est texte ou JSON imprime sur stdout, sans fichier de sortie.
+- Aucun scan repo-wide n'est inclus.
 
 ## Non-objectifs
 
@@ -64,16 +113,16 @@ python tools/why_lint_static_validator/why_lint_static_validator.py --help
 - Pas d'integration MCP.
 - Pas de workflow GitHub Actions.
 - Pas de CI bloquante.
-- Pas de scan des documents reels hors fixtures.
+- Pas de scan repo-wide.
 - Pas de recherche de vrais secrets.
 
 ## Exit codes
 
 | Code | Sens |
 | --- | --- |
-| 0 | Toutes les fixtures passent selon leurs verdicts attendus. |
-| 1 | Au moins un verdict obtenu ne correspond pas au verdict attendu. |
-| 2 | Fichier fixture illisible ou format invalide. |
+| 0 | Validation/scan complete sans echec bloquant. |
+| 1 | Validation/scan complete avec findings ou mismatch. |
+| 2 | Fichier fixture illisible, format invalide ou root scan hors scope. |
 | 3 | Risque secret-like ou champ interdit non attendu. |
 | 4 | Erreur interne controlee. |
 
