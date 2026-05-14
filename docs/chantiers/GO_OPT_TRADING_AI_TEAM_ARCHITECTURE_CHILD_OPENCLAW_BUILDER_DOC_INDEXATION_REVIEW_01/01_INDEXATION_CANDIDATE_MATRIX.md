@@ -12,13 +12,13 @@ SOURCE_ADOPTION = DOC_PACK_ADOPTED_LOCAL
 
 | Surface            | Candidate action        | Decision | Reason                                             | Risk                                  |
 | ------------------ | ----------------------- | -------- | -------------------------------------------------- | ------------------------------------- |
-| Local child folder | Keep as local reference | PENDING  | Already valid and traceable                        | Low                                   |
-| docs/index/inbox   | Add short pointer later | PENDING  | Could improve discoverability                      | Must not create duplicate authority   |
-| GO_INDEX           | Global index entry      | PENDING  | May be useful if builder docs become canonical     | High; global index mutation           |
-| ACTIVE_STREAMS     | Active stream entry     | PENDING  | Probably not needed after chain close              | Could falsely reopen closed stream    |
-| NEXT_GO            | Next GO candidate       | PENDING  | Only if indexation action is approved              | Could create unnecessary continuation |
-| REPRISE            | Restart pointer         | PENDING  | Only if adoption becomes canonical restart surface | Could pollute global restart state    |
-| BRANCH_STATE       | Branch state update     | PENDING  | Usually unnecessary after merge                    | Could duplicate PR/merge history      |
+| Local child folder | Keep as local reference | KEEP_AS_SOURCE_OF_RECORD     | Already valid and traceable                        | Low                                             |
+| docs/index/inbox   | Add short pointer later | OPTIONAL_POINTER_RECOMMENDED | Could improve discoverability                      | Must remain separate and lightweight            |
+| GO_INDEX           | Global index entry      | NO_ACTION                    | Not required for local adoption                    | High; global index mutation                     |
+| ACTIVE_STREAMS     | Active stream entry     | NO_ACTION                    | Chain is closed                                    | Could falsely reopen closed stream              |
+| NEXT_GO            | Next GO candidate       | NO_ACTION_IN_THIS_CHILD      | Optional pointer GO can be opened manually         | Could create unnecessary continuation           |
+| REPRISE            | Restart pointer         | NO_ACTION                    | Not a canonical restart surface                    | Could pollute global restart state              |
+| BRANCH_STATE       | Branch state update     | NO_ACTION                    | Merge history is sufficient                        | Could duplicate PR/merge history                |
 
 ## Review criteria
 
@@ -30,9 +30,9 @@ LOW_MUTATION = avoids broad global edits
 NECESSITY = required, not decorative
 ```
 
-## Initial verdict
+## Final verdict
 
 ```text
-INDEXATION_REVIEW_STATUS = IN_PROGRESS
-FINAL_DECISION = PENDING
+INDEXATION_REVIEW_STATUS = PASS
+FINAL_DECISION = LOCAL_REFERENCE_ONLY_WITH_OPTIONAL_INBOX_POINTER_RECOMMENDED
 ```
