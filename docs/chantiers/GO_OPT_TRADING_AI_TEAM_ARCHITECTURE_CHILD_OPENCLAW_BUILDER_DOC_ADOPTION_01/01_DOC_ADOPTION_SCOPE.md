@@ -12,10 +12,10 @@ SOURCE_BASE = sot/mainline
 
 | Document                       | Source path       | Adoption status | Intended role                                      |
 | ------------------------------ | ----------------- | --------------- | -------------------------------------------------- |
-| BUILDER_OPERATIONAL_GUIDE.md   | previous child GO | PENDING         | Operator reference for controlled builder jobs     |
-| BUILDER_ARCHITECTURE_VIEW.md   | previous child GO | PENDING         | Builder/gateway/fallback architecture reference    |
-| BUILDER_CONTROLLED_WORKFLOW.md | previous child GO | PENDING         | Gate → execution log → closeout workflow reference |
-| BUILDER_SECURITY_GUARDRAILS.md | previous child GO | PENDING         | Builder-specific guardrails reference              |
+| BUILDER_OPERATIONAL_GUIDE.md   | previous child GO | ADOPTED_LOCAL                  | Operator reference for controlled builder jobs     |
+| BUILDER_ARCHITECTURE_VIEW.md   | previous child GO | ADOPTED_LOCAL                  | Builder/gateway/fallback architecture reference    |
+| BUILDER_CONTROLLED_WORKFLOW.md | previous child GO | ADOPTED_LOCAL                  | Gate → execution log → closeout workflow reference |
+| BUILDER_SECURITY_GUARDRAILS.md | previous child GO | ADOPTED_LOCAL_WITH_SCOPE_LIMIT | Builder-specific guardrails reference              |
 
 ## Adoption boundaries
 
@@ -37,9 +37,9 @@ TRACEABLE = document points back to a merged child GO
 SAFE = document preserves no SSH / no runtime patch / no global index update
 ```
 
-## Initial verdict
+## Final verdict
 
 ```text
-DOC_ADOPTION_STATUS = IN_PROGRESS
-FINAL_DECISION = PENDING
+DOC_ADOPTION_STATUS = PASS
+FINAL_DECISION = DOC_PACK_ADOPTED_LOCAL
 ```
