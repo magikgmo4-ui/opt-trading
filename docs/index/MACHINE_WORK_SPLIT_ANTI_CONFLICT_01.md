@@ -72,6 +72,12 @@ Quand la demande est "chantiers pour <machine>", la reponse doit ressortir direc
 | --- | --- |
 | `go/GO_OPT_TRADING_CURSOR_AI_DOC_OPS_CHILD_WHY_LAYER_AUDIT_01` | WHY layer audit — doc-only ; rattache au parent cursor-ai ; aucun runtime ; aucun GO_INDEX |
 
+### DOC_OPS — WHY_LINT_CONSOLIDATION_ACTIVE
+
+| Branche | Note |
+| --- | --- |
+| `go/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01` | WHY lint consolidation parent — doc-only ; read-only ; warning-only ; consolide gouvernance / WHY runtime / WHY lint / OpenClaw central ; interdits : runtime, auto-fix, global indexes, MCP live, trade, secret ; next : SPEC_WHY_LINT_EXPERIMENT_01.md |
+
 ### TradingView MCP Observer — CLOSED (transport/docs)
 
 | Branche | Note |
