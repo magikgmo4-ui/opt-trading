@@ -47,7 +47,7 @@ sot/mainline
 ## Statut
 
 ```text
-CADRAGE — en attente de validation Phase A
+PHASE_A_PASS — runner lock operationnel ; en attente validation Phase B
 ```
 
 ## Parent
