@@ -94,3 +94,10 @@ Le prochain paquet `student` doit proposer :
 - le patch `LUNR` pour `market-structure` ;
 - la note de frontiere `FLY` pour `watchlist` ;
 - aucun changement global d'index sans validation explicite.
+
+
+## Décision FLY
+
+FLY reste côté MARKET_STRUCTURE uniquement pour l'instant.
+
+AI_SPACE_WATCHLIST ne doit pas être modifiée sans validation explicite d'intégration dataset.
