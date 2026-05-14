@@ -59,9 +59,14 @@ for fpath in allowed_inputs:
 
 allowed_outputs = scope.get('allowed_outputs', [])
 output_file = os.path.join(output_dir, f'{job_id}.md')
-out_ok = any(fnmatch.fnmatch(output_file, pat) for pat in allowed_outputs)
+# Match against allowed_outputs using relative path from repo root
+repo_root = os.environ.get('REPO_ROOT', '')
+output_rel = output_file
+if repo_root and output_file.startswith(repo_root):
+    output_rel = output_file[len(repo_root):].lstrip('/')
+out_ok = any(fnmatch.fnmatch(output_rel, pat) for pat in allowed_outputs)
 if not out_ok:
-    errors.append(f'OUTPUT_NOT_ALLOWED: {output_file} not in allowed_outputs={allowed_outputs}')
+    errors.append(f'OUTPUT_NOT_ALLOWED: {output_rel} not in allowed_outputs={allowed_outputs}')
 
 denied_cmds = tasks.get('denied_commands', [])
 
