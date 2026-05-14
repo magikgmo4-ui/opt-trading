@@ -7,8 +7,8 @@ module: agents
 go_id: GO_OPT_TRADING_STRICT_WORKERS_CHILD_RUNTIME_LOCK_AND_E2E_01
 parent_go_id: GO_OPT_TRADING_STRICT_WORKERS_PARENT_01
 machine: fantome
-status: cadrage
-lifecycle_stage: opening
+status: closeout_pass
+lifecycle_stage: closeout
 topic_keys:
   - branch_state
   - strict_workers
@@ -17,7 +17,7 @@ topic_keys:
 surface: docs/chantiers
 source_kind: canonical
 reference_canonique_principale: docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01/BRANCH_STATE.md
-point_de_reprise: "Phase A: verrouiller le runner strict_workers"
+point_de_reprise: "PASS global — runner lock + PATCH_DRAFT borne + E2E multi-workers valides. NEXT_GO: extension pool ou write gate."
 updated_at: 2026-05-13
 links:
   - docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_CHILD_RUNTIME_LOCK_AND_E2E_01/00_INITIAL_PROJECT_DOC.md
@@ -47,7 +47,7 @@ sot/mainline
 ## Statut
 
 ```text
-PHASE_B_PASS — PATCH_DRAFT produit, non applique ; en attente validation Phase C
+CLOSEOUT_PASS — Phase A PASS, Phase B PASS, Phase C PASS. Verdict final PASS.
 ```
 
 ## Parent

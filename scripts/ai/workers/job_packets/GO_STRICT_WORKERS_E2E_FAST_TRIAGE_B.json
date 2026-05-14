@@ -1,0 +1,48 @@
+{
+  "job_packet_id": "GO_STRICT_WORKERS_E2E_FAST_TRIAGE_B",
+  "go_id": "GO_OPT_TRADING_STRICT_WORKERS_PARENT_01",
+  "status": "DRAFT_ONLY",
+  "task_type": "FAST_TRIAGE",
+  "worker_assigned": "qwen3.5-plus",
+  "worker_status": "VERIFIED",
+  "autonomy_max": "A1",
+  "parallel_slot": "B",
+  "model_registry": "scripts/ai/workers/models.registry.json",
+  "task_index": "scripts/ai/workers/tasks.index.json",
+  "scope": {
+    "allowed_inputs": [
+      "docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md",
+      "docs/agents/strict_workers/MODELS_MATRIX_01.md",
+      "scripts/ai/workers/tasks.index.json",
+      "scripts/ai/workers/models.registry.json",
+      "docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01/BRANCH_STATE.md",
+      "docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01/00_INITIAL_PROJECT_DOC.md"
+    ],
+    "denied_inputs_inherited": true,
+    "allowed_outputs": [
+      "reports/ai/workers/GO_STRICT_WORKERS_E2E_FAST_TRIAGE_B.md"
+    ]
+  },
+  "instructions": [
+    "Lire les allowed_inputs et produire un tri rapide des éléments du chantier strict_workers.",
+    "Classer par priorité, risque, et état de complétion.",
+    "Ne modifier aucun fichier.",
+    "Ne lancer aucune commande git.",
+    "Ne lire aucun secret, .env, token, clé ou credentials.",
+    "Produire un rapport DRAFT_ONLY avec sections obligatoires FAST_TRIAGE."
+  ],
+  "required_output_sections": [
+    "RESUME",
+    "CLASSEMENT",
+    "RISQUES",
+    "TODO",
+    "VERDICT_DRAFT_ONLY"
+  ],
+  "acceptance": {
+    "must_not_write_runtime": true,
+    "must_not_modify_repo": true,
+    "must_not_read_secrets": true,
+    "must_reference_only_allowed_inputs": true,
+    "must_end_with_verdict_draft_only": true
+  }
+}
