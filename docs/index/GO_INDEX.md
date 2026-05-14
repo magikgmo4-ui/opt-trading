@@ -310,3 +310,13 @@ Historique recent :
 - verdict : PASS_ALL_SCENARIOS
 - payload : PAPER_TEST (paper adapter)
 - lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PAPER_SCENARIOS_EXPANSION_01/90_CLOSEOUT.md`
+
+### GO_OPT_TRADING_ADMIN_TRADING_PAPER_VALIDATION_GLOBAL_CLOSEOUT_01
+- repo : opt-trading
+- type : global closeout / paper validation
+- statut : COMPLETE
+- titre court : closeout global validation paper admin-trading
+- dernier etat connu : 10 PRs/GOs consolidés ; preuves collectées ; conditions production définies ; production non ouverte
+- verdict : PASS_GLOBAL_PAPER_VALIDATION
+- payload : aucun (doc-only)
+- lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PAPER_VALIDATION_GLOBAL_CLOSEOUT_01/90_CLOSEOUT.md`
