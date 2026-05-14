@@ -250,3 +250,13 @@ Historique recent :
 - titre court : méthode canonique d’extraction par tags
 - dernier état connu : fiche de référence initiale créée sur `sot/mainline` pour séparer extraction, classification, routage mémoire vs doc et écriture contrôlée
 - lien utile : `docs/governance/EXTRACTEUR_TAGS__METHODE_CANONIQUE_V1.md`
+
+### GO_OPT_TRADING_ADMIN_TRADING_RUNTIME_SYNC_AFTER_PAPER_GUARDS_01
+- repo : opt-trading
+- type : runtime sync / verification
+- statut : COMPLETE
+- titre court : sync runtime admin-trading + verification guards PAPER_TEST
+- dernier etat connu : runtime synchronise sur `sot/mainline @ 50df15c3` ; `GET /api/paper/guards` retourne 200 avec guards correctement bloquants
+- verdict : PASS_SYNC_BLOCKING_GUARDS
+- payload PAPER_TEST : non envoyé
+- lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_RUNTIME_SYNC_AFTER_PAPER_GUARDS_01/90_CLOSEOUT.md`
