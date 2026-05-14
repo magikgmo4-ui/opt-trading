@@ -24,10 +24,10 @@ Le builder a recommandé quatre familles documentaires :
 
 | Recommended doc   | Role                             | Decision | Reason    | Risk                                                 | Next action                        |
 | ----------------- | -------------------------------- | -------- | --------- | ---------------------------------------------------- | ---------------------------------- |
-| OPERATIONAL_GUIDE | Guide d'usage opérateur          | PENDING  | À valider | Peut dupliquer runbooks existants                    | Comparer avec docs existantes      |
-| ARCHITECTURE      | Vue structurelle builder/gateway | PENDING  | À valider | Peut chevaucher architecture OpenClaw existante      | Vérifier surfaces déjà documentées |
-| WORKFLOW          | Séquence d'exécution contrôlée   | PENDING  | À valider | Risque de trop prescrire avant runtime stable        | Borner au dry-run/documentaire     |
-| SECURITY          | Contraintes sécurité/garde-fous  | PENDING  | À valider | Doit rester aligné avec invariants SSH/token/runtime | Séparer warnings gateway token     |
+| OPERATIONAL_GUIDE | Guide d'usage opérateur          | APPROVED                  | Nécessaire pour usage contrôlé répétable          | Peut dupliquer runbooks existants                    | Borner au builder uniquement                        |
+| ARCHITECTURE      | Vue structurelle builder/gateway | APPROVED                  | Nécessaire pour clarifier gateway/fallback        | Peut chevaucher architecture OpenClaw existante      | Garder une vue spécifique builder/gateway           |
+| WORKFLOW          | Séquence d'exécution contrôlée   | APPROVED                  | Nécessaire pour gate → execution log → closeout   | Risque de trop prescrire avant runtime stable        | Borner au workflow documentaire contrôlé            |
+| SECURITY          | Contraintes sécurité/garde-fous  | APPROVED_WITH_SCOPE_LIMIT | Nécessaire pour figer les interdits builder       | Peut devenir trop large                              | Limiter aux garde-fous builder/dry-run uniquement   |
 
 ## Review criteria
 
@@ -39,9 +39,9 @@ GOVERNANCE_ALIGNMENT = document respecte parent > child > gate > closeout
 NEXT_GO_READY = document peut être écrit dans un child séparé
 ```
 
-## Initial verdict
+## Final verdict
 
 ```text
-DOC_PLAN_REVIEW_STATUS = IN_PROGRESS
-FINAL_DECISION = PENDING
+DOC_PLAN_REVIEW_STATUS = PASS
+FINAL_DECISION = DOC_PLAN_APPROVED_FOR_WRITING
 ```
