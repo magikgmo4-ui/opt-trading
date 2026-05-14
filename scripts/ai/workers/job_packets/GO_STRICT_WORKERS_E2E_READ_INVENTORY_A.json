@@ -1,0 +1,50 @@
+{
+  "job_packet_id": "GO_STRICT_WORKERS_E2E_READ_INVENTORY_A",
+  "go_id": "GO_OPT_TRADING_STRICT_WORKERS_PARENT_01",
+  "status": "DRAFT_ONLY",
+  "task_type": "READ_INVENTORY",
+  "worker_assigned": "minimax-m2.5",
+  "worker_status": "VERIFIED",
+  "autonomy_max": "A1",
+  "parallel_slot": "A",
+  "model_registry": "scripts/ai/workers/models.registry.json",
+  "task_index": "scripts/ai/workers/tasks.index.json",
+  "scope": {
+    "allowed_inputs": [
+      "docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md",
+      "docs/agents/strict_workers/MODELS_MATRIX_01.md",
+      "docs/agents/strict_workers/MODEL_ID_VALIDATION_01.md",
+      "docs/agents/strict_workers/OPENCODE_ZEN_MODEL_ID_AUDIT_01.md",
+      "scripts/ai/workers/tasks.index.json",
+      "scripts/ai/workers/models.registry.json",
+      "docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01/BRANCH_STATE.md"
+    ],
+    "denied_inputs_inherited": true,
+    "allowed_outputs": [
+      "reports/ai/workers/GO_STRICT_WORKERS_E2E_READ_INVENTORY_A.md"
+    ]
+  },
+  "instructions": [
+    "Lire les allowed_inputs pour inventorier l'état du chantier strict_workers.",
+    "Ne modifier aucun fichier.",
+    "Ne lancer aucune commande git.",
+    "Ne lire aucun secret, .env, token, clé ou credentials.",
+    "Produire un rapport DRAFT_ONLY avec sections obligatoires READ_INVENTORY."
+  ],
+  "required_output_sections": [
+    "13_ESTABLISHED",
+    "14_HYPOTHESIS",
+    "15_REMAINING_GAP",
+    "16_TODO",
+    "FICHIERS_LUS",
+    "RISQUES",
+    "VERDICT_DRAFT_ONLY"
+  ],
+  "acceptance": {
+    "must_not_write_runtime": true,
+    "must_not_modify_repo": true,
+    "must_not_read_secrets": true,
+    "must_reference_only_allowed_inputs": true,
+    "must_end_with_verdict_draft_only": true
+  }
+}
