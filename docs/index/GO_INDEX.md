@@ -320,3 +320,13 @@ Historique recent :
 - verdict : PASS_GLOBAL_PAPER_VALIDATION
 - payload : aucun (doc-only)
 - lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PAPER_VALIDATION_GLOBAL_CLOSEOUT_01/90_CLOSEOUT.md`
+
+### GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_READINESS_CONDITIONS_01
+- repo : opt-trading
+- type : production readiness / conditions
+- statut : COMPLETE
+- titre court : conditions production readiness admin-trading
+- dernier etat connu : 7 conditions évaluées (0 SATISFIED, 2 PARTIAL, 4 MISSING, 1 BLOCKED) ; production non ouverte
+- verdict : PASS_CONDITIONS_DEFINED
+- payload : aucun (doc-only)
+- lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_READINESS_CONDITIONS_01/90_CLOSEOUT.md`
