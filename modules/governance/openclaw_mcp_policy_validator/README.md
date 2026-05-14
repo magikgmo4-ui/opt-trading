@@ -41,3 +41,13 @@ Failure output suppresses risky values and includes only the path and reason.
 ## Limits
 
 The parser supports the simple block YAML subset used by OpenClaw policy drafts. Anchors, aliases, tabs, complex flow maps, and ambiguous indentation are rejected rather than guessed.
+
+## Fixture Harness
+
+The fixture harness reads the Markdown fixture corpus, extracts explicit fixture fences, materializes temporary policy files, runs the static validator, and compares actual results with the fixture index.
+
+```powershell
+python -m modules.governance.openclaw_mcp_policy_validator.fixture_harness docs\chantiers\GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_FIXTURE_CORPUS_01
+```
+
+The harness writes snippets only into a system temporary directory and does not create active YAML or JSON files in the repository.

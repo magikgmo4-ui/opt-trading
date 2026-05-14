@@ -603,11 +603,39 @@ def _validate_capability_deny_rules(
             severity="critical",
             blocked_action=capability_id,
         )
+    if capability_id in {"trade_execution", "bypass_human_gate"} and _value_implies_allow(capability):
+        ctx.add(
+            "ERR_GATE_BYPASS_ALLOWED",
+            path,
+            "forbidden capability cannot be allowed by policy",
+            severity="critical",
+            blocked_action=capability_id,
+        )
+    if capability_id == "suppress_audit_trace" and (
+        capability.get("trace_required") is False or _value_implies_allow(capability)
+    ):
+        ctx.add(
+            "ERR_SUPPRESS_TRACE_ALLOWED",
+            path,
+            "audit trace suppression cannot be allowed by policy",
+            severity="critical",
+            blocked_action=capability_id,
+        )
     if capability_id in BLOCKED_OR_NEVER_IDS and class_name not in {"BLOCKED_BY_DEFAULT", "NEVER_ALLOWED"}:
         ctx.add(
             "ERR_GATE_BYPASS_ALLOWED",
             f"{path}.capability_class",
             "blocked capability cannot be allowed implicitly",
+            severity="critical",
+            blocked_action=capability_id,
+        )
+    if capability_id == "unrestricted_shell" and (
+        _value_implies_allow(capability) or _contains_word(capability.get("tool_scope"), "arbitrary")
+    ):
+        ctx.add(
+            "ERR_GATE_BYPASS_ALLOWED",
+            path,
+            "unrestricted shell cannot be allowed by policy",
             severity="critical",
             blocked_action=capability_id,
         )
@@ -895,6 +923,8 @@ def _validate_strict_workers(value: Any, ctx: _ValidationContext) -> None:
                 blocked_action="human_approval",
             )
         allowed = _as_id_set(config.get("allowed_capabilities"))
+        blocked = _as_id_set(config.get("blocked_capabilities"))
+        requested = config.get("requested_capability")
         if allowed.intersection({"secret_read", "credential_export"}):
             ctx.add(
                 "ERR_SECRET_RISK",
@@ -909,6 +939,17 @@ def _validate_strict_workers(value: Any, ctx: _ValidationContext) -> None:
                 "strict worker capability is outside allowed safety scope",
                 severity="critical",
             )
+        if requested and (
+            requested in blocked
+            or (allowed and requested not in allowed)
+        ):
+            ctx.add(
+                "ERR_OLLAMA_UNBOUNDED_ACTION",
+                f"{path}.requested_capability",
+                "strict worker requested capability is outside role scope",
+                severity="high",
+                blocked_action=str(requested),
+            )
         if config.get("runtime_gate_required") is False and allowed.intersection(
             {"service_restart", "model_pull", "provider_switch", "install", "smoke_test_no_trade"}
         ):
@@ -922,6 +963,18 @@ def _validate_strict_workers(value: Any, ctx: _ValidationContext) -> None:
             ctx.add(
                 "ERR_NEED_MORE_EVIDENCE",
                 f"{path}.verdict",
+                "strict worker output requires explicit verdict",
+                severity="medium",
+            )
+        worker_output = config.get("worker_output")
+        if isinstance(worker_output, dict) and str(worker_output.get("verdict", "")).lower() in {
+            "",
+            "missing",
+            "none",
+        }:
+            ctx.add(
+                "ERR_NEED_MORE_EVIDENCE",
+                f"{path}.worker_output.verdict",
                 "strict worker output requires explicit verdict",
                 severity="medium",
             )
