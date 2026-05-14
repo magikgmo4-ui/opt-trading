@@ -1,0 +1,52 @@
+{
+  "job_packet_id": "GO_STRICT_WORKERS_READONLY_SMOKE_01",
+  "go_id": "GO_OPT_TRADING_STRICT_WORKERS_PARENT_01",
+  "status": "DRAFT_ONLY",
+  "task_type": "READ_INVENTORY",
+  "worker_candidates": [
+    "qwen3.5-plus",
+    "minimax-m2.5",
+    "kimi-k2.5",
+    "big-pickle",
+    "gpt-5-nano"
+  ],
+  "default_worker": "qwen3.5-plus",
+  "model_registry": "scripts/ai/workers/models.registry.json",
+  "task_index": "scripts/ai/workers/tasks.index.json",
+  "scope": {
+    "allowed_inputs": [
+      "docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md",
+      "docs/agents/strict_workers/MODELS_MATRIX_01.md",
+      "docs/agents/strict_workers/MODEL_ID_VALIDATION_01.md",
+      "scripts/ai/workers/tasks.index.json",
+      "scripts/ai/workers/models.registry.json"
+    ],
+    "denied_inputs_inherited": true,
+    "allowed_outputs": [
+      "reports/ai/workers/GO_STRICT_WORKERS_READONLY_SMOKE_01.md"
+    ]
+  },
+  "instructions": [
+    "Lire uniquement les allowed_inputs.",
+    "Ne modifier aucun fichier.",
+    "Ne lancer aucune commande git.",
+    "Ne lire aucun secret, .env, token, clé ou credentials.",
+    "Produire un rapport DRAFT_ONLY."
+  ],
+  "required_output_sections": [
+    "13_ESTABLISHED",
+    "14_HYPOTHESIS",
+    "15_REMAINING_GAP",
+    "16_TODO",
+    "FICHIERS_LUS",
+    "RISQUES",
+    "VERDICT_DRAFT_ONLY"
+  ],
+  "acceptance": {
+    "must_not_write_runtime": true,
+    "must_not_modify_repo": true,
+    "must_not_read_secrets": true,
+    "must_reference_only_allowed_inputs": true,
+    "must_end_with_verdict_draft_only": true
+  }
+}

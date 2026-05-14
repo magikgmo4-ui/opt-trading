@@ -9,6 +9,9 @@ bash modules/health/scripts/health-check              # text output
 bash modules/health/scripts/health-check --json       # JSON machine-readable
 bash modules/health/scripts/health-check perf         # filter surfaces
 bash modules/health/scripts/health-alert              # alerting (Phase 2)
+bash modules/health/scripts/health-dashboard          # dashboard (Phase 3)
+bash modules/health/scripts/health-dashboard --json   # JSON export
+bash modules/health/scripts/health-dashboard --html   # HTML static
 bash modules/health/scripts/health-breaker            # breaker dry-run (Phase 4)
 ```
 
@@ -44,19 +47,17 @@ HEALTH_DOWN_THRESHOLD  → seconds before alert (default 300 = 5 min)
 HEALTH_ALERT_COOLDOWN  → seconds between repeat alerts (default 1800 = 30 min)
 ```
 
+## Phase 3 scope
 
-## Status
+- health-dashboard: read-only aggregation of health state
+- text matrix with icons, staleness, last_seen
+- JSON export for machine consumption
+- HTML static page (dark theme)
+- no server, no runtime mutation
 
-```text
-healthy  = surface is responding correctly
-degraded = surface responds but with issues
-down     = surface is not reachable
-unknown  = could not determine status
-```
+## Phase 4 scope
 
-## Phase 1 scope
-
-- health check contract JSON
-- registry of 10 automation surfaces
-- cmd-health CLI with text and JSON output
-- no alerting, no dashboard runtime, no circuit breakers
+- health-breaker: dry-run circuit breaker before stopping surfaces
+- validates dependencies before stop
+- reports blocker surfaces
+- no automatic action, human-in-the-loop

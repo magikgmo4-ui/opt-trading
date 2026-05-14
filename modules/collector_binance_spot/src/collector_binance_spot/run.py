@@ -56,19 +56,6 @@ def run_collection(module_dir: Path, client: BinanceSpotClient | Any | None = No
         config.paths.normalized_dir,
         config.paths.snapshots_dir,
     )
-    validate_runtime_requirements(config)
-
-
-def run_collection(module_dir: Path, client: BinanceSpotClient | Any | None = None) -> dict[str, Any]:
-    config = load_runtime_config(module_dir)
-    ensure_writable_directories(
-        config.paths.runtime_dir,
-        config.paths.logs_dir,
-        config.paths.outputs_dir,
-        config.paths.raw_dir,
-        config.paths.normalized_dir,
-        config.paths.snapshots_dir,
-    )
     ensure_file(config.paths.errors_path)
 
     run_id = build_run_id()

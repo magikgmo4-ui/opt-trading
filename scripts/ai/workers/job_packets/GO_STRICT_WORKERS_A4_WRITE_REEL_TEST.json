@@ -1,0 +1,38 @@
+{
+  "job_packet_id": "GO_STRICT_WORKERS_A4_WRITE_REEL_TEST",
+  "go_id": "GO_OPT_TRADING_STRICT_WORKERS_CHILD_WRITE_GATE_A4_WRITE_REEL_01",
+  "status": "DRY_RUN_PENDING_APPROVAL",
+  "task_type": "WRITE_GATED",
+  "worker_assigned": "glm-5.1",
+  "worker_status": "VERIFIED",
+  "autonomy_max": "A4",
+  "explicit_write_approval": {
+    "approved": false,
+    "approver": "EN_ATTENTE_HUMAIN",
+    "approval_date": null,
+    "scope_files": ["reports/ai/workers/GO_STRICT_WORKERS_A4_WRITE_REEL_TEST.md"],
+    "max_lines_change": 5,
+    "dry_run": true,
+    "validation_required": ["git_diff", "strong_model_review", "human_approval"],
+    "rollback_plan": "rm reports/ai/workers/GO_STRICT_WORKERS_A4_WRITE_REEL_TEST.md"
+  },
+  "scope": {
+    "allowed_outputs": ["reports/ai/workers/GO_STRICT_WORKERS_A4_WRITE_REEL_TEST.md"],
+    "target_file": "reports/ai/workers/GO_STRICT_WORKERS_A4_WRITE_REEL_TEST.md"
+  },
+  "write_plan": {
+    "operation": "CREATE_FILE",
+    "target": "reports/ai/workers/GO_STRICT_WORKERS_A4_WRITE_REEL_TEST.md",
+    "max_lines": 5,
+    "description": "Fichier de test write reel A4 non critique. Supprime au rollback.",
+    "content_preview": "# GO_STRICT_WORKERS_A4_WRITE_REEL_TEST\n\ndate: 2026-05-14\nstatus: write_reel_test\noperation: CREATE_FILE\n\nWrite reel A4 minimal valide avec success."
+  },
+  "required_output_sections": ["13_ESTABLISHED", "14_HYPOTHESIS", "WRITE_PLAN", "WRITE_DIFF_ATTENDU", "VALIDATION_EXTERNE", "DRY_RUN_RESULT", "RISQUES", "VERDICT_WRITE_GATED"],
+  "acceptance": {
+    "must_not_write_without_approval": true,
+    "must_dry_run_first": true,
+    "must_be_reversible": true,
+    "must_not_write_runtime": true,
+    "must_not_read_secrets": true
+  }
+}

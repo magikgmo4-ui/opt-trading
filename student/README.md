@@ -40,3 +40,9 @@ Canonical decision:
   - `sanity-student` -> `/opt/trading/student/scripts/student_sanity_check.sh`
 
 Legacy locations are now compatibility sources only and should not be used as primary entrypoints.
+
+## Migration status
+
+See `scripts/MIGRATION_STATUS.md` for the current DeepSeek consolidation state.
+The `scripts/student/` legacy directory is preserved for backward compatibility
+with `post_change.sh` and `deepseek_hub` callers.

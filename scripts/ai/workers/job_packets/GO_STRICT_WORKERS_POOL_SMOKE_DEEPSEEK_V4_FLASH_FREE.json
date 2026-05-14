@@ -1,0 +1,27 @@
+{
+  "job_packet_id": "GO_STRICT_WORKERS_POOL_SMOKE_DEEPSEEK_V4_FLASH_FREE",
+  "go_id": "GO_OPT_TRADING_STRICT_WORKERS_CHILD_WORKER_POOL_SMOKE_01",
+  "status": "DRAFT_ONLY",
+  "task_type": "READ_INVENTORY",
+  "worker_assigned": "deepseek-v4-flash-free",
+  "worker_status": "VERIFIED_FREE",
+  "autonomy_max": "A1",
+  "model_registry": "scripts/ai/workers/models.registry.json",
+  "task_index": "scripts/ai/workers/tasks.index.json",
+  "scope": {
+    "allowed_inputs": [
+      "docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md",
+      "scripts/ai/workers/models.registry.json",
+      "scripts/ai/workers/tasks.index.json"
+    ],
+    "denied_inputs_inherited": true,
+    "allowed_outputs": ["reports/ai/workers/GO_STRICT_WORKERS_POOL_SMOKE_DEEPSEEK_V4_FLASH_FREE.md"]
+  },
+  "required_output_sections": ["13_ESTABLISHED", "14_HYPOTHESIS", "15_REMAINING_GAP", "16_TODO", "FICHIERS_LUS", "RISQUES", "VERDICT_DRAFT_ONLY"],
+  "acceptance": {
+    "must_not_write_runtime": true,
+    "must_not_modify_repo": true,
+    "must_not_read_secrets": true,
+    "must_end_with_verdict_draft_only": true
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "schema_version": "0.3-draft",
+  "go_id": "GO_OPT_TRADING_STRICT_WORKERS_CHILD_WORKER_POOL_EXTENSION_01",
+  "parent_go_id": "GO_OPT_TRADING_STRICT_WORKERS_CHILD_RUNTIME_LOCK_AND_E2E_01",
+  "status": "DRAFT_ONLY",
+  "model_registry": "scripts/ai/workers/models.registry.json",
+  "default_authority": "non_souverain",
+  "global_invariants": {
+    "no_secrets": true,
+    "no_env_files": true,
+    "no_git_write_ops": true,
+    "no_runtime_write_by_default": true,
+    "requires_external_validation": true,
+    "output_status": "DRAFT_ONLY",
+    "only_verified_models": true
+  },
+  "denied_inputs": [
+    ".env",
+    "**/.env",
+    "**/*secret*",
+    "**/*token*",
+    "**/*credential*",
+    "**/id_rsa",
+    "**/id_ed25519",
+    "**/*.pem",
+    "**/*.key"
+  ],
+  "denied_commands": [
+    "git add",
+    "git commit",
+    "git push",
+    "git rebase",
+    "git merge",
+    "rm -rf",
+    "chmod -R",
+    "chown -R"
+  ],
+  "tasks": {
+    "READ_INVENTORY": {
+      "autonomy_max": "A1",
+      "writes_code": false,
+      "allowed_outputs": ["reports/ai/workers/**"],
+      "required_sections": ["13_ESTABLISHED", "14_HYPOTHESIS", "15_REMAINING_GAP", "16_TODO", "FICHIERS_LUS", "RISQUES", "VERDICT_DRAFT_ONLY"],
+      "preferred_workers": ["qwen3.5-plus", "minimax-m2.5", "kimi-k2.5", "big-pickle", "gpt-5-nano", "nemotron-3-super-free", "deepseek-v4-flash-free", "ring-2.6-1t-free", "trinity-large-preview-free"]
+    },
+    "PATCH_DRAFT": {
+      "autonomy_max": "A2",
+      "writes_code": false,
+      "allowed_outputs": ["reports/ai/workers/**"],
+      "required_sections": ["OBJECTIF_PATCH", "FICHIERS_TOUCHES", "DIFF_ATTENDU", "RISQUES", "TESTS_A_EXECUTER", "VERDICT_DRAFT_ONLY"],
+      "preferred_workers": ["glm-5.1", "kimi-k2.6", "glm-5", "qwen3.6-plus", "minimax-m2.7", "big-pickle"]
+    },
+    "DOC_DRAFT": {
+      "autonomy_max": "A2",
+      "writes_code": false,
+      "allowed_outputs": ["reports/ai/workers/**", "docs/chantiers/**"],
+      "required_sections": ["CONTEXTE", "ETAT_INITIAL", "CHANGEMENTS", "VALIDATIONS", "LIMITES", "POINT_DE_REPRISE", "VERDICT_DRAFT_ONLY"],
+      "preferred_workers": ["qwen3.5-plus", "qwen3.6-plus", "minimax-m2.5", "big-pickle", "nemotron-3-super-free"]
+    },
+    "TESTPLAN": {
+      "autonomy_max": "A2",
+      "writes_code": false,
+      "allowed_outputs": ["reports/ai/workers/**"],
+      "required_sections": ["TESTS_UNITAIRES", "TESTS_SMOKE", "COMMANDES", "CRITERES_PASS_FAIL", "RISQUES_RESTANTS", "VERDICT_DRAFT_ONLY"],
+      "preferred_workers": ["glm-5.1", "qwen3.6-plus", "kimi-k2.6", "glm-5", "minimax-m2.7", "big-pickle"]
+    },
+    "CHERRY_PICK_INVENTORY": {
+      "autonomy_max": "A2",
+      "writes_code": false,
+      "allowed_outputs": ["reports/ai/workers/**"],
+      "required_sections": ["COMMITS_CANDIDATS", "FICHIERS_TOUCHES", "DEPENDANCES", "RISQUES_CONFLITS", "ORDRE_RECOMMANDE", "COMMANDES_NON_EXECUTEES", "VERDICT_DRAFT_ONLY"],
+      "preferred_workers": ["kimi-k2.5", "kimi-k2.6", "glm-5.1", "qwen3.6-plus", "big-pickle"]
+    },
+    "FAST_TRIAGE": {
+      "autonomy_max": "A1",
+      "writes_code": false,
+      "allowed_outputs": ["reports/ai/workers/**"],
+      "required_sections": ["RESUME", "CLASSEMENT", "RISQUES", "TODO", "VERDICT_DRAFT_ONLY"],
+      "preferred_workers": ["qwen3.5-plus", "minimax-m2.5", "minimax-m2.5-free", "gpt-5-nano", "nemotron-3-super-free", "deepseek-v4-flash-free", "ring-2.6-1t-free"]
+    },
+    "ENDPOINT_AUDIT": {
+      "autonomy_max": "A1",
+      "writes_code": false,
+      "allowed_outputs": ["reports/ai/workers/**"],
+      "required_sections": ["ENDPOINT_CONSULTE", "MODELES_TROUVES", "COMPARAISON_REGISTRY", "AJOUTS", "RETRAITS", "RECOMMANDATIONS", "VERDICT_DRAFT_ONLY"],
+      "preferred_workers": ["qwen3.5-plus", "minimax-m2.5", "big-pickle"]
+    },
+    "WRITE_GATED": {
+      "autonomy_max": "A4",
+      "writes_code": false,
+      "allowed_outputs": ["docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_CHILD_*/**", "reports/ai/workers/**", "scripts/ai/workers/job_packets/**"],
+      "write_allowlist": ["docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_CHILD_**/*.md", "docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_CHILD_**/BRANCH_STATE.md", "reports/ai/workers/*.md", "scripts/ai/workers/job_packets/*.json"],
+      "requires_explicit_write_approval": true,
+      "dry_run_required": true,
+      "max_lines_per_write": 50,
+      "forbidden_targets": ["docs/index/GO_INDEX.md", "docs/index/BRANCH_STATE.md", "scripts/ai/workers/run_task.sh", "scripts/ai/workers/_validate_job.py", "scripts/ai/workers/models.registry.json", "scripts/ai/workers/tasks.index.json"],
+      "required_sections": ["13_ESTABLISHED", "14_HYPOTHESIS", "WRITE_PLAN", "WRITE_DIFF_ATTENDU", "VALIDATION_EXTERNE", "DRY_RUN_RESULT", "RISQUES", "VERDICT_WRITE_GATED"],
+      "preferred_workers": ["glm-5.1", "qwen3.6-plus", "kimi-k2.6", "big-pickle"]
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "job_packet_id": "GO_STRICT_WORKERS_A4_NEGATIVE_TEST_N4_GLOBAL_INDEX",
+  "go_id": "GO_OPT_TRADING_STRICT_WORKERS_CHILD_WRITE_GATE_A4_01",
+  "status": "TEST_NEGATIVE",
+  "task_type": "WRITE_GATED",
+  "worker_assigned": "glm-5.1",
+  "worker_status": "VERIFIED",
+  "test_id": "N4",
+  "test_description": "WRITE_GATED ciblant un index global (GO_INDEX.md)",
+  "expected_result": "REFUSE",
+  "explicit_write_approval": {
+    "approved": true,
+    "approver": "humain",
+    "approval_date": "2026-05-14",
+    "scope_files": ["docs/index/GO_INDEX.md"],
+    "max_lines_change": 5,
+    "dry_run": true,
+    "validation_required": ["git_diff"]
+  },
+  "scope": {
+    "target_file": "docs/index/GO_INDEX.md"
+  },
+  "note": "La cible est un index global (forbidden_targets). Le runner DOIT refuser."
+}

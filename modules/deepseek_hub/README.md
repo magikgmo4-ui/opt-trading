@@ -40,6 +40,7 @@ Pour revenir en arrière:
 ## Statut de famille
 - `deepseek_hub` est le candidat module unifie le plus avance dans la famille `deepseek*`
 - il n'ecrase pas la verite runtime actuelle, qui reste `scripts/student/`
+- le workspace canonique cible est `student/scripts/` (voir `student/scripts/MIGRATION_STATUS.md`)
 - il orchestre encore des modules de compatibilite :
   - `deepseek_thinking`
   - `deepseek_response`

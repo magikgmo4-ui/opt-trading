@@ -250,3 +250,93 @@ Historique recent :
 - titre court : méthode canonique d’extraction par tags
 - dernier état connu : fiche de référence initiale créée sur `sot/mainline` pour séparer extraction, classification, routage mémoire vs doc et écriture contrôlée
 - lien utile : `docs/governance/EXTRACTEUR_TAGS__METHODE_CANONIQUE_V1.md`
+
+### GO_OPT_TRADING_ADMIN_TRADING_RUNTIME_SYNC_AFTER_PAPER_GUARDS_01
+- repo : opt-trading
+- type : runtime sync / verification
+- statut : COMPLETE
+- titre court : sync runtime admin-trading + verification guards PAPER_TEST
+- dernier etat connu : runtime synchronise sur `sot/mainline @ 50df15c3` ; `GET /api/paper/guards` retourne 200 avec guards correctement bloquants
+- verdict : PASS_SYNC_BLOCKING_GUARDS
+- payload PAPER_TEST : non envoyé
+- lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_RUNTIME_SYNC_AFTER_PAPER_GUARDS_01/90_CLOSEOUT.md`
+
+### GO_OPT_TRADING_ADMIN_TRADING_PAPER_FLAGS_CONFIG_01
+- repo : opt-trading
+- type : configuration / paper flags
+- statut : COMPLETE
+- titre court : configurer flags paper pour guards ok:true
+- dernier etat connu : flags configurés sur admin-trading ; `GET /api/paper/guards` retourne `ok: true` avec tous les guards PASS
+- verdict : PASS_CONFIG
+- payload PAPER_TEST : non envoyé
+- lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PAPER_FLAGS_CONFIG_01/90_CLOSEOUT.md`
+
+### GO_OPT_TRADING_ADMIN_TRADING_PAPER_TEST_RETRY_01
+- repo : opt-trading
+- type : execution / PAPER_TEST
+- statut : COMPLETE
+- titre court : exécution PAPER_TEST contrôlée via paper adapter
+- dernier etat connu : PAPER_TEST envoyé et exécuté ; position BTC/USDT ouverte en simulation ; guards ok:true avant et après
+- verdict : PASS_PAPER_TEST_EXECUTED
+- payload PAPER_TEST : envoyé (paper adapter, aucun trade réel)
+- lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PAPER_TEST_RETRY_01/90_CLOSEOUT.md`
+
+### GO_OPT_TRADING_ADMIN_TRADING_PAPER_POSITION_CLOSE_01
+- repo : opt-trading
+- type : position close / paper
+- statut : COMPLETE
+- titre court : fermer position paper BTC/USDT du retry
+- dernier etat connu : position BTC/USDT BUY 0.1 @ 65000.0 fermée ; positions préexistantes inchangées ; guards ok:true
+- verdict : PASS_POSITION_CLOSED
+- payload : aucun (édition directe positions.json)
+- lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PAPER_POSITION_CLOSE_01/90_CLOSEOUT.md`
+
+### GO_OPT_TRADING_ADMIN_TRADING_PAPER_TEST_CYCLE_CLOSEOUT_01
+- repo : opt-trading
+- type : cycle closeout / PAPER_TEST
+- statut : COMPLETE
+- titre court : closeout cycle PAPER_TEST complet
+- dernier etat connu : cycle complet validé (guards → exec → tracking → close) ; aucun trade réel ; guards ok:true
+- verdict : PASS_CYCLE_COMPLETE
+- payload : aucun (documentation only)
+- lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PAPER_TEST_CYCLE_CLOSEOUT_01/90_CLOSEOUT.md`
+
+### GO_OPT_TRADING_ADMIN_TRADING_PAPER_SCENARIOS_EXPANSION_01
+- repo : opt-trading
+- type : paper scenarios / expansion
+- statut : COMPLETE
+- titre court : scénarios paper additionnels (SELL, invalid, guard fail, ledger)
+- dernier etat connu : 5/5 scénarios PASS ; positions nettoyées ; guards ok:true
+- verdict : PASS_ALL_SCENARIOS
+- payload : PAPER_TEST (paper adapter)
+- lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PAPER_SCENARIOS_EXPANSION_01/90_CLOSEOUT.md`
+
+### GO_OPT_TRADING_ADMIN_TRADING_PAPER_VALIDATION_GLOBAL_CLOSEOUT_01
+- repo : opt-trading
+- type : global closeout / paper validation
+- statut : COMPLETE
+- titre court : closeout global validation paper admin-trading
+- dernier etat connu : 10 PRs/GOs consolidés ; preuves collectées ; conditions production définies ; production non ouverte
+- verdict : PASS_GLOBAL_PAPER_VALIDATION
+- payload : aucun (doc-only)
+- lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PAPER_VALIDATION_GLOBAL_CLOSEOUT_01/90_CLOSEOUT.md`
+
+### GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_READINESS_CONDITIONS_01
+- repo : opt-trading
+- type : production readiness / conditions
+- statut : COMPLETE
+- titre court : conditions production readiness admin-trading
+- dernier etat connu : 7 conditions évaluées (0 SATISFIED, 2 PARTIAL, 4 MISSING, 1 BLOCKED) ; production non ouverte
+- verdict : PASS_CONDITIONS_DEFINED
+- payload : aucun (doc-only)
+- lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_READINESS_CONDITIONS_01/90_CLOSEOUT.md`
+
+### GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_RISK_LIMITS_AND_KILL_SWITCH_01
+- repo : opt-trading
+- type : production readiness / risk limits + kill switch
+- statut : COMPLETE
+- titre court : spécification risk limits et kill switch production
+- dernier etat connu : risk limits et kill switch spécifiés ; rollback plan documenté ; validation gates définis ; production non ouverte
+- verdict : PARTIAL (spécifié, non implémenté)
+- payload : aucun (doc-only)
+- lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_RISK_LIMITS_AND_KILL_SWITCH_01/90_CLOSEOUT.md`
