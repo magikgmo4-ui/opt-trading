@@ -1,6 +1,7 @@
 {
-  "schema_version": "0.2-draft",
-  "go_id": "GO_OPT_TRADING_STRICT_WORKERS_PARENT_01",
+  "schema_version": "0.3-draft",
+  "go_id": "GO_OPT_TRADING_STRICT_WORKERS_CHILD_WORKER_POOL_EXTENSION_01",
+  "parent_go_id": "GO_OPT_TRADING_STRICT_WORKERS_CHILD_RUNTIME_LOCK_AND_E2E_01",
   "status": "DRAFT_ONLY",
   "model_registry": "scripts/ai/workers/models.registry.json",
   "default_authority": "non_souverain",
@@ -40,7 +41,7 @@
       "writes_code": false,
       "allowed_outputs": ["reports/ai/workers/**"],
       "required_sections": ["13_ESTABLISHED", "14_HYPOTHESIS", "15_REMAINING_GAP", "16_TODO", "FICHIERS_LUS", "RISQUES", "VERDICT_DRAFT_ONLY"],
-      "preferred_workers": ["qwen3.5-plus", "minimax-m2.5", "kimi-k2.5", "big-pickle", "gpt-5-nano", "ling-2.6-flash-free", "nemotron-3-super-free", "hy3-preview-free"]
+      "preferred_workers": ["qwen3.5-plus", "minimax-m2.5", "kimi-k2.5", "big-pickle", "gpt-5-nano", "nemotron-3-super-free", "deepseek-v4-flash-free", "ring-2.6-1t-free", "trinity-large-preview-free"]
     },
     "PATCH_DRAFT": {
       "autonomy_max": "A2",
@@ -54,7 +55,7 @@
       "writes_code": false,
       "allowed_outputs": ["reports/ai/workers/**", "docs/chantiers/**"],
       "required_sections": ["CONTEXTE", "ETAT_INITIAL", "CHANGEMENTS", "VALIDATIONS", "LIMITES", "POINT_DE_REPRISE", "VERDICT_DRAFT_ONLY"],
-      "preferred_workers": ["qwen3.5-plus", "qwen3.6-plus", "minimax-m2.5", "big-pickle", "nemotron-3-super-free", "hy3-preview-free"]
+      "preferred_workers": ["qwen3.5-plus", "qwen3.6-plus", "minimax-m2.5", "big-pickle", "nemotron-3-super-free"]
     },
     "TESTPLAN": {
       "autonomy_max": "A2",
@@ -75,7 +76,14 @@
       "writes_code": false,
       "allowed_outputs": ["reports/ai/workers/**"],
       "required_sections": ["RESUME", "CLASSEMENT", "RISQUES", "TODO", "VERDICT_DRAFT_ONLY"],
-      "preferred_workers": ["qwen3.5-plus", "minimax-m2.5", "minimax-m2.5-free", "gpt-5-nano", "ling-2.6-flash-free", "nemotron-3-super-free"]
+      "preferred_workers": ["qwen3.5-plus", "minimax-m2.5", "minimax-m2.5-free", "gpt-5-nano", "nemotron-3-super-free", "deepseek-v4-flash-free", "ring-2.6-1t-free"]
+    },
+    "ENDPOINT_AUDIT": {
+      "autonomy_max": "A1",
+      "writes_code": false,
+      "allowed_outputs": ["reports/ai/workers/**"],
+      "required_sections": ["ENDPOINT_CONSULTE", "MODELES_TROUVES", "COMPARAISON_REGISTRY", "AJOUTS", "RETRAITS", "RECOMMANDATIONS", "VERDICT_DRAFT_ONLY"],
+      "preferred_workers": ["qwen3.5-plus", "minimax-m2.5", "big-pickle"]
     }
   }
 }
