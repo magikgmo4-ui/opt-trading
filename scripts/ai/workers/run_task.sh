@@ -16,8 +16,7 @@ set -euo pipefail
 
 TIMEOUT_SEC=120
 MAX_OUTPUT_LINES=500
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || cd "$(dirname "$0")/../../.." && pwd)"
 TASKS_INDEX="$REPO_ROOT/scripts/ai/workers/tasks.index.json"
 MODELS_REGISTRY="$REPO_ROOT/scripts/ai/workers/models.registry.json"
 OUTPUT_DIR="$REPO_ROOT/reports/ai/workers"
