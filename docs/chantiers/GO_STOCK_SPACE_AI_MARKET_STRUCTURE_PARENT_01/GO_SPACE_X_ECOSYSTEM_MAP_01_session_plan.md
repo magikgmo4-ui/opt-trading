@@ -43,6 +43,7 @@ Actifs / sociétés suivis :
 - FLY / Firefly Aerospace ;
 - ASTS / AST SpaceMobile ;
 - PL / Planet Labs ;
+- LUNR / Intuitive Machines ;
 - AMD ;
 - NVDA.
 
@@ -54,7 +55,7 @@ Ce document transporte la session initiale validée sur les stocks IA/spatial.
 
 Base validée :
 - analyse technique FLY mensuelle ;
-- comparaison FLY / RKLB / ASTS / PL ;
+- comparaison FLY / RKLB / ASTS / PL / LUNR ;
 - rôle de SpaceX comme validateur du marché ;
 - RKLB comme proxy public principal de SpaceX ;
 - AMD/NVDA comme couche compute IA ;
@@ -69,7 +70,7 @@ Vérifier et structurer :
 - backlog ;
 - contrats gouvernementaux ;
 - dilution potentielle ;
-- comparaison FLY / RKLB / ASTS / PL ;
+- comparaison FLY / RKLB / ASTS / PL / LUNR ;
 - effet indirect SpaceX sur les actions cotées ;
 - scénarios x2 / x5 / x10 ;
 - corrélations avec NVIDIA, AMD et le cycle IA ;
@@ -139,6 +140,9 @@ Créer un modèle de cycle euphorique x2/x5/x10 et risque drawdown.
 ### GO_SPACE_AI_CORRELATION_NVDA_01
 Mesurer les corrélations avec NVIDIA, AMD et le cycle IA.
 
+### GO_SPACE_AI_LUNR_INTUITIVE_MACHINES_01
+Analyser LUNR comme proxy lunaire / NASA / CLPS / infrastructure cislunaire, en séparant contrats, backlog, calendrier mission, dilution, exécution technique et scénarios x2/x5/x10.
+
 ### GO_SPACE_X_ECOSYSTEM_MAP_01
 Cartographier les bénéficiaires directs et indirects de SpaceX.
 
@@ -178,6 +182,7 @@ Livrer une base de décision structurée pour identifier :
 - PL représente la couche data satellite / observation terrestre.
 - ASTS représente un pari télécom spatial asymétrique.
 - FLY représente un pari lanceur/défense plus spéculatif.
+- LUNR représente un pari infrastructure lunaire / NASA / CLPS, très événementiel et fortement exposé au risque mission, calendrier et dilution.
 - Les contrats gouvernementaux sont un facteur critique.
 - Le marché peut chercher un “petit SpaceX coté”.
 
@@ -208,7 +213,7 @@ Plan explicitement approuvé par l’utilisateur :
 2. Vérifier backlog.
 3. Vérifier contrats gouvernementaux.
 4. Vérifier dilution potentielle.
-5. Comparer FLY / RKLB / ASTS / PL.
+5. Comparer FLY / RKLB / ASTS / PL / LUNR.
 6. Étudier effets indirects SpaceX : accords, contrats, demande, manque d’offre.
 7. Cartographier scénarios x2 / x5 / x10.
 8. Analyser corrélations avec NVIDIA, AMD et cycle IA.
@@ -284,7 +289,7 @@ Children à décliner ensuite :
 
 - Supercycle potentiel : IA + spatial + défense + souveraineté technologique.
 - Expansion multiple possible si le marché cherche “le prochain SpaceX”.
-- Les bénéficiaires pourraient inclure RKLB, FLY, ASTS, PL, AMD, NVDA.
+- Les bénéficiaires pourraient inclure RKLB, FLY, ASTS, PL, LUNR, AMD, NVDA.
 - Les plus fortes hausses peuvent précéder les fondamentaux.
 
 ---
