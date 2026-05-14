@@ -260,3 +260,13 @@ Historique recent :
 - verdict : PASS_SYNC_BLOCKING_GUARDS
 - payload PAPER_TEST : non envoyé
 - lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_RUNTIME_SYNC_AFTER_PAPER_GUARDS_01/90_CLOSEOUT.md`
+
+### GO_OPT_TRADING_ADMIN_TRADING_PAPER_FLAGS_CONFIG_01
+- repo : opt-trading
+- type : configuration / paper flags
+- statut : COMPLETE
+- titre court : configurer flags paper pour guards ok:true
+- dernier etat connu : flags configurés sur admin-trading ; `GET /api/paper/guards` retourne `ok: true` avec tous les guards PASS
+- verdict : PASS_CONFIG
+- payload PAPER_TEST : non envoyé
+- lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PAPER_FLAGS_CONFIG_01/90_CLOSEOUT.md`
