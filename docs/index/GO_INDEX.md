@@ -350,3 +350,13 @@ Historique recent :
 - verdict : PASS_IMPLEMENTED
 - payload : aucun (runtime changes only)
 - lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_RISK_LIMITS_AND_KILL_SWITCH_IMPL_01/90_CLOSEOUT.md`
+
+### GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_MONITORING_AND_SECRETS_AUDIT_01
+- repo : opt-trading
+- type : production readiness / monitoring + secrets audit
+- statut : COMPLETE
+- titre court : audit monitoring et secrets admin-trading
+- dernier etat connu : monitoring PARTIAL (services actifs, P&L manquant) ; secrets PARTIAL (TV_WEBHOOK_KEY non défini) ; production non ouverte
+- verdict : PARTIAL
+- payload : aucun (doc-only)
+- lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_MONITORING_AND_SECRETS_AUDIT_01/90_CLOSEOUT.md`
