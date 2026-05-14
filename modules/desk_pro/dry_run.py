@@ -222,3 +222,83 @@ def write_desk_pro_dry_run_artifacts(synthesis: dict, output_dir: Path | str) ->
         },
         "run_id": run_id,
     }
+
+
+def load_latest_desk_snapshot(
+    snapshot_path: Path | str,
+    target_symbol: str = "BTCUSDT",
+) -> dict | None:
+    """Load the best-matching desk snapshot from a snapshot index file.
+
+    The snapshot index is expected to be a JSON dict mapping symbol keys
+    to snapshot entries with fields ``symbol``, ``tf``, ``snapshot_ts``, ``path``.
+    """
+    path = Path(snapshot_path)
+    if not path.exists():
+        return None
+    try:
+        index = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return None
+
+    inst_symbol = None
+    for key, entry in index.items():
+        raw_sym = str(entry.get("symbol", key))
+        if raw_sym.startswith(target_symbol) or target_symbol in raw_sym:
+            inst_symbol = key
+            break
+
+    if inst_symbol is None:
+        return None
+
+    entry = index[inst_symbol]
+    snapshot_dict = {
+        "symbol": entry.get("symbol", inst_symbol),
+        "tf": entry.get("tf", "H1"),
+        "snapshot_ts": entry.get("snapshot_ts"),
+        "path": entry.get("path"),
+        "ingested_at": entry.get("ingested_at"),
+        "source": entry.get("source"),
+    }
+    return snapshot_dict
+
+
+def load_latest_visual_context(
+    vc_path: Path | str,
+) -> dict | None:
+    """Load a visual_context entry from a JSON or JSONL file.
+
+    The file is expected to contain a dict with fields
+    ``source``, ``capture_id``, ``symbol``, ``timeframe``,
+    ``captured_at``, ``image_ref``, and ``status``.
+    """
+    path = Path(vc_path)
+    if not path.exists():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return None
+    if not isinstance(data, dict):
+        return None
+    return data
+
+
+def load_latest_signal_event(
+    signal_path: Path | str,
+) -> dict | None:
+    """Load a signal_event entry from a JSON file.
+
+    The file is expected to contain a dict with fields compatible with
+    the signal_event adapter (V0 or V1 shape).
+    """
+    path = Path(signal_path)
+    if not path.exists():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return None
+    if not isinstance(data, dict):
+        return None
+    return data
