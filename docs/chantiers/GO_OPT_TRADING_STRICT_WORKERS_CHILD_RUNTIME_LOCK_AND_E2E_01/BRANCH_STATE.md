@@ -47,7 +47,7 @@ sot/mainline
 ## Statut
 
 ```text
-PHASE_A_PASS — runner lock operationnel ; en attente validation Phase B
+PHASE_B_PASS — PATCH_DRAFT produit, non applique ; en attente validation Phase C
 ```
 
 ## Parent
