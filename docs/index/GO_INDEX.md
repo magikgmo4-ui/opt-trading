@@ -360,3 +360,13 @@ Historique recent :
 - verdict : PARTIAL
 - payload : aucun (doc-only)
 - lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_MONITORING_AND_SECRETS_AUDIT_01/90_CLOSEOUT.md`
+
+### GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_MONITORING_PNL_ALERT_THRESHOLDS_01
+- repo : opt-trading
+- type : production readiness / monitoring spec
+- statut : COMPLETE
+- titre court : spécification P&L tracking et alert thresholds
+- dernier etat connu : P&L tracking et alert thresholds spécifiés ; monitoring reste PARTIAL ; production non ouverte
+- verdict : PARTIAL (spécifié, non implémenté)
+- payload : aucun (doc-only)
+- lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_MONITORING_PNL_ALERT_THRESHOLDS_01/90_CLOSEOUT.md`
