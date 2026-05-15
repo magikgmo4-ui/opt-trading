@@ -3,7 +3,7 @@
 ## Gate
 
 ```text
-GATE_STATUS = PENDING
+GATE_STATUS = PASSED
 PATCH_SCOPE = local openclaw runtime config only
 MUTATION_ALLOWED = true (config file only)
 SSH_ALLOWED = false
