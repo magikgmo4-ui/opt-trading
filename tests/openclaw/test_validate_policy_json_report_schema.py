@@ -14,6 +14,8 @@ import sys
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 VALIDATOR_PATH = REPO_ROOT / "tools" / "openclaw" / "validate_policy_json_report_schema.py"
+STATIC_VALIDATOR_PATH = REPO_ROOT / "tools" / "openclaw" / "validate_skill_policy_static.py"
+POLICY_PATH = REPO_ROOT / "configs" / "openclaw" / "security" / "skill_policy.yaml"
 
 LEGACY_BASELINE_REPORT = {
     "findings": [],
@@ -43,10 +45,10 @@ VALID_SCHEMA_1_0_REPORT = {
 }
 
 
-def load_validator_module():
-    spec = importlib.util.spec_from_file_location("validate_policy_json_report_schema", VALIDATOR_PATH)
+def load_module(module_name: str, module_path: Path):
+    spec = importlib.util.spec_from_file_location(module_name, module_path)
     if spec is None or spec.loader is None:
-        raise RuntimeError(f"Unable to load validator module: {VALIDATOR_PATH}")
+        raise RuntimeError(f"Unable to load validator module: {module_path}")
     module = importlib.util.module_from_spec(spec)
     sys.modules[spec.name] = module
     spec.loader.exec_module(module)
@@ -56,7 +58,8 @@ def load_validator_module():
 class PolicyJsonReportSchemaValidatorTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        cls.validator = load_validator_module()
+        cls.validator = load_module("validate_policy_json_report_schema", VALIDATOR_PATH)
+        cls.static_validator = load_module("validate_skill_policy_static", STATIC_VALIDATOR_PATH)
 
     def run_validator(self, payload: dict[str, object], *extra_args: str) -> tuple[int, str]:
         with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8") as handle:
@@ -84,6 +87,18 @@ class PolicyJsonReportSchemaValidatorTests(unittest.TestCase):
         self.assertEqual(exit_code, 0)
         self.assertEqual(report["report_contract"], "schema_1_0")
         self.assertEqual(report["source_schema_version"], "1.0")
+        self.assertEqual(report["findings_count"], 0)
+
+    def test_generated_report_from_static_validator_is_accepted_as_legacy_baseline(self) -> None:
+        self.assertTrue(POLICY_PATH.exists(), f"Missing policy fixture: {POLICY_PATH}")
+        policy_text = POLICY_PATH.read_text(encoding="utf-8")
+        findings = self.static_validator.validate_policy_text(policy_text, POLICY_PATH)
+        generated_report = self.static_validator.build_report(findings, POLICY_PATH)
+
+        exit_code, raw_output = self.run_validator(generated_report, "--format", "json")
+        report = json.loads(raw_output)
+        self.assertEqual(exit_code, 0)
+        self.assertEqual(report["report_contract"], "legacy_baseline")
         self.assertEqual(report["findings_count"], 0)
 
     def test_inconsistent_findings_count_is_detected(self) -> None:
