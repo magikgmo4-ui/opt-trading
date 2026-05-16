@@ -7,6 +7,9 @@ Wants=network-online.target
 Type=oneshot
 User=ghost
 Group=ghost
+Restart=no
+StartLimitIntervalSec=0
+StartLimitBurst=0
 WorkingDirectory=/opt/trading
 Environment=DRY_RUN=1
 Environment=PAPER_MODE=1
