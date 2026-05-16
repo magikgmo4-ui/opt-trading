@@ -192,6 +192,375 @@ def get_journal_entry(run_id: str):
         return JSONResponse(content={"error": str(e)}, status_code=500)
 
 
+# ── Journal HTML views ───────────────────────────────────────────────
+
+_JOURNAL_SIDEBAR_LINKS = """
+    <div style="margin-bottom:16px">
+      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Journal</div>
+      <a class="nav-item" href="/journal">
+        <span class="nav-icon">📋</span><span class="nav-label">Daily Sessions</span>
+      </a>
+    </div>
+"""
+
+
+def _pnl_badge(outcome: str) -> str:
+    if outcome == "win":
+        return '<span class="badge badge-up">WIN</span>'
+    if outcome == "loss":
+        return '<span class="badge badge-down">LOSS</span>'
+    if outcome == "breakeven":
+        return '<span class="badge badge-minimal">BREAKEVEN</span>'
+    return f'<span class="badge badge-unknown">{outcome}</span>'
+
+
+def _verdict_badge(verdict: str) -> str:
+    if verdict == "APPROVED":
+        return '<span class="badge badge-up">APPROVED</span>'
+    if verdict == "REJECTED":
+        return '<span class="badge badge-down">REJECTED</span>'
+    return f'<span class="badge badge-unknown">{verdict}</span>'
+
+
+def _closeout_badge(ack: bool) -> str:
+    if ack:
+        return '<span class="badge badge-up">✓ CLOSED</span>'
+    return '<span class="badge badge-down">⚠ PENDING</span>'
+
+
+def _journal_html(entries: list[dict]) -> str:
+    rows = ""
+    for e in entries:
+        pnl = e.get("pnl_outcome", "")
+        verdict = e.get("validation_verdict", "")
+        closeout = e.get("closeout_acknowledged", False)
+        started = e.get("started_at", "")[:19] if e.get("started_at") else ""
+        rows += f"""\
+<tr>
+  <td><a href="/journal/{e['run_id']}" style="font-family:monospace;font-weight:600">{e['run_id']}</a></td>
+  <td>{started}</td>
+  <td>{e.get('duration_s', 0):.1f}s</td>
+  <td>{_verdict_badge(verdict)}</td>
+  <td>{_pnl_badge(pnl)}</td>
+  <td>{e.get('signal', '')} {e.get('symbol', '')}</td>
+  <td>{_closeout_badge(closeout)}</td>
+</tr>"""
+    return f"""\
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>LocalCMS — Journal</title>
+  <style>
+    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    body {{ font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: #f5f5f7; color: #1d1d1f; }}
+    .layout {{ display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }}
+    .sidebar {{ background: #1d1d1f; color: #f5f5f7; padding: 20px 12px; overflow-y: auto; position: sticky; top: 0; height: 100vh; }}
+    .sidebar h1 {{ font-size: 16px; font-weight: 600; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #333; }}
+    .sidebar h1 small {{ display: block; font-size: 11px; font-weight: 400; color: #888; margin-top: 2px; }}
+    .nav-item {{ display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; color: #ccc; text-decoration: none; font-size: 13px; margin-bottom: 2px; transition: background .15s; }}
+    .nav-item:hover {{ background: #333; color: #fff; }}
+    .nav-icon {{ font-size: 16px; width: 20px; text-align: center; }}
+    .nav-label {{ flex: 1; }}
+    .main {{ padding: 24px 32px; max-width: 1200px; }}
+    .main h2 {{ font-size: 22px; margin-bottom: 8px; }}
+    .main .subtitle {{ color: #666; font-size: 14px; margin-bottom: 24px; }}
+    .summary-bar {{ display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }}
+    .summary-card {{ flex: 1; min-width: 140px; padding: 16px; border-radius: 12px; border: 1px solid #e6e6e6; background: #fff; }}
+    .summary-card .num {{ font-size: 28px; font-weight: 700; }}
+    .summary-card .label {{ font-size: 12px; color: #666; margin-top: 4px; }}
+    .summary-ok {{ border-left: 4px solid #30d158; }}
+    .summary-warn {{ border-left: 4px solid #ff9f0a; }}
+    .summary-critical {{ border-left: 4px solid #ff453a; }}
+    .summary-blue {{ border-left: 4px solid #007aff; }}
+    .section-title {{ font-size: 16px; font-weight: 600; margin: 24px 0 12px; }}
+    table {{ width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e6e6e6; }}
+    th, td {{ padding: 10px 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 13px; }}
+    th {{ background: #fafafa; font-weight: 600; color: #666; text-transform: uppercase; font-size: 11px; letter-spacing: .5px; }}
+    .badge {{ display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }}
+    .badge-up {{ background: #d1fae5; color: #065f46; }}
+    .badge-down {{ background: #ffe4e6; color: #9f1239; }}
+    .badge-unknown {{ background: #f3f4f6; color: #6b7280; }}
+    .badge-minimal {{ background: #fef3c7; color: #92400e; }}
+    .links-bar {{ display: flex; gap: 6px; flex-wrap: wrap; margin: 12px 0; }}
+    .links-bar a {{ color: #1d1d1f; padding: 4px 10px; border: 1px solid #ddd; border-radius: 8px; text-decoration: none; font-size: 12px; }}
+    .links-bar a:hover {{ background: #eee; }}
+    .code-block {{ background: #1d1d1f; color: #e8e8e8; padding: 12px; border-radius: 10px; font-size: 12px; overflow-x: auto; }}
+    tr:hover {{ background: #f9f9fb; }}
+    a {{ color: #007aff; text-decoration: none; }}
+    a:hover {{ text-decoration: underline; }}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h1>LocalCMS<small>Central UI — opt-trading</small></h1>
+    <div class="nav-section" style="margin-bottom:16px">
+      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Runtime</div>
+      <a class="nav-item" href="/#tmux-sessions"><span class="nav-icon">🖥️</span><span class="nav-label">TMUX Sessions</span></a>
+      <a class="nav-item" href="/#health-status"><span class="nav-icon">❤️</span><span class="nav-label">Health Status</span></a>
+    </div>
+    <div style="margin-bottom:16px">
+      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Journal</div>
+      <a class="nav-item" href="/journal"><span class="nav-icon">📋</span><span class="nav-label">Daily Sessions</span></a>
+    </div>
+    <div style="margin-top:auto;padding-top:16px;border-top:1px solid #333;font-size:11px;color:#666">
+      <div><a href="/ui" style="color:#888;text-decoration:none">Main Dashboard</a></div>
+      <div><a href="/health" style="color:#888;text-decoration:none">/health</a></div>
+      <div><a href="/journal/daily" style="color:#888;text-decoration:none">/journal/daily</a></div>
+    </div>
+  </nav>
+  <main class="main">
+    <h2>📋 Daily Session Journal</h2>
+    <p class="subtitle">E2E dry-run pipeline — historique des sessions quotidiennes traçables.</p>
+
+    <div class="summary-bar">
+      <div class="summary-card summary-blue">
+        <div class="num">{len(entries)}</div>
+        <div class="label">Total Sessions</div>
+      </div>
+      <div class="summary-card summary-ok">
+        <div class="num">{sum(1 for e in entries if e.get('pnl_outcome') == 'win')}</div>
+        <div class="label">Wins</div>
+      </div>
+      <div class="summary-card summary-critical">
+        <div class="num">{sum(1 for e in entries if e.get('pnl_outcome') == 'loss')}</div>
+        <div class="label">Losses</div>
+      </div>
+      <div class="summary-card">
+        <div class="num">{sum(1 for e in entries if e.get('closeout_acknowledged'))}</div>
+        <div class="label">Closeouts</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Run ID</th><th>Started</th><th>Duration</th><th>Verdict</th>
+          <th>P&L</th><th>Signal</th><th>Closeout</th>
+        </tr>
+      </thead>
+      <tbody>{rows}</tbody>
+    </table>
+
+    <div style="margin-top:24px">
+      <a href="/journal/daily">📄 JSON API → /journal/daily</a>
+    </div>
+  </main>
+</div>
+</body>
+</html>"""
+
+
+def _journal_detail_html(entry: dict) -> str:
+    pnl = entry.get("pnl_paper", {})
+    signal = entry.get("signal_source", {})
+    proposition = entry.get("proposition_summary", {})
+    tmux_before = entry.get("tmux_before", {})
+    tmux_after = entry.get("tmux_after", {})
+    lcms_before = entry.get("localcms_before", {})
+    lcms_after = entry.get("localcms_after", {})
+    steps = entry.get("steps", [])
+
+    tmux_before_count = tmux_before.get("count", "?")
+    tmux_after_count = tmux_after.get("count", "?")
+    tmux_before_active = ", ".join(tmux_before.get("active", []))
+    tmux_after_active = ", ".join(tmux_after.get("active", []))
+
+    lcms_before_ok = sum(1 for v in lcms_before.values() if isinstance(v, dict) and v.get("ok"))
+    lcms_before_total = len(lcms_before)
+    lcms_after_ok = sum(1 for v in lcms_after.values() if isinstance(v, dict) and v.get("ok"))
+    lcms_after_total = len(lcms_after)
+
+    steps_html = ""
+    for s in steps:
+        step_name = s.get("step", "?")
+        result = s.get("result", {})
+        result_str = json.dumps(result, indent=2, default=str)[:600]
+        steps_html += f"""
+<tr>
+  <td style="font-family:monospace;font-weight:600">{step_name}</td>
+  <td><pre style="background:#1d1d1f;color:#e8e8e8;padding:8px;border-radius:6px;font-size:11px;overflow-x:auto;margin:0;max-height:200px">{result_str}</pre></td>
+</tr>"""
+
+    return f"""\
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>LocalCMS — Journal {entry.get('run_id', '')}</title>
+  <style>
+    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    body {{ font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: #f5f5f7; color: #1d1d1f; }}
+    .layout {{ display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }}
+    .sidebar {{ background: #1d1d1f; color: #f5f5f7; padding: 20px 12px; overflow-y: auto; position: sticky; top: 0; height: 100vh; }}
+    .sidebar h1 {{ font-size: 16px; font-weight: 600; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #333; }}
+    .sidebar h1 small {{ display: block; font-size: 11px; font-weight: 400; color: #888; margin-top: 2px; }}
+    .nav-item {{ display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; color: #ccc; text-decoration: none; font-size: 13px; margin-bottom: 2px; transition: background .15s; }}
+    .nav-item:hover {{ background: #333; color: #fff; }}
+    .nav-icon {{ font-size: 16px; width: 20px; text-align: center; }}
+    .nav-label {{ flex: 1; }}
+    .main {{ padding: 24px 32px; max-width: 1200px; }}
+    .main h2 {{ font-size: 22px; margin-bottom: 8px; }}
+    .main .subtitle {{ color: #666; font-size: 14px; margin-bottom: 24px; }}
+    .section-title {{ font-size: 16px; font-weight: 600; margin: 24px 0 12px; }}
+    .info-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-bottom: 24px; }}
+    .info-card {{ background: #fff; border: 1px solid #e6e6e6; border-radius: 12px; padding: 14px 16px; }}
+    .info-card h4 {{ font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; }}
+    .info-card .value {{ font-size: 14px; font-weight: 600; }}
+    .info-card .value-mono {{ font-family: monospace; font-size: 13px; }}
+    table {{ width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e6e6e6; }}
+    th, td {{ padding: 10px 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 13px; }}
+    th {{ background: #fafafa; font-weight: 600; color: #666; text-transform: uppercase; font-size: 11px; letter-spacing: .5px; }}
+    .badge {{ display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }}
+    .badge-up {{ background: #d1fae5; color: #065f46; }}
+    .badge-down {{ background: #ffe4e6; color: #9f1239; }}
+    .badge-unknown {{ background: #f3f4f6; color: #6b7280; }}
+    .badge-minimal {{ background: #fef3c7; color: #92400e; }}
+    .pill {{ display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 12px; margin: 2px 4px 2px 0; }}
+    .pill-ok {{ background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }}
+    .pill-warn {{ background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }}
+    a {{ color: #007aff; text-decoration: none; }}
+    a:hover {{ text-decoration: underline; }}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h1>LocalCMS<small>Central UI — opt-trading</small></h1>
+    <div class="nav-section" style="margin-bottom:16px">
+      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Runtime</div>
+      <a class="nav-item" href="/#tmux-sessions"><span class="nav-icon">🖥️</span><span class="nav-label">TMUX Sessions</span></a>
+      <a class="nav-item" href="/#health-status"><span class="nav-icon">❤️</span><span class="nav-label">Health Status</span></a>
+    </div>
+    <div style="margin-bottom:16px">
+      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Journal</div>
+      <a class="nav-item" href="/journal"><span class="nav-icon">📋</span><span class="nav-label">Daily Sessions</span></a>
+    </div>
+    <div style="margin-top:auto;padding-top:16px;border-top:1px solid #333;font-size:11px;color:#666">
+      <div><a href="/journal" style="color:#888;text-decoration:none">← Back to Journal</a></div>
+      <div><a href="/journal/daily/{entry.get('run_id', '')}" style="color:#888;text-decoration:none">JSON detail</a></div>
+    </div>
+  </nav>
+  <main class="main">
+    <div style="margin-bottom:8px">
+      <a href="/journal" style="font-size:13px">← Back to Journal</a>
+    </div>
+    <h2>📋 {entry.get('run_id', 'N/A')}</h2>
+    <p class="subtitle">Daily Session — {entry.get('started_at', '')[:19] if entry.get('started_at') else ''}</p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <h4>Signal</h4>
+        <div class="value">{signal.get('signal', 'N/A')} {signal.get('symbol', '')}</div>
+      </div>
+      <div class="info-card">
+        <h4>Proposition</h4>
+        <div class="value">{proposition.get('action', 'N/A')} (confidence: {proposition.get('confidence', 'N/A')})</div>
+      </div>
+      <div class="info-card">
+        <h4>Validation</h4>
+        <div class="value">{_verdict_badge(entry.get('validation_verdict', ''))}</div>
+      </div>
+      <div class="info-card">
+        <h4>Execution</h4>
+        <div class="value">{entry.get('trade_executor_status', 'N/A')}</div>
+      </div>
+      <div class="info-card">
+        <h4>P&L Paper</h4>
+        <div class="value">{_pnl_badge(pnl.get('outcome', ''))} net={pnl.get('net_pnl', 'N/A')}</div>
+      </div>
+      <div class="info-card">
+        <h4>Datasheet</h4>
+        <div class="value">dry_run={pnl.get('dry_run', entry.get('dry_run', '?'))} written={entry.get('datasheet_writer', {}).get('written', '?')}</div>
+      </div>
+      <div class="info-card">
+        <h4>Learning</h4>
+        <div class="value">bridge={entry.get('learning_feeder', {}).get('bridge_status', '?')} brick={entry.get('learning_feeder', {}).get('brick_stored', '?')}</div>
+      </div>
+      <div class="info-card">
+        <h4>Closeout</h4>
+        <div class="value">{_closeout_badge(entry.get('closeout_acknowledged', False))}</div>
+      </div>
+    </div>
+
+    <div class="section-title">📊 Pipeline Steps</div>
+    <table>
+      <thead><tr><th>Step</th><th>Result</th></tr></thead>
+      <tbody>{steps_html}</tbody>
+    </table>
+
+    <div class="section-title">🖥️ TMUX Snapshots</div>
+    <div class="info-grid">
+      <div class="info-card">
+        <h4>Before</h4>
+        <div class="value">{tmux_before_count} sessions</div>
+        <div style="font-size:11px;color:#666;margin-top:4px;word-break:break-all">{tmux_before_active}</div>
+      </div>
+      <div class="info-card">
+        <h4>After</h4>
+        <div class="value">{tmux_after_count} sessions</div>
+        <div style="font-size:11px;color:#666;margin-top:4px;word-break:break-all">{tmux_after_active}</div>
+      </div>
+    </div>
+
+    <div class="section-title">❤️ LocalCMS Snapshots</div>
+    <div class="info-grid">
+      <div class="info-card">
+        <h4>Before</h4>
+        <div class="value">{lcms_before_ok}/{lcms_before_total} endpoints OK</div>
+      </div>
+      <div class="info-card">
+        <h4>After</h4>
+        <div class="value">{lcms_after_ok}/{lcms_after_total} endpoints OK</div>
+      </div>
+    </div>
+
+    <div class="section-title">ℹ️ Metadata</div>
+    <div class="info-grid">
+      <div class="info-card">
+        <h4>Run ID</h4>
+        <div class="value-mono">{entry.get('run_id', 'N/A')}</div>
+      </div>
+      <div class="info-card">
+        <h4>Session ID</h4>
+        <div class="value-mono" style="font-size:11px">{entry.get('session_id', 'N/A')}</div>
+      </div>
+      <div class="info-card">
+        <h4>Duration</h4>
+        <div class="value">{entry.get('duration_s', 0):.1f}s (pipeline: {entry.get('pipeline_duration_s', 0):.1f}s)</div>
+      </div>
+      <div class="info-card">
+        <h4>Journal Type</h4>
+        <div class="value">{entry.get('journal_type', 'N/A')}</div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>"""
+
+
+@app.get("/journal", response_class=HTMLResponse)
+def journal_html():
+    entries = _list_journal_entries()
+    return HTMLResponse(content=_journal_html(entries))
+
+
+@app.get("/journal/{run_id}", response_class=HTMLResponse)
+def journal_detail_html(run_id: str):
+    path = JOURNAL_DIR / f"{run_id}.json"
+    if not path.exists():
+        return HTMLResponse(content=f"<h2>Journal entry not found: {run_id}</h2><a href='/journal'>← Back</a>", status_code=404)
+    try:
+        data = json.loads(path.read_text())
+        return HTMLResponse(content=_journal_detail_html(data))
+    except (json.JSONDecodeError, OSError) as e:
+        return HTMLResponse(content=f"<h2>Error reading journal: {e}</h2><a href='/journal'>← Back</a>", status_code=500)
+
+
 # ── HTML UI ──────────────────────────────────────────────────────────
 
 @app.get("/", response_class=HTMLResponse)
@@ -367,6 +736,12 @@ def ui_index(request: Request):
       </a>
     </div>
     <div style="margin-bottom:16px">
+      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Journal</div>
+      <a class="nav-item" href="/journal">
+        <span class="nav-icon">📋</span><span class="nav-label">Daily Sessions</span>
+      </a>
+    </div>
+    <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Menu</div>
       {nav_items}
     </div>
@@ -376,6 +751,8 @@ def ui_index(request: Request):
       <div><a href="/menu/state" style="color:#888;text-decoration:none">/menu/state</a></div>
       <div><a href="/runtime/tmux" style="color:#888;text-decoration:none">/runtime/tmux</a></div>
       <div><a href="/runtime/tmux/live" style="color:#888;text-decoration:none">/runtime/tmux/live</a></div>
+      <div><a href="/journal" style="color:#888;text-decoration:none">/journal</a></div>
+      <div><a href="/journal/daily" style="color:#888;text-decoration:none">/journal/daily</a></div>
     </div>
   </nav>
 
