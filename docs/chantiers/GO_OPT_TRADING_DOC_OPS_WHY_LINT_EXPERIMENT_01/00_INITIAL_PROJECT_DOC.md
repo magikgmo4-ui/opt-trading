@@ -13,6 +13,10 @@ parent_context: SYSTEM_WHY_LAYER_01
 
 Cadrer un lint WHY experimental non destructif, warning-only, lecture seule, sans auto-fix et sans CI bloquante.
 
+## WHY
+
+Ce cadrage existe pour verifier les gaps documentaires avant toute extension du systeme, en gardant la lecture seule, le warning-only et la separation stricte d'avec le runtime.
+
 ## 3_INITIAL_NEED
 
 Le repo possede maintenant:
