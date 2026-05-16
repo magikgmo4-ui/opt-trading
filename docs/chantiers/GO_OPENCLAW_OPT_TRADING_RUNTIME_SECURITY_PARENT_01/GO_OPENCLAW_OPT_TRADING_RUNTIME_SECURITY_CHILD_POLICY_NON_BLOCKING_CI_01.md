@@ -130,6 +130,7 @@ Workflow GitHub Actions manuel en mode warning-only.
 - la policy warning-only est prouvee par tests ;
 - le prochain pas logique est une execution CI manuelle ou non bloquante ;
 - la verification doit rester sans `--strict-exit` par defaut.
+- la CI GitHub Actions vise Python 3.11 ; un ecart local Python 3.14 est traite comme gap technique mineur distinct.
 
 ## 14_HYPOTHESIS
 
@@ -146,6 +147,7 @@ Workflow GitHub Actions manuel en mode warning-only.
 - Pas encore de rapport machine-readable.
 - Pas encore de validation de policy dans GitHub Actions.
 - Pas encore de point de reprise pour le rapport JSON.
+- `GAP_LOCAL_PY314_DYNAMIC_IMPORT_01` : le test local sous Python 3.14 echoue a cause du chargement dynamique du module ; ce gap est mineur et n'affecte pas le workflow warning-only Python 3.11.
 
 ## 16_TODO
 
@@ -171,3 +173,11 @@ GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_JSON_REPORT_01
 ```
 
 Objectif prochain : produire un rapport machine-readable, toujours warning-only.
+
+Gap technique local distinct a traiter ensuite :
+
+```text
+GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_TEST_PY314_COMPAT_01
+```
+
+Objectif : corriger la compatibilite locale Python 3.14 du test sans changer le comportement du validateur.
