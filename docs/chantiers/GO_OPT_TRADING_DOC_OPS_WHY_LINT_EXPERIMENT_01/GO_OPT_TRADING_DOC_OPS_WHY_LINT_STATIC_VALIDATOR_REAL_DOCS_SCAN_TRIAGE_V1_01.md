@@ -11,6 +11,12 @@ le dossier parent WHY lint. Le resultat courant est donc 31 fichiers scannes,
 1 fichier ignore et 114 findings. L'ecart est lui-meme classe comme bruit V1
 auto-referentiel a traiter dans la baseline.
 
+## WHY
+
+Ce triage existe pour classer les findings du premier scan reel avant toute
+mutation documentaire, afin de separer vrais gaps, bruit V1, exceptions et
+besoins d'ajustement du validateur.
+
 ## 2_INITIAL_PROJECT_DOC
 
 References documentaires :

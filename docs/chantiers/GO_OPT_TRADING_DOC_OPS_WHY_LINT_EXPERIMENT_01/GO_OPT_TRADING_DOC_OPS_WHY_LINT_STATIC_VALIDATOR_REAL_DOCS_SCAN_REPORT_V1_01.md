@@ -36,6 +36,12 @@ WHY lint.
 Ce rapport capture les résultats du mode `--scan-docs` sans modifier les
 documents scannés.
 
+## WHY
+
+Ce rapport existe pour figer le premier resultat reel du scan V1 avant toute
+interpretation corrective, afin de separer collecte, triage et remediation sans
+mutation documentaire.
+
 ## 2_INITIAL_PROJECT_DOC
 
 Références :
