@@ -190,6 +190,14 @@ WHY_LINT_PARENT_SUFFIX = (
     "GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01",
 )
 
+DOC_SCAN_STRUCTURED_HEADING_PATTERN = re.compile(r"(?mi)^##\s+\d+_[A-Z0-9_]+\s*$")
+DOC_SCAN_FENCED_CODE_BLOCK_PATTERN = re.compile(r"(?ms)^```[^\n]*\n.*?^```[ \t]*\n?")
+DOC_SCAN_STATIC_VALIDATOR_TOKEN = "STATIC_VALIDATOR"
+DOC_SCAN_STATIC_VALIDATOR_WHY_EQUIVALENT_HEADINGS = (
+    "1_MASTER_TARGET",
+    "3_INITIAL_NEED",
+)
+
 DOC_SCAN_SKIP_FILENAMES = {
     "GO_OPT_TRADING_DOC_OPS_WHY_LINT_STATIC_VALIDATOR_FIXTURE_CORPUS_01.md",
 }
@@ -202,11 +210,19 @@ DOC_SCAN_REQUIRED_MARKERS = (
 )
 
 RUNTIME_IMPLICATION_PATTERNS = (
-    (r"(?i)autofix_allowed\s*[:=]\s*true", "FAIL_AUTOFIX_ENABLED", "AUTOFIX_ENABLED"),
-    (r"(?i)runtime_binding\s*[:=]\s*true", "FAIL_RUNTIME_BINDING_ENABLED", "RUNTIME_BINDING_ENABLED"),
-    (r"(?i)can_fail_ci\s*[:=]\s*true", "FAIL_CI_BLOCKING_ENABLED", "CI_BLOCKING_ENABLED"),
-    (r"(?i)execute_command\s*[:=]\s*true", "FAIL_RUNTIME_BINDING_ENABLED", "EXECUTE_COMMAND_ENABLED"),
-    (r"(?i)apply_patch\s*[:=]\s*true", "FAIL_AUTOFIX_ENABLED", "APPLY_PATCH_ENABLED"),
+    (r"(?mi)^\s*autofix_allowed\s*[:=]\s*true\s*$", "FAIL_AUTOFIX_ENABLED", "AUTOFIX_ENABLED"),
+    (
+        r"(?mi)^\s*runtime_binding\s*[:=]\s*true\s*$",
+        "FAIL_RUNTIME_BINDING_ENABLED",
+        "RUNTIME_BINDING_ENABLED",
+    ),
+    (r"(?mi)^\s*can_fail_ci\s*[:=]\s*true\s*$", "FAIL_CI_BLOCKING_ENABLED", "CI_BLOCKING_ENABLED"),
+    (
+        r"(?mi)^\s*execute_command\s*[:=]\s*true\s*$",
+        "FAIL_RUNTIME_BINDING_ENABLED",
+        "EXECUTE_COMMAND_ENABLED",
+    ),
+    (r"(?mi)^\s*apply_patch\s*[:=]\s*true\s*$", "FAIL_AUTOFIX_ENABLED", "APPLY_PATCH_ENABLED"),
 )
 
 SECRET_RISK_PATTERNS = (
@@ -654,24 +670,26 @@ def _scan_markdown_document(path: Path, markdown: str) -> list[DocScanFinding]:
     findings: list[DocScanFinding] = []
     display_path = _display_path(path)
 
-    for marker, family, gate, finding_id in DOC_SCAN_REQUIRED_MARKERS:
-        if not _document_contains_marker(markdown, marker):
-            findings.append(
-                DocScanFinding(
-                    file=display_path,
-                    finding_id=finding_id,
-                    family=family,
-                    severity="R3",
-                    verdict="NEED_MORE_EVIDENCE",
-                    gate_required=gate,
-                    trace_required=True,
-                    eval_required=True,
-                    message=f"required marker not found: {marker}",
+    if _document_requires_go_markers(markdown):
+        for marker, family, gate, finding_id in DOC_SCAN_REQUIRED_MARKERS:
+            if not _document_contains_marker(path, markdown, marker):
+                findings.append(
+                    DocScanFinding(
+                        file=display_path,
+                        finding_id=finding_id,
+                        family=family,
+                        severity="R3",
+                        verdict="NEED_MORE_EVIDENCE",
+                        gate_required=gate,
+                        trace_required=True,
+                        eval_required=True,
+                        message=f"required marker not found: {marker}",
+                    )
                 )
-            )
 
+    active_markdown = _strip_fenced_code_blocks(markdown)
     for pattern, verdict, finding_id in RUNTIME_IMPLICATION_PATTERNS:
-        if re.search(pattern, markdown):
+        if re.search(pattern, active_markdown):
             family = "RUNTIME_SECURITY_GAP" if verdict == "FAIL_RUNTIME_BINDING_ENABLED" else "GOVERNANCE_DRIFT"
             gate = "GATE_RUNTIME" if verdict == "FAIL_RUNTIME_BINDING_ENABLED" else "GOVERNANCE_ALIGNMENT_REQUIRED"
             findings.append(
@@ -717,10 +735,33 @@ def _validate_doc_scan_root(root: Path) -> None:
         raise DocScanFormatError(f"V1 scan root must end with {expected}: {root}")
 
 
-def _document_contains_marker(markdown: str, marker: str) -> bool:
+def _document_requires_go_markers(markdown: str) -> bool:
+    return bool(DOC_SCAN_STRUCTURED_HEADING_PATTERN.search(markdown))
+
+
+def _document_contains_marker(path: Path, markdown: str, marker: str) -> bool:
     if marker == "WHY":
-        return bool(re.search(r"(?mi)^##\s+WHY\s*$", markdown))
+        return _document_contains_why_marker(path, markdown)
     return marker in markdown
+
+
+def _document_contains_why_marker(path: Path, markdown: str) -> bool:
+    if _document_has_heading(markdown, "WHY"):
+        return True
+    if DOC_SCAN_STATIC_VALIDATOR_TOKEN not in path.stem:
+        return False
+    return all(
+        _document_has_heading(markdown, heading)
+        for heading in DOC_SCAN_STATIC_VALIDATOR_WHY_EQUIVALENT_HEADINGS
+    )
+
+
+def _document_has_heading(markdown: str, heading: str) -> bool:
+    return bool(re.search(rf"(?mi)^##\s+{re.escape(heading)}\s*$", markdown))
+
+
+def _strip_fenced_code_blocks(markdown: str) -> str:
+    return DOC_SCAN_FENCED_CODE_BLOCK_PATTERN.sub("", markdown)
 
 
 def _detect_doc_secret_risk(markdown: str) -> str | None:

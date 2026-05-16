@@ -84,14 +84,26 @@ GO_OPT_TRADING_DOC_OPS_WHY_LINT_STATIC_VALIDATOR_FIXTURE_CORPUS_01.md
 
 Il signale notamment :
 
-- section `WHY` manquante ;
-- `FINAL_TARGET` manquant ;
-- `12_INVARIANTS` manquant ;
-- `17_RESUME_POINT` manquant ;
+- section `WHY` manquante sur les docs GO structures ;
+- `FINAL_TARGET` manquant sur les docs GO structures ;
+- `12_INVARIANTS` manquant sur les docs GO structures ;
+- `17_RESUME_POINT` manquant sur les docs GO structures ;
 - implication runtime interdite dans un document read-only/report-only ;
 - implication autofix interdite ;
 - implication CI bloquante interdite ;
 - motif secret-like inattendu.
+
+Les checks de marqueurs GO numerotes s'appliquent uniquement aux documents qui
+portent deja une structure GO numerotee via des headings H2 du type
+`## 1_MASTER_TARGET`.
+
+Les docs thematiques legacy hors squelette GO restent scannes pour les
+implications runtime/autofix/secret, mais ne sont pas forces sur les marqueurs
+GO numerotes.
+
+Les checks d'implication interdite ne remontent que sur des lignes de champs
+actives hors code-fences Markdown ; les exemples fences ou les listes negatives
+documentees ne sont pas traites comme une configuration vivante.
 
 Ce mode ne scanne pas tout le repo et ne modifie aucun fichier.
 
