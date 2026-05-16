@@ -13,6 +13,7 @@ MENU_FILE = PROJECT_ROOT / "scripts" / "ai" / "menu" / "opt_trading_menu.json"
 STATE_CACHE = PROJECT_ROOT / "scripts" / "ai" / "menu" / "state_cache.json"
 TMUX_LOG_DIR = PROJECT_ROOT / "logs"
 LOCALCMS_LATEST_JSON = PROJECT_ROOT / "tmp" / "localcms_latest.json"
+JOURNAL_DIR = PROJECT_ROOT / "data" / "journal" / "daily"
 
 CRITICAL_SESSIONS: frozenset[str] = frozenset({
     "openclaw-core",
@@ -140,6 +141,55 @@ def get_runtime_tmux_live():
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "active_sessions": sorted(active),
     })
+
+
+# ── Journal endpoints ────────────────────────────────────────────────
+
+def _list_journal_entries() -> list[dict]:
+    if not JOURNAL_DIR.exists():
+        return []
+    entries = []
+    for f in sorted(JOURNAL_DIR.glob("*.json"), reverse=True):
+        try:
+            data = json.loads(f.read_text())
+            entries.append({
+                "run_id": data.get("run_id", f.stem),
+                "started_at": data.get("started_at", ""),
+                "duration_s": data.get("duration_s", 0),
+                "all_ok": data.get("all_ok", False),
+                "closeout_acknowledged": data.get("closeout_acknowledged", False),
+                "tmux_count": data.get("tmux_after", {}).get("count", 0),
+                "localcms_ok": data.get("localcms_ok", False),
+                "validation_verdict": data.get("validation_verdict", ""),
+                "pnl_outcome": data.get("pnl_paper", {}).get("outcome", ""),
+                "signal": data.get("signal_source", {}).get("signal", ""),
+                "symbol": data.get("signal_source", {}).get("symbol", ""),
+            })
+        except (json.JSONDecodeError, OSError):
+            continue
+    return entries
+
+
+@app.get("/journal/daily")
+def get_journal_daily():
+    entries = _list_journal_entries()
+    return JSONResponse(content={
+        "journal_type": "daily_session",
+        "total": len(entries),
+        "entries": entries,
+    })
+
+
+@app.get("/journal/daily/{run_id}")
+def get_journal_entry(run_id: str):
+    path = JOURNAL_DIR / f"{run_id}.json"
+    if not path.exists():
+        return JSONResponse(content={"error": f"Journal entry not found: {run_id}"}, status_code=404)
+    try:
+        data = json.loads(path.read_text())
+        return JSONResponse(content=data)
+    except (json.JSONDecodeError, OSError) as e:
+        return JSONResponse(content={"error": str(e)}, status_code=500)
 
 
 # ── HTML UI ──────────────────────────────────────────────────────────
