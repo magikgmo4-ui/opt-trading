@@ -21,5 +21,15 @@ jobs:
       - name: Run warning-only policy validator
         run: python tools/openclaw/validate_skill_policy_static.py
 
+      - name: Export JSON policy report
+        run: python tools/openclaw/validate_skill_policy_static.py --format json > openclaw-skill-policy-report.json
+
       - name: Run policy validator tests
         run: python -m unittest tests.openclaw.test_validate_skill_policy_static
+
+      - name: Upload JSON policy report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: openclaw-skill-policy-report
+          path: openclaw-skill-policy-report.json
