@@ -1,0 +1,48 @@
+name: OpenClaw MCP Policy Static Validator
+
+on:
+  pull_request:
+    branches:
+      - sot/mainline
+    paths:
+      - ".github/workflows/openclaw-mcp-policy-static-validator.yml"
+      - "modules/governance/openclaw_mcp_policy_validator/**"
+      - "tests/test_openclaw_mcp_policy_validator.py"
+      - "tests/test_openclaw_mcp_policy_fixture_harness.py"
+      - "docs/chantiers/GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_FIXTURE_CORPUS_01/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static-validator:
+    name: Static Validator
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install minimal dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest
+
+      - name: Run validator tests
+        run: python -m pytest tests/test_openclaw_mcp_policy_validator.py -q
+
+      - name: Run fixture harness tests
+        run: python -m pytest tests/test_openclaw_mcp_policy_fixture_harness.py -q
+
+      - name: Run fixture corpus harness
+        run: python -m modules.governance.openclaw_mcp_policy_validator.fixture_harness docs/chantiers/GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_FIXTURE_CORPUS_01
+
+      - name: Check diff hygiene
+        run: git diff --check
