@@ -4,6 +4,12 @@
 
 Etablir une baseline V1 validee des findings du scan reel WHY lint.
 
+## WHY
+
+Cette baseline existe pour figer l'etat accepte des findings avant toute
+correction, afin de distinguer les vrais gaps du bruit V1 et de garder la
+remediation dans des GO separes.
+
 ## 2_INITIAL_PROJECT_DOC
 
 References :

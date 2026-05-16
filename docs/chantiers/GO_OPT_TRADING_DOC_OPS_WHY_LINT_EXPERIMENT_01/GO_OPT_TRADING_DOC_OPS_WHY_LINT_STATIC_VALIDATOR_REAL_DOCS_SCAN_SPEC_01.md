@@ -34,6 +34,10 @@ Specify the first read-only scan of real repository documents with the WHY lint 
 
 This GO does not implement the real-docs scan. It defines the safe scope, input set, output report, failure modes, and review gates required before extending the validator beyond the fixture corpus.
 
+## WHY
+
+This specification exists to define a safe path from fixture-only validation to real-doc scanning, while preserving read-only/report-only behavior and preventing the validator from becoming an autofix, CI, or runtime authority.
+
 ## 2_INITIAL_PROJECT_DOC
 
 Parent reference:

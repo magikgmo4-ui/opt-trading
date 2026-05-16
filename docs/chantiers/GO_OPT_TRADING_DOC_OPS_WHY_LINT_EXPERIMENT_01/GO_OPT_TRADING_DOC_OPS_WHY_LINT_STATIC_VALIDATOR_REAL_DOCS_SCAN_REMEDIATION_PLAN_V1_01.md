@@ -3,6 +3,11 @@
 ## 1_MASTER_TARGET
 Créer un plan de remédiation documentaire V1 basé sur la baseline WHY lint V1, sans correction automatique.
 
+## WHY
+Ce plan existe pour transformer la baseline V1 en lots d'action explicites sans
+corriger trop tot, afin de separer corrections documentaires, exceptions et
+ajustements de regles.
+
 ## 2_INITIAL_PROJECT_DOC
 Référencer :
 - SPEC parent : docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01/SPEC_WHY_LINT_EXPERIMENT_01.md

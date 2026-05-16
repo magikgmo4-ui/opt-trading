@@ -34,6 +34,10 @@ Review `SPEC_WHY_LINT_EXPERIMENT_01.md` after merge of the consolidation parent,
 
 The target is to confirm whether the SPEC is sufficiently stable to serve as the parent reference for future child GO workstreams: static validator spec, fixture corpus, and possible later implementation.
 
+## WHY
+
+This review exists to verify that the merged parent SPEC can safely anchor the next child GO sequence before any validator code, fixture expansion, or runtime-adjacent work is opened.
+
 ## 3_INITIAL_NEED
 
 PR #416 merged the parent consolidation plan for four axes:
