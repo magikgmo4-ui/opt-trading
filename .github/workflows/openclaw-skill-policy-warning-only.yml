@@ -1,0 +1,25 @@
+name: OpenClaw skill policy warning-only
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  warning-only:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run warning-only policy validator
+        run: python tools/openclaw/validate_skill_policy_static.py
+
+      - name: Run policy validator tests
+        run: python -m unittest tests.openclaw.test_validate_skill_policy_static
