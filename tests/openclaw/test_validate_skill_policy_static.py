@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import importlib.util
 import io
+import json
 import tempfile
 import unittest
 from contextlib import redirect_stdout
@@ -46,6 +47,20 @@ class SkillPolicyStaticValidatorTests(unittest.TestCase):
         self.assertIn("runtime_execution: DISABLED", report)
         self.assertIn("mutation: DISABLED", report)
 
+    def test_real_policy_json_report_exit_zero(self) -> None:
+        self.assertTrue(POLICY_PATH.exists(), f"Missing policy fixture: {POLICY_PATH}")
+        output = io.StringIO()
+        with redirect_stdout(output):
+            exit_code = self.validator.main(["--policy", str(POLICY_PATH), "--format", "json"])
+        self.assertEqual(exit_code, 0)
+        report = json.loads(output.getvalue())
+        self.assertEqual(report["validator"], "OPENCLAW_SKILL_POLICY_STATIC_VALIDATOR")
+        self.assertEqual(report["mode"], "WARNING_ONLY")
+        self.assertEqual(report["runtime_execution"], "DISABLED")
+        self.assertEqual(report["mutation"], "DISABLED")
+        self.assertIn("findings_count", report)
+        self.assertIsInstance(report["findings"], list)
+
     def test_missing_policy_still_exit_zero_by_default(self) -> None:
         missing_path = Path(tempfile.gettempdir()) / "missing_openclaw_skill_policy.yaml"
         output = io.StringIO()
@@ -54,6 +69,16 @@ class SkillPolicyStaticValidatorTests(unittest.TestCase):
         report = output.getvalue()
         self.assertEqual(exit_code, 0)
         self.assertIn("WARN: POLICY_NOT_FOUND", report)
+
+    def test_missing_policy_json_report_still_exit_zero_by_default(self) -> None:
+        missing_path = Path(tempfile.gettempdir()) / "missing_openclaw_skill_policy.yaml"
+        output = io.StringIO()
+        with redirect_stdout(output):
+            exit_code = self.validator.main(["--policy", str(missing_path), "--format", "json"])
+        self.assertEqual(exit_code, 0)
+        report = json.loads(output.getvalue())
+        self.assertEqual(report["findings_count"], 1)
+        self.assertEqual(report["findings"][0]["code"], "POLICY_NOT_FOUND")
 
     def test_missing_policy_strict_exit_returns_one(self) -> None:
         missing_path = Path(tempfile.gettempdir()) / "missing_openclaw_skill_policy.yaml"

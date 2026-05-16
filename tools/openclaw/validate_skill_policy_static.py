@@ -7,20 +7,25 @@ Scope:
 - does not execute runtime actions;
 - does not mutate files;
 - does not require PyYAML or external dependencies;
-- always exits 0 by default to remain warning-only.
+- always exits 0 by default to remain warning-only;
+- can render a machine-readable JSON report with --format json.
 
 GO: GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_STATIC_VALIDATOR_01
+JSON report child: GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_JSON_REPORT_01
 """
 
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from pathlib import Path
+from typing import Literal
 
 DEFAULT_POLICY_PATH = Path("configs/openclaw/security/skill_policy.yaml")
+OutputFormat = Literal["text", "json"]
 
 
 @dataclass(frozen=True)
@@ -143,14 +148,27 @@ def validate_policy_text(text: str, policy_path: Path) -> list[Finding]:
     return findings
 
 
+def build_report(findings: list[Finding], policy_path: Path) -> dict[str, object]:
+    return {
+        "validator": "OPENCLAW_SKILL_POLICY_STATIC_VALIDATOR",
+        "policy_path": str(policy_path),
+        "mode": "WARNING_ONLY",
+        "runtime_execution": "DISABLED",
+        "mutation": "DISABLED",
+        "findings_count": len(findings),
+        "findings": [asdict(item) for item in findings],
+    }
+
+
 def render_findings(findings: list[Finding], policy_path: Path) -> str:
+    report = build_report(findings, policy_path)
     lines = [
-        "OPENCLAW_SKILL_POLICY_STATIC_VALIDATOR",
-        f"policy_path: {policy_path}",
-        "mode: WARNING_ONLY",
-        "runtime_execution: DISABLED",
-        "mutation: DISABLED",
-        f"findings_count: {len(findings)}",
+        str(report["validator"]),
+        f"policy_path: {report['policy_path']}",
+        f"mode: {report['mode']}",
+        f"runtime_execution: {report['runtime_execution']}",
+        f"mutation: {report['mutation']}",
+        f"findings_count: {report['findings_count']}",
         "",
     ]
     if not findings:
@@ -160,25 +178,37 @@ def render_findings(findings: list[Finding], policy_path: Path) -> str:
     return "\n".join(lines)
 
 
+def render_json_report(findings: list[Finding], policy_path: Path) -> str:
+    return json.dumps(build_report(findings, policy_path), indent=2, sort_keys=True)
+
+
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Warning-only OpenClaw skill policy static validator.")
     parser.add_argument("--policy", type=Path, default=DEFAULT_POLICY_PATH, help=f"Policy YAML path. Default: {DEFAULT_POLICY_PATH}")
+    parser.add_argument("--format", choices=("text", "json"), default="text", help="Report output format. Default: text")
     parser.add_argument("--strict-exit", action="store_true", help="Return 1 when findings exist. Not recommended for the current GO.")
     return parser.parse_args(argv)
+
+
+def _render(findings: list[Finding], policy_path: Path, output_format: OutputFormat) -> str:
+    if output_format == "json":
+        return render_json_report(findings, policy_path)
+    return render_findings(findings, policy_path)
 
 
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(list(sys.argv[1:] if argv is None else argv))
     policy_path: Path = args.policy
+    output_format: OutputFormat = args.format
 
     if not policy_path.exists():
         findings = [Finding("WARN", "POLICY_NOT_FOUND", f"Policy file not found: {policy_path}")]
-        print(render_findings(findings, policy_path))
+        print(_render(findings, policy_path, output_format))
         return 1 if args.strict_exit else 0
 
     text = policy_path.read_text(encoding="utf-8")
     findings = validate_policy_text(text, policy_path)
-    print(render_findings(findings, policy_path))
+    print(_render(findings, policy_path, output_format))
     return 1 if args.strict_exit and findings else 0
 
 
