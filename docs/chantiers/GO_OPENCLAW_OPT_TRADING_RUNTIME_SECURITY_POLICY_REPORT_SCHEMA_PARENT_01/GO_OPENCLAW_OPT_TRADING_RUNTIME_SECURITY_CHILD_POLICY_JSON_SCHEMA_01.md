@@ -1,13 +1,13 @@
 ---
 doc_id: GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_JSON_SCHEMA_01
-doc_type: chantier_child_spec
+doc_type: chantier_child_closeout
 repo: opt-trading
 project: opt-trading
 module: openclaw
-go_id: GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_JSON_SCHEMA_CANONICAL_RESTORE_01
+go_id: GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_JSON_SCHEMA_01
 chantier_parent: GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_POLICY_REPORT_SCHEMA_PARENT_01
 status: draft
-lifecycle_stage: child_spec
+lifecycle_stage: child_opening
 surface: docs/chantiers
 source_kind: canonical_child
 updated_at: 2026-05-16
@@ -16,40 +16,27 @@ topic_keys:
   - runtime_security
   - policy_report
   - json_schema
-  - validator
-  - ci
   - warning_only
+  - why
 links:
-  - docs/chantiers/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_POLICY_REPORT_SCHEMA_PARENT_01/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_JSON_SCHEMA_VALIDATOR_01.md
-  - docs/chantiers/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_POLICY_REPORT_SCHEMA_PARENT_01/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_JSON_SCHEMA_CI_WIRING_01.md
-  - docs/chantiers/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_POLICY_REPORT_SCHEMA_PARENT_01/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_POLICY_REPORT_SCHEMA_PARENT_CLOSEOUT_01.md
-  - tools/openclaw/validate_policy_json_report_schema.py
+  - docs/chantiers/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_POLICY_REPORT_SCHEMA_PARENT_01/00_INITIAL_PROJECT_DOC.md
+  - docs/chantiers/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_PARENT_01/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_JSON_ARTIFACT_REVIEW_01.md
   - tools/openclaw/validate_skill_policy_static.py
-  - tests/openclaw/test_validate_policy_json_report_schema.py
-  - .github/workflows/openclaw-skill-policy-warning-only.yml
-  - https://github.com/magikgmo4-ui/opt-trading/pull/466
-  - https://github.com/magikgmo4-ui/opt-trading/pull/469
-  - https://github.com/magikgmo4-ui/opt-trading/pull/473
 ---
 
 # GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_JSON_SCHEMA_01
 
 ## 1_MASTER_TARGET
 
-Restaurer et canoniser le document de contrat `GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_JSON_SCHEMA_01` au chemin reference par les children OpenClaw policy report schema, sans changer le comportement deja merge du validateur, du workflow CI warning-only ou du closeout parent.
+Definir le schema canonique du rapport JSON OpenClaw policy warning-only pour que les artefacts futurs soient comparables, validables et exploitables sans activer de runtime ni transformer la validation en gate bloquant.
 
 ## 3_INITIAL_NEED
 
-La chaine OpenClaw policy report JSON schema est fermee fonctionnellement depuis les merges du validateur, du wiring CI et du closeout parent.
+Le rapport JSON existe deja et a ete prouve en execution reelle via l'artefact `openclaw-skill-policy-report.json` du run `25956668749`.
 
-Le gap restant est documentaire : le fichier canonique de contrat schema-only attendu par les children n'etait pas present sur `sot/mainline` au chemin reference, alors meme que le validateur et ses tests materialisent deja ce contrat dans le code.
+Le besoin courant est de transformer cette sortie reelle en contrat concret : champs requis, types, invariants, exemples valides, exemples invalides, compatibilite et versioning.
 
-Il faut donc restaurer un document de reference unique qui :
-
-- fixe `schema_version: "1.0"` comme cible canonique ;
-- reconnait l'absence de `schema_version` comme `legacy_baseline` acceptee ;
-- aligne le contrat documentaire sur le validateur deja merge ;
-- ne modifie ni runtime, ni workflow, ni code, ni index globaux.
+Sans schema canonique, deux consommateurs peuvent lire le meme rapport de facon differente ou accepter des variantes silencieusement incompatibles.
 
 ## 5_GO_PLAN
 
@@ -59,163 +46,289 @@ Parent :
 GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_POLICY_REPORT_SCHEMA_PARENT_01
 ```
 
-Child canonique restaure :
+Child courant :
 
 ```text
 GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_JSON_SCHEMA_01
 ```
 
-Branche :
+But du child :
 
-```text
-go/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_JSON_SCHEMA_CANONICAL_RESTORE_01
-```
-
-Plan valide :
-
-- recreer le fichier canonique au chemin reference par les children ;
-- decrire le contrat schema-only du rapport JSON source produit par `validate_skill_policy_static.py` ;
-- aligner les champs requis, invariants et regles de compatibilite sur `validate_policy_json_report_schema.py` et ses tests ;
-- garder `WARNING_ONLY`, `runtime_execution: DISABLED`, `mutation: DISABLED` et `--strict-exit` opt-in seulement ;
-- rester strictement doc-only, sans modifier runtime, workflow, validateurs, tests, policy YAML, services, secrets ou index globaux.
+- definir les champs minimaux obligatoires ;
+- definir `schema_version` ;
+- fixer les types et invariants ;
+- definir les regles de compatibilite et de versioning ;
+- lier le schema au rapport reel `openclaw-skill-policy-report.json` ;
+- rester doc/schema-only.
 
 ## 6_FINAL_TARGET
 
-**FINAL_TARGET : restaurer un contrat documentaire canonique unique pour le rapport JSON OpenClaw policy, defini comme schema-only warning-only compatible avec la baseline legacy non versionnee et avec `schema_version: "1.0"`, sans changer aucun comportement deja merge.**
+**FINAL_TARGET : produire le schema canonique du rapport JSON OpenClaw policy warning-only, couvrant `schema_version`, les champs requis, les types, les invariants, les exemples valides et invalides, les regles de compatibilite, les regles de versioning et le lien avec l'artefact reel de reference.**
 
 ## WHY
 
-Ce child existe pour supprimer l'ambiguite documentaire laissee par le closeout parent : le contrat est deja implemente et teste, mais son document canonique manque au chemin annonce.
+Ce child existe pour que les rapports JSON futurs soient comparables, validables et exploitables sans transformer la validation en runtime ou en blocage CI.
 
-Sans ce fichier, les children deja merges pointent vers une cible absente. Restaurer ce document stabilise la reference contractuelle avant toute suite logique, notamment avant une eventuelle commande globale agregatrice.
+Le schema doit stabiliser l'interface machine-readable du rapport, pas ajouter de nouvelle execution ni changer le comportement warning-only etabli.
 
 ## 7_CANONICAL_STATE
 
-Etat canonique a figer :
+Etat valide :
 
-- le rapport source attendu est le JSON produit par `tools/openclaw/validate_skill_policy_static.py` ;
-- l'absence de `schema_version` est acceptee comme `legacy_baseline` ;
-- `schema_version: "1.0"` est la cible canonique versionnee ;
-- toute autre version de schema est classee `unsupported_schema_version` ;
-- les champs requis du rapport source sont `validator`, `policy_path`, `mode`, `runtime_execution`, `mutation`, `findings_count`, `findings` ;
-- `validator` cible cote rapport source est `OPENCLAW_SKILL_POLICY_STATIC_VALIDATOR` ;
-- `mode` doit rester `WARNING_ONLY` ;
-- `runtime_execution` doit rester `DISABLED` ;
-- `mutation` doit rester `DISABLED` ;
-- `findings` doit etre une liste ;
-- `findings_count` doit etre un entier >= 0 et rester coherent avec `len(findings)` ;
-- chaque finding doit contenir `level`, `code`, `message` comme chaines non vides ;
-- le contrat reste warning-only ;
-- aucun runtime n'est execute ;
-- aucune mutation de fichier n'est autorisee ;
-- `--strict-exit` peut exister dans le validateur de schema, mais reste opt-in et non active par defaut ni dans le workflow.
+- parent `GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_POLICY_REPORT_SCHEMA_PARENT_01` ouvert ;
+- `OPENCLAW_RUNTIME_SECURITY_POLICY_CHAIN: REAL_ARTIFACT_CONFIRMED` ;
+- `OPENCLAW_RUNTIME_SECURITY_PARENT_STATUS: WARNING_ONLY_CONFIRMED` ;
+- preuve reelle disponible via le run `25956668749` ;
+- artefact reel disponible : `openclaw-skill-policy-report` ;
+- rapport reel observe :
+
+```json
+{
+  "findings": [],
+  "findings_count": 0,
+  "mode": "WARNING_ONLY",
+  "mutation": "DISABLED",
+  "policy_path": "configs/openclaw/security/skill_policy.yaml",
+  "runtime_execution": "DISABLED",
+  "validator": "OPENCLAW_SKILL_POLICY_STATIC_VALIDATOR"
+}
+```
+
+- scope doc/schema-only ;
+- aucun runtime a modifier ;
+- aucun workflow a modifier ;
+- aucun validateur a modifier ;
+- aucune policy YAML a modifier ;
+- aucun index global a modifier.
 
 ## 8_VALIDATED_PLAN
 
-- Partir du comportement deja merge et non de speculations futures.
-- Faire du document restaure la source canonique de lecture pour les children deja fusionnes.
-- Decrire explicitement les deux contrats acceptes : `legacy_baseline` et `schema_1_0`.
-- Formaliser la regle de rejet semantique des versions non supportees sans changer le validateur.
-- Limiter ce GO a un seul fichier documentaire pour conserver un diff minimal et sans impact d'execution.
+- Partir de l'artefact reel comme baseline.
+- Definir le schema canonique cible pour les futurs rapports.
+- Marquer les champs minimaux obligatoires.
+- Definir les contraintes `WARNING_ONLY`, `DISABLED`, cardinalites et coherence interne.
+- Definir les regles de compatibilite ascendante et de versioning.
+- Donner des exemples valides et invalides.
+- Ne pas modifier le generateur du rapport dans ce child.
 
 ## 9_SELECTED_SOLUTION
 
-Solution retenue : restaurer le fichier `GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_JSON_SCHEMA_01.md` comme document spec canonique schema-only, derive du comportement deja etabli par le validateur, les tests et le workflow warning-only.
+Solution retenue : schema documentaire canonique versionne en `1.0`.
 
-Le document ne re-implemente rien dans le code. Il capture simplement le contrat deja observe comme reference stable pour les lecteurs humains, les children lies et les futurs GOs.
+Nuance de depart : l'artefact reel confirme est une baseline non versionnee. Le schema canonique cible ajoute `schema_version` comme champ requis pour les futurs rapports conformes au contrat versionne.
+
+Schema canonique cible `1.0` :
+
+| Champ | Requis | Type | Contrainte |
+| --- | --- | --- | --- |
+| `schema_version` | oui | `string` | valeur `1.0` pour la premiere version canonique |
+| `validator` | oui | `string` | valeur attendue `OPENCLAW_SKILL_POLICY_STATIC_VALIDATOR` |
+| `policy_path` | oui | `string` | chemin relatif non vide |
+| `mode` | oui | `string` | doit etre `WARNING_ONLY` |
+| `runtime_execution` | oui | `string` | doit etre `DISABLED` |
+| `mutation` | oui | `string` | doit etre `DISABLED` |
+| `findings_count` | oui | `integer` | entier >= `0`, coherent avec `len(findings)` |
+| `findings` | oui | `array` | liste de findings, vide autorise |
+
+Schema canonique d'un finding en `1.0` :
+
+| Champ | Requis | Type | Contrainte |
+| --- | --- | --- | --- |
+| `level` | oui | `string` | niveau semantique du finding ; valeur initiale recommandee `WARNING` |
+| `code` | oui | `string` | identifiant stable et non vide |
+| `message` | oui | `string` | message humain non vide |
+
+Regles structurelles :
+
+- `findings` doit toujours etre une liste ;
+- `findings_count` doit toujours etre egal au nombre d'elements de `findings` ;
+- si `findings_count` vaut `0`, `findings` doit pouvoir etre `[]` ;
+- si `findings_count` est strictement positif, chaque element de `findings` doit respecter le schema finding `1.0` ;
+- le rapport reste purement statique et descriptif ;
+- aucun champ ne doit suggerer une execution runtime, une mutation ou un auto-fix.
+
+Exemple valide minimal `1.0` :
+
+```json
+{
+  "schema_version": "1.0",
+  "validator": "OPENCLAW_SKILL_POLICY_STATIC_VALIDATOR",
+  "policy_path": "configs/openclaw/security/skill_policy.yaml",
+  "mode": "WARNING_ONLY",
+  "runtime_execution": "DISABLED",
+  "mutation": "DISABLED",
+  "findings_count": 0,
+  "findings": []
+}
+```
+
+Exemple valide `1.0` avec finding :
+
+```json
+{
+  "schema_version": "1.0",
+  "validator": "OPENCLAW_SKILL_POLICY_STATIC_VALIDATOR",
+  "policy_path": "configs/openclaw/security/skill_policy.yaml",
+  "mode": "WARNING_ONLY",
+  "runtime_execution": "DISABLED",
+  "mutation": "DISABLED",
+  "findings_count": 1,
+  "findings": [
+    {
+      "level": "WARNING",
+      "code": "SKILL_POLICY_PATH_SCOPE_WARNING",
+      "message": "path scope should be narrowed"
+    }
+  ]
+}
+```
+
+Exemples invalides :
+
+Exemple invalide 1, `schema_version` absent :
+
+```json
+{
+  "validator": "OPENCLAW_SKILL_POLICY_STATIC_VALIDATOR",
+  "policy_path": "configs/openclaw/security/skill_policy.yaml",
+  "mode": "WARNING_ONLY",
+  "runtime_execution": "DISABLED",
+  "mutation": "DISABLED",
+  "findings_count": 0,
+  "findings": []
+}
+```
+
+Exemple invalide 2, `findings_count` incoherent :
+
+```json
+{
+  "schema_version": "1.0",
+  "validator": "OPENCLAW_SKILL_POLICY_STATIC_VALIDATOR",
+  "policy_path": "configs/openclaw/security/skill_policy.yaml",
+  "mode": "WARNING_ONLY",
+  "runtime_execution": "DISABLED",
+  "mutation": "DISABLED",
+  "findings_count": 2,
+  "findings": []
+}
+```
+
+Exemple invalide 3, mode non conforme :
+
+```json
+{
+  "schema_version": "1.0",
+  "validator": "OPENCLAW_SKILL_POLICY_STATIC_VALIDATOR",
+  "policy_path": "configs/openclaw/security/skill_policy.yaml",
+  "mode": "STRICT",
+  "runtime_execution": "DISABLED",
+  "mutation": "DISABLED",
+  "findings_count": 0,
+  "findings": []
+}
+```
+
+Exemple invalide 4, finding incomplet :
+
+```json
+{
+  "schema_version": "1.0",
+  "validator": "OPENCLAW_SKILL_POLICY_STATIC_VALIDATOR",
+  "policy_path": "configs/openclaw/security/skill_policy.yaml",
+  "mode": "WARNING_ONLY",
+  "runtime_execution": "DISABLED",
+  "mutation": "DISABLED",
+  "findings_count": 1,
+  "findings": [
+    {
+      "level": "WARNING",
+      "message": "missing stable code"
+    }
+  ]
+}
+```
+
+Regles de compatibilite :
+
+- un consommateur `1.x` doit exiger tous les champs requis de `1.0` ;
+- un consommateur `1.x` doit pouvoir ignorer des champs additionnels documentes tant qu'ils ne changent pas la semantique des champs requis ;
+- un producteur ne doit pas supprimer ni renommer un champ requis dans la meme version majeure ;
+- un rapport sans `schema_version` est traite comme artefact legacy pre-schema, utile comme baseline historique mais non conforme au contrat versionne `1.0`.
+
+Regles de versioning :
+
+- `1.0` introduit le premier contrat canonique versionne ;
+- increment mineur `1.x` pour ajouts backward-compatible, par exemple champs optionnels documentes ;
+- increment majeur `2.0` pour changements cassants, par exemple suppression, renommage ou changement de type d'un champ requis ;
+- la semantique `WARNING_ONLY`, `runtime_execution: DISABLED` et `mutation: DISABLED` ne doit pas changer par simple increment mineur.
 
 ## 11_KEY_DECISIONS
 
-- Utiliser `schema_version: "1.0"` comme seule version canonique supportee actuellement.
-- Accepter l'absence de `schema_version` comme `legacy_baseline` compatible.
-- Classer toute autre version dans `unsupported_schema_version`.
-- Garder les champs requis limites a `validator`, `policy_path`, `mode`, `runtime_execution`, `mutation`, `findings_count`, `findings`.
-- Exiger `level`, `code`, `message` sur chaque finding.
-- Garder le contrat strictement warning-only et sans mutation.
-- Laisser `--strict-exit` en option explicite du validateur de schema seulement, sans activation par defaut.
-- Ne toucher ni au validateur principal, ni au validateur de schema, ni au workflow.
+- Deriver le schema du rapport reel observe plutot que d'un schema theorique completement abstrait.
+- Introduire `schema_version` dans le contrat cible sans pretendre qu'il est deja present dans l'artefact legacy observe.
+- Garder le schema minimal et centre sur les champs deja etablis.
+- Exiger `level`, `code` et `message` pour chaque finding non vide.
+- Garder le contrat semantique strictement warning-only.
 
 ## 12_INVARIANTS
 
-- Scope doc-only.
-- Un seul fichier ajoute au chemin manque.
-- Aucun runtime OpenClaw n'est execute.
-- Aucun workflow GitHub Actions n'est modifie.
-- `tools/openclaw/validate_policy_json_report_schema.py` n'est pas modifie.
-- `tools/openclaw/validate_skill_policy_static.py` n'est pas modifie.
-- Aucun test n'est modifie.
-- Aucune policy YAML n'est modifiee.
-- Aucun service ou secret n'est ajoute, lu ou change.
-- Aucun index global n'est modifie.
-- `mode == WARNING_ONLY`.
-- `runtime_execution == DISABLED`.
-- `mutation == DISABLED`.
+- `mode` doit rester `WARNING_ONLY` ;
+- `runtime_execution` doit rester `DISABLED` ;
+- `mutation` doit rester `DISABLED` ;
+- `findings_count` doit etre coherent avec `len(findings)` ;
+- `findings` doit etre une liste ;
+- chaque finding doit contenir `level`, `code`, `message` ;
+- aucun champ ne doit introduire runtime, auto-fix ou mutation ;
+- aucun workflow, validateur, policy YAML, runtime, service, secret ou index global n'est modifie par ce child.
 
 ## 13_ESTABLISHED
 
-Etabli avant cette restauration :
+Etat etabli a partir des preuves reelles et du parent :
 
-```text
-PR #466
-STATUS: MERGED
-MERGE_COMMIT: 2ca0b58f26860e6abf610989124f9e80606b8d1e
-ROLE: schema validator warning-only
-
-PR #469
-STATUS: MERGED
-MERGE_COMMIT: 87483d45211c82b878367103087a8bba4efb047d
-ROLE: CI warning-only wiring
-
-PR #473
-STATUS: MERGED
-MERGE_COMMIT: df737ea51f6d4614b08f6eb37561eca9aa214cd5
-ROLE: parent closeout documenting the missing canonical file gap
-```
-
-Etabli par les surfaces repo deja presentes :
-
-- `tools/openclaw/validate_policy_json_report_schema.py` code deja les contrats `legacy_baseline`, `schema_1_0` et `unsupported_schema_version` ;
-- `tests/openclaw/test_validate_policy_json_report_schema.py` prouve l'acceptation du legacy non versionne et de `schema_version: "1.0"` ;
-- `.github/workflows/openclaw-skill-policy-warning-only.yml` execute deja le validateur de schema sans `--strict-exit` ;
-- le closeout parent a confirme que le gap restant etait l'absence de ce fichier canonique.
+- le rapport JSON warning-only existe deja ;
+- l'artefact reel de reference est `openclaw-skill-policy-report.json` ;
+- le run reel de reference est `25956668749` ;
+- les champs reels deja observes sont `validator`, `policy_path`, `mode`, `runtime_execution`, `mutation`, `findings_count`, `findings` ;
+- l'artefact observe a `findings_count: 0` et `findings: []` ;
+- le present child fixe le schema canonique cible en ajoutant `schema_version` pour la suite versionnee.
 
 ## 14_HYPOTHESIS
 
-- une future version `1.x` ou `2.0` pourra exiger un GO separe ;
-- une taxonomie plus stricte des `finding.code` pourra etre normalisee plus tard ;
-- une commande globale agregatrice pourra etre introduite une fois le contrat documentaire stabilise ;
-- un mode blocking avec `--strict-exit` devra rester un GO distinct s'il est etudie.
+Hypotheses a valider ensuite :
+
+- certains findings futurs auront besoin de champs optionnels supplementaires comme `path`, `line`, `column` ou `hint` ;
+- un formalisme plus strict de type JSON Schema pourra etre utile dans un child ulterieur ;
+- un dashboard, un registry ou un collector pourra exiger des garanties supplementaires sur les enums de `level` et la stabilite des `code` ;
+- un echantillonnage multi-samples sera utile pour couvrir des findings non nuls.
 
 ## 15_REMAINING_GAP
 
-- le contrat documentaire est restaure, mais aucune version canonique au-dela de `1.0` n'est definie ;
-- la taxonomie stricte des `finding.code` du rapport source reste ouverte ;
-- aucune commande globale agregatrice n'est encore definie ;
-- le mode blocking n'est toujours pas active, par decision.
+- le schema est defini documentalement, pas encore materialise dans un fichier formel machine-readable ;
+- `schema_version` n'est pas encore present dans l'artefact legacy reel observe ;
+- les champs optionnels possibles des findings ne sont pas encore normalises ;
+- la liste canonique des codes de findings n'est pas encore definie ;
+- aucun validateur de schema distinct n'existe encore.
 
 ## 16_TODO
 
-1. Ne pas rouvrir cette restauration sauf si le contrat `1.0` doit evoluer.
-2. Ouvrir un GO separe si une version `1.x` ou `2.0` doit etre supportee.
-3. Ouvrir un GO separe si une taxonomie stricte des `finding.code` devient necessaire.
-4. Ouvrir un GO separe si une commande globale agregatrice de validation doit etre ajoutee.
-5. Ouvrir un GO separe si `--strict-exit` doit devenir bloquant en CI.
+Suite logique :
+
+1. Revoir et accepter ce contrat canonique minimal.
+2. Ouvrir un child si un fichier de schema machine-readable devient necessaire.
+3. Ouvrir un child si une taxonomie canonique des finding codes devient necessaire.
+4. Ouvrir un child si des exemples multi-samples doivent etre documentes.
 
 ## 17_RESUME_POINT
 
 Reprendre ici :
 
 ```text
-GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_JSON_SCHEMA_CANONICAL_RESTORE_01
+GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_JSON_SCHEMA_01
 ```
 
-Etat de reprise :
+Point de reprise concret :
 
 ```text
-OPENCLAW_POLICY_REPORT_SCHEMA_CHAIN_01: CLOSED_WITH_CANONICAL_SCHEMA_DOC
-JSON_SCHEMA_01: RESTORED_DOC_ONLY
-VALIDATOR: MERGED via PR #466
-CI_WIRING: MERGED via PR #469
-PARENT_CLOSEOUT: MERGED via PR #473
-NEXT_LOGICAL_GO: OPTIONAL_GLOBAL_VALIDATION_AGGREGATOR
+docs/chantiers/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_POLICY_REPORT_SCHEMA_PARENT_01/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_JSON_SCHEMA_01.md
 ```
