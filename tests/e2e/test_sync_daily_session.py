@@ -267,7 +267,7 @@ class TestSyncDailySessionDryRun(unittest.TestCase):
              "--run-id", self.entry_key],
             capture_output=True, text=True, timeout=30, env=env,
         )
-        self.assertIn("GOOGLE_SHEETS_CREDENTIALS_JSON", r.stdout)
+        self.assertIn("GOOGLE_SHEETS_SYNC_SHEET_ID", r.stdout)
 
     def test_controlled_write_fails_without_credentials(self):
         env = {k: v for k, v in os.environ.items()

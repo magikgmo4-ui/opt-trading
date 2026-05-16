@@ -6,8 +6,9 @@ Usage:
   python scripts/sheets/sync_daily_session.py [--run-id ID|--latest] [--controlled-write]
 
 Environment:
-  GOOGLE_SHEETS_CREDENTIALS_JSON  — service account JSON (required for controlled-write)
   GOOGLE_SHEETS_SYNC_SHEET_ID     — target sheet ID (required for controlled-write)
+  ADC (Application Default Credentials) via:
+    gcloud auth application-default login --scopes=https://www.googleapis.com/auth/spreadsheets
 
 Output:
   - dry-run preview to stdout
@@ -118,17 +119,16 @@ def _row_values(row: dict) -> list[str]:
 
 
 def _try_get_sheets_client():
-    creds_json = os.environ.get("GOOGLE_SHEETS_CREDENTIALS_JSON")
     sheet_id = os.environ.get("GOOGLE_SHEETS_SYNC_SHEET_ID")
-    if not creds_json or not sheet_id:
+    if not sheet_id:
         return None, None
     try:
         import gspread
-        from oauth2client.service_account import ServiceAccountCredentials
-        scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-        creds_dict = json.loads(creds_json)
-        creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
-        client = gspread.authorize(creds)
+        from google.auth import default
+        credentials, _ = default(scopes=[
+            "https://www.googleapis.com/auth/spreadsheets"
+        ])
+        client = gspread.authorize(credentials)
         sheet = client.open_by_key(sheet_id).sheet1
         return client, sheet
     except Exception as e:
@@ -226,9 +226,9 @@ def main() -> dict:
         _log_sync(run_id, mode, "dry_run_skipped", row)
         print("⚠ DRY-RUN — no write to Google Sheets.")
         print("  Use --controlled-write to actually sync.")
-        print("=" * 60)
-        if not os.environ.get("GOOGLE_SHEETS_CREDENTIALS_JSON"):
-            print("  Note: set GOOGLE_SHEETS_CREDENTIALS_JSON and GOOGLE_SHEETS_SYNC_SHEET_ID")
+        if not os.environ.get("GOOGLE_SHEETS_SYNC_SHEET_ID"):
+            print("  Note: set GOOGLE_SHEETS_SYNC_SHEET_ID and run")
+            print("  gcloud auth application-default login --scopes=https://www.googleapis.com/auth/spreadsheets")
             print("  for controlled-write mode.")
         print("=" * 60)
         result = {"run_id": run_id, "mode": mode, "status": "dry_run_skipped", "row": row}
@@ -236,9 +236,10 @@ def main() -> dict:
 
     client, sheet = _try_get_sheets_client()
     if sheet is None:
-        _log_sync(run_id, mode, "failed_no_credentials", row)
-        log.error("Cannot write: Google Sheets credentials or sheet ID not configured.")
-        log.error("Set GOOGLE_SHEETS_CREDENTIALS_JSON and GOOGLE_SHEETS_SYNC_SHEET_ID.")
+        _log_sync(run_id, mode, "BLOCKED_AUTH_ADC", row)
+        log.error("Cannot write: Google Sheets ADC or sheet ID not configured.")
+        log.error("Set GOOGLE_SHEETS_SYNC_SHEET_ID and run:")
+        log.error("  gcloud auth application-default login --scopes=https://www.googleapis.com/auth/spreadsheets")
         sys.exit(1)
 
     ok = _append_row(sheet, values)
