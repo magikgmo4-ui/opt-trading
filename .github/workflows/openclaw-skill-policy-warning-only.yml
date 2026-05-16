@@ -24,8 +24,17 @@ jobs:
       - name: Export JSON policy report
         run: python tools/openclaw/validate_skill_policy_static.py --format json > openclaw-skill-policy-report.json
 
+      - name: Validate JSON policy report schema
+        run: python tools/openclaw/validate_policy_json_report_schema.py --report openclaw-skill-policy-report.json
+
+      - name: Export JSON policy report schema validation
+        run: python tools/openclaw/validate_policy_json_report_schema.py --report openclaw-skill-policy-report.json --format json > openclaw-skill-policy-report-schema-validation.json
+
       - name: Run policy validator tests
         run: python -m unittest tests.openclaw.test_validate_skill_policy_static
+
+      - name: Run policy report schema validator tests
+        run: python -m unittest tests.openclaw.test_validate_policy_json_report_schema
 
       - name: Upload JSON policy report artifact
         if: always()
@@ -33,3 +42,10 @@ jobs:
         with:
           name: openclaw-skill-policy-report
           path: openclaw-skill-policy-report.json
+
+      - name: Upload JSON policy report schema validation artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: openclaw-skill-policy-report-schema-validation
+          path: openclaw-skill-policy-report-schema-validation.json
