@@ -13,6 +13,7 @@ import tempfile
 import unittest
 from contextlib import redirect_stdout
 from pathlib import Path
+import sys
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 VALIDATOR_PATH = REPO_ROOT / "tools" / "openclaw" / "validate_skill_policy_static.py"
@@ -24,6 +25,7 @@ def load_validator_module():
     if spec is None or spec.loader is None:
         raise RuntimeError(f"Unable to load validator module: {VALIDATOR_PATH}")
     module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
     spec.loader.exec_module(module)
     return module
 
