@@ -1,0 +1,299 @@
+{
+  "version": "1.0",
+  "updated_at": "2026-05-16",
+  "menu": [
+    {
+      "id": "1_pipeline_trading",
+      "label": "Pipeline Trading",
+      "icon": "⚡",
+      "children": [
+        {
+          "id": "1_1_signal",
+          "label": "Signal & Webhook",
+          "children": [
+            {"id": "tradingview_observer", "label": "TradingView Observer", "status": "operational", "machine": "admin-trading"},
+            {"id": "tradingview_observer_openclaw", "label": "TV Observer OpenClaw", "status": "impl", "machine": "admin-trading"},
+            {"id": "webhook", "label": "Webhook Handler", "status": "impl", "machine": "admin-trading"}
+          ]
+        },
+        {
+          "id": "1_2_decision",
+          "label": "Decision & Ranking",
+          "children": [
+            {"id": "decision_engine", "label": "Decision Engine", "status": "impl", "machine": "admin-trading"},
+            {"id": "opportunity_ranker", "label": "Opportunity Ranker", "status": "impl", "machine": "admin-trading"},
+            {"id": "probability_engine", "label": "Probability Engine", "status": "impl", "machine": "admin-trading"}
+          ]
+        },
+        {
+          "id": "1_3_risk",
+          "label": "Risque & Kill Switch",
+          "children": [
+            {"id": "risk_engine", "label": "Risk Engine", "status": "impl", "machine": "admin-trading"},
+            {"id": "kil_v1", "label": "Kill Switch (kil_v1)", "status": "operational", "machine": "admin-trading"}
+          ]
+        },
+        {
+          "id": "1_4_execution",
+          "label": "Execution & Exchange",
+          "children": [
+            {"id": "execution_engine", "label": "Execution Engine", "status": "impl", "machine": "admin-trading"},
+            {"id": "simex_bitget_bridge", "label": "SimEx Bitget Bridge", "status": "operational", "machine": "admin-trading"}
+          ]
+        },
+        {
+          "id": "1_5_position",
+          "label": "Position & Portfolio",
+          "children": [
+            {"id": "position_engine", "label": "Position Engine", "status": "impl", "machine": "admin-trading"},
+            {"id": "portfolio_engine", "label": "Portfolio Engine", "status": "impl", "machine": "admin-trading"}
+          ]
+        },
+        {
+          "id": "1_6_observation",
+          "label": "Observation & Lab",
+          "children": [
+            {"id": "trading_realtime_v1", "label": "Trading Realtime V1", "status": "impl", "machine": "admin-trading"},
+            {"id": "trading_lab_v1", "label": "Trading Lab V1", "status": "impl", "machine": "admin-trading"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2_market_data",
+      "label": "Market Data",
+      "icon": "📊",
+      "children": [
+        {"id": "2_1_collectors", "label": "Collectors", "children": [
+          {"id": "collector_binance_spot", "label": "Binance Spot", "status": "partial", "machine": "admin-trading"},
+          {"id": "collector_coingecko", "label": "CoinGecko", "status": "partial", "machine": "admin-trading"},
+          {"id": "derivatives_collector", "label": "Derivatives Collector", "status": "impl", "machine": "admin-trading"}
+        ]},
+        {"id": "2_2_analyzers", "label": "Analyseurs", "children": [
+          {"id": "derivatives_analyzer", "label": "Derivatives Analyzer", "status": "impl", "machine": "admin-trading"},
+          {"id": "liquidation_analyzer", "label": "Liquidation Analyzer", "status": "impl", "machine": "admin-trading"}
+        ]},
+        {"id": "2_3_hub", "label": "Hub & Scanner", "children": [
+          {"id": "market_scanner", "label": "Market Scanner", "status": "impl", "machine": "admin-trading"},
+          {"id": "marketdata", "label": "MarketData Hub", "status": "impl", "machine": "admin-trading"}
+        ]}
+      ]
+    },
+    {
+      "id": "3_openclaw",
+      "label": "OpenClaw Runtime",
+      "icon": "🤖",
+      "children": [
+        {"id": "3_1_gateway", "label": "Gateway & Bridge", "children": [
+          {"id": "gateway_openclaw", "label": "Gateway OpenClaw", "status": "operational", "health_url": "ws://127.0.0.1:18789/health", "machine": "db-layer"},
+          {"id": "openclaw_operator_bridge", "label": "Operator Bridge", "status": "operational", "machine": "db-layer"}
+        ]},
+        {"id": "3_2_config", "label": "Configuration & Diagnostic", "children": [
+          {"id": "configure_openclaw", "label": "Configure", "status": "operational", "machine": "db-layer"},
+          {"id": "openclaw_config_modulaire", "label": "Config Modulaire", "status": "operational", "machine": "db-layer"},
+          {"id": "doctor_openclaw", "label": "Doctor", "status": "operational", "machine": "db-layer"},
+          {"id": "evidence_openclaw", "label": "Evidence", "status": "operational", "machine": "db-layer"}
+        ]},
+        {"id": "3_3_install", "label": "Installation & Providers", "children": [
+          {"id": "install_module_openclaw", "label": "Install Module", "status": "operational", "machine": "db-layer"},
+          {"id": "model_provider_openclaw", "label": "Model Provider", "status": "operational", "machine": "db-layer"}
+        ]},
+        {"id": "3_4_interface", "label": "Interface & Bridge", "children": [
+          {"id": "menu_openclaw", "label": "Menu OpenClaw", "status": "operational", "machine": "db-layer"},
+          {"id": "tradingview_observer_openclaw", "label": "TV Observer Bridge", "status": "impl", "machine": "admin-trading"}
+        ]}
+      ]
+    },
+    {
+      "id": "4_ai_providers",
+      "label": "AI & Providers",
+      "icon": "🧠",
+      "children": [
+        {"id": "4_1_platforms", "label": "Plateformes", "children": [
+          {"id": "memory_bricks", "label": "Memory Bricks", "status": "operational", "machine": "db-layer"},
+          {"id": "validated_prompt_factory", "label": "Prompt Factory", "status": "operational", "machine": "db-layer"},
+          {"id": "deepseek_hub", "label": "DeepSeek Hub", "status": "impl", "machine": "db-layer"},
+          {"id": "hf_free_platform", "label": "HF Platform", "status": "impl", "machine": "db-layer"}
+        ]},
+        {"id": "4_2_responses", "label": "DeepSeek Response Chain", "children": [
+          {"id": "deepseek_response", "label": "DeepSeek Response", "status": "impl", "machine": "db-layer"},
+          {"id": "deepseek_thinking", "label": "DeepSeek Thinking", "status": "impl", "machine": "db-layer"}
+        ]}
+      ]
+    },
+    {
+      "id": "5_desk_pro",
+      "label": "Desk Pro — UI Trading",
+      "icon": "🖥️",
+      "children": [
+        {"id": "5_1_entry", "label": "Entrée Opératoire", "children": [
+          {"id": "desk_pro_runner", "label": "Desk Runner", "status": "operational", "machine": "admin-trading"},
+          {"id": "desk_pro_orchestrator", "label": "Desk Orchestrator", "status": "operational", "machine": "admin-trading"}
+        ]},
+        {"id": "5_2_ui", "label": "UI Centrale", "children": [
+          {"id": "desk_pro", "label": "Desk Pro (FastAPI)", "status": "operational", "machine": "admin-trading"},
+          {"id": "desk_pro_dashboard", "label": "Dashboard", "status": "impl", "machine": "db-layer"}
+        ]},
+        {"id": "5_3_pipeline", "label": "Pipeline Snapshot (0→A→B→D→E)", "children": [
+          {"id": "desk_retention", "label": "Step 0 — Retention", "status": "operational", "machine": "admin-trading"},
+          {"id": "desk_snapshot_ingest", "label": "Step A — Snapshot Ingest", "status": "operational", "machine": "admin-trading"},
+          {"id": "desk_analyze", "label": "Step B — Analyze", "status": "operational", "machine": "admin-trading"},
+          {"id": "desk_capture_inputs", "label": "Step D — Capture Inputs", "status": "operational", "machine": "admin-trading"},
+          {"id": "desk_state", "label": "Step E — State Final", "status": "operational", "machine": "db-layer"}
+        ]},
+        {"id": "desk_common", "label": "Shared (desk_common)", "status": "operational", "machine": "admin-trading"}
+      ]
+    },
+    {
+      "id": "6_vision",
+      "label": "Vision & Capture",
+      "icon": "👁️",
+      "children": [
+        {"id": "6_1_capture", "label": "Capture & Analyse", "children": [
+          {"id": "bot_vision", "label": "Bot Vision (headless + step1)", "status": "operational", "machine": "admin-trading"},
+          {"id": "bot_vision_step2", "label": "Bot Vision Step2", "status": "impl", "machine": "admin-trading"}
+        ]},
+        {"id": "6_2_vision_bot", "label": "Vision Bot", "children": [
+          {"id": "vision_bot", "label": "Vision Bot (SHAREX)", "status": "impl", "machine": "db-layer"}
+        ]}
+      ]
+    },
+    {
+      "id": "7_perf_journal",
+      "label": "Performance & Journal",
+      "icon": "📈",
+      "children": [
+        {"id": "7_1_perf", "label": "Performance", "children": [
+          {"id": "perf", "label": "Perf (shim → perf_engine)", "status": "operational", "machine": "admin-trading"},
+          {"id": "perf_engine", "label": "Perf Engine", "status": "impl", "machine": "admin-trading"}
+        ]},
+        {"id": "7_2_journal", "label": "Journal", "children": [
+          {"id": "journal_engine", "label": "Journal Engine", "status": "impl", "machine": "db-layer"}
+        ]}
+      ]
+    },
+    {
+      "id": "8_infra",
+      "label": "Infra & Connectivité",
+      "icon": "🔌",
+      "children": [
+        {"id": "8_1_ssh", "label": "SSH & Réseau", "children": [
+          {"id": "reseau_ssh", "label": "Réseau SSH (canonique)", "status": "operational", "machine": "db-layer"},
+          {"id": "reseau_ssh_step1b", "label": "SSH Step1b (deprecated)", "status": "deprecated", "machine": "db-layer"}
+        ]},
+        {"id": "8_2_transfer", "label": "Transfert Fichiers", "children": [
+          {"id": "shared_files_sftp", "label": "SFTP", "status": "impl", "machine": "db-layer"},
+          {"id": "shared_sshfs_permanent", "label": "SSHFS Permanent", "status": "impl", "machine": "db-layer"},
+          {"id": "shared", "label": "Shared Data", "status": "impl", "machine": "db-layer"},
+          {"id": "winscp_transfer", "label": "WinSCP Transfer", "status": "impl", "machine": "windows"}
+        ]},
+        {"id": "8_3_auth", "label": "Auth & Secrets", "children": [
+          {"id": "auth", "label": "Auth (credentials)", "status": "operational", "machine": "db-layer"}
+        ]},
+        {"id": "health", "label": "Health Checker", "status": "operational", "machine": "db-layer"}
+      ]
+    },
+    {
+      "id": "9_registres",
+      "label": "Registres & Routage",
+      "icon": "🗂️",
+      "children": [
+        {"id": "9_1_ui", "label": "UI Registry", "children": [
+          {"id": "ui_registry_msi", "label": "UI Registry MSI", "status": "impl", "machine": "db-layer", "note": "source vérité UI"}
+        ]},
+        {"id": "9_2_routing", "label": "Routage & Meta", "children": [
+          {"id": "registry_router", "label": "Registry Router", "status": "impl", "machine": "db-layer"},
+          {"id": "registry_meta_reader", "label": "Meta Reader", "status": "impl", "machine": "db-layer"},
+          {"id": "modules_registry_reader", "label": "Modules Reader", "status": "impl", "machine": "db-layer"},
+          {"id": "machines_registry_reader", "label": "Machines Reader", "status": "impl", "machine": "db-layer"},
+          {"id": "wrappers_registry_reader", "label": "Wrappers Reader", "status": "impl", "machine": "db-layer"},
+          {"id": "router", "label": "Router (facade)", "status": "minimal", "machine": "db-layer"}
+        ]}
+      ]
+    },
+    {
+      "id": "10_workers",
+      "label": "Workers Stricts (À Produire)",
+      "icon": "⚙️",
+      "children": [
+        {"id": "10_1_signal", "label": "Ingestion Signal", "children": [
+          {"id": "signal_router", "label": "Signal Router", "status": "operational", "go": "GO-03", "machine": "admin-trading"},
+          {"id": "notification_dispatcher", "label": "Notification Dispatcher", "status": "operational", "go": "GO-04", "machine": "admin-trading"}
+        ]},
+        {"id": "10_2_ia", "label": "IA Pipeline", "children": [
+          {"id": "proposition_engine", "label": "Proposition Engine", "status": "operational", "go": "GO-06", "machine": "admin-trading"},
+          {"id": "validation_gate", "label": "Validation Gate", "status": "operational", "go": "GO-07", "machine": "admin-trading"}
+        ]},
+        {"id": "10_3_execution", "label": "Exécution & Résultat", "children": [
+          {"id": "trade_executor", "label": "Trade Executor", "status": "operational", "go": "GO-08", "machine": "admin-trading"},
+          {"id": "result_tracker", "label": "Result Tracker", "status": "operational", "go": "GO-08", "machine": "admin-trading"}
+        ]},
+        {"id": "10_4_reporting", "label": "Reporting & Learning", "children": [
+          {"id": "datasheet_writer", "label": "Datasheet Writer", "status": "operational", "go": "GO-09", "machine": "admin-trading"},
+          {"id": "learning_feeder", "label": "Learning Feeder", "status": "operational", "go": "GO-10", "machine": "admin-trading"}
+        ]},
+        {"id": "10_5_sync", "label": "Notifications & Sync", "children": [
+          {"id": "task_tracker", "label": "Task Tracker", "status": "to_build", "machine": "admin-trading"},
+          {"id": "ui_renderer", "label": "UI Renderer", "status": "to_build", "machine": "db-layer"}
+        ]}
+      ]
+    },
+    {
+      "id": "11_ops",
+      "label": "Ops & Menus",
+      "icon": "🔧",
+      "children": [
+        {"id": "ops_menu_hub", "label": "Ops Menu Hub", "status": "operational", "machine": "db-layer"},
+        {"id": "ops_super_menu", "label": "Ops Super Menu", "status": "operational", "machine": "db-layer"},
+        {"id": "ops_wrappers", "label": "Ops Wrappers", "status": "operational", "machine": "db-layer"},
+        {"id": "module_contextuals_shell", "label": "Module Contextuals Shell", "status": "operational", "machine": "db-layer"},
+        {"id": "naming_normalizer", "label": "Naming Normalizer", "status": "operational", "machine": "db-layer"}
+      ]
+    },
+    {
+      "id": "12_tooling",
+      "label": "Repo & Tooling",
+      "icon": "🛠️",
+      "children": [
+        {"id": "12_1_validation", "label": "Validation", "children": [
+          {"id": "trae_module_validator", "label": "Trae Module Validator", "status": "operational", "machine": "db-layer"},
+          {"id": "dev_validation_hub", "label": "Dev Validation Hub", "status": "operational", "machine": "db-layer"},
+          {"id": "audit", "label": "Audit Module", "status": "operational", "machine": "db-layer"}
+        ]},
+        {"id": "12_2_hygiene", "label": "Hygiène & Permissions", "children": [
+          {"id": "repo_hygiene", "label": "Repo Hygiene", "status": "operational", "machine": "db-layer"},
+          {"id": "repo_local_artifacts", "label": "Repo Local Artifacts", "status": "operational", "machine": "db-layer"},
+          {"id": "repo_ownership_guard", "label": "Ownership Guard", "status": "operational", "machine": "db-layer"},
+          {"id": "git_fleet_guard", "label": "Git Fleet Guard", "status": "impl", "machine": "db-layer"}
+        ]},
+        {"id": "12_3_sync", "label": "Installation & Sync", "children": [
+          {"id": "install_module", "label": "Install Module (sync_validate)", "status": "operational", "machine": "db-layer"},
+          {"id": "workflow_post_change_v2", "label": "Workflow Post Change V2", "status": "impl", "machine": "db-layer"}
+        ]}
+      ]
+    },
+    {
+      "id": "13_shared_libs",
+      "label": "Shared Libs",
+      "icon": "📦",
+      "children": [
+        {"id": "13_1_engines", "label": "Engines", "children": [
+          {"id": "engines", "label": "Engines (registry + router)", "status": "operational", "machine": "db-layer"}
+        ]},
+        {"id": "13_2_env", "label": "Environnement", "children": [
+          {"id": "env", "label": "Env (bootstrap)", "status": "operational", "machine": "db-layer"}
+        ]}
+      ]
+    },
+    {
+      "id": "14_archived",
+      "label": "Archivés / Fermés",
+      "icon": "🗄️",
+      "children": [
+        {"id": "deepseek_student", "label": "DeepSeek Student", "status": "closed", "machine": "db-layer"},
+        {"id": "mimo_open_observer", "label": "Mimo Open Observer", "status": "closed", "machine": "db-layer"},
+        {"id": "perm_fix_student", "label": "Perm Fix Student", "status": "closed", "machine": "db-layer"}
+      ]
+    }
+  ]
+}
