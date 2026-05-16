@@ -102,6 +102,23 @@ This document exists for testing.
 """
 
 
+def _legacy_thematic_doc() -> str:
+    return """# 10_LINT_SCOPE
+
+## Objectif
+
+Define the thematic WHY lint scope.
+
+## Scope
+
+The document stays read-only and warning-only.
+
+## Invariant
+
+No runtime and no autofix.
+"""
+
+
 def test_extracts_fixtures_and_fenced_snippets() -> None:
     markdown = _fixture_doc("VALID_MINIMAL_RULE_01") + "\n" + _fixture_doc("VALID_WHY_GAP_RULE_01")
 
@@ -348,7 +365,10 @@ def test_doc_scan_parent_folder_passes_without_findings(tmp_path: Path) -> None:
 
 def test_doc_scan_reports_missing_required_markers(tmp_path: Path) -> None:
     root = _why_lint_parent(tmp_path)
-    (root / "INCOMPLETE.md").write_text("# Incomplete\n\n## WHY\n\nReason only.\n", encoding="utf-8")
+    (root / "INCOMPLETE.md").write_text(
+        "# Incomplete\n\n## 1_MASTER_TARGET\n\nTarget.\n\n## WHY\n\nReason only.\n",
+        encoding="utf-8",
+    )
 
     report = run_doc_scan(root)
 
@@ -358,6 +378,101 @@ def test_doc_scan_reports_missing_required_markers(tmp_path: Path) -> None:
     assert "MISSING_FINAL_TARGET" in finding_ids
     assert "MISSING_INVARIANTS" in finding_ids
     assert "MISSING_RESUME_POINT" in finding_ids
+
+
+def test_doc_scan_skips_go_marker_checks_for_thematic_legacy_docs(tmp_path: Path) -> None:
+    root = _why_lint_parent(tmp_path)
+    (root / "10_LINT_SCOPE.md").write_text(_legacy_thematic_doc(), encoding="utf-8")
+
+    report = run_doc_scan(root)
+
+    assert report.exit_code == 0
+    assert report.status == "PASS"
+    assert len(report.findings) == 0
+
+
+def test_doc_scan_accepts_static_validator_why_equivalent(tmp_path: Path) -> None:
+    root = _why_lint_parent(tmp_path)
+    (root / "GO_OPT_TRADING_DOC_OPS_WHY_LINT_STATIC_VALIDATOR_SPEC_01.md").write_text(
+        """# Static validator spec
+
+## 1_MASTER_TARGET
+
+Target.
+
+## 3_INITIAL_NEED
+
+Need.
+
+## 6_FINAL_TARGET
+
+FINAL_TARGET: bounded validator spec.
+
+## 12_INVARIANTS
+
+- read-only
+
+## 17_RESUME_POINT
+
+Resume here.
+""",
+        encoding="utf-8",
+    )
+
+    report = run_doc_scan(root)
+
+    finding_ids = {finding.finding_id for finding in report.findings}
+    assert report.exit_code == 0
+    assert "MISSING_WHY_SECTION" not in finding_ids
+
+
+def test_doc_scan_ignores_forbidden_implications_in_examples(tmp_path: Path) -> None:
+    root = _why_lint_parent(tmp_path)
+    (root / "GO_STRUCTURED_EXAMPLE.md").write_text(
+        """# Example
+
+## 1_MASTER_TARGET
+
+Target.
+
+## WHY
+
+Reason.
+
+## 6_FINAL_TARGET
+
+FINAL_TARGET: bounded document.
+
+## 12_INVARIANTS
+
+- read-only
+
+## 17_RESUME_POINT
+
+Resume here.
+
+Forbidden examples:
+- `autofix_allowed: true`
+- `execute_command: true`
+
+```yaml
+runtime_binding: true
+can_fail_ci: true
+apply_patch: true
+```
+""",
+        encoding="utf-8",
+    )
+
+    report = run_doc_scan(root)
+
+    finding_ids = {finding.finding_id for finding in report.findings}
+    assert report.exit_code == 0
+    assert "AUTOFIX_ENABLED" not in finding_ids
+    assert "RUNTIME_BINDING_ENABLED" not in finding_ids
+    assert "CI_BLOCKING_ENABLED" not in finding_ids
+    assert "EXECUTE_COMMAND_ENABLED" not in finding_ids
+    assert "APPLY_PATCH_ENABLED" not in finding_ids
 
 
 def test_doc_scan_rejects_out_of_scope_root(tmp_path: Path) -> None:
