@@ -252,5 +252,70 @@ class TestLocalCMSAppConfig(unittest.TestCase):
         self.assertIsNotNone(STATE_CACHE)
 
 
+class TestLocalCMSMetricsDashboard(unittest.TestCase):
+    def test_metrics_route_exists(self):
+        import modules.localcms.app.main as m
+        paths = [r.path for r in m.app.routes if hasattr(r, "path")]
+        self.assertIn("/metrics", paths)
+
+    def test_metrics_daily_route_exists(self):
+        import modules.localcms.app.main as m
+        paths = [r.path for r in m.app.routes if hasattr(r, "path")]
+        self.assertIn("/metrics/daily", paths)
+
+    def test_build_metrics_returns_dict(self):
+        from modules.localcms.app.main import _build_metrics
+        result = _build_metrics()
+        self.assertIsInstance(result, dict)
+
+    def test_build_metrics_required_keys(self):
+        from modules.localcms.app.main import _build_metrics
+        result = _build_metrics()
+        for key in ["total_runs", "pass_count", "fail_count", "win_count",
+                    "loss_count", "breakeven_count", "pnl_cumulative",
+                    "win_rate", "last_run", "sheets_sync", "generated_at"]:
+            self.assertIn(key, result)
+
+    def test_build_metrics_totals_consistent(self):
+        from modules.localcms.app.main import _build_metrics
+        result = _build_metrics()
+        self.assertEqual(result["pass_count"] + result["fail_count"], result["total_runs"])
+
+    def test_build_metrics_outcomes_leq_total(self):
+        from modules.localcms.app.main import _build_metrics
+        result = _build_metrics()
+        self.assertLessEqual(
+            result["win_count"] + result["loss_count"] + result["breakeven_count"],
+            result["total_runs"],
+        )
+
+    def test_build_metrics_win_rate_range(self):
+        from modules.localcms.app.main import _build_metrics
+        result = _build_metrics()
+        self.assertGreaterEqual(result["win_rate"], 0.0)
+        self.assertLessEqual(result["win_rate"], 1.0)
+
+    def test_build_metrics_sheets_sync_keys(self):
+        from modules.localcms.app.main import _build_metrics
+        result = _build_metrics()
+        for key in ["dry_run", "written", "blocked", "failed"]:
+            self.assertIn(key, result["sheets_sync"])
+
+    def test_metrics_routes_get_only(self):
+        import modules.localcms.app.main as m
+        dangerous = {"POST", "PUT", "DELETE", "PATCH"}
+        for r in m.app.routes:
+            if hasattr(r, "path") and r.path in ("/metrics", "/metrics/daily"):
+                if hasattr(r, "methods") and r.methods:
+                    self.assertFalse(
+                        r.methods & dangerous,
+                        f"Dangerous method on {r.path}: {r.methods & dangerous}",
+                    )
+
+    def test_sync_log_constant_defined(self):
+        from modules.localcms.app.main import SYNC_LOG
+        self.assertIsNotNone(SYNC_LOG)
+
+
 if __name__ == "__main__":
     unittest.main()
