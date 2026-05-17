@@ -430,3 +430,12 @@ Ces entrées détaillées sont sorties de `docs/index/GO_INDEX.md`.
 - titre court : enforcement retention de session Student/Ollama
 - dernier état connu : plan d'enforcement, script diagnostic, script purge produits ; ferme dans le cadre Student/Ollama FULLY_CLOSED
 - lien utile : `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_SESSION_RETENTION_ENFORCEMENT_01/CHECKPOINT.md`
+
+
+### GO_DB_LAYER_REPRISE_AUDIT_01
+- repo : opt-trading
+- type : audit / housekeeping / doc-only
+- statut : closed
+- titre court : audit et nettoyage parc branches db-layer post-PR #517
+- dernier état connu : ~45 branches db-layer supprimées (local + remote) ; squash-orphelins CHILD_GATEWAY_SUPERVISION_TMUX confirmés ; A_VERIFIER finaux audités et droppés ; BRANCH_STATE.md et MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md réconciliés ; PASS
+- lien utile : `docs/chantiers/GO_DB_LAYER_REPRISE_AUDIT_01/90_CLOSEOUT.md`
