@@ -169,18 +169,39 @@ Quand la demande est "chantiers pour <machine>", la reponse doit ressortir direc
 
 ## Bloc DB_LAYER
 
+> Dernière réconciliation : `GO_DB_LAYER_MACHINE_WORK_SPLIT_RECONCILIATION_01` — 2026-05-17 — basée sur `BRANCH_STATE.md@7197d261`
+
+### Branches actives
+
+| Branche | Statut | Note |
+| --- | --- | --- |
+| `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01` | `KEEP_ACTIVE` | Ancre principale db-layer — 9 ahead |
+| `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PHASE1_30_RUN_14_DAY_OBSERVATION_01` | branche courante | Observation Phase 1 active — ne pas toucher |
+
+### A_VERIFIER (audit manuel requis avant toute action)
+
 | Branche | Note |
 | --- | --- |
-| `go/GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_REVIEW_01` | Machine db-layer parent review |
-| `go/GO_OPT_TRADING_UI_LOCALCMS_DB_LAYER_CONSUMER_REALIGNMENT_01` | UI LocalCMS db-layer consumer realignment |
-| `go/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_DB_LAYER_REVIEW_01` | Tmux runtime db-layer review |
-| `go/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_DB_LAYER_CLOSEOUT_01` | Tmux runtime db-layer closeout |
-| `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01` | OpenClaw orchestrator parent |
-| `go/GO_OPENCLAW_STATE_DIR_REPAIR_10` | OpenClaw state dir repair |
-| `doc/GO_OPENCLAW_INFRA_BASELINE_01` | OpenClaw infra baseline |
-| `go/GO_OPT_TRADING_AIRTABLE_ORCHESTRATION_PARENT_01` | Airtable orchestration parent |
-| `go/GO_OPT_TRADING_REPO_KG_PARENT_GRAPH_SYSTEM_01` | Repo KG parent graph system |
-| `go/GO_OPT_TRADING_REPO_SURFACES_PARENT_CARTOGRAPHY_01` | Repo surfaces parent cartography |
+| `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_DOC_REALIGN_01` | 1 ahead — contenu à vérifier |
+| `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_SYSTEM_MASTER_PLAN_01` | 2 ahead — contenu à vérifier |
+| `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_GOOGLE_SHEETS_ADC_CONTROLLED_WRITE_RETRY_01` | 4 ahead, **local-only** — jamais poussé |
+| `go/GO_OPENCLAW_STATE_DIR_REPAIR_10` | A_VERIFIER — pas encore classé |
+| `doc/GO_OPENCLAW_INFRA_BASELINE_01` | A_VERIFIER — divergée |
+| `go/GO_OPT_TRADING_AIRTABLE_ORCHESTRATION_PARENT_01` | A_VERIFIER — divergée |
+| `go/GO_OPT_TRADING_REPO_KG_PARENT_GRAPH_SYSTEM_01` | A_VERIFIER — divergée |
+| `go/GO_OPT_TRADING_REPO_SURFACES_PARENT_CARTOGRAPHY_01` | A_VERIFIER — divergée |
+
+### Supprimées — lot GO_DB_LAYER_REPRISE_AUDIT_01 (2026-05-17)
+
+| Branche | Suppression |
+| --- | --- |
+| `go/GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_REVIEW_01` | remote DELETED |
+| `go/GO_OPT_TRADING_UI_LOCALCMS_DB_LAYER_CONSUMER_REALIGNMENT_01` | remote DELETED |
+| `go/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_DB_LAYER_REVIEW_01` | remote DELETED |
+| `go/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_DB_LAYER_CLOSEOUT_01` | remote DELETED |
+| `go/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_01` | local + remote DELETED (squash-orphelin) |
+| `go/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_CLOSEOUT_01` | local + remote DELETED (squash-orphelin) |
+| `go/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01` | local DELETED (squash-orphelin, no remote) |
 
 ---
 
