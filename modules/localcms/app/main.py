@@ -6,7 +6,7 @@ from pathlib import Path
 import json
 import subprocess
 import sys
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
 MENU_FILE = PROJECT_ROOT / "scripts" / "ai" / "menu" / "opt_trading_menu.json"
@@ -171,6 +171,10 @@ def _list_journal_entries() -> list[dict]:
     return entries
 
 
+_PHASE1_THRESHOLD_RUNS = 30
+_PHASE1_THRESHOLD_DAYS = 14
+
+
 def _build_metrics() -> dict:
     all_entries = []
     if JOURNAL_DIR.exists():
@@ -194,17 +198,42 @@ def _build_metrics() -> dict:
     pnl_cumulative = round(sum(pnl_values), 4)
     win_rate = round(win_count / total, 4) if total > 0 else 0.0
 
+    # Phase 1 observation block
+    observation_start: date | None = None
+    run_ids = [e.get("run_id", "") for e in all_entries if e.get("run_id")]
+    if run_ids:
+        oldest = min(run_ids)
+        try:
+            observation_start = date(int(oldest[:4]), int(oldest[4:6]), int(oldest[6:8]))
+        except (ValueError, IndexError):
+            observation_start = None
+    days_elapsed = (date.today() - observation_start).days if observation_start else 0
+    closeout_required_count = sum(1 for e in all_entries if e.get("closeout_required", False))
+    observation = {
+        "observation_start": observation_start.isoformat() if observation_start else None,
+        "days_elapsed": days_elapsed,
+        "runs_to_threshold": max(0, _PHASE1_THRESHOLD_RUNS - total),
+        "days_to_threshold": max(0, _PHASE1_THRESHOLD_DAYS - days_elapsed),
+        "eligible": total >= _PHASE1_THRESHOLD_RUNS and fail_count == 0 and days_elapsed >= _PHASE1_THRESHOLD_DAYS,
+        "closeout_required_count": closeout_required_count,
+        "threshold_runs": _PHASE1_THRESHOLD_RUNS,
+        "threshold_days": _PHASE1_THRESHOLD_DAYS,
+    }
+
     last_run = None
     if all_entries:
         e = all_entries[0]
         last_run = {
             "run_id": e.get("run_id", ""),
+            "session_id": e.get("session_id", ""),
             "started_at": (e.get("started_at", "") or "")[:19],
             "all_ok": e.get("all_ok", False),
             "outcome": e.get("pnl_paper", {}).get("outcome", ""),
             "net_pnl": e.get("pnl_paper", {}).get("net_pnl", 0),
             "validation_verdict": e.get("validation_verdict", ""),
             "signal": f"{e.get('signal_source', {}).get('signal', '')} {e.get('signal_source', {}).get('symbol', '')}".strip(),
+            "localcms_ok": e.get("localcms_ok"),
+            "closeout_required": e.get("closeout_required", False),
         }
 
     sync_dry = sync_written = sync_blocked = sync_failed = 0
@@ -240,6 +269,7 @@ def _build_metrics() -> dict:
         "breakeven_count": breakeven_count,
         "pnl_cumulative": pnl_cumulative,
         "win_rate": win_rate,
+        "observation": observation,
         "last_run": last_run,
         "sheets_sync": {
             "dry_run": sync_dry,
