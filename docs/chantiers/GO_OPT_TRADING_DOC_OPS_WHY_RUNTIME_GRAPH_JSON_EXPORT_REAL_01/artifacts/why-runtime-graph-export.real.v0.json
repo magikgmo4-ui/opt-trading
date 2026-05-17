@@ -1,0 +1,113 @@
+{
+  "graph_id": "why_runtime_graph_minimal_v1",
+  "generated_at": "2026-05-17T00:33:12Z",
+  "go_id": "GO_OPT_TRADING_DOC_OPS_WHY_RUNTIME_GRAPH_JSON_EXPORT_REAL_01",
+  "export_id": "why-runtime-graph-export.real.v0",
+  "export_type": "WHY_RUNTIME_GRAPH_JSON_EXPORT",
+  "mode": "REAL_BOUNDED_READ_ONLY",
+  "scope": "localcms_tmux_daily_journal_minimal",
+  "render_graphic": false,
+  "runtime_mutation": false,
+  "sources": [
+    {
+      "id": "runtime_surface_inventory",
+      "source_go": "GO_OPT_TRADING_DOC_OPS_WHY_RUNTIME_GRAPH_SURFACES_INVENTORY_01",
+      "doc_path": "docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_RUNTIME_GRAPH_SURFACES_INVENTORY_01/10_RUNTIME_SURFACE_TYPES.md",
+      "doc_role": "inventory"
+    },
+    {
+      "id": "localcms_tmux_graph_integration",
+      "source_go": "GO_OPT_TRADING_DOC_OPS_WHY_LOCALCMS_TMUX_GRAPH_INTEGRATION_01",
+      "doc_path": "docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LOCALCMS_TMUX_GRAPH_INTEGRATION_01/30_LOCALCMS_TMUX_LINKAGE_MODEL.md",
+      "doc_role": "source_surface"
+    },
+    {
+      "id": "daily_journal_graph_export_mapping",
+      "source_go": "GO_OPT_TRADING_DOC_OPS_WHY_DAILY_JOURNAL_GRAPH_EXPORT_MAPPING_01",
+      "doc_path": "docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_DAILY_JOURNAL_GRAPH_EXPORT_MAPPING_01/20_GRAPH_EXPORT_MAPPING_RULES.md",
+      "doc_role": "mapping"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "surface:localcms",
+      "type": "read_only_graph_surface",
+      "label": "LocalCMS",
+      "status": "consumer_read_only",
+      "provenance": [
+        "docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LOCALCMS_TMUX_GRAPH_INTEGRATION_01/10_LOCALCMS_GRAPH_SURFACE_ROLE.md",
+        "docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LOCALCMS_TMUX_GRAPH_INTEGRATION_01/30_LOCALCMS_TMUX_LINKAGE_MODEL.md"
+      ]
+    },
+    {
+      "id": "surface:tmux",
+      "type": "runtime_session_surface",
+      "label": "TMUX",
+      "status": "runtime_session_spine",
+      "provenance": [
+        "docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LOCALCMS_TMUX_GRAPH_INTEGRATION_01/20_TMUX_RUNTIME_SESSION_SURFACE_ROLE.md",
+        "docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LOCALCMS_TMUX_GRAPH_INTEGRATION_01/30_LOCALCMS_TMUX_LINKAGE_MODEL.md"
+      ]
+    },
+    {
+      "id": "surface:daily_journal",
+      "type": "source_mapping",
+      "label": "Daily Journal",
+      "status": "run_context_and_proof_mapping",
+      "provenance": [
+        "docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_DAILY_JOURNAL_GRAPH_EXPORT_MAPPING_01/10_DAILY_JOURNAL_SOURCE_MODEL.md",
+        "docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_DAILY_JOURNAL_GRAPH_EXPORT_MAPPING_01/20_GRAPH_EXPORT_MAPPING_RULES.md",
+        "docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_DAILY_JOURNAL_GRAPH_EXPORT_MAPPING_01/30_JOURNAL_TO_WHY_NODE_MODEL.md"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge:localcms_reads_tmux_session",
+      "type": "READS_OR_SUMMARIZES",
+      "from": "surface:localcms",
+      "to": "surface:tmux",
+      "relation": "localcms_view_reads_or_summarizes_tmux_session",
+      "provenance": [
+        "docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LOCALCMS_TMUX_GRAPH_INTEGRATION_01/30_LOCALCMS_TMUX_LINKAGE_MODEL.md"
+      ]
+    },
+    {
+      "id": "edge:daily_journal_anchors_tmux_session",
+      "type": "MAPS_RUN_ID_TO_SESSION",
+      "from": "surface:daily_journal",
+      "to": "surface:tmux",
+      "relation": "run_id_references_tmux_session",
+      "provenance": [
+        "docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_DAILY_JOURNAL_GRAPH_EXPORT_MAPPING_01/20_GRAPH_EXPORT_MAPPING_RULES.md"
+      ]
+    },
+    {
+      "id": "edge:daily_journal_references_localcms_view",
+      "type": "REFERENCES_READ_ONLY_VIEW",
+      "from": "surface:daily_journal",
+      "to": "surface:localcms",
+      "relation": "journal_reference_points_to_localcms_read_only_view",
+      "provenance": [
+        "docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_DAILY_JOURNAL_GRAPH_EXPORT_MAPPING_01/10_DAILY_JOURNAL_SOURCE_MODEL.md",
+        "docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_DAILY_JOURNAL_GRAPH_EXPORT_MAPPING_01/30_JOURNAL_TO_WHY_NODE_MODEL.md"
+      ]
+    }
+  ],
+  "validation_gates": {
+    "json_parseable": true,
+    "bounded_scope": true,
+    "provenance_documented": true,
+    "no_graphic_render": true,
+    "no_runtime_mutation": true,
+    "no_ci_validator_change": true,
+    "no_global_index_change": true
+  },
+  "export_notes": [
+    "read_only",
+    "no_render",
+    "bounded_scope",
+    "doc_provenance_only",
+    "no_live_runtime_state"
+  ]
+}
