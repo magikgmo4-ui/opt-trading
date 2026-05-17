@@ -169,39 +169,44 @@ Quand la demande est "chantiers pour <machine>", la reponse doit ressortir direc
 
 ## Bloc DB_LAYER
 
-> Dernière réconciliation : `GO_DB_LAYER_MACHINE_WORK_SPLIT_RECONCILIATION_01` — 2026-05-17 — basée sur `BRANCH_STATE.md@7197d261`
+> Dernière réconciliation : `GO_DB_LAYER_MACHINE_WORK_SPLIT_RECONCILIATION_01` — 2026-05-17 — source de vérité : `BRANCH_STATE.md@e1c711bd`
 
-### Branches actives
-
-| Branche | Statut | Note |
-| --- | --- | --- |
-| `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01` | `KEEP_ACTIVE` | Ancre principale db-layer — 9 ahead |
-| `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PHASE1_30_RUN_14_DAY_OBSERVATION_01` | branche courante | Observation Phase 1 active — ne pas toucher |
-
-### A_VERIFIER (audit manuel requis avant toute action)
+### KEEP_ACTIVE
 
 | Branche | Note |
 | --- | --- |
-| `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_DOC_REALIGN_01` | 1 ahead — contenu à vérifier |
-| `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_SYSTEM_MASTER_PLAN_01` | 2 ahead — contenu à vérifier |
-| `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_GOOGLE_SHEETS_ADC_CONTROLLED_WRITE_RETRY_01` | 4 ahead, **local-only** — jamais poussé |
-| `go/GO_OPENCLAW_STATE_DIR_REPAIR_10` | A_VERIFIER — pas encore classé |
-| `doc/GO_OPENCLAW_INFRA_BASELINE_01` | A_VERIFIER — divergée |
-| `go/GO_OPT_TRADING_AIRTABLE_ORCHESTRATION_PARENT_01` | A_VERIFIER — divergée |
-| `go/GO_OPT_TRADING_REPO_KG_PARENT_GRAPH_SYSTEM_01` | A_VERIFIER — divergée |
-| `go/GO_OPT_TRADING_REPO_SURFACES_PARENT_CARTOGRAPHY_01` | A_VERIFIER — divergée |
+| `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01` | Ancre db-layer active ; parent OpenClaw orchestrator ; conserver sous revue |
 
-### Supprimées — lot GO_DB_LAYER_REPRISE_AUDIT_01 (2026-05-17)
+### CURRENT_OBSERVATION
 
-| Branche | Suppression |
+| Branche | Note |
 | --- | --- |
-| `go/GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_REVIEW_01` | remote DELETED |
-| `go/GO_OPT_TRADING_UI_LOCALCMS_DB_LAYER_CONSUMER_REALIGNMENT_01` | remote DELETED |
-| `go/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_DB_LAYER_REVIEW_01` | remote DELETED |
-| `go/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_DB_LAYER_CLOSEOUT_01` | remote DELETED |
-| `go/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_01` | local + remote DELETED (squash-orphelin) |
-| `go/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_CLOSEOUT_01` | local + remote DELETED (squash-orphelin) |
-| `go/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01` | local DELETED (squash-orphelin, no remote) |
+| `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PHASE1_30_RUN_14_DAY_OBSERVATION_01` | Branche courante Phase 1 observation ; ne pas nettoyer tant que l'observation est active |
+
+### PARENTS / SUPPORTS CANONIQUES
+
+| Élément | Note |
+| --- | --- |
+| `GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01` | Parent machine canonique ; statut OPEN dans `GO_INDEX.md` |
+| `GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01` | Support runtime actif ; ne pas rouvrir sans GO enfant explicite |
+| `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_CANONICALIZE_01` | Child AI team / db-layer remote exec ; à reprendre seulement si la séquence `db-layer → OpenClaw → SSH → fantome` est explicitement relancée |
+
+### DROP_MERGED / CLEANUP JOURNALISÉ
+
+| Famille | Note |
+| --- | --- |
+| `CHILD_GATEWAY_SUPERVISION_TMUX_*` | Réconcilié et supprimé ; squash-orphelins confirmés dans `BRANCH_STATE.md` |
+| `SYSTEM_MASTER_PLAN_01` | Supprimé local + remote ; squash-orphelin confirmé |
+| `PARENT_DOC_REALIGN_01` | Supprimé local + remote ; versions anciennes, aucun contenu forward unique |
+| `ADC_CONTROLLED_WRITE_RETRY_01` | Supprimé local-only ; Option B validée, branche entière droppée, `00_GO_MASTER.md` non mergé |
+| `*_DB_LAYER_REVIEW_01`, `*_DB_LAYER_CLOSEOUT_01`, `UI_LOCALCMS_DB_LAYER_CONSUMER_REALIGNMENT_01` | Branches nettoyées selon journal `BRANCH_STATE.md` |
+
+### Point de reprise DB_LAYER
+
+1. relire `docs/index/BRANCH_STATE.md`
+2. conserver `GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01` comme ancre
+3. poursuivre seulement la branche Phase 1 observation si active
+4. ne pas rouvrir les lots cleanup sans nouvelle preuve repo
 
 ---
 
