@@ -294,10 +294,22 @@ Lot de nettoyage db-layer / orchestrator exécuté après audit ahead=0 vs origi
 
 **Non touchées (A_VERIFIER ou KEEP_ACTIVE) :**
 - `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01` — KEEP_ACTIVE (9 ahead)
-- `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_DOC_REALIGN_01` — A_VERIFIER (1 ahead)
-- `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_SYSTEM_MASTER_PLAN_01` — A_VERIFIER (2 ahead)
-- `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_GOOGLE_SHEETS_ADC_CONTROLLED_WRITE_RETRY_01` — A_VERIFIER (4 ahead, local-only)
 - `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PHASE1_30_RUN_14_DAY_OBSERVATION_01` — branche courante Phase 1
+
+## Lot DROP_MERGED — A_VERIFIER finaux (2026-05-17)
+
+Audit complet des 3 branches A_VERIFIER restantes après lot principal. Vérification merge-base + diff contenu.
+
+**`SYSTEM_MASTER_PLAN_01`** (2 ahead) : 8/8 fichiers diff=0 — squash-orphelins.
+**`PARENT_DOC_REALIGN_01`** (1 ahead) : diffs non-nuls sur BRANCH_STATE/GO_INDEX = versions anciennes, mainline plus récent ; aucun contenu forward unique.
+**`ADC_CONTROLLED_WRITE_RETRY_01`** (4 ahead, local-only) : 1 doc unique (`00_GO_MASTER.md`) absent de mainline. Décision utilisateur Option B : GO ADC considéré supersédé par branches Google Sheets déjà mergées — drop branche entière, doc non mergé.
+
+**Supprimées localement ET à distance :**
+- `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_SYSTEM_MASTER_PLAN_01` — local + remote DELETED
+- `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_DOC_REALIGN_01` — local + remote DELETED
+
+**Supprimée localement uniquement (jamais poussée) :**
+- `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_GOOGLE_SHEETS_ADC_CONTROLLED_WRITE_RETRY_01` — local DELETED
 
 ## Lot DROP_MERGED — CHILD_GATEWAY_SUPERVISION_TMUX (2026-05-17)
 
