@@ -298,3 +298,14 @@ Lot de nettoyage db-layer / orchestrator exécuté après audit ahead=0 vs origi
 - `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_SYSTEM_MASTER_PLAN_01` — A_VERIFIER (2 ahead)
 - `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_GOOGLE_SHEETS_ADC_CONTROLLED_WRITE_RETRY_01` — A_VERIFIER (4 ahead, local-only)
 - `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PHASE1_30_RUN_14_DAY_OBSERVATION_01` — branche courante Phase 1
+
+## Lot DROP_MERGED — CHILD_GATEWAY_SUPERVISION_TMUX (2026-05-17)
+
+Audit de réconciliation post-PR #517 : 3 branches classées en contradiction (ahead réel vs classification antérieure). Vérification par merge-base + diff de contenu → tous les fichiers présents et identiques sur `sot/mainline` (0 diff lines). Squash-orphelins confirmés.
+
+**Supprimées localement ET à distance :**
+- `go/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_01` — local + remote DELETED
+- `go/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_CLOSEOUT_01` — local + remote DELETED
+
+**Supprimée localement uniquement (pas de remote) :**
+- `go/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01` — local DELETED
