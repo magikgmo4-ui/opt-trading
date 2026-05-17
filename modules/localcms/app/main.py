@@ -14,6 +14,7 @@ STATE_CACHE = PROJECT_ROOT / "scripts" / "ai" / "menu" / "state_cache.json"
 TMUX_LOG_DIR = PROJECT_ROOT / "logs"
 LOCALCMS_LATEST_JSON = PROJECT_ROOT / "tmp" / "localcms_latest.json"
 JOURNAL_DIR = PROJECT_ROOT / "data" / "journal" / "daily"
+SYNC_LOG = PROJECT_ROOT / "data" / "journal" / "sync_log.jsonl"
 
 CRITICAL_SESSIONS: frozenset[str] = frozenset({
     "openclaw-core",
@@ -170,6 +171,85 @@ def _list_journal_entries() -> list[dict]:
     return entries
 
 
+def _build_metrics() -> dict:
+    all_entries = []
+    if JOURNAL_DIR.exists():
+        for f in sorted(JOURNAL_DIR.glob("*.json"), reverse=True):
+            try:
+                all_entries.append(json.loads(f.read_text()))
+            except (json.JSONDecodeError, OSError):
+                continue
+
+    total = len(all_entries)
+    pass_count = sum(1 for e in all_entries if e.get("all_ok"))
+    fail_count = total - pass_count
+    win_count = sum(1 for e in all_entries if e.get("pnl_paper", {}).get("outcome") == "win")
+    loss_count = sum(1 for e in all_entries if e.get("pnl_paper", {}).get("outcome") == "loss")
+    breakeven_count = sum(1 for e in all_entries if e.get("pnl_paper", {}).get("outcome") == "breakeven")
+    pnl_values = [
+        e["pnl_paper"]["net_pnl"]
+        for e in all_entries
+        if isinstance(e.get("pnl_paper", {}).get("net_pnl"), (int, float))
+    ]
+    pnl_cumulative = round(sum(pnl_values), 4)
+    win_rate = round(win_count / total, 4) if total > 0 else 0.0
+
+    last_run = None
+    if all_entries:
+        e = all_entries[0]
+        last_run = {
+            "run_id": e.get("run_id", ""),
+            "started_at": (e.get("started_at", "") or "")[:19],
+            "all_ok": e.get("all_ok", False),
+            "outcome": e.get("pnl_paper", {}).get("outcome", ""),
+            "net_pnl": e.get("pnl_paper", {}).get("net_pnl", 0),
+            "validation_verdict": e.get("validation_verdict", ""),
+            "signal": f"{e.get('signal_source', {}).get('signal', '')} {e.get('signal_source', {}).get('symbol', '')}".strip(),
+        }
+
+    sync_dry = sync_written = sync_blocked = sync_failed = 0
+    if SYNC_LOG.exists():
+        try:
+            with open(SYNC_LOG) as fh:
+                for line in fh:
+                    line = line.strip()
+                    if not line:
+                        continue
+                    try:
+                        s = json.loads(line).get("status", "")
+                        if s == "dry_run_skipped":
+                            sync_dry += 1
+                        elif s == "synced":
+                            sync_written += 1
+                        elif "BLOCKED" in s:
+                            sync_blocked += 1
+                        else:
+                            sync_failed += 1
+                    except json.JSONDecodeError:
+                        continue
+        except OSError:
+            pass
+
+    return {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "total_runs": total,
+        "pass_count": pass_count,
+        "fail_count": fail_count,
+        "win_count": win_count,
+        "loss_count": loss_count,
+        "breakeven_count": breakeven_count,
+        "pnl_cumulative": pnl_cumulative,
+        "win_rate": win_rate,
+        "last_run": last_run,
+        "sheets_sync": {
+            "dry_run": sync_dry,
+            "written": sync_written,
+            "blocked": sync_blocked,
+            "failed": sync_failed,
+        },
+    }
+
+
 @app.get("/journal/daily")
 def get_journal_daily():
     entries = _list_journal_entries()
@@ -190,6 +270,218 @@ def get_journal_entry(run_id: str):
         return JSONResponse(content=data)
     except (json.JSONDecodeError, OSError) as e:
         return JSONResponse(content={"error": str(e)}, status_code=500)
+
+
+@app.get("/metrics/daily")
+def get_metrics_daily():
+    return JSONResponse(content=_build_metrics())
+
+
+def _metrics_html(m: dict, tmux: dict) -> str:
+    last = m.get("last_run") or {}
+    ss = m.get("sheets_sync", {})
+    win_rate_pct = f"{m['win_rate'] * 100:.1f}%"
+    pnl_sign = "+" if m["pnl_cumulative"] >= 0 else ""
+    pnl_color = "#30d158" if m["pnl_cumulative"] >= 0 else "#ff453a"
+
+    last_outcome = last.get("outcome", "")
+    last_verdict = last.get("validation_verdict", "")
+    last_pnl = last.get("net_pnl", 0)
+    last_pnl_str = f"{'+' if last_pnl >= 0 else ''}{last_pnl:.2f}" if isinstance(last_pnl, (int, float)) else str(last_pnl)
+
+    tmux_up = tmux.get("total_up", 0)
+    tmux_total = tmux.get("total_expected", 0)
+    tmux_ok = tmux_up == tmux_total
+    tmux_color = "#30d158" if tmux_ok else "#ff9f0a"
+
+    return f"""\
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>LocalCMS — Metrics</title>
+  <style>
+    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    body {{ font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: #f5f5f7; color: #1d1d1f; }}
+    .layout {{ display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }}
+    .sidebar {{ background: #1d1d1f; color: #f5f5f7; padding: 20px 12px; overflow-y: auto; position: sticky; top: 0; height: 100vh; }}
+    .sidebar h1 {{ font-size: 16px; font-weight: 600; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #333; }}
+    .sidebar h1 small {{ display: block; font-size: 11px; font-weight: 400; color: #888; margin-top: 2px; }}
+    .nav-item {{ display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; color: #ccc; text-decoration: none; font-size: 13px; margin-bottom: 2px; transition: background .15s; }}
+    .nav-item:hover {{ background: #333; color: #fff; }}
+    .nav-icon {{ font-size: 16px; width: 20px; text-align: center; }}
+    .nav-label {{ flex: 1; }}
+    .main {{ padding: 24px 32px; max-width: 1200px; }}
+    .main h2 {{ font-size: 22px; margin-bottom: 8px; }}
+    .main .subtitle {{ color: #666; font-size: 14px; margin-bottom: 24px; }}
+    .card-row {{ display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }}
+    .card {{ flex: 1; min-width: 130px; padding: 16px; border-radius: 12px; border: 1px solid #e6e6e6; background: #fff; }}
+    .card .num {{ font-size: 28px; font-weight: 700; }}
+    .card .label {{ font-size: 12px; color: #666; margin-top: 4px; }}
+    .card-pass {{ border-left: 4px solid #30d158; }}
+    .card-fail {{ border-left: 4px solid #ff453a; }}
+    .card-blue {{ border-left: 4px solid #007aff; }}
+    .card-win {{ border-left: 4px solid #30d158; }}
+    .card-loss {{ border-left: 4px solid #ff453a; }}
+    .card-neutral {{ border-left: 4px solid #8e8e93; }}
+    .section-title {{ font-size: 16px; font-weight: 600; margin: 24px 0 12px; }}
+    .info-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-bottom: 24px; }}
+    .info-card {{ background: #fff; border: 1px solid #e6e6e6; border-radius: 12px; padding: 14px 16px; }}
+    .info-card h4 {{ font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; }}
+    .info-card .value {{ font-size: 14px; font-weight: 600; }}
+    .badge {{ display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }}
+    .badge-up {{ background: #d1fae5; color: #065f46; }}
+    .badge-down {{ background: #ffe4e6; color: #9f1239; }}
+    .badge-unknown {{ background: #f3f4f6; color: #6b7280; }}
+    .badge-minimal {{ background: #fef3c7; color: #92400e; }}
+    a {{ color: #007aff; text-decoration: none; }}
+    a:hover {{ text-decoration: underline; }}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h1>LocalCMS<small>Central UI — opt-trading</small></h1>
+    <div class="nav-section" style="margin-bottom:16px">
+      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Runtime</div>
+      <a class="nav-item" href="/#tmux-sessions"><span class="nav-icon">🖥️</span><span class="nav-label">TMUX Sessions</span></a>
+      <a class="nav-item" href="/#health-status"><span class="nav-icon">❤️</span><span class="nav-label">Health Status</span></a>
+    </div>
+    <div style="margin-bottom:16px">
+      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Journal</div>
+      <a class="nav-item" href="/journal"><span class="nav-icon">📋</span><span class="nav-label">Daily Sessions</span></a>
+    </div>
+    <div style="margin-bottom:16px">
+      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Metrics</div>
+      <a class="nav-item" href="/metrics" style="color:#fff;background:#333"><span class="nav-icon">📊</span><span class="nav-label">Dashboard</span></a>
+    </div>
+    <div style="margin-top:auto;padding-top:16px;border-top:1px solid #333;font-size:11px;color:#666">
+      <div><a href="/ui" style="color:#888;text-decoration:none">Main Dashboard</a></div>
+      <div><a href="/metrics/daily" style="color:#888;text-decoration:none">/metrics/daily</a></div>
+      <div><a href="/journal/daily" style="color:#888;text-decoration:none">/journal/daily</a></div>
+    </div>
+  </nav>
+  <main class="main">
+    <h2>📊 Metrics Dashboard</h2>
+    <p class="subtitle">Agrégats daily session — lecture seule. Généré à {m['generated_at'][:19]} UTC.</p>
+
+    <div class="section-title">Runs</div>
+    <div class="card-row">
+      <div class="card card-blue">
+        <div class="num">{m['total_runs']}</div>
+        <div class="label">Total runs</div>
+      </div>
+      <div class="card card-pass">
+        <div class="num">{m['pass_count']}</div>
+        <div class="label">PASS (all_ok)</div>
+      </div>
+      <div class="card card-fail">
+        <div class="num">{m['fail_count']}</div>
+        <div class="label">FAIL</div>
+      </div>
+    </div>
+
+    <div class="section-title">P&L Paper</div>
+    <div class="card-row">
+      <div class="card" style="border-left:4px solid {pnl_color}">
+        <div class="num" style="color:{pnl_color}">{pnl_sign}{m['pnl_cumulative']:.2f}</div>
+        <div class="label">P&L cumulé (paper)</div>
+      </div>
+      <div class="card card-win">
+        <div class="num">{m['win_count']}</div>
+        <div class="label">Wins</div>
+      </div>
+      <div class="card card-loss">
+        <div class="num">{m['loss_count']}</div>
+        <div class="label">Losses</div>
+      </div>
+      <div class="card card-neutral">
+        <div class="num">{m['breakeven_count']}</div>
+        <div class="label">Breakeven</div>
+      </div>
+      <div class="card card-blue">
+        <div class="num">{win_rate_pct}</div>
+        <div class="label">Win rate</div>
+      </div>
+    </div>
+
+    <div class="section-title">Dernière session</div>
+    <div class="info-grid">
+      <div class="info-card">
+        <h4>Run ID</h4>
+        <div class="value" style="font-family:monospace">{last.get('run_id', 'N/A')}</div>
+      </div>
+      <div class="info-card">
+        <h4>Date</h4>
+        <div class="value">{last.get('started_at', 'N/A')}</div>
+      </div>
+      <div class="info-card">
+        <h4>Signal</h4>
+        <div class="value">{last.get('signal', 'N/A')}</div>
+      </div>
+      <div class="info-card">
+        <h4>Verdict</h4>
+        <div class="value">{_verdict_badge(last_verdict)}</div>
+      </div>
+      <div class="info-card">
+        <h4>Outcome</h4>
+        <div class="value">{_pnl_badge(last_outcome)} {last_pnl_str}</div>
+      </div>
+      <div class="info-card">
+        <h4>All OK</h4>
+        <div class="value">{'PASS' if last.get('all_ok') else 'FAIL'}</div>
+      </div>
+    </div>
+
+    <div class="section-title">État runtime</div>
+    <div class="info-grid">
+      <div class="info-card">
+        <h4>TMUX Sessions</h4>
+        <div class="value" style="color:{tmux_color}">{tmux_up}/{tmux_total} UP</div>
+      </div>
+      <div class="info-card">
+        <h4>Critical sessions DOWN</h4>
+        <div class="value">{'none' if not tmux.get('critical_down') else ', '.join(tmux['critical_down'])}</div>
+      </div>
+    </div>
+
+    <div class="section-title">Google Sheets sync</div>
+    <div class="card-row">
+      <div class="card card-neutral">
+        <div class="num">{ss.get('dry_run', 0)}</div>
+        <div class="label">Dry-run</div>
+      </div>
+      <div class="card card-pass">
+        <div class="num">{ss.get('written', 0)}</div>
+        <div class="label">Written (controlled)</div>
+      </div>
+      <div class="card card-fail">
+        <div class="num">{ss.get('blocked', 0)}</div>
+        <div class="label">Blocked</div>
+      </div>
+      <div class="card card-fail">
+        <div class="num">{ss.get('failed', 0)}</div>
+        <div class="label">Failed</div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px">
+      <a href="/metrics/daily">📄 JSON API → /metrics/daily</a>
+      &nbsp;·&nbsp;
+      <a href="/journal">📋 Journal → /journal</a>
+    </div>
+  </main>
+</div>
+</body>
+</html>"""
+
+
+@app.get("/metrics", response_class=HTMLResponse)
+def metrics_html():
+    m = _build_metrics()
+    tmux = _build_tmux_report()
+    return HTMLResponse(content=_metrics_html(m, tmux))
 
 
 # ── Journal HTML views ───────────────────────────────────────────────
@@ -304,6 +596,10 @@ def _journal_html(entries: list[dict]) -> str:
     <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Journal</div>
       <a class="nav-item" href="/journal"><span class="nav-icon">📋</span><span class="nav-label">Daily Sessions</span></a>
+    </div>
+    <div style="margin-bottom:16px">
+      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Metrics</div>
+      <a class="nav-item" href="/metrics"><span class="nav-icon">📊</span><span class="nav-label">Dashboard</span></a>
     </div>
     <div style="margin-top:auto;padding-top:16px;border-top:1px solid #333;font-size:11px;color:#666">
       <div><a href="/ui" style="color:#888;text-decoration:none">Main Dashboard</a></div>
@@ -438,6 +734,10 @@ def _journal_detail_html(entry: dict) -> str:
     <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Journal</div>
       <a class="nav-item" href="/journal"><span class="nav-icon">📋</span><span class="nav-label">Daily Sessions</span></a>
+    </div>
+    <div style="margin-bottom:16px">
+      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Metrics</div>
+      <a class="nav-item" href="/metrics"><span class="nav-icon">📊</span><span class="nav-label">Dashboard</span></a>
     </div>
     <div style="margin-top:auto;padding-top:16px;border-top:1px solid #333;font-size:11px;color:#666">
       <div><a href="/journal" style="color:#888;text-decoration:none">← Back to Journal</a></div>
@@ -742,6 +1042,10 @@ def ui_index(request: Request):
       </a>
     </div>
     <div style="margin-bottom:16px">
+      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Metrics</div>
+      <a class="nav-item" href="/metrics"><span class="nav-icon">📊</span><span class="nav-label">Dashboard</span></a>
+    </div>
+    <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Menu</div>
       {nav_items}
     </div>
@@ -753,6 +1057,7 @@ def ui_index(request: Request):
       <div><a href="/runtime/tmux/live" style="color:#888;text-decoration:none">/runtime/tmux/live</a></div>
       <div><a href="/journal" style="color:#888;text-decoration:none">/journal</a></div>
       <div><a href="/journal/daily" style="color:#888;text-decoration:none">/journal/daily</a></div>
+      <div><a href="/metrics" style="color:#888;text-decoration:none">/metrics</a></div>
     </div>
   </nav>
 
@@ -831,6 +1136,8 @@ def ui_index(request: Request):
         <tr><td><a href="/menu/state">/menu/state</a></td><td>Module state cache (health polling)</td></tr>
         <tr><td><a href="/runtime/tmux">/runtime/tmux</a></td><td>TMUX sessions report (9 sessions, critical/non-critical)</td></tr>
         <tr><td><a href="/runtime/tmux/live">/runtime/tmux/live</a></td><td>Live TMUX session list</td></tr>
+        <tr><td><a href="/metrics">/metrics</a></td><td>Dashboard métriques agrégées (HTML)</td></tr>
+        <tr><td><a href="/metrics/daily">/metrics/daily</a></td><td>Métriques daily session (JSON)</td></tr>
       </tbody>
     </table>
 
