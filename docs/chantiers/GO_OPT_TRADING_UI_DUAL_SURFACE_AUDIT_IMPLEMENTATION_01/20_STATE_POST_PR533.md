@@ -37,7 +37,7 @@ pytest : non installé, non requis, ne pas ajouter
 | URL | `http://127.0.0.1:8010` |
 | Lancement | `python -m uvicorn modules.perf.app:app --host 0.0.0.0 --port 8010` |
 | Script opérateur | `scripts/desk_pro_ui_toolbox_final_cmd.sh` |
-| venv officiel | `/opt/trading/venv/` — **absent sur cette machine** |
+| venv officiel | `/opt/trading/venv/` — absent, **non requis** (uvicorn/fastapi natifs) |
 | Log | `/opt/trading/tmp/uvicorn_8010.log` |
 | Routes Desk Pro | `GET /desk/*` via `modules/desk_pro/api/routes.py` |
 
@@ -59,8 +59,9 @@ pytest : non installé, non requis, ne pas ajouter
 | --- | --- |
 | Desk Pro port = 8010 | `scripts/desk_pro_ui_toolbox_final_cmd.sh` ligne 5-6 |
 | Lancement via `modules.perf.app:app` | même script ligne 30 |
-| venv `/opt/trading/venv/` absent sur cette machine | `ls /opt/trading/venv` → NOT FOUND |
+| venv `/opt/trading/venv/` absent — non requis | app lancée avec python natif (uvicorn/fastapi natifs) |
 | `env/` présent mais non qualifié | `ls /opt/trading/` → `env`, `env.bak` |
+| Desk Pro UI smoke PASS — port 8010 | `30_DESKPRO_UI_SMOKE_PORT8010.md` — 6 routes HTTP 200 |
 | 92/92 unittest PASS post-PR #533 | `python3 -m unittest discover` → OK |
 | pytest gap résolu — dead import supprimé | PR #533 — 2 lignes supprimées |
 | db-layer = pas de repo séparé | `ls /home/ghost/db-layer` → NOT FOUND |
@@ -71,7 +72,7 @@ pytest : non installé, non requis, ne pas ajouter
 
 | Gap | Criticité | Action |
 | --- | --- | --- |
-| `/opt/trading/venv/` absent — perf_app non lançable ici | haute | venv à recréer ou machine db-layer requise |
+| ~~`/opt/trading/venv/` absent — perf_app non lançable ici~~ | ~~haute~~ | **RÉSOLU** — venv absent OK, app lancée avec python natif (voir `30_DESKPRO_UI_SMOKE_PORT8010.md`) |
 | `env/` présent — rôle non qualifié | moyenne | `ls /opt/trading/env/` → vérifier si venv ou module |
 | Tests pytest-style (8 fichiers) non couverts par unittest | basse | non bloquant, campagne 92/92 suffit |
 | localcms → observation consumer (bloc observation) | post-seuil | attendre ≥2026-05-30 |
