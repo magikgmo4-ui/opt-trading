@@ -5,7 +5,7 @@ repo: opt-trading
 status: reference
 lifecycle_stage: product_usage
 source_kind: canonical
-updated_at: 2026-05-07
+updated_at: 2026-05-18
 links:
   - docs/product/PRODUCT_USAGE_MATRIX.md
   - docs/product/FINAL_TARGET_GAPS.md
@@ -14,6 +14,8 @@ links:
   - docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_USAGE_VIEW_01/02_NEXT_GO_BY_PRODUCT.md
   - docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_REPO_INVENTORY_01/02_CLASSIFICATION_MATRIX.md
   - docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_REPO_INVENTORY_01/03_ATLAS_UPDATE_PROPOSAL.md
+  - docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_REPO_RESCAN_01/01_DELTA_SCAN.md
+  - docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_REPO_RESCAN_01/90_CLOSEOUT.md
 ---
 
 # Product Usage Atlas
@@ -34,10 +36,11 @@ Cette vue applique une regle simple : quand plusieurs statuts coexistent, la lec
 
 - `ClickUp Cockpit` : cockpit operateur utile maintenant, mais encore borne par le plan gratuit ; NEXT_GO = ouvrir un child dedie seulement si besoin reel ou upgrade plan.
 - `Desk Pro` : stack operationnelle avec runbooks, wrappers et dashboard ; survivant unique non fige ; NEXT_GO = `GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01`.
-- `Bot Vision` : chaine vision transitoire active (`vision_bot` + `bot_vision_step2`) ; NEXT_GO = `VISION_FAMILY_SURVIVOR_DECISION`.
+- `Bot Vision` : paire runtime canonique stable (`vision_bot` + `bot_vision_step2`) avec wrappers unifies ; NEXT_GO = `GO_OPT_TRADING_VISION_RUNTIME_STABILIZATION_01`.
+- `Deepseek Student` : surface locale DeepSeek/Ollama cote `student`, exploitable via wrappers et runbook ; NEXT_GO = verifier `post_change.sh` avant tout retrait legacy.
 - `TradingView / Telegram Alert Pipeline` : pipeline d'alertes actif, alert webhook en continuite ; NEXT_GO = poursuite GO alert webhook actif.
 - `OpenClaw Runtime` : modules runtime installables, gateway, TMUX supervision en cours ; NEXT_GO = `GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01`.
-- `derivatives_collector` : collecteur canonique derives, convergence doctrinale en cours ; NEXT_GO = `GO_COLLECTORS_BASELINE_INVENTORY_01`.
+- `derivatives_collector` : collecteur canonique derives, doctrine famille alignee ; NEXT_GO = rollout selectif des helper extractions prouvees.
 
 ### Documente seulement
 
@@ -91,7 +94,7 @@ Cette vue applique une regle simple : quand plusieurs statuts coexistent, la lec
   - `docs/chantiers/GO_OPT_TRADING_REPO_KG_CHILD_PRODUCER_VIEW_ALIGNMENT_01/90_CLOSEOUT.md`
   - `docs/chantiers/GO_OPT_TRADING_REPO_KG_PARENT_GRAPH_SYSTEM_01/09_graph_views_v1.md`
 - `remaining_gaps`: etendre la vue usage a plus de produits et modules au-dela du socle initial.
-- `next_go`: `GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_REPO_INVENTORY_01`
+- `next_go`: `GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_USER_GUIDES_01`
 - `do_not_use_notes`: ne pas traiter `graph_bundle.json` comme source souveraine ; c'est une projection.
 
 ## AIRTABLE_ORCHESTRATION_LAYER
@@ -183,15 +186,37 @@ Cette vue applique une regle simple : quand plusieurs statuts coexistent, la lec
 - `usage_view`: `USABLE_LIMITED`
 - `current_state`: `USABLE_LIMITED`
 - `usable_now`: `limited`
-- `operator_read`: chaine transitoire active (`vision_bot` + `bot_vision_step2`). `bot_vision` est legacy.
-- `usage_mode`: capture via `vision_bot`, analyse Vision/Telegram et artefacts Desk Pro via `bot_vision_step2`.
+- `operator_read`: paire canonique stable (`vision_bot` + `bot_vision_step2`) avec wrappers unifies, timers et systemd ; `bot_vision` reste legacy preserve.
+- `usage_mode`: capture via `vision_bot`, analyse Vision/Telegram et artefacts Desk Pro via `bot_vision_step2`, avec wrappers `cmd-vision` / `menu-vision` / `sanity-vision`.
 - `user_guide`: `none_yet`
 - `canonical_sources`:
   - `docs/status/bot_vision_canonique.md`
   - `docs/governance/BOT_VISION_CANONICAL_PRODUCT_SYNTH_01.md`
-- `remaining_gaps`: survivant unique non fige, transition step2 en cours de stabilisation structurelle.
-- `next_go`: `VISION_FAMILY_SURVIVOR_DECISION`
+  - `docs/chantiers/GO_OPT_TRADING_VISION_RUNTIME_CONSOLIDATION_IMPL_01/90_CLOSEOUT.md`
+- `remaining_gaps`: verifier l'integrite des timers, du flux inbox -> outbox et la route Telegram `/analyze` avant de parler de surface plus stable.
+- `next_go`: `GO_OPT_TRADING_VISION_RUNTIME_STABILIZATION_01`
 - `do_not_use_notes`: ne pas utiliser `bot_vision` (legacy) comme surface active.
+
+## DEEPSEEK_STUDENT
+
+- `product_name`: Deepseek Student
+- `parent_branch`: -- (surface multi-branches cote `student` / `Local Ollama` / `DeepSeek`)
+- `reason_to_exist`: fournir une surface locale d'analyse DeepSeek/Ollama cote `student`, avec wrappers operateur, journalisation et sorties archivees.
+- `final_usage_target`: duo local thinking/response stable, accessible via wrappers et/ou API, avec frontiere claire entre surface d'apprentissage locale et orchestrations plus larges.
+- `usage_view`: `USABLE_LIMITED`
+- `current_state`: `USABLE_LIMITED`
+- `usable_now`: `limited`
+- `operator_read`: runbook et wrappers existent ; le workspace canonique `student/scripts/` est clarifie, mais le legacy `scripts/student/` reste preserve pour compatibilite.
+- `usage_mode`: utiliser `deepseek-student`, `menu-deepseek-student` et `sanity-deepseek-student` pour les analyses locales et la lecture des sorties archivees ; validation externe obligatoire.
+- `user_guide`: `none_yet`
+- `canonical_sources`:
+  - `docs/student_deepseek_runbook.md`
+  - `docs/status/deepseek_student_canonique.md`
+  - `docs/chantiers/GO_OPT_TRADING_DEEPSEEK_RUNTIME_CONSOLIDATION_IMPL_03/90_CLOSEOUT.md`
+  - `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_01/90_CLOSEOUT.md`
+- `remaining_gaps`: dual-layout `student/scripts/` vs `scripts/student/`, verification des callers `post_change.sh` avant tout retrait legacy, OpenClaw lab toujours differe.
+- `next_go`: verifier `post_change.sh` avant tout retrait de `scripts/student/` ; ne rouvrir `GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_QUALIFICATION_01` que si l'integration lab doit reprendre.
+- `do_not_use_notes`: surface learning-only ; ne pas l'utiliser comme moteur de decision autonome ni retirer le legacy sans verification.
 
 ## TRADINGVIEW_TELEGRAM_ALERT_PIPELINE
 
@@ -241,14 +266,16 @@ Cette vue applique une regle simple : quand plusieurs statuts coexistent, la lec
 - `usage_view`: `USABLE_LIMITED`
 - `current_state`: `USABLE_LIMITED`
 - `usable_now`: `limited`
-- `operator_read`: module operationnel multi-versions (V3->V13). Convergence doctrinale en cours (phases 0-5).
+- `operator_read`: module operationnel multi-versions (V3->V13). La doctrine famille et la separation runtime sont maintenant clarifiees ; la convergence se poursuit sur les extractions utilitaires prouvees.
 - `usage_mode`: collecte de donnees marches derives, export JSON/CSV.
 - `user_guide`: `none_yet`
 - `canonical_sources`:
   - `docs/COLLECTORS_FAMILY_DOCTRINE_01.md`
   - `docs/COLLECTORS_MIGRATION_MAP_01.md`
-- `remaining_gaps`: convergence doctrinale (phases 0-5), artifacts/vocabulaire/config/surface operateur a aligner.
-- `next_go`: `GO_COLLECTORS_BASELINE_INVENTORY_01`
+  - `docs/chantiers/GO_COLLECTORS_BASELINE_INVENTORY_01/90_CLOSEOUT.md`
+  - `docs/chantiers/GO_COLLECTORS_SELECTIVE_RUNTIME_EXTRACTION_DECISION_01/90_CLOSEOUT.md`
+- `remaining_gaps`: rollout selectif des helper extractions, convergence des surfaces operateur et clarification des callers secondaires comme `marketdata` si besoin reel.
+- `next_go`: poursuivre le rollout des helper extractions prouvees sans casser la separation runtime.
 - `do_not_use_notes`: ne pas forcer la migration runtime immediate vers `collectors_core`.
 
 ## TRADING_DUAL_STACK_V1_XAUUSD
