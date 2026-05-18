@@ -33,8 +33,15 @@ def render_ui_html() -> str:
     <div class="card">
       <h3 style="margin-top:0">Pipeline Status</h3>
       <div class="muted">Live from /desk/status</div>
-      <pre id="pipelineStatus" style="font-size:11px">loading...</pre>
-      <p><button id="btnStatus">Refresh</button></p>
+      <div id="pipelineSummary"></div>
+      <div style="margin-top:8px">
+        <button id="btnStatus">Refresh</button>
+        <span id="statusTs" class="muted" style="margin-left:8px"></span>
+      </div>
+      <details style="margin-top:6px">
+        <summary class="muted" style="cursor:pointer">Raw JSON</summary>
+        <pre id="pipelineStatus" style="font-size:11px">loading...</pre>
+      </details>
     </div>
 
     <div class="card">
@@ -157,13 +164,81 @@ def render_ui_html() -> str:
 <script>
 const el = (id)=>document.getElementById(id);
 
+function h(html){return html;}
+
+function badge(ok, label, labelFail){
+  const good = ok === true || ok === 'live' || ok === 'fixture';
+  const color = good ? '#2e7d32' : '#c62828';
+  const text = good ? (label||'OK') : (labelFail||'DOWN');
+  return `<span style="display:inline-block;padding:1px 8px;border-radius:999px;background:${color};color:#fff;font-size:11px;margin:1px 0">${text}</span>`;
+}
+
 async function refreshStatus(){
   try{
     const r = await fetch('/desk/status');
     const j = await r.json();
     el('pipelineStatus').textContent = JSON.stringify(j, null, 2);
+
+    let html = '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:12px">';
+
+    // Desk Pro
+    html += '<div style="border:1px solid #ddd;border-radius:6px;padding:6px">';
+    html += '<strong>Desk Pro</strong><br>';
+    html += 'Mode: ' + (j.desk_pro?.mode||'?') + '<br>';
+    html += badge(j.desk_pro?.ok, 'up', 'down');
+    html += '</div>';
+
+    // Webhook
+    html += '<div style="border:1px solid #ddd;border-radius:6px;padding:6px">';
+    html += '<strong>Webhook</strong><br>';
+    if(j.webhook){
+      html += 'Engine: ' + (j.webhook.active_engine||'-') + '<br>';
+      html += 'Trade: ' + (j.webhook.trade_allowed ? 'ALLOWED' : 'BLOCKED') + '<br>';
+      html += badge(j.webhook.ok, 'up', 'down');
+    } else {
+      html += badge(false, '', 'unreachable');
+    }
+    html += '</div>';
+
+    // Perf
+    html += '<div style="border:1px solid #ddd;border-radius:6px;padding:6px">';
+    html += '<strong>Perf</strong><br>';
+    if(j.perf){
+      html += 'Trades: ' + (j.perf.total_trades||0) + '<br>';
+      html += 'PnL: ' + (j.perf.pnl_realized||0) + '<br>';
+      const pct = ((j.perf.equity_last||0) / (j.perf.equity0||1) * 100 - 100).toFixed(1);
+      html += 'Return: ' + (j.perf.pnl_realized >= 0 ? '+' : '') + pct + '%<br>';
+      html += badge(true, 'live', '');
+    } else {
+      html += badge(false, '', 'down');
+    }
+    html += '</div>';
+
+    // Sources row
+    html += '</div>';
+    html += '<div style="margin-top:6px;font-size:12px"><strong>Sources:</strong> ';
+    if(j.sources){
+      for(const [k,v] of Object.entries(j.sources)){
+        html += `<span class="pill">${k}=${v}</span>`;
+      }
+    }
+    html += '</div>';
+
+    // Errors
+    if(j.error_count > 0){
+      html += '<div style="margin-top:6px;font-size:12px;color:#c62828">';
+      html += '<strong>Errors:</strong> ' + j.error_count + ' total, last: ';
+      if(j.recent_errors && j.recent_errors.length > 0){
+        html += j.recent_errors[0].error || 'unknown';
+      }
+      html += '</div>';
+    }
+
+    el('pipelineSummary').innerHTML = html;
+    el('statusTs').textContent = 'updated ' + (j.ts||'');
   }catch(e){
     el('pipelineStatus').textContent = 'ERROR: '+e;
+    el('pipelineSummary').innerHTML = '<span style="color:#c62828">Pipeline unreachable: '+e+'</span>';
   }
 }
 
