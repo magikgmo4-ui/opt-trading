@@ -2,7 +2,7 @@
 go_id: GO_OPT_TRADING_UI_DUAL_SURFACE_LIVE_DATA_BRIDGE_01
 doc_type: live_data_audit
 repo: opt-trading
-status: DRAFT
+status: PASS
 created_at: 2026-05-18
 ---
 
@@ -92,7 +92,45 @@ Le socle UI Desk Pro est validé (GO_OPT_TRADING_UI_DUAL_SURFACE_USAGE_TEST_01) 
 | Aucun mécanisme pour basculer mock ↔ fixture | moyenne | Ajouter query param `?source=mock\|fixture\|live` |
 | Pipeline journal non exploité comme fixture | basse | Script de replay si pertinent |
 
-## 16_TODO — PLAN DE BRIDGE MINIMAL
+## 10_IMPLEMENTATION_RESULT
+
+### Fichiers créés
+
+| Fichier | Rôle |
+|---|---|
+| `data/desk_snapshot_fixture.json` | Fixture snapshot Desk Pro — 9 metrics réparties sur BTC, ETH, SOL, DXY, XAUUSD |
+| `tools/perf/seed_perf_fixture.py` | Script de seed de perf.db — POSTe 5 trades (4 closes + 1 open) vers `/perf/event` |
+
+### Fichiers modifiés
+
+| Fichier | Changement |
+|---|---|
+| `modules/desk_pro/service/aggregator.py` | `build_snapshot()` remplace `build_snapshot_mock()` — charge fixture JSON avec fallback mock + param `source` |
+| `modules/desk_pro/api/routes.py` | Import `build_snapshot_mock` → `build_snapshot` ; `snapshot()` accepte query param `?source=mock\|fixture` |
+
+### Fixture snapshot testé
+
+```
+GET /desk/snapshot            → 9 metrics (BTC, ETH, SOL, DXY, XAUUSD) — mode fixture
+GET /desk/snapshot?source=mock → 2 metrics (BTC, DXY) — mode mock (fallback)
+```
+
+### Seed perf testé
+
+```
+POST /perf/event → 5 OPEN + 4 CLOSE sur BTCUSDT, ETHUSDT, SOLUSDT
+GET /perf/summary → 5 trades, 4 closed, 1 open, PnL $440, winrate 100%
+GET /perf/open    → 1 open (BTCUSDT LONG @ 50000)
+GET /perf/equity  → 5 series points
+```
+
+### Tests
+
+```
+python3 -m unittest discover → 92/92 PASS (inchangé)
+```
+
+## 16_TODO
 
 ### Étape 1 : Seed perf.db avec fixtures contrôlées
 

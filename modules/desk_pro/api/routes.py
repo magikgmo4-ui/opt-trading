@@ -6,7 +6,7 @@ import time
 from fastapi import APIRouter
 from fastapi.responses import HTMLResponse
 from modules.desk_pro.models import DeskForm, Snapshot, ScoreResult
-from modules.desk_pro.service.aggregator import build_snapshot_mock
+from modules.desk_pro.service.aggregator import build_snapshot
 from modules.desk_pro.service.scoring import compute_probability
 from modules.desk_pro.ui.page import render_ui_html
 
@@ -29,16 +29,16 @@ def health():
     return {"ok": True, "module": "desk_pro", "mode": "step2_mock"}
 
 @router.get("/snapshot", response_model=Snapshot)
-def snapshot():
+def snapshot(source: str = "fixture"):
     t0 = time.time()
-    snap = build_snapshot_mock()
+    snap = build_snapshot(source=source)
     ms = int((time.time() - t0) * 1000)
     snap.meta["build_ms"] = str(ms)
     return snap
 
 @router.post("/form", response_model=ScoreResult)
 def form_score(form: DeskForm):
-    snap = build_snapshot_mock()
+    snap = build_snapshot()
     return compute_probability(form, snap)
 
 @router.get("/ui", response_class=HTMLResponse)
