@@ -20,13 +20,13 @@ def load_strategy_registry(registry_path: str | Path) -> list[StrategyRegistryEn
             continue
 
         parts = [p.strip().strip("`") for p in line.strip().strip("|").split("|")]
-        if len(parts) < 3:
+        if len(parts) < 6:
             continue
 
-        strategy_id = parts[0]
-        version = parts[1] if len(parts) > 1 else ""
-        lifecycle = parts[2] if len(parts) > 2 else ""
-        runtime = parts[3] if len(parts) > 3 else None
+        strategy_id = parts[1]
+        version = parts[2] if len(parts) > 2 else ""
+        lifecycle = parts[5] if len(parts) > 5 else ""
+        runtime = parts[6] if len(parts) > 6 else None
 
         if strategy_id:
             entries.append(

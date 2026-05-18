@@ -6,6 +6,7 @@ from typing import Any
 
 import requests
 
+from modules.strategy.adapter import validate_strategy_id
 from .events import PipelineEvent, format_message
 
 log = logging.getLogger("notification_dispatcher")
@@ -24,6 +25,11 @@ class NotificationDispatcher:
 
     def dispatch(self, event: PipelineEvent, dry_run: bool = False) -> dict[str, Any]:
         event.validate()
+
+        sid = event.payload.get("strategy_id", "")
+        if sid and not validate_strategy_id(sid):
+            log.warning("unknown strategy_id %r", sid)
+
         message = format_message(event)
 
         if dry_run:
