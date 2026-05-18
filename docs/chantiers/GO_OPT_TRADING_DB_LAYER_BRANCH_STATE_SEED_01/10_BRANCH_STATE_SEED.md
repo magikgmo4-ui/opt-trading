@@ -1,0 +1,68 @@
+---
+doc_id: DB_LAYER_BRANCH_STATE_SEED_01_RECORD
+doc_type: seed_record
+repo: opt-trading
+go_id: GO_OPT_TRADING_DB_LAYER_BRANCH_STATE_SEED_01
+status: active
+surface: chantier
+source_kind: derived
+updated_at: 2026-05-14
+---
+
+# 10_BRANCH_STATE_SEED - Seed applique
+
+## Entrees seedees
+
+11 entrees `db-layer/OpenClaw` manquantes ajoutees dans `BRANCH_STATE.md`.
+
+### Nouvelles entrees ajoutees
+
+- `go/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_CLOSEOUT_01`
+- `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_DOC_REALIGN_01`
+- `go/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_PARENT_01`
+- `go/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_PERMISSION_MATRIX_01`
+- `go/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_SCHEMA_01`
+- `go/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_YAML_DRAFT_01`
+- `go/GO_OPENCLAW_STATE_DIR_REPAIR_10`
+- `go/GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_REVIEW_01`
+- `go/GO_OPT_TRADING_UI_LOCALCMS_DB_LAYER_CONSUMER_REALIGNMENT_01`
+- `go/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_DB_LAYER_CLOSEOUT_01`
+- `go/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_DB_LAYER_REVIEW_01`
+
+### Corrections appliquees sur lignes existantes
+
+- `doc/GO_OPENCLAW_INFRA_BASELINE_01` -> reclassifiee `KEEP_REFERENCE`
+- `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01` -> scope / ahead / behind / justification realignes
+- `go/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_01` -> scope / ahead / behind realignes
+- `go/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01` -> scope / ahead / behind / justification realignes
+
+## Resultat de classification sur cette passe
+
+| CANON_STATUS | Count |
+| --- | ---: |
+| `KEEP_ACTIVE` | 1 nouvelle entree, 1 correction confirmee |
+| `KEEP_REFERENCE` | 5 nouvelles entrees, 1 correction |
+| `DROP_MERGED` | 0 nouvelle entree, 1 correction confirmee |
+| `A_VERIFIER` | 5 nouvelles entrees |
+
+## Branches encore `A_VERIFIER` sur l'ensemble de la surface `db-layer/OpenClaw`
+
+- `go/GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01`
+- `go/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_PARENT_01`
+- `go/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_PERMISSION_MATRIX_01`
+- `go/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_SCHEMA_01`
+- `go/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_YAML_DRAFT_01`
+- `go/GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_REVIEW_01`
+- `go/GO_OPT_TRADING_UI_LOCALCMS_DB_LAYER_CONSUMER_REALIGNMENT_01`
+- `go/GO_OPT_TRADING_AIRTABLE_ORCHESTRATION_PARENT_01`
+- `go/GO_OPT_TRADING_REPO_KG_PARENT_GRAPH_SYSTEM_01`
+- `go/GO_OPT_TRADING_REPO_SURFACES_PARENT_CARTOGRAPHY_01`
+
+## Note
+
+Les compteurs de synthese en tete de `BRANCH_STATE.md` ne sont pas recalcules dans ce GO.
+
+`BRANCH_STATE.md` contient 15 lignes portant `GO_OPT_TRADING_DB_LAYER_BRANCH_STATE_SEED_01` :
+
+- 11 nouvelles entrees seedees
+- 4 lignes existantes corrigees
