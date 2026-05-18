@@ -59,7 +59,7 @@ links:
 
 ### Child GO : WHY lint static validator spec
 
-- **GO propose** : `GO_OPT_TRADING_DOC_OPS_WHY_LINT_CHILD_STATIC_VALIDATOR_SPEC_01`
+- **GO propose** : `GO_OPT_TRADING_DOC_OPS_CHILD_WHY_LINT_STATIC_VALIDATOR_SPEC_01`
 - **Scope** : specification d'un validateur statique de warnings WHY lint.
 - **Mode** : DOC_ONLY, pas de code executable.
 
