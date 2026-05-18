@@ -14,7 +14,10 @@ from modules.desk_pro.ui.page import render_ui_html
 
 WEBHOOK_BASE = "http://127.0.0.1:8000"
 DESK_ERRORS_MAX = 50
+ALERT_COOLDOWN_SEC = int(__import__("os").environ.get("ALERT_COOLDOWN_SEC", "300"))
+ALERTS_JSONL = Path("/opt/trading/tmp/desk_pro_alerts.jsonl")
 _desk_errors: list[dict] = []
+_alert_state: dict = {"last_status": None, "last_ts": None, "cooldown_until": None}
 
 def _probe_url(url: str, timeout: int = 3) -> dict | None:
     label = url.split("?")[0] if "?" in url else url
@@ -88,6 +91,45 @@ def _compute_health(d: dict) -> dict:
 
     return {"status": overall, "checks": checks}
 
+def _check_alert(health_status: str) -> dict:
+    now = datetime.datetime.utcnow()
+    cooldown_ts = _alert_state.get("cooldown_until")
+    if cooldown_ts and now < cooldown_ts:
+        return {
+            "triggered": False,
+            "reason": "cooldown",
+            "cooldown_remaining_sec": int((cooldown_ts - now).total_seconds()),
+            "last_status": _alert_state.get("last_status"),
+            "last_ts": _alert_state["last_ts"].isoformat() + "Z" if _alert_state.get("last_ts") else None,
+        }
+    if health_status in ("degraded", "down"):
+        alert = {
+            "ts": now.isoformat() + "Z",
+            "status": health_status,
+        }
+        try:
+            ALERTS_JSONL.parent.mkdir(parents=True, exist_ok=True)
+            with open(str(ALERTS_JSONL), "a", encoding="utf-8") as f:
+                f.write(json.dumps(alert) + "\n")
+        except Exception:
+            pass
+        _alert_state["last_status"] = health_status
+        _alert_state["last_ts"] = now
+        _alert_state["cooldown_until"] = now + datetime.timedelta(seconds=ALERT_COOLDOWN_SEC)
+        return {"triggered": True, "status": health_status, "ts": alert["ts"], "cooldown_sec": ALERT_COOLDOWN_SEC}
+    _alert_state["last_status"] = health_status
+    _alert_state["last_ts"] = now
+    return {"triggered": False, "reason": "healthy"}
+
+def _read_alerts(limit: int = 10) -> list:
+    if not ALERTS_JSONL.exists():
+        return []
+    try:
+        lines = ALERTS_JSONL.read_text(encoding="utf-8").splitlines()
+        return [json.loads(l) for l in lines[-limit:]]
+    except Exception:
+        return []
+
 router = APIRouter(prefix="/desk", tags=["desk-pro"])
 
 
@@ -146,7 +188,9 @@ def pipeline_status():
         "recent_errors": errors,
         "ts": datetime.datetime.utcnow().isoformat() + "Z",
     }
-    result["health"] = _compute_health(result)
+    health = _compute_health(result)
+    result["health"] = health
+    result["alert"] = _check_alert(health["status"])
     return result
 
 @router.get("/errors")
@@ -155,6 +199,18 @@ def desk_errors(limit: int = 20):
         "ok": True,
         "count": len(_desk_errors),
         "errors": list(reversed(_desk_errors[-limit:])),
+    }
+
+@router.get("/alerts")
+def desk_alerts(limit: int = 10):
+    return {
+        "ok": True,
+        "state": {
+            "last_status": _alert_state.get("last_status"),
+            "last_ts": _alert_state["last_ts"].isoformat() + "Z" if _alert_state.get("last_ts") else None,
+            "cooldown_until": _alert_state["cooldown_until"].isoformat() + "Z" if _alert_state.get("cooldown_until") else None,
+        },
+        "alerts": _read_alerts(limit=limit),
     }
 
 @router.get("/snapshot", response_model=Snapshot)
