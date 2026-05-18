@@ -30,7 +30,7 @@ Cette vue applique une regle simple : quand plusieurs statuts coexistent, la lec
 
 ### Utilisable maintenant
 
-- `Repo KG` : projection repo-first exploitable maintenant ; NEXT_GO = `GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_USER_GUIDES_01`.
+- `Repo KG` : projection repo-first exploitable maintenant ; NEXT_GO = maintenance continue via `UPDATE_PROTOCOL.md`, avec rescan Atlas seulement si la couverture ou les guides changent.
 
 ### Utilisable avec limites
 
@@ -93,8 +93,8 @@ Cette vue applique une regle simple : quand plusieurs statuts coexistent, la lec
   - `docs/chantiers/GO_OPT_TRADING_REPO_KG_PRODUCER_IMPL_01/10_EXECUTION_SUMMARY.md`
   - `docs/chantiers/GO_OPT_TRADING_REPO_KG_CHILD_PRODUCER_VIEW_ALIGNMENT_01/90_CLOSEOUT.md`
   - `docs/chantiers/GO_OPT_TRADING_REPO_KG_PARENT_GRAPH_SYSTEM_01/09_graph_views_v1.md`
-- `remaining_gaps`: etendre la vue usage a plus de produits et modules au-dela du socle initial.
-- `next_go`: `GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_USER_GUIDES_01`
+- `remaining_gaps`: maintenir la couverture produit, les guides et les `NEXT_GO` alignes avec les futurs closeouts significatifs.
+- `next_go`: maintenance continue via `docs/product/UPDATE_PROTOCOL.md` ; ouvrir un nouveau rescan Atlas seulement si la couverture produit change.
 - `do_not_use_notes`: ne pas traiter `graph_bundle.json` comme source souveraine ; c'est une projection.
 
 ## AIRTABLE_ORCHESTRATION_LAYER
@@ -108,7 +108,7 @@ Cette vue applique une regle simple : quand plusieurs statuts coexistent, la lec
 - `usable_now`: `no`
 - `operator_read`: surface documentee seulement du point de vue usage courant ; ne pas la presenter comme runtime operatoire.
 - `usage_mode`: lecture des plans et du finish plan uniquement ; pas de guide live final a ce stade.
-- `user_guide`: `none_yet`
+- `user_guide`: `docs/product/guides/AIRTABLE_ORCHESTRATION_LAYER_READONLY.md`
 - `canonical_sources`:
   - `docs/chantiers/GO_OPT_TRADING_AIRTABLE_ORCHESTRATION_PARENT_01/99_VERDICT.md`
   - `docs/chantiers/GO_OPT_TRADING_AIRTABLE_ORCHESTRATION_PARENT_01/04_PRODUCT_FINISH_PLAN.md`
@@ -168,7 +168,7 @@ Cette vue applique une regle simple : quand plusieurs statuts coexistent, la lec
 - `usable_now`: `limited`
 - `operator_read`: utilisable maintenant avec runbooks et wrappers, mais survivant unique non fige et frontiere desk_pro / desk_* en cours de clarification.
 - `usage_mode`: usage operationnel via runbooks, wrappers cmd/menu/sanity, script admin reel, dashboard.
-- `user_guide`: `none_yet`
+- `user_guide`: `docs/product/guides/DESK_PRO.md`
 - `canonical_sources`:
   - `docs/status/desk_pro_stack_canonique.md`
   - `docs/desk_pro_multi_machine_quick_reference.md`
@@ -188,7 +188,7 @@ Cette vue applique une regle simple : quand plusieurs statuts coexistent, la lec
 - `usable_now`: `limited`
 - `operator_read`: paire canonique stable (`vision_bot` + `bot_vision_step2`) avec wrappers unifies, timers et systemd ; `bot_vision` reste legacy preserve.
 - `usage_mode`: capture via `vision_bot`, analyse Vision/Telegram et artefacts Desk Pro via `bot_vision_step2`, avec wrappers `cmd-vision` / `menu-vision` / `sanity-vision`.
-- `user_guide`: `none_yet`
+- `user_guide`: `docs/product/guides/BOT_VISION.md`
 - `canonical_sources`:
   - `docs/status/bot_vision_canonique.md`
   - `docs/governance/BOT_VISION_CANONICAL_PRODUCT_SYNTH_01.md`
@@ -208,7 +208,7 @@ Cette vue applique une regle simple : quand plusieurs statuts coexistent, la lec
 - `usable_now`: `limited`
 - `operator_read`: runbook et wrappers existent ; le workspace canonique `student/scripts/` est clarifie, mais le legacy `scripts/student/` reste preserve pour compatibilite.
 - `usage_mode`: utiliser `deepseek-student`, `menu-deepseek-student` et `sanity-deepseek-student` pour les analyses locales et la lecture des sorties archivees ; validation externe obligatoire.
-- `user_guide`: `none_yet`
+- `user_guide`: `docs/product/guides/DEEPSEEK_STUDENT.md`
 - `canonical_sources`:
   - `docs/student_deepseek_runbook.md`
   - `docs/status/deepseek_student_canonique.md`
@@ -229,7 +229,7 @@ Cette vue applique une regle simple : quand plusieurs statuts coexistent, la lec
 - `usable_now`: `limited`
 - `operator_read`: utilisable avec alert webhook en continuite active. Parent observer merged, dry-run bridge packet fonctionnel.
 - `usage_mode`: observation TradingView, routage webhook, notification Telegram.
-- `user_guide`: `none_yet`
+- `user_guide`: `docs/product/guides/TRADINGVIEW_TELEGRAM_PIPELINE.md`
 - `canonical_sources`:
   - `docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md`
   - `docs/chantiers/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_01/90_CLOSEOUT.md`
@@ -248,7 +248,7 @@ Cette vue applique une regle simple : quand plusieurs statuts coexistent, la lec
 - `usable_now`: `limited`
 - `operator_read`: modules installables, gateway, cartographie doc (77 sources). TMUX supervision runtime en cours, agents non deployes.
 - `usage_mode`: installation et configuration de modules OpenClaw, gateway, supervision TMUX.
-- `user_guide`: `none_yet`
+- `user_guide`: `docs/product/guides/OPENCLAW_RUNTIME.md`
 - `canonical_sources`:
   - `docs/product_targets/OPENCLAW_TARGET_CANON.md`
   - `docs/chantiers/GO_OPENCLAW_DBLAYER_DOCS_RESEARCH_LIBRARY_PARENT_01/`
@@ -268,7 +268,7 @@ Cette vue applique une regle simple : quand plusieurs statuts coexistent, la lec
 - `usable_now`: `limited`
 - `operator_read`: module operationnel multi-versions (V3->V13). La doctrine famille et la separation runtime sont maintenant clarifiees ; la convergence se poursuit sur les extractions utilitaires prouvees.
 - `usage_mode`: collecte de donnees marches derives, export JSON/CSV.
-- `user_guide`: `none_yet`
+- `user_guide`: `docs/product/guides/DERIVATIVES_COLLECTOR.md`
 - `canonical_sources`:
   - `docs/COLLECTORS_FAMILY_DOCTRINE_01.md`
   - `docs/COLLECTORS_MIGRATION_MAP_01.md`
@@ -289,7 +289,7 @@ Cette vue applique une regle simple : quand plusieurs statuts coexistent, la lec
 - `usable_now`: `no`
 - `operator_read`: schemas/config V1 etablis, LAB operationnel, REALTIME minimale posee. V1 close mais bornee.
 - `usage_mode`: lecture du cadre et des schemas. LAB exploitable pour backtest, REALTIME pour observation.
-- `user_guide`: `none_yet`
+- `user_guide`: `docs/product/guides/TRADING_DUAL_STACK_V1_READONLY.md`
 - `canonical_sources`:
   - `docs/governance/TRADING_DUAL_STACK_CANONICAL_PRODUCT_SYNTH_01.md`
 - `remaining_gaps`: sans broker connecte, sans passage d'ordre reel, sans auto-trading.
@@ -307,7 +307,7 @@ Cette vue applique une regle simple : quand plusieurs statuts coexistent, la lec
 - `usable_now`: `no`
 - `operator_read`: cadrage et plan documentes, GO consumer parent ouvert. Projet externe sans runtime integre dans le repo.
 - `usage_mode`: lecture du cadrage uniquement. Usage reel a prouver.
-- `user_guide`: `none_yet`
+- `user_guide`: `docs/product/guides/LOCALCMS_READONLY.md`
 - `canonical_sources`:
   - `docs/chantiers/GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01/`
   - `docs/chantiers/GO_LOCALCMS_FORMS_INTEGRATION_DOC_01/`
@@ -326,7 +326,7 @@ Cette vue applique une regle simple : quand plusieurs statuts coexistent, la lec
 - `usable_now`: `no`
 - `operator_read`: interdit live ; lecture du cadrage seulement jusqu'a validation forte des formules et invariants.
 - `usage_mode`: lecture du cadrage seulement ; aucun usage live, aucun backtest fiable, aucun worker.
-- `user_guide`: `none_yet`
+- `user_guide`: `docs/product/guides/BTC_COINM_DO_NOT_USE_LIVE.md`
 - `canonical_sources`:
   - `docs/chantiers/GO_OPT_TRADING_TRADING_PARENT_BTC_COINM_ACCUMULATION_ENGINE_01/01_initial_project_doc.md`
   - `docs/chantiers/GO_OPT_TRADING_TRADING_PARENT_BTC_COINM_ACCUMULATION_ENGINE_01/02_variables_bounds.md`

@@ -5,10 +5,11 @@ repo: opt-trading
 status: reference
 lifecycle_stage: product_usage
 source_kind: canonical
-updated_at: 2026-05-07
+updated_at: 2026-05-18
 links:
   - docs/status/bot_vision_canonique.md
   - docs/governance/BOT_VISION_CANONICAL_PRODUCT_SYNTH_01.md
+  - docs/chantiers/GO_OPT_TRADING_VISION_RUNTIME_CONSOLIDATION_IMPL_01/90_CLOSEOUT.md
 ---
 
 # Guide - Bot Vision
@@ -23,14 +24,15 @@ Pipeline de capture screenshot -> analyse Vision -> artefacts Desk Pro / Telegra
 
 ## CURRENT_STATE
 
-`USABLE_LIMITED` -- Chaine transitoire active (`vision_bot` + `bot_vision_step2`). `bot_vision` est legacy. Survivant unique non fige.
+`USABLE_LIMITED` -- Paire canonique stable (`vision_bot` + `bot_vision_step2`) avec wrappers unifies, timers et systemd. `bot_vision` reste legacy preserve.
 
 ## USAGE_ALLOWED_NOW
 
 - Capturer des screenshots trading via `vision_bot`.
 - Analyser via `bot_vision_step2`.
 - Produire des artefacts pour Desk Pro ou Telegram.
-- Pipeline headless operationnel (branches admin-trading).
+- Utiliser les wrappers `cmd-vision`, `menu-vision`, `sanity-vision`.
+- Pipeline headless operationnel cote `admin-trading`.
 
 ## USAGE_FORBIDDEN_NOW
 
@@ -40,14 +42,14 @@ Pipeline de capture screenshot -> analyse Vision -> artefacts Desk Pro / Telegra
 
 ## IMPLEMENTATION_PATH
 
-1. Figer le survivant unique (vision_bot + bot_vision_step2 -> module final).
-2. Stabiliser la transition step2.
-3. Archiver bot_vision legacy.
-4. Produire un closeout produit.
+1. Verifier l'integrite des timers et services.
+2. Tester le flux inbox -> outbox.
+3. Valider la route Telegram `/analyze`.
+4. Produire le closeout de stabilisation runtime.
 
 ## CONTINUITY_STATE
 
-Actif -- `VISION_FAMILY_SURVIVOR_DECISION` en attente.
+Actif -- `GO_OPT_TRADING_VISION_RUNTIME_STABILIZATION_01` est le prochain point de stabilisation.
 
 ## MACHINE / SURFACE
 
@@ -58,27 +60,30 @@ Actif -- `VISION_FAMILY_SURVIVOR_DECISION` en attente.
 ```text
 docs/status/bot_vision_canonique.md
 docs/governance/BOT_VISION_CANONICAL_PRODUCT_SYNTH_01.md
+docs/chantiers/GO_OPT_TRADING_VISION_RUNTIME_CONSOLIDATION_IMPL_01/90_CLOSEOUT.md
 ```
 
 ## TODO
 
-1. Decider le survivant unique (VISION_FAMILY_SURVIVOR_DECISION).
-2. Archiver bot_vision.
-3. Documenter la chaine finale.
+1. Verifier timers et services.
+2. Tester inbox -> outbox.
+3. Valider `/analyze`.
+4. Garder `bot_vision` en legacy preserve tant que la stabilisation n'est pas closee.
 
 ## REMAINING_GAP
 
-Survivant unique non fige, transition step2 en cours de stabilisation structurelle.
+Timers, inbox/outbox et route Telegram `/analyze` a stabiliser ; `bot_vision` legacy reste preserve.
 
 ## NEXT_GO
 
-`VISION_FAMILY_SURVIVOR_DECISION`
+`GO_OPT_TRADING_VISION_RUNTIME_STABILIZATION_01`
 
 ## PROMOTION_CONDITIONS
 
 `USABLE_LIMITED` -> `USABLE_NOW` quand :
-- survivant unique fige,
-- chaine operationnelle stabilisee,
+- stabilisation runtime closee,
+- timers et flux inbox/outbox verifies,
+- route `/analyze` validee,
 - closeout produit pose.
 
 ## Ce que c'est
@@ -104,20 +109,23 @@ Capturer des screenshots trading, les analyser via Vision, produire des artefact
 ## Prerequis
 
 - Modules actifs : `vision_bot` (capture inbox-outbox), `bot_vision_step2` (analyse).
+- Wrappers : `cmd-vision`, `menu-vision`, `sanity-vision`.
 - Pipeline headless : `scripts/run_bot_vision_headless_capture.sh`.
-- Connaissance de la chaine transitoire actuelle.
+- Connaissance de la paire canonique actuelle.
 
 ## Commandes / acces
 
 - Capture : `modules/vision_bot/`
 - Analyse : `modules/bot_vision_step2/`
+- Wrappers : `cmd-vision`, `menu-vision`, `sanity-vision`
 - Pipeline headless : `scripts/run_bot_vision_headless_capture.sh`
 
 ## Procedure simple
 
-1. Capturer un screenshot via `vision_bot`.
-2. Lancer l'analyse via `bot_vision_step2`.
-3. Verifier les artefacts dans Desk Pro ou Telegram.
+1. Verifier l'etat avec `sanity-vision`.
+2. Capturer un screenshot via `vision_bot`.
+3. Lancer l'analyse via `bot_vision_step2`.
+4. Verifier les artefacts dans Desk Pro ou Telegram.
 
 ## Verification PASS
 
@@ -127,9 +135,9 @@ Capturer des screenshots trading, les analyser via Vision, produire des artefact
 
 ## Limites
 
-- Chaine transitoire, pas de survivant unique.
+- Stabilisation runtime encore ouverte.
 - `bot_vision` legacy a ne pas utiliser.
-- Transition step2 en cours.
+- Timers et route `/analyze` a verifier.
 
 ## Depannage
 
@@ -141,3 +149,4 @@ Capturer des screenshots trading, les analyser via Vision, produire des artefact
 
 - `docs/status/bot_vision_canonique.md`
 - `docs/governance/BOT_VISION_CANONICAL_PRODUCT_SYNTH_01.md`
+ - `docs/chantiers/GO_OPT_TRADING_VISION_RUNTIME_CONSOLIDATION_IMPL_01/90_CLOSEOUT.md`
