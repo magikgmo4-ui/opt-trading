@@ -164,12 +164,17 @@ def render_ui_html() -> str:
 <script>
 const el = (id)=>document.getElementById(id);
 
-function h(html){return html;}
+function healthBadge(status){
+  const colors = {'healthy':'#2e7d32','degraded':'#e65100','down':'#c62828'};
+  const bg = colors[status]||'#888';
+  return `<span style="display:inline-block;padding:2px 12px;border-radius:999px;background:${bg};color:#fff;font-size:13px;font-weight:600">${status.toUpperCase()}</span>`;
+}
 
 function badge(ok, label, labelFail){
-  const good = ok === true || ok === 'live' || ok === 'fixture';
-  const color = good ? '#2e7d32' : '#c62828';
-  const text = good ? (label||'OK') : (labelFail||'DOWN');
+  const good = ok === true || ok === 'live' || ok === 'fixture' || ok === 'pass';
+  const warn = ok === 'warn';
+  const color = warn ? '#e65100' : (good ? '#2e7d32' : '#c62828');
+  const text = warn ? 'WARN' : (good ? (label||'OK') : (labelFail||'DOWN'));
   return `<span style="display:inline-block;padding:1px 8px;border-radius:999px;background:${color};color:#fff;font-size:11px;margin:1px 0">${text}</span>`;
 }
 
@@ -179,7 +184,27 @@ async function refreshStatus(){
     const j = await r.json();
     el('pipelineStatus').textContent = JSON.stringify(j, null, 2);
 
-    let html = '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:12px">';
+    let html = '';
+
+    // Health badge
+    const h = j.health || {};
+    html += '<div style="margin-bottom:8px;display:flex;align-items:center;gap:8px">';
+    html += healthBadge(h.status||'unknown');
+    html += '<span class="muted">' + (h.checks||[]).length + ' checks</span>';
+    html += '</div>';
+
+    // Checks table
+    html += '<table style="font-size:12px;margin-bottom:8px">';
+    html += '<thead><tr><th>check</th><th>status</th><th>reason</th></tr></thead><tbody>';
+    if(h.checks){
+      for(const c of h.checks){
+        html += `<tr><td>${c.check}</td><td>${badge(c.status, c.status, c.status)}</td><td>${c.reason||''}</td></tr>`;
+      }
+    }
+    html += '</tbody></table>';
+
+    // 3-col component cards
+    html += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:12px">';
 
     // Desk Pro
     html += '<div style="border:1px solid #ddd;border-radius:6px;padding:6px">';

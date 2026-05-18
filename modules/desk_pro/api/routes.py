@@ -40,6 +40,54 @@ def _source_mode(url_path: str) -> str:
         return "fixture"
     return "mock"
 
+def _compute_health(d: dict) -> dict:
+    checks = []
+    wh = d.get("webhook")
+    if wh is None:
+        checks.append({"check": "webhook", "status": "fail", "reason": "unreachable"})
+    else:
+        checks.append({"check": "webhook", "status": "pass"})
+
+    perf = d.get("perf")
+    if perf is None:
+        checks.append({"check": "perf", "status": "fail", "reason": "unreachable"})
+    else:
+        checks.append({"check": "perf", "status": "pass"})
+
+    whm = d.get("webhook_metrics") or {}
+    age = whm.get("last_event_age_sec")
+    if age is None:
+        checks.append({"check": "webhook_activity", "status": "warn", "reason": "no events yet"})
+    elif age > 7200:
+        checks.append({"check": "webhook_activity", "status": "fail", "reason": f"{age}s since last event"})
+    elif age > 3600:
+        checks.append({"check": "webhook_activity", "status": "warn", "reason": f"{age}s since last event"})
+    else:
+        checks.append({"check": "webhook_activity", "status": "pass"})
+
+    ec = d.get("error_count", 0)
+    if ec > 20:
+        checks.append({"check": "probe_errors", "status": "fail", "reason": f"{ec} errors"})
+    elif ec > 5:
+        checks.append({"check": "probe_errors", "status": "warn", "reason": f"{ec} errors"})
+    else:
+        checks.append({"check": "probe_errors", "status": "pass"})
+
+    for k, v in (d.get("sources") or {}).items():
+        if v == "down":
+            checks.append({"check": f"source_{k}", "status": "fail", "reason": f"mode={v}"})
+
+    has_fail = any(c["status"] == "fail" for c in checks)
+    has_warn = any(c["status"] == "warn" for c in checks)
+    if has_fail:
+        overall = "down"
+    elif has_warn:
+        overall = "degraded"
+    else:
+        overall = "healthy"
+
+    return {"status": overall, "checks": checks}
+
 router = APIRouter(prefix="/desk", tags=["desk-pro"])
 
 
@@ -86,7 +134,7 @@ def pipeline_status():
     errors = []
     for e in reversed(_desk_errors[-10:]):
         errors.append(e)
-    return {
+    result = {
         "desk_pro": desk,
         "perf": perf,
         "perf_open": perf_open,
@@ -98,6 +146,8 @@ def pipeline_status():
         "recent_errors": errors,
         "ts": datetime.datetime.utcnow().isoformat() + "Z",
     }
+    result["health"] = _compute_health(result)
+    return result
 
 @router.get("/errors")
 def desk_errors(limit: int = 20):
