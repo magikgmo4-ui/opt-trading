@@ -13,14 +13,32 @@ from modules.desk_pro.service.scoring import compute_probability
 from modules.desk_pro.ui.page import render_ui_html
 
 WEBHOOK_BASE = "http://127.0.0.1:8000"
+DESK_ERRORS_MAX = 50
+_desk_errors: list[dict] = []
 
 def _probe_url(url: str, timeout: int = 3) -> dict | None:
+    label = url.split("?")[0] if "?" in url else url
     try:
         req = urllib.request.Request(url)
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             return json.loads(resp.read())
-    except Exception:
+    except Exception as e:
+        _desk_errors.append({
+            "ts": datetime.datetime.utcnow().isoformat() + "Z",
+            "probe": label,
+            "error": str(e),
+        })
+        if len(_desk_errors) > DESK_ERRORS_MAX:
+            _desk_errors.pop(0)
         return None
+
+def _source_mode(url_path: str) -> str:
+    """Determine data source mode for a given endpoint path."""
+    if "webhook" in url_path or "perf" in url_path:
+        return "live"
+    if "snapshot" in url_path or "fixture" in url_path:
+        return "fixture"
+    return "mock"
 
 router = APIRouter(prefix="/desk", tags=["desk-pro"])
 
@@ -44,8 +62,10 @@ def health():
 def pipeline_status():
     desk = {"ok": True, "module": "desk_pro", "mode": "step2_mock"}
     perf = _probe_url("http://127.0.0.1:8010/perf/summary")
+    perf_open = _probe_url("http://127.0.0.1:8010/perf/open")
     webhook_state = _probe_url(f"{WEBHOOK_BASE}/api/state")
     webhook_risk = _probe_url(f"{WEBHOOK_BASE}/api/risk/status")
+    webhook_metrics = _probe_url(f"{WEBHOOK_BASE}/api/metrics?limit=5&window_min=5")
     webhook_events = _probe_url(f"{WEBHOOK_BASE}/api/events?limit=3")
     webhook = None
     if webhook_state or webhook_risk:
@@ -53,13 +73,38 @@ def pipeline_status():
             "ok": True,
             "trade_allowed": (webhook_risk or {}).get("trade_allowed"),
             "active_engine": (webhook_state or {}).get("active_engine"),
+            "risk_limits": (webhook_risk or {}).get("risk_limits"),
         }
+    sources = {
+        "snapshot": _source_mode("snapshot"),
+        "health": _source_mode("health"),
+        "perf_summary": _source_mode("perf"),
+        "perf_open": _source_mode("perf"),
+        "webhook_state": _source_mode("webhook"),
+        "webhook_events": _source_mode("webhook"),
+    }
+    errors = []
+    for e in reversed(_desk_errors[-10:]):
+        errors.append(e)
     return {
         "desk_pro": desk,
         "perf": perf,
+        "perf_open": perf_open,
         "webhook": webhook,
+        "webhook_metrics": webhook_metrics,
         "recent_webhook_events": (webhook_events or {}).get("events"),
+        "sources": sources,
+        "error_count": len(_desk_errors),
+        "recent_errors": errors,
         "ts": datetime.datetime.utcnow().isoformat() + "Z",
+    }
+
+@router.get("/errors")
+def desk_errors(limit: int = 20):
+    return {
+        "ok": True,
+        "count": len(_desk_errors),
+        "errors": list(reversed(_desk_errors[-limit:])),
     }
 
 @router.get("/snapshot", response_model=Snapshot)
