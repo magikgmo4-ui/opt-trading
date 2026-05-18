@@ -28,6 +28,7 @@ Toute stratégie utilisable dans le pipeline doit figurer ici.
 | # | strategy_id | strategy_version | setup_type | status | lifecycle | parent_go |
 |---|-------------|-----------------|-----------|--------|-----------|-----------|
 | 1 | `SMC_ICT_CHOCH_BOS_RETEST` | `0.1.0` | `SWEEP_CHOCH_BOS_FVG_OB_RETEST` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
+| 2 | `xau_session_open_v1` | `v0.1.0` | `session_open` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
 
 ---
 
@@ -48,6 +49,25 @@ Toute stratégie utilisable dans le pipeline doit figurer ici.
 | `parent_go` | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
 | `docs_path` | `docs/chantiers/GO_SMC_ICT_OPT_TRADING_OBSERVATION_SIGNAL_ENRICHMENT_01/` |
 | `created_at` | `2026-05-17` |
+
+### 3.2_xau_session_open_v1
+
+| Champ | Valeur |
+|---|---|
+| `strategy_id` | `xau_session_open_v1` |
+| `strategy_version` | `v0.1.0` |
+| `setup_type` | `session_open` |
+| `family` | `session_open` |
+| `direction` | `contextual` |
+| `observation_status` | `ACTIVE` |
+| `lifecycle` | `CANDIDATE` |
+| `perf_status` | `UNMEASURED` |
+| `go_id` | `GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_XAU_SESSION_OPEN_REGISTRY_REGULARIZATION_01` |
+| `parent_go` | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
+| `docs_path` | `docs/chantiers/GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_XAU_SESSION_OPEN_REGISTRY_REGULARIZATION_01/` |
+| `runtime_surfaces` | `trading_realtime_v1`, `trading_lab_v1` |
+| `profile_ref` | `docs/ot/trading/schemas/xauusd_dual_stack_v1.profile.yaml` |
+| `created_at` | `2026-05-18` |
 
 ---
 
