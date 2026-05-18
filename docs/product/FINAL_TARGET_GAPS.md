@@ -36,7 +36,7 @@ Ce document dit pourquoi un produit n'est pas encore `PRODUCT_FINISHED`, meme qu
 | Produit | Vue usage | Pourquoi ce n'est pas fini | Gap critique | NEXT_GO |
 | --- | --- | --- | --- | --- |
 | ClickUp Cockpit | `USABLE_LIMITED` | Le cockpit marche, mais le plan gratuit borne encore des parties de l'usage cible | Statuses, dashboards et template restent incomplets | Ouvrir un child dedie seulement si besoin reel ou upgrade plan |
-| Repo KG | `USABLE_NOW` | La projection est exploitable, la couverture produit est elargie par l'inventaire | Maintenir les guides utilisateur et la couverture produit apres application | `GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_USER_GUIDES_01` |
+| Repo KG | `USABLE_NOW` | La projection est exploitable, mais la couverture produit doit rester synchronisee avec les futurs closeouts | Maintenance continue via `UPDATE_PROTOCOL.md` et rescan Atlas si la couverture ou les guides changent | Maintenance continue via `UPDATE_PROTOCOL.md` ; rescan Atlas si la couverture change |
 | Airtable Orchestration Layer | `DOC_ONLY` | Le produit est bien cadre, mais le bridge repo et la preuve d'usage produit manquent | `modules/airtable_bridge/` + tables finales + exports | `GO_OPT_TRADING_AIRTABLE_BRIDGE_CHILD_01` |
 | Botpress Adapter | `SIMULATED_ONLY` | La simulation est prouvee, pas l'usage reel complet | Telegram reel + webhook reel + credentials hors repo | `GO_TRADING_BOTPRESS_TELEGRAM_REAL_INTEGRATION_01` |
 | OpenClaw Docs Library | `DOC_ONLY` | La cartographie parent existe, pas encore la lecture finale unifiee | Raffinement de cartographie puis synthese finale | `GO_OPENCLAW_DBLAYER_DOCS_SOURCE_CARTOGRAPHY_CHILD_01` |
