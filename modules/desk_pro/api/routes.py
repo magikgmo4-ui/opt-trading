@@ -151,10 +151,14 @@ def _telegram_send(text: str) -> dict:
     except Exception as e:
         return {"sent": False, "reason": str(e)}
 
+_TELEGRAM_API_HOST = "api.telegram.org"
+
 def _webhook_send(alert: dict) -> dict:
     url = _env_str("ALERT_WEBHOOK_URL")
     if not url:
         return {"sent": False, "reason": "not configured"}
+    if _TELEGRAM_API_HOST in url:
+        return {"sent": False, "reason": "webhook_url_is_telegram_api — use TELEGRAM_BOT_TOKEN for Telegram"}
     try:
         payload = json.dumps(alert).encode()
         req = urllib.request.Request(url, data=payload, method="POST")

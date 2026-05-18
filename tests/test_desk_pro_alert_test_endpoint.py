@@ -9,7 +9,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from modules.desk_pro.api.routes import desk_alert_test, _dispatch_alert
+from modules.desk_pro.api.routes import desk_alert_test, _dispatch_alert, _webhook_send
 
 
 class TestDeskAlertTestEndpoint(unittest.TestCase):
@@ -129,3 +129,39 @@ class TestDispatchAlertNoSideEffects(unittest.TestCase):
         with patch.dict("os.environ", {}, clear=True):
             _dispatch_alert({"status": "test"})
         self.assertEqual(r_mod._alert_state, before)
+
+
+class TestWebhookSendAdapter(unittest.TestCase):
+
+    def test_telegram_api_url_returns_not_sent_with_clear_reason(self):
+        env = {"ALERT_WEBHOOK_URL": "https://api.telegram.org/bot1234:AAA/sendMessage"}
+        with patch.dict("os.environ", env):
+            result = _webhook_send({"status": "test"})
+        self.assertFalse(result["sent"])
+        self.assertIn("telegram_api", result["reason"])
+        self.assertIn("TELEGRAM_BOT_TOKEN", result["reason"])
+
+    def test_telegram_api_url_does_not_make_http_call(self):
+        env = {"ALERT_WEBHOOK_URL": "https://api.telegram.org/bot9999:BBB/sendMessage"}
+        with patch.dict("os.environ", env), \
+             patch("urllib.request.urlopen") as mock_urlopen:
+            _webhook_send({"status": "test"})
+        mock_urlopen.assert_not_called()
+
+    def test_generic_webhook_url_proceeds_to_http(self):
+        fake_resp = MagicMock()
+        fake_resp.status = 200
+        fake_resp.__enter__ = lambda s: s
+        fake_resp.__exit__ = MagicMock(return_value=False)
+        env = {"ALERT_WEBHOOK_URL": "http://127.0.0.1:9999/hook"}
+        with patch.dict("os.environ", env), \
+             patch("urllib.request.urlopen", return_value=fake_resp):
+            result = _webhook_send({"status": "test"})
+        self.assertTrue(result["sent"])
+        self.assertEqual(result["reason"], "webhook status=200")
+
+    def test_not_configured_when_url_absent(self):
+        with patch.dict("os.environ", {}, clear=True):
+            result = _webhook_send({"status": "test"})
+        self.assertFalse(result["sent"])
+        self.assertEqual(result["reason"], "not configured")
