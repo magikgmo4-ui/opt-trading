@@ -249,6 +249,12 @@ async function refreshStatus(){
     }
     html += '</div>';
 
+    // Alert test button
+    html += '<div style="margin-top:6px">';
+    html += '<button id="btnTestAlert" style="font-size:11px;padding:4px 10px">Test Alert</button>';
+    html += '<span id="testAlertResult" class="muted" style="margin-left:6px"></span>';
+    html += '</div>';
+
     // Alert status
     if(j.alert){
       const a = j.alert;
@@ -341,9 +347,29 @@ async function submitForm(){
   }
 }
 
+async function testAlert(){
+  el('btnTestAlert').disabled = true;
+  el('testAlertResult').textContent = '…';
+  try{
+    const r = await fetch('/desk/alert/test', {method:'POST'});
+    const j = await r.json();
+    if(!r.ok){ el('testAlertResult').textContent = 'error ' + r.status; return; }
+    const parts = (j.dispatch||[]).map(d=>{
+      const icon = d.status === 'delivered' ? '✓' : (d.status === 'skipped' ? '–' : '✗');
+      return icon + ' ' + d.destination;
+    });
+    el('testAlertResult').textContent = parts.join('  ') || 'no destinations';
+  }catch(e){
+    el('testAlertResult').textContent = 'error: ' + e;
+  }finally{
+    el('btnTestAlert').disabled = false;
+  }
+}
+
 el('btnSnap').addEventListener('click', refreshSnap);
 el('btnSubmit').addEventListener('click', submitForm);
 el('btnStatus').addEventListener('click', refreshStatus);
+el('btnTestAlert').addEventListener('click', testAlert);
 refreshStatus();
 refreshSnap();
 </script>
