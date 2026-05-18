@@ -7,7 +7,6 @@ can be consumed together in a coherent Desk Pro synthesis object.
 No runtime calls. No network. No file system live writes.
 """
 import json
-import pytest
 from pathlib import Path
 
 from modules.desk_pro.signal_event_adapter import (

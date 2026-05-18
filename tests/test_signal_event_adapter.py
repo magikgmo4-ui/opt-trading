@@ -5,7 +5,6 @@ Run: pytest tests/test_signal_event_adapter.py -q
 """
 import json
 import hashlib
-import pytest
 
 from modules.desk_pro.signal_event_adapter import (
     normalize_signal_event_v1,
