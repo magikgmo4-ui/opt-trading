@@ -5,7 +5,7 @@ repo: opt-trading
 status: reference
 lifecycle_stage: product_usage
 source_kind: canonical
-updated_at: 2026-05-07
+updated_at: 2026-05-18
 links:
   - docs/product/PRODUCT_USAGE_ATLAS.md
   - docs/product/FINAL_TARGET_GAPS.md
@@ -13,6 +13,8 @@ links:
   - docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_USAGE_VIEW_01/02_NEXT_GO_BY_PRODUCT.md
   - docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_REPO_INVENTORY_01/02_CLASSIFICATION_MATRIX.md
   - docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_REPO_INVENTORY_01/03_ATLAS_UPDATE_PROPOSAL.md
+  - docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_REPO_RESCAN_01/01_DELTA_SCAN.md
+  - docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_REPO_RESCAN_01/90_CLOSEOUT.md
 ---
 
 # Product Usage Matrix
@@ -22,7 +24,7 @@ links:
 | Vue usage | Produits | Lecture operateur |
 | --- | --- | --- |
 | `USABLE_NOW` | Repo KG | Utilisable maintenant comme projection repo-first, sans le traiter comme source souveraine. |
-| `USABLE_LIMITED` | ClickUp Cockpit, Desk Pro, Bot Vision, TradingView / Telegram Alert Pipeline, OpenClaw Runtime, derivatives_collector | Utilisable maintenant pour piloter, avec limites connues et documentees. |
+| `USABLE_LIMITED` | ClickUp Cockpit, Desk Pro, Bot Vision, Deepseek Student, TradingView / Telegram Alert Pipeline, OpenClaw Runtime, derivatives_collector | Utilisable maintenant pour piloter, avec limites connues et documentees. |
 | `DOC_ONLY` | Airtable Orchestration Layer, OpenClaw Docs Library, Trading Dual Stack V1 / XAUUSD, LocalCMS | Lecture et cadrage seulement ; ne pas presenter ces surfaces comme produits runtime finis. |
 | `SIMULATED_ONLY` | Botpress Adapter | Simulation et smoke seulement ; pas de lecture live-ready. |
 | `FORBIDDEN_LIVE` | BTC COIN-M Accumulation Engine | Aucun usage live ou runtime autorise a ce stade. |
@@ -38,10 +40,11 @@ links:
 | OpenClaw Docs Library | `DOC_ONLY` | `GO_OPENCLAW_DBLAYER_DOCS_SOURCE_CARTOGRAPHY_CHILD_01` |
 | BTC COIN-M Accumulation Engine | `FORBIDDEN_LIVE` | Valider le parent puis ouvrir le child formules dedie |
 | Desk Pro | `USABLE_LIMITED` | `GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01` |
-| Bot Vision | `USABLE_LIMITED` | `VISION_FAMILY_SURVIVOR_DECISION` |
+| Bot Vision | `USABLE_LIMITED` | `GO_OPT_TRADING_VISION_RUNTIME_STABILIZATION_01` |
+| Deepseek Student | `USABLE_LIMITED` | Verifier `post_change.sh` avant tout retrait legacy ; OpenClaw lab reste conditionnel |
 | TradingView / Telegram Alert Pipeline | `USABLE_LIMITED` | Poursuite GO alert webhook actif |
 | OpenClaw Runtime | `USABLE_LIMITED` | `GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01` |
-| derivatives_collector | `USABLE_LIMITED` | `GO_COLLECTORS_BASELINE_INVENTORY_01` |
+| derivatives_collector | `USABLE_LIMITED` | Poursuivre le rollout des helper extractions prouvees |
 | Trading Dual Stack V1 / XAUUSD | `DOC_ONLY` | `GO_OT_TRADING_REALTIME_V1_CHAIN_CLOSED_01` |
 | LocalCMS | `DOC_ONLY` | `GO_LOCALCMS_FORMS_INTEGRATION_DOC_01` |
 
@@ -56,9 +59,10 @@ links:
 | OpenClaw Docs Library | `go/GO_OPENCLAW_DBLAYER_DOCS_RESEARCH_LIBRARY_PARENT_01` | `DOC_ONLY` | Librairie de recherche et cartographie documentaire OpenClaw | Lire les surfaces existantes et preparer les futurs GOs OpenClaw | `DOC_ONLY_READY` | Lecture seulement | Oui, guide de lecture | Cartographie raffinee, deep dive composants, synthese finale | `GO_OPENCLAW_DBLAYER_DOCS_SOURCE_CARTOGRAPHY_CHILD_01` | `docs/chantiers/GO_OPENCLAW_DBLAYER_DOCS_RESEARCH_LIBRARY_PARENT_01/00_CADRAGE_PARENT.md`<br>`docs/chantiers/GO_OPENCLAW_DBLAYER_DOCS_RESEARCH_LIBRARY_PARENT_01/90_CLOSEOUT.md` |
 | BTC COIN-M Accumulation Engine | `go/GO_OPT_TRADING_TRADING_PARENT_BTC_COINM_ACCUMULATION_ENGINE_01` | `FORBIDDEN_LIVE` | Moteur mathematique puis backtest puis worker borne pour accumulation BTC avec logique COIN-M | Cadrer d'abord le probleme avant toute implementation sensible | `NOT_USABLE_YET / DO_NOT_USE_LIVE` | Non - interdit live | Non, aucun guide live autorise | Validation du parent, formules, compatibilite, backtest et worker | Valider le parent puis ouvrir le child formules dedie | `docs/chantiers/GO_OPT_TRADING_TRADING_PARENT_BTC_COINM_ACCUMULATION_ENGINE_01/01_initial_project_doc.md`<br>`docs/chantiers/GO_OPT_TRADING_TRADING_PARENT_BTC_COINM_ACCUMULATION_ENGINE_01/03_worker_spec.md` |
 | Desk Pro | -- | `USABLE_LIMITED` | Stack operationnelle de capture, analyse, execution et visualisation desk | Piloter le desk trading avec runbooks, wrappers, dashboard et script admin | `USABLE_LIMITED` | Oui, avec limites | Non final | Survivant unique non fige, frontiere desk_pro / desk_* en cours de clarification | `GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01` | `docs/status/desk_pro_stack_canonique.md`<br>`docs/desk_pro_multi_machine_quick_reference.md`<br>`docs/governance/DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md` |
-| Bot Vision | -- | `USABLE_LIMITED` | Pipeline capture screenshot -> analyse Vision -> artefacts Desk Pro / Telegram | Capturer et analyser des screenshots trading, produire des artefacts exploitables | `USABLE_LIMITED` | Oui, chaine transitoire active | Non final | Survivant unique non fige, transition step2 en cours de stabilisation | `VISION_FAMILY_SURVIVOR_DECISION` | `docs/status/bot_vision_canonique.md`<br>`docs/governance/BOT_VISION_CANONICAL_PRODUCT_SYNTH_01.md` |
+| Bot Vision | -- | `USABLE_LIMITED` | Pipeline capture screenshot -> analyse Vision -> artefacts Desk Pro / Telegram | Capturer et analyser des screenshots trading, produire des artefacts exploitables | `USABLE_LIMITED` | Oui, paire canonique stable mais encore bornee | Non final | Timers, inbox/outbox et route Telegram `/analyze` a stabiliser ; legacy `bot_vision` encore preserve | `GO_OPT_TRADING_VISION_RUNTIME_STABILIZATION_01` | `docs/status/bot_vision_canonique.md`<br>`docs/governance/BOT_VISION_CANONICAL_PRODUCT_SYNTH_01.md`<br>`docs/chantiers/GO_OPT_TRADING_VISION_RUNTIME_CONSOLIDATION_IMPL_01/90_CLOSEOUT.md` |
+| Deepseek Student | -- | `USABLE_LIMITED` | Surface locale d'analyse DeepSeek/Ollama cote `student` | Lancer des analyses locales, des rapports quotidiens et consulter des sorties archivees via wrappers student | `USABLE_LIMITED` | Oui, avec limites | Non final (runbook existant hors `docs/product/guides/`) | Dual-layout canonical/legacy, verification `post_change.sh` avant retrait legacy, OpenClaw lab differe | Verifier `post_change.sh` avant tout retrait legacy ; OpenClaw lab reste conditionnel | `docs/student_deepseek_runbook.md`<br>`docs/status/deepseek_student_canonique.md`<br>`docs/chantiers/GO_OPT_TRADING_DEEPSEEK_RUNTIME_CONSOLIDATION_IMPL_03/90_CLOSEOUT.md`<br>`docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_01/90_CLOSEOUT.md` |
 | TradingView / Telegram Alert Pipeline | -- | `USABLE_LIMITED` | Pipeline d'alertes TradingView -> webhook -> observation -> Telegram | Recevoir et router les alertes TradingView avec observation et notification | `USABLE_LIMITED` | Oui, alert webhook en continuite | Non final | Alert webhook non ferme, export reel et integration Telegram a consolider | Poursuite GO alert webhook actif | `docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md`<br>`docs/chantiers/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_01/90_CLOSEOUT.md` |
 | OpenClaw Runtime | -- | `USABLE_LIMITED` | Orchestration IA controlee au-dessus des surfaces trading | Orchestrer les appels IA via gateway, agents et supervision | `USABLE_LIMITED` | Oui, modules installables et gateway | Non final | Orchestration runtime en construction, agents non deployes, synthese unifiee absente | `GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01` | `docs/product_targets/OPENCLAW_TARGET_CANON.md`<br>`docs/chantiers/GO_OPENCLAW_DBLAYER_DOCS_RESEARCH_LIBRARY_PARENT_01/` |
-| derivatives_collector | -- | `USABLE_LIMITED` | Collecteur canonique de donnees marches derives | Collecter les donnees marches derives pour le trading | `USABLE_LIMITED` | Oui, module operationnel multi-versions | Non final | Convergence doctrinale en cours (phases 0-5), artifacts/vocabulaire/config a aligner | `GO_COLLECTORS_BASELINE_INVENTORY_01` | `docs/COLLECTORS_FAMILY_DOCTRINE_01.md`<br>`docs/COLLECTORS_MIGRATION_MAP_01.md` |
+| derivatives_collector | -- | `USABLE_LIMITED` | Collecteur canonique de donnees marches derives | Collecter les donnees marches derives pour le trading | `USABLE_LIMITED` | Oui, module operationnel multi-versions | Non final | Doctrine famille alignee ; helper extractions selectives et convergence surface operateur restent en cours | Poursuivre le rollout des helper extractions prouvees | `docs/COLLECTORS_FAMILY_DOCTRINE_01.md`<br>`docs/COLLECTORS_MIGRATION_MAP_01.md`<br>`docs/chantiers/GO_COLLECTORS_BASELINE_INVENTORY_01/90_CLOSEOUT.md`<br>`docs/chantiers/GO_COLLECTORS_SELECTIVE_RUNTIME_EXTRACTION_DECISION_01/90_CLOSEOUT.md` |
 | Trading Dual Stack V1 / XAUUSD | -- | `DOC_ONLY` | Framework LAB/REALTIME unifie, perimetre XAUUSD borne | Tester des strategies en LAB, observer en REALTIME sans ordre reel | `DOC_ONLY` | Non runtime | Non | Sans broker, sans ordre reel, sans auto-trading. V1 close mais bornee. | `GO_OT_TRADING_REALTIME_V1_CHAIN_CLOSED_01` | `docs/governance/TRADING_DUAL_STACK_CANONICAL_PRODUCT_SYNTH_01.md` |
 | LocalCMS | -- | `DOC_ONLY` | Consumer UI de opt-trading exploitant /shared | Lire les surfaces partagees et servir de cockpit utilisateur futur | `DOC_ONLY` | Non runtime | Non | Projet externe, pas de runtime integre, usage reel a prouver | `GO_LOCALCMS_FORMS_INTEGRATION_DOC_01` | `docs/chantiers/GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01/`<br>`docs/chantiers/GO_LOCALCMS_FORMS_INTEGRATION_DOC_01/` |
