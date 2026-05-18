@@ -83,7 +83,7 @@ Le bloc CURSOR_AI de `docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md` a ete m
 
 Revue humaine du modele de warnings WHY lint, puis :
 
-`GO_OPT_TRADING_DOC_OPS_WHY_LINT_CHILD_STATIC_VALIDATOR_SPEC_01`
+`GO_OPT_TRADING_DOC_OPS_CHILD_WHY_LINT_STATIC_VALIDATOR_SPEC_01`
 
 Pour specifier le validateur statique doc-only.
 
