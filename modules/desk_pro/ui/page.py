@@ -31,6 +31,13 @@ def render_ui_html() -> str:
 
   <div class="grid">
     <div class="card">
+      <h3 style="margin-top:0">Pipeline Status</h3>
+      <div class="muted">Live from /desk/status</div>
+      <pre id="pipelineStatus" style="font-size:11px">loading...</pre>
+      <p><button id="btnStatus">Refresh</button></p>
+    </div>
+
+    <div class="card">
       <h3 style="margin-top:0">Snapshot</h3>
       <div class="muted">Refresh loads /desk/snapshot</div>
       <p><button id="btnSnap">Refresh</button></p>
@@ -150,6 +157,16 @@ def render_ui_html() -> str:
 <script>
 const el = (id)=>document.getElementById(id);
 
+async function refreshStatus(){
+  try{
+    const r = await fetch('/desk/status');
+    const j = await r.json();
+    el('pipelineStatus').textContent = JSON.stringify(j, null, 2);
+  }catch(e){
+    el('pipelineStatus').textContent = 'ERROR: '+e;
+  }
+}
+
 async function refreshSnap(){
   el('btnSnap').disabled = true;
   try{
@@ -206,6 +223,8 @@ async function submitForm(){
 
 el('btnSnap').addEventListener('click', refreshSnap);
 el('btnSubmit').addEventListener('click', submitForm);
+el('btnStatus').addEventListener('click', refreshStatus);
+refreshStatus();
 refreshSnap();
 </script>
 
