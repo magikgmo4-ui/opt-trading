@@ -249,6 +249,20 @@ async function refreshStatus(){
     }
     html += '</div>';
 
+    // Alert status
+    if(j.alert){
+      const a = j.alert;
+      if(a.triggered){
+        html += '<div style="margin-top:6px;font-size:12px;padding:4px 8px;border-radius:6px;background:#fff3e0;border:1px solid #e65100">';
+        html += '<strong>ALERT:</strong> status=' + a.status + ' cooldown=' + a.cooldown_sec + 's';
+        html += '</div>';
+      } else if(a.reason === 'cooldown'){
+        html += '<div style="margin-top:6px;font-size:12px;color:#888">';
+        html += 'Alert cooldown: ' + a.cooldown_remaining_sec + 's remaining (last: ' + (a.last_status||'?') + ')';
+        html += '</div>';
+      }
+    }
+
     // Errors
     if(j.error_count > 0){
       html += '<div style="margin-top:6px;font-size:12px;color:#c62828">';
