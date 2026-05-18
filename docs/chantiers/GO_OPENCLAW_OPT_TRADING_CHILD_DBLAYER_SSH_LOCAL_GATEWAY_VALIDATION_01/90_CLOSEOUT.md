@@ -1,68 +1,50 @@
 ---
-doc_id: GO_OPENCLAW_OPT_TRADING_CHILD_DBLAYER_SSH_LOCAL_GATEWAY_VALIDATION_01_CLOSEOUT
-doc_type: closeout
+doc_id: GO_OPENCLAW_OPT_TRADING_CHILD_DBLAYER_SSH_LOCAL_GATEWAY_VALIDATION_01_90_CLOSEOUT
+doc_type: chantier/closeout
 repo: opt-trading
-project: opt-trading
-module: agents
 go_id: GO_OPENCLAW_OPT_TRADING_CHILD_DBLAYER_SSH_LOCAL_GATEWAY_VALIDATION_01
-parent_go_id: GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_OPENCLAW_CLI_LOCAL_DRYRUN_INVOCATION_01
-machine: fantome
-status: closeout_blocked
-lifecycle_stage: closeout
-topic_keys:
-  - openclaw
-  - db-layer
-  - ssh
-  - closeout
-source_kind: canonical
-updated_at: 2026-05-14
+parent_go_id: GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01
+status: closed
+scope: ssh_local_validation
+verdict: PASS
+updated_at: 2026-05-18T03:30
+links:
+  - docs/chantiers/GO_OPENCLAW_OPT_TRADING_CHILD_DBLAYER_SSH_LOCAL_GATEWAY_VALIDATION_01/00_INITIAL_PROJECT_DOC.md
+  - docs/chantiers/GO_OPENCLAW_OPT_TRADING_CHILD_DBLAYER_SSH_LOCAL_GATEWAY_VALIDATION_01/DBLAYER_SSH_LOCAL_GATEWAY_VALIDATION_REPORT_01.md
 ---
 
-# 90_CLOSEOUT — GO_OPENCLAW_OPT_TRADING_CHILD_DBLAYER_SSH_LOCAL_GATEWAY_VALIDATION_01
+# 90_CLOSEOUT
 
-## 13_ESTABLISHED
+## Verdict
 
-```text
-Piste retenue : ne pas installer OpenClaw sur fantome.
-Strategie retenue : utiliser fantome comme poste operateur et db-layer comme cible runtime reelle.
+**PASS** — Validation SSH/local `db-layer` executee et tous les controles passes.
 
-Resultat du GO :
-- alias db-layer absent/non resolu sur fantome
-- IP canonique documentee : 192.168.0.100
-- host key scan PASS via fichier temporaire /tmp/opencode/db-layer_known_hosts
-- authentification SSH refusee pour ghost, fantome et openclaw (publickey)
+## Criteres PASS
 
-Conclusion : impossible d'ouvrir un shell local sur db-layer,
-donc impossible de verifier openclaw CLI, Gateway V2, orchestrateur,
-ou de lancer un dry-run builder local.
-```
+| Critere | Resultat |
+| --- | --- |
+| `fantome` utilise seulement comme poste operateur | `PASS` |
+| execution locale confirmee sur `db-layer` | `PASS` |
+| repo `opt-trading` verifie | `PASS` |
+| `git status` capture | `PASS` |
+| CLI `openclaw` present | `PASS` |
+| `Gateway V2` valide | `PASS` |
+| orchestrateur `OpenClaw` valide | `PASS` |
+| dry-run builder local valide | `PASS` |
+| aucun secret | `PASS` |
+| aucun live trading | `PASS` |
+| aucun write libre | `PASS` |
+| aucun `sudo` | `PASS` |
 
-## 7_CANONICAL_STATE (sortie)
+## Criteres STOP
 
-```text
-fantome = poste operateur
-db-layer = vraie cible OpenClaw/orchestrateur
-SSH = reachability prouvee mais auth BLOCKED
-next = debloquer principal/cle SSH ou alias canonique db-layer
-```
+| Critere | Resultat |
+| --- | --- |
+| CLI `openclaw` absent sur `db-layer` | `SANS_OBJET` (CLI present) |
+| approval humain d'installation manquant | `SANS_OBJET` (pas d'installation) |
+| tentative d'installation dans ce GO | `PASS` (aucune) |
+| besoin de secret / live / write libre | `PASS` (aucun) |
 
-## VERDICT_FINAL
+## Prochaine Etape
 
-```text
-BLOCKED
-
-GO_OPENCLAW_OPT_TRADING_CHILD_DBLAYER_SSH_LOCAL_GATEWAY_VALIDATION_01
-
-Le GO a correctement isole le vrai verrou :
-pas le runtime OpenClaw lui-meme, mais l'authentification SSH depuis fantome vers db-layer.
-```
-
-## 17_RESUME_POINT
-
-```text
-fantome
-→ OpenClaw sur fantome : toujours absent
-→ db-layer : cible validee conceptuellement mais non accessible en shell
-→ SSH gate : BLOCKED_BY_AUTH
-→ prochain besoin : principal/cle SSH valide ou approval de reconfiguration SSH
-```
+GO valide et clos. Prochaine action selon le parent `GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01`.

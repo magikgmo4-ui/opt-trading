@@ -23,9 +23,9 @@ Transport court de reprise pour le parent OpenClaw `db-layer` hors continuite ca
 
 ## Etabli
 
-- parent reel prouve sur branche dediee : `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01`
-- machine cible : `db-layer`
-- prochain GO metier attendu : `GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_01`
+ - parent reel prouve sur branche dediee : `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01`
+ - machine cible : `db-layer`
+ - prochain GO metier attendu : `GO_OPENCLAW_OPT_TRADING_CHILD_DBLAYER_SSH_LOCAL_GATEWAY_VALIDATION_01`
 
 ## Regle
 
@@ -35,5 +35,5 @@ Transport court de reprise pour le parent OpenClaw `db-layer` hors continuite ca
 
 ## Point De Reprise
 
-- lire `docs/chantiers/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01/REPRISE_DB_LAYER_20260505.md`
-- ouvrir ensuite le child TMUX
+ - lire `docs/chantiers/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01/REPRISE_DB_LAYER_20260505.md`
+ - ouvrir ensuite le child `GO_OPENCLAW_OPT_TRADING_CHILD_DBLAYER_SSH_LOCAL_GATEWAY_VALIDATION_01`

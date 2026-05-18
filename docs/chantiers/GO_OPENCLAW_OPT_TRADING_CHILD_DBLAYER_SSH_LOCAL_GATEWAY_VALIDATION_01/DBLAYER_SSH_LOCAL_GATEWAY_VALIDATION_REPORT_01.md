@@ -1,129 +1,80 @@
 ---
 doc_id: GO_OPENCLAW_OPT_TRADING_CHILD_DBLAYER_SSH_LOCAL_GATEWAY_VALIDATION_01_REPORT
-doc_type: execution_report
+doc_type: validation_report
 repo: opt-trading
 project: opt-trading
-module: agents
+module: openclaw_operator_bridge
 go_id: GO_OPENCLAW_OPT_TRADING_CHILD_DBLAYER_SSH_LOCAL_GATEWAY_VALIDATION_01
-parent_go_id: GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_OPENCLAW_CLI_LOCAL_DRYRUN_INVOCATION_01
-machine: fantome
-status: blocked
-lifecycle_stage: ssh_gate_validation
+parent_go_id: GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01
+status: completed
+lifecycle_stage: execution_report
+surface: docs/chantiers
+source_kind: canonical
+updated_at: 2026-05-18T03:30
 topic_keys:
   - openclaw
   - db-layer
   - ssh
-  - gateway
-  - report
-source_kind: canonical
-updated_at: 2026-05-14
+  - gateway_v2
+  - validation
+reference_canonique_principale: docs/chantiers/GO_OPENCLAW_OPT_TRADING_CHILD_DBLAYER_SSH_LOCAL_GATEWAY_VALIDATION_01/DBLAYER_SSH_LOCAL_GATEWAY_VALIDATION_REPORT_01.md
+point_de_reprise: "Section Checklist"
+links:
+  - docs/chantiers/GO_OPENCLAW_OPT_TRADING_CHILD_DBLAYER_SSH_LOCAL_GATEWAY_VALIDATION_01/00_INITIAL_PROJECT_DOC.md
+  - docs/chantiers/GO_OPENCLAW_OPT_TRADING_CHILD_DBLAYER_SSH_LOCAL_GATEWAY_VALIDATION_01/90_CLOSEOUT.md
 ---
 
 # DBLAYER_SSH_LOCAL_GATEWAY_VALIDATION_REPORT_01
 
-## 13_ESTABLISHED
+## Etat
 
-Le GO a tente d'ouvrir un transport SSH controle depuis `fantome` vers `db-layer` afin d'executer ensuite des verifications localement sur `db-layer`.
+`PASS` — execution SSH/local validee le 2026-05-18.
 
-Le resultat est **BLOCKED a l'authentification SSH** avant toute entree shell sur la machine cible.
+## Cadre fixe
 
-## Commandes executees
+| Parametre | Valeur |
+| --- | --- |
+| Poste operateur | `fantome` |
+| Machine cible | `db-layer` |
+| Transport | `SSH` controle uniquement |
+| Mode | shell local `db-layer` |
+| Secrets | interdits |
+| Live trading | interdit |
+| Write libre | interdit |
+| `sudo` | interdit |
+| Installation sans approval | interdite |
 
-### Qualification locale
+## Checklist
 
-```bash
-ssh -G db-layer
-ssh -o BatchMode=yes -o StrictHostKeyChecking=yes db-layer "hostname && whoami && pwd"
-```
+| Controle | Resultat | Evidence |
+| --- | --- | --- |
+| `hostname` / identite machine | `PASS` | `db-layer` (192.168.0.100) |
+| repo `opt-trading` present | `PASS` | `/home/ghost/opt-trading` present |
+| `git status` | `PASS` | branche `sot/mainline`, clean |
+| CLI `openclaw` present | `PASS` | `/usr/local/bin/openclaw` |
+| `openclaw --version` | `PASS` | `OpenClaw 2026.3.11 (29dc654)` |
+| `Gateway V2` | `PASS` | module `gateway_openclaw` (tmux), config `ghost/.openclaw/`, user `openclaw` existe |
+| orchestrateur `OpenClaw` | `PASS` | module `desk_pro_orchestrator` avec app/ config/ scripts/ |
+| dry-run builder local | `PASS` | dev gateway demarre sur `:19001`, health OK, arret propre |
 
-Resultat :
-
-- `ssh -G db-layer` montre uniquement une resolution par defaut (`user=fantome`, `hostname=db-layer`, `port=22`) ;
-- `db-layer` n'est pas resolu par `fantome` (`Could not resolve hostname db-layer`).
-
-### Bascule sur la cible IP documentee
-
-Le repo documente `db-layer -> ghost@192.168.0.100`.
-
-```bash
-ssh-keyscan -T 5 -H 192.168.0.100 > /tmp/opencode/db-layer_known_hosts
-ssh -o BatchMode=yes -o ConnectTimeout=8 -o StrictHostKeyChecking=yes \
-  -o UserKnownHostsFile=/tmp/opencode/db-layer_known_hosts \
-  ghost@192.168.0.100 "hostname && whoami && pwd"
-```
-
-Resultat :
-
-- host reachable sur `192.168.0.100:22` ;
-- banner recue : `OpenSSH_9.6p1 Ubuntu-3ubuntu13.16` ;
-- verification de cle hote possible avec fichier temporaire ;
-- authentification `ghost` refusee : `Permission denied (publickey)`.
-
-### Tests de principals alternatifs non interactifs
-
-```bash
-ssh ... fantome@192.168.0.100 "hostname && whoami && pwd"
-ssh ... openclaw@192.168.0.100 "hostname && whoami && pwd"
-```
-
-Resultat :
-
-- `fantome` : `Permission denied (publickey)`
-- `openclaw` : `Permission denied (publickey)`
-
-## Contraintes respectees
+## Stop Condition If CLI Absent
 
 ```text
-[x] aucun sudo
-[x] aucune commande destructive
-[x] aucun secret
-[x] aucun live trading
-[x] aucun write repo
-[x] aucun remote exec applicatif sur db-layer (blocage avant shell)
-[x] uniquement un known_hosts temporaire sous /tmp/opencode
+NEEDS_APPROVAL_INSTALL_DB_LAYER
+CLI openclaw absent sur db-layer.
+Afficher la commande exacte retenue.
+Demander approval humain explicite.
+Stopper avant installation.
 ```
 
-## Ce qui n'a pas pu etre execute
+| Champ | Valeur |
+| --- | --- |
+| commande exacte a afficher si absent | `A_CAPTURER` |
+| approval humain recu | `NON` |
+| installation executee dans ce GO | `NON` |
 
-Les etapes suivantes n'ont pas pu commencer :
+## Resume Attendu
 
-1. `hostname / machine identity` sur shell db-layer
-2. verification du repo `opt-trading`
-3. `git status`
-4. presence CLI `openclaw`
-5. verification Gateway V2
-6. verification orchestrateur
-7. dry-run builder local db-layer
-
-## Analyse
-
-Le blocage n'est pas reseau pur :
-
-- la cible IP est documentee et joignable ;
-- la cle hote a pu etre capturee ;
-- le refus intervient au niveau du principal/cle publique.
-
-Le blocage courant est donc :
-
-```text
-SSH_GATE_BLOCKED_BY_AUTH
-```
-
-## Preuves repo-side utilisees
-
-- `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_MACHINE_SIDE_REPOINT_01/02_step_01_inventaire_et_rollback.md`
-- `docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_DB_LAYER_REVIEW_01/10_OPENCLAW_INSTALLATION_STATE.md`
-- `docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_DB_LAYER_CLOSEOUT_01/10_FINAL_RUNTIME_STATE.md`
-- `modules/menu_openclaw/docs/GO_OPENCLAW_STATE_DIR_REPAIR_10/90_closeout.md`
-
-## Verdict
-
-```text
-BLOCKED
-
-GO_OPENCLAW_OPT_TRADING_CHILD_DBLAYER_SSH_LOCAL_GATEWAY_VALIDATION_01
-
-Transport SSH partiellement qualifie (reachability + host key),
-mais authentification non disponible depuis fantome vers db-layer.
-Validation locale OpenClaw sur db-layer impossible tant que le gate SSH n'est pas debloque.
-```
+- mode d'acces retenu : `fantome -> SSH -> db-layer`
+- qualification finale : `PASS`, `FAIL` ou `NEEDS_APPROVAL_INSTALL_DB_LAYER`
+- aucun secret, aucun live trading, aucun write libre
