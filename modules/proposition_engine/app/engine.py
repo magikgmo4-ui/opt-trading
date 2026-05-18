@@ -1,5 +1,6 @@
 from __future__ import annotations
 import json
+import logging
 import re
 import time
 import uuid
@@ -10,9 +11,12 @@ PROJECT_ROOT = Path(__file__).resolve().parents[3]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
+from modules.strategy.adapter import validate_strategy_id
 from .schema import PropositionRequest, Proposition, BridgeCallError
 from .engines import query_engines
 from .builder_prompt import compose_prompt
+
+log = logging.getLogger("proposition_engine")
 
 try:
     from modules.openclaw_operator_bridge.app.bridge import OperatorBridge
@@ -65,6 +69,9 @@ class PropositionEngine:
     def propose(self, request: PropositionRequest) -> Proposition:
         if not request.request_id:
             request.request_id = str(uuid.uuid4())
+
+        if not validate_strategy_id(request.signal.strategy_id):
+            log.warning("unknown strategy_id %r", request.signal.strategy_id)
 
         t0 = time.monotonic()
         engines_ctx: dict = {}

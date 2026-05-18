@@ -5,10 +5,18 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+from modules.strategy.adapter import validate_strategy_id
+
 BASE = Path(__file__).resolve().parents[1]
 REPO_ROOT = BASE.parents[1]
 PROFILE_ID = "xauusd_dual_stack_v1"
 STRATEGY_ID = "xau_session_open_v1"
+
+if not validate_strategy_id(STRATEGY_ID):
+    print(
+        f"[WARNING] strategy_id {STRATEGY_ID!r} not found in registry",
+        file=sys.stderr,
+    )
 SYMBOL = "XAUUSD"
 TIMEZONE = "America/Montreal"
 STATE_DIR = REPO_ROOT / "state" / "trading_realtime_v1"

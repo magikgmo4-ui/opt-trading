@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 import csv
 import json
+import logging
 import re
 import sys
 from datetime import datetime
 from pathlib import Path
 from statistics import mean
 from zoneinfo import ZoneInfo
+
+from modules.strategy.adapter import validate_strategy_id
 
 BASE = Path(__file__).resolve().parents[1]
 REPO_ROOT = BASE.parents[1]
@@ -21,6 +24,9 @@ FEATURES_JSONL = STATE_DIR / "features_v1.jsonl"
 BATCH_RUNS_JSONL = STATE_DIR / "batch_runs_v1.jsonl"
 BATCH_REPORTS_JSONL = STATE_DIR / "batch_reports_v1.jsonl"
 SAMPLE_MARKET_CSV = BASE / "data" / "sample_xauusd_m1.csv"
+DEFAULT_STRATEGY_ID = "xau_session_open_v1"
+
+log = logging.getLogger("trading_lab_v1")
 
 
 def parse_scalar(raw: str):
@@ -139,6 +145,14 @@ def load_profile() -> dict:
     if current_variant is not None:
         data["strategy"]["variants"].append(current_variant)
     return data
+
+
+def resolve_strategy_id(profile: dict) -> str:
+    strategy_id = profile["strategy"].get("strategy_id") or DEFAULT_STRATEGY_ID
+    if not validate_strategy_id(strategy_id):
+        source = "fallback" if not profile["strategy"].get("strategy_id") else "profile"
+        log.warning("unknown %s strategy_id %r", source, strategy_id)
+    return strategy_id
 
 
 def local_now(tz_name: str) -> datetime:
@@ -378,6 +392,7 @@ def build_feature_payload(profile: dict, session: dict, rows: list[dict], analys
 
 def build_market_event(profile: dict, session: dict, features: dict) -> dict:
     observed = bool(features.get("sequence_complete"))
+    strategy_id = resolve_strategy_id(profile)
     return {
         "event_id": features["feature_id"].replace("feat_", "evt_market_", 1),
         "event_ts": features["feature_ts"],
@@ -393,7 +408,7 @@ def build_market_event(profile: dict, session: dict, features: dict) -> dict:
         "session_name": features["session_name"],
         "local_date": features["local_date"],
         "timezone": features["timezone"],
-        "strategy_id": profile["strategy"].get("strategy_id") or "xau_session_open_v1",
+        "strategy_id": strategy_id,
         "variant_id": features["variant_id"],
         "setup_instance_id": features["feature_id"].replace("feat_", "setup_", 1),
         "event_type": "setup_classified" if observed else "setup_blocked",
