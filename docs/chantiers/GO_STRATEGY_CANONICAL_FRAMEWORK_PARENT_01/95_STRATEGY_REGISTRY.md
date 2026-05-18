@@ -1,0 +1,86 @@
+---
+go_id: GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01
+doc_type: strategy_registry
+repo: opt-trading
+status: open
+surface: doc-only
+created_at: 2026-05-18
+---
+
+# 95_STRATEGY_REGISTRY
+
+## Inventaire des stratégies concrètes filles
+
+---
+
+## 1_OBJECTIF
+
+Lister toutes les stratégies concrètes instanciées via le cadre canonique
+(`GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01`). Chaque entrée correspond à un
+child GO unique avec un `strategy_id` et `strategy_version` définis.
+
+Toute stratégie utilisable dans le pipeline doit figurer ici.
+
+---
+
+## 2_REGISTRY
+
+| # | strategy_id | strategy_version | setup_type | status | lifecycle | parent_go |
+|---|-------------|-----------------|-----------|--------|-----------|-----------|
+| 1 | `SMC_ICT_CHOCH_BOS_RETEST` | `0.1.0` | `SWEEP_CHOCH_BOS_FVG_OB_RETEST` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
+
+---
+
+## 3_ENTRIES
+
+### 3.1_SMC_ICT_CHOCH_BOS_RETEST
+
+| Champ | Valeur |
+|---|---|
+| `strategy_id` | `SMC_ICT_CHOCH_BOS_RETEST` |
+| `strategy_version` | `0.1.0` |
+| `setup_type` | `SWEEP_CHOCH_BOS_FVG_OB_RETEST` |
+| `family` | `SMC_ICT` |
+| `direction` | `WATCH_ONLY` |
+| `observation_status` | `CANDIDATE` |
+| `perf_status` | `UNMEASURED` |
+| `go_id` | `GO_SMC_ICT_OPT_TRADING_OBSERVATION_SIGNAL_ENRICHMENT_01` |
+| `parent_go` | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
+| `docs_path` | `docs/chantiers/GO_SMC_ICT_OPT_TRADING_OBSERVATION_SIGNAL_ENRICHMENT_01/` |
+| `created_at` | `2026-05-17` |
+
+---
+
+## 4_MAINTENANCE
+
+| Action | Quand |
+|--------|-------|
+| Ajouter une entrée | Nouveau child GO stratégie créé |
+| Mettre à jour `strategy_version` | Version bump dans le spec |
+| Mettre à jour `status` / `lifecycle` | Transition de gate documentée |
+| Retirer une entrée | Stratégie retirée (retirement confirmé) |
+
+---
+
+## 5_INVARIANTS
+
+- Toute entrée doit avoir un `strategy_id` non null.
+- Toute entrée doit avoir un child GO ouvert avec `parent_go` référencé.
+- Toute entrée doit avoir un `docs_path` pointant vers des fichiers existants.
+- `lifecycle` initial = `CANDIDATE`.
+- `perf_status` initial = `UNMEASURED`.
+- Aucune entrée ne déclenche de runtime par sa seule présence dans ce registre.
+
+---
+
+## 6_NO_RUNTIME_EFFECT
+
+Ce document est un inventaire doc-only. Il ne déclenche pas :
+
+```text
+execution code
+scheduler
+Bitget order
+Google Sheets write
+Telegram message
+```
