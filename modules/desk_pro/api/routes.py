@@ -259,6 +259,20 @@ def desk_alerts(limit: int = 10):
         "alerts": _read_alerts(limit=limit),
     }
 
+@router.post("/alert/test")
+def desk_alert_test():
+    alert = {
+        "ts": datetime.datetime.utcnow().isoformat() + "Z",
+        "status": "test",
+        "message": "Desk Pro test alert — this is a smoke test",
+    }
+    dispatch = _dispatch_alert(alert)
+    results = []
+    for d in dispatch:
+        status = "delivered" if d.get("sent") else ("failed" if d.get("reason") != "not configured" else "skipped")
+        results.append({"destination": d["destination"], "status": status, "reason": d.get("reason")})
+    return {"ok": True, "alert": alert, "dispatch": results}
+
 @router.get("/snapshot", response_model=Snapshot)
 def snapshot(source: str = "fixture"):
     t0 = time.time()
