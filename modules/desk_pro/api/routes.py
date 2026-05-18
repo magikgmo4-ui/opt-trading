@@ -3,12 +3,24 @@ from fastapi import Request
 from pathlib import Path
 import datetime
 import time
+import json
+import urllib.request
 from fastapi import APIRouter
 from fastapi.responses import HTMLResponse
 from modules.desk_pro.models import DeskForm, Snapshot, ScoreResult
 from modules.desk_pro.service.aggregator import build_snapshot
 from modules.desk_pro.service.scoring import compute_probability
 from modules.desk_pro.ui.page import render_ui_html
+
+WEBHOOK_BASE = "http://127.0.0.1:8000"
+
+def _probe_url(url: str, timeout: int = 3) -> dict | None:
+    try:
+        req = urllib.request.Request(url)
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return json.loads(resp.read())
+    except Exception:
+        return None
 
 router = APIRouter(prefix="/desk", tags=["desk-pro"])
 
@@ -27,6 +39,28 @@ def _dp_log(msg: str) -> None:
 @router.get("/health")
 def health():
     return {"ok": True, "module": "desk_pro", "mode": "step2_mock"}
+
+@router.get("/status")
+def pipeline_status():
+    desk = {"ok": True, "module": "desk_pro", "mode": "step2_mock"}
+    perf = _probe_url("http://127.0.0.1:8010/perf/summary")
+    webhook_state = _probe_url(f"{WEBHOOK_BASE}/api/state")
+    webhook_risk = _probe_url(f"{WEBHOOK_BASE}/api/risk/status")
+    webhook_events = _probe_url(f"{WEBHOOK_BASE}/api/events?limit=3")
+    webhook = None
+    if webhook_state or webhook_risk:
+        webhook = {
+            "ok": True,
+            "trade_allowed": (webhook_risk or {}).get("trade_allowed"),
+            "active_engine": (webhook_state or {}).get("active_engine"),
+        }
+    return {
+        "desk_pro": desk,
+        "perf": perf,
+        "webhook": webhook,
+        "recent_webhook_events": (webhook_events or {}).get("events"),
+        "ts": datetime.datetime.utcnow().isoformat() + "Z",
+    }
 
 @router.get("/snapshot", response_model=Snapshot)
 def snapshot(source: str = "fixture"):
