@@ -19,6 +19,10 @@ ALERTS_JSONL = Path("/opt/trading/tmp/desk_pro_alerts.jsonl")
 _desk_errors: list[dict] = []
 _alert_state: dict = {"last_status": None, "last_ts": None, "cooldown_until": None}
 
+# ----- Alert destinations (optional, read from env at dispatch time) -----
+def _env_str(k: str) -> str:
+    return __import__("os").environ.get(k, "").strip()
+
 def _probe_url(url: str, timeout: int = 3) -> dict | None:
     label = url.split("?")[0] if "?" in url else url
     try:
@@ -113,10 +117,11 @@ def _check_alert(health_status: str) -> dict:
                 f.write(json.dumps(alert) + "\n")
         except Exception:
             pass
+        dispatch = _dispatch_alert(alert)
         _alert_state["last_status"] = health_status
         _alert_state["last_ts"] = now
         _alert_state["cooldown_until"] = now + datetime.timedelta(seconds=ALERT_COOLDOWN_SEC)
-        return {"triggered": True, "status": health_status, "ts": alert["ts"], "cooldown_sec": ALERT_COOLDOWN_SEC}
+        return {"triggered": True, "status": health_status, "ts": alert["ts"], "cooldown_sec": ALERT_COOLDOWN_SEC, "dispatch": dispatch}
     _alert_state["last_status"] = health_status
     _alert_state["last_ts"] = now
     return {"triggered": False, "reason": "healthy"}
@@ -129,6 +134,43 @@ def _read_alerts(limit: int = 10) -> list:
         return [json.loads(l) for l in lines[-limit:]]
     except Exception:
         return []
+
+def _telegram_send(text: str) -> dict:
+    token = _env_str("TELEGRAM_BOT_TOKEN")
+    chat_id = _env_str("TELEGRAM_CHAT_ID")
+    if not token or not chat_id:
+        return {"sent": False, "reason": "not configured"}
+    try:
+        url = f"https://api.telegram.org/bot{token}/sendMessage"
+        payload = json.dumps({"chat_id": chat_id, "text": text, "parse_mode": "HTML"}).encode()
+        req = urllib.request.Request(url, data=payload, method="POST")
+        req.add_header("Content-Type", "application/json")
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            body = json.loads(resp.read())
+            return {"sent": body.get("ok", False), "reason": "telegram"}
+    except Exception as e:
+        return {"sent": False, "reason": str(e)}
+
+def _webhook_send(alert: dict) -> dict:
+    url = _env_str("ALERT_WEBHOOK_URL")
+    if not url:
+        return {"sent": False, "reason": "not configured"}
+    try:
+        payload = json.dumps(alert).encode()
+        req = urllib.request.Request(url, data=payload, method="POST")
+        req.add_header("Content-Type", "application/json")
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            return {"sent": resp.status == 200, "reason": f"webhook status={resp.status}"}
+    except Exception as e:
+        return {"sent": False, "reason": str(e)}
+
+def _dispatch_alert(alert: dict) -> list:
+    results = []
+    tg = _telegram_send(f"Desk Pro ALERT: status={alert.get('status')}")
+    results.append({"destination": "telegram", **tg})
+    wh = _webhook_send(alert)
+    results.append({"destination": "webhook", **wh})
+    return results
 
 router = APIRouter(prefix="/desk", tags=["desk-pro"])
 
@@ -205,6 +247,10 @@ def desk_errors(limit: int = 20):
 def desk_alerts(limit: int = 10):
     return {
         "ok": True,
+        "destinations": {
+            "telegram": bool(_env_str("TELEGRAM_BOT_TOKEN") and _env_str("TELEGRAM_CHAT_ID")),
+            "webhook": bool(_env_str("ALERT_WEBHOOK_URL")),
+        },
         "state": {
             "last_status": _alert_state.get("last_status"),
             "last_ts": _alert_state["last_ts"].isoformat() + "Z" if _alert_state.get("last_ts") else None,

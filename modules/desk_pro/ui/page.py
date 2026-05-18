@@ -255,6 +255,12 @@ async function refreshStatus(){
       if(a.triggered){
         html += '<div style="margin-top:6px;font-size:12px;padding:4px 8px;border-radius:6px;background:#fff3e0;border:1px solid #e65100">';
         html += '<strong>ALERT:</strong> status=' + a.status + ' cooldown=' + a.cooldown_sec + 's';
+        if(a.dispatch){
+          for(const d of a.dispatch){
+            const ok = d.sent ? '✓' : '✗';
+            html += ' <span class="muted">' + ok + ' ' + d.destination + '</span>';
+          }
+        }
         html += '</div>';
       } else if(a.reason === 'cooldown'){
         html += '<div style="margin-top:6px;font-size:12px;color:#888">';
