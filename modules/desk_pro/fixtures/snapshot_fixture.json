@@ -1,0 +1,14 @@
+{
+  "meta": {"mode": "fixture", "fixture_version": "1"},
+  "metrics": [
+    {"source": "fixture", "asset": "BTC", "metric": "price", "value": 67800, "unit": "USD", "window": "spot", "quality": 0.95, "notes": "fixture price"},
+    {"source": "fixture", "asset": "BTC", "metric": "daily_change", "value": 1.2, "unit": "pct", "window": "D", "quality": 0.9, "notes": "fixture change"},
+    {"source": "fixture", "asset": "BTC", "metric": "volume_24h", "value": 28500000000, "unit": "USD", "window": "D", "quality": 0.85, "notes": "fixture volume"},
+    {"source": "fixture", "asset": "ETH", "metric": "price", "value": 3450, "unit": "USD", "window": "spot", "quality": 0.95, "notes": "fixture price"},
+    {"source": "fixture", "asset": "ETH", "metric": "daily_change", "value": -0.8, "unit": "pct", "window": "D", "quality": 0.9, "notes": "fixture change"},
+    {"source": "fixture", "asset": "DXY", "metric": "trend", "value": "flat", "unit": "", "window": "D", "quality": 0.8, "notes": "fixture trend"},
+    {"source": "fixture", "asset": "DXY", "metric": "level", "value": 104.5, "unit": "index", "window": "spot", "quality": 0.85, "notes": "fixture level"},
+    {"source": "fixture", "asset": "SOL", "metric": "price", "value": 142, "unit": "USD", "window": "spot", "quality": 0.9, "notes": "fixture price"},
+    {"source": "fixture", "asset": "XAUUSD", "metric": "price", "value": 2350, "unit": "USD", "window": "spot", "quality": 0.95, "notes": "fixture price"}
+  ]
+}
