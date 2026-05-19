@@ -1,0 +1,70 @@
+# STRICT WORKER TASK — GO_STRICT_WORKERS_WRITE_GATED_DRYRUN_MATRIX_01
+## VALIDATION: PASS
+## TIMESTAMP: 2026-05-19T13:49:30Z
+
+### JOB
+- JOB_ID: GO_STRICT_WORKERS_WRITE_GATED_DRYRUN_MATRIX_01
+- TASK_TYPE: WRITE_GATED
+- WORKER: glm-5.1
+- AUTONOMY_MAX: A4
+- WRITES_CODE: False
+- VALID_WORKERS: big-pickle, glm-5.1, kimi-k2.6, qwen3.6-plus
+
+### ALLOWED_INPUTS
+  - docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_CHILD_*/**
+  - reports/ai/workers/**
+  - scripts/ai/workers/job_packets/**
+  - scripts/ai/workers/tasks.index.json
+  - scripts/ai/workers/models.registry.json
+
+### REQUIRED_OUTPUT_SECTIONS
+1. 13_ESTABLISHED
+2. 14_HYPOTHESIS
+3. WRITE_PLAN
+4. WRITE_DIFF_ATTENDU
+5. VALIDATION_EXTERNE
+6. DRY_RUN_RESULT
+7. RISQUES
+8. VERDICT_WRITE_GATED
+
+### GLOBAL_INVARIANTS
+  - no_secrets: True
+  - no_env_files: True
+  - no_git_write_ops: True
+  - no_runtime_write_by_default: True
+  - requires_external_validation: True
+  - output_status: DRAFT_ONLY
+  - only_verified_models: True
+
+### DENIED_COMMANDS
+  - git add
+  - git commit
+  - git push
+  - git rebase
+  - git merge
+  - rm -rf
+  - chmod -R
+  - chown -R
+
+### DENIED_INPUT_PATTERNS
+  - .env
+  - **/.env
+  - **/*secret*
+  - **/*token*
+  - **/*credential*
+  - **/id_rsa
+  - **/id_ed25519
+  - **/*.pem
+  - **/*.key
+
+### WARNINGS
+  None
+
+### INSTRUCTIONS
+1. Read ONLY the allowed_inputs listed above.
+2. Do NOT modify any file in the repository.
+3. Do NOT execute any denied command.
+4. Do NOT read any secret, .env, token, key, or credential file.
+5. Produce output DRAFT_ONLY in: /home/fantome/opt-trading-clean/reports/ai/workers/GO_STRICT_WORKERS_WRITE_GATED_DRYRUN_MATRIX_01.md
+6. Include ALL required sections in your output.
+7. End your output with: ## VERDICT_DRAFT_ONLY
