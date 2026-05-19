@@ -13,6 +13,8 @@ import socket
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+_WINDOWS = "windows"
+
 try:
     import yaml as _yaml
     _HAS_YAML = True
@@ -75,8 +77,19 @@ class MachineMap:
         """Return check results for forbidden services that are currently active."""
         from modules.runtime_health.healthcheck import _run
         forbidden = scope.get("forbidden_services", [])
+        os_family = scope.get("os_family", "linux").lower()
         results = []
         for name in forbidden:
+            if os_family == _WINDOWS:
+                results.append({
+                    "check": f"forbidden_service:{name}",
+                    "service": name,
+                    "active": "n/a",
+                    "forbidden": True,
+                    "status": PASS,
+                    "detail": "skip — no systemd on Windows",
+                })
+                continue
             rc, active, _ = _run(["systemctl", "is-active", name])
             is_active = active == "active"
             results.append({
@@ -92,6 +105,7 @@ class MachineMap:
     def build_config_from_scope(self, scope: Dict[str, Any], base_cfg: Dict[str, Any]) -> Dict[str, Any]:
         """Merge machine scope into healthcheck base config."""
         cfg = dict(base_cfg)
+        os_family = scope.get("os_family", "linux").lower()
 
         # Services
         cfg["services"] = {
@@ -167,6 +181,22 @@ class MachineMap:
                     "optional": scope.get("optional_tmux_sessions", []),
                 }
             }
+
+        # Windows: resolve data_dir from candidates; clear Linux-only log files
+        if os_family == _WINDOWS:
+            candidates = scope.get("data_dir_candidates", [])
+            if candidates:
+                resolved = None
+                for c in candidates:
+                    expanded = os.path.expandvars(c)
+                    if Path(expanded).exists():
+                        resolved = expanded
+                        break
+                cfg["data_dir"] = resolved if resolved else os.path.expandvars(candidates[0])
+            if "log_files" not in cfg.get("logs", {}):
+                cfg.setdefault("logs", {})["log_files"] = {"required": [], "optional": []}
+            elif "optional_log_files" not in scope:
+                cfg["logs"]["log_files"] = {"required": [], "optional": []}
 
         return cfg
 

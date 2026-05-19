@@ -148,33 +148,38 @@ machines:
 
   cursor-ai:
     role: ide_patch_operator
-    description: "Dev/IDE, patchs, documentation, exécution GO"
+    description: "Dev/IDE, patchs, documentation, exécution GO — Windows"
+    os_family: windows
+
+    repo_root_candidates:
+      - "%USERPROFILE%\\opt-trading"
+      - "C:\\Users\\ghost\\opt-trading"
+      - "C:\\wrr01"
+      - "C:\\wrr02"
+
+    data_dir_candidates:
+      - "%USERPROFILE%\\opt-trading\\data\\runtime_health"
+      - "C:\\Users\\ghost\\opt-trading\\data\\runtime_health"
 
     required_services: []
-
     optional_services: []
-
     required_timers: []
-
     optional_timers: []
 
-    required_venvs:
-      - path: /opt/trading/venv
-        label: main
-        required: false
+    required_venvs: []
+    required_venvs_windows:
+      - ".venv"
+      - "venv"
 
     required_ports: []
-
     optional_ports: []
 
-    required_paths:
-      - path: /opt/trading
-        writable: false
-
+    required_paths: []
+    required_paths_windows:
+      - "%USERPROFILE%\\opt-trading"
     optional_paths: []
 
     required_env: []
-
     optional_env:
       - TELEGRAM_BOT_TOKEN
       - OPENAI_API_KEY
@@ -188,6 +193,10 @@ machines:
       - daily-session.service
 
     log_units: []
+    optional_http_checks: []
+    optional_artifact_paths: []
+    optional_log_files: []
+    optional_tmux_sessions: []
 
   fantome:
     role: secondary_operator

@@ -9,6 +9,7 @@ Exit: 0=PASS or WARN, 1=FAIL bloquant
 import argparse
 import json
 import os
+import platform
 import socket
 import subprocess
 import sys
@@ -16,6 +17,8 @@ import time
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
+
+_IS_WINDOWS = platform.system() == "Windows"
 
 try:
     import urllib.request as _urllib_request
@@ -251,6 +254,10 @@ def check_venv(path: str, label: str = "", required: bool = True) -> dict:
     python_bin = venv_path / "bin" / "python3"
     if not python_bin.exists():
         python_bin = venv_path / "bin" / "python"
+    if not python_bin.exists():
+        python_bin = venv_path / "Scripts" / "python.exe"
+    if not python_bin.exists():
+        python_bin = venv_path / "Scripts" / "python"
 
     if not venv_path.exists():
         return {

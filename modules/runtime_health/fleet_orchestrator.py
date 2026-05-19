@@ -19,6 +19,7 @@ Output:
 import argparse
 import json
 import os
+import re
 import socket
 import subprocess
 import sys
@@ -105,19 +106,64 @@ def _collect_local(data_dir: str) -> Optional[Dict]:
     return None
 
 
+def _collect_via_ssh_windows(machine: str, data_dir_candidates: List[str]) -> Optional[Dict]:
+    """SSH to a Windows machine and collect latest.json via PowerShell.
+
+    Converts %VAR% → $env:VAR so PowerShell expands them on the remote host.
+    """
+    if not data_dir_candidates:
+        return None
+
+    ps_paths = []
+    for raw in data_dir_candidates:
+        ps_dir = re.sub(r'%([^%]+)%', r'$env:\1', raw)
+        ps_paths.append(f'"{ps_dir}\\latest.json"')
+
+    candidates_expr = ", ".join(ps_paths)
+    ps_script = (
+        f"$paths = @({candidates_expr}); "
+        "foreach ($p in $paths) { "
+        "if (Test-Path $p) { Get-Content -Raw $p; exit 0 } "
+        "}"
+    )
+
+    rc, out, _ = _run(
+        ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=5",
+         machine, "powershell", "-NoProfile", "-NonInteractive", "-Command", ps_script],
+        timeout=12,
+    )
+    if rc == 0 and out.strip().startswith("{"):
+        try:
+            return json.loads(out.strip())
+        except Exception:
+            pass
+    return None
+
+
 def collect_machine_status(
     machine: str,
     hostname: str,
     data_dir: str,
+    machine_scope: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
-    """Collect latest.json for a machine. Try sshfs, then ssh, then local."""
+    """Collect latest.json for a machine. Try sshfs, then ssh, then local.
+
+    For Windows machines (os_family: windows), uses SSH + PowerShell instead
+    of the Linux 'cat /opt/trading/...' fallback.
+    """
     collected: Optional[Dict] = None
     source = "none"
+    os_family = (machine_scope or {}).get("os_family", "linux").lower()
 
     if machine == hostname:
         collected = _collect_local(data_dir)
         if collected:
             source = "local"
+    elif os_family == "windows":
+        dir_candidates = (machine_scope or {}).get("data_dir_candidates", [])
+        collected = _collect_via_ssh_windows(machine, dir_candidates)
+        if collected:
+            source = "ssh_windows"
     else:
         collected = _collect_via_sshfs(machine, data_dir)
         if collected:
@@ -188,8 +234,10 @@ def run_fleet(
     hostname = socket.gethostname()
 
     machine_results: List[Dict] = []
+    all_scopes = map_data.get("machines", {})
     for machine in known_machines:
-        result = collect_machine_status(machine, hostname, data_dir)
+        machine_scope = all_scopes.get(machine, {})
+        result = collect_machine_status(machine, hostname, data_dir, machine_scope)
         machine_results.append(result)
 
     healthy = [r["machine"] for r in machine_results if r["status"] == PASS]
