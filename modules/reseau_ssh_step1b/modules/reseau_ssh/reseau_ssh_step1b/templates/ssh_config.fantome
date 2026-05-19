@@ -1,0 +1,32 @@
+# === reseau_ssh canonical config (fantome) ===
+# File: /home/fantome/.ssh/config
+# Key: ~/.ssh/id_ed25519_phase3_smoke (IdentitiesOnly)
+# Aliases: db-layer, admin-trading, student, cursor-ai
+
+Host *
+  ServerAliveInterval 30
+  ServerAliveCountMax 3
+  TCPKeepAlive yes
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_ed25519_phase3_smoke
+  StrictHostKeyChecking accept-new
+
+Host db-layer
+  HostName 192.168.0.100
+  User ghost
+  Port 22
+
+Host admin-trading
+  HostName 192.168.0.111
+  User ghost
+  Port 22
+
+Host student
+  HostName 192.168.0.142
+  User student
+  Port 22
+
+Host cursor-ai
+  HostName 192.168.0.177
+  User ghost
+  Port 22
