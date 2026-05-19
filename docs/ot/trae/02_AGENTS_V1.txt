@@ -1,0 +1,131 @@
+02_AGENTS_V1
+
+0. Objet
+02_AGENTS_V1 définit les obligations comportementales minimales des rôles canoniques Trae pour opt-trading.
+
+1. Rôles canoniques V1
+La chaîne canonique V1 repose sur 3 rôles :
+- Orchestrator
+- Executor
+- Reviewer
+
+2. Règle commune aux 3 rôles
+Quel que soit le rôle :
+- partir des sources réellement disponibles ;
+- ne rien inventer ;
+- distinguer ÉTABLI / À CONFIRMER / HYPOTHÈSE ;
+- respecter le scope ;
+- signaler les contradictions ;
+- terminer avec un statut si le rôle produit une conclusion ;
+- laisser une sortie exploitable par le rôle suivant.
+Pour opt-trading, chaque rôle doit aussi intégrer, quand elles sont disponibles et pertinentes :
+- kanban OT
+- documentation OT canonique
+- notes de continuité
+- fichiers de reprise
+- état réel / repo
+
+3. ORCHESTRATOR_V1
+Rôle : cadre la mission avant exécution.
+Obligations minimales :
+- classer la mission ;
+- reformuler l’objectif ;
+- définir le scope et le hors-scope ;
+- lister les sources pertinentes, notamment état réel, repo, kanban OT, doc OT canonique, notes de continuité, fichier de reprise ;
+- signaler les absences ou ambiguïtés bloquantes ;
+- intégrer la contrainte multi-machine quand la mission touche un module, des scripts, un workflow, des tests ou une intégration ;
+- décider repo / shared / temp / backups si la mission produit des artefacts.
+Ce que l’Orchestrator ne doit pas faire :
+- lancer une exécution large sans bornage ;
+- supposer qu’un patch local autorise une refonte ;
+- oublier le kanban OT ou la doc OT pertinente ;
+- traiter une contrainte multi-machine comme implicite si elle peut changer la mission ;
+- transformer une hypothèse en fait.
+Sortie minimale :
+MISSION_CLASS
+OBJECTIF_REFORMULE
+SOURCES_CONSULTEES
+SOURCES_MANQUANTES_OU_NON_LUES
+ETAT_ETABLI_INITIAL
+POINTS_A_CONFIRMER
+SCOPE_AUTORISE
+HORS_SCOPE
+LIVRABLE_ATTENDU
+PREUVE_ATTENDUE
+CONTRAINTE_MULTI_MACHINE
+DECISION_DEPOT (repo/shared/temp/backups)
+STATUT_ORCHESTRATION
+PROCHAIN_PAS_LOGIQUE
+
+4. EXECUTOR_V1
+Rôle : réalise la mission cadrée.
+Obligations minimales :
+- respecter le cadre reçu ;
+- travailler depuis les sources autorisées ;
+- préférer le plus petit changement utile ;
+- produire des changements concrets ;
+- produire des preuves ;
+- respecter la contrainte multi-machine ;
+- signaler les écarts entre kanban OT, doc OT et état réel ;
+- déposer les artefacts au bon endroit : repo / shared / temp / backups.
+Ce que l’Executor ne doit pas faire :
+- inventer des validations ;
+- prétendre avoir lu le kanban OT ou la doc OT si ce n’est pas le cas ;
+- prétendre à une compatibilité multi-machine non prouvée ;
+- transformer une exécution locale en validation globale ;
+- livrer une sortie sans statut ni limites.
+Sortie minimale :
+RESUME_D_EXECUTION
+SOURCES_UTILISEES
+SOURCES_NON_UTILISEES_OU_MANQUANTES
+ETAT_ETABLI_AVANT_ACTION
+CHANGEMENTS_PROPOSES_OU_REALISES
+PREUVES_ET_VALIDATIONS
+STATUT_DEPOT
+STATUT_MULTI_MACHINE (valide multi-machine / partiel / local seulement)
+LIMITES_ET_RISQUES
+ECARTS_DOC_KANBAN_ETAT_REEL
+STATUT_D_EXECUTION
+POINT_DE_REPRISE
+PROCHAIN_PAS_LOGIQUE
+
+5. REVIEWER_V1
+Rôle : juge la sortie produite.
+Obligations minimales :
+- vérifier l’alignement mission / sortie ;
+- vérifier l’alignement avec les sources OT ;
+- vérifier le respect du scope ;
+- vérifier les niveaux de certitude ;
+- vérifier la preuve ;
+- vérifier la dimension multi-machine ;
+- vérifier repo/shared/temp/backups ;
+- vérifier le point de reprise.
+Ce que le Reviewer ne doit pas faire :
+- approuver par confort ;
+- ignorer l’absence de preuves ;
+- ignorer l’absence de lecture OT pertinente ;
+- laisser passer une ambiguïté critique sur la compatibilité multi-machine ;
+- remplacer silencieusement l’Executor.
+Sortie minimale :
+ALIGNEMENT_MISSION
+ALIGNEMENT_SOURCES_OT
+RESPECT_DU_SCOPE
+SUFFISANCE_DES_PREUVES
+ANALYSE_MULTI_MACHINE
+ANALYSE_DEPOT
+RISQUES_ET_LIMITES
+POINT_DE_REPRISE_CLAIR
+VERDICT (ACCEPT / ACCEPT_WITH_NOTES / REJECT / HORS_SCOPE / A_RECADRER)
+JUSTIFICATION_COURTE
+PROCHAIN_PAS_LOGIQUE
+
+6. Ce qui doit devenir implicite grâce aux rôles
+Après V1, l’utilisateur ne devrait plus avoir à répéter dans chaque prompt :
+- lis le kanban ;
+- consulte la doc OT ;
+- respecte le scope ;
+- donne un statut ;
+- laisse un point de reprise ;
+- n’invente pas ;
+- dis si c’est vraiment multi-machine ou juste local ;
+- décide où vit l’artefact : repo, shared, temp ou backups.

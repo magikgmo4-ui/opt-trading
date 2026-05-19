@@ -1,0 +1,52 @@
+{
+  "team_id": "90141225112",
+  "spaces": {
+    "CANON_GOVERNANCE": "90145495925",
+    "MODULES": "90145495927",
+    "MACHINES": "90145495929",
+    "TRADING_OPS": "90145495931"
+  },
+  "list_id": "901416183794",
+  "fields": {},
+  "task_ids": [
+    "86b9tqe3y",
+    "86b9tqe46"
+  ],
+  "log": [
+    "SPACE CREATED: CANON_GOVERNANCE -> 90145495925",
+    "SPACE CREATED: MODULES -> 90145495927",
+    "SPACE CREATED: MACHINES -> 90145495929",
+    "SPACE CREATED: TRADING_OPS -> 90145495931",
+    "SPACE FAIL INCIDENTS_DEBUG: 403 {\"err\":\"Your plan is limited to 5 usages of feature, 5 usage.\",\"ECODE\":\"PAYWALL_004\"}",
+    "SPACE FAIL ARCHIVE_CLOSED: 403 {\"err\":\"Your plan is limited to 5 usages of feature, 5 usage.\",\"ECODE\":\"PAYWALL_004\"}",
+    "LIST CREATED: GO_ACTIVE -> 901416183794",
+    "FIELD FAIL GO_ID: 400 {\"err\":\"A Custom Field ClickApp is not enabled in this location.\",\"ECODE\":\"FIELD_605\"}",
+    "FIELD FAIL GO_TYPE: 400 {\"err\":\"A Custom Field ClickApp is not enabled in this location.\",\"ECODE\":\"FIELD_605\"}",
+    "FIELD FAIL PARENT_GO: 400 {\"err\":\"A Custom Field ClickApp is not enabled in this location.\",\"ECODE\":\"FIELD_605\"}",
+    "FIELD FAIL MODULE: 400 {\"err\":\"A Custom Field ClickApp is not enabled in this location.\",\"ECODE\":\"FIELD_605\"}",
+    "FIELD FAIL SURFACE: 400 {\"err\":\"A Custom Field ClickApp is not enabled in this location.\",\"ECODE\":\"FIELD_605\"}",
+    "FIELD FAIL MACHINE_OWNER: 400 {\"err\":\"A Custom Field ClickApp is not enabled in this location.\",\"ECODE\":\"FIELD_605\"}",
+    "FIELD FAIL BRANCH: 400 {\"err\":\"A Custom Field ClickApp is not enabled in this location.\",\"ECODE\":\"FIELD_605\"}",
+    "FIELD FAIL BASE_BRANCH: 400 {\"err\":\"A Custom Field ClickApp is not enabled in this location.\",\"ECODE\":\"FIELD_605\"}",
+    "FIELD FAIL DOC_PATH: 400 {\"err\":\"A Custom Field ClickApp is not enabled in this location.\",\"ECODE\":\"FIELD_605\"}",
+    "FIELD FAIL PR_URL: 400 {\"err\":\"A Custom Field ClickApp is not enabled in this location.\",\"ECODE\":\"FIELD_605\"}",
+    "FIELD FAIL COMMIT_SHA: 400 {\"err\":\"A Custom Field ClickApp is not enabled in this location.\",\"ECODE\":\"FIELD_605\"}",
+    "FIELD FAIL VALIDATION_STATUS: 400 {\"err\":\"A Custom Field ClickApp is not enabled in this location.\",\"ECODE\":\"FIELD_605\"}",
+    "FIELD FAIL NEXT_GO: 400 {\"err\":\"A Custom Field ClickApp is not enabled in this location.\",\"ECODE\":\"FIELD_605\"}",
+    "FIELD FAIL RESUME_POINT: 400 {\"err\":\"A Custom Field ClickApp is not enabled in this location.\",\"ECODE\":\"FIELD_605\"}",
+    "FIELD FAIL CANON_PROOF_STATUS: 400 {\"err\":\"A Custom Field ClickApp is not enabled in this location.\",\"ECODE\":\"FIELD_605\"}",
+    "TASK CREATED: GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01 -> 86b9tqe3y",
+    "TASK CREATED: GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_EXECUTION_01 -> 86b9tqe46",
+    "DASHBOARD FAIL GO actifs: 404 404 page not found",
+    "DASHBOARD FAIL GO bloques: 404 404 page not found",
+    "DASHBOARD FAIL GO sans preuve: 404 404 page not found",
+    "DASHBOARD FAIL GO par machine: 404 404 page not found",
+    "DASHBOARD FAIL NEXT_GO: 404 404 page not found",
+    "\n=== CLICKUP EXECUTION SUMMARY ===",
+    "Team: 90141225112",
+    "Spaces created: 4",
+    "List: GO_ACTIVE -> 901416183794",
+    "Custom fields: 0",
+    "Tasks: 2"
+  ]
+}

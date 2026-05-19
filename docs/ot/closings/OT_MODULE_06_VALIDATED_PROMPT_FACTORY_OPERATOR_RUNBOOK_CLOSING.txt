@@ -1,0 +1,28 @@
+# OT-MODULE-06 — VALIDATED_PROMPT_FACTORY (OPERATOR RUNBOOK) — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-14
+
+## 1. RÉSUMÉ EXÉCUTIF
+- Runbook opérateur minimal livré et stabilisé.
+- Support canonique : README du module (pas de doc additionnelle redondante).
+- Kanban mis à jour ; point de reprise laissé.
+
+## 2. LIVRABLE (CANON)
+- `modules/validated_prompt_factory/README.md`
+  - sections : “Runbook opérateur (canonique, minimal)” + “Erreurs attendues / lecture rapide”
+
+## 3. RÈGLES OPÉRATEUR (RAPPEL)
+- Nominal Linux cible : utiliser `cmd-validated_prompt_factory` et `sanity-validated_prompt_factory` depuis `/opt/trading`.
+- Inputs standard : `modules/validated_prompt_factory/inputs/*`.
+- Output : `modules/validated_prompt_factory/output/prompt_<mode>.txt`.
+
+## 4. IMPACT KANBAN
+- OT-MODULE-06 ajouté en CLOSE (PASS).
+- Reprise basculée.
+
+## 5. VERDICT FINAL
+**Status : CLOSE (PASS).**
+
+## 6. POINT DE REPRISE
+> **GO_OT_MODULE_07_VALIDATED_PROMPT_FACTORY_MENU_INTERACTIVE_CHECK**
+

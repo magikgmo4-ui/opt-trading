@@ -1,0 +1,20 @@
+[Unit]
+Description=Persistent SSHFS mount for /shared (opt-trading)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User={{LOCAL_USER}}
+Group={{LOCAL_GROUP}}
+EnvironmentFile=/etc/opt-trading/shared_sshfs_permanent.env
+ExecStartPre=/usr/bin/test -x /opt/trading/scripts/shared_sshfs_permanent_mount.sh
+ExecStartPre=/usr/bin/test -x /opt/trading/scripts/shared_sshfs_permanent_umount.sh
+ExecStart=/opt/trading/scripts/shared_sshfs_permanent_mount.sh
+ExecStop=/opt/trading/scripts/shared_sshfs_permanent_umount.sh
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=15
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,95 @@
+GO_OPT_TRADING_REPO_KG_PARENT_GRAPH_SYSTEM_01 — SESSION_REPRISE
+
+1_MASTER_TARGET
+Construire un système repo -> producer -> graph -> views -> ACE KG, entièrement repo-first, pour visualiser opt-trading sous les angles GO, docs, modules, branches, machines, reprises et risques.
+
+7_CANONICAL_STATE
+- Repo : magikgmo4-ui/opt-trading
+- Base canonique : sot/mainline
+- Branche dédiée : go/GO_OPT_TRADING_REPO_KG_PARENT_GRAPH_SYSTEM_01
+- Dossier chantier : docs/chantiers/GO_OPT_TRADING_REPO_KG_PARENT_GRAPH_SYSTEM_01/
+- Surface /bundles/ : absente
+- Bundle IDE courant : docs/chantiers/GO_OPT_TRADING_REPO_KG_PARENT_GRAPH_SYSTEM_01/ide_bundle/
+- Graph externe : projection/consumer, jamais source canonique
+
+13_ESTABLISHED
+Documents présents et à relire dans cet ordre :
+1. 01_cadrage_parent.md
+2. 05_master_plan_final_product.md
+3. 06_graph_schema_v1.md
+4. 07_producer_spec_v1.md
+5. 08_consumer_ace_kg_method_v1.md
+6. 09_graph_views_v1.md
+7. 12_indexation_alignment_gap_and_patch.md
+8. 13_resume_note_bundles_surface_absent.md
+9. ide_bundle/README_BUNDLE.md
+10. ide_bundle/01_GO_PROMPT_TESTS_ULTRA_CONCRETS.md
+11. ide_bundle/02_TEST_PLAN_REPO_KG.md
+12. ide_bundle/03_ACCEPTANCE_CHECKLIST.md
+13. ide_bundle/04_EXPECTED_OUTPUTS.md
+14. ide_bundle/05_OPERATOR_NOTES.md
+
+11_KEY_DECISIONS
+- Repo opt-trading = source canonique.
+- Graph = projection reconstruisible.
+- ACE Knowledge Graph = consumer visuel uniquement.
+- Producer = obligatoire pour alimenter le graph.
+- Producer V1 = lecture seule.
+- Aucune création implicite de /bundles/.
+- Indexation souveraine GO_INDEX / BRANCH_STATE / REPRISE à appliquer seulement via patch contrôlé.
+
+12_INVARIANTS
+- Ne pas modifier GO_INDEX.md avec contenu partiel ou placeholder.
+- Ne pas déplacer ide_bundle vers /bundles/ sans GO dédié.
+- Ne pas scanner secrets, .env, tokens, clés API.
+- Ne pas traiter HYPOTHESIS comme ESTABLISHED.
+- Toujours préférer GAP explicite à fausse conformité.
+
+15_REMAINING_GAP
+- Indexation canonique préparée mais non appliquée dans GO_INDEX.md, BRANCH_STATE.md, REPRISE.md.
+- Patch exact documenté dans 12_indexation_alignment_gap_and_patch.md.
+- Tests ultra concrets prêts mais pas encore exécutés.
+- Acceptance tests formels 10_acceptance_tests_v1.md encore à créer après exécution ou avant implémentation Producer.
+
+16_TODO
+P0:
+1. Ouvrir ide_bundle/ dans IDE.
+2. Lancer ide_bundle/01_GO_PROMPT_TESTS_ULTRA_CONCRETS.md.
+3. Suivre ide_bundle/02_TEST_PLAN_REPO_KG.md.
+4. Produire REPORT_TESTS_ULTRA_CONCRETS.md.
+5. Produire GAP_REPORT_TESTS_ULTRA_CONCRETS.md.
+6. Remplir 03_ACCEPTANCE_CHECKLIST.md.
+
+P1:
+1. Appliquer patch contrôlé d'indexation depuis 12_indexation_alignment_gap_and_patch.md.
+2. Créer 10_acceptance_tests_v1.md.
+3. Créer 11_security_and_no_secret_policy.md.
+
+P2:
+1. Implémenter Producer minimal lecture seule.
+2. Générer graph_bundle.demo.json.
+3. Tester rendu Markdown Ace KG.
+
+17_RESUME_POINT
+Reprise indépendante de session :
+- checkout branche : go/GO_OPT_TRADING_REPO_KG_PARENT_GRAPH_SYSTEM_01
+- lire : SESSION_REPRISE.txt
+- ouvrir : docs/chantiers/GO_OPT_TRADING_REPO_KG_PARENT_GRAPH_SYSTEM_01/ide_bundle/
+- lancer : 01_GO_PROMPT_TESTS_ULTRA_CONCRETS.md
+- prochaine sortie attendue : REPORT_TESTS_ULTRA_CONCRETS.md + GAP_REPORT_TESTS_ULTRA_CONCRETS.md
+
+18_TO_DOCUMENT
+- 10_acceptance_tests_v1.md
+- 11_security_and_no_secret_policy.md
+- REPORT_TESTS_ULTRA_CONCRETS.md
+- GAP_REPORT_TESTS_ULTRA_CONCRETS.md
+
+19_TO_REMEMBER
+TAG: REPO_KG_REPRISE_LOCKED
+Le chantier Repo KG est repris depuis le repo, pas depuis la session. Le point de reprise canonique est SESSION_REPRISE.txt.
+
+TAG: IDE_BUNDLE_CURRENT_LOCATION
+Le bundle IDE courant est dans docs/chantiers/GO_OPT_TRADING_REPO_KG_PARENT_GRAPH_SYSTEM_01/ide_bundle/ parce que /bundles/ est absent.
+
+TAG: INDEXATION_PATCH_PENDING
+L'indexation GO_INDEX / BRANCH_STATE / REPRISE est préparée dans 12_indexation_alignment_gap_and_patch.md mais non appliquée aux surfaces souveraines.

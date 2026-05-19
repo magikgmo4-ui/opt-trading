@@ -1,0 +1,64 @@
+# OT-MODULE-04B — VALIDATED_PROMPT_FACTORY (LINUX TARGET SMOKE) — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-14
+
+## 1. RÉSUMÉ EXÉCUTIF
+- Smoke prouvé sur Linux réel (admin-trading) : `cmd.sh` + `sanity.sh` OK.
+- `menu.sh` non rejoué (interactif).
+- Réserve de OT-MODULE-04 levée ; kanban mis à jour ; point de reprise laissé.
+
+## 2. ENVIRONNEMENT LINUX RÉEL (ÉTABLI)
+- Hostname : `admin-trading`
+- User : `ghost`
+- Repo : `/opt/trading`
+- Shell : `/bin/bash`
+
+## 3. COMMANDES EXÉCUTÉES + SORTIES OBSERVÉES
+
+### 3.1 cmd.sh list-modes
+- Commande :
+  - `cd /opt/trading/modules/validated_prompt_factory && ./cmd.sh list-modes`
+- Sortie observée :
+  - `Available modes:` + `chatgpt_session`, `trae_module`, `trae_patch`, `bundle_transfer`
+
+### 3.2 cmd.sh generate trae_patch
+- Commande :
+  - `cd /opt/trading/modules/validated_prompt_factory && ./cmd.sh generate trae_patch inputs/synthesis_registry_central.txt`
+- Sortie observée :
+  - `Success: Generated /opt/trading/modules/validated_prompt_factory/output/prompt_trae_patch.txt`
+
+### 3.3 cmd.sh generate bundle_transfer
+- Commande :
+  - `cd /opt/trading/modules/validated_prompt_factory && ./cmd.sh generate bundle_transfer inputs/synthesis_bundle_transfer.txt`
+- Sortie observée :
+  - `Success: Generated /opt/trading/modules/validated_prompt_factory/output/prompt_bundle_transfer.txt`
+
+### 3.4 sanity.sh
+- Commande :
+  - `cd /opt/trading/modules/validated_prompt_factory && ./sanity.sh`
+- Sorties observées :
+  - `Checking Help... OK`
+  - `Checking Generation (chatgpt_session)... OK`
+  - `Checking Failure (missing section)... OK`
+  - `Sanity Check Passed.`
+
+### 3.5 échec propre
+- Commande :
+  - `cd /opt/trading/modules/validated_prompt_factory && ./cmd.sh generate trae_patch inputs/synthesis_failure_missing_section.txt`
+- Erreur observée :
+  - `Error: Missing sections in synthesis: POINT DE REPRISE`
+
+## 4. IMPACT KANBAN
+- OT-MODULE-04B ajouté en CLOSE (PASS) et reprise basculée.
+
+## 5. LIVRABLES
+- `OT_MODULE_04B_VALIDATED_PROMPT_FACTORY_LINUX_TARGET_SMOKE_REPORT.md`
+- `OT_MODULE_04B_VALIDATED_PROMPT_FACTORY_LINUX_TARGET_SMOKE_GAP_REPORT.md`
+- `OT_MODULE_04B_VALIDATED_PROMPT_FACTORY_LINUX_TARGET_SMOKE_CLOSING.txt`
+
+## 6. VERDICT FINAL
+**Status : CLOSE (PASS).**
+
+## 7. POINT DE REPRISE
+> **GO_OT_MODULE_05_VALIDATED_PROMPT_FACTORY_GLOBAL_WRAPPERS_VALIDATE**
+

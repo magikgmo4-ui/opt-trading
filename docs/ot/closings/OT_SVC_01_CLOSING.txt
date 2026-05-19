@@ -1,0 +1,29 @@
+# OT-SVC-01 — CLOSING REPORT
+
+## 1. MISSION
+Cartographie canonique Service/Timer vs On-Demand.
+
+## 2. ÉTABLI
+- Une cartographie repo/package des modes d'exécution a été produite.
+- `desk_retention` est documenté comme Timer (Systemd).
+- `vision_bot` est documenté comme Service versionné.
+- `shared_sshfs_permanent` est prouvé en live sur `db-layer` (service + mount `/shared`).
+- Plusieurs modules restent explicitement On-Demand / CLI.
+- La mission améliore nettement la lisibilité opératoire du runtime.
+
+## 3. À CONFIRMER
+- L'état réellement déployé des unités Systemd sur machines live (au-delà de `admin-trading`).
+- La généralisation de `shared_sshfs_permanent` sur d'autres machines (au-delà de `db-layer` et `student`) et sa stabilité réseau long-terme (coupure réseau “pure”).
+- Le besoin réel de WinSCP/KeepUpToDate (outil GUI) côté `cursor-ai` (SFTP direct prouvé).
+- Toute conclusion dépassant la simple lecture du repo versionné ou le drill live prouvé.
+
+## 4. VERDICT
+- La stratégie Service/Timer/On-Demand est clarifiée au niveau repo.
+- Sur `admin-trading`, une partie de la vérité live est désormais prouvée (`vision_bot.service`, `desk_retention.timer/service`).
+- Sur `db-layer`, le déploiement live `shared_sshfs_permanent` est prouvé (service + mount `/shared`).
+- La vérité de déploiement live reste partiellement non prouvée sur les autres machines.
+
+## 5. POINT DE REPRISE
+Réaliser un soak test minimal sur `db-layer` (post-boot + reconnexion réseau) et décider de l’extension éventuelle à d’autres machines.
+
+**Status : CLOSE AVEC RÉSERVE MINEURE RECONNEXION.**

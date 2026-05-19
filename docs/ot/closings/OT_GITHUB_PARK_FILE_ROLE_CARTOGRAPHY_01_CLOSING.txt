@@ -1,0 +1,54 @@
+GO: GO_GITHUB_PARK_FILE_ROLE_CARTOGRAPHY_01
+TYPE: closing
+STATUS: PASS
+UPDATED_AT: 2026-04-14
+
+BESOIN INITIAL
+- Cartographier fichier par fichier les trunks ZIP reçus selon des rôles canoniques stables.
+- Préparer une base durable pour les prochains GO de consolidation physique.
+
+CIBLE FINALE
+- Distinguer, fichier par fichier, les couches `gouvernance`, `doc`, `code`, `runtime`, `consumer`, `legacy`.
+- Identifier le prochain GO de consolidation le plus net.
+
+PLAN VALIDE
+1. Reprendre les trunks ZIP réellement inspectés.
+2. Affecter un rôle primaire à chaque fichier selon le repo, le chemin et les conventions canoniques.
+3. Agréger les résultats par repo.
+4. En tirer une lecture structurante pour le parc actif.
+5. Définir le next GO.
+
+ETAT ETABLI
+- 1984 fichiers cartographiés sur 6 trunks ZIP.
+- `opt-trading` ressort comme repo hybride : runtime + gouvernance + doc + code + legacy.
+- `localcms` reste un repo produit équilibré.
+- `openclaw` confirme sa dominante gouvernance.
+- `Llm-wiki-minimal` confirme sa réalité de lane de pré-consolidation.
+- `Llm-wiki` reste entièrement legacy.
+
+POINTS SAILLANTS
+- la dette active principale du parc se concentre toujours dans `opt-trading`
+- la famille `reseau_ssh*` ressort comme le candidat de consolidation le plus net
+- les familles `desk_pro*`, `desk_*`, `openclaw*`, `registry*`, `vision*`, `journal*`, `perf*` demandent surtout clarification/cadrage avant fusion physique
+
+FICHIERS AJOUTES
+- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/03_file_role_cartography.md
+- docs/ot/closings/OT_GITHUB_PARK_FILE_ROLE_CARTOGRAPHY_01_CLOSING.txt
+
+PREUVE GATING GO/STOP
+- prouvée
+
+LIMITE RESTANTE
+- rôle primaire seulement
+- pas de rôle secondaire par fichier
+- pas de modification physique des dossiers ni de la registry
+
+NEXT GO
+- GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03
+
+REPRISE
+- rapport canonique : docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/03_file_role_cartography.md
+- suite logique : consolidation ciblée de la famille `reseau_ssh*`
+
+MEM_CANDIDATE
+- la cartographie fichier par fichier confirme que le prochain chantier physique le plus net après la trilogie d’audit est `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`.

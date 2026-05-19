@@ -1,0 +1,50 @@
+{
+  "job_packet_id": "GO_STRICT_WORKERS_ENDPOINT_AUDIT_MATRIX_01",
+  "go_id": "GO_OPT_TRADING_STRICT_WORKERS_CHILD_WORKER_POOL_EXTENSION_01",
+  "status": "DRAFT_ONLY",
+  "task_type": "ENDPOINT_AUDIT",
+  "worker_candidates": [
+    "qwen3.5-plus",
+    "minimax-m2.5",
+    "big-pickle"
+  ],
+  "default_worker": "qwen3.5-plus",
+  "model_registry": "scripts/ai/workers/models.registry.json",
+  "task_index": "scripts/ai/workers/tasks.index.json",
+  "scope": {
+    "allowed_inputs": [
+      "scripts/ai/workers/models.registry.json",
+      "scripts/ai/workers/tasks.index.json"
+    ],
+    "denied_inputs_inherited": true,
+    "allowed_outputs": [
+      "reports/ai/workers/GO_STRICT_WORKERS_ENDPOINT_AUDIT_MATRIX_01.md"
+    ]
+  },
+  "instructions": [
+    "Query https://opencode.ai/zen/v1/models to get the current endpoint model list.",
+    "Compare endpoint models against scripts/ai/workers/models.registry.json.",
+    "Do not modify any files.",
+    "Do not update the registry automatically.",
+    "Do not run any git write commands.",
+    "Do not read any secrets, .env files, tokens, keys, or credentials.",
+    "Produce a DRAFT_ONLY report with all required sections."
+  ],
+  "required_output_sections": [
+    "ENDPOINT_CONSULTE",
+    "MODELES_TROUVES",
+    "COMPARAISON_REGISTRY",
+    "AJOUTS",
+    "RETRAITS",
+    "RECOMMANDATIONS",
+    "VERDICT_DRAFT_ONLY"
+  ],
+  "acceptance": {
+    "must_not_write_runtime": true,
+    "must_not_modify_repo": true,
+    "must_not_read_secrets": true,
+    "must_reference_only_allowed_inputs": true,
+    "must_not_update_registry": true,
+    "must_end_with_verdict_draft_only": true
+  }
+}

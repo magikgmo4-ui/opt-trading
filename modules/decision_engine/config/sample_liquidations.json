@@ -1,0 +1,20 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "liquidation_bias": "SHORTS_WIPED",
+    "intensity": "HIGH",
+    "dominant_side": "SHORT"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "liquidation_bias": "BALANCED",
+    "intensity": "LOW",
+    "dominant_side": "NEUTRAL"
+  },
+  {
+    "symbol": "SOLUSDT",
+    "liquidation_bias": "LONGS_WIPED",
+    "intensity": "HIGH",
+    "dominant_side": "LONG"
+  }
+]

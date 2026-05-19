@@ -1,0 +1,34 @@
+# Meta Index Registry
+# Source de vérité méta pour l'ensemble des registres centraux
+
+- registry_name: machines_registry
+  registry_file: registry/machines_registry.yaml
+  purpose: "Définition des nœuds d'infrastructure"
+  primary_consumer: modules/machines_registry_reader
+  scope: infrastructure
+  status: active
+  notes: "Backend-oriented. Définit les machines physiques et logiques."
+
+- registry_name: modules_registry
+  registry_file: registry/modules_registry.yaml
+  purpose: "Catalogue des modules fonctionnels"
+  primary_consumer: modules/modules_registry_reader
+  scope: functional
+  status: active
+  notes: "Centralized and consumed. Liste les domaines et dépendances."
+
+- registry_name: ui_surfaces_registry
+  registry_file: registry/ui_surfaces_registry.yaml
+  purpose: "Inventaire des points d'entrée UI/UX"
+  primary_consumer: modules/ui_registry_msi
+  scope: operational
+  status: active
+  notes: "MSI-first. Operational surface mapping."
+
+- registry_name: wrappers_registry
+  registry_file: registry/wrappers_registry.yaml
+  purpose: "Cartographie des wrappers système (menu, cmd, sanity)"
+  primary_consumer: modules/wrappers_registry_reader
+  scope: system
+  status: active
+  notes: "Command layer registry. Map les commandes globales vers les modules."

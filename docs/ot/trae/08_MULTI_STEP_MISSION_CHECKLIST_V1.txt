@@ -1,0 +1,95 @@
+08_MULTI_STEP_MISSION_CHECKLIST_V1
+
+0. Objet
+08_MULTI_STEP_MISSION_CHECKLIST_V1 définit le modèle de checklist canonique pour les missions comportant plusieurs étapes.
+
+1. Quand utiliser cette checklist
+La checklist multi-étapes devient obligatoire si la mission :
+- comporte 3 étapes ou plus ;
+- mélange plusieurs natures de travail ;
+- implique repo + shared ;
+- implique plusieurs machines ;
+- produit plusieurs artefacts ;
+- doit pouvoir être reprise plus tard sans relire toute la session.
+
+2. Principe central
+Une mission multi-étapes doit être découpée en étapes explicites, chacune avec :
+- un but ;
+- des entrées ;
+- une sortie attendue ;
+- un emplacement de dépôt ;
+- une portée machine ;
+- une preuve minimale ;
+- un statut.
+
+3. Modèle canonique
+MISSION_ID
+TITRE
+MISSION_CLASS_GLOBALE
+OBJECTIF_GLOBAL
+
+SOURCES_OT_OBLIGATOIRES
+- état réel
+- repo
+- kanban OT
+- documentation OT canonique
+- notes de continuité
+- fichier de reprise
+
+SCOPE_GLOBAL
+HORS_SCOPE_GLOBAL
+CONTRAINTE_MULTI_MACHINE_GLOBALE
+SHARED_GLOBAL
+MCP_STATUS_GLOBAL
+
+CHECKLIST_ETAPES
+
+[ETAPE_01]
+TITRE
+BUT
+MISSION_CLASS (DIAGNOSTIC / PATCH_LOCAL / MODULE_DURABLE / BUNDLE_TRANSFERT / AUDIT_REALIGNEMENT)
+INPUTS
+SORTIE_ATTENDUE
+EMPLACEMENT_SORTIE (repo / shared / temp / backups)
+SHARED_REQUIS (oui / non / recommandé)
+PORTEE_MACHINE (LOCAL_SEULEMENT / PARTIELLEMENT_PORTABLE / MULTI_MACHINE_VISE / MULTI_MACHINE_VALIDE)
+PREUVE_MINIMALE
+DEPEND_DE
+STATUT
+POINT_DE_CONTROLE_REVIEW
+
+4. Statuts recommandés
+Statuts d’étape :
+- TODO
+- IN_PROGRESS
+- BLOCKED
+- TO_REVIEW
+- DONE
+- SKIPPED
+
+Statut global :
+- NON_COMMENCEE
+- EN_COURS
+- PARTIELLE
+- A_REVOIR
+- CLOSE_PREV1
+- CLOSE
+
+5. Champs obligatoires
+EMPLACEMENT_SORTIE est obligatoire.
+PORTEE_MACHINE est obligatoire si l’étape touche module, script, menu, bundle, transfert, validation technique ou dépôt dans shared.
+PREUVE_MINIMALE est obligatoire.
+
+6. Dépendances entre étapes
+Le champ DEPEND_DE permet d’éviter les missions floues.
+Une étape bloquée doit être visible comme telle, pas absorbée silencieusement.
+
+7. Intégration au workflow
+Cette checklist doit être référencée depuis 07_POLITIQUE_INSTRUCTIONS_V1 et utilisée comme modèle dès qu’une mission devient réellement multi-étapes.
+
+8. Exemple minimal appliqué à une mission comme celle-ci
+PRE_V1_TRAE_01
+- Étape 1 : rédiger RULES
+- Étape 2 : rédiger AGENTS
+- Étape 3 : fixer shared/runtime/frontière repo
+- Étape 4 : préparer le gel pré-V1

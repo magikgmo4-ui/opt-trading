@@ -1,0 +1,64 @@
+TRAE_DOCTRINE_CHAIN_V1.1 — DOCTRINE CANONIQUE DE LA CHAÎNE TRAE
+
+## 1. OBJECTIF DU DOCUMENT
+Formaliser l’architecture doctrinale du workflow Trae en liant les trois maillons essentiels : Définition (Orchestrator), Exécution (Executor) et Validation (Reviewer). Ce document garantit l’intégrité, la traçabilité et la qualité de toute modification apportée à la base de code durable.
+
+## 2. MAILLONS DE LA CHAÎNE
+- Mission Template (Orchestrator) : Le contrat d’entrée. Définit le QUOI (Objectif), le OÙ (Scope) et le COMMENT PROUVER (Validation).
+- Execution Report Template (Executor) : La preuve du travail. Documente le FAIT (Actions), le RÉSULTAT (Logs) et la SÉCURITÉ (Rollback).
+- Review Verdict Template (Reviewer) : Le tampon de sortie. Tranche sur la CONFORMITÉ (Scope vs Réel) et la QUALITÉ (Standards).
+
+## 3. ORDRE CANONIQUE D’UTILISATION
+1. CADRAGE : L’Orchestrator produit une Mission bornée.
+2. EXÉCUTION : L’Executor réalise la Mission et produit le Rapport.
+3. AUDIT : Le Reviewer analyse le Rapport et rend le Verdict.
+4. CLÔTURE : Application du Verdict (Intégration ou Rejet).
+
+## 4. CONTRAT DE PASSAGE ENTRE LES MAILLONS
+- Mission -> Exécution : La Mission doit être sans ambiguïté. Si floue -> Blocage immédiat.
+- Exécution -> Review : Le Rapport doit contenir des preuves factuelles (Logs). Si pas de preuve -> Rejet immédiat.
+- Review -> Clôture : Le Verdict doit être explicite, justifié et proportionné. Un écart bloquant mène à REJECT ; un écart mineur, traçable et non bloquant peut relever de ACCEPT_WITH_NOTES.
+
+## 5. STATUTS ET ISSUES POSSIBLES
+- ACCEPT : Verdict de review indiquant que le livrable est conforme, prouvé et acceptable tel quel.
+- ACCEPT_WITH_NOTES : Verdict de review indiquant que le livrable est acceptable avec écarts mineurs non bloquants, à tracer explicitement.
+- REJECT : Verdict de review indiquant que le livrable n’est pas acceptable en l’état et doit repartir en correction.
+- CLOSE : Statut final de chaîne utilisé quand la review est terminée et que l’état validé a été correctement archivé.
+- POINT DE REPRISE : Prochaine étape logique ou dernier état stable à reprendre pour assurer la continuité documentaire et opérationnelle.
+
+## 6. CAUSES CLASSIQUES DE RUPTURE DE CHAÎNE
+- Mission Valise : L’Orchestrator demande trop de choses disparates.
+- Improvisation : L’Executor change l’architecture sans mandat.
+- Aveuglement : Le Reviewer valide sans lire les logs.
+- Oubli de Standard : Un module durable sans sanity.sh .
+
+## 7. RÈGLES DE TRAÇABILITÉ MINIMALE
+Pour toute chaîne complétée, on doit pouvoir retrouver :
+
+1. L’intention initiale (Prompt Mission).
+2. La preuve de succès (Logs d’exécution).
+3. La validation finale (Verdict Review).
+4. La liste des fichiers touchés.
+
+## 8. EXEMPLE CANONIQUE DE FLUX COMPLET
+1. Mission : "Patch sanity.sh du module X. Cible : sanity.sh . Interdit : tout le reste."
+2. Exécution : "Fichier modifié. Logs : SUCCESS. Rollback : git checkout."
+3. Review : "Scope OK. Logs OK. Verdict : ACCEPT."
+4. Statut Final : Verdict ACCEPT, puis état archivé en CLOSE avec point de reprise mis à jour si nécessaire.
+
+## 9. ERREURS FRÉQUENTES À ÉVITER
+- Lancer l’exécution sur une intention orale floue.
+- Accepter un rapport qui dit juste "C'est fait".
+- Utiliser ACCEPT_WITH_NOTES pour masquer un bug grave.
+- Confondre Reviewer (Auditeur Qualité) et Codeur (Correcteur).
+
+## 10. RÉSUMÉ TECHNIQUE COURT
+La TRAE_DOCTRINE_CHAIN_V1.1 est un pipeline de responsabilité séquentiel. Elle interdit l’action sans mandat (Orchestrator), l’affirmation sans preuve (Executor) et la validation sans contrôle (Reviewer). Elle transforme le développement en un processus industriel auditable, garantissant que la dette technique est contenue et que chaque ligne de code a sa justification.
+
+RÉSUMÉ DES CHANGEMENTS (V1 -> V1.1)
+
+- Distinction Verdict/Statut : Séparation claire entre les verdicts du Reviewer (ACCEPT, REJECT...) et le statut final de chaîne (CLOSE) (Section 5).
+- Proportionnalité Review : Remplacement de la règle "Si doute -> Rejet" par une approche proportionnée et justifiée (Section 4).
+- Point de Reprise : Définition élargie pour inclure la continuité opérationnelle (Section 5).
+
+POINT DE REPRISE : GO_TRAE_STATUS_POLICY_V1

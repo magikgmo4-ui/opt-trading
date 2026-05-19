@@ -1,0 +1,24 @@
+# OT-OPS-01 — CLOSING REPORT (RÉVISÉ V2)
+
+## 1. ÉTAT ÉTABLI (CE QUI EST SÛR)
+- **Matrice Opérateur** : Figée et détaillée (v2).
+- **Workflow Post Change** : La version "v2" canonique est CASSÉE (contient sudo). La version "fix3" est la seule FONCTIONNELLE.
+- **Shared SSHFS** : Audité complet et prêt pour Registry.
+- **Rôles Desk Pro** : Distinction Runner/Orchestrator clarifiée.
+
+## 2. À CONFIRMER (CE QUI RESTE FLOU)
+- **Reseau SSH** : Structure "poupée russe" (`modules/reseau_ssh/modules/...`) anormale. Nécessite un audit dédié.
+- **Deepseek Family** : Cohérence de l'ensemble (hub vs modules indépendants).
+
+## 3. ACTIONS REQUISES (SUITES LOGIQUES)
+1. **OT-OPS-02 (Repair)** : Promouvoir `fix3` vers `v2` (écrasement du code cassé) et supprimer les dossiers temporaires.
+2. **OT-REG-02 (Update)** : Ajouter `validated_prompt_factory`, `shared_sshfs_permanent`, `trae_module_validator` au registry.
+3. **OT-WRAP-01 (Deploy)** : Lancer une campagne de réinstallation des wrappers pour garantir `/usr/local/bin` à jour.
+
+## 4. RISQUES
+- Confusion persistante sur `reseau_ssh` tant que non refactoré.
+- Risque de régression si `v2` est utilisé tel quel sans le patch `fix3`.
+
+## 5. POINT DE REPRISE
+> **GO_OT_REG_02_UPDATE_REGISTRY**
+(Mettre à jour le registry avant de toucher aux fichiers/wrappers).

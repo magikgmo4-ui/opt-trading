@@ -1,0 +1,12 @@
+[Unit]
+Description=Run Bot Vision Headless Capture every 10 minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=10min
+RandomizedDelaySec=30s
+Persistent=false
+Unit=bot-vision-headless-capture.service
+
+[Install]
+WantedBy=timers.target

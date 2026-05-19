@@ -1,0 +1,34 @@
+# Journal de bord - Clôture de mission validated_prompt_factory V1
+
+**Date** : 2026-03-11
+**Module** : `modules/validated_prompt_factory`
+**Statut** : LIVRÉ / OPÉRATIONNEL / NORMALISÉ
+
+## Résumé des travaux
+Création, normalisation et validation du module `validated_prompt_factory`.
+
+### 1. Implémentation
+- Structure : `app/` (logique), `inputs/` (exemples), `output/` (génération), `scripts/` (utilitaires).
+- Cœur Python : `app/validated_prompt_factory.py` (4 modes supportés : chatgpt_session, trae_module, trae_patch, bundle_transfer).
+
+### 2. Normalisation & Découverte
+- **Scripts Canoniques** : `cmd.sh`, `menu.sh`, `sanity.sh` placés à la racine du module pour conformité avec la découverte V2.
+- **Utilitaire** : `scripts/install_shortcuts.sh` conservé pour l'installation des wrappers globaux.
+- **Découverte** :
+  - `has_sanity: yes`
+  - `has_cmd: yes`
+  - `has_menu: yes`
+  - `script_count: 1` (install_shortcuts.sh)
+- **Contextuels** : `contextuals/actions.ctx` et `commands/` présents.
+
+### 3. Validation
+- `sanity.sh` (racine) passe avec succès.
+- La génération des prompts fonctionne sur tous les modes.
+- La découverte identifie correctement le module.
+
+## TODO futur
+- Vérifier / harmoniser la convention des wrappers globaux avec le standard projet si nécessaire.
+- Intégrer ce module dans le menu ops global (`ops_menu_hub`).
+
+## Point de reprise
+`GO_PROMPT_FACTORY`

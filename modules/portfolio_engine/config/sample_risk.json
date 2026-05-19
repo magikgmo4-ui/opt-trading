@@ -1,0 +1,14 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "risk_status": "ALLOW"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "risk_status": "BLOCK"
+  },
+  {
+    "symbol": "SOLUSDT",
+    "risk_status": "ALLOW"
+  }
+]

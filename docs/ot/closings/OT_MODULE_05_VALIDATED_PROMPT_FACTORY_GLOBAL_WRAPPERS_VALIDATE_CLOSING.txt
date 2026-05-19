@@ -1,0 +1,73 @@
+# OT-MODULE-05 — VALIDATED_PROMPT_FACTORY (GLOBAL WRAPPERS VALIDATE) — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-14
+
+## 1. RÉSUMÉ EXÉCUTIF
+- Wrappers globaux prouvés sur Linux réel (admin-trading) : `cmd-validated_prompt_factory` et `sanity-validated_prompt_factory`.
+- Résolution prouvée : `/usr/local/bin/*validated_prompt_factory*` → `/opt/trading/modules/validated_prompt_factory/*`.
+- `menu-validated_prompt_factory` non rejoué (interactif) ; non bloquant.
+- Kanban mis à jour ; point de reprise laissé.
+
+## 2. ENVIRONNEMENT RÉEL
+- Hostname : `admin-trading`
+- User : `ghost`
+- Shell : `/bin/bash`
+- Repo : `/opt/trading`
+
+## 3. WRAPPERS GLOBAUX (ÉTABLI)
+- `cmd-validated_prompt_factory` : OK
+- `sanity-validated_prompt_factory` : OK
+- `menu-validated_prompt_factory` : résout OK, non testé (interactif)
+
+## 4. COMMANDES EXÉCUTÉES + SORTIES OBSERVÉES
+
+### 4.1 Résolution
+- Commande :
+  - `command -v cmd-validated_prompt_factory sanity-validated_prompt_factory menu-validated_prompt_factory`
+- Observé :
+  - `/usr/local/bin/cmd-validated_prompt_factory`
+  - `/usr/local/bin/sanity-validated_prompt_factory`
+  - `/usr/local/bin/menu-validated_prompt_factory`
+  - symlinks vers `/opt/trading/modules/validated_prompt_factory/{cmd,menu,sanity}.sh`
+
+### 4.2 list-modes (global cmd)
+- Commande :
+  - `cmd-validated_prompt_factory list-modes`
+- Sortie observée :
+  - `Available modes:` + 4 modes listés
+
+### 4.3 generate trae_patch (global cmd)
+- Commande :
+  - `cmd-validated_prompt_factory generate trae_patch modules/validated_prompt_factory/inputs/synthesis_registry_central.txt`
+- Sortie observée :
+  - `Success: Generated /opt/trading/modules/validated_prompt_factory/output/prompt_trae_patch.txt`
+
+### 4.4 generate bundle_transfer (global cmd)
+- Commande :
+  - `cmd-validated_prompt_factory generate bundle_transfer modules/validated_prompt_factory/inputs/synthesis_bundle_transfer.txt`
+- Sortie observée :
+  - `Success: Generated /opt/trading/modules/validated_prompt_factory/output/prompt_bundle_transfer.txt`
+
+### 4.5 sanity (global sanity)
+- Commande :
+  - `sanity-validated_prompt_factory`
+- Sortie observée :
+  - `Sanity Check Passed.`
+
+### 4.6 échec propre (validation)
+- Commande :
+  - `cmd-validated_prompt_factory generate trae_patch modules/validated_prompt_factory/inputs/synthesis_failure_missing_section.txt`
+- Observé :
+  - `Error: Missing sections in synthesis: POINT DE REPRISE` + `EXIT_CODE=2`
+
+## 5. LIVRABLES
+- `OT_MODULE_05_VALIDATED_PROMPT_FACTORY_GLOBAL_WRAPPERS_VALIDATE_REPORT.md`
+- `OT_MODULE_05_VALIDATED_PROMPT_FACTORY_GLOBAL_WRAPPERS_VALIDATE_GAP_REPORT.md`
+- `OT_MODULE_05_VALIDATED_PROMPT_FACTORY_GLOBAL_WRAPPERS_VALIDATE_CLOSING.txt`
+
+## 6. VERDICT FINAL
+**Status : CLOSE (PASS).**
+
+## 7. POINT DE REPRISE
+> **GO_OT_MODULE_06_VALIDATED_PROMPT_FACTORY_OPERATOR_RUNBOOK**
+

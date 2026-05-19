@@ -1,0 +1,16 @@
+06_SYNC_RULES
+
+RULE 1
+Repo = source de verite
+
+RULE 2
+ClickUp = projection uniquement
+
+RULE 3
+Pas de GO sans preuve repo
+
+RULE 4
+PASS = preuve commit ou doc
+
+RULE 5
+Pas de creation de GO depuis ClickUp

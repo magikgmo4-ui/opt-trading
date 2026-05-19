@@ -1,0 +1,29 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "execution_status": "READY",
+    "execution_mode": "PAPER",
+    "action": "PREPARE_LONG",
+    "size_hint": "HALF",
+    "max_risk_pct": 0.5,
+    "routing_hint": "paper-long"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "execution_status": "BLOCKED",
+    "execution_mode": "PAPER",
+    "action": "NO_ACTION",
+    "size_hint": "NONE",
+    "max_risk_pct": 0.0,
+    "routing_hint": "blocked"
+  },
+  {
+    "symbol": "SOLUSDT",
+    "execution_status": "READY",
+    "execution_mode": "PAPER",
+    "action": "PREPARE_SHORT",
+    "size_hint": "MICRO",
+    "max_risk_pct": 0.25,
+    "routing_hint": "paper-short"
+  }
+]

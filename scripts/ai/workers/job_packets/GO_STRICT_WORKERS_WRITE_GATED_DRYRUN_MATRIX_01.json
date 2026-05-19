@@ -1,0 +1,60 @@
+{
+  "job_packet_id": "GO_STRICT_WORKERS_WRITE_GATED_DRYRUN_MATRIX_01",
+  "go_id": "GO_OPT_TRADING_STRICT_WORKERS_CHILD_WORKER_POOL_EXTENSION_01",
+  "status": "DRAFT_ONLY",
+  "task_type": "WRITE_GATED",
+  "worker_candidates": [
+    "glm-5.1",
+    "qwen3.6-plus",
+    "kimi-k2.6",
+    "big-pickle"
+  ],
+  "default_worker": "glm-5.1",
+  "model_registry": "scripts/ai/workers/models.registry.json",
+  "task_index": "scripts/ai/workers/tasks.index.json",
+  "scope": {
+    "allowed_inputs": [
+      "docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_CHILD_*/**",
+      "reports/ai/workers/**",
+      "scripts/ai/workers/job_packets/**",
+      "scripts/ai/workers/tasks.index.json",
+      "scripts/ai/workers/models.registry.json"
+    ],
+    "denied_inputs_inherited": true,
+    "allowed_outputs": [
+      "docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_CHILD_*/**",
+      "reports/ai/workers/GO_STRICT_WORKERS_WRITE_GATED_DRYRUN_MATRIX_01.md",
+      "scripts/ai/workers/job_packets/**"
+    ]
+  },
+  "instructions": [
+    "Dry-run only. Do not perform any actual writes.",
+    "Verify write plan and allowlist before proposing any write.",
+    "Do not write to forbidden targets (GO_INDEX, BRANCH_STATE, run_task.sh, _validate_job.py, models.registry.json, tasks.index.json).",
+    "Respect max_lines_per_write of 50.",
+    "Do not read any secrets, .env files, tokens, keys, or credentials.",
+    "Do not run any git write commands.",
+    "Produce a DRAFT_ONLY report with explicit VERDICT_WRITE_GATED."
+  ],
+  "required_output_sections": [
+    "13_ESTABLISHED",
+    "14_HYPOTHESIS",
+    "WRITE_PLAN",
+    "WRITE_DIFF_ATTENDU",
+    "VALIDATION_EXTERNE",
+    "DRY_RUN_RESULT",
+    "RISQUES",
+    "VERDICT_WRITE_GATED"
+  ],
+  "acceptance": {
+    "must_not_write_runtime": true,
+    "must_not_modify_repo": true,
+    "must_not_read_secrets": true,
+    "must_reference_only_allowed_inputs": true,
+    "write_gated_dry_run": true,
+    "must_respect_allowlist": true,
+    "must_not_write_to_forbidden_targets": true,
+    "max_lines_per_write": 50,
+    "must_end_with_verdict_write_gated": true
+  }
+}

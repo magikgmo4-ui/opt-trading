@@ -1,0 +1,20 @@
+Tu produis un script shell minimal pour une preuve Hermes -> OpenClaw case 01.
+
+Contraintes impératives :
+- script très court
+- afficher seulement :
+  - bridge_case_01_ok
+  - pwd
+  - whoami
+  - date
+- ne rien installer
+- ne pas écrire dans des fichiers de production
+- ne pas faire de commit git
+- ne pas appeler de service réseau
+- ne pas lancer de processus persistant
+- terminer proprement
+
+Format attendu :
+- un seul bloc shell
+- commentaires courts
+- lisible et relisable humainement avant toute exécution

@@ -1,0 +1,44 @@
+# OT-STARTERPACK-AUDIT-01 — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-14
+
+## 1. RÉSUMÉ EXÉCUTIF
+- Audit du starter pack réalisé : corpus identifié, recroisé, et classifié (ÉTABLI / À CONFIRMER / OBSOLÈTE / MANQUANT / REDONDANT).
+- Aucun patch automatique appliqué aux docs existantes : diagnostic posé en premier, conformément à la mission.
+
+## 2. CORPUS AUDITÉ (RAPPEL)
+- `docs/master_pack/**`
+- `workflow_ai/**`
+- `docs/INDEX.md`, `docs/ROADMAP.md`
+- `opt_trading_kanban_source_of_truth_2026-03-13_updated.md`
+- docs transverses appelées : `OT_OPS_05*`, `OT_SVC_01*`
+- packs TRAE (opening/closure)
+
+## 3. ÉTABLI (POINTS FORTS)
+- Master pack présent et utile : état canonique + règles anti-dérive + matrices runtime/entrypoints.
+- Kanban source of truth présent au repo.
+- Règle workflow désormais explicite : clôture = doc canonique + kanban + point de reprise.
+
+## 4. GAPS (POINTS À TRAITER)
+- Référence non alignée : `OT_OPS_04B_STUDENT_RUNTIME_FREEZE_NOTE.md` référencé sans chemin canonique (doc présent sous `docs/ot/trae/OT_OPS_04B_STUDENT_RUNTIME_FREEZE_NOTE.md`).
+- Nommage non aligné des livrables de clôture (templates vs pratique repo).
+- Absence d’un index unique “ouvrir une session” qui impose l’ordre : règles → clôture → établi → reprise → réel.
+- Checklist fin de mission ne reprend pas explicitement la mise à jour kanban.
+- Redondances entre templates (mission template vs workflow_ai vs packs TRAE) sans règle de priorité explicite.
+
+## 5. LIVRABLES PRODUITS
+- `OT_STARTERPACK_AUDIT_01_REPORT.md`
+- `OT_STARTERPACK_AUDIT_01_GAP_REPORT.md`
+- `OT_STARTERPACK_AUDIT_01_CLOSING.txt`
+
+## 6. VERDICT FINAL
+**Status : CLOSE (AUDIT COMPLET).**
+
+## 7. POINT DE REPRISE
+> **GO_OT_STARTERPACK_PATCH_01**
+
+Patch minimal recommandé :
+1) index unique starter pack (ordre de lecture canonique),
+2) correction du lien OT_OPS_04B manquant,
+3) alignement naming clôture,
+4) intégration explicite “continuité obligatoire” (kanban + dernière clôture + reprise) dans le pack d’ouverture.

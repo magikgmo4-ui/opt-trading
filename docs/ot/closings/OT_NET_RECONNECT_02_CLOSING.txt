@@ -1,0 +1,29 @@
+# OT-NET-RECONNECT-02 — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-14
+
+## 1. Résumé exécutif
+- Connectivité SSH projet vérifiée depuis Windows (BatchMode) : `admin-trading`, `db-layer`, `student` OK.
+- Repo accessible sur `admin-trading` (`/opt/trading`) et wrappers `validated_prompt_factory` disponibles.
+- Aucun correctif réseau requis.
+
+## 2. Commandes exécutées (exactes)
+- `ssh -o BatchMode=yes -o ConnectTimeout=5 admin-trading 'echo HOST=$(hostname); echo USER=$(whoami); echo SHELL=$SHELL'`
+- `ssh -o BatchMode=yes -o ConnectTimeout=5 db-layer 'echo HOST=$(hostname); echo USER=$(whoami); echo SHELL=$SHELL'`
+- `ssh -o BatchMode=yes -o ConnectTimeout=5 student 'echo HOST=$(hostname); echo USER=$(whoami); echo SHELL=$SHELL'`
+- `ssh -o BatchMode=yes -o ConnectTimeout=5 admin-trading 'cd /opt/trading && git rev-parse --short HEAD'`
+- `ssh -o BatchMode=yes -o ConnectTimeout=5 admin-trading 'command -v cmd-validated_prompt_factory sanity-validated_prompt_factory menu-validated_prompt_factory'`
+
+## 3. Résultats observés (extraits)
+- `admin-trading` : `HOST=admin-trading`, `USER=ghost`, `SHELL=/bin/bash`
+- `db-layer` : `HOST=db-layer`, `USER=ghost`, `SHELL=/bin/bash`
+- `student` : `HOST=student`, `USER=student`, `SHELL=/bin/bash`
+- Repo admin : `f774757`
+- Wrappers : `/usr/local/bin/{cmd,sanity,menu}-validated_prompt_factory`
+
+## 4. Verdict
+**Status : PASS.**
+
+## 5. Point de reprise exact
+> **OT-NET-RECONNECT-03**
+

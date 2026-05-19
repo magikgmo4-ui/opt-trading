@@ -1,0 +1,43 @@
+OT_TRAE_RULES_V1_OPEN_01 - CLOSING
+Date (America/Montreal) : 2026-04-11
+Statut : CLOSE
+Classe : PATCH_LOCAL
+
+1. Objet
+Ouvrir explicitement la trajectoire Trae V1 par la couche Rules uniquement, après clôture de `GO_OT_TRAE_STARTERPACK_GATING_PROOF_01`, en restant strictement doc-only, sans runtime, sans code, et sans ouverture automatique Agents/Skills/MCP.
+
+2. Pré-requis vérifiés
+- Closing gating proof présent : `docs/ot/closings/OT_TRAE_STARTERPACK_GATING_PROOF_01_CLOSING.txt`
+- Point actif initial : `GO_OT_TRAE_RULES_V1_OPEN_01`
+- Socle Rules V1 existant : `docs/ot/trae/01_RULES_V1.txt`
+
+3. Actions réalisées
+- Décision d’ouverture Rules V1 : `docs/ot/trae/OT_TRAE_RULES_V1_OPEN_DECISION_01.md`
+- Alignement minimal kanban / synthèse / reprise / matrice GO pour refléter :
+  - Rules V1 = ouvert explicitement (Rules uniquement)
+  - point de reprise suivant = `GO_OT_TRAE_AGENTS_V1_OPEN_01` (sans lancement automatique)
+
+4. Bornes opposables confirmées
+- Rules V1 uniquement ; Agents/Skills/MCP restent non ouverts automatiquement.
+- Doc-only strict : aucun patch runtime, aucun patch code.
+
+5. Fichiers touchés
+- Créé : `docs/ot/trae/OT_TRAE_RULES_V1_OPEN_DECISION_01.md`
+- Créé : `docs/ot/closings/OT_TRAE_RULES_V1_OPEN_01_CLOSING.txt`
+- Modifié : `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`
+- Modifié : `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md`
+- Modifié : `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md`
+- Modifié : `journal/index/ACTIVE_GO_MATRIX.json`
+- Modifié : `journal/index/ACTIVE_GO_MATRIX.md`
+
+6. Périmètre explicitement exclu
+- Aucun patch runtime.
+- Aucun patch code / scripts / modules.
+- Aucune ouverture automatique Agents/Skills/MCP (V1).
+- Aucun commit/push.
+
+7. Verdict
+PASS / CLOSE (RULES V1 OUVERT EXPLICITEMENT)
+
+8. Point de reprise suivant
+GO_OT_TRAE_AGENTS_V1_OPEN_01

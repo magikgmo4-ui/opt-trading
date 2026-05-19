@@ -1,0 +1,22 @@
+# OT-MODULE-01 — CLOSING REPORT
+
+## 1. MISSION
+Validation du module `validated_prompt_factory` via le nouveau Starter Pack.
+
+## 2. ÉTABLI
+- **Mission Starter Pack** : Utilisé comme cadre réel avec succès.
+- **Module** : Relu, recroisé avec registry et README. Code Python sain.
+- **Tests** : Entrypoint Python testé réellement (`--help` OK).
+- **Correction** : Micro-correction documentaire README appliquée.
+- **Livrables** : Générés conformes au standard.
+
+## 3. À CONFIRMER (RÉSERVE ENVIRONNEMENT)
+- Exécution réelle de `cmd.sh` et `menu.sh` sur cible Linux / bash disponible.
+- Validation opératoire complète des wrappers (impossible sous Windows sans WSL).
+
+## 4. VERDICT
+- La mission standardisée est démontrée de façon crédible sur un cas réel.
+- La preuve est suffisante pour valider le workflow de mission comme protocole.
+- La validation runtime shell complète reste à rejouer sur Linux pour clôture sans réserve.
+
+**Status : CLOSE AVEC RÉSERVE ENVIRONNEMENT.**

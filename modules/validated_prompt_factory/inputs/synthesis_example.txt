@@ -1,0 +1,35 @@
+CONTEXTE
+Nous devons créer un module de démonstration pour le validated_prompt_factory.
+Le projet est un système de trading automatisé.
+L'environnement est Windows mais avec une émulation Bash via Git Bash.
+
+CLASSE
+MODULE DURABLE
+
+OBJECTIF
+Créer le module validated_prompt_factory capable de générer des prompts standardisés.
+Il doit supporter 4 modes de sortie.
+
+CONTRAINTES
+- Ne pas casser l'existant.
+- Utiliser Python pour la logique.
+- Utiliser Bash pour les wrappers.
+- Respecter la structure standard des modules.
+
+DEPENDANCES / RISQUES
+- Risque de confusion entre les modes Trae et ChatGPT.
+- Dépendance à Python 3.
+
+LIVRABLE ATTENDU
+- Un module complet avec scripts et app.
+- Des fichiers de sortie dans output/.
+
+VALIDATION ATTENDUE
+- Lancer sanity_check.sh doit passer.
+- Lancer la génération d'un prompt doit créer un fichier.
+
+SUITE LOGIQUE
+- Intégrer ce module dans le menu ops global.
+
+POINT DE REPRISE
+GO_PROMPT_FACTORY

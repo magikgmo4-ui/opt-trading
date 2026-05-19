@@ -1,0 +1,13 @@
+remote_delete_final_status — GO_OPT_TRADING_BRANCH_ARBITRATION_DELETE_AND_BRANCH_STATE_03
+
+- audit/opt-trading-20260320a: REMOTE_ABSENT
+- docs/github-park-parent-closeout-01: REMOTE_ABSENT
+- docs/github-park-pass-close-01: REMOTE_ABSENT
+- feat/journal-api-extractor-bootstrap: REMOTE_ABSENT
+- feat/journal-api-extractor-v1: REMOTE_ABSENT
+- feat/mimo-open-observer-doc-pack-v0: REMOTE_DELETED
+- feat/student-mimo-qualification: REMOTE_DELETED
+- METHODE_MULTI_MACHINE_GIT_SYNC: REMOTE_ABSENT
+- wip/GO_GITHUB_PARK_AUDIT_EXPANSION_ISOLATE_01: REMOTE_ABSENT
+
+Note: DELETE_ATTEMPTED_NOT_CONFIRMED est utilisé lorsque les credentials empêchent la suppression distante; remplacer par REMOTE_DELETED si la suppression a réussi ou REMOTE_ABSENT si le remote n’existait pas.

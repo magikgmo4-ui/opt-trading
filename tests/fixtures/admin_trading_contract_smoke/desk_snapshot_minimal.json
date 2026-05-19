@@ -1,0 +1,9 @@
+{
+  "symbol": "BTCUSDT.P",
+  "tf": "H1",
+  "snapshot_ts": "2026-05-06T02:20:15",
+  "path": "/opt/trading/desk/snapshots/BTCUSDT.P/BTCUSDT.P_H1_20260506_022015.png",
+  "ingested_at": "2026-05-06T02:25:35-04:00",
+  "source": "sharex",
+  "host": "admin-trading"
+}

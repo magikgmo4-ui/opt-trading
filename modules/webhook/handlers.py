@@ -5,14 +5,14 @@ from modules.webhook.parse import parse_payload
 
 def handle_payload(raw: Mapping[str, Any], client_ip: Optional[str], legacy) -> Dict[str, Any]:
     """
-    legacy: module-like object providing require_key, enforce_lock, write_journal_entry.
+    legacy: module-like object providing require_key, enforce_lock, record_event.
     """
     evt = parse_payload(raw)
 
-    # security + lock + journal (legacy for now)
+    # security + lock + event persistence
     legacy.require_key(dict(evt), client_ip)
     legacy.enforce_lock(str(evt.get("engine", "")))
-    legacy.write_journal_entry(dict(evt))
+    legacy.record_event(dict(evt))
 
     return {
         "ok": True,

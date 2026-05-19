@@ -1,0 +1,320 @@
+[
+  {
+    "module_name": "ops_menu_hub",
+    "domain": "operator_tools",
+    "machine_target": "msi_db_layer",
+    "operator_visible": true,
+    "ui_related": true,
+    "description": "Point d'entr\u00e9e principal MSI (Menu Hub)",
+    "wrappers_expected": [
+      "menu",
+      "cmd",
+      "sanity"
+    ],
+    "status": "active",
+    "priority": "critical",
+    "dependencies": []
+  },
+  {
+    "module_name": "desk_pro_dashboard",
+    "domain": "operator_tools",
+    "machine_target": "msi_db_layer",
+    "operator_visible": true,
+    "ui_related": true,
+    "description": "Dashboard de supervision temps r\u00e9el",
+    "wrappers_expected": [
+      "cmd"
+    ],
+    "status": "beta",
+    "priority": "high",
+    "dependencies": [
+      "desk_pro_runner"
+    ]
+  },
+  {
+    "module_name": "desk_pro_runner",
+    "domain": "operator_tools",
+    "machine_target": "admin_trading",
+    "operator_visible": false,
+    "ui_related": false,
+    "description": "Orchestrateur d'ex\u00e9cution principal",
+    "wrappers_expected": [
+      "cmd",
+      "sanity"
+    ],
+    "status": "active",
+    "priority": "critical",
+    "dependencies": [
+      "probability_engine",
+      "decision_engine"
+    ]
+  },
+  {
+    "module_name": "desk_capture_inputs",
+    "domain": "operator_tools",
+    "machine_target": "admin_trading",
+    "operator_visible": true,
+    "ui_related": true,
+    "description": "Interface de saisie manuelle de signaux",
+    "wrappers_expected": [
+      "cmd"
+    ],
+    "status": "active",
+    "priority": "medium",
+    "dependencies": [
+      "desk_pro_runner"
+    ]
+  },
+  {
+    "module_name": "desk_analyze",
+    "domain": "operator_tools",
+    "machine_target": "admin_trading",
+    "operator_visible": true,
+    "ui_related": true,
+    "description": "Commande d'analyse \u00e0 la demande",
+    "wrappers_expected": [
+      "cmd"
+    ],
+    "status": "active",
+    "priority": "medium",
+    "dependencies": [
+      "desk_pro_runner"
+    ]
+  },
+  {
+    "module_name": "derivatives_analyzer",
+    "domain": "analysis_engines",
+    "machine_target": "admin_trading",
+    "operator_visible": false,
+    "ui_related": false,
+    "description": "Analyse structurelle des march\u00e9s d\u00e9riv\u00e9s",
+    "wrappers_expected": [
+      "cmd",
+      "sanity"
+    ],
+    "status": "active",
+    "priority": "high",
+    "dependencies": [
+      "derivatives_collector"
+    ]
+  },
+  {
+    "module_name": "probability_engine",
+    "domain": "analysis_engines",
+    "machine_target": "admin_trading",
+    "operator_visible": false,
+    "ui_related": false,
+    "description": "Moteur de calcul de probabilit\u00e9s",
+    "wrappers_expected": [
+      "cmd",
+      "sanity"
+    ],
+    "status": "active",
+    "priority": "high",
+    "dependencies": [
+      "derivatives_analyzer"
+    ]
+  },
+  {
+    "module_name": "decision_engine",
+    "domain": "analysis_engines",
+    "machine_target": "admin_trading",
+    "operator_visible": false,
+    "ui_related": false,
+    "description": "Moteur de d\u00e9cision finale de trading",
+    "wrappers_expected": [
+      "cmd"
+    ],
+    "status": "active",
+    "priority": "high",
+    "dependencies": [
+      "probability_engine",
+      "risk_engine"
+    ]
+  },
+  {
+    "module_name": "risk_engine",
+    "domain": "analysis_engines",
+    "machine_target": "admin_trading",
+    "operator_visible": false,
+    "ui_related": false,
+    "description": "Contr\u00f4le des risques",
+    "wrappers_expected": [
+      "cmd"
+    ],
+    "status": "active",
+    "priority": "critical",
+    "dependencies": [
+      "portfolio_engine"
+    ]
+  },
+  {
+    "module_name": "market_scanner",
+    "domain": "analysis_engines",
+    "machine_target": "admin_trading",
+    "operator_visible": false,
+    "ui_related": false,
+    "description": "Scanner d'opportunit\u00e9s de march\u00e9",
+    "wrappers_expected": [
+      "cmd"
+    ],
+    "status": "active",
+    "priority": "medium",
+    "dependencies": []
+  },
+  {
+    "module_name": "opportunity_ranker",
+    "domain": "analysis_engines",
+    "machine_target": "admin_trading",
+    "operator_visible": false,
+    "ui_related": false,
+    "description": "Classement des opportunit\u00e9s d\u00e9tect\u00e9es",
+    "wrappers_expected": [
+      "cmd"
+    ],
+    "status": "active",
+    "priority": "medium",
+    "dependencies": [
+      "market_scanner"
+    ]
+  },
+  {
+    "module_name": "liquidation_analyzer",
+    "domain": "analysis_engines",
+    "machine_target": "admin_trading",
+    "operator_visible": false,
+    "ui_related": false,
+    "description": "Analyse des liquidations",
+    "wrappers_expected": [
+      "cmd"
+    ],
+    "status": "active",
+    "priority": "medium",
+    "dependencies": [
+      "derivatives_collector"
+    ]
+  },
+  {
+    "module_name": "portfolio_engine",
+    "domain": "trading_core",
+    "machine_target": "admin_trading",
+    "operator_visible": false,
+    "ui_related": false,
+    "description": "Gestion globale du portefeuille",
+    "wrappers_expected": [
+      "cmd"
+    ],
+    "status": "active",
+    "priority": "critical",
+    "dependencies": []
+  },
+  {
+    "module_name": "position_engine",
+    "domain": "trading_core",
+    "machine_target": "admin_trading",
+    "operator_visible": false,
+    "ui_related": false,
+    "description": "Gestion des positions individuelles",
+    "wrappers_expected": [
+      "cmd"
+    ],
+    "status": "active",
+    "priority": "critical",
+    "dependencies": [
+      "portfolio_engine"
+    ]
+  },
+  {
+    "module_name": "perf_engine",
+    "domain": "monitoring",
+    "machine_target": "admin_trading",
+    "operator_visible": false,
+    "ui_related": false,
+    "description": "Collecte de m\u00e9triques de performance",
+    "wrappers_expected": [
+      "cmd"
+    ],
+    "status": "active",
+    "priority": "low",
+    "dependencies": []
+  },
+  {
+    "module_name": "vision_bot",
+    "domain": "monitoring",
+    "machine_target": "admin_trading",
+    "operator_visible": false,
+    "ui_related": false,
+    "description": "Service de capture visuelle",
+    "wrappers_expected": [
+      "cmd",
+      "menu"
+    ],
+    "status": "active",
+    "priority": "medium",
+    "dependencies": []
+  },
+  {
+    "module_name": "desk_state",
+    "domain": "monitoring",
+    "machine_target": "msi_db_layer",
+    "operator_visible": true,
+    "ui_related": true,
+    "description": "\u00c9tat rapide du desk",
+    "wrappers_expected": [
+      "cmd"
+    ],
+    "status": "active",
+    "priority": "high",
+    "dependencies": [
+      "desk_pro_dashboard"
+    ]
+  },
+  {
+    "module_name": "desk_snapshot_ingest",
+    "domain": "monitoring",
+    "machine_target": "admin_trading",
+    "operator_visible": false,
+    "ui_related": false,
+    "description": "Ingestion d'historique",
+    "wrappers_expected": [
+      "cmd"
+    ],
+    "status": "active",
+    "priority": "low",
+    "dependencies": [
+      "desk_pro_dashboard"
+    ]
+  },
+  {
+    "module_name": "desk_retention",
+    "domain": "maintenance",
+    "machine_target": "admin_trading",
+    "operator_visible": false,
+    "ui_related": false,
+    "description": "Nettoyage des donn\u00e9es historiques",
+    "wrappers_expected": [
+      "cmd"
+    ],
+    "status": "active",
+    "priority": "low",
+    "dependencies": [
+      "desk_pro_dashboard"
+    ]
+  },
+  {
+    "module_name": "ui_registry_msi",
+    "domain": "registry",
+    "machine_target": "msi_db_layer",
+    "operator_visible": true,
+    "ui_related": true,
+    "description": "Registre central des UIs (MSI First)",
+    "wrappers_expected": [
+      "menu",
+      "cmd",
+      "sanity"
+    ],
+    "status": "active",
+    "priority": "critical",
+    "dependencies": []
+  }
+]

@@ -1,0 +1,75 @@
+{
+  "surfaces": [
+    {
+      "name": "go_dirs",
+      "selector": "direct_children",
+      "root": "docs/chantiers",
+      "entry_kind": "dir",
+      "patterns": [
+        "^GO_[A-Z0-9]+(?:_[A-Z0-9]+){3,}_[0-9]{2,}$"
+      ],
+      "proposal_style": "go_canonical",
+      "description": "Les dossiers directs de docs/chantiers doivent respecter la structure GO_<SCOPE>_<PRODUCT_OR_SURFACE>_<ROLE>_<OBJECT>_<NN>, avec <SCOPE>=1 token, <PRODUCT_OR_SURFACE>=1 a n tokens, <ROLE>=token borne et lisible, <OBJECT>=1 a n tokens et <NN>=2+ chiffres."
+    },
+    {
+      "name": "chantier_docs",
+      "selector": "chantier_files",
+      "root": "docs/chantiers",
+      "entry_kind": "file",
+      "patterns": [
+        "^\\d{2}[A-Z]?_[a-z0-9_]+\\.(md|txt)$",
+        "^[A-Z0-9_]+(?:__[A-Z0-9_]+)*\\.(md|txt)$"
+      ],
+      "proposal_style": "ordered_lower_snake",
+      "description": "Les fichiers de chantier doivent être soit ordonnés NN_lower_snake_case, soit des références explicites en UPPER_SNAKE_CASE."
+    },
+    {
+      "name": "governance_docs",
+      "selector": "direct_children",
+      "root": "docs/governance",
+      "entry_kind": "file",
+      "patterns": [
+        "^[A-Z0-9_]+\\.(md|txt)$"
+      ],
+      "proposal_style": "upper_snake",
+      "description": "Les docs de gouvernance doivent utiliser UPPER_SNAKE_CASE."
+    },
+    {
+      "name": "module_dirs",
+      "selector": "direct_children",
+      "root": "modules",
+      "entry_kind": "dir",
+      "patterns": [
+        "^[a-z0-9_]+$"
+      ],
+      "proposal_style": "lower_snake",
+      "description": "Les dossiers de modules doivent utiliser lower_snake_case."
+    },
+    {
+      "name": "module_scripts",
+      "selector": "module_scripts",
+      "root": "modules",
+      "entry_kind": "file",
+      "patterns": [
+        "^[a-z0-9_]+\\.(sh|py)$",
+        "^[A-Z0-9_]+\\.(md|txt)$",
+        "^[Rr][Ee][Aa][Dd][Mm][Ee]\\.md$"
+      ],
+      "proposal_style": "lower_snake",
+      "description": "Les scripts directs des modules doivent utiliser lower_snake_case."
+    },
+    {
+      "name": "local_branches",
+      "selector": "branches",
+      "root": ".",
+      "entry_kind": "virtual",
+      "patterns": [
+        "^(feat|fix|audit|inventory|integ|doc|docs|backup|save|chore|hotfix|wip|refactor|opencode|feature)/[a-z0-9][a-z0-9\\-/]*$",
+        "^go/GO_[A-Z0-9]+(?:_[A-Z0-9]+){3,}_[0-9]{2,}$",
+        "^sot/mainline$"
+      ],
+      "proposal_style": "branch_kebab",
+      "description": "Les branches locales doivent utiliser family/lower-kebab-case, sauf branche GO dediee alignee sur go/<GO_ID>."
+    }
+  ]
+}

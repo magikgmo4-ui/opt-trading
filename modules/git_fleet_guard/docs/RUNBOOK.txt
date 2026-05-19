@@ -1,0 +1,13 @@
+RUNBOOK V1
+
+1. Verifier le statut:
+   cmd-git_fleet_guard status
+
+2. Lancer l'audit standard read-only:
+   cmd-git_fleet_guard audit --machines admin-trading,student,db-layer
+
+3. Lire le dernier rapport:
+   cmd-git_fleet_guard report --format md
+
+4. Refresh distant seulement si explicitement voulu:
+   cmd-git_fleet_guard audit --machines admin-trading,student,db-layer --fetch

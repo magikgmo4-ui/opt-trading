@@ -1,0 +1,40 @@
+PRE_V1_FREEZE_DECISIONS
+
+Décisions finales recommandées avant gel V1 :
+
+1. Hiérarchie canonique
+- canonique = repo
+- packs Trae = helpers / transport / support
+- les nouveaux blocs V1 finissent dans le repo, pas comme doctrine flottante parallèle
+
+2. Mapping legacy → V1
+- AUDIT -> DIAGNOSTIC ou AUDIT_REALIGNEMENT
+- PATCH -> PATCH_LOCAL
+- MODULE -> MODULE_DURABLE
+- RUNBOOK / SIGNALISATION -> à classer selon la sortie réelle
+
+3. Séparation des statuts
+- Executor -> statuts d’exécution (APPROCHE_PROPOSEE / EXECUTION_PARTIELLE / EXECUTION_VALIDEE / NON_PROUVE)
+- Reviewer -> verdicts de review (ACCEPT / ACCEPT_WITH_NOTES / REJECT)
+- Mapping legacy (si rencontré) : APPROUVE=ACCEPT ; A_CORRIGER=ACCEPT_WITH_NOTES ; NON_PROUVE=REJECT
+- Orchestrator / système -> CLOSE / POINT_DE_REPRISE
+
+4. Checklist multi-étapes
+- 08_MULTI_STEP_MISSION_CHECKLIST_V1 doit être référencée officiellement dans le workflow
+- elle est obligatoire pour les missions 3 étapes ou plus, repo + shared, plusieurs artefacts, plusieurs machines, ou reprise inter-session probable
+
+5. shared
+- backups -> /shared/backups/
+- doc canonique exportée hors repo -> /shared/docs/export/
+- vérité versionnée -> repo
+
+6. Statut global
+PRE_V1_COHERENT_AVEC_DELTAS_FINAUX
+
+POST_V1_BACKLOG
+À élaborer après gel V1 :
+- mécanisme d’enregistrement automatique de la dernière tâche/session Trae,
+- réutilisant si possible le même module / formatage que le journal OpenAI,
+- avec objectif de relocalisation cohérente lors de la sortie du journal hors repo.
+Pistes possibles : skill dédié, agent dédié, ou routine MCP/workflow.
+Ne pas intégrer au freeze minimal V1 ; traiter en post-V1 avec la relocalisation du journal.

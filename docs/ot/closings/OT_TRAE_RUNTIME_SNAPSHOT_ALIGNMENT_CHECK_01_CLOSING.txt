@@ -1,0 +1,44 @@
+OT_TRAE_RUNTIME_SNAPSHOT_ALIGNMENT_CHECK_01 - CLOSING
+Date (America/Montreal) : 2026-04-10
+Statut : CLOSE
+Classe : PATCH_LOCAL
+
+1. Objet
+Fermer proprement le suivi “Runtime vs snapshot repo” en mode strictement doc-only : confirmer le verdict canonique (NON CONFIRMÉ MAIS ACCEPTÉ COMME INVARIANT DOCUMENTÉ), qualifier explicitement les divergences non tolérées déjà listées, mettre à jour la cartographie documentaire si nécessaire, sans toucher au runtime ni au code, et laisser un point de reprise propre sans ouverture automatique de Trae V1.
+
+2. État réel constaté au départ
+- Repo propre sur `sot/mainline` (working tree clean).
+- Chantier Trae prioritaire clos (pré‑V1 + CONTRADICTOIRE).
+- Kanban : `Runtime vs snapshot repo` = `DIVERGENT / SUIVI` avec suite `GO_OT_NEXT_MISSION_SELECTION_01`.
+
+3. Verdict canonique confirmé
+- VERDICT inchangé : `NON CONFIRMÉ MAIS ACCEPTÉ COMME INVARIANT DOCUMENTÉ`.
+- Décision canonique : `docs/ot/trae/OT_TRAE_RUNTIME_SNAPSHOT_ALIGNMENT_DECISION_01.md`.
+
+4. Divergences non tolérées (doc-only, explicites)
+1) Wrappers vs registry : au moins `cmd-perf_engine` est prouvé live alors que `registry/wrappers_registry.yaml` ne contient pas d’entrée `perf_engine` → divergence de gouvernance (coverage wrappers incomplète).
+
+5. Cartographie documentaire mise à jour (doc-only)
+- `tv-webhook.service` et `tv-bitget-runner.service` (admin-trading) sont désormais cartographiés dans `OT_SVC_01_CANONICAL_RUNTIME_MAP.md` sur la base des snapshots infra.
+- Aucune inférence “module standard” n’est faite sur ces services : ils restent traités comme services infra tant qu’une mission dédiée ne prouve pas un packaging module opposable.
+
+6. Kanban / reprise
+- Aucun changement de statut, de suite ou de point de reprise global n’étant introduit, kanban et reprise ne sont pas modifiés dans cette mission.
+
+7. Fichiers modifiés / créés
+- Créé : `docs/ot/closings/OT_TRAE_RUNTIME_SNAPSHOT_ALIGNMENT_CHECK_01_CLOSING.txt`
+- Modifié : `docs/ot/trae/OT_TRAE_RUNTIME_SNAPSHOT_ALIGNMENT_DECISION_01.md`
+- Modifié : `docs/ot/trae/OT_SVC_01_CANONICAL_RUNTIME_MAP.md`
+
+8. Périmètre explicitement exclu
+- Aucun patch runtime.
+- Aucun patch code / scripts / modules.
+- Aucune ouverture automatique de Rules/Agents/Skills/MCP (V1).
+- Aucun post‑V1 backlog.
+- Aucun commit/push.
+
+9. Verdict
+PASS / CLOSE
+
+10. Point de reprise suivant
+GO_OT_NEXT_MISSION_SELECTION_01

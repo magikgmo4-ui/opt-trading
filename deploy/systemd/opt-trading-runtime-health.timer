@@ -1,0 +1,12 @@
+[Unit]
+Description=Run Opt Trading Runtime Healthcheck on boot then every 5 minutes
+Documentation=file:///opt/trading/modules/runtime_health/README.md
+
+[Timer]
+OnBootSec=90s
+OnUnitActiveSec=5min
+Persistent=true
+Unit=opt-trading-runtime-health.service
+
+[Install]
+WantedBy=timers.target

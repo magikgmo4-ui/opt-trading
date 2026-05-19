@@ -1,0 +1,59 @@
+GO: GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03
+TYPE: opening
+STATUS: OPEN
+UPDATED_AT: 2026-04-14
+
+BESOIN INITIAL
+- Ouvrir le chantier de consolidation ciblée de la famille `reseau_ssh*`.
+- Sortir de la logique d’audit global du parc.
+- Utiliser la cartographie comme base de tri entre survivant, runtime utile, doc/gouvernance et legacy.
+
+INTENTION
+- ne pas rouvrir un audit de parc large
+- partir maintenant sur une consolidation ciblée
+- utiliser la cartographie comme base de tri entre :
+  - survivant
+  - runtime utile
+  - doc/gouvernance
+  - legacy
+- faire suivre cette intention dans les prochains GO pour garder une suite fluide
+
+PRODUITS FINAUX VOULUS / OBJECTIFS DU CHANTIER
+- contribuer à un repo 100% consolidé
+- contribuer à un repo aligné
+- contribuer à une structure claire
+- contribuer à une structure ordonnée
+- supprimer les parasites
+- supprimer l’historique mal situé
+- supprimer ou reclasser les items mal structurés / indexés / situés / documentés / canonisés
+- garder visible le target final dans la suite des GO
+
+OBJECTIFS
+- consolider `reseau_ssh*` autour d’une cible canonique unique
+- rendre la structure de cette famille claire et ordonnée
+- supprimer les ambiguïtés de continuité
+- contribuer à l’objectif de repo 100% consolidé, aligné, clair, ordonné et canonisé
+
+ETAT ETABLI
+- la trilogie d’audit du parc est close
+- `opt-trading` concentre la dette active principale
+- `reseau_ssh*` est la lignée versionnée la plus nette à consolider
+- cible de continuité retenue à ce stade : `reseau_ssh_step2`
+
+FICHIERS AJOUTES
+- docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md
+- docs/ot/closings/OT_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03_OPENING.txt
+
+GAP RESTANT
+- audit détaillé de la famille
+- classification explicite des siblings
+- patch minimal de consolidation
+
+NEXT STEP
+- exécuter le lot d’audit détaillé de la famille `reseau_ssh*`
+
+REPRISE
+- cadrage principal : docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md
+
+MEM_CANDIDATE
+- `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03` est désormais ouvert comme chantier ciblé, avec intention explicite de ne plus rouvrir un audit global du parc et de faire suivre le target final de consolidation du repo.

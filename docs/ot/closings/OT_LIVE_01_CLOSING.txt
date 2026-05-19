@@ -1,0 +1,45 @@
+# OT-LIVE-01 — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-12
+
+## 1. MISSION
+Drill live systemd / wrappers sur cible pour requalifier honnêtement les réserves OT-SVC-01 et OT-DOC-01.
+
+## 2. MACHINE(S) INSPECTÉE(S)
+- `admin-trading` (SSH, user `ghost`)
+
+## 3. CE QUI EST PROUVÉ LIVE
+- `vision_bot.service` : présent, enabled, actif (running).
+- `desk_retention.timer` : présent, enabled, actif (waiting), schedule quotidien 03:00 (observé via `systemctl cat`).
+- `desk_retention.service` : présent, déclenché par timer, exécution OK (status=0/SUCCESS).
+- Wrappers Desk Pro : `menu-ops_menu_hub`, `cmd-desk_pro_runner`, `sanity-desk_pro_runner` présents et exécutables ; `cmd-desk_pro_runner status` retourne JSON OK.
+- Wrappers Prompt Factory : `cmd-validated_prompt_factory list-modes` OK.
+
+## 4. CE QUI RESTE REPO UNIQUEMENT / NON PROUVÉ LIVE
+- État live “canonique” de `shared_sshfs_permanent` : pas de preuve de service installé ni de montage `/shared`.
+- Exhaustivité registry vs wrappers live : plusieurs wrappers live ne sont pas déclarés dans `wrappers_registry.yaml`.
+- Corpus local/kanban (OT-DOC-01) : non résolu par un drill live.
+
+## 5. ABSENT / NON DÉPLOYÉ (PREUVE LIVE)
+- `shared-sshfs.service` : absent (unit not found).
+- `mnt-shared.mount` / `mnt-shared.automount` : absents.
+- `desk_snapshot_ingest.service` : absent.
+
+## 6. ÉCARTS CRITIQUES
+- `desk_retention.timer` : schedule live (03:00 daily) ≠ mapping repo (10min).
+- `shared_sshfs_permanent` : wrappers présents mais **cassés via symlink** (preuve `name=local path=/usr/local`, sanity FAIL).
+
+## 7. REQUALIFICATION DES RÉSERVES
+- **OT-SVC-01** : réserve **réduite** (vision_bot + desk_retention prouvés live) ; réserve **maintenue** (shared_sshfs_permanent et divergences).
+- **OT-DOC-01** : réserve **maintenue** (corpus local/kanban absent).
+
+## 8. MODIFICATIONS SYSTÈME / REPO
+- Aucune.
+
+## 9. VERDICT
+Mission réussie : preuves live collectées et réserves requalifiées strictement. La vérité live confirme une partie des services/timers, mais met en évidence des écarts (schedule) et une zone non déployée / non fonctionnelle (`shared_sshfs_permanent`).
+
+## 10. POINT DE REPRISE
+1) Micro-clarification documentaire : distinguer “repo schedule” vs “live schedule observé” pour `desk_retention`.  
+2) Point correctif ultérieur : rendre `shared_sshfs_permanent` robuste aux symlinks (`readlink -f`) et décider du mode live (service template vs mount/automount) avant toute promotion.
+

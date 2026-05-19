@@ -1,0 +1,39 @@
+# OT-NET-RECONNECT-03 — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-14
+
+## 1. Résumé exécutif
+- db-layer : IP cible prouvée pour `admin-trading` : `192.168.16.155`.
+- Coupure “réseau pur” db-layer → `admin-trading:22` : **PASS / PROVED** (règle posée, preuve pendant coupure, règle retirée, restauration prouvée).
+- student : **PASS / PROVED** (règle posée, preuve pendant coupure, règle retirée, restauration prouvée).
+- OT-NET-RECONNECT-03 global : **CLOSE / PROVED**.
+
+## 2. Commandes exécutées (exactes)
+- Fenêtre opérateur (db-layer, sudo interactif) :
+  - `sudo iptables -I OUTPUT -p tcp -d 192.168.16.155 --dport 22 -j REJECT -m comment --comment OT-NET-RECONNECT-03`
+  - `iptables -S OUTPUT`
+  - `timeout 3s ssh ... admin-trading` (attendu : échec `Connection refused`, `SSH_DURING_RC=255`)
+  - `findmnt -T /shared`
+  - `timeout 3s ls -la /shared | head -n 8`
+  - `timeout 3s stat /shared/README.txt`
+  - `shared-sshfs.service` (reste active)
+  - `sudo iptables -D OUTPUT -p tcp -d 192.168.16.155 --dport 22 -j REJECT -m comment --comment OT-NET-RECONNECT-03`
+  - `iptables -S OUTPUT` (règle absente)
+  - `timeout 3s ssh ... admin-trading` (attendu : `SSH_OK`, `SSH_AFTER_RC=0`)
+- Fenêtre opérateur (student, sudo interactif) :
+  - `sudo /usr/sbin/iptables -I OUTPUT -p tcp -d 192.168.16.155 --dport 22 -j REJECT -m comment --comment OT-NET-RECONNECT-03` (`INSERT_RC=0`)
+  - `iptables -S OUTPUT` et `iptables -L OUTPUT` (règle présente)
+  - `timeout 3s ssh ... admin-trading` (attendu : échec `Connection refused`, `SSH_DURING_RC=255`)
+  - `findmnt -T /shared`
+  - `timeout 3s ls -la /shared | head -n 8` (`LS_DURING_RC=0`)
+  - `timeout 3s stat /shared/README.txt` (`STAT_DURING_RC=0`)
+  - `shared-sshfs.service` (reste active)
+  - `sudo /usr/sbin/iptables -D OUTPUT -p tcp -d 192.168.16.155 --dport 22 -j REJECT -m comment --comment OT-NET-RECONNECT-03` (`DELETE_RC=0`)
+  - `iptables -S OUTPUT` (règle absente)
+  - `timeout 3s ssh ... admin-trading` (attendu : `SSH_OK`, `SSH_AFTER_RC=0`)
+
+## 3. Verdict strict
+**Status : CLOSE / PROVED.**
+
+## 4. Point de reprise exact
+> **Néant (OT-NET-RECONNECT-03 clôturée)**

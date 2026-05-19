@@ -11,8 +11,18 @@ import hmac
 
 from modules.env.env import load_env, ensure_dirs
 from shared.logger import setup_logger
+from modules.risk_engine.app.risk_calculator import RiskCalculator
+from modules.execution_engine.executor import Executor
+from modules.position_engine.position_manager import PositionManager
+from modules.webhook.paper_guards import evaluate_paper_test_runtime_guards
+import modules.engines.registry as registry
+
 load_env(); ensure_dirs()
 log = setup_logger("tv-webhook")
+risk_calc = RiskCalculator()
+executor = Executor()
+pos_manager = PositionManager()
+
 from modules.auth.webhook_key import payload_key_is_valid
 
 # [DISABLED: was top-level code causing SyntaxError]
@@ -25,8 +35,6 @@ from modules.auth.webhook_key import payload_key_is_valid
 #
 # [DISABLED: was top-level code causing SyntaxError]
 #     return {"ok": True, "skipped": "same-side-open"}
-
-PERF_URL = os.getenv("PERF_URL", "http://127.0.0.1:8010/perf/event")
 
 def perf_open(engine: str, symbol: str, side: str, entry: float, stop: float, qty: float, risk_usd: float, meta: dict | None = None):
     payload = {
@@ -41,7 +49,7 @@ def perf_open(engine: str, symbol: str, side: str, entry: float, stop: float, qt
         "meta": meta or {}
     }
     try:
-        requests.post(PERF_URL, json=payload, timeout=2)
+        requests.post(PERF_URL + "/perf/event", json=payload, timeout=2)
     except Exception:
         # perf est optionnel: ne jamais casser le webhook
         pass
@@ -63,7 +71,6 @@ BASE_DIR = pathlib.Path("/opt/trading")
 STATE_DIR = BASE_DIR / "state"
 STATE_DIR.mkdir(parents=True, exist_ok=True)
 
-JOURNAL_PATH = BASE_DIR / "journal.md"
 EVENTS_JSONL = STATE_DIR / "events.jsonl"
 ROUTER_STATE = STATE_DIR / "router_state.json"
 RISK_CONFIG = STATE_DIR / "risk_config.json"
@@ -83,6 +90,101 @@ AGGRESSIVE_ENGINES = {"COINM_SHORT", "USDTM_LONG"}  # lock enforced across these
 ALL_ENGINES = {"COINM_SHORT", "USDTM_LONG", "GOLD_CFD_LONG", "TV_TEST", "NGROK_TEST"}
 
 PERF_URL = os.environ.get("PERF_URL", "http://127.0.0.1:8010")
+
+# -------------------- Risk Limits --------------------
+TRADE_ALLOWED = os.getenv("TRADE_ALLOWED", "false").strip().lower() in ("true", "1", "yes", "on")
+RISK_MAX_NOTIONAL = float(os.getenv("RISK_MAX_NOTIONAL", "1000"))
+RISK_MAX_POSITION_SIZE = float(os.getenv("RISK_MAX_POSITION_SIZE", "0.01"))
+RISK_MAX_DAILY_LOSS = float(os.getenv("RISK_MAX_DAILY_LOSS", "100"))
+RISK_MAX_OPEN_POSITIONS = int(os.getenv("RISK_MAX_OPEN_POSITIONS", "3"))
+RISK_MAX_ORDERS_PER_HOUR = int(os.getenv("RISK_MAX_ORDERS_PER_HOUR", "10"))
+RISK_ALLOWED_SYMBOLS = set(s.strip() for s in os.getenv("RISK_ALLOWED_SYMBOLS", "BTC/USDT,ETH/USDT").split(",") if s.strip())
+
+DAILY_PNL_FILE = STATE_DIR / "daily_pnl.json"
+ORDER_COUNT_FILE = STATE_DIR / "order_count.json"
+
+def _load_json_file(path: pathlib.Path, default=None):
+    try:
+        with open(path) as f:
+            return json.load(f)
+    except Exception:
+        return default if default is not None else {}
+
+def _save_json_file(path: pathlib.Path, data):
+    with open(path, "w") as f:
+        json.dump(data, f, indent=2)
+
+def _get_daily_pnl() -> dict:
+    data = _load_json_file(DAILY_PNL_FILE, {"date": "", "pnl": 0.0, "trades": 0})
+    today = utc_now().strftime("%Y-%m-%d")
+    if data.get("date") != today:
+        data = {"date": today, "pnl": 0.0, "trades": 0}
+        _save_json_file(DAILY_PNL_FILE, data)
+    return data
+
+def _update_daily_pnl(pnl_change: float):
+    data = _get_daily_pnl()
+    data["pnl"] += pnl_change
+    data["trades"] += 1
+    _save_json_file(DAILY_PNL_FILE, data)
+
+def _get_order_count() -> dict:
+    data = _load_json_file(ORDER_COUNT_FILE, {"hour": 0, "count": 0})
+    current_hour = utc_now().hour
+    if data.get("hour") != current_hour:
+        data = {"hour": current_hour, "count": 0}
+        _save_json_file(ORDER_COUNT_FILE, data)
+    return data
+
+def _increment_order_count():
+    data = _get_order_count()
+    data["count"] += 1
+    _save_json_file(ORDER_COUNT_FILE, data)
+
+def check_trade_allowed():
+    """Check if trading is allowed (kill switch level 1)."""
+    if not TRADE_ALLOWED:
+        raise HTTPException(
+            status_code=403,
+            detail={"error": "TRADE_NOT_ALLOWED", "reason": "Kill switch active: TRADE_ALLOWED=false"}
+        )
+
+def check_risk_limits(engine: str, symbol: str, qty: float, notional: float):
+    """Enforce risk limits before execution."""
+    errors = []
+    
+    # Check allowed symbols (for production engines)
+    if engine not in ("PAPER_TEST", "TV_TEST") and RISK_ALLOWED_SYMBOLS and symbol not in RISK_ALLOWED_SYMBOLS:
+        errors.append(f"Symbol {symbol} not in allowed list: {RISK_ALLOWED_SYMBOLS}")
+    
+    # Check notional limit
+    if notional > RISK_MAX_NOTIONAL:
+        errors.append(f"Notional {notional} exceeds max {RISK_MAX_NOTIONAL}")
+    
+    # Check position size
+    if qty > RISK_MAX_POSITION_SIZE:
+        errors.append(f"Position size {qty} exceeds max {RISK_MAX_POSITION_SIZE}")
+    
+    # Check daily loss
+    daily = _get_daily_pnl()
+    if daily["pnl"] < -RISK_MAX_DAILY_LOSS:
+        errors.append(f"Daily loss {abs(daily['pnl'])} exceeds max {RISK_MAX_DAILY_LOSS}")
+    
+    # Check open positions
+    positions = _load_json_file(STATE_DIR / "positions.json", {})
+    if len(positions) >= RISK_MAX_OPEN_POSITIONS:
+        errors.append(f"Open positions {len(positions)} exceeds max {RISK_MAX_OPEN_POSITIONS}")
+    
+    # Check order rate
+    order_count = _get_order_count()
+    if order_count["count"] >= RISK_MAX_ORDERS_PER_HOUR:
+        errors.append(f"Orders this hour {order_count['count']} exceeds max {RISK_MAX_ORDERS_PER_HOUR}")
+    
+    if errors:
+        raise HTTPException(
+            status_code=429,
+            detail={"error": "RISK_LIMIT_EXCEEDED", "reasons": errors}
+        )
 
 def _http_json(url: str, method: str = "GET", payload: dict | None = None, timeout: int = 15):
     import json as _json
@@ -137,6 +239,9 @@ def write_json_file(path: pathlib.Path, obj: Any) -> None:
 def append_jsonl(path: pathlib.Path, obj: Dict[str, Any]) -> None:
     with path.open("a", encoding="utf-8") as f:
         f.write(json.dumps(obj, ensure_ascii=False) + "\n")
+
+def record_event(evt: Dict[str, Any]) -> None:
+    append_jsonl(EVENTS_JSONL, evt)
 
 def ensure_router_state() -> Dict[str, Any]:
     st = read_json_file(ROUTER_STATE, {})
@@ -217,54 +322,7 @@ def risk_quote(engine: str, price: float, sl: float, tp: float) -> Dict[str, Any
     accounts = cfg.get("accounts", {}) or {}
     acct = accounts.get(engine, {}) or {}
 
-    equity, risk_pct = _get_equity_and_risk_pct(acct)
-    risk_usd = equity * risk_pct
-
-    distance = abs(price - sl)
-    if distance <= 0 or risk_usd <= 0:
-        return {
-            "ok": True,
-            "type": "LINEAR_FALLBACK",
-            "risk_usd": round(risk_usd, 6),
-            "risk_real_usd": 0,
-            "distance": round(distance, 6),
-            "qty": 0
-        }
-
-    # Default linear: PnL per 1 qty per $ move = 1 (fallback)
-    qty = risk_usd / distance
-
-    if engine == "GOLD_CFD_LONG":
-        min_units = safe_float(acct.get("min_units", acct.get("min_qty", 0.1))) or 0.1
-        units_step = safe_float(acct.get("units_step", acct.get("qty_step", 0.1))) or 0.1
-        qty = max(qty, min_units)
-        qty = round_step(qty, units_step)
-        qty = round(qty, 6)
-        risk_real = qty * distance
-        return {
-            "ok": True,
-            "type": "GOLD_CFD_OZ" if (cfg.get("gold_cfd", {}) or {}).get("units_are_oz", True) else "GOLD_CFD",
-            "risk_usd": round(risk_usd, 6),
-            "risk_real_usd": round(risk_real, 6),
-            "distance": round(distance, 6),
-            "qty": qty
-        }
-
-    # COINM/USDTM: keep generic sizing (you can later plug real contract specs)
-    min_qty = safe_float(acct.get("min_qty", 0.001)) or 0.001
-    qty_step = safe_float(acct.get("qty_step", 0.001)) or 0.001
-    qty = max(qty, min_qty)
-    qty = round_step(qty, qty_step)
-    qty = round(qty, 6)
-    risk_real = qty * distance
-    return {
-        "ok": True,
-        "type": "LINEAR_FALLBACK",
-        "risk_usd": round(risk_usd, 6),
-        "risk_real_usd": round(risk_real, 6),
-        "distance": round(distance, 6),
-        "qty": qty
-    }
+    return risk_calc.calculate_quote(acct, engine, price, sl, cfg)
 
 
 # -------------------- Events / Metrics --------------------
@@ -399,38 +457,23 @@ def enforce_lock(engine: str) -> None:
     if engine in AGGRESSIVE_ENGINES and active in AGGRESSIVE_ENGINES:
         raise HTTPException(status_code=409, detail=f"Engine locked: active_engine={active}")
 
-def write_journal_entry(evt: Dict[str, Any]) -> None:
-    ts_local = datetime.now().strftime("%Y-%m-%d %H:%M")
-    engine = evt.get("engine", "")
-    signal = evt.get("signal", "")
-    symbol = evt.get("symbol", "")
-    tf = evt.get("tf", "")
-    price = evt.get("price", 0)
-    tp = evt.get("tp", 0)
-    sl = evt.get("sl", 0)
-    reason = evt.get("reason", "")
-
-    entry = []
-    entry.append(f"\n## {ts_local} | TV Webhook | {engine} | {symbol} {tf} | {signal}\n")
-    entry.append(f"1. **Signal**: `{signal}`\n")
-    entry.append(f"2. **Engine**: `{engine}`\n")
-    entry.append(f"3. **Symbol/TF**: `{symbol}` / `{tf}`\n")
-    entry.append(f"4. **Price**: `{price}`\n")
-    entry.append(f"5. **TP**: `{tp}`\n")
-    entry.append(f"6. **SL**: `{sl}`\n")
-    if reason != "":
-        entry.append(f"7. **Reason**: {reason}\n")
-        entry.append("8. **Payload brut**:\n")
-    else:
-        entry.append("7. **Payload brut**:\n")
-
-    entry.append("```json\n")
-    entry.append(json.dumps(evt, ensure_ascii=False, indent=2))
-    entry.append("\n```\n")
-
-    with JOURNAL_PATH.open("a", encoding="utf-8") as f:
-        f.write("".join(entry))
-
+def require_paper_test_runtime_guards() -> Dict[str, Any]:
+    st = ensure_router_state()
+    guard = evaluate_paper_test_runtime_guards(
+        active_engine=st.get("active_engine"),
+        adapter_names=executor.adapters.keys(),
+    )
+    if not guard["ok"]:
+        log.warning(f"PAPER_TEST RUNTIME GUARD BLOCKED: {guard['reasons']}")
+        raise HTTPException(
+            status_code=409,
+            detail={
+                "error": "PAPER_TEST_RUNTIME_GUARD_FAILED",
+                "reasons": guard["reasons"],
+                "guards": guard["guards"],
+            },
+        )
+    return guard
 
 @app.post("/tv")
 async def tv_webhook(req: Request):
@@ -452,11 +495,21 @@ async def tv_webhook(req: Request):
 
     if engine == "":
         raise HTTPException(status_code=400, detail="Missing engine")
-    if engine not in ALL_ENGINES and engine not in {"COINM_SHORT", "USDTM_LONG", "GOLD_CFD_LONG"}:
-        # allow future engines but keep sane
-        pass
+    
+    # Use registry for validation instead of hardcoded set
+    if not registry.get_engine(engine):
+        # Allow if in old hardcoded list just in case, but prefer registry
+        if engine not in ALL_ENGINES:
+            raise HTTPException(status_code=400, detail=f"Engine '{engine}' not registered")
+
     if signal not in ("BUY", "SELL"):
         raise HTTPException(status_code=400, detail="signal must be BUY or SELL")
+
+    # Kill switch check (level 1)
+    check_trade_allowed()
+
+    if engine == "PAPER_TEST":
+        require_paper_test_runtime_guards()
 
     enforce_lock(engine)
 
@@ -474,23 +527,37 @@ async def tv_webhook(req: Request):
     if (not q.get("qty")) or ((q.get("risk_real_usd") or 0) <= 0 and (q.get("risk_usd") or 0) <= 0):
         raise HTTPException(status_code=400, detail="Risk quote invalid (qty/risk is 0)")
 
+    # Risk limits enforcement (for production engines)
+    notional = q["qty"] * price if price else 0
+    check_risk_limits(engine, symbol, q["qty"], notional)
+
     side = "LONG" if signal == "BUY" else "SHORT"
     risk_for_perf = q.get("risk_real_usd") or q.get("risk_usd") or 0.0
 
     # --- PERF: OPEN trade ledger (non-bloquant) ---
     # --- ignore TEST engines for perf ledger ---
-    if engine == "TV_TEST" or engine.startswith("TEST_") or engine.startswith("_TEST_"):
+    if engine in ("TV_TEST", "PAPER_TEST") or engine.startswith("TEST_") or engine.startswith("_TEST_"):
         pass
     else:
+        perf_side = "LONG" if signal == "BUY" else "SHORT"
+        for _t in _perf_get_open():
+            if _t.get("engine") == engine and _t.get("symbol") == symbol and _t.get("status") == "OPEN":
+                _cur_side = (_t.get("side") or "").upper()
+                if _cur_side == perf_side:
+                    return {"ok": True, "skipped": f"already_{signal.lower()}"}
+                _tid = _t.get("trade_id")
+                if _tid:
+                    _perf_close(_tid, float(price))
+
         perf_open(
-                engine=engine,
-        symbol=symbol,
-        side=side,
-        entry=price,
-        stop=sl,
-        qty=q["qty"],
-        risk_usd=risk_for_perf,
-        meta={"tf": tf, "tp": tp, "reason": reason, "src": "/tv"}
+            engine=engine,
+            symbol=symbol,
+            side=side,
+            entry=price,
+            stop=sl,
+            qty=q["qty"],
+            risk_usd=risk_for_perf,
+            meta={"tf": tf, "tp": tp, "reason": reason, "src": "/tv"}
         )
 
     evt = {
@@ -510,8 +577,7 @@ async def tv_webhook(req: Request):
         "risk_real_usd": q.get("risk_real_usd", None),
 }
 
-    append_jsonl(EVENTS_JSONL, evt)
-    write_journal_entry(evt)
+    record_event(evt)
 
     # Telegram notify (simple, readable)
     if TELEGRAM_ENABLED:
@@ -522,6 +588,31 @@ async def tv_webhook(req: Request):
             qty_txt = f"\nqty: {q['qty']} | risk_usd: {q.get('risk_usd')}"
         msg = f"{signal} {symbol} {tf}\nengine: {engine}\nprice: {price} | tp: {tp} | sl: {sl}\nreason: {reason}{qty_txt}"
         telegram_send(msg)
+
+    # --- EXECUTION (Optional/Test) ---
+    if engine == "PAPER_TEST":
+        guard = pos_manager.can_open_position(symbol, signal)
+
+        if not guard["ok"]:
+            log.warning(f"GUARD BLOCKED: {guard}")
+            return {"ok": True, "skipped": guard["reason"]}
+
+        if guard["action"] == "flip":
+            log.info(f"GUARD FLIP: {guard['reason']}")
+
+        order = {
+            "symbol": symbol,
+            "side": signal,
+            "qty": q["qty"] if q else 0,
+            "price": price,
+            "type": "MARKET"
+        }
+        res = executor.execute(order, "paper")
+        log.info(f"EXECUTION: {res}")
+        
+        if res.get("ok"):
+             pos = pos_manager.open_position(symbol, signal, order["qty"], price)
+             log.info(f"POSITION UPDATED: {pos}")
 
     return {"ok": True}
 
@@ -536,6 +627,14 @@ def api_state():
         "updated_at": st.get("updated_at"),
         "ts": iso_utc(utc_now()),
     }
+
+@app.get("/api/paper/guards")
+def api_paper_guards():
+    st = ensure_router_state()
+    return evaluate_paper_test_runtime_guards(
+        active_engine=st.get("active_engine"),
+        adapter_names=executor.adapters.keys(),
+    )
 
 @app.get("/api/events")
 def api_events(limit: int = 50):
@@ -563,6 +662,49 @@ async def api_reset_lock(req: Request):
         raise HTTPException(status_code=403, detail="Forbidden")
     st = set_router_state(None)
     return {"ok": True, "state": st}
+
+@app.post("/api/kill-switch")
+async def api_kill_switch(req: Request):
+    """Kill switch endpoint - level 1 (soft stop) only."""
+    body = await req.json()
+    if not isinstance(body, dict):
+        raise HTTPException(status_code=400, detail="JSON must be object")
+    
+    level = body.get("level", 1)
+    
+    if level == 1:
+        # Soft stop: set TRADE_ALLOWED=false in env
+        os.environ["TRADE_ALLOWED"] = "false"
+        log.warning("KILL SWITCH LEVEL 1: TRADE_ALLOWED=false")
+        return {"ok": True, "level": 1, "action": "soft_stop", "trade_allowed": False}
+    else:
+        raise HTTPException(status_code=400, detail="Only level 1 (soft stop) supported via API")
+
+@app.get("/api/risk/status")
+def api_risk_status():
+    """Get current risk limits and status."""
+    daily = _get_daily_pnl()
+    orders = _get_order_count()
+    positions = _load_json_file(STATE_DIR / "positions.json", {})
+    
+    return {
+        "ok": True,
+        "trade_allowed": TRADE_ALLOWED,
+        "risk_limits": {
+            "max_notional": RISK_MAX_NOTIONAL,
+            "max_position_size": RISK_MAX_POSITION_SIZE,
+            "max_daily_loss": RISK_MAX_DAILY_LOSS,
+            "max_open_positions": RISK_MAX_OPEN_POSITIONS,
+            "max_orders_per_hour": RISK_MAX_ORDERS_PER_HOUR,
+            "allowed_symbols": list(RISK_ALLOWED_SYMBOLS),
+        },
+        "current": {
+            "daily_pnl": daily["pnl"],
+            "daily_trades": daily["trades"],
+            "orders_this_hour": orders["count"],
+            "open_positions": len(positions),
+        }
+    }
 
 
 # -------------------- Dashboard (Trading Ops) --------------------
@@ -819,4 +961,3 @@ def enforce_single_open(engine: str, symbol: str, new_side: str, price: float) -
         if tid:
             _perf_close(tid, float(price))
     return "FLIPPED"
-

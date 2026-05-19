@@ -1,0 +1,15 @@
+# OT-OPS-02B — CLOSING REPORT
+
+## 1. ÉTAT ÉTABLI
+- **Runtime** : Alignés avec le repo patché. Le patch no-sudo est déployé.
+- **Validité** : Confirmée par grep in-situ.
+- **Wrappers** : Comportement générique (cmd.sh) confirmé.
+
+## 2. ACTIONS RÉALISÉES
+- Déploiement physique du script patché via SCP.
+- Vérification grep sur `admin-trading`.
+- Analyse du script `cmd.sh` pour comprendre le wrapper.
+
+## 3. POINT DE REPRISE
+> **GO_OT_DOC_01_UPDATE_DOCS**
+(La documentation peut maintenant être mise à jour sans risque d'incohérence).

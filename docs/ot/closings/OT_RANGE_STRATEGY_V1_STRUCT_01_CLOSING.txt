@@ -1,0 +1,52 @@
+OT_RANGE_STRATEGY_V1_STRUCT_01 - CLOSING
+Date (America/Montreal) : 2026-04-14
+Statut : CLOSE
+Classe : PATCH_LOCAL
+
+1. Objet
+Ouvrir proprement dans le repo canonique un chantier documentaire pour la stratégie Range Strategy V1 à partir des trois actifs validés en séance : AUD/NZD, USD/CHF, XAUUSD.
+
+2. État de départ retenu
+- Le besoin utilisateur était de cibler des actifs connus pour évoluer dans des ranges stables et relativement simples à trader.
+- Une première sélection a été produite puis réduite à trois actifs jugés les plus pertinents pour une stratégie range structurée.
+- La validation explicite utilisateur a demandé l'ouverture du chantier dans GitHub avec le bon nommage, le bon dossier documentaire et le bon template de closeout.
+
+3. Correctif appliqué
+- Création du document canonique de structuration : `docs/ot/reports/OT_RANGE_STRATEGY_V1_STRUCT_01.md`
+- Création du closing associé : `docs/ot/closings/OT_RANGE_STRATEGY_V1_STRUCT_01_CLOSING.txt`
+- Ouverture sur branche dédiée : `feat/range-strategy-v1-struct`
+
+4. Contenu figé
+- besoin initial
+- cible finale retenue
+- plan validé reconstitué
+- état établi actuel
+- écart restant
+- prochain GO logique
+
+5. Périmètre exclu
+- Aucun patch runtime
+- Aucun module d'exécution
+- Aucun backtest
+- Aucune promesse de performance
+
+6. Verdict
+PASS
+
+7. Point de reprise suivant
+GO_RANGE_STRATEGY_V1_RULES_01
+
+ETABLI
+- chantier documentaire Range Strategy V1 ouvert dans le repo canonique
+- actifs de référence figés : AUD/NZD, USD/CHF, XAUUSD
+- prochain GO logique nommé
+
+TODO
+- formaliser les règles opératoires de la stratégie
+- borner les confirmations et invalidations
+- préparer la couche journalisation et évaluation future
+
+REPRISE
+- branche : `feat/range-strategy-v1-struct`
+- document d'entrée : `docs/ot/reports/OT_RANGE_STRATEGY_V1_STRUCT_01.md`
+- suite : `GO_RANGE_STRATEGY_V1_RULES_01`

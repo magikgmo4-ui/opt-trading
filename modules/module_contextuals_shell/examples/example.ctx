@@ -1,0 +1,4 @@
+# ID|Label|Description|Category|Order|VisibleModMenu|VisibleOpsSuper|Frequency|Type|Target
+demo_hello|Dire Bonjour|Affiche un message simple|main|10|true|true|always|command|echo "Bonjour du module contextuel !"
+demo_date|Afficher Date|Affiche la date actuelle|info|20|true|true|always|command|date
+demo_status|Statut Module|Affiche le statut interne|debug|99|true|false|rare|command|bash modules/module_contextuals_shell/cmd.sh status

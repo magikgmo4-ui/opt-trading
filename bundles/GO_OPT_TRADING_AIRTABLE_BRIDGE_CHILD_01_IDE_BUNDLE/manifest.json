@@ -1,0 +1,25 @@
+{
+  "bundle_id": "GO_OPT_TRADING_AIRTABLE_BRIDGE_CHILD_01_IDE_BUNDLE",
+  "version": "v1-working",
+  "go_id": "GO_OPT_TRADING_AIRTABLE_BRIDGE_CHILD_01",
+  "parent_go_id": "GO_OPT_TRADING_AIRTABLE_ORCHESTRATION_PARENT_01",
+  "status": "ready_for_review",
+  "revalidation_required": true,
+  "revalidation_note": "Revalider plus tard avec la documentation canonique /bundles/ lorsqu'elle sera disponible.",
+  "entrypoint": "README_BUNDLE.md",
+  "prompts": [
+    "GO_PROMPT_01_IMPLEMENT_MODULE.md",
+    "GO_PROMPT_02_VALIDATE_MODULE.md",
+    "GO_PROMPT_03_DOCUMENT_CLOSEOUT.md"
+  ],
+  "canonical_resume_point": "docs/chantiers/GO_OPT_TRADING_AIRTABLE_ORCHESTRATION_PARENT_01/08_SESSION_INDEPENDENT_REPRISE.md",
+  "implementation_spec": "docs/chantiers/GO_OPT_TRADING_AIRTABLE_ORCHESTRATION_PARENT_01/05_IMPLEMENTATION_SPEC.md",
+  "target_module": "modules/airtable_bridge/",
+  "constraints": {
+    "fail_open": true,
+    "no_git_secrets": true,
+    "no_runtime_blocking": true,
+    "airtable_batch_limit": 10,
+    "offline_tests_required": true
+  }
+}

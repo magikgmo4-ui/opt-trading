@@ -1,0 +1,46 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "price": 91000,
+    "change_24h": 2.1,
+    "volume_24h": 35000000000,
+    "trend_score": 0.7,
+    "momentum_score": 0.5,
+    "volatility_score": 0.4,
+    "open_interest_score": 0.6,
+    "liquidity_score": 0.8
+  },
+  {
+    "symbol": "ETHUSDT",
+    "price": 4800,
+    "change_24h": -1.2,
+    "volume_24h": 18000000000,
+    "trend_score": 0.2,
+    "momentum_score": -0.1,
+    "volatility_score": 0.3,
+    "open_interest_score": 0.1,
+    "liquidity_score": 0.7
+  },
+  {
+    "symbol": "SOLUSDT",
+    "price": 145,
+    "change_24h": 5.4,
+    "volume_24h": 5000000000,
+    "trend_score": 0.8,
+    "momentum_score": 0.8,
+    "volatility_score": 0.7,
+    "open_interest_score": 0.7,
+    "liquidity_score": 0.6
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "price": 0.12,
+    "change_24h": -5.0,
+    "volume_24h": 800000000,
+    "trend_score": -0.6,
+    "momentum_score": -0.7,
+    "volatility_score": 0.8,
+    "open_interest_score": 0.2,
+    "liquidity_score": 0.5
+  }
+]

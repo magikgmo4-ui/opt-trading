@@ -1,0 +1,53 @@
+OT_ADMIN_TRADING_SIMEX_RUNTIME_EVIDENCE_CLOSEOUT_01 - CLOSING
+Date (America/Montreal) : 2026-04-11
+Statut : CLOSE
+Classe : PATCH_LOCAL
+
+1. Objet
+Fermer proprement la preuve runtime SimEx sur `admin-trading` après réalignement Git sur `origin/sot/mainline`, sans modifier le code, le runtime ou le timer, et laisser un point de reprise propre pour observation continue ou qualification ultérieure.
+
+2. État réel retenu au départ
+- `sot/mainline` local a été réaligné sur `origin/sot/mainline`.
+- Le contrat canonique `SIMEX_UNITS_V1` est visible dans le code et la documentation SimEx.
+- `cmd-simex sanity` est validé (`PASS`).
+- La chaîne runtime retenue sur machine est :
+  - `/usr/local/bin/cmd-simex` -> `/opt/trading/modules/simex_bitget_bridge/cmd.sh`
+  - `ExecStart=/usr/local/bin/cmd-simex bitget-run`
+  - timer `simex-bitget.timer` toutes les `5 min`
+
+3. Preuve runtime observée
+- Le service `simex-bitget.service` s'exécute nominalement en oneshot et se termine proprement (`Deactivated successfully` / `Finished`).
+- Le timer `simex-bitget.timer` est actif et continue de déclencher le runner toutes les 5 minutes.
+- Des runs `signal: YES` ont produit `perf_open` puis `perf_close` avec réponses `ok: True`.
+- Des runs `signal: NO` ont été traités proprement sans crash ni état bloqué.
+- Un échec isolé plus ancien a été observé dans les logs (`Failed with result 'exit-code'`), mais il est suivi d'une série continue d'exécutions nominales ; il est donc retenu comme non bloquant dans l'état courant.
+- La lecture de `/perf/trades?limit=10` confirme des trades `CLOSED` cohérents avec le runner SimEx :
+  - `engine = BITGET_SM_LITE`
+  - `symbol = XAUUSDT`
+  - `qty = 0.1`
+  - `risk_usd = 0.5`
+  - `pnl_real = 0.2`
+  - `r_real = 0.4`
+
+4. Verdict retenu
+- Runtime SimEx `admin-trading` : ÉTABLI / OPÉRATIONNEL
+- Timer 5 min : ÉTABLI / ACTIF
+- Intégration Perf : ÉTABLI / PROUVÉE
+- Échec initial isolé : NON BLOQUANT
+
+5. Périmètre explicitement exclu
+- Aucun patch code.
+- Aucun patch service/timer.
+- Aucun changement de paramètres métier SimEx.
+- Aucune modification Perf.
+- Aucun patch massif.
+
+6. Fichiers créés / modifiés
+- Créé : `docs/ot/closings/OT_ADMIN_TRADING_SIMEX_RUNTIME_EVIDENCE_CLOSEOUT_01_CLOSING.txt`
+
+7. Point de reprise suivant
+- Laisser tourner et observer.
+- Ou, si une nouvelle mission doit être ouverte : qualification ciblée / observation prolongée, sans supposer de correction tant qu'aucune dérive n'est prouvée.
+
+8. Verdict final
+PASS / CLOSE

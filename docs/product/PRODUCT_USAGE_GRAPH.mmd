@@ -1,0 +1,82 @@
+flowchart TD
+    repo["Repo opt-trading\nsource canonique"]
+    presentation["Project Presentation"]
+    atlas["Product Usage Atlas"]
+    matrix["Product Usage Matrix"]
+    gaps["Final Target Gaps"]
+    protocol["Update Protocol"]
+    guides["User Guides"]
+
+    repo --> presentation
+    repo --> atlas
+    atlas --> matrix
+    atlas --> gaps
+    atlas --> protocol
+    atlas --> guides
+
+    subgraph now["USABLE_NOW"]
+        repokg["Repo KG\nUSABLE_NOW"]
+    end
+
+    subgraph limited["USABLE_LIMITED"]
+        clickup["ClickUp Cockpit\nUSABLE_LIMITED"]
+        deskpro["Desk Pro\nUSABLE_LIMITED"]
+        botvision["Bot Vision\nUSABLE_LIMITED"]
+        deepseek["Deepseek Student\nUSABLE_LIMITED"]
+        tvpipeline["TradingView / Telegram Alert Pipeline\nUSABLE_LIMITED"]
+        openclawrt["OpenClaw Runtime\nUSABLE_LIMITED"]
+        dercollector["derivatives_collector\nUSABLE_LIMITED"]
+    end
+
+    subgraph doconly["DOC_ONLY"]
+        airtable["Airtable Orchestration Layer\nDOC_ONLY_READY / GO_LIMITED"]
+        openclaw["OpenClaw Docs Library\nDOC_ONLY_READY"]
+        dualstack["Trading Dual Stack V1 / XAUUSD\nDOC_ONLY"]
+        localcms["LocalCMS\nDOC_ONLY"]
+    end
+
+    subgraph simulated["SIMULATED_ONLY"]
+        botpress["Botpress Adapter\nSIMULATED_PASS"]
+    end
+
+    subgraph forbidden["FORBIDDEN_LIVE"]
+        btc["BTC COIN-M Accumulation Engine\nNOT_USABLE_YET / DO_NOT_USE_LIVE"]
+    end
+
+    atlas --> clickup
+    atlas --> repokg
+    atlas --> airtable
+    atlas --> botpress
+    atlas --> openclaw
+    atlas --> btc
+    atlas --> deskpro
+    atlas --> botvision
+    atlas --> deepseek
+    atlas --> tvpipeline
+    atlas --> openclawrt
+    atlas --> dercollector
+    atlas --> dualstack
+    atlas --> localcms
+
+    repokg --> ngrepokg["NEXT_GO\nmaintain via update protocol\nrescan only if coverage changes"]
+    clickup --> ngclickup["NEXT_GO\nreal need or plan upgrade only"]
+    airtable --> ngairtable["NEXT_GO\nGO_OPT_TRADING_AIRTABLE_BRIDGE_CHILD_01"]
+    botpress --> ngbotpress["NEXT_GO\nGO_TRADING_BOTPRESS_TELEGRAM_REAL_INTEGRATION_01"]
+    openclaw --> ngopenclaw["NEXT_GO\nGO_OPENCLAW_DBLAYER_DOCS_SOURCE_CARTOGRAPHY_CHILD_01"]
+    btc --> ngbtc["NEXT_GO\nvalidate parent then formulas child"]
+    deskpro --> ngdeskpro["NEXT_GO\nGO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01"]
+    botvision --> ngbotvision["NEXT_GO\nGO_OPT_TRADING_VISION_RUNTIME_STABILIZATION_01"]
+    deepseek --> ngdeepseek["NEXT_GO\nverify post_change before legacy retirement"]
+    tvpipeline --> ngtvpipeline["NEXT_GO\npursue active alert webhook GO"]
+    openclawrt --> ngopenclawrt["NEXT_GO\nGO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01"]
+    dercollector --> ngdercollector["NEXT_GO\nselective helper extraction rollout"]
+    dualstack --> ngdualstack["NEXT_GO\nGO_OT_TRADING_REALTIME_V1_CHAIN_CLOSED_01"]
+    localcms --> nglocalcms["NEXT_GO\nGO_LOCALCMS_FORMS_INTEGRATION_DOC_01"]
+
+    guides --> gclickup["Guide ClickUp"]
+    guides --> grepokg["Guide Repo KG"]
+    guides --> gbotpress["Guide Botpress simulated"]
+    guides --> gopenclaw["Guide OpenClaw docs"]
+
+    airtable -. no final guide yet .-> guides
+    btc -. no live guide .-> guides

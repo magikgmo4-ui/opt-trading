@@ -1,0 +1,21 @@
+[Unit]
+Description=OpenClaw Daily Session Scheduler (dry-run)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=ghost
+Group=ghost
+Restart=no
+StartLimitIntervalSec=0
+StartLimitBurst=0
+WorkingDirectory=/opt/trading
+Environment=DRY_RUN=1
+Environment=PAPER_MODE=1
+ExecStart=/opt/trading/scripts/schedule/daily_session.sh
+StandardOutput=append:/opt/trading/data/logs/scheduler/systemd-stdout.log
+StandardError=append:/opt/trading/data/logs/scheduler/systemd-stderr.log
+
+[Install]
+WantedBy=multi-user.target

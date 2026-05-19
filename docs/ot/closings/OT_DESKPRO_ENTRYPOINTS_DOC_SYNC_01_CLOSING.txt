@@ -1,0 +1,34 @@
+OT_DESKPRO_ENTRYPOINTS_DOC_SYNC_01 - CLOSING
+Date (America/Montreal) : 2026-04-11
+Statut : CLOSE
+Classe : PATCH_LOCAL
+
+1. Objet
+Réaligner les docs Desk Pro généralistes sur la hiérarchie canonique des entrypoints déjà établie, sans toucher au runtime et sans refactor large.
+
+2. État réel constaté au départ
+- `docs/master_pack/00_current_state_and_standards.md` fixe déjà la hiérarchie canonique Desk Pro.
+- `OT_OPS_05B_DESK_PRO_ENTRYPOINT_MATRIX.md` et `OT_OPS_05B_DESK_PRO_ENTRYPOINT_AUDIT.md` confirment `menu-ops_menu_hub` comme entrypoint opérateur et `scripts/admin_trading/desk_pro_cmd.sh` / `cmd-desk_pro_runner` comme surfaces admin/debug.
+- Plusieurs docs généralistes Desk Pro promouvaient encore des wrappers root legacy (`desk-pro`, `menu-desk-pro`, `sanity-desk-pro`).
+
+3. Patch appliqué
+- `docs/desk_pro_multi_machine_map.md` réaligné sur les surfaces canoniques admin.
+- `docs/admin_trading_desk_pro_runbook.md` réaligné sur `menu-ops_menu_hub`, `scripts/admin_trading/desk_pro_cmd.sh` et `cmd-desk_pro_runner`.
+- `docs/desk_pro_root_wrapper.md` requalifié en legacy/compat.
+- `docs/desk_pro_release_ops_runbook.md` réaligné pour la validation finale.
+
+4. Kanban / reprise
+- Aucun changement de statut ni de suite canonique.
+- Kanban inchangé.
+- Point de reprise conservé : `GO_OT_NEXT_MISSION_SELECTION_01`.
+
+5. Périmètre explicitement exclu
+- Aucun patch runtime/admin-trading.
+- Aucun refactor code.
+- Aucune ouverture automatique de Rules/Agents/Skills/MCP.
+
+6. Verdict
+PASS / CLOSE
+
+7. Point de reprise suivant
+GO_OT_NEXT_MISSION_SELECTION_01

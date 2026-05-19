@@ -1,0 +1,29 @@
+# OT-SESSION-OPENING-DRILL-01 — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-14
+
+## 1. Résumé exécutif
+- Drill “session à froid” exécuté en suivant le point d’entrée canonique du repo.
+- Frictions relevées : scan `git status` non explicite dans l’ordre ; choix du “closing pertinent” peu guidé si nombreux fichiers.
+- Patch minimal appliqué : starter pack + kanban réalignés.
+
+## 2. Point d’entrée canonique
+- `docs/master_pack/mission_starter_pack/00_mission_start_guide.md`
+
+## 3. Commandes exécutées (preuve scan réel)
+- `whoami`
+- `pwd`
+- `git rev-parse --show-toplevel`
+- `git rev-parse --short HEAD`
+- `git status --porcelain`
+
+## 4. Corrections appliquées
+- Starter pack : ajout “Scan réel (repo) : git HEAD + git status”.
+- Kanban : drill enregistré + point de reprise suivant défini.
+
+## 5. Verdict
+**Status : PASS_AVEC_FRICTIONS.**
+
+## 6. Point de reprise exact
+> **OT-NET-RECONNECT-02**
+

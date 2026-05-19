@@ -1,0 +1,233 @@
+[
+  {
+    "surface_name": "ops_menu_hub",
+    "machine_target": "msi_db_layer",
+    "source_module": "ops_menu_hub",
+    "category": "ui/index/modules",
+    "audience": "operator",
+    "description": "Hub opérateur MSI centralisé (V1). Point d'entrée principal.",
+    "actions": "menu-ops_menu_hub",
+    "status": "ready",
+    "priority": "high"
+  },
+  {
+    "surface_name": "desk_pro_dashboard",
+    "machine_target": "msi_db_layer",
+    "source_module": "desk_pro_dashboard",
+    "category": "ui/index/modules",
+    "audience": "operator",
+    "description": "Dashboard de supervision en temps réel du Desk Pro.",
+    "actions": "cmd-desk_pro_dashboard status",
+    "status": "beta",
+    "priority": "high"
+  },
+  {
+    "surface_name": "desk_pro_runner",
+    "machine_target": "admin_trading",
+    "source_module": "desk_pro_runner",
+    "category": "ui/probabilites_trades",
+    "audience": "system",
+    "description": "Orchestration principale des flux de trading.",
+    "actions": "cmd-desk_pro_runner run",
+    "status": "active",
+    "priority": "critical"
+  },
+  {
+    "surface_name": "desk_capture_inputs",
+    "machine_target": "admin_trading",
+    "source_module": "desk_capture_inputs",
+    "category": "ui/probabilites_trades",
+    "audience": "operator",
+    "description": "Interface de saisie manuelle des signaux.",
+    "actions": "cmd-desk_capture_inputs",
+    "status": "ready",
+    "priority": "medium"
+  },
+  {
+    "surface_name": "desk_analyze",
+    "machine_target": "admin_trading",
+    "source_module": "desk_analyze",
+    "category": "ui/probabilites_trades",
+    "audience": "operator",
+    "description": "Déclenchement d'une analyse complète à la demande.",
+    "actions": "cmd-desk_analyze",
+    "status": "ready",
+    "priority": "medium"
+  },
+  {
+    "surface_name": "perf_menu",
+    "machine_target": "msi_db_layer",
+    "source_module": "perf_engine",
+    "category": "ui/dev",
+    "audience": "devops",
+    "description": "Menu de performance et diagnostics système.",
+    "actions": "menu-perf",
+    "status": "ready",
+    "priority": "low"
+  },
+  {
+    "surface_name": "perf_engine",
+    "machine_target": "admin_trading",
+    "source_module": "perf_engine",
+    "category": "ui/dev",
+    "audience": "system",
+    "description": "Moteur de collecte des métriques de performance.",
+    "actions": "cmd-perf_engine measure",
+    "status": "ready",
+    "priority": "low"
+  },
+  {
+    "surface_name": "vision_bot_menu",
+    "machine_target": "msi_db_layer",
+    "source_module": "vision_bot",
+    "category": "ui/screenshots_analyses_passees",
+    "audience": "operator",
+    "description": "Explorateur visuel des logs et captures.",
+    "actions": "menu-vision_bot",
+    "status": "ready",
+    "priority": "medium"
+  },
+  {
+    "surface_name": "bot_vision",
+    "machine_target": "admin_trading",
+    "source_module": "vision_bot",
+    "category": "ui/screenshots_analyses_passees",
+    "audience": "system",
+    "description": "Service de capture et d'analyse visuelle.",
+    "actions": "cmd-bot_vision capture",
+    "status": "ready",
+    "priority": "low"
+  },
+  {
+    "surface_name": "desk_state",
+    "machine_target": "msi_db_layer",
+    "source_module": "desk_pro_dashboard",
+    "category": "ui/index/modules",
+    "audience": "operator",
+    "description": "Vue rapide de l'état actuel du desk.",
+    "actions": "cmd-desk_state",
+    "status": "ready",
+    "priority": "high"
+  },
+  {
+    "surface_name": "desk_snapshot_ingest",
+    "machine_target": "admin_trading",
+    "source_module": "desk_snapshot_ingest",
+    "category": "ui/screenshots_analyses_passees",
+    "audience": "system",
+    "description": "Ingestion des snapshots pour historique.",
+    "actions": "cmd-desk_snapshot_ingest",
+    "status": "ready",
+    "priority": "low"
+  },
+  {
+    "surface_name": "desk_retention",
+    "machine_target": "admin_trading",
+    "source_module": "desk_retention",
+    "category": "ui/screenshots_analyses_passees",
+    "audience": "system",
+    "description": "Gestion de la rétention des données historiques.",
+    "actions": "cmd-desk_retention clean",
+    "status": "ready",
+    "priority": "low"
+  },
+  {
+    "surface_name": "probability_engine",
+    "machine_target": "admin_trading",
+    "source_module": "probability_engine",
+    "category": "ui/probabilites_trades",
+    "audience": "system",
+    "description": "Moteur de calcul de probabilités directionnelles.",
+    "actions": "cmd-probability_engine sample",
+    "status": "ready",
+    "priority": "high"
+  },
+  {
+    "surface_name": "decision_engine",
+    "machine_target": "admin_trading",
+    "source_module": "decision_engine",
+    "category": "ui/probabilites_trades",
+    "audience": "system",
+    "description": "Moteur de prise de décision finale.",
+    "actions": "cmd-decision_engine evaluate",
+    "status": "ready",
+    "priority": "high"
+  },
+  {
+    "surface_name": "risk_engine",
+    "machine_target": "admin_trading",
+    "source_module": "risk_engine",
+    "category": "ui/probabilites_trades",
+    "audience": "system",
+    "description": "Moteur d'évaluation et de contrôle des risques.",
+    "actions": "cmd-risk_engine check",
+    "status": "ready",
+    "priority": "high"
+  },
+  {
+    "surface_name": "portfolio_engine",
+    "machine_target": "admin_trading",
+    "source_module": "portfolio_engine",
+    "category": "ui/probabilites_trades",
+    "audience": "system",
+    "description": "Gestion globale du portefeuille.",
+    "actions": "cmd-portfolio_engine sync",
+    "status": "ready",
+    "priority": "medium"
+  },
+  {
+    "surface_name": "position_engine",
+    "machine_target": "admin_trading",
+    "source_module": "position_engine",
+    "category": "ui/probabilites_trades",
+    "audience": "system",
+    "description": "Gestion fine des positions individuelles.",
+    "actions": "cmd-position_engine monitor",
+    "status": "ready",
+    "priority": "medium"
+  },
+  {
+    "surface_name": "derivatives_analyzer",
+    "machine_target": "admin_trading",
+    "source_module": "derivatives_analyzer",
+    "category": "ui/probabilites_trades",
+    "audience": "system",
+    "description": "Analyse structurelle des marchés dérivés.",
+    "actions": "cmd-derivatives_analyzer analyze",
+    "status": "ready",
+    "priority": "high"
+  },
+  {
+    "surface_name": "liquidation_analyzer",
+    "machine_target": "admin_trading",
+    "source_module": "liquidation_analyzer",
+    "category": "ui/probabilites_trades",
+    "audience": "system",
+    "description": "Analyse des niveaux de liquidation.",
+    "actions": "cmd-liquidation_analyzer scan",
+    "status": "ready",
+    "priority": "medium"
+  },
+  {
+    "surface_name": "market_scanner",
+    "machine_target": "admin_trading",
+    "source_module": "market_scanner",
+    "category": "ui/probabilites_trades",
+    "audience": "system",
+    "description": "Scanner de marché général.",
+    "actions": "cmd-market_scanner run",
+    "status": "ready",
+    "priority": "medium"
+  },
+  {
+    "surface_name": "opportunity_ranker",
+    "machine_target": "admin_trading",
+    "source_module": "opportunity_ranker",
+    "category": "ui/probabilites_trades",
+    "audience": "system",
+    "description": "Classement des opportunités détectées.",
+    "actions": "cmd-opportunity_ranker rank",
+    "status": "ready",
+    "priority": "medium"
+  }
+]

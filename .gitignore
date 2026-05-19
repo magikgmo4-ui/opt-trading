@@ -15,6 +15,7 @@ env/
 *.key
 *.pem
 *.crt
+.secrets/bitget.env
 
 # Runtime / state / logs
 state/
@@ -43,6 +44,38 @@ envs/
 !modules/env/
 !modules/env/__init__.py
 !modules/env/env.py
+*.tgz
+*.zip
+
+# runtime data (generated)
+/runtime/
+/data/
+**/data/
+!modules/perf/data/
+!modules/perf/data/README.md
+_reseau_audit/
+_student_archive/events/*.ndjson
+_student_archive/
+# repo_hygiene additions (WAL/SHM + patch backups)
+*.db-wal
+*.db-shm
+*.sqlite-wal
+*.sqlite-shm
+*.bak_*
+# repo_local_artifacts additions (local-only folders; never commit)
+_worktrees/
+_inbox/
+_hold_untracked_before_merge_*/
+perf/*.bak.*
+_hold/patch_backups/
+_work/
+PATCH_NOTES.md
+modules/bot_vision_step2/config/bot_vision.env
+.venvs/
+modules/**/config/*.env
+desk/
+*.restored_*
+*.fixindent_bak_*
 
 # --- student / ingest secrets ---
 ingest/INGEST_API_KEY
@@ -51,11 +84,15 @@ ingest/__pycache__/
 scripts/runlog
 
 # general secrets/env
-.env
 .env.*
 *API_KEY*
 *SECRET*
 *TOKEN*
 *PASSWORD*
-*.key
-*.pem
+
+# shared packet staging (Option B — local copy of bridge packets)
+_shared_packets/
+
+modules/bot_vision/headless_capture/node_modules/
+modules/bot_vision/headless_capture/package-lock.json
+logs/

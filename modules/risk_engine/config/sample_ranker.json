@@ -1,0 +1,20 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "opportunity_score": 0.81,
+    "priority": "HIGH",
+    "setup_bias": "LONG"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "opportunity_score": 0.29,
+    "priority": "LOW",
+    "setup_bias": "NEUTRAL"
+  },
+  {
+    "symbol": "SOLUSDT",
+    "opportunity_score": 0.60,
+    "priority": "MEDIUM",
+    "setup_bias": "SHORT"
+  }
+]

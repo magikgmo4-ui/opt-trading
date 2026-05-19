@@ -1,0 +1,43 @@
+OT_TRAE_PRE_V1_CLOSEOUT_01 - CLOSING
+Date (America/Montreal) : 2026-04-09
+Statut : CLOSE
+Classe : PATCH_LOCAL
+
+1. Objet
+Clore proprement le chantier prioritaire Trae pré‑V1 : acter le statut global `PRE_V1_COHERENT_AVEC_DELTAS_FINAUX` après gel opposable (doc-only) de Rules/Agents/Skills/MCP Policy, et après passe de cohérence transversale (README / workflow / reprise / kanban), sans rouvrir les blocs V1 et sans surpromesse `V1_READY`.
+
+2. État réel constaté au départ
+- Repo propre sur `sot/mainline` (working tree clean).
+- Les gels pré‑V1 opposables existent déjà via décisions + closings couche-par-couche.
+- Le kanban référence les couches V1 comme `ÉTABLI / GELÉ (PRE-V1, OPPOSABLE)` et conserve un point de reprise neutre.
+
+3. Décision doc-only
+- Statut global Trae pré‑V1 acté : `PRE_V1_COHERENT_AVEC_DELTAS_FINAUX`.
+- Décision canonique : `docs/ot/trae/OT_TRAE_PRE_V1_CLOSEOUT_STATUS_DECISION_01.md`.
+
+4. Fichiers modifiés / créés
+- Créé : `docs/ot/trae/OT_TRAE_PRE_V1_CLOSEOUT_STATUS_DECISION_01.md`
+- Créé : `docs/ot/closings/OT_TRAE_PRE_V1_CLOSEOUT_01_CLOSING.txt`
+- Modifié : `docs/ot/trae/README.md`
+- Modifié : `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md`
+- Modifié : `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`
+- Modifié : `docs/ot/kanban/opt_trading_kanban_operational_summary_2026-03-14.md`
+
+5. Patch appliqué (doc-only)
+- Ajout d’un statut global explicite “Trae pré‑V1” dans le kanban et dans la synthèse.
+- Ajout d’une décision canonique dédiée (orchestration / système) pour `PRE_V1_COHERENT_AVEC_DELTAS_FINAUX`.
+- Point de reprise conservé : `GO_OT_NEXT_MISSION_SELECTION_01`.
+
+6. Périmètre explicitement exclu
+- Aucun patch code / scripts / modules.
+- Aucun patch runtime.
+- Aucune exécution MCP.
+- Aucun nouveau bloc V1.
+- Aucun post‑V1 backlog.
+- Aucun commit/push.
+
+7. Verdict
+PASS / CLOSE
+
+8. Point de reprise suivant
+GO_OT_NEXT_MISSION_SELECTION_01

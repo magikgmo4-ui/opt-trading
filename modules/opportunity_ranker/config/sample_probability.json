@@ -1,0 +1,16 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "probability_long": 0.85,
+    "probability_short": 0.15,
+    "confidence": 0.70,
+    "directional_bias": "LONG"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "probability_long": 0.35,
+    "probability_short": 0.65,
+    "confidence": 0.40,
+    "directional_bias": "SHORT"
+  }
+]

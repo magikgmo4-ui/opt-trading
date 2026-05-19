@@ -1,0 +1,114 @@
+04_SKILLS_V1
+
+0. Objet
+04_SKILLS_V1 définit les skills canoniques minimaux de Trae pour opt-trading.
+
+1. Principe général
+Les agents portent la mission.
+Les skills portent les opérations.
+Un skill ne doit pas devenir un faux agent, une mission entière déguisée ou une couche de gouvernance concurrente.
+
+2. Quand un skill est légitime
+Un skill est un bon candidat si l’opération est :
+- fréquente ;
+- répétable ;
+- bornée ;
+- avec un input clair ;
+- avec une sortie stable ;
+- utile à plusieurs missions ;
+- peu dépendante d’un arbitrage stratégique profond.
+
+3. Règles communes à tous les skills
+Tout skill V1 doit avoir :
+- un nom clair ;
+- un objectif unique ;
+- des inputs explicites ;
+- un hors-scope explicite ;
+- un format de sortie fixe ;
+- un check de validité minimal.
+Un skill ne doit pas :
+- inventer des sources ;
+- inventer une lecture OT non faite ;
+- inventer une compatibilité multi-machine ;
+- inventer un besoin ou une absence de shared ;
+- élargir le périmètre silencieusement.
+
+4. Noyau minimal de skills V1
+
+4.1 classify_mission
+But : classifier une demande dans une seule classe canonique de mission.
+Inputs : mission text, available sources, constraints, context summary.
+Output :
+MISSION_CLASS
+WHY
+SCOPE_HINT
+RISKS_OR_AMBIGUITIES
+
+4.2 extract_established_state
+But : extraire uniquement le réel prouvé depuis les sources disponibles.
+Inputs : repo summary, kanban text, OT docs, continuity notes, reprise files, observed state.
+Output :
+ETABLI
+A_CONFIRMER
+HYPOTHESES
+MISSING_SOURCES
+
+4.3 detect_contradictions
+But : identifier les contradictions entre état réel, repo, kanban OT, doc OT et reprise.
+Inputs : source excerpts/summaries, observed state, repo state, kanban/doc/reprise state.
+Output :
+CONTRADICTIONS
+MISSING_PROOF
+
+4.4 assess_shared_and_portability
+But : déterminer si la mission exige l’usage de shared et si la portée doit être locale, partielle ou multi-machine.
+Inputs : mission class, artifact type, target machine(s), repo vs hors-repo intent, runtime context.
+Output :
+SHARED_STATUS (requis / recommande / non_requis)
+WHY
+PORTABILITY_STATUS (local / partiel / multi_machine_vise / multi_machine_valide)
+TARGETS
+MACHINE_ASSUMPTIONS
+VALIDATIONS_MISSING
+
+4.5 review_scope_compliance
+But : vérifier si une sortie ou une proposition dépasse le scope ou oublie des obligations essentielles.
+Inputs : scoped mission, proposed output, allowed/forbidden changes, required sources.
+Output :
+SCOPE_OK
+SCOPE_DRIFT
+MISSING_OBLIGATIONS
+OT_SOURCES_STATUS
+SHARED_PORTABILITY_STATUS
+RECOMMENDED_ACTION
+
+4.6 build_execution_report
+But : transformer une exécution libre en rapport standardisé, exploitable pour review et reprise.
+Inputs : execution summary, changed files, validations, limits, machine scope, shared status.
+Output :
+RESUME_D_EXECUTION
+SOURCES_UTILISEES
+CHANGEMENTS
+PREUVES_ET_VALIDATIONS
+STATUT_SHARED
+STATUT_MULTI_MACHINE
+LIMITES
+STATUT_FINAL
+POINT_DE_REPRISE
+PROCHAIN_PAS
+
+5. Skills candidats mais hors noyau V1
+- prepare_bundle_transfer
+- materialize_reprise_pack
+- validate_shared_pathing
+- check_ot_doc_kanban_sync
+- normalize_closing_note
+
+6. Ordre d’usage recommandé
+1. classify_mission
+2. extract_established_state
+3. detect_contradictions
+4. assess_shared_and_portability
+5. exécution cadrée
+6. review_scope_compliance
+7. build_execution_report

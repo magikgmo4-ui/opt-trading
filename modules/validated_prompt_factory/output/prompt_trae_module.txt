@@ -1,0 +1,48 @@
+
+# PROMPT POUR CREATION DE MODULE TRAE
+
+## INITIALISATION
+Tu travailles dans le répertoire courant du projet.
+Tu dois créer un NOUVEAU MODULE DURABLE.
+
+## CLASSE CONFIRMÉE
+MODULE DURABLE
+
+## OBJECTIF PRINCIPAL
+Créer le module validated_prompt_factory capable de générer des prompts standardisés.
+Il doit supporter 4 modes de sortie.
+
+## CONTEXTE
+Nous devons créer un module de démonstration pour le validated_prompt_factory.
+Le projet est un système de trading automatisé.
+L'environnement est Windows mais avec une émulation Bash via Git Bash.
+
+## STRUCTURE ATTENDUE
+Le module doit respecter la structure standard :
+- README.md
+- app/ (code source principal)
+- scripts/ (cmd.sh, menu.sh, sanity_check.sh)
+- contextuals/ (pour discovery V2)
+- commands/ (pour discovery V2)
+
+## CONTRAINTES TECHNIQUES
+- Ne pas casser l'existant.
+- Utiliser Python pour la logique.
+- Utiliser Bash pour les wrappers.
+- Respecter la structure standard des modules.
+
+## RISQUES A EVITER
+- Risque de confusion entre les modes Trae et ChatGPT.
+- Dépendance à Python 3.
+
+## LIVRABLES EXACTS
+- Un module complet avec scripts et app.
+- Des fichiers de sortie dans output/.
+
+## VALIDATION OBLIGATOIRE
+- Lancer sanity_check.sh doit passer.
+- Lancer la génération d'un prompt doit créer un fichier.
+Tu dois fournir les commandes de validation à exécuter à la fin.
+
+## POINT DE REPRISE
+GO_PROMPT_FACTORY

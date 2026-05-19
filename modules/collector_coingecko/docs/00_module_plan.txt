@@ -1,0 +1,36 @@
+COLLECTOR COINGECKO - MODULE PLAN
+DATE: 2026-03-18
+STATUS: IMPLEMENTED PILOT SCOPE
+
+PURPOSE
+First real operational collector module for the V1 pilot provider.
+
+FROZEN MODULE IDENTITY
+- module path: modules/collector_coingecko
+- module_id: collector_coingecko
+- provider_id: coingecko
+
+FIRST IMPLEMENTATION TARGET
+- execution mode: oneshot only
+- sanity endpoint: GET /ping
+- collection endpoint: GET /coins/markets
+- collection scope: configured allowlist of coin IDs, single configured vs_currency
+- output goal: publish the frozen canonical artifact set plus a normalized market snapshot dataset
+
+WHY THIS FIRST SCOPE IS DELIBERATELY SMALL
+- validates auth, request execution, raw capture, normalization, logging, and canonical output publication
+- avoids full-universe crawling and broad pagination pressure in the first implementation
+- reduces the risk of freezing the wrong schema too early
+
+NOT IN THIS FIRST IMPLEMENTATION
+- websockets
+- historical backfill
+- onchain DEX data
+- NFT data
+- multi-endpoint orchestration
+- multi-provider work
+
+NEXT IMPLEMENTATION TASKS
+- run the live validation with real CoinGecko credentials
+- inspect the generated canonical outputs
+- record any post-validation findings without expanding scope

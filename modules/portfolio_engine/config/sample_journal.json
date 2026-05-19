@@ -1,0 +1,14 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "desk_state": "ACTIVE_LONG_CANDIDATE"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "desk_state": "BLOCKED"
+  },
+  {
+    "symbol": "SOLUSDT",
+    "desk_state": "ACTIVE_SHORT_CANDIDATE"
+  }
+]

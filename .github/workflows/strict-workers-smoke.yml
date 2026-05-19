@@ -1,0 +1,33 @@
+name: Strict Workers — Smoke Test
+
+on:
+  pull_request:
+    branches:
+      - sot/mainline
+    paths:
+      - ".github/workflows/strict-workers-smoke.yml"
+      - "scripts/ai/workers/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    name: Dry-Run Smoke
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Dry-run READ_INVENTORY
+        run: |
+          bash scripts/ai/workers/run_task.sh \
+            scripts/ai/workers/job_packets/GO_STRICT_WORKERS_READONLY_SMOKE_01.json
+      - name: Verify no tracked files modified
+        run: |
+          if [ -n "$(git diff --name-only)" ]; then
+            echo "FAIL: tracked files were modified"
+            git diff --name-only
+            exit 1
+          fi
+          echo "PASS: no tracked files modified"

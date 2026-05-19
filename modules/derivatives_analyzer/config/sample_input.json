@@ -1,0 +1,32 @@
+[
+  {
+    "symbol": "BTC-USDT",
+    "timestamp": "2023-10-27T10:00:00Z",
+    "open_interest": 1500000000,
+    "open_interest_change_pct": 5.2,
+    "funding_rate": 0.04,
+    "long_short_ratio": 2.5,
+    "volume_24h": 5000000000,
+    "mark_price": 34500.0
+  },
+  {
+    "symbol": "ETH-USDT",
+    "timestamp": "2023-10-27T10:00:00Z",
+    "open_interest": 800000000,
+    "open_interest_change_pct": -1.5,
+    "funding_rate": 0.005,
+    "long_short_ratio": 0.98,
+    "volume_24h": 2000000000,
+    "mark_price": 1800.0
+  },
+  {
+    "symbol": "SOL-USDT",
+    "timestamp": "2023-10-27T10:00:00Z",
+    "open_interest": 200000000,
+    "open_interest_change_pct": 8.0,
+    "funding_rate": -0.035,
+    "long_short_ratio": 0.45,
+    "volume_24h": 800000000,
+    "mark_price": 32.5
+  }
+]

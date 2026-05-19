@@ -1,0 +1,31 @@
+MIMO OPEN OBSERVER — SESSION INDEX V0
+
+1. 00_SESSION_INDEX_MIMO_OPEN_OBSERVER_V0.txt
+   Point d'entrée canonique du pack doc.
+
+2. 01_WORKFLOW_MACHINE_MIMO_OPEN_OBSERVER_V0.txt
+   Cadre machine-first / workflow / séparation dev student -> cible admin-trading.
+
+3. 02_ETABLI_MIMO_OPEN_OBSERVER_V0.txt
+   Ce qui est verrouillé et prouvé au niveau documentaire.
+
+4. 03_SPEC_LOCKED_MIMO_OPEN_OBSERVER_V0.md
+   Périmètre fonctionnel V0 verrouillé.
+
+5. 04_BUILD_PLAN_MIMO_OPEN_OBSERVER_V0.md
+   Plan de build par paliers (K1..K7).
+
+6. 05_FILE_SPEC_MIMO_OPEN_OBSERVER_V0.md
+   Spécification fichier par fichier.
+
+7. 06_PSEUDOCODE_PACK_MIMO_OPEN_OBSERVER_V0.md
+   Pseudo-code précis de chaque fichier du module.
+
+8. 07_REGISTRY_INDEX_PLAN_MIMO_OPEN_OBSERVER_V0.md
+   Plan d'indexation module + wrappers + docs.
+
+9. registry_patch/modules_registry.entry.yaml
+   Entrée proposée pour modules_registry.
+
+10. registry_patch/wrappers_registry.entries.yaml
+    Entrées proposées pour wrappers_registry.

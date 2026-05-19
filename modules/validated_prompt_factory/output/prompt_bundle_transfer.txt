@@ -1,0 +1,59 @@
+
+# PROMPT POUR GENERATION DE BUNDLE (ZIP)
+
+## OBJECTIF
+Préparer une archive ZIP contenant les fichiers nécessaires pour un transfert ou une livraison ciblée.
+
+## CONTEXTE
+Un opérateur doit transférer un sous-ensemble d’artefacts du repo (docs + rapports OT) vers une autre machine via la surface canonique shared.
+On veut un bundle ZIP strict (liste explicite, pas d’excès), destiné à une livraison ciblée.
+
+## CONTENU DU BUNDLE
+Basé sur : Préparer un bundle ZIP contenant uniquement les artefacts nécessaires pour partager l’état “starter pack” (docs + kanban + livrables OT associés), sans inclure de code runtime.
+
+## CONTRAINTES
+- Ne pas inclure de secrets, clés, ou fichiers volumineux non nécessaires.
+- Ne pas inclure de runtime machine (`scripts/*`) ni de données (`data/*`) sauf preuve.
+- Lister explicitement chaque fichier à inclure (pas de glob large).
+- Le bundle est une livraison documentaire : privilégier les fichiers Markdown/TXT.
+
+## RISQUES ET DEPENDANCES
+- Risque : inclure des fichiers hors périmètre par erreur.
+- Dépendance : vérifier l’existence réelle de chaque fichier listé avant création du ZIP.
+
+## FICHIERS A INCLURE
+- docs/master_pack/00_current_state_and_standards.md
+- docs/master_pack/mission_starter_pack/00_mission_start_guide.md
+- docs/master_pack/mission_starter_pack/01_mission_template.md
+- docs/master_pack/mission_starter_pack/02_validation_checklist.md
+- workflow_ai/WORKFLOW.md
+- workflow_ai/templates/specs.md
+- workflow_ai/templates/tasks.md
+- opt_trading_kanban_source_of_truth_2026-03-13_updated.md
+- OT_STARTERPACK_AUDIT_01_REPORT.md
+- OT_STARTERPACK_AUDIT_01_GAP_REPORT.md
+- OT_STARTERPACK_AUDIT_01_CLOSING.txt
+- OT_STARTERPACK_PATCH_01_REPORT.md
+- OT_STARTERPACK_PATCH_01_CLOSING.txt
+- OT_STARTERPACK_PATCH_02_REPORT.md
+- OT_STARTERPACK_PATCH_02_CLOSING.txt
+- OT_STARTERPACK_ADOPTION_01_REPORT.md
+- OT_STARTERPACK_ADOPTION_01_CLOSING.txt
+
+## INSTRUCTIONS
+1. Lister les fichiers exacts.
+2. Créer une structure temporaire propre.
+3. Copier les fichiers.
+4. Créer l'archive ZIP.
+5. Nettoyer les fichiers temporaires.
+
+## VALIDATION
+Vérifier que le ZIP contient bien les éléments attendus et rien d'autre.
+- Vérifier que le ZIP ne contient que les fichiers listés.
+- Vérifier que les fichiers sont lisibles (UTF-8) et non vides.
+
+## SUITE
+Déposer le ZIP dans `/shared/_bundles/` avec un nom horodaté et documenter la livraison.
+
+## POINT DE REPRISE
+GO_OT_SHARED_BUNDLE_DELIVERY_01

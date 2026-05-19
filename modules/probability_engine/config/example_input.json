@@ -1,0 +1,12 @@
+{
+  "symbol": "BTCUSDT",
+  "timestamp": "2026-03-06T16:00:00Z",
+  "trend_bias": 0.7,
+  "momentum_bias": 0.4,
+  "open_interest_bias": 0.6,
+  "funding_bias": -0.2,
+  "liquidation_bias": 0.3,
+  "liquidity_bias": 0.5,
+  "volatility_bias": 0.1,
+  "regime_bias": 0.4
+}

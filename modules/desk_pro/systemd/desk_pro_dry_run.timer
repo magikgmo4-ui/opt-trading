@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Desk Pro dry-run every 15 minutes
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=15min
+Unit=desk_pro_dry_run.service
+
+[Install]
+WantedBy=timers.target

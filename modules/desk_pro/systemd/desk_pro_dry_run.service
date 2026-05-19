@@ -1,0 +1,11 @@
+[Unit]
+Description=Desk Pro dry-run automation (read-only)
+After=network.target
+
+[Service]
+Type=oneshot
+User=ghost
+Group=ghost
+WorkingDirectory=/opt/trading
+Environment="DRY_RUN_MODE=true"
+ExecStart=/opt/trading/modules/desk_pro/desk_pro_dry_run.sh

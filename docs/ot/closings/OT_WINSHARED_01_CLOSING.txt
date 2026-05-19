@@ -1,0 +1,34 @@
+# OT-WINSHARED-01 — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-13
+
+## 1. RÉSUMÉ EXÉCUTIF
+- `cursor-ai` (Windows) est cadré comme client SFTP/WinSCP vers la **même source canonique** que `/shared` côté Linux.
+- Chemin local recommandé : `C:\\Users\\ghost\\Downloads\\SHARED\\` (à confirmer sur poste).
+- Procédure WinSCP / KeepUpToDate formalisée, sans imposer SSHFS à Windows.
+
+## 2. SOURCE CANONIQUE SERVEUR
+- `admin-trading:/srv/sftp/shared_files/shared`
+- Chroot SFTP : `/srv/sftp/shared_files` (donc `/shared` côté SFTP)
+
+## 3. CHEMIN LOCAL WINDOWS RECOMMANDÉ
+- `C:\\Users\\ghost\\Downloads\\SHARED\\` (À CONFIRMER SUR POSTE)
+
+## 4. PROCÉDURE WinSCP / KeepUpToDate (RAPIDE)
+- Remote : `/shared`
+- Local : `C:\\Users\\ghost\\Downloads\\SHARED\\`
+- Bookmarks : `/shared`, `/shared/inbox`, `/shared/outbox` (et `/upload` si utilisé)
+
+## 5. RÉSERVE RESTANTE
+- À confirmer : preuve directe sur `cursor-ai` (profil WinSCP, KeepUpToDate actif, hostkey pinned).
+
+## 6. FICHIERS MODIFIÉS (REPO)
+- `OT_WINSHARED_01_REPORT.md`
+- `OT_WINSHARED_01_CLOSING.txt`
+
+## 7. VERDICT FINAL
+**Status : CLOSE AVEC RÉSERVE MINEURE WINDOWS (POSTE NON REJOUÉ).**
+
+## 8. IMPACT SUR OT-SVC-01
+- Réserve Windows : réduite (mode opératoire fixé), mais non levée sans replay `cursor-ai`.
+

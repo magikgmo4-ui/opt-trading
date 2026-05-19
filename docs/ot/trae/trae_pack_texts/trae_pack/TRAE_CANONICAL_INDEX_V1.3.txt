@@ -1,0 +1,60 @@
+TRAE_CANONICAL_INDEX_V1.3 — INDEX CANONIQUE MAÎTRE
+
+## 1. OBJECTIF DU DOCUMENT
+Fournir une vue d'ensemble structurée et normative de la doctrine Trae, en référençant toutes les briques validées (templates, politiques, contrats) nécessaires à l'exécution du workflow canonique. Cet index sert de point d'entrée unique pour tout acteur (Orchestrator, Executor, Reviewer) souhaitant appliquer la méthode.
+
+## 2. PÉRIMÈTRE COUVERT
+Cet index couvre exclusivement le Socle Doctrinal Trae V1 stabilisé. Il ne remplace pas le contenu des documents cités, mais en garantit l'accès et la cohérence. Il inclut la définition des rôles, des artefacts, des statuts et des procédures de clôture.
+
+## 3. LISTE CANONIQUE DES BRIQUES
+1. TRAE_CANONICAL_INDEX_V1.3 (Ce document)
+2. TRAE_DOCTRINE_CHAIN_V1.1
+3. TRAE_STATUS_POLICY_V1.1
+4. TRAE_MISSION_TEMPLATE_V1.1
+5. TRAE_EXECUTION_REPORT_TEMPLATE_V1.1
+6. TRAE_REVIEW_VERDICT_TEMPLATE_V1.1
+7. TRAE_CLOSURE_TEMPLATE_V1.1
+8. TRAE_ORCHESTRATOR_ROLE_V1.1
+
+## 4. RÔLE DE CHAQUE BRIQUE
+- TRAE_DOCTRINE_CHAIN_V1.1 : La "Constitution". Définit les rôles, l'ordre séquentiel et les règles de blocage.
+- TRAE_STATUS_POLICY_V1.1 : Le "Dictionnaire". Définit le sens exact de ACCEPT, REJECT, CLOSE, etc.
+- TRAE_MISSION_TEMPLATE_V1.1 : Le "Contrat d'Entrée". Format obligatoire pour lancer une action.
+- TRAE_EXECUTION_REPORT_TEMPLATE_V1.1 : La "Preuve". Format obligatoire pour livrer un travail.
+- TRAE_REVIEW_VERDICT_TEMPLATE_V1.1 : Le "Jugement". Format obligatoire pour valider ou rejeter.
+- TRAE_CLOSURE_TEMPLATE_V1.1 : L'"Archivage". Format obligatoire pour clore proprement une séquence.
+- TRAE_ORCHESTRATOR_ROLE_V1.1 : Le "Cadrage". Définit les responsabilités, limites et obligations de l'autorité de mission.
+
+## 5. ORDRE LOGIQUE DE LECTURE / USAGE
+1. Comprendre : Lire TRAE_CANONICAL_INDEX_V1.3 , puis TRAE_DOCTRINE_CHAIN_V1.1 et TRAE_STATUS_POLICY_V1.1 .
+2. Cadrer : Consulter TRAE_ORCHESTRATOR_ROLE_V1.1 pour préparer une mission valide.
+3. Lancer : Remplir TRAE_MISSION_TEMPLATE_V1.1 .
+4. Exécuter : Remplir TRAE_EXECUTION_REPORT_TEMPLATE_V1.1 .
+5. Valider : Remplir TRAE_REVIEW_VERDICT_TEMPLATE_V1.1 .
+6. Figer : Remplir TRAE_CLOSURE_TEMPLATE_V1.1 .
+
+## 6. STATUT CANONIQUE ACTUEL
+Toutes les briques doctrinales référencées par cet index constituent la référence canonique close du socle Trae. Le présent index devient à son tour opposable une fois sa propre review terminée et sa clôture formalisée.
+
+## 7. RÈGLE DE MAINTENANCE DE L’INDEX
+Cet index doit être mis à jour uniquement lorsqu'une nouvelle brique doctrinale est officiellement close (statut CLOSE). Il ne doit jamais référencer des documents en cours de rédaction (WIP) ou rejetés.
+
+## 8. EXEMPLE D’USAGE EN OUVERTURE DE SESSION
+"Bonjour Trae. Je souhaite lancer une mission de patch. Je me réfère à l’index canonique : j’utilise le template de mission V1.1, je m’attends à un rapport d’exécution V1.1 et je clôturerai selon le template V1.1."
+
+## 9. ERREURS FRÉQUENTES À ÉVITER
+- Utiliser une version obsolète d'un template (ex: V1.0 au lieu de V1.1).
+- Improviser un format de rapport alors que le standard existe.
+- Chercher des règles de statut dans le template de mission (elles sont dans la Status Policy).
+- Modifier une brique close sans rouvrir un chantier doctrinal formel.
+
+## 10. RÉSUMÉ TECHNIQUE COURT
+Le TRAE_CANONICAL_INDEX_V1.3 est la table des matières du système d'exploitation méthodologique Trae. Il garantit que tous les acteurs parlent le même langage et utilisent les mêmes formulaires. C'est la garantie de la stabilité du workflow et de la pérennité des pratiques, indépendamment des opérateurs.
+
+RÉSUMÉ DES CHANGEMENTS (V1.2 -> V1.3)
+
+- Ajout de Brique : Intégration de TRAE_ORCHESTRATOR_ROLE_V1.1 comme référence normative pour le rôle d'Orchestrator.
+- Mise à Jour Inventaire : Passage de l'index en version V1.3.
+- Mise à Jour Usage : Ajout de l'étape de cadrage dans l'ordre logique de lecture (Section 5).
+
+POINT DE REPRISE : GO_TRAE_SESSION_OPENING_PACK_V1

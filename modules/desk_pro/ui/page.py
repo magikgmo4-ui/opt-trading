@@ -31,6 +31,20 @@ def render_ui_html() -> str:
 
   <div class="grid">
     <div class="card">
+      <h3 style="margin-top:0">Pipeline Status</h3>
+      <div class="muted">Live from /desk/status</div>
+      <div id="pipelineSummary"></div>
+      <div style="margin-top:8px">
+        <button id="btnStatus">Refresh</button>
+        <span id="statusTs" class="muted" style="margin-left:8px"></span>
+      </div>
+      <details style="margin-top:6px">
+        <summary class="muted" style="cursor:pointer">Raw JSON</summary>
+        <pre id="pipelineStatus" style="font-size:11px">loading...</pre>
+      </details>
+    </div>
+
+    <div class="card">
       <h3 style="margin-top:0">Snapshot</h3>
       <div class="muted">Refresh loads /desk/snapshot</div>
       <p><button id="btnSnap">Refresh</button></p>
@@ -150,6 +164,135 @@ def render_ui_html() -> str:
 <script>
 const el = (id)=>document.getElementById(id);
 
+function healthBadge(status){
+  const colors = {'healthy':'#2e7d32','degraded':'#e65100','down':'#c62828'};
+  const bg = colors[status]||'#888';
+  return `<span style="display:inline-block;padding:2px 12px;border-radius:999px;background:${bg};color:#fff;font-size:13px;font-weight:600">${status.toUpperCase()}</span>`;
+}
+
+function badge(ok, label, labelFail){
+  const good = ok === true || ok === 'live' || ok === 'fixture' || ok === 'pass';
+  const warn = ok === 'warn';
+  const color = warn ? '#e65100' : (good ? '#2e7d32' : '#c62828');
+  const text = warn ? 'WARN' : (good ? (label||'OK') : (labelFail||'DOWN'));
+  return `<span style="display:inline-block;padding:1px 8px;border-radius:999px;background:${color};color:#fff;font-size:11px;margin:1px 0">${text}</span>`;
+}
+
+async function refreshStatus(){
+  try{
+    const r = await fetch('/desk/status');
+    const j = await r.json();
+    el('pipelineStatus').textContent = JSON.stringify(j, null, 2);
+
+    let html = '';
+
+    // Health badge
+    const h = j.health || {};
+    html += '<div style="margin-bottom:8px;display:flex;align-items:center;gap:8px">';
+    html += healthBadge(h.status||'unknown');
+    html += '<span class="muted">' + (h.checks||[]).length + ' checks</span>';
+    html += '</div>';
+
+    // Checks table
+    html += '<table style="font-size:12px;margin-bottom:8px">';
+    html += '<thead><tr><th>check</th><th>status</th><th>reason</th></tr></thead><tbody>';
+    if(h.checks){
+      for(const c of h.checks){
+        html += `<tr><td>${c.check}</td><td>${badge(c.status, c.status, c.status)}</td><td>${c.reason||''}</td></tr>`;
+      }
+    }
+    html += '</tbody></table>';
+
+    // 3-col component cards
+    html += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:12px">';
+
+    // Desk Pro
+    html += '<div style="border:1px solid #ddd;border-radius:6px;padding:6px">';
+    html += '<strong>Desk Pro</strong><br>';
+    html += 'Mode: ' + (j.desk_pro?.mode||'?') + '<br>';
+    html += badge(j.desk_pro?.ok, 'up', 'down');
+    html += '</div>';
+
+    // Webhook
+    html += '<div style="border:1px solid #ddd;border-radius:6px;padding:6px">';
+    html += '<strong>Webhook</strong><br>';
+    if(j.webhook){
+      html += 'Engine: ' + (j.webhook.active_engine||'-') + '<br>';
+      html += 'Trade: ' + (j.webhook.trade_allowed ? 'ALLOWED' : 'BLOCKED') + '<br>';
+      html += badge(j.webhook.ok, 'up', 'down');
+    } else {
+      html += badge(false, '', 'unreachable');
+    }
+    html += '</div>';
+
+    // Perf
+    html += '<div style="border:1px solid #ddd;border-radius:6px;padding:6px">';
+    html += '<strong>Perf</strong><br>';
+    if(j.perf){
+      html += 'Trades: ' + (j.perf.total_trades||0) + '<br>';
+      html += 'PnL: ' + (j.perf.pnl_realized||0) + '<br>';
+      const pct = ((j.perf.equity_last||0) / (j.perf.equity0||1) * 100 - 100).toFixed(1);
+      html += 'Return: ' + (j.perf.pnl_realized >= 0 ? '+' : '') + pct + '%<br>';
+      html += badge(true, 'live', '');
+    } else {
+      html += badge(false, '', 'down');
+    }
+    html += '</div>';
+
+    // Sources row
+    html += '</div>';
+    html += '<div style="margin-top:6px;font-size:12px"><strong>Sources:</strong> ';
+    if(j.sources){
+      for(const [k,v] of Object.entries(j.sources)){
+        html += `<span class="pill">${k}=${v}</span>`;
+      }
+    }
+    html += '</div>';
+
+    // Alert test button
+    html += '<div style="margin-top:6px">';
+    html += '<button id="btnTestAlert" style="font-size:11px;padding:4px 10px">Test Alert</button>';
+    html += '<span id="testAlertResult" class="muted" style="margin-left:6px"></span>';
+    html += '</div>';
+
+    // Alert status
+    if(j.alert){
+      const a = j.alert;
+      if(a.triggered){
+        html += '<div style="margin-top:6px;font-size:12px;padding:4px 8px;border-radius:6px;background:#fff3e0;border:1px solid #e65100">';
+        html += '<strong>ALERT:</strong> status=' + a.status + ' cooldown=' + a.cooldown_sec + 's';
+        if(a.dispatch){
+          for(const d of a.dispatch){
+            const ok = d.sent ? '✓' : '✗';
+            html += ' <span class="muted">' + ok + ' ' + d.destination + '</span>';
+          }
+        }
+        html += '</div>';
+      } else if(a.reason === 'cooldown'){
+        html += '<div style="margin-top:6px;font-size:12px;color:#888">';
+        html += 'Alert cooldown: ' + a.cooldown_remaining_sec + 's remaining (last: ' + (a.last_status||'?') + ')';
+        html += '</div>';
+      }
+    }
+
+    // Errors
+    if(j.error_count > 0){
+      html += '<div style="margin-top:6px;font-size:12px;color:#c62828">';
+      html += '<strong>Errors:</strong> ' + j.error_count + ' total, last: ';
+      if(j.recent_errors && j.recent_errors.length > 0){
+        html += j.recent_errors[0].error || 'unknown';
+      }
+      html += '</div>';
+    }
+
+    el('pipelineSummary').innerHTML = html;
+    el('statusTs').textContent = 'updated ' + (j.ts||'');
+  }catch(e){
+    el('pipelineStatus').textContent = 'ERROR: '+e;
+    el('pipelineSummary').innerHTML = '<span style="color:#c62828">Pipeline unreachable: '+e+'</span>';
+  }
+}
+
 async function refreshSnap(){
   el('btnSnap').disabled = true;
   try{
@@ -204,8 +347,30 @@ async function submitForm(){
   }
 }
 
+async function testAlert(){
+  el('btnTestAlert').disabled = true;
+  el('testAlertResult').textContent = '…';
+  try{
+    const r = await fetch('/desk/alert/test', {method:'POST'});
+    const j = await r.json();
+    if(!r.ok){ el('testAlertResult').textContent = 'error ' + r.status; return; }
+    const parts = (j.dispatch||[]).map(d=>{
+      const icon = d.status === 'delivered' ? '✓' : (d.status === 'skipped' ? '–' : '✗');
+      return icon + ' ' + d.destination;
+    });
+    el('testAlertResult').textContent = parts.join('  ') || 'no destinations';
+  }catch(e){
+    el('testAlertResult').textContent = 'error: ' + e;
+  }finally{
+    el('btnTestAlert').disabled = false;
+  }
+}
+
 el('btnSnap').addEventListener('click', refreshSnap);
 el('btnSubmit').addEventListener('click', submitForm);
+el('btnStatus').addEventListener('click', refreshStatus);
+el('btnTestAlert').addEventListener('click', testAlert);
+refreshStatus();
 refreshSnap();
 </script>
 

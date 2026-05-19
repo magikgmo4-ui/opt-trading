@@ -1,0 +1,41 @@
+OT_RUNTIME_WRAPPERS_REGISTRY_COVERAGE_01 - CLOSING
+Date (America/Montreal) : 2026-04-11
+Statut : CLOSE
+Classe : PATCH_LOCAL
+
+1. Objet
+Corriger côté repo la divergence de gouvernance explicitement documentée entre wrappers réels et `registry/wrappers_registry.yaml` pour `cmd-perf_engine`, sans toucher au runtime et sans ouvrir Trae V1.
+
+2. État réel constaté au départ
+- `modules/perf_engine/scripts/cmd.sh` existe dans le repo.
+- `modules_registry.yaml` déclare `perf_engine` avec `wrappers_expected: ["cmd"]`.
+- `wrappers_registry.yaml` ne contenait pas d’entrée `cmd-perf_engine`.
+- La divergence était déjà documentée dans `OT_TRAE_RUNTIME_SNAPSHOT_ALIGNMENT_CHECK_01_CLOSING.txt`.
+
+3. Patch appliqué
+- Ajout de l’entrée canonique `cmd-perf_engine` dans `registry/wrappers_registry.yaml`.
+- Aucun autre wrapper `perf_engine` n’est promu dans cette mission faute de preuve canonique équivalente requise.
+
+4. Validation
+- `git status --short --branch`
+- lecture croisée de :
+  - `registry/modules_registry.yaml`
+  - `registry/wrappers_registry.yaml`
+  - `modules/perf_engine/scripts/cmd.sh`
+  - `docs/ot/closings/OT_TRAE_RUNTIME_SNAPSHOT_ALIGNMENT_CHECK_01_CLOSING.txt`
+
+5. Kanban / reprise
+- Aucun changement de statut global ou de suite canonique.
+- Kanban inchangé.
+- Point de reprise conservé : `GO_OT_NEXT_MISSION_SELECTION_01`.
+
+6. Périmètre explicitement exclu
+- Aucun patch runtime/admin-trading.
+- Aucun refactor de `perf_engine`.
+- Aucune ouverture automatique de Rules/Agents/Skills/MCP.
+
+7. Verdict
+PASS / CLOSE
+
+8. Point de reprise suivant
+GO_OT_NEXT_MISSION_SELECTION_01

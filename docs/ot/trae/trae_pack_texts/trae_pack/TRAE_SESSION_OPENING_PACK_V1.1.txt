@@ -1,0 +1,74 @@
+TRAE_SESSION_OPENING_PACK_V1.1 — PACK CANONIQUE D’OUVERTURE DE SESSION
+
+NOTE (opt-trading) : ce fichier est un helper de support/transport. La doctrine canonique d’ouverture de session du projet est `docs/master_pack/mission_starter_pack/00_mission_start_guide.md` ; en cas de conflit, le repo prime.
+
+## 1. OBJECTIF DU PACK
+Standardiser l’initialisation de toute session de travail Trae afin de garantir la continuité contextuelle, d’éviter les redémarrages flous et de sécuriser l’alignement immédiat sur la doctrine et l’état réel du projet.
+
+## 2. CONTENU MINIMAL DU PACK
+- TRAE_CANONICAL_INDEX_V1.3 : La carte des références doctrinales valides.
+- TRAE_DRIVE_REFERENCE_PACK_V1.1 : La référence de synchronisation.
+- DERNIÈRE CLÔTURE VALIDÉE : Le template de clôture de la session précédente (ou de l’élément parent).
+- DERNIER ÉTABLI DISPONIBLE : Le rappel compact de ce qui est acté et opposable.
+- POINT DE REPRISE ACTIF : L’identifiant explicite de l’action à engager (`GO_...`).
+
+## 3. CONTENU OPTIONNEL UTILE
+- Notes de Dette (TODOs) : Liste des dettes acceptées (ACCEPT_WITH_NOTES) à traiter.
+- Contexte Spécifique : Ticket, spécification ou doc technique liée à la mission du jour.
+- État des Lieux : Résultat frais d’un `ls -R` ou d’un `discovery.sh` si le contexte est incertain.
+
+## 4. ORDRE CANONIQUE DE LECTURE
+1. Lire l’Index : Pour charger les règles du jeu valides.
+2. Lire la Clôture : Pour comprendre d’où l’on vient (ce qui est acquis).
+3. Lire l’Établi : Pour rappeler ce qui est déjà acté et opposable.
+4. Lire le Point de Reprise : Pour savoir où l’on va (ce qui est à faire).
+5. Scanner le Réel : Pour vérifier que le terrain correspond à la carte.
+
+## 5. RÔLE DE CHAQUE ÉLÉMENT
+- Index : Fixe le cadre légal (Doctrine, Templates).
+- Clôture : Fixe le cadre historique (Acquis, Validé).
+- Établi : Fixe le cadre de synthèse (Ce qui est acté).
+- Point de Reprise : Fixe le cadre opérationnel (Action immédiate).
+- Réel : Fixe la vérité technique (Fichiers présents).
+
+## 6. RÈGLE DE PRIORITÉ ENTRE LES SOURCES
+En cas de divergence, l’ordre de priorité est :
+
+1. ÉTAT RÉEL DE SESSION / ÉTAT RÉEL OBSERVABLE (fichiers, logs, sorties récentes).
+2. WORKFLOW ACTIF ET RÈGLES DOCTRINALES VALIDÉES.
+3. ÉTABLI / DERNIÈRE CLÔTURE VALIDÉE.
+4. INDEX CANONIQUE.
+5. MÉMOIRE DE CONTINUITÉ.
+6. HYPOTHÈSES OU RECONSTRUCTIONS PROVISOIRES.
+
+Le point de reprise oriente la suite, mais ne prévaut jamais sur l’état réel ni sur les sources doctrinales validées.
+
+## 7. FORMAT RECOMMANDÉ DU PACK
+Un bloc texte simple ou un fichier Markdown `SESSION_CONTEXT.md` contenant :
+
+- Date et Heure.
+- Lien vers l’Index Canonique.
+- Copie du dernier Template de Clôture.
+- Rappel du dernier Établi disponible.
+- Rappel du Point de Reprise.
+
+## 8. EXEMPLE CANONIQUE D’OUVERTURE DE SESSION
+# SESSION OPENING
+- Date : 2026-03-12
+- Doctrine : TRAE_CANONICAL_INDEX_V1.3 (Active)
+- Sync Ref : TRAE_DRIVE_REFERENCE_PACK_V1.1
+- Précédent : CLÔTURE — MODULE SYSTEM_MONITOR V1 (Statut: CLOSE)
+- Établi : Dernier état acté relu
+- Reprise : GO_TRAE_DEPLOYMENT_V1
+- Contexte : Démarrage de la phase de déploiement opérationnel.
+
+## 9. ERREURS FRÉQUENTES À ÉVITER
+- Démarrer "à froid" sans relire la dernière clôture.
+- Ignorer l’Index et utiliser des vieux templates de mémoire.
+- Confondre ce qu’on voulait faire (Point de Reprise) avec ce qui est fait (Réel).
+- Improviser une nouvelle mission sans l’ancrer dans la continuité précédente.
+
+## 10. RÉSUMÉ TECHNIQUE COURT
+Le TRAE_SESSION_OPENING_PACK_V1.1 est le "kit de survie" contextuel. Il permet à l’agent (ou à l’humain) de se "re-hydrater" instantanément avec le contexte valide : les règles (Index), l’histoire (Clôture), le rappel opposable (Établi) et le but (Reprise). C’est la garantie contre l’amnésie de session et la dérive entropique du projet.
+
+POINT DE REPRISE : GO_TRAE_CANONICAL_SYNC_CHECK

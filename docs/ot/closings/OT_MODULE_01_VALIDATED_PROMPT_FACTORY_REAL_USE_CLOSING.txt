@@ -1,0 +1,31 @@
+# OT-MODULE-01 — VALIDATED_PROMPT_FACTORY (REAL USE) — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-14
+
+## 1. RÉSUMÉ EXÉCUTIF
+- Drill réel effectué sur l’état du repo : génération prouvée sur 2 cas utiles.
+- Un écart prouvé sur `bundle_transfer` a été corrigé par patch minimal (continuité ajoutée au prompt).
+- Kanban mis à jour ; point de reprise laissé.
+
+## 2. ÉTABLI
+- Module présent et déclaré dans le registry central.
+- Cas 1 (registry central) : prompt `trae_patch` généré et exploitable.
+- Cas 2 (bundle_transfer) : prompt bundle généré et exploitable, avec continuité (contraintes/risques/suite/reprise).
+
+## 3. RÉSERVE MINEURE / À CONFIRMER
+- Parcours wrappers `cmd.sh`/`sanity.sh` sur Linux cible (bash) non rejoué ici (Windows).
+
+## 4. LIVRABLES
+- `OT_MODULE_01_VALIDATED_PROMPT_FACTORY_REAL_USE_REPORT.md`
+- `OT_MODULE_01_VALIDATED_PROMPT_FACTORY_REAL_USE_GAP_REPORT.md`
+- `OT_MODULE_01_VALIDATED_PROMPT_FACTORY_REAL_USE_CLOSING.txt`
+
+## 5. IMPACT KANBAN
+- Kanban (source of truth) mis à jour : mission marquée CLOSE (PASS) et reprise indiquée.
+
+## 6. VERDICT FINAL
+**Status : CLOSE (PASS).**
+
+## 7. POINT DE REPRISE
+> **GO_OT_MODULE_02_VALIDATED_PROMPT_FACTORY_HARDENING**
+

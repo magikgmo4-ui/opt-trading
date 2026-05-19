@@ -1,0 +1,36 @@
+# OT-STARTERPACK-PATCH-01 — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-14
+
+## 1. RÉSUMÉ EXÉCUTIF
+- Point d’entrée unique “ouverture de session” consolidé dans le master pack.
+- Référence cassée OT_OPS_04B corrigée vers un document réel existant.
+- Naming des clôtures réaligné côté templates.
+- Kanban mis à jour et point de reprise laissé.
+
+## 2. DOC CANONIQUE (POINT D’ENTRÉE)
+- `docs/master_pack/mission_starter_pack/00_mission_start_guide.md`
+
+## 3. KANBAN (SOURCE OF TRUTH)
+- `opt_trading_kanban_source_of_truth_2026-03-13_updated.md`
+
+## 4. FICHIERS MODIFIÉS
+- `docs/master_pack/mission_starter_pack/00_mission_start_guide.md`
+- `docs/master_pack/00_current_state_and_standards.md`
+- `docs/master_pack/mission_starter_pack/01_mission_template.md`
+- `docs/master_pack/mission_starter_pack/02_validation_checklist.md`
+- `docs/INDEX.md`
+- `opt_trading_kanban_source_of_truth_2026-03-13_updated.md`
+- `OT_STARTERPACK_PATCH_01_REPORT.md`
+- `OT_STARTERPACK_PATCH_01_CLOSING.txt`
+
+## 5. VERDICT FINAL
+**Status : CLOSE (PASS).**
+
+## 6. POINT DE REPRISE
+> **GO_OT_STARTERPACK_PATCH_02**
+
+Décider et documenter :
+1) règle de priorité entre template mission (master pack) et workflow_ai (specs/tasks),
+2) intégration (ou non) des packs TRAE opening/closure au starter pack projet, sans duplication.
+

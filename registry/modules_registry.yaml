@@ -1,0 +1,348 @@
+# Modules Registry
+# Source de vérité pour les modules fonctionnels et leurs rôles
+
+# === OPERATOR TOOLS ===
+- module_name: validated_prompt_factory
+  domain: operator_tools
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Générateur de prompts validés (ChatGPT, Trae, Bundle)"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: high
+  dependencies: []
+
+- module_name: trae_module_validator
+  domain: operator_tools
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Validateur de structure de module Trae"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: medium
+  dependencies: []
+
+- module_name: workflow_post_change_v2
+  domain: operator_tools
+  machine_target: any
+  operator_visible: false
+  ui_related: false
+  description: "Hook post-change (Canonique Patché)"
+  wrappers_expected: ["cmd"]
+  status: active
+  priority: critical
+  dependencies: []
+
+- module_name: kil_v1
+  domain: operator_tools
+  machine_target: student
+  operator_visible: true
+  ui_related: false
+  description: "Noyau minimal de campagne KIL V1"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: high
+  dependencies: []
+
+- module_name: memory_bricks
+  domain: operator_tools
+  machine_target: student
+  operator_visible: true
+  ui_related: false
+  description: "Surface CLI minimale Memory Bricks V1"
+  wrappers_expected: ["cmd", "sanity"]
+  status: active
+  priority: high
+  dependencies: []
+
+- module_name: ops_menu_hub
+  domain: operator_tools
+  machine_target: msi_db_layer
+  operator_visible: true
+  ui_related: true
+  description: "Point d'entrée principal MSI (Menu Hub)"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: critical
+  dependencies: []
+
+- module_name: desk_pro_dashboard
+  domain: operator_tools
+  machine_target: msi_db_layer
+  operator_visible: true
+  ui_related: true
+  description: "Dashboard de supervision temps réel"
+  wrappers_expected: ["cmd"]
+  status: beta
+  priority: high
+  dependencies: ["desk_pro_runner"]
+
+- module_name: desk_pro_runner
+  domain: operator_tools
+  machine_target: admin_trading
+  operator_visible: false
+  ui_related: false
+  description: "Orchestrateur d'exécution principal"
+  wrappers_expected: ["cmd", "sanity"]
+  status: active
+  priority: critical
+  dependencies: ["probability_engine", "decision_engine"]
+
+- module_name: desk_capture_inputs
+  domain: operator_tools
+  machine_target: admin_trading
+  operator_visible: true
+  ui_related: true
+  description: "Interface de saisie manuelle de signaux"
+  wrappers_expected: ["cmd"]
+  status: active
+  priority: medium
+  dependencies: ["desk_pro_runner"]
+
+- module_name: desk_analyze
+  domain: operator_tools
+  machine_target: admin_trading
+  operator_visible: true
+  ui_related: true
+  description: "Commande d'analyse à la demande"
+  wrappers_expected: ["cmd"]
+  status: active
+  priority: medium
+  dependencies: ["desk_pro_runner"]
+
+# === ANALYSIS ENGINES ===
+- module_name: derivatives_analyzer
+  domain: analysis_engines
+  machine_target: admin_trading
+  operator_visible: false
+  ui_related: false
+  description: "Analyse structurelle des marchés dérivés"
+  wrappers_expected: ["cmd", "sanity"]
+  status: active
+  priority: high
+  dependencies: ["derivatives_collector"]
+
+- module_name: probability_engine
+  domain: analysis_engines
+  machine_target: admin_trading
+  operator_visible: false
+  ui_related: false
+  description: "Moteur de calcul de probabilités"
+  wrappers_expected: ["cmd", "sanity"]
+  status: active
+  priority: high
+  dependencies: ["derivatives_analyzer"]
+
+- module_name: decision_engine
+  domain: analysis_engines
+  machine_target: admin_trading
+  operator_visible: false
+  ui_related: false
+  description: "Moteur de décision finale de trading"
+  wrappers_expected: ["cmd"]
+  status: active
+  priority: high
+  dependencies: ["probability_engine", "risk_engine"]
+
+- module_name: risk_engine
+  domain: analysis_engines
+  machine_target: admin_trading
+  operator_visible: false
+  ui_related: false
+  description: "Contrôle des risques"
+  wrappers_expected: ["cmd"]
+  status: active
+  priority: critical
+  dependencies: ["portfolio_engine"]
+
+- module_name: market_scanner
+  domain: analysis_engines
+  machine_target: admin_trading
+  operator_visible: false
+  ui_related: false
+  description: "Scanner d'opportunités de marché"
+  wrappers_expected: ["cmd"]
+  status: active
+  priority: medium
+  dependencies: []
+
+- module_name: opportunity_ranker
+  domain: analysis_engines
+  machine_target: admin_trading
+  operator_visible: false
+  ui_related: false
+  description: "Classement des opportunités détectées"
+  wrappers_expected: ["cmd"]
+  status: active
+  priority: medium
+  dependencies: ["market_scanner"]
+
+- module_name: liquidation_analyzer
+  domain: analysis_engines
+  machine_target: admin_trading
+  operator_visible: false
+  ui_related: false
+  description: "Analyse des liquidations"
+  wrappers_expected: ["cmd"]
+  status: active
+  priority: medium
+  dependencies: ["derivatives_collector"]
+
+- module_name: mimo_open_observer
+  domain: analysis_engines
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Observateur d'ouverture XAUUSD (FVG M1x5 + journal + stats simples)"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: medium
+  dependencies: []
+
+# === TRADING CORE ===
+
+- module_name: portfolio_engine
+  domain: trading_core
+  machine_target: admin_trading
+  operator_visible: false
+  ui_related: false
+  description: "Gestion globale du portefeuille"
+  wrappers_expected: ["cmd"]
+  status: active
+  priority: critical
+  dependencies: []
+
+- module_name: position_engine
+  domain: trading_core
+  machine_target: admin_trading
+  operator_visible: false
+  ui_related: false
+  description: "Gestion des positions individuelles"
+  wrappers_expected: ["cmd"]
+  status: active
+  priority: critical
+  dependencies: ["portfolio_engine"]
+
+# === MONITORING & MAINTENANCE ===
+- module_name: shared_sshfs_permanent
+  domain: infrastructure
+  machine_target: any
+  operator_visible: false
+  ui_related: false
+  description: "Client Linux: montage SSHFS permanent de /shared depuis admin-trading"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: critical
+  dependencies: []
+
+- module_name: shared
+  domain: infrastructure
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "UX minimale pour la surface canonique /shared (ls/get/put)"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: high
+  dependencies: []
+
+- module_name: shared_files_sftp
+  domain: infrastructure
+  machine_target: admin_trading
+  operator_visible: true
+  ui_related: false
+  description: "Serveur SFTP: exposition de la surface canonique shared sur admin-trading"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: high
+  dependencies: []
+
+- module_name: winscp_transfer
+  domain: infrastructure
+  machine_target: admin_trading
+  operator_visible: true
+  ui_related: false
+  description: "Workflow WinSCP/SFTP: inbox/outbox + push/pull vers machines"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: medium
+  dependencies: []
+
+- module_name: reseau_ssh
+  domain: infrastructure
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Facade canonique reseau/ssh: baseline, WG/firewall et compat transitoire"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: high
+  dependencies: []
+
+- module_name: perf_engine
+  domain: monitoring
+  machine_target: admin_trading
+  operator_visible: false
+  ui_related: false
+  description: "Collecte de métriques de performance"
+  wrappers_expected: ["cmd"]
+  status: active
+  priority: low
+  dependencies: []
+
+- module_name: vision_bot
+  domain: monitoring
+  machine_target: admin_trading
+  operator_visible: false
+  ui_related: false
+  description: "Service de capture visuelle"
+  wrappers_expected: ["cmd", "menu"]
+  status: active
+  priority: medium
+  dependencies: []
+
+- module_name: desk_state
+  domain: monitoring
+  machine_target: msi_db_layer
+  operator_visible: true
+  ui_related: true
+  description: "État rapide du desk"
+  wrappers_expected: ["cmd"]
+  status: active
+  priority: high
+  dependencies: ["desk_pro_dashboard"]
+
+- module_name: desk_snapshot_ingest
+  domain: monitoring
+  machine_target: admin_trading
+  operator_visible: false
+  ui_related: false
+  description: "Ingestion d'historique"
+  wrappers_expected: ["cmd"]
+  status: active
+  priority: low
+  dependencies: ["desk_pro_dashboard"]
+
+- module_name: desk_retention
+  domain: maintenance
+  machine_target: admin_trading
+  operator_visible: false
+  ui_related: false
+  description: "Nettoyage des données historiques"
+  wrappers_expected: ["cmd"]
+  status: active
+  priority: low
+  dependencies: ["desk_pro_dashboard"]
+
+- module_name: ui_registry_msi
+  domain: registry
+  machine_target: msi_db_layer
+  operator_visible: true
+  ui_related: true
+  description: "Registre central des UIs (MSI First)"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: critical
+  dependencies: []

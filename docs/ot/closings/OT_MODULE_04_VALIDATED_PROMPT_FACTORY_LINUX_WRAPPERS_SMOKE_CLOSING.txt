@@ -1,0 +1,62 @@
+# OT-MODULE-04 — VALIDATED_PROMPT_FACTORY (LINUX WRAPPERS SMOKE) — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-14
+
+## 1. RÉSUMÉ EXÉCUTIF
+- Wrappers `cmd.sh` + `sanity.sh` rejoués avec succès via bash Git (MSYS).
+- Linux cible non prouvé sur ce poste (WSL sans distribution) : clôture avec réserve.
+- Kanban mis à jour ; point de reprise laissé.
+
+## 2. ENVIRONNEMENT RÉEL
+- Windows + Git for Windows bash (`C:\Program Files\Git\usr\bin\bash.exe`).
+- WSL : aucune distribution installée.
+
+## 3. COMMANDES EXÉCUTÉES + SORTIES OBSERVÉES
+### 3.1 list-modes
+- Commande :
+  - `./cmd.sh list-modes`
+- Sortie observée :
+  - `Available modes:`
+  - `- chatgpt_session`
+  - `- trae_module`
+  - `- trae_patch`
+  - `- bundle_transfer`
+
+### 3.2 generate trae_patch
+- Commande :
+  - `./cmd.sh generate trae_patch inputs/synthesis_registry_central.txt`
+- Sortie observée :
+  - `Success: Generated .../modules/validated_prompt_factory/output\prompt_trae_patch.txt`
+- Output :
+  - `modules/validated_prompt_factory/output/prompt_trae_patch.txt`
+
+### 3.3 generate bundle_transfer
+- Commande :
+  - `./cmd.sh generate bundle_transfer inputs/synthesis_bundle_transfer.txt`
+- Sortie observée :
+  - `Success: Generated .../modules/validated_prompt_factory/output\prompt_bundle_transfer.txt`
+- Output :
+  - `modules/validated_prompt_factory/output/prompt_bundle_transfer.txt`
+
+### 3.4 sanity.sh
+- Commande :
+  - `./sanity.sh`
+- Sorties observées :
+  - `Checking Help... OK`
+  - `Checking Generation (chatgpt_session)... OK`
+  - `Checking Failure (missing section)... OK`
+  - `Sanity Check Passed.`
+
+## 4. RÉSERVE / À CONFIRMER
+- Exécuter les mêmes commandes sur Linux cible (bash natif) + valider wrappers `/usr/local/bin`.
+- `menu.sh` : interactif, à tester manuellement côté opérateur.
+
+## 5. IMPACT KANBAN
+- OT-MODULE-04 ajouté en “CLOSE AVEC RÉSERVE” et reprise basculée sur GO dédié Linux cible.
+
+## 6. VERDICT FINAL
+**Status : CLOSE AVEC RÉSERVE.**
+
+## 7. POINT DE REPRISE
+> **GO_OT_MODULE_04B_VALIDATED_PROMPT_FACTORY_LINUX_TARGET_SMOKE**
+

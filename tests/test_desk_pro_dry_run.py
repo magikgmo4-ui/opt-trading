@@ -1,0 +1,121 @@
+import json
+from pathlib import Path
+
+from modules.desk_pro.dry_run import (
+    build_desk_pro_dry_run_synthesis,
+    run_desk_pro_dry_run,
+    validate_desk_pro_dry_run_inputs,
+)
+from modules.desk_pro.signal_event_adapter import normalize_signal_event_v1
+
+
+FIXTURES = Path(__file__).parent / "fixtures" / "admin_trading_contract_smoke"
+
+
+def _load(name: str) -> dict:
+    return json.loads((FIXTURES / name).read_text(encoding="utf-8"))
+
+
+class TestDeskProDryRun:
+    def test_dry_run_accepts_v0_minimal_via_adapter(self):
+        v0 = _load("signal_event_v0_minimal.json")
+        snap = _load("desk_snapshot_minimal.json")
+        result = run_desk_pro_dry_run(v0, desk_snapshot=snap)
+        assert result["signal_event"]["event_type"] == "signal_event"
+        assert result["status"] == "WARN"
+
+    def test_dry_run_accepts_v1_already_normalized(self):
+        v0 = _load("signal_event_v0_complete.json")
+        v1 = normalize_signal_event_v1(v0)
+        snap = _load("desk_snapshot_minimal.json")
+        result = run_desk_pro_dry_run(v1, desk_snapshot=snap)
+        assert result["signal_event"]["direction"] == "BUY"
+        assert result["status"] == "WARN"
+
+    def test_dry_run_accepts_visual_context_v1(self):
+        v0 = _load("signal_event_v0_minimal.json")
+        vc = _load("visual_context_v1_minimal.json")
+        snap = _load("desk_snapshot_minimal.json")
+        result = run_desk_pro_dry_run(v0, visual_context=vc, desk_snapshot=snap)
+        assert result["visual_context"]["capture_id"] == vc["capture_id"]
+
+    def test_dry_run_accepts_desk_snapshot(self):
+        v0 = _load("signal_event_v0_minimal.json")
+        snap = _load("desk_snapshot_minimal.json")
+        result = run_desk_pro_dry_run(v0, desk_snapshot=snap)
+        assert result["desk_snapshot"]["path"] == snap["path"]
+
+    def test_dry_run_produces_synthesis_with_no_trade(self):
+        v0 = _load("signal_event_v0_complete.json")
+        vc = _load("visual_context_v1_minimal.json")
+        snap = _load("desk_snapshot_minimal.json")
+        result = build_desk_pro_dry_run_synthesis(v0, vc, snap)
+        assert result["no_trade"] is True
+
+    def test_dry_run_produces_no_telegram(self):
+        v0 = _load("signal_event_v0_complete.json")
+        snap = _load("desk_snapshot_minimal.json")
+        result = run_desk_pro_dry_run(v0, desk_snapshot=snap)
+        assert result["no_telegram"] is True
+
+    def test_dry_run_produces_no_webhook(self):
+        v0 = _load("signal_event_v0_complete.json")
+        snap = _load("desk_snapshot_minimal.json")
+        result = run_desk_pro_dry_run(v0, desk_snapshot=snap)
+        assert result["no_webhook"] is True
+
+    def test_missing_optional_visual_context_is_warn_non_blocking(self):
+        v0 = _load("signal_event_v0_minimal.json")
+        snap = _load("desk_snapshot_minimal.json")
+        result = run_desk_pro_dry_run(v0, desk_snapshot=snap)
+        assert result["status"] == "WARN"
+        assert any("visual_context missing" in warning for warning in result["warnings"])
+
+    def test_missing_required_signal_field_fails_validation(self):
+        bad = _load("signal_event_v0_minimal.json")
+        bad["symbol"] = ""
+        snap = _load("desk_snapshot_minimal.json")
+        ok, errors = validate_desk_pro_dry_run_inputs(bad, desk_snapshot=snap)
+        assert ok is False
+        assert any("missing symbol" in error for error in errors)
+
+    def test_no_runtime_side_effect_dependencies(self):
+        v0 = _load("signal_event_v0_minimal.json")
+        snap = _load("desk_snapshot_minimal.json")
+        result = run_desk_pro_dry_run(v0, desk_snapshot=snap)
+        assert result["no_systemd"] is True
+        assert result["summary"]["desk_snapshot_present"] is True
+
+    def test_missing_desk_snapshot_is_warn_non_blocking(self):
+        v0 = _load("signal_event_v0_minimal.json")
+        result = run_desk_pro_dry_run(v0)
+        assert result["status"] == "WARN"
+        assert any("desk_snapshot missing" in warning for warning in result["warnings"])
+
+    def test_timer_payload_normalizes_to_warn_without_snapshot(self):
+        timer_payload = {
+            "engine": "DESK_PRO_TIMER",
+            "signal": "BUY",
+            "symbol": "BTCUSDT",
+            "tf": "H1",
+            "_ts": "2026-05-09T10:14:21+00:00",
+        }
+        result = run_desk_pro_dry_run(timer_payload)
+        assert result["status"] == "WARN"
+        assert result["signal_event"]["event_type"] == "signal_event"
+        assert result["signal_event"]["source"] == "tradingview.webhook"
+        assert result["signal_event"]["direction"] == "BUY"
+        assert result["signal_event"]["engine"] == "DESK_PRO_TIMER"
+        assert result["errors"] == []
+
+    def test_timer_payload_validation_is_non_blocking_without_snapshot(self):
+        timer_payload = {
+            "engine": "DESK_PRO_TIMER",
+            "signal": "BUY",
+            "symbol": "BTCUSDT",
+            "tf": "H1",
+            "_ts": "2026-05-09T10:14:21+00:00",
+        }
+        ok, errors = validate_desk_pro_dry_run_inputs(timer_payload)
+        assert ok is True
+        assert errors == []

@@ -1,0 +1,50 @@
+# OT-SHARED-MIGRATE-02 — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-13
+
+## 1. RÉSUMÉ EXÉCUTIF
+- Lot 2 exécuté : scripts opératoires reclassés vers `_ops/` et références vers `_refs/`, sans toucher aux dossiers réservés/pipeline.
+- Racine `/shared` rendue très légère : ne reste que l’essentiel + les ambigus exclus.
+
+## 2. BASELINE AVANT MIGRATION
+- Racine `/shared` : 15 fichiers (dont 9 scripts `.sh`, 1 `.md`, 1 `.sha256`, 2 `.zip` ambigus).
+
+## 3. FICHIERS DÉPLACÉS VERS `_ops`
+- `bv2_inspect_analyze.sh`
+- `bv2_patch_analyze_local.sh`
+- `bv2_patch_analyze_local_v2.sh`
+- `bv2_rescue_restore.sh`
+- `check_menus_all.sh`
+- `check_shortcuts_targets.sh`
+- `install_desk_bridge_timer.sh`
+- `prep_commit_admin_trading.sh`
+
+## 4. FICHIERS DÉPLACÉS VERS `_refs`
+- `audit_opt_trading_branches.md`
+- `module_repo_modules_v1.sha256`
+
+## 5. FICHIERS LAISSÉS EN PLACE (PRUDENCE)
+- `bridge_vision_to_desk_inbox.sh`
+- `README.txt`
+- `boot_test.txt`
+
+## 6. CAS AMBIGUS EXCLUS (INCHANGÉS)
+- `.ssh.zip`
+- `.venv.zip`
+
+## 7. SNAPSHOT APRÈS MIGRATION
+- Racine `/shared` : 5 fichiers (`boot_test.txt`, `README.txt`, `bridge_vision_to_desk_inbox.sh`, `.ssh.zip`, `.venv.zip`)
+- `_ops/` : 8 fichiers
+- `_refs/` : 2 fichiers
+
+## 8. FICHIERS MODIFIÉS (REPO)
+- `OT_SHARED_MIGRATE_02_REPORT.md`
+- `OT_SHARED_MIGRATE_02_CLOSING.txt`
+
+## 9. VERDICT FINAL
+**Status : CLOSE (MIGRATION LOT 2 PASS).**
+
+## 10. POINT DE REPRISE SUIVANT
+- On peut s’arrêter ici (racine suffisamment légère).
+- Lot 3 si souhaité : décision explicite sur `bridge_vision_to_desk_inbox.sh`, puis qualification des artefacts ambigus `.ssh.zip` et `.venv.zip`.
+

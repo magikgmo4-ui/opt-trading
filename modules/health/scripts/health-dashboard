@@ -1,0 +1,184 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+MOD_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+REPO_ROOT="$(cd "$MOD_DIR/../.." && pwd)"
+HEALTH="$SCRIPT_DIR/health-check"
+STATE_DIR="${HEALTH_STATE_DIR:-$REPO_ROOT/_work/health}"
+
+# --- helpers ----------------------------------------------------------------
+
+now_z() { date -u +"%Y-%m-%dT%H:%M:%SZ"; }
+
+severity() {
+  case "$1" in
+    down) echo "critical" ;;
+    degraded) echo "warning" ;;
+    healthy) echo "ok" ;;
+    *) echo "unknown" ;;
+  esac
+}
+
+icon() {
+  case "$1" in
+    healthy) printf '\xF0\x9F\x9F\xA2' ;;  # 🟢
+    degraded) printf '\xF0\x9F\x9F\xA1' ;; # 🟡
+    down) printf '\xF0\x9F\x94\xB4' ;;      # 🔴
+    *) printf '\xE2\x9A\xAA' ;;             # ⚪
+  esac
+}
+
+last_seen() {
+  local surface="$1"
+  local state_file="$STATE_DIR/${surface}.state"
+  if [[ -f "$state_file" ]]; then
+    local last_alert
+    last_alert=$(grep '^last_alert=' "$state_file" 2>/dev/null | cut -d= -f2 || echo "0")
+    if [[ "$last_alert" != "0" && -n "$last_alert" ]]; then
+      date -u -d "@$last_alert" +"%Y-%m-%dT%H:%M:%SZ" 2>/dev/null || echo "unknown"
+    else
+      echo "never"
+    fi
+  else
+    echo "never"
+  fi
+}
+
+staleness() {
+  local surface="$1" now_epoch
+  now_epoch=$(date +%s)
+  local state_file="$STATE_DIR/${surface}.state"
+  if [[ -f "$state_file" ]]; then
+    local last_alert
+    last_alert=$(grep '^last_alert=' "$state_file" 2>/dev/null | cut -d= -f2 || echo "0")
+    if [[ "$last_alert" != "0" && -n "$last_alert" ]]; then
+      local age=$((now_epoch - last_alert))
+      if [[ $age -gt 3600 ]]; then
+        echo "1"  # stale
+      else
+        echo "0"
+      fi
+    else
+      echo "1"
+    fi
+  else
+    echo "1"
+  fi
+}
+
+# --- output formatters ------------------------------------------------------
+
+output_json() {
+  local report first=1
+  report="$("$HEALTH" --json 2>/dev/null || echo '[]')"
+
+  printf '%s' "$report" | python3 -c "
+import sys, json
+data = json.load(sys.stdin)
+out = []
+for s in data:
+    out.append({
+        'surface': s['surface'],
+        'status': s['status'],
+        'severity': 'critical' if s['status'] == 'down' else ('warning' if s['status'] == 'degraded' else ('ok' if s['status'] == 'healthy' else 'unknown')),
+        'checked_at': s.get('checked_at', ''),
+        'details': s.get('details', ''),
+        'errors': s.get('errors', []),
+    })
+print(json.dumps(out, indent=2))
+" 2>/dev/null || echo '[]'
+}
+
+output_text() {
+  local report surfaces
+  report="$("$HEALTH" --json 2>/dev/null || echo '[]')"
+  local now
+  now="$(now_z)"
+
+  echo "=== AUTOMATION DASHBOARD $now ==="
+  echo
+  printf '%-15s %s %-10s %-8s %s\n' "SURFACE" "" "STATUS" "STALE?" "LAST SEEN"
+  printf '%-15s %s %-10s %-8s %s\n' "───────" "" "──────" "──────" "─────────"
+
+  printf '%s' "$report" | python3 -c "
+import sys, json
+for s in json.load(sys.stdin):
+    print(s['surface'], s['status'])
+" 2>/dev/null | while IFS=' ' read -r sid status; do
+    [[ -z "$sid" ]] && continue
+    local ls staleness_flag
+    ls="$(last_seen "$sid")"
+    staleness_flag="$(staleness "$sid")"
+    local stale_mark=""
+    [[ "$staleness_flag" == "1" && "$status" != "healthy" ]] && stale_mark="⚠️ "
+    printf '%-15s %s %-10s %-8s %s\n' "$sid" "$(icon "$status")" "$status" "$([[ $staleness_flag == 1 ]] && echo 'yes' || echo 'no')" "$stale_mark$ls"
+  done
+}
+
+output_html() {
+  local report now
+  report="$("$HEALTH" --json 2>/dev/null || echo '[]')"
+  now="$(now_z)"
+
+  cat <<'HTMLEOF'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Automation Health</title>
+<style>
+body{font-family:monospace;background:#1e1e1e;color:#ccc;padding:1em}
+h1{color:#fff}
+table{border-collapse:collapse;width:100%}
+th,td{padding:6px 10px;text-align:left;border-bottom:1px solid #333}
+th{color:#888;font-weight:normal}
+.healthy{color:#4caf50}
+.degraded{color:#ff9800}
+.down{color:#f44336}
+.unknown{color:#888}
+.stale{font-weight:bold}
+</style>
+</head>
+<body>
+<h1>Automation Health</h1>
+HTMLEOF
+  printf '<p>%s</p>\n' "$now"
+  printf '<table><tr><th>Surface</th><th>Status</th><th>Severity</th><th>Last Seen</th><th>Details</th></tr>\n'
+
+  printf '%s' "$report" | python3 -c "
+import sys, json
+for s in json.load(sys.stdin):
+    cls = s['status']
+    sev = 'critical' if cls == 'down' else ('warning' if cls == 'degraded' else ('ok' if cls == 'healthy' else 'unknown'))
+    print(f\"{s['surface']}|{cls}|{sev}|{s.get('details','')}\")
+" 2>/dev/null | while IFS='|' read -r sid cls sev detail; do
+    [[ -z "$sid" ]] && continue
+    local ls="$(last_seen "$sid")"
+    local stale_flag="$(staleness "$sid")"
+    local row_class=""
+    [[ "$stale_flag" == "1" ]] && row_class=" stale"
+    printf '<tr class="%s"><td>%s</td><td class="%s">%s</td><td>%s</td><td>%s</td><td>%s</td></tr>\n' \
+      "${row_class# }" "$sid" "$cls" "$cls" "$sev" "$ls" "$detail"
+  done
+  printf '</table></body></html>\n'
+}
+
+# --- main -------------------------------------------------------------------
+
+JSON=0 HTML=0
+for arg in "$@"; do
+  case "$arg" in
+    --json) JSON=1 ;;
+    --html) HTML=1 ;;
+  esac
+done
+
+if [[ $HTML -eq 1 ]]; then
+  output_html
+elif [[ $JSON -eq 1 ]]; then
+  output_json
+else
+  output_text
+fi

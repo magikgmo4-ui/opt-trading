@@ -1,0 +1,20 @@
+# OT-WRAP-01 — CLOSING REPORT
+
+## 1. ÉTAT ÉTABLI
+- **Validated Prompt Factory** : Wrappers globaux installés et fonctionnels.
+- **Trae Module Validator** : Wrappers globaux installés et fonctionnels.
+- **Shared SSHFS** : Pas de wrapper interactif (conforme au plan).
+- **Workflow** : Pas de wrapper interactif (conforme au plan).
+
+## 2. ACTIONS RÉALISÉES
+- Script de déploiement `deploy_wrappers_ot_wrap_01.sh` exécuté sur `admin-trading`.
+- Permissions `+x` forcées sur les scripts cibles.
+- Vérification des symlinks.
+
+## 3. RISQUES RÉSIDUELS
+- Aucun risque immédiat lié aux wrappers.
+- Les anciens wrappers n'ont pas été touchés (conforme aux règles).
+
+## 4. POINT DE REPRISE
+> **GO_OT_OPS_02_CLEANUP_WORKFLOW**
+(Nettoyer les doublons workflow maintenant que tout est sécurisé).

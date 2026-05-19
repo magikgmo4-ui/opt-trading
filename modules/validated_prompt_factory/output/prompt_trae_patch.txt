@@ -1,0 +1,34 @@
+
+# PROMPT POUR PATCH CORRECTIF TRAE
+
+## MODE PATCH
+Tu ne dois PAS créer de nouveau module.
+Tu dois UNIQUEMENT modifier l'existant pour corriger un problème ou ajouter une petite fonctionnalité.
+
+## CONTEXTE DU PATCH
+Le repo opt-trading utilise 2 registres YAML comme sources de vérité :
+- registry/modules_registry.yaml
+- registry/wrappers_registry.yaml
+
+Le patch concerne uniquement l’alignement du “registry central” (ajout/modif d’entrées), sans refactor global ni changement runtime machine.
+
+## OBJECTIF DU FIX
+Mettre à jour de façon cohérente les entrées module/wrappers du registry central pour refléter l’état réel du repo, sans casser les conventions (wrappers_expected, audience, status).
+
+## FICHIERS CONCERNÉS
+Identifie précisément les fichiers à modifier.
+Ne touche à rien d'autre.
+
+## CONTRAINTES
+- Ne pas modifier le code runtime (scripts/*) hors besoin documentaire explicite.
+- Ne pas inventer des wrappers ou modules non présents dans le repo.
+- Conserver les conventions de champs existantes dans les YAML.
+- Produire une clôture : doc canonique touchée + kanban + point de reprise alignés.
+
+## VALIDATION DU PATCH
+- Vérifier que les YAML restent lisibles et cohérents (pas de champs manquants, indent stable).
+- Vérifier que chaque wrapper référencé pointe vers un fichier existant.
+- Vérifier que chaque module référencé existe sous modules/<name>/.
+
+## POINT DE REPRISE
+GO_OT_REGISTRY_CENTRAL_HARDENING_01

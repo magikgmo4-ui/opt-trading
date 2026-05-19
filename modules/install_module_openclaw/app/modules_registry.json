@@ -1,0 +1,46 @@
+{
+  "modules": [
+    {
+      "id": "openclaw_config_modulaire",
+      "source_rel": "modules/openclaw_config_modulaire",
+      "target_rel": "modules/openclaw_config_modulaire",
+      "description": "Config OpenClaw modulaire avec apply safe / rollback / menu / cmd / sanity"
+    },
+    {
+      "id": "install_module_openclaw",
+      "source_rel": "modules/install_module_openclaw",
+      "target_rel": "modules/install_module_openclaw",
+      "description": "Installeur/menu standard pour déployer les modules OpenClaw"
+    },
+    {
+      "id": "model_provider_openclaw",
+      "source_rel": "modules/model_provider_openclaw",
+      "target_rel": "modules/model_provider_openclaw",
+      "description": "Politique provider/model OpenClaw + matrix agents + limites + fallback"
+    },
+    {
+      "id": "configure_openclaw",
+      "source_rel": "modules/configure_openclaw",
+      "target_rel": "modules/configure_openclaw",
+      "description": "Façade opérateur standardisée pour configure / config set-get / validate / agents / dashboard"
+    },
+    {
+      "id": "doctor_openclaw",
+      "source_rel": "modules/doctor_openclaw",
+      "target_rel": "modules/doctor_openclaw",
+      "description": "Façade opérateur standardisée pour doctor / quick / repair / health / probe / logs"
+    },
+    {
+      "id": "evidence_openclaw",
+      "source_rel": "modules/evidence_openclaw",
+      "target_rel": "modules/evidence_openclaw",
+      "description": "Exporte les preuves OpenClaw dans le workspace agent puis génère un prompt documentaire fondé sur ces fichiers"
+    },
+    {
+      "id": "gateway_openclaw",
+      "source_rel": "modules/gateway_openclaw",
+      "target_rel": "modules/gateway_openclaw",
+      "description": "Pilotage tmux du gateway OpenClaw"
+    }
+  ]
+}

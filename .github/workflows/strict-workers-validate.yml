@@ -1,0 +1,45 @@
+name: Strict Workers — Validate Job Packets
+
+on:
+  pull_request:
+    branches:
+      - sot/mainline
+    paths:
+      - ".github/workflows/strict-workers-validate.yml"
+      - "scripts/ai/workers/job_packets/*.json"
+      - "scripts/ai/workers/tasks.index.json"
+      - "scripts/ai/workers/run_task.sh"
+      - "scripts/ai/workers/_validate_job.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate Job Packets
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Validate all job packets
+        env:
+          TASKS_INDEX_PATH: scripts/ai/workers/tasks.index.json
+          MODELS_REGISTRY_PATH: scripts/ai/workers/models.registry.json
+          OUTPUT_DIR_PATH: reports/ai/workers
+        run: |
+          failed=0
+          for packet in scripts/ai/workers/job_packets/*.json; do
+            export JOB_PACKET_PATH="$packet"
+            echo "Validating: $packet"
+            if python3 scripts/ai/workers/_validate_job.py; then
+              echo "  PASS"
+            else
+              echo "  FAIL"
+              failed=$((failed + 1))
+            fi
+          done
+          exit $failed

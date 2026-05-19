@@ -1,0 +1,39 @@
+# OT-RECHECK-SSHFS-01 — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-12
+
+## 1. RÉSUMÉ EXÉCUTIF
+- Revalidation live effectuée sur `admin-trading` (wrappers uniquement).
+- Bug symlink-safe **confirmé corrigé** : `cmd/sanity-shared_sshfs_permanent` ne dérivent plus vers `/usr/local`.
+- Déploiement SSHFS (service/mount) : **inchangé** et toujours **non déployé/non prouvé** sur `admin-trading`.
+
+## 2. MACHINE INSPECTÉE
+- `admin-trading`
+
+## 3. RÉSULTATS CLÉS
+- `cmd-shared_sshfs_permanent info` : **PASS** (`path=/opt/trading/modules/shared_sshfs_permanent`)
+- `sanity-shared_sshfs_permanent` : **PASS**
+- `/opt/trading/scripts/shared_sshfs_permanent_*` : **ABSENT** (donc délégation non activable)
+
+## 4. BUG SYMLINK CORRIGÉ OU NON
+**Oui — ÉTABLI LIVE** (sur admin-trading).
+
+## 5. LIMITES RESTANTES
+- Aucun service `shared-sshfs.service` prouvé live ; aucun montage `/shared` prouvé live (hors périmètre de recheck).
+
+## 6. COMMANDES EXÉCUTÉES
+- `git -C /opt/trading pull --ff-only`
+- `cmd-shared_sshfs_permanent info`
+- `sanity-shared_sshfs_permanent || true`
+- `cmd-shared_sshfs_permanent readme || true`
+- test symlink temporaire en `/tmp`
+- `ls -l /opt/trading/scripts/shared_sshfs_permanent_*`
+
+## 7. VERDICT FINAL
+Patch wrappers validé live sur `admin-trading`. La réserve OT-SVC-01 peut être **reformulée** (wrappers OK) mais doit rester **maintenue** sur le volet déploiement SSHFS (service/mount absent).
+
+## 8. IMPACT OT-SVC-01
+Réserve “SSHFS” = **CLOSE AVEC RÉSERVE PARTIELLE** : bug wrappers levé ; déploiement SSHFS toujours non prouvé.
+
+**Status : CLOSE (VALIDATION LIVE WRAPPERS OK).**
+

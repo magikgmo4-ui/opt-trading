@@ -1,0 +1,69 @@
+HERMES OPENCLAW BRIDGE CASE 01 - RESULT V1
+
+DATE:
+2026-04-09 10:31:06 EDT
+
+OPERATEUR:
+openclaw
+
+MACHINE:
+db-layer
+
+BRANCHE:
+sot/mainline
+
+PROMPT SOURCE:
+- docs/hermes/HERMES_OPENCLAW_BRIDGE_CASE_01_PROMPT.txt
+
+SCRIPT HERMES RECU:
+```sh
+#!/bin/sh
+# Hermes -> OpenClaw proof, case 01
+# No install, no network, no persistence
+
+printf '%s\n' 'bridge_case_01_ok'
+printf 'pwd: %s\n' "$(pwd)"
+printf 'whoami: %s\n' "$(whoami)"
+printf 'date: %s\n' "$(date)"
+```
+
+RELECTURE HUMAINE:
+- conforme au perimetre borne ?
+- oui
+- note courte : script tres court, affichage seul de `bridge_case_01_ok`, `pwd`, `whoami`, `date`, sans installation, sans reseau, sans ecriture de production, sans commit git, sans processus persistant.
+
+RELECTURE OPENCLAW:
+- faite ?
+- oui
+- note courte : relecture et validation bornee avant execution manuelle.
+
+VALIDATION HUMAINE AVANT EXECUTION:
+- autorise
+- raison : conforme au case 01 borne et sans depassement de perimetre.
+
+EXECUTION MANUELLE:
+- executee ?
+- oui
+- commande utilisee : `sh /tmp/bridge_case_01.sh`
+
+SORTIE OBSERVEE:
+bridge_case_01_ok
+pwd: /opt/trading
+whoami: openclaw
+date: Thu Apr  9 10:31:06 EDT 2026
+
+VERDICT:
+- preuve ponctuelle validee
+
+RISQUES / POINTS DE VIGILANCE:
+- ne pas extrapoler ce resultat a un bridge Hermes/OpenClaw general
+- ne pas ouvrir un case 02 sans nouveau besoin explicite
+
+DECISION DE CLOTURE:
+- sujet clos au niveau actuel
+- pas de case 02 ouvert pour l instant
+- pas de micro-module bridge ouvert pour l instant
+- la preuve actuelle est consideree suffisante pour clore le sujet
+
+SCOPE NOTE:
+Ce resultat ne valide pas un bridge Hermes/OpenClaw general. Il documente seulement le cas borne 01.

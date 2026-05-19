@@ -1,0 +1,33 @@
+========================================
+ÉTABLI — BOT VISION
+========================================
+Date: 2026-03-30
+Règle : uniquement des faits prouvés, une ligne par item.
+
+- Bot vision_step2 tourne sur admin-trading (systemd, enabled, PID actif)
+- Le bot poll Telegram via getUpdates long-poll (timeout 50s)
+- Le bot accepte uniquement le chat_id -5177632039 (allowlist)
+- La commande /analyze envoie une photo JPEG du dernier screen_*.png puis un texte Desk Pro
+- Le texte /analyze est généré par desk_analyze/analyze_latest.py basé sur latest.json
+- Le bridge script bridge_vision_to_desk_inbox.sh croppe les screen_*.png en 4 quadrants (BTC, XAU, SOL, ETH)
+- Le bridge est déclenché par desk_bridge.timer (systemd, toutes les 10 min) ET par /analyze (subprocess synchrone)
+- latest.json est mis à jour par desk_snapshot_ingest ingest_once
+- ShareX AutoCapture sur Windows capture la région Desk Pro 2x2 toutes les 10 min (AutoCaptureRegion: -1919,0,1905,1080)
+- ShareX déclenche sharex_action_chain.bat après chaque capture
+- sharex_action_chain.bat appelle send_vision_inbox.ps1 (SCP + SSH verify/rename vers admin-trading)
+- send_vision_inbox.ps1 a des timeouts bornés : SCP 120s, SSH 30s
+- Le timeout utilise Start-Process + Wait-Process + Stop-Process (pas de zombie possible)
+- En cas de timeout, le script loggue TIMEOUT et rend exit=-1
+- Le bridge script utilise Python PIL ou ImageMagick convert pour le crop
+- Le bot envoie la photo via sendPhoto (multipart) et le texte via sendMessage
+- Le texte /analyze est tronqué à 3500 caractères max (sendMessage)
+- Le bot crée un tmp JPEG (latest_analyze_{chat_id}.jpg) puis le supprime après envoi
+- desk_bridge.timer est actif et enabled, prochaine exécution planifiée
+- Les secrets (TELEGRAM_BOT_TOKEN, OPENAI_API_KEY) sont dans bot_vision.env
+- Le fichier bot_vision.env est dans /opt/trading/modules/bot_vision_step2/config/
+- La rotation des secrets a été effectuée et validée
+- Le dernier screen_*.png traité est dans /srv/sftp/shared_files/shared/vision_processed/
+- Les analyses sont dans /srv/sftp/shared_files/shared/vision_outbox/
+- Les snapshots Desk Pro sont dans /opt/trading/desk/snapshots/{BTCUSDT.P,ETHUSDT.P,SOLUSDT.P,XAUUSD}/
+- Le temps entre capture ShareX et latest.json mis à jour est ≤12 min (capture 10min + bridge+ingest ~2min)
+- Le temps entre capture ShareX et texte /analyze est ≤10 min (bridge synchrone dans /analyze)

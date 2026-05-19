@@ -1,0 +1,70 @@
+version: 1
+registry_kind: derived_non_sovereign
+go_id: GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01
+scope: controlled_extension_second_lot
+updated_at: 2026-04-22
+delta_from: docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01/06_registry_derived_pilot.yaml
+records:
+  - doc_path: docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md
+    doc_id: OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01
+    doc_type_source: governance_policy
+    doc_type_fonctionnel: metadata_derivation_doctrine
+    surface: governance
+    canonical_object: metadata_derivation_doctrine
+    group_bucket: governance_rules
+    authority_level: gouvernance_canonique_subordonnee
+    reference_canonique_principale: docs/governance/MATRICE_GOUVERNANTE_V2.md
+    topic_keys:
+      - opt-trading
+      - matrice_gouvernante
+      - metadata
+      - search_tags
+      - registry_derived
+    search_tags:
+      - surface:governance
+      - doc_role:regle_stable
+      - closeout:reference
+    is_derived: true
+    derived_from: docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md
+  - doc_path: docs/governance/EXTRACTEUR_TAGS__METHODE_CANONIQUE_V1.md
+    doc_id: OPT_TRADING_EXTRACTEUR_TAGS_METHODE_CANONIQUE_V1
+    doc_type_source: governance
+    doc_type_fonctionnel: extraction_method_reference
+    surface: governance
+    canonical_object: extracteur_tags_canonical_method
+    group_bucket: governance_rules
+    authority_level: reference_gouvernance_stable
+    reference_canonique_principale: docs/governance/EXTRACTEUR_TAGS__METHODE_CANONIQUE_V1.md
+    topic_keys:
+      - opt-trading
+      - extracteur_tags
+      - routing
+      - documentation
+      - memory
+    search_tags:
+      - surface:governance
+      - doc_role:regle_stable
+      - closeout:reference
+    is_derived: true
+    derived_from: docs/governance/EXTRACTEUR_TAGS__METHODE_CANONIQUE_V1.md
+  - doc_path: docs/governance/DOC_LAYERS.md
+    doc_id: OPT_TRADING_DOC_LAYERS
+    doc_type_source: workflow_rule
+    doc_type_fonctionnel: documentation_layers_rule
+    surface: governance
+    canonical_object: doc_layers_rule
+    group_bucket: governance_rules
+    authority_level: reference_gouvernance_stable
+    reference_canonique_principale: docs/governance/DOC_LAYERS.md
+    topic_keys:
+      - opt-trading
+      - doc_layers
+      - governance
+      - continuity
+      - memory_bricks
+    search_tags:
+      - surface:governance
+      - doc_role:regle_stable
+      - closeout:reference
+    is_derived: true
+    derived_from: docs/governance/DOC_LAYERS.md

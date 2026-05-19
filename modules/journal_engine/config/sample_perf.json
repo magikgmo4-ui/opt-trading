@@ -1,0 +1,17 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "perf_status": "TRACKING",
+    "pnl_status": "OPEN_SIMULATED"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "perf_status": "BLOCKED",
+    "pnl_status": "BLOCKED"
+  },
+  {
+    "symbol": "SOLUSDT",
+    "perf_status": "TRACKING",
+    "pnl_status": "OPEN_SIMULATED"
+  }
+]

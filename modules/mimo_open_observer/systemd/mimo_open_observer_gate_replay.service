@@ -1,0 +1,13 @@
+[Unit]
+Description=MiMo gate_replay oneshot scheduler (non-live)
+After=local-fs.target
+
+[Service]
+Type=oneshot
+User=ghost
+WorkingDirectory=/opt/trading
+Environment=MIMO_GATE_REPLAY_CSV=/opt/trading/modules/mimo_open_observer/fixtures/sample_xauusd_m1_signal.csv
+ExecStart=/opt/trading/modules/mimo_open_observer/scripts/mimo_open_observer_gate_replay.sh
+
+[Install]
+WantedBy=multi-user.target

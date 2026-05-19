@@ -1,0 +1,53 @@
+GO: GO_GITHUB_PARK_AUDIT_EXPANSION_01
+TYPE: planning_closeout
+STATUS: PASS
+UPDATED_AT: 2026-04-14
+
+BESOIN INITIAL
+- Utiliser la cartographie comme base de tri entre survivant, runtime utile, doc/gouvernance et legacy.
+- Cibler les consolidations à effectuer.
+- Lister les GO suivants.
+- Préparer un bundle prompt IDE.
+
+CIBLE FINALE DU CHANTIER PARENT
+- inventaire + audit + consolidation
+- repo 100% consolidé, aligné, clair, ordonné et canonisé
+
+CIBLE DU GO
+- transformer la cartographie et l’audit des familles en liste de consolidations ciblées avec GO priorisés et bundle IDE
+
+INTENTION
+- ne pas rouvrir un audit de parc large
+- partir sur des consolidations ciblées
+- garder visible la cible finale parent dans les GO suivants
+
+ETABLI
+- liste priorisée des consolidations rédigée
+- GO listés dans un document canonique
+- priorité immédiate confirmée : `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
+- suite courte recommandée : `vision`, `perf`, `journal`
+- bundle IDE préparé localement
+
+FICHIERS AJOUTES
+- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/04_consolidation_targets_and_go_list.md
+- docs/ot/closings/OT_GITHUB_PARK_CONSOLIDATION_TARGETS_AND_GO_LIST_01_CLOSING.txt
+
+GAP RESTANT
+- exécuter les GO listés
+- confirmer les survivants réels dans les familles ambiguës
+- pousser les patchs minimaux de consolidation
+
+TODO
+- lancer `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
+- utiliser le bundle IDE comme support opératoire
+- reprendre ensuite `vision`, `perf`, `journal`
+
+REPRISE
+- doc canonique : docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/04_consolidation_targets_and_go_list.md
+- bundle IDE local préparé pour exécution
+
+NEXT GO
+- GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03
+
+MEM_CANDIDATE
+- la cartographie sert désormais de base de tri stable pour descendre les consolidations ciblées, avec `reseau_ssh`, `vision`, `perf` et `journal` comme première vague.

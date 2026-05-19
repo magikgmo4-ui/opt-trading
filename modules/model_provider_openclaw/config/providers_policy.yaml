@@ -1,0 +1,15 @@
+policy_version: "1.0"
+default_strategy: deny_unlisted
+providers:
+  openrouter:
+    allowed: true
+    mode: remote
+    notes: "Provider distant autorisé pour V1."
+  openai_compatible_local:
+    allowed: true
+    mode: local
+    notes: "Gateway local compatible OpenAI / OpenClaw."
+  unrestricted:
+    allowed: false
+    mode: forbidden
+    notes: "Sélection libre interdite en V1."

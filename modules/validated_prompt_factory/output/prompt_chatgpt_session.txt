@@ -1,0 +1,43 @@
+
+# PROMPT POUR SESSION CHATGPT
+
+## CONTEXTE
+Nous devons créer un module de démonstration pour le validated_prompt_factory.
+Le projet est un système de trading automatisé.
+L'environnement est Windows mais avec une émulation Bash via Git Bash.
+
+## OBJECTIF
+Créer le module validated_prompt_factory capable de générer des prompts standardisés.
+Il doit supporter 4 modes de sortie.
+
+## CLASSE
+MODULE DURABLE
+
+## INSTRUCTIONS
+Agis en tant qu'expert technique senior.
+Tu dois analyser la demande et proposer une solution étape par étape.
+Ne commence pas à coder immédiatement, valide d'abord ta compréhension.
+
+## CONTRAINTES
+- Ne pas casser l'existant.
+- Utiliser Python pour la logique.
+- Utiliser Bash pour les wrappers.
+- Respecter la structure standard des modules.
+
+## RISQUES ET DEPENDANCES
+- Risque de confusion entre les modes Trae et ChatGPT.
+- Dépendance à Python 3.
+
+## LIVRABLES ATTENDUS
+- Un module complet avec scripts et app.
+- Des fichiers de sortie dans output/.
+
+## VALIDATION
+- Lancer sanity_check.sh doit passer.
+- Lancer la génération d'un prompt doit créer un fichier.
+
+## SUITE LOGIQUE
+- Intégrer ce module dans le menu ops global.
+
+## POINT DE REPRISE
+GO_PROMPT_FACTORY

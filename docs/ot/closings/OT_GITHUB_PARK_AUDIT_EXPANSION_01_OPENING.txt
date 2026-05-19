@@ -1,0 +1,55 @@
+GO: GO_GITHUB_PARK_AUDIT_EXPANSION_01
+TYPE: opening
+STATUS: OPEN
+UPDATED_AT: 2026-04-14
+
+BESOIN INITIAL
+- Prolonger l’inventaire du parc GitHub en chantier structuré multi-GO.
+- Partir des ZIP déjà lus et des décisions de gouvernance déjà validées.
+- Séquencer proprement les suites au lieu de lancer un audit monolithique.
+
+CIBLE FINALE
+- Audit croisé branches ↔ trunks.
+- Audit de consolidation par familles de modules dans `opt-trading`.
+- Cartographie canonique fichier par fichier : `doc / code / runtime / gouvernance / consumer / legacy`.
+
+PLAN VALIDE
+1. Ouvrir un cadrage de chantier durable.
+2. Fixer la ligne de parc active / legacy.
+3. Descendre le chantier en trois GO spécialisés.
+4. Partir d’abord du rattachement branches ↔ trunks.
+
+SOURCES CANONIQUES CONSULTEES
+- docs/governance/SESSION_DOCUMENTATION_GATE.md
+- docs/INDEX.md
+- docs/master_pack/mission_starter_pack/00_mission_start_guide.md
+- journal/index/ACTIVE_GO_MATRIX.md
+- docs/governance/HUMAN_CONTINUITY_TRANSMISSION.md
+- docs/ot/kanban/opt_trading_kanban_source_of_truth.md
+- docs/ot/closings/OT_GITHUB_PARK_CONSOLIDATION_DECISION_02B_CLOSING.txt
+
+DECISION DE PARC MISE A JOUR
+- `Llm-wiki` = FREEZE_LEGACY_OBSOLETE
+- `Llm-wiki-minimal` = KEEP_PRECONSOLIDATION
+- `Magikgmo` = FREEZE_LEGACY_OBSOLETE
+- `algo_hf` = FREEZE_LEGACY_OBSOLETE
+
+FICHIERS AJOUTES
+- docs/governance/GITHUB_PARK_CONSOLIDATION_DECISION_02C.md
+- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/00_cadrage.md
+- docs/ot/closings/OT_GITHUB_PARK_AUDIT_EXPANSION_01_OPENING.txt
+
+GAP RESTANT
+- branches ↔ trunks non encore croisés proprement
+- familles de modules `opt-trading` non encore auditées globalement
+- cartographie canonique fichier par fichier non encore produite
+
+NEXT GO
+- GO_GITHUB_PARK_BRANCH_TRUNK_CROSS_AUDIT_01
+
+REPRISE
+- cadrage principal : docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/00_cadrage.md
+- addendum parc : docs/governance/GITHUB_PARK_CONSOLIDATION_DECISION_02C.md
+
+MEM_CANDIDATE
+- le chantier d’expansion de l’audit du parc GitHub est désormais ouvert comme chantier multi-GO, avec `GO_GITHUB_PARK_BRANCH_TRUNK_CROSS_AUDIT_01` comme premier next GO.

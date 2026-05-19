@@ -1,0 +1,27 @@
+[module]
+module_id = "collector_binance_spot"
+provider_id = "binance_spot"
+
+[contract]
+contract_version = "v1"
+schema_version = "v1.0"
+
+[api]
+base_url = "https://data-api.binance.vision"
+timeout_seconds = 20
+user_agent = "collector_binance_spot/0.1"
+
+[collection]
+symbols = ["BTCUSDT", "ETHUSDT"]
+ticker_type = "FULL"
+
+[freshness]
+max_age_seconds = 300
+
+[paths]
+runtime_dir = "runtime"
+logs_dir = "logs"
+outputs_dir = "outputs"
+raw_dir = "outputs/raw"
+normalized_dir = "outputs/normalized"
+snapshots_dir = "outputs/snapshots"

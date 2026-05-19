@@ -1,0 +1,52 @@
+OT_DESKPRO_RELEASE_OPS_DRILL_01 - CLOSING
+Date (America/Montreal) : 2026-04-11
+Statut : CLOSE
+Classe : DRILL_OPS
+
+1. Objet
+Vérifier que la chaîne release Desk Pro décrite dans le repo reste rejouable proprement, sans ouverture Trae, sans refactor, et sans patch runtime non nécessaire.
+
+2. Périmètre relu
+- `docs/desk_pro_release_ops_runbook.md`
+- `docs/desk_pro_release_ops_quick_reference.md`
+- `scripts/release_ops/desk_pro_freeze_tag.ps1`
+- `scripts/release_ops/desk_pro_verify_tag_linux.sh`
+- `scripts/release_ops/desk_pro_release_menu.sh`
+- `scripts/release_ops/desk_pro_release_sanity_check.sh`
+- `docs/master_pack/00_current_state_and_standards.md`
+- `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`
+
+3. Preuves repo-sourcées
+- Le gel Windows est porté par `scripts/release_ops/desk_pro_freeze_tag.ps1` : contrôle working tree propre, création du tag annoté, push vers `origin`.
+- La vérification Linux est portée par `scripts/release_ops/desk_pro_verify_tag_linux.sh` : `git fetch --tags`, présence locale du tag, affichage du tag.
+- Les surfaces d'aide Linux existent et sont exécutables repo-side : `scripts/release_ops/desk_pro_release_menu.sh` et `scripts/release_ops/desk_pro_release_sanity_check.sh`.
+- Le drill Linux non destructif a été rejoué sur la machine DEV `fantome` dans le repo :
+  - `bash scripts/release_ops/desk_pro_release_sanity_check.sh` -> PASS
+  - `bash scripts/release_ops/desk_pro_verify_tag_linux.sh desk_pro_ops_v1.0` -> PASS
+
+4. Écart mineur constaté
+- Le runbook formulait la validation finale comme si `scripts/admin_trading/desk_pro_cmd.sh status` ou `cmd-desk_pro_runner status` s'appliquait à toutes les targets Linux.
+- En pratique, cette validation runtime est spécifique à `admin-trading`.
+- `student` et `db-layer` doivent seulement valider la mise à jour Git et la présence du tag dans ce runbook.
+
+5. Patch appliqué
+- `docs/desk_pro_release_ops_runbook.md` clarifie l'exécution depuis la racine du repo.
+- `docs/desk_pro_release_ops_runbook.md` borne la validation runtime finale à `admin-trading` et explicite la limite sur `student` / `db-layer`.
+
+6. Verdict
+- Chaîne release Desk Pro : REJOUABLE TELLE QUELLE après clarification doc mineure.
+- Aucun blocage repo/scripts constaté.
+
+7. Kanban / reprise
+- Aucun changement de statut canonique.
+- Kanban inchangé.
+- Point de reprise conservé : `GO_OT_NEXT_MISSION_SELECTION_01`.
+
+8. Périmètre exclu
+- Aucun tag créé dans ce drill.
+- Aucun push release effectué.
+- Aucun déploiement runtime live.
+- Aucune ouverture automatique Trae.
+
+9. Point de reprise suivant
+GO_OT_NEXT_MISSION_SELECTION_01

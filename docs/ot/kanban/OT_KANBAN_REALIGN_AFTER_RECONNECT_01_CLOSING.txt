@@ -1,0 +1,24 @@
+# OT-KANBAN-REALIGN-AFTER-RECONNECT-01 — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-14
+
+## 1. Résumé exécutif
+- Objectif atteint : le kanban “source of truth” est réaligné avec les closings réseau récents, sans relancer de mission technique.
+- Confirmation canonique : OT-NET-RECONNECT-02 = PASS ; OT-NET-RECONNECT-03 = CLOSE / PROVED.
+- Corrections : suppression/neutralisation d’une réserve réseau obsolète, et réalignement des points de reprise vers une étape de sélection prudente.
+
+## 2. Sources canoniques lues
+- `docs/master_pack/mission_starter_pack/00_mission_start_guide.md`
+- `OT_NET_RECONNECT_02_CLOSING.txt`
+- `OT_NET_RECONNECT_03_CLOSING.txt`
+- `opt_trading_kanban_source_of_truth_2026-03-13_updated.md`
+
+## 3. Corrections appliquées (kanban)
+- Section SHARED : réserve “réseau pur” obsolète retirée/neutralisée après clôture OT-NET-RECONNECT-03.
+- Points de reprise (principal + DOCS + OPS) réalignés vers `GO_OT_NEXT_MISSION_SELECTION_01`.
+
+## 4. Verdict
+**Status : CLOSE (PASS).**
+
+## 5. Point de reprise exact
+> **GO_OT_NEXT_MISSION_SELECTION_01**

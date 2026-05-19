@@ -1,0 +1,65 @@
+version: 1
+registry_kind: derived_non_sovereign
+go_id: GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01
+scope: controlled_extension
+updated_at: 2026-04-22
+records:
+  - doc_path: docs/index/GO_INDEX.md
+    doc_id: OPT_TRADING_GO_INDEX
+    doc_type_source: reprise
+    doc_type_fonctionnel: canonical_list_index
+    surface: continuity
+    canonical_object: go_index_truth_list
+    group_bucket: continuity_indexes
+    authority_level: index_canonique_de_liste
+    reference_canonique_principale: docs/index/GO_INDEX.md
+    topic_keys:
+      - opt-trading
+      - go_index
+      - continuity
+      - governance
+    search_tags:
+      - surface:continuite
+      - doc_role:index
+      - closeout:reference
+    is_derived: true
+    derived_from: docs/index/GO_INDEX.md
+  - doc_path: docs/index/NEXT_GO_CANDIDATES.md
+    doc_id: OPT_TRADING_NEXT_GO_CANDIDATES
+    doc_type_source: next_candidate
+    doc_type_fonctionnel: operational_next_matrix
+    surface: chantier
+    canonical_object: next_go_parent_matrix
+    group_bucket: continuity_indexes
+    authority_level: index_operatoire_derive
+    reference_canonique_principale: docs/index/GO_INDEX.md
+    topic_keys:
+      - opt-trading
+      - next
+      - continuity
+    search_tags:
+      - surface:chantier
+      - doc_role:index
+      - flow:next_surface
+      - closeout:reference
+    is_derived: true
+    derived_from: docs/index/NEXT_GO_CANDIDATES.md
+  - doc_path: docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md
+    doc_id: OPT_TRADING_PRODUCT_CONTINUITY_HIERARCHY_01
+    doc_type_source: product_continuity_hierarchy
+    doc_type_fonctionnel: product_continuity_hierarchy
+    surface: governance
+    canonical_object: product_continuity_hierarchy
+    group_bucket: product_continuity
+    authority_level: continuite_produit_canonique
+    reference_canonique_principale: docs/governance/MATRICE_GOUVERNANTE_V2.md
+    topic_keys:
+      - opt-trading
+      - product_continuity
+      - hierarchy
+    search_tags:
+      - surface:governance
+      - surface:continuite
+      - doc_role:regle_stable
+    is_derived: true
+    derived_from: docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md

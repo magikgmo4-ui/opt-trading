@@ -1,0 +1,16 @@
+TRADING_LAB_V1 — RUNBOOK
+
+Flux recommandé :
+1. sanity-trading_lab_v1
+2. cmd-trading_lab_v1 status
+3. cmd-trading_lab_v1 show-profile
+4. cmd-trading_lab_v1 show-schemas
+5. cmd-trading_lab_v1 sample-event
+6. cmd-trading_lab_v1 sample-trade
+7. cmd-trading_lab_v1 materialize-samples
+
+But immédiat :
+- vérifier l’ancrage du module ;
+- vérifier la présence des artefacts V1 ;
+- générer les premiers exemples de journalisation ;
+- préparer la passe suivante du runner LAB.

@@ -1,0 +1,70 @@
+GO: GO_GITHUB_PARK_CONSOLIDATION_DECISION_02
+TYPE: closeout
+STATUS: PASS
+UPDATED_AT: 2026-04-13
+
+BESOIN INITIAL
+- Fixer une matrice de consolidation du parc GitHub.
+- Décider quoi garder, geler, archiver, traiter comme miroir, ou consolider plus tard.
+- Documenter explicitement ce qui est validé.
+
+CIBLE FINALE
+- Une répartition claire des rôles de repo.
+- Une décision explicite sur les doublons et multi-versions prioritaires.
+- Un document canonique évitant les réouvertures implicites.
+
+PLAN VALIDE
+1. Partir des trunks réellement inspectés.
+2. Croiser avec les branches et la gouvernance déjà présente.
+3. Décider au niveau repo.
+4. Décider au niveau famille doublon / multi-version.
+5. Documenter la décision dans le repo canonique.
+
+ETAT DE DEPART RETENU
+- Parc GitHub inventorié.
+- Rôles dominants des repos principaux établis.
+- Doublons inter-repo et intra-repo prioritaires identifiés.
+- `opt-trading` confirmé comme repo canonique principal.
+- `openclaw` confirmé comme repo de gouvernance transverse.
+
+DECISIONS VALIDEES
+- `opt-trading` = KEEP_CANONICAL_EXECUTION
+- `openclaw` = KEEP_CANONICAL_GOVERNANCE
+- `localcms` = KEEP_PRODUCT_CONSUMER
+- `hf_trading` = KEEP_LAB_BOOTSTRAP
+- `llm_wiki_minimal` = KEEP_PRECONSOLIDATION
+- `Llm-wiki` = FREEZE_THEN_ARCHIVE_OR_REPURPOSE
+- `Magikgmo` = FREEZE_LEGACY_READ_ONLY_PENDING_AUDIT
+- `algo_hf` = HOLD_PENDING_TRUNK_AUDIT
+
+FAMILLES PRIORITAIRES VALIDEES
+- `workflow_post_change_v2*` : gel de prolifération, cible de consolidation = lignée `fix3`
+- `reseau_ssh*` : cible de continuité = `reseau_ssh_step2`
+- miroirs `student` : `student/*` retenu comme source dominante
+- templates `cmd/menu/sanity_check` : duplication structurelle acceptée
+- frontière `openclaw` / `opt-trading` : gouvernance transverse d’un côté, evidence/runtime de l’autre
+
+FICHIERS AJOUTES
+- docs/governance/GITHUB_PARK_CONSOLIDATION_DECISION_02.md
+- docs/ot/closings/OT_GITHUB_PARK_CONSOLIDATION_DECISION_02_CLOSING.txt
+
+LIMITE RESTANTE
+- Pas d’audit trunk complet de `Magikgmo`
+- Pas d’audit trunk complet de `algo_hf`
+- Pas encore de consolidation physique des familles ciblées
+
+TODO
+- GO_GITHUB_PARK_MAGIKGMO_AUDIT_03
+- GO_GITHUB_PARK_ALGO_HF_AUDIT_03
+- GO_OPT_TRADING_WORKFLOW_POST_CHANGE_CONSOLIDATION_03
+- GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03
+- GO_OPT_TRADING_STUDENT_MIRROR_NORMALIZATION_03
+- GO_OPENCLAW_OPT_TRADING_BOUNDARY_SYNC_03
+
+REPRISE
+- Le document canonique de décision est `docs/governance/GITHUB_PARK_CONSOLIDATION_DECISION_02.md`
+- La suite doit partir des GO dédiés par famille et non d’une refonte globale
+
+MEM_CANDIDATE
+- Le parc GitHub est désormais cadré par un partage de rôles validé et par une matrice de gel/consolidation.
+- Les duplications `workflow_post_change_v2*`, `reseau_ssh*` et les miroirs `student` sont officiellement reconnues comme dette à consolider par GO dédiés.

@@ -1,0 +1,6 @@
+# repo_hygiene additions (WAL/SHM + patch backups)
+*.db-wal
+*.db-shm
+*.sqlite-wal
+*.sqlite-shm
+*.bak_*

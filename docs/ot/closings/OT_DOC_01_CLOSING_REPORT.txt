@@ -1,0 +1,15 @@
+# OT-DOC-01 — CLOSING REPORT
+
+## 1. ÉTAT ÉTABLI
+- **Documentation** : Alignée sur la réalité (Repo & Runtime).
+- **Statut Workflow** : v2 = ACTIVE/PATCHED, fix* = DEPRECATED.
+- **Référence Canonique** : `docs/status/workflow_post_change_canonique.md`.
+
+## 2. ACTIONS RÉALISÉES
+- Création de la note de statut.
+- Mise à jour de l'inventaire.
+- Vérification de la cohérence globale.
+
+## 3. PROCHAINE MISSION LOGIQUE
+> **GO_OT_PROMPT_01_REFRESH_MASTER_PACK**
+(Mettre à jour le prompt pack pour inclure ces nouvelles connaissances sur le workflow et les wrappers).

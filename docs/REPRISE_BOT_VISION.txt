@@ -1,0 +1,38 @@
+========================================
+REPRISE — BOT VISION
+========================================
+Date: 2026-03-30
+
+1. ÉTAT CANONIQUE À RETENIR
+- Chaine Bot Vision opérationnelle et stabilisée
+- ShareX auto-capture 10 min → send_vision_inbox.ps1 (timeout garanti) → vision_processed → bridge (timer + /analyze synchrone) → latest.json → /analyze photo+texte
+- Tous les maillons prouvés fonctionnels
+- Dernier timestamp prouvé : 2026-03-30T18:36 capture → 18:36 vision_processed → latest.json mis à jour
+
+2. CE QU'IL NE FAUT PLUS ROUVRIR
+- Le problème de polling Telegram : résolu (secret OK)
+- Le problème de zombie PowerShell : résolu (timeout patché)
+- Le problème de désync photo/texte : résolu (bridge synchrone dans /analyze)
+- Le problème de latest.json non mis à jour : résolu (bridge timer actif + bridge synchrone)
+- Le problème de fichiers temporaires : résolu (cleanup dans finally)
+- La rotation des secrets : faite et validée
+
+3. MINI-CHANTIERS FUTURS POSSIBLES
+- [A] Monitoring ShareX AutoCapture : watchdog Windows qui vérifie le mtime du dernier screen_*.png et alerte si >15 min sans capture
+- [B] Nettoyage send_telegram.bat de la chaîne ShareX (si bot secondaire non utilisé)
+- [C] Intégration données réelles dans analyze_latest.py (Coinglass API, TradingView) pour remplacer les placeholders
+- [D] Configuration journalctl pour les logs stdout du bot (StandardOutput=journal dans service unit)
+
+4. POINT DE REPRISE EXACT
+- Fichier clé Windows : C:\monitor\scripts\send_vision_inbox.ps1 (timeout garanti)
+- Fichier clé Linux : /opt/trading/modules/bot_vision_step2/app/bot_vision_step2.py (handler /analyze)
+- Fichier clé Linux : /opt/trading/scripts/desk_bridge/bridge_vision_to_desk_inbox.sh
+- Config clé Linux : /opt/trading/modules/bot_vision_step2/config/bot_vision.env
+- Service Linux : bot_vision_step2.service, desk_bridge.timer
+- ShareX config : C:\Users\ghost\Documents\ShareX\ApplicationConfig.json (AutoCaptureRegion, AutoCaptureRepeatTime)
+
+5. TRIGGER(S) CONSEILLÉ(S)
+- Reprise si : latest.json n'a pas bougé depuis >20 min
+- Reprise si : /analyze renvoie age >15 min systématiquement
+- Reprise si : sharex_action_chain.log montre des exit=-1 répétés (timeouts)
+- Reprise si : aucun screen_*.png nouveau dans vision_processed depuis >20 min

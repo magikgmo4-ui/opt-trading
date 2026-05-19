@@ -1,0 +1,16 @@
+# OT-OPS-02 — CLOSING REPORT
+
+## 1. ÉTAT ÉTABLI
+- **workflow_post_change_v2** : Patché avec la version `fix3`. Il ne contient plus de `sudo`. Il est réactivé dans le registry.
+- **workflow_post_change_v2_fix3** : Son contenu est maintenant la référence dans `v2`. Il est marqué déprécié mais conservé.
+- **workflow_post_change_v2_fix1/fix2** : Conservés mais obsolètes.
+
+## 2. ACTIONS RÉALISÉES
+- Patch appliqué.
+- Note `DEPRECATED.md` ajoutée.
+- Registry mis à jour.
+- Backup `_archive/` créé.
+
+## 3. POINT DE REPRISE
+> **GO_OT_DOC_01_UPDATE_DOCS**
+(Mettre à jour la documentation générale pour refléter ces changements et les nouveaux outils).

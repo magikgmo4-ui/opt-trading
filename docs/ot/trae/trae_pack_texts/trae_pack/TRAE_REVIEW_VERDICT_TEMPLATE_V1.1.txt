@@ -1,0 +1,101 @@
+TRAE_REVIEW_VERDICT_TEMPLATE_V1.1 — MODÈLE CANONIQUE DE REVIEW
+
+## 1. OBJECTIF DU TEMPLATE
+Standardiser la décision finale du Reviewer pour garantir que chaque livrable est audité selon les mêmes critères de scope, de qualité et de sécurité. Le verdict doit être sans appel et basé sur des preuves factuelles.
+
+## 2. CHAMPS OBLIGATOIRES
+- Verdict : ACCEPT, REJECT ou ACCEPT_WITH_NOTES.
+- Analyse des Écarts : Comparaison Scope vs Réel.
+- Vérification des Preuves : Validation des logs et diffs fournis.
+- Contrôle des Standards : Vérification de `cmd`, `menu`, `sanity` (pour modules).
+- Actions Requises : Si REJECT ou ACCEPT_WITH_NOTES, ce qu'il faut faire.
+
+## 3. CHAMPS OPTIONNELS
+- Observations : Remarques qualitatives sur le code.
+- Risques Résiduels : Points à surveiller post-déploiement.
+- Suggestion d'Amélioration : Pour une future version (hors scope actuel).
+
+## 4. FORMAT CANONIQUE COMPLET
+# REVIEW — <TITRE_MISSION>
+
+## 1. VERDICT
+[ACCEPT | REJECT | ACCEPT_WITH_NOTES]
+
+## 2. ANALYSE DE CONFORMITÉ
+- **Scope Respecté** : [OUI/NON] (Si NON : lister les fichiers hors scope).
+- **Preuves Valides** : [OUI/NON] (Logs de succès présents et complets ?).
+- **Standards Respectés** : [OUI/NON/NA] (`cmd/menu/sanity` présents ?).
+- **Rollback Défini** : [OUI/NON].
+
+## 3. OBSERVATIONS & ÉCARTS
+- <Observation 1>
+- <Écart détecté>
+
+## 4. ACTIONS REQUISES
+- N/A si aucune action n’est demandée.
+1. <Action corrective 1>
+2. <Action corrective 2>
+
+## 5. TRAÇABILITÉ
+- **Dettes / TODO / Point de reprise** :
+  - [ ] <Tâche à créer, note à conserver, ou prochaine action attendue>
+
+## 5. RÈGLES DE REMPLISSAGE
+1. Verdict proportionné : un écart bloquant sur le scope, les preuves, le rollback ou un standard obligatoire entraîne REJECT ; un écart mineur, non bloquant et traçable relève de ACCEPT_WITH_NOTES.
+2. Preuve par l'absurde : Si le log de succès manque, la review n'est pas recevable.
+3. Tolérance zéro sur le scope : Si un fichier hors périmètre est touché sans justification critique, le reviewer doit le signaler explicitement.
+4. Notes traçables : Un ACCEPT_WITH_NOTES doit lister explicitement les dettes créées.
+
+## 6. ERREURS FRÉQUENTES À ÉVITER
+- Review de complaisance : "Ça a l'air bien" sans vérifier les logs.
+- Review subjective : "Je n'aime pas ce style" (alors que le linter passe).
+- Review bloquante pour détail : Rejeter pour une typo dans un commentaire (préférer ACCEPT_WITH_NOTES).
+- Oubli de vérification des standards : Laisser passer un module sans `sanity.sh`.
+
+## 7. CRITÈRES D’ACCEPTABILITÉ
+Le verdict est valide si :
+
+- Il est justifié par des faits (logs, diffs).
+- Il est cohérent avec la doctrine (Scope, Preuves, Rollback).
+- Il donne une direction claire pour la suite (Intégrer ou Corriger).
+
+## 8. EXEMPLE DE REVIEW VALIDE (REJECT)
+# REVIEW — PATCH SANITY SYSTEM_MONITOR
+
+## 1. VERDICT
+REJECT
+
+## 2. ANALYSE DE CONFORMITÉ
+- **Scope Respecté** : NON. Le fichier `cmd.sh` a été reformatté alors que seul `sanity.sh` était ciblé.
+- **Preuves Valides** : OUI. Logs de succès fournis.
+- **Standards Respectés** : OUI.
+- **Rollback Défini** : OUI.
+
+## 3. OBSERVATIONS & ÉCARTS
+- Modification hors périmètre détectée sur `cmd.sh` (reformatage whitespace).
+
+## 4. ACTIONS REQUISES
+1. Revert des changements sur `cmd.sh`.
+2. Livrer uniquement la correction sur `sanity.sh`.
+
+## 9. EXEMPLE DE REVIEW INVALIDE (À PROSCRIRE)
+# REVIEW — PATCH SANITY
+
+## 1. VERDICT
+ACCEPT
+
+## 2. ANALYSE
+C'est bon pour moi.
+
+(Motif de rejet du verdict : Pas d'analyse factuelle, pas de vérification des critères obligatoires).
+
+## 10. RÉSUMÉ TECHNIQUE COURT
+Le TRAE_REVIEW_VERDICT_TEMPLATE_V1.1 est le tampon final de qualité. Il force le Reviewer à auditer factuellement le livrable sur la base du contrat initial. Il empêche les dérives silencieuses et garantit que rien n'entre dans la base de code durable sans avoir montré patte blanche (Scope, Preuves, Standards).
+
+RÉSUMÉ DES CHANGEMENTS (V1 -> V1.1)
+
+- Verdict proportionné : assouplissement de la règle de décision pour préserver ACCEPT_WITH_NOTES.
+- Actions requises explicites : la section existe toujours, avec `N/A` si rien n'est demandé.
+- Traçabilité généralisée : la section couvre désormais dettes, TODO et point de reprise, pas seulement ACCEPT_WITH_NOTES.
+
+POINT DE REPRISE : GO_TRAE_DOCTRINE_CHAIN_V1

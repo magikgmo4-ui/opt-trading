@@ -1,0 +1,40 @@
+OT_OPT_TRADING_DOC_AUTOMATION_MODULE_DECISION_01 - CLOSING
+Date (America/Montreal) : 2026-04-16
+Statut : CLOSE
+Classe : PATCH_LOCAL
+
+1. Besoin initial
+Décider si l’automatisation documentaire Trae doit rester pilotée par Skills ou ouvrir un module durable repo.
+
+2. État établi
+- Le cadrage est fermé.
+- La spec est fermée.
+- Le socle et l’addendum sont stabilisés.
+- Des briques existantes couvrent déjà le minimum de packaging/transfert sans nouveau module durable.
+- Aucun besoin hors Trae “dur” n’est établi à ce stade.
+
+3. Critères d’arbitrage retenus
+Un module durable n’est justifié que si au moins un critère dur est prouvé :
+- fréquence récurrente
+- déterminisme index-driven requis
+- exécution hors Trae
+- validation rejouable hors conversation
+- incidents répétés malgré la doc-only
+
+4. Décision
+Verdict : SKILLS_ONLY
+
+5. Impact repo
+- Aucun nouveau module.
+- Aucun backend ouvert.
+- Maintien du workflow actuel :
+  - socle
+  - addendum
+  - skills
+  - surfaces shared/transfert existantes si nécessaire
+
+6. Condition de réouverture
+Réouvrir seulement si un besoin hors Trae est démontré avec cas d’usage, machine, fréquence, sortie attendue et risque observé.
+
+7. Verdict final
+PASS / CLOSE

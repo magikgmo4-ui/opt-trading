@@ -1,0 +1,57 @@
+COLLECTOR COINGECKO - RUNBOOK
+DATE: 2026-03-18
+
+PURPOSE
+Run the minimal CoinGecko pilot module locally in oneshot mode.
+
+REQUIRED SECRET
+- export `COLLECTOR_COINGECKO__API__KEY` before running
+
+APPROVED LOCAL SECRET FILE FORMAT
+```sh
+COLLECTOR_COINGECKO__API__KEY=your_real_coingecko_api_key
+```
+
+OPTIONAL LOCAL FILES
+- `config/local.toml`
+- `config/secrets.local.env`
+
+STANDARD COMMANDS
+- `scripts/sanity_check.sh`
+- `scripts/collector_coingecko_cmd.sh run`
+- `scripts/collector_coingecko_cmd.sh status`
+- `scripts/collector_coingecko_cmd.sh test`
+
+WHAT SANITY DOES
+- validates Python 3.11+
+- loads config layers
+- checks writable runtime, logs, and outputs directories
+- executes CoinGecko `/ping`
+
+WHAT RUN DOES
+- loads config layers
+- fetches `/coins/markets` for the configured allowlist
+- writes raw and normalized outputs
+- updates `manifest.json`, `status.json`, `latest.json`, `events.jsonl`, and `errors.jsonl`
+
+FAILURE BEHAVIOR
+- `status.json` is updated on run start and terminal failure
+- `events.jsonl` and `errors.jsonl` append operational history
+- `manifest.json` and `latest.json` update only on successful publication
+
+HTTP FAILURE SEMANTICS
+- `401` and `403` are treated as non-retryable HTTP failures
+- `408`, `429`, and `5xx` are treated as retryable HTTP failures
+- a retryable failure after a fresh success yields `state=degraded`
+- a retryable failure after a stale success yields `state=stale`
+
+DEFAULT IMPLEMENTED SCOPE
+- allowlist: bitcoin, ethereum
+- vs_currency: usd
+- oneshot only
+
+OUT OF SCOPE
+- polling loop
+- daemon mode
+- historical backfill
+- multiple providers

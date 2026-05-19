@@ -1,0 +1,79 @@
+---
+doc_id: GO_OPT_TRADING_DOC_OPS_CHILD_GOVERNANCE_METHOD_THREAD_ASSIGNMENT_01_MATRIX
+doc_type: matrice_affectation
+repo: opt-trading
+project: opt-trading
+module:
+go_id: GO_OPT_TRADING_DOC_OPS_CHILD_GOVERNANCE_METHOD_THREAD_ASSIGNMENT_01
+status: open
+lifecycle_stage: audit
+topic_keys:
+  - opt-trading
+  - governance
+  - method
+  - thread_assignment
+  - matrix
+surface: chantier
+source_kind: canonical
+reference_canonique_principale: docs/index/GO_INDEX.md
+point_de_reprise: "Section Matrice d'affectation"
+updated_at: 2026-04-29
+links:
+  - docs/index/GO_INDEX.md
+  - docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_GO_PARENT_THREAD_MAP_01/05_parent_thread_map_draft.md
+  - docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_GOVERNANCE_METHOD_THREAD_ASSIGNMENT_01/01_governance_method_inventory.md
+---
+
+# 02_assignment_matrix — Matrice d'affectation
+
+## Fils de continuite retenus
+
+| thread_id | objet | perimetre |
+| --- | --- | --- |
+| THREAD_DOC_OPS | operations documentaires, parent doc-ops, conformite, cartographie | MATRICE_DOC_OPS_PARENT, DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT, CHILD_PARENT_CONFORMITY_AUDIT, CHILD_GO_PARENT_THREAD_MAP |
+| THREAD_GOVERNANCE_METADATA | gouvernance metadata, derivation, frontmatter enrichi | MATRICE_GOUVERNANTE_METADATA_DERIVATION |
+| THREAD_NAMING_CANON | nommage canonique, inventaire ecarts, normalisation | PARENT_NAMING_CANON, CHILD_NAMING_INVENTORY, CHILD_NAMING_NORMALIZER |
+| THREAD_CONTINUITY_INDEX | continuite, index, realignement | CONTINUITY_INDEX_REALIGNMENT |
+| THREAD_METHOD_WORKFLOW | methode de travail, structure repo, politique racine, migration | CANON_STRUCTURE_REALIGNMENT, ROOT_POLICY_AND_RECLASS, TRAE_PACK_TEXTS_REVISION, GIT_PROGRESSIVE_MIGRATION_START |
+| THREAD_ARCHIVE_REFERENCE | archives, references stables, audit legacy | UNIFORM_CONTINUITY_FINAL_MASTER_PLAN, EXTRACTEUR_TAGS_CANONICAL_METHOD, OBSOLETE_RECLASS_ARCHIVE_AUDIT |
+
+## Matrice d'affectation
+
+| go_id | statut | parent_canonical | fil_principal | action | confiance | justification |
+| --- | --- | --- | --- | --- | --- | --- |
+| GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01 | OPEN | self | THREAD_DOC_OPS | KEEP | ETABLI | parent matrice maitre, maintenu ouvert pour alignement surfaces proches |
+| GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01 | OPEN | self | THREAD_DOC_OPS | KEEP | ETABLI | parent canonique de reprise, sous-enfants de conformite et thread map |
+| GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01 | OPEN | DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01 | THREAD_DOC_OPS | KEEP | ETABLI | sous-GO d'audit conformite, PASS local |
+| GO_OPT_TRADING_DOC_OPS_CHILD_GO_PARENT_THREAD_MAP_01 | PASS | DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_01 | THREAD_DOC_OPS | KEEP | ETABLI | cartographie fermee, reste rattachee au parent doc-ops |
+| GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01 | OPEN | self | THREAD_GOVERNANCE_METADATA | KEEP | ETABLI | doctrine derivation metadata, pilote borne |
+| GO_OPT_TRADING_PARENT_NAMING_CANON_01 | OPEN | self | THREAD_NAMING_CANON | KEEP | ETABLI | parent naming, audit-only |
+| GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01 | OPEN | PARENT_NAMING_CANON_01 | THREAD_NAMING_CANON | KEEP | ETABLI | inventaire ecarts nommage |
+| GO_OPT_TRADING_CHILD_NAMING_NORMALIZER_01 | OPEN | PARENT_NAMING_CANON_01 | THREAD_NAMING_CANON | KEEP | ETABLI | module normalizer |
+| GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01 | ACTIVE | self | THREAD_CONTINUITY_INDEX | KEEP | ETABLI | realignement index continuite |
+| GO_UNIFORM_CONTINUITY_FINAL_MASTER_PLAN_01 | REFERENCE | self | THREAD_ARCHIVE_REFERENCE | REFERENCE_ONLY | ETABLI | plan maitre reference |
+| GO_EXTRACTEUR_TAGS_CANONICAL_METHOD_01 | REFERENCE | self | THREAD_ARCHIVE_REFERENCE | REFERENCE_ONLY | ETABLI | methode extraction reference |
+| GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01 | ACTIVE | self | THREAD_METHOD_WORKFLOW | KEEP | ETABLI | carte surfaces repo |
+| GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01 | ACTIVE | self | THREAD_METHOD_WORKFLOW | KEEP | ETABLI | politique racine |
+| GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01 | ACTIVE | ROOT_POLICY_AND_RECLASS_01 | THREAD_METHOD_WORKFLOW | KEEP | ETABLI | fil de ROOT_POLICY |
+| GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01 | ACTIVE | self | THREAD_ARCHIVE_REFERENCE | KEEP | A_VALIDER | audit obsolete, pourrait aussi relever de THREAD_METHOD_WORKFLOW |
+| GO_GIT_PROGRESSIVE_MIGRATION_START_13 | ACTIVE | self | THREAD_METHOD_WORKFLOW | KEEP | A_VALIDER | migration Git, GO simple autonome, fil METHOD_WORKFLOW propose |
+
+## Synthese
+
+- **GO dans le perimetre** : 16
+- **KEEP** : 14
+- **REFERENCE_ONLY** : 2
+- **ASSIGN** : 0
+- **REVIEW** : 0
+- **A_VALIDER** : 2 (OBSOLETE_RECLASS_ARCHIVE_AUDIT, GIT_PROGRESSIVE_MIGRATION_START)
+
+## Repartition par fil
+
+| fil | nombre | GO |
+| --- | --- | --- |
+| THREAD_DOC_OPS | 4 | MATRICE_DOC_OPS_PARENT, DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT, CHILD_PARENT_CONFORMITY_AUDIT, CHILD_GO_PARENT_THREAD_MAP |
+| THREAD_GOVERNANCE_METADATA | 1 | MATRICE_GOUVERNANTE_METADATA_DERIVATION |
+| THREAD_NAMING_CANON | 3 | PARENT_NAMING_CANON, CHILD_NAMING_INVENTORY, CHILD_NAMING_NORMALIZER |
+| THREAD_CONTINUITY_INDEX | 1 | CONTINUITY_INDEX_REALIGNMENT |
+| THREAD_METHOD_WORKFLOW | 4 | CANON_STRUCTURE_REALIGNMENT, ROOT_POLICY_AND_RECLASS, TRAE_PACK_TEXTS_REVISION, GIT_PROGRESSIVE_MIGRATION_START |
+| THREAD_ARCHIVE_REFERENCE | 3 | UNIFORM_CONTINUITY_FINAL_MASTER_PLAN, EXTRACTEUR_TAGS_CANONICAL_METHOD, OBSOLETE_RECLASS_ARCHIVE_AUDIT |

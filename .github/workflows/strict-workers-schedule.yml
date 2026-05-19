@@ -1,0 +1,22 @@
+name: Strict Workers — Scheduled Inventory
+
+on:
+  schedule:
+    - cron: "0 8 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inventory:
+    name: Weekly Inventory
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run READ_INVENTORY
+        run: |
+          bash scripts/ai/workers/run_task.sh \
+            --job-packet scripts/ai/workers/job_packets/GO_STRICT_WORKERS_READONLY_SMOKE_01.json \
+            --dry-run

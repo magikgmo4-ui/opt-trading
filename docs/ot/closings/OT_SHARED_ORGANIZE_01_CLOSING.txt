@@ -1,0 +1,27 @@
+# OT-SHARED-ORGANIZE-01 — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-13
+
+## 1. RÉSUMÉ EXÉCUTIF
+- `/shared` est confirmé comme surface canonique inter-machines ; cette mission ne déplace rien.
+- Racine actuelle : 11 dossiers + 91 fichiers à plat ; surcharge principalement due aux `.zip` et scripts `.sh`.
+- Dossiers réservés (pipeline) identifiés et gelés : `inbox`, `outbox`, `modules`, `_logs`, `vision_*`, `desk_pro`.
+- Arbo cible proposée : ajouter `_bundles/`, `_ops/`, `_refs/`, `_archives/` pour alléger la racine sans casser les flux.
+- Réserve de rangement : `.ssh.zip` (potentiellement sensible) et `.venv.zip` (volumineux) restent **à qualifier** avant toute action.
+
+## 2. ARBO CIBLE RETENUE
+Voir `OT_SHARED_ORGANIZE_01_ARCHITECTURE.md`.
+
+## 3. CONTENU CLASSÉ (SANS DÉPLACEMENT)
+Voir `OT_SHARED_ORGANIZE_01_CLASSIFICATION.md`.
+
+## 4. VERDICT FINAL
+**Status : CLOSE (PROPOSITION PRÊTE), SANS DÉPLACEMENT.**
+
+## 5. POINT DE REPRISE SUIVANT
+- Exécuter une mission de rangement “soft” :
+  1) créer les dossiers `_bundles/_ops/_refs/_archives`
+  2) déplacer les fichiers à plat par lots reclassables
+  3) ne pas toucher aux dossiers réservés
+  4) traiter `.ssh.zip` et `.venv.zip` comme cas spéciaux avec décision explicite
+

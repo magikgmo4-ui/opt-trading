@@ -1,0 +1,51 @@
+# OT-DEPLOY-SSHFS-01 — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-13
+
+## 1. RÉSUMÉ EXÉCUTIF
+- `shared_sshfs_permanent` est prouvé **déployé et opérationnel** sur `db-layer` (service `shared-sshfs.service` + mount `/shared`).
+- Les variantes “shared” n’ont été retirées qu’après preuve : un user-mount legacy redondant sur `db-layer` a été retiré **réversiblement**.
+- La réserve OT-SVC-01 “SSHFS” est désormais réduite : il reste une réserve potentielle sur **stabilité long-terme / généralisation multi-machines**, pas sur l’existence du mécanisme.
+
+## 2. MACHINE CIBLE
+- `db-layer` (client mount)
+- Source share : `admin-trading:/srv/sftp/shared_files/shared`
+
+## 3. DÉPLOIEMENT EXÉCUTÉ
+- Déploiement déjà en place : service + env + scripts + mount (validé).
+- Aucun reinstall forcé n’a été exécuté (proportionnalité/sûreté).
+
+## 4. TESTS LIVE
+- PASS : `sanity-shared_sshfs_permanent`
+- PASS : `cmd-shared_sshfs_permanent status`
+- PASS : `findmnt /shared` + listing non destructif
+- PASS AVEC NOTE : logs montrent des timeouts historiques (à surveiller)
+
+## 5. ÉTAT FINAL SSHFS
+- Voie canonique prouvée : `/shared` via `shared_sshfs_permanent` sur `db-layer`.
+
+## 6. VARIANTES “SHARED” — NETTOYAGE
+- Retiré (réversible) : `shared-files-sftp-mount.service` (systemd --user) + mount `~/Téléchargements/SHARED`.
+- Conservé : `shared_files_sftp` (serveur) + `winscp_transfer` (Windows) + éléments ambigus.
+
+## 7. FICHIERS MODIFIÉS (REPO)
+- `OT_SVC_01_CANONICAL_RUNTIME_MAP.md` (mise à jour vérité live db-layer)
+- `OT_SVC_01_CLOSING.txt` (réserve ajustée)
+- `OT_DEPLOY_SSHFS_01_DEPLOY_REPORT.md`
+- `OT_DEPLOY_SSHFS_01_CLEANUP_REPORT.md`
+- `OT_DEPLOY_SSHFS_01_CLOSING.txt`
+
+## 8. COMMANDES EXÉCUTÉES
+- Voir les deux reports OT-DEPLOY-SSHFS-01 (deploy + cleanup).
+
+## 9. VERDICT FINAL
+Mission réussie : `/shared` est réellement monté et lisible via systemd+sshfs sur `db-layer`, et le cleanup a retiré une seule variante redondante avec une stratégie réversible.
+
+## 10. IMPACT SUR OT-SVC-01
+- Réserve SSHFS : **réduite** (déploiement prouvé sur db-layer), **maintenue partiellement** (stabilité réseau long-terme et extension à d’autres machines).
+
+## 11. POINT DE REPRISE SUIVANT
+- Monitorer `shared-sshfs.service` (timeouts historiques) et décider si un automount/mount unit systemd doit remplacer le service simple (hors périmètre actuel).
+
+**Status : CLOSE (DÉPLOIEMENT LIVE PRouvÉ + CLEANUP MINIMAL).**
+

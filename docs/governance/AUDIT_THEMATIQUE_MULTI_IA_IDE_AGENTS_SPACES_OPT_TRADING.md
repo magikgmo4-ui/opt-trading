@@ -1,0 +1,86 @@
+# AUDIT THEMATIQUE — MULTI IA / IDE / AGENTS / SPACES — OPT-TRADING
+
+## LECTURE CANONIQUE
+
+- lire cet audit apres `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
+- garder `docs/governance/MATRICE_GOUVERNANTE_V2.md` comme annexe stable secondaire seulement si un recroisement est utile
+- cette coupe thematique reste subordonnee au cadre maitre et ne le remplace pas
+
+- ce document ne remplace pas l'audit maitre de continuite produit
+- il constitue une coupe thematique parallele
+- la Couche 0 transverse reste heritee du cadre maitre :
+  - methode uniforme + couche humaine
+  - memory_bricks
+- Rattachement : depend du cadre maitre de continuite produit, ne le remplace pas
+
+## Tableau executif Anneau A
+
+| Projet | Besoin initial | Objectif final vise | Etat obtenu | Gap principal | Prochain GO |
+|---|---|---|---|---|---|
+| Trae | structurer le travail assiste IA sans derive entre workflow, kanban, regles, agents et runtime | une couche Trae gouvernee et opposable, ou les missions IA multi-etapes sont reprises proprement sans ambiguite | socle pre-V1 gele, decisions canoniques produites, reprise canonique en place | encore pre-V1, agents/skills non ouverts comme couche runtime active | `GO_OT_TRAE_AGENTS_V1_OPEN_01` si selection explicite |
+| OpenClaw | sortir la gouvernance transverse et borner agents/providers/modeles hors du canon execution `opt-trading` | une couche OpenClaw avec politique provider/modele centralisee, gouvernee et bornee | role repo transverse etabli, `model_provider_openclaw` present | produit OpenClaw global encore peu verrouille | audit/synthese OpenClaw ou lot provider policy V1 |
+| Hugging Face | exposer certaines surfaces sans deplacer la source de verite hors du repo canonique | une couche Hugging Face de publication propre avec portail public, tools prives, MCP public, assets publics | `portal_static` documente, surfaces nommees, publication target only explicite | peu de preuve d'usage bout-en-bout, chronologie produit limitee | audit publication Hugging Face ou cadrage d'usage des surfaces |
+| DeepSeek / Ollama local | avoir une IA locale exploitable sans dependance exclusive aux APIs externes, avec separation thinking / response | un hub DeepSeek / Ollama local stable, menu unifie, thinking/response pilotables, logs et artefacts lisibles | `deepseek_hub` present, menu/commandes unifiees et runbook disponible | verite runtime encore partagee entre anciens modules et hub | audit runtime DeepSeek / clarification runtime canonique |
+
+### Trae
+- besoin : structurer le travail assiste IA sans derive entre workflow, kanban, regles, agents et runtime
+- objectif final : couche Trae gouvernee et opposable ; missions IA multi-etapes reprises proprement sans ambiguite
+- plan : socle pre-V1 documente ; gel `Rules / Agents / Skills / MCP Policy` sans surpromesse ; decisions / closings / reprise / alignement kanban ; `Rules V1` doc-only avant toute ouverture ulterieure
+- etat : `validated_prompt_factory` clos ; `trae_module_validator` actif formalise ; Trae pre-V1 acte ; `Rules V1` ouvert doc-only ; reprise canonique Trae en place
+- preuves : `docs/ot/trae/README.md`, `docs/ot/trae/OT_TRAE_SESSION_REPRISE.md`, `docs/ot/kanban/opt_trading_kanban_source_of_truth.md`, `docs/ot/trae/OT_TRAE_PRE_V1_CLOSEOUT_STATUS_DECISION_01.md`
+- gap : pas encore de plateforme agents active au-dela du pre-V1 gele
+- prochain GO : `GO_OT_TRAE_AGENTS_V1_OPEN_01` si selection explicite
+
+### OpenClaw
+- besoin : sortir la gouvernance transverse et borner agents/providers/modeles hors du canon execution `opt-trading`
+- objectif final : couche OpenClaw avec politique provider/modele centralisee, gouvernee et bornee
+- plan : `openclaw` = repo de gouvernance transverse ; `opt-trading` = briques locales utiles comme politique provider
+- etat : role transverse fixe ; `model_provider_openclaw` present ; providers/modeles autorises ; matrice agent -> modele/fallback ; regle : aucun agent ne choisit directement son provider/modele
+- preuves : `docs/governance/REPO_ROLE.md`, `modules/model_provider_openclaw/README.md`
+- gap : produit OpenClaw complet pas encore reconstruit ici
+- prochain GO : audit/synthese OpenClaw ou lot provider policy V1
+
+### Hugging Face
+- besoin : exposer certaines surfaces sans deplacer la source de verite hors du repo canonique
+- objectif final : couche Hugging Face de publication propre avec portail public, tools prives, MCP public, assets publics
+- plan : `opt-trading/sot/mainline` reste source de verite ; Hugging Face = publication target only ; separation portail public / tools prives / MCP public / assets publics
+- etat : `portal_static` documente ; surfaces Hugging Face nommees ; publication target only explicite
+- preuves : `modules/hf_free_platform/spaces/portal_static/README.md`
+- gap : peu de preuve d'usage bout-en-bout ; chronologie produit limitee
+- prochain GO : audit publication Hugging Face ou cadrage d'usage des surfaces
+
+### DeepSeek / Ollama local
+- besoin : avoir une IA locale exploitable sans dependance exclusive aux APIs externes ; separation thinking / response
+- objectif final : hub DeepSeek / Ollama local stable, menu unifie, thinking/response pilotables, logs et artefacts lisibles
+- plan : installer Ollama local ; separer `deepseek_thinking` et `deepseek_response` ; preferer API HTTP a `ollama run` ; unifier via `deepseek_hub`
+- etat : `deepseek_hub` present ; menu/commandes unifiees ; runbook disponible ; patch des anciens modules
+- preuves : `modules/deepseek_hub/README.md`, `docs/student_deepseek_runbook.md`
+- gap : verite runtime encore partagee entre anciens modules et hub
+- prochain GO : audit runtime DeepSeek / clarification runtime canonique
+
+## Registre court Anneau B
+
+| Nom | Statut | Pourquoi il reste dans la continuite | Pourquoi il n'est pas prioritaire dans cette passe | Point de reprise minimal |
+|---|---|---|---|---|
+| Hermes | PARTIEL | vrai axe experimental de generation / memoire de travail, avec bridge borne vers OpenClaw | trop borne et explicitement non generalise pour devenir centre de gravite principal | `docs/hermes/00_overview.md`, `docs/hermes/03_bridge_openclaw.md`, `docs/hermes/HERMES_OPENCLAW_BRIDGE_CASE_01_RESULT_2026-04-09.txt` |
+| Claude | A REVALIDER | presence historique d'assistance documentaire non retenue dans le canon actif | interface externe / assistant, moins couche repo-native canonique | aucune preuve repo active conservee |
+| ChatGPT | A REVALIDER | presence historique d'orchestration documentaire non retenue dans le canon actif | interface externe / assistant, pas produit repo-natif principal | aucune preuve repo active conservee |
+| MiMo | A REVALIDER | vraie ligne specialisee trading via `mimo_open_observer` | le nom fort du produit reste peu verrouille dans cette passe thematique | `modules/mimo_open_observer/README.md` |
+| Antigravity | PARTIEL | chantier specialise reel et historiquement utile | peripherique a l'axe multi IA principal de cette passe | relecture dediee des closings/notes Antigravity |
+| OpenAI | A REVALIDER | fondation historique importante mais preuves brutes retirees du canon actif | backend / assistant externe plutot que produit repo-structurant actuel | aucune preuve repo active conservee |
+| llm_wiki_minimal | PARTIEL | utile comme sas de pre-consolidation autour de l'ecosysteme IA/doc | role transverse, pas produit prioritaire ici | `docs/governance/REPO_ROLE.md` |
+| hf_trading | PARTIEL | extension repo utile proche de l'axe Hugging Face | bootstrap encore leger, pas assez riche pour Anneau A | `docs/governance/GITHUB_PARK_CONSOLIDATION_DECISION_02.md` |
+
+## Conclusion operatoire
+
+- cette coupe thematique confirme 4 centres de gravite actuels :
+  - Trae
+  - OpenClaw
+  - Hugging Face
+  - DeepSeek / Ollama local
+- Anneau B conserve les autres axes utiles sans brouiller la lecture prioritaire
+- suite logique :
+  1. figer une synthese canonique Trae
+  2. figer une synthese canonique OpenClaw
+  3. clarifier la carte produit Hugging Face spaces
+  4. clarifier le runtime canonique DeepSeek

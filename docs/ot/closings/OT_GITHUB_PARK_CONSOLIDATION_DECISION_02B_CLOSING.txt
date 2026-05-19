@@ -1,0 +1,42 @@
+GO: GO_GITHUB_PARK_CONSOLIDATION_DECISION_02
+TYPE: addendum_closeout
+STATUS: PASS
+UPDATED_AT: 2026-04-13
+
+BESOIN INITIAL
+- Intégrer une validation utilisateur complémentaire dans la décision de consolidation du parc GitHub.
+- Documenter explicitement que `Magikgmo` et `algo_hf` sont désuets, issus d’un ancien projet / ancienne version.
+
+CIBLE FINALE
+- Remplacer l’état provisoire précédent par une décision de gouvernance explicite.
+- Sortir `Magikgmo` et `algo_hf` du périmètre actif du parc.
+
+VALIDATION RECUE
+- `Magikgmo` : désuet, ancienne version, ancien projet.
+- `algo_hf` : désuet, ancienne version, ancien projet.
+
+DECISION VALIDEE
+- `Magikgmo` = FREEZE_LEGACY_OBSOLETE
+- `algo_hf` = FREEZE_LEGACY_OBSOLETE
+
+EFFET SUR LA MATRICE
+- suppression du besoin d’audit trunk comme prérequis de gouvernance pour ces deux repos
+- ces repos sortent du parc actif
+- une récupération future éventuelle ne peut être qu’une extraction patrimoniale ciblée
+
+FICHIERS AJOUTES
+- docs/governance/GITHUB_PARK_CONSOLIDATION_DECISION_02B.md
+- docs/ot/closings/OT_GITHUB_PARK_CONSOLIDATION_DECISION_02B_CLOSING.txt
+
+TODO MIS A JOUR
+- retirer comme priorités de gouvernance :
+  - GO_GITHUB_PARK_MAGIKGMO_AUDIT_03
+  - GO_GITHUB_PARK_ALGO_HF_AUDIT_03
+- ne conserver au besoin que des GO d’extraction legacy
+
+REPRISE
+- décision principale : docs/governance/GITHUB_PARK_CONSOLIDATION_DECISION_02.md
+- addendum utilisateur validé : docs/governance/GITHUB_PARK_CONSOLIDATION_DECISION_02B.md
+
+MEM_CANDIDATE
+- `Magikgmo` et `algo_hf` sont validés comme repos legacy obsolètes, hors continuité active.

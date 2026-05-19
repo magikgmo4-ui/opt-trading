@@ -1,0 +1,24 @@
+07_GO_PROMPT_EXECUTION
+
+OBJECTIF
+Créer la V1 ClickUp pour opt-trading.
+
+ACTIONS
+1. Créer le workspace OPT-TRADING OPS.
+2. Créer les spaces CANON_GOVERNANCE, MODULES, MACHINES, TRADING_OPS, INCIDENTS_DEBUG, ARCHIVE_CLOSED.
+3. Créer les statuts BACKLOG, CADRAGE, READY, IN_PROGRESS, BLOCKED, REVIEW, PASS, FAIL, CLOSED, ARCHIVED.
+4. Créer les champs personnalisés listés dans 01_SCHEMA.txt.
+5. Créer le template GO_TASK_TEMPLATE depuis 02_TEMPLATE.txt.
+6. Importer uniquement les lignes validées de 03_IMPORT_MAPPING.csv.
+7. Appliquer la checklist 04_CHECKLIST.txt.
+8. Créer les vues de 05_DASHBOARD.txt.
+9. Appliquer les règles de synchronisation 06_SYNC_RULES.txt.
+
+CONTRAINTE
+Aucune tâche ClickUp ne doit être considérée valide sans GO_ID, DOC_PATH et preuve repo.
+
+SORTIE ATTENDUE
+- workspace ClickUp créé
+- 1 à 5 tâches GO créées
+- dashboards initiaux créés
+- écarts documentés dans le chantier

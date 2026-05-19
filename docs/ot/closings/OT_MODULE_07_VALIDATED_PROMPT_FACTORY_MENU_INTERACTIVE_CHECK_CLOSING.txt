@@ -1,0 +1,42 @@
+# OT-MODULE-07 — VALIDATED_PROMPT_FACTORY (MENU INTERACTIVE CHECK) — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-14
+
+## 1. RÉSUMÉ EXÉCUTIF
+- `menu-validated_prompt_factory` résout vers `modules/validated_prompt_factory/menu.sh` sur Linux réel (admin-trading).
+- Preuve d’exécution contrôlée : affichage du menu + parcours “List Modes”.
+- Aucun patch code requis.
+
+## 2. ENVIRONNEMENT RÉEL
+- Hostname : `admin-trading`
+- User : `ghost`
+- Shell : `/bin/bash`
+- Repo : `/opt/trading`
+
+## 3. COMMANDES EXÉCUTÉES (EXACTES) + SORTIES OBSERVÉES
+
+### 3.1 Résolution du wrapper
+- Commande :
+  - `command -v menu-validated_prompt_factory; ls -l $(command -v menu-validated_prompt_factory); readlink -f $(command -v menu-validated_prompt_factory)`
+- Observé :
+  - `/usr/local/bin/menu-validated_prompt_factory -> /opt/trading/modules/validated_prompt_factory/menu.sh`
+
+### 3.2 Lancement + affichage (sortie “propre”)
+- Commande (stdin injecté, `clear` neutralisé pour logs) :
+  - `TERM=xterm bash -lc 'function clear(){ :; }; export -f clear; printf "0\n" | menu-validated_prompt_factory'`
+- Sortie observée :
+  - `=== Validated Prompt Factory ===`
+  - options `1..6`, `0. Exit`
+
+### 3.3 Parcours simple : “List Modes”
+- Commande :
+  - `TERM=xterm bash -lc 'function clear(){ :; }; export -f clear; printf "5\n\n0\n" | menu-validated_prompt_factory'`
+- Sortie observée :
+  - `Available modes:` + `chatgpt_session`, `trae_module`, `trae_patch`, `bundle_transfer`
+
+## 4. VERDICT
+**Status : CLOSE (PASS).**
+
+## 5. POINT DE REPRISE
+> **GO_OT_SESSION_OPENING_DRILL_01**
+

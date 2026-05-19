@@ -1,0 +1,47 @@
+========================================
+CLOSEOUT FINAL — BOT VISION
+========================================
+Date: 2026-03-30
+Opérateur: OT
+
+1. PÉRIMÈTRE CLÔTURÉ
+- Bot Telegram Vision (bot_vision_step2) : polling /analyze, envoi photo + texte
+- Chaîne Windows Desk Pro : ShareX AutoCapture → send_vision_inbox.ps1 → SCP/SSH → admin-trading
+- Bridge Linux : vision_processed → crop 2x2 → desk snapshots → latest.json
+- Secrets Telegram/OpenAI : rotation et propreté confirmées
+- Cleanup fichiers temporaires
+
+2. VERDICT GLOBAL
+PASS — Chaîne Bot Vision opérationnelle de bout en bout.
+
+3. CAUSES RÉELLES RETENUES
+- Secret Telegram invalide après rotation → bot muet en polling
+- AutoCaptureWaitUpload=true + processus PowerShell zombie (SSH bloqué) → ShareX figé ~4h30
+- Bridge Linux non déclenché après vision_processed → latest.json désynchronisé
+- Temporaire latest_analyze_{chat_id}.jpg non nettoyé (résiduel mineur)
+
+4. CORRECTIFS RÉELLEMENT APPLIQUÉS
+[a] Secret Telegram bot_vision.env mis à jour (token + chat_id)
+[b] send_vision_inbox.ps1 : timeout SCP 120s + SSH 30s via Run-Process patché (Start-Process + Wait-Process + Stop-Process)
+[c] bot_vision_step2.py /analyze : ajout subprocess bridge_vision_to_desk_inbox.sh (timeout 30s) avant analyze_latest.py
+[d] bot_vision_step2.py /analyze : cleanup tmp file (finally → unlink)
+[e] Bridge timer desk_bridge.timer vérifié actif (10 min)
+[f] Windows : processus zombies PS/SSH tués manuellement (récupération ponctuelle)
+
+5. ÉTAT FINAL PROUVÉ
+- ShareX AutoCapture : tourne toutes les 10 min, captures Desk Pro 2x2 ~500KB
+- send_vision_inbox.ps1 : SCP+SSH complétés en <2s, pas de zombie résiduel
+- vision_processed : reçoit les screen_*.png frais
+- desk_bridge.timer : crop 2x2 + ingest_once → latest.json à jour
+- /analyze : envoie photo fraîche + texte basé sur latest.json aligné (age ≤10 min)
+- Temporaire latest_analyze_*.jpg : nettoyé après envoi
+
+6. RÉSIDUELS NON BLOQUANTS
+- Telegram bot token 401 sur send_telegram.bat (bot secondaire, pas le bot vision)
+- watch_telegram.ps1 non vérifié/tournant (FileSystemWatcher legacy)
+- Automatisation du kill de zombies Windows (manuel pour l'instant)
+- Logging stdout du bot non capturé par journalctl (logs internes /analyze invisibles via journalctl)
+
+7. POINT DE REPRISE NATUREL
+- Prochain chantier logique : monitoring/alerting si AutoCapture s'arrête ou si SSH timeout se déclenche
+- Ou : intégration Coinglass/TV data dans analyze_latest.py (remplacer placeholders)

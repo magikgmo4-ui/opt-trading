@@ -1,0 +1,61 @@
+GO_TRADING_PIPELINE_BOTPRESS_OPERATOR_PARENT_01 - SESSION_REPRISE
+
+DATE: 2026-04-24
+BRANCHE: go/GO_TRADING_PIPELINE_BOTPRESS_OPERATOR_PARENT_01
+BASE CONNUE: sot/mainline -> commit 254083c3716a3937912ee453fe7f5009feaa5620
+
+1_MASTER_TARGET
+Utiliser Botpress comme couche d'orchestration conversationnelle du pipeline trading.
+
+PIPELINE CANONIQUE
+Telegram Screener -> Botpress Operator -> OpenClaw Gateway existant -> student / Trading Labs -> LONA Trading Assistant -> opt-trading -> retour Telegram.
+
+7_CANONICAL_STATE
+- Chantier parent ouvert.
+- Branche dediee creee.
+- README parent ancre.
+- Bundle IDE partiel mais exploitable ancre.
+- Correction appliquee: OpenClaw Gateway existe deja; le chantier doit adapter Botpress vers ce gateway, pas recreer un gateway.
+
+13_ESTABLISHED
+- Botpress = orchestration, routing, safety gate, formatting.
+- OpenClaw Gateway = existant.
+- opt-trading = source canonique et journalisation.
+- student / Trading Labs = calculs, tests, backtests, experimentation.
+- LONA = synthese trading specialisee.
+- Aucun trade reel en V1.
+- Aucun push Git automatique depuis Botpress.
+
+14_HYPOTHESIS
+- Un adapter mince Botpress -> OpenClaw peut suffire si le gateway existant expose un endpoint HTTP stable.
+- Le contrat exact reste a verifier sur machine OpenClaw.
+
+15_REMAINING_GAP
+- Endpoint OpenClaw reel non documente dans ce chantier.
+- Auth/token du gateway non documente.
+- Payload reel du gateway non documente.
+- Response schema reel non documente.
+- Smoke test Botpress -> OpenClaw non ancre.
+- GO_INDEX / NEXT_GO / ACTIVE_STREAMS non mis a jour depuis cette branche.
+
+16_TODO
+1. Identifier l'endpoint OpenClaw existant.
+2. Documenter le contrat reel OpenClaw.
+3. Adapter le prompt bundle 02 si besoin apres verification machine.
+4. Completer le bundle IDE: MANIFEST + smoke test + docs prompt complet.
+5. Ouvrir le GO enfant: GO_TRADING_BOTPRESS_OPENCLAW_ADAPTER_SPEC_01.
+6. Apres validation, passer a l'implementation runtime.
+
+17_RESUME_POINT
+Reprendre sur la branche go/GO_TRADING_PIPELINE_BOTPRESS_OPERATOR_PARENT_01.
+Lire dans l'ordre:
+1. README.md
+2. ide_bundle/README_IDE_BUNDLE.md
+3. ide_bundle/02_PROMPT_IMPL_OPENCLAW_GATEWAY.md
+4. SESSION_REPRISE.txt
+
+NEXT_GO
+GO_TRADING_BOTPRESS_OPENCLAW_ADAPTER_SPEC_01
+
+REGLE CRITIQUE
+Ne pas creer un nouveau gateway OpenClaw. Adapter Botpress au gateway existant.

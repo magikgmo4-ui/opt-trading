@@ -1,0 +1,24 @@
+04_REPRISE_TRADING_DUAL_STACK_V1_0
+
+POINT DE REPRISE
+TRADING_DUAL_STACK_V1_0_CLARIFIED est établi comme base documentaire canonique proposée.
+
+ETAT REEL
+- Vision duale LAB + REALTIME validée
+- Noyau commun validé
+- Cadre trader humain validé
+- Contrats minimums validés
+- Réalisme minimal LAB validé
+- Guards live validés
+- Promotion gates validés
+- V1.1 repoussée proprement
+
+PROCHAINES ETAPES ENCHAINEES
+1. GO_TRADING_DUAL_STACK_V1_0_DOC_CANONICALIZE_01
+2. GO_TRADING_DUAL_STACK_V1_0_CONTRACTS_DETAIL_01
+3. GO_MIMO_DUAL_STACK_FIRST_SCOPE_01
+4. GO_MIMO_LAB_RUNNER_V1_01
+5. GO_MIMO_REALTIME_OBSERVE_V1_01
+
+REGLE
+Ne pas rouvrir le débat de fond tant qu’un point canonique réel n’entre pas en contradiction avec la V1.0 clarifiée.

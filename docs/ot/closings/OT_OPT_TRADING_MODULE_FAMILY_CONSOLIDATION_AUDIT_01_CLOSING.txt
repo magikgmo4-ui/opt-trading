@@ -1,0 +1,59 @@
+GO: GO_OPT_TRADING_MODULE_FAMILY_CONSOLIDATION_AUDIT_01
+TYPE: closing
+STATUS: PASS
+UPDATED_AT: 2026-04-14
+
+BESOIN INITIAL
+- Auditer les familles de modules dans `opt-trading`.
+- Distinguer familles stables, lignées versionnées, stacks parallèles, reliquats legacy et gaps de formalisation canonique.
+
+CIBLE FINALE
+- Obtenir une lecture exploitable des familles de modules.
+- Identifier les vrais candidats de consolidation et de clarification.
+- Définir le next GO logique.
+
+PLAN VALIDE
+1. Partir du trunk ZIP réel `opt-trading`.
+2. Lister les modules présents sous `modules/`.
+3. Croiser avec `registry/modules_registry.yaml`.
+4. Regrouper les modules par familles nominales/structurelles.
+5. Sortir un verdict d’audit et un next GO.
+
+ETAT ETABLI
+- 87 modules inspectés.
+- 29 modules présents dans `registry/modules_registry.yaml`.
+- 58 modules absents de la registry.
+- forte standardisation wrappers en surface opérateur, mais faible reflet canonique dans la registry.
+
+FAMILLES PRIORITAIRES IDENTIFIEES
+- `reseau_ssh*` : vraie lignée à consolider autour de `reseau_ssh_step2`
+- `vision` : clarification requise entre `bot_vision`, `bot_vision_step2`, `vision_bot`
+- `perf` : frontière à clarifier entre `perf` et `perf_engine`
+- `journal` : frontière à clarifier entre `journal_de_bord` et `journal_engine`
+- `desk_pro*` / `desk_*` : stack riche à cartographier plutôt qu’à fusionner aveuglément
+- `openclaw*` : stack cohérente mais faiblement reflétée dans la registry
+
+FAMILLE DEJA STABILISEE
+- `workflow_post_change_v2*` : continuité déjà consolidée autour de `workflow_post_change_v2`
+
+FICHIERS AJOUTES
+- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/02_module_family_consolidation_audit.md
+- docs/ot/closings/OT_OPT_TRADING_MODULE_FAMILY_CONSOLIDATION_AUDIT_01_CLOSING.txt
+
+PREUVE GATING GO/STOP
+- prouvée
+
+LIMITE RESTANTE
+- pas de cartographie fichier par fichier dans ce lot
+- pas de reclassification physique des dossiers
+- pas de mise à jour exhaustive de `registry/modules_registry.yaml`
+
+NEXT GO
+- GO_GITHUB_PARK_FILE_ROLE_CARTOGRAPHY_01
+
+REPRISE
+- rapport canonique : docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/02_module_family_consolidation_audit.md
+- suite logique : cartographie canonique fichier par fichier
+
+MEM_CANDIDATE
+- dans `opt-trading`, le nœud principal de dette n’est pas un chaos de doublons exacts mais un mélange de lignées versionnées, stacks multi-modules et faible couverture registry.

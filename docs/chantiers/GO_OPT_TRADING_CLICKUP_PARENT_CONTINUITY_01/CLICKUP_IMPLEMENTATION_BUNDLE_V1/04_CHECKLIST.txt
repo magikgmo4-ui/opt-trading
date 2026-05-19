@@ -1,0 +1,10 @@
+04_IMPORT_CHECKLIST
+
+[ ] GO_ID present
+[ ] DOC_PATH valid
+[ ] BRANCH coherent
+[ ] MODULE defined
+[ ] MACHINE defined
+[ ] PROOF exists (doc or commit)
+[ ] no invented GO
+[ ] STATUS consistent

@@ -1,0 +1,44 @@
+OT_BOT_VISION_WATCHDOG_01 - CLOSING
+Date UTC: 2026-04-04T01:53:00Z
+
+Etat reel constate au depart
+- La chaine Bot Vision principale etait deja stabilisee et ne devait pas etre rouverte.
+- Le residuel canonique retenu etait l'absence de monitoring automatique de ShareX AutoCapture.
+- Le besoin exact etait deja cadre dans `docs/REPRISE_BOT_VISION.txt` et `docs/ot/closings/bot_vision/RESIDUEL_BOT_VISION.txt`.
+- La source Linux reelle des captures traitees est `/srv/sftp/shared_files/shared/vision_processed`.
+
+Patch minimal applique
+- Ajout d'un script PowerShell Windows read-only: `modules/bot_vision_step2/scripts/sharex_capture_watchdog.ps1`
+- Ajout d'une doc minimale de run/validation: `modules/bot_vision_step2/SHAREX_WATCHDOG.md`
+- Aucun changement de `send_vision_inbox.ps1`
+- Aucun changement du handler `/analyze`
+- Aucune tache planifiee imposee dans ce patch
+
+Comportement V1 retenu
+- Surveillance du dernier `screen_*.png`
+- Seuil configurable via `-MaxAgeMinutes` (defaut 15)
+- Dossier configurable via `-WatchPath` (defaut `C:\monitor\screens`)
+- Sortie lisible `STATUS: OK|ALERT`
+- Exit code `0` si frais, `1` si alerte
+
+Validation reelle
+- Preuve source captures Linux:
+  - `/srv/sftp/shared_files/shared/vision_processed` existe
+  - dernier fichier observe: `screen_2026-04-04_01-36-15_9.png`
+  - age observe pendant validation: `344s`
+  - verdict nominal equivalent: `OK`
+- Simulation controlee:
+  - fichier `screen_*.png` vieilli artificiellement a `1200s`
+  - verdict equivalent: `ALERT`
+
+Limites reelles
+- `pwsh` n'est pas installe sur `admin-trading`, donc le script PowerShell Windows n'a pas ete execute nativement sur cette machine Linux.
+- Le chemin Windows par defaut `C:\monitor\screens` est retenu depuis le residuel canonique existant; le script reste configurable si le poste Windows utilise un autre dossier local ShareX.
+- Aucun scheduling Windows n'est force dans cette V1; le patch livre un check CLI simple et prouvable.
+
+Verdict
+- PASS
+- Hardening minimal utile ajoute sans rouvrir la chaine Bot Vision principale.
+
+Point de reprise suivant
+- GO_OT_BOT_VISION_REAL_DATA_01

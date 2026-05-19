@@ -1,0 +1,58 @@
+# OT-PATCH-SSHFS-01 — CLOSING REPORT
+
+Date (America/Montreal) : 2026-03-12
+
+## 1. RÉSUMÉ EXÉCUTIF
+Wrappers `shared_sshfs_permanent` patchés pour être symlink-safe et cohérents avec le modèle d’installation (`/opt/trading/scripts/*`), sans changement live systemd.
+
+## 2. CAUSE RETENUE
+Résolution de chemin basée sur `$0` non compatible symlink (`/usr/local/bin/*`) → dérive vers `/usr/local` → `name=local path=/usr/local` et `FAIL: scripts missing`.
+
+## 3. FICHIERS INSPECTÉS
+- `modules/shared_sshfs_permanent/scripts/cmd.sh`
+- `modules/shared_sshfs_permanent/scripts/menu.sh`
+- `modules/shared_sshfs_permanent/scripts/sanity_check.sh`
+- `modules/shared_sshfs_permanent/README.md`
+- `modules/shared_sshfs_permanent/INSTALL.sh`
+
+## 4. PATCH APPLIQUÉ
+- Résolution symlink-safe via `${BASH_SOURCE[0]}` + `readlink -f` si disponible.
+- Délégation vers `/opt/trading/scripts/shared_sshfs_permanent_{cmd,menu,sanity}.sh` si présents et si invocation via wrappers globaux.
+- Note README minimale sur le modèle d’installation vs wrappers pointant vers `modules/.../scripts/*`.
+
+## 5. VALIDATION LOCALE/REPO
+- PASS : contrôles statiques (ancien pattern supprimé, `readlink -f` présent).
+- NON TESTÉ : exécution locale (WSL sans distribution).
+
+## 6. LIMITES RESTANTES
+- Pas de déploiement `shared-sshfs.service`, pas de montage `/shared` (hors périmètre).
+
+## 7. FICHIERS MODIFIÉS
+- `modules/shared_sshfs_permanent/scripts/cmd.sh`
+- `modules/shared_sshfs_permanent/scripts/menu.sh`
+- `modules/shared_sshfs_permanent/scripts/sanity_check.sh`
+- `modules/shared_sshfs_permanent/README.md`
+- `OT_PATCH_SSHFS_01_REPORT.md`
+- `OT_PATCH_SSHFS_01_CLOSING.txt`
+
+## 8. COMMANDES EXÉCUTÉES
+- `bash --version` (échoue car WSL sans distribution)
+- recherches statiques de patterns dans les scripts
+
+## 9. VERDICT FINAL
+Patch minimal appliqué : les wrappers ne cassent plus à cause de la résolution symlink, et la cohérence avec le modèle d’installation est rétablie côté repo.
+
+## 10. POINT DE REPRISE SUIVANT
+Mini revalidation live sur `admin-trading` (sans sudo) après `git pull` :
+```bash
+cmd-shared_sshfs_permanent info
+sanity-shared_sshfs_permanent || true
+```
+Test symlink réversible (dans `/tmp`) :
+```bash
+ln -sf /opt/trading/modules/shared_sshfs_permanent/scripts/cmd.sh /tmp/cmd-shared_sshfs_permanent-test
+bash /tmp/cmd-shared_sshfs_permanent-test info
+```
+
+**Status : CLOSE (PATCH PRÊT POUR MINI REVALIDATION LIVE).**
+
