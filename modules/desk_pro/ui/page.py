@@ -22,6 +22,11 @@ def render_ui_html() -> str:
     .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     pre{background:#0b0b0b;color:#e8e8e8;padding:10px;border-radius:10px;overflow:auto;font-size:12px}
     .pill{display:inline-block;padding:2px 8px;border:1px solid #ddd;border-radius:999px;font-size:12px;margin-right:6px}
+    .action-panel{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:8px 10px;background:#f5f5f5;border-radius:8px;border:1px solid #e8e8e8;margin:10px 0}
+    .action-link{font-size:12px;color:#555;padding:4px 10px;border:1px solid #ddd;border-radius:8px;text-decoration:none;background:#fff}
+    .action-link:hover{background:#e8e8e8}
+    .action-btn{font-size:12px;padding:5px 12px;border:1px solid #333;border-radius:8px;background:#111;color:#fff;cursor:pointer}
+    .action-btn:disabled{opacity:.5;cursor:not-allowed}
     .tools-section>summary{cursor:pointer;user-select:none;font-size:15px;font-weight:600;color:#444;padding:6px 0;border-bottom:1px solid #e0e0e0;list-style:none}
     .tools-section>summary::before{content:'▶ ';font-size:11px;color:#999}
     .tools-section[open]>summary::before{content:'▼ ';font-size:11px;color:#999}
@@ -35,18 +40,23 @@ def render_ui_html() -> str:
   </div>
 
   <h2>Runtime Health</h2>
+
+  <!-- Action Panel — static, always visible, not JS-dependent -->
+  <div id="actionPanel" class="action-panel">
+    <button id="btnStatus" class="action-btn">Refresh Status</button>
+    <button id="btnTestAlert" class="action-btn">Test Alert</button>
+    <a href="/desk/errors" class="action-link">errors</a>
+    <a href="/desk/alerts" class="action-link">alerts</a>
+    <a href="/desk/logs/latest" class="action-link">logs</a>
+    <a href="/desk/toolbox" class="action-link">toolbox</a>
+    <span id="testAlertResult" class="muted" style="font-size:12px;margin-left:4px"></span>
+    <span id="statusTs" class="muted" style="font-size:12px;margin-left:auto"></span>
+  </div>
+
   <div class="card" id="runtimeHealthCard">
     <h3 style="margin-top:0">Pipeline Status</h3>
     <div class="muted">Live from /desk/status</div>
     <div id="pipelineSummary"></div>
-    <div style="margin-top:8px">
-      <button id="btnStatus">Refresh</button>
-      <span id="statusTs" class="muted" style="margin-left:8px"></span>
-    </div>
-    <div style="margin-top:8px;font-size:12px">
-      <a href="/desk/errors" style="color:#555;margin-right:12px">errors log</a>
-      <a href="/desk/alerts" style="color:#555">alerts history</a>
-    </div>
     <details style="margin-top:6px">
       <summary class="muted" style="cursor:pointer">Raw JSON</summary>
       <pre id="pipelineStatus" style="font-size:11px">loading...</pre>
@@ -288,12 +298,6 @@ async function refreshStatus(){
     }
     html += '</div>';
 
-    // Alert test button
-    html += '<div style="margin-top:6px">';
-    html += '<button id="btnTestAlert" style="font-size:11px;padding:4px 10px">Test Alert</button>';
-    html += '<span id="testAlertResult" class="muted" style="margin-left:6px"></span>';
-    html += '</div>';
-
     // Alert status
     if(j.alert){
       const a = j.alert;
@@ -326,7 +330,6 @@ async function refreshStatus(){
 
     el('pipelineSummary').innerHTML = html;
     el('statusTs').textContent = 'updated ' + (j.ts||'');
-    el('btnTestAlert').addEventListener('click', testAlert);
   }catch(e){
     el('pipelineStatus').textContent = 'ERROR: '+e;
     el('pipelineSummary').innerHTML = '<span style="color:#c62828">Pipeline unreachable: '+e+'</span>';
@@ -409,6 +412,7 @@ async function testAlert(){
 el('btnSnap').addEventListener('click', refreshSnap);
 el('btnSubmit').addEventListener('click', submitForm);
 el('btnStatus').addEventListener('click', refreshStatus);
+el('btnTestAlert').addEventListener('click', testAlert);
 refreshStatus();
 </script>
 
