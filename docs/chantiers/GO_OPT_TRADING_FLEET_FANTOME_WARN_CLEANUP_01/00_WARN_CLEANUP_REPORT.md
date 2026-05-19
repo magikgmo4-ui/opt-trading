@@ -77,15 +77,45 @@ optional_tmux_sessions:
 admin-trading : **inchangé** — aucune clé override présente → DEFAULT_CONFIG preservé.
 Toutes les autres machines : inchangées.
 
+## Corrections additionnelles (fantome map scope)
+
+Suite à clarification : `openclaw-gateway` est sur db-layer (pas fantome), tmux sessions
+orchestrées depuis db-layer via openclaw (non démarrées localement), `TELEGRAM_BOT_TOKEN`
+non requis sur fantome. Map nettoyé :
+
+| Clé | Avant | Après |
+|---|---|---|
+| `optional_services` | `[openclaw-gateway.service]` | `[]` |
+| `optional_ports` | `[{openclaw_gateway, 18789}]` | `[]` |
+| `optional_env` | `[TELEGRAM_BOT_TOKEN]` | `[]` |
+| `optional_tmux_sessions` | `[openclaw]` | `[]` |
+
+## Résultat final (fantome live)
+
+```
+overall_status: PASS
+  ✓ MACHINE_IDENTITY: PASS
+  ✓ SYSTEMD_SERVICES: PASS
+  ✓ SYSTEMD_TIMERS: PASS
+  ✓ FORBIDDEN_SERVICES: PASS
+  ✓ VENV: PASS
+  ✓ ENV: PASS
+  ✓ PORTS: PASS
+  ✓ HTTP: PASS
+  ✓ PATHS: PASS
+  ✓ ARTIFACTS: PASS
+  ✓ LOGS: PASS
+  ✓ ORCHESTRATOR: PASS
+```
+
 ## VERDICT
 
 ```text
-PARTIAL → PASS pour l'objectif du GO
+PASS — 12/12 blocs PASS sur fantome
 
-HTTP/ARTIFACTS/LOGS fixes : PASS
-admin-trading unaffected  : PASS
-Tests 111/111             : PASS
-Fantome deployed + live   : PASS
-
-Remaining: openclaw + TELEGRAM gaps = déploiement séparé
+HTTP/ARTIFACTS/LOGS fixes  : PASS
+Map scope nettoyé           : PASS
+overall_status fantome      : PASS (was WARN)
+admin-trading unaffected    : PASS
+Tests 111/111               : PASS
 ```
