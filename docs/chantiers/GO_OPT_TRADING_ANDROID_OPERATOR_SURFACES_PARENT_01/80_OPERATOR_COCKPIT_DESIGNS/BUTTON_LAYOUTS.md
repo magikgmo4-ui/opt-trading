@@ -1,0 +1,6 @@
+# BUTTON LAYOUTS
+Grid examples:
+[HEALTH][TMUX]
+[LOGS][ALERTS]
+[DESKPRO][OPENCLAW]
+Separate READ from WRITE.
