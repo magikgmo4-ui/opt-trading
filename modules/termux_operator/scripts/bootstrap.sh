@@ -9,12 +9,18 @@ echo "=== Termux Bootstrap — opt-trading mobile operator ==="
 # ── 1. Packages essentiels ────────────────────────────────────────────────
 echo "--- [1/5] packages ---"
 pkg update -y && pkg upgrade -y
-pkg install -y openssh git python nano
+pkg install -y openssh tmux git python nano jq coreutils
 
-# ── 2. Clé SSH mobile ─────────────────────────────────────────────────────
-echo "--- [2/5] SSH key ---"
-mkdir -p ~/.ssh
-chmod 700 ~/.ssh
+# ── 2. Répertoires operator ───────────────────────────────────────────────
+echo "--- [2/5] directories ---"
+mkdir -p ~/.termux/tasker ~/operator ~/.ssh
+chmod 700 ~/.termux ~/.termux/tasker ~/operator ~/.ssh
+echo "  ~/.termux/tasker  (Tasker scripts)"
+echo "  ~/operator        (notes et scripts locaux)"
+echo "  ~/.ssh            (clés SSH)"
+
+# ── 3. Clé SSH mobile ─────────────────────────────────────────────────────
+echo "--- [3/5] SSH key ---"
 
 KEY="$HOME/.ssh/id_ed25519_termux"
 if [ -f "$KEY" ]; then
@@ -26,8 +32,8 @@ fi
 echo "  Public key:"
 cat "${KEY}.pub"
 
-# ── 3. SSH config ─────────────────────────────────────────────────────────
-echo "--- [3/5] SSH config ---"
+# ── 4. SSH config ─────────────────────────────────────────────────────────
+echo "--- [4/5] SSH config ---"
 cat > ~/.ssh/config <<'EOF'
 Host *
   ServerAliveInterval 30
@@ -60,8 +66,8 @@ EOF
 chmod 600 ~/.ssh/config
 echo "  SSH config written"
 
-# ── 4. Aliases shell ──────────────────────────────────────────────────────
-echo "--- [4/5] aliases ---"
+# ── 5. Aliases shell ──────────────────────────────────────────────────────
+echo "--- [5/5] aliases ---"
 BASHRC="$HOME/.bashrc"
 if ! grep -q "opt-trading-mobile" "$BASHRC" 2>/dev/null; then
     cat >> "$BASHRC" <<'ALIASES'
@@ -80,9 +86,18 @@ else
     echo "  Aliases already present"
 fi
 
-# ── 5. Afficher clé publique à copier ─────────────────────────────────────
+# ── 6. Readiness checks ───────────────────────────────────────────────────
 echo ""
-echo "--- [5/5] ACTION REQUIRED ---"
+echo "--- readiness ---"
+ssh -V 2>&1 | head -1 && echo "  ssh OK"
+tmux -V 2>&1 | head -1 && echo "  tmux OK"
+jq --version 2>&1 | head -1 && echo "  jq OK"
+ls -ld ~/.termux/tasker && echo "  tasker dir OK"
+ls -ld ~/operator && echo "  operator dir OK"
+
+# ── 7. Afficher clé publique à copier ─────────────────────────────────────
+echo ""
+echo "--- ACTION REQUIRED ---"
 echo ""
 echo "Copier cette clé publique sur db-layer :"
 echo ""
