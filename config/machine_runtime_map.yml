@@ -85,6 +85,14 @@ machines:
       - tv-perf.service
       - bot_vision_step2.service
 
+    # /health not implemented on tv-webhook; logs go to journald via log_units
+    optional_http_checks: []
+    optional_log_files: []
+    optional_tmux_sessions:
+      - openclaw
+      - trading
+      - desk
+
   db-layer:
     role: data_layer
     description: "Données, stockage, ingestion durable, OpenClaw orchestrateur"
@@ -145,6 +153,12 @@ machines:
     log_units:
       - daily-session.service
       - shared-sshfs.service
+
+    # desk artifacts/tmux/http not applicable on db-layer
+    optional_http_checks: []
+    optional_artifact_paths: []
+    optional_log_files: []
+    optional_tmux_sessions: []
 
   cursor-ai:
     role: ide_patch_operator
@@ -290,3 +304,9 @@ machines:
       - daily-session.service
 
     log_units: []
+
+    # desk artifacts/tmux/http not applicable on student
+    optional_http_checks: []
+    optional_artifact_paths: []
+    optional_log_files: []
+    optional_tmux_sessions: []
