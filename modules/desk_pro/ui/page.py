@@ -49,8 +49,12 @@ def render_ui_html() -> str:
     <a href="/desk/alerts" class="action-link">alerts</a>
     <a href="/desk/logs/latest" class="action-link">logs</a>
     <a href="/desk/toolbox" class="action-link">toolbox</a>
+    <a href="http://127.0.0.1:8000" class="action-link" id="localcmsLink" target="_blank" title="localcms docs viewer — port 8000 (incompatible avec webhook server)">localcms</a>
     <span id="testAlertResult" class="muted" style="font-size:12px;margin-left:4px"></span>
     <span id="statusTs" class="muted" style="font-size:12px;margin-left:auto"></span>
+  </div>
+  <div id="portConflictNote" style="font-size:11px;color:#888;margin-bottom:8px;padding:0 2px">
+    ⚠ Port 8000 partagé — <strong>localcms</strong> et <strong>webhook server</strong> ne peuvent pas coexister. Choisir l'un ou l'autre avant de démarrer.
   </div>
 
   <div class="card" id="runtimeHealthCard">
