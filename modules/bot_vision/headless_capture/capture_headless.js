@@ -4,6 +4,7 @@
  *
  * Headless browser capture using Playwright + Chromium.
  * Produces screen_*.png + sidecar JSON into vision_inbox with atomic write.
+ * Classifies captures as ready / blocked / invalid_visual.
  *
  * Usage:
  *   node capture_headless.js --profile profiles.example.json --once
@@ -22,6 +23,31 @@ const POST_LOAD_WAIT_MS = 3000;
 const WAIT_UNTIL = 'networkidle';
 const SCREENSHOT_MODE = 'viewport';
 const MIN_FILE_SIZE = 1024; // 1 KB minimum
+
+// Status constants
+const STATUS_READY = 'ready';
+const STATUS_BLOCKED = 'blocked';
+const STATUS_INVALID_VISUAL = 'invalid_visual';
+
+// Blocked reasons
+const BLOCKED_PAGE_GOTO_TIMEOUT = 'PAGE_GOTO_TIMEOUT';
+const BLOCKED_PAGE_GOTO_ERROR = 'PAGE_GOTO_ERROR';
+const BLOCKED_SCREENSHOT_ERROR = 'SCREENSHOT_ERROR';
+const BLOCKED_OUTPUT_WRITE_ERROR = 'OUTPUT_WRITE_ERROR';
+
+// Visual status values
+const VISUAL_UNCHECKED = 'unchecked';
+const VISUAL_PASS = 'pass';
+const VISUAL_POSSIBLE_SPINNER = 'possible_spinner';
+const VISUAL_BLANK_OR_UNIFORM = 'blank_or_uniform';
+const VISUAL_TOO_SMALL = 'too_small';
+const VISUAL_LOADING_STATE_DETECTED = 'loading_state_detected';
+
+// Detection defaults
+const DEFAULT_LOADING_SELECTORS = ['loading', 'spinner', 'please wait', 'loader', 'progress'];
+const BLANK_PNG_SIZE_THRESHOLD = 15360; // 15 KB heuristic for uniform/blank image
+const VISUAL_CHECK_ENABLED = true;
+
 const VALID_WAIT_UNTIL = new Set(['networkidle', 'domcontentloaded', 'load']);
 const VALID_SCREENSHOT_MODE = new Set(['viewport']);
 
@@ -126,8 +152,78 @@ function profileOptions(profile) {
     waitUntil,
     timeoutMs: numberOption(profile.timeout_ms, PAGE_TIMEOUT, 'timeout_ms', { min: 1 }),
     postLoadWaitMs: numberOption(profile.post_load_wait_ms, POST_LOAD_WAIT_MS, 'post_load_wait_ms'),
-    screenshotMode
+    screenshotMode,
+    visualCheckEnabled: profile.visual_check_enabled !== undefined ? !!profile.visual_check_enabled : VISUAL_CHECK_ENABLED,
+    domLoadingSelectors: Array.isArray(profile.dom_loading_selectors) ? profile.dom_loading_selectors : DEFAULT_LOADING_SELECTORS
   };
+}
+
+// ── Visual classification ───────────────────────────────
+async function classifyVisual(pngPath, page, loadingSelectors) {
+  // 1. File size check
+  const stat = fs.statSync(pngPath);
+  if (stat.size < MIN_FILE_SIZE) {
+    return { visualStatus: VISUAL_TOO_SMALL, status: STATUS_INVALID_VISUAL };
+  }
+
+  // 2. Blank/uniform heuristic: very small PNG at viewport resolution
+  if (stat.size < BLANK_PNG_SIZE_THRESHOLD) {
+    return { visualStatus: VISUAL_BLANK_OR_UNIFORM, status: STATUS_INVALID_VISUAL };
+  }
+
+  // 3. DOM loading text detection
+  try {
+    const loadingDetected = await page.evaluate((selectors) => {
+      const bodyText = (document.body && document.body.innerText) || '';
+      return selectors.some(s => bodyText.toLowerCase().includes(s.toLowerCase()));
+    }, loadingSelectors);
+
+    if (loadingDetected) {
+      return { visualStatus: VISUAL_LOADING_STATE_DETECTED, status: STATUS_INVALID_VISUAL };
+    }
+  } catch (_) {
+    // DOM not accessible; proceed
+  }
+
+  // 4. Document readyState check
+  try {
+    const readyState = await page.evaluate(() => document.readyState);
+    if (readyState !== 'complete') {
+      return { visualStatus: VISUAL_POSSIBLE_SPINNER, status: STATUS_INVALID_VISUAL };
+    }
+  } catch (_) {
+    // DOM not accessible; proceed
+  }
+
+  return { visualStatus: VISUAL_PASS, status: STATUS_READY };
+}
+
+// ── Blocked sidecar writer ──────────────────────────────
+function writeBlockedSidecar(baseJson, profile, options, blockedReason, errorMessage) {
+  const { source, symbol, timeframe, url, page_id } = profile;
+  const sidecar = {
+    producer: 'bot_vision_headless',
+    capture_mode: 'playwright_chromium',
+    page_id: page_id || null,
+    source,
+    symbol: symbol || 'dashboard',
+    timeframe: timeframe || 'H1',
+    url,
+    status: STATUS_BLOCKED,
+    blocked_reason: blockedReason,
+    capture_error: errorMessage,
+    wait_until: options.waitUntil,
+    timeout_ms: options.timeoutMs,
+    post_load_wait_ms: options.postLoadWaitMs,
+    created_at_utc: new Date().toISOString()
+  };
+
+  const result = atomicWrite(OUT_DIR, baseJson, sidecar, true);
+  if (result) {
+    console.log(`BLOCKED: ${source} ${symbol || ''} -> ${baseJson} (${blockedReason})`);
+  } else {
+    console.error(`FAIL: could not write blocked sidecar for ${source}`);
+  }
 }
 
 // ── Capture ─────────────────────────────────────────────
@@ -157,6 +253,7 @@ async function captureOne(profile) {
   ensureDir(OUT_DIR);
 
   let browser;
+  let page;
   try {
     browser = await chromium.launch({
       headless: true,
@@ -168,25 +265,97 @@ async function captureOne(profile) {
       userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36'
     });
 
-    const page = await context.newPage();
+    page = await context.newPage();
     page.setDefaultTimeout(options.timeoutMs);
 
-    await page.goto(url, { waitUntil: options.waitUntil, timeout: options.timeoutMs });
+    // ── Page navigation ──────────────────────────────
+    let gotoError = null;
+    try {
+      await page.goto(url, { waitUntil: options.waitUntil, timeout: options.timeoutMs });
+    } catch (err) {
+      gotoError = err;
+    }
 
+    if (gotoError) {
+      const reason = gotoError.name === 'TimeoutError' ? BLOCKED_PAGE_GOTO_TIMEOUT : BLOCKED_PAGE_GOTO_ERROR;
+      writeBlockedSidecar(baseJson, profile, options, reason, gotoError.message);
+      console.error(`BLOCKED: ${source} goto failed: ${gotoError.message}`);
+      return;
+    }
+
+    // ── Post-load wait ───────────────────────────────
     if (options.postLoadWaitMs > 0) {
       await page.waitForTimeout(options.postLoadWaitMs);
     }
 
-    const pngBuffer = await page.screenshot({ type: 'png', fullPage: false });
+    // ── Screenshot ───────────────────────────────────
+    let pngBuffer;
+    let screenshotError = null;
+    try {
+      pngBuffer = await page.screenshot({ type: 'png', fullPage: false });
+    } catch (err) {
+      screenshotError = err;
+    }
 
-    // Write PNG
-    const pngPath = atomicWrite(OUT_DIR, basePng, pngBuffer);
-    if (!pngPath) {
-      console.error(`FAIL: screenshot produced no valid output for ${source}`);
+    if (screenshotError) {
+      writeBlockedSidecar(baseJson, profile, options, BLOCKED_SCREENSHOT_ERROR, screenshotError.message);
+      console.error(`BLOCKED: ${source} screenshot failed: ${screenshotError.message}`);
       return;
     }
 
-    // Write sidecar JSON
+    // ── Write PNG ────────────────────────────────────
+    let pngPath = null;
+    try {
+      pngPath = atomicWrite(OUT_DIR, basePng, pngBuffer);
+    } catch (err) {
+      writeBlockedSidecar(baseJson, profile, options, BLOCKED_OUTPUT_WRITE_ERROR, err.message);
+      console.error(`BLOCKED: ${source} PNG write failed: ${err.message}`);
+      return;
+    }
+
+    if (!pngPath) {
+      // atomicWrite returned null (too small); treat as invalid_visual
+      const sidecar = {
+        producer: 'bot_vision_headless',
+        capture_mode: 'playwright_chromium',
+        page_id: pageId || null,
+        source,
+        symbol: symbol || 'dashboard',
+        timeframe: timeframe || 'H1',
+        url,
+        status: STATUS_INVALID_VISUAL,
+        visual_status: VISUAL_TOO_SMALL,
+        wait_until: options.waitUntil,
+        timeout_ms: options.timeoutMs,
+        post_load_wait_ms: options.postLoadWaitMs,
+        screenshot_mode: options.screenshotMode,
+        viewport: VIEWPORT,
+        created_at_utc: new Date().toISOString()
+      };
+      atomicWrite(OUT_DIR, baseJson, sidecar, true);
+      console.error(`INVALID_VISUAL: ${source} PNG too small`);
+      return;
+    }
+
+    // ── Visual classification ─────────────────────────
+    let visualStatus = VISUAL_UNCHECKED;
+    let captureStatus = STATUS_READY;
+
+    if (options.visualCheckEnabled) {
+      try {
+        const result = await classifyVisual(pngPath, page, options.domLoadingSelectors);
+        visualStatus = result.visualStatus;
+        captureStatus = result.status;
+      } catch (err) {
+        console.error(`VISUAL CHECK ERROR: ${err.message}`);
+        visualStatus = VISUAL_UNCHECKED;
+        captureStatus = STATUS_READY;
+      }
+    } else {
+      visualStatus = VISUAL_UNCHECKED;
+    }
+
+    // ── Write sidecar JSON ────────────────────────────
     const sidecar = {
       producer: 'bot_vision_headless',
       capture_mode: 'playwright_chromium',
@@ -195,6 +364,8 @@ async function captureOne(profile) {
       symbol: symbol || 'dashboard',
       timeframe: timeframe || 'H1',
       url,
+      status: captureStatus,
+      visual_status: visualStatus,
       wait_until: options.waitUntil,
       timeout_ms: options.timeoutMs,
       post_load_wait_ms: options.postLoadWaitMs,
@@ -202,15 +373,28 @@ async function captureOne(profile) {
       viewport: VIEWPORT,
       created_at_utc: new Date().toISOString(),
       output_png: basePng,
-      output_json: baseJson,
-      status: 'ready'
+      output_json: baseJson
     };
 
     atomicWrite(OUT_DIR, baseJson, sidecar, true);
 
-    console.log(`DONE: ${source} -> ${basePng}`);
+    if (captureStatus === STATUS_INVALID_VISUAL) {
+      console.log(`INVALID_VISUAL: ${source} -> ${basePng} (${visualStatus})`);
+    } else {
+      console.log(`DONE: ${source} -> ${basePng}`);
+    }
   } catch (err) {
+    // Unexpected error (browser launch, context creation, etc.)
     console.error(`ERROR capturing ${source}: ${err.message}`);
+    try {
+      writeBlockedSidecar(baseJson, profile, options || {
+        waitUntil: WAIT_UNTIL,
+        timeoutMs: PAGE_TIMEOUT,
+        postLoadWaitMs: POST_LOAD_WAIT_MS
+      }, BLOCKED_PAGE_GOTO_ERROR, err.message);
+    } catch (_) {
+      // Best-effort sidecar
+    }
   } finally {
     if (browser) await browser.close();
   }
