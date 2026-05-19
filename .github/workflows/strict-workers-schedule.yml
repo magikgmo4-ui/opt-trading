@@ -18,5 +18,4 @@ jobs:
       - name: Run READ_INVENTORY
         run: |
           bash scripts/ai/workers/run_task.sh \
-            --job-packet scripts/ai/workers/job_packets/GO_STRICT_WORKERS_READONLY_SMOKE_01.json \
-            --dry-run
+            scripts/ai/workers/job_packets/GO_STRICT_WORKERS_READONLY_SMOKE_01.json
