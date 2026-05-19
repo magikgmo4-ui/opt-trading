@@ -20,7 +20,7 @@ from scripts.tmux.health_check import check_sessions, ALL_SESSIONS, CRITICAL_SES
 r = check_sessions(active=list(ALL_SESSIONS))
 print(json.dumps({"all_ok": r["all_ok"], "up_count": len(r["up"]), "missing_count": len(r["missing"])}, indent=2))
 assert r["all_ok"]
-assert len(r["up"]) == 9
+assert len(r["up"]) == 10
 
 # Simulate critical down
 r2 = check_sessions(active=["desk-pro", "kg-repo"])
@@ -35,7 +35,7 @@ print(json.dumps({"live_check": "ok", "active_count": len(r3["up"])}, indent=2))
 EOF
 
 echo "--- session scripts exist ---"
-for s in openclaw-core screeners strict-workers trading-pipeline market-data apps-connectors desk-pro kg-repo localcms-ui; do
+for s in openclaw-core screeners strict-workers trading-pipeline market-data apps-connectors desk-pro kg-repo localcms-ui fleet-status; do
     [ -f "scripts/tmux/sessions/${s}.sh" ] && echo "  OK: sessions/${s}.sh" || { echo "  MISSING: sessions/${s}.sh"; exit 1; }
 done
 
@@ -45,4 +45,4 @@ for f in start_all.sh stop_all.sh restart_session.sh health_aggregator.sh attach
 done
 
 echo ""
-echo "=== SANITY PASS — TMUX Runtime Spine (32 tests, 9 sessions, dry-run health OK) ==="
+echo "=== SANITY PASS — TMUX Runtime Spine (32 tests, 10 sessions, dry-run health OK) ==="

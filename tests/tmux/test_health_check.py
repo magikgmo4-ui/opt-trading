@@ -34,7 +34,7 @@ class TestConstants(unittest.TestCase):
         self.assertTrue(CRITICAL_SESSIONS.issubset(ALL_SESSIONS))
 
     def test_all_sessions_count(self):
-        self.assertEqual(len(ALL_SESSIONS), 9)
+        self.assertEqual(len(ALL_SESSIONS), 10)
 
     def test_critical_sessions_count(self):
         self.assertEqual(len(CRITICAL_SESSIONS), 3)
