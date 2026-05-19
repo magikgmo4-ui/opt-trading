@@ -185,10 +185,11 @@ async function classifyVisual(pngPath, page, loadingSelectors) {
     // DOM not accessible; proceed
   }
 
-  // 4. Document readyState check
+  // 4. Document readyState check (only flag if PNG is borderline small)
   try {
     const readyState = await page.evaluate(() => document.readyState);
-    if (readyState !== 'complete') {
+    // SPA pages often never reach 'complete'; only flag if PNG is borderline small
+    if (readyState !== 'complete' && stat.size < BLANK_PNG_SIZE_THRESHOLD * 3) {
       return { visualStatus: VISUAL_POSSIBLE_SPINNER, status: STATUS_INVALID_VISUAL };
     }
   } catch (_) {
@@ -257,12 +258,12 @@ async function captureOne(profile) {
   try {
     browser = await chromium.launch({
       headless: true,
-      args: ['--no-sandbox', '--disable-gpu', '--disable-dev-shm-usage']
+      args: ['--no-sandbox', '--disable-gpu', '--disable-dev-shm-usage', '--enable-webgl', '--disable-web-security']
     });
 
     const context = await browser.newContext({
       viewport: VIEWPORT,
-      userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36'
+      userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36'
     });
 
     page = await context.newPage();
