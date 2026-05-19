@@ -270,17 +270,21 @@ class TestFleetOrchestratorWindowsDispatch(unittest.TestCase):
 
     def test_ssh_windows_builds_powershell_command(self):
         """_collect_via_ssh_windows passes 'powershell' to SSH, not 'cat'."""
+        import subprocess as _subprocess
         candidates = [
             "%USERPROFILE%\\opt-trading\\data\\runtime_health",
             "C:\\Users\\ghost\\opt-trading\\data\\runtime_health",
         ]
         captured = []
 
-        def fake_run(cmd, timeout=8):
-            captured.append(cmd)
-            return (1, "", "not found")
+        def fake_subprocess_run(cmd, **kwargs):
+            captured.append(list(cmd))
+            m = MagicMock()
+            m.stdout = b""
+            m.returncode = 1
+            return m
 
-        with patch.object(fo, "_run", side_effect=fake_run):
+        with patch.object(_subprocess, "run", side_effect=fake_subprocess_run):
             fo._collect_via_ssh_windows("cursor-ai", candidates)
 
         self.assertGreater(len(captured), 0)
@@ -291,14 +295,17 @@ class TestFleetOrchestratorWindowsDispatch(unittest.TestCase):
 
     def test_ssh_windows_converts_percent_vars(self):
         """_collect_via_ssh_windows encodes %USERPROFILE% → $env:USERPROFILE in base64 payload."""
-        import base64
+        import base64, subprocess as _subprocess
         captured = []
 
-        def fake_run(cmd, timeout=8):
-            captured.append(cmd)
-            return (1, "", "")
+        def fake_subprocess_run(cmd, **kwargs):
+            captured.append(list(cmd))
+            m = MagicMock()
+            m.stdout = b""
+            m.returncode = 1
+            return m
 
-        with patch.object(fo, "_run", side_effect=fake_run):
+        with patch.object(_subprocess, "run", side_effect=fake_subprocess_run):
             fo._collect_via_ssh_windows("cursor-ai", ["%USERPROFILE%\\opt-trading\\data\\runtime_health"])
 
         self.assertGreater(len(captured), 0)

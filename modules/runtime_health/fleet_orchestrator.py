@@ -130,14 +130,22 @@ def _collect_via_ssh_windows(machine: str, data_dir_candidates: List[str]) -> Op
     )
     encoded = base64.b64encode(ps_script.encode("utf-16-le")).decode("ascii")
 
-    rc, out, _ = _run(
-        ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=5",
-         machine, "powershell", "-NoProfile", "-NonInteractive", "-EncodedCommand", encoded],
-        timeout=12,
-    )
-    if rc == 0 and out.strip().startswith("{"):
+    # Use bytes mode: PowerShell stderr contains CLIXML (Windows encoding) which
+    # breaks text=True. Stdout is UTF-8 JSON; stderr is intentionally discarded.
+    try:
+        r = subprocess.run(
+            ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=5",
+             machine, "powershell", "-NoProfile", "-NonInteractive", "-EncodedCommand", encoded],
+            capture_output=True,
+            timeout=12,
+        )
+        out = r.stdout.decode("utf-8", errors="replace").strip()
+    except Exception:
+        return None
+
+    if out.startswith("{"):
         try:
-            return json.loads(out.strip())
+            return json.loads(out)
         except Exception:
             pass
     return None
