@@ -290,20 +290,26 @@ class TestFleetOrchestratorWindowsDispatch(unittest.TestCase):
         self.assertNotIn("/opt/trading", " ".join(cmd))
 
     def test_ssh_windows_converts_percent_vars(self):
-        """_collect_via_ssh_windows converts %USERPROFILE% → $env:USERPROFILE."""
+        """_collect_via_ssh_windows encodes %USERPROFILE% → $env:USERPROFILE in base64 payload."""
+        import base64
         captured = []
 
         def fake_run(cmd, timeout=8):
-            captured.append(" ".join(cmd))
+            captured.append(cmd)
             return (1, "", "")
 
         with patch.object(fo, "_run", side_effect=fake_run):
             fo._collect_via_ssh_windows("cursor-ai", ["%USERPROFILE%\\opt-trading\\data\\runtime_health"])
 
         self.assertGreater(len(captured), 0)
-        cmd_str = captured[0]
-        self.assertIn("$env:USERPROFILE", cmd_str)
-        self.assertNotIn("%USERPROFILE%", cmd_str)
+        cmd = captured[0]
+        # Command must use -EncodedCommand
+        self.assertIn("-EncodedCommand", cmd)
+        # Decode the base64 payload and verify $env:USERPROFILE is present
+        idx = cmd.index("-EncodedCommand") + 1
+        decoded = base64.b64decode(cmd[idx]).decode("utf-16-le")
+        self.assertIn("$env:USERPROFILE", decoded)
+        self.assertNotIn("%USERPROFILE%", decoded)
 
     def test_run_fleet_passes_scope_to_collect(self):
         """run_fleet passes machine_scope so Windows machines get correct dispatch."""
