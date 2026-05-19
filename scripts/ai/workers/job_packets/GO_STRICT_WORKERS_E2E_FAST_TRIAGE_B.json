@@ -5,6 +5,8 @@
   "task_type": "FAST_TRIAGE",
   "worker_assigned": "qwen3.5-plus",
   "worker_status": "VERIFIED",
+  "worker_candidates": ["qwen3.5-plus"],
+  "default_worker": "qwen3.5-plus",
   "autonomy_max": "A1",
   "parallel_slot": "B",
   "model_registry": "scripts/ai/workers/models.registry.json",

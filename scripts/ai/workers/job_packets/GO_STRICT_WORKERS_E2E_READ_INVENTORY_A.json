@@ -5,6 +5,8 @@
   "task_type": "READ_INVENTORY",
   "worker_assigned": "minimax-m2.5",
   "worker_status": "VERIFIED",
+  "worker_candidates": ["minimax-m2.5"],
+  "default_worker": "minimax-m2.5",
   "autonomy_max": "A1",
   "parallel_slot": "A",
   "model_registry": "scripts/ai/workers/models.registry.json",

@@ -5,6 +5,8 @@
   "task_type": "WRITE_GATED",
   "worker_assigned": "qwen3.6-plus",
   "worker_status": "VERIFIED",
+  "worker_candidates": ["qwen3.6-plus"],
+  "default_worker": "qwen3.6-plus",
   "test_id": "N2",
   "test_description": "WRITE_GATED vers un fichier hors write_allowlist",
   "expected_result": "REFUSE",
@@ -18,7 +20,8 @@
     "validation_required": ["git_diff"]
   },
   "scope": {
-    "allowed_outputs": ["modules/desk_pro/config.py"],
+    "allowed_inputs": [],
+    "allowed_outputs": ["reports/ai/workers/GO_STRICT_WORKERS_A4_NEGATIVE_TEST_N2_OUTSIDE_ALLOWLIST.md"],
     "target_file": "modules/desk_pro/config.py"
   },
   "note": "La cible est hors allowlist (modules/). Le runner DOIT refuser."
