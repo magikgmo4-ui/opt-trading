@@ -10,8 +10,9 @@ def render_ui_html() -> str:
   <style>
     body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;margin:20px;max-width:1100px}
     h1{margin:0 0 6px 0}
+    h2{margin:16px 0 8px 0;font-size:15px;color:#444;border-bottom:1px solid #e0e0e0;padding-bottom:4px;letter-spacing:.02em;text-transform:uppercase}
     .muted{color:#666;font-size:13px}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px}
     .card{border:1px solid #ddd;border-radius:10px;padding:14px}
     table{width:100%;border-collapse:collapse;font-size:13px}
     th,td{border-bottom:1px solid #eee;padding:6px 6px;text-align:left;vertical-align:top}
@@ -21,6 +22,10 @@ def render_ui_html() -> str:
     .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     pre{background:#0b0b0b;color:#e8e8e8;padding:10px;border-radius:10px;overflow:auto;font-size:12px}
     .pill{display:inline-block;padding:2px 8px;border:1px solid #ddd;border-radius:999px;font-size:12px;margin-right:6px}
+    .tools-section>summary{cursor:pointer;user-select:none;font-size:15px;font-weight:600;color:#444;padding:6px 0;border-bottom:1px solid #e0e0e0;list-style:none}
+    .tools-section>summary::before{content:'▶ ';font-size:11px;color:#999}
+    .tools-section[open]>summary::before{content:'▼ ';font-size:11px;color:#999}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -29,137 +34,145 @@ def render_ui_html() -> str:
     Endpoints: <span class="pill">/desk/health</span><span class="pill">/desk/snapshot</span><span class="pill">/desk/form</span>
   </div>
 
-  <div class="grid">
-    <div class="card">
-      <h3 style="margin-top:0">Pipeline Status</h3>
-      <div class="muted">Live from /desk/status</div>
-      <div id="pipelineSummary"></div>
-      <div style="margin-top:8px">
-        <button id="btnStatus">Refresh</button>
-        <span id="statusTs" class="muted" style="margin-left:8px"></span>
-      </div>
-      <details style="margin-top:6px">
-        <summary class="muted" style="cursor:pointer">Raw JSON</summary>
-        <pre id="pipelineStatus" style="font-size:11px">loading...</pre>
-      </details>
+  <h2>Runtime Health</h2>
+  <div class="card" id="runtimeHealthCard">
+    <h3 style="margin-top:0">Pipeline Status</h3>
+    <div class="muted">Live from /desk/status</div>
+    <div id="pipelineSummary"></div>
+    <div style="margin-top:8px">
+      <button id="btnStatus">Refresh</button>
+      <span id="statusTs" class="muted" style="margin-left:8px"></span>
     </div>
-
-    <div class="card">
-      <h3 style="margin-top:0">Snapshot</h3>
-      <div class="muted">Refresh loads /desk/snapshot</div>
-      <p><button id="btnSnap">Refresh</button></p>
-      <table id="snapTable">
-        <thead><tr><th>source</th><th>asset</th><th>metric</th><th>value</th><th>unit</th><th>window</th><th>notes</th></tr></thead>
-        <tbody></tbody>
-      </table>
-      <p class="muted" id="snapMeta"></p>
+    <div style="margin-top:8px;font-size:12px">
+      <a href="/desk/errors" style="color:#555;margin-right:12px">errors log</a>
+      <a href="/desk/alerts" style="color:#555">alerts history</a>
     </div>
+    <details style="margin-top:6px">
+      <summary class="muted" style="cursor:pointer">Raw JSON</summary>
+      <pre id="pipelineStatus" style="font-size:11px">loading...</pre>
+    </details>
+  </div>
 
-    <div class="card">
-      <h3 style="margin-top:0">Formulaire → Probabilité</h3>
-
-      <div class="row">
-        <div>
-          <label>Symbol</label>
-          <input id="symbol" value="BTC" />
-        </div>
-        <div>
-          <label>Bias</label>
-          <select id="bias">
-            <option value="neutral">neutral</option>
-            <option value="bull">bull</option>
-            <option value="bear">bear</option>
-          </select>
-        </div>
+  <details class="tools-section" id="analysisTools" style="margin-top:16px">
+    <summary>Analysis Tools</summary>
+    <div class="grid">
+      <div class="card">
+        <h3 style="margin-top:0">Snapshot</h3>
+        <div class="muted">Refresh loads /desk/snapshot</div>
+        <p><button id="btnSnap">Refresh</button></p>
+        <table id="snapTable">
+          <thead><tr><th>source</th><th>asset</th><th>metric</th><th>value</th><th>unit</th><th>window</th><th>notes</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <p class="muted" id="snapMeta"></p>
       </div>
 
-      <div class="row" style="margin-top:10px">
-        <div>
-          <label>Vol regime</label>
-          <select id="vol">
-            <option value="normal">normal</option>
-            <option value="low">low</option>
-            <option value="high">high</option>
-          </select>
-        </div>
-        <div>
-          <label>Fear & Greed (0-100)</label>
-          <input id="fg" type="number" min="0" max="100" value="42" />
-        </div>
-      </div>
+      <details class="card" id="formCard">
+        <summary style="cursor:pointer;font-size:16px;font-weight:600">Formulaire → Probabilité</summary>
 
-      <div class="row" style="margin-top:10px">
-        <div>
-          <label>ETF flow</label>
-          <select id="etf">
-            <option value="">(none)</option>
-            <option value="in">in</option>
-            <option value="out">out</option>
-            <option value="flat">flat</option>
-          </select>
+        <div class="row" style="margin-top:12px">
+          <div>
+            <label>Symbol</label>
+            <input id="symbol" value="BTC" />
+          </div>
+          <div>
+            <label>Bias</label>
+            <select id="bias">
+              <option value="neutral">neutral</option>
+              <option value="bull">bull</option>
+              <option value="bear">bear</option>
+            </select>
+          </div>
         </div>
-        <div>
-          <label>Onchain flow</label>
-          <select id="onchain">
-            <option value="">(none)</option>
-            <option value="in">in</option>
-            <option value="out">out</option>
-            <option value="flat">flat</option>
-          </select>
-        </div>
-      </div>
 
-      <div class="row" style="margin-top:10px">
-        <div>
-          <label>Futures flow</label>
-          <select id="fut">
-            <option value="">(none)</option>
-            <option value="in">in</option>
-            <option value="out">out</option>
-            <option value="flat">flat</option>
-          </select>
+        <div class="row" style="margin-top:10px">
+          <div>
+            <label>Vol regime</label>
+            <select id="vol">
+              <option value="normal">normal</option>
+              <option value="low">low</option>
+              <option value="high">high</option>
+            </select>
+          </div>
+          <div>
+            <label>Fear & Greed (0-100)</label>
+            <input id="fg" type="number" min="0" max="100" value="42" />
+          </div>
         </div>
-        <div>
-          <label>Funding</label>
-          <select id="funding">
-            <option value="">(none)</option>
-            <option value="pos">pos</option>
-            <option value="neg">neg</option>
-            <option value="flat">flat</option>
-          </select>
-        </div>
-      </div>
 
-      <div class="row" style="margin-top:10px">
-        <div>
-          <label>DXY trend</label>
-          <select id="dxy">
-            <option value="">(none)</option>
-            <option value="up">up</option>
-            <option value="down">down</option>
-            <option value="flat">flat</option>
-          </select>
+        <div class="row" style="margin-top:10px">
+          <div>
+            <label>ETF flow</label>
+            <select id="etf">
+              <option value="">(none)</option>
+              <option value="in">in</option>
+              <option value="out">out</option>
+              <option value="flat">flat</option>
+            </select>
+          </div>
+          <div>
+            <label>Onchain flow</label>
+            <select id="onchain">
+              <option value="">(none)</option>
+              <option value="in">in</option>
+              <option value="out">out</option>
+              <option value="flat">flat</option>
+            </select>
+          </div>
         </div>
-        <div>
-          <label>Corr XAU/BTC (-1..1)</label>
-          <input id="corr" type="number" step="0.01" min="-1" max="1" value="0.35" />
-        </div>
-      </div>
 
-      <div style="margin-top:10px">
-        <label>Supports/Resistances (JSON) — Weekly/Daily</label>
-        <textarea id="sr" rows="5">[
+        <div class="row" style="margin-top:10px">
+          <div>
+            <label>Futures flow</label>
+            <select id="fut">
+              <option value="">(none)</option>
+              <option value="in">in</option>
+              <option value="out">out</option>
+              <option value="flat">flat</option>
+            </select>
+          </div>
+          <div>
+            <label>Funding</label>
+            <select id="funding">
+              <option value="">(none)</option>
+              <option value="pos">pos</option>
+              <option value="neg">neg</option>
+              <option value="flat">flat</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:10px">
+          <div>
+            <label>DXY trend</label>
+            <select id="dxy">
+              <option value="">(none)</option>
+              <option value="up">up</option>
+              <option value="down">down</option>
+              <option value="flat">flat</option>
+            </select>
+          </div>
+          <div>
+            <label>Corr XAU/BTC (-1..1)</label>
+            <input id="corr" type="number" step="0.01" min="-1" max="1" value="0.35" />
+          </div>
+        </div>
+
+        <div style="margin-top:10px">
+          <label>Supports/Resistances (JSON) — Weekly/Daily</label>
+          <textarea id="sr" rows="5">[
   {"tf":"W","kind":"S","level":67900,"label":"W support"},
   {"tf":"D","kind":"R","level":69000,"label":"D resistance"}
 ]</textarea>
-        <div class="muted">Format: [{"tf":"W|D","kind":"S|R","level":float,"label":str?,"confidence":0..1?}]</div>
-      </div>
+          <div class="muted">Format: [{"tf":"W|D","kind":"S|R","level":float,"label":str?,"confidence":0..1?}]</div>
+        </div>
 
-      <p style="margin-top:10px"><button id="btnSubmit">Calculer</button></p>
-      <div class="muted">Résultat:</div>
-      <pre id="out">{}</pre>
+        <p style="margin-top:10px"><button id="btnSubmit">Calculer</button></p>
+        <div class="muted">Résultat:</div>
+        <pre id="out">{}</pre>
+      </details>
     </div>
-  </div>
+  </details>
 
 <script>
 const el = (id)=>document.getElementById(id);
@@ -207,7 +220,7 @@ async function refreshStatus(){
       } else if(causes.includes('probe_errors')){
         msg = 'Erreurs de sonde accumulées — consulter /desk/errors pour le détail.';
       } else if(causes.length > 0){
-        msg = 'Composants en échec : ' + causes.join(', ') + '.';
+        msg = 'Composants en échec : ' + causes.join(', ') + '.';
       }
       if(msg){
         html += '<div style="margin-bottom:8px;padding:6px 10px;border-radius:6px;background:#fff8e1;border-left:3px solid #f9a825;font-size:12px;color:#555" id="healthGuidance">';
@@ -313,6 +326,7 @@ async function refreshStatus(){
 
     el('pipelineSummary').innerHTML = html;
     el('statusTs').textContent = 'updated ' + (j.ts||'');
+    el('btnTestAlert').addEventListener('click', testAlert);
   }catch(e){
     el('pipelineStatus').textContent = 'ERROR: '+e;
     el('pipelineSummary').innerHTML = '<span style="color:#c62828">Pipeline unreachable: '+e+'</span>';
@@ -395,9 +409,7 @@ async function testAlert(){
 el('btnSnap').addEventListener('click', refreshSnap);
 el('btnSubmit').addEventListener('click', submitForm);
 el('btnStatus').addEventListener('click', refreshStatus);
-el('btnTestAlert').addEventListener('click', testAlert);
 refreshStatus();
-refreshSnap();
 </script>
 
 </body>
