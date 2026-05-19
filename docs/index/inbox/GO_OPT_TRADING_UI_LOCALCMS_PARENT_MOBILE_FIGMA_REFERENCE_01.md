@@ -1,6 +1,6 @@
 ---
 doc_id: GO_OPT_TRADING_UI_LOCALCMS_PARENT_MOBILE_FIGMA_REFERENCE_01_INBOX
- doc_type: index_inbox_entry
+doc_type: index_inbox_entry
 repo: opt-trading
 project: opt-trading
 go_id: GO_OPT_TRADING_UI_LOCALCMS_PARENT_MOBILE_FIGMA_REFERENCE_01
