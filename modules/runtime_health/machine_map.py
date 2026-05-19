@@ -141,6 +141,33 @@ class MachineMap:
         cfg["logs"] = dict(base_cfg.get("logs", {}))
         cfg["logs"]["journal_units"] = log_units
 
+        # HTTP checks — override when explicitly set in scope
+        if "optional_http_checks" in scope or "required_http_checks" in scope:
+            cfg["http"] = {
+                "required": scope.get("required_http_checks", []),
+                "optional": scope.get("optional_http_checks", []),
+            }
+
+        # Artifacts — override when explicitly set in scope
+        if "optional_artifact_paths" in scope:
+            cfg["artifacts"] = {
+                "optional": scope.get("optional_artifact_paths", []),
+            }
+
+        # Log files — override when explicitly set in scope
+        if "optional_log_files" in scope:
+            cfg["logs"]["log_files"] = {
+                "optional": scope.get("optional_log_files", []),
+            }
+
+        # Orchestrator tmux sessions — override when explicitly set in scope
+        if "optional_tmux_sessions" in scope:
+            cfg["orchestrator"] = {
+                "tmux_sessions": {
+                    "optional": scope.get("optional_tmux_sessions", []),
+                }
+            }
+
         return cfg
 
 
