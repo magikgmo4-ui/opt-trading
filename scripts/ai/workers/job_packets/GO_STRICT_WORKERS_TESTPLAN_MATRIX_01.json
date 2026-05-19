@@ -1,0 +1,56 @@
+{
+  "job_packet_id": "GO_STRICT_WORKERS_TESTPLAN_MATRIX_01",
+  "go_id": "GO_OPT_TRADING_STRICT_WORKERS_CHILD_WORKER_POOL_EXTENSION_01",
+  "status": "DRAFT_ONLY",
+  "task_type": "TESTPLAN",
+  "worker_candidates": [
+    "glm-5.1",
+    "qwen3.6-plus",
+    "kimi-k2.6",
+    "glm-5",
+    "minimax-m2.7",
+    "big-pickle"
+  ],
+  "default_worker": "glm-5.1",
+  "model_registry": "scripts/ai/workers/models.registry.json",
+  "task_index": "scripts/ai/workers/tasks.index.json",
+  "scope": {
+    "allowed_inputs": [
+      "modules/**",
+      "scripts/**",
+      "tests/**",
+      "docs/**",
+      "scripts/ai/workers/tasks.index.json",
+      "scripts/ai/workers/models.registry.json"
+    ],
+    "denied_inputs_inherited": true,
+    "allowed_outputs": [
+      "reports/ai/workers/GO_STRICT_WORKERS_TESTPLAN_MATRIX_01.md"
+    ]
+  },
+  "instructions": [
+    "Read allowed_inputs to understand the codebase and testing context.",
+    "Do not modify any files — produce a test plan only.",
+    "Do not run any test commands.",
+    "Do not run any git write commands.",
+    "Do not suggest any destructive tests.",
+    "Do not read any secrets, .env files, tokens, keys, or credentials.",
+    "Produce a DRAFT_ONLY report with all required sections."
+  ],
+  "required_output_sections": [
+    "TESTS_UNITAIRES",
+    "TESTS_SMOKE",
+    "COMMANDES",
+    "CRITERES_PASS_FAIL",
+    "RISQUES_RESTANTS",
+    "VERDICT_DRAFT_ONLY"
+  ],
+  "acceptance": {
+    "must_not_write_runtime": true,
+    "must_not_modify_repo": true,
+    "must_not_read_secrets": true,
+    "must_reference_only_allowed_inputs": true,
+    "must_not_run_tests": true,
+    "must_end_with_verdict_draft_only": true
+  }
+}

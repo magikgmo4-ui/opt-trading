@@ -1,0 +1,53 @@
+{
+  "job_packet_id": "GO_STRICT_WORKERS_FAST_TRIAGE_MATRIX_01",
+  "go_id": "GO_OPT_TRADING_STRICT_WORKERS_CHILD_WORKER_POOL_EXTENSION_01",
+  "status": "DRAFT_ONLY",
+  "task_type": "FAST_TRIAGE",
+  "worker_candidates": [
+    "qwen3.5-plus",
+    "minimax-m2.5",
+    "minimax-m2.5-free",
+    "gpt-5-nano",
+    "nemotron-3-super-free",
+    "deepseek-v4-flash-free",
+    "ring-2.6-1t-free"
+  ],
+  "default_worker": "qwen3.5-plus",
+  "model_registry": "scripts/ai/workers/models.registry.json",
+  "task_index": "scripts/ai/workers/tasks.index.json",
+  "scope": {
+    "allowed_inputs": [
+      "docs/**",
+      "scripts/**",
+      "modules/**",
+      "scripts/ai/workers/tasks.index.json",
+      "scripts/ai/workers/models.registry.json"
+    ],
+    "denied_inputs_inherited": true,
+    "allowed_outputs": [
+      "reports/ai/workers/GO_STRICT_WORKERS_FAST_TRIAGE_MATRIX_01.md"
+    ]
+  },
+  "instructions": [
+    "Read allowed_inputs to triage and classify items.",
+    "Do not modify any files.",
+    "Do not run any git write commands.",
+    "Do not read any secrets, .env files, tokens, keys, or credentials.",
+    "Produce a coherent classification with a non-empty TODO.",
+    "Produce a DRAFT_ONLY report with all required sections."
+  ],
+  "required_output_sections": [
+    "RESUME",
+    "CLASSEMENT",
+    "RISQUES",
+    "TODO",
+    "VERDICT_DRAFT_ONLY"
+  ],
+  "acceptance": {
+    "must_not_write_runtime": true,
+    "must_not_modify_repo": true,
+    "must_not_read_secrets": true,
+    "must_reference_only_allowed_inputs": true,
+    "must_end_with_verdict_draft_only": true
+  }
+}
