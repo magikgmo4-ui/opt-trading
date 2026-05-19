@@ -41,7 +41,7 @@
       "writes_code": false,
       "allowed_outputs": ["reports/ai/workers/**"],
       "required_sections": ["13_ESTABLISHED", "14_HYPOTHESIS", "15_REMAINING_GAP", "16_TODO", "FICHIERS_LUS", "RISQUES", "VERDICT_DRAFT_ONLY"],
-      "preferred_workers": ["qwen3.5-plus", "minimax-m2.5", "kimi-k2.5", "big-pickle", "gpt-5-nano", "nemotron-3-super-free", "deepseek-v4-flash-free", "ring-2.6-1t-free", "trinity-large-preview-free"]
+      "preferred_workers": ["qwen3.5-plus", "minimax-m2.5", "kimi-k2.5", "big-pickle", "gpt-5-nano", "nemotron-3-super-free", "deepseek-v4-flash-free"]
     },
     "PATCH_DRAFT": {
       "autonomy_max": "A2",
@@ -76,7 +76,7 @@
       "writes_code": false,
       "allowed_outputs": ["reports/ai/workers/**"],
       "required_sections": ["RESUME", "CLASSEMENT", "RISQUES", "TODO", "VERDICT_DRAFT_ONLY"],
-      "preferred_workers": ["qwen3.5-plus", "minimax-m2.5", "minimax-m2.5-free", "gpt-5-nano", "nemotron-3-super-free", "deepseek-v4-flash-free", "ring-2.6-1t-free"]
+      "preferred_workers": ["qwen3.5-plus", "minimax-m2.5", "minimax-m2.5-free", "gpt-5-nano", "nemotron-3-super-free", "deepseek-v4-flash-free"]
     },
     "ENDPOINT_AUDIT": {
       "autonomy_max": "A1",
