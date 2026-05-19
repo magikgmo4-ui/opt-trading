@@ -235,6 +235,13 @@ machines:
 
     log_units: []
 
+    # fantome ne fait pas tourner webhook/perf/desk_pro — effacer les defaults admin-trading
+    optional_http_checks: []
+    optional_artifact_paths: []
+    optional_log_files: []
+    optional_tmux_sessions:
+      - openclaw
+
   student:
     role: sandbox_learning
     description: "Environnement apprentissage/test/non critique, Ollama local"
