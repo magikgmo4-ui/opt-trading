@@ -5,6 +5,8 @@
   "task_type": "READ_INVENTORY",
   "worker_assigned": "deepseek-v4-flash-free",
   "worker_status": "VERIFIED_FREE",
+  "worker_candidates": ["qwen3.5-plus", "deepseek-v4-flash-free"],
+  "default_worker": "qwen3.5-plus",
   "autonomy_max": "A1",
   "model_registry": "scripts/ai/workers/models.registry.json",
   "task_index": "scripts/ai/workers/tasks.index.json",

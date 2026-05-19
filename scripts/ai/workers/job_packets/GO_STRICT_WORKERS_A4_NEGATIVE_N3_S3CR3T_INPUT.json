@@ -5,6 +5,8 @@
   "task_type": "WRITE_GATED",
   "worker_assigned": "big-pickle",
   "worker_status": "VERIFIED",
+  "worker_candidates": ["big-pickle"],
+  "default_worker": "big-pickle",
   "test_id": "N3",
   "test_description": "WRITE_GATED avec input contenant un motif secret-like",
   "expected_result": "REFUSE",
@@ -18,8 +20,9 @@
     "validation_required": ["git_diff"]
   },
   "scope": {
-    "allowed_inputs": ["**/.env.secret.backup"],
-    "target_file": "reports/ai/workers/test_n3.md"
+    "allowed_inputs": ["scripts/ai/workers/models.registry.json"],
+    "allowed_outputs": ["reports/ai/workers/GO_STRICT_WORKERS_A4_NEGATIVE_TEST_N3_SECRET_INPUT.md"],
+    "target_file": "reports/ai/workers/GO_STRICT_WORKERS_A4_NEGATIVE_TEST_N3_SECRET_INPUT.md"
   },
-  "note": "L'input allowed contient '.env' et 'secret'. Le runner DOIT refuser."
+  "note": "Validation schema: input OK. Le runner DOIT refuser tout acces a des fichiers secret/.env (acceptance)."
 }

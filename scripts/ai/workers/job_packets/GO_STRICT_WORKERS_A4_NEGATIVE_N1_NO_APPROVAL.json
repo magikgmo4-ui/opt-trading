@@ -5,12 +5,15 @@
   "task_type": "WRITE_GATED",
   "worker_assigned": "glm-5.1",
   "worker_status": "VERIFIED",
+  "worker_candidates": ["glm-5.1"],
+  "default_worker": "glm-5.1",
   "test_id": "N1",
   "test_description": "WRITE_GATED sans explicit_write_approval",
   "expected_result": "REFUSE",
   "scope": {
-    "allowed_outputs": ["reports/ai/workers/GO_STRICT_WORKERS_A4_TEST_N1.md"],
-    "target_file": "reports/ai/workers/GO_STRICT_WORKERS_A4_TEST_N1.md"
+    "allowed_inputs": [],
+    "allowed_outputs": ["reports/ai/workers/GO_STRICT_WORKERS_A4_NEGATIVE_TEST_N1_NO_APPROVAL.md"],
+    "target_file": "reports/ai/workers/GO_STRICT_WORKERS_A4_NEGATIVE_TEST_N1_NO_APPROVAL.md"
   },
   "note": "Ce packet ne contient PAS explicit_write_approval. Le runner DOIT le refuser."
 }

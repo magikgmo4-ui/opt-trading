@@ -5,6 +5,8 @@
   "task_type": "WRITE_GATED",
   "worker_assigned": "glm-5.1",
   "worker_status": "VERIFIED",
+  "worker_candidates": ["glm-5.1"],
+  "default_worker": "glm-5.1",
   "autonomy_max": "A4",
   "explicit_write_approval": {
     "approved": false,
