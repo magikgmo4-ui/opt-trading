@@ -5,7 +5,7 @@ repo: opt-trading
 project: opt-trading
 go_id: GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01
 status: draft
-lifecycle_stage: opening
+lifecycle_stage: reprise
 topic_keys:
   - why_lint
   - consolidation
@@ -16,7 +16,7 @@ topic_keys:
   - warning_only
 surface: docs/chantiers
 source_kind: canonical
-updated_at: 2026-05-14
+updated_at: 2026-05-19
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/chantiers/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_PARENT_01/SPEC_RUNTIME_SECURITY_PARENT_01.md
@@ -30,6 +30,16 @@ links:
   - docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01/05_WHY_LINT_WARNING_MODEL_01.md
   - docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01/06_CROSS_AXIS_GATE_BINDING_01.md
   - docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01/07_AXIS_IMPLEMENTATION_ROADMAP_01.md
+  - docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01/140_CLOSEOUT.md
+  - docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01/150_BRANCH_DISPOSITION_01.md
+  - docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01/GO_OPT_TRADING_DOC_OPS_CHILD_WHY_LINT_STATIC_VALIDATOR_SPEC_01.md
+  - docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01/GO_OPT_TRADING_DOC_OPS_WHY_LINT_STATIC_VALIDATOR_FIXTURE_CORPUS_01.md
+  - docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01/GO_OPT_TRADING_DOC_OPS_WHY_LINT_STATIC_VALIDATOR_IMPLEMENTATION_READONLY_01.md
+  - docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01/GO_OPT_TRADING_DOC_OPS_WHY_LINT_STATIC_VALIDATOR_REAL_DOCS_SCAN_SPEC_01.md
+  - docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01/GO_OPT_TRADING_DOC_OPS_WHY_LINT_STATIC_VALIDATOR_REAL_DOCS_SCAN_REPORT_V1_01.md
+  - docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01/GO_OPT_TRADING_DOC_OPS_WHY_LINT_STATIC_VALIDATOR_REAL_DOCS_SCAN_TRIAGE_V1_01.md
+  - docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01/GO_OPT_TRADING_DOC_OPS_WHY_LINT_STATIC_VALIDATOR_REAL_DOCS_SCAN_BASELINE_V1_01.md
+  - docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01/GO_OPT_TRADING_DOC_OPS_WHY_LINT_STATIC_VALIDATOR_REAL_DOCS_SCAN_REMEDIATION_PLAN_V1_01.md
 ---
 
 # SPEC_WHY_LINT_EXPERIMENT_01
@@ -204,47 +214,67 @@ Branche : `go/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01`
 - Les gates sont bindees.
 - Le roadmap est pose.
 - Le bloc cursor-ai dans MACHINE_WORK_SPLIT est a jour.
+- Etat de reprise 2026-05-19 : la branche parent `go/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01` est absorbee par `origin/sot/mainline` et ne porte plus de delta propre.
+- Le validateur statique WHY lint a maintenant une spec, un corpus de fixtures, une implementation locale read-only/report-only, un scan V1 de docs reelles, un triage, une baseline V1 et un plan de remediation documentaire.
 
 ## 14_HYPOTHESIS
 
-A valider dans des child GO futurs :
+Hypotheses restantes apres reprise 2026-05-19 :
 
-- Pertinence reelle des 11 familles de warnings.
-- Couverture suffisante du modele de severite R0-R5.
-- Binding correct entre warnings et gates.
-- Faisabilite d'un validateur statique doc-only.
-- Volume de fixtures necessaire pour le corpus.
-- Opportunite d'une implementation executable ulterieure (Python ou Rust).
+- Certains findings V1 sont probablement des vrais gaps documentaires.
+- Certains findings V1 sont probablement du bruit structurel lie au scan de rapports produits dans le dossier source.
+- Les exceptions de baseline doivent rester documentees avant tout elargissement repo-wide.
+- Les corrections doivent rester dans des child GO explicites, sans autofix et sans mutation runtime.
+- Toute integration CI future doit rester non bloquante tant que la gouvernance ne l'autorise pas explicitement.
 
 ## 15_REMAINING_GAP
 
-- Pas encore de validateur statique specifie.
-- Pas encore de corpus de fixtures.
-- Pas encore d'implementation executable.
+Etat clos ou deplace :
+
+- Le validateur statique n'est plus un gap : il est specifie et implemente localement en read-only/report-only sous `tools/why_lint_static_validator/`.
+- Le corpus de fixtures n'est plus un gap : `GO_OPT_TRADING_DOC_OPS_WHY_LINT_STATIC_VALIDATOR_FIXTURE_CORPUS_01.md` formalise 40 fixtures.
+- Le scan de docs reelles n'est plus un gap initial : V1 dispose d'un rapport, d'un triage, d'une baseline et d'un plan de remediation.
+
+Gaps restants :
+
+- Pas encore de baseline V2.
+- Pas encore de correction des vrais gaps documentaires.
+- Pas encore de regles d'exception codifiees pour le bruit V1.
+- Pas encore de scan repo-wide.
+- Pas encore d'integration OpenClaw.
+- Pas encore d'integration MCP live.
+- Pas encore de CI ; toute CI future reste non bloquante par invariant.
 - Pas encore de SPEC canonique unifiee OpenClaw central.
 - 6 chantiers OpenClaw governance references par l'instruction mais absents du repo.
 - Skill registry futur non specifie.
-- Integration CI explicitement exclue.
 
 ## 16_TODO
 
-Suite documentaire proposee :
+Suite documentaire proposee apres reprise :
 
-1. Valider le modele de warnings par revue humaine.
-2. Ouvrir un child GO pour la specification du validateur statique.
-3. Ouvrir un child GO pour le corpus de fixtures.
-4. Evaluer l'opportunite d'une implementation executable.
-5. Referencer les chantiers OpenClaw governance manquants dans un futur GO dedie.
+1. Ne pas rouvrir le parent WHY lint comme chantier actif par la seule existence de la branche.
+2. Reprendre depuis le plan de remediation V1.
+3. Ouvrir un child GO cible pour les vrais gaps documentaires.
+4. Ouvrir un child GO separe pour les exceptions ou raffinements de regles V1 si le bruit est confirme.
+5. Produire une baseline V2 apres corrections explicites.
+6. Maintenir les invariants : doc-only, read-only, warning-only, aucun runtime, aucun autofix, aucun MCP live, aucun trade, aucun secret.
 
 ## 17_RESUME_POINT
 
 Reprendre depuis :
 
 ```text
-docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01/SPEC_WHY_LINT_EXPERIMENT_01.md
+docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01/GO_OPT_TRADING_DOC_OPS_WHY_LINT_STATIC_VALIDATOR_REAL_DOCS_SCAN_REMEDIATION_PLAN_V1_01.md
 ```
 
-Point d'action suivant : revue humaine du modele de warnings.
+Contexte a relire avant action :
+
+```text
+docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01/SPEC_WHY_LINT_EXPERIMENT_01.md
+docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01/GO_OPT_TRADING_DOC_OPS_WHY_LINT_STATIC_VALIDATOR_REAL_DOCS_SCAN_BASELINE_V1_01.md
+```
+
+Point d'action suivant : child GO documentaire cible, soit pour vrais gaps, soit pour exceptions/regles V1. Aucune correction automatique.
 
 ## 18_TO_DOCUMENT
 
@@ -274,7 +304,8 @@ Memory Bricks candidats projet :
 - Le WHY lint est la couche warning-only de detection de contradictions entre axes. Il ne cree pas une 5e verite.
 - Tous les warnings ont autofix_allowed: false, runtime_binding: false, can_fail_ci: false.
 - La gouvernance reste l'arbitre ultime en cas de conflit structurel.
-- Suite logique forte : child GO pour specifier le validateur statique WHY lint.
+- Le validateur statique existe maintenant en local read-only/report-only ; ses findings restent des warnings, pas des permissions.
+- Suite logique actuelle : remediation V1 par child GO cible, puis baseline V2.
 
 ## WHY
 
@@ -362,7 +393,10 @@ WHY lint ne franchit jamais un gate. Il recommande seulement.
 
 ## Future Implementation Path
 
-1. Child GO : spec validateur statique (DOC_ONLY).
-2. Child GO : corpus de fixtures (DOC_ONLY).
-3. Child GO : implementation eventuelle (CODE, can_fail_ci: false).
-4. Integration future avec OpenClaw central (quand les garde-fous seront prouves).
+1. Child GO : spec validateur statique (DONE, doc-only).
+2. Child GO : corpus de fixtures (DONE, doc-only).
+3. Child GO : implementation locale read-only/report-only (DONE, can_fail_ci=false).
+4. Child GO : scan de docs reelles V1 (DONE, report-only).
+5. Child GO : triage, baseline V1 et plan de remediation (DONE).
+6. Child GO suivant : corrections documentaires ciblees ou exceptions/regles V1, sans autofix.
+7. Integration future avec OpenClaw central uniquement quand les garde-fous seront prouves et documentes.
