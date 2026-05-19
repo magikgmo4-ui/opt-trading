@@ -194,12 +194,9 @@ machines:
     description: "Opérateur secondaire, automation, tests isolés"
 
     required_services: []
-
-    optional_services:
-      - openclaw-gateway.service
+    optional_services: []     # openclaw-gateway est sur db-layer, pas fantome
 
     required_timers: []
-
     optional_timers: []
 
     required_venvs:
@@ -208,11 +205,7 @@ machines:
         required: false
 
     required_ports: []
-
-    optional_ports:
-      - label: openclaw_gateway
-        host: 127.0.0.1
-        port: 18789
+    optional_ports: []        # port 18789 suit openclaw-gateway (db-layer)
 
     required_paths:
       - path: /opt/trading
@@ -221,9 +214,7 @@ machines:
     optional_paths: []
 
     required_env: []
-
-    optional_env:
-      - TELEGRAM_BOT_TOKEN
+    optional_env: []          # TELEGRAM_BOT_TOKEN non requis sur fantome
 
     forbidden_services:
       - tv-webhook.service
@@ -235,12 +226,11 @@ machines:
 
     log_units: []
 
-    # fantome ne fait pas tourner webhook/perf/desk_pro — effacer les defaults admin-trading
+    # fantome ne fait pas tourner webhook/perf/desk_pro ni openclaw-gateway
     optional_http_checks: []
     optional_artifact_paths: []
     optional_log_files: []
-    optional_tmux_sessions:
-      - openclaw
+    optional_tmux_sessions: [] # tmux sessions à déployer plus tard via openclaw depuis db-layer
 
   student:
     role: sandbox_learning
