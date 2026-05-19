@@ -178,6 +178,27 @@ class TestE2EDryRunPipeline(unittest.TestCase):
         for name in expected:
             self.assertIn(name, step_names)
 
+    def test_pipeline_includes_desk_pro_fixture_synthesis(self):
+        import subprocess
+        env = {**__import__("os").environ, "DRY_RUN": "1", "PAPER_MODE": "1"}
+        r = subprocess.run(
+            [__import__("sys").executable, str(PROJECT_ROOT / "scripts/e2e/dry_run_pipeline.py")],
+            capture_output=True, text=True, timeout=30, env=env,
+        )
+        report = json.loads(r.stdout)
+        steps = {s["step"]: s["result"] for s in report["steps"]}
+        self.assertIn("1b_desk_pro_dry_run", steps)
+        dp = steps["1b_desk_pro_dry_run"]
+        self.assertIn(dp.get("status"), ("PASS", "WARN"))
+        self.assertEqual(dp.get("errors"), [])
+        self.assertTrue(dp.get("no_trade"))
+        self.assertTrue(dp.get("no_telegram"))
+        self.assertTrue(dp.get("no_webhook"))
+        self.assertTrue(dp.get("no_systemd"))
+        join = dp.get("join_checks") or {}
+        self.assertTrue(join.get("timeframe_match"))
+        self.assertTrue(join.get("symbol_match"))
+
     def test_pipeline_no_live_trade(self):
         import subprocess
         env = {**__import__("os").environ, "DRY_RUN": "1", "PAPER_MODE": "1"}
@@ -253,7 +274,7 @@ class TestE2EDryRunPipeline(unittest.TestCase):
 
 class TestE2EMenuJSON(unittest.TestCase):
     def test_menu_has_all_workers(self):
-        data = json.loads((PROJECT_ROOT / "scripts/ai/menu/opt_trading_menu.json").read_text())
+        data = json.loads((PROJECT_ROOT / "scripts/ai/menu/opt_trading_menu.json").read_text(encoding="utf-8"))
         workers_domain = None
         for d in data["menu"]:
             if d["id"] == "10_workers":
@@ -271,7 +292,7 @@ class TestE2EMenuJSON(unittest.TestCase):
             self.assertIn(wid, ids, f"{wid} missing from workers menu")
 
     def test_menu_has_all_workers_operational(self):
-        data = json.loads((PROJECT_ROOT / "scripts/ai/menu/opt_trading_menu.json").read_text())
+        data = json.loads((PROJECT_ROOT / "scripts/ai/menu/opt_trading_menu.json").read_text(encoding="utf-8"))
         for d in data["menu"]:
             if d["id"] == "10_workers":
                 for child in d.get("children", []):

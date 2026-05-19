@@ -95,6 +95,45 @@ def main() -> dict:
     report["steps"].append(step("1_signal_router", normalized))
     log.info("signal_id=%s ticker=%s side=%s", normalized.signal_id, normalized.ticker, normalized.side)
 
+    # ── Step 1b: desk_pro dry-run synthesis (fixture-only) ──────────
+    log.info("=== Step 1b: desk_pro dry-run synthesis ===")
+    from modules.desk_pro.dry_run import run_desk_pro_dry_run
+
+    now_iso = datetime.now(timezone.utc).isoformat()
+    capture_id = f"e2e_capture_{normalized.signal_id}"
+    signal_event_v0 = {
+        "engine": raw_signal["engine"],
+        "signal": raw_signal["signal"],
+        "symbol": raw_signal["symbol"],
+        "tf": raw_signal["tf"],
+        "price": raw_signal["price"],
+        "tp": raw_signal["tp"],
+        "sl": raw_signal["sl"],
+        "reason": raw_signal["reason"],
+        "_ts": now_iso,
+    }
+    visual_context = {
+        "source": "e2e_fixture",
+        "capture_id": capture_id,
+        "symbol": raw_signal["symbol"],
+        "timeframe": raw_signal["tf"],
+        "captured_at": now_iso,
+        "image_ref": "fixture://desk_pro/snapshot.png",
+        "status": "ok",
+    }
+    desk_snapshot = {
+        "symbol": raw_signal["symbol"],
+        "tf": raw_signal["tf"],
+        "snapshot_ts": now_iso,
+        "path": "C:/fixtures/desk_pro_snapshot.png",
+    }
+    desk_pro_synthesis = run_desk_pro_dry_run(
+        signal_event_v0,
+        visual_context=visual_context,
+        desk_snapshot=desk_snapshot,
+    )
+    report["steps"].append(step("1b_desk_pro_dry_run", desk_pro_synthesis))
+
     # ── Step 2: proposition_engine ──────────────────────────────────
     log.info("=== Step 2: proposition_engine ===")
     from modules.proposition_engine.app.schema import PropositionRequest, NormalizedSignal as PropSignal
