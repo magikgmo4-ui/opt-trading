@@ -17,6 +17,7 @@ Output:
 """
 
 import argparse
+import base64
 import json
 import os
 import re
@@ -107,8 +108,9 @@ def _collect_local(data_dir: str) -> Optional[Dict]:
 
 
 def _collect_via_ssh_windows(machine: str, data_dir_candidates: List[str]) -> Optional[Dict]:
-    """SSH to a Windows machine and collect latest.json via PowerShell.
+    """SSH to a Windows machine and collect latest.json via PowerShell -EncodedCommand.
 
+    Uses base64-encoded PowerShell to bypass cmd.exe quoting issues on Windows SSH.
     Converts %VAR% → $env:VAR so PowerShell expands them on the remote host.
     """
     if not data_dir_candidates:
@@ -126,10 +128,11 @@ def _collect_via_ssh_windows(machine: str, data_dir_candidates: List[str]) -> Op
         "if (Test-Path $p) { Get-Content -Raw $p; exit 0 } "
         "}"
     )
+    encoded = base64.b64encode(ps_script.encode("utf-16-le")).decode("ascii")
 
     rc, out, _ = _run(
         ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=5",
-         machine, "powershell", "-NoProfile", "-NonInteractive", "-Command", ps_script],
+         machine, "powershell", "-NoProfile", "-NonInteractive", "-EncodedCommand", encoded],
         timeout=12,
     )
     if rc == 0 and out.strip().startswith("{"):
