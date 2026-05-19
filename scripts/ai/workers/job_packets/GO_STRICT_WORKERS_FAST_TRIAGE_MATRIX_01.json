@@ -9,8 +9,7 @@
     "minimax-m2.5-free",
     "gpt-5-nano",
     "nemotron-3-super-free",
-    "deepseek-v4-flash-free",
-    "ring-2.6-1t-free"
+    "deepseek-v4-flash-free"
   ],
   "default_worker": "qwen3.5-plus",
   "model_registry": "scripts/ai/workers/models.registry.json",
