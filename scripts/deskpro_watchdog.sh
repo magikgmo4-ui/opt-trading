@@ -64,12 +64,29 @@ _poll() {
         issues=$(( issues + 1 ))
     fi
 
-    # desk/status webhook check
-    local wh_check
-    wh_check=$(curl -sf "http://${HOST_8010}:${PORT_8010}/desk/status" 2>/dev/null \
-        | python3 -c "import sys,json; d=json.load(sys.stdin); h=d['health']; checks=' '.join(f'{c[\"check\"]}:{c[\"status\"]}' for c in h['checks']); print(f'{h[\"status\"]} {checks}')" 2>/dev/null \
-        || echo "unreachable")
-    _log "STATUS health=${wh_check}"
+    # desk/status — classify health: infra fails → ALERT, business-only → WARN
+    # infra_count = checks with status=fail excluding webhook_activity (business-level)
+    local status_data status_summary infra_count
+    status_data=$(curl -sf "http://${HOST_8010}:${PORT_8010}/desk/status" 2>/dev/null \
+        | python3 -c "
+import sys,json
+d=json.load(sys.stdin); h=d['health']
+summary=' '.join(f'{c[\"check\"]}:{c[\"status\"]}' for c in h['checks'])
+infra=sum(1 for c in h['checks'] if c['status']=='fail' and c['check']!='webhook_activity')
+print(h['status']+' '+summary)
+print(infra)
+" 2>/dev/null || printf "unreachable\n0")
+
+    status_summary=$(printf '%s' "$status_data" | head -1)
+    infra_count=$(printf '%s' "$status_data" | tail -1)
+
+    _log "STATUS health=${status_summary}"
+
+    # Only escalate infra fails if ports already passed (avoid double-counting port-down cascades)
+    if (( issues == 0 && infra_count > 0 )); then
+        issues=$(( issues + 1 ))
+        _log "WARN status_infra_fail — non-activity health checks failing"
+    fi
 
     if (( issues > 0 )); then
         _log "ALERT issues=${issues} — check services"
