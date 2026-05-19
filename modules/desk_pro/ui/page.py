@@ -10,8 +10,9 @@ def render_ui_html() -> str:
   <style>
     body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;margin:20px;max-width:1100px}
     h1{margin:0 0 6px 0}
+    h2{margin:16px 0 8px 0;font-size:15px;color:#444;border-bottom:1px solid #e0e0e0;padding-bottom:4px;letter-spacing:.02em;text-transform:uppercase}
     .muted{color:#666;font-size:13px}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px}
     .card{border:1px solid #ddd;border-radius:10px;padding:14px}
     table{width:100%;border-collapse:collapse;font-size:13px}
     th,td{border-bottom:1px solid #eee;padding:6px 6px;text-align:left;vertical-align:top}
@@ -21,6 +22,15 @@ def render_ui_html() -> str:
     .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     pre{background:#0b0b0b;color:#e8e8e8;padding:10px;border-radius:10px;overflow:auto;font-size:12px}
     .pill{display:inline-block;padding:2px 8px;border:1px solid #ddd;border-radius:999px;font-size:12px;margin-right:6px}
+    .action-panel{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:8px 10px;background:#f5f5f5;border-radius:8px;border:1px solid #e8e8e8;margin:10px 0}
+    .action-link{font-size:12px;color:#555;padding:4px 10px;border:1px solid #ddd;border-radius:8px;text-decoration:none;background:#fff}
+    .action-link:hover{background:#e8e8e8}
+    .action-btn{font-size:12px;padding:5px 12px;border:1px solid #333;border-radius:8px;background:#111;color:#fff;cursor:pointer}
+    .action-btn:disabled{opacity:.5;cursor:not-allowed}
+    .tools-section>summary{cursor:pointer;user-select:none;font-size:15px;font-weight:600;color:#444;padding:6px 0;border-bottom:1px solid #e0e0e0;list-style:none}
+    .tools-section>summary::before{content:'▶ ';font-size:11px;color:#999}
+    .tools-section[open]>summary::before{content:'▼ ';font-size:11px;color:#999}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -29,137 +39,157 @@ def render_ui_html() -> str:
     Endpoints: <span class="pill">/desk/health</span><span class="pill">/desk/snapshot</span><span class="pill">/desk/form</span>
   </div>
 
-  <div class="grid">
-    <div class="card">
-      <h3 style="margin-top:0">Pipeline Status</h3>
-      <div class="muted">Live from /desk/status</div>
-      <div id="pipelineSummary"></div>
-      <div style="margin-top:8px">
-        <button id="btnStatus">Refresh</button>
-        <span id="statusTs" class="muted" style="margin-left:8px"></span>
-      </div>
-      <details style="margin-top:6px">
-        <summary class="muted" style="cursor:pointer">Raw JSON</summary>
-        <pre id="pipelineStatus" style="font-size:11px">loading...</pre>
-      </details>
+  <h2>Runtime Health</h2>
+
+  <!-- Action Panel — static, always visible, not JS-dependent -->
+  <div id="actionPanel" class="action-panel">
+    <button id="btnStatus" class="action-btn">Refresh Status</button>
+    <button id="btnTestAlert" class="action-btn">Test Alert</button>
+    <a href="/desk/errors" class="action-link">errors</a>
+    <a href="/desk/alerts" class="action-link">alerts</a>
+    <a href="/desk/logs/latest" class="action-link">logs</a>
+    <a href="/desk/toolbox" class="action-link">toolbox</a>
+    <a href="http://127.0.0.1:8000" class="action-link" id="localcmsLink" target="_blank" title="localcms docs viewer — port 8000 (incompatible avec webhook server)">localcms</a>
+    <span id="testAlertResult" class="muted" style="font-size:12px;margin-left:4px"></span>
+    <span id="statusTs" class="muted" style="font-size:12px;margin-left:auto"></span>
+  </div>
+  <div id="portConflictNote" style="font-size:11px;color:#888;margin-bottom:8px;padding:0 2px">
+    ⚠ Port 8000 partagé — <strong>localcms</strong> et <strong>webhook server</strong> ne peuvent pas coexister. Choisir l'un ou l'autre avant de démarrer.
+  </div>
+
+  <div class="card" id="runtimeHealthCard">
+    <h3 style="margin-top:0">Pipeline Status</h3>
+    <div class="muted">Live from /desk/status</div>
+    <div id="pipelineSummary"></div>
+    <div id="errorDiagnostics" style="margin-top:10px;border-top:1px solid #eee;padding-top:8px;font-size:12px">
+      <span class="muted">…</span>
     </div>
+    <details style="margin-top:6px">
+      <summary class="muted" style="cursor:pointer">Raw JSON</summary>
+      <pre id="pipelineStatus" style="font-size:11px">loading...</pre>
+    </details>
+  </div>
 
-    <div class="card">
-      <h3 style="margin-top:0">Snapshot</h3>
-      <div class="muted">Refresh loads /desk/snapshot</div>
-      <p><button id="btnSnap">Refresh</button></p>
-      <table id="snapTable">
-        <thead><tr><th>source</th><th>asset</th><th>metric</th><th>value</th><th>unit</th><th>window</th><th>notes</th></tr></thead>
-        <tbody></tbody>
-      </table>
-      <p class="muted" id="snapMeta"></p>
-    </div>
-
-    <div class="card">
-      <h3 style="margin-top:0">Formulaire → Probabilité</h3>
-
-      <div class="row">
-        <div>
-          <label>Symbol</label>
-          <input id="symbol" value="BTC" />
-        </div>
-        <div>
-          <label>Bias</label>
-          <select id="bias">
-            <option value="neutral">neutral</option>
-            <option value="bull">bull</option>
-            <option value="bear">bear</option>
-          </select>
-        </div>
+  <details class="tools-section" id="analysisTools" style="margin-top:16px">
+    <summary>Analysis Tools</summary>
+    <div class="grid">
+      <div class="card">
+        <h3 style="margin-top:0">Snapshot</h3>
+        <div class="muted">Refresh loads /desk/snapshot</div>
+        <p><button id="btnSnap">Refresh</button></p>
+        <table id="snapTable">
+          <thead><tr><th>source</th><th>asset</th><th>metric</th><th>value</th><th>unit</th><th>window</th><th>notes</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <p class="muted" id="snapMeta"></p>
       </div>
 
-      <div class="row" style="margin-top:10px">
-        <div>
-          <label>Vol regime</label>
-          <select id="vol">
-            <option value="normal">normal</option>
-            <option value="low">low</option>
-            <option value="high">high</option>
-          </select>
-        </div>
-        <div>
-          <label>Fear & Greed (0-100)</label>
-          <input id="fg" type="number" min="0" max="100" value="42" />
-        </div>
-      </div>
+      <details class="card" id="formCard">
+        <summary style="cursor:pointer;font-size:16px;font-weight:600">Formulaire → Probabilité</summary>
 
-      <div class="row" style="margin-top:10px">
-        <div>
-          <label>ETF flow</label>
-          <select id="etf">
-            <option value="">(none)</option>
-            <option value="in">in</option>
-            <option value="out">out</option>
-            <option value="flat">flat</option>
-          </select>
+        <div class="row" style="margin-top:12px">
+          <div>
+            <label>Symbol</label>
+            <input id="symbol" value="BTC" />
+          </div>
+          <div>
+            <label>Bias</label>
+            <select id="bias">
+              <option value="neutral">neutral</option>
+              <option value="bull">bull</option>
+              <option value="bear">bear</option>
+            </select>
+          </div>
         </div>
-        <div>
-          <label>Onchain flow</label>
-          <select id="onchain">
-            <option value="">(none)</option>
-            <option value="in">in</option>
-            <option value="out">out</option>
-            <option value="flat">flat</option>
-          </select>
-        </div>
-      </div>
 
-      <div class="row" style="margin-top:10px">
-        <div>
-          <label>Futures flow</label>
-          <select id="fut">
-            <option value="">(none)</option>
-            <option value="in">in</option>
-            <option value="out">out</option>
-            <option value="flat">flat</option>
-          </select>
+        <div class="row" style="margin-top:10px">
+          <div>
+            <label>Vol regime</label>
+            <select id="vol">
+              <option value="normal">normal</option>
+              <option value="low">low</option>
+              <option value="high">high</option>
+            </select>
+          </div>
+          <div>
+            <label>Fear & Greed (0-100)</label>
+            <input id="fg" type="number" min="0" max="100" value="42" />
+          </div>
         </div>
-        <div>
-          <label>Funding</label>
-          <select id="funding">
-            <option value="">(none)</option>
-            <option value="pos">pos</option>
-            <option value="neg">neg</option>
-            <option value="flat">flat</option>
-          </select>
-        </div>
-      </div>
 
-      <div class="row" style="margin-top:10px">
-        <div>
-          <label>DXY trend</label>
-          <select id="dxy">
-            <option value="">(none)</option>
-            <option value="up">up</option>
-            <option value="down">down</option>
-            <option value="flat">flat</option>
-          </select>
+        <div class="row" style="margin-top:10px">
+          <div>
+            <label>ETF flow</label>
+            <select id="etf">
+              <option value="">(none)</option>
+              <option value="in">in</option>
+              <option value="out">out</option>
+              <option value="flat">flat</option>
+            </select>
+          </div>
+          <div>
+            <label>Onchain flow</label>
+            <select id="onchain">
+              <option value="">(none)</option>
+              <option value="in">in</option>
+              <option value="out">out</option>
+              <option value="flat">flat</option>
+            </select>
+          </div>
         </div>
-        <div>
-          <label>Corr XAU/BTC (-1..1)</label>
-          <input id="corr" type="number" step="0.01" min="-1" max="1" value="0.35" />
-        </div>
-      </div>
 
-      <div style="margin-top:10px">
-        <label>Supports/Resistances (JSON) — Weekly/Daily</label>
-        <textarea id="sr" rows="5">[
+        <div class="row" style="margin-top:10px">
+          <div>
+            <label>Futures flow</label>
+            <select id="fut">
+              <option value="">(none)</option>
+              <option value="in">in</option>
+              <option value="out">out</option>
+              <option value="flat">flat</option>
+            </select>
+          </div>
+          <div>
+            <label>Funding</label>
+            <select id="funding">
+              <option value="">(none)</option>
+              <option value="pos">pos</option>
+              <option value="neg">neg</option>
+              <option value="flat">flat</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:10px">
+          <div>
+            <label>DXY trend</label>
+            <select id="dxy">
+              <option value="">(none)</option>
+              <option value="up">up</option>
+              <option value="down">down</option>
+              <option value="flat">flat</option>
+            </select>
+          </div>
+          <div>
+            <label>Corr XAU/BTC (-1..1)</label>
+            <input id="corr" type="number" step="0.01" min="-1" max="1" value="0.35" />
+          </div>
+        </div>
+
+        <div style="margin-top:10px">
+          <label>Supports/Resistances (JSON) — Weekly/Daily</label>
+          <textarea id="sr" rows="5">[
   {"tf":"W","kind":"S","level":67900,"label":"W support"},
   {"tf":"D","kind":"R","level":69000,"label":"D resistance"}
 ]</textarea>
-        <div class="muted">Format: [{"tf":"W|D","kind":"S|R","level":float,"label":str?,"confidence":0..1?}]</div>
-      </div>
+          <div class="muted">Format: [{"tf":"W|D","kind":"S|R","level":float,"label":str?,"confidence":0..1?}]</div>
+        </div>
 
-      <p style="margin-top:10px"><button id="btnSubmit">Calculer</button></p>
-      <div class="muted">Résultat:</div>
-      <pre id="out">{}</pre>
+        <p style="margin-top:10px"><button id="btnSubmit">Calculer</button></p>
+        <div class="muted">Résultat:</div>
+        <pre id="out">{}</pre>
+      </details>
     </div>
-  </div>
+  </details>
 
 <script>
 const el = (id)=>document.getElementById(id);
@@ -192,6 +222,32 @@ async function refreshStatus(){
     html += healthBadge(h.status||'unknown');
     html += '<span class="muted">' + (h.checks||[]).length + ' checks</span>';
     html += '</div>';
+
+    // Contextual guidance when degraded or down
+    if(h.status === 'down' || h.status === 'degraded'){
+      const failing = (h.checks||[]).filter(c => c.status === 'fail' || c.status === 'warn');
+      const causes = failing.map(c => c.check);
+      let msg = '';
+      if(causes.includes('webhook_activity')){
+        msg = 'Aucun signal TradingView récent — normal en dev local, vérifier les alertes TradingView en production.';
+      } else if(causes.includes('webhook')){
+        msg = 'Port 8000 injoignable — démarrer le webhook server.';
+      } else if(causes.includes('perf')){
+        msg = 'Module Perf injoignable — vérifier le service sur le port 8010.';
+      } else if(causes.includes('probe_errors')){
+        msg = 'Erreurs de sonde accumulées — consulter /desk/errors pour le détail.';
+      } else if(causes.length > 0){
+        msg = 'Composants en échec : ' + causes.join(', ') + '.';
+      }
+      if(msg){
+        html += '<div style="margin-bottom:8px;padding:6px 10px;border-radius:6px;background:#fff8e1;border-left:3px solid #f9a825;font-size:12px;color:#555" id="healthGuidance">';
+        html += msg;
+        html += '</div>';
+      }
+    }
+
+    // Update tab title to reflect health state
+    document.title = 'Desk Pro' + (h.status && h.status !== 'healthy' ? ' — ' + h.status.toUpperCase() : '');
 
     // Checks table
     html += '<table style="font-size:12px;margin-bottom:8px">';
@@ -249,12 +305,6 @@ async function refreshStatus(){
     }
     html += '</div>';
 
-    // Alert test button
-    html += '<div style="margin-top:6px">';
-    html += '<button id="btnTestAlert" style="font-size:11px;padding:4px 10px">Test Alert</button>';
-    html += '<span id="testAlertResult" class="muted" style="margin-left:6px"></span>';
-    html += '</div>';
-
     // Alert status
     if(j.alert){
       const a = j.alert;
@@ -275,21 +325,49 @@ async function refreshStatus(){
       }
     }
 
-    // Errors
-    if(j.error_count > 0){
-      html += '<div style="margin-top:6px;font-size:12px;color:#c62828">';
-      html += '<strong>Errors:</strong> ' + j.error_count + ' total, last: ';
-      if(j.recent_errors && j.recent_errors.length > 0){
-        html += j.recent_errors[0].error || 'unknown';
-      }
-      html += '</div>';
-    }
-
     el('pipelineSummary').innerHTML = html;
     el('statusTs').textContent = 'updated ' + (j.ts||'');
+    refreshErrors();
   }catch(e){
     el('pipelineStatus').textContent = 'ERROR: '+e;
     el('pipelineSummary').innerHTML = '<span style="color:#c62828">Pipeline unreachable: '+e+'</span>';
+  }
+}
+
+async function refreshErrors(){
+  try{
+    const r = await fetch('/desk/errors');
+    const j = await r.json();
+    let html = '<strong>Erreurs récentes</strong> ';
+    if(j.count === 0){
+      html += '<span style="color:#2e7d32">— aucune erreur</span>';
+    } else {
+      html += '<span style="color:#c62828">— ' + j.count + ' total</span>';
+      // Next action suggestion based on failing probe
+      const probes = (j.errors||[]).map(e => e.probe||'');
+      let action = 'Consulter /desk/logs/latest pour le détail.';
+      if(probes.some(p => p.includes('8000') || p.includes('webhook'))){
+        action = 'Port 8000 injoignable — démarrer le webhook server ou localcms.';
+      } else if(probes.some(p => p.includes('8010') || p.includes('perf'))){
+        action = 'Erreur de sonde Perf — vérifier le service sur port 8010.';
+      }
+      html += '<div style="margin:4px 0 4px 0;padding:4px 8px;border-radius:4px;background:#fff3e0;border-left:2px solid #e65100;color:#555">Action suggérée : ' + action + '</div>';
+      html += '<table style="width:100%;font-size:11px;margin-top:2px">';
+      html += '<thead><tr><th>heure</th><th>probe</th><th>erreur</th></tr></thead><tbody>';
+      for(const e of (j.errors||[]).slice(0,5)){
+        const t = (e.ts||'').slice(11,19);
+        const probe = e.probe||'?';
+        const err = e.error||'?';
+        html += `<tr><td style="white-space:nowrap;color:#888;padding-right:8px">${t}</td><td style="color:#888;padding-right:8px">${probe}</td><td style="color:#c62828">${err}</td></tr>`;
+      }
+      html += '</tbody></table>';
+      if(j.count > 5){
+        html += '<div class="muted" style="margin-top:2px">+ ' + (j.count-5) + ' autres — voir <a href="/desk/errors">errors log</a></div>';
+      }
+    }
+    el('errorDiagnostics').innerHTML = html;
+  }catch(e){
+    el('errorDiagnostics').innerHTML = '<span class="muted">erreurs : inaccessible</span>';
   }
 }
 
@@ -371,7 +449,6 @@ el('btnSubmit').addEventListener('click', submitForm);
 el('btnStatus').addEventListener('click', refreshStatus);
 el('btnTestAlert').addEventListener('click', testAlert);
 refreshStatus();
-refreshSnap();
 </script>
 
 </body>
