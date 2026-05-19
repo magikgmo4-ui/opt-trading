@@ -70,9 +70,9 @@ Obligations explicites :
 
 - branches remote : `~-39` (lot supprimé 2026-05-17, décompte exact à recalculer au prochain fetch)
 - branches locales : `~-35`
-- entrees totales suivies dans le tableau : `83` (tableau non encore rafraichi pour ce lot)
+- entrees totales suivies dans le tableau : `82` (tableau non encore rafraichi pour ce lot)
 - comparaison de reference : `origin/sot/mainline`
-- **derniere operation** : GO_DB_LAYER_REPRISE_AUDIT_01 — lot DROP_MERGED 2026-05-17
+- **derniere operation** : GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_DELETE_INDEX_RECONCILIATION_01 — suppression documentee de `OPEN_WORK_CONTROL_01`
 
 | CANON_STATUS | COUNT |
 | --- | ---: |
@@ -80,7 +80,7 @@ Obligations explicites :
 | `KEEP_REFERENCE` | 21 |
 | `DROP_MERGED` | 16 |
 | `DROP_LOCAL_ONLY` | 0 |
-| `BLOCKED` | 1 |
+| `BLOCKED` | 0 |
 | `A_VERIFIER` | 38 |
 
 ## Legende de lecture
@@ -184,7 +184,6 @@ Obligations explicites :
 | `go/GO_OPT_TRADING_BUNDLES_REPO_STORAGE_PARENT_01` | both | DIVERGED | 18 | 141 | `DROP_MERGED` | `delete_local_and_remote` | Branche doc-only parent bundle storage mergee dans sot/mainline ; branche supprimee localement et a distance | `GO_OPT_TRADING_BUNDLES_REPO_STORAGE_PARENT_REMOTE_CLEANUP_01` |
 | `go/GO_OPT_TRADING_CLAUDE_COWORK_PARENT_LIVE_ARTIFACTS_01` | remote | DIVERGED | 3 | 49 | `A_VERIFIER` | `manual_review` | Branche GO restante presente dans Git mais sans representation canonique complete sur les surfaces doc courantes | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
 | `go/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01` | remote | DIVERGED | 12 | 141 | `KEEP_ACTIVE` | `keep_under_review` | Branche parent ClickUp continuity ; bundle doc-only merge localement dans sot/mainline (c8362b7), parent maintenu actif pour continuite et suite d implementation | `GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_REVIEW_MERGE_01` |
-| `go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01` | both | DIVERGED | 6 | 56 | `BLOCKED` | `keep_under_review` | BLOCKED : branche non mergee avec contenu significatif (124 fichiers, reseau_ssh) ; chantier a closeout mais delta reel trop lourd pour une suppression sans merge explicite | `GO_OPT_TRADING_DOC_OPS_BRANCH_CLEANUP_MATRIX_METHOD_01` |
 | `go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01_ISOLATED` | both | BEHIND_ONLY | 0 | 50 | `DROP_MERGED` | `delete_local_and_remote` | Branche merged dans sot/mainline ; supprimee localement et a distance ; worktree nettoye | `GO_OPT_TRADING_DOC_OPS_POST_3_PASS_CANONICAL_REPRISE_01` |
 | `go/GO_OPT_TRADING_INDEX_AGGREGATION_BATCH_01` | both | BEHIND_ONLY | 0 | 16 | `DROP_MERGED` | `delete_local_and_remote` | Branche merged dans sot/mainline ; closeout present ; mention descriptive dans REPRISE.md conservee hors branche ; branche supprimee localement et a distance | `GO_OPT_TRADING_DOC_OPS_BRANCH_CLEANUP_MATRIX_METHOD_01` |
 | `go/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_01` | remote | DIVERGED | 12 | 886 | `DROP_MERGED` | `delete_local_and_remote` | Student/Ollama parent ; surface FULLY_CLOSED ; closeout PASS dans `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_01/90_CLOSEOUT.md` | `GO_OPT_TRADING_MACHINE_STUDENT_POST_AGENT_CLOSURE_INDEXATION_REPAIR_01` |
@@ -273,6 +272,7 @@ Obligations explicites :
 - classification Student/Ollama post-fermeture appliquee dans ce lot `GO_OPT_TRADING_MACHINE_STUDENT_POST_AGENT_CLOSURE_INDEXATION_REPAIR_01` : `feat/student-mimo-bitget-live-equity` reclassee KEEP_REFERENCE ; `feat/student-mimo-qualification` et `go/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_01` reclassees DROP_MERGED ; 10 branches Student/Ollama manquantes ajoutees en DROP_MERGED ; `go/GO_OPT_TRADING_MACHINE_STUDENT_PARENT_01` ajoutee en KEEP_REFERENCE (DEFERRED)
 - execution suppression remote Student/Ollama dans `GO_OPT_TRADING_MACHINE_STUDENT_REMOTE_BRANCH_CLEANUP_EXECUTION_01` : 33 branches DELETE_CONFIRMED supprimees (4 parents + 23 lab children + 6 agent standardization) via `git push origin --delete` ; seules les 3 branches KEEP_ARCHIVE conservees : `save/student-2026-04-01`, `feat/student-mimo-bitget-live-equity`, `go/GO_OPT_TRADING_MACHINE_STUDENT_PARENT_01`
 - seed `db-layer/OpenClaw` applique : 11 entrees manquantes ajoutees a `BRANCH_STATE.md`, 4 lignes reclassifiees/corrigees, aucun runtime ni cleanup Git
+- `GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01` retiree du tableau actif apres revue `REFERENCE_ONLY` puis suppression locale+remote confirmee ; la branche de revue `go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_BLOCKED_REVIEW_01` reste conservee comme trace doc-only
 
 ## Point de reprise
 
