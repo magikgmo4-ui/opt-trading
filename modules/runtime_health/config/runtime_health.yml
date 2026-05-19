@@ -1,0 +1,106 @@
+runtime_root: /opt/trading
+data_dir: /opt/trading/data/runtime_health
+python_fallback: /usr/bin/python3
+
+services:
+  required:
+    - tv-webhook.service
+    - tv-perf.service
+    - bot_vision_step2.service
+  optional:
+    - simex-bitget.service
+
+timers:
+  required:
+    - bot_vision_step2_prune.timer
+    - bot_vision_step2_send.timer
+    - macro_xau.timer
+  optional: []
+
+venvs:
+  - path: /opt/trading/venv
+    label: main
+    required: true
+  - path: /opt/trading/.venvs/bot_vision_step2
+    label: bot_vision_step2
+    required: false
+
+env:
+  required:
+    - TELEGRAM_BOT_TOKEN
+    - ALLOWED_CHAT_ID
+    - OPENAI_API_KEY
+  optional:
+    - TV_WEBHOOK_KEY
+    - TELEGRAM_CHAT_ID
+
+ports:
+  optional:
+    - label: webhook
+      host: 127.0.0.1
+      port: 8000
+    - label: desk_pro
+      host: 127.0.0.1
+      port: 8010
+    - label: openclaw_gateway
+      host: 127.0.0.1
+      port: 18789
+
+http:
+  optional:
+    - label: webhook_health
+      url: http://127.0.0.1:8000/health
+    - label: perf_summary
+      url: http://127.0.0.1:8010/perf/summary
+
+paths:
+  required:
+    - path: /opt/trading
+      writable: false
+    - path: /var/log/trading
+      writable: false
+    - path: /srv/sftp/shared_files/shared/vision_inbox
+      writable: false
+    - path: /srv/sftp/shared_files/shared/vision_processed
+      writable: false
+    - path: /opt/trading/data/desk_pro/vision
+      writable: true
+  optional:
+    - path: /opt/trading/desk/snapshots
+      writable: false
+
+artifacts:
+  optional:
+    - path: /opt/trading/data/desk_pro/vision
+      label: desk_vision_dir
+      max_age_minutes: 120
+    - path: /opt/trading/desk/snapshots
+      label: desk_snapshots_dir
+      max_age_minutes: 120
+
+logs:
+  journal_units:
+    - tv-webhook.service
+    - tv-perf.service
+    - bot_vision_step2.service
+  log_files:
+    optional:
+      - /var/log/trading/webhook.log
+      - /var/log/trading/perf.log
+      - /var/log/trading/bot_vision_step2.log
+  since: "10 minutes ago"
+
+orchestrator:
+  tmux_sessions:
+    optional:
+      - openclaw
+      - trading
+      - desk
+
+telegram:
+  enabled: true
+  notify_on_states:
+    - WARN
+    - FAIL
+  state_change_only: true
+  message_prefix: "[opt-trading]"

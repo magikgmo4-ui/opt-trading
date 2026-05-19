@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "opt-trading/runtime_health/latest.json",
+  "title": "RuntimeHealthReport",
+  "description": "Schema for opt-trading Runtime Health Supervisor latest.json output",
+  "type": "object",
+  "required": [
+    "timestamp",
+    "hostname",
+    "run_id",
+    "overall_status",
+    "block_statuses",
+    "checks",
+    "elapsed_seconds"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "description": "ISO-8601 UTC timestamp of the run"
+    },
+    "hostname": {
+      "type": "string",
+      "description": "Hostname of the machine running the check"
+    },
+    "run_id": {
+      "type": "string",
+      "description": "UUID v4 uniquely identifying this run"
+    },
+    "overall_status": {
+      "type": "string",
+      "enum": ["PASS", "WARN", "FAIL"],
+      "description": "Aggregate status: FAIL if any required check fails, WARN if any check warns, else PASS"
+    },
+    "block_statuses": {
+      "type": "object",
+      "description": "Per-block aggregate statuses",
+      "additionalProperties": {
+        "type": "string",
+        "enum": ["PASS", "WARN", "FAIL"]
+      }
+    },
+    "checks": {
+      "type": "object",
+      "description": "Detailed check results grouped by block name",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["check", "status"],
+          "properties": {
+            "check": {
+              "type": "string",
+              "description": "Unique check identifier (e.g. service:tv-webhook.service)"
+            },
+            "status": {
+              "type": "string",
+              "enum": ["PASS", "WARN", "FAIL"]
+            },
+            "required": {
+              "type": "boolean"
+            },
+            "detail": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    "elapsed_seconds": {
+      "type": "number",
+      "description": "Wall-clock seconds the full check run took"
+    }
+  }
+}

@@ -1,0 +1,284 @@
+---
+# machine_runtime_map.yml
+# Canonical runtime map for opt-trading fleet.
+# Each machine declares what MUST run, what MUST NOT run, and what is optional.
+# Used by: modules/runtime_health/machine_map.py
+# Reference: docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md
+version: 1
+project: opt-trading
+data_dir: /opt/trading/data/runtime_health
+
+machines:
+
+  admin-trading:
+    role: runtime_primary
+    description: "Desk, orchestration trading, runtime principal"
+
+    required_services:
+      - tv-webhook.service
+      - tv-perf.service
+      - bot_vision_step2.service
+
+    optional_services:
+      - simex-bitget.service
+      - mimo_open_observer.service
+
+    required_timers:
+      - bot_vision_step2_send.timer
+      - bot_vision_step2_prune.timer
+      - macro_xau.timer
+
+    optional_timers:
+      - desk_retention.timer
+      - desk_pro_dry_run.timer
+
+    required_venvs:
+      - path: /opt/trading/venv
+        label: main
+      - path: /opt/trading/.venvs/bot_vision_step2
+        label: bot_vision_step2
+
+    required_ports:
+      - label: webhook
+        host: 127.0.0.1
+        port: 8000
+      - label: desk_pro
+        host: 127.0.0.1
+        port: 8010
+
+    optional_ports:
+      - label: openclaw_gateway
+        host: 127.0.0.1
+        port: 18789
+
+    required_paths:
+      - path: /opt/trading
+        writable: false
+      - path: /var/log/trading
+        writable: false
+      - path: /opt/trading/data/desk_pro/vision
+        writable: true
+      - path: /srv/sftp/shared_files/shared/vision_inbox
+        writable: false
+      - path: /srv/sftp/shared_files/shared/vision_processed
+        writable: false
+
+    optional_paths:
+      - path: /opt/trading/desk/snapshots
+        writable: false
+
+    required_env:
+      - TELEGRAM_BOT_TOKEN
+      - ALLOWED_CHAT_ID
+      - OPENAI_API_KEY
+
+    optional_env:
+      - TV_WEBHOOK_KEY
+      - TELEGRAM_CHAT_ID
+
+    forbidden_services:
+      - live-trade-executor.service
+      - broker-executor.service
+
+    log_units:
+      - tv-webhook.service
+      - tv-perf.service
+      - bot_vision_step2.service
+
+  db-layer:
+    role: data_layer
+    description: "Données, stockage, ingestion durable, OpenClaw orchestrateur"
+
+    required_services:
+      - shared-sshfs.service
+      - daily-session.service
+
+    optional_services:
+      - algo-hf-api.service
+      - snap.ollama.listener.service
+
+    required_timers: []
+
+    optional_timers:
+      - opt-trading-runtime-health.timer
+
+    required_venvs:
+      - path: /opt/trading/venv
+        label: main
+        required: false
+
+    required_ports: []
+
+    optional_ports:
+      - label: openclaw_gateway
+        host: 127.0.0.1
+        port: 18789
+      - label: algo_hf_api
+        host: 127.0.0.1
+        port: 8000
+
+    required_paths:
+      - path: /opt/trading
+        writable: false
+      - path: /opt/trading/data
+        writable: true
+
+    optional_paths:
+      - path: /var/log/trading
+        writable: false
+      - path: /shared
+        writable: false
+
+    required_env: []
+
+    optional_env:
+      - TELEGRAM_BOT_TOKEN
+      - ALLOWED_CHAT_ID
+
+    forbidden_services:
+      - tv-webhook.service
+      - tv-perf.service
+      - bot_vision_step2.service
+      - live-trade-executor.service
+      - broker-executor.service
+
+    log_units:
+      - daily-session.service
+      - shared-sshfs.service
+
+  cursor-ai:
+    role: ide_patch_operator
+    description: "Dev/IDE, patchs, documentation, exécution GO"
+
+    required_services: []
+
+    optional_services: []
+
+    required_timers: []
+
+    optional_timers: []
+
+    required_venvs:
+      - path: /opt/trading/venv
+        label: main
+        required: false
+
+    required_ports: []
+
+    optional_ports: []
+
+    required_paths:
+      - path: /opt/trading
+        writable: false
+
+    optional_paths: []
+
+    required_env: []
+
+    optional_env:
+      - TELEGRAM_BOT_TOKEN
+      - OPENAI_API_KEY
+
+    forbidden_services:
+      - tv-webhook.service
+      - tv-perf.service
+      - bot_vision_step2.service
+      - live-trade-executor.service
+      - broker-executor.service
+      - daily-session.service
+
+    log_units: []
+
+  fantome:
+    role: secondary_operator
+    description: "Opérateur secondaire, automation, tests isolés"
+
+    required_services: []
+
+    optional_services:
+      - openclaw-gateway.service
+
+    required_timers: []
+
+    optional_timers: []
+
+    required_venvs:
+      - path: /opt/trading/venv
+        label: main
+        required: false
+
+    required_ports: []
+
+    optional_ports:
+      - label: openclaw_gateway
+        host: 127.0.0.1
+        port: 18789
+
+    required_paths:
+      - path: /opt/trading
+        writable: false
+
+    optional_paths: []
+
+    required_env: []
+
+    optional_env:
+      - TELEGRAM_BOT_TOKEN
+
+    forbidden_services:
+      - tv-webhook.service
+      - tv-perf.service
+      - bot_vision_step2.service
+      - live-trade-executor.service
+      - broker-executor.service
+      - daily-session.service
+
+    log_units: []
+
+  student:
+    role: sandbox_learning
+    description: "Environnement apprentissage/test/non critique, Ollama local"
+
+    required_services: []
+
+    optional_services:
+      - ollama.service
+      - snap.ollama.listener.service
+
+    required_timers: []
+
+    optional_timers: []
+
+    required_venvs:
+      - path: /opt/trading/venv
+        label: main
+        required: false
+
+    required_ports: []
+
+    optional_ports:
+      - label: ollama
+        host: 127.0.0.1
+        port: 11434
+
+    required_paths:
+      - path: /opt/trading
+        writable: false
+
+    optional_paths: []
+
+    required_env: []
+
+    optional_env:
+      - TELEGRAM_BOT_TOKEN
+      - OPENAI_API_KEY
+
+    forbidden_services:
+      - tv-webhook.service
+      - tv-perf.service
+      - bot_vision_step2.service
+      - live-trade-executor.service
+      - broker-executor.service
+      - daily-session.service
+
+    log_units: []
