@@ -115,14 +115,9 @@ Quand la demande est "chantiers pour <machine>", la reponse doit ressortir direc
 | --- | --- |
 | `go/GO_OPT_TRADING_DOC_OPS_CHILD_ACTIVE_GOVERNANCE_CLOSEOUT_REVIEW_01` | HISTORICAL — supprimee L+R (cleanup) |
 | `go/GO_OPT_TRADING_DOC_OPS_CHILD_CONTINUITY_ALIGNMENT_AFTER_OPEN_WORK_CONTROL_01` | HISTORICAL — supprimee L+R (cleanup) |
+| `go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01` | HISTORICAL — supprimee L+R apres blocked review (`REFERENCE_ONLY`) |
 | `go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01_ISOLATED` | HISTORICAL — supprimee L+R (cleanup + worktree) |
 | `go/GO_OPT_TRADING_INDEX_AGGREGATION_BATCH_01` | HISTORICAL — supprimee L+R (cleanup) |
-
-### DOC_OPS — BLOCKED
-
-| Branche | Note |
-| --- | --- |
-| `go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01` | BLOCKED — conservee, delta reseau_ssh non merge |
 
 ### CURSOR_AI — References audit Git
 
