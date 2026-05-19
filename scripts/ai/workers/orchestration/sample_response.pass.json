@@ -1,0 +1,18 @@
+{
+  "run_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "job_packet_id": "GO_STRICT_WORKERS_READONLY_SMOKE_01",
+  "task_type": "READ_INVENTORY",
+  "selected_worker": "qwen3.5-plus",
+  "app_target": "none",
+  "actions_planned": ["validate_packet", "generate_prompt", "read_source_docs"],
+  "actions_executed": ["validate_packet", "generate_prompt", "read_source_docs"],
+  "app_records_touched": [],
+  "files_touched": ["reports/ai/workers/GO_STRICT_WORKERS_READONLY_SMOKE_01_PROMPT.txt", "reports/ai/workers/GO_STRICT_WORKERS_READONLY_SMOKE_01.md"],
+  "report_path": "reports/ai/workers/GO_STRICT_WORKERS_READONLY_SMOKE_01.md",
+  "validation_status": "NOT_REQUIRED",
+  "stop_condition": null,
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "timestamp": "2026-05-19T15:45:00Z"
+}
