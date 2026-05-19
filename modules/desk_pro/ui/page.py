@@ -193,6 +193,32 @@ async function refreshStatus(){
     html += '<span class="muted">' + (h.checks||[]).length + ' checks</span>';
     html += '</div>';
 
+    // Contextual guidance when degraded or down
+    if(h.status === 'down' || h.status === 'degraded'){
+      const failing = (h.checks||[]).filter(c => c.status === 'fail' || c.status === 'warn');
+      const causes = failing.map(c => c.check);
+      let msg = '';
+      if(causes.includes('webhook_activity')){
+        msg = 'Aucun signal TradingView récent — normal en dev local, vérifier les alertes TradingView en production.';
+      } else if(causes.includes('webhook')){
+        msg = 'Port 8000 injoignable — démarrer le webhook server.';
+      } else if(causes.includes('perf')){
+        msg = 'Module Perf injoignable — vérifier le service sur le port 8010.';
+      } else if(causes.includes('probe_errors')){
+        msg = 'Erreurs de sonde accumulées — consulter /desk/errors pour le détail.';
+      } else if(causes.length > 0){
+        msg = 'Composants en échec : ' + causes.join(', ') + '.';
+      }
+      if(msg){
+        html += '<div style="margin-bottom:8px;padding:6px 10px;border-radius:6px;background:#fff8e1;border-left:3px solid #f9a825;font-size:12px;color:#555" id="healthGuidance">';
+        html += msg;
+        html += '</div>';
+      }
+    }
+
+    // Update tab title to reflect health state
+    document.title = 'Desk Pro' + (h.status && h.status !== 'healthy' ? ' — ' + h.status.toUpperCase() : '');
+
     // Checks table
     html += '<table style="font-size:12px;margin-bottom:8px">';
     html += '<thead><tr><th>check</th><th>status</th><th>reason</th></tr></thead><tbody>';
