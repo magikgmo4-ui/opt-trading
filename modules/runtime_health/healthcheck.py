@@ -888,10 +888,14 @@ def main() -> int:
 
         mm = MachineMap.load(map_path)
         override = args.machine or os.environ.get("MACHINE_ROLE", "").strip()
-        machine_name = override if override else hostname
-        scope = mm.scope_for(machine_name)
-        if scope is None and machine_name != hostname:
+        raw_name = override if override else hostname
+        scope = mm.scope_for(raw_name)
+        if scope is not None:
+            machine_name = mm.canonical_name_for(raw_name)
+        elif raw_name != hostname:
             scope = mm.scope_for(hostname)
+            machine_name = mm.canonical_name_for(hostname) if scope else hostname
+        else:
             machine_name = hostname
 
         machine_identity_check = check_machine_identity(
