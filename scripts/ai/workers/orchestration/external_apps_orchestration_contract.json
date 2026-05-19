@@ -1,0 +1,34 @@
+{
+  "contract_version": "0.1-draft",
+  "go_id": "GO_OPT_TRADING_STRICT_WORKERS_CHILD_EXTERNAL_APPS_ORCHESTRATION_RUNNER_01",
+  "description": "Generic orchestration runner contract for strict workers + external apps",
+  "input": {
+    "job_packet_path": {"type": "string", "required": true, "description": "Relative path to job packet JSON in repo"},
+    "trigger_source": {"type": "string", "required": true, "enum": ["github_schedule", "github_manual", "opencode", "openclaw"], "description": "Who/what triggered this run"},
+    "requested_app": {"type": "string", "required": true, "enum": ["clickup", "airtable", "botpress", "telegram", "google_sheets", "repo_kg", "localcms", "none"], "description": "External app target"},
+    "mode": {"type": "string", "required": true, "enum": ["READ_ONLY", "DRAFT_ONLY", "WRITE_GATED"], "description": "Execution mode"},
+    "dry_run": {"type": "boolean", "required": false, "default": true, "description": "If true, no external write executed"},
+    "operator_context": {"type": "string", "required": false, "description": "Free context (GO id, session id, etc.)"},
+    "validation_token": {"type": "string", "required": false, "description": "External validation token for WRITE_GATED"},
+    "max_runtime_seconds": {"type": "integer", "required": false, "default": 120, "description": "Max execution time"},
+    "output_dir": {"type": "string", "required": false, "default": "reports/ai/workers", "description": "Output directory for reports"}
+  },
+  "output": {
+    "run_id": {"type": "string", "description": "Unique run identifier (UUID)"},
+    "job_packet_id": {"type": "string", "description": "Referenced job packet"},
+    "task_type": {"type": "string", "description": "Task type from tasks.index.json"},
+    "selected_worker": {"type": "string", "description": "Default worker model used"},
+    "app_target": {"type": "string", "description": "External app targeted"},
+    "actions_planned": {"type": "array", "description": "Planned actions before execution"},
+    "actions_executed": {"type": "array", "description": "Actions actually executed"},
+    "app_records_touched": {"type": "array", "description": "Records modified in external app"},
+    "files_touched": {"type": "array", "description": "Files modified in repo"},
+    "report_path": {"type": "string", "description": "Path to generated DRAFT_ONLY report"},
+    "validation_status": {"type": "string", "enum": ["PENDING", "APPROVED", "REJECTED", "NOT_REQUIRED"], "description": "External validation status"},
+    "stop_condition": {"type": "string", "description": "Stop condition if BLOCKED"},
+    "verdict": {"type": "string", "enum": ["PASS", "FAIL", "BLOCKED", "DRAFT_ONLY"], "description": "Final verdict"},
+    "errors": {"type": "array", "description": "Errors encountered"},
+    "warnings": {"type": "array", "description": "Warnings encountered"},
+    "timestamp": {"type": "string", "description": "UTC timestamp of run completion"}
+  }
+}

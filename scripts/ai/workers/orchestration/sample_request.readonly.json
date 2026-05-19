@@ -1,0 +1,10 @@
+{
+  "job_packet_path": "scripts/ai/workers/job_packets/GO_STRICT_WORKERS_READONLY_SMOKE_01.json",
+  "trigger_source": "github_schedule",
+  "requested_app": "none",
+  "mode": "READ_ONLY",
+  "dry_run": true,
+  "operator_context": "GO_OPT_TRADING_STRICT_WORKERS_CHILD_SCHEDULED_RUNNER_OBSERVATION_01",
+  "max_runtime_seconds": 120,
+  "output_dir": "reports/ai/workers"
+}
