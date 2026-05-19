@@ -12,6 +12,17 @@ from pathlib import Path
 from datetime import datetime
 
 IMG_EXTS = {".png", ".jpg", ".jpeg", ".webp", ".bmp", ".tif", ".tiff"}
+SKIP_STATUSES = {"blocked", "invalid_visual"}
+
+def check_sidecar_status(img_path: Path) -> str | None:
+    sidecar = img_path.with_suffix(".json")
+    if not sidecar.exists():
+        return None
+    try:
+        meta = json.loads(sidecar.read_text(encoding="utf-8"))
+        return meta.get("status")
+    except Exception:
+        return None
 
 def env(name: str, default: str) -> str:
     v = os.environ.get(name)
@@ -179,6 +190,20 @@ def process_once() -> int:
             log_line(log_path, f"skip unstable: {img.name}")
             continue
 
+        sidecar_status = check_sidecar_status(img)
+        if sidecar_status in SKIP_STATUSES:
+            log_line(log_path, f"skip {sidecar_status}: {img.name}")
+            rejected_dir = processed / "rejected"
+            safe_mkdir(rejected_dir)
+            try:
+                shutil.move(str(img), str(rejected_dir / img.name))
+                sidecar = img.with_suffix(".json")
+                if sidecar.exists():
+                    shutil.move(str(sidecar), str(rejected_dir / sidecar.name))
+            except Exception as e:
+                log_line(log_path, f"WARN move rejected failed: {img.name} ({e})")
+            continue
+
         h = sha256_file(img)
         if processed_map.get(h):
             log_line(log_path, f"skip already processed: {img.name}")
@@ -217,6 +242,22 @@ def process_once() -> int:
         }
         save_state(state_path, state)
         ok += 1
+
+    # Cleanup orphaned blocked JSONs (no matching PNG)
+    rejected_dir = processed / "rejected"
+    for p in inbox.iterdir():
+        if not p.is_file() or p.suffix.lower() != ".json":
+            continue
+        if p.with_suffix(".png").exists():
+            continue
+        try:
+            meta = json.loads(p.read_text(encoding="utf-8"))
+            if meta.get("status") in SKIP_STATUSES:
+                safe_mkdir(rejected_dir)
+                shutil.move(str(p), str(rejected_dir / p.name))
+                log_line(log_path, f"archive blocked orphan: {p.name}")
+        except Exception:
+            pass
 
     log_line(log_path, f"run_once: processed={ok} total_seen={len(imgs)}")
     return 0

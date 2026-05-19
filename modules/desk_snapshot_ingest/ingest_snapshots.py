@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Any, Dict, Optional, Tuple
 
 IMG_EXTS = {".png", ".jpg", ".jpeg"}
+SKIP_STATUSES = {"blocked", "invalid_visual"}
 
 FILENAME_RE = re.compile(
     r"^(?P<symbol>.+?)_(?P<tf>[A-Za-z0-9]+)_(?P<date>\d{8})_(?P<time>\d{6})",
@@ -80,6 +81,17 @@ def ingest_once(
     for img in iter_images(inbox_dir):
         sidecar = img.with_suffix(".json")
         meta = load_json(sidecar) or {}
+
+        # Status gate: skip blocked/invalid_visual captures
+        status = meta.get("status") if meta else None
+        if status in SKIP_STATUSES:
+            rejected = processed_dir / "rejected"
+            rejected.mkdir(parents=True, exist_ok=True)
+            shutil.move(str(img), str(rejected / img.name))
+            if sidecar.exists():
+                shutil.move(str(sidecar), str(rejected / sidecar.name))
+            print(f"SKIP status={status}: {img.name} -> rejected/")
+            continue
 
         symbol = meta.get("symbol")
         tf = meta.get("tf")

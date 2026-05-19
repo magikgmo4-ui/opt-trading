@@ -20,13 +20,27 @@ MAP3="${MAP3:-ETHUSDT.P}"
 
 need_cmd() { command -v "$1" >/dev/null 2>&1; }
 
+sidecar_status_ready() {
+  local png="$1"
+  local sidecar="${png%.png}.json"
+  if [ ! -f "$sidecar" ]; then
+    return 0  # no sidecar = legacy, allow
+  fi
+  local status
+  status="$(jq -r '.status // "ready"' "$sidecar" 2>/dev/null)" || return 0
+  if [ "$status" = "ready" ]; then
+    return 0
+  fi
+  echo "SKIP status=$status: $png" >&2
+  return 1
+}
+
 pick_latest() {
   local f=""
   while IFS= read -r candidate; do
-    # Skip .uploading partial uploads
     [[ "$candidate" == *.uploading* ]] && continue
-    # Skip empty (0-byte) files
     [ -s "$candidate" ] || continue
+    sidecar_status_ready "$candidate" || continue
     f="$candidate"
     break
   done < <(ls -1t "$VISION_PROCESSED"/screen_*.png 2>/dev/null 2>&1 || true)
@@ -35,6 +49,7 @@ pick_latest() {
     while IFS= read -r candidate; do
       [[ "$candidate" == *.uploading* ]] && continue
       [ -s "$candidate" ] || continue
+      sidecar_status_ready "$candidate" || continue
       f="$candidate"
       break
     done < <(ls -1t "$VISION_INBOX"/screen_*.png 2>/dev/null 2>&1 || true)
