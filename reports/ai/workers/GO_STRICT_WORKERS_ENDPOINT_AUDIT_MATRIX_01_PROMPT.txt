@@ -1,0 +1,66 @@
+# STRICT WORKER TASK — GO_STRICT_WORKERS_ENDPOINT_AUDIT_MATRIX_01
+## VALIDATION: PASS
+## TIMESTAMP: 2026-05-19T13:47:20Z
+
+### JOB
+- JOB_ID: GO_STRICT_WORKERS_ENDPOINT_AUDIT_MATRIX_01
+- TASK_TYPE: ENDPOINT_AUDIT
+- WORKER: qwen3.5-plus
+- AUTONOMY_MAX: A1
+- WRITES_CODE: False
+- VALID_WORKERS: big-pickle, minimax-m2.5, qwen3.5-plus
+
+### ALLOWED_INPUTS
+  - scripts/ai/workers/models.registry.json
+  - scripts/ai/workers/tasks.index.json
+
+### REQUIRED_OUTPUT_SECTIONS
+1. ENDPOINT_CONSULTE
+2. MODELES_TROUVES
+3. COMPARAISON_REGISTRY
+4. AJOUTS
+5. RETRAITS
+6. RECOMMANDATIONS
+7. VERDICT_DRAFT_ONLY
+
+### GLOBAL_INVARIANTS
+  - no_secrets: True
+  - no_env_files: True
+  - no_git_write_ops: True
+  - no_runtime_write_by_default: True
+  - requires_external_validation: True
+  - output_status: DRAFT_ONLY
+  - only_verified_models: True
+
+### DENIED_COMMANDS
+  - git add
+  - git commit
+  - git push
+  - git rebase
+  - git merge
+  - rm -rf
+  - chmod -R
+  - chown -R
+
+### DENIED_INPUT_PATTERNS
+  - .env
+  - **/.env
+  - **/*secret*
+  - **/*token*
+  - **/*credential*
+  - **/id_rsa
+  - **/id_ed25519
+  - **/*.pem
+  - **/*.key
+
+### WARNINGS
+  None
+
+### INSTRUCTIONS
+1. Read ONLY the allowed_inputs listed above.
+2. Do NOT modify any file in the repository.
+3. Do NOT execute any denied command.
+4. Do NOT read any secret, .env, token, key, or credential file.
+5. Produce output DRAFT_ONLY in: /home/fantome/opt-trading-clean/reports/ai/workers/GO_STRICT_WORKERS_ENDPOINT_AUDIT_MATRIX_01.md
+6. Include ALL required sections in your output.
+7. End your output with: ## VERDICT_DRAFT_ONLY
