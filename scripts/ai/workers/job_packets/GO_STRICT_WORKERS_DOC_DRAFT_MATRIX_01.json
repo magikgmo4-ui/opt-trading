@@ -1,0 +1,53 @@
+{
+  "job_packet_id": "GO_STRICT_WORKERS_DOC_DRAFT_MATRIX_01",
+  "go_id": "GO_OPT_TRADING_STRICT_WORKERS_CHILD_WORKER_POOL_EXTENSION_01",
+  "status": "DRAFT_ONLY",
+  "task_type": "DOC_DRAFT",
+  "worker_candidates": [
+    "qwen3.5-plus",
+    "qwen3.6-plus",
+    "minimax-m2.5",
+    "big-pickle",
+    "nemotron-3-super-free"
+  ],
+  "default_worker": "qwen3.5-plus",
+  "model_registry": "scripts/ai/workers/models.registry.json",
+  "task_index": "scripts/ai/workers/tasks.index.json",
+  "scope": {
+    "allowed_inputs": [
+      "docs/**",
+      "reports/**",
+      "scripts/ai/workers/tasks.index.json",
+      "scripts/ai/workers/models.registry.json"
+    ],
+    "denied_inputs_inherited": true,
+    "allowed_outputs": [
+      "reports/ai/workers/GO_STRICT_WORKERS_DOC_DRAFT_MATRIX_01.md"
+    ]
+  },
+  "instructions": [
+    "Read allowed_inputs for context, initial state, and changes.",
+    "Do not modify any files — produce a documentation draft only.",
+    "Do not run any git write commands.",
+    "Do not read any secrets, .env files, tokens, keys, or credentials.",
+    "Do not overwrite any existing canonical documentation.",
+    "Produce a DRAFT_ONLY report with all required sections."
+  ],
+  "required_output_sections": [
+    "CONTEXTE",
+    "ETAT_INITIAL",
+    "CHANGEMENTS",
+    "VALIDATIONS",
+    "LIMITES",
+    "POINT_DE_REPRISE",
+    "VERDICT_DRAFT_ONLY"
+  ],
+  "acceptance": {
+    "must_not_write_runtime": true,
+    "must_not_modify_repo": true,
+    "must_not_read_secrets": true,
+    "must_reference_only_allowed_inputs": true,
+    "must_not_overwrite_existing": true,
+    "must_end_with_verdict_draft_only": true
+  }
+}

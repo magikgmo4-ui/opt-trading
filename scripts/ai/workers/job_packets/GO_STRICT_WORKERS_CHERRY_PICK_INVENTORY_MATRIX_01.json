@@ -1,0 +1,52 @@
+{
+  "job_packet_id": "GO_STRICT_WORKERS_CHERRY_PICK_INVENTORY_MATRIX_01",
+  "go_id": "GO_OPT_TRADING_STRICT_WORKERS_CHILD_WORKER_POOL_EXTENSION_01",
+  "status": "DRAFT_ONLY",
+  "task_type": "CHERRY_PICK_INVENTORY",
+  "worker_candidates": [
+    "kimi-k2.5",
+    "kimi-k2.6",
+    "glm-5.1",
+    "qwen3.6-plus",
+    "big-pickle"
+  ],
+  "default_worker": "kimi-k2.5",
+  "model_registry": "scripts/ai/workers/models.registry.json",
+  "task_index": "scripts/ai/workers/tasks.index.json",
+  "scope": {
+    "allowed_inputs": [
+      "docs/**",
+      "scripts/**",
+      "modules/**"
+    ],
+    "denied_inputs_inherited": true,
+    "allowed_outputs": [
+      "reports/ai/workers/GO_STRICT_WORKERS_CHERRY_PICK_INVENTORY_MATRIX_01.md"
+    ]
+  },
+  "instructions": [
+    "Inspect git history using git log, git diff, and git show commands to build a cherry-pick inventory.",
+    "Do not modify any files.",
+    "Do not run any git write commands (add, commit, push, rebase, merge, cherry-pick).",
+    "Do not propose force pushes.",
+    "Do not read any secrets, .env files, tokens, keys, or credentials.",
+    "Produce a DRAFT_ONLY report with all required sections."
+  ],
+  "required_output_sections": [
+    "COMMITS_CANDIDATS",
+    "FICHIERS_TOUCHES",
+    "DEPENDANCES",
+    "RISQUES_CONFLITS",
+    "ORDRE_RECOMMANDE",
+    "COMMANDES_NON_EXECUTEES",
+    "VERDICT_DRAFT_ONLY"
+  ],
+  "acceptance": {
+    "must_not_write_runtime": true,
+    "must_not_modify_repo": true,
+    "must_not_read_secrets": true,
+    "must_reference_only_allowed_inputs": true,
+    "must_not_run_git_write_ops": true,
+    "must_end_with_verdict_draft_only": true
+  }
+}
