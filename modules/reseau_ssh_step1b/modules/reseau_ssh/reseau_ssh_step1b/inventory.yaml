@@ -3,7 +3,7 @@ machines:
     hostname: admin-trading
     ssh_alias: admin-trading
     user: ghost
-    lan_ip: 192.168.16.155
+    lan_ip: 192.168.0.111
     role: "server/orchestrator"
     os: linux
 
@@ -11,7 +11,7 @@ machines:
     hostname: student
     ssh_alias: student
     user: student
-    lan_ip: 192.168.16.103
+    lan_ip: 192.168.0.142
     role: "compute/student"
     os: linux
 
@@ -19,7 +19,7 @@ machines:
     hostname: db-layer
     ssh_alias: db-layer
     user: ghost
-    lan_ip: 192.168.16.179
+    lan_ip: 192.168.0.100
     role: "MSI Ubuntu"
     os: linux
 
@@ -27,6 +27,14 @@ machines:
     hostname: cursor-ai
     ssh_alias: cursor-ai
     user: ghost
-    lan_ip: 192.168.16.224
+    lan_ip: 192.168.0.177
     role: "Dell Windows"
     os: windows
+
+  - id: fantome
+    hostname: fantome
+    ssh_alias: fantome
+    user: fantome
+    lan_ip: 192.168.0.191
+    role: "dev dedicee"
+    os: linux
