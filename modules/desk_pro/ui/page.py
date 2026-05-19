@@ -57,6 +57,9 @@ def render_ui_html() -> str:
     <h3 style="margin-top:0">Pipeline Status</h3>
     <div class="muted">Live from /desk/status</div>
     <div id="pipelineSummary"></div>
+    <div id="errorDiagnostics" style="margin-top:10px;border-top:1px solid #eee;padding-top:8px;font-size:12px">
+      <span class="muted">…</span>
+    </div>
     <details style="margin-top:6px">
       <summary class="muted" style="cursor:pointer">Raw JSON</summary>
       <pre id="pipelineStatus" style="font-size:11px">loading...</pre>
@@ -318,21 +321,49 @@ async function refreshStatus(){
       }
     }
 
-    // Errors
-    if(j.error_count > 0){
-      html += '<div style="margin-top:6px;font-size:12px;color:#c62828">';
-      html += '<strong>Errors:</strong> ' + j.error_count + ' total, last: ';
-      if(j.recent_errors && j.recent_errors.length > 0){
-        html += j.recent_errors[0].error || 'unknown';
-      }
-      html += '</div>';
-    }
-
     el('pipelineSummary').innerHTML = html;
     el('statusTs').textContent = 'updated ' + (j.ts||'');
+    refreshErrors();
   }catch(e){
     el('pipelineStatus').textContent = 'ERROR: '+e;
     el('pipelineSummary').innerHTML = '<span style="color:#c62828">Pipeline unreachable: '+e+'</span>';
+  }
+}
+
+async function refreshErrors(){
+  try{
+    const r = await fetch('/desk/errors');
+    const j = await r.json();
+    let html = '<strong>Erreurs récentes</strong> ';
+    if(j.count === 0){
+      html += '<span style="color:#2e7d32">— aucune erreur</span>';
+    } else {
+      html += '<span style="color:#c62828">— ' + j.count + ' total</span>';
+      // Next action suggestion based on failing probe
+      const probes = (j.errors||[]).map(e => e.probe||'');
+      let action = 'Consulter /desk/logs/latest pour le détail.';
+      if(probes.some(p => p.includes('8000') || p.includes('webhook'))){
+        action = 'Port 8000 injoignable — démarrer le webhook server ou localcms.';
+      } else if(probes.some(p => p.includes('8010') || p.includes('perf'))){
+        action = 'Erreur de sonde Perf — vérifier le service sur port 8010.';
+      }
+      html += '<div style="margin:4px 0 4px 0;padding:4px 8px;border-radius:4px;background:#fff3e0;border-left:2px solid #e65100;color:#555">Action suggérée : ' + action + '</div>';
+      html += '<table style="width:100%;font-size:11px;margin-top:2px">';
+      html += '<thead><tr><th>heure</th><th>probe</th><th>erreur</th></tr></thead><tbody>';
+      for(const e of (j.errors||[]).slice(0,5)){
+        const t = (e.ts||'').slice(11,19);
+        const probe = e.probe||'?';
+        const err = e.error||'?';
+        html += `<tr><td style="white-space:nowrap;color:#888;padding-right:8px">${t}</td><td style="color:#888;padding-right:8px">${probe}</td><td style="color:#c62828">${err}</td></tr>`;
+      }
+      html += '</tbody></table>';
+      if(j.count > 5){
+        html += '<div class="muted" style="margin-top:2px">+ ' + (j.count-5) + ' autres — voir <a href="/desk/errors">errors log</a></div>';
+      }
+    }
+    el('errorDiagnostics').innerHTML = html;
+  }catch(e){
+    el('errorDiagnostics').innerHTML = '<span class="muted">erreurs : inaccessible</span>';
   }
 }
 
