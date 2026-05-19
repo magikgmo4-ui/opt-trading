@@ -81,22 +81,23 @@ class TestAutoItemsPreFilled(unittest.TestCase):
         self.assertGreaterEqual(pass_count, 10)
 
 
-class TestHumanItemsOpenCheckboxes(unittest.TestCase):
+class TestHumanItemsFilledCheckboxes(unittest.TestCase):
 
     def setUp(self):
         self.content = CHECKLIST.read_text()
 
-    def test_human_items_have_open_checkboxes(self):
-        # Human items should have "[ ] PASS  [ ] FAIL" pattern
-        self.assertIn("[ ] PASS  [ ] FAIL", self.content)
+    def test_human_items_have_filled_checkboxes(self):
+        # Human items should be checked after review: "[x] PASS  [ ] FAIL"
+        self.assertIn("[x] PASS  [ ] FAIL", self.content)
 
     def test_human_items_count(self):
-        count = self.content.count("[ ] PASS  [ ] FAIL")
+        count = self.content.count("[x] PASS  [ ] FAIL")
         self.assertGreaterEqual(count, 10)
 
-    def test_signature_block_is_blank(self):
-        # The signature date/reviewer fields should contain blank underscores
-        self.assertIn("________________________________", self.content)
+    def test_signature_block_is_filled(self):
+        # Signature block should be signed after execution
+        self.assertIn("2026-05-19", self.content)
+        self.assertIn("Claude", self.content)
 
 
 class TestChecklistSafety(unittest.TestCase):
