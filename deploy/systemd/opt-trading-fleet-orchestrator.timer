@@ -1,0 +1,12 @@
+[Unit]
+Description=Opt Trading Fleet Orchestrator — runs every 5 minutes
+Requires=opt-trading-fleet-orchestrator.service
+
+[Timer]
+OnBootSec=120s
+OnUnitActiveSec=5min
+Persistent=true
+Unit=opt-trading-fleet-orchestrator.service
+
+[Install]
+WantedBy=timers.target

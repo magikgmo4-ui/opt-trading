@@ -23,6 +23,8 @@ import socket
 import subprocess
 import sys
 import time
+import urllib.error
+import urllib.request
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
@@ -246,6 +248,114 @@ def run_fleet(
 
 
 # ---------------------------------------------------------------------------
+# Telegram notification
+# ---------------------------------------------------------------------------
+
+def _send_telegram(token: str, chat_id: str, message: str) -> bool:
+    url = f"https://api.telegram.org/bot{token}/sendMessage"
+    payload = json.dumps({"chat_id": chat_id, "text": message, "parse_mode": "HTML"}).encode()
+    req = urllib.request.Request(
+        url, data=payload,
+        headers={"Content-Type": "application/json"}, method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            return resp.status == 200
+    except Exception:
+        return False
+
+
+def _load_previous_fleet(data_dir: str) -> Optional[Dict]:
+    p = Path(data_dir) / "fleet_status.json"
+    if p.exists():
+        try:
+            return json.loads(p.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+    return None
+
+
+def _fleet_changes(prev: Optional[Dict], curr: Dict) -> List[str]:
+    """Return list of human-readable change strings worth notifying about."""
+    changes: List[str] = []
+
+    prev_status = prev.get("fleet_status") if prev else None
+    curr_status = curr["fleet_status"]
+    if prev_status != curr_status:
+        arrow = f"{prev_status} → {curr_status}" if prev_status else curr_status
+        changes.append(f"fleet: {arrow}")
+
+    prev_machines = prev.get("machines", {}) if prev else {}
+    curr_machines = curr.get("machines", {})
+
+    for m, mdata in curr_machines.items():
+        prev_m = prev_machines.get(m, {})
+        # reachable transition
+        was_reachable = prev_m.get("reachable", True) if prev_m else True
+        is_reachable = mdata.get("reachable", True)
+        if was_reachable and not is_reachable:
+            changes.append(f"{m}: reachable → UNREACHABLE")
+        elif not was_reachable and is_reachable:
+            changes.append(f"{m}: unreachable → back online")
+        # stale transition
+        was_stale = prev_m.get("stale", False) if prev_m else False
+        is_stale = mdata.get("stale", False)
+        if not was_stale and is_stale:
+            changes.append(f"{m}: went STALE ({mdata.get('age_minutes', '?')}m)")
+        elif was_stale and not is_stale:
+            changes.append(f"{m}: stale → fresh")
+        # status degradation
+        prev_ms = prev_m.get("overall_status") if prev_m else None
+        curr_ms = mdata.get("overall_status")
+        if prev_ms and curr_ms and prev_ms != curr_ms:
+            changes.append(f"{m}: {prev_ms} → {curr_ms}")
+
+    return changes
+
+
+def maybe_notify_fleet(
+    report: Dict,
+    prev: Optional[Dict],
+    no_telegram: bool = False,
+) -> None:
+    if no_telegram:
+        return
+
+    token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+    chat_id = os.environ.get("TELEGRAM_CHAT_ID", "") or os.environ.get("ALLOWED_CHAT_ID", "")
+    if not token or not chat_id:
+        return
+
+    changes = _fleet_changes(prev, report)
+    if not changes:
+        return
+
+    fleet_status = report["fleet_status"]
+    ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    run_short = report["run_id"][:8]
+
+    unreachable = report.get("unreachable_machines", [])
+    stale = report.get("stale_machines", [])
+    failing = report.get("failing_machines", [])
+
+    lines = [
+        f"[fleet] <b>{fleet_status}</b>",
+        f"Host: <code>{report['orchestrator_host']}</code>  |  {ts}",
+        f"Run: <code>{run_short}</code>",
+        "",
+        "\n".join(f"• {c}" for c in changes),
+    ]
+    if unreachable:
+        lines.append(f"Unreachable: {', '.join(unreachable)}")
+    if stale:
+        lines.append(f"Stale: {', '.join(stale)}")
+    if failing:
+        lines.append(f"Failing: {', '.join(failing)}")
+
+    _send_telegram(token, chat_id, "\n".join(lines))
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
@@ -255,11 +365,17 @@ def main() -> int:
     parser.add_argument("--data-dir", default="/opt/trading/data/runtime_health",
                         help="Output data directory")
     parser.add_argument("--dry-run", action="store_true", help="Print results, do not write files")
+    parser.add_argument("--no-telegram", action="store_true", help="Suppress Telegram notifications")
     args = parser.parse_args()
+
+    prev = _load_previous_fleet(args.data_dir)
 
     t0 = time.monotonic()
     report = run_fleet(args.map, args.data_dir, dry_run=args.dry_run)
     elapsed = round(time.monotonic() - t0, 3)
+
+    if not args.dry_run:
+        maybe_notify_fleet(report, prev, no_telegram=args.no_telegram)
 
     summary = {
         "timestamp": report["timestamp"],

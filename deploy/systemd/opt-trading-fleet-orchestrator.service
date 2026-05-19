@@ -1,0 +1,23 @@
+[Unit]
+Description=Opt Trading Fleet Orchestrator (diagnostic aggregator)
+Documentation=file:///opt/trading/modules/runtime_health/fleet_orchestrator.py
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=ghost
+Group=ghost
+WorkingDirectory=/opt/trading
+EnvironmentFile=-/etc/trading/telegram.env
+EnvironmentFile=-/etc/trading/runtime.env
+EnvironmentFile=-/opt/trading/env/telegram.env
+EnvironmentFile=-/opt/trading/env/runtime.env
+ExecStart=/opt/trading/scripts/fleet_orchestrator.sh
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=ot-fleet-orch
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
