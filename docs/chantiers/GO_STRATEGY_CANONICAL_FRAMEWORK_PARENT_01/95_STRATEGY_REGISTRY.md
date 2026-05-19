@@ -34,6 +34,7 @@ Toute stratégie utilisable dans le pipeline doit figurer ici.
 | 5 | `GOLD_CFD_LONG` | `v0.1.0` | `hl_structure_ma_buy` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
 | 6 | `range_strategy_v1` | `v0.1.0` | `range_boundary_reversal` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
 | 7 | `btc_coinm_accumulation` | `v0.1.0` | `dca_accumulation_hedge` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
+| 8 | `DCA_ON_FEAR_SOLID_STOCKS` | `v0.1.0` | `dca_fear_entry` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
 
 ---
 
@@ -164,6 +165,24 @@ Toute stratégie utilisable dans le pipeline doit figurer ici.
 | `runtime_surfaces` | `(aucune — doc-only concept)` |
 | `priority` | `P4` |
 | `created_at` | `2026-05-18` |
+
+### 3.8_DCA_ON_FEAR_SOLID_STOCKS
+
+| Champ | Valeur |
+|---|---|
+| `strategy_id` | `DCA_ON_FEAR_SOLID_STOCKS` |
+| `strategy_version` | `v0.1.0` |
+| `setup_type` | `dca_fear_entry` |
+| `family` | `equity_dca` |
+| `direction` | `LONG` |
+| `lifecycle` | `CANDIDATE` |
+| `perf_status` | `UNMEASURED` |
+| `go_id` | `GO_OPT_TRADING_STOCKS_PARENT_DCA_ON_FEAR_SOLID_STOCKS_01` |
+| `parent_go` | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
+| `docs_path` | `docs/chantiers/GO_OPT_TRADING_STOCKS_PARENT_DCA_ON_FEAR_SOLID_STOCKS_01/` |
+| `runtime_surfaces` | `(aucune — doc-only framework)` |
+| `priority` | `P5` |
+| `created_at` | `2026-05-19` |
 
 ---
 
