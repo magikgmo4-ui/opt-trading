@@ -13,6 +13,7 @@ EnvironmentFile=-/etc/trading/telegram.env
 EnvironmentFile=-/etc/trading/runtime.env
 EnvironmentFile=-/opt/trading/env/telegram.env
 EnvironmentFile=-/opt/trading/env/runtime.env
+EnvironmentFile=-/opt/trading/modules/bot_vision_step2/config/bot_vision.env
 ExecStart=/opt/trading/scripts/runtime_healthcheck.sh
 StandardOutput=journal
 StandardError=journal

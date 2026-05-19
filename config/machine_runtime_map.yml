@@ -24,11 +24,11 @@ machines:
       - mimo_open_observer.service
 
     required_timers:
-      - bot_vision_step2_send.timer
       - bot_vision_step2_prune.timer
-      - macro_xau.timer
 
     optional_timers:
+      - bot_vision_step2_send.timer
+      - macro_xau.timer
       - desk_retention.timer
       - desk_pro_dry_run.timer
 
@@ -69,12 +69,12 @@ machines:
 
     required_env:
       - TELEGRAM_BOT_TOKEN
-      - ALLOWED_CHAT_ID
+      - TELEGRAM_CHAT_ID
       - OPENAI_API_KEY
 
     optional_env:
       - TV_WEBHOOK_KEY
-      - TELEGRAM_CHAT_ID
+      - ALLOWED_CHAT_ID
 
     forbidden_services:
       - live-trade-executor.service
