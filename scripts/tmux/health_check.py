@@ -22,6 +22,7 @@ ALL_SESSIONS: frozenset[str] = frozenset({
     "desk-pro",
     "kg-repo",
     "localcms-ui",
+    "fleet-status",
 })
 
 
