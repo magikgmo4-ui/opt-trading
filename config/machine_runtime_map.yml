@@ -150,6 +150,8 @@ machines:
     role: ide_patch_operator
     description: "Dev/IDE, patchs, documentation, exécution GO — Windows"
     os_family: windows
+    hostname_aliases:
+      - DESKTOP-1KDQTBH
 
     repo_root_candidates:
       - "%USERPROFILE%\\opt-trading"

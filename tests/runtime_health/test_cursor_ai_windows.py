@@ -48,6 +48,18 @@ class TestCursorAiMapDeclaration(unittest.TestCase):
         self.mm = _load_real_map()
         self.scope = _cursor_ai_scope(self.mm)
 
+    def test_hostname_alias_resolves_to_cursor_ai_scope(self):
+        """DESKTOP-1KDQTBH must resolve to the cursor-ai scope."""
+        scope = self.mm.scope_for("DESKTOP-1KDQTBH")
+        self.assertIsNotNone(scope, "DESKTOP-1KDQTBH not found via hostname_aliases")
+        self.assertEqual(scope.get("role"), "ide_patch_operator")
+
+    def test_canonical_name_for_alias(self):
+        self.assertEqual(self.mm.canonical_name_for("DESKTOP-1KDQTBH"), "cursor-ai")
+
+    def test_canonical_name_for_direct(self):
+        self.assertEqual(self.mm.canonical_name_for("cursor-ai"), "cursor-ai")
+
     def test_os_family_is_windows(self):
         self.assertEqual(self.scope.get("os_family", "").lower(), "windows")
 

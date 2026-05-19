@@ -58,19 +58,37 @@ class MachineMap:
         return list(self._machines.keys())
 
     def scope_for(self, machine: str) -> Optional[Dict[str, Any]]:
-        return self._machines.get(machine)
+        """Return scope by canonical machine name or hostname_aliases."""
+        direct = self._machines.get(machine)
+        if direct is not None:
+            return direct
+        for canonical, scope in self._machines.items():
+            if machine in scope.get("hostname_aliases", []):
+                return scope
+        return None
+
+    def canonical_name_for(self, machine: str) -> str:
+        """Return the canonical machine name for a hostname or alias."""
+        if machine in self._machines:
+            return machine
+        for canonical, scope in self._machines.items():
+            if machine in scope.get("hostname_aliases", []):
+                return canonical
+        return machine
 
     def scope_for_current_host(self) -> tuple:
         """Return (hostname, machine_name, scope_dict).
-        machine_name may differ from hostname (e.g. MACHINE_ROLE env override).
+        machine_name may differ from hostname (e.g. MACHINE_ROLE env override or hostname_aliases).
         """
         override = os.environ.get("MACHINE_ROLE", "").strip()
         hostname = socket.gethostname()
         machine_name = override if override else hostname
         scope = self.scope_for(machine_name)
-        if scope is None and machine_name != hostname:
+        if scope is not None:
+            machine_name = self.canonical_name_for(machine_name)
+        elif machine_name != hostname:
             scope = self.scope_for(hostname)
-            machine_name = hostname
+            machine_name = self.canonical_name_for(hostname) if scope else hostname
         return hostname, machine_name, scope
 
     def check_forbidden_services(self, scope: Dict[str, Any]) -> List[Dict[str, Any]]:
