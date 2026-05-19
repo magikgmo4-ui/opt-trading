@@ -1,0 +1,35 @@
+[
+  {
+    "page_id": "tv_btc_h1",
+    "source": "tradingview",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "H1",
+    "url": "https://www.tradingview.com/chart/?symbol=BTCUSDT.P",
+    "wait_until": "networkidle",
+    "post_load_wait_ms": 3000,
+    "timeout_ms": 30000,
+    "screenshot_mode": "viewport"
+  },
+  {
+    "page_id": "tv_xau_h1",
+    "source": "tradingview",
+    "symbol": "XAUUSD",
+    "timeframe": "H1",
+    "url": "https://www.tradingview.com/chart/?symbol=OANDA:XAUUSD",
+    "wait_until": "domcontentloaded",
+    "post_load_wait_ms": 30000,
+    "timeout_ms": 60000,
+    "screenshot_mode": "viewport"
+  },
+  {
+    "page_id": "cg_btc_flow",
+    "source": "coinglass",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "FLOW",
+    "url": "https://www.coinglass.com/pro/futures/LiquidationHeatMap?coin=BTC",
+    "wait_until": "domcontentloaded",
+    "post_load_wait_ms": 20000,
+    "timeout_ms": 60000,
+    "screenshot_mode": "viewport"
+  }
+]

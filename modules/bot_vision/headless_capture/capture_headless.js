@@ -18,7 +18,12 @@ const TMP_DIR = process.env.BOT_VISION_TMP || '/tmp/bot_vision_headless';
 const OUT_DIR = process.env.BOT_VISION_OUT || '/srv/sftp/shared_files/shared/vision_inbox';
 const VIEWPORT = { width: 1920, height: 1080 };
 const PAGE_TIMEOUT = 30000;
+const POST_LOAD_WAIT_MS = 3000;
+const WAIT_UNTIL = 'networkidle';
+const SCREENSHOT_MODE = 'viewport';
 const MIN_FILE_SIZE = 1024; // 1 KB minimum
+const VALID_WAIT_UNTIL = new Set(['networkidle', 'domcontentloaded', 'load']);
+const VALID_SCREENSHOT_MODE = new Set(['viewport']);
 
 // ── Parse args ──────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -97,11 +102,47 @@ function cleanupStaleUploads(dir) {
   }
 }
 
+function numberOption(value, defaultValue, name, { min = 0 } = {}) {
+  if (value === undefined || value === null) return defaultValue;
+  const n = Number(value);
+  if (!Number.isFinite(n) || n < min) {
+    throw new Error(`Invalid ${name}: ${value}`);
+  }
+  return Math.trunc(n);
+}
+
+function profileOptions(profile) {
+  const waitUntil = profile.wait_until || WAIT_UNTIL;
+  if (!VALID_WAIT_UNTIL.has(waitUntil)) {
+    throw new Error(`Invalid wait_until: ${waitUntil}`);
+  }
+
+  const screenshotMode = profile.screenshot_mode || SCREENSHOT_MODE;
+  if (!VALID_SCREENSHOT_MODE.has(screenshotMode)) {
+    throw new Error(`Invalid screenshot_mode: ${screenshotMode}`);
+  }
+
+  return {
+    waitUntil,
+    timeoutMs: numberOption(profile.timeout_ms, PAGE_TIMEOUT, 'timeout_ms', { min: 1 }),
+    postLoadWaitMs: numberOption(profile.post_load_wait_ms, POST_LOAD_WAIT_MS, 'post_load_wait_ms'),
+    screenshotMode
+  };
+}
+
 // ── Capture ─────────────────────────────────────────────
 async function captureOne(profile) {
-  const { source, symbol, timeframe, url } = profile;
+  const { page_id: pageId, source, symbol, timeframe, url } = profile;
   if (!source || !url) {
     console.error(`Invalid profile (missing source/url): ${JSON.stringify(profile)}`);
+    return;
+  }
+
+  let options;
+  try {
+    options = profileOptions(profile);
+  } catch (err) {
+    console.error(`Invalid profile options for ${source} ${symbol || ''}: ${err.message}`);
     return;
   }
 
@@ -110,6 +151,7 @@ async function captureOne(profile) {
   const baseJson = basePng.replace('.png', '.json');
 
   console.log(`\n[${tsStr}] Capturing: ${source} ${symbol || ''} (${url})`);
+  console.log(`LOAD: wait_until=${options.waitUntil} timeout_ms=${options.timeoutMs} post_load_wait_ms=${options.postLoadWaitMs} screenshot_mode=${options.screenshotMode}`);
 
   ensureDir(TMP_DIR);
   ensureDir(OUT_DIR);
@@ -127,12 +169,13 @@ async function captureOne(profile) {
     });
 
     const page = await context.newPage();
-    page.setDefaultTimeout(PAGE_TIMEOUT);
+    page.setDefaultTimeout(options.timeoutMs);
 
-    await page.goto(url, { waitUntil: 'networkidle', timeout: PAGE_TIMEOUT });
+    await page.goto(url, { waitUntil: options.waitUntil, timeout: options.timeoutMs });
 
-    // Extra wait for charts to render
-    await page.waitForTimeout(3000);
+    if (options.postLoadWaitMs > 0) {
+      await page.waitForTimeout(options.postLoadWaitMs);
+    }
 
     const pngBuffer = await page.screenshot({ type: 'png', fullPage: false });
 
@@ -147,10 +190,15 @@ async function captureOne(profile) {
     const sidecar = {
       producer: 'bot_vision_headless',
       capture_mode: 'playwright_chromium',
+      page_id: pageId || null,
       source,
       symbol: symbol || 'dashboard',
       timeframe: timeframe || 'H1',
       url,
+      wait_until: options.waitUntil,
+      timeout_ms: options.timeoutMs,
+      post_load_wait_ms: options.postLoadWaitMs,
+      screenshot_mode: options.screenshotMode,
       viewport: VIEWPORT,
       created_at_utc: new Date().toISOString(),
       output_png: basePng,
