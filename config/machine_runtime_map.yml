@@ -91,11 +91,11 @@ machines:
 
     required_services:
       - shared-sshfs.service
-      - daily-session.service
 
     optional_services:
       - algo-hf-api.service
       - snap.ollama.listener.service
+      # daily-session.service est Type=oneshot — vérifié via timer, pas is-active
 
     required_timers: []
 
