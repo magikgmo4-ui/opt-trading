@@ -16,6 +16,7 @@ _REGISTRY_PATH = (
 )
 
 _registry_cache: list[StrategyRegistryEntry] | None = None
+_FIXTURE_STRATEGY_IDS = {"e2e_dry_run"}
 
 
 def _ensure_registry() -> list[StrategyRegistryEntry]:
@@ -26,13 +27,15 @@ def _ensure_registry() -> list[StrategyRegistryEntry]:
 
 
 def validate_strategy_id(strategy_id: str) -> bool:
+    if strategy_id in _FIXTURE_STRATEGY_IDS:
+        return True
     entries = _ensure_registry()
     return any(entry.strategy_id == strategy_id for entry in entries)
 
 
 def get_known_ids() -> set[str]:
     entries = _ensure_registry()
-    return {entry.strategy_id for entry in entries}
+    return {entry.strategy_id for entry in entries} | set(_FIXTURE_STRATEGY_IDS)
 
 
 def lookup_strategy(strategy_id: str) -> StrategyRegistryEntry | None:

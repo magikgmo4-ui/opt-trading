@@ -163,6 +163,7 @@ class TestDailySessionJournalPipeline(unittest.TestCase):
         self.assertIn("Datasheet", stdout)
         self.assertIn("Learning", stdout)
         self.assertIn("Telegram", stdout)
+        self.assertIn("signal_received", stdout)
         self.assertIn("TMUX", stdout)
         self.assertIn("LocalCMS", stdout)
 
