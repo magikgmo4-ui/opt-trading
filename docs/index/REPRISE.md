@@ -32,6 +32,7 @@ Base de pilotage active retenue pour `opt-trading` :
 - canon décisionnel = **état réel du repo `opt-trading`, relu sous la matrice maître**
 - bundles zip = **supports secondaires** de lecture, transfert ou exécution IDE
 - exclusion explicite = `pass` et `reference` hors exécution courante
+- `GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01` et `GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01` restent `OPEN` dans `GO_INDEX.md`, mais hors pilotage immédiat de cette passe resserrée
 
 ## Runtime (hors matrice active)
 
