@@ -54,6 +54,18 @@ mobile.
   dans cette passe
 - le smoke mobile physique reste non prouve
 
+## Validation distante (historique repo)
+
+Une passe sur `origin/sot/mainline` mentionne une validation distante SSH (prod)
+le 2026-05-19. Cette section reprend ces elements comme historique; les
+verifications restent a re-executer si le contexte runtime change.
+
+- `tmux ls` ghost sur db-layer : 5 sessions (fleet-status, kg-repo, localcms-ui, openclaw-core, strict-workers)
+- `tmux ls` openclaw sur db-layer : 1 session (openclaw-gateway)
+- `gateway_openclaw health` : OK (Telegram ok)
+- `gateway_openclaw probe` : Reachable yes (db-layer identifie)
+- SSH admin-trading depuis db-layer : PASS — 5 sessions (apps-connectors, desk-pro, market-data, screeners, trading-pipeline)
+
 ## Validation locale
 
 Commandes executees dans cette passe :

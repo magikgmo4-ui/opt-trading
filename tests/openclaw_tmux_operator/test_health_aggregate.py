@@ -18,16 +18,29 @@ _FAKE_HOSTNAME = "test-host"
 _MACHINES = ["db-layer", "admin-trading", "fantome"]
 
 
-def _injected(sessions: list, health_status: str | None = None, reachable: bool = True) -> dict:
+def _injected(
+    sessions: list,
+    health_status: str | None = None,
+    reachable: bool = True,
+    fleet_status: str | None = None,
+    fleet_stale: bool | None = None,
+) -> dict:
     health = None
     if health_status is not None:
         health = {
             "overall_status": health_status,
             "timestamp": "2026-05-19T12:00:00+00:00",
         }
+    fleet = None
+    if fleet_status is not None:
+        fleet = {
+            "overall_status": fleet_status,
+            "stale": fleet_stale if fleet_stale is not None else False,
+        }
     return {
         "tmux": {"reachable": reachable, "source": "injected", "sessions": sessions},
         "health": health,
+        "fleet": fleet,
     }
 
 
@@ -90,6 +103,14 @@ class TestRunAggregateAllReachable(unittest.TestCase):
     def test_no_health_status(self):
         for m in _MACHINES:
             self.assertIsNone(self.report["machines"][m]["runtime_health_status"])
+
+    def test_no_fleet_status(self):
+        for m in _MACHINES:
+            self.assertIsNone(self.report["machines"][m]["fleet_status"])
+
+    def test_no_fleet_stale(self):
+        for m in _MACHINES:
+            self.assertIsNone(self.report["machines"][m]["fleet_stale"])
 
 
 # ---------------------------------------------------------------------------
@@ -209,6 +230,80 @@ class TestAggregateMachineUnreachable(unittest.TestCase):
 
 
 # ---------------------------------------------------------------------------
+# fleet_status enrichment
+# ---------------------------------------------------------------------------
+
+class TestFleetStatusEnrichment(unittest.TestCase):
+
+    def test_fleet_status_warn(self):
+        result = aggregate_machine(
+            "admin-trading", _FAKE_HOSTNAME,
+            injected=_injected(["screeners"], fleet_status="WARN", fleet_stale=False),
+        )
+        self.assertEqual(result["fleet_status"], "WARN")
+
+    def test_fleet_status_pass(self):
+        result = aggregate_machine(
+            "fantome", _FAKE_HOSTNAME,
+            injected=_injected([], fleet_status="PASS", fleet_stale=False),
+        )
+        self.assertEqual(result["fleet_status"], "PASS")
+
+    def test_fleet_stale_true(self):
+        result = aggregate_machine(
+            "cursor-ai", _FAKE_HOSTNAME,
+            injected=_injected([], fleet_status="WARN", fleet_stale=True),
+        )
+        self.assertTrue(result["fleet_stale"])
+
+    def test_fleet_stale_false(self):
+        result = aggregate_machine(
+            "db-layer", _FAKE_HOSTNAME,
+            injected=_injected(["openclaw-core"], fleet_status="WARN", fleet_stale=False),
+        )
+        self.assertFalse(result["fleet_stale"])
+
+    def test_fleet_none_when_not_injected(self):
+        result = aggregate_machine(
+            "db-layer", _FAKE_HOSTNAME,
+            injected=_injected(["openclaw-core"]),
+        )
+        self.assertIsNone(result["fleet_status"])
+        self.assertIsNone(result["fleet_stale"])
+
+    def test_fleet_and_health_combined(self):
+        result = aggregate_machine(
+            "db-layer", _FAKE_HOSTNAME,
+            injected=_injected(
+                ["openclaw-core"], health_status="PASS",
+                fleet_status="WARN", fleet_stale=False,
+            ),
+        )
+        self.assertEqual(result["runtime_health_status"], "PASS")
+        self.assertEqual(result["fleet_status"], "WARN")
+        self.assertFalse(result["fleet_stale"])
+
+    def test_fleet_in_run_aggregate(self):
+        injected_map = {
+            "db-layer": _injected(["openclaw-core"], fleet_status="WARN", fleet_stale=False),
+            "admin-trading": _injected(["screeners"], fleet_status="PASS", fleet_stale=False),
+            "fantome": _injected([], fleet_status="PASS", fleet_stale=False),
+        }
+        report = run_aggregate(_MACHINES, hostname=_FAKE_HOSTNAME, injected_map=injected_map)
+        self.assertEqual(report["machines"]["admin-trading"]["fleet_status"], "PASS")
+        self.assertEqual(report["machines"]["db-layer"]["fleet_status"], "WARN")
+
+    def test_fleet_stale_preserved_in_aggregate(self):
+        injected_map = {
+            m: _injected([], fleet_status="WARN", fleet_stale=(m == "cursor-ai"))
+            for m in ["db-layer", "cursor-ai"]
+        }
+        report = run_aggregate(["db-layer", "cursor-ai"], hostname=_FAKE_HOSTNAME,
+                               injected_map=injected_map)
+        self.assertFalse(report["machines"]["db-layer"]["fleet_stale"])
+
+
+# ---------------------------------------------------------------------------
 # Output structure — required keys
 # ---------------------------------------------------------------------------
 
@@ -217,6 +312,7 @@ class TestOutputStructure(unittest.TestCase):
     _MACHINE_KEYS = {
         "machine", "reachable", "tmux_source", "tmux_sessions",
         "runtime_health_status", "runtime_health_age_minutes",
+        "fleet_status", "fleet_stale",
     }
     _REPORT_KEYS = {
         "timestamp", "orchestrator_host", "machines",

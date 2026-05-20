@@ -222,7 +222,8 @@ machines:
     optional_services: []     # openclaw-gateway est sur db-layer, pas fantome
 
     required_timers: []
-    optional_timers: []
+    optional_timers:
+      - opt-trading-runtime-health.timer
 
     required_venvs:
       - path: /opt/trading/venv
@@ -252,6 +253,7 @@ machines:
     log_units: []
 
     # fantome ne fait pas tourner webhook/perf/desk_pro ni openclaw-gateway
+    # runtime-health.timer est deploye comme timer systeme read-only pour la visibilite fleet
     optional_http_checks: []
     optional_artifact_paths: []
     optional_log_files: []

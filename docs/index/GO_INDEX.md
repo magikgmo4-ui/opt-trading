@@ -20,7 +20,7 @@ surface: continuity
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 point_de_reprise: "Section Tableau canonique des chantiers"
-updated_at: 2026-05-09
+updated_at: 2026-05-20
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/REPO_ROLE.md
@@ -119,24 +119,21 @@ Normalisation retenue :
 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO_RUNTIME_GUARDRAILS_01 | REFERENCE | non | `docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/00_cadrage.md` |
 | GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01 | GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01 | — | OPEN | oui | `docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01/00_INITIAL_PROJECT_DOC.md`<br>`docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01/CLICKUP_IMPLEMENTATION_BUNDLE_V1/INDEX.md`<br>`docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01/90_CLOSEOUT.md` |
 | GO_OPT_TRADING_STRICT_WORKERS_PARENT_01 | GO_OPT_TRADING_STRICT_WORKERS_PARENT_01 | — | OPEN | non | branche `go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01`<br>`docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01/00_INITIAL_PROJECT_DOC.md` |
+| GO_OPT_TRADING_AI_STRICT_WORKERS_APPS_CLASSIFICATION_01 | GO_OPT_TRADING_AI_STRICT_WORKERS_APPS_CLASSIFICATION_01 | — | OPEN | oui | `docs/chantiers/GO_OPT_TRADING_AI_STRICT_WORKERS_APPS_CLASSIFICATION_01/00_classification_matrix.md` |
+| GO_OPT_TRADING_AI_STRICT_WORKERS_APPS_CLASSIFICATION_01 | GO_OPT_TRADING_STRICT_WORKERS_ORCHESTRATION_DEPLOYMENT_CLASSIFICATION_REVIEW_01 | — | OPEN | oui | `docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_ORCHESTRATION_DEPLOYMENT_CLASSIFICATION_REVIEW_01/00_INITIAL_PROJECT_DOC.md`<br>`docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_ORCHESTRATION_DEPLOYMENT_CLASSIFICATION_REVIEW_01/20_CLASSIFICATION_REVIEW.md`<br>`docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_ORCHESTRATION_DEPLOYMENT_CLASSIFICATION_REVIEW_01/90_REPRISE_POINT.md` |
 
 ---
 
-## Priorite operatoire (7 GO non clos)
+## Priorite operatoire (8 GO non clos retenus)
 
 - P0 : `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
-- P1 : `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`, `GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01`
-- P2 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01`
+- P1 : `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
+- P2 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_OPT_TRADING_AI_STRICT_WORKERS_APPS_CLASSIFICATION_01`, `GO_OPT_TRADING_STRICT_WORKERS_ORCHESTRATION_DEPLOYMENT_CLASSIFICATION_REVIEW_01`
 
-Le passage de 6 a 7 GO non clos retenus correspond a la re-inscription documentaire du parent :
+Les GO suivants restent `OPEN` dans le tableau canonique, mais hors priorite operatoire immediate de cette passe resserree :
+
 - `GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01`
-
-Le passage a 5 GO non clos retenus correspond a la sortie de `GO_OPT_TRADING_PARENT_NAMING_CANON_01` apres closeout parent.
-
-Le parent `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01` reste ouvert et canonique dans le tableau, mais hors perimetre d'absorption de cette priorisation resserree.
-
-Historique recent :
-- le palier precedent a 10 GO non clos correspondait au maintien temporaire de `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01` et `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01` comme actifs avant closeout local
+- `GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01`
 
 ---
 
@@ -285,7 +282,7 @@ Historique recent :
 - statut : open
 - titre court : continuité ClickUp parent et bundle d'exécution
 - dernier état connu : bundle doc-only mergé localement dans sot/mainline (c8362b7) ; closeout de phase review/merge produit ; parent non fermé
-- prochaine action : recroiser avec GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01 et GO_OPT_TRADING_STRICT_WORKERS_PARENT_01, puis décider du GO d'implémentation ClickUp
+- prochaine action : recroiser avec `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` et les surfaces strict-workers deja mergees sur `sot/mainline`, puis decider du GO d'implementation ClickUp
 - lien utile : `docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01/00_INITIAL_PROJECT_DOC.md`, `docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01/CLICKUP_IMPLEMENTATION_BUNDLE_V1/INDEX.md`, `docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01/90_CLOSEOUT.md`
 
 ### GO_OPT_TRADING_STRICT_WORKERS_PARENT_01
@@ -293,9 +290,27 @@ Historique recent :
 - type : chantier parent / strict workers / agents
 - statut : open
 - titre court : parent canonique strict workers IA a autonomie etroite
-- dernier etat connu : dossier complet sur branche `go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01` (initial_doc, progress, smoke_exec, smoke_validation, closeout draft) ; non merge dans mainline
-- prochaine action : merger le dossier dans mainline ou poursuivre sur branche, puis ouvrir le GO d'implementation strict workers
+- dernier etat connu : parent historique toujours present sur branche `go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01`, mais la continuite canonique de `sot/mainline` a bascule sur la chaine closee strict-workers/apps puis sur les GO bucketises merges `#645` et `#646`
+- prochaine action : decider explicitement si ce parent doit etre absorbe, maintenu comme ombrelle historique branche-only, ou rematerialise proprement sur `sot/mainline`
 - lien utile : branche `go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01`, `docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01/00_INITIAL_PROJECT_DOC.md` (sur branche)
+
+### GO_OPT_TRADING_AI_STRICT_WORKERS_APPS_CLASSIFICATION_01
+- repo : opt-trading
+- type : realignement doc-only / matrice AI strict-workers apps
+- statut : open
+- titre court : matrice canonique de classification des surfaces AI / strict-workers / apps
+- dernier etat connu : GO doc-only merge via PR #645 pour separer les surfaces strict-workers, systemd, runtime map, strategy, Airtable et OpenClaw en buckets distincts
+- prochaine action : utiliser cette matrice comme point d'entree canonique pour toute reprise bucketisee ; ne pas relancer de discovery globale tant qu'un bucket cible n'est pas invalide
+- lien utile : `docs/chantiers/GO_OPT_TRADING_AI_STRICT_WORKERS_APPS_CLASSIFICATION_01/00_classification_matrix.md`
+
+### GO_OPT_TRADING_STRICT_WORKERS_ORCHESTRATION_DEPLOYMENT_CLASSIFICATION_REVIEW_01
+- repo : opt-trading
+- type : review doc-only / bucket 1 strict-workers orchestration deployment
+- statut : open
+- titre court : revue bornee workflows + systemd + machine runtime map
+- dernier etat connu : GO doc-only merge via PR #646 ; scope borne a `strict-workers-validate`, `strict-workers-smoke`, `deploy/systemd/*`, overrides, `config/machine_runtime_map.yml` et `modules/*/systemd/*`
+- prochaine action : si validation humaine, ouvrir soit un GO repo-only pour les surfaces deploy/workflows, soit un GO separe pour l'alignement `machine_runtime_map`
+- lien utile : `docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_ORCHESTRATION_DEPLOYMENT_CLASSIFICATION_REVIEW_01/00_INITIAL_PROJECT_DOC.md`, `docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_ORCHESTRATION_DEPLOYMENT_CLASSIFICATION_REVIEW_01/20_CLASSIFICATION_REVIEW.md`, `docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_ORCHESTRATION_DEPLOYMENT_CLASSIFICATION_REVIEW_01/90_REPRISE_POINT.md`
 
 ### GO_EXTRACTEUR_TAGS_CANONICAL_METHOD_01
 - repo : opt-trading

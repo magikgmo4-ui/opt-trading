@@ -8,6 +8,7 @@ on:
       - ".github/workflows/strict-workers-validate.yml"
       - "scripts/ai/workers/job_packets/*.json"
       - "scripts/ai/workers/tasks.index.json"
+      - "scripts/ai/workers/models.registry.json"
       - "scripts/ai/workers/run_task.sh"
       - "scripts/ai/workers/_validate_job.py"
   workflow_dispatch:
