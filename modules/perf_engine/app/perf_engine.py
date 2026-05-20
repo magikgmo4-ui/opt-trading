@@ -12,6 +12,7 @@ import json
 import argparse
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any
 
 # --- Configuration ---
 MODULE_DIR = Path(__file__).resolve().parent.parent
@@ -180,6 +181,197 @@ class PerfEngine:
             print(f"  Rationale: {item['rationale']}")
             print("-" * 30)
 
+
+def _get_in(d: dict, path: list[str]) -> Any:
+    cur: Any = d
+    for k in path:
+        if not isinstance(cur, dict):
+            return None
+        cur = cur.get(k)
+    return cur
+
+
+def _first_non_empty(*vals: Any) -> Any:
+    for v in vals:
+        if v is None:
+            continue
+        if isinstance(v, str) and not v.strip():
+            continue
+        return v
+    return None
+
+
+def _parse_iso(ts: str) -> datetime | None:
+    if not ts:
+        return None
+    try:
+        return datetime.fromisoformat(ts.replace("Z", "+00:00"))
+    except Exception:
+        return None
+
+
+def _extract_observation_date(evt: dict) -> str | None:
+    ts = _first_non_empty(evt.get("produced_at"), evt.get("timestamp"), evt.get("_ts"))
+    dt = _parse_iso(str(ts)) if ts else None
+    if dt and dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    if dt:
+        return dt.astimezone(timezone.utc).strftime("%Y-%m-%d")
+
+    run_id = _first_non_empty(evt.get("run_id"), evt.get("source_run_id"))
+    if isinstance(run_id, str) and len(run_id) >= 8 and run_id[:8].isdigit():
+        return f"{run_id[:4]}-{run_id[4:6]}-{run_id[6:8]}"
+    return None
+
+
+def _as_float(x: Any) -> float | None:
+    if x is None or x == "":
+        return None
+    try:
+        return float(x)
+    except Exception:
+        return None
+
+
+def _load_events(path: str) -> list[dict]:
+    p = Path(path)
+    if not p.exists():
+        p = PROJECT_ROOT / path
+        if not p.exists():
+            raise FileNotFoundError(path)
+
+    raw = p.read_text(encoding="utf-8", errors="replace").strip()
+    if not raw:
+        return []
+
+    if raw.lstrip().startswith("["):
+        data = json.loads(raw)
+        if not isinstance(data, list):
+            raise ValueError("Input JSON must be a list")
+        return [x for x in data if isinstance(x, dict)]
+
+    out: list[dict] = []
+    for ln in raw.splitlines():
+        ln = ln.strip()
+        if not ln:
+            continue
+        try:
+            obj = json.loads(ln)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(obj, dict):
+            out.append(obj)
+    return out
+
+
+def score_strategy_events(
+    events: list[dict],
+    *,
+    strategy_id: str,
+    strategy_version: str | None = None,
+    min_sample_size: int = 30,
+    min_observation_days: int = 14,
+    min_pass_rate: float = 0.80,
+) -> dict[str, Any]:
+    filtered: list[dict] = []
+    for e in events:
+        sid = _first_non_empty(e.get("strategy_id"), _get_in(e, ["strategy", "strategy_id"]))
+        if sid != strategy_id:
+            continue
+        if strategy_version:
+            sv = _first_non_empty(e.get("strategy_version"), _get_in(e, ["strategy", "strategy_version"]))
+            if sv != strategy_version:
+                continue
+        filtered.append(e)
+
+    verdicts = []
+    outcomes = []
+    pnls: list[tuple[str, float]] = []
+    observation_days = set()
+
+    for e in filtered:
+        day = _extract_observation_date(e)
+        if day:
+            observation_days.add(day)
+
+        v = _first_non_empty(e.get("verdict"), e.get("pipeline_verdict"), e.get("validation_verdict"))
+        if v:
+            verdicts.append(str(v).upper())
+
+        o = _first_non_empty(e.get("outcome"), _get_in(e, ["pnl_paper", "outcome"]))
+        if o is not None and str(o).strip():
+            outcomes.append(str(o).lower())
+
+        pnl = _first_non_empty(e.get("pnl_net"), _get_in(e, ["pnl_paper", "net_pnl"]))
+        pnl_f = _as_float(pnl)
+        if pnl_f is not None:
+            produced_at = _first_non_empty(e.get("produced_at"), e.get("timestamp"), e.get("_ts"), "")
+            pnls.append((str(produced_at), pnl_f))
+
+    sample_size = len(filtered)
+    pass_count = sum(1 for v in verdicts if v in ("PASS", "APPROVED"))
+    pass_rate = (pass_count / len(verdicts)) if verdicts else None
+
+    win_count = sum(1 for o in outcomes if o in ("win", "won", "tp", "profit"))
+    loss_count = sum(1 for o in outcomes if o in ("loss", "lost", "sl", "stop", "fail"))
+    win_rate = (win_count / (win_count + loss_count)) if (win_count + loss_count) else None
+
+    pnl_cumulative = sum(p for _, p in pnls) if pnls else None
+    expectancy = (pnl_cumulative / len(pnls)) if pnls else None
+
+    max_dd = None
+    if pnls:
+        pnls_sorted = sorted(pnls, key=lambda t: t[0])
+        eq = 0.0
+        peak = 0.0
+        dd = 0.0
+        for _, p in pnls_sorted:
+            eq += p
+            if eq > peak:
+                peak = eq
+            dd = min(dd, eq - peak)
+        max_dd = dd
+
+    promotion_verdict = "INSUFFICIENT_SAMPLE"
+    promotion_reason = "sample_size_below_threshold"
+    if sample_size >= min_sample_size and len(observation_days) >= min_observation_days:
+        if pass_rate is not None and pass_rate < min_pass_rate:
+            promotion_verdict = "BLOCKED_LOW_PASS_RATE"
+            promotion_reason = "pass_rate_below_threshold"
+        else:
+            promotion_verdict = "PROMOTE_RECOMMENDED"
+            promotion_reason = "thresholds_met"
+    elif sample_size >= min_sample_size and len(observation_days) < min_observation_days:
+        promotion_reason = "observation_days_below_threshold"
+
+    return {
+        "strategy_id": strategy_id,
+        "strategy_version": strategy_version or "",
+        "as_of": datetime.now(timezone.utc).isoformat(),
+        "sample_size": sample_size,
+        "observation_days": len(observation_days),
+        "metrics": {
+            "pass_rate": pass_rate,
+            "win_rate": win_rate,
+            "pnl_cumulative": pnl_cumulative,
+            "expectancy": expectancy,
+            "max_drawdown": max_dd,
+        },
+        "promotion_gate": {
+            "verdict": promotion_verdict,
+            "reason": promotion_reason,
+            "thresholds": {
+                "min_sample_size": min_sample_size,
+                "min_observation_days": min_observation_days,
+                "min_pass_rate": min_pass_rate,
+            },
+        },
+        "retirement_gate": {
+            "verdict": "KEEP_OBSERVING",
+        },
+    }
+
+
 # --- CLI ---
 def main():
     parser = argparse.ArgumentParser(description="Perf Engine")
@@ -200,6 +392,14 @@ def main():
     explain_parser = subparsers.add_parser("explain", help="Explain perf logic")
     explain_parser.add_argument("--positions", help="Position results JSON")
     explain_parser.add_argument("--execution", help="Execution results JSON")
+
+    score_parser = subparsers.add_parser("strategy-score", help="Compute strategy score from Observation Events (JSONL/JSON list)")
+    score_parser.add_argument("--input", required=True, help="Path to events.jsonl or events.json (list)")
+    score_parser.add_argument("--strategy-id", required=True, help="Filter strategy_id")
+    score_parser.add_argument("--strategy-version", help="Optional filter strategy_version")
+    score_parser.add_argument("--min-sample-size", type=int, default=30)
+    score_parser.add_argument("--min-observation-days", type=int, default=14)
+    score_parser.add_argument("--min-pass-rate", type=float, default=0.80)
 
     args = parser.parse_args()
     engine = PerfEngine()
@@ -226,6 +426,17 @@ def main():
         pos = args.positions if args.positions else CONFIG_DIR / "sample_positions.json"
         exe = args.execution if args.execution else CONFIG_DIR / "sample_execution.json"
         engine.explain_results(pos, exe)
+    elif args.command == "strategy-score":
+        events = _load_events(args.input)
+        pack = score_strategy_events(
+            events,
+            strategy_id=args.strategy_id,
+            strategy_version=args.strategy_version,
+            min_sample_size=args.min_sample_size,
+            min_observation_days=args.min_observation_days,
+            min_pass_rate=args.min_pass_rate,
+        )
+        print(json.dumps(pack, indent=2, default=str))
     else:
         parser.print_help()
 
