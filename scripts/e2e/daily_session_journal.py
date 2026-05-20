@@ -36,6 +36,10 @@ logging.basicConfig(
 log = logging.getLogger("daily_session_journal")
 
 
+def _ascii_safe(s: str) -> str:
+    return s.encode("ascii", "replace").decode("ascii")
+
+
 def _resolve_run_id() -> str:
     today = datetime.now(timezone.utc).strftime("%Y%m%d")
     JOURNAL_DIR.mkdir(parents=True, exist_ok=True)
@@ -152,6 +156,14 @@ def _build_human_summary(metrics: dict, report: dict) -> str:
     lines.append("")
     lines.append("-- Telegram --")
     lines.append(f"  Dispatch previews: {metrics.get('telegram_dispatch_count', 0)}")
+    steps = {s["step"]: s["result"] for s in report.get("steps", [])}
+    dispatches = steps.get("1c_notification_dispatcher_dry_run", {}).get("dispatch", []) or []
+    for d in dispatches[:3]:
+        event_type = str(d.get("event_type", ""))
+        msg = str(d.get("message", ""))
+        msg_one = _ascii_safe(" ".join(msg.split()))
+        if msg_one:
+            lines.append(f"  {event_type}: {msg_one[:160]}")
     lines.append("")
     if report.get("sheets_sync", {}).get("enabled"):
         lines.append("-- Sheets --")
