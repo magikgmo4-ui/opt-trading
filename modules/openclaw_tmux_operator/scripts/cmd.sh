@@ -15,7 +15,23 @@ case "$cmd" in
   machine-status)
     if [ -z "$target" ]; then echo "usage: $0 machine-status <host>" >&2; exit 2; fi
     echo "=== $target ==="
-    ssh "$target" 'hostname; tmux ls 2>/dev/null || echo "no sessions"'
+    ssh -o BatchMode=yes -o ConnectTimeout=5 "$target" 'hostname; tmux ls 2>/dev/null || echo "no sessions"'
+    echo "--- fleet_status ---"
+    python3 -c "
+import json, sys
+try:
+    with open('${ROOT}/data/runtime_health/fleet_status.json') as f:
+        d = json.load(f)
+    entry = d.get('machines', {}).get('${target}', {})
+    if entry:
+        print('  status:     ', entry.get('overall_status', 'unknown'))
+        print('  stale:      ', entry.get('stale', False))
+        print('  age_minutes:', round(float(entry.get('age_minutes', 0) or 0), 1))
+    else:
+        print('  no fleet_status entry for ${target}')
+except Exception as e:
+    print('  fleet_status unavailable:', e)
+" 2>/dev/null || echo "  fleet_status unavailable"
     ;;
   tmux-status)
     if [ -z "$target" ]; then echo "usage: $0 tmux-status <host>" >&2; exit 2; fi
@@ -31,7 +47,7 @@ case "$cmd" in
     ;;
   logs)
     log_session="${2:-}"
-    if [ -z "$log_session" ]; then echo "usage: $0 logs <session> [pane]" >&2; exit 2; fi
+    if [ -z "$log_session" ]; then echo "usage: $0 logs <session>" >&2; exit 2; fi
     case "$log_session" in
       openclaw-core) echo "tail -f $ROOT/logs/gateway_openclaw.log" ;;
       fleet-status)  echo "tail -f $ROOT/logs/fleet_orchestrator.log" ;;
@@ -41,22 +57,33 @@ case "$cmd" in
     esac
     ;;
   session-logs)
-    # Show last N lines from a session log file (not just a hint path)
+    # Show last N lines from a session log. Optional host for SSH multi-machine.
+    # Usage: session-logs <session> [N=50] [host]
     log_session="${2:-}"
     lines="${3:-50}"
-    if [ -z "$log_session" ]; then echo "usage: $0 session-logs <session> [lines=50]" >&2; exit 2; fi
+    remote_host="${4:-}"
+    if [ -z "$log_session" ]; then
+      echo "usage: $0 session-logs <session> [N=50] [host]" >&2
+      exit 2
+    fi
     case "$log_session" in
-      openclaw-core) log_path="$ROOT/logs/gateway_openclaw.log" ;;
-      fleet-status)  log_path="$ROOT/logs/fleet_orchestrator.log" ;;
-      desk-pro)      log_path="$ROOT/logs/desk_pro.log" ;;
-      screeners)     log_path="$ROOT/logs/screeners.log" ;;
-      *)             log_path="$ROOT/logs/${log_session}.log" ;;
+      openclaw-core) log_file="gateway_openclaw.log" ;;
+      fleet-status)  log_file="fleet_orchestrator.log" ;;
+      desk-pro)      log_file="desk_pro.log" ;;
+      screeners)     log_file="screeners.log" ;;
+      *)             log_file="${log_session}.log" ;;
     esac
-    if [ -f "$log_path" ]; then
-      tail -n "$lines" "$log_path"
+    if [ -n "$remote_host" ]; then
+      ssh -o BatchMode=yes -o ConnectTimeout=5 "$remote_host" \
+        "tail -n ${lines} /opt/trading/logs/${log_file} 2>/dev/null || echo 'log not found: /opt/trading/logs/${log_file}'"
     else
-      echo "no log at $log_path" >&2
-      exit 1
+      log_path="$ROOT/logs/$log_file"
+      if [ -f "$log_path" ]; then
+        tail -n "$lines" "$log_path"
+      else
+        echo "no log at $log_path" >&2
+        exit 1
+      fi
     fi
     ;;
   health-all)
@@ -72,28 +99,29 @@ case "$cmd" in
   openclaw-health)
     host="${2:-db-layer}"
     ssh -o BatchMode=yes -o ConnectTimeout=5 "$host" \
-      "cd /opt/trading && bash modules/gateway_openclaw/scripts/cmd.sh health 2>&1 || echo 'openclaw health unavailable'"
+      "bash /opt/trading/modules/gateway_openclaw/scripts/cmd.sh health 2>&1 || echo 'openclaw health unavailable'"
     ;;
   openclaw-probe)
     host="${2:-db-layer}"
     ssh -o BatchMode=yes -o ConnectTimeout=5 "$host" \
-      "cd /opt/trading && bash modules/gateway_openclaw/scripts/cmd.sh probe 2>&1 || echo 'openclaw probe unavailable'"
+      "bash /opt/trading/modules/gateway_openclaw/scripts/cmd.sh probe 2>&1 || echo 'openclaw probe unavailable'"
     ;;
   *)
     cat >&2 <<'USAGE'
 usage: cmd.sh <command> [args...]
 
 Read-only status / health / log commands:
-  fleet-status                     fleet_orchestrator dry-run (local)
-  machine-status  <host>           hostname + tmux ls via SSH
-  tmux-status     <host>           tmux ls via SSH
-  attach-hint     <host> <session> print SSH + attach command
-  logs            <session>        print tail -f hint for session log
-  session-logs    <session> [N=50] print last N lines of session log
-  health-all                       tmux health_check.py (local)
-  health-aggregate [--dry-run]     multi-machine tmux + health aggregation
-  openclaw-health  [host=db-layer] OpenClaw gateway health via SSH
-  openclaw-probe   [host=db-layer] OpenClaw gateway probe via SSH
+  fleet-status                          fleet_orchestrator dry-run (local)
+  machine-status  <host>                hostname + tmux ls + fleet_status JSON
+  tmux-status     <host>                tmux ls via SSH
+  attach-hint     <host> <session>      print SSH + attach command
+  logs            <session>             print tail -f hint for session log
+  session-logs    <session> [N=50]      last N lines of session log (local)
+  session-logs    <session> [N=50] <host>  last N lines via SSH (remote)
+  health-all                            tmux health_check.py (local)
+  health-aggregate [--dry-run]          multi-machine tmux + health + fleet aggregation
+  openclaw-health  [host=db-layer]      OpenClaw gateway health via SSH
+  openclaw-probe   [host=db-layer]      OpenClaw gateway probe via SSH
 USAGE
     exit 2
     ;;

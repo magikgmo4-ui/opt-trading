@@ -23,6 +23,7 @@ from typing import Any, Dict, List, Optional, Tuple
 _REPO_ROOT = Path(__file__).resolve().parents[3]
 _DEFAULT_MAP = _REPO_ROOT / "config" / "machine_runtime_map.yml"
 _RUNTIME_HEALTH_PATH = "/opt/trading/data/runtime_health/latest.json"
+_FLEET_STATUS_PATH = _REPO_ROOT / "data" / "runtime_health" / "fleet_status.json"
 
 
 def _load_map(path: str) -> Dict[str, Any]:
@@ -90,25 +91,39 @@ def collect_runtime_health(machine: str, hostname: str) -> Optional[Dict[str, An
         return None
 
 
+def collect_fleet_entry(machine: str) -> Optional[Dict[str, Any]]:
+    """Return per-machine entry from local fleet_status.json (orchestrator output)."""
+    if not _FLEET_STATUS_PATH.exists():
+        return None
+    try:
+        data = json.loads(_FLEET_STATUS_PATH.read_text(encoding="utf-8"))
+        return data.get("machines", {}).get(machine)
+    except Exception:
+        return None
+
+
 def aggregate_machine(
     machine: str,
     hostname: str,
     injected: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
-    """Aggregate tmux + health for one machine.
+    """Aggregate tmux + health + fleet for one machine.
 
     Pass ``injected`` to bypass SSH (tests / dry-run):
         {"tmux": {"reachable": True, "source": "injected", "sessions": [...]},
-         "health": None | {...}}
+         "health": None | {...},
+         "fleet": None | {"overall_status": ..., "stale": ...}}
     """
     if injected is not None:
         tmux_info = injected.get(
             "tmux", {"reachable": True, "source": "injected", "sessions": []}
         )
         health_info = injected.get("health")
+        fleet_entry = injected.get("fleet")
     else:
         tmux_info = collect_tmux_sessions(machine, hostname)
         health_info = collect_runtime_health(machine, hostname)
+        fleet_entry = collect_fleet_entry(machine)
 
     result: Dict[str, Any] = {
         "machine": machine,
@@ -117,6 +132,8 @@ def aggregate_machine(
         "tmux_sessions": sorted(tmux_info.get("sessions", [])),
         "runtime_health_status": None,
         "runtime_health_age_minutes": None,
+        "fleet_status": None,
+        "fleet_stale": None,
     }
 
     if health_info:
@@ -129,6 +146,10 @@ def aggregate_machine(
                 result["runtime_health_age_minutes"] = round(age, 1)
             except Exception:
                 pass
+
+    if fleet_entry:
+        result["fleet_status"] = fleet_entry.get("overall_status")
+        result["fleet_stale"] = fleet_entry.get("stale", False)
 
     return result
 
@@ -196,6 +217,7 @@ def main() -> int:
             m: {
                 "tmux": {"reachable": True, "source": "dry-run", "sessions": []},
                 "health": None,
+                "fleet": None,
             }
             for m in machine_list
         }
