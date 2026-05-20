@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-E2E Dry-Run Pipeline — prouve le flux complet :
+E2E Dry-Run Pipeline - prouve le flux complet :
 signal_router → proposition_engine → validation_gate → trade_executor
 → result_tracker → datasheet_writer → learning_feeder → LocalCMS
 
@@ -134,6 +134,32 @@ def main() -> dict:
     )
     report["steps"].append(step("1b_desk_pro_dry_run", desk_pro_synthesis))
 
+    # ── Step 1c: notification_dispatcher (dry-run) ──────────────────
+    log.info("=== Step 1c: notification_dispatcher (dry-run) ===")
+    from modules.notification_dispatcher.app.dispatcher import NotificationDispatcher
+    from modules.notification_dispatcher.app.events import PipelineEvent
+
+    dispatcher = NotificationDispatcher()
+    dispatch_results = []
+    dispatch_results.append(
+        dispatcher.dispatch(
+            PipelineEvent(
+                event_type="signal_received",
+                payload={
+                    "ticker": normalized.ticker,
+                    "side": normalized.side,
+                    "price": normalized.price,
+                    "tf": normalized.tf,
+                    "strategy_id": raw_signal.get("strategy_id", ""),
+                    "strategy_version": raw_signal.get("strategy_version", ""),
+                },
+                signal_id=normalized.signal_id,
+            ),
+            dry_run=True,
+        )
+    )
+    report["steps"].append(step("1c_notification_dispatcher_dry_run", {"dispatch": dispatch_results}))
+
     # ── Step 2: proposition_engine ──────────────────────────────────
     log.info("=== Step 2: proposition_engine ===")
     from modules.proposition_engine.app.schema import PropositionRequest, NormalizedSignal as PropSignal
@@ -175,6 +201,28 @@ def main() -> dict:
     report["steps"].append(step("2_proposition_engine", proposition))
     log.info("action=%s confidence=%s", proposition.action, proposition.confidence)
 
+    dispatch_results.append(
+        dispatcher.dispatch(
+            PipelineEvent(
+                event_type="proposition_generated",
+                payload={
+                    "ticker": normalized.ticker,
+                    "action": proposition.action,
+                    "entry": proposition.entry,
+                    "sl": proposition.sl,
+                    "tp": proposition.tp,
+                    "confidence": proposition.confidence,
+                    "rationale": proposition.rationale,
+                    "strategy_id": raw_signal.get("strategy_id", ""),
+                    "strategy_version": raw_signal.get("strategy_version", ""),
+                },
+                signal_id=normalized.signal_id,
+                request_id=proposition.request_id,
+            ),
+            dry_run=True,
+        )
+    )
+
     # ── Step 3: validation_gate ────────────────────────────────────
     log.info("=== Step 3: validation_gate ===")
     from modules.validation_gate.app.schema import GateRequest
@@ -191,7 +239,7 @@ def main() -> dict:
     log.info("verdict=%s", decision.verdict)
 
     if decision.verdict != "APPROVED":
-        log.warning("Gate REJECTED — stopping pipeline")
+        log.warning("Gate REJECTED - stopping pipeline")
         report["stopped_at"] = "validation_gate_rejected"
         report["duration_s"] = round(time.time() - t0, 3)
         return report
@@ -225,6 +273,27 @@ def main() -> dict:
     record = ResultTracker().track(close_req)
     report["steps"].append(step("5_result_tracker", record))
     log.info("outcome=%s net_pnl=%s", record.outcome, record.net_pnl)
+
+    dispatch_results.append(
+        dispatcher.dispatch(
+            PipelineEvent(
+                event_type="result_known",
+                payload={
+                    "ticker": normalized.ticker,
+                    "side": normalized.side,
+                    "gross_pnl": getattr(record, "gross_pnl", ""),
+                    "net_pnl": getattr(record, "net_pnl", ""),
+                    "duration": getattr(record, "duration_s", ""),
+                    "fees": getattr(record, "fees", ""),
+                    "strategy_id": raw_signal.get("strategy_id", ""),
+                    "strategy_version": raw_signal.get("strategy_version", ""),
+                },
+                signal_id=normalized.signal_id,
+                request_id=proposition.request_id,
+            ),
+            dry_run=True,
+        )
+    )
 
     # ── Step 6: datasheet_writer ────────────────────────────────────
     log.info("=== Step 6: datasheet_writer ===")
