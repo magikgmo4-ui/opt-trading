@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Daily Session Journal — transforms the E2E dry-run proof into a traceable daily session.
+Daily Session Journal - transforms the E2E dry-run proof into a traceable daily session.
 
 Usage:
-  python scripts/e2e/daily_session_journal.py [--controlled-write] [--no-closeout]
+  python scripts/e2e/daily_session_journal.py [--controlled-write] [--no-closeout] [--sync-sheets] [--sheets-controlled-write]
 
 Output:
   - JSON report to data/journal/daily/<run_id>.json
@@ -111,60 +111,69 @@ def _extract_metrics(report: dict) -> dict:
         "writer_written": steps.get("6_datasheet_writer", {}).get("written", False),
         "feeder_bridge_status": steps.get("7_learning_feeder", {}).get("bridge_status", "N/A"),
         "feeder_brick_stored": steps.get("7_learning_feeder", {}).get("brick_stored", False),
+        "telegram_dispatch_count": len(steps.get("1c_notification_dispatcher_dry_run", {}).get("dispatch", []) or []),
     }
 
 
 def _build_human_summary(metrics: dict, report: dict) -> str:
     lines = []
     lines.append("=" * 60)
-    lines.append(f"DAILY SESSION JOURNAL — {report.get('run_id', 'N/A')}")
+    lines.append(f"DAILY SESSION JOURNAL - {report.get('run_id', 'N/A')}")
     lines.append("=" * 60)
     lines.append(f"Started : {report.get('started_at', 'N/A')}")
     lines.append(f"Duration: {report.get('duration_s', 'N/A')}s")
     lines.append(f"All OK  : {report.get('all_ok', False)}")
     lines.append("")
-    lines.append("── Signal ──")
+    lines.append("-- Signal --")
     lines.append(f"  {metrics.get('signal_side', 'N/A')} {metrics.get('signal_ticker', 'N/A')}")
     lines.append("")
-    lines.append("── Proposition ──")
+    lines.append("-- Proposition --")
     lines.append(f"  Action={metrics.get('proposition_action', 'N/A')}  "
                   f"Confidence={metrics.get('proposition_confidence', 'N/A')}")
     lines.append("")
-    lines.append("── Validation ──")
+    lines.append("-- Validation --")
     lines.append(f"  Verdict={metrics.get('validation_verdict', 'N/A')}")
     lines.append("")
-    lines.append("── Execution ──")
+    lines.append("-- Execution --")
     lines.append(f"  Status={metrics.get('executor_status', 'N/A')}  "
                   f"Fill={metrics.get('executor_fill_price', 'N/A')}")
     lines.append("")
-    lines.append("── Result ──")
+    lines.append("-- Result --")
     lines.append(f"  Outcome={metrics.get('tracker_outcome', 'N/A')}  "
                   f"P&L={metrics.get('tracker_net_pnl', 'N/A')}")
     lines.append("")
-    lines.append("── Datasheet ──")
+    lines.append("-- Datasheet --")
     lines.append(f"  Dry-run={metrics.get('writer_dry_run', 'N/A')}  "
                   f"Written={metrics.get('writer_written', 'N/A')}")
     lines.append("")
-    lines.append("── Learning ──")
+    lines.append("-- Learning --")
     lines.append(f"  Bridge={metrics.get('feeder_bridge_status', 'N/A')}  "
                   f"Brick={metrics.get('feeder_brick_stored', 'N/A')}")
     lines.append("")
-    lines.append("── TMUX ──")
+    lines.append("-- Telegram --")
+    lines.append(f"  Dispatch previews: {metrics.get('telegram_dispatch_count', 0)}")
+    lines.append("")
+    if report.get("sheets_sync", {}).get("enabled"):
+        lines.append("-- Sheets --")
+        ss = report.get("sheets_sync", {})
+        lines.append(f"  Mode={ss.get('mode', 'dry_run')}  RC={ss.get('returncode', '?')}")
+        lines.append("")
+    lines.append("-- TMUX --")
     tmux_before = report.get("tmux_before", {})
     tmux_after = report.get("tmux_after", {})
     lines.append(f"  Before: {tmux_before.get('count', '?')} sessions")
     lines.append(f"  After : {tmux_after.get('count', '?')} sessions")
     lines.append("")
-    lines.append("── LocalCMS ──")
+    lines.append("-- LocalCMS --")
     lcms = report.get("localcms", {})
     all_ok = all(v.get("ok", False) for v in lcms.values()) if lcms else False
     lines.append(f"  All endpoints OK: {all_ok}")
     lines.append("")
     closeout = report.get("closeout_acknowledged", False)
     if closeout:
-        lines.append("✓ CLOSEOUT ACKNOWLEDGED")
+        lines.append("CLOSEOUT ACKNOWLEDGED")
     else:
-        lines.append("⚠ PENDING CLOSEOUT")
+        lines.append("PENDING CLOSEOUT")
     lines.append("=" * 60)
     return "\n".join(lines)
 
@@ -213,12 +222,54 @@ def _prompt_closeout() -> bool:
         return False
 
 
+def _sync_google_sheets(run_id: str, controlled_write: bool) -> dict:
+    args = [sys.executable, str(PROJECT_ROOT / "scripts" / "sheets" / "sync_daily_session.py"), "--run-id", run_id]
+    mode = "dry_run"
+    if controlled_write:
+        args.append("--controlled-write")
+        mode = "controlled_write"
+    env = {**os.environ, "PYTHONPATH": str(PROJECT_ROOT)}
+    try:
+        r = subprocess.run(args, capture_output=True, text=True, timeout=20, env=env)
+        out_lines = (r.stdout or "").splitlines()
+        tail = "\n".join(out_lines[-40:]) if out_lines else ""
+        return {
+            "enabled": True,
+            "mode": mode,
+            "returncode": r.returncode,
+            "stdout_tail": tail,
+            "stderr": (r.stderr or "").strip()[:500],
+        }
+    except subprocess.TimeoutExpired as e:
+        out = (e.stdout or "").splitlines() if e.stdout else []
+        tail = "\n".join(out[-40:]) if out else ""
+        return {
+            "enabled": True,
+            "mode": mode,
+            "returncode": "timeout",
+            "stdout_tail": tail,
+            "stderr": (e.stderr or "").strip()[:500] if e.stderr else "",
+        }
+    except (FileNotFoundError, OSError, ValueError) as e:
+        return {
+            "enabled": True,
+            "mode": mode,
+            "returncode": "error",
+            "stdout_tail": "",
+            "stderr": str(e)[:500],
+        }
+
+
 def main() -> dict:
     parser = argparse.ArgumentParser(description="Daily Session Journal")
     parser.add_argument("--controlled-write", action="store_true",
                         help="Allow datasheet_writer to actually write")
     parser.add_argument("--no-closeout", action="store_true",
                         help="Skip closeout prompt (for automation)")
+    parser.add_argument("--sync-sheets", action="store_true",
+                        help="Run Google Sheets sync for this run_id (dry-run by default)")
+    parser.add_argument("--sheets-controlled-write", action="store_true",
+                        help="Allow Google Sheets append_row (requires ADC + GOOGLE_SHEETS_SYNC_SHEET_ID)")
     args = parser.parse_args()
 
     run_id = _resolve_run_id()
@@ -290,6 +341,10 @@ def main() -> dict:
 
     csv_path = JOURNAL_DIR / f"{run_id}.csv"
     _save_csv(metrics, report, csv_path)
+
+    if args.sync_sheets:
+        report["sheets_sync"] = _sync_google_sheets(run_id, controlled_write=args.sheets_controlled_write)
+        _save_json(report, json_path)
 
     summary = _build_human_summary(metrics, report)
     print(summary)

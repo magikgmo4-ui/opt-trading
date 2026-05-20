@@ -162,6 +162,7 @@ class TestDailySessionJournalPipeline(unittest.TestCase):
         self.assertIn("Result", stdout)
         self.assertIn("Datasheet", stdout)
         self.assertIn("Learning", stdout)
+        self.assertIn("Telegram", stdout)
         self.assertIn("TMUX", stdout)
         self.assertIn("LocalCMS", stdout)
 
@@ -231,6 +232,19 @@ class TestDailySessionJournalPipeline(unittest.TestCase):
         self.assertIn("result_tracker", r.stderr)
         self.assertIn("datasheet_writer", r.stderr)
         self.assertIn("learning_feeder", r.stderr)
+        self.assertIn("notification_dispatcher", r.stderr)
+
+    def test_journal_with_sheets_sync_prints_section(self):
+        env = {**os.environ, "DRY_RUN": "1", "PAPER_MODE": "1",
+               "PYTHONPATH": str(PROJECT_ROOT)}
+        r = subprocess.run(
+            [sys.executable, str(PROJECT_ROOT / "scripts/e2e/daily_session_journal.py"),
+             "--no-closeout", "--sync-sheets"],
+            capture_output=True, text=True, timeout=90, env=env,
+        )
+        if r.returncode != 0 and r.returncode != 1:
+            self.fail(f"Journal failed (rc={r.returncode}): STDERR={r.stderr[:500]}")
+        self.assertIn("Sheets", r.stdout)
 
 
 class TestLocalCMSJournalEndpoint(unittest.TestCase):
