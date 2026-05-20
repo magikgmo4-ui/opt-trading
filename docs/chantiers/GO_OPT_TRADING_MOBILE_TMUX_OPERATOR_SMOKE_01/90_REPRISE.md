@@ -2,8 +2,7 @@
 
 ## Verdict
 
-**PASS_SMOKE_CI** — 16/16 bash smoke + 37/37 unit tests PASS. GAP-03 couvert en CI.
-Validation device réel (Bloc 1-4 checklist) reste PENDING — réseau prod + Android requis.
+**PASS** — 16/16 bash smoke + 37/37 unit tests PASS + device Android validé le 2026-05-20.
 
 ## Livrables
 
@@ -26,7 +25,7 @@ Validation device réel (Bloc 1-4 checklist) reste PENDING — réseau prod + An
 | 2 | `python3 -m unittest tests.mobile.test_mobile_smoke` | ✅ 37/37 PASS |
 | 3 | `python3 -m unittest tests.tmux.test_health_check` | ✅ 32/32 PASS (régression zéro) |
 | 4 | `python3 -m unittest tests.openclaw_tmux_operator.test_health_aggregate` | ✅ 35/35 PASS (régression zéro) |
-| 5 | Device Android réel (Termius/Termux) | ⏳ PENDING — checklist 10_HUMAN_CHECKLIST.md |
+| 5 | Device Android réel (Termux) | ✅ PASS 2026-05-20 — 13/13 checks (voir détail ci-dessous) |
 
 ## Couverture smoke CI
 
@@ -40,12 +39,32 @@ Validation device réel (Bloc 1-4 checklist) reste PENDING — réseau prod + An
 | Runbook mobile doc intégrité | ✅ |
 | Interdits mobile (pas .env, pas push force) | ✅ |
 
-## Gap restant
+## Validation device Android — 2026-05-20
 
-- **GAP-03 PARTIAL** : Validation device Android physique non effectuée. Utiliser `10_HUMAN_CHECKLIST.md` depuis Termius/Termux sur réseau prod.
+Exécutée depuis Termux (Android) sur réseau WiFi prod.
+
+| # | Test | Résultat |
+|---|---|---|
+| 1.1 | SSH ghost@192.168.0.100 depuis Termux | ✅ |
+| 1.2 | hostname → db-layer | ✅ |
+| 1.3 | tmux ls db-layer — 5 sessions | ✅ |
+| 1.4 | attach openclaw-core | ✅ |
+| 1.5 | détach openclaw-core | ✅ |
+| 1.6 | attach fleet-status | ✅ |
+| 1.7 | détach fleet-status | ✅ |
+| 2.1 | SSH admin-trading depuis db-layer | ✅ |
+| 2.2 | tmux ls admin-trading — 5 sessions | ✅ |
+| 2.3 | attach desk-pro | ✅ |
+| 2.4 | détach desk-pro | ✅ |
+| 2.5 | attach screeners | ✅ |
+| 2.6 | détach screeners | ✅ |
+
+Note : résolution hostname depuis Termux nécessite `~/.ssh/config` local (ajouté durant la session).
+
+## Gaps
+
+Aucun gap restant.
 
 ## NEXT_GO
 
-Aucun GO enfant obligatoire identifié. Prochaines pistes optionnelles :
-- Enrichissement runbook si gaps découverts lors de la validation humaine
-- Intégration Tailscale (VPN mobile) si réseau direct non disponible
+Aucun GO enfant obligatoire identifié.
