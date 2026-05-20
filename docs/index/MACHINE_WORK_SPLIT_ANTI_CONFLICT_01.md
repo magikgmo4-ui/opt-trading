@@ -14,7 +14,7 @@ topic_keys:
   - work_split
 surface: index
 source_kind: canonical
-updated_at: 2026-05-14
+updated_at: 2026-05-20
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/index/BRANCH_STATE.md
@@ -375,10 +375,13 @@ Le prochain mouvement machine doit cibler une autre surface : `cursor-ai`, `admi
 
 | Branche | Note |
 | --- | --- |
+| `sot/mainline` | Tronc canonique ; les surfaces strict-workers bucketisees merges `#645` et `#646` se lisent depuis cette branche |
 | `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` | AI team architecture parent |
 | `go/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` | AI team architecture parent (go/) |
-| `go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01` | Strict workers parent |
-| `go/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01` | ClickUp parent continuity — bundle d'implementation ; review/merge cote fantome ; next GO: `GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_REVIEW_MERGE_01` |
+| `go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01` | Strict workers parent historique branche-only ; ne plus l'utiliser comme unique pointeur de reprise `sot/mainline` |
+| `docs/chantiers/GO_OPT_TRADING_AI_STRICT_WORKERS_APPS_CLASSIFICATION_01/00_classification_matrix.md` | Matrice bucketisee mergee PR #645 ; point d'entree canonique pour la reprise strict-workers/apps |
+| `docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_ORCHESTRATION_DEPLOYMENT_CLASSIFICATION_REVIEW_01/90_REPRISE_POINT.md` | Bucket 1 merge PR #646 ; revue read-only workflows/systemd/runtime-map pour `fantome` |
+| `go/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01` | ClickUp parent continuity ; parent encore ouvert, mais hors priorite immediate du bucket strict-workers orchestration/deployment |
 
 ---
 
