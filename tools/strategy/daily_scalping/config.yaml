@@ -1,0 +1,40 @@
+symbol: XAUUSD
+timeframe: M5
+context_timeframe: M15
+
+sessions:
+  london:  { start: "08:00", end: "12:00", tz: "Europe/London" }
+  ny:      { start: "13:30", end: "17:00", tz: "America/New_York" }
+  overlap: { start: "13:30", end: "16:00", tz: "UTC" }
+
+orb_minutes: 30
+swing_n: 5
+
+risk:
+  risk_pct: 0.5
+  max_daily_loss_pct: 1.5
+  max_trades_per_day: 4
+  max_consecutive_losses: 2
+  min_rr: 1.8
+  min_score: 7
+
+costs:
+  spread_pips: 3.0
+  slippage_pips: 1.0
+  commission_per_lot: 7.0
+
+indicators:
+  atr_period: 14
+  vwap_reset: session
+
+variants:
+  - ORB_ONLY
+  - VWAP_PULLBACK_ONLY
+  - SMC_SWEEP_ONLY
+  - COMBINED_SMC_ORB_VWAP
+
+promotion_thresholds:
+  min_trades: 100
+  min_expectancy_R: 0.15
+  min_profit_factor: 1.25
+  score_bucket_required: true
