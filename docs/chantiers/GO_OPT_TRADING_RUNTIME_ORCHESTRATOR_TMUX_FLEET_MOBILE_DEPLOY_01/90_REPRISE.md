@@ -60,7 +60,12 @@
 
 ## Gaps documentés
 
-- **GAP-01** : SSH db-layer/admin-trading non disponible depuis cet environnement CI. Les tests de niveaux 1, 3, 4, 5 (remote) sont à exécuter depuis le réseau de production.
+- **GAP-01** : ✅ PASS — Validé depuis réseau prod le 2026-05-19 (db-layer local).
+  - `tmux ls` ghost : 5 sessions (fleet-status, kg-repo, localcms-ui, openclaw-core, strict-workers)
+  - `tmux ls` openclaw : 1 session (openclaw-gateway)
+  - `gateway_openclaw health` : OK 639ms, Telegram ok
+  - `gateway_openclaw probe` : Reachable yes, RPC ok, db-layer 192.168.0.100 identifié
+  - SSH admin-trading depuis db-layer : PASS — 5 sessions (apps-connectors, desk-pro, market-data, screeners, trading-pipeline)
 - **GAP-02** : `modules/openclaw_tmux_operator/` est une première version légère. Pourrait être enrichi avec plus de commandes (session_logs étendu, health aggregator machine).
 - **GAP-03** : Tests mobile réel (Android Termius/Termux) non effectués — nécessite dispositif mobile physique.
 
