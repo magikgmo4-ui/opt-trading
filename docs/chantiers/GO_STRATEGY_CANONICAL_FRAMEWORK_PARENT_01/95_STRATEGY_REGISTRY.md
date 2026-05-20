@@ -35,6 +35,7 @@ Toute stratégie utilisable dans le pipeline doit figurer ici.
 | 6 | `range_strategy_v1` | `v0.1.0` | `range_boundary_reversal` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` | UNMEASURED |
 | 7 | `btc_coinm_accumulation` | `v0.1.0` | `dca_accumulation_hedge` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` | UNMEASURED |
 | 8 | `DCA_ON_FEAR_SOLID_STOCKS` | `v0.1.0` | `dca_fear_entry` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` | UNMEASURED |
+| 9 | `e2e_dry_run` | `v0.1.0` | `fixture_e2e` | open | FIXTURE | `GO_SIGNAL_CHAIN_E2E_DRY_RUN_01` | N/A |
 
 ---
 
