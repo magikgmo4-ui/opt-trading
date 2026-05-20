@@ -191,7 +191,7 @@ class TestTelegramDispatcherDryRun(unittest.TestCase):
         self.assertTrue(result.get("dry_run"))
 
     def test_dry_run_no_http_call(self):
-        with patch("modules.notification_dispatcher.app.dispatcher.requests.post") as mock_post:
+        with patch("shared.telegram_notify.requests.post") as mock_post:
             self._dispatch("pipeline_info", {"message": "validation test"})
             mock_post.assert_not_called()
 
