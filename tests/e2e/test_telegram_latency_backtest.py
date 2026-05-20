@@ -20,10 +20,10 @@ class TestTelegramLatencyBacktest(unittest.TestCase):
 
             base_ts = datetime(2026, 5, 19, 12, 0, 0, tzinfo=timezone.utc).isoformat()
             records = [
-                {"timestamp": base_ts, "source": "a", "ok": True, "duration_ms": 100},
-                {"timestamp": base_ts, "source": "a", "ok": True, "duration_ms": 300},
-                {"timestamp": base_ts, "source": "b", "ok": False, "duration_ms": 500},
-                {"timestamp": base_ts, "source": "b", "ok": True, "duration_ms": 700},
+                {"timestamp": base_ts, "source": "a", "ok": True, "duration_ms": 100, "tags": {"strategy_id": "S1"}},
+                {"timestamp": base_ts, "source": "a", "ok": True, "duration_ms": 300, "tags": {"strategy_id": "S1"}},
+                {"timestamp": base_ts, "source": "b", "ok": False, "duration_ms": 500, "tags": {"strategy_id": "S2"}},
+                {"timestamp": base_ts, "source": "b", "ok": True, "duration_ms": 700, "tags": {"strategy_id": "S2"}},
             ]
             with open(log_path, "w", encoding="utf-8") as f:
                 for rec in records:
@@ -45,3 +45,5 @@ class TestTelegramLatencyBacktest(unittest.TestCase):
             self.assertIn("a", summary["by_source"])
             self.assertIn("b", summary["by_source"])
             self.assertEqual(summary["by_source"]["a"]["latency_ms"]["p50_ms"], 200)
+            self.assertIn("by_strategy_id", summary)
+            self.assertEqual(summary["by_strategy_id"]["S1"]["latency_ms"]["p50_ms"], 200)

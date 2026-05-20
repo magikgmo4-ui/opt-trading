@@ -27,6 +27,7 @@ def send_telegram_with_metrics(
     message: str,
     *,
     source: str | None = None,
+    tags: dict[str, Any] | None = None,
     escape: bool = True,
     parse_mode: str | None = "HTML",
     disable_web_page_preview: bool = True,
@@ -41,6 +42,7 @@ def send_telegram_with_metrics(
             "error": "Telegram env vars not set",
             "timestamp": _utc_now_iso(),
             "source": source or "",
+            "tags": tags or {},
         }
 
     text = html.escape(message) if escape else message
@@ -69,6 +71,7 @@ def send_telegram_with_metrics(
     record = {
         "timestamp": _utc_now_iso(),
         "source": source or "",
+        "tags": tags or {},
         "ok": ok,
         "duration_ms": duration_ms,
         "status_code": status_code,
@@ -86,13 +89,13 @@ def send_telegram_with_metrics(
     return record
 
 
-def send_telegram(message: str, *, source: str | None = None):
-    r = send_telegram_with_metrics(message, source=source, escape=True, parse_mode="HTML")
+def send_telegram(message: str, *, source: str | None = None, tags: dict[str, Any] | None = None):
+    r = send_telegram_with_metrics(message, source=source, tags=tags, escape=True, parse_mode="HTML")
     if not r.get("ok"):
         raise RuntimeError(r.get("error") or "Telegram send failed")
 
 
-def send_telegram_html(message: str, *, source: str | None = None):
-    r = send_telegram_with_metrics(message, source=source, escape=False, parse_mode="HTML")
+def send_telegram_html(message: str, *, source: str | None = None, tags: dict[str, Any] | None = None):
+    r = send_telegram_with_metrics(message, source=source, tags=tags, escape=False, parse_mode="HTML")
     if not r.get("ok"):
         raise RuntimeError(r.get("error") or "Telegram send failed")

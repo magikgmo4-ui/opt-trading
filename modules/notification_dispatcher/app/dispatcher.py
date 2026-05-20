@@ -38,7 +38,14 @@ class NotificationDispatcher:
             return {"ok": False, "error": "telegram config missing", "event_type": event.event_type}
 
         try:
-            send_telegram_html(message, source=f"notification_dispatcher:{event.event_type}")
+            tags = {}
+            strategy_id = event.payload.get("strategy_id")
+            if strategy_id:
+                tags["strategy_id"] = strategy_id
+            strategy_version = event.payload.get("strategy_version")
+            if strategy_version:
+                tags["strategy_version"] = strategy_version
+            send_telegram_html(message, source=f"notification_dispatcher:{event.event_type}", tags=tags)
             log.info("dispatched event=%s to telegram", event.event_type)
             return {"ok": True, "event_type": event.event_type}
         except Exception as exc:

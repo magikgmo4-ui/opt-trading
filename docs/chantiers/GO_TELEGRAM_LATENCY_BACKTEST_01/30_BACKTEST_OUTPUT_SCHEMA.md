@@ -49,6 +49,10 @@ Structure:
 }
 ```
 
+Champ optionnel (si tags `strategy_id` présents dans la telemetry):
+
+- `summary.by_strategy_id`
+
 ## Invariants
 
 - pas de chat_id/token dans l’output
