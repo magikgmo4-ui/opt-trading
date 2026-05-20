@@ -167,6 +167,12 @@ class TestOtherMachinesUnchanged(unittest.TestCase):
         self.assertIn("optional_tmux_sessions", scope)
         self.assertEqual(scope["optional_tmux_sessions"], [])
 
+    def test_fantome_runtime_health_timer_present(self):
+        mm = _mm()
+        scope = mm.scope_for("fantome")
+        self.assertIn("optional_timers", scope)
+        self.assertIn("opt-trading-runtime-health.timer", scope["optional_timers"])
+
     def test_all_machines_present(self):
         mm = _mm()
         for machine in ["admin-trading", "db-layer", "cursor-ai", "fantome", "student"]:
