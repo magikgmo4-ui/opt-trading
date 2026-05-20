@@ -12,13 +12,19 @@ updated_at: 2026-05-19
 
 ## Gaps constates
 
-- Le journal n'affiche que le nombre de previews Telegram; le contenu des messages est uniquement dans le report pipeline (step `1c_notification_dispatcher_dry_run`).
-- `daily_session_journal.py --sync-sheets` appelle un subprocess; retour utile mais integrable in-process si besoin.
-- Le pipeline utilise `strategy_id=e2e_dry_run`, ce qui declenche des warnings "unknown strategy_id" (strategy registry).
-- Les checks LocalCMS sont best-effort; un mode "skip localcms" explicite pourrait stabiliser certains environnements.
+| Gap | Impact | Next step |
+| --- | --- | --- |
+| Pas de closeout umbrella total | produit final non referme proprement | garder le closeout bloque tant que les surfaces runtime/Bot Vision/collectors/Sheets restent ouvertes |
+| Evidence pack transverse non agrege | lecture finale dispersee entre plusieurs childs | compiler une synthese finale umbrella |
+| `e2e_dry_run` reste surtout fixture strategy | couverture partielle vs strategies concretes | relier progressivement aux strategies du registry |
+| controlled-write Sheets hors scope E2E | pas de reporting write final prouve | garder le mode dry-run et documenter le gate |
 
-## Next GO (candidats)
+## Next GO bundle
 
-- Exposer un extrait des messages Telegram (first N chars) dans le daily session journal.
-- Ajouter un `strategy_id` de fixture connu (ou enregistrer `e2e_dry_run`) pour eviter les warnings.
-- Integrer la sync Sheets en appel direct (module) avec une surface dry-run unifiee (pas de subprocess).
+```text
+GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01
+```
+
+Raison: le closeout final umbrella reste bloque par surfaces encore ouvertes.
+Le meilleur prochain lot local reellement present pour la `MASTER_TARGET` est
+le runtime operateur distant via `phone / SSH / tmux / OpenClaw / repo`.

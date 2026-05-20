@@ -54,3 +54,11 @@ Définir un envelope minimal permettant:
 
 - `signal_event` Desk Pro V1 (dict) reste un payload valide.
 - Les objets dataclasses des workers (`schema.py`) restent payload valides (conversion via `.to_dict()` ou `asdict`).
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : fournir un langage commun au produit final total
+- `Tableau Kanban du bundle` : reste la navigation principale
+- `Produit final total voulu` : chaines separees mais liees entre webhook, Desk Pro, Telegram, Sheets, Perf et runtime
+- `Prochain item Kanban exact` : `GO_TELEGRAM_EVENT_ROUTING_MAP_01`
+- `Gaps encore ouverts` : event intents NOTIFY a canoniser, pont inbound Telegram a raccorder, propagation transverse a valider

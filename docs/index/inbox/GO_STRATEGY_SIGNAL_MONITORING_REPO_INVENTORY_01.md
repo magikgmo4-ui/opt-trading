@@ -35,9 +35,17 @@ Inventorier l'état réel du repo pour la chaîne produit "Signal monitoring" (T
 État établi :
 
 - un pipeline E2E dry-run 7 workers existe et passe (no live trade, no writes) : `scripts/e2e/dry_run_pipeline.py` + `tests/e2e/test_e2e_dry_run_pipeline.py`
+- validation relancée dans cette passe : `python -m pytest tests\e2e\test_e2e_dry_run_pipeline.py tests\test_desk_pro_combined_input_smoke.py -q` -> `31 passed`
 - Desk Pro a un mode dry-run de synthèse 3 inputs (signal_event, visual_context, desk_snapshot) : `modules/desk_pro/dry_run.py`
 - Telegram : surface outbound existe (`shared/telegram_notify.py`) + surface botpress/adapter existe (`adapter_botpress_openclaw.py`), mais pas de parser inbound "screener trades/setups" dans cette chaîne
 - Google Sheets : sync journal existe (`scripts/sheets/sync_daily_session.py`), mais le "global schema transverse" du bundle reste à définir avant toute écriture élargie
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : contribuer au produit final total sans implementation live
+- `Tableau Kanban du bundle` : reste la reference principale
+- `Prochain item Kanban exact` : `GO_EVENT_TAXONOMY_01`
+- `Gaps encore ouverts` : taxonomy transverse, routing outbound, inbound screener, schema Sheets global
 
 ## Point de reprise
 

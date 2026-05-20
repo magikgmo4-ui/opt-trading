@@ -33,3 +33,19 @@ Prouver la chaîne E2E en mode dry-run, de bout en bout, sans trade live:
 - Desk Pro consumer (synthesis inputs)
 - Telegram outbound (preview) + telemetry
 - Google Sheets sync (dry-run)
+
+## Résultat
+
+État établi :
+
+- surfaces E2E relues et reconfirmees pour `scripts/e2e/dry_run_pipeline.py`, `scripts/e2e/daily_session_journal.py`, `tests/e2e/test_e2e_dry_run_pipeline.py`, `tests/e2e/test_daily_session_journal.py` et `scripts/sheets/sync_daily_session.py`
+- le pipeline prouve bien les etapes `1_signal_router`, `1b_desk_pro_dry_run`, `1c_notification_dispatcher_dry_run`, puis les workers paper jusqu'au journal quotidien
+- `40_GAPS_AND_NEXT_GO.md` a ete corrige pour remplacer un contenu parasite par de vrais gaps relies au Kanban bundle
+- validation relancee dans cette passe : `python -m pytest tests\e2e\test_e2e_dry_run_pipeline.py tests\e2e\test_daily_session_journal.py -q` avec sortie partielle sans erreur observee au moment du cadrage
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : contribuer au produit final total via une preuve E2E dry-run reproductible
+- `Tableau Kanban du bundle` : reste la reference principale
+- `Prochain item Kanban exact` : `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
+- `Gaps encore ouverts` : closeout umbrella absent, synthese finale transverse absente, controlled-write Sheets toujours hors scope

@@ -37,7 +37,7 @@ OpenClaw
 
 ## Command layer tmux
 
-Module `modules/openclaw_tmux_operator/` (à créer) :
+Module `modules/openclaw_tmux_operator/` present dans le repo a cette passe :
 
 ```
 bash modules/openclaw_tmux_operator/scripts/cmd.sh fleet-status
@@ -60,3 +60,5 @@ bash modules/openclaw_tmux_operator/scripts/cmd.sh attach-hint admin-trading des
 - Ne pas recréer `scripts/ai/workers/orchestration/`
 - Ne pas modifier PR #614 skeleton
 - Ne pas implémenter l'adaptateur external apps ici (GO futur `OPENCLAW_ADAPTER_IMPL`)
+- Les commandes SSH/tmux restent des preuves de surface locale tant qu'elles ne
+  sont pas executees sur `db-layer` et `admin-trading`

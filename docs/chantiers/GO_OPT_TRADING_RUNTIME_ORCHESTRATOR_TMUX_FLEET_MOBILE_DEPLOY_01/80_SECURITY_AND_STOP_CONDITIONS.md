@@ -13,6 +13,9 @@
 - Write externe sans `WRITE_GATED`
 - Mobile tente d'exposer secrets
 - `cursor-ai` traité comme Linux runtime
+- prompt mot de passe / TTY inattendu pendant une verification read-only
+- artefact `ide.yml` inattendu si un protocole tmux-ide est ensuite mobilise
+- sortie `fleet_status=FAIL`
 
 ## Restart policy
 
@@ -33,6 +36,30 @@
 - Pas de restart critique depuis mobile
 - Attach/detach OK
 - Logs OK si non sensibles
+
+## Classification "read-only" (checklist distante)
+
+| Etape | Commande | Classe | Side effects attendus |
+|---:|---|---|---|
+| 1-2 | `test -d ... && git status --short --branch` | READ_ONLY | lecture FS + lecture git |
+| 3-4 | `gateway_openclaw cmd.sh health/probe` | READ_ONLY_REMOTE | requetes health/probe (pas de start/stop) |
+| 5 | `fleet_orchestrator.py --dry-run` | READ_ONLY | lecture runtime_health (sshfs/ssh/cat), pas d'ecriture locale, pas de Telegram |
+| 6-10 | `tmux ls` / `tmux has-session ...` | READ_ONLY | lecture tmux server |
+| 11 | `deskpro_watchdog.sh run-once` | READ_MOSTLY | cree/append `tmp/deskpro_watchdog.log` + curl endpoints locaux |
+| 12 | `deskpro_watchdog.sh status` | READ_MOSTLY | lecture `tmp/deskpro_watchdog.pid` + tail log si present |
+
+Si un protocole strictement sans ecriture est requis, remplacer 11/12 par des
+lectures directes (ex: `curl /desk/health`, `curl /desk/status`) sans toucher
+au watchdog.
+
+## Stop durant checklist distante
+
+- stop si `test -d /opt/trading` echoue
+- stop si `git status` revele un contexte douteux que l'operateur ne valide pas
+- stop si `gateway_openclaw ... health` ou `probe` echoue
+- stop si `tmux ls` montre une topologie inattendue non comprise
+- stop si `deskpro_watchdog.sh run-once` retourne un etat non interpretable
+- stop avant mobile si les etapes SSH read-only precedentes ne sont pas stables
 
 ## App bridges
 

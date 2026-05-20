@@ -28,6 +28,22 @@ links:
 
 Mettre en place un backtest “latency Telegram” basé sur des logs telemetry, sans dépendre d’un bot inbound live (fixtures-first). L’objectif est de mesurer et comparer la latence d’envoi (sendMessage) par surface (dispatcher, webhook, desk alerts, etc.).
 
+## Résultat
+
+État établi :
+
+- surfaces Telegram outbound et telemetry relues et reconfirmees pour `shared/telegram_notify.py`, `scripts/telegram/latency_backtest.py` et `tests/e2e/test_telegram_latency_backtest.py`
+- la telemetry prouvee enregistre `timestamp`, `source`, `tags`, `ok`, `duration_ms`, `status_code`, `timeout_s`, `message_len` et `error` dans `data/telemetry/telegram_send.jsonl`
+- validation relancee dans cette passe : `python -m pytest tests\e2e\test_telegram_latency_backtest.py -q` -> `1 passed`
+- aucune mutation runtime introduite ; le chantier reste doc-first et offline-first
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : contribuer au produit final total via la mesure de latence Telegram outbound
+- `Tableau Kanban du bundle` : reste la reference principale
+- `Prochain item Kanban exact` : `GO_PERF_ENGINE_STRATEGY_SCORE_01`
+- `Gaps encore ouverts` : pas de reception client, pas de retry policy commune, pas de raccord perf/registry
+
 ## Point de reprise
 
 ```text

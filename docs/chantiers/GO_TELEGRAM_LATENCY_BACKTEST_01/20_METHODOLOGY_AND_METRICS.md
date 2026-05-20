@@ -47,3 +47,11 @@ python scripts\telegram\latency_backtest.py --since 2026-05-19T00:00:00+00:00
 
 - si `ok_rate < 0.99` sur une surface critique: considérer la surface “unstable”
 - si `p95_ms` explose: éviter “reaction strategies” temps-réel, privilégier paper/replay
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : cadrer la latency Telegram du produit final total sans melanger inbound et outbound
+- `Tableau Kanban du bundle` : reste la navigation principale
+- `Produit final total voulu` : chaines separees mais liees entre webhook, Desk Pro, Telegram, Sheets, Perf et runtime
+- `Prochain item Kanban exact` : `GO_PERF_ENGINE_STRATEGY_SCORE_01`
+- `Gaps encore ouverts` : calibration retry/timeout par tier, seuils de gating perf non relies, pas de mesure client-side

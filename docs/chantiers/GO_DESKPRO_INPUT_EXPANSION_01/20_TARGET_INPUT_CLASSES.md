@@ -99,3 +99,11 @@ Champs pivots:
 - `symbol` : normalisation autorisée (ex: `BTCUSDT` ↔ `BTCUSDT.P`) mais jamais implicite sans warning
 - `timeframe` : doit matcher entre `signal_event.timeframe` et `desk_snapshot.tf` pour une synthèse “PASS”
 - `timestamp window` : jointure temporelle tolérée (H1 ± 5 min) uniquement en mode observation
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : standardiser les inputs Desk Pro du produit final total
+- `Tableau Kanban du bundle` : reste la navigation principale
+- `Produit final total voulu` : chaines separees mais liees entre webhook, Desk Pro, Telegram, Sheets, Perf et runtime
+- `Prochain item Kanban exact` : `GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01`
+- `Gaps encore ouverts` : wrappers read-only absents, `vision_analysis`/`market_metrics`/`telegram_claim` encore contractuels, policy de refs a appliquer chez les producers

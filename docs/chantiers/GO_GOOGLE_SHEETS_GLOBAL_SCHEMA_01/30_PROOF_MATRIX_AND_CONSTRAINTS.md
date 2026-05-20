@@ -32,3 +32,10 @@ updated_at: 2026-05-19
 | Writer transverse dry-run | écrit “row intents” sans API | aucun POST |
 | Mapping stable | colonnes figées et versionnées | `schema version: 1` |
 | Audit log | log JSONL de chaque tentative | lisible via LocalCMS |
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : fiabiliser Sheets comme consumer transverse du produit final total
+- `Kanban bundle` : reste la carte de navigation principale
+- `Prochain item Kanban exact` : `GO_TELEGRAM_LATENCY_BACKTEST_01`
+- `Gaps encore ouverts` : audit transverse absent, writer unique absent, controlled-write encore borne au daily session sync

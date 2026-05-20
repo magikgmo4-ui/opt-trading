@@ -47,3 +47,24 @@ Caractéristiques:
 ## Conclusion
 
 Le repo possède déjà l’envoi Telegram, mais la destination est monolithique et ne reflète pas la taxonomie transverse (familles/types) définie dans `GO_EVENT_TAXONOMY_01`.
+
+## Validation locale executee
+
+Commande relancee dans cette passe :
+
+```powershell
+python -m pytest modules\notification_dispatcher\tests\test_strategy_id_adapter_readonly.py tests\e2e\test_e2e_dry_run_pipeline.py tests\test_signal_event_adapter.py tests\test_desk_pro_combined_input_smoke.py -q
+```
+
+Resultat observe :
+
+```text
+68 passed
+```
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : contribuer au produit final total sans modifier l'envoi live
+- `Kanban bundle` : reste la reference principale
+- `Prochain item Kanban` : `GO_TELEGRAM_SCREENER_CHANNEL_REGISTRY_01`
+- `Gaps encore ouverts` : alias -> env, multi-bots, topics, branchement progressif par famille/type

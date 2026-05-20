@@ -24,8 +24,9 @@
 | apps-connectors | `scripts/tmux/sessions/apps-connectors.sh` | ✅ |
 | kg-repo | `scripts/tmux/sessions/kg-repo.sh` | ✅ |
 | localcms-ui | `scripts/tmux/sessions/localcms-ui.sh` | ✅ |
+| fleet-status | `scripts/tmux/sessions/fleet-status.sh` | ✅ |
 
 ## Gaps
 
-- `fleet-status` session script : pas encore dans `scripts/tmux/sessions/`
 - `operator-secondary`, `isolated-tests`, `sandbox`, `ollama-lab` : optionnels, P2/P3
+- presence repo confirmee ; existence distante des sessions tmux reste a verifier via SSH hors de cet environnement

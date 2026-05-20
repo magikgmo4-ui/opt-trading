@@ -45,3 +45,10 @@ updated_at: 2026-05-19
 
 - aucun secret dans le pack
 - pas d’instruction de trade
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : standardiser l'evidence pack Perf Engine pour le produit final total
+- `Kanban bundle` : reste la carte de navigation principale
+- `Prochain item Kanban exact` : `GO_STRATEGY_REGISTRY_TELEGRAM_LATENCY_01`
+- `Gaps encore ouverts` : consumer registry absent, export Sheets absent, champs avances du parent encore a etendre si necessaire

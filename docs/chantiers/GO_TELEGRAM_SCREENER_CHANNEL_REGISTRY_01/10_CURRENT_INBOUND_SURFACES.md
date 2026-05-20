@@ -30,3 +30,24 @@ updated_at: 2026-05-19
 ## Conclusion
 
 Le repo a déjà l’outbound et des bots utilitaires, mais pas de “screener inbound” structuré. Le registry est le pré-requis pour implémenter un ingest sûr et filtré.
+
+## Validation locale executee
+
+Commande relancee dans cette passe :
+
+```powershell
+python -m pytest tests\e2e\test_e2e_dry_run_pipeline.py -q
+```
+
+Resultat observe :
+
+```text
+23 passed
+```
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : contribuer au produit final total sans melanger inbound et outbound
+- `Kanban bundle` : reste la reference principale
+- `Prochain item Kanban` : `GO_DESKPRO_INPUT_EXPANSION_01`
+- `Gaps encore ouverts` : registry YAML, parse contracts fixtures-first, listener inbound gouverne, integration taxonomy

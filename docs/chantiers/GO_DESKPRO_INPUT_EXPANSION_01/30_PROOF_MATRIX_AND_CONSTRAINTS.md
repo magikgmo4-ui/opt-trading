@@ -31,3 +31,10 @@ updated_at: 2026-05-19
 - `symbol` : mismatch toléré seulement si explicitement détecté (warning)
 - `timeframe` : mismatch doit bloquer un claim “PASS” (au moins WARN)
 - `visual_context_ref` / `desk_snapshot_ref` : restent optionnels tant que les producers ne les remplissent pas
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : fiabiliser le hub Desk Pro du produit final total
+- `Kanban bundle` : reste la carte de navigation principale
+- `Prochain item Kanban exact` : `GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01`
+- `Gaps encore ouverts` : politique de refs non generalisee, producers cibles absents, write transverse toujours hors scope

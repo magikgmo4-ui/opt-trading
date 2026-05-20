@@ -1,30 +1,65 @@
-# GO_OPT_TRADING_OPENCLAW_TMUX_OPERATOR_IMPL_01
+---
+doc_id: GO_OPT_TRADING_OPENCLAW_TMUX_OPERATOR_IMPL_01_INITIAL_PROJECT_DOC
+doc_type: initial_project_doc
+repo: opt-trading
+go_id: GO_OPT_TRADING_OPENCLAW_TMUX_OPERATOR_IMPL_01
+status: active
+source_kind: canonical
+updated_at: 2026-05-20
+---
 
-| Champ | Valeur |
-|---|---|
-| GO | `GO_OPT_TRADING_OPENCLAW_TMUX_OPERATOR_IMPL_01` |
-| Objet | Enrichir `modules/openclaw_tmux_operator/` : health aggregator multi-machine, session-logs, intégration OpenClaw gateway |
-| Parent | `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01` (PR #618 MERGED) |
-| Déclencheur | GAP-02 documenté dans 90_REPRISE.md du GO parent |
-| Branche | `go/GO_OPT_TRADING_OPENCLAW_TMUX_OPERATOR_IMPL_01` |
+# 00_INITIAL_PROJECT_DOC - openclaw tmux operator impl
 
-## État initial (après audit)
+## MASTER_TARGET
+
+Ce child reste subordonne au parent umbrella
+`GO_OPT_TRADING_ADMIN_TRADING_SIGNAL_CHAIN_TOTAL_PRODUCT_PARENT_01` via le
+sous-lot runtime `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`.
+
+Il contribue a la surface runtime operateur distant du produit final total,
+sans se substituer au closeout runtime ni au closeout umbrella.
+
+## But
+
+Documenter et verifier l'enrichissement READ_ONLY de
+`modules/openclaw_tmux_operator/` :
+
+- health aggregation multi-machines
+- session logs read-only
+- wrappers `openclaw-health` / `openclaw-probe`
+
+## Etat actuel prouve dans le repo
 
 | Zone | Statut |
 |---|---|
-| `modules/openclaw_tmux_operator/scripts/cmd.sh` | ✅ Existe (6 commandes : fleet-status, machine-status, tmux-status, attach-hint, logs, health-all) |
-| `modules/openclaw_tmux_operator/docs/README.md` | ✅ Existe (basique) |
-| `modules/gateway_openclaw/scripts/cmd.sh` | ✅ Existe (health, probe, status, logs, attach) |
-| `modules/runtime_health/fleet_orchestrator.py` | ✅ Existe (multi-machine, 456 lignes) |
-| `scripts/tmux/health_check.py` | ✅ Existe (session health, 10 sessions) |
-| `health_aggregate.py` dans openclaw_tmux_operator | ❌ Gap — à créer |
-| `openclaw-health / openclaw-probe` dans cmd.sh | ❌ Gap — à ajouter |
-| `session-logs` (vraies lignes) dans cmd.sh | ❌ Gap — à ajouter |
-| Tests `tests/openclaw_tmux_operator/` | ❌ Gap — à créer |
+| `modules/openclaw_tmux_operator/scripts/cmd.sh` | present |
+| `modules/openclaw_tmux_operator/scripts/health_aggregate.py` | present |
+| `modules/openclaw_tmux_operator/docs/README.md` | present |
+| `tests/openclaw_tmux_operator/test_health_aggregate.py` | present |
+| `modules/gateway_openclaw/scripts/cmd.sh` | present |
+| `modules/runtime_health/fleet_orchestrator.py` | present |
+| `scripts/tmux/health_check.py` | present |
 
-## Scope
+## Invariants
 
-- READ_ONLY : aucune écriture session, aucun restart
-- Aucun doublon avec `scripts/ai/workers/orchestration/` (PR #614)
-- Aucune modification CI
-- Aucune modification `tasks.index.json` / `models.registry.json`
+- READ_ONLY : aucune ecriture session, aucun restart
+- aucun doublon avec `scripts/ai/workers/orchestration/` (PR #614)
+- aucune modification CI
+- aucune modification `tasks.index.json` / `models.registry.json`
+
+## Regle Kanban / continuite
+
+Le tableau Kanban du bundle reste la carte de navigation principale. Ce child
+documente un sous-lot runtime reel local, mais ne remplace pas le GO runtime
+parent comme item Kanban exact tant que les validations distantes ne sont pas
+prouvees.
+
+## Prochain item Kanban exact
+
+`GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
+
+## Gaps encore ouverts
+
+- validations SSH reelles de `openclaw-health` / `openclaw-probe` non executees
+- `health-aggregate` reel hors `--dry-run` non execute depuis le bon reseau
+- environnement Windows courant impropre aux commandes `bash` sans WSL Linux

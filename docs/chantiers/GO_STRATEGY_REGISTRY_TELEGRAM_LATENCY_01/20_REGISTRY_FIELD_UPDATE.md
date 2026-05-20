@@ -34,3 +34,11 @@ Ajouter dans chaque section `3.x`:
 ## Source de vérité
 
 Les valeurs proviennent du backtest offline (telemetry JSONL) et ne doivent jamais être “inventées” sans preuve.
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : standardiser la dimension `telegram_latency` dans le produit final total
+- `Tableau Kanban du bundle` : reste la navigation principale
+- `Produit final total voulu` : chaines separees mais liees entre webhook, Desk Pro, Telegram, Sheets, Perf et runtime
+- `Prochain item Kanban exact` : `GO_SIGNAL_CHAIN_E2E_DRY_RUN_01`
+- `Gaps encore ouverts` : seuils non fixes, evidence refs non renseignees par strategie, mise a jour registry encore read-only

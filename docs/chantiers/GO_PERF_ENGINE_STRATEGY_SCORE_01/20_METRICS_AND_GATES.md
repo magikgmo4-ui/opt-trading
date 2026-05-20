@@ -37,3 +37,11 @@ Verdicts:
 Retirement gate (placeholder V1):
 
 - `KEEP_OBSERVING` par défaut (pas de règle auto tant que perf engine n’est pas branché à un consumer officiel)
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : cadrer le scoring strategie du produit final total sans decision live
+- `Tableau Kanban du bundle` : reste la navigation principale
+- `Produit final total voulu` : chaines separees mais liees entre webhook, Desk Pro, Telegram, Sheets, Perf et runtime
+- `Prochain item Kanban exact` : `GO_STRATEGY_REGISTRY_TELEGRAM_LATENCY_01`
+- `Gaps encore ouverts` : metrics avancees du parent non toutes implementees, gate retirement encore placeholder, scoring non relie au registry

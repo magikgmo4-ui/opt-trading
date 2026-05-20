@@ -20,6 +20,19 @@ Enrichissement de `modules/openclaw_tmux_operator/` : health aggregator multi-ma
 - `modules/gateway_openclaw/scripts/cmd.sh` : cible openclaw-health/probe
 - `config/machine_runtime_map.yml` : source machines
 
+## Continuité umbrella
+
+- `MASTER_TARGET` : parent `GO_OPT_TRADING_ADMIN_TRADING_SIGNAL_CHAIN_TOTAL_PRODUCT_PARENT_01`
+- item Kanban exact toujours ouvert : `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
+- ce GO reste un sous-lot runtime local, pas un closeout umbrella
+
+## Constats de cette passe
+
+- `modules/openclaw_tmux_operator/` et ses tests sont bien presents
+- `python -m unittest tests.openclaw_tmux_operator.test_health_aggregate -v` passe localement : `35 tests`
+- les commandes `bash modules/openclaw_tmux_operator/scripts/cmd.sh ...` restent bloquees ici sans WSL Linux
+- les verifications SSH `openclaw-health` / `openclaw-probe` restent a executer depuis le bon reseau
+
 ## NEXT_GO
 
-- `GO_OPT_TRADING_MOBILE_TMUX_OPERATOR_SMOKE_01`
+- `GO_OPT_TRADING_MOBILE_TMUX_OPERATOR_SMOKE_01` (apres validation runtime parent)

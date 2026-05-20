@@ -20,6 +20,19 @@ links:
 
 # 00_INITIAL_PROJECT_DOC - Strategy Registry: telegram_latency
 
+## MASTER_TARGET
+
+Ce child contribue au produit final total voulu par le parent umbrella
+`GO_OPT_TRADING_ADMIN_TRADING_SIGNAL_CHAIN_TOTAL_PRODUCT_PARENT_01`, avec
+separation stricte entre :
+
+- Telegram notification outbound multi-destinations
+- Telegram screener inbound
+- TradingView/webhook -> signal_event -> Desk Pro -> Telegram/Sheets/Perf
+- Bot Vision / headless screener
+- Google Sheets global
+- Strategy Registry / Perf Engine / replay / paper
+
 ## But
 
 Étendre le Strategy Registry avec une dimension `telegram_latency` qui:
@@ -38,3 +51,19 @@ links:
 
 - champ registry `telegram_latency_status` + evidence refs
 - tagging strategy_id/version dans la telemetry `sendMessage`
+
+## Regle Kanban / continuite
+
+Le tableau Kanban du bundle reste la carte de navigation principale. Ce child
+documente l'ancrage `telegram_latency` dans le Strategy Registry du produit
+final total et ne remplace pas le Kanban bundle par une roadmap concurrente.
+
+## Prochain item Kanban a faire
+
+`GO_SIGNAL_CHAIN_E2E_DRY_RUN_01`
+
+## Gaps encore ouverts
+
+- tags `strategy_id/version` non presents sur toutes les surfaces outbound
+- seuils produit de gating latency non fixes
+- reporting transverse `strategy_perf` / Sheets encore hors scope

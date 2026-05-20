@@ -17,6 +17,19 @@ links:
 
 # 00_INITIAL_PROJECT_DOC - Telegram latency backtest
 
+## MASTER_TARGET
+
+Ce child contribue au produit final total voulu par le parent umbrella
+`GO_OPT_TRADING_ADMIN_TRADING_SIGNAL_CHAIN_TOTAL_PRODUCT_PARENT_01`, avec
+separation stricte entre :
+
+- Telegram notification outbound multi-destinations
+- Telegram screener inbound
+- TradingView/webhook -> signal_event -> Desk Pro -> Telegram/Sheets/Perf
+- Bot Vision / headless screener
+- Google Sheets global
+- Strategy Registry / Perf Engine / replay / paper
+
 ## But
 
 Quantifier la latence Telegram du produit (sendMessage) en conditions contrôlées:
@@ -36,3 +49,19 @@ Quantifier la latence Telegram du produit (sendMessage) en conditions contrôlé
 - inventaire surfaces + telemetry
 - méthodologie et métriques
 - backtest script (JSONL → summary)
+
+## Regle Kanban / continuite
+
+Le tableau Kanban du bundle reste la carte de navigation principale. Ce child
+documente la latence Telegram outbound du produit final total et ne remplace
+pas le Kanban bundle par une roadmap concurrente.
+
+## Prochain item Kanban a faire
+
+`GO_PERF_ENGINE_STRATEGY_SCORE_01`
+
+## Gaps encore ouverts
+
+- pas de mesure de reception client Telegram end-to-end
+- pas de retry policy standard par tier
+- pas de branchement latency -> Perf Engine / Strategy Registry

@@ -37,3 +37,10 @@ Lire:
 
 - `PASS`: `ok_rate >= 0.99` et `p95_ms` sous seuil (défini par produit)
 - sinon `DEGRADED` ou `BLOCKED`
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : relier Telegram latency, registry et gates du produit final total
+- `Kanban bundle` : reste la carte de navigation principale
+- `Prochain item Kanban exact` : `GO_SIGNAL_CHAIN_E2E_DRY_RUN_01`
+- `Gaps encore ouverts` : rulebook seuils a calibrer, breakdown par strategie encore partiel, aucun write runtime ou Sheets ouvert

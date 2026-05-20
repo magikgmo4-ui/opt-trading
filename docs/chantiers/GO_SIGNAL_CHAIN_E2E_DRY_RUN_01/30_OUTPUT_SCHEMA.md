@@ -67,3 +67,10 @@ Extensions notables dans le JSON:
   }
 }
 ```
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : standardiser les artifacts E2E du produit final total
+- `Kanban bundle` : reste la carte de navigation principale
+- `Prochain item Kanban exact` : `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
+- `Gaps encore ouverts` : closeout umbrella absent, output final umbrella non agrege, evidence pack transverse non encore compile

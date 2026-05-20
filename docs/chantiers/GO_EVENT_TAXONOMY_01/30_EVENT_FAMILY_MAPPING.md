@@ -44,3 +44,10 @@ Le mapping ci-dessus est le pré-requis direct de:
 ```text
 GO_TELEGRAM_EVENT_ROUTING_MAP_01
 ```
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : rendre interoperables les chaines du produit final total
+- `Kanban bundle` : reste la carte de navigation principale
+- `Prochain item Kanban exact` : `GO_TELEGRAM_EVENT_ROUTING_MAP_01`
+- `Gaps encore ouverts` : alias/destinations Telegram, policy par famille d'evenements, jonction future avec inbound screener

@@ -1,8 +1,27 @@
-# 90 — Closeout
+---
+doc_id: GO_OPT_TRADING_OPENCLAW_TMUX_OPERATOR_IMPL_01_REPRISE
+doc_type: reprise
+repo: opt-trading
+go_id: GO_OPT_TRADING_OPENCLAW_TMUX_OPERATOR_IMPL_01
+status: reference
+source_kind: canonical
+updated_at: 2026-05-20
+---
 
-## Verdict
+# 90_REPRISE
 
-**PASS** — 35/35 tests PASS, dry-run OK, PR #614 intact.
+## MASTER_TARGET
+
+Ce child reste subordonne au parent umbrella
+`GO_OPT_TRADING_ADMIN_TRADING_SIGNAL_CHAIN_TOTAL_PRODUCT_PARENT_01` via le GO
+runtime `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`.
+
+## Etat de cette passe
+
+Le sous-lot `openclaw_tmux_operator` est prouve localement cote code Python et
+tests, mais ses verifications SSH/bash restent dependantes d'un host Linux ou
+du reseau operateur. Ce document sert donc de reference de reprise, pas de
+closeout runtime global.
 
 ## Livrables
 
@@ -29,19 +48,18 @@
 
 | Niveau | Test | Commande | Résultat |
 |---|---|---|---|
-| 0 | Git scope | `git status --short --branch` | ✅ Branche propre |
-| 0 | PR #614 JSON | `python3 -m json.tool` | ✅ 3/3 valides |
-| 1 | Unit tests | `python3 -m unittest tests.openclaw_tmux_operator.test_health_aggregate -v` | ✅ 35/35 PASS |
-| 2 | Dry-run CLI | `health_aggregate.py --dry-run` | ✅ JSON valide |
-| 3 | cmd.sh dry-run | `cmd.sh health-aggregate --dry-run` | ✅ JSON valide |
-| 4 | cmd.sh usage | `cmd.sh` (no args) | ✅ 10 commandes listées |
-| 5 | openclaw-health | SSH db-layer | ⏳ GAP-01 (réseau prod) |
-| 6 | openclaw-probe | SSH db-layer | ⏳ GAP-01 (réseau prod) |
-| 7 | health-aggregate réel | SSH multi-machines | ⏳ GAP-01 (réseau prod) |
+| 1 | Unit tests | `python -m unittest tests.openclaw_tmux_operator.test_health_aggregate -v` | ✅ 35/35 PASS |
+| 2 | Dry-run CLI Python | `python modules/openclaw_tmux_operator/scripts/health_aggregate.py --dry-run --machines db-layer,admin-trading` | ✅ JSON valide |
+| 3 | `cmd.sh` dry-run | `bash modules/openclaw_tmux_operator/scripts/cmd.sh health-aggregate --dry-run` | BLOCKED ici (WSL Linux absent) |
+| 4 | `cmd.sh` usage | `bash modules/openclaw_tmux_operator/scripts/cmd.sh` | BLOCKED ici (WSL Linux absent) |
+| 5 | openclaw-health | SSH db-layer | ⏳ GAP-01 (reseau prod) |
+| 6 | openclaw-probe | SSH db-layer | ⏳ GAP-01 (reseau prod) |
+| 7 | health-aggregate reel | SSH multi-machines | ⏳ GAP-01 (reseau prod) |
 
 ## Gaps documentés
 
-- **GAP-01** : SSH db-layer/admin-trading non accessible depuis CI — niveaux 5/6/7 à valider depuis prod.
+- **GAP-01** : SSH db-layer/admin-trading non accessible depuis ce workspace — niveaux 5/6/7 a valider depuis prod.
+- **GAP-02** : commandes `bash modules/openclaw_tmux_operator/scripts/cmd.sh ...` non validables ici tant qu'aucune distribution WSL Linux n'est installee.
 
 ## PR #614 alignment
 
@@ -53,6 +71,22 @@
 | `models.registry.json` non modifié | ✅ |
 | CI workflows non modifiés | ✅ |
 
+## Tableau Kanban du bundle
+
+Le tableau Kanban du bundle reste la navigation principale. Ce child documente
+un sous-lot runtime local, mais ne devient pas l'item Kanban exact tant que le
+GO runtime parent reste ouvert.
+
+## Prochain item Kanban exact
+
+`GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
+
+## Gaps encore ouverts
+
+- validations SSH `openclaw-health` / `openclaw-probe` non executees
+- `health-aggregate` reel sans `--dry-run` non execute
+- smoke mobile reel reste subordonne au GO runtime parent
+
 ## NEXT_GO
 
-- `GO_OPT_TRADING_MOBILE_TMUX_OPERATOR_SMOKE_01` — Valider mobile réel (Termius/Termux) SSH + tmux attach/detach.
+- `GO_OPT_TRADING_MOBILE_TMUX_OPERATOR_SMOKE_01` — apres validation runtime parent, valider mobile reel (Termius/Termux) SSH + tmux attach/detach.

@@ -27,3 +27,11 @@ updated_at: 2026-05-19
 ## Conclusion
 
 Le repo contient déjà une base exploitable. Le verrou principal avant implémentation lourde reste la normalisation transverse (taxonomie d’événements + routing), puis l’extension Telegram inbound / Sheets global sous gates.
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : alimenter le produit final total sans fermer le parent umbrella
+- `Kanban bundle` : reste la carte de navigation principale ; ce document ne la remplace pas
+- `Prochain item Kanban exact` : `GO_EVENT_TAXONOMY_01`
+- `Produit final total voulu` : chaines separees mais liees entre webhook, Desk Pro, Telegram, Sheets, Perf et runtime
+- `Gaps encore ouverts` : taxonomy transverse, routing outbound, inbound Telegram screener, schema Sheets global, score latency transverse

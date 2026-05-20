@@ -1,5 +1,12 @@
 # 50 — Plan d'implémentation
 
+## Cadre de cette passe
+
+Cette passe reste bornee a la documentation, a la verification repo-first et a
+des validations locales non destructives. Les commandes SSH ci-dessous sont le
+plan cible a executer depuis le bon reseau operateur, pas des commandes
+considerees comme deja passees ici.
+
 ## Vue système
 
 ```
@@ -24,7 +31,7 @@ ssh db-layer 'sudo -iu openclaw bash -lc "cd /opt/trading && bash modules/gatewa
 ssh db-layer 'sudo -iu openclaw bash -lc "cd /opt/trading && bash modules/gateway_openclaw/scripts/cmd.sh probe"'
 ```
 
-PASS : user=openclaw, host=db-layer, health OK, probe OK.
+Critere cible : user=`openclaw`, host=`db-layer`, `health` OK, `probe` OK.
 
 ## Phase C — Fleet orchestrator dry-run
 
@@ -33,7 +40,7 @@ ssh db-layer 'cd /opt/trading && python3 modules/runtime_health/fleet_orchestrat
 ssh db-layer 'cd /opt/trading && python3 modules/runtime_health/fleet_orchestrator.py --no-telegram'
 ```
 
-PASS : unreachable=[], failing=[], WARN seulement EXPECTED.
+Critere cible : `unreachable=[]`, `failing=[]`, WARN seulement `EXPECTED`.
 
 ## Phase D — Valider tmux sessions
 
@@ -51,25 +58,37 @@ ssh admin-trading 'tmux has-session -t desk-pro || true'
 ```
 
 ### Gap connu
-Créer `scripts/tmux/sessions/fleet-status.sh` si non existant.
+`scripts/tmux/sessions/fleet-status.sh` existe deja dans le repo ; il reste a
+verifier sa presence en session distante via SSH.
 
-## Phase E — Créer modules/openclaw_tmux_operator/
+## Phase E — Etendre `modules/openclaw_tmux_operator/` si necessaire
 
-Module léger READ_ONLY :
+Le module READ_ONLY existe deja avec :
 
 ```
 modules/openclaw_tmux_operator/
   scripts/cmd.sh
-  scripts/fleet_status.sh
-  scripts/machine_status.sh
-  scripts/tmux_status.sh
-  scripts/tmux_attach_hint.sh
-  scripts/session_logs.sh
-  scripts/health_all.sh
+  scripts/health_aggregate.py
   docs/README.md
 ```
 
-Rôle : status/logs/health/attach hints. Pas d'exécution IA concurrente.
+Capacites prouvees dans le repo :
+
+- `fleet-status`
+- `machine-status`
+- `tmux-status`
+- `attach-hint`
+- `logs`
+- `session-logs`
+- `health-all`
+- `health-aggregate`
+- `openclaw-health`
+- `openclaw-probe`
+
+Role : status/logs/health/attach hints. Pas d'execution IA concurrente.
+
+Extensions futures permises seulement si un gap reel apparait apres validation
+distante ou smoke mobile.
 
 ## Phase F — Tests E2E
 
@@ -80,11 +99,12 @@ Rôle : status/logs/health/attach hints. Pas d'exécution IA concurrente.
 5. mobile attach/detach (simulation)
 6. deskpro watchdog run-once
 7. strict-workers readonly smoke
-8. Closeout
+8. relecture reprise + gaps reels
 
 ## Phase G — Closeout
 
-Créer `90_REPRISE.md` avec :
-- Commandes exécutées et résultats
-- Gaps documentés
-- NEXT_GO proposés
+Maintenir `90_REPRISE.md` ouvert tant que :
+
+- les validations distantes `db-layer` / `admin-trading` ne sont pas executees
+- le smoke mobile reel n'est pas prouve
+- le closeout umbrella final reste bloque par d'autres surfaces ouvertes
