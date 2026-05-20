@@ -206,7 +206,7 @@ def main() -> dict:
     mode = "dry_run" if dry_run else "controlled_write"
 
     print("=" * 60)
-    print(f"GOOGLE SHEETS SYNC — {run_id}")
+    print(f"GOOGLE SHEETS SYNC - {run_id}")
     print("=" * 60)
     print(f"Mode     : {mode}")
     print(f"Run ID   : {run_id}")
@@ -216,7 +216,7 @@ def main() -> dict:
     print(f"Outcome  : {row['outcome']} net={row['net_pnl']}")
     print(f"Closeout : {row['closeout_acknowledged']}")
     print()
-    print("── Row preview (columns → values) ──")
+    print("-- Row preview (columns -> values) --")
     for col, val in zip(COLUMNS, values):
         print(f"  {col:25s} = {val}")
     print()
@@ -224,7 +224,7 @@ def main() -> dict:
     if dry_run:
         client, sheet = None, None
         _log_sync(run_id, mode, "dry_run_skipped", row)
-        print("⚠ DRY-RUN — no write to Google Sheets.")
+        print("DRY-RUN - no write to Google Sheets.")
         print("  Use --controlled-write to actually sync.")
         if not os.environ.get("GOOGLE_SHEETS_SYNC_SHEET_ID"):
             print("  Note: set GOOGLE_SHEETS_SYNC_SHEET_ID and run")
