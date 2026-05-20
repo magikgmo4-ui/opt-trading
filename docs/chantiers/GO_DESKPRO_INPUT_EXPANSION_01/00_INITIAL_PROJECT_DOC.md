@@ -17,6 +17,19 @@ links:
 
 # 00_INITIAL_PROJECT_DOC - Desk Pro input expansion
 
+## MASTER_TARGET
+
+Ce child contribue au produit final total voulu par le parent umbrella
+`GO_OPT_TRADING_ADMIN_TRADING_SIGNAL_CHAIN_TOTAL_PRODUCT_PARENT_01`, avec
+separation stricte entre :
+
+- TradingView/webhook -> signal_event -> Desk Pro -> Telegram/Sheets/Perf
+- Bot Vision / headless screener -> Desk Pro
+- Telegram screener inbound -> claims watch-only -> Desk Pro
+- Telegram notification outbound multi-destinations
+- Google Sheets global
+- Strategy Registry / Perf Engine / replay / paper
+
 ## But
 
 Desk Pro est le hub consumer final du produit. Ce GO fixe:
@@ -38,3 +51,19 @@ Desk Pro est le hub consumer final du produit. Ce GO fixe:
 - `30_PROOF_MATRIX_AND_CONSTRAINTS.md` : preuves attendues + invariants
 - `40_GAPS_AND_NEXT_GO.md` : plan après cadrage
 - `90_REPRISE_POINT.md` : reprise + next GO bundle
+
+## Regle Kanban / continuite
+
+Le tableau Kanban du bundle reste la carte de navigation principale. Ce child
+documente le hub consumer Desk Pro du produit final total et ne remplace pas le
+Kanban bundle par une roadmap concurrente.
+
+## Prochain item Kanban a faire
+
+`GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01`
+
+## Gaps encore ouverts
+
+- classes d'inputs cibles non materialisees en wrappers read-only
+- `vision_analysis`, `market_metrics` et `telegram_claim` encore contractuels seulement
+- jointures refs/timestamps encore partielles selon les producers

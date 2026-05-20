@@ -1,5 +1,13 @@
 # 30 — Plan de tests
 
+## Cadre de validation
+
+Ce GO distingue :
+
+- preuves Python locales executables depuis ce workspace
+- verifications `bash` / SSH a executer depuis un host Linux ou le reseau
+  operateur
+
 ## Niveaux
 
 | Niveau | Description | Mode |
@@ -13,12 +21,12 @@
 | 6 | `cmd.sh openclaw-probe db-layer` | Réseau prod (SSH) |
 | 7 | `health-aggregate` réel (sans --dry-run) sur db-layer | Réseau prod |
 
-## Critères PASS
+## Criteres de validation
 
-- Niveaux 0-4 : PASS sans réseau de prod
-- Niveaux 5-7 : PASS depuis db-layer uniquement (GAP-01 inchangé)
-- Aucun test ne modifie de session tmux
-- Aucun test n'écrit dans `/opt/trading/data/`
+- niveaux 0-2 : preuves locales possibles ici
+- niveaux 3-7 : a executer sur host Linux/WSL fonctionnel ou reseau prod
+- aucun test ne modifie de session tmux
+- aucun test n'ecrit dans `/opt/trading/data/`
 
 ## Commandes CI (niveaux 0-4)
 
@@ -27,3 +35,10 @@ python3 -m unittest tests.openclaw_tmux_operator.test_health_aggregate -v
 python3 modules/openclaw_tmux_operator/scripts/health_aggregate.py --dry-run
 bash modules/openclaw_tmux_operator/scripts/cmd.sh health-aggregate --dry-run
 ```
+
+## Notes de cette passe
+
+- `python -m unittest tests.openclaw_tmux_operator.test_health_aggregate -v`
+  est executable dans ce workspace Windows
+- les commandes `bash modules/openclaw_tmux_operator/scripts/cmd.sh ...`
+  restent bloquees ici tant qu'aucune distribution WSL Linux n'est installee

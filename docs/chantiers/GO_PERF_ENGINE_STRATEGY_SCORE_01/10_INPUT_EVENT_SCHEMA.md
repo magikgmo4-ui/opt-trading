@@ -37,3 +37,24 @@ Le scorer cherche les champs dans les chemins suivants:
 
 - les events sans `strategy_id` sont ignorés
 - la date d’observation est dérivée de `produced_at` si présent, sinon de `run_id` (YYYYMMDD prefix)
+
+## Validation locale executee
+
+Commande relancee dans cette passe :
+
+```powershell
+python -m pytest tests\e2e\test_perf_engine_strategy_score.py -q
+```
+
+Resultat observe :
+
+```text
+1 passed
+```
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : contribuer au produit final total via un input scoring transverse et offline
+- `Kanban bundle` : reste la reference principale
+- `Prochain item Kanban` : `GO_STRATEGY_REGISTRY_TELEGRAM_LATENCY_01`
+- `Gaps encore ouverts` : producer ObservationEvent non stabilise, mapping consumer non branche, replay coverage encore theorique

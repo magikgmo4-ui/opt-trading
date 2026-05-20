@@ -36,3 +36,11 @@ Source: `scripts/e2e/daily_session_journal.py`
 3) Persist report JSON + CSV
 4) Optionnel: `--sync-sheets` (subprocess, dry-run par defaut)
 5) Print un summary humain sur stdout (ASCII safe)
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : prouver la chaine du produit final total sans runtime live
+- `Tableau Kanban du bundle` : reste la navigation principale
+- `Produit final total voulu` : chaines separees mais liees entre webhook, Desk Pro, Telegram, Sheets, Perf et runtime
+- `Prochain item Kanban exact` : `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
+- `Gaps encore ouverts` : pas de closeout umbrella, controlled-write Sheets hors scope E2E, preuve finale multi-chaines encore a consolider

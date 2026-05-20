@@ -30,3 +30,24 @@ updated_at: 2026-05-19
 ## Conclusion
 
 Une surface Sheets existe déjà et est sûre (dry-run par défaut), mais elle ne suffit pas pour le produit total. Le schéma global doit être fixé avant d’étendre l’écriture à d’autres tabs.
+
+## Validation locale executee
+
+Commande relancee dans cette passe :
+
+```powershell
+python -m pytest tests\e2e\test_sync_daily_session.py -q
+```
+
+Resultat observe :
+
+```text
+26 passed
+```
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : contribuer au produit final total via Google Sheets comme consumer transverse
+- `Kanban bundle` : reste la reference principale
+- `Prochain item Kanban` : `GO_TELEGRAM_LATENCY_BACKTEST_01`
+- `Gaps encore ouverts` : schema tabs 2-5 sans writer, controlled-write toujours borne, single-writer encore absent

@@ -30,3 +30,10 @@ Référence: familles/types définis dans `GO_EVENT_TAXONOMY_01`.
 
 - En dry-run, tout ce qui est routé trading doit basculer vers `TG_PAPER` ou être “skipped”.
 - Les erreurs doivent pouvoir aller vers un canal dédié (`TG_ALERTS`) sans polluer `TG_TRADING`.
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : separer les flux Telegram outbound du produit final total
+- `Kanban bundle` : reste la carte de navigation principale
+- `Prochain item Kanban exact` : `GO_TELEGRAM_SCREENER_CHANNEL_REGISTRY_01`
+- `Gaps encore ouverts` : politique par famille/type, alerts dediees, regles dry-run/live encore non branchees dans le code

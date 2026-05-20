@@ -4,6 +4,7 @@ import json
 import subprocess
 import sys
 import unittest
+from shutil import which
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -28,11 +29,28 @@ def _run(args: list[str]) -> tuple[int, str]:
     return r.returncode, r.stdout + r.stderr
 
 
+def _bash_usable() -> bool:
+    if which("bash") is None:
+        return False
+    try:
+        r = subprocess.run(["bash", "-lc", "echo ok"], capture_output=True, text=True, timeout=5)
+        return r.returncode == 0 and r.stdout.strip() == "ok"
+    except Exception:
+        return False
+
+
+_BASH_USABLE = _bash_usable()
+
+
 # ---------------------------------------------------------------------------
 # T1 — attach-hint correctness
 # ---------------------------------------------------------------------------
 
 class TestAttachHint(unittest.TestCase):
+
+    def setUp(self):
+        if not _BASH_USABLE:
+            self.skipTest("bash unavailable in this environment")
 
     def _hint(self, host: str, session: str) -> str:
         rc, out = _run(["attach-hint", host, session])
@@ -110,10 +128,21 @@ class TestMobileSessionsInRegistry(unittest.TestCase):
 class TestHealthAggregateForMobile(unittest.TestCase):
 
     def setUp(self):
-        rc, out = _run(["health-aggregate", "--dry-run"])
-        self.rc = rc
-        self.out = out
-        self.data = json.loads(out) if rc == 0 else {}
+        r = subprocess.run(
+            [
+                sys.executable,
+                str(PROJECT_ROOT / "modules" / "openclaw_tmux_operator" / "scripts" / "health_aggregate.py"),
+                "--dry-run",
+                "--machines",
+                "db-layer,admin-trading",
+            ],
+            capture_output=True,
+            text=True,
+            timeout=10,
+        )
+        self.rc = r.returncode
+        self.out = r.stdout + r.stderr
+        self.data = json.loads(r.stdout) if r.returncode == 0 else {}
 
     def test_exit_zero(self):
         self.assertEqual(self.rc, 0, self.out)
@@ -145,6 +174,8 @@ class TestHealthAggregateForMobile(unittest.TestCase):
 class TestCmdUsageForMobile(unittest.TestCase):
 
     def setUp(self):
+        if not _BASH_USABLE:
+            self.skipTest("bash unavailable in this environment")
         rc, self.usage = _run([])
         # exit 2 is expected for no-args usage
         self.assertIn(rc, (0, 2))

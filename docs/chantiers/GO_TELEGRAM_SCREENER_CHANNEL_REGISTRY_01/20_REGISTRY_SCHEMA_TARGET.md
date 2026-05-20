@@ -60,3 +60,11 @@ channels:
 
 - `trust_tier=A/B` seulement pour sources “validated”
 - `enabled=true` uniquement après preuve d’observation (dry-run + fixtures)
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : standardiser les sources Telegram inbound du produit final total
+- `Tableau Kanban du bundle` : reste la navigation principale
+- `Produit final total voulu` : chaines separees mais liees entre webhook, Desk Pro, Telegram, Sheets, Perf et runtime
+- `Prochain item Kanban exact` : `GO_DESKPRO_INPUT_EXPANSION_01`
+- `Gaps encore ouverts` : fichier registry absent, aliases d'IDs non resolus, parser contracts encore non poses

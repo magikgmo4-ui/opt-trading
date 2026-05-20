@@ -1,44 +1,92 @@
-# GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01
+---
+doc_id: GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01_INITIAL_PROJECT_DOC
+doc_type: initial_project_doc
+repo: opt-trading
+go_id: GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01
+status: active
+source_kind: canonical
+updated_at: 2026-05-20
+links:
+  - docs/chantiers/GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01/20_MACHINE_TMUX_MATRIX.md
+  - docs/chantiers/GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01/50_IMPLEMENTATION_PLAN.md
+  - docs/chantiers/GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01/60_TEST_PLAN.md
+  - docs/chantiers/GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01/90_REPRISE.md
+---
 
-| Champ | Valeur |
-|---|---|
-| GO | `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01` |
-| Objet | Déployer la colonne vertébrale runtime tmux multi-machines, accessible depuis mobile, orchestrée par OpenClaw sur db-layer |
-| Déclencheur | PR #614 mergée (squelette non-exécutant external apps) ; besoin d'une couche opératoire tmux/fleet/mobile |
-| Source | Bundle déposé, audit anti-doublon, PR #614, runtime_health existant, scripts/tmux/ existants |
-| Branche | `go/GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01` |
+# 00_INITIAL_PROJECT_DOC - runtime orchestrator tmux fleet mobile
 
-## État initial (après audit)
+## MASTER_TARGET
+
+Ce child contribue au produit final total du parent umbrella
+`GO_OPT_TRADING_ADMIN_TRADING_SIGNAL_CHAIN_TOTAL_PRODUCT_PARENT_01`, avec
+separation stricte entre :
+
+- runtime operateur distant
+- TradingView/webhook -> signal_event -> Desk Pro -> Telegram/Sheets/Perf
+- Bot Vision / headless screener
+- Telegram screener inbound
+- Telegram notification outbound multi-destinations
+- Google Sheets global
+- Strategy Registry / Perf Engine / replay / paper
+
+## But
+
+Documenter et verifier la surface runtime operateur distant reellement presente
+dans le repo :
+
+- orchestration OpenClaw sur `db-layer`
+- fleet health via `modules/runtime_health/fleet_orchestrator.py`
+- sessions tmux cote `db-layer` et `admin-trading`
+- acces operateur mobile via SSH + tmux server-side
+
+Ce cadrage reste doc-first et repo-first. Il ne lance aucun runtime depuis cet
+environnement.
+
+## Etat actuel prouve dans le repo
 
 | Zone | Statut |
 |---|---|
-| `scripts/tmux/` (16 fichiers) | ✅ Existe (start/stop/health/9 sessions) |
-| `modules/gateway_openclaw/` (11 fichiers) | ✅ Existe |
-| `modules/runtime_health/fleet_orchestrator.py` | ✅ Existe (456 lignes) |
-| `deploy/systemd/opt-trading-fleet-orchestrator.{service,timer}` | ✅ Existe déjà |
-| `scripts/ai/workers/orchestration/` (PR #614) | ✅ Squelette intact, non modifié |
-| `scripts/ai/workers/run_task.sh` | ✅ Existe |
-| `scripts/ai/workers/job_packets/` (22 packets) | ✅ Existe |
-| `scripts/deskpro_watchdog.sh` | ✅ Existe |
-| `modules/openclaw_tmux_operator/` | ❌ Gap confirmé |
-| Doc mobile SSH/tmux dédiée | ❌ Gap |
-| Docs chantier ce GO | ❌ À créer |
+| `modules/runtime_health/fleet_orchestrator.py` | present |
+| `scripts/tmux/sessions/fleet-status.sh` | present |
+| `scripts/tmux/sessions/openclaw-core.sh` | present |
+| `scripts/tmux/sessions/screeners.sh` | present |
+| `scripts/tmux/sessions/desk-pro.sh` | present |
+| `scripts/tmux/health_check.py` | present avec `fleet-status` dans `ALL_SESSIONS` |
+| `tests/tmux/test_health_check.py` | present |
+| `modules/gateway_openclaw/scripts/cmd.sh` | present |
+| `modules/openclaw_tmux_operator/` | present |
+| docs chantier runtime | presentes |
 
 ## Machines cibles
 
-| Machine | Rôle | Priorité |
+| Machine | Role | Priorite |
 |---|---|---|
-| db-layer | OpenClaw MAIN + données + fleet | P0 |
-| admin-trading | Runtime trading + Desk Pro | P0 |
-| fantome | Opérateur secondaire | P2 |
-| student | Sandbox | P3 |
-| cursor-ai | Windows IDE/patch/health | n/a |
+| `db-layer` | OpenClaw main + donnees + fleet | P0 |
+| `admin-trading` | runtime trading + Desk Pro | P0 |
+| `fantome` | operateur secondaire | P2 |
+| `student` | sandbox | P3 |
+| `cursor-ai` | Windows IDE/patch/health | n/a |
 
 ## Invariants
 
-- OpenClaw = orchestration, OpenCode = exécution
-- GitHub Actions = validation/smoke/sentinel
-- PR #614 = squelette non-exécutant, non à recréer
-- Mobile = terminal SSH/tmux, pas runtime
-- cursor-ai = pas tmux Linux forcé
-- No secrets, no auto-trade, no destructive commandes
+- OpenClaw = orchestration ; OpenCode = execution
+- PR #614 = squelette non-executant, a consommer sans le recreer
+- mobile = terminal SSH/tmux, jamais runtime local
+- `cursor-ai` = machine Windows, pas de tmux Linux force
+- no secrets, no auto-trade, no destructive commandes
+
+## Regle Kanban / continuite
+
+Le tableau Kanban du bundle reste la carte de navigation principale. Ce child
+documente la surface runtime operateur distant du produit final total et ne
+remplace pas le bundle par une roadmap concurrente.
+
+## Prochain item Kanban a boucler
+
+`GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
+
+## Gaps encore ouverts
+
+- validations SSH/tmux distantes non executees depuis cet environnement
+- smoke mobile physique non execute
+- closeout umbrella final reste bloque tant que runtime/Bot Vision/collectors/Sheets globaux ne sont pas tous cadres

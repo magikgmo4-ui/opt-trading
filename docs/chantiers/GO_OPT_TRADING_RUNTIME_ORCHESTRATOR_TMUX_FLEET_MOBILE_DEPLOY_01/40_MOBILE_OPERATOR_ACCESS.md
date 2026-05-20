@@ -53,6 +53,19 @@ tail -n 80 /opt/trading/logs/tmux_health.log
 cd /opt/trading && python3 modules/runtime_health/fleet_orchestrator.py --dry-run
 ```
 
+## Hints utiles avant device reel
+
+Depuis un poste autorise, les hints read-only deja presents dans le repo sont :
+
+```bash
+bash modules/openclaw_tmux_operator/scripts/cmd.sh attach-hint db-layer openclaw-core
+bash modules/openclaw_tmux_operator/scripts/cmd.sh attach-hint admin-trading desk-pro
+bash modules/openclaw_tmux_operator/scripts/cmd.sh attach-hint admin-trading screeners
+```
+
+Ces commandes aident a preparer le smoke mobile, mais ne remplacent pas la
+validation sur device reel.
+
 ## Interdits mobile
 
 - Ne pas afficher `.env`
@@ -76,3 +89,7 @@ Mobile ne sert pas à :
 - Gérer secrets
 - Modifier runtime critique
 - Traiter conflits Git
+
+## Gap courant
+
+- checklist mobile physique encore non executee sur reseau operateur

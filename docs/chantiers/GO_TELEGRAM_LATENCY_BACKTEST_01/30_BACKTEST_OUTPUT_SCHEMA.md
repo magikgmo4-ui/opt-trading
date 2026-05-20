@@ -57,3 +57,10 @@ Champ optionnel (si tags `strategy_id` présents dans la telemetry):
 
 - pas de chat_id/token dans l’output
 - `source` est un label libre (caller) et peut être agrégé
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : standardiser la sortie du backtest latency pour le produit final total
+- `Kanban bundle` : reste la carte de navigation principale
+- `Prochain item Kanban exact` : `GO_PERF_ENGINE_STRATEGY_SCORE_01`
+- `Gaps encore ouverts` : export Sheets non ouvert, scoring perf non branche, schema strategy latency encore optionnel

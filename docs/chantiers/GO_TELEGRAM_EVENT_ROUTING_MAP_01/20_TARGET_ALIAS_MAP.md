@@ -38,3 +38,11 @@ Si utilisation de supergroup topics:
 - `TELEGRAM_TOPIC_ID_*` (par alias), ex: `TELEGRAM_TOPIC_ID_ALERTS`
 
 Ce GO reste doc-only: pas d’implémentation topic tant que la politique n’est pas validée.
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : standardiser les destinations outbound du produit final total
+- `Tableau Kanban du bundle` : reste la navigation principale
+- `Produit final total voulu` : chaines separees mais liees entre webhook, Desk Pro, Telegram, Sheets, Perf et runtime
+- `Prochain item Kanban exact` : `GO_TELEGRAM_SCREENER_CHANNEL_REGISTRY_01`
+- `Gaps encore ouverts` : couche de resolution d'alias, bot secondaire alertes, topics optionnels non implementes

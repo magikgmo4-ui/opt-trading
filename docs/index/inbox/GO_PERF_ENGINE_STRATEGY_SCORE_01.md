@@ -28,6 +28,22 @@ links:
 
 Définir et implémenter un “strategy score” (Perf Engine) calculé à partir d’Observation Events (fixtures-first), produisant un evidence pack + verdict de gates (promotion/retirement), sans décision live.
 
+## Résultat
+
+État établi :
+
+- surfaces Perf Engine relues et reconfirmees pour `modules/perf_engine/app/perf_engine.py`, `tests/e2e/test_perf_engine_strategy_score.py` et `60_PERF_ENGINE_STRATEGY_EVALUATION.md`
+- le subcommand `strategy-score` existe et produit un evidence pack JSON stable a partir d'events JSONL ou JSON list
+- validation relancee dans cette passe : `python -m pytest tests\e2e\test_perf_engine_strategy_score.py -q` -> `1 passed`
+- aucune mutation runtime introduite ; le chantier reste fixtures-first et offline-first
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : contribuer au produit final total via le scoring strategie Perf Engine
+- `Tableau Kanban du bundle` : reste la reference principale
+- `Prochain item Kanban exact` : `GO_STRATEGY_REGISTRY_TELEGRAM_LATENCY_01`
+- `Gaps encore ouverts` : producer officiel absent, consumer registry/lab absent, export Sheets `strategy_perf` hors scope
+
 ## Point de reprise
 
 ```text

@@ -55,3 +55,24 @@ Preuve d’exécution: `scripts/e2e/dry_run_pipeline.py` + `tests/e2e/test_e2e_d
 ## Conclusion
 
 L’écosystème existe déjà mais parle plusieurs dialectes (dataclasses vs dicts). L’objectif du GO est d’introduire une enveloppe canonique minimale qui “wrap” ces objets sans casser les surfaces existantes.
+
+## Validation locale executee
+
+Commande relancee dans cette passe :
+
+```powershell
+python -m pytest tests\test_signal_event_adapter.py tests\e2e\test_e2e_dry_run_pipeline.py tests\test_desk_pro_combined_input_smoke.py -q
+```
+
+Resultat observe :
+
+```text
+61 passed
+```
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : contribuer au produit final total sans changement runtime
+- `Kanban bundle` : reste la reference principale
+- `Prochain item Kanban` : `GO_TELEGRAM_EVENT_ROUTING_MAP_01`
+- `Gaps encore ouverts` : canonisation complete des intents NOTIFY, articulation inbound Telegram, propagation Sheets/Perf/Registry

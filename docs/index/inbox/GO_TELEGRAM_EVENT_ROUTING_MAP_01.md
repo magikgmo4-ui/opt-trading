@@ -28,6 +28,22 @@ links:
 
 Poser une cartographie de routing Telegram (bots/chats/topics) par type d’événement, compatible avec la taxonomie transverse (GO_EVENT_TAXONOMY_01) et l’implémentation actuelle du dispatcher.
 
+## Résultat
+
+État établi :
+
+- surfaces outbound relues et reconfirmees pour `modules/notification_dispatcher/app/dispatcher.py`, `modules/notification_dispatcher/app/events.py` et `shared/telegram_notify.py`
+- le routing actuel reste monolithique sur `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID`
+- validation relancee dans cette passe : `python -m pytest modules\notification_dispatcher\tests\test_strategy_id_adapter_readonly.py tests\e2e\test_e2e_dry_run_pipeline.py tests\test_signal_event_adapter.py tests\test_desk_pro_combined_input_smoke.py -q` -> `68 passed`
+- aucune mutation runtime introduite ; le chantier reste doc-only
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : contribuer au produit final total sans melanger inbound et outbound
+- `Tableau Kanban du bundle` : reste la reference principale
+- `Prochain item Kanban exact` : `GO_TELEGRAM_SCREENER_CHANNEL_REGISTRY_01`
+- `Gaps encore ouverts` : alias -> env, multi-bots, topics, branchement progressif dans le dispatcher
+
 ## Point de reprise
 
 ```text

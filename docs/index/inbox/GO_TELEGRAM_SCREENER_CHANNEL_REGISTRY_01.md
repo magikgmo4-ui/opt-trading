@@ -29,6 +29,22 @@ links:
 
 Définir un registry de channels Telegram inbound (screener) avec trust tiers + catégories, sans mélanger inbound et outbound.
 
+## Résultat
+
+État établi :
+
+- surfaces Telegram relues et reconfirmees pour `modules/bot_vision_step2/app/bot_vision_step2.py`, `modules/notification_dispatcher/`, `shared/telegram_notify.py` et `e2e_telegram_smoke.py`
+- presence d'un `getUpdates` constatee dans `bot_vision_step2`, mais cette surface reste un bot utilitaire/vision et ne prouve pas un screener inbound structure par channels
+- validation relancee dans cette passe : `python -m pytest tests\e2e\test_e2e_dry_run_pipeline.py -q` -> `23 passed`
+- aucune mutation runtime introduite ; le chantier reste doc-only
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : contribuer au produit final total sans melanger inbound et outbound
+- `Tableau Kanban du bundle` : reste la reference principale
+- `Prochain item Kanban exact` : `GO_DESKPRO_INPUT_EXPANSION_01`
+- `Gaps encore ouverts` : registry YAML, trust tiers actifs, parse contracts, listener inbound gouverne
+
 ## Point de reprise
 
 ```text

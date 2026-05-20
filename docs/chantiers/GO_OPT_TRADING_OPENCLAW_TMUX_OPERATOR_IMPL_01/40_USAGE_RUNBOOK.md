@@ -14,6 +14,12 @@ bash modules/openclaw_tmux_operator/scripts/cmd.sh fleet-status
 bash modules/openclaw_tmux_operator/scripts/cmd.sh health-aggregate
 ```
 
+Depuis ce workspace Windows, la preuve locale equivalente deja executable est :
+
+```powershell
+python modules\openclaw_tmux_operator\scripts\health_aggregate.py --dry-run --machines db-layer,admin-trading
+```
+
 ### Vérifier OpenClaw sur db-layer
 
 ```bash
@@ -52,3 +58,4 @@ bash modules/openclaw_tmux_operator/scripts/cmd.sh health-all
 | `ssh: connect to host ... port 22: Connection refused` | Machine hors ligne | Vérifier fleet-status |
 | `openclaw health unavailable` | openclaw non démarré sur db-layer | Vérifier tmux session openclaw-core |
 | `timeout` dans health-aggregate | SSH lent / machine hors ligne | Normal si machine WARN/FAIL |
+| `WSL has no installed distributions` | `bash` indisponible localement sur Windows | Utiliser un host Linux/WSL ou la preuve Python dry-run |

@@ -32,3 +32,10 @@ Le screener inbound produit des **claims** et des **observations**, jamais des o
 
 - autorisé: WATCH/OBSERVE/CANDIDATE/INVALIDATED/REPLAY_READY
 - interdit: BUY/SELL/EXECUTE/ORDER SENT
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : encadrer l'inbound screener du produit final total
+- `Kanban bundle` : reste la carte de navigation principale
+- `Prochain item Kanban exact` : `GO_DESKPRO_INPUT_EXPANSION_01`
+- `Gaps encore ouverts` : fixtures messages anonymisees, parse contracts, separation inbound/outbound prouvee en implementation, kill-switch inbound dedie

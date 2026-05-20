@@ -129,3 +129,11 @@ dry_run
 
 - `payload_ref` doit pointer vers un artefact local (json path / id), pas contenir un payload complet en cellule.
 - Les tabs 2-5 restent doc-only tant qu’aucun writer transverse n’est implémenté.
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : standardiser Google Sheets pour le produit final total
+- `Tableau Kanban du bundle` : reste la navigation principale
+- `Produit final total voulu` : chaines separees mais liees entre webhook, Desk Pro, Telegram, Sheets, Perf et runtime
+- `Prochain item Kanban exact` : `GO_TELEGRAM_LATENCY_BACKTEST_01`
+- `Gaps encore ouverts` : writer transverse absent, tabs 2-5 non materialisees, schema a garder versionne avant toute ecriture

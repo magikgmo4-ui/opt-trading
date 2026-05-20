@@ -1,8 +1,34 @@
-# 90 — Closeout
+---
+doc_id: GO_OPT_TRADING_MOBILE_TMUX_OPERATOR_SMOKE_01_REPRISE
+doc_type: reprise
+repo: opt-trading
+go_id: GO_OPT_TRADING_MOBILE_TMUX_OPERATOR_SMOKE_01
+status: reference
+source_kind: canonical
+updated_at: 2026-05-20
+---
+
+# 90_REPRISE
+
+## MASTER_TARGET
+
+Ce child reste subordonne au parent umbrella
+`GO_OPT_TRADING_ADMIN_TRADING_SIGNAL_CHAIN_TOTAL_PRODUCT_PARENT_01` via le GO
+runtime `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`.
 
 ## Verdict
 
-**PASS** — 16/16 bash smoke + 37/37 unit tests PASS + device Android validé le 2026-05-20.
+PASS — validation mobile reelle executee (Android/Termux) le 2026-05-20.
+
+## Etat de cette passe
+
+Ce GO fournit :
+
+- une checklist humaine device (Termius/Termux) a executer sur reseau prod
+- des tests locaux CI-safe qui restent partiels sur Windows lorsque `bash` est
+  indisponible (WSL sans distribution)
+
+Le verdict runtime global reste porte par le GO runtime parent.
 
 ## Livrables
 
@@ -18,14 +44,13 @@
 
 ## Tests exécutés
 
-| Niveau | Test | Résultat |
+| Niveau | Test | Resultat |
 |---|---|---|
-| 0 | Git scope | ✅ Branche propre |
-| 1 | `bash scripts/tmux/mobile_smoke.sh` | ✅ 16/16 PASS |
-| 2 | `python3 -m unittest tests.mobile.test_mobile_smoke` | ✅ 37/37 PASS |
-| 3 | `python3 -m unittest tests.tmux.test_health_check` | ✅ 32/32 PASS (régression zéro) |
-| 4 | `python3 -m unittest tests.openclaw_tmux_operator.test_health_aggregate` | ✅ 35/35 PASS (régression zéro) |
-| 5 | Device Android réel (Termux) | ✅ PASS 2026-05-20 — 13/13 checks (voir détail ci-dessous) |
+| 1 | bash smoke script | `bash scripts/tmux/mobile_smoke.sh` | ✅ 16/16 PASS (host Linux / Termux) |
+| 2 | Python unit tests | `python -m unittest tests.mobile.test_mobile_smoke -v` | ✅ OK (skipped=12 si `bash` indisponible) |
+| 3 | tmux health check | `python -m pytest tests\\tmux\\test_health_check.py -q` | ✅ 32 passed (preuve locale) |
+| 4 | openclaw operator tests | `python -m unittest tests.openclaw_tmux_operator.test_health_aggregate -v` | ✅ 35 tests OK (preuve locale) |
+| 5 | Device Android reel | Termius/Termux | ✅ PASS 2026-05-20 — voir section ci-dessous |
 
 ## Couverture smoke CI
 
@@ -63,7 +88,17 @@ Note : résolution hostname depuis Termux nécessite `~/.ssh/config` local (ajou
 
 ## Gaps
 
-Aucun gap restant.
+Aucun gap restant documente (device Android valide).
+
+## Tableau Kanban du bundle
+
+Le tableau Kanban du bundle reste la navigation principale. Ce child documente
+le smoke mobile, mais l'item Kanban exact reste le GO runtime tant que les
+validations distantes ne sont pas executees.
+
+## Prochain item Kanban exact
+
+`GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
 
 ## NEXT_GO
 

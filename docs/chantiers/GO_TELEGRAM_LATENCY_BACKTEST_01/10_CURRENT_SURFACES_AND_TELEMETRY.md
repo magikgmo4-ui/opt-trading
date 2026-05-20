@@ -42,3 +42,24 @@ Chaque envoi écrit un record:
 Backtest analyzer:
 
 - `scripts/telegram/latency_backtest.py`
+
+## Validation locale executee
+
+Commande relancee dans cette passe :
+
+```powershell
+python -m pytest tests\e2e\test_telegram_latency_backtest.py -q
+```
+
+Resultat observe :
+
+```text
+1 passed
+```
+
+## Ancrage umbrella
+
+- `MASTER_TARGET` : contribuer au produit final total via la mesure de latence Telegram outbound
+- `Kanban bundle` : reste la reference principale
+- `Prochain item Kanban` : `GO_PERF_ENGINE_STRATEGY_SCORE_01`
+- `Gaps encore ouverts` : pas de true e2e reception client, pas de retry policy commune, pas de raccord perf/registry

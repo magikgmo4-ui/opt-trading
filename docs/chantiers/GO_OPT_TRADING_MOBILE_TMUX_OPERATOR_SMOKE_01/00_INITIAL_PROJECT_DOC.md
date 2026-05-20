@@ -1,12 +1,14 @@
-# GO_OPT_TRADING_MOBILE_TMUX_OPERATOR_SMOKE_01
+---
+doc_id: GO_OPT_TRADING_MOBILE_TMUX_OPERATOR_SMOKE_01_INITIAL_PROJECT_DOC
+doc_type: initial_project_doc
+repo: opt-trading
+go_id: GO_OPT_TRADING_MOBILE_TMUX_OPERATOR_SMOKE_01
+status: active
+source_kind: canonical
+updated_at: 2026-05-20
+---
 
-| Champ | Valeur |
-|---|---|
-| GO | `GO_OPT_TRADING_MOBILE_TMUX_OPERATOR_SMOKE_01` |
-| Objet | Smoke tests mobile SSH/tmux operator — validation sans device physique en CI + checklist manuelle Termius/Termux |
-| Parent | `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01` (PR #618) |
-| Déclencheur | GAP-03 : Tests mobile réel non effectués — dispositif physique requis |
-| Branche | `go/GO_OPT_TRADING_MOBILE_TMUX_OPERATOR_SMOKE_01` |
+# 00_INITIAL_PROJECT_DOC - mobile tmux operator smoke
 
 ## Stratégie
 
@@ -23,9 +25,9 @@ Les tests mobile réels (SSH depuis Termius/Termux vers db-layer) nécessitent u
 | `docs/chantiers/.../40_MOBILE_OPERATOR_ACCESS.md` (parent) | ✅ Runbook mobile complet |
 | `modules/openclaw_tmux_operator/scripts/cmd.sh` (`attach-hint`) | ✅ Commande mobile clé |
 | `modules/openclaw_tmux_operator/scripts/health_aggregate.py` | ✅ Dry-run utilisable depuis mobile |
-| Script smoke mobile | ❌ Gap — à créer |
-| Tests Python mobile | ❌ Gap — à créer |
-| Checklist validation humaine device | ❌ Gap — à créer |
+| `scripts/tmux/mobile_smoke.sh` | present |
+| `tests/mobile/test_mobile_smoke.py` | present |
+| `docs/chantiers/.../10_HUMAN_CHECKLIST.md` | present |
 
 ## Machines cibles mobile
 
@@ -33,3 +35,25 @@ Les tests mobile réels (SSH depuis Termius/Termux vers db-layer) nécessitent u
 |---|---|
 | db-layer | openclaw-core, fleet-status |
 | admin-trading | desk-pro, screeners |
+
+## MASTER_TARGET
+
+Ce child reste subordonne au parent umbrella
+`GO_OPT_TRADING_ADMIN_TRADING_SIGNAL_CHAIN_TOTAL_PRODUCT_PARENT_01` via le GO
+runtime `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`.
+
+## Regle Kanban / continuite
+
+Le tableau Kanban du bundle reste la navigation principale. Ce child documente
+un sous-lot mobile, mais l'item Kanban exact reste le GO runtime tant que les
+validations distantes ne sont pas executees.
+
+## Prochain item Kanban exact
+
+`GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
+
+## Gaps encore ouverts
+
+- validation Android device reel (Termius/Termux) encore PENDING
+- commandes `bash` du module `openclaw_tmux_operator/scripts/cmd.sh` non
+  executables dans ce workspace Windows sans WSL Linux
