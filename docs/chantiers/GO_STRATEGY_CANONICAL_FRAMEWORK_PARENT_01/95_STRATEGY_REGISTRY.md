@@ -25,16 +25,16 @@ Toute stratégie utilisable dans le pipeline doit figurer ici.
 
 ## 2_REGISTRY
 
-| # | strategy_id | strategy_version | setup_type | status | lifecycle | parent_go |
-|---|-------------|-----------------|-----------|--------|-----------|-----------|
-| 1 | `SMC_ICT_CHOCH_BOS_RETEST` | `0.1.0` | `SWEEP_CHOCH_BOS_FVG_OB_RETEST` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
-| 2 | `xau_session_open_v1` | `v0.1.0` | `session_open` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
-| 3 | `COINM_SHORT` | `v0.1.0` | `lower_high_structure_ma_break` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
-| 4 | `USDTM_LONG` | `v0.1.0` | `bullish_confirmation_pullback` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
-| 5 | `GOLD_CFD_LONG` | `v0.1.0` | `hl_structure_ma_buy` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
-| 6 | `range_strategy_v1` | `v0.1.0` | `range_boundary_reversal` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
-| 7 | `btc_coinm_accumulation` | `v0.1.0` | `dca_accumulation_hedge` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
-| 8 | `DCA_ON_FEAR_SOLID_STOCKS` | `v0.1.0` | `dca_fear_entry` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
+| # | strategy_id | strategy_version | setup_type | status | lifecycle | parent_go | telegram_latency |
+|---|-------------|-----------------|-----------|--------|-----------|-----------|----------------|
+| 1 | `SMC_ICT_CHOCH_BOS_RETEST` | `0.1.0` | `SWEEP_CHOCH_BOS_FVG_OB_RETEST` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` | UNMEASURED |
+| 2 | `xau_session_open_v1` | `v0.1.0` | `session_open` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` | UNMEASURED |
+| 3 | `COINM_SHORT` | `v0.1.0` | `lower_high_structure_ma_break` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` | UNMEASURED |
+| 4 | `USDTM_LONG` | `v0.1.0` | `bullish_confirmation_pullback` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` | UNMEASURED |
+| 5 | `GOLD_CFD_LONG` | `v0.1.0` | `hl_structure_ma_buy` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` | UNMEASURED |
+| 6 | `range_strategy_v1` | `v0.1.0` | `range_boundary_reversal` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` | UNMEASURED |
+| 7 | `btc_coinm_accumulation` | `v0.1.0` | `dca_accumulation_hedge` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` | UNMEASURED |
+| 8 | `DCA_ON_FEAR_SOLID_STOCKS` | `v0.1.0` | `dca_fear_entry` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` | UNMEASURED |
 
 ---
 
@@ -51,6 +51,7 @@ Toute stratégie utilisable dans le pipeline doit figurer ici.
 | `direction` | `WATCH_ONLY` |
 | `observation_status` | `CANDIDATE` |
 | `perf_status` | `UNMEASURED` |
+| `telegram_latency_status` | `UNMEASURED` |
 | `go_id` | `GO_SMC_ICT_OPT_TRADING_OBSERVATION_SIGNAL_ENRICHMENT_01` |
 | `parent_go` | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
 | `docs_path` | `docs/chantiers/GO_SMC_ICT_OPT_TRADING_OBSERVATION_SIGNAL_ENRICHMENT_01/` |
@@ -68,6 +69,7 @@ Toute stratégie utilisable dans le pipeline doit figurer ici.
 | `observation_status` | `ACTIVE` |
 | `lifecycle` | `CANDIDATE` |
 | `perf_status` | `UNMEASURED` |
+| `telegram_latency_status` | `UNMEASURED` |
 | `go_id` | `GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_XAU_SESSION_OPEN_REGISTRY_REGULARIZATION_01` |
 | `parent_go` | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
 | `docs_path` | `docs/chantiers/GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_XAU_SESSION_OPEN_REGISTRY_REGULARIZATION_01/` |
@@ -86,6 +88,7 @@ Toute stratégie utilisable dans le pipeline doit figurer ici.
 | `direction` | `SHORT` |
 | `lifecycle` | `CANDIDATE` |
 | `perf_status` | `UNMEASURED` |
+| `telegram_latency_status` | `UNMEASURED` |
 | `go_id` | `GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_COINM_SHORT_REGISTRY_REGULARIZATION_01` |
 | `parent_go` | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
 | `docs_path` | `docs/chantiers/GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_COINM_SHORT_REGISTRY_REGULARIZATION_01/` |
@@ -104,6 +107,7 @@ Toute stratégie utilisable dans le pipeline doit figurer ici.
 | `direction` | `LONG` |
 | `lifecycle` | `CANDIDATE` |
 | `perf_status` | `UNMEASURED` |
+| `telegram_latency_status` | `UNMEASURED` |
 | `go_id` | `GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_USDTM_LONG_REGISTRY_REGULARIZATION_01` |
 | `parent_go` | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
 | `docs_path` | `docs/chantiers/GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_USDTM_LONG_REGISTRY_REGULARIZATION_01/` |
@@ -122,6 +126,7 @@ Toute stratégie utilisable dans le pipeline doit figurer ici.
 | `direction` | `LONG` |
 | `lifecycle` | `CANDIDATE` |
 | `perf_status` | `UNMEASURED` |
+| `telegram_latency_status` | `UNMEASURED` |
 | `go_id` | `GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_GOLD_CFD_LONG_REGISTRY_REGULARIZATION_01` |
 | `parent_go` | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
 | `docs_path` | `docs/chantiers/GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_GOLD_CFD_LONG_REGISTRY_REGULARIZATION_01/` |
@@ -140,6 +145,7 @@ Toute stratégie utilisable dans le pipeline doit figurer ici.
 | `direction` | `LONG_SHORT` |
 | `lifecycle` | `CANDIDATE` |
 | `perf_status` | `UNMEASURED` |
+| `telegram_latency_status` | `UNMEASURED` |
 | `go_id` | `GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_RANGE_STRATEGY_V1_REGISTRY_REGULARIZATION_01` |
 | `parent_go` | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
 | `docs_path` | `docs/chantiers/GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_RANGE_STRATEGY_V1_REGISTRY_REGULARIZATION_01/` |
@@ -159,6 +165,7 @@ Toute stratégie utilisable dans le pipeline doit figurer ici.
 | `direction` | `LONG_SHORT` |
 | `lifecycle` | `CANDIDATE` |
 | `perf_status` | `UNMEASURED` |
+| `telegram_latency_status` | `UNMEASURED` |
 | `go_id` | `GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_BTC_COINM_ACCUMULATION_REGISTRY_REGULARIZATION_01` |
 | `parent_go` | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
 | `docs_path` | `docs/chantiers/GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_BTC_COINM_ACCUMULATION_REGISTRY_REGULARIZATION_01/` |
@@ -177,6 +184,7 @@ Toute stratégie utilisable dans le pipeline doit figurer ici.
 | `direction` | `LONG` |
 | `lifecycle` | `CANDIDATE` |
 | `perf_status` | `UNMEASURED` |
+| `telegram_latency_status` | `UNMEASURED` |
 | `go_id` | `GO_OPT_TRADING_STOCKS_PARENT_DCA_ON_FEAR_SOLID_STOCKS_01` |
 | `parent_go` | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
 | `docs_path` | `docs/chantiers/GO_OPT_TRADING_STOCKS_PARENT_DCA_ON_FEAR_SOLID_STOCKS_01/` |

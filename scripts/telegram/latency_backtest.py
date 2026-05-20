@@ -42,6 +42,7 @@ def _percentile(sorted_vals: list[int], p: float) -> int | None:
 class Record:
     timestamp: datetime
     source: str
+    strategy_id: str
     ok: bool
     duration_ms: int
 
@@ -72,10 +73,21 @@ def _load_records(path: Path, since: datetime | None, until: datetime | None) ->
                 duration_ms = int(raw.get("duration_ms", 0))
             except Exception:
                 continue
+            tags = raw.get("tags") if isinstance(raw.get("tags"), dict) else {}
+            strategy_id = ""
+            if isinstance(tags, dict):
+                sid = tags.get("strategy_id")
+                if sid:
+                    strategy_id = str(sid)
+            if not strategy_id:
+                sid2 = raw.get("strategy_id")
+                if sid2:
+                    strategy_id = str(sid2)
             out.append(
                 Record(
                     timestamp=ts,
                     source=str(raw.get("source", "")),
+                    strategy_id=strategy_id,
                     ok=bool(raw.get("ok", False)),
                     duration_ms=duration_ms,
                 )
@@ -89,6 +101,11 @@ def _summarize(records: list[Record]) -> dict[str, Any]:
     by_source: dict[str, list[Record]] = {}
     for r in records:
         by_source.setdefault(r.source or "unknown", []).append(r)
+
+    by_strategy: dict[str, list[Record]] = {}
+    for r in records:
+        if r.strategy_id:
+            by_strategy.setdefault(r.strategy_id, []).append(r)
 
     def stats(vals: list[int]) -> dict[str, Any]:
         if not vals:
@@ -114,8 +131,19 @@ def _summarize(records: list[Record]) -> dict[str, Any]:
             "latency_ms": stats(src_durations),
         }
 
+    strategies_out: dict[str, Any] = {}
+    for sid, recs in sorted(by_strategy.items(), key=lambda kv: kv[0]):
+        sid_durations = sorted(r.duration_ms for r in recs)
+        sid_ok = sum(1 for r in recs if r.ok)
+        strategies_out[sid] = {
+            "count": len(recs),
+            "ok_count": sid_ok,
+            "ok_rate": (sid_ok / len(recs)) if recs else 0.0,
+            "latency_ms": stats(sid_durations),
+        }
+
     ok_count = sum(1 for r in records if r.ok)
-    return {
+    out = {
         "count": len(records),
         "ok_count": ok_count,
         "ok_rate": (ok_count / len(records)) if records else 0.0,
@@ -123,6 +151,9 @@ def _summarize(records: list[Record]) -> dict[str, Any]:
         "latency_ms_ok": stats(durations_ok),
         "by_source": sources_out,
     }
+    if strategies_out:
+        out["by_strategy_id"] = strategies_out
+    return out
 
 
 def main() -> int:
