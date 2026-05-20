@@ -16,7 +16,7 @@ surface: index
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 point_de_reprise: "Section Tableau canonique"
-updated_at: 2026-05-14
+updated_at: 2026-05-20
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md
@@ -72,7 +72,7 @@ Obligations explicites :
 - branches locales : `~-35`
 - entrees totales suivies dans le tableau : `82` (tableau non encore rafraichi pour ce lot)
 - comparaison de reference : `origin/sot/mainline`
-- **derniere operation** : GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_DELETE_INDEX_RECONCILIATION_01 — suppression documentee de `OPEN_WORK_CONTROL_01`
+- **derniere operation** : realignement doc-only post-PR #645 / #646 ; tableau detaille encore fonde sur le snapshot 2026-04-28 en attente d'un recount complet
 
 | CANON_STATUS | COUNT |
 | --- | ---: |
@@ -222,7 +222,7 @@ Obligations explicites :
 | `go/GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` | both | AHEAD_ONLY | 1 | 0 | `KEEP_ACTIVE` | `keep_under_review` | Lot doc-only courant de realignement des representations canoniques encore en cours | `GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03` |
 | `go/GO_OPT_TRADING_REPO_KG_PARENT_GRAPH_SYSTEM_01` | remote | DIVERGED | 18 | 70 | `KEEP_REFERENCE` | `exclude_cleanup` | Dossier chantier local riche et reutilise par des child docs ; branche absente du Git observe dans la passe db-layer | `GO_OPT_TRADING_DB_LAYER_A_VERIFIER_REVIEW_01` |
 | `go/GO_OPT_TRADING_REPO_SURFACES_PARENT_CARTOGRAPHY_01` | remote | DIVERGED | 1 | 926 | `KEEP_ACTIVE` | `keep_under_review` | Cadrage parent distant prouve avec statut `open`, TODO restants et point de reprise explicite | `GO_OPT_TRADING_DB_LAYER_DEEP_AUDIT_01` |
-| `go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01` | both | DIVERGED | 15 | 12 | `KEEP_ACTIVE` | `keep_under_review` | Parent strict workers actif ; dossier complet sur branche (6 fichiers, closeout draft) ; non merge dans mainline ; a integrer ou poursuivre sur branche | `GO_OPT_TRADING_FANTOME_ACTIVE_PARENTS_CROSSCHECK_01` |
+| `go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01` | both | DIVERGED | 15 | 12 | `KEEP_ACTIVE` | `keep_under_review` | Parent strict workers encore actif sur branche ; la continuite canonique `sot/mainline` a toutefois bascule sur les GO merges `#645` et `#646` pour la reprise bucketisee | `GO_OPT_TRADING_FANTOME_ACTIVE_PARENTS_CROSSCHECK_01` |
 | `go/GO_TMUX_IDE_OPT_TRADING_ADMIN_TRADING_ACTIVE_BRANCH_ARBITRATION_01` | remote | BEHIND_ONLY | 0 | 302 | `KEEP_ACTIVE` | `keep_under_review` | Branche admin-trading active classee dans MACHINE_WORK_SPLIT | `GO_OPT_TRADING_ADMIN_TRADING_BRANCH_STATE_SEED_01` |
 | `go/GO_TMUX_IDE_OPT_TRADING_ADMIN_TRADING_GIT_BASE_REALIGN_01` | remote | BEHIND_ONLY | 0 | 330 | `KEEP_ACTIVE` | `keep_under_review` | Branche admin-trading active classee dans MACHINE_WORK_SPLIT | `GO_OPT_TRADING_ADMIN_TRADING_BRANCH_STATE_SEED_01` |
 | `go/GO_TMUX_IDE_OPT_TRADING_ADMIN_TRADING_GIT_BASE_REALIGN_EXEC_01` | remote | BEHIND_ONLY | 0 | 315 | `KEEP_ACTIVE` | `keep_under_review` | Branche admin-trading active classee dans MACHINE_WORK_SPLIT | `GO_OPT_TRADING_ADMIN_TRADING_BRANCH_STATE_SEED_01` |
@@ -266,6 +266,8 @@ Obligations explicites :
 - branches gardees actives : `sot/mainline`, `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `codex/doc-ops-child-branch-cleanup-01`, `go/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01`, `go/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01`, `go/GO_OPT_TRADING_REMAINING_GO_BRANCHES_DOC_REPRESENTATION_ALIGNMENT_03`
 - branches gardees en reference : `go_repos_agent-role_initial_01`, `main`, `sot/build`, `go/GO_OPT_TRADING_REMAINING_BRANCHES_TRANSPORT_DELETE_03_CANCEL_01`, `go/GO_OPT_TRADING_REMAINING_GO_BRANCHES_MATRIX_AUDIT_01`, `go/GO_OPT_TRADING_REMAINING_GO_BRANCHES_MATRIX_MEMBERSHIP_AUDIT_02`, familles `backup/*`, `rescue/*`, `save/*`
 - branches encore divergentes ou ahead maintenues en `A_VERIFIER` en attente d'arbitrage explicite ou de preuve canonique complementaire
+- PR `#645` et PR `#646` sont merges dans `sot/mainline` ; leurs branches `doc/*` n'ont pas vocation a etre listees comme flux actifs persistants dans cette fiche
+- la ligne `go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01` reste une realite branche, mais n'est plus le pointeur principal de reprise sur `sot/mainline`
 - lot de nettoyage `GO_OPT_TRADING_DOC_OPS_BRANCH_CLEANUP_MATRIX_METHOD_01` : 3 branches merged supprimees localement et a distance (`ACTIVE_GOVERNANCE_CLOSEOUT_REVIEW_01`, `CONTINUITY_ALIGNMENT_AFTER_OPEN_WORK_CONTROL_01`, `INDEX_AGGREGATION_BATCH_01`) ; 1 branche `BLOCKED` (`OPEN_WORK_CONTROL_01`, non mergee, delta reseau_ssh lourd) ; 2 branches `KEEP` (`BUNDLES_REPO_STORAGE_PARENT_01`, `CLICKUP_PARENT_CONTINUITY_01`, non mergees, doc-only)
 - post-lot 3/3 PASS : BUNDLES_REPO_STORAGE mergé dans sot/mainline ; OPEN_WORK_CONTROL_01_ISOLATED completement supprimee (worktree retire, branche locale supprimee) ; CLICKUP_PARENT_CONTINUITY conserve hors lot actif (machine fantome)
 - branche `go/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01` conservee comme ancre parent `db-layer` ; chaine OpenClaw recente closee dans `sot/mainline` via runtime PASS puis closeout #222 ; aucun `NEXT_GO` obligatoire

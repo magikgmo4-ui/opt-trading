@@ -16,7 +16,7 @@ surface: chantier
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 point_de_reprise: "Section Flux actifs"
-updated_at: 2026-05-09
+updated_at: 2026-05-20
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/index/GO_INDEX.md
@@ -52,11 +52,12 @@ Il sert à :
 
 ---
 
-## Priorite operatoire (5 GO non clos retenus)
+## Priorite operatoire (8 GO non clos retenus)
 
 - P0 : `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
 - P1 : `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
-- P2 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
+- P2 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_OPT_TRADING_AI_STRICT_WORKERS_APPS_CLASSIFICATION_01`, `GO_OPT_TRADING_STRICT_WORKERS_ORCHESTRATION_DEPLOYMENT_CLASSIFICATION_REVIEW_01`
+- P3 : `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01`
 
 ---
 
@@ -111,21 +112,21 @@ Il sert à :
 - blocages : valider la machine cible reelle, adapter les panes utiles, confirmer l'emplacement repo reel et executer la validation reelle de `tmux-ide`
 - reserve : OpenClaw hors scope pour cette suite ; aucun rattachement machine sans preuve
 
-### GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01
+### GO_OPT_TRADING_AI_STRICT_WORKERS_APPS_CLASSIFICATION_01
 - statut : open
 - repo : opt-trading
-- branche : `origin/go/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01`
-- dernier point établi : bundle ClickUp doc-only audité PASS et mergé localement dans `sot/mainline` (c8362b7) ; push bloqué par auth ; parent non fermé
-- prochaine action : recroiser avec `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` et `go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01`, puis ouvrir le GO d'implémentation ou d'intégration ClickUp
-- blocages : push GitHub auth ; stash `reseau_ssh` à ne pas restaurer avant stabilisation
+- branche : `sot/mainline`
+- dernier point etabli : matrice de classification mergee via PR #645 pour decouper le chantier large AI / strict-workers / apps en buckets distincts
+- prochaine action : s'appuyer sur la matrice mergee comme point d'entree canonique et ouvrir les suites bucket par bucket seulement
+- blocages : aucun blocage runtime ; ne pas remelanger strategy, Airtable, OpenClaw policy/DBLayer avec le bucket deploy strict-workers
 
-### GO_OPT_TRADING_STRICT_WORKERS_PARENT_01
+### GO_OPT_TRADING_STRICT_WORKERS_ORCHESTRATION_DEPLOYMENT_CLASSIFICATION_REVIEW_01
 - statut : open
 - repo : opt-trading
-- branche : `origin/go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01`
-- dernier point établi : parent strict workers avec dossier complet sur branche (initial_doc, progress, smoke_exec, smoke_validation, closeout draft) ; dossier non merge dans mainline
-- prochaine action : merger le dossier dans `sot/mainline` ou poursuivre la documentation sur branche, puis ouvrir le GO d'implementation strict workers
-- blocages : dossier absent de `sot/mainline` ; `A_VERIFIER` dans BRANCH_STATE ; non cite dans MATRICE_DOC_OPS
+- branche : `sot/mainline`
+- dernier point etabli : bucket 1 merge via PR #646 en revue doc-only read-only, bornee aux workflows strict-workers validate/smoke, `deploy/systemd/*`, overrides, `config/machine_runtime_map.yml` et `modules/*/systemd/*`
+- prochaine action : decider si la suite ouvre `GO_OPT_TRADING_STRICT_WORKERS_DEPLOY_SURFACES_IMPL_01` ou un GO separe `machine_runtime_map`
+- blocages : aucune modification runtime autorisee dans ce GO ; validation humaine requise avant implementation
 
 ## Flux bloques / en echec
 
