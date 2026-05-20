@@ -124,22 +124,16 @@ Normalisation retenue :
 
 ---
 
-## Priorite operatoire (9 GO non clos)
+## Priorite operatoire (8 GO non clos retenus)
 
 - P0 : `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
-- P1 : `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`, `GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01`
+- P1 : `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_GIT_PROGRESSIVE_MIGRATION_START_13`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
 - P2 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_OPT_TRADING_AI_STRICT_WORKERS_APPS_CLASSIFICATION_01`, `GO_OPT_TRADING_STRICT_WORKERS_ORCHESTRATION_DEPLOYMENT_CLASSIFICATION_REVIEW_01`
-- P3 : `GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01`
 
-Le passage de 6 a 7 GO non clos retenus correspond a la re-inscription documentaire du parent :
+Les GO suivants restent `OPEN` dans le tableau canonique, mais hors priorite operatoire immediate de cette passe resserree :
+
 - `GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01`
-
-Le passage a 5 GO non clos retenus correspond a la sortie de `GO_OPT_TRADING_PARENT_NAMING_CANON_01` apres closeout parent.
-
-Le parent `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01` reste ouvert et canonique dans le tableau, mais hors perimetre d'absorption de cette priorisation resserree.
-
-Historique recent :
-- le palier precedent a 10 GO non clos correspondait au maintien temporaire de `GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01` et `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01` comme actifs avant closeout local
+- `GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01`
 
 ---
 
