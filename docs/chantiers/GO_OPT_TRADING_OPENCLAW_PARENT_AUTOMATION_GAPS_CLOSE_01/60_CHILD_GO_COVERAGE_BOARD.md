@@ -29,7 +29,7 @@ links:
 ```text
 GLOBAL_STATUS: SUPERVISION
 CLOSEOUT_ALLOWED: NO
-REASON: 10 child GOs open, 0 merged, 0 with evidence
+REASON: 3 PASS_WITH_EVIDENCE (G02, G06, G07), 3 PARTIAL (G01, G03, G04), 6 OPEN (G05, G08, G09, G10, G11, G12)
 ```
 
 ## Couverture
@@ -42,7 +42,7 @@ REASON: 10 child GOs open, 0 merged, 0 with evidence
 | G04 | `GO_EXTERNAL_APPS_BRIDGE_CONTRACTS_01` | #668 | PARTIAL | 10 APP_BRIDGE_CONTRACT remplis | Template: `10_CONTRACT_TEMPLATE.md` ; 10 contrats remplis: `20_BRIDGE_CONTRACTS.md` (Airtable, ClickUp, Botpress, Sheets, Telegram, Gmail, Calendar, Drive, Figma, LocalCMS) | Valider actions interdites + lier à capability matrix | NO |
 | G05 | Source of truth | — | OPEN | Domaines listés, source canonique par domaine, sync rules | None | Couvert transversalement par G01 + G04 + G06 | NO |
 | G06 | `GO_AUTOMATION_OBSERVABILITY_LEDGER_01` | #669 | PASS_WITH_EVIDENCE | Ledger schema, writer, 3 events, replay, CMS doc | Schema: `10_LEDGER_SCHEMA.md` ; Writer: `ledger_writer.py` ; Replay: `ledger_replay.py` ; 3 events validés (READ_INVENTORY PASS, PATCH_DRAFT PASS, WRITE_GATED BLOCKED) ; CMS: `20_LOCALCMS_READ_VIEW.md` ; Evidence: `99_EVIDENCE.md` | Fait — PR #669 contient tout | YES |
-| G07 | `GO_HITL_APPROVAL_GATES_01` | #671 | OPEN | Proposal/approval/execution/verification packets, dual confirm | None | Définir packets + test write-gated | NO |
+| G07 | `GO_HITL_APPROVAL_GATES_01` | #671 | PASS_WITH_EVIDENCE | 4 packets + roles + dual confirm + write-gated test | `20_PROPOSAL_PACKET.md` ; `30_APPROVAL_PACKET.md` ; `40_EXECUTION_PACKET.md` ; `50_VERIFICATION_PACKET.md` ; `60_APPROVER_ROLES.md` ; `70_DUAL_CONFIRM_POLICY.md` ; `99_EVIDENCE.md` ; 2 scénarios testés (L5 pipeline PASS, L6 dual confirm PASS) | Fait — PR #671 contient tout | YES |
 | G08 | `GO_AUTOMATION_SECURITY_SECRETS_PERMISSIONS_01` | #672 | OPEN | Secret inventory, OAuth scopes, kill switch, anti-secret tests | None | Inventorier secrets + politiques + tests | NO |
 | G09 | `GO_CI_SCHEDULER_AUTOMATION_STABILITY_01` | #673 | OPEN | Smoke, scheduler, retry, status JSON, alerting | None | Définir smoke + retry + status + alerting | NO |
 | G10 | `GO_SIGNAL_CHAIN_DRY_RUN_AUTOMATION_01` | #674 | OPEN | Signal schema, dry-run guard, journal, backtest | None | Définir schéma + adapters + dry-run guard | NO |
