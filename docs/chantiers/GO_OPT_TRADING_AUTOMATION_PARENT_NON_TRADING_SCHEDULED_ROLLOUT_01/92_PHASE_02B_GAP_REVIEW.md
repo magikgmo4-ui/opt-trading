@@ -57,3 +57,12 @@ PHASE_02B3 = implement 5 tiny helpers only if still needed after B1/B2
 
 - `PHASE_02B1` executed: `6/6 PASS`
 - `PHASE_02B2` executed: `1/1 PASS`
+- `PHASE_02B3` executed: `5/5 helpers run`
+
+## Follow-up findings
+
+- `repo-doc-frontmatter-lint`: helper ran, `2756` findings reported
+- `repo-doc-link-check`: helper ran, `305` findings reported
+- `strict-worker-output-schema-check`: helper ran, `1` finding reported
+- `strict-worker-denied-command-scan`: helper ran, `2` findings reported
+- `strict-worker-log-archive`: helper ran, archive created successfully

@@ -1,0 +1,14 @@
+{
+  "job_id": "strict-worker-output-schema-check",
+  "scanned": 23,
+  "findings": 1,
+  "status": "PASS",
+  "details": [
+    {
+      "file": "GO_STRICT_WORKERS_READONLY_SMOKE_01.md",
+      "issues": [
+        "missing_heading"
+      ]
+    }
+  ]
+}
