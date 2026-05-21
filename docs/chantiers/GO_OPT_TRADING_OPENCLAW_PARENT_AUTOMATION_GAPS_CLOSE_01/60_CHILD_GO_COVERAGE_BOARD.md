@@ -1,0 +1,66 @@
+---
+doc_id: GO_OPT_TRADING_OPENCLAW_PARENT_AUTOMATION_GAPS_CLOSE_01_COVERAGE_BOARD
+doc_type: supervision_board
+go_id: GO_OPT_TRADING_OPENCLAW_PARENT_AUTOMATION_GAPS_CLOSE_01
+status: open
+lifecycle_stage: supervision
+surface: docs/chantiers
+source_kind: canonical
+created_at: 2026-05-21
+links:
+  - PR #660
+  - PR #661
+  - PR #664
+  - PR #666
+  - PR #667
+  - PR #668
+  - PR #669
+  - PR #671
+  - PR #672
+  - PR #673
+  - PR #674
+  - PR #675
+---
+
+# 60_CHILD_GO_COVERAGE_BOARD — supervision des gaps
+
+## Statut global
+
+```text
+GLOBAL_STATUS: SUPERVISION
+CLOSEOUT_ALLOWED: NO
+REASON: 10 child GOs open, 0 merged, 0 with evidence
+```
+
+## Couverture
+
+| gap_id | child_go_id | PR | status | evidence required | evidence present | next action | closeout eligible |
+|---|---|---|---|---|---|---|---|
+| G01 | `GO_OPENCLAW_AI_TEAM_AUTOMATION_CAPABILITY_MATRIX_01` | #664 | OPEN | Matrice complète actor × surface × permission × gate + 3 scénarios | None | Remplir 30 lignes matrice + exécuter scénarios | NO |
+| G02 | `GO_STRICT_WORKERS_RUNTIME_RUNNER_READONLY_01` | #666 | OPEN | Runner read-only, job packet parser, no-write guard, smoke | None | Créer runner, valider packets, exécuter smoke | NO |
+| G03 | `GO_AI_TEAM_HANDOFF_MEMORY_POLICY_01` | #667 | OPEN | Manager, spécialistes, handoff packet, memory broker, dry-run | None | Définir rôles + handoff protocol + dry-run test | NO |
+| G04 | `GO_EXTERNAL_APPS_BRIDGE_CONTRACTS_01` | #668 | OPEN | 10 APP_BRIDGE_CONTRACT remplis | None | Créer template + remplir contrats | NO |
+| G05 | Source of truth | — | OPEN | Domaines listés, source canonique par domaine, sync rules | None | Couvert transversalement par G01 + G04 + G06 | NO |
+| G06 | `GO_AUTOMATION_OBSERVABILITY_LEDGER_01` | #669 | OPEN | Ledger schema, writer, 3 events, replay | None | Définir schéma + writer + events sample | NO |
+| G07 | `GO_HITL_APPROVAL_GATES_01` | #671 | OPEN | Proposal/approval/execution/verification packets, dual confirm | None | Définir packets + test write-gated | NO |
+| G08 | `GO_AUTOMATION_SECURITY_SECRETS_PERMISSIONS_01` | #672 | OPEN | Secret inventory, OAuth scopes, kill switch, anti-secret tests | None | Inventorier secrets + politiques + tests | NO |
+| G09 | `GO_CI_SCHEDULER_AUTOMATION_STABILITY_01` | #673 | OPEN | Smoke, scheduler, retry, status JSON, alerting | None | Définir smoke + retry + status + alerting | NO |
+| G10 | `GO_SIGNAL_CHAIN_DRY_RUN_AUTOMATION_01` | #674 | OPEN | Signal schema, dry-run guard, journal, backtest | None | Définir schéma + adapters + dry-run guard | NO |
+| G11 | `GO_LOCALCMS_AUTOMATION_COCKPIT_01` | #675 | OPEN | 6 pages cockpit, safe buttons, kill switch | None | Définir pages + boutons + kill switch | NO |
+| G12 | Recovery/rollback | — | OPEN | Error classes, retry, rollback, dead-letter, stuck job | None | Couvert transversalement par G02 + G06 + G07 + G09 | NO |
+
+## Fix incident
+
+| Fix | GO | PR | status | scope |
+|---|---|---|---|---|
+| machine_runtime_map | `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_MACHINE_RUNTIME_MAP_01` | #661 | OPEN | Ajout opt-trading-fleet-orchestrator.timer dans db-layer.optional_timers |
+
+## Règles de supervision
+
+1. Chaque GO enfant doit passer de `OPEN` → `MERGED` → `PASS_WITH_EVIDENCE`
+2. Le parent ne peut fermer (closeout) que si :
+   - Tous les gaps G01-G12 sont `PASS_WITH_EVIDENCE`
+   - Les G05 et G12 peuvent être couverts par d'autres GOs (transversal)
+3. Un GO enfant `MERGED` sans preuve n'est pas suffisant
+4. La preuve doit être référencée (evidence_ref non vide)
+5. Le `60_CHILD_GO_COVERAGE_BOARD.md` doit être mis à jour à chaque progression
