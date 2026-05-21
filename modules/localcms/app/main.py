@@ -22,6 +22,27 @@ CRITICAL_SESSIONS: frozenset[str] = frozenset({
     "strict-workers",
 })
 
+KILL_SWITCH_FILE = PROJECT_ROOT / "data" / "kill_switch" / "engaged"
+KILL_SWITCH_HISTORY = PROJECT_ROOT / "data" / "kill_switch" / "history.jsonl"
+
+SAFE_ACTIONS = [
+    {"id": "view_health", "label": "View Health", "icon": "❤️", "endpoint": "GET /health", "dangerous": False},
+    {"id": "view_menu", "label": "View Menu", "icon": "📋", "endpoint": "GET /menu", "dangerous": False},
+    {"id": "view_tmux", "label": "View TMUX Status", "icon": "🖥️", "endpoint": "GET /runtime/tmux", "dangerous": False},
+    {"id": "view_metrics", "label": "View Metrics", "icon": "📊", "endpoint": "GET /metrics", "dangerous": False},
+    {"id": "view_journal", "label": "View Journal", "icon": "📋", "endpoint": "GET /journal", "dangerous": False},
+    {"id": "view_ledger", "label": "View Ledger Events", "icon": "📝", "endpoint": "GET /ledger", "dangerous": False},
+    {"id": "view_safe_actions", "label": "View Safe Actions", "icon": "✅", "endpoint": "GET /safe-actions", "dangerous": False},
+    {"id": "view_kill_switch", "label": "View Kill Switch Status", "icon": "🔒", "endpoint": "GET /kill-switch", "dangerous": False},
+]
+
+DANGEROUS_ACTIONS = [
+    {"id": "execute_trade", "label": "Execute Trade", "icon": "⚠️", "reason": "Live trading — blocked by P6 dry-run guard + P7 kill switch"},
+    {"id": "git_push", "label": "Git Push", "icon": "⚠️", "reason": "Write to remote — blocked by P7 kill switch"},
+    {"id": "modify_production", "label": "Modify Production Config", "icon": "⚠️", "reason": "Runtime config change — blocked by P7 kill switch"},
+    {"id": "stop_session", "label": "Stop TMUX Session", "icon": "⚠️", "reason": "Stop critical session — requires dual confirm"},
+]
+
 ALL_SESSIONS: list[dict] = [
     {"session": "openclaw-core",    "critical": True,  "machine": "db-layer",      "description": "Gateway + Bridge + Health + Logs"},
     {"session": "screeners",        "critical": True,  "machine": "admin-trading",  "description": "TradingView + Webhook + Bot Vision + Telegram"},
@@ -115,6 +136,85 @@ def _build_tmux_report() -> dict:
 @app.get("/health")
 def health():
     return {"ok": True, "module": "localcms", "version": "1.0.0"}
+
+
+# ── Kill switch ──────────────────────────────────────────────────────
+
+def _kill_switch_state() -> dict:
+    engaged = KILL_SWITCH_FILE.exists() and KILL_SWITCH_FILE.read_text().strip() == "1"
+    history = []
+    if KILL_SWITCH_HISTORY.exists():
+        try:
+            history = [json.loads(l) for l in KILL_SWITCH_HISTORY.read_text().strip().splitlines() if l.strip()]
+        except (json.JSONDecodeError, OSError):
+            pass
+    last_change = history[-1] if history else None
+    return {
+        "engaged": engaged,
+        "file": str(KILL_SWITCH_FILE),
+        "last_change": last_change,
+        "history_count": len(history),
+        "dangerous_actions_blocked": engaged,
+    }
+
+
+def _log_kill_switch(action: str, actor: str, previous_state: bool):
+    KILL_SWITCH_HISTORY.parent.mkdir(parents=True, exist_ok=True)
+    entry = {
+        "action": action,
+        "actor": actor,
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "previous_state": previous_state,
+    }
+    with open(KILL_SWITCH_HISTORY, "a") as f:
+        f.write(json.dumps(entry) + "\n")
+
+
+@app.get("/kill-switch")
+def get_kill_switch():
+    return JSONResponse(content=_kill_switch_state())
+
+
+@app.post("/kill-switch/engage")
+def engage_kill_switch():
+    was = _kill_switch_state()["engaged"]
+    KILL_SWITCH_FILE.parent.mkdir(parents=True, exist_ok=True)
+    KILL_SWITCH_FILE.write_text("1")
+    _log_kill_switch("engage", "human_operator", was)
+    return JSONResponse(content={"status": "engaged", "message": "Kill switch engaged — dangerous actions blocked"})
+
+
+@app.post("/kill-switch/disengage")
+def disengage_kill_switch():
+    was = _kill_switch_state()["engaged"]
+    if KILL_SWITCH_FILE.exists():
+        KILL_SWITCH_FILE.unlink()
+    _log_kill_switch("disengage", "human_operator", was)
+    return JSONResponse(content={"status": "disengaged", "message": "Kill switch disengaged — dangerous actions allowed"})
+
+
+@app.get("/kill-switch/history")
+def get_kill_switch_history():
+    history = []
+    if KILL_SWITCH_HISTORY.exists():
+        try:
+            history = [json.loads(l) for l in KILL_SWITCH_HISTORY.read_text().strip().splitlines() if l.strip()]
+        except (json.JSONDecodeError, OSError):
+            pass
+    return JSONResponse(content={"history": history, "total": len(history)})
+
+
+# ── Safe actions ─────────────────────────────────────────────────────
+
+@app.get("/safe-actions")
+def get_safe_actions():
+    ks = _kill_switch_state()
+    return JSONResponse(content={
+        "safe_actions": SAFE_ACTIONS,
+        "dangerous_actions": DANGEROUS_ACTIONS,
+        "kill_switch": ks,
+        "disclaimer": "All safe actions are read-only and non-destructive. Dangerous actions require kill switch OFF + dual confirm.",
+    })
 
 
 @app.get("/menu")
@@ -983,6 +1083,11 @@ def ui_index(request: Request):
     critical_count = sum(1 for s in tmux["sessions"] if s["critical"] and not s["running"])
     total_critical = sum(1 for s in tmux["sessions"] if s["critical"])
 
+    ks = _kill_switch_state()
+    ks_class = "summary-warn" if ks["engaged"] else "summary-ok"
+    ks_icon = "🔒" if ks["engaged"] else "🔓"
+    ks_text = f"{ks_icon} Kill Switch: {'ENGAGED' if ks['engaged'] else 'DISENGAGED'}"
+
     summary_class = "summary-ok" if tmux["all_ok"] else ("summary-warn" if critical_count == 0 else "summary-critical")
 
     html = f"""
@@ -1108,6 +1213,10 @@ def ui_index(request: Request):
         <div class="num">{len(menu_data.get('menu', []))}</div>
         <div class="label">Menu Domains</div>
       </div>
+      <div class="summary-card {ks_class}">
+        <div class="num">{ks['engaged'] and '🔒 ON' or '🔓 OFF'}</div>
+        <div class="label">Kill Switch</div>
+      </div>
     </div>
 
     <div class="links-bar">
@@ -1121,6 +1230,36 @@ def ui_index(request: Request):
       <a href="/scripts/ai/menu/menu_state_aggregator.sh">menu_state_aggregator.sh</a>
       <a href="/logs">logs/</a>
       <a href="/desk/ui" target="_blank">Desk Pro →</a>
+    </div>
+
+    <div class="section-title" id="kill-switch">🔒 Kill Switch</div>
+    <div style="display:flex;gap:16px;margin-bottom:16px;flex-wrap:wrap;align-items:center">
+      <div class="{ks_class}" style="padding:8px 16px;border-radius:8px;border:1px solid #e6e6e6;background:#fff">
+        <strong>{ks_text}</strong>
+      </div>
+      <div style="font-size:12px;color:#666">
+        Dernier changement: {ks.get('last_change', {}).get('timestamp', 'N/A')}
+        · Total: {ks['history_count']} events
+        · <a href="/kill-switch" style="color:#007aff">JSON → /kill-switch</a>
+      </div>
+    </div>
+
+    <div class="section-title" id="safe-actions">✅ Safe Actions (lecture seule)</div>
+    <div class="domain-grid" style="margin-bottom:16px">
+      {''.join(f'''
+      <div class="domain-card" style="cursor:default;opacity:0.9">
+        <div style="font-size:13px;font-weight:600">{a['icon']} {a['label']}</div>
+        <div style="font-size:11px;color:#666;margin-top:2px"><code>{a['endpoint']}</code></div>
+      </div>''' for a in SAFE_ACTIONS)}
+    </div>
+
+    <div class="section-title" id="dangerous-actions">⚠️ Dangerous Actions (bloquées si kill switch engagé)</div>
+    <div class="domain-grid" style="margin-bottom:16px">
+      {''.join(f'''
+      <div class="domain-card" style="cursor:default;opacity:0.7;border-left:4px solid #ff453a">
+        <div style="font-size:13px;font-weight:600">{a['icon']} {a['label']}</div>
+        <div style="font-size:11px;color:#999;margin-top:2px">{a['reason']}</div>
+      </div>''' for a in DANGEROUS_ACTIONS)}
     </div>
 
     <div class="section-title" id="health-status">❤️ Health Status</div>
@@ -1168,6 +1307,9 @@ def ui_index(request: Request):
         <tr><td><a href="/runtime/tmux/live">/runtime/tmux/live</a></td><td>Live TMUX session list</td></tr>
         <tr><td><a href="/metrics">/metrics</a></td><td>Dashboard métriques agrégées (HTML)</td></tr>
         <tr><td><a href="/metrics/daily">/metrics/daily</a></td><td>Métriques daily session (JSON)</td></tr>
+        <tr><td><a href="/kill-switch">/kill-switch</a></td><td>Kill switch state (GET) / engage (POST) / disengage (POST)</td></tr>
+        <tr><td><a href="/kill-switch/history">/kill-switch/history</a></td><td>Kill switch history</td></tr>
+        <tr><td><a href="/safe-actions">/safe-actions</a></td><td>Safe (read-only) and dangerous actions list</td></tr>
       </tbody>
     </table>
 

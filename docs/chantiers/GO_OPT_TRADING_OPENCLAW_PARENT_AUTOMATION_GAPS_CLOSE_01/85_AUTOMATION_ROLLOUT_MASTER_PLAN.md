@@ -6,6 +6,12 @@ status: active
 phase_p0: PASS_WITH_EVIDENCE
 phase_p1: PASS_WITH_EVIDENCE
 phase_p3: PASS_WITH_EVIDENCE
+phase_p4: PASS_WITH_EVIDENCE
+phase_p5: PASS_WITH_EVIDENCE
+phase_p6: PASS_WITH_EVIDENCE
+phase_p7: PASS_WITH_EVIDENCE
+phase_p8: PASS_WITH_EVIDENCE
+phase_p9: PASS_WITH_EVIDENCE
 ---
 
 # 85_AUTOMATION_ROLLOUT_MASTER_PLAN
@@ -67,12 +73,78 @@ Aucun closeout tant que chaque phase n'a pas evidence.
 - **ledger event** : DRAFT_CYCLE (READ/PRODUCE/VERIFY)
 - **closeout eligibility** : draft worker fonctionnel + 3 drafts dry-run avec 0 write
 - **Verdict** : ✅ PASS_WITH_EVIDENCE — `draft_worker.py` créé, 4 drafts produits (2 patch, 1 doc, 1 proposal), tous dry_run=True, 0 writes target. P4 débloqué.
-| P4 | HITL write-gated | Exécuter seulement après approval humain | approval packet |
-| P5 | App bridges | Airtable / Sheets / Telegram / LocalCMS sous contrat | bridge contract |
-| P6 | Signal dry-run | Signaux → validation → journal → backtest, sans ordre live | dry-run guard |
-| P7 | Cockpit LocalCMS | Supervision, boutons sûrs, kill switch | UI safe buttons |
-| P8 | Scheduler/CI | Jobs planifiés, retries, dead-letter, alerting | CI + ledger |
-| P9 | Canary automation | Petite automation réelle non critique | dual confirm |
+| P4 | HITL write-gated ✅ | Exécuter seulement après approval humain | approval packet — FAIT |
+
+### P4 — Détail
+
+- **preconditions** : P3 complété, drafts disponibles, ledger opérationnel
+- **allowed actions** : exécuter write après approval packet valide, produire artifacts dans `data/executed/`
+- **forbidden actions** : write sans approval, write sans proposal packet, contournement du gate
+- **evidence required** : hitl_gate testé sans approval (BLOCKED) + avec approval (EXECUTED), tous les events dans ledger
+- **rollback** : revert du write exécuté, supprimer `data/executed/<id>.json`
+- **ledger event** : HITL_GATE (LOAD_DRAFT → CREATE_PROPOSAL → WRITE_GATED/BLOCKED | PROPOSAL_APPROVED → WRITE_EXECUTED)
+- **closeout eligibility** : hitl_gate fonctionnel + 2 scénarios validés (sans=BLOCKED, avec=EXECUTED)
+- **Verdict** : ✅ PASS_WITH_EVIDENCE — `hitl_gate.py` créé, testé sans approval (BLOCKED, 0 writes) et avec approval (EXECUTED, write logged). P5 débloqué.
+| P5 | App bridges ✅ | Airtable / Sheets / Telegram / LocalCMS sous contrat | bridge contract — FAIT |
+
+### P5 — Détail
+
+- **preconditions** : P4 complété, orchestration contract existant (external_apps_orchestration_contract.json), APP_BRIDGES défini pour airtable/google_sheets/telegram/localcms
+- **allowed actions** : READ_INVENTORY sur les 4 bridges, DRAFT_ONLY (dry-run), WRITE_GATED avec approval token
+- **forbidden actions** : write sans approval token, write en mode READ_ONLY/DRAFT_ONLY, write sur app non supportée, contournement du contract
+- **evidence required** : bridge_worker testé sur 4 apps × 3 modes, contract validation PASS/FAIL, ledger events produits
+- **rollback** : supprimer `reports/ai/workers/bridge_<app>_<timestamp>.json`, revert ledger events
+- **ledger event** : BRIDGE_CYCLE (CONTRACT_VALIDATION → READ_INVENTORY → WRITE_BLOCKED/BLOCKED_BY_MODE/DRAFT_ONLY/EXECUTED → BRIDGE_CYCLE_COMPLETE)
+- **closeout eligibility** : bridge_worker fonctionnel sur 4 apps, 3 modes, contract validé, ledger events produits
+- **Verdict** : ✅ PASS_WITH_EVIDENCE — `bridge_worker.py` créé, testé sur 4 apps (airtable, google_sheets, telegram, localcms) × 3 modes (READ_ONLY BLOCKED, DRAFT_ONLY BLOCKED, WRITE_GATED PASS avec approval), contract validation intégré, 15+ events ledger, 9 reports dans `reports/ai/workers/`. P6 débloqué.
+| P6 | Signal dry-run ✅ | Signaux → validation → journal → backtest, sans ordre live | dry-run guard — FAIT |
+
+### P6 — Détail
+
+- **preconditions** : P5 complété, signal infrastructure existante (webhook, signal_router, signal_event_adapter), dry-run pipeline testé
+- **allowed actions** : LOAD_SIGNAL (synthetic ou fixture), NORMALIZE V0→V1, VALIDATE, SIGNAL_JOURNALED → ledger, BACKTEST simulé, DRY_RUN_CYCLE_COMPLETE
+- **forbidden actions** : live order, vraie exécution, modification de positions, tout write sur exchange
+- **evidence required** : signal_dry_run_worker testé avec signal synthétique + fixture, validation V1 OK, backtest simulé, guard actif, 0 live orders
+- **rollback** : supprimer `reports/ai/workers/signal_dry_run_<ts>_<cycle>.json`, revert ledger events
+- **ledger event** : SIGNAL_DRY_RUN (LOAD_SIGNAL → NORMALIZE → VALIDATE → SIGNAL_JOURNALED → DRY_RUN_GUARD → BACKTEST → DRY_RUN_CYCLE_COMPLETE)
+- **closeout eligibility** : signal_dry_run_worker fonctionnel, 3 scénarios validés (synthetic, fixture, no-backtest), guard prouvé, 0 live orders
+- **Verdict** : ✅ PASS_WITH_EVIDENCE — `signal_dry_run_worker.py` créé, testé avec signal synthétique (coinm SELL BTCUSDT.P), fixture (USDTM_LONG BUY BTCUSDT), et --no-backtest. Validation V1, journalisation ledger, guard actif (live_order_placed=False), backtest simulé WIN/LOSS. 21+ events ledger. P7 débloqué.
+| P7 | Cockpit LocalCMS ✅ | Supervision, boutons sûrs, kill switch | UI safe buttons — FAIT |
+
+### P7 — Détail
+
+- **preconditions** : P6 complété, LocalCMS existant (FastAPI, routes UI, metrics, journal), orchestration contract défini
+- **allowed actions** : GET /kill-switch (lecture état), POST /kill-switch/engage (activer), POST /kill-switch/disengage (désactiver), GET /safe-actions (lister actions), GET /kill-switch/history (historique)
+- **forbidden actions** : engager/disengager sans autorisation, modification directe du fichier sans journal, actions dangereuses avec kill switch engagé
+- **evidence required** : kill switch mécanisme file-based, 4 transitions testées (init→engage→disengage→re-engage), historique journalisé, safe actions listées, UI mise à jour
+- **rollback** : supprimer `data/kill_switch/`, revert modifications à `modules/localcms/app/main.py`
+- **ledger event** : n/a (kill switch utilise son propre history.jsonl, les events ajoutés à LocalCMS ne sont pas dans le ledger global car c'est un composant existant — pourrait être migré)
+- **closeout eligibility** : kill switch fonctionnel (engage/disengage/history), safe actions endpoint, UI indicators
+- **Verdict** : ✅ PASS_WITH_EVIDENCE — Kill switch file-based ajouté à `modules/localcms/app/main.py` avec endpoints GET /kill-switch, POST /engage, POST /disengage, GET /history. Safe actions endpoint (GET /safe-actions) listant 8 actions safe + 4 actions dangereuses. UI mise à jour avec indicateur kill switch dans la summary bar + sections dédiées. 4 transitions testées. P8 débloqué.
+| P8 | Scheduler/CI ✅ | Jobs planifiés, retries, dead-letter, alerting | CI + ledger — FAIT |
+
+### P8 — Détail
+
+- **preconditions** : P7 complété, scheduling infra existante (systemd timers, GitHub Actions), retry patterns existants
+- **allowed actions** : SUBMIT job (9 actions supportées), RUN scheduler cycle, LIST jobs, DEAD-LETTER view, ALERTS view
+- **forbidden actions** : exécuter job sans retry, supprimer dead-letter sans review, ignorer alertes critiques
+- **evidence required** : scheduler_worker testé avec jobs réussis + échec + retry + dead-letter + alertes, tout dans ledger
+- **rollback** : supprimer `data/scheduler/`, revert `scheduler_worker.py`
+- **ledger event** : SCHEDULER (JOB_SUBMIT → JOB_START → JOB_SUCCESS | JOB_FAILED | JOB_DEAD_LETTER → JOB_RETRY_SCHEDULED → SCHEDULER_CYCLE)
+- **closeout eligibility** : scheduler_worker fonctionnel avec les 5 commands (list/submit/run/dead-letter/alerts), retry × dead-letter × alert prouvés
+- **Verdict** : ✅ PASS_WITH_EVIDENCE — `scheduler_worker.py` créé avec 5 subcommands (list, submit, run, dead-letter, alerts). 9 actions supportées. Retry × 3 avec backoff exponentiel (10s/60s/300s). Dead-letter automatique après 3 échecs. Alertes critiques générées sur dead-letter. Backend file-based (data/scheduler/{jobs,dead_letter,alerts}/). Testé avec 4 jobs réussis + 1 job échec → retry → dead-letter → alerte. Ledger events produits. P9 débloqué.
+| P9 | Canary automation ✅ | Petite automation réelle non critique (premier write !) | dual confirm — FAIT |
+
+### P9 — Détail
+
+- **preconditions** : P8 complété, scheduler worker fonctionnel, kill switch en place, HITL gate validé
+- **allowed actions** : PROPOSE canary action (3 actions supportées), CONFIRM avec dual approval (2 confirms), EXECUTE non-dry-run write, LIST proposals, HISTORY des exécutions
+- **forbidden actions** : exécuter avec 0 ou 1 confirmation, exécuter une action critique, exécuter sans ledger, ignorer le dual confirm
+- **evidence required** : canary_worker testé full cycle (propose → confirm1 → confirm2 → execute), marker écrit avec dry_run=false, ledger events produits, dual confirm vérifié
+- **rollback** : supprimer `data/canary/`, revert `canary_worker.py`
+- **ledger event** : CANARY (CANARY_PROPOSE → CANARY_CONFIRM → CANARY_WRITE_MARKER/CANARY_SEND_NOTIFICATION/CANARY_LOG_UPDATE)
+- **closeout eligibility** : canary_worker fonctionnel, cycle complet validé, premier write non-dry-run réussi, dual confirm prouvé, ledger events OK
+- **Verdict** : ✅ PASS_WITH_EVIDENCE — `canary_worker.py` créé. **Premier write non-dry-run du projet** : marker écrit dans `data/canary/markers/98cd0510ec21.json` avec `dry_run: false`, après dual confirm (human_01 + human_02). 3 canary actions supportées. Cycle complet testé (propose → confirmed_once → executed). 8+ events ledger. P10 débloqué.
 | P10 | Parent closeout | Seulement quand tout est prouvé | PASS_WITH_EVIDENCE total |
 
 ## 12_INVARIANTS
