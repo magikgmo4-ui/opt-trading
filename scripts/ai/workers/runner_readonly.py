@@ -21,7 +21,7 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parents[2]
+REPO_ROOT = Path(__file__).resolve().parents[3]
 VALIDATOR = REPO_ROOT / "scripts/ai/workers/_validate_job.py"
 TASKS_INDEX = REPO_ROOT / "scripts/ai/workers/tasks.index.json"
 MODELS_REGISTRY = REPO_ROOT / "scripts/ai/workers/models.registry.json"
