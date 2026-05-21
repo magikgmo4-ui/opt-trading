@@ -35,8 +35,8 @@ REASON: 10 child GOs open, 0 merged, 0 with evidence
 ## Couverture
 
 | gap_id | child_go_id | PR | status | evidence required | evidence present | next action | closeout eligible |
-|---|---|---|---|---|---|---|---|
-| G01 | `GO_OPENCLAW_AI_TEAM_AUTOMATION_CAPABILITY_MATRIX_01` | #664 | OPEN | Matrice complète actor × surface × permission × gate + 3 scénarios | None | Remplir 30 lignes matrice + exécuter scénarios | NO |
+|---|---|---|---|---|---|---|---|---|
+| G01 | `GO_OPENCLAW_AI_TEAM_AUTOMATION_CAPABILITY_MATRIX_01` | #664 | PARTIAL | Matrice complète actor × surface × permission × gate + 3 scénarios | 30 evidence_ref filled (sources: PERMISSION_MATRIX, autonomy doctrine, task index, machine map, agent configs, app matrix) | Exécuter 3 scénarios de validation (S1-S3) | NO |
 | G02 | `GO_STRICT_WORKERS_RUNTIME_RUNNER_READONLY_01` | #666 | OPEN | Runner read-only, job packet parser, no-write guard, smoke | None | Créer runner, valider packets, exécuter smoke | NO |
 | G03 | `GO_AI_TEAM_HANDOFF_MEMORY_POLICY_01` | #667 | OPEN | Manager, spécialistes, handoff packet, memory broker, dry-run | None | Définir rôles + handoff protocol + dry-run test | NO |
 | G04 | `GO_EXTERNAL_APPS_BRIDGE_CONTRACTS_01` | #668 | OPEN | 10 APP_BRIDGE_CONTRACT remplis | None | Créer template + remplir contrats | NO |
