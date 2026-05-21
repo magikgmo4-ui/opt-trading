@@ -26,8 +26,14 @@ Jobs immediats, lecture seule ou local write non critique:
 - `hitl-scenarios-smoke`
 - `localcms-automation-status-sync`
 
-Verdict: `PHASE_01_SELECTED`
+Verdict: `PHASE_01_EXECUTED`
 Count: `12 jobs`
+
+Execution result:
+
+- `11 PASS`
+- `1 PRECHECK_PASS`
+- `0 FAIL`
 
 Gate commun avant activation:
 
