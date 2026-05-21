@@ -47,7 +47,7 @@ Canaries apps externes sous write-gated:
 - `kg-repo-pr-gated-sync`
 - `telegram-automation-digest`
 
-Verdict: `PHASE_02_CANDIDATES`
+Verdict: `PHASE_02_SELECTED`
 Count: `19 jobs`
 
 Scope:

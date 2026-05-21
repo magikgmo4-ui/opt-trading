@@ -228,41 +228,18 @@ status
 
 ## Priorisation pour utilisation reelle
 
-### Phase 01 - immediat
+| Phase | Nombre de jobs | Reference detaillee |
+|---|---:|---|
+| `phase_01_selected` | 12 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-01` |
+| `phase_02_selected` | 19 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-02` |
+| `phase_03_selected` | 14 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-03` |
+| `phase_04_selected` | 7 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-04` |
+| `phase_05_selected` | 6 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-05` |
+| `phase_06_selected` | 7 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-06` |
+| `phase_07_selected` | 13 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-07` |
+| `phase_08_selected` | 28 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-08` |
+| `phase_09_selected` | 8 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-09` |
 
-```text
-repo-status-check
-repo-diff-check
-repo-pr-audit
-automation-health-status
-ledger-heartbeat
-ledger-replay-check
-anti-leak-scan
-strict-worker-readonly-smoke
-capability-matrix-validate
-ai-team-handoff-dry-run
-bridge-contract-validation
-hitl-scenarios-smoke
-localcms-automation-status-sync
-```
+Total affecte : `114/114 jobs`
 
-### Phase 02 - apps externes canary
-
-```text
-clickup-canary-task-create
-airtable-canary-write
-botpress-dev-message-send
-kg-repo-node-proposal / pr-gated-sync
-localcms-status-sync
-telegram-automation-digest
-```
-
-### Phase 03 - scheduler reel
-
-```text
-scheduler-user-timers-list
-automation-health-status.timer
-automation-ledger-heartbeat.timer
-automation-nightly-validation.timer
-external-apps-canary.timer
-```
+Reste non affecte : `0`
