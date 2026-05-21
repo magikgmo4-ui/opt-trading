@@ -1,0 +1,26 @@
+{
+  "scenario": "S1",
+  "actor": "strict_worker",
+  "surface": "Telegram",
+  "permission": "read",
+  "gate": "none",
+  "messages_read": 2,
+  "reads": [
+    {
+      "surface": "Telegram",
+      "chat": "trading_signals",
+      "text": "BTCUSD buy signal at 12345",
+      "read_at": "2026-05-21T02:56:15.554891+00:00"
+    },
+    {
+      "surface": "Telegram",
+      "chat": "trading_signals",
+      "text": "ETHUSD sell signal at 3456",
+      "read_at": "2026-05-21T02:56:15.554913+00:00"
+    }
+  ],
+  "writes_attempted": 0,
+  "writes_blocked": 0,
+  "status": "PASS",
+  "evidence": "All Telegram messages read, 0 writes attempted, log produced"
+}

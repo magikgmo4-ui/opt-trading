@@ -1,0 +1,46 @@
+{
+  "scenario": "S3",
+  "actor": "app_bridge",
+  "surface": "Airtable",
+  "permission": "write_gated",
+  "gate": "human_approve",
+  "test_a_without_approval": {
+    "attempt": {
+      "surface": "Airtable",
+      "table": "positions",
+      "action": "UPDATE_RECORD",
+      "record_id": "rec123",
+      "fields": {
+        "size": 0.5,
+        "status": "closed"
+      }
+    },
+    "human_approval": null,
+    "approved": false,
+    "blocked_reason": "no_human_approval",
+    "gate_enforced": "human_approve",
+    "status": "BLOCKED"
+  },
+  "test_b_with_approval": {
+    "attempt": {
+      "surface": "Airtable",
+      "table": "positions",
+      "action": "UPDATE_RECORD",
+      "record_id": "rec123",
+      "fields": {
+        "size": 0.5,
+        "status": "closed"
+      }
+    },
+    "human_approval": {
+      "approver": "human_01",
+      "role": "human",
+      "approved_at": "2026-05-21T02:56:15.555295+00:00"
+    },
+    "approved": true,
+    "executed_at": "2026-05-21T02:56:15.555300+00:00",
+    "status": "PASS"
+  },
+  "status": "PASS",
+  "evidence": "Write blocked without human approval, allowed with human approval \u2014 gate enforced correctly"
+}

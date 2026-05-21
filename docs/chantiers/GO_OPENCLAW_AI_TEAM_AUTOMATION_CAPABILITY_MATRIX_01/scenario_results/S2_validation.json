@@ -1,0 +1,21 @@
+{
+  "scenario": "S2",
+  "actor": "specialist_worker",
+  "surface": "repo",
+  "permission": "patch_draft",
+  "gate": "dry_run",
+  "patch": {
+    "patch_id": "fbab1103",
+    "file": "config/trading_pairs.yaml",
+    "operation": "add_pair",
+    "before": "# trading pairs\n- BTCUSD\n- ETHUSD",
+    "after": "# trading pairs\n- BTCUSD\n- ETHUSD\n- SOLUSD",
+    "diff": "@@ -1,3 +1,4 @@\n # trading pairs\n - BTCUSD\n - ETHUSD\n+ - SOLUSD",
+    "dry_run": true
+  },
+  "dry_run_mode": true,
+  "write_prevented": true,
+  "rollback_defined": "git checkout -- config/trading_pairs.yaml",
+  "status": "PASS",
+  "evidence": "Patch draft fbab1103 produced in dry-run mode, diff verified, rollback defined, write prevented"
+}
