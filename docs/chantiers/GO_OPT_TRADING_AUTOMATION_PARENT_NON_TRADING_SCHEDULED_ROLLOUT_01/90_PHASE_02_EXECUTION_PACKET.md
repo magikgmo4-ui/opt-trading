@@ -37,8 +37,8 @@ Execute the repo/docs/governance and strict-workers hardening wave.
 
 ## Summary
 
-- Ready now: `8/19`
-- Partial: `11/19`
+- Ready now: `7/19`
+- Partial: `12/19`
 - Blocked: `0/19`
 
 ## Recommended execution order
@@ -57,4 +57,7 @@ Run the ready-now set first:
 
 ### Phase 02B
 
-Derive the `11` missing support runners/reports.
+Do not derive runners first.
+
+Review the `12` partial jobs directly from execution needs, and only then decide
+whether a tiny runner, a manual protocol, or an existing command is sufficient.
