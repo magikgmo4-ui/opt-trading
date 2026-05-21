@@ -1,0 +1,241 @@
+{
+  "scenario": "multi_agent_handoff_dry_run",
+  "steps": [
+    {
+      "step": 1,
+      "agent": "specialist_volume",
+      "action": "READ_INVENTORY",
+      "status": "PASS"
+    },
+    {
+      "step": 2,
+      "agent": "manager",
+      "action": "HANDOFF_RECEIVE",
+      "status": "PASS"
+    },
+    {
+      "step": 3,
+      "agent": "manager",
+      "action": "ANALYSE_GAP",
+      "status": "PASS"
+    },
+    {
+      "step": 4,
+      "agent": "specialist_reasoning",
+      "action": "HANDOFF_RECEIVE",
+      "status": "PASS"
+    },
+    {
+      "step": 5,
+      "agent": "specialist_reasoning",
+      "action": "PATCH_DRAFT",
+      "status": "PASS"
+    },
+    {
+      "step": 6,
+      "agent": "manager",
+      "action": "HANDOFF_RECEIVE",
+      "status": "PASS"
+    },
+    {
+      "step": 7,
+      "agent": "manager",
+      "action": "VALIDATE",
+      "status": "PASS"
+    }
+  ],
+  "handoff_count": 3,
+  "patch_count": 1,
+  "write_count": 0,
+  "memory_snapshot": {
+    "inventory": {
+      "files_scanned": [
+        "config/trading_pairs.yaml",
+        "config/risk_params.yaml"
+      ],
+      "entries_found": 12,
+      "status": "complete"
+    },
+    "gap_analysis": {
+      "missing_pair": "SOLUSD",
+      "risk_score": "medium",
+      "recommendation": "add_pair_with_restricted_size"
+    },
+    "patch_draft": {
+      "file": "config/trading_pairs.yaml",
+      "operation": "add_entry",
+      "diff": "@@ -1,3 +1,4 @@\n # trading pairs\n - BTCUSD\n - ETHUSD\n+ - SOLUSD",
+      "dry_run": true,
+      "write_executed": false,
+      "rollback": "git checkout -- config/trading_pairs.yaml"
+    }
+  },
+  "packets": [
+    {
+      "packet_id": "0e99a03b-13b",
+      "from": "system",
+      "to": "specialist_volume",
+      "task_type": "READ_INVENTORY",
+      "payload": {
+        "scope": "config/"
+      },
+      "timestamp": "2026-05-21T02:57:51.997847+00:00",
+      "status": "completed",
+      "result": {
+        "files_scanned": [
+          "config/trading_pairs.yaml",
+          "config/risk_params.yaml"
+        ],
+        "entries_found": 12,
+        "status": "complete"
+      },
+      "completed_at": "2026-05-21T02:57:51.997881+00:00"
+    },
+    {
+      "packet_id": "6f891f22-195",
+      "from": "specialist_volume",
+      "to": "manager",
+      "task_type": "HANDOFF",
+      "payload": {
+        "completion": {
+          "files_scanned": [
+            "config/trading_pairs.yaml",
+            "config/risk_params.yaml"
+          ],
+          "entries_found": 12,
+          "status": "complete"
+        },
+        "next_action": "analyse_gap"
+      },
+      "timestamp": "2026-05-21T02:57:51.997903+00:00",
+      "status": "completed",
+      "result": {
+        "received": true,
+        "ack": true
+      },
+      "completed_at": "2026-05-21T02:57:51.997907+00:00"
+    },
+    {
+      "packet_id": "d4cd2783-67f",
+      "from": "manager",
+      "to": "manager",
+      "task_type": "ANALYSE_GAP",
+      "payload": {
+        "inventory": {
+          "files_scanned": [
+            "config/trading_pairs.yaml",
+            "config/risk_params.yaml"
+          ],
+          "entries_found": 12,
+          "status": "complete"
+        }
+      },
+      "timestamp": "2026-05-21T02:57:51.997919+00:00",
+      "status": "completed",
+      "result": {
+        "missing_pair": "SOLUSD",
+        "risk_score": "medium",
+        "recommendation": "add_pair_with_restricted_size"
+      },
+      "completed_at": "2026-05-21T02:57:51.997922+00:00"
+    },
+    {
+      "packet_id": "acb521d1-744",
+      "from": "manager",
+      "to": "specialist_reasoning",
+      "task_type": "PATCH_DRAFT",
+      "payload": {
+        "gap": {
+          "missing_pair": "SOLUSD",
+          "risk_score": "medium",
+          "recommendation": "add_pair_with_restricted_size"
+        },
+        "scope": "config/trading_pairs.yaml",
+        "dry_run": true
+      },
+      "timestamp": "2026-05-21T02:57:51.997940+00:00",
+      "status": "completed",
+      "result": {
+        "received": true,
+        "ack": true
+      },
+      "completed_at": "2026-05-21T02:57:51.997943+00:00"
+    },
+    {
+      "packet_id": "cd527de4-c79",
+      "from": "specialist_reasoning",
+      "to": "specialist_reasoning",
+      "task_type": "PATCH_DRAFT",
+      "payload": {
+        "gap": {
+          "missing_pair": "SOLUSD",
+          "risk_score": "medium",
+          "recommendation": "add_pair_with_restricted_size"
+        },
+        "dry_run": true
+      },
+      "timestamp": "2026-05-21T02:57:51.997956+00:00",
+      "status": "completed",
+      "result": {
+        "file": "config/trading_pairs.yaml",
+        "operation": "add_entry",
+        "diff": "@@ -1,3 +1,4 @@\n # trading pairs\n - BTCUSD\n - ETHUSD\n+ - SOLUSD",
+        "dry_run": true,
+        "write_executed": false,
+        "rollback": "git checkout -- config/trading_pairs.yaml"
+      },
+      "completed_at": "2026-05-21T02:57:51.997959+00:00"
+    },
+    {
+      "packet_id": "d60c5510-988",
+      "from": "specialist_reasoning",
+      "to": "manager",
+      "task_type": "HANDOFF",
+      "payload": {
+        "completion": {
+          "file": "config/trading_pairs.yaml",
+          "operation": "add_entry",
+          "diff": "@@ -1,3 +1,4 @@\n # trading pairs\n - BTCUSD\n - ETHUSD\n+ - SOLUSD",
+          "dry_run": true,
+          "write_executed": false,
+          "rollback": "git checkout -- config/trading_pairs.yaml"
+        },
+        "summary": "Patch draft ready for review"
+      },
+      "timestamp": "2026-05-21T02:57:51.997972+00:00",
+      "status": "completed",
+      "result": {
+        "received": true,
+        "ack": true
+      },
+      "completed_at": "2026-05-21T02:57:51.997975+00:00"
+    },
+    {
+      "packet_id": "aa73ba42-770",
+      "from": "manager",
+      "to": "manager",
+      "task_type": "VALIDATE",
+      "payload": {
+        "patch": {
+          "file": "config/trading_pairs.yaml",
+          "operation": "add_entry",
+          "diff": "@@ -1,3 +1,4 @@\n # trading pairs\n - BTCUSD\n - ETHUSD\n+ - SOLUSD",
+          "dry_run": true,
+          "write_executed": false,
+          "rollback": "git checkout -- config/trading_pairs.yaml"
+        }
+      },
+      "timestamp": "2026-05-21T02:57:51.997985+00:00",
+      "status": "completed",
+      "result": {
+        "patch_reviewed": true,
+        "decision": "approved_for_dry_run",
+        "notes": "Patch correct, dry-run mode confirmed, no live write",
+        "escalated_to_human": false
+      },
+      "completed_at": "2026-05-21T02:57:51.997988+00:00"
+    }
+  ],
+  "overall": "PASS",
+  "timestamp": "2026-05-21T02:57:51.998023+00:00"
+}
