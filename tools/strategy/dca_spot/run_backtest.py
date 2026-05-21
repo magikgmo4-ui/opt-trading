@@ -17,7 +17,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT))
 
-from tools.strategy.dca_spot.load_data import load_m5_canonical, resample_to_d1
+from tools.strategy.dca_spot.load_data import load_m5_canonical, load_d1_canonical, resample_to_d1
 from tools.strategy.dca_spot.indicators import add_indicators
 from tools.strategy.dca_spot.engine import DCAConfig, run_simulation
 
@@ -46,7 +46,8 @@ def benchmark_simple_weekly(df: pd.DataFrame) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--input", required=True)
+    parser.add_argument("--input", required=True, help="M5 canonical CSV or D1 canonical CSV (--d1 flag)")
+    parser.add_argument("--d1", action="store_true", help="Input is already D1 (skip resample)")
     parser.add_argument("--out", required=True)
     parser.add_argument("--ref-type", default="w2_close")
     parser.add_argument("--corr-medium", type=float, default=-8.0)
@@ -61,10 +62,14 @@ def main() -> int:
     out_dir.mkdir(parents=True, exist_ok=True)
 
     print(f"[load] {args.input}")
-    df_m5 = load_m5_canonical(args.input)
-    print("[resample] M5 → D1")
-    df_d1 = resample_to_d1(df_m5)
-    print(f"  → {len(df_d1)} D1 bars  {df_d1.index[0].date()} → {df_d1.index[-1].date()}")
+    if args.d1:
+        df_d1 = load_d1_canonical(args.input)
+        print(f"  → {len(df_d1)} D1 bars  {df_d1.index[0].date()} → {df_d1.index[-1].date()}")
+    else:
+        df_m5 = load_m5_canonical(args.input)
+        print("[resample] M5 → D1")
+        df_d1 = resample_to_d1(df_m5)
+        print(f"  → {len(df_d1)} D1 bars  {df_d1.index[0].date()} → {df_d1.index[-1].date()}")
     print("[indicators]")
     df_d1 = add_indicators(df_d1)
 
