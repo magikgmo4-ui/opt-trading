@@ -173,6 +173,12 @@ class TestOtherMachinesUnchanged(unittest.TestCase):
         self.assertIn("optional_timers", scope)
         self.assertIn("opt-trading-runtime-health.timer", scope["optional_timers"])
 
+    def test_db_layer_fleet_orchestrator_timer_present(self):
+        mm = _mm()
+        scope = mm.scope_for("db-layer")
+        self.assertIn("optional_timers", scope)
+        self.assertIn("opt-trading-fleet-orchestrator.timer", scope["optional_timers"])
+
     def test_all_machines_present(self):
         mm = _mm()
         for machine in ["admin-trading", "db-layer", "cursor-ai", "fantome", "student"]:
