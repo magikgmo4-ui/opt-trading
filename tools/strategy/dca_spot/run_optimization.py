@@ -19,7 +19,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT))
 
-from tools.strategy.dca_spot.load_data import load_m5_canonical, resample_to_d1
+from tools.strategy.dca_spot.load_data import load_m5_canonical, load_d1_canonical, resample_to_d1
 from tools.strategy.dca_spot.indicators import add_indicators
 from tools.strategy.dca_spot.engine import DCAConfig, run_simulation
 from tools.strategy.dca_spot.run_backtest import benchmark_simple_weekly
@@ -38,16 +38,20 @@ SPIKE_KS = [1.5, 2.0, 3.0]
 def main() -> int:
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument("--input", required=True)
+    parser.add_argument("--input", required=True, help="M5 canonical CSV or D1 canonical CSV (--d1 flag)")
+    parser.add_argument("--d1", action="store_true", help="Input is already D1 (skip resample)")
     parser.add_argument("--out", required=True)
     args = parser.parse_args()
 
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    print("[load + resample + indicators]", flush=True)
-    df_m5 = load_m5_canonical(args.input)
-    df_d1 = resample_to_d1(df_m5)
+    print("[load + indicators]", flush=True)
+    if args.d1:
+        df_d1 = load_d1_canonical(args.input)
+    else:
+        df_m5 = load_m5_canonical(args.input)
+        df_d1 = resample_to_d1(df_m5)
     df_d1 = add_indicators(df_d1)
     last_price = float(df_d1["close"].iloc[-1])
     print(f"  → {len(df_d1)} D1 bars  last={last_price}", flush=True)
