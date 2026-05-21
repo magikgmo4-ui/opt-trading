@@ -3,7 +3,7 @@ doc_id: GO_SIGNAL_CHAIN_DRY_RUN_AUTOMATION_01_STEPS
 doc_type: steps
 go_id: GO_SIGNAL_CHAIN_DRY_RUN_AUTOMATION_01
 parent_go: GO_OPT_TRADING_OPENCLAW_PARENT_AUTOMATION_GAPS_CLOSE_01
-status: open
+status: passed_with_evidence
 ---
 
 # 10_STEPS
