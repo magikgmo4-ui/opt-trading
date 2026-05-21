@@ -25,7 +25,7 @@ import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parents[2]
+REPO_ROOT = Path(__file__).resolve().parents[3]
 LEDGER_DIR = REPO_ROOT / "data/runtime_health" / "ledger"
 ARCHIVE_DIR = LEDGER_DIR / "archive"
 MAX_BYTES = 100 * 1024 * 1024  # 100 MB rotation

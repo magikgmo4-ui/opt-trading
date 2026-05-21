@@ -11,7 +11,7 @@ import json
 import sys
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parents[2]
+REPO_ROOT = Path(__file__).resolve().parents[3]
 LEDGER_PATH = REPO_ROOT / "data/runtime_health" / "ledger" / "events.jsonl"
 
 
