@@ -26,6 +26,10 @@ class TradeResult:
     followed_plan: bool = True
 
 
+_SMC_VARIANTS = {"SMC_SWEEP_ONLY", "COMBINED_SMC_ORB_VWAP"}
+_ACTIVE_SESSIONS = {"london", "ny", "overlap"}
+
+
 def simulate_trade(
     setup: Setup,
     score: int,
@@ -42,21 +46,34 @@ def simulate_trade(
     if score < min_score:
         return None
 
+    # SMC setups: only trade active sessions (london, ny, overlap)
+    if setup.variant in _SMC_VARIANTS and setup.session not in _ACTIVE_SESSIONS:
+        return None
+
     atr = setup.atr
     if atr <= 0:
         return None
 
     cost = spread_pts + slippage_pts
     direction = setup.direction
+    sweep_extreme = setup.extra.get("sweep_extreme") if setup.extra else None
 
     if direction == "long":
         entry = setup.entry_price + cost
-        sl = entry - atr * atr_sl_mult
+        # SL anchored below swept swing low when available; fallback to ATR-based
+        if sweep_extreme is not None:
+            sl = sweep_extreme - atr * 0.3
+        else:
+            sl = entry - atr * atr_sl_mult
         tp1 = entry + atr * atr_tp_mult
         tp2 = entry + atr * atr_tp_mult * 2
     else:
         entry = setup.entry_price - cost
-        sl = entry + atr * atr_sl_mult
+        # SL anchored above swept swing high when available; fallback to ATR-based
+        if sweep_extreme is not None:
+            sl = sweep_extreme + atr * 0.3
+        else:
+            sl = entry + atr * atr_sl_mult
         tp1 = entry - atr * atr_tp_mult
         tp2 = entry - atr * atr_tp_mult * 2
 

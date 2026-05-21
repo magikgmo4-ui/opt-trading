@@ -122,6 +122,7 @@ def detect_smc_sweep_only(df: pd.DataFrame, lookback: int = 20, confirm_window: 
                             liquidity_state="sweep_low", structure_state="choch_long",
                             session=choch_bar["session"], entry_price=choch_bar["close"],
                             atr=choch_bar.get("atr", 0.0),
+                            extra={"sweep_extreme": prev["low"]},
                         ))
                         break
 
@@ -141,6 +142,7 @@ def detect_smc_sweep_only(df: pd.DataFrame, lookback: int = 20, confirm_window: 
                             liquidity_state="sweep_high", structure_state="choch_short",
                             session=choch_bar["session"], entry_price=choch_bar["close"],
                             atr=choch_bar.get("atr", 0.0),
+                            extra={"sweep_extreme": prev["high"]},
                         ))
                         break
 
@@ -181,6 +183,7 @@ def detect_combined(df: pd.DataFrame, lookback: int = 20, confirm_window: int = 
                             session=cbar["session"], entry_price=cbar["close"],
                             atr=cbar.get("atr", 0.0), vwap=vwap,
                             orb_high=orb_h, orb_low=orb_l,
+                            extra={"sweep_extreme": prev["low"]},
                         ))
                         break
 
@@ -208,6 +211,7 @@ def detect_combined(df: pd.DataFrame, lookback: int = 20, confirm_window: int = 
                             session=cbar["session"], entry_price=cbar["close"],
                             atr=cbar.get("atr", 0.0), vwap=vwap,
                             orb_high=orb_h, orb_low=orb_l,
+                            extra={"sweep_extreme": prev["high"]},
                         ))
                         break
 
