@@ -2,7 +2,7 @@
 doc_id: GO_EXTERNAL_APPS_BRIDGE_CONTRACTS_01_CONTRACTS
 doc_type: bridge_contracts
 go_id: GO_EXTERNAL_APPS_BRIDGE_CONTRACTS_01
-status: draft
+status: passed_with_evidence
 ---
 
 # 20_BRIDGE_CONTRACTS
