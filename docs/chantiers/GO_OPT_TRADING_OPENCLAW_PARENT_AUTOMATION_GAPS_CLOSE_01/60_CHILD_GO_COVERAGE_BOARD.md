@@ -37,7 +37,7 @@ REASON: 10 child GOs open, 0 merged, 0 with evidence
 | gap_id | child_go_id | PR | status | evidence required | evidence present | next action | closeout eligible |
 |---|---|---|---|---|---|---|---|---|
 | G01 | `GO_OPENCLAW_AI_TEAM_AUTOMATION_CAPABILITY_MATRIX_01` | #664 | PARTIAL | Matrice complète actor × surface × permission × gate + 3 scénarios | 30 evidence_ref filled (sources: PERMISSION_MATRIX, autonomy doctrine, task index, machine map, agent configs, app matrix) | Exécuter 3 scénarios de validation (S1-S3) | NO |
-| G02 | `GO_STRICT_WORKERS_RUNTIME_RUNNER_READONLY_01` | #666 | OPEN | Runner read-only, job packet parser, no-write guard, smoke | None | Créer runner, valider packets, exécuter smoke | NO |
+| G02 | `GO_STRICT_WORKERS_RUNTIME_RUNNER_READONLY_01` | #666 | PASS_WITH_EVIDENCE | Runner read-only, job packet parser, no-write guard, smoke | runner: `scripts/ai/workers/runner_readonly.py` ; smoke: `20_SMOKE_RESULT.md` (5 reads, 0 writes) ; output: `GO_STRICT_WORKERS_READONLY_SMOKE_01_RUNNER.json` | Mergé — evidence validée | YES |
 | G03 | `GO_AI_TEAM_HANDOFF_MEMORY_POLICY_01` | #667 | OPEN | Manager, spécialistes, handoff packet, memory broker, dry-run | None | Définir rôles + handoff protocol + dry-run test | NO |
 | G04 | `GO_EXTERNAL_APPS_BRIDGE_CONTRACTS_01` | #668 | OPEN | 10 APP_BRIDGE_CONTRACT remplis | None | Créer template + remplir contrats | NO |
 | G05 | Source of truth | — | OPEN | Domaines listés, source canonique par domaine, sync rules | None | Couvert transversalement par G01 + G04 + G06 | NO |
