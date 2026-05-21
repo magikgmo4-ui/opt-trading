@@ -61,3 +61,11 @@ Do not derive runners first.
 
 Review the `12` partial jobs directly from execution needs, and only then decide
 whether a tiny runner, a manual protocol, or an existing command is sufficient.
+
+Phase 02B review outcome:
+
+- `1` runnable_as_is
+- `6` manual_protocol_enough
+- `5` tiny_helper_needed
+
+Reference: `92_PHASE_02B_GAP_REVIEW.md`
