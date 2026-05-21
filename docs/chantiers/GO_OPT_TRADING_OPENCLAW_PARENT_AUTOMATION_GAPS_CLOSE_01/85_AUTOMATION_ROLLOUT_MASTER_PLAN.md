@@ -2,7 +2,8 @@
 doc_id: GO_OPT_TRADING_OPENCLAW_PARENT_AUTOMATION_GAPS_CLOSE_01_ROLLOUT_PLAN
 doc_type: automation_rollout_plan
 go_id: GO_OPT_TRADING_OPENCLAW_PARENT_AUTOMATION_GAPS_CLOSE_01
-status: draft
+status: active
+phase_p0: PASS_WITH_EVIDENCE
 ---
 
 # 85_AUTOMATION_ROLLOUT_MASTER_PLAN
@@ -14,16 +15,28 @@ Aucun closeout tant que chaque phase n'a pas evidence.
 
 ## 7_CANONICAL_STATE
 
-- PR #678 agrège les GO enfants (G01-G12) mergée dans `sot/mainline`
-- G01-G12 couverts avec preuves
-- ledger root path corrigé (parents[3])
+- PR #678 agrège les GO enfants (G01-G12) mergée dans `sot/mainline` ✅
+- G01-G12 couverts avec preuves ✅
+- ledger root path corrigé (parents[3]) ✅
+- P0 Freeze baseline — PASS_WITH_EVIDENCE ✅
 - parent GO_OPT_TRADING_OPENCLAW_PARENT_AUTOMATION_GAPS_CLOSE_01 non fermé
 
 ## 8_VALIDATED_PLAN
 
 | Phase | Nom | Objectif | Gate |
 |---|---|---|---|
-| P0 | Freeze baseline | Figer PR #678 comme base evidence | merge + diff review |
+| P0 | Freeze baseline ✅ | Figer PR #678 comme base evidence | merge + diff review — FAIT |
+
+### P0 — Détail
+
+- **preconditions** : G01-G12 tous PASS_WITH_EVIDENCE, PR #678 mergeable
+- **allowed actions** : merge PR #678 dans sot/mainline
+- **forbidden actions** : closeout parent, ouverture nouveau GO, modification des evidences
+- **evidence required** : PR mergée, diff check clean, tous les tests passent
+- **rollback** : revert commit merge PR #678
+- **ledger event** : n/a (opération manuelle)
+- **closeout eligibility** : P0 close dès que PR mergée et validée
+- **Verdict** : ✅ PASS_WITH_EVIDENCE — PR #678 mergée à `sot/mainline` (commit `bb396eee`), 38 commits, 97 fichiers, 5575 additions, whitespace clean, 6 tests de validation PASS
 | P1 | Observe-only | Lire, inventorier, journaliser | read-only |
 | P2 | Strict workers runtime | Exécuter jobs read-only bornés | runner + logs |
 | P3 | Draft automation | Produire patchs / docs / propositions sans write | dry-run |
@@ -80,10 +93,10 @@ Chaque phase doit fournir :
 - Toute suggestion de trading est journalisée et non exécutée
 - Les invariants G10 (dry-run guard) et G07 (HITL) sont verrouillés
 
-## NEXT_GO candidates (ouverts après P1)
+## NEXT_GO candidates (P0 complété — P1 ouvrable)
 
 | Candidat | Description | Dépend de |
 |---|---|---|
-| `GO_AUTOMATION_ROLLOUT_PHASE_01_OBSERVE_ONLY_01` | Phase observe-only runtime | P0 |
+| `GO_AUTOMATION_ROLLOUT_PHASE_01_OBSERVE_ONLY_01` | Phase observe-only runtime | P0 ✅ |
 | `GO_AUTOMATION_ROLLOUT_PHASE_02_STRICT_WORKERS_READONLY_RUNTIME_01` | Strict workers en production | P1 |
 | `GO_AUTOMATION_ROLLOUT_PHASE_03_DRAFT_AUTOMATION_01` | Draft pipeline actif | P2 |
