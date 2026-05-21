@@ -5,7 +5,7 @@ repo: opt-trading
 project: opt-trading
 go_id: GO_OPENCLAW_AI_TEAM_AUTOMATION_CAPABILITY_MATRIX_01
 parent_go: GO_OPT_TRADING_OPENCLAW_PARENT_AUTOMATION_GAPS_CLOSE_01
-status: open
+status: passed_with_evidence
 lifecycle_stage: impl
 surface: docs/chantiers
 source_kind: canonical
