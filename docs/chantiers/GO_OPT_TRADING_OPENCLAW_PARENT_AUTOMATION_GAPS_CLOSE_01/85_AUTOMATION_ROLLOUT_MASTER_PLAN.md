@@ -2,7 +2,7 @@
 doc_id: GO_OPT_TRADING_OPENCLAW_PARENT_AUTOMATION_GAPS_CLOSE_01_ROLLOUT_PLAN
 doc_type: automation_rollout_plan
 go_id: GO_OPT_TRADING_OPENCLAW_PARENT_AUTOMATION_GAPS_CLOSE_01
-status: active
+status: closed
 phase_p0: PASS_WITH_EVIDENCE
 phase_p1: PASS_WITH_EVIDENCE
 phase_p3: PASS_WITH_EVIDENCE
@@ -12,6 +12,7 @@ phase_p6: PASS_WITH_EVIDENCE
 phase_p7: PASS_WITH_EVIDENCE
 phase_p8: PASS_WITH_EVIDENCE
 phase_p9: PASS_WITH_EVIDENCE
+phase_p10: PASS_WITH_EVIDENCE
 ---
 
 # 85_AUTOMATION_ROLLOUT_MASTER_PLAN
@@ -29,7 +30,9 @@ Aucun closeout tant que chaque phase n'a pas evidence.
 - P0 Freeze baseline — PASS_WITH_EVIDENCE ✅
 - P1 Observe-only — PASS_WITH_EVIDENCE ✅
 - P3 Draft automation — PASS_WITH_EVIDENCE ✅
-- parent GO_OPT_TRADING_OPENCLAW_PARENT_AUTOMATION_GAPS_CLOSE_01 non fermé
+- P9 Canary automation (first real write + dual confirm) — PASS_WITH_EVIDENCE ✅
+- P10 Parent closeout — PASS_WITH_EVIDENCE ✅
+- parent GO_OPT_TRADING_OPENCLAW_PARENT_AUTOMATION_GAPS_CLOSE_01 **CLOSED**
 
 ## 8_VALIDATED_PLAN
 
@@ -145,7 +148,18 @@ Aucun closeout tant que chaque phase n'a pas evidence.
 - **ledger event** : CANARY (CANARY_PROPOSE → CANARY_CONFIRM → CANARY_WRITE_MARKER/CANARY_SEND_NOTIFICATION/CANARY_LOG_UPDATE)
 - **closeout eligibility** : canary_worker fonctionnel, cycle complet validé, premier write non-dry-run réussi, dual confirm prouvé, ledger events OK
 - **Verdict** : ✅ PASS_WITH_EVIDENCE — `canary_worker.py` créé. **Premier write non-dry-run du projet** : marker écrit dans `data/canary/markers/98cd0510ec21.json` avec `dry_run: false`, après dual confirm (human_01 + human_02). 3 canary actions supportées. Cycle complet testé (propose → confirmed_once → executed). 8+ events ledger. P10 débloqué.
-| P10 | Parent closeout | Seulement quand tout est prouvé | PASS_WITH_EVIDENCE total |
+| P10 | Parent closeout ✅ | Seulement quand tout est prouvé | PASS_WITH_EVIDENCE total — FAIT |
+
+### P10 — Détail
+
+- **preconditions** : P0→P9 toutes PASS_WITH_EVIDENCE, G01-G12 toutes PASS_WITH_EVIDENCE, PR #678 mergée dans sot/mainline, 12 invariants vérifiés
+- **allowed actions** : marquer GO comme CLOSED, merger la branche dans sot/mainline, ouvrir nouveau GO parent pour la suite (non-trading scheduled rollout)
+- **forbidden actions** : supprimer le GO, perdre l'evidence, fermer sans vérifier les prérequis
+- **evidence required** : P0→P9 toutes ✅, G01-G12 toutes ✅, plan rollout complété, invariants verrouillés, commit final poussé
+- **rollback** : rouvrir le GO, revert merge commit
+- **ledger event** : n/a (closeout manuel — documenté dans le plan)
+- **closeout eligibility** : toutes les phases P0→P9 validées avec PASS_WITH_EVIDENCE, invariants verrouillés, PR mergée, pas de GO enfants ouverts
+- **Verdict** : ✅ PASS_WITH_EVIDENCE — GO fermé. Base PR #678 + P1+P3+P4+P5+P6+P7+P8+P9. 9 phases, 7 workers créés (observe, draft, hitl_gate, bridge_worker, signal_dry_run, scheduler_worker, canary_worker), ledger opérationnel, kill switch, HITL gate, bridges sous contrat, scheduler avec retry/dead-letter/alerting, canary non-dry-run avec dual confirm. NOUVEAU PARENT : `GO_OPT_TRADING_AUTOMATION_PARENT_NON_TRADING_SCHEDULED_ROLLOUT_01`.
 
 ## 12_INVARIANTS
 
