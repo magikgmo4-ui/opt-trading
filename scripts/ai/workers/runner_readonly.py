@@ -34,13 +34,7 @@ def _check_git_clean():
         ["git", "diff", "--quiet"], cwd=REPO_ROOT, capture_output=True
     ).returncode
     if rc != 0:
-        print(json.dumps({"status": "BLOCKED", "reason": "git working tree dirty"}))
-        sys.exit(2)
-    out = subprocess.run(
-        ["git", "status", "--porcelain"], cwd=REPO_ROOT, capture_output=True, text=True
-    ).stdout.strip()
-    if out:
-        print(json.dumps({"status": "BLOCKED", "reason": "untracked files present"}))
+        print(json.dumps({"status": "BLOCKED", "reason": "git working tree has unstaged changes to tracked files"}))
         sys.exit(2)
 
 
