@@ -5,6 +5,7 @@ go_id: GO_OPT_TRADING_OPENCLAW_PARENT_AUTOMATION_GAPS_CLOSE_01
 status: active
 phase_p0: PASS_WITH_EVIDENCE
 phase_p1: PASS_WITH_EVIDENCE
+phase_p3: PASS_WITH_EVIDENCE
 ---
 
 # 85_AUTOMATION_ROLLOUT_MASTER_PLAN
@@ -21,6 +22,7 @@ Aucun closeout tant que chaque phase n'a pas evidence.
 - ledger root path corrigé (parents[3]) ✅
 - P0 Freeze baseline — PASS_WITH_EVIDENCE ✅
 - P1 Observe-only — PASS_WITH_EVIDENCE ✅
+- P3 Draft automation — PASS_WITH_EVIDENCE ✅
 - parent GO_OPT_TRADING_OPENCLAW_PARENT_AUTOMATION_GAPS_CLOSE_01 non fermé
 
 ## 8_VALIDATED_PLAN
@@ -53,7 +55,18 @@ Aucun closeout tant que chaque phase n'a pas evidence.
 - **closeout eligibility** : observe worker fonctionnel + preuve de 3 cycles read-only sans write
 - **Verdict** : ✅ PASS_WITH_EVIDENCE — `observe_worker.py` créé et exécuté (6 events ledger, 5 PASS + 1 WARN timer), 0 writes, observe cycle complet. P2 débloqué.
 | P2 | Strict workers runtime | Exécuter jobs read-only bornés | runner + logs |
-| P3 | Draft automation | Produire patchs / docs / propositions sans write | dry-run |
+| P3 | Draft automation ✅ | Produire patchs / docs / propositions sans write | dry-run — FAIT |
+
+### P3 — Détail
+
+- **preconditions** : P0+P1 complétés, observe worker fonctionnel, ledger opérationnel
+- **allowed actions** : lire surfaces, produire drafts (patch/doc/proposal) dans `data/drafts/`, journaliser dans le ledger
+- **forbidden actions** : write sur surface cible, write sur surfaces observées, modification runtime
+- **evidence required** : draft worker déployé, 3 drafts produits (patch+doc+proposal), dry_run=True, write_executed=False
+- **rollback** : supprimer `data/drafts/<id>/`, revert ledger events si nécessaire
+- **ledger event** : DRAFT_CYCLE (READ/PRODUCE/VERIFY)
+- **closeout eligibility** : draft worker fonctionnel + 3 drafts dry-run avec 0 write
+- **Verdict** : ✅ PASS_WITH_EVIDENCE — `draft_worker.py` créé, 4 drafts produits (2 patch, 1 doc, 1 proposal), tous dry_run=True, 0 writes target. P4 débloqué.
 | P4 | HITL write-gated | Exécuter seulement après approval humain | approval packet |
 | P5 | App bridges | Airtable / Sheets / Telegram / LocalCMS sous contrat | bridge contract |
 | P6 | Signal dry-run | Signaux → validation → journal → backtest, sans ordre live | dry-run guard |
@@ -107,10 +120,10 @@ Chaque phase doit fournir :
 - Toute suggestion de trading est journalisée et non exécutée
 - Les invariants G10 (dry-run guard) et G07 (HITL) sont verrouillés
 
-## NEXT_GO candidates (P1 complété — P2 ouvrable)
+## NEXT_GO candidates (P3 complété — P4 ouvrable)
 
 | Candidat | Description | Dépend de |
 |---|---|---|
 | `GO_AUTOMATION_ROLLOUT_PHASE_01_OBSERVE_ONLY_01` | Phase observe-only runtime | P0 ✅ |
 | `GO_AUTOMATION_ROLLOUT_PHASE_02_STRICT_WORKERS_READONLY_RUNTIME_01` | Strict workers en production | P1 ✅ |
-| `GO_AUTOMATION_ROLLOUT_PHASE_03_DRAFT_AUTOMATION_01` | Draft pipeline actif | P2 |
+| `GO_AUTOMATION_ROLLOUT_PHASE_03_DRAFT_AUTOMATION_01` | Draft pipeline actif | P2, P3 ✅ |
