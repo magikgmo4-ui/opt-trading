@@ -47,6 +47,10 @@ def results_to_journal_df(results: List[TradeResult]) -> pd.DataFrame:
 
 def compute_variant_metrics(df: pd.DataFrame) -> Dict[str, dict]:
     metrics = {}
+    if df.empty or "variant" not in df.columns:
+        for variant in _VARIANTS:
+            metrics[variant] = {"trades_count": 0, "verdict": "NO_DATA"}
+        return metrics
     for variant in _VARIANTS:
         sub = df[df["variant"] == variant]
         if sub.empty:
