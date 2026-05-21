@@ -26,6 +26,10 @@ class TradeResult:
     followed_plan: bool = True
 
 
+_SMC_VARIANTS = {"SMC_SWEEP_ONLY", "COMBINED_SMC_ORB_VWAP"}
+_ACTIVE_SESSIONS = {"london", "ny", "overlap"}
+
+
 def simulate_trade(
     setup: Setup,
     score: int,
@@ -37,9 +41,14 @@ def simulate_trade(
     slippage_pts: float = 0.01,
     max_bars: int = 48,
     min_score: int = 7,
+    max_risk_atr: float = 3.0,
 ) -> Optional[TradeResult]:
     """Simulate a single trade. Returns None if setup is filtered out."""
     if score < min_score:
+        return None
+
+    # SMC setups: only trade active sessions (london, ny, overlap)
+    if setup.variant in _SMC_VARIANTS and setup.session not in _ACTIVE_SESSIONS:
         return None
 
     atr = setup.atr
@@ -48,21 +57,29 @@ def simulate_trade(
 
     cost = spread_pts + slippage_pts
     direction = setup.direction
+    extra = setup.extra or {}
+    # SL anchored just below/above the swept structural level (swing_l/swing_h).
+    # This is the SMC invalidation level: a close beyond it confirms the setup failed.
+    # Fallback to ATR-based when no structural level available (ORB/VWAP setups).
+    swept_struct = extra.get("swept_structure")
 
     if direction == "long":
         entry = setup.entry_price + cost
-        sl = entry - atr * atr_sl_mult
-        tp1 = entry + atr * atr_tp_mult
-        tp2 = entry + atr * atr_tp_mult * 2
+        sl = (swept_struct - atr * 0.1) if swept_struct is not None else (entry - atr * atr_sl_mult)
+        risk = abs(entry - sl)
+        if risk <= 0 or risk > atr * max_risk_atr:
+            return None
+        # TP proportional to actual risk — preserves min_rr regardless of SL distance
+        tp1 = entry + risk * min_rr
+        tp2 = entry + risk * min_rr * 2
     else:
         entry = setup.entry_price - cost
-        sl = entry + atr * atr_sl_mult
-        tp1 = entry - atr * atr_tp_mult
-        tp2 = entry - atr * atr_tp_mult * 2
-
-    risk = abs(entry - sl)
-    if risk <= 0:
-        return None
+        sl = (swept_struct + atr * 0.1) if swept_struct is not None else (entry + atr * atr_sl_mult)
+        risk = abs(entry - sl)
+        if risk <= 0 or risk > atr * max_risk_atr:
+            return None
+        tp1 = entry - risk * min_rr
+        tp2 = entry - risk * min_rr * 2
 
     result = TradeResult(
         setup=setup, score=score,
@@ -89,7 +106,7 @@ def simulate_trade(
                 result.time_in_trade_bars = j
                 break
             if bar["high"] >= tp1:
-                result.result_R = atr_tp_mult
+                result.result_R = abs(tp1 - entry) / risk  # = min_rr by construction
                 result.exit_reason = "TP1"
                 result.time_in_trade_bars = j
                 break
@@ -104,7 +121,7 @@ def simulate_trade(
                 result.time_in_trade_bars = j
                 break
             if bar["low"] <= tp1:
-                result.result_R = atr_tp_mult
+                result.result_R = abs(entry - tp1) / risk  # = min_rr by construction
                 result.exit_reason = "TP1"
                 result.time_in_trade_bars = j
                 break
