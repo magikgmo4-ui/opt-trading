@@ -28,6 +28,7 @@ Jobs immediats, lecture seule ou local write non critique:
 - `localcms-automation-status-sync`
 
 Verdict: `PHASE_01_SELECTED`
+Count: `12 jobs`
 
 Gate commun avant activation:
 
@@ -47,8 +48,137 @@ Canaries apps externes sous write-gated:
 - `telegram-automation-digest`
 
 Verdict: `PHASE_02_CANDIDATES`
+Count: `19 jobs`
+
+Scope:
+
+- repo/docs/governance extended jobs
+- strict-workers validation and archive layer
 
 ### Phase 03
+
+Ledger and security hardening:
+
+- `ledger-blocked-events-digest`
+- `ledger-rotation-check`
+- `ledger-schema-validation`
+- `ledger-trace-id-audit`
+- `automation-health-digest`
+- `kill-switch-state-check`
+- `stuck-job-detector`
+- `env-file-presence-check`
+- `gitignore-secrets-policy-check`
+- `oauth-scope-audit`
+- `external-token-presence-check`
+- `permission-drift-check`
+- `kill-switch-fullstop-test`
+- `deny-by-default-check`
+
+Verdict: `PHASE_03_SELECTED`
+Count: `14 jobs`
+
+### Phase 04
+
+HITL approvals rollout:
+
+- `proposal-packet-create`
+- `approval-packet-validate`
+- `execution-packet-preflight`
+- `verification-packet-create`
+- `approval-expiry-check`
+- `dual-confirm-required-check`
+- `pending-approvals-digest`
+
+Verdict: `PHASE_04_SELECTED`
+Count: `7 jobs`
+
+### Phase 05
+
+Capability matrix and AI-team rollout:
+
+- `capability-drift-check`
+- `ai-team-role-registry-check`
+- `handoff-packet-schema-check`
+- `memory-broker-dry-run`
+- `task-router-dry-run`
+- `handoff-timeout-check`
+
+Verdict: `PHASE_05_SELECTED`
+Count: `6 jobs`
+
+### Phase 06
+
+LocalCMS cockpit rollout:
+
+- `localcms-static-cockpit-build`
+- `localcms-workers-state-sync`
+- `localcms-jobs-queue-sync`
+- `localcms-approvals-sync`
+- `localcms-ledger-view-refresh`
+- `localcms-safe-buttons-check`
+- `localcms-kill-switch-widget-check`
+
+Verdict: `PHASE_06_SELECTED`
+Count: `7 jobs`
+
+### Phase 07
+
+External apps read and contract baseline:
+
+- `airtable-read-health`
+- `airtable-contract-check`
+- `clickup-read-health`
+- `clickup-contract-check`
+- `botpress-read-health`
+- `botpress-contract-check`
+- `kg-repo-read-index`
+- `kg-repo-drift-check`
+- `kg-repo-orphan-node-audit`
+- `sheets-read-health`
+- `gmail-read-report-inbox`
+- `calendar-read-automation-events`
+- `drive-read-folder-health`
+
+Verdict: `PHASE_07_SELECTED`
+Count: `13 jobs`
+
+### Phase 08
+
+External apps canary and write-gated rollout:
+
+- `airtable-canary-proposal`
+- `airtable-canary-write`
+- `airtable-readback-verify`
+- `airtable-snapshot-before-write`
+- `airtable-rollback-verify`
+- `clickup-canary-proposal`
+- `clickup-canary-task-create`
+- `clickup-task-readback-verify`
+- `clickup-task-update-canary`
+- `clickup-compensation-note`
+- `botpress-dev-message-proposal`
+- `botpress-dev-message-send`
+- `botpress-variable-update-canary`
+- `botpress-readback-verify`
+- `kg-repo-node-proposal`
+- `kg-repo-pr-gated-sync`
+- `kg-repo-readback-verify`
+- `sheets-report-export-proposal`
+- `sheets-canary-cell-write`
+- `sheets-readback-verify`
+- `sheets-snapshot-before-write`
+- `telegram-notification-health`
+- `telegram-automation-digest`
+- `telegram-blocked-events-alert`
+- `telegram-approval-reminder`
+- `gmail-draft-report`
+- `calendar-create-review-event`
+- `drive-upload-report-canary`
+
+Verdict: `PHASE_08_SELECTED`
+Count: `28 jobs`
+
+### Phase 09
 
 Timers reels de scheduler:
 
@@ -58,7 +188,18 @@ Timers reels de scheduler:
 - `automation-nightly-validation.timer`
 - `external-apps-canary.timer`
 
-Verdict: `PHASE_03_CANDIDATES`
+Additional scheduler and CI controls:
+
+- `scheduler-config-validate`
+- `scheduler-unit-lint`
+- `scheduler-dead-letter-check`
+- `scheduler-retry-policy-check`
+- `scheduler-dry-run-next-fire`
+- `ci-nightly-validation`
+- `ci-status-ingest`
+
+Verdict: `PHASE_09_SELECTED`
+Count: `8 jobs`
 
 ## Source priorisee
 
