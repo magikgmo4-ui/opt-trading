@@ -23,7 +23,6 @@ Jobs immediats, lecture seule ou local write non critique:
 - `strict-worker-readonly-smoke`
 - `capability-matrix-validate`
 - `ai-team-handoff-dry-run`
-- `bridge-contract-validation`
 - `hitl-scenarios-smoke`
 - `localcms-automation-status-sync`
 
@@ -39,13 +38,27 @@ Gate commun avant activation:
 
 ### Phase 02
 
-Canaries apps externes sous write-gated:
+Repo/docs/governance and strict-workers hardening:
 
-- `clickup-canary-task-create`
-- `airtable-canary-write`
-- `botpress-dev-message-send`
-- `kg-repo-pr-gated-sync`
-- `telegram-automation-digest`
+- `repo-branch-audit`
+- `repo-go-index-audit`
+- `repo-doc-frontmatter-lint`
+- `repo-doc-link-check`
+- `repo-closeout-eligibility-check`
+- `repo-parent-coverage-board-refresh`
+- `repo-memory-bricks-candidate-scan`
+- `repo-changelog-digest`
+- `repo-orphan-files-audit`
+- `repo-scope-guard`
+- `repo-pr-review-preflight`
+- `repo-release-note-draft`
+- `strict-worker-model-registry-check`
+- `strict-worker-task-index-check`
+- `strict-worker-job-packet-validate`
+- `strict-worker-output-schema-check`
+- `strict-worker-denied-command-scan`
+- `strict-worker-log-archive`
+- `strict-worker-failure-report`
 
 Verdict: `PHASE_02_SELECTED`
 Count: `19 jobs`
@@ -180,18 +193,11 @@ Count: `28 jobs`
 
 ### Phase 09
 
-Timers reels de scheduler:
-
-- `scheduler-user-timers-list`
-- `automation-health-status.timer`
-- `automation-ledger-heartbeat.timer`
-- `automation-nightly-validation.timer`
-- `external-apps-canary.timer`
-
-Additional scheduler and CI controls:
+Scheduler and CI activation:
 
 - `scheduler-config-validate`
 - `scheduler-unit-lint`
+- `scheduler-user-timers-list`
 - `scheduler-dead-letter-check`
 - `scheduler-retry-policy-check`
 - `scheduler-dry-run-next-fire`
