@@ -27,7 +27,7 @@ defaulting to new runner derivation first.
 | `strict-worker-output-schema-check` | tiny_helper_needed | `_validate_job.py`, `tasks.index.json`, `run_task.sh` | packet validation exists, output body schema check missing | tiny checker needed |
 | `strict-worker-denied-command-scan` | tiny_helper_needed | `tasks.index.json` deny list, `run_task.sh` prompt rendering | manual inspection possible | scanner missing |
 | `strict-worker-log-archive` | tiny_helper_needed | `runner_readonly.py`, `ledger_writer.py` | logs exist, archive policy missing | tiny archiver needed |
-| `strict-worker-failure-report` | runnable_as_is | `run_task.sh` writes `<job>_FAILED.md` on failure | runnable today with failing packet | works for runner/validation failures |
+| `strict-worker-failure-report` | runnable_as_is | `run_task.sh` writes `<job>_FAILED.md` on failure | validated on temporary bad packet | works for runner/validation failures |
 
 ## Totals
 
@@ -52,3 +52,8 @@ PHASE_02B1 = execute 6 manual_protocol_enough jobs
 PHASE_02B2 = execute 1 runnable_as_is job
 PHASE_02B3 = implement 5 tiny helpers only if still needed after B1/B2
 ```
+
+## Execution status
+
+- `PHASE_02B1` executed: `6/6 PASS`
+- `PHASE_02B2` executed: `1/1 PASS`
