@@ -27,21 +27,21 @@ livres dans `origin/sot/mainline`.
 | `hitl-scenarios-smoke` | `scripts/ai/tests/hitl_scenarios.py` | `python3 scripts/ai/tests/hitl_scenarios.py` | yes | scenario PASS output | none |
 | `capability-matrix-validate` | `scripts/ai/tests/g01_validate_scenarios.py` | `python3 scripts/ai/tests/g01_validate_scenarios.py` | yes | `scenario_results/*.json` | writes evidence in chantier docs |
 | `ai-team-handoff-dry-run` | `scripts/ai/tests/g03_dry_run_handoff.py` | `python3 scripts/ai/tests/g03_dry_run_handoff.py` | yes | `dry_run_output.json` | writes evidence in chantier docs |
-| `localcms-automation-status-sync` | `registry/cockpit/automation/index.html` | no direct sync runner in `#678` | partial | static cockpit exists | needs explicit sync command/script derivation |
+| `localcms-automation-status-sync` | `scripts/ai/workers/localcms_automation_status_sync.py` | `python3 scripts/ai/workers/localcms_automation_status_sync.py` | yes | `tmp/localcms_latest.json` + report artifact | none |
 
 ## Summary
 
-- Ready now: `11/12`
-- Partial: `1/12`
+- Ready now: `12/12`
+- Partial: `0/12`
 - Blocked: `0/12`
 
 ## First execution state
 
 Execution replayed from a temporary worktree based on `origin/sot/mainline`.
 
-- Fully executed PASS: `10/12`
+- Fully executed PASS: `11/12`
 - Runner/preflight PASS only: `1/12`
-- Derivation still needed: `1/12`
+- Derivation still needed: `0/12`
 
 Breakdown:
 
@@ -55,14 +55,10 @@ Breakdown:
 - PASS: `capability-matrix-validate`
 - PASS: `ai-team-handoff-dry-run`
 - PASS: `hitl-scenarios-smoke`
+- PASS: `localcms-automation-status-sync`
 - PRECHECK_PASS: `strict-worker-readonly-smoke`
-- DERIVE_NEEDED: `localcms-automation-status-sync`
 
 ## Only missing derivation
-
-`localcms-automation-status-sync` is the only Phase 01 job without a direct
-execution command in `#678`. The cockpit artifact exists, but the refresh/sync
-runner itself still needs to be derived.
 
 `strict-worker-readonly-smoke` has a valid runner/preflight path today, but
 the current asset prepares the worker prompt and output target rather than
@@ -81,7 +77,7 @@ executing the model end-to-end by itself.
 9. `capability-matrix-validate`
 10. `ai-team-handoff-dry-run`
 11. `hitl-scenarios-smoke`
-12. derive `localcms-automation-status-sync`
+12. `localcms-automation-status-sync`
 
 ## Execution note
 
@@ -89,6 +85,6 @@ Phase 01 can start immediately on the `11` ready-now jobs. The pragmatic first
 execution unit is therefore:
 
 ```text
-PHASE_01A = 11 ready-now jobs
-PHASE_01B = derive localcms-automation-status-sync
+PHASE_01A = 11 PASS + 1 PRECHECK_PASS
+PHASE_01B = optional end-to-end worker execution after runner precheck
 ```

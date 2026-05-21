@@ -28,24 +28,24 @@ status: active
 | `capability-matrix-validate` | PASS | scenarios S1/S2/S3 PASS |
 | `ai-team-handoff-dry-run` | PASS | multi-agent dry-run PASS |
 | `hitl-scenarios-smoke` | PASS | L5 + dual confirm scenarios PASS |
-| `localcms-automation-status-sync` | DERIVE_NEEDED | no direct sync runner in base assets |
+| `localcms-automation-status-sync` | PASS | local-only snapshot + report generated |
 
 ## Totals
 
-- PASS: `10`
+- PASS: `11`
 - PRECHECK_PASS: `1`
-- DERIVE_NEEDED: `1`
+- DERIVE_NEEDED: `0`
 - FAIL: `0`
 
 ## Established
 
 - Phase 01 is not blocked globally.
 - The `PR #678` asset base is sufficient to start concrete execution.
-- The only true derivation gap is `localcms-automation-status-sync`.
+- The only remaining limitation is the absence of a model-executed end-to-end result for `strict-worker-readonly-smoke`; its runner/precheck path is valid.
 
 ## Next execution cut
 
 ```text
-PHASE_01A_COMPLETE = 10 PASS + 1 PRECHECK_PASS
-PHASE_01B_NEXT = derive localcms-automation-status-sync
+PHASE_01A_COMPLETE = 11 PASS + 1 PRECHECK_PASS
+PHASE_01B_OPTIONAL = execute the readonly worker output through the selected model path
 ```
