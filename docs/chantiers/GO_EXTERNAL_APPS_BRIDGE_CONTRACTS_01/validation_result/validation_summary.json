@@ -1,0 +1,48 @@
+{
+  "validated_at": "2026-05-20T22:59:01.162689",
+  "contracts_validated": 10,
+  "valid": 10,
+  "all_pass": true,
+  "results": {
+    "airtable": {
+      "errors": [],
+      "warnings": []
+    },
+    "clickup": {
+      "errors": [],
+      "warnings": []
+    },
+    "botpress": {
+      "errors": [],
+      "warnings": []
+    },
+    "google_sheets": {
+      "errors": [],
+      "warnings": []
+    },
+    "telegram": {
+      "errors": [],
+      "warnings": []
+    },
+    "gmail": {
+      "errors": [],
+      "warnings": []
+    },
+    "google_calendar": {
+      "errors": [],
+      "warnings": []
+    },
+    "google_drive": {
+      "errors": [],
+      "warnings": []
+    },
+    "figma": {
+      "errors": [],
+      "warnings": []
+    },
+    "localcms": {
+      "errors": [],
+      "warnings": []
+    }
+  }
+}

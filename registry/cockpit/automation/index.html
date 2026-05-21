@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automation Cockpit</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+</head>
+<body>
+<div id="cockpit-app">
+  <aside id="nav">
+    <h1>Automation Cockpit</h1>
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#workers">Workers</a></li>
+      <li><a href="#jobs">Jobs Queue</a></li>
+      <li><a href="#approvals">Approvals</a></li>
+      <li><a href="#ledger">Ledger</a></li>
+      <li><a href="#signals">Signals</a></li>
+    </ul>
+    <div class="kill-switch">
+      <span class="state normal">● NORMAL</span>
+    </div>
+  </aside>
+  <main id="content">
+    <section id="overview" class="page active">
+      <h2>Automation Overview</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Kill Switch</h3>
+          <p class="value">NORMAL</p>
+        </div>
+        <div class="card">
+          <h3>Last Action</h3>
+          <p class="value">READ_INVENTORY</p>
+          <p class="sub">2 min ago</p>
+        </div>
+        <div class="card">
+          <h3>Active Alerts</h3>
+          <p class="value">0</p>
+        </div>
+        <div class="card">
+          <h3>Workers Online</h3>
+          <p class="value">2 / 2</p>
+        </div>
+      </div>
+    </section>
+    <section id="workers" class="page">
+      <h2>Workers State</h2>
+      <table><thead><tr><th>Worker</th><th>Role</th><th>Status</th><th>Last Task</th><th>Actions</th></tr></thead>
+      <tbody>
+        <tr><td>strict_worker_01</td><td>Read-only</td><td class="active">active</td><td>READ_INVENTORY</td><td>[VIEW] [RESTART]</td></tr>
+        <tr><td>specialist_worker</td><td>Specialist</td><td class="active">active</td><td>PATCH_DRAFT</td><td>[VIEW] [RESTART]</td></tr>
+        <tr><td>app_bridge_airtable</td><td>Bridge</td><td class="active">active</td><td>WRITE_GATED</td><td>[VIEW] [RESTART]</td></tr>
+        <tr><td>team_ai_manager</td><td>Manager</td><td class="idle">idle</td><td>—</td><td>[VIEW]</td></tr>
+      </tbody></table>
+    </section>
+    <section id="jobs" class="page">
+      <h2>Jobs Queue</h2>
+      <table><thead><tr><th>ID</th><th>Job</th><th>Status</th><th>Started</th></tr></thead>
+      <tbody>
+        <tr><td>001</td><td>smoke_readonly</td><td class="done">done</td><td>02:30:00</td></tr>
+        <tr><td>002</td><td>patch_draft_config</td><td class="running">running</td><td>02:45:00</td></tr>
+        <tr><td>003</td><td>bridge_sync_airtable</td><td class="queued">queued</td><td>—</td></tr>
+        <tr><td>004</td><td>bridge_sync_telegram</td><td class="failed">failed</td><td>02:20:00</td></tr>
+      </tbody></table>
+    </section>
+    <section id="approvals" class="page">
+      <h2>Approvals</h2>
+      <h3>Pending</h3>
+      <table><thead><tr><th>ID</th><th>Action</th><th>Surface</th><th>Level</th><th>Actions</th></tr></thead>
+      <tbody>
+        <tr><td>P001</td><td>WRITE_RECORDS</td><td>Airtable</td><td>L6</td><td>[APPROVE] [REJECT] [VIEW]</td></tr>
+        <tr><td>P002</td><td>PATCH_CONFIG</td><td>repo</td><td>L5</td><td>[APPROVE] [REJECT] [VIEW]</td></tr>
+      </tbody></table>
+    </section>
+    <section id="ledger" class="page">
+      <h2>Ledger</h2>
+      <div class="filters">
+        <label>Status: <select><option>All</option><option>PASS</option><option>FAIL</option><option>BLOCKED</option></select></label>
+        <label>Actor: <select><option>All</option><option>strict_worker</option><option>specialist</option><option>app_bridge</option></select></label>
+      </div>
+      <table><thead><tr><th>Time</th><th>Actor</th><th>Action</th><th>Surface</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>02:40:15</td><td>strict_worker</td><td>READ_INVENTORY</td><td>Telegram</td><td class="pass">PASS</td></tr>
+        <tr><td>02:40:16</td><td>app_bridge</td><td>WRITE_GATED</td><td>Airtable</td><td class="blocked">BLOCKED</td></tr>
+      </tbody></table>
+      <button>REPLAY</button> <button>EXPORT</button>
+    </section>
+    <section id="signals" class="page">
+      <h2>Signals</h2>
+      <table><thead><tr><th>ID</th><th>Source</th><th>Symbol</th><th>Direction</th><th>Confidence</th><th>Blocked</th></tr></thead>
+      <tbody>
+        <tr><td>a54e8d18</td><td>tradingview</td><td>BTCUSD</td><td>buy</td><td>0.82</td><td class="yes">YES</td></tr>
+        <tr><td>3ca73386</td><td>collector</td><td>SOLUSD</td><td>buy</td><td>0.75</td><td class="no">NO</td></tr>
+      </tbody></table>
+      <p>Stats: 12 signals today, 8 confirmed, 8 blocked, 3 rejected</p>
+    </section>
+  </main>
+</div>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #c9d1d9; height: 100vh; }
+#cockpit-app { display: flex; height: 100vh; }
+#nav { width: 240px; background: #161b22; padding: 20px; border-right: 1px solid #30363d; display: flex; flex-direction: column; }
+#nav h1 { font-size: 16px; margin-bottom: 20px; color: #58a6ff; }
+#nav ul { list-style: none; flex: 1; }
+#nav li a { display: block; padding: 8px 12px; color: #8b949e; text-decoration: none; border-radius: 6px; margin-bottom: 2px; }
+#nav li a:hover { background: #1f2937; color: #c9d1d9; }
+.kill-switch { margin-top: auto; padding: 12px; background: #1f2937; border-radius: 6px; }
+.state { font-weight: 600; font-size: 13px; }
+.state.normal { color: #3fb950; }
+#content { flex: 1; padding: 24px; overflow-y: auto; }
+.page { display: none; }
+.page.active { display: block; }
+.page h2 { margin-bottom: 16px; color: #f0f6fc; }
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+.card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; }
+.card h3 { font-size: 12px; color: #8b949e; margin-bottom: 8px; text-transform: uppercase; }
+.card .value { font-size: 24px; font-weight: 700; color: #f0f6fc; }
+.card .sub { font-size: 12px; color: #8b949e; margin-top: 4px; }
+table { width: 100%; border-collapse: collapse; background: #161b22; border: 1px solid #30363d; border-radius: 8px; }
+th { text-align: left; padding: 8px 12px; border-bottom: 1px solid #30363d; color: #8b949e; font-size: 12px; text-transform: uppercase; }
+td { padding: 8px 12px; border-bottom: 1px solid #21262d; font-size: 14px; }
+.active { color: #3fb950; } .idle { color: #8b949e; } .done { color: #3fb950; } .running { color: #58a6ff; } .queued { color: #8b949e; } .failed { color: #f85149; }
+.pass { color: #3fb950; } .blocked { color: #d29922; } .yes { color: #f85149; } .no { color: #8b949e; }
+.filters { margin-bottom: 12px; }
+.filters label { margin-right: 16px; color: #8b949e; font-size: 13px; }
+.filters select { background: #0d1117; color: #c9d1d9; border: 1px solid #30363d; border-radius: 4px; padding: 4px 8px; }
+button { background: #21262d; color: #c9d1d9; border: 1px solid #30363d; border-radius: 6px; padding: 8px 16px; cursor: pointer; margin-right: 8px; margin-top: 8px; }
+button:hover { background: #30363d; }
+</style>
+<script>
+document.querySelectorAll('#nav a').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelector(a.getAttribute('href')).classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
