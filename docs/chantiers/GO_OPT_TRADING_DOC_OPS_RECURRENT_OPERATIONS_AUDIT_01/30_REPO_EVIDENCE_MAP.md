@@ -73,10 +73,11 @@ Examples:
 
 #### Desk Pro (1152 occurrences)
 Examples:
-- docs/chantiers/GO_OPT_TRADING_DESKPRO_*/
-- modules/deskpro/
-- ui/deskpro/
-- docs/runbooks/deskpro-*
+- Exemples de chemins liés à Desk Pro (à valider par recherche dans le dépôt) :
+    - docs/chantiers/GO_OPT_TRADING_DESKPRO_*/
+    - modules/deskpro/
+    - ui/deskpro/
+    - docs/runbooks/deskpro-*
 
 #### Telegram (898 occurrences)
 Examples:

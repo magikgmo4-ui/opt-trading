@@ -33,7 +33,7 @@
 5. **Documentation de clôture**
    - Fréquence: Très élevée
    - Preuves: 415 fichiers de closeout (90_CLOSEOUT.md ou *CLOSEOUT*.md)
-   - Chantiers concernés: ~73% des chantiers ayant un init
+    - Chantiers concernés: 415 closeout docs, soit environ 73% du nombre de dossiers chantiers comptés.
    - Rôle: Synthèse des résultats, preuves, verdicts
 
 6. **Entrée inbox pour découvrabilité**
