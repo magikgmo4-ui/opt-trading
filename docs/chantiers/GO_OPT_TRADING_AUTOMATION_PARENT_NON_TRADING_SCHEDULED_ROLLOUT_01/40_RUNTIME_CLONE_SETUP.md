@@ -7,15 +7,13 @@ status: draft
 
 # 40_RUNTIME_CLONE_SETUP
 
-## Separation de scope
+## Position actuelle
 
-- Cette branche parent reste doc-only.
-- Le runtime non-trading vit sur `go/runtime-non-trading-workers-01`.
-- Une PR runtime distincte doit porter workers, LocalCMS runtime changes,
-  artefacts de scheduler et tout code executable.
+- Le parent reste documentaire et canonique.
+- Les implementations runtime viendront apres stabilisation du register.
+- Aucun split runtime n'est le prochain livrable demande.
 
-## Attendus de la PR runtime
+## Regle
 
-- Exclure `signal_dry_run_worker.py`.
-- Garder uniquement observe/draft/HITL/bridges/scheduler/canary non-trading.
-- Documenter rollback et gates.
+Le code executable devra etre derive du register canonique et de la priorisation
+Phase 01/02/03, pas l'inverse.

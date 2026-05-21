@@ -22,10 +22,9 @@ et planification du perimetre non-trading.
 
 ## 3_INITIAL_NEED
 
-- Recanoniser le nouveau parent avant merge.
-- Reintegrer les jobs repo, docs, gouvernance, workers, scheduler, cockpit,
-  bridges et ledger dans un registre unique.
-- Separer strictement doc-only vs runtime.
+- Il faut inclure les jobs repo, pas seulement runtime/ledger/apps.
+- Il faut poser la liste maitre hors trading comme base canonique.
+- Il faut transformer cette liste en registre exploitable pour choisir Phase 01.
 
 ## 4_MASTER_PROJECT_PLAN
 
@@ -33,7 +32,6 @@ et planification du perimetre non-trading.
 2. Definir le rollout scheduler par phases.
 3. Definir les canaries write-gated des apps externes.
 4. Verrouiller les politiques ledger, kill switch, HITL et gouvernance.
-5. Ouvrir ensuite une PR runtime separee hors perimetre doc-only.
 
 ## 5_GO_PLAN
 
@@ -48,8 +46,8 @@ Voir:
 
 ## 6_FINAL_TARGET
 
-Obtenir un parent non-trading mergeable, indexe, conforme gouvernance,
-pret a piloter une PR runtime separee et un premier scheduler Phase 01.
+Obtenir un parent non-trading canonique, indexe et exploitable pour
+transformer la liste maitre en jobs register puis choisir la Phase 01.
 
 ## 7_CANONICAL_STATE
 
@@ -60,19 +58,28 @@ NON_TRADING_AUTOMATION_ONLY
 ```
 
 Base disponible : PR #678 mergee avec G01-G12, contrats bridges,
-ledger, scheduler, cockpit et workers documentes. Les livrables runtime
-associes vivent sur une branche separee `go/runtime-non-trading-workers-01`.
+ledger, scheduler, cockpit et workers documentes.
+
+Le perimetre correct est :
+
+```text
+NON_TRADING_AUTOMATION_ONLY
+= repo jobs + docs jobs + governance jobs + worker jobs + scheduler jobs + app bridges + cockpit + ledger
+```
+
+Les apps externes ont des contrats `PASS_WITH_EVIDENCE`, avec
+reads/writes/gates/rollback definis.
 
 ## 8_VALIDATED_PLAN
 
-- Parent doc-only sur #676 corrigee.
-- Runtime non-trading dans une PR separee.
-- Aucune surface signal/trading dans ce parent.
+- Parent canonique ouvert apres merge de `#676`.
+- La liste maitre hors trading sert de base source.
+- Prochain livrable : `10_NON_TRADING_JOBS_REGISTER.md` complet.
 
 ## 11_KEY_DECISIONS
 
-- `signal_dry_run_worker.py` sort du perimetre non-trading.
-- `#676` ne doit plus porter de runtime workers ni de mutation LocalCMS.
+- Le perimetre non-trading inclut explicitement les jobs repo.
+- La liste maitre doit couvrir repo + strict workers + ledger + security + HITL + AI team + LocalCMS + apps externes + scheduler/CI.
 - `GO_CANVAS.md` reste matiere source, pas document parent suffisant.
 
 ## 12_INVARIANTS
@@ -84,9 +91,9 @@ associes vivent sur une branche separee `go/runtime-non-trading-workers-01`.
 
 ## 13_ESTABLISHED
 
-- Le parent precedent est close cote plan rollout.
-- Le nouveau parent etait incomplet et doit etre recanonise.
-- La separation doc/runtime est obligatoire avant merge.
+- PR #678 fournit la base technique disponible.
+- `#676` a ete mergee pour ouvrir le parent doc-only conforme.
+- La prochaine etape est documentaire : register canonique puis choix Phase 01.
 
 ## 14_HYPOTHESIS
 
@@ -95,20 +102,20 @@ associes vivent sur une branche separee `go/runtime-non-trading-workers-01`.
 
 ## 15_REMAINING_GAP
 
-- Finaliser le register detaille.
-- Finaliser le scheduler rollout.
-- Finaliser la checklist gouvernance.
-- Creer la PR runtime separee.
+- Completer le register canonique avec la liste maitre complete.
+- Valider les colonnes, gates et frequencies par job.
+- Choisir les jobs Phase 01 a scheduler en premier.
 
 ## 16_TODO
 
 1. Valider le registre avec Human Owner.
 2. Choisir les jobs Phase 01 a scheduler.
-3. Ouvrir la PR runtime depuis `go/runtime-non-trading-workers-01`.
-4. Mettre a jour le body de #676 sur le scope doc-only.
+3. Verrouiller le scheduler rollout correspondant.
+4. Deriver ensuite les implementations necessaires depuis le register.
 
 ## 17_RESUME_POINT
 
-`#676` est bloquee tant que le nouveau parent n'est pas recanonise.
-Le runtime est separe. Le signal/trading est retire.
-Prochaine etape : merger la couche parent doc-only conforme.
+Tu as raison : il faut inclure les jobs repo.
+La liste hors trading inclut :
+repo jobs + strict workers + ledger + security + HITL + AI team + LocalCMS + apps externes + scheduler/CI.
+Prochaine etape : transformer cette liste en jobs register canonique, puis choisir Phase 01 a scheduler.

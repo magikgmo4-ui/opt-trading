@@ -7,19 +7,18 @@ status: active
 
 # BRANCH_STATE
 
-## Current branch
+## Current state
 
-- Doc-only repair continues on `go/GO_OPT_TRADING_OPENCLAW_PARENT_AUTOMATION_GAPS_CLOSE_01`.
-- Runtime split branch: `go/runtime-non-trading-workers-01`.
+- `#676` a ete mergee.
+- Le parent non-trading est maintenant ouvert et canonique.
 
 ## Decision
 
-- `#676` remains blocked until governance repair is complete.
-- Runtime changes are not in merge scope for `#676`.
+- La prochaine etape n'est pas une PR runtime.
+- La prochaine etape est de completer le register canonique des jobs hors trading.
 
 ## Next actions
 
-1. Finaliser recanonisation parent.
-2. Push clean doc-only diff.
-3. Update PR #676 body.
-4. Open runtime PR separately.
+1. Completer `10_NON_TRADING_JOBS_REGISTER.md`.
+2. Valider la priorisation Phase 01/02/03.
+3. Deriver ensuite les travaux d'implementation necessaires.

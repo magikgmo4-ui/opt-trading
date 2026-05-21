@@ -47,6 +47,10 @@ Timers reels de scheduler:
 - `automation-nightly-validation.timer`
 - `external-apps-canary.timer`
 
+## Source priorisee
+
+Cette priorisation reprend la liste maitre validee dans `7_CANONICAL_STATE`.
+
 ## Gates
 
 - Phase 01 : read-only / dry-run / local-only

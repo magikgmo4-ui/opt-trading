@@ -14,7 +14,6 @@ status: active
 | Parent frontmatter | `status: open`, `lifecycle_stage: parent_opening` | PASS |
 | Previous parent relation | `parent_go` only, no implicit close in child frontmatter | PASS |
 | Continuity tags | `1_MASTER_TARGET` to `17_RESUME_POINT` | PASS |
-| Doc-only PR scope | no runtime workers, no LocalCMS runtime diff | PASS_PENDING_PUSH |
-| Non-trading scope guard | no signal/trading asset in parent | PASS |
-| `git diff --check` | whitespace / patch clean | TODO |
-| PR body updated | reflects doc-only repair scope | TODO |
+| PR #676 merged | parent doc-only repair integrated | PASS |
+| Non-trading scope guard | repo jobs explicitly included, signal/trading excluded | PASS |
+| Next livrable clarity | register canonique before implementation | PASS |
