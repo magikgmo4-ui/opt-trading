@@ -23,14 +23,21 @@ evidence_required
 status
 ```
 
+## Statuts utilises
+
+- `planned` : job catalogue mais non priorise
+- `phase_01_selected` : job retenu pour la premiere vague scheduler
+- `phase_02_candidate` : job reserve aux canaries write-gated
+- `phase_03_candidate` : job reserve a l'activation scheduler reelle
+
 ## A. Repo / Git / docs
 
 | job_id | category | surface | script_or_tool | mode | allowed_writes | gate | scheduler | frequency | evidence_required | status |
 |---|---|---|---|---|---|---|---|---|---|---|
-| `repo-status-check` | repo | git | `git status` | read-only | none | none | enabled | 15 min | branch clean report | planned |
-| `repo-diff-check` | repo | repo | `git diff --check` | read-only | none | none | enabled | 30 min | whitespace/conflict report | planned |
+| `repo-status-check` | repo | git | `git status` | read-only | none | none | enabled | 15 min | branch clean report | phase_01_selected |
+| `repo-diff-check` | repo | repo | `git diff --check` | read-only | none | none | enabled | 30 min | whitespace/conflict report | phase_01_selected |
 | `repo-branch-audit` | repo | git | `git branch`/`gh` | read-only | none | none | enabled | daily | merged/orphan branch report | planned |
-| `repo-pr-audit` | repo | github | `gh pr list` | read-only | none | none | enabled | hourly | PR state digest | planned |
+| `repo-pr-audit` | repo | github | `gh pr list` | read-only | none | none | enabled | hourly | PR state digest | phase_01_selected |
 | `repo-go-index-audit` | repo | docs index | index audit runner | read-only | none | none | enabled | daily | chantier + inbox audit | planned |
 | `repo-doc-frontmatter-lint` | repo | docs | frontmatter lint | read-only/report | none | none | enabled | daily | lint report | planned |
 | `repo-doc-link-check` | repo | docs | link checker | read-only/report | none | none | enabled | daily | link report | planned |
@@ -50,7 +57,7 @@ status
 | `strict-worker-model-registry-check` | workers | worker registry | `models.registry.json` validator | read-only | none | none | enabled | daily | registry validation PASS | planned |
 | `strict-worker-task-index-check` | workers | task index | `tasks.index.json` validator | read-only | none | none | enabled | daily | task index validation PASS | planned |
 | `strict-worker-job-packet-validate` | workers | job packets | packet validator | read-only | none | none | on demand | on demand | packet validation report | planned |
-| `strict-worker-readonly-smoke` | workers | worker runtime | readonly smoke runner | read-only + reports | reports only | readonly guard | enabled | 6 h | smoke PASS report | planned |
+| `strict-worker-readonly-smoke` | workers | worker runtime | readonly smoke runner | read-only + reports | reports only | readonly guard | enabled | 6 h | smoke PASS report | phase_01_selected |
 | `strict-worker-output-schema-check` | workers | worker outputs | schema check runner | read-only | none | none | after run | after run | output schema PASS | planned |
 | `strict-worker-denied-command-scan` | workers | worker logs | denied command scan | read-only | none | none | after run | after run | no forbidden command report | planned |
 | `strict-worker-log-archive` | workers | logs | log archiver | local write logs | local logs only | local-only | enabled | daily | archive artifact | planned |
@@ -60,13 +67,13 @@ status
 
 | job_id | category | surface | script_or_tool | mode | allowed_writes | gate | scheduler | frequency | evidence_required | status |
 |---|---|---|---|---|---|---|---|---|---|---|
-| `ledger-heartbeat` | ledger | ledger | heartbeat writer | local write ledger | ledger only | local-only | enabled | 15 min | heartbeat event present | planned |
-| `ledger-replay-check` | ledger | ledger | replay checker | read-only | none | none | enabled | hourly | replay order PASS | planned |
+| `ledger-heartbeat` | ledger | ledger | heartbeat writer | local write ledger | ledger only | local-only | enabled | 15 min | heartbeat event present | phase_01_selected |
+| `ledger-replay-check` | ledger | ledger | replay checker | read-only | none | none | enabled | hourly | replay order PASS | phase_01_selected |
 | `ledger-blocked-events-digest` | ledger | ledger | digest runner | read-only/report | reports only | none | enabled | hourly | BLOCKED/FAIL digest | planned |
 | `ledger-rotation-check` | ledger | ledger archive | rotation checker | local write archive | archive only | local-only | enabled | daily | rotation/archive report | planned |
 | `ledger-schema-validation` | ledger | ledger | schema validator | read-only | none | none | enabled | hourly | schema PASS | planned |
 | `ledger-trace-id-audit` | ledger | ledger | trace audit | read-only | none | none | enabled | daily | trace_id coverage report | planned |
-| `automation-health-status` | ledger | local report | status generator | local write report | report only | local-only | enabled | 15 min | `health_status.json` updated | planned |
+| `automation-health-status` | ledger | local report | status generator | local write report | report only | local-only | enabled | 15 min | `health_status.json` updated | phase_01_selected |
 | `automation-health-digest` | ledger | health summary | digest runner | report | reports only | none | enabled | hourly | health digest | planned |
 | `kill-switch-state-check` | ledger | kill switch | state checker | read-only | none | none | enabled | 5 min | kill switch state report | planned |
 | `stuck-job-detector` | ledger | scheduler state | stuck job scan | read-only/report | reports only | none | enabled | 15 min | stuck job report | planned |
@@ -75,7 +82,7 @@ status
 
 | job_id | category | surface | script_or_tool | mode | allowed_writes | gate | scheduler | frequency | evidence_required | status |
 |---|---|---|---|---|---|---|---|---|---|---|
-| `anti-leak-scan` | security | outputs | secret scan | read-only | none | none | enabled | 6 h | no secret report | planned |
+| `anti-leak-scan` | security | outputs | secret scan | read-only | none | none | enabled | 6 h | no secret report | phase_01_selected |
 | `env-file-presence-check` | security | `.env*` | env audit | read-only | none | none | enabled | daily | env presence report | planned |
 | `gitignore-secrets-policy-check` | security | `.gitignore` | policy check | read-only | none | none | enabled | daily | policy PASS | planned |
 | `oauth-scope-audit` | security | app scopes | scope audit | read-only/report | reports only | none | enabled | daily | scope drift report | planned |
@@ -94,16 +101,16 @@ status
 | `verification-packet-create` | hitl | verification | verification generator | report | reports only | none | after action | after action | verification packet | planned |
 | `approval-expiry-check` | hitl | approvals queue | expiry checker | local write status | approval status only | local-only | enabled | hourly | expired approvals updated | planned |
 | `dual-confirm-required-check` | hitl | approval policy | dual confirm checker | read-only | none | none | on demand | on demand | dual confirm enforced | planned |
-| `hitl-scenarios-smoke` | hitl | HITL flows | scenario smoke runner | dry-run | none | dry-run guard | enabled | nightly | scenario PASS report | planned |
+| `hitl-scenarios-smoke` | hitl | HITL flows | scenario smoke runner | dry-run | none | dry-run guard | enabled | nightly | scenario PASS report | phase_01_selected |
 | `pending-approvals-digest` | hitl | approvals queue | digest runner | report | reports only | none | enabled | hourly | pending approvals digest | planned |
 
 ## F. Capability matrix / AI team
 
 | job_id | category | surface | script_or_tool | mode | allowed_writes | gate | scheduler | frequency | evidence_required | status |
 |---|---|---|---|---|---|---|---|---|---|---|
-| `capability-matrix-validate` | ai-team | capability matrix | matrix validator | read-only | none | none | enabled | nightly | matrix PASS | planned |
+| `capability-matrix-validate` | ai-team | capability matrix | matrix validator | read-only | none | none | enabled | nightly | matrix PASS | phase_01_selected |
 | `capability-drift-check` | ai-team | app/job mapping | drift checker | read-only/report | reports only | none | enabled | daily | drift report | planned |
-| `ai-team-handoff-dry-run` | ai-team | handoff | dry-run | none | dry-run guard | enabled | nightly | handoff PASS report | planned |
+| `ai-team-handoff-dry-run` | ai-team | handoff | dry-run | none | dry-run guard | enabled | nightly | handoff PASS report | phase_01_selected |
 | `ai-team-role-registry-check` | ai-team | role registry | registry checker | read-only | none | none | enabled | daily | role registry PASS | planned |
 | `handoff-packet-schema-check` | ai-team | handoff packet | schema checker | read-only | none | none | on demand | on demand | schema PASS | planned |
 | `memory-broker-dry-run` | ai-team | shared memory | dry-run/local | local memory only | dry-run guard | enabled | nightly | dry-run PASS | planned |
@@ -115,7 +122,7 @@ status
 | job_id | category | surface | script_or_tool | mode | allowed_writes | gate | scheduler | frequency | evidence_required | status |
 |---|---|---|---|---|---|---|---|---|---|---|
 | `localcms-static-cockpit-build` | cockpit | localcms build | static builder | local write build | local build only | local-only | on change | on change | build artifact | planned |
-| `localcms-automation-status-sync` | cockpit | localcms status | sync runner | write-gated/local | local rendered views only | local gate | enabled | 30 min | status sync artifact | planned |
+| `localcms-automation-status-sync` | cockpit | localcms status | sync runner | write-gated/local | local rendered views only | local gate | enabled | 30 min | status sync artifact | phase_01_selected |
 | `localcms-workers-state-sync` | cockpit | worker state | sync runner | write-gated/local | local rendered views only | local gate | enabled | 30 min | worker state artifact | planned |
 | `localcms-jobs-queue-sync` | cockpit | jobs queue | sync runner | write-gated/local | local rendered views only | local gate | enabled | 30 min | queue artifact | planned |
 | `localcms-approvals-sync` | cockpit | approvals | sync runner | write-gated/local | local rendered views only | local gate | enabled | 15 min | approvals artifact | planned |
@@ -130,9 +137,9 @@ status
 | job_id | category | surface | script_or_tool | mode | allowed_writes | gate | scheduler | frequency | evidence_required | status |
 |---|---|---|---|---|---|---|---|---|---|---|
 | `airtable-read-health` | app-bridge | airtable | bridge contract | read-only | none | contract | enabled | hourly | read health PASS | planned |
-| `airtable-contract-check` | app-bridge | airtable | contract validator | read-only | none | contract | enabled | daily | contract PASS | planned |
+| `airtable-contract-check` | app-bridge | airtable | contract validator | read-only | none | contract | enabled | daily | contract PASS | phase_01_selected |
 | `airtable-canary-proposal` | app-bridge | airtable | proposal runner | draft | draft only | HITL | manual | manual | proposal packet | planned |
-| `airtable-canary-write` | app-bridge | airtable | write-gated bridge | write-gated | canary record only | dual confirm | manual puis daily | manual/daily | write + readback proof | planned |
+| `airtable-canary-write` | app-bridge | airtable | write-gated bridge | write-gated | canary record only | dual confirm | manual puis daily | manual/daily | write + readback proof | phase_02_candidate |
 | `airtable-readback-verify` | app-bridge | airtable | verify runner | read-only | none | none | after write | after write | readback PASS | planned |
 | `airtable-snapshot-before-write` | app-bridge | airtable | snapshot runner | local/app read | local snapshot only | before write | before write | before write | snapshot captured | planned |
 | `airtable-rollback-verify` | app-bridge | airtable | rollback checker | read-only | none | none | after write | after write | rollback feasibility PASS | planned |
@@ -144,7 +151,7 @@ status
 | `clickup-read-health` | app-bridge | clickup | bridge contract | read-only | none | contract | enabled | hourly | read health PASS | planned |
 | `clickup-contract-check` | app-bridge | clickup | contract validator | read-only | none | contract | enabled | daily | contract PASS | planned |
 | `clickup-canary-proposal` | app-bridge | clickup | proposal runner | draft | draft only | HITL | manual | manual | proposal packet | planned |
-| `clickup-canary-task-create` | app-bridge | clickup | write-gated bridge | write-gated | canary task only | dual confirm | manual puis daily | manual/daily | create + readback proof | planned |
+| `clickup-canary-task-create` | app-bridge | clickup | write-gated bridge | write-gated | canary task only | dual confirm | manual puis daily | manual/daily | create + readback proof | phase_02_candidate |
 | `clickup-task-readback-verify` | app-bridge | clickup | verify runner | read-only | none | none | after write | after write | readback PASS | planned |
 | `clickup-task-update-canary` | app-bridge | clickup | write-gated bridge | write-gated | canary field/comment only | dual confirm | manual | manual | update + readback proof | planned |
 | `clickup-compensation-note` | app-bridge | clickup | compensation runner | write-gated | compensation note only | HITL | after write | after write | compensation logged | planned |
@@ -156,7 +163,7 @@ status
 | `botpress-read-health` | app-bridge | botpress | bridge contract | read-only | none | contract | enabled | hourly | read health PASS | planned |
 | `botpress-contract-check` | app-bridge | botpress | contract validator | read-only | none | contract | enabled | daily | contract PASS | planned |
 | `botpress-dev-message-proposal` | app-bridge | botpress | proposal runner | draft | draft only | HITL | manual | manual | proposal packet | planned |
-| `botpress-dev-message-send` | app-bridge | botpress | write-gated bridge | write-gated | dev test message only | dual confirm | manual | manual | send + readback proof | planned |
+| `botpress-dev-message-send` | app-bridge | botpress | write-gated bridge | write-gated | dev test message only | dual confirm | manual | manual | send + readback proof | phase_02_candidate |
 | `botpress-variable-update-canary` | app-bridge | botpress | write-gated bridge | write-gated | controlled variable only | dual confirm | manual | manual | update + readback proof | planned |
 | `botpress-readback-verify` | app-bridge | botpress | verify runner | read-only | none | none | after write | after write | readback PASS | planned |
 
@@ -166,7 +173,7 @@ status
 |---|---|---|---|---|---|---|---|---|---|---|
 | `kg-repo-read-index` | app-bridge | repo kg | kg reader | read-only | none | none | enabled | hourly/daily | index read PASS | planned |
 | `kg-repo-drift-check` | app-bridge | repo kg | drift checker | read-only | none | none | enabled | daily | drift report | planned |
-| `kg-repo-node-proposal` | app-bridge | repo kg | proposal runner | draft | draft only | HITL | enabled | daily | proposal packet | planned |
+| `kg-repo-node-proposal` | app-bridge | repo kg | proposal runner | draft | draft only | HITL | enabled | daily | proposal packet | phase_02_candidate |
 | `kg-repo-pr-gated-sync` | app-bridge | repo kg | PR workflow | PR-gated | PR only | PR review | manual | manual | merged PR proof | planned |
 | `kg-repo-readback-verify` | app-bridge | repo kg | verify runner | read-only | none | none | after PR | after PR | readback PASS | planned |
 | `kg-repo-orphan-node-audit` | app-bridge | repo kg | orphan audit | read-only/report | reports only | none | enabled | daily | orphan node report | planned |
@@ -186,7 +193,7 @@ status
 | job_id | category | surface | script_or_tool | mode | allowed_writes | gate | scheduler | frequency | evidence_required | status |
 |---|---|---|---|---|---|---|---|---|---|---|
 | `telegram-notification-health` | app-bridge | telegram | notifier | write notification | notification only | notification policy | manual/daily | manual/daily | delivery proof | planned |
-| `telegram-automation-digest` | app-bridge | telegram | digest sender | notification only | notification only | notification policy | enabled | daily | digest delivered | planned |
+| `telegram-automation-digest` | app-bridge | telegram | digest sender | notification only | notification only | notification policy | enabled | daily | digest delivered | phase_02_candidate |
 | `telegram-blocked-events-alert` | app-bridge | telegram | alert sender | notification only | notification only | alert policy | on failure | on failure | alert delivered | planned |
 | `telegram-approval-reminder` | app-bridge | telegram | reminder sender | notification only | notification only | notification policy | enabled | hourly | reminder delivered | planned |
 
@@ -207,7 +214,7 @@ status
 |---|---|---|---|---|---|---|---|---|---|---|
 | `scheduler-config-validate` | scheduler | scheduler config | config validator | read-only | none | none | on change | on change | config PASS | planned |
 | `scheduler-unit-lint` | scheduler | `.service/.timer` | unit lint | read-only | none | none | on change | on change | unit lint PASS | planned |
-| `scheduler-user-timers-list` | scheduler | timers | timers list runner | read-only | none | none | enabled | hourly | timers inventory | planned |
+| `scheduler-user-timers-list` | scheduler | timers | timers list runner | read-only | none | none | enabled | hourly | timers inventory | phase_03_candidate |
 | `scheduler-dry-run-next-fire` | scheduler | timer schedule | next-fire calculator | read-only | none | none | enabled | daily | next fire report | planned |
 | `scheduler-dead-letter-check` | scheduler | dead-letter queue | queue reader | read-only | none | none | enabled | hourly | dead-letter report | planned |
 | `scheduler-retry-policy-check` | scheduler | retry policy | policy validator | read-only | none | none | enabled | daily | retry policy PASS | planned |

@@ -93,7 +93,7 @@ reads/writes/gates/rollback definis.
 
 - PR #678 fournit la base technique disponible.
 - `#676` a ete mergee pour ouvrir le parent doc-only conforme.
-- La prochaine etape est documentaire : register canonique puis choix Phase 01.
+- Le register canonique est pose et la shortlist Phase 01 est maintenant selectionnee.
 
 ## 14_HYPOTHESIS
 
@@ -102,20 +102,19 @@ reads/writes/gates/rollback definis.
 
 ## 15_REMAINING_GAP
 
-- Completer le register canonique avec la liste maitre complete.
-- Valider les colonnes, gates et frequencies par job.
-- Choisir les jobs Phase 01 a scheduler en premier.
+- Verifier la shortlist `phase_01_selected` avec Human Owner.
+- Verrouiller l'ordre d'activation des 13 jobs Phase 01.
+- Deriver ensuite les implementions/jobs concrets a scheduler.
 
 ## 16_TODO
 
-1. Valider le registre avec Human Owner.
-2. Choisir les jobs Phase 01 a scheduler.
-3. Verrouiller le scheduler rollout correspondant.
-4. Deriver ensuite les implementations necessaires depuis le register.
+1. Valider la shortlist `phase_01_selected` avec Human Owner.
+2. Verrouiller le scheduler rollout correspondant.
+3. Deriver les implementations necessaires depuis le register.
+4. Ouvrir le chantier d'execution Phase 01 seulement.
 
 ## 17_RESUME_POINT
 
-Tu as raison : il faut inclure les jobs repo.
-La liste hors trading inclut :
-repo jobs + strict workers + ledger + security + HITL + AI team + LocalCMS + apps externes + scheduler/CI.
-Prochaine etape : transformer cette liste en jobs register canonique, puis choisir Phase 01 a scheduler.
+Les jobs repo sont inclus dans le registre canonique.
+La shortlist Phase 01 est selectionnee : 13 jobs read-only/dry-run/local-only.
+Prochaine etape : valider cette shortlist puis ouvrir l'execution Phase 01.

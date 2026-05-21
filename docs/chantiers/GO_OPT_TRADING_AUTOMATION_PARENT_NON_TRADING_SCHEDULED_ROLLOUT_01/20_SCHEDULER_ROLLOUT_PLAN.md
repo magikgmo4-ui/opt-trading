@@ -27,6 +27,15 @@ Jobs immediats, lecture seule ou local write non critique:
 - `hitl-scenarios-smoke`
 - `localcms-automation-status-sync`
 
+Verdict: `PHASE_01_SELECTED`
+
+Gate commun avant activation:
+
+- aucun write externe requis
+- ledger actif et replay verifiable
+- outputs report/local-only bornes
+- aucun lien signal/trading
+
 ### Phase 02
 
 Canaries apps externes sous write-gated:
@@ -37,6 +46,8 @@ Canaries apps externes sous write-gated:
 - `kg-repo-pr-gated-sync`
 - `telegram-automation-digest`
 
+Verdict: `PHASE_02_CANDIDATES`
+
 ### Phase 03
 
 Timers reels de scheduler:
@@ -46,6 +57,8 @@ Timers reels de scheduler:
 - `automation-ledger-heartbeat.timer`
 - `automation-nightly-validation.timer`
 - `external-apps-canary.timer`
+
+Verdict: `PHASE_03_CANDIDATES`
 
 ## Source priorisee
 
