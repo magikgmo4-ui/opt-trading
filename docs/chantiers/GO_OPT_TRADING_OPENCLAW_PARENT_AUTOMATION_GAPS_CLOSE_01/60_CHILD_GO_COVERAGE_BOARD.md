@@ -29,7 +29,7 @@ links:
 ```text
 GLOBAL_STATUS: SUPERVISION
 CLOSEOUT_ALLOWED: NO
-REASON: 5 PASS_WITH_EVIDENCE (G02, G06, G07, G08, G09), 3 PARTIAL (G01, G03, G04), 4 OPEN (G05, G10, G11, G12)
+REASON: 6 PASS_WITH_EVIDENCE (G02, G06, G07, G08, G09, G10), 3 PARTIAL (G01, G03, G04), 3 OPEN (G05, G11, G12)
 ```
 
 ## Couverture
@@ -45,7 +45,7 @@ REASON: 5 PASS_WITH_EVIDENCE (G02, G06, G07, G08, G09), 3 PARTIAL (G01, G03, G04
 | G07 | `GO_HITL_APPROVAL_GATES_01` | #671 | PASS_WITH_EVIDENCE | 4 packets + roles + dual confirm + write-gated test | `20_PROPOSAL_PACKET.md` ; `30_APPROVAL_PACKET.md` ; `40_EXECUTION_PACKET.md` ; `50_VERIFICATION_PACKET.md` ; `60_APPROVER_ROLES.md` ; `70_DUAL_CONFIRM_POLICY.md` ; `99_EVIDENCE.md` ; 2 scénarios testés (L5 pipeline PASS, L6 dual confirm PASS) | Fait — PR #671 contient tout | YES |
 | G08 | `GO_AUTOMATION_SECURITY_SECRETS_PERMISSIONS_01` | #672 | PASS_WITH_EVIDENCE | Inventory, OAuth scopes, kill switch, deny-by-default, anti-leak tests | `20_SENSITIVE_ITEMS_INVENTORY.md` (11 items) ; `30_OAUTH_SCOPES.md` (9 apps) ; `40_KILL_SWITCH.md` (4 niveaux) ; `50_DENY_BY_DEFAULT.md` ; `anti_leak_tests.py` (4/4 PASS) ; `99_EVIDENCE.md` | Fait — PR #672 contient tout (force-add nécessaire pour `*SECRET*` gitignore) | YES |
 | G09 | `GO_CI_SCHEDULER_AUTOMATION_STABILITY_01` | #673 | PASS_WITH_EVIDENCE | Scheduler, retry, dead-letter, status JSON, failure ingestion, alerting | `20_SCHEDULER_INVENTORY.md` (3 workflows + 2 timers + smoke) ; `30_RETRY_POLICY.md` (3 niveaux + dead-letter) ; `40_FAILURE_INGESTION.md` (4 sources + 3 classes) ; `50_ALERTING.md` (Telegram/Ledger/Health) ; `health_status.py` (output JSON validé) ; `99_EVIDENCE.md` | Fait — PR #673 contient tout | YES |
-| G10 | `GO_SIGNAL_CHAIN_DRY_RUN_AUTOMATION_01` | #674 | OPEN | Signal schema, dry-run guard, journal, backtest | None | Définir schéma + adapters + dry-run guard | NO |
+| G10 | `GO_SIGNAL_CHAIN_DRY_RUN_AUTOMATION_01` | #674 | PASS_WITH_EVIDENCE | Signal schema + adapters + cross-validation + invalidation + dry-run guard + journal + backtest | `20_SIGNAL_SCHEMA.md` ; `30_SOURCE_ADAPTERS.md` (5 sources) ; `40_INVALIDATION_AND_GUARD.md` (7 règles + dry-run guard strict) ; `50_JOURNAL_AND_BACKTEST.md` ; `signal_processor.py` (3 scénarios testés) ; `signal_stats.py` (output validé) ; `99_EVIDENCE.md` | Fait — PR #674 contient tout | YES |
 | G11 | `GO_LOCALCMS_AUTOMATION_COCKPIT_01` | #675 | OPEN | 6 pages cockpit, safe buttons, kill switch | None | Définir pages + boutons + kill switch | NO |
 | G12 | Recovery/rollback | — | OPEN | Error classes, retry, rollback, dead-letter, stuck job | None | Couvert transversalement par G02 + G06 + G07 + G09 | NO |
 
