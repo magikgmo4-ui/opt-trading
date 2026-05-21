@@ -3,7 +3,7 @@ doc_id: GO_CI_SCHEDULER_AUTOMATION_STABILITY_01_INITIAL
 doc_type: initial_project_doc
 go_id: GO_CI_SCHEDULER_AUTOMATION_STABILITY_01
 parent_go: GO_OPT_TRADING_OPENCLAW_PARENT_AUTOMATION_GAPS_CLOSE_01
-status: open
+status: passed_with_evidence
 lifecycle_stage: impl
 surface: docs/chantiers
 source_kind: canonical
