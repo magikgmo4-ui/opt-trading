@@ -4,6 +4,7 @@ doc_type: automation_rollout_plan
 go_id: GO_OPT_TRADING_OPENCLAW_PARENT_AUTOMATION_GAPS_CLOSE_01
 status: active
 phase_p0: PASS_WITH_EVIDENCE
+phase_p1: PASS_WITH_EVIDENCE
 ---
 
 # 85_AUTOMATION_ROLLOUT_MASTER_PLAN
@@ -19,6 +20,7 @@ Aucun closeout tant que chaque phase n'a pas evidence.
 - G01-G12 couverts avec preuves ✅
 - ledger root path corrigé (parents[3]) ✅
 - P0 Freeze baseline — PASS_WITH_EVIDENCE ✅
+- P1 Observe-only — PASS_WITH_EVIDENCE ✅
 - parent GO_OPT_TRADING_OPENCLAW_PARENT_AUTOMATION_GAPS_CLOSE_01 non fermé
 
 ## 8_VALIDATED_PLAN
@@ -37,7 +39,19 @@ Aucun closeout tant que chaque phase n'a pas evidence.
 - **ledger event** : n/a (opération manuelle)
 - **closeout eligibility** : P0 close dès que PR mergée et validée
 - **Verdict** : ✅ PASS_WITH_EVIDENCE — PR #678 mergée à `sot/mainline` (commit `bb396eee`), 38 commits, 97 fichiers, 5575 additions, whitespace clean, 6 tests de validation PASS
-| P1 | Observe-only | Lire, inventorier, journaliser | read-only |
+
+| P1 | Observe-only ✅ | Lire, inventorier, journaliser | read-only — FAIT |
+
+### P1 — Détail
+
+- **preconditions** : P0 complété, PR #678 mergée, ledger path corrigé
+- **allowed actions** : READ_INVENTORY sur toutes les surfaces (repo, Telegram, tmux, configs), health status check, journalisation dans le ledger
+- **forbidden actions** : tout write (patch_draft, write_gated, app bridge write), modification de config runtime, activation de write
+- **evidence required** : observe worker déployé, 3+ cycles d'observation réussis, ledger events produits, aucun write détecté
+- **rollback** : désactiver le timer observe, supprimer les events de test du ledger
+- **ledger event** : OBSERVE_CYCLE (PASS/FAIL)
+- **closeout eligibility** : observe worker fonctionnel + preuve de 3 cycles read-only sans write
+- **Verdict** : ✅ PASS_WITH_EVIDENCE — `observe_worker.py` créé et exécuté (6 events ledger, 5 PASS + 1 WARN timer), 0 writes, observe cycle complet. P2 débloqué.
 | P2 | Strict workers runtime | Exécuter jobs read-only bornés | runner + logs |
 | P3 | Draft automation | Produire patchs / docs / propositions sans write | dry-run |
 | P4 | HITL write-gated | Exécuter seulement après approval humain | approval packet |
@@ -93,10 +107,10 @@ Chaque phase doit fournir :
 - Toute suggestion de trading est journalisée et non exécutée
 - Les invariants G10 (dry-run guard) et G07 (HITL) sont verrouillés
 
-## NEXT_GO candidates (P0 complété — P1 ouvrable)
+## NEXT_GO candidates (P1 complété — P2 ouvrable)
 
 | Candidat | Description | Dépend de |
 |---|---|---|
 | `GO_AUTOMATION_ROLLOUT_PHASE_01_OBSERVE_ONLY_01` | Phase observe-only runtime | P0 ✅ |
-| `GO_AUTOMATION_ROLLOUT_PHASE_02_STRICT_WORKERS_READONLY_RUNTIME_01` | Strict workers en production | P1 |
+| `GO_AUTOMATION_ROLLOUT_PHASE_02_STRICT_WORKERS_READONLY_RUNTIME_01` | Strict workers en production | P1 ✅ |
 | `GO_AUTOMATION_ROLLOUT_PHASE_03_DRAFT_AUTOMATION_01` | Draft pipeline actif | P2 |
