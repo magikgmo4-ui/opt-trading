@@ -1,0 +1,36 @@
+{
+  "run_id": "5cf2b6e27a8e473b988b440dcd7f0a08",
+  "job_packet_id": "P5_BRIDGE_LOCALCMS",
+  "task_type": "BRIDGE_READ_ONLY",
+  "selected_worker": "bridge_worker",
+  "app_target": "localcms",
+  "actions_planned": [
+    "validate_contract",
+    "route_to_bridge",
+    "read_inventory",
+    "execute_write"
+  ],
+  "actions_executed": [
+    "validate_contract",
+    "route_to_bridge",
+    "read_inventory"
+  ],
+  "app_records_touched": [
+    {
+      "app": "localcms",
+      "action": "READ_INVENTORY",
+      "status": "PASS",
+      "mode": "READ_ONLY",
+      "note": "Read from localcms bridge simulated",
+      "timestamp": "2026-05-21T03:49:38.908026+00:00"
+    }
+  ],
+  "files_touched": [],
+  "report_path": "/home/fantome/opt-trading/reports/ai/workers/bridge_localcms_20260521_034938.json",
+  "validation_status": "NOT_REQUIRED",
+  "stop_condition": "mode READ_ONLY forbids writes",
+  "verdict": "BLOCKED",
+  "errors": [],
+  "warnings": [],
+  "timestamp": "2026-05-21T03:49:38.908239+00:00"
+}

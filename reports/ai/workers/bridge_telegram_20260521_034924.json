@@ -1,0 +1,26 @@
+{
+  "run_id": "1c3071cd64194f88b673c55b7b5f26dd",
+  "job_packet_id": "P5_BRIDGE_TELEGRAM",
+  "task_type": "BRIDGE_DRAFT_ONLY",
+  "selected_worker": "bridge_worker",
+  "app_target": "telegram",
+  "actions_planned": [
+    "validate_contract",
+    "route_to_bridge",
+    "read_inventory",
+    "execute_write"
+  ],
+  "actions_executed": [
+    "validate_contract",
+    "route_to_bridge"
+  ],
+  "app_records_touched": [],
+  "files_touched": [],
+  "report_path": "/home/fantome/opt-trading/reports/ai/workers/bridge_telegram_20260521_034924.json",
+  "validation_status": "NOT_REQUIRED",
+  "stop_condition": "mode DRAFT_ONLY forbids writes",
+  "verdict": "BLOCKED",
+  "errors": [],
+  "warnings": [],
+  "timestamp": "2026-05-21T03:49:24.912756+00:00"
+}

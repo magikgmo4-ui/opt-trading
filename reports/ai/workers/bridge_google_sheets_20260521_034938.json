@@ -1,0 +1,36 @@
+{
+  "run_id": "62ef2e53f6f4408c83fe1ae9041a843a",
+  "job_packet_id": "P5_BRIDGE_GOOGLE_SHEETS",
+  "task_type": "BRIDGE_READ_ONLY",
+  "selected_worker": "bridge_worker",
+  "app_target": "google_sheets",
+  "actions_planned": [
+    "validate_contract",
+    "route_to_bridge",
+    "read_inventory",
+    "execute_write"
+  ],
+  "actions_executed": [
+    "validate_contract",
+    "route_to_bridge",
+    "read_inventory"
+  ],
+  "app_records_touched": [
+    {
+      "app": "google_sheets",
+      "action": "READ_INVENTORY",
+      "status": "PASS",
+      "mode": "READ_ONLY",
+      "note": "Read from google_sheets bridge simulated",
+      "timestamp": "2026-05-21T03:49:38.906977+00:00"
+    }
+  ],
+  "files_touched": [],
+  "report_path": "/home/fantome/opt-trading/reports/ai/workers/bridge_google_sheets_20260521_034938.json",
+  "validation_status": "NOT_REQUIRED",
+  "stop_condition": "mode READ_ONLY forbids writes",
+  "verdict": "BLOCKED",
+  "errors": [],
+  "warnings": [],
+  "timestamp": "2026-05-21T03:49:38.907207+00:00"
+}
