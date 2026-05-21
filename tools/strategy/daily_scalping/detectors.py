@@ -97,85 +97,120 @@ def detect_vwap_pullback_only(df: pd.DataFrame) -> List[Setup]:
     return setups
 
 
-def detect_smc_sweep_only(df: pd.DataFrame, lookback: int = 20) -> List[Setup]:
+def detect_smc_sweep_only(df: pd.DataFrame, lookback: int = 20, confirm_window: int = 5) -> List[Setup]:
     setups = []
-    for i in range(lookback + 2, len(df)):
-        row = df.iloc[i]
+    n = len(df)
+    for i in range(lookback + 2, n):
         prev = df.iloc[i - 1]
-        # Sweep low + CHOCH long proxy
+        row = df.iloc[i]
         swing_l = _last_swing_low(df, i, lookback)
         swing_h = _last_swing_high(df, i, lookback)
-        if swing_l is not None:
-            swept = prev["low"] < swing_l and row["close"] > swing_l
-            if swept and swing_h is not None and row["close"] > swing_h:
-                setups.append(Setup(
-                    index=df.index[i], variant="SMC_SWEEP_ONLY", direction="long",
-                    setup_type="SWEEP_CHOCH", entry_bar=i,
-                    liquidity_state="sweep_low", structure_state="choch_long",
-                    session=row["session"], entry_price=row["close"],
-                    atr=row.get("atr", 0.0),
-                ))
-        # Sweep high + CHOCH short proxy
-        if swing_h is not None:
-            swept = prev["high"] > swing_h and row["close"] < swing_h
-            if swept and swing_l is not None and row["close"] < swing_l:
-                setups.append(Setup(
-                    index=df.index[i], variant="SMC_SWEEP_ONLY", direction="short",
-                    setup_type="SWEEP_CHOCH", entry_bar=i,
-                    liquidity_state="sweep_high", structure_state="choch_short",
-                    session=row["session"], entry_price=row["close"],
-                    atr=row.get("atr", 0.0),
-                ))
+
+        # Sweep low: prev bar wicks below swing_l, current bar closes back above
+        if swing_l is not None and prev["low"] < swing_l and row["close"] > swing_l:
+            if swing_h is not None:
+                # CHOCH long: first bar in [i, i+confirm_window] that closes above swing_h
+                for k in range(confirm_window + 1):
+                    j = i + k
+                    if j >= n:
+                        break
+                    if df.iloc[j]["close"] > swing_h:
+                        choch_bar = df.iloc[j]
+                        setups.append(Setup(
+                            index=df.index[j], variant="SMC_SWEEP_ONLY", direction="long",
+                            setup_type="SWEEP_CHOCH", entry_bar=j,
+                            liquidity_state="sweep_low", structure_state="choch_long",
+                            session=choch_bar["session"], entry_price=choch_bar["close"],
+                            atr=choch_bar.get("atr", 0.0),
+                        ))
+                        break
+
+        # Sweep high: prev bar wicks above swing_h, current bar closes back below
+        if swing_h is not None and prev["high"] > swing_h and row["close"] < swing_h:
+            if swing_l is not None:
+                # CHOCH short: first bar in [i, i+confirm_window] that closes below swing_l
+                for k in range(confirm_window + 1):
+                    j = i + k
+                    if j >= n:
+                        break
+                    if df.iloc[j]["close"] < swing_l:
+                        choch_bar = df.iloc[j]
+                        setups.append(Setup(
+                            index=df.index[j], variant="SMC_SWEEP_ONLY", direction="short",
+                            setup_type="SWEEP_CHOCH", entry_bar=j,
+                            liquidity_state="sweep_high", structure_state="choch_short",
+                            session=choch_bar["session"], entry_price=choch_bar["close"],
+                            atr=choch_bar.get("atr", 0.0),
+                        ))
+                        break
+
     return setups
 
 
-def detect_combined(df: pd.DataFrame, lookback: int = 20) -> List[Setup]:
-    """COMBINED: requires ORB + VWAP alignment + SMC sweep/CHOCH."""
+def detect_combined(df: pd.DataFrame, lookback: int = 20, confirm_window: int = 5) -> List[Setup]:
+    """COMBINED: requires ORB + VWAP alignment + SMC sweep/CHOCH (multi-bar confirmation)."""
     setups = []
-    for i in range(lookback + 2, len(df)):
-        row = df.iloc[i]
+    n = len(df)
+    for i in range(lookback + 2, n):
         prev = df.iloc[i - 1]
-        vwap = row.get("vwap", float("nan"))
-        orb_h = row.get("orb_high", float("nan"))
-        orb_l = row.get("orb_low", float("nan"))
-        if pd.isna(vwap) or not row.get("orb_complete", False):
-            continue
+        row = df.iloc[i]
         swing_l = _last_swing_low(df, i, lookback)
         swing_h = _last_swing_high(df, i, lookback)
 
-        # Combined long: sweep low + CHOCH + ORB support + VWAP bull
+        # Combined long: sweep low detected, then search for CHOCH + ORB/VWAP confluence
         if swing_l is not None and swing_h is not None:
-            sweep_long = prev["low"] < swing_l and row["close"] > swing_l
-            choch_long = row["close"] > swing_h
-            vwap_bull = row["close"] > vwap
-            orb_support = not pd.isna(orb_l) and row["close"] > orb_l
-            if sweep_long and choch_long and vwap_bull and orb_support:
-                setups.append(Setup(
-                    index=df.index[i], variant="COMBINED_SMC_ORB_VWAP", direction="long",
-                    setup_type="COMBINED_LONG", entry_bar=i,
-                    liquidity_state="sweep_low", structure_state="choch_long",
-                    vwap_state="bull", orb_state="above_orb_low",
-                    session=row["session"], entry_price=row["close"],
-                    atr=row.get("atr", 0.0), vwap=vwap,
-                    orb_high=orb_h, orb_low=orb_l,
-                ))
+            if prev["low"] < swing_l and row["close"] > swing_l:
+                for k in range(confirm_window + 1):
+                    j = i + k
+                    if j >= n:
+                        break
+                    cbar = df.iloc[j]
+                    vwap = cbar.get("vwap", float("nan"))
+                    orb_h = cbar.get("orb_high", float("nan"))
+                    orb_l = cbar.get("orb_low", float("nan"))
+                    if pd.isna(vwap) or not cbar.get("orb_complete", False):
+                        continue
+                    if (cbar["close"] > swing_h
+                            and cbar["close"] > vwap
+                            and not pd.isna(orb_l) and cbar["close"] > orb_l):
+                        setups.append(Setup(
+                            index=df.index[j], variant="COMBINED_SMC_ORB_VWAP", direction="long",
+                            setup_type="COMBINED_LONG", entry_bar=j,
+                            liquidity_state="sweep_low", structure_state="choch_long",
+                            vwap_state="bull", orb_state="above_orb_low",
+                            session=cbar["session"], entry_price=cbar["close"],
+                            atr=cbar.get("atr", 0.0), vwap=vwap,
+                            orb_high=orb_h, orb_low=orb_l,
+                        ))
+                        break
 
-        # Combined short: sweep high + CHOCH + ORB resistance + VWAP bear
+        # Combined short: sweep high detected, then search for CHOCH + ORB/VWAP confluence
         if swing_h is not None and swing_l is not None:
-            sweep_short = prev["high"] > swing_h and row["close"] < swing_h
-            choch_short = row["close"] < swing_l
-            vwap_bear = row["close"] < vwap
-            orb_resist = not pd.isna(orb_h) and row["close"] < orb_h
-            if sweep_short and choch_short and vwap_bear and orb_resist:
-                setups.append(Setup(
-                    index=df.index[i], variant="COMBINED_SMC_ORB_VWAP", direction="short",
-                    setup_type="COMBINED_SHORT", entry_bar=i,
-                    liquidity_state="sweep_high", structure_state="choch_short",
-                    vwap_state="bear", orb_state="below_orb_high",
-                    session=row["session"], entry_price=row["close"],
-                    atr=row.get("atr", 0.0), vwap=vwap,
-                    orb_high=orb_h, orb_low=orb_l,
-                ))
+            if prev["high"] > swing_h and row["close"] < swing_h:
+                for k in range(confirm_window + 1):
+                    j = i + k
+                    if j >= n:
+                        break
+                    cbar = df.iloc[j]
+                    vwap = cbar.get("vwap", float("nan"))
+                    orb_h = cbar.get("orb_high", float("nan"))
+                    orb_l = cbar.get("orb_low", float("nan"))
+                    if pd.isna(vwap) or not cbar.get("orb_complete", False):
+                        continue
+                    if (cbar["close"] < swing_l
+                            and cbar["close"] < vwap
+                            and not pd.isna(orb_h) and cbar["close"] < orb_h):
+                        setups.append(Setup(
+                            index=df.index[j], variant="COMBINED_SMC_ORB_VWAP", direction="short",
+                            setup_type="COMBINED_SHORT", entry_bar=j,
+                            liquidity_state="sweep_high", structure_state="choch_short",
+                            vwap_state="bear", orb_state="below_orb_high",
+                            session=cbar["session"], entry_price=cbar["close"],
+                            atr=cbar.get("atr", 0.0), vwap=vwap,
+                            orb_high=orb_h, orb_low=orb_l,
+                        ))
+                        break
+
     return setups
 
 
