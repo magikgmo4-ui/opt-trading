@@ -230,15 +230,15 @@ status
 
 | Phase | Nombre de jobs | Reference detaillee |
 |---|---:|---|
-| `phase_01_selected` | 12 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-01` |
-| `phase_02_selected` | 19 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-02` |
-| `phase_03_selected` | 14 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-03` |
-| `phase_04_selected` | 7 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-04` |
-| `phase_05_selected` | 6 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-05` |
-| `phase_06_selected` | 7 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-06` |
-| `phase_07_selected` | 13 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-07` |
-| `phase_08_selected` | 28 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-08` |
-| `phase_09_selected` | 8 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-09` |
+| phase_01_selected | 12 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-01` |
+| phase_02_selected | 19 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-02` |
+| phase_03_selected | 14 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-03` |
+| phase_04_selected | 7 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-04` |
+| phase_05_selected | 6 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-05` |
+| phase_06_selected | 7 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-06` |
+| phase_07_selected | 13 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-07` |
+| phase_08_selected | 28 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-08` |
+| phase_09_selected | 8 | `20_SCHEDULER_ROLLOUT_PLAN.md#phase-09` |
 
 Total affecte : `114/114 jobs`
 
