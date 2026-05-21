@@ -34,7 +34,7 @@ dry_run_guard:
   allows:
     - génération d'ordre en dry-run (JSON simulé)
     - journalisation de l'ordre simulé
-    - alerte Telegram "ORDRE BLOQUÉ (dry-run)" 
+    - alerte Telegram "ORDRE BLOQUÉ (dry-run)"
   bypass:
     - Aucun (pas de bypass possible en mode strict)
     - kill switch manual → NORMAL ne débloque pas le guard
