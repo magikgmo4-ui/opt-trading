@@ -1,0 +1,2 @@
+label,mf_thresh,ef_thresh,mf_extra_pct,ef_extra_pct,cfd_entry_thresh,total_injected_usd,total_gold_deployed,final_oz,avg_cost_usd,last_price,gold_value_usd,dca_cash_usd,cfd_capital_usd,total_assets_usd,total_return_usd,return_pct,n_buys,n_weekly_buys,n_mod_fear_buys,n_ext_fear_buys,n_sells,total_sell_proceeds,cfd_n_trades,cfd_n_tp,cfd_n_sl,cfd_win_rate_pct,cfd_pnl_usd
+baseline_0.2pct_weekly,40,25,0.0,0.0,40,12000.0,3806.8,1.0154,2245.22,4319.19,4385.65,9802.06,0.0,14187.72,2187.72,18.23,314,212,48,54,41,1608.87,0,0,0,,0.0
