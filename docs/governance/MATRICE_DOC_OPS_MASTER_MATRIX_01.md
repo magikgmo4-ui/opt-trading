@@ -555,7 +555,8 @@ Si un ecart subsiste :
 | registry machine-readable | `registry/*` | `registry/meta_index.yaml` | une source souveraine de structure |
 | resultats extraits de continuite | `docs/governance/HUMAN_*` | `docs/INDEX.md` | une surface de pilotage ou de liste |
 | racine repo | racine + `REPO_ROOT_POLICY.md` | categorie documentee si objet durable | un depot opportuniste non qualifie |
-
+| bundle déportable / patch / archive de transport | `bundles/<GO_ID>/` | `docs/index/inbox/<GO_ID>.md` | une source de vérité parallèle au chantier |
+ 
 ### 8.2 Frontieres minimales
 
 - `docs/governance/` : regles stables et souveraines
@@ -686,6 +687,38 @@ Propagation minimale d'ouverture :
 - `REPRISE.md` seulement si un point de pilotage global est necessaire ;
 - `BRANCH_STATE.md` seulement si une branche dediee significative est ouverte ou arbitree.
 
+#### 10.1.1 Standard bundle + .patch + .zip
+
+Tout GO produisant un artefact transportable (patch, archive, bundle déportable)
+doit suivre le format canonique :
+
+- `.patch` = artefact canonique d'échange Git, autoporteur, source unique de vérité
+- `.zip` = sidecar optionnel réservé aux charges lourdes, temporaires ou hors repo (transport IDE externe, transfert multi-machine, artefacts binaires). Le `.zip` ne remplace pas le bundle source.
+- bundle source = `bundles/<GO_ID>/` = structure opérable complète : TARGETS.md, target_card.json, patches/, README_BUNDLE.md
+- chantier source = `docs/chantiers/<GO_ID>/` = documentation du lot
+- entrée courte = `docs/index/inbox/<GO_ID>.md` = tampon d'agrégation
+- le patch est archivé sous `bundles/<GO_ID>/patches/<YYYYMMDD>_<GO_ID>_<slug>.patch`
+- aucun `.patch` racine n'est commité
+
+Chaîne complète :
+
+```text
+plan validé
+→ GO_ID
+→ docs/chantiers/<GO_ID>/00_INITIAL_PROJECT_DOC.md
+→ docs/index/inbox/<GO_ID>.md
+→ bundles/<GO_ID>/README_BUNDLE.md
+→ bundles/<GO_ID>/TARGETS.md
+→ bundles/<GO_ID>/bundle_meta/target_card.json
+→ bundles/<GO_ID>/patches/<YYYYMMDD>_<GO_ID>_<slug>.patch
+→ .zip de transport si utile
+→ IDE lit EXEMPLE_MATRICE_APPLICATION_PATCH.md
+→ git apply --check + git apply + validation + commit + push + PR/review
+→ évaluation target
+→ évaluation master_target
+→ prochain bundle ou batch index global
+```
+
 ### 10.2 Ouverture sous-GO
 
 L'ouverture d'un sous-GO doit figer :
@@ -753,6 +786,10 @@ Les index globaux sont réservés aux changements structurels, aux fermetures, a
 - pas de `search_tags` qui compensent une contradiction reelle
 - pas de surface locale de naming non publiee elevee au-dessus du canon publie
 - pas de lot d'alignement physique avant que la presente matrice existe
+- pas de `.patch` orphelin non archivé dans `bundles/<GO_ID>/patches/`
+- pas de `.zip` promu au rang de source canonique (le `.zip` transporte, il ne remplace pas le bundle)
+- pas de bundle sans chantier associé (`docs/chantiers/<GO_ID>/`)
+- pas de bundle sans entrée courte (`docs/index/inbox/<GO_ID>.md`)
 
 ---
 
