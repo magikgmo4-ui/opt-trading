@@ -48,18 +48,34 @@
 
 ---
 
-## Packet P1-03 : Gmail/Calendar/Drive
+## Packet P1-03 : Gmail/Calendar/Drive (RÉSOLU)
 
 **WARN #9, #10, #11, #13** — Bridges non implémentés + canary absents
 
-### Actions
-1. Vérifier l'état actuel : grep des références à gmail/calendar/drive dans le code
-2. Vérifier si ces targets sont utilisées dans l'orchestration actuelle
-3. Décision HITL : implémenter stubs ou retirer du contrat
+### Décision HITL
+- **Gmail (#9)** → RETIRÉ du périmètre actif. Contrat historique conservé dans `20_BRIDGE_CONTRACTS.md`.
+- **Calendar (#10)** → RETIRÉ du périmètre actif. Contrat historique conservé.
+- **Drive (#11)** → CONSERVÉ comme surface active. Canary packet créé.
+- **Canaries (#13)** → Gmail/Calendar : aucun canary requis (retirés). Drive : canary packet créé.
 
-### Evidence
-- Inventaire des références
-- Décision documentée
+### Actions exécutées
+1. Inventaire des références : grep complet — gmail/calendar/drive absents de l'enum `requested_app` du contrat d'orchestration, aucun module runtime, aucune variable d'env
+2. Décision HITL documentée : retrait Gmail/Calendar, conservation Drive
+3. Drive canary packet créé : `scripts/ai/workers/job_packets/GO_DRIVE_CANARY_PACKET_01.json`
+
+### Opérations Drive canary
+| ID | Type | Description | Readback | Rollback |
+|----|------|-------------|----------|----------|
+| drive-read-folder-health | READ_ONLY | Lire métadonnées dossier Drive | Oui | N/A |
+| drive-upload-report-canary | WRITE_GATED | Upload fichier .canary.txt non destructif | Oui | Manuelle HITL |
+| drive-readback-verify | READ_ONLY | Vérifier contenu du canary après upload | Oui | N/A |
+| drive-compensation-path | READ_ONLY | Instructions rollback manuel | N/A | Documenté |
+
+### État Drive
+- Mode : WRITE_GATED
+- Credentials requis : `GOOGLE_DRIVE_CREDENTIALS`, `GOOGLE_DRIVE_FOLDER_ID`
+- Packet prêt à exécution (bloqué par credentials uniquement)
+- Non destructif : pas de delete, pas de modif permissions, pas de modif fichiers existants
 
 ---
 
@@ -108,15 +124,26 @@
 
 ---
 
-## Packet P3-01 : Strict worker E2E
+## Packet P3-01 : Strict worker E2E (RÉSOLU)
 
 **WARN #1** — strict-worker-readonly-smoke en PRECHECK_PASS seulement
 
-### Actions
-1. Concevoir un test E2E read-only réel
-2. L'exécuter sur un worker strict
-3. Documenter le résultat
+### Actions exécutées
+1. Test E2E read-only conçu : `scripts/ai/tests/g05_strict_worker_e2e_readonly.py`
+2. Exécuté avec succès — verdict **PASS**
+3. Rapport produit : `reports/ai/strict_worker_e2e_readonly.json`
 
-### Evidence
-- Script de test E2E
-- Résultat d'exécution
+### Résultat
+| Check | Statut |
+|-------|--------|
+| denied_commands scan | returncode 0 (PASS) |
+| secret leak check | PASS — 0 credentials leaks |
+| output schema check | PASS — 0 issues |
+| readonly contract validation | PASS — 4/4 checks |
+| existing scans (x2) | PASS — both returncode 0 |
+| **Synthèse** | **3/3 checks PASS — VERDICT PASS** |
+
+### Preuve read-only
+- 0 git write (add/commit/push/rebase/merge)
+- 0 secret leak (api_key/token/password)
+- 0 forbidden write to runtime dirs

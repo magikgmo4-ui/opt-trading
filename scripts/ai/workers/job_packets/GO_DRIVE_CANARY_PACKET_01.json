@@ -1,0 +1,79 @@
+{
+  "job_packet_id": "GO_DRIVE_CANARY_PACKET_01",
+  "go_id": "GO_OPT_TRADING_AUTOMATION_NON_TRADING_WARN_BURN_DOWN_01",
+  "status": "WRITE_GATED",
+  "task_type": "WRITE_GATED",
+  "worker_assigned": "qwen3.5-plus",
+  "worker_status": "VERIFIED",
+  "autonomy_max": "A2",
+  "mode": "WRITE_GATED",
+  "app_target": "drive",
+  "scope": {
+    "allowed_inputs": [
+      "docs/chantiers/GO_EXTERNAL_APPS_BRIDGE_CONTRACTS_01/20_BRIDGE_CONTRACTS.md",
+      "scripts/ai/workers/orchestration/external_apps_orchestration_contract.json",
+      "docs/chantiers/GO_OPT_TRADING_AUTOMATION_PARENT_NON_TRADING_SCHEDULED_ROLLOUT_01/10_NON_TRADING_JOBS_REGISTER.md"
+    ],
+    "denied_inputs_inherited": true,
+    "allowed_outputs": [
+      "reports/ai/workers/GO_DRIVE_CANARY_REPORT.md",
+      "data/runtime_health/job_logs/"
+    ]
+  },
+  "canary_operations": [
+    {
+      "id": "drive-read-folder-health",
+      "type": "READ_ONLY",
+      "description": "Lire les métadonnées du dossier Drive autorisé",
+      "action": "Lister les fichiers dans le dossier Drive canary, vérifier l'accessibilité, reporter le nombre de fichiers et la date du plus récent",
+      "readback_required": true
+    },
+    {
+      "id": "drive-upload-report-canary",
+      "type": "WRITE_GATED",
+      "description": "Uploader un fichier rapport test non destructif dans le dossier Drive autorisé",
+      "action": "Créer un fichier texte canary avec timestamp, run_id, et contenu 'DRIVE_CANARY_OK' dans le dossier Drive dédié",
+      "write_constraints": [
+        "NE PAS supprimer/modifier des fichiers existants",
+        "NE PAS modifier les permissions",
+        "NE PAS créer de dossiers supplémentaires",
+        "Ne créer qu'un seul fichier .canary.txt"
+      ],
+      "requires_approval": true,
+      "dry_run_required": true
+    },
+    {
+      "id": "drive-readback-verify",
+      "type": "READ_ONLY",
+      "description": "Vérifier que le fichier canary est accessible et lisible après upload",
+      "action": "Lire le fichier canary uploadé, vérifier son contenu, reporter le timestamp et le run_id",
+      "depends_on": ["drive-upload-report-canary"],
+      "readback_required": true
+    },
+    {
+      "id": "drive-compensation-path",
+      "type": "READ_ONLY",
+      "description": "Documenter le chemin de rollback pour suppression manuelle du canary",
+      "action": "Produire les instructions de rollback : localiser le fichier canary par run_id, demander suppression manuelle HITL après validation",
+      "compensation": {
+        "type": "manual_hitl",
+        "instructions": "Localiser le fichier .canary.txt dans le dossier Drive par run_id. Supprimer manuellement après validation humaine.",
+        "no_auto_delete": true
+      }
+    }
+  ],
+  "acceptance": {
+    "must_not_delete": true,
+    "must_not_modify_permissions": true,
+    "must_not_modify_existing_files": true,
+    "readback_required": true,
+    "ledger_required": true,
+    "rollback_documented": true,
+    "requires_external_approval": true
+  },
+  "required_env_vars": [
+    "GOOGLE_DRIVE_CREDENTIALS",
+    "GOOGLE_DRIVE_FOLDER_ID"
+  ],
+  "missing_credentials_note": "Ce packet est prêt à exécution. Les credentials GOOGLE_DRIVE_CREDENTIALS et GOOGLE_DRIVE_FOLDER_ID doivent être définis dans l'environnement d'exécution. En leur absence, le canary ne peut pas être exécuté mais la structure est complète."
+}
