@@ -18,6 +18,7 @@ updated_at: 2026-05-23
 links:
   - docs/chantiers/GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01/56_STRICT_READ_ONLY_VALIDATION_RESULTS_1_10.md
   - docs/chantiers/GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01/90_REPRISE.md
+  - docs/chantiers/GO_OPT_TRADING_RUNTIME_HEALTHCHECK_PYTHON_ENV_FIX_01/50_POST_DEPLOY_VALIDATION_RESULTS.md
   - scripts/runtime_healthcheck.sh
   - deploy/systemd/opt-trading-runtime-health.service
 ---
@@ -97,3 +98,16 @@ python3
 
 Si aucun candidat ne peut importer `yaml`, le wrapper echoue explicitement au
 lieu de produire un healthcheck degrade.
+
+## Resultat post-deploiement
+
+```text
+GO_OPT_TRADING_RUNTIME_HEALTHCHECK_PYTHON_ENV_FIX_01 = DEPLOYED_VALIDATED
+STEP_5_PYTHON_PYYAML_BLOCKER = CLOSED
+STEP_5_FINAL = WARN_RESIDUAL_ENV_PORTS_PATHS_STALE_MACHINES
+NEXT_GO = GO_OPT_TRADING_RUNTIME_HEALTHCHECK_RESIDUAL_WARNINGS_01
+```
+
+La validation distante sur `db-layer` prouve que le service systemd utilise un
+Python capable d'importer `yaml` et sort en `status=0/SUCCESS`. Le `WARN`
+restant ne vient plus du mismatch Python/PyYAML.
