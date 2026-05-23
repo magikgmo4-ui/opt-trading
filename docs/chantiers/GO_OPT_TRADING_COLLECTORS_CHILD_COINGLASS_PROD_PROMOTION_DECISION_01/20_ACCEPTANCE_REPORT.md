@@ -15,11 +15,37 @@ created_at: 2026-05-23
 ## VERDICT
 
 ```text
-OPTION RETENUE : [ A / B / C ]
+OPTION RETENUE : A — Timer systemd dédié
 
-Date : ~
-Opérateur : ~
-Justification : ~
+Date : 2026-05-23
+Opérateur : magikgmo4
+Justification :
+  - Stack staging PASS (3/3 runs, conf=1.00) → promotion justifiée
+  - Timer dédié isolé du pipeline historique (Node.js non couplé)
+  - Réversible : systemctl disable suffit
+  - OPENAI_API_KEY via EnvironmentFile dédié (jamais dans le code)
+```
+
+---
+
+## DÉPLOIEMENT_OPTION_A
+
+```text
+Machine : admin-trading
+Date : 2026-05-23
+
+Fichiers créés :
+  /etc/systemd/system/bot-vision-coinglass-capture.service
+  /etc/systemd/system/bot-vision-coinglass-capture.timer
+  /opt/trading/secrets/coinglass.env (chmod 600)
+
+Commandes exécutées :
+  sudo systemctl daemon-reload
+  sudo systemctl enable --now bot-vision-coinglass-capture.timer
+
+Vérification :
+  systemctl status bot-vision-coinglass-capture.timer → active (waiting)
+  Premier run automatique : à vérifier via journalctl
 ```
 
 ---
@@ -27,16 +53,12 @@ Justification : ~
 ## PROCHAINE_ÉTAPE
 
 ```text
-Si A — Timer dédié :
-→ Créer bot-vision-coinglass-capture.service + .timer sur admin-trading
-→ Créer secrets/coinglass.env avec VISION_BOT_ENABLED + VISION_AI_PROVIDER + OPENAI_API_KEY
-→ sudo systemctl daemon-reload && systemctl enable --now bot-vision-coinglass-capture.timer
-→ Vérifier premier run automatique via journalctl
+→ Surveiller les premiers runs automatiques :
+  journalctl -u bot-vision-coinglass-capture.service -f
 
-Si B — Intégration historique :
-→ Ouvrir GO dédié (hors scope de ce GO)
+→ Vérifier que /desk/vision reste frais (age_hours < 1h) après chaque run horaire
 
-Si C — Manuel :
-→ Documenter la cadence manuelle dans le runbook opérationnel
-→ Fermer ce GO PASS_DECISION_C
+→ Si problème : sudo systemctl disable bot-vision-coinglass-capture.timer
+
+GO CLOSED : PASS_DECISION_A
 ```
