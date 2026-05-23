@@ -4,6 +4,7 @@ from pathlib import Path
 import json
 from modules.desk_pro.models import Snapshot, Metric
 from modules.desk_pro.service.market_metrics_reader import read_market_metrics
+from modules.desk_pro.service.vision_context_reader import read_vision_context_coinglass
 
 FIXTURE_PATH = Path(__file__).resolve().parent.parent / "fixtures" / "snapshot_fixture.json"
 
@@ -15,9 +16,11 @@ def build_snapshot(source: str = "fixture") -> Snapshot:
         snap = _build_snapshot_from_fixture()
         if snap is not None:
             _augment_market_metrics(snap)
+            _augment_vision_context(snap)
             return snap
     snap = _build_snapshot_mock()
     _augment_market_metrics(snap)
+    _augment_vision_context(snap)
     return snap
 
 def _augment_market_metrics(snap: Snapshot) -> None:
@@ -25,6 +28,12 @@ def _augment_market_metrics(snap: Snapshot) -> None:
     if mm:
         snap.metrics.extend(mm)
         snap.meta["market_metrics"] = "loaded"
+
+def _augment_vision_context(snap: Snapshot) -> None:
+    vc = read_vision_context_coinglass()
+    if vc:
+        snap.metrics.extend(vc)
+        snap.meta["vision_context_coinglass"] = "loaded"
 
 def _build_snapshot_from_fixture() -> Snapshot | None:
     if not FIXTURE_PATH.exists():
