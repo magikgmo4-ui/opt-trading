@@ -28,6 +28,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from modules.env.env import load_env, ensure_dirs
+from modules.vision.coinglass.ai_extraction import make_ai_extraction_fn
 from modules.vision.coinglass.playwright_capture import make_playwright_browser_fn
 from modules.vision.coinglass.runner import run_capture
 from modules.vision.coinglass.staging_validator import validate_staging_runs
@@ -37,22 +38,14 @@ logging.basicConfig(level=_LOG_LEVEL, format="%(asctime)s %(levelname)s %(name)s
 logger = logging.getLogger("run_vision_capture")
 
 
-def _stub_extraction_fn(path: Path):
-    """Placeholder extraction — returns no detections.
-
-    Wire a real OCR/AI extraction_fn here once available.
-    """
-    logger.warning("stub extraction_fn active — no detections produced (OCR not wired)")
-    return []
-
-
 def cmd_capture(args: argparse.Namespace) -> int:
     logger.info("starting capture (symbol=%s timeframe=%s)", args.symbol, args.timeframe)
     browser_fn = make_playwright_browser_fn(wait_ms=args.wait_ms)
+    extraction_fn = make_ai_extraction_fn()  # no-op if VISION_AI_PROVIDER not set
     try:
         ctx = run_capture(
             browser_fn=browser_fn,
-            extraction_fn=_stub_extraction_fn,
+            extraction_fn=extraction_fn,
             symbol=args.symbol,
             timeframe=args.timeframe,
         )
