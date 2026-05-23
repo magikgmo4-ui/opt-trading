@@ -10,6 +10,7 @@ from fastapi.responses import HTMLResponse
 from modules.desk_pro.models import DeskForm, Snapshot, ScoreResult
 from modules.desk_pro.service.aggregator import build_snapshot
 from modules.desk_pro.service.scoring import compute_probability
+from modules.desk_pro.service.vision_panel import read_vision_panel_data
 from modules.desk_pro.ui.page import render_ui_html
 
 WEBHOOK_BASE = "http://127.0.0.1:8000"
@@ -451,6 +452,12 @@ cmd-desk_pro logs 200</pre>
     </html>
     """
     return HTMLResponse(content=html)
+
+@router.get("/vision")
+def desk_vision():
+    """Return current vision_context.coinglass.v1 data for the Desk Pro panel."""
+    return read_vision_panel_data()
+
 
 @router.get("/logs/latest")
 def desk_logs_latest(n: int = 200):
