@@ -57,7 +57,31 @@ class BinanceAdapter(BaseAdapter):
             except (ValueError, TypeError):
                 pass
 
-        missing_metrics = [k for k in ["open_interest", "funding_rate", "volume_futures", "long_short_ratio"] if getattr(row, k) is None]
+        # 6. Fetch Liquidations (public forceOrders endpoint — last 100 orders)
+        # side=SELL → long position liquidated, side=BUY → short position liquidated
+        liq_resp = self._fetch(f"{self.BASE_URL}/fapi/v1/forceOrders?symbol={base_symbol}&limit=100")
+        if liq_resp is not None and isinstance(liq_resp, list):
+            try:
+                liq_long = sum(
+                    float(o.get("executedQty", 0)) * float(o.get("averagePrice", 0))
+                    for o in liq_resp if o.get("side") == "SELL"
+                )
+                liq_short = sum(
+                    float(o.get("executedQty", 0)) * float(o.get("averagePrice", 0))
+                    for o in liq_resp if o.get("side") == "BUY"
+                )
+                row.liquidations_long = round(liq_long, 2)
+                row.liquidations_short = round(liq_short, 2)
+            except (ValueError, TypeError):
+                pass
+
+        missing_metrics = [
+            k for k in [
+                "open_interest", "funding_rate", "volume_futures",
+                "long_short_ratio", "liquidations_long", "liquidations_short",
+            ]
+            if getattr(row, k) is None
+        ]
         if missing_metrics:
             logger.warning(f"Partial data degradation for {base_symbol}. Missing: {missing_metrics}")
 
