@@ -55,4 +55,20 @@ class BitgetAdapter(BaseAdapter):
             except (ValueError, TypeError, KeyError):
                 pass
 
+        # Fetch Long/Short Ratio
+        lsr_url = (
+            f"{self.BASE_URL}/api/v2/mix/market/account-long-short-ratio"
+            f"?symbol={bitget_symbol}&productType=USDT-FUTURES&period=1H"
+        )
+        lsr_resp = self._fetch(lsr_url)
+        if lsr_resp and lsr_resp.get("data") and len(lsr_resp["data"]) > 0:
+            try:
+                lsr_data = lsr_resp["data"][0]
+                long_r = float(lsr_data.get("longRatio", 0))
+                short_r = float(lsr_data.get("shortRatio", 0))
+                if short_r > 0:
+                    row.long_short_ratio = round(long_r / short_r, 4)
+            except (ValueError, TypeError, KeyError):
+                pass
+
         return row
