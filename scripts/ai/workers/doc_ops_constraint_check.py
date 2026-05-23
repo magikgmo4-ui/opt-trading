@@ -74,26 +74,33 @@ def main():
     
     args = parser.parse_args()
     
+    # Determine target file
+    target_file = None
+    explicitly_requested = False
+    
+    if args.initial_doc:
+        target_file = args.initial_doc
+        explicitly_requested = True
+    elif args.go_id:
+        target_file = f"docs/chantiers/{args.go_id}/00_INITIAL_PROJECT_DOC.md"
+        explicitly_requested = True
+    elif os.path.exists("./00_INITIAL_PROJECT_DOC.md"):
+        target_file = "./00_INITIAL_PROJECT_DOC.md"
+        
+    # Handle missing file if explicitly requested
+    if explicitly_requested and (not target_file or not os.path.exists(target_file)):
+        print(f"Error: Initial project doc not found at {target_file}", file=sys.stderr)
+        sys.exit(2)
+        
     # Determine mode
     mode = args.mode
-    if not mode:
-        initial_doc = args.initial_doc
-        if not initial_doc and args.go_id:
-            initial_doc = f"docs/chantiers/{args.go_id}/00_INITIAL_PROJECT_DOC.md"
-            
-        if initial_doc:
-            constraints = parse_constraints_from_file(initial_doc)
-            if "READ_ONLY" in constraints:
-                mode = "READ_ONLY"
-            elif "DOC_ONLY" in constraints:
-                mode = "DOC_ONLY"
+    if not mode and target_file and os.path.exists(target_file):
+        constraints = parse_constraints_from_file(target_file)
+        if "READ_ONLY" in constraints:
+            mode = "READ_ONLY"
+        elif "DOC_ONLY" in constraints:
+            mode = "DOC_ONLY"
                 
-    if not mode:
-        # Default behavior: pass if no mode specified? 
-        # Or check if we are in a chantier and find its doc.
-        # For now, let's say PASS if no mode is detected or forced.
-        pass
-
     files = get_git_changes()
     violations = check_constraints(files, mode) if mode else []
     

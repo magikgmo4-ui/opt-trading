@@ -9,9 +9,10 @@
 Le script est opérationnel et couvre les besoins initiaux :
 - Détection des changements via Git.
 - Support des modes `DOC_ONLY` et `READ_ONLY`.
-- Détection automatique des contraintes depuis `00_INITIAL_PROJECT_DOC.md`.
-- Tests unitaires validés (9 tests passés).
+- Détection automatique des contraintes depuis `./00_INITIAL_PROJECT_DOC.md` ou `docs/chantiers/<GO_ID>/00_INITIAL_PROJECT_DOC.md`.
 - Sortie JSON disponible.
+- Gestion d'erreur robuste (exit 2 si fichier requis absent).
+- Tests unitaires validés (12 tests passés).
 
 Limitations :
 - Le script dépend de la présence de Git sur le système.

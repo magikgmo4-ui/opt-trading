@@ -6,14 +6,14 @@ Il ne nécessite pas d'installation particulière.
 
 ## Utilisation manuelle
 ```bash
-# Vérifier les contraintes pour le chantier actuel (déduit du 00_INITIAL_PROJECT_DOC.md local)
+# Vérifier les contraintes (détecte ./00_INITIAL_PROJECT_DOC.md par défaut)
 python scripts/ai/workers/doc_ops_constraint_check.py
+
+# Utiliser un GO_ID spécifique
+python scripts/ai/workers/doc_ops_constraint_check.py --go-id GO_ID_EXEMPLE
 
 # Forcer le mode DOC_ONLY
 python scripts/ai/workers/doc_ops_constraint_check.py --mode DOC_ONLY
-
-# Sortie JSON pour intégration CI/CD
-python scripts/ai/workers/doc_ops_constraint_check.py --json
 ```
 
 ## Intégration recommandée
