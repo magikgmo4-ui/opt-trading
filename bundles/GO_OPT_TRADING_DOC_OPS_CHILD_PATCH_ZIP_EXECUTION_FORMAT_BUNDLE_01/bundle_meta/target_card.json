@@ -1,0 +1,25 @@
+{
+  "go_id": "GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_BUNDLE_01",
+  "bundle_id": "GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_BUNDLE_01_bundle",
+  "target_id": "TARGET_CHILD_PATCH_ZIP_EXECUTION_FORMAT_BUNDLE_01",
+  "target_label": "Reconditionner le patch CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01 comme bundle doc-ops autonome, sans application directe, avec target/master_target et conservation canonique du patch source.",
+  "target_status": "draft",
+  "master_target_id": "MASTER_TARGET_SESSION_TO_IDE_PATCH_TRANSPORT_01",
+  "master_target_label": "Stabiliser la chaîne session conversationnelle -> patch canonique -> matrice IDE -> application contrôlée -> évaluation target/master_target.",
+  "master_target_status": "partially_reached",
+  "target_completion_criteria": [
+    "Bundle created with TARGETS.md + target_card.json",
+    "Source patch archived under bundles/<GO_ID>/patches/",
+    "Local commit exists on go/* branch",
+    "Branch is pushed",
+    "No root-level .patch is committed"
+  ],
+  "after_target_reached": {
+    "evaluate_master_target": true,
+    "next_bundle_candidate": "TBD_AFTER_CLASSIFICATION",
+    "global_index_update_candidate": false,
+    "decision_rule": "If the patch is later applied through IDE matrix and the execution format proves stable, consider master target reached or propose a next bundle for hardening."
+  },
+  "global_index_rule": "Do not update global indexes for this doc-only bundle. Propose a global index batch only if the master target or horizon changes.",
+  "canonical_matrix_file": "bundles/GO_OPT_TRADING_BUNDLES_CHILD_IDE_DEPORTABLE_PACK_01/docs/EXEMPLE_MATRICE_APPLICATION_PATCH.md"
+}
