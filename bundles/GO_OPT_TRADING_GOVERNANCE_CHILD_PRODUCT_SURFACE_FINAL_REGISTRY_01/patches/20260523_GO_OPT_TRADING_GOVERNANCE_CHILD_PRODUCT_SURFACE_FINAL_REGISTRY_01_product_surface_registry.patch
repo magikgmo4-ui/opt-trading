@@ -1,0 +1,778 @@
+From 23842f1275b1e21b894f417b0255d5e0ee31af3c Mon Sep 17 00:00:00 2001
+From: magikgmo4-ui <magikgmo4@gmail.com>
+Date: Sat, 23 May 2026 03:33:11 -0400
+Subject: [PATCH 01/11] docs(governance): add product final surface registry
+
+---
+ .../PRODUCT_FINAL_SURFACE_REGISTRY_01.md      | 101 ++++++++++++++++++
+ 1 file changed, 101 insertions(+)
+ create mode 100644 docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md
+
+diff --git a/docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md b/docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md
+new file mode 100644
+index 00000000..5289ede3
+--- /dev/null
++++ b/docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md
+@@ -0,0 +1,101 @@
++---
++doc_id: PRODUCT_FINAL_SURFACE_REGISTRY_01
++doc_type: product_final_surface_registry
++repo: opt-trading
++project: opt-trading
++module: governance
++go_id: GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01
++status: reference
++lifecycle_stage: governance
++surface: governance
++source_kind: canonical
++created_at: 2026-05-23
++updated_at: 2026-05-23
++topic_keys:
++  - opt-trading
++  - product_final_surface
++  - master_target
++  - final_surface
++  - close_gate
++links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++  - docs/governance/PRODUCT_FINAL_TARGET_REGISTRY_01.md
++  - docs/chantiers/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/00_INITIAL_PROJECT_DOC.md
++---
++
++# PRODUCT_FINAL_SURFACE_REGISTRY_01
++
++## Objectif
++
++Séparer explicitement les produits finaux utilisables, les chaînes produit complètes, les surfaces opérables, les supports critiques et les surfaces de gouvernance/transport.
++
++Ce registre corrige la lecture trop étroite où seuls `Desk Pro`, `Trading Dual Stack V1` et `Bot Vision` étaient visibles comme centres de gravité. Il ne supprime pas ces centres ; il ajoute une couche de lecture plus utile pour fermer ou rouvrir les chantiers selon le `MASTER_TARGET` réel.
++
++## Règle de fermeture
++
++Un parent produit ne peut être fermé que si la surface finale associée est utilisable, testable ou reprenable sans gap bloquant. Une PR, un patch, un bundle ou un GO livré ne suffit pas.
++
++## Niveaux
++
++| Niveau | Nom | Définition |
++|---|---|---|
++| P0 | Produit final total | Écosystème opt-trading utilisable de bout en bout |
++| P1 | Produit final utilisable | Surface ou chaîne directement utile à l’opérateur |
++| P2 | Surface opérable / transverse | Surface nécessaire mais pas toujours produit autonome |
++| P3 | Support critique | Infrastructure, machine, worker, wrapper, collector, gouvernance |
++| P4 | Transport / preuve | Bundle, patch, zip, PR, closeout, index |
++
++## Registre des produits et surfaces finales
++
++| ID | Niveau | Produit / surface finale | Master target / rattachement | Usable when | Statut subjectif |
++|---|---:|---|---|---|---|
++| `PF_OPT_TRADING_TOTAL_SYSTEM` | P0 | Produit final total opt-trading | umbrella produit global | signal → analyse → décision → suivi → learning est lisible et opérable | À formaliser |
++| `PF_SIGNAL_CHAIN_PRODUCT` | P1 | Signal Chain Product | `MT_SIGNAL_CHAIN_PRODUCT` | TradingView/webhook → signal_event → Desk Pro → score → Telegram/Sheets/Perf fonctionne en dry-run contrôlé | Actif |
++| `PF_DESK_PRO` | P1 | Desk Pro fonctionnel | `MT_DESKPRO_UI` | cockpit opérateur stable avec snapshots, score, perf, synthèse, reprise | Actif |
++| `PF_TELEGRAM_SCREENER` | P1 | Telegram Screener opérationnel | Signal Chain / Telegram inbound | channels/screener lisibles, watch-only, latence connue, routage clair | À promouvoir |
++| `PF_BOT_VISION_HEADLESS` | P1 | Bot Vision / Headless Screener | Bot Vision / collectors vision | screenshots → vision_context → Desk Pro artefacts exploitables | Actif mais à stabiliser |
++| `PF_OPERATOR_REMOTE_RUNTIME` | P1 | Runtime opérateur distant | OpenClaw/OpenCode/tmux runtime | phone/SSH/tmux/OpenCode/OpenClaw/repo opérable à distance | À promouvoir |
++| `PF_OPENCLAW_OPERATOR` | P1 | OpenClaw / OpenCode Operator Runtime | strict workers / orchestrator | ask/build/evaluate/review contrôlés avec logs et gates | À promouvoir |
++| `PF_LOCALCMS_COCKPIT` | P1 | LocalCMS cockpit système | LocalCMS / UI consumer | lecture read-only stratégie, métriques, journal, reprise | À promouvoir |
++| `PF_STRATEGY_FRAMEWORK` | P1 | Strategy Framework + Registry | `MT_STRATEGY_FRAMEWORK` | stratégies ajoutables, observables, comparables, promouvables/retirables | Actif |
++| `PF_PERF_ENGINE_TRADING_LAB` | P1 | Perf Engine + Trading Lab | Strategy / evaluation | replay, labelling, perf evidence, promotion gate | À consolider |
++| `PF_GOOGLE_SHEETS_CONSUMER` | P2 | Google Sheets global consumer | reporting / journal | export contrôlé, suivi quotidien, no auto-write non validé | Support final |
++| `PF_MARKET_DATA_COLLECTORS` | P2 | Market/API/Data collectors | collectors | données market/derivatives/ticks normalisées et fiables | Support critique |
++| `PF_NOTIFICATION_DISPATCHER` | P2 | Telegram outbound dispatcher | notification surface | events structurés : signal, score, approval, erreur, résultat | Support opérable |
++| `PF_VALIDATION_RISK_GATE` | P2 | Validation Gate / Risk Gate | risk/live guard | no live without gate ; risk limits, kill switch, approval | Critique |
++| `PF_TRADE_EXECUTOR_SIMEX` | P2 | Trade Executor / Simex bridge | execution dry-run | proposition approuvée → trade simulé contrôlé | Non-live |
++| `PF_STRICT_WORKERS_RUNNER` | P2 | Strict Workers Runner / AI Team orchestration | `MT_STRICT_WORKERS_RUNNER` | workers bornés, jobs registry, logs, no write sans validation | Actif |
++| `PF_FIGMA_FINANCIAL_COCKPIT` | P2 | Figma financial cockpit | visual synthesis | vue visuelle marché → analyse → décision → résultat → learning | Optionnel à confirmer |
++| `PF_MULTI_MACHINE_SURFACES` | P3 | Machines admin-trading/db-layer/student/cursor/fantome | satellite machines | responsabilités et anti-conflits clairs | Support |
++| `PF_GOVERNANCE_TRANSPORT` | P4 | Governance / bundles / patch / zip / memory bricks | product governance | continuité, transport, audit et reprise sans confusion avec produit fini | Support obligatoire |
++
++## Distinction canonique
++
++```text
++Produit final utilisable ≠ worker
++Produit final utilisable ≠ patch
++Produit final utilisable ≠ PR mergée
++Produit final utilisable ≠ index mis à jour
++Produit final utilisable = surface testable, opérable, reprenable, sans gap bloquant d’usage réel
++```
++
++## Règles de rattachement des GO
++
++Tout nouveau GO doit rattacher son `PRODUCT_OR_SURFACE` à un des cas suivants :
++
++1. un `PF_*` du présent registre ;
++2. un support critique explicitement nommé ;
++3. une surface de gouvernance/transport si le lot est doc-only ;
++4. un nouveau `PF_*` à ajouter avant ouverture si la surface est réellement nouvelle.
++
++## Correction cible des index globaux
++
++Les index globaux doivent afficher les parents produits actifs en tenant compte de ce registre. Les surfaces support ne doivent pas être promues en produit final sauf décision explicite.
++
++## NEXT_GO recommandé
++
++```text
++GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_CLOSE_GATE_AUDIT_01
++```
++
++Objectif : relire les parents actifs et vérifier si leur `MASTER_TARGET` pointe bien vers un `PF_*` testable ou s’il reste trop abstrait.
+
+From edfe4abb2e62a9c0a683b048bef572032100797e Mon Sep 17 00:00:00 2001
+From: magikgmo4-ui <magikgmo4@gmail.com>
+Date: Sat, 23 May 2026 03:36:16 -0400
+Subject: [PATCH 02/11] docs(governance): open product surface final registry
+ GO
+
+---
+ .../00_INITIAL_PROJECT_DOC.md                 | 84 +++++++++++++++++++
+ 1 file changed, 84 insertions(+)
+ create mode 100644 docs/chantiers/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/00_INITIAL_PROJECT_DOC.md
+
+diff --git a/docs/chantiers/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/00_INITIAL_PROJECT_DOC.md b/docs/chantiers/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/00_INITIAL_PROJECT_DOC.md
+new file mode 100644
+index 00000000..874bdc00
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/00_INITIAL_PROJECT_DOC.md
+@@ -0,0 +1,84 @@
++---
++doc_id: GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01_INITIAL_PROJECT_DOC
++doc_type: initial_project_doc
++repo: opt-trading
++project: opt-trading
++module: governance
++go_id: GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01
++parent_go_id: GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01
++status: open
++lifecycle_stage: governance_alignment
++surface: docs/chantiers
++source_kind: canonical
++created_at: 2026-05-23
++updated_at: 2026-05-23
++topic_keys:
++  - opt-trading
++  - governance
++  - product_final_surface
++  - master_target
++  - global_indexes
++links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++  - docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md
++  - docs/index/GO_INDEX.md
++  - docs/index/NEXT_GO_CANDIDATES.md
++  - docs/index/ACTIVE_STREAMS.md
++  - docs/index/REPRISE.md
++---
++
++# 00_INITIAL_PROJECT_DOC
++
++## 1_MASTER_TARGET
++
++Créer le registre canonique des produits/surfaces finales visés par opt-trading et aligner la matrice + les index globaux pour éviter de fermer un chantier sans produit final utilisable.
++
++## 2_INITIAL_NEED
++
++La lecture actuelle du projet est trop étroite si elle ne voit que quelques centres de gravité. La mémoire projet et les chantiers umbrella montrent des surfaces finales additionnelles : Signal Chain Product, Telegram Screener, runtime opérateur distant, OpenClaw/OpenCode operator, LocalCMS cockpit, Strategy/Perf/Lab, Sheets consumer, strict workers, collectors et gouvernance transport.
++
++## 4_MASTER_PROJECT_PLAN
++
++1. Créer `docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md`.
++2. Aligner `MATRICE_DOC_OPS_MASTER_MATRIX_01.md` pour pointer vers ce registre.
++3. Mettre à jour les index globaux : `GO_INDEX`, `NEXT_GO_CANDIDATES`, `ACTIVE_STREAMS`, `REPRISE`.
++4. Produire bundle déportable + `.patch` canonique.
++5. Garder les surfaces support séparées des produits finaux utilisables.
++
++## 6_FINAL_TARGET
++
++Registre produit/surfaces finales disponible et index globaux alignés sur une lecture où `MASTER_TARGET = produit final utilisable`, non PR, non patch, non bundle.
++
++## 8_VALIDATED_PLAN
++
++Plan validé par l’utilisateur :
++
++```text
++oui plan valide, plus alignement matrice + mise a jours index globaux
++patch
++```
++
++## 11_KEY_DECISIONS
++
++- Les index globaux peuvent être modifiés dans ce lot, exception explicite à la règle locale de non-propagation systématique.
++- Le `.patch` est un livrable obligatoire du bundle.
++- La correction est subjective et vise à corriger le canon, pas à répéter l’état canonique existant.
++
++## 12_INVARIANTS
++
++- Produit final utilisable ≠ patch.
++- Produit final utilisable ≠ bundle.
++- Produit final utilisable ≠ PR mergée.
++- Surface support ≠ produit final sans décision explicite.
++- Les GOs doivent rattacher leur `PRODUCT_OR_SURFACE` à un `PF_*` ou à une surface support identifiée.
++
++## 16_TODO
++
++- Mettre à jour matrice.
++- Mettre à jour index globaux.
++- Produire bundle + patch.
++- Ouvrir PR.
++
++## 17_RESUME_POINT
++
++Reprendre depuis `docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md`, puis vérifier les entrées globales dans `docs/index/*`.
+
+From 9e47a374c5d3b9f4b4d10a6fe89e5e9696cb3f67 Mon Sep 17 00:00:00 2001
+From: magikgmo4-ui <magikgmo4@gmail.com>
+Date: Sat, 23 May 2026 03:36:43 -0400
+Subject: [PATCH 03/11] docs(index): add product surface registry inbox entry
+
+---
+ ...CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01.md | 30 +++++++++++++++++++
+ 1 file changed, 30 insertions(+)
+ create mode 100644 docs/index/inbox/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01.md
+
+diff --git a/docs/index/inbox/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01.md b/docs/index/inbox/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01.md
+new file mode 100644
+index 00000000..badfb924
+--- /dev/null
++++ b/docs/index/inbox/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01.md
+@@ -0,0 +1,30 @@
++---
++doc_id: GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01_INBOX
++repo: opt-trading
++go_id: GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01
++status: open
++surface: docs/index/inbox
++created_at: 2026-05-23
++updated_at: 2026-05-23
++---
++
++# GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01
++
++## Objet
++
++Créer le registre canonique des produits/surfaces finales et aligner matrice + index globaux.
++
++## Livrables
++
++- `docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md`
++- `docs/chantiers/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/00_INITIAL_PROJECT_DOC.md`
++- `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01_PRODUCT_SURFACE_ALIGNMENT_01.md`
++- `docs/index/GO_INDEX.md`
++- `docs/index/NEXT_GO_CANDIDATES.md`
++- `docs/index/ACTIVE_STREAMS.md`
++- `docs/index/REPRISE.md`
++- `bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/`
++
++## NEXT_GO recommandé
++
++`GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_CLOSE_GATE_AUDIT_01`
+
+From a6752c9ecb182ba2c05610e51436872b451c4f93 Mon Sep 17 00:00:00 2001
+From: magikgmo4-ui <magikgmo4@gmail.com>
+Date: Sat, 23 May 2026 03:39:20 -0400
+Subject: [PATCH 04/11] docs(governance): add master matrix product surface
+ alignment
+
+---
+ ..._MATRIX_01_PRODUCT_SURFACE_ALIGNMENT_01.md | 83 +++++++++++++++++++
+ 1 file changed, 83 insertions(+)
+ create mode 100644 docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01_PRODUCT_SURFACE_ALIGNMENT_01.md
+
+diff --git a/docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01_PRODUCT_SURFACE_ALIGNMENT_01.md b/docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01_PRODUCT_SURFACE_ALIGNMENT_01.md
+new file mode 100644
+index 00000000..c7ecc0cf
+--- /dev/null
++++ b/docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01_PRODUCT_SURFACE_ALIGNMENT_01.md
+@@ -0,0 +1,83 @@
++---
++doc_id: MATRICE_DOC_OPS_MASTER_MATRIX_01_PRODUCT_SURFACE_ALIGNMENT_01
++doc_type: matrix_alignment_addendum
++repo: opt-trading
++project: opt-trading
++module: governance
++go_id: GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01
++status: reference
++lifecycle_stage: governance_alignment
++surface: governance
++source_kind: canonical_addendum
++created_at: 2026-05-23
++updated_at: 2026-05-23
++topic_keys:
++  - opt-trading
++  - matrice_doc_ops
++  - product_final_surface
++  - master_target
++links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++  - docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md
++---
++
++# MATRICE_DOC_OPS_MASTER_MATRIX_01_PRODUCT_SURFACE_ALIGNMENT_01
++
++## Statut
++
++Addendum d'alignement à `MATRICE_DOC_OPS_MASTER_MATRIX_01.md`.
++
++Cet addendum corrige la lecture produit sans remplacer la matrice maître. Il doit être lu comme extension de la Partie 2, Partie 3 et Partie 10.6/10.7.
++
++## Correction principale
++
++La section historique `Centres de gravité produit` ne doit pas être lue comme liste complète des produits finaux visés. Elle identifie seulement des centres déjà stabilisés à un moment donné.
++
++La liste complète des produits/surfaces finales est maintenant portée par :
++
++```text
++docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md
++```
++
++## Règle de lecture corrigée
++
++```text
++MASTER_TARGET = produit final utilisable rattaché à un PF_* ou à un produit/surface finale explicitement nommé.
++MASTER_PROJECT_PLAN = checklist des livrables nécessaires pour rendre ce PF_* utilisable.
++GO_ID = unité de travail.
++PATCH/BUNDLE/PR = transport ou preuve, jamais produit final.
++```
++
++## Produits/surfaces finales à ne plus perdre
++
++- Produit final total opt-trading.
++- Signal Chain Product.
++- Desk Pro fonctionnel.
++- Telegram Screener opérationnel.
++- Bot Vision / Headless Screener opérationnel.
++- Runtime opérateur distant.
++- OpenClaw / OpenCode Operator Runtime.
++- LocalCMS cockpit système.
++- Strategy Framework + Registry.
++- Perf Engine + Trading Lab.
++- Google Sheets global consumer.
++- Market/API/Data collectors.
++- Notification Dispatcher / Telegram outbound.
++- Validation Gate / Risk Gate.
++- Trade Executor / Simex bridge.
++- Strict Workers Runner / AI Team orchestration.
++- Figma Financial Cockpit si confirmé.
++- Multi-machine surfaces.
++- Governance / bundles / patch / zip / memory bricks.
++
++## Effet sur les index globaux
++
++Les index globaux peuvent maintenant référencer `PRODUCT_FINAL_SURFACE_REGISTRY_01.md` comme surface de classification produit. Quand un parent ou GO change l'état d'un `PF_*`, les index globaux doivent être mis à jour si le changement est structurel.
++
++## NEXT_GO de gouvernance recommandé
++
++```text
++GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_CLOSE_GATE_AUDIT_01
++```
++
++But : auditer les parents actifs et vérifier qu'ils pointent chacun vers un `PF_*` ou vers une surface support explicitement non finale.
+
+From 1faf17fa8f6f5fbee4e2376ebfeb7bfb1090a9a7 Mon Sep 17 00:00:00 2001
+From: magikgmo4-ui <magikgmo4@gmail.com>
+Date: Sat, 23 May 2026 03:50:36 -0400
+Subject: [PATCH 05/11] docs(index): align next go with product surface
+ registry
+
+---
+ docs/index/NEXT_GO_CANDIDATES.md | 19 +++++++++++++++----
+ 1 file changed, 15 insertions(+), 4 deletions(-)
+
+diff --git a/docs/index/NEXT_GO_CANDIDATES.md b/docs/index/NEXT_GO_CANDIDATES.md
+index 6fbbb7d2..f4644323 100644
+--- a/docs/index/NEXT_GO_CANDIDATES.md
++++ b/docs/index/NEXT_GO_CANDIDATES.md
+@@ -1,4 +1,4 @@
+-﻿---
++---
+ doc_id: OPT_TRADING_NEXT_GO_CANDIDATES
+ doc_type: next_candidate
+ repo: opt-trading
+@@ -23,6 +23,7 @@ point_de_reprise: "Section Matrice - parent actif -> next GO primaire"
+ updated_at: 2026-05-23
+ links:
+   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++  - docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md
+   - docs/index/GO_INDEX.md
+   - docs/index/ACTIVE_STREAMS.md
+   - docs/index/REPRISE.md
+@@ -32,14 +33,24 @@ links:
+ 
+ ## Règle canonique
+ 
+- 1 parent produit → 1 target ou 1 next GO primaire
+- `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md` gouverne la lecture produit/parent/GO/Git
+- `docs/index/GO_INDEX.md` reste la vérité de liste
++ 1 parent produit → 1 target ou 1 next GO primaire.
++ `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md` gouverne la lecture produit/parent/GO/Git.
++ `docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md` classe les produits/surfaces finales `PF_*`.
++ `docs/index/GO_INDEX.md` reste la vérité de liste.
++
++## NEXT_GO primaire global
++
++```text
++GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_CLOSE_GATE_AUDIT_01
++```
++
++Condition : auditer les parents actifs et vérifier que chaque `MASTER_TARGET` pointe vers un produit/surface finale utilisable `PF_*`, ou vers une surface support explicitement non finale.
+ 
+ ## Matrice — parent actif → target / next GO
+ 
+ | parent produit | produit | statut | next target / next GO | condition | refs |
+ |---|---|---|---|---|---|
++| `GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01` | registre produits/surfaces finales | OPEN | `GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_CLOSE_GATE_AUDIT_01` | registre livré ; audit close gate à faire | `docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md` |
+ | `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01` | doctrine multi-agents | OPEN | surveiller prochains INDEX_PATCH | aucun runtime | `docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/PARENT_STATE.md` |
+ | `GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01` | parent machine admin-trading | OPEN | ouvrir child si besoin produit | besoin produit prouvé | `docs/chantiers/GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01/01_cadrage_parent.md` |
+ | `GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01` | parent machine db-layer | OPEN | ouvrir child si besoin produit | besoin produit prouvé | `docs/chantiers/GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01/01_cadrage_parent.md` |
+
+From e2f743b4bbf9f394cfbc25698ebd1ad7fa907d0e Mon Sep 17 00:00:00 2001
+From: magikgmo4-ui <magikgmo4@gmail.com>
+Date: Sat, 23 May 2026 04:00:48 -0400
+Subject: [PATCH 06/11] docs(index): add product surface registry active stream
+
+---
+ docs/index/ACTIVE_STREAMS.md | 20 +++++++++++++++-----
+ 1 file changed, 15 insertions(+), 5 deletions(-)
+
+diff --git a/docs/index/ACTIVE_STREAMS.md b/docs/index/ACTIVE_STREAMS.md
+index 83cae4f1..c993f6e8 100644
+--- a/docs/index/ACTIVE_STREAMS.md
++++ b/docs/index/ACTIVE_STREAMS.md
+@@ -1,4 +1,4 @@
+-﻿---
++---
+ doc_id: OPT_TRADING_ACTIVE_STREAMS
+ doc_type: reprise
+ repo: opt-trading
+@@ -19,6 +19,7 @@ point_de_reprise: "Section Flux actifs"
+ updated_at: 2026-05-23
+ links:
+   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++  - docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md
+   - docs/index/GO_INDEX.md
+   - docs/index/REPRISE.md
+ ---
+@@ -27,20 +28,29 @@ links:
+ 
+ ## Objet
+ 
+-Ce document référence les flux parents actifs avec produit utilisable dans `opt-trading`.
++Ce document référence les flux parents actifs avec produit utilisable ou correction structurelle de lecture produit dans `opt-trading`.
+ 
+ ---
+ 
+ ## Règles
+ 
+- ne référencer ici que les parents avec produit utilisable ou cible produit claire
+- les enfants, micro-GO, bundles et artefacts support vivent dans les dossiers chantier
+- l'etat reel du repo prime sur toute reconstruction documentaire
++- ne référencer ici que les parents avec produit utilisable, cible produit claire ou correction structurante de la lecture produit ;
++- les enfants, micro-GO, bundles et artefacts support vivent dans les dossiers chantier ;
++- l'état réel du repo prime sur toute reconstruction documentaire ;
++- `PRODUCT_FINAL_SURFACE_REGISTRY_01.md` classe les produits/surfaces finales utilisables `PF_*`.
+ 
+ ---
+ 
+ ## Flux parents actifs
+ 
++### GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01
++- produit utilisable : registre canonique des produits/surfaces finales `PF_*`
++- statut : OPEN
++- gap restant : audit des parents actifs contre `PF_*`
++- target courant : alignement matrice + index globaux
++- next action : `GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_CLOSE_GATE_AUDIT_01`
++- blocage : aucun ; doc/governance only
++
+ ### GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01
+ - produit utilisable : doctrine multi-agents canonisée
+ - statut : OPEN
+
+From 0d8a9a10bb66231d9aa559151fd3486cd9bb0c33 Mon Sep 17 00:00:00 2001
+From: magikgmo4-ui <magikgmo4@gmail.com>
+Date: Sat, 23 May 2026 04:01:10 -0400
+Subject: [PATCH 07/11] docs(index): update reprise for product surface
+ registry
+
+---
+ docs/index/REPRISE.md | 23 +++++++++++++++++++----
+ 1 file changed, 19 insertions(+), 4 deletions(-)
+
+diff --git a/docs/index/REPRISE.md b/docs/index/REPRISE.md
+index f43c8734..05eed850 100644
+--- a/docs/index/REPRISE.md
++++ b/docs/index/REPRISE.md
+@@ -1,4 +1,4 @@
+-﻿---
++---
+ doc_id: OPT_TRADING_REPRISE
+ doc_type: reprise
+ repo: opt-trading
+@@ -18,6 +18,7 @@ point_de_reprise: "Section Matrice de reprise canonique"
+ updated_at: 2026-05-23
+ links:
+   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++  - docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md
+   - docs/index/GO_INDEX.md
+   - docs/index/ACTIVE_STREAMS.md
+ ---
+@@ -26,13 +27,19 @@ links:
+ 
+ ## Point de reprise global
+ 
+-Base de pilotage active : parents produits actifs dans `GO_INDEX.md`.
+-Canon décisionnel : état réel du repo `opt-trading`, relu sous la matrice maître.
++Base de pilotage active : parents produits actifs dans `GO_INDEX.md` + correction structurante `PRODUCT_FINAL_SURFACE_REGISTRY_01.md`.
++
++Canon décisionnel : état réel du repo `opt-trading`, relu sous la matrice maître et le registre des produits/surfaces finales `PF_*`.
++
++## Correction active
++
++`GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01` ouvre une correction canonique : distinguer produits finaux utilisables, chaînes produit complètes, surfaces opérables, supports critiques et artefacts de transport.
+ 
+ ## Parents produits actifs
+ 
+ | PARENT_PRODUCT | STATUT | TARGET | NEXT ACTION |
+ |---|---|---|---|
++| `GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01` | OPEN | registre produits/surfaces finales `PF_*` | `GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_CLOSE_GATE_AUDIT_01` |
+ | `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01` | OPEN | canoniser méthode multi-agents | surveiller prochains INDEX_PATCH |
+ | `GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01` | OPEN | parent machine admin-trading | ouvrir child si besoin produit |
+ | `GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01` | OPEN | parent machine db-layer | ouvrir child si besoin produit |
+@@ -45,7 +52,15 @@ Canon décisionnel : état réel du repo `opt-trading`, relu sous la matrice ma
+ 
+ ## Prochaine action forte
+ 
+-`GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01` (P0)
++`GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_CLOSE_GATE_AUDIT_01`
++
++## Reprise opérationnelle
++
++1. Lire `docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md`.
++2. Lire `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01_PRODUCT_SURFACE_ALIGNMENT_01.md`.
++3. Auditer les parents actifs de `GO_INDEX.md` contre les `PF_*`.
++4. Corriger les `MASTER_TARGET` abstraits ou trop techniques.
++5. Ne fermer aucun parent si son produit final utilisable n'est pas atteint.
+ 
+ ## Hors pilotage immédiat
+ 
+
+From 770d741f11fddaa40021d31c1bb7f2f02c5402ca Mon Sep 17 00:00:00 2001
+From: magikgmo4-ui <magikgmo4@gmail.com>
+Date: Sat, 23 May 2026 04:02:57 -0400
+Subject: [PATCH 08/11] docs(index): add product surface registry to global
+ index
+
+---
+ docs/index/GO_INDEX.md | 26 +++++++++++++++++++-------
+ 1 file changed, 19 insertions(+), 7 deletions(-)
+
+diff --git a/docs/index/GO_INDEX.md b/docs/index/GO_INDEX.md
+index 0d5e44a1..f6cf3d27 100644
+--- a/docs/index/GO_INDEX.md
++++ b/docs/index/GO_INDEX.md
+@@ -23,6 +23,8 @@ point_de_reprise: "Section Tableau canonique des chantiers"
+ updated_at: 2026-05-23
+ links:
+   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++  - docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01_PRODUCT_SURFACE_ALIGNMENT_01.md
+   - docs/governance/REPO_ROLE.md
+   - docs/governance/DOC_LAYERS.md
+ ---
+@@ -37,6 +39,7 @@ Ce document référence les GO non clos connus et utiles à la continuité local
+ 
+ - l'etat reel prouve prime sur toute reconstruction documentaire
+ - `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md` gouverne la lecture produit / parent / GO / Git
++- `docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md` classe les produits/surfaces finales `PF_*`
+ - `docs/governance/MATRICE_GOUVERNANTE_V2.md` reste une annexe stable secondaire
+ - `docs/index/GO_INDEX.md` reste la verite de liste locale pour les parents, GO simples et sous-entrees retenues
+ 
+@@ -70,17 +73,17 @@ Ce document référence les GO non clos connus et utiles à la continuité local
+ - une surface documentaire non chantier peut être citée comme source, support ou référence, mais ne doit pas être listée comme chantier dans le tableau canonique
+ - un repère de famille dérivé peut exister comme aide transverse non canonique ; il ne doit ni modifier la liste canonique ni porter la priorité opératoire à la place du tableau
+ - les liens doivent pointer vers les artefacts détaillés dès qu’ils existent
++- un parent/GO ne doit pas être fermé si son `MASTER_TARGET` ne pointe pas vers un produit final utilisable ou une surface finale `PF_*` vérifiable
+ 
+ ---
+ 
+ ## Tableau canonique des parents produits
+ 
+-Ce tableau canonique ne contient que les chantiers parents avec produit utilisable
+-ou cible produit claire. Les enfants, micro-GO, bundles, patchs, branches, PR,
+-références et artefacts support sont exclus des index globaux actifs.
++Ce tableau canonique contient les chantiers parents avec produit utilisable, cible produit claire ou correction structurelle de lecture produit. Les enfants, micro-GO, bundles, patchs, branches, PR, références et artefacts support sont exclus des index globaux actifs sauf demande explicite de propagation.
+ 
+ | PARENT_PRODUCT | STATUT | TARGET | NEXT ACTION | SOURCE |
+ |---|---|---|---|---|
++| `GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01` | OPEN | registre produits/surfaces finales `PF_*` | `GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_CLOSE_GATE_AUDIT_01` | `docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md` |
+ | `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01` | OPEN | canoniser méthode multi-agents | surveiller prochains INDEX_PATCH | `docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/PARENT_STATE.md` |
+ | `GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01` | OPEN | parent machine admin-trading | maintenir le parent ; ouvrir child si besoin produit | `docs/chantiers/GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01/01_cadrage_parent.md` |
+ | `GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01` | OPEN | parent machine db-layer | maintenir le parent ; ouvrir child si besoin produit | `docs/chantiers/GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01/01_cadrage_parent.md` |
+@@ -103,11 +106,12 @@ références et artefacts support sont exclus des index globaux actifs.
+ 
+ ## Priorite operatoire
+ 
+- P0 : `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
+- P1 : `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
+- P2 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01`
++- P0 : `GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_CLOSE_GATE_AUDIT_01`
++- P1 : `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
++- P2 : `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
++- P3 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01`
+ 
+-Les GO suivants restent `OPEN` dans le tableau canonique, mais hors priorite operatoire immediate de cette passe resserree :
++Les GO suivants restent `OPEN` dans le tableau canonique, mais hors priorite operatoire immediate :
+ 
+ - `GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01`
+ - `GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01`
+@@ -120,6 +124,14 @@ Les GO suivants restent `OPEN` dans le tableau canonique, mais hors priorite ope
+ 
+ ## Entrées
+ 
++### GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01
++- repo : opt-trading
++- type : gouvernance / produit final / surfaces finales
++- statut : open
++- titre court : registre canonique des produits/surfaces finales `PF_*`
++- dernier état connu : registre créé ; matrice alignée via addendum ; index globaux alignés ; patch/bundle à appliquer/revoir
++- lien utile : `docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md`, `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01_PRODUCT_SURFACE_ALIGNMENT_01.md`, `docs/chantiers/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/00_INITIAL_PROJECT_DOC.md`
++
+ ### GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01
+ - repo : opt-trading
+ - type : reprise documentaire / parent OpenClaw / db-layer
+
+From 3f13a96533e7c0830d8ec923e050a9c216282a56 Mon Sep 17 00:00:00 2001
+From: magikgmo4-ui <magikgmo4@gmail.com>
+Date: Sat, 23 May 2026 04:03:18 -0400
+Subject: [PATCH 09/11] docs(bundle): add product surface registry targets
+
+---
+ .../TARGETS.md                                | 40 +++++++++++++++++++
+ 1 file changed, 40 insertions(+)
+ create mode 100644 bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/TARGETS.md
+
+diff --git a/bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/TARGETS.md b/bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/TARGETS.md
+new file mode 100644
+index 00000000..32c3fbf9
+--- /dev/null
++++ b/bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/TARGETS.md
+@@ -0,0 +1,40 @@
++---
++bundle_id: GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01
++go_id: GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01
++created_at: 2026-05-23
++---
++
++# TARGETS — Product surface final registry
++
++## BUNDLE_TARGET
++
++Créer et transporter le lot de correction canonique : produits/surfaces finales `PF_*`, alignement matrice, index globaux, chantier, inbox et patch.
++
++## Fichiers cibles
++
++```text
++docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md
++docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01_PRODUCT_SURFACE_ALIGNMENT_01.md
++docs/chantiers/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/00_INITIAL_PROJECT_DOC.md
++docs/index/inbox/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01.md
++docs/index/GO_INDEX.md
++docs/index/NEXT_GO_CANDIDATES.md
++docs/index/ACTIVE_STREAMS.md
++docs/index/REPRISE.md
++bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/README_BUNDLE.md
++bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/TARGETS.md
++bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/bundle_meta/target_card.json
++bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/patches/20260523_GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01_product_surface_registry.patch
++```
++
++## Validation attendue
++
++```bash
++git apply --check bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/patches/20260523_GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01_product_surface_registry.patch
++```
++
++## NEXT_GO après application
++
++```text
++GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_CLOSE_GATE_AUDIT_01
++```
+
+From d3439422481f2a27973d5f859a44ea9dff5b321d Mon Sep 17 00:00:00 2001
+From: magikgmo4-ui <magikgmo4@gmail.com>
+Date: Sat, 23 May 2026 04:03:51 -0400
+Subject: [PATCH 10/11] docs(bundle): add product surface registry bundle
+ readme
+
+---
+ .../README_BUNDLE.md                          | 35 +++++++++++++++++++
+ 1 file changed, 35 insertions(+)
+ create mode 100644 bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/README_BUNDLE.md
+
+diff --git a/bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/README_BUNDLE.md b/bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/README_BUNDLE.md
+new file mode 100644
+index 00000000..0130b90e
+--- /dev/null
++++ b/bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/README_BUNDLE.md
+@@ -0,0 +1,35 @@
++---
++bundle_id: GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01
++go_id: GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01
++created_at: 2026-05-23
++---
++
++# README_BUNDLE — Product surface final registry
++
++## But
++
++Bundle déportable pour appliquer la correction canonique suivante :
++
++- créer `PRODUCT_FINAL_SURFACE_REGISTRY_01.md` ;
++- ajouter l’addendum d’alignement matrice ;
++- ouvrir le chantier ;
++- créer l’entrée inbox ;
++- mettre à jour `GO_INDEX`, `NEXT_GO_CANDIDATES`, `ACTIVE_STREAMS`, `REPRISE` ;
++- archiver le `.patch` canonique dans `patches/`.
++
++## Application IDE
++
++Depuis la racine du repo :
++
++```bash
++git apply --check bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/patches/20260523_GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01_product_surface_registry.patch
++git apply bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/patches/20260523_GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01_product_surface_registry.patch
++```
++
++## Invariant
++
++Le `.patch` est le transport canonique. Un `.zip` peut transporter le bundle, mais ne remplace jamais le contenu source de `bundles/<GO_ID>/`.
++
++## Reprise
++
++Après application : lire `docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md`, puis ouvrir le NEXT_GO d’audit close gate.
+
+From 09d9a501b65402cd1b49bce3846127e765dd6d34 Mon Sep 17 00:00:00 2001
+From: magikgmo4-ui <magikgmo4@gmail.com>
+Date: Sat, 23 May 2026 04:04:11 -0400
+Subject: [PATCH 11/11] docs(bundle): add product surface registry target card
+
+---
+ .../bundle_meta/target_card.json                     | 12 +++++++++++++
+ 1 file changed, 12 insertions(+)
+ create mode 100644 bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/bundle_meta/target_card.json
+
+diff --git a/bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/bundle_meta/target_card.json b/bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/bundle_meta/target_card.json
+new file mode 100644
+index 00000000..51f36142
+--- /dev/null
++++ b/bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/bundle_meta/target_card.json
+@@ -0,0 +1,12 @@
++{
++  "go_id": "GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01",
++  "bundle_target": "Créer le registre canonique des produits/surfaces finales et aligner matrice + index globaux.",
++  "master_target": "Empêcher la fermeture de chantiers sans produit final utilisable clairement identifié.",
++  "final_target": "PRODUCT_FINAL_SURFACE_REGISTRY_01 créé, matrice alignée, index globaux mis à jour, patch canonique archivé.",
++  "next_go": "GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_CLOSE_GATE_AUDIT_01",
++  "transport": {
++    "patch": "bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/patches/20260523_GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01_product_surface_registry.patch",
++    "zip_optional": true
++  },
++  "status": "open"
++}
