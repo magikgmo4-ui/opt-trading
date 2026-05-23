@@ -1,0 +1,39 @@
+{
+  "job_id": "ledger-blocked-events-digest",
+  "total_entries": 902,
+  "status_summary": {
+    "WARN": 12,
+    "PASS": 890
+  },
+  "block_failures": {
+    "SYSTEMD_SERVICES": 12,
+    "ENV": 12,
+    "PORTS": 12,
+    "ORCHESTRATOR": 12,
+    "HTTP": 9,
+    "ARTIFACTS": 9,
+    "LOGS": 9
+  },
+  "blocked_events": 12,
+  "latest_entry": {
+    "timestamp": "2026-05-22T13:24:55+00:00",
+    "overall_status": "PASS",
+    "run_id": "ee1cfcc1-32a2-4c18-b9fa-8e3d10e9cb24"
+  },
+  "current_status": "PASS",
+  "current_block_statuses": {
+    "MACHINE_IDENTITY": "PASS",
+    "SYSTEMD_SERVICES": "PASS",
+    "SYSTEMD_TIMERS": "PASS",
+    "FORBIDDEN_SERVICES": "PASS",
+    "VENV": "PASS",
+    "ENV": "PASS",
+    "PORTS": "PASS",
+    "HTTP": "PASS",
+    "PATHS": "PASS",
+    "ARTIFACTS": "PASS",
+    "LOGS": "PASS",
+    "ORCHESTRATOR": "PASS"
+  },
+  "status": "PASS"
+}

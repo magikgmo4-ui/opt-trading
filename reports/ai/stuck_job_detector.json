@@ -1,0 +1,75 @@
+{
+  "job_id": "stuck-job-detector",
+  "total_entries": 902,
+  "status_breakdown": {
+    "WARN": 12,
+    "PASS": 890
+  },
+  "stuck_jobs_found": 12,
+  "stuck_details": [
+    {
+      "timestamp": "2026-05-19T07:33:11+00:00",
+      "run_id": "c4990396-209a-4121-b2fb-5b636b87678b",
+      "status": "WARN",
+      "age_minutes": 4676.5
+    },
+    {
+      "timestamp": "2026-05-19T07:38:45+00:00",
+      "run_id": "e1a659b5-6dc8-4d2b-b678-4b6ca6abc326",
+      "status": "WARN",
+      "age_minutes": 4670.9
+    },
+    {
+      "timestamp": "2026-05-19T07:43:56+00:00",
+      "run_id": "4f6a3f16-a3b4-4ac1-af35-0445550856eb",
+      "status": "WARN",
+      "age_minutes": 4665.7
+    },
+    {
+      "timestamp": "2026-05-19T07:49:05+00:00",
+      "run_id": "e206a596-7d5a-4597-94b7-58ca0c607229",
+      "status": "WARN",
+      "age_minutes": 4660.6
+    },
+    {
+      "timestamp": "2026-05-19T07:54:17+00:00",
+      "run_id": "ebe28c1f-c0a9-4070-a95a-15d94e11de83",
+      "status": "WARN",
+      "age_minutes": 4655.4
+    },
+    {
+      "timestamp": "2026-05-19T07:59:22+00:00",
+      "run_id": "d8a67cd8-be61-4446-b83d-8c8195612247",
+      "status": "WARN",
+      "age_minutes": 4650.3
+    },
+    {
+      "timestamp": "2026-05-19T07:59:22+00:00",
+      "run_id": "8f105b2f-e12f-4e0d-9318-a1578cba679e",
+      "status": "WARN",
+      "age_minutes": 4650.3
+    },
+    {
+      "timestamp": "2026-05-19T08:04:35+00:00",
+      "run_id": "53876216-5f33-4d06-a3a3-73a76650c8c1",
+      "status": "WARN",
+      "age_minutes": 4645.1
+    },
+    {
+      "timestamp": "2026-05-19T08:10:05+00:00",
+      "run_id": "22f9e60a-882d-42a9-b63f-27f8e53805d2",
+      "status": "WARN",
+      "age_minutes": 4639.6
+    },
+    {
+      "timestamp": "2026-05-19T08:14:04+00:00",
+      "run_id": "1a25beea-107d-453a-a77c-4fc43a9b9c95",
+      "status": "WARN",
+      "age_minutes": 4635.6
+    }
+  ],
+  "latest_entry_age": "4.7 min ago",
+  "latest_status": "PASS",
+  "findings": [],
+  "status": "PASS"
+}

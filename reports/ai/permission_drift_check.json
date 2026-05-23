@@ -1,0 +1,48 @@
+{
+  "job_id": "permission-drift-check",
+  "paths_checked": [
+    "data/runtime_health",
+    "data/runtime_health/kill_switch.state",
+    "config/machine_runtime_map.yml",
+    ".gitignore"
+  ],
+  "permissions": {
+    "data/runtime_health": {
+      "path": "data/runtime_health",
+      "permissions": "0o755",
+      "is_world_writable": false,
+      "uid": 1000,
+      "gid": 1000,
+      "is_dir": true
+    },
+    "data/runtime_health/kill_switch.state": {
+      "path": "data/runtime_health/kill_switch.state",
+      "permissions": "0o644",
+      "is_world_writable": false,
+      "uid": 1000,
+      "gid": 1000,
+      "is_dir": false
+    },
+    "config/machine_runtime_map.yml": {
+      "path": "config/machine_runtime_map.yml",
+      "permissions": "0o644",
+      "is_world_writable": false,
+      "uid": 1000,
+      "gid": 1000,
+      "is_dir": false
+    },
+    ".gitignore": {
+      "path": ".gitignore",
+      "permissions": "0o644",
+      "is_world_writable": false,
+      "uid": 1000,
+      "gid": 1000,
+      "is_dir": false
+    }
+  },
+  "findings": [
+    "exposed permissions on .env.example: 0o644",
+    "exposed permissions on .env: 0o644"
+  ],
+  "status": "WARN"
+}

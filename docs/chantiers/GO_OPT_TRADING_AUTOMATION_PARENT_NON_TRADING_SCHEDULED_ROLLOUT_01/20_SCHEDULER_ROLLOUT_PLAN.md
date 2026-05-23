@@ -93,8 +93,13 @@ Ledger and security hardening:
 - `kill-switch-fullstop-test`
 - `deny-by-default-check`
 
-Verdict: `PHASE_03_SELECTED`
+Verdict: `PHASE_03_EXECUTED`
 Count: `14 jobs`
+Execution result:
+- `13 PASS`
+- `1 WARN`
+- `0 FAIL`
+Gate: `PASS_WITH_FINDINGS`
 
 ### Phase 04
 
@@ -108,8 +113,13 @@ HITL approvals rollout:
 - `dual-confirm-required-check`
 - `pending-approvals-digest`
 
-Verdict: `PHASE_04_SELECTED`
+Verdict: `PHASE_04_EXECUTED`
 Count: `7 jobs`
+Execution result:
+- `7 PASS`
+- `0 WARN`
+- `0 FAIL`
+Gate: `PASS`
 
 ### Phase 05
 
@@ -122,8 +132,13 @@ Capability matrix and AI-team rollout:
 - `task-router-dry-run`
 - `handoff-timeout-check`
 
-Verdict: `PHASE_05_SELECTED`
+Verdict: `PHASE_05_EXECUTED`
 Count: `6 jobs`
+Execution result:
+- `4 PASS`
+- `2 WARN`
+- `0 FAIL`
+Gate: `PASS_WITH_FINDINGS`
 
 ### Phase 06
 
@@ -137,8 +152,13 @@ LocalCMS cockpit rollout:
 - `localcms-safe-buttons-check`
 - `localcms-kill-switch-widget-check`
 
-Verdict: `PHASE_06_SELECTED`
+Verdict: `PHASE_06_EXECUTED`
 Count: `7 jobs`
+Execution result:
+- `5 PASS`
+- `2 WARN`
+- `0 FAIL`
+Gate: `PASS_WITH_FINDINGS`
 
 ### Phase 07
 
@@ -158,8 +178,13 @@ External apps read and contract baseline:
 - `calendar-read-automation-events`
 - `drive-read-folder-health`
 
-Verdict: `PHASE_07_SELECTED`
+Verdict: `PHASE_07_EXECUTED`
 Count: `13 jobs`
+Execution result:
+- `9 PASS`
+- `4 WARN`
+- `0 FAIL`
+Gate: `PASS_WITH_FINDINGS`
 
 ### Phase 08
 
@@ -194,8 +219,13 @@ External apps canary and write-gated rollout:
 - `calendar-create-review-event`
 - `drive-upload-report-canary`
 
-Verdict: `PHASE_08_SELECTED`
+Verdict: `PHASE_08_EXECUTED`
 Count: `28 jobs`
+Execution result:
+- `25 PASS`
+- `3 WARN`
+- `0 FAIL`
+Gate: `PASS_WITH_FINDINGS`
 
 ### Phase 09
 
@@ -210,8 +240,13 @@ Scheduler and CI activation:
 - `ci-nightly-validation`
 - `ci-status-ingest`
 
-Verdict: `PHASE_09_SELECTED`
+Verdict: `PHASE_09_EXECUTED`
 Count: `8 jobs`
+Execution result:
+- `8 PASS`
+- `0 WARN`
+- `0 FAIL`
+Gate: `PASS`
 
 ## Source priorisee
 

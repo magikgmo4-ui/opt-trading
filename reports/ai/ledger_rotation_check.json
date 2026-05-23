@@ -1,0 +1,33 @@
+{
+  "job_id": "ledger-rotation-check",
+  "files": {
+    "healthcheck.jsonl": {
+      "path": "data/runtime_health/healthcheck.jsonl",
+      "exists": true,
+      "size_bytes": 398493,
+      "mtime": "2026-05-22T13:24:55",
+      "age_hours": 0.1
+    },
+    "latest.json": {
+      "path": "data/runtime_health/latest.json",
+      "exists": true,
+      "size_bytes": 3412,
+      "mtime": "2026-05-22T13:24:55",
+      "age_hours": 0.1
+    },
+    "kill_switch.state": {
+      "path": "data/runtime_health/kill_switch.state",
+      "exists": true,
+      "size_bytes": 7,
+      "mtime": "2026-05-21T02:45:02",
+      "age_hours": 34.7
+    }
+  },
+  "archive": {
+    "exists": true,
+    "file_count": 1,
+    "archive_path": "data/runtime_health/job_logs/archive"
+  },
+  "findings": [],
+  "status": "PASS"
+}

@@ -1,0 +1,7 @@
+{
+  "job_id": "kill-switch-fullstop-test",
+  "initial_state": "NORMAL",
+  "write_test": "simulated",
+  "note": "HITL required for live write",
+  "status": "PASS"
+}
