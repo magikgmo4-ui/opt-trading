@@ -5,7 +5,7 @@ repo: opt-trading
 go_id: GO_OPT_TRADING_ADMIN_TRADING_SIGNAL_CHAIN_TOTAL_PRODUCT_PARENT_01
 status: open
 source_kind: canonical
-updated_at: 2026-05-20
+updated_at: 2026-05-23
 links:
   - docs/chantiers/GO_STRATEGY_SIGNAL_MONITORING_REPO_INVENTORY_01/20_REUSE_MATRIX_AND_CONSTRAINTS.md
   - docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/40_GAPS_AND_NEXT_GO.md
@@ -89,7 +89,7 @@ Le produit final total reste ouvert jusqu'a livraison ou blocage explicite de to
 
 ## Prochain item Kanban a faire
 
-`GO_SIGNAL_CHAIN_E2E_DRY_RUN_01`
+`GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
 
 ## Gaps encore ouverts
 

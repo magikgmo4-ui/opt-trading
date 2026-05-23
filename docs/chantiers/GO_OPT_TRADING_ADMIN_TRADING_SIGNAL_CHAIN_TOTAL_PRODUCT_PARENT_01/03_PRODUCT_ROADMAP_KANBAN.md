@@ -5,7 +5,7 @@ repo: opt-trading
 go_id: GO_OPT_TRADING_ADMIN_TRADING_SIGNAL_CHAIN_TOTAL_PRODUCT_PARENT_01
 status: open
 source_kind: canonical
-updated_at: 2026-05-20
+updated_at: 2026-05-23
 ---
 
 # 03_PRODUCT_ROADMAP_KANBAN
@@ -60,11 +60,11 @@ Livrer le produit final total de toute la chaine signal/screener/Telegram/Desk P
 
 ## Prochain item Kanban exact
 
-`GO_SIGNAL_CHAIN_E2E_DRY_RUN_01`
+`GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
 
 ## Prochain GO exact
 
-`GO_SIGNAL_CHAIN_E2E_DRY_RUN_01`
+`GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
 
 ## Gaps encore ouverts
 

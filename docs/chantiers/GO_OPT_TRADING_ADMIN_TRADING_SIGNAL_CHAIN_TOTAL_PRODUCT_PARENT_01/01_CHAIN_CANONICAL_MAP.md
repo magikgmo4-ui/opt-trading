@@ -5,7 +5,7 @@ repo: opt-trading
 go_id: GO_OPT_TRADING_ADMIN_TRADING_SIGNAL_CHAIN_TOTAL_PRODUCT_PARENT_01
 status: open
 source_kind: canonical
-updated_at: 2026-05-19
+updated_at: 2026-05-23
 links:
   - docs/chantiers/GO_STRATEGY_SIGNAL_MONITORING_REPO_INVENTORY_01/10_CHAIN_SURFACE_PROOF_MAP.md
   - docs/chantiers/GO_DESKPRO_INPUT_EXPANSION_01/00_INITIAL_PROJECT_DOC.md
@@ -88,7 +88,7 @@ Le tableau Kanban du bundle reste la reference principale. Ce fichier ne remplac
 
 ## Prochain item Kanban a faire
 
-`GO_SIGNAL_CHAIN_E2E_DRY_RUN_01`
+`GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
 
 ## Gaps encore ouverts
 

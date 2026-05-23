@@ -6,7 +6,7 @@ go_id: GO_OPT_TRADING_ADMIN_TRADING_SIGNAL_CHAIN_TOTAL_PRODUCT_PARENT_01
 status: open
 lifecycle_stage: umbrella_parent_doc_only
 source_kind: canonical
-updated_at: 2026-05-19
+updated_at: 2026-05-23
 links:
   - docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md
   - docs/product/guides/TRADINGVIEW_TELEGRAM_PIPELINE.md
@@ -103,9 +103,9 @@ Le tableau Kanban du bundle reste la carte de navigation principale du chantier 
 ## Prochain item Kanban a faire
 
 Le closeout final restant bloque par des surfaces encore ouvertes, le prochain
-travail Kanban actif revient au dry-run umbrella fixture-only :
-
-`GO_SIGNAL_CHAIN_E2E_DRY_RUN_01`
+child reel a poursuivre cote parent est le meilleur mapping local du runtime
+operateur distant :
+`GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
 
 ## Gaps encore ouverts
 
