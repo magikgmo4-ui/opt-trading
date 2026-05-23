@@ -5,7 +5,14 @@ import json
 
 from modules.desk_pro.models import Metric
 
-MARKET_METRICS_LATEST = Path("data/deskpro/inputs/market_metrics/latest.json")
+# Canonical read path: Data Center contract class view (neutral, no producer_id)
+DC_MARKET_METRICS_VIEW = Path("data/data_center/views/market_metrics/latest.json")
+
+# Legacy fallback: transitoire, conservé pendant la période post-migration
+MARKET_METRICS_LEGACY = Path("data/deskpro/inputs/market_metrics/latest.json")
+
+# Backward compat alias (monkeypatched by some tests via the old name)
+MARKET_METRICS_LATEST = DC_MARKET_METRICS_VIEW
 
 _FRESHNESS_QUALITY = {"fresh": 0.95, "stale": 0.5, "unknown": 0.3}
 _METRIC_UNITS = {
@@ -25,14 +32,8 @@ def _normalize_asset(symbol: str) -> str:
     return symbol
 
 
-def read_market_metrics(path: Optional[Path] = None) -> List[Metric]:
-    """Read market_metrics.v1 latest.json and return Desk Pro Metric objects.
-
-    Returns an empty list if the file is absent, malformed, or carries no
-    proven collectable metrics. Never raises — failures are silent no-ops so
-    that Desk Pro degrades gracefully when no collector has run.
-    """
-    p = path or MARKET_METRICS_LATEST
+def _read_from_path(p: Path) -> List[Metric]:
+    """Read market_metrics.v1 from a specific path. Returns [] on any failure."""
     if not p.exists():
         return []
     try:
@@ -69,5 +70,24 @@ def read_market_metrics(path: Optional[Path] = None) -> List[Metric]:
                 notes=f"market_metrics.v1 {freshness}",
             )
         )
-
     return result
+
+
+def read_market_metrics(path: Optional[Path] = None) -> List[Metric]:
+    """Read market_metrics.v1 and return Desk Pro Metric objects.
+
+    Default resolution (path=None):
+      1. data/data_center/views/market_metrics/latest.json  (DC canonical)
+      2. data/deskpro/inputs/market_metrics/latest.json      (legacy fallback)
+
+    When path= is explicit, that path is used directly with no fallback.
+    Returns [] if the file is absent, malformed, or carries no proven collectable
+    metrics. Never raises — Desk Pro degrades gracefully when no collector has run.
+    """
+    if path is not None:
+        return _read_from_path(path)
+    # Default: DC view first, legacy fallback
+    result = _read_from_path(DC_MARKET_METRICS_VIEW)
+    if result:
+        return result
+    return _read_from_path(MARKET_METRICS_LEGACY)

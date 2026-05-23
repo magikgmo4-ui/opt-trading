@@ -3,7 +3,12 @@ from pathlib import Path
 
 import pytest
 
-from modules.desk_pro.service.market_metrics_reader import read_market_metrics, _normalize_asset
+from modules.desk_pro.service.market_metrics_reader import (
+    read_market_metrics,
+    _normalize_asset,
+    DC_MARKET_METRICS_VIEW,
+    MARKET_METRICS_LEGACY,
+)
 
 _BITGET_FIXTURE = {
     "contract_version": "v1",
@@ -174,13 +179,67 @@ class TestNormalizeAsset:
         assert _normalize_asset("SOMETHING") == "SOMETHING"
 
 
+class TestDefaultPathHierarchy:
+    def test_dc_view_path_has_no_producer_id(self):
+        path_str = str(DC_MARKET_METRICS_VIEW)
+        assert "data/data_center/views/" in path_str
+        assert "bitget" not in path_str
+        assert "binance" not in path_str
+
+    def test_reads_dc_view_by_default(self, tmp_path, monkeypatch):
+        p = tmp_path / "latest.json"
+        p.write_text(json.dumps(_BITGET_FIXTURE), encoding="utf-8")
+        import modules.desk_pro.service.market_metrics_reader as reader_mod
+        monkeypatch.setattr(reader_mod, "DC_MARKET_METRICS_VIEW", p)
+        monkeypatch.setattr(reader_mod, "MARKET_METRICS_LEGACY", tmp_path / "absent.json")
+        result = read_market_metrics()
+        assert len(result) == 3
+
+    def test_fallback_legacy_when_dc_view_absent(self, tmp_path, monkeypatch):
+        legacy_p = tmp_path / "legacy.json"
+        legacy_p.write_text(json.dumps(_BITGET_FIXTURE), encoding="utf-8")
+        import modules.desk_pro.service.market_metrics_reader as reader_mod
+        monkeypatch.setattr(reader_mod, "DC_MARKET_METRICS_VIEW", tmp_path / "absent_dc.json")
+        monkeypatch.setattr(reader_mod, "MARKET_METRICS_LEGACY", legacy_p)
+        result = read_market_metrics()
+        assert len(result) == 3
+
+    def test_both_absent_returns_empty(self, tmp_path, monkeypatch):
+        import modules.desk_pro.service.market_metrics_reader as reader_mod
+        monkeypatch.setattr(reader_mod, "DC_MARKET_METRICS_VIEW", tmp_path / "absent_dc.json")
+        monkeypatch.setattr(reader_mod, "MARKET_METRICS_LEGACY", tmp_path / "absent_legacy.json")
+        result = read_market_metrics()
+        assert result == []
+
+    def test_dc_view_invalid_fallback_to_legacy(self, tmp_path, monkeypatch):
+        dc_p = tmp_path / "dc.json"
+        dc_p.write_text("{not valid json", encoding="utf-8")
+        legacy_p = tmp_path / "legacy.json"
+        legacy_p.write_text(json.dumps(_BITGET_FIXTURE), encoding="utf-8")
+        import modules.desk_pro.service.market_metrics_reader as reader_mod
+        monkeypatch.setattr(reader_mod, "DC_MARKET_METRICS_VIEW", dc_p)
+        monkeypatch.setattr(reader_mod, "MARKET_METRICS_LEGACY", legacy_p)
+        result = read_market_metrics()
+        assert len(result) == 3
+
+    def test_explicit_path_bypasses_default_resolution(self, tmp_path, monkeypatch):
+        explicit_p = tmp_path / "explicit.json"
+        explicit_p.write_text(json.dumps(_BITGET_FIXTURE), encoding="utf-8")
+        import modules.desk_pro.service.market_metrics_reader as reader_mod
+        monkeypatch.setattr(reader_mod, "DC_MARKET_METRICS_VIEW", tmp_path / "absent.json")
+        monkeypatch.setattr(reader_mod, "MARKET_METRICS_LEGACY", tmp_path / "absent.json")
+        result = read_market_metrics(path=explicit_p)
+        assert len(result) == 3
+
+
 class TestAggregatorIntegration:
     def test_build_snapshot_augmented(self, tmp_path, monkeypatch):
         p = tmp_path / "latest.json"
         p.write_text(json.dumps(_BITGET_FIXTURE), encoding="utf-8")
 
         import modules.desk_pro.service.market_metrics_reader as reader_mod
-        monkeypatch.setattr(reader_mod, "MARKET_METRICS_LATEST", p)
+        monkeypatch.setattr(reader_mod, "DC_MARKET_METRICS_VIEW", p)
+        monkeypatch.setattr(reader_mod, "MARKET_METRICS_LEGACY", tmp_path / "absent.json")
 
         from modules.desk_pro.service.aggregator import build_snapshot
         snap = build_snapshot(source="fixture")
@@ -190,7 +249,8 @@ class TestAggregatorIntegration:
 
     def test_build_snapshot_no_file_clean(self, tmp_path, monkeypatch):
         import modules.desk_pro.service.market_metrics_reader as reader_mod
-        monkeypatch.setattr(reader_mod, "MARKET_METRICS_LATEST", tmp_path / "absent.json")
+        monkeypatch.setattr(reader_mod, "DC_MARKET_METRICS_VIEW", tmp_path / "absent.json")
+        monkeypatch.setattr(reader_mod, "MARKET_METRICS_LEGACY", tmp_path / "absent_legacy.json")
 
         from modules.desk_pro.service.aggregator import build_snapshot
         snap = build_snapshot(source="fixture")
