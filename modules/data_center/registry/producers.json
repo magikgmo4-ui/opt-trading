@@ -1,0 +1,52 @@
+{
+  "registry_version": "v1",
+  "updated_at": "2026-05-23T00:00:00Z",
+  "producers": [
+    {
+      "producer_id": "derivatives_collector__bitget",
+      "family": "derivatives",
+      "contract_class": "market_metrics.v1",
+      "schema_version": "v1",
+      "output_path_root": "data/data_center/derivatives/derivatives_collector__bitget/",
+      "write_mode": "atomic",
+      "latency_class": "oneshot",
+      "collectable_metrics": ["open_interest", "funding_rate", "volume_futures"],
+      "missing_metrics": ["long_short_ratio", "liquidations_long", "liquidations_short"],
+      "coverage_status": "partial",
+      "validated_at": "2026-05-23",
+      "last_write": null
+    },
+    {
+      "producer_id": "derivatives_collector__binance",
+      "family": "derivatives",
+      "contract_class": "market_metrics.v1",
+      "schema_version": "v1",
+      "output_path_root": "data/data_center/derivatives/derivatives_collector__binance/",
+      "write_mode": "atomic",
+      "latency_class": "oneshot",
+      "collectable_metrics": ["open_interest", "funding_rate", "volume_futures"],
+      "missing_metrics": ["long_short_ratio", "liquidations_long", "liquidations_short"],
+      "coverage_status": "partial",
+      "validated_at": null,
+      "last_write": null
+    },
+    {
+      "producer_id": "collector_binance_spot",
+      "family": "spot",
+      "contract_class": "pair_market_snapshot.v1",
+      "schema_version": "v1",
+      "output_path_root": "data/data_center/spot/collector_binance_spot/",
+      "write_mode": "atomic",
+      "latency_class": "oneshot",
+      "collectable_metrics": [
+        "last_price", "open_price_24h", "high_price_24h", "low_price_24h",
+        "volume_24h", "quote_volume_24h", "price_change_24h", "price_change_pct_24h",
+        "trading_status"
+      ],
+      "missing_metrics": [],
+      "coverage_status": "full",
+      "validated_at": null,
+      "last_write": null
+    }
+  ]
+}
