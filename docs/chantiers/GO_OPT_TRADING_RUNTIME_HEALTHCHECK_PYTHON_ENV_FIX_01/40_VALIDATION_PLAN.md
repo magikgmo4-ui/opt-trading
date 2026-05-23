@@ -39,3 +39,23 @@ STEP 5 peut passer de `WARN` a `PASS` uniquement si :
 - le run fleet/runtime health ne met plus STEP 5 en WARN pour cette cause.
 
 Les autres warnings ne doivent pas etre masques.
+
+## Validation post-deploiement executee
+
+Resultat du 2026-05-23 sur `db-layer` :
+
+```text
+STEP_5_PYTHON_PYYAML_BLOCKER = CLOSED
+STEP_5_FINAL = WARN_RESIDUAL_ENV_PORTS_PATHS_STALE_MACHINES
+```
+
+Les criteres lies au fix Python/PyYAML sont satisfaits :
+
+- wrapper syntaxe OK ;
+- dry-run sans erreur Python/env ;
+- service systemd relance par timer en `status=0/SUCCESS` ;
+- `/usr/bin/python3` observe comme Python effectif du healthcheck ;
+- fleet dry-run sans `FAIL` ni machine unreachable.
+
+Les criteres de `PASS_FULL` ne sont pas satisfaits car les warnings residuels
+restent a traiter dans un GO separe.

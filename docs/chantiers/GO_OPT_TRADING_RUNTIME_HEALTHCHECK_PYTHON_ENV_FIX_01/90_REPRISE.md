@@ -22,11 +22,17 @@ GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01
 Le patch local modifie `scripts/runtime_healthcheck.sh` pour choisir un Python
 capable d'importer `yaml` avant de lancer `modules/runtime_health/healthcheck.py`.
 
+Le patch est maintenant merge et valide sur `db-layer` contre le blocage
+Python/PyYAML.
+
 ## Statut attendu
 
 ```text
 STEP_5_SOURCE = WARN
-PATCH_TARGET = STEP_5_PASS_AFTER_REMOTE_VALIDATION
+PATCH_TARGET = STEP_5_PYTHON_PYYAML_BLOCKER_CLOSED
+GO_STATUS = DEPLOYED_VALIDATED
+STEP_5_FINAL = WARN_RESIDUAL_ENV_PORTS_PATHS_STALE_MACHINES
+NEXT_GO = GO_OPT_TRADING_RUNTIME_HEALTHCHECK_RESIDUAL_WARNINGS_01
 GLOBAL_INDEX_UPDATE = NOT_REQUIRED
 WATCHDOG_11_12 = NOT_RUN
 PARENT_UMBRELLA = NOT_CLOSED
@@ -49,18 +55,49 @@ python -m pytest tests\runtime_health\test_warn_classification.py tests\runtime_
 
 ## Validation distante restante
 
-Apres merge/deploy sur `db-layer` :
+Executee apres merge/deploy sur `db-layer` :
 
 ```text
-bash scripts/runtime_healthcheck.sh --dry-run --no-telegram
-systemctl status opt-trading-runtime-health.service --no-pager
-python3 modules/runtime_health/fleet_orchestrator.py --dry-run --no-telegram
+bash -n scripts/runtime_healthcheck.sh = PASS
+bash scripts/runtime_healthcheck.sh --dry-run --no-telegram = OK
+opt-trading-runtime-health.service relance par timer = status=0/SUCCESS
+python3 modules/runtime_health/fleet_orchestrator.py --map config/machine_runtime_map.yml --dry-run = WARN_RESIDUAL
 ```
 
 Ne pas lancer watchdog 11-12.
+
+Details :
+
+```text
+db-layer latest.json timestamp = 2026-05-23T20:37:37+00:00
+db-layer overall_status = WARN
+failing = []
+unreachable = []
+stale_machines = cursor-ai, fantome
+WARN blocks = ENV, PORTS, PATHS
+```
+
+Conclusion : STEP 5 n'est plus bloque par Python/PyYAML. Le STEP 5 global
+reste `WARN_RESIDUAL` et doit etre traite dans
+`GO_OPT_TRADING_RUNTIME_HEALTHCHECK_RESIDUAL_WARNINGS_01`.
 
 ## Gaps conserves
 
 - hygiene repo distante ;
 - allowlist Telegram vide ;
 - smoke mobile reel non prouve.
+- runtime healthcheck residuel : `ENV`, `PORTS`, `PATHS`, `stale_machines`.
+
+## Support Git distant
+
+`db-layer` n'a pas ete realigne sur le nom de branche `sot/mainline`, car la
+verification a montre un commit local unique :
+
+```text
+branch = go/GO_OPT_TRADING_DATA_CENTER_PARENT_OPEN_01
+HEAD = 1a8d49a5
+origin/sot/mainline = a02e5b24
+origin/sot/mainline..HEAD = 1a8d49a5 feat(data_center): ouvrir parent PF_DATA_CENTER avec contrats producers/consumers et module layout
+```
+
+Decision : ne pas deplacer cette branche tant que ce commit n'est pas arbitre.
