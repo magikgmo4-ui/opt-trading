@@ -90,7 +90,7 @@
 | Job packets AI workers | 8 JSON : read inventory, fast triage, patch draft, test plan, doc draft, endpoint audit, write gated |
 | Chantier bundle method | `00_INITIAL_PROJECT_DOC.md` |
 
-**Directives :** Le format zip est le format canonique d'échange. Les job packets automatisent le diagnostic, le draft et le test des patchs via workers AI.
+**Directives :** Le format V2 est patch-first : le `.patch` est l'artefact canonique d'échange Git ; le `.zip` est un sidecar optionnel réservé aux charges lourdes, temporaires ou hors repo. Les job packets automatisent le diagnostic, le draft et le test des patchs via workers AI.
 
 ---
 
