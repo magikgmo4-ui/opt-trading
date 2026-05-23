@@ -8,6 +8,8 @@ lifecycle_stage: workflow_active
 links:
   - bundles/ACTIVE_WORKFLOW.md
   - bundles/CURSOR_AI_BUNDLES_REPRISE.md
+  - docs/governance/BUNDLE_TARGET_AND_MASTER_TARGET_METHOD_01.md
+  - docs/governance/SESSION_PATCH_IDE_APPLICATION_MATRIX_01.md
 ---
 
 # BUNDLE_TYPES — Types de bundles cursor-ai
@@ -77,7 +79,37 @@ links:
 - Checklist de verification post-merge
 - Fiche de verdict
 
-### 7. Admin-trading gate bundle
+### 7. Patch transport bundle
+
+**Usage** : transporter un patch canonique Git et/ou une archive .zip entre une session conversationnelle, un IDE, et le dépôt Git.
+
+**Artefact canonique** : `.patch` (autoporteur, source unique de vérité)
+
+**Sidecar optionnel** : `.zip` (charges lourdes, temporaires ou hors repo)
+
+**Contenu minimal** :
+- `README_BUNDLE.md` (description, dépendances)
+- `TARGETS.md` (target + master_target)
+- `bundle_meta/target_card.json` (fiche machine-readable)
+- `patches/README_PATCHES.md` (règles d'archivage)
+- `patches/<YYYYMMDD>_<GO_ID>_<slug>.patch` (patch source archivé)
+
+**Règles** :
+- aucun `.patch` racine commité
+- le patch est archivé sous `bundles/<GO_ID>/patches/` avant application
+- le `.zip` ne remplace pas le bundle source
+- le chantier source vit dans `docs/chantiers/<GO_ID>/`
+- l'entrée courte vit dans `docs/index/inbox/<GO_ID>.md`
+
+**Exemple** : `bundles/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_BUNDLE_01/`
+
+**Mapping** :
+
+| Bundle type | Machine autorisée | Statut |
+| --- | --- | --- |
+| Patch transport bundle | cursor-ai, IDE, session | ACTIF |
+
+### 8. Admin-trading gate bundle
 
 **Usage** : FUTURE SEULEMENT — spec de gate avant admin-trading.
 
@@ -98,6 +130,7 @@ links:
 | Prompt bundle | cursor-ai | ACTIF |
 | PR merge bundle | cursor-ai | ACTIF |
 | Closeout bundle | cursor-ai | ACTIF |
+| Patch transport bundle | cursor-ai, IDE, session | ACTIF |
 | Admin-trading gate bundle | admin-trading (futur only) | FERME |
 
 ## Extension
