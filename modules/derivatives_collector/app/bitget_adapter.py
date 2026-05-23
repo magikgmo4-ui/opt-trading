@@ -71,4 +71,29 @@ class BitgetAdapter(BaseAdapter):
             except (ValueError, TypeError, KeyError):
                 pass
 
+        # Fetch Liquidations (public forceOrders — side=sell → long liq, side=buy → short liq)
+        liq_url = (
+            f"{self.BASE_URL}/api/v2/mix/market/liquidation-order"
+            f"?symbol={bitget_symbol}&productType=USDT-FUTURES&pageSize=100"
+        )
+        liq_resp = self._fetch(liq_url)
+        if liq_resp and liq_resp.get("data") is not None:
+            orders = liq_resp["data"].get("liquidationOrderList", [])
+            if isinstance(orders, list):
+                try:
+                    liq_long = sum(
+                        float(o.get("fillQty") or o.get("size", 0))
+                        * float(o.get("fillPrice") or o.get("price", 0))
+                        for o in orders if str(o.get("side", "")).lower() == "sell"
+                    )
+                    liq_short = sum(
+                        float(o.get("fillQty") or o.get("size", 0))
+                        * float(o.get("fillPrice") or o.get("price", 0))
+                        for o in orders if str(o.get("side", "")).lower() == "buy"
+                    )
+                    row.liquidations_long = round(liq_long, 2)
+                    row.liquidations_short = round(liq_short, 2)
+                except (ValueError, TypeError, KeyError):
+                    pass
+
         return row
