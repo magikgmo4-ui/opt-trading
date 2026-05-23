@@ -1,0 +1,12 @@
+{
+  "go_id": "GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01",
+  "bundle_target": "Créer le registre canonique des produits/surfaces finales et aligner matrice + index globaux.",
+  "master_target": "Empêcher la fermeture de chantiers sans produit final utilisable clairement identifié.",
+  "final_target": "PRODUCT_FINAL_SURFACE_REGISTRY_01 créé, matrice alignée, index globaux mis à jour, patch canonique archivé.",
+  "next_go": "GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_CLOSE_GATE_AUDIT_01",
+  "transport": {
+    "patch": "bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/patches/20260523_GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01_product_surface_registry.patch",
+    "zip_optional": true
+  },
+  "status": "open"
+}
