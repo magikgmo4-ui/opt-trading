@@ -3,6 +3,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 import json
 from modules.desk_pro.models import Snapshot, Metric
+from modules.desk_pro.service.market_metrics_reader import read_market_metrics
 
 FIXTURE_PATH = Path(__file__).resolve().parent.parent / "fixtures" / "snapshot_fixture.json"
 
@@ -13,8 +14,17 @@ def build_snapshot(source: str = "fixture") -> Snapshot:
     if source == "fixture":
         snap = _build_snapshot_from_fixture()
         if snap is not None:
+            _augment_market_metrics(snap)
             return snap
-    return _build_snapshot_mock()
+    snap = _build_snapshot_mock()
+    _augment_market_metrics(snap)
+    return snap
+
+def _augment_market_metrics(snap: Snapshot) -> None:
+    mm = read_market_metrics()
+    if mm:
+        snap.metrics.extend(mm)
+        snap.meta["market_metrics"] = "loaded"
 
 def _build_snapshot_from_fixture() -> Snapshot | None:
     if not FIXTURE_PATH.exists():
