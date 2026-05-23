@@ -17,6 +17,7 @@ from modules.derivatives_collector.app.market_metrics_writer import (
     write_market_metrics_by_symbol,
     publish_market_metrics_for_deskpro,
     write_market_metrics_to_data_center,
+    write_market_metrics_view,
     publish_market_metrics,
 )
 
@@ -595,6 +596,126 @@ class TestPublishMarketMetrics(unittest.TestCase):
                 str(r_binance["data_center"]["latest"]),
                 str(r_bitget["data_center"]["latest"]),
             )
+        finally:
+            shutil.rmtree(td)
+
+
+class TestWriteContractClassView(unittest.TestCase):
+    def test_view_writes_latest(self):
+        import tempfile, shutil
+        td = Path(tempfile.mkdtemp())
+        try:
+            result = write_market_metrics_view(_binance_full(), root=td)
+            expected = td / "data/data_center/views/market_metrics/latest.json"
+            self.assertEqual(result["latest"], expected)
+            self.assertTrue(expected.exists())
+        finally:
+            shutil.rmtree(td)
+
+    def test_view_writes_by_symbol(self):
+        import tempfile, shutil
+        td = Path(tempfile.mkdtemp())
+        try:
+            result = write_market_metrics_view(_binance_full(), root=td)
+            expected = td / "data/data_center/views/market_metrics/by_symbol/BTCUSDT.json"
+            self.assertEqual(result["by_symbol"], expected)
+            self.assertTrue(expected.exists())
+        finally:
+            shutil.rmtree(td)
+
+    def test_view_path_decoupled_from_producer_id(self):
+        """Both binance and bitget write to the same view path — consumer is decoupled."""
+        import tempfile, shutil
+        td = Path(tempfile.mkdtemp())
+        try:
+            r_binance = write_market_metrics_view(_binance_full(), root=td)
+            r_bitget = write_market_metrics_view(_bitget_full(), root=td)
+            self.assertEqual(r_binance["latest"], r_bitget["latest"])
+            view_path = str(r_binance["latest"])
+            self.assertNotIn("bitget", view_path)
+            self.assertNotIn("binance", view_path)
+        finally:
+            shutil.rmtree(td)
+
+    def test_view_not_proven_returns_none(self):
+        import tempfile, shutil
+        td = Path(tempfile.mkdtemp())
+        try:
+            result = write_market_metrics_view(_coinglass_not_proven(), root=td)
+            self.assertIsNone(result)
+            view_path = td / "data/data_center/views/market_metrics/latest.json"
+            self.assertFalse(view_path.exists())
+        finally:
+            shutil.rmtree(td)
+
+    def test_view_content_is_valid_market_metrics_v1(self):
+        import tempfile, shutil
+        td = Path(tempfile.mkdtemp())
+        try:
+            result = write_market_metrics_view(_bitget_full(), root=td)
+            data = json.loads(result["latest"].read_text(encoding="utf-8"))
+            self.assertEqual(data["input_class"], "market_metrics.v1")
+            self.assertEqual(data["provider_coverage"]["status"], "full")
+            self.assertEqual(len(data["provider_coverage"]["missing_metrics"]), 0)
+        finally:
+            shutil.rmtree(td)
+
+    def test_view_path_differs_from_producer_dc_path(self):
+        import tempfile, shutil
+        td = Path(tempfile.mkdtemp())
+        try:
+            view = write_market_metrics_view(_binance_full(), root=td)
+            dc = write_market_metrics_to_data_center(_binance_full(), root=td)
+            self.assertNotEqual(view["latest"], dc["latest"])
+            self.assertIn("views/market_metrics", str(view["latest"]))
+            self.assertIn("derivatives/derivatives_collector__binance", str(dc["latest"]))
+        finally:
+            shutil.rmtree(td)
+
+
+class TestPublishMarketMetricsView(unittest.TestCase):
+    def test_publish_writes_contract_view_by_default(self):
+        import tempfile, shutil
+        td = Path(tempfile.mkdtemp())
+        try:
+            result = publish_market_metrics(_binance_full(), root=td)
+            self.assertIsNotNone(result["view"])
+            self.assertTrue(result["view"]["latest"].exists())
+            self.assertIn("views/market_metrics", str(result["view"]["latest"]))
+        finally:
+            shutil.rmtree(td)
+
+    def test_publish_contract_view_disabled(self):
+        import tempfile, shutil
+        td = Path(tempfile.mkdtemp())
+        try:
+            result = publish_market_metrics(_binance_full(), root=td, include_contract_view=False)
+            self.assertIsNone(result["view"])
+            view_path = td / "data/data_center/views/market_metrics/latest.json"
+            self.assertFalse(view_path.exists())
+        finally:
+            shutil.rmtree(td)
+
+    def test_publish_view_same_path_for_any_provider(self):
+        """publish_market_metrics from different providers feeds the same view."""
+        import tempfile, shutil
+        td = Path(tempfile.mkdtemp())
+        try:
+            r_binance = publish_market_metrics(_binance_full(), root=td)
+            r_bitget = publish_market_metrics(_bitget_full(), root=td)
+            self.assertEqual(r_binance["view"]["latest"], r_bitget["view"]["latest"])
+        finally:
+            shutil.rmtree(td)
+
+    def test_publish_result_has_all_keys(self):
+        import tempfile, shutil
+        td = Path(tempfile.mkdtemp())
+        try:
+            result = publish_market_metrics(_binance_full(), root=td)
+            self.assertIn("data_center", result)
+            self.assertIn("view", result)
+            self.assertIn("legacy", result)
+            self.assertIn("deskpro", result)
         finally:
             shutil.rmtree(td)
 
