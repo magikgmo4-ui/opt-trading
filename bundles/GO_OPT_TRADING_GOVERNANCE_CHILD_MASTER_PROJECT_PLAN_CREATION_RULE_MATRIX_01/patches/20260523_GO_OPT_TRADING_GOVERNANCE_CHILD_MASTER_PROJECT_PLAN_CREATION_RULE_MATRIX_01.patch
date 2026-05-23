@@ -1,0 +1,25 @@
+# Canonical patch — GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_CREATION_RULE_MATRIX_01
+
+Source PR: https://github.com/magikgmo4-ui/opt-trading/pull/735
+Mode: doc-only direct Git application
+Zip role: none
+
+This patch archives the intended diff for the master project plan creation rule bundle.
+
+## Changed files
+
+- docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01_MASTER_PROJECT_PLAN_CREATION_RULE_01.md
+- docs/chantiers/GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_CREATION_RULE_MATRIX_01/00_INITIAL_PROJECT_DOC.md
+- docs/index/inbox/GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_CREATION_RULE_MATRIX_01.md
+- bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_CREATION_RULE_MATRIX_01/README_BUNDLE.md
+- bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_CREATION_RULE_MATRIX_01/TARGETS.md
+- bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_CREATION_RULE_MATRIX_01/bundle_meta/target_card.json
+
+## Summary
+
+- Adds canonical GO_STRUCTURAL_ROLE creation rule.
+- Authorizes only GO_CHILD, GO_CHILD_ATTACHED_TO_PARENT, GO_PARENT, GO_PARENT_ATTACHED_TO_MASTER_PROJECT_PLAN and GO_MASTER_PROJECT_PLAN.
+- Excludes GO_ORPHAN as canonical role.
+- Requires NEXT_ATTACH_TARGET for non-attached GO_CHILD or GO_PARENT.
+- Defines global indexes as MASTER_PROJECT_PLAN_INDEX.
+- Closes no parent and changes no runtime.
