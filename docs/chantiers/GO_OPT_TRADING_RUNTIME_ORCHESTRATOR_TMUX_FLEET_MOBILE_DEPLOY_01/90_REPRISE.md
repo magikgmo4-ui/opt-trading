@@ -5,7 +5,7 @@ repo: opt-trading
 go_id: GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01
 status: open
 source_kind: canonical
-updated_at: 2026-05-20
+updated_at: 2026-05-23
 ---
 
 # 90_REPRISE
@@ -26,12 +26,24 @@ produit final total voulu :
 
 ## Etat de cette passe
 
-La passe courante a recale la documentation runtime sur les preuves repo
-reelles. Aucun runtime n'a ete lance depuis cet environnement.
+La passe courante inscrit les preuves reelles de validation runtime distante
+strict read-only 1 a 10. Aucun runtime n'a ete modifie par ce patch
+documentaire.
 
-Le protocole de prochaine passe distante est maintenant borne : preflight
-`db-layer` / `admin-trading` -> OpenClaw -> fleet -> tmux -> watchdog ->
-mobile.
+Verdict global :
+
+```text
+STRICT_READ_ONLY_1_10 = PASS_WITH_WARNINGS
+TOTAL = 6 PASS / 4 WARN / 0 FAIL / 0 BLOCKED
+CLOSEOUT = BLOCKED_BY_WARNINGS
+GATEWAY = NON_INCRIMINE
+WATCHDOG_11_12 = NOT_RUN_STRICT_READ_ONLY
+NEXT_FIX_GO = GO_OPT_TRADING_RUNTIME_HEALTHCHECK_PYTHON_ENV_FIX_01
+```
+
+Le GO ne doit pas etre ferme en `PASS_FULL`. Les warnings restent a traiter
+dans un GO de correction separe, en priorite le mismatch Python/PyYAML du
+runtime healthcheck.
 
 ## Preuves repo relues
 
@@ -50,9 +62,36 @@ mobile.
 - `fleet-status` existe deja dans `scripts/tmux/sessions/`
 - `modules/openclaw_tmux_operator/` existe deja dans le repo
 - `scripts/tmux/health_check.py` attend deja 10 sessions, dont `fleet-status`
-- les validations distantes `db-layer` et `admin-trading` restent non executees
-  dans cette passe
+- validation distante strict read-only 1 a 10 executee : `PASS_WITH_WARNINGS`
+- gateway/OpenClaw joignable et non incrimine
+- watchdog 11-12 non execute car il ecrit sous `/opt/trading/tmp/`
 - le smoke mobile physique reste non prouve
+
+## Validation distante strict read-only 1 a 10
+
+Source detaillee : `56_STRICT_READ_ONLY_VALIDATION_RESULTS_1_10.md`.
+
+| Etape | Surface | Verdict | Preuve / lecture |
+|---:|---|---|---|
+| 1 | `db-layer` repo preflight | WARN | branche OK `sot/mainline...origin/sot/mainline` ; untracked `.claude/`, `artifacts/backtests/`, `secrets/` |
+| 2 | `admin-trading` repo preflight | WARN | branche OK ; untracked `secrets/` |
+| 3 | OpenClaw health | WARN | `Gateway Health OK`, Telegram OK, mais warning allowlist Telegram vide |
+| 4 | OpenClaw probe | PASS | `Reachable: yes`, loopback WS OK, RPC OK, gateway identifie `db-layer` |
+| 5 | fleet/runtime health | WARN | mismatch Python/PyYAML + wrapper/systemd ; gateway non incrimine |
+| 6 | `tmux ls db-layer` | PASS | sessions presentes : `fleet-status`, `kg-repo`, `localcms-ui`, `openclaw-core`, `strict-workers` |
+| 7 | `openclaw-core` session | PASS | `rc=0` |
+| 8 | `tmux ls admin-trading` | PASS | sessions presentes : `apps-connectors`, `desk-pro`, `market-data`, `screeners`, `trading-pipeline` |
+| 9 | `desk-pro` session | PASS | `rc=0` |
+| 10 | `screeners` session | PASS | `rc=0` |
+
+Synthese :
+
+```text
+6 PASS
+4 WARN
+0 FAIL
+0 BLOCKED
+```
 
 ## Validation distante (historique repo)
 
@@ -125,18 +164,26 @@ prematurement l'umbrella.
 
 ## Gaps encore ouverts
 
-- SSH `db-layer` / `admin-trading` non valide depuis cet environnement
-- mobile SSH/tmux reel non valide
-- le GO `GO_OPT_TRADING_MOBILE_TMUX_OPERATOR_SMOKE_01` est recale pour prouver
-  ce qui est executable en local (Python) et laisser le device reel en PENDING
-- `scripts/tmux/sanity.sh` non executable ici tant qu'un environnement Linux/WSL
-  fonctionnel n'est pas disponible
+- hygiene repo distante : untracked `.claude/`, `artifacts/backtests/`,
+  `secrets/` sur `db-layer` ; untracked `secrets/` sur `admin-trading`
+- OpenClaw / Telegram : `groupPolicy=allowlist` avec `groupAllowFrom` /
+  `allowFrom` vide ; risque de messages Telegram de groupe droppes
+  silencieusement
+- runtime healthcheck : `opt-trading-runtime-health.service` et timer presents,
+  mais `/opt/trading/venv/bin/python3` ne charge pas PyYAML alors que
+  `/usr/bin/python3` le charge ; STEP 5 reste `WARN`
+- watchdog 11-12 non execute dans cette validation strict read-only
+- mobile SSH/tmux reel non valide dans cette passe
 - closeout umbrella final bloque par runtime + Bot Vision/headless +
   collectors/API + implementation Sheets globale
 
-## Checklist distante prete
+## Checklist distante rejouable
 
-Ordre d'execution retenu pour la prochaine passe :
+Cette checklist reste disponible comme protocole de replay si le contexte
+runtime change. Pour la validation strict read-only deja documentee, seules les
+lignes 1 a 10 ont ete utilisees ; 11 a 12 restent hors scope.
+
+Ordre d'execution :
 
 ```text
 1. preflight repo sur db-layer
@@ -158,9 +205,9 @@ Captures a conserver :
 - sortie `tmux ls` sur les deux hosts
 - sortie `deskpro_watchdog.sh run-once` et `status`
 
-## Tableau de resultats pret a remplir
+## Tableau de resultats template
 
-Copier ce bloc lors de la prochaine passe distante :
+Copier ce bloc lors d'une prochaine passe distante :
 
 ```md
 | Etape | Host | Commande | Sortie utile | Verdict | Gap / note |
@@ -230,7 +277,12 @@ Note : `deskpro_watchdog.sh run-once/status` effectue des lectures reseau locale
 (`curl` sur `127.0.0.1:8010`) et ecrit sous `/opt/trading/tmp/` (log + pid).
 Si un protocole strictement sans ecriture est requis, ne pas executer 11/12.
 
-## Next GO local apres validation runtime
+## Next GO recommande apres validation runtime
+
+- `GO_OPT_TRADING_RUNTIME_HEALTHCHECK_PYTHON_ENV_FIX_01` (correction durable
+  Python/PyYAML du wrapper/systemd runtime healthcheck)
+
+## Autres GO dependants
 
 - `GO_OPT_TRADING_OPENCLAW_TMUX_OPERATOR_IMPL_01` (avant mobile)
 - `GO_OPT_TRADING_MOBILE_TMUX_OPERATOR_SMOKE_01` (apres OpenClaw)
