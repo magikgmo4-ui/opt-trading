@@ -1,0 +1,1285 @@
+diff --git a/docs/governance/PATCH_ZIP_EXECUTION_FORMAT_V2_01.md b/docs/governance/PATCH_ZIP_EXECUTION_FORMAT_V2_01.md
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/docs/governance/PATCH_ZIP_EXECUTION_FORMAT_V2_01.md
+@@ -0,0 +1,151 @@
++---
++doc_id: OPT_TRADING_PATCH_ZIP_EXECUTION_FORMAT_V2_01
++doc_type: governance_rule
++repo: opt-trading
++project: opt-trading
++module: doc_ops
++go_id: GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01
++status: draft_canonical
++lifecycle_stage: opening
++surface: governance
++source_kind: canonical
++updated_at: 2026-05-22
++topic_keys:
++  - opt-trading
++  - patch
++  - zip
++  - openclaw
++  - strict_workers
++  - external_apps
++  - evidence
++links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++  - scripts/ai/workers/tasks.index.json
++  - scripts/ai/workers/models.registry.json
++  - docs/chantiers/GO_EXTERNAL_APPS_BRIDGE_CONTRACTS_01/20_BRIDGE_CONTRACTS.md
++  - docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/00_INITIAL_PROJECT_DOC.md
++---
++
++# PATCH_ZIP_EXECUTION_FORMAT_V2_01
++
++## 1_MASTER_TARGET
++
++Fixer un format canonique d'artefacts pour les chantiers `opt-trading` qui doivent etre executables par IDE, OpenClaw, strict workers, workers app externes et operateur humain.
++
++Le format V2 retient :
++
++- `.patch` : artefact principal, autoporteur, applicable a la racine du repo avec `git apply` ;
++- `.zip` : sidecar optionnel reserve aux charges lourdes, temporaires ou hors repo.
++
++## 2_INITIAL_NEED
++
++Les anciens bundles pouvaient separer inutilement le `.patch` et la documentation dans un `.zip`. Cela ajoutait du bruit et rendait moins clair ce qui devait etre commite.
++
++Besoin corrige :
++
++- maximiser ce qui entre dans le `.patch` quand c'est durable ;
++- garder le `.zip` seulement pour ce qui n'a pas vocation immediate a entrer dans Git ;
++- rendre le tout executable end-to-end par OpenClaw ;
++- integrer les strict workers deja presents avant de creer des jobs nouveaux ;
++- documenter les gates, preuves, apps externes, checklists humaines et statut target.
++
++## 3_SELECTED_SOLUTION
++
++### 3.1 `.patch` canonique
++
++Le `.patch` contient tout ce qui doit entrer dans le repo :
++
++```text
++docs/chantiers/<GO_ID>/00_INITIAL_PROJECT_DOC.md
++docs/chantiers/<GO_ID>/05_LAUNCH_PROMPT.md
++docs/chantiers/<GO_ID>/10_SESSION_CONTEXT_AND_DECISIONS.md
++docs/chantiers/<GO_ID>/20_OPENCLAW_E2E_RUNBOOK.md
++docs/chantiers/<GO_ID>/30_WORKER_JOB_GRAPH.md
++docs/chantiers/<GO_ID>/40_EXTERNAL_APPS_WORKERS.md
++docs/chantiers/<GO_ID>/50_EVIDENCE_CONTRACT.md
++docs/chantiers/<GO_ID>/60_HUMAN_CLAUDE_COWORK_CHECKLIST.md
++docs/chantiers/<GO_ID>/70_TARGET_STATUS_GAPS_CLOSEOUT.md
++docs/index/inbox/<GO_ID>.md
++scripts/ai/workers/job_packets/<GO_ID>_*.json
++```
++
++### 3.2 `.zip` sidecar optionnel
++
++Le `.zip` est cree seulement si le chantier exige :
++
++- scripts lourds temporaires ;
++- payloads volumineux ;
++- captures d'ecran ;
++- logs bruts ;
++- prompts tres longs pour IA lourde ;
++- plan d'execution UI par Claude cowork ;
++- navigation live souris/clavier ;
++- preuves externes non destinees a Git.
++
++Le `.zip` ne doit pas devenir une deuxieme source canonique.
++
++## 4_ARTIFACT_LEVELS
++
++| Niveau | Artefacts | Usage |
++| --- | --- | --- |
++| LEVEL_1_PATCH_ONLY | `<GO_ID>.patch` | GO simple, doc-only, plan canonique, specs |
++| LEVEL_2_PATCH_PLUS_ZIP | `<GO_ID>.patch` + `<GO_ID>__sidecar.zip` | GO avec payloads lourds ou prompts externes |
++| LEVEL_3_OPENCLAW_E2E | patch + zip optionnel + job packets + runbook | GO multi-worker, multi-app, multi-surface |
++
++## 5_GLOBAL_RULES
++
++- Si un fichier doit etre commite, il va dans le `.patch`.
++- Si un fichier est temporaire ou lourd, il va dans le `.zip`.
++- Le `.patch` doit etre comprehensible sans la session ChatGPT.
++- Le `.patch` doit inclure les preuves attendues, pas seulement le changement.
++- Le `.patch` doit pouvoir etre lu par IDE, OpenClaw, strict workers et humain.
++- Le `.zip` peut etre reference par nom et hash dans le `.patch` si present.
++- Aucun secret, `.env`, token, credential, cle privee ou payload sensible ne doit etre inclus dans patch ou zip.
++- Les index globaux ne changent que si le master target, l'horizon, le statut global ou un batch d'agregation le justifie.
++
++## 6_STRICT_WORKERS_REUSE
++
++Avant de creer un nouveau job IA, verifier les tasks existantes :
++
++- `READ_INVENTORY`
++- `FAST_TRIAGE`
++- `PATCH_DRAFT`
++- `DOC_DRAFT`
++- `TESTPLAN`
++- `CHERRY_PICK_INVENTORY`
++- `ENDPOINT_AUDIT`
++- `WRITE_GATED`
++
++Le nouveau format doit produire des job packets alignes avec `scripts/ai/workers/tasks.index.json` et les modeles verifies dans `scripts/ai/workers/models.registry.json`.
++
++## 7_EXTERNAL_APP_WORKERS
++
++Les workers app externes doivent respecter les contrats existants :
++
++- reads/writes autorises ;
++- actions interdites ;
++- dry-run ;
++- approval gate ;
++- audit log ;
++- rollback ou compensation ;
++- `evidence_ref`.
++
++Apps connues : Airtable, ClickUp, Botpress, Google Sheets, Telegram, Gmail, Google Calendar, Google Drive, Figma, LocalCMS.
++
++## 8_OPENCLAW_EXECUTION_RULE
++
++OpenClaw agit comme orchestrateur et gatekeeper :
++
++1. lire le `GO_ID` ;
++2. verifier preflight Git et repo ;
++3. verifier les tasks workers et modeles disponibles ;
++4. router les jobs vers workers existants ;
++5. appliquer les gates ;
++6. bloquer tout write non autorise ;
++7. collecter les preuves ;
++8. produire closeout et target status ;
++9. ne modifier les index globaux que si la regle globale est declenchee.
++
++## 9_VERDICT
++
++Cette regle ouvre le format V2 : `PATCH_FIRST + ZIP_OPTIONAL + OPENCLAW_E2E + STRICT_WORKERS_MAX_REUSE + EVIDENCE_CONTRACT`.
+diff --git a/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/00_INITIAL_PROJECT_DOC.md b/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/00_INITIAL_PROJECT_DOC.md
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/00_INITIAL_PROJECT_DOC.md
+@@ -0,0 +1,168 @@
++---
++doc_id: GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_INITIAL_PROJECT_DOC
++doc_type: initial_project_doc
++repo: opt-trading
++project: opt-trading
++module: doc_ops
++go_id: GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01
++status: draft_canonical
++lifecycle_stage: opening
++surface: chantier
++source_kind: canonical
++updated_at: 2026-05-22
++topic_keys:
++  - opt-trading
++  - doc_ops
++  - patch
++  - zip
++  - openclaw
++  - strict_workers
++  - evidence
++reference_canonique_principale: docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/00_INITIAL_PROJECT_DOC.md
++point_de_reprise: "Appliquer le patch, valider la spec V2, puis ouvrir un GO test avec sidecar zip si necessaire."
++links:
++  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++  - docs/governance/PATCH_ZIP_EXECUTION_FORMAT_V2_01.md
++  - scripts/ai/workers/tasks.index.json
++  - scripts/ai/workers/models.registry.json
++  - docs/chantiers/GO_EXTERNAL_APPS_BRIDGE_CONTRACTS_01/20_BRIDGE_CONTRACTS.md
++---
++
++# GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01 — 00_INITIAL_PROJECT_DOC
++
++## 1_MASTER_TARGET
++
++Ouvrir un chantier doc-ops pour formaliser le format V2 des artefacts `.patch` et `.zip`, avec execution end-to-end possible par OpenClaw, strict workers, workers app externes, IDE et operateur humain.
++
++## 2_INITIAL_PROJECT_DOC
++
++Ce document est la fiche initiale du chantier. Il fige le besoin, le plan, les decisions et le point de reprise.
++
++## 3_INITIAL_NEED
++
++Clarifier le format optimal des artefacts produits par l'assistant pour les chantiers GitHub :
++
++- ne plus produire deux formats redondants ;
++- utiliser `.patch` comme support canonique Git ;
++- reserver `.zip` aux charges lourdes et temporaires ;
++- inclure le maximum de jobs deja presents dans le repo ;
++- integrer les strict workers et workers app externes ;
++- rendre le tout executable par OpenClaw ;
++- documenter prompts, steps operatoires, preuves, checklists et closeout.
++
++## 4_MASTER_PROJECT_PLAN
++
++1. Produire une regle de gouvernance `PATCH_ZIP_EXECUTION_FORMAT_V2_01`.
++2. Documenter le contexte de session et les decisions.
++3. Definir un runbook OpenClaw E2E.
++4. Definir un graph de jobs reutilisant les strict workers existants.
++5. Definir les workers app externes et leurs gates.
++6. Definir le contrat de preuves.
++7. Definir la checklist humaine / Claude cowork.
++8. Ouvrir une entree courte `docs/index/inbox/<GO_ID>.md`.
++9. Ajouter des job packets plats sous `scripts/ai/workers/job_packets/`.
++10. Ne modifier aucun index global.
++
++## 5_GO_PLAN
++
++Ce chantier est doc-only au sens runtime : il ne lance aucune execution externe et ne modifie aucune configuration runtime.
++
++Le patch ajoute :
++
++- une regle de gouvernance ;
++- un dossier chantier complet ;
++- une entree inbox ;
++- des job packets de reference DRAFT_ONLY.
++
++## 6_FINAL_TARGET
++
++Avoir un format V2 pret a etre utilise comme standard pour les prochains bundles IDE/OpenClaw :
++
++- patch autoporteur ;
++- zip optionnel ;
++- job graph ;
++- evidence contract ;
++- checklists ;
++- delegation workers ;
++- closeout target.
++
++## 7_CANONICAL_STATE
++
++Etat courant au demarrage :
++
++- `opt-trading` reste le repo canonique ;
++- `sot/mainline` reste la base de depart ;
++- le format patch-first est retenu comme direction ;
++- le zip est optionnel et non canonique ;
++- les strict workers existants doivent etre reutilises avant toute creation de job ;
++- OpenClaw orchestre, gate et collecte les preuves ;
++- les index globaux restent proteges.
++
++## 8_VALIDATED_PLAN
++
++Plan valide pour ce patch :
++
++1. ajouter les docs ;
++2. ajouter job packets DRAFT_ONLY ;
++3. appliquer avec `git apply --check` ;
++4. appliquer avec `git apply` ;
++5. valider fichiers ajoutes ;
++6. commit ;
++7. push branche dediee ;
++8. PR review ;
++9. evaluer target atteint.
++
++## 9_SELECTED_SOLUTION
++
++`PATCH_FIRST + ZIP_OPTIONAL + OPENCLAW_E2E + STRICT_WORKERS_MAX_REUSE + EVIDENCE_CONTRACT`.
++
++## 10_SELECTED_SETUP
++
++- Branche recommandee : `go/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01`.
++- Patch unique : `GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01.patch`.
++- Pas de zip pour ce chantier d'ouverture.
++- Zip a tester dans un GO ulterieur avec scripts ou payloads reels.
++
++## 11_KEY_DECISIONS
++
++- Tout fichier durable va dans le patch.
++- Le zip ne transporte que le lourd, temporaire ou hors repo.
++- Les job packets doivent rester compatibles avec `tasks.index.json`.
++- Les modeles utilises doivent etre verifies dans `models.registry.json`.
++- Les workers app externes doivent suivre leurs contrats.
++- Aucune modification des index globaux dans ce GO.
++
++## 12_INVARIANTS
++
++- Pas de secrets.
++- Pas de `.env`.
++- Pas de token.
++- Pas de write externe.
++- Pas de commit/push par worker strict.
++- Pas de modification runtime.
++- Pas de global index sauf nouveau besoin explicite.
++
++## 13_ESTABLISHED
++
++Le format V1 etait utile mais insuffisant : il separait parfois documentation et patch alors que le patch peut porter tous les fichiers destines au repo.
++
++## 14_HYPOTHESIS
++
++Un futur GO peut tester le niveau `LEVEL_2_PATCH_PLUS_ZIP` avec payloads reels, scripts smoke temporaires et preuves externes.
++
++## 15_REMAINING_GAP
++
++- Valider le patch dans un repo local.
++- Confirmer si les job packets plats sont acceptes par le validateur actuel.
++- Tester un vrai run OpenClaw sur un prochain GO.
++
++## 16_TODO
++
++- Appliquer ce patch.
++- Ouvrir PR.
++- Review doc-only.
++- Fermer le GO si la spec V2 est acceptee.
++
++## 17_RESUME_POINT
++
++Reprendre depuis `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/20_OPENCLAW_E2E_RUNBOOK.md` pour execution.
+diff --git a/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/05_LAUNCH_PROMPT.md b/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/05_LAUNCH_PROMPT.md
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/05_LAUNCH_PROMPT.md
+@@ -0,0 +1,75 @@
++---
++doc_id: GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_LAUNCH_PROMPT
++doc_type: launch_prompt
++repo: opt-trading
++project: opt-trading
++module: doc_ops
++go_id: GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01
++status: draft_canonical
++lifecycle_stage: opening
++surface: chantier
++source_kind: canonical
++updated_at: 2026-05-22
++topic_keys:
++  - launch_prompt
++  - ide
++  - openclaw
++  - patch
++---
++
++# 05_LAUNCH_PROMPT
++
++## Prompt IDE / OpenClaw
++
++```text
++GO: GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01
++
++Objectif:
++Appliquer le patch d'ouverture du chantier PATCH_ZIP_EXECUTION_FORMAT_V2_01.
++
++Base:
++- repo: opt-trading
++- branche base: sot/mainline
++- branche travail recommandee: go/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01
++
++Preflight obligatoire:
++1. git status --short --branch
++2. git fetch --prune origin
++3. git switch sot/mainline
++4. git pull --ff-only origin sot/mainline
++5. git switch -c go/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01
++6. verifier presence:
++   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
++   - scripts/ai/workers/tasks.index.json
++   - scripts/ai/workers/models.registry.json
++   - docs/chantiers/GO_EXTERNAL_APPS_BRIDGE_CONTRACTS_01/20_BRIDGE_CONTRACTS.md
++
++Application:
++1. git apply --check GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01.patch
++2. git apply GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01.patch
++3. git diff --check
++4. git status --short
++5. verifier les nouveaux fichiers docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/
++6. verifier les job packets scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_*.json
++
++Contraintes:
++- doc-only
++- aucun secret
++- aucun .env
++- aucun global index
++- aucun write externe
++- aucun runtime
++- aucun push force sauf besoin explicite et force-with-lease
++
++Commit propose:
++docs: open patch zip execution format v2
++
++PR:
++Ouvrir une PR vers sot/mainline avec description:
++- spec PATCH_ZIP_EXECUTION_FORMAT_V2_01
++- patch-first
++- zip optional sidecar
++- OpenClaw E2E runbook
++- strict workers reuse
++- evidence contract
++```
+diff --git a/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/10_SESSION_CONTEXT_AND_DECISIONS.md b/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/10_SESSION_CONTEXT_AND_DECISIONS.md
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/10_SESSION_CONTEXT_AND_DECISIONS.md
+@@ -0,0 +1,81 @@
++---
++doc_id: GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_SESSION_CONTEXT_AND_DECISIONS
++doc_type: session_context
++repo: opt-trading
++project: opt-trading
++module: doc_ops
++go_id: GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01
++status: draft_canonical
++lifecycle_stage: opening
++surface: chantier
++source_kind: canonical
++updated_at: 2026-05-22
++topic_keys:
++  - session_context
++  - decisions
++  - patch
++  - zip
++---
++
++# 10_SESSION_CONTEXT_AND_DECISIONS
++
++## 1_MASTER_TARGET
++
++Documenter la session qui a conduit au format V2 `.patch` / `.zip`.
++
++## 2_SESSION_SUMMARY
++
++La session a demarre par une verification des souvenirs et de la matrice. Deux regles ont ete considerees importantes :
++
++- `PLAN_VALIDE_CHAIN` : plan valide -> target + master_target -> bundle + patch -> utilisateur depose patch -> IDE applique/valide/commit/push/PR/review -> evaluation target/master_target.
++- `GLOBAL_INDEX_RULE` : les index globaux changent seulement si master target, horizon ou statut global changent vraiment ; sinon parent local + inbox + target status.
++
++La discussion a ensuite clarifie que le `.patch` pouvait porter plus que du code : il peut aussi porter les docs, plans, prompts, job packets, checklists et directives destines au repo.
++
++## 3_DECISIONS_VALIDATED
++
++### Decision 1 — `.patch` principal
++
++Le `.patch` est l'artefact canonique d'execution Git.
++
++### Decision 2 — `.zip` optionnel
++
++Le `.zip` n'est pas produit par defaut. Il sert aux payloads lourds, temporaires ou hors repo.
++
++### Decision 3 — docs dans patch
++
++Si une documentation doit rester dans le repo, elle va dans le `.patch`.
++
++### Decision 4 — job graph dans patch
++
++Le `.patch` doit decrire les jobs a deleguer aux strict workers, workers externes et modeles forts.
++
++### Decision 5 — OpenClaw E2E
++
++OpenClaw doit pouvoir lire le patch et executer le chantier via runbook, preflight, gates et evidence.
++
++### Decision 6 — workers existants avant creation
++
++Avant de creer de nouveaux jobs, reutiliser les tasks existantes : READ_INVENTORY, FAST_TRIAGE, PATCH_DRAFT, DOC_DRAFT, TESTPLAN, CHERRY_PICK_INVENTORY, ENDPOINT_AUDIT, WRITE_GATED.
++
++### Decision 7 — app external workers sous contrat
++
++Airtable, ClickUp, Botpress, Sheets, Telegram, Gmail, Calendar, Drive, Figma et LocalCMS doivent etre utilises seulement selon les contrats existants.
++
++## 4_CORRECTIONS_DE_FORMULATION
++
++Formulation utilisateur convertie en regle operatoire :
++
++> Un patch de chantier doit contenir le plan final valide, le prompt de lancement, les steps operatoires, les jobs et workers a deleguer, les directives OpenClaw, les checklists, les preuves attendues, les gaps, le closeout cible et les job packets strict workers. Un zip sidecar peut accompagner le patch seulement pour les scripts lourds, payloads, logs, captures, prompts longs ou instructions humaines hors repo.
++
++## 5_INVARIANTS_DE_SESSION
++
++- Ne pas produire un zip par habitude.
++- Ne pas laisser les docs importantes hors Git.
++- Ne pas creer de couche worker parallele.
++- Ne pas utiliser un modele absent du registry.
++- Ne pas modifier les index globaux pour une ouverture locale.
++
++## 6_RESUME_POINT
++
++La prochaine action logique est d'appliquer ce patch d'ouverture, puis de tester le format V2 sur un chantier reel avec sidecar zip seulement si le besoin le justifie.
+diff --git a/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/20_OPENCLAW_E2E_RUNBOOK.md b/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/20_OPENCLAW_E2E_RUNBOOK.md
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/20_OPENCLAW_E2E_RUNBOOK.md
+@@ -0,0 +1,118 @@
++---
++doc_id: GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_OPENCLAW_E2E_RUNBOOK
++doc_type: runbook
++repo: opt-trading
++project: opt-trading
++module: openclaw
++go_id: GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01
++status: draft_canonical
++lifecycle_stage: opening
++surface: chantier
++source_kind: canonical
++updated_at: 2026-05-22
++topic_keys:
++  - openclaw
++  - e2e
++  - runbook
++  - gates
++  - evidence
++---
++
++# 20_OPENCLAW_E2E_RUNBOOK
++
++## 1_ROLE
++
++OpenClaw agit comme orchestrateur, gatekeeper et collecteur de preuves. Il ne contourne pas les gates et ne transforme pas un worker strict en agent write libre.
++
++## 2_INPUTS_REQUIRED
++
++- `GO_ID`: `GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01`
++- patch: `GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01.patch`
++- sidecar zip: absent pour ce GO
++- base branch: `sot/mainline`
++- work branch: `go/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01`
++- docs sources:
++  - `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
++  - `scripts/ai/workers/tasks.index.json`
++  - `scripts/ai/workers/models.registry.json`
++  - `docs/chantiers/GO_EXTERNAL_APPS_BRIDGE_CONTRACTS_01/20_BRIDGE_CONTRACTS.md`
++
++## 3_PREFLIGHT_GIT
++
++```bash
++git status --short --branch
++git fetch --prune origin
++git switch sot/mainline
++git pull --ff-only origin sot/mainline
++git switch -c go/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01
++```
++
++## 4_PREFLIGHT_POLICY
++
++Verifier :
++
++- aucun secret dans le patch ;
++- aucun `.env` ;
++- aucun token ;
++- aucun credential ;
++- aucun write externe ;
++- aucune modification runtime ;
++- aucune modification des index globaux ;
++- job packets compatibles avec tasks existantes ;
++- modeles references presents ou fallback explicite.
++
++## 5_PATCH_APPLICATION
++
++```bash
++git apply --check GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01.patch
++git apply GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01.patch
++git diff --check
++git status --short
++```
++
++## 6_JOB_GRAPH_EXECUTION
++
++Ordre recommande :
++
++1. `READ_INVENTORY` — confirmer fichiers ajoutes et contexte.
++2. `FAST_TRIAGE` — classer risques et gaps.
++3. `PATCH_DRAFT` — verifier diff attendu et coherences.
++4. `TESTPLAN` — produire plan test humain/CI.
++5. `DOC_DRAFT` — proposer closeout si target atteint.
++6. `ENDPOINT_AUDIT` — optionnel, verifier model registry si besoin.
++7. `WRITE_GATED` — uniquement si approbation humaine explicite.
++
++## 7_EXTERNAL_APP_WORKERS
++
++Pour ce GO d'ouverture, les apps externes restent `READ_ONLY_OR_SKIPPED`.
++
++- ClickUp : optionnel pour creation/suivi de tache, gate `human_approve`.
++- Telegram : optionnel pour notification, pas de rollback requis.
++- LocalCMS : optionnel pour affichage cockpit, gate selon contrat.
++- Drive/Gmail/Figma/Sheets/Airtable/Botpress/Calendar : non requis.
++
++## 8_EVIDENCE_REQUIRED
++
++- `git apply --check`: PASS
++- `git apply`: PASS
++- `git diff --check`: PASS
++- `git status --short`: liste attendue uniquement
++- JSON job packets parseables
++- aucun fichier interdit
++- aucun global index modifie
++- review humaine ou modele fort
++
++## 9_CLOSEOUT
++
++Closeout possible si :
++
++- la spec gouvernance existe ;
++- le dossier chantier existe ;
++- les job packets existent ;
++- l'entree inbox existe ;
++- le patch est applique sans erreur ;
++- aucun invariant n'est viole.
++
++## 10_VERDICT_TARGET
++
++Target attendue : `PASS_DOC_ONLY_OPENING_PATCH`.
+diff --git a/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/30_WORKER_JOB_GRAPH.md b/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/30_WORKER_JOB_GRAPH.md
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/30_WORKER_JOB_GRAPH.md
+@@ -0,0 +1,63 @@
++---
++doc_id: GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_WORKER_JOB_GRAPH
++doc_type: worker_job_graph
++repo: opt-trading
++project: opt-trading
++module: strict_workers
++go_id: GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01
++status: draft_canonical
++lifecycle_stage: opening
++surface: chantier
++source_kind: canonical
++updated_at: 2026-05-22
++topic_keys:
++  - workers
++  - job_graph
++  - strict_workers
++  - delegation
++---
++
++# 30_WORKER_JOB_GRAPH
++
++## 1_OBJECTIF
++
++Definir les jobs delegables pour ce chantier en reutilisant les tasks strict workers deja presentes.
++
++## 2_JOB_GRAPH
++
++| Ordre | job_id | task | autonomie | worker prefere | Gate | Output |
++| --- | --- | --- | --- | --- | --- | --- |
++| 01 | `GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_READ_INVENTORY_01` | `READ_INVENTORY` | A1 | `qwen3.5-plus` ou `deepseek-v4-flash-free` | none | `reports/ai/workers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_READ_INVENTORY_01.md` |
++| 02 | `GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_FAST_TRIAGE_01` | `FAST_TRIAGE` | A1 | `gpt-5-nano` ou `deepseek-v4-flash-free` | none | `reports/ai/workers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_FAST_TRIAGE_01.md` |
++| 03 | `GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_PATCH_DRAFT_01` | `PATCH_DRAFT` | A2 | `glm-5.1` ou `kimi-k2.6` | dry_run | `reports/ai/workers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_PATCH_DRAFT_01.md` |
++| 04 | `GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_TESTPLAN_01` | `TESTPLAN` | A2 | `qwen3.6-plus` ou `glm-5.1` | dry_run | `reports/ai/workers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_TESTPLAN_01.md` |
++| 05 | `GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_DOC_DRAFT_01` | `DOC_DRAFT` | A2 | `qwen3.5-plus` ou `minimax-m2.7` | dry_run | `reports/ai/workers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_DOC_DRAFT_01.md` |
++| 06 | `GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_ENDPOINT_AUDIT_01` | `ENDPOINT_AUDIT` | A1 | `qwen3.5-plus` | none | `reports/ai/workers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_ENDPOINT_AUDIT_01.md` |
++| 07 | `GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_WRITE_GATED_01` | `WRITE_GATED` | A4 | `glm-5.1` ou `qwen3.6-plus` | human_approve + dry_run | `reports/ai/workers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_WRITE_GATED_01.md` |
++
++## 3_DELEGATION_MODEL
++
++### Session forte
++
++- ChatGPT 5.5 Thinking : cadrage, arbitrage, patch final, evaluation target.
++- Claude Opus/Sonnet : review critique, coherence docs, checklist humaine.
++- GPT 5.5 IDE : application patch, validation locale, tests.
++
++### Strict workers
++
++- A1 : inventaire, triage, audit endpoint.
++- A2 : patch draft, doc draft, testplan.
++- A4 : write gated seulement avec validation humaine explicite.
++
++## 4_CREATION_DE_NOUVEAUX_JOBS
++
++Creation interdite par defaut. Autorisee seulement si :
++
++- aucune task existante ne couvre le besoin ;
++- le gap est documente ;
++- la nouvelle task respecte les invariants ;
++- le changement est isole dans un GO dedie strict workers.
++
++## 5_EVIDENCE_REF
++
++Chaque job doit produire un rapport sous `reports/ai/workers/` avec les sections requises par `tasks.index.json`.
+diff --git a/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/40_EXTERNAL_APPS_WORKERS.md b/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/40_EXTERNAL_APPS_WORKERS.md
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/40_EXTERNAL_APPS_WORKERS.md
+@@ -0,0 +1,71 @@
++---
++doc_id: GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_EXTERNAL_APPS_WORKERS
++doc_type: external_apps_workers
++repo: opt-trading
++project: opt-trading
++module: external_apps
++go_id: GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01
++status: draft_canonical
++lifecycle_stage: opening
++surface: chantier
++source_kind: canonical
++updated_at: 2026-05-22
++topic_keys:
++  - external_apps
++  - workers
++  - gates
++  - bridge_contracts
++---
++
++# 40_EXTERNAL_APPS_WORKERS
++
++## 1_ROLE
++
++Les apps externes sont des workers de surface, pas des sources souveraines de gouvernance.
++
++## 2_APPS_UTILISABLES
++
++| App | Usage possible | Gate | Statut pour ce GO |
++| --- | --- | --- | --- |
++| ClickUp | creer/suivre tache humaine | human_approve | OPTIONAL |
++| Telegram | notifier l'ouverture ou le resultat | none pour notification | OPTIONAL |
++| LocalCMS | afficher statut cockpit | human_approve selon action | OPTIONAL |
++| Airtable | inventaire leger | human_approve pour write | SKIP |
++| Google Sheets | export tableau | human_approve pour write | SKIP |
++| Gmail | rapport email | human_approve | SKIP |
++| Calendar | planification rappel | human_approve | SKIP |
++| Drive | stocker artefact | human_approve | SKIP |
++| Figma | commentaire/design | human_approve | SKIP |
++| Botpress | interface conversationnelle | human_approve | SKIP |
++
++## 3_CONTRACT_RULES
++
++Pour chaque app :
++
++- respecter allowed_reads ;
++- respecter allowed_writes ;
++- bloquer forbidden_actions ;
++- utiliser dry-run si defini ;
++- exiger approval_gate si defini ;
++- produire audit_log ;
++- definir rollback ou compensation ;
++- produire evidence_ref.
++
++## 4_APP_WORKER_OUTPUT
++
++Tout worker app externe doit produire :
++
++```yaml
++app_id: <app>
++action: <read|write|notify|skip>
++gate: <none|dry_run|human_approve|dual_confirm>
++input_ref: <path or id>
++output_ref: <path or id>
++evidence_ref: <path or url>
++rollback_ref: <path or procedure>
++status: <SKIPPED|DRY_RUN_PASS|PASS|BLOCKED>
++```
++
++## 5_VERDICT_FOR_THIS_GO
++
++Aucune app externe n'est requise pour appliquer ce patch. Les apps peuvent etre utilisees seulement pour suivi ou notification, avec gates appropries.
+diff --git a/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/50_EVIDENCE_CONTRACT.md b/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/50_EVIDENCE_CONTRACT.md
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/50_EVIDENCE_CONTRACT.md
+@@ -0,0 +1,80 @@
++---
++doc_id: GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_EVIDENCE_CONTRACT
++doc_type: evidence_contract
++repo: opt-trading
++project: opt-trading
++module: validation
++go_id: GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01
++status: draft_canonical
++lifecycle_stage: opening
++surface: chantier
++source_kind: canonical
++updated_at: 2026-05-22
++topic_keys:
++  - evidence
++  - validation
++  - checklist
++  - proof
++---
++
++# 50_EVIDENCE_CONTRACT
++
++## 1_REQUIRED_EVIDENCE
++
++| Evidence | Commande / source | Critere PASS |
++| --- | --- | --- |
++| Git preflight | `git status --short --branch` | branche claire, pas de pollution hors scope |
++| Base synced | `git fetch --prune origin` + `git pull --ff-only` | base a jour |
++| Patch check | `git apply --check GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01.patch` | exit 0 |
++| Patch apply | `git apply GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01.patch` | exit 0 |
++| Whitespace | `git diff --check` | exit 0 |
++| JSON parse | `python -m json.tool scripts/ai/workers/job_packets/*.json` | exit 0 pour fichiers du GO |
++| Scope | `git diff --name-only` | seulement fichiers attendus |
++| Global index guard | inspection diff | aucun global index modifie |
++| Secret guard | grep / scanner local | aucun secret / token / .env |
++| Review | humain ou modele fort | no blocking finding |
++
++## 2_EXPECTED_FILES
++
++```text
++docs/governance/PATCH_ZIP_EXECUTION_FORMAT_V2_01.md
++docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/00_INITIAL_PROJECT_DOC.md
++docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/05_LAUNCH_PROMPT.md
++docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/10_SESSION_CONTEXT_AND_DECISIONS.md
++docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/20_OPENCLAW_E2E_RUNBOOK.md
++docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/30_WORKER_JOB_GRAPH.md
++docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/40_EXTERNAL_APPS_WORKERS.md
++docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/50_EVIDENCE_CONTRACT.md
++docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/60_HUMAN_CLAUDE_COWORK_CHECKLIST.md
++docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/70_TARGET_STATUS_GAPS_CLOSEOUT.md
++docs/index/inbox/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01.md
++scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_READ_INVENTORY_01.json
++scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_FAST_TRIAGE_01.json
++scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_PATCH_DRAFT_01.json
++scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_TESTPLAN_01.json
++scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_DOC_DRAFT_01.json
++scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_ENDPOINT_AUDIT_01.json
++scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_WRITE_GATED_01.json
++```
++
++## 3_FORBIDDEN_EVIDENCE
++
++Ne jamais inclure comme preuve :
++
++- `.env` ;
++- token ;
++- credential ;
++- cle privee ;
++- dump complet sensible ;
++- capture contenant secret ;
++- log contenant token.
++
++## 4_CLOSEOUT_EVIDENCE
++
++Closeout acceptable si :
++
++- patch applique ;
++- tous fichiers attendus presents ;
++- checks PASS ;
++- PR ouverte ou commit local documente ;
++- aucun invariant viole.
+diff --git a/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/60_HUMAN_CLAUDE_COWORK_CHECKLIST.md b/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/60_HUMAN_CLAUDE_COWORK_CHECKLIST.md
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/60_HUMAN_CLAUDE_COWORK_CHECKLIST.md
+@@ -0,0 +1,86 @@
++---
++doc_id: GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_HUMAN_CLAUDE_COWORK_CHECKLIST
++doc_type: human_checklist
++repo: opt-trading
++project: opt-trading
++module: operations
++go_id: GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01
++status: draft_canonical
++lifecycle_stage: opening
++surface: chantier
++source_kind: canonical
++updated_at: 2026-05-22
++topic_keys:
++  - human
++  - claude_cowork
++  - checklist
++  - pc_control
++---
++
++# 60_HUMAN_CLAUDE_COWORK_CHECKLIST
++
++## 1_ROLE
++
++Cette checklist sert si un assistant coworker ou un humain prend le controle du PC pour appliquer ou verifier le patch.
++
++## 2_NAVIGATION
++
++- Ouvrir terminal dans la racine du repo `opt-trading`.
++- Verifier la branche.
++- Copier le patch a la racine.
++- Executer les commandes de preflight.
++- Appliquer le patch seulement apres `git apply --check` PASS.
++
++## 3_ACTIONS_TERMINAL
++
++```bash
++git status --short --branch
++git fetch --prune origin
++git switch sot/mainline
++git pull --ff-only origin sot/mainline
++git switch -c go/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01
++git apply --check GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01.patch
++git apply GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01.patch
++git diff --check
++git status --short
++```
++
++## 4_UI_CHECKS
++
++- Verifier visuellement le dossier `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/`.
++- Verifier que les fichiers `.json` sont sous `scripts/ai/workers/job_packets/`.
++- Verifier qu'aucun fichier secret n'a ete cree.
++- Verifier qu'aucun index global n'a ete modifie.
++
++## 5_HUMAN_APPROVAL
++
++Avant commit, confirmer :
++
++- [ ] Le patch ouvre seulement le chantier V2.
++- [ ] Aucun runtime n'est touche.
++- [ ] Aucun secret n'est present.
++- [ ] Aucun global index n'est modifie.
++- [ ] Les docs sont coherentes.
++- [ ] Les job packets sont DRAFT_ONLY.
++
++## 6_COMMIT_AND_PR
++
++```bash
++git add docs/governance/PATCH_ZIP_EXECUTION_FORMAT_V2_01.md   docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01   docs/index/inbox/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01.md   scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_*.json
++
++git commit -m "docs: open patch zip execution format v2"
++git push -u origin go/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01
++```
++
++Ouvrir PR vers `sot/mainline`.
++
++## 7_STOP_CONDITIONS
++
++Stop immediat si :
++
++- `git apply --check` echoue ;
++- des fichiers hors scope apparaissent ;
++- un secret est detecte ;
++- un global index est modifie ;
++- un write externe est demande ;
++- la branche de base n'est pas a jour.
+diff --git a/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/70_TARGET_STATUS_GAPS_CLOSEOUT.md b/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/70_TARGET_STATUS_GAPS_CLOSEOUT.md
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/70_TARGET_STATUS_GAPS_CLOSEOUT.md
+@@ -0,0 +1,60 @@
++---
++doc_id: GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_TARGET_STATUS_GAPS_CLOSEOUT
++doc_type: target_status
++repo: opt-trading
++project: opt-trading
++module: doc_ops
++go_id: GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01
++status: draft_canonical
++lifecycle_stage: opening
++surface: chantier
++source_kind: canonical
++updated_at: 2026-05-22
++topic_keys:
++  - target_status
++  - gaps
++  - closeout
++---
++
++# 70_TARGET_STATUS_GAPS_CLOSEOUT
++
++## 6_FINAL_TARGET
++
++Formaliser le format V2 `.patch` / `.zip` et ouvrir le chantier avec documentation complete.
++
++## TARGET_STATUS
++
++| Target | Status | Evidence |
++| --- | --- | --- |
++| Regle gouvernance V2 | READY_IN_PATCH | `docs/governance/PATCH_ZIP_EXECUTION_FORMAT_V2_01.md` |
++| Dossier chantier | READY_IN_PATCH | `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/` |
++| Runbook OpenClaw | READY_IN_PATCH | `20_OPENCLAW_E2E_RUNBOOK.md` |
++| Job graph | READY_IN_PATCH | `30_WORKER_JOB_GRAPH.md` |
++| External apps workers | READY_IN_PATCH | `40_EXTERNAL_APPS_WORKERS.md` |
++| Evidence contract | READY_IN_PATCH | `50_EVIDENCE_CONTRACT.md` |
++| Human checklist | READY_IN_PATCH | `60_HUMAN_CLAUDE_COWORK_CHECKLIST.md` |
++| Job packets | READY_IN_PATCH | `scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_*.json` |
++| Global index modification | NOT_REQUIRED | inbox locale seulement |
++
++## 15_REMAINING_GAP
++
++- Le patch doit etre applique localement.
++- Les job packets doivent etre valides contre le runner reel si disponible.
++- Un GO futur doit tester un vrai sidecar `.zip`.
++- Un GO futur peut ajouter une validation CI dediee si les job packets V2 deviennent standards.
++
++## CLOSEOUT_CRITERIA
++
++Closeout `PASS` si :
++
++- patch applique ;
++- PR mergee ou commit local documente ;
++- checks PASS ;
++- aucun invariant viole ;
++- la spec V2 est acceptee comme reference.
++
++## NEXT_GO_CANDIDATE
++
++`GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_SIDEcar_SMOKE_01`
++
++But : tester un vrai sidecar zip avec scripts temporaires, logs et preuves externes, sans polluer Git.
+diff --git a/docs/index/inbox/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01.md b/docs/index/inbox/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01.md
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/docs/index/inbox/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01.md
+@@ -0,0 +1,24 @@
++---
++doc_id: GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_INBOX
++repo: opt-trading
++project: opt-trading
++go_id: GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01
++status: draft_canonical
++lifecycle_stage: opening
++surface: index_inbox
++source_kind: canonical
++updated_at: 2026-05-22
++topic_keys:
++  - inbox
++  - patch_zip_format
++  - doc_ops
++links:
++  - docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/00_INITIAL_PROJECT_DOC.md
++  - docs/governance/PATCH_ZIP_EXECUTION_FORMAT_V2_01.md
++---
++
++# GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01
++
++Ouverture locale d'un chantier doc-ops pour formaliser le format V2 des artefacts `.patch` / `.zip` : patch canonique autoporteur, zip sidecar optionnel, runbook OpenClaw end-to-end, reutilisation maximale des strict workers, workers app externes sous contrat et evidence contract.
++
++Index globaux non modifies dans ce lot.
+diff --git a/scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_READ_INVENTORY_01.json b/scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_READ_INVENTORY_01.json
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_READ_INVENTORY_01.json
+@@ -0,0 +1,29 @@
++{
++  "schema_version": "0.3-draft",
++  "go_id": "GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01",
++  "job_id": "GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_READ_INVENTORY_01",
++  "task": "READ_INVENTORY",
++  "autonomy": "A1",
++  "preferred_worker": "qwen3.5-plus",
++  "inputs": [
++    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/00_INITIAL_PROJECT_DOC.md",
++    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/20_OPENCLAW_E2E_RUNBOOK.md",
++    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/30_WORKER_JOB_GRAPH.md"
++  ],
++  "outputs": [
++    "reports/ai/workers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_READ_INVENTORY_01.md"
++  ],
++  "required_sections": [
++    "13_ESTABLISHED",
++    "14_HYPOTHESIS",
++    "15_REMAINING_GAP",
++    "16_TODO",
++    "FICHIERS_LUS",
++    "RISQUES",
++    "VERDICT_DRAFT_ONLY"
++  ],
++  "gate": "none",
++  "write_allowed": false,
++  "evidence_required": true,
++  "status": "DRAFT_ONLY"
++}
+diff --git a/scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_FAST_TRIAGE_01.json b/scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_FAST_TRIAGE_01.json
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_FAST_TRIAGE_01.json
+@@ -0,0 +1,27 @@
++{
++  "schema_version": "0.3-draft",
++  "go_id": "GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01",
++  "job_id": "GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_FAST_TRIAGE_01",
++  "task": "FAST_TRIAGE",
++  "autonomy": "A1",
++  "preferred_worker": "deepseek-v4-flash-free",
++  "inputs": [
++    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/00_INITIAL_PROJECT_DOC.md",
++    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/20_OPENCLAW_E2E_RUNBOOK.md",
++    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/30_WORKER_JOB_GRAPH.md"
++  ],
++  "outputs": [
++    "reports/ai/workers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_FAST_TRIAGE_01.md"
++  ],
++  "required_sections": [
++    "RESUME",
++    "CLASSEMENT",
++    "RISQUES",
++    "TODO",
++    "VERDICT_DRAFT_ONLY"
++  ],
++  "gate": "none",
++  "write_allowed": false,
++  "evidence_required": true,
++  "status": "DRAFT_ONLY"
++}
+diff --git a/scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_PATCH_DRAFT_01.json b/scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_PATCH_DRAFT_01.json
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_PATCH_DRAFT_01.json
+@@ -0,0 +1,28 @@
++{
++  "schema_version": "0.3-draft",
++  "go_id": "GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01",
++  "job_id": "GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_PATCH_DRAFT_01",
++  "task": "PATCH_DRAFT",
++  "autonomy": "A2",
++  "preferred_worker": "glm-5.1",
++  "inputs": [
++    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/00_INITIAL_PROJECT_DOC.md",
++    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/20_OPENCLAW_E2E_RUNBOOK.md",
++    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/30_WORKER_JOB_GRAPH.md"
++  ],
++  "outputs": [
++    "reports/ai/workers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_PATCH_DRAFT_01.md"
++  ],
++  "required_sections": [
++    "OBJECTIF_PATCH",
++    "FICHIERS_TOUCHES",
++    "DIFF_ATTENDU",
++    "RISQUES",
++    "TESTS_A_EXECUTER",
++    "VERDICT_DRAFT_ONLY"
++  ],
++  "gate": "dry_run",
++  "write_allowed": false,
++  "evidence_required": true,
++  "status": "DRAFT_ONLY"
++}
+diff --git a/scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_TESTPLAN_01.json b/scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_TESTPLAN_01.json
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_TESTPLAN_01.json
+@@ -0,0 +1,28 @@
++{
++  "schema_version": "0.3-draft",
++  "go_id": "GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01",
++  "job_id": "GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_TESTPLAN_01",
++  "task": "TESTPLAN",
++  "autonomy": "A2",
++  "preferred_worker": "qwen3.6-plus",
++  "inputs": [
++    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/00_INITIAL_PROJECT_DOC.md",
++    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/20_OPENCLAW_E2E_RUNBOOK.md",
++    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/30_WORKER_JOB_GRAPH.md"
++  ],
++  "outputs": [
++    "reports/ai/workers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_TESTPLAN_01.md"
++  ],
++  "required_sections": [
++    "TESTS_UNITAIRES",
++    "TESTS_SMOKE",
++    "COMMANDES",
++    "CRITERES_PASS_FAIL",
++    "RISQUES_RESTANTS",
++    "VERDICT_DRAFT_ONLY"
++  ],
++  "gate": "dry_run",
++  "write_allowed": false,
++  "evidence_required": true,
++  "status": "DRAFT_ONLY"
++}
+diff --git a/scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_DOC_DRAFT_01.json b/scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_DOC_DRAFT_01.json
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_DOC_DRAFT_01.json
+@@ -0,0 +1,29 @@
++{
++  "schema_version": "0.3-draft",
++  "go_id": "GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01",
++  "job_id": "GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_DOC_DRAFT_01",
++  "task": "DOC_DRAFT",
++  "autonomy": "A2",
++  "preferred_worker": "qwen3.5-plus",
++  "inputs": [
++    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/00_INITIAL_PROJECT_DOC.md",
++    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/20_OPENCLAW_E2E_RUNBOOK.md",
++    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/30_WORKER_JOB_GRAPH.md"
++  ],
++  "outputs": [
++    "reports/ai/workers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_DOC_DRAFT_01.md"
++  ],
++  "required_sections": [
++    "CONTEXTE",
++    "ETAT_INITIAL",
++    "CHANGEMENTS",
++    "VALIDATIONS",
++    "LIMITES",
++    "POINT_DE_REPRISE",
++    "VERDICT_DRAFT_ONLY"
++  ],
++  "gate": "dry_run",
++  "write_allowed": false,
++  "evidence_required": true,
++  "status": "DRAFT_ONLY"
++}
+diff --git a/scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_ENDPOINT_AUDIT_01.json b/scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_ENDPOINT_AUDIT_01.json
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_ENDPOINT_AUDIT_01.json
+@@ -0,0 +1,29 @@
++{
++  "schema_version": "0.3-draft",
++  "go_id": "GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01",
++  "job_id": "GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_ENDPOINT_AUDIT_01",
++  "task": "ENDPOINT_AUDIT",
++  "autonomy": "A1",
++  "preferred_worker": "qwen3.5-plus",
++  "inputs": [
++    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/00_INITIAL_PROJECT_DOC.md",
++    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/20_OPENCLAW_E2E_RUNBOOK.md",
++    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/30_WORKER_JOB_GRAPH.md"
++  ],
++  "outputs": [
++    "reports/ai/workers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_ENDPOINT_AUDIT_01.md"
++  ],
++  "required_sections": [
++    "ENDPOINT_CONSULTE",
++    "MODELES_TROUVES",
++    "COMPARAISON_REGISTRY",
++    "AJOUTS",
++    "RETRAITS",
++    "RECOMMANDATIONS",
++    "VERDICT_DRAFT_ONLY"
++  ],
++  "gate": "none",
++  "write_allowed": false,
++  "evidence_required": true,
++  "status": "DRAFT_ONLY"
++}
+diff --git a/scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_WRITE_GATED_01.json b/scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_WRITE_GATED_01.json
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/scripts/ai/workers/job_packets/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_WRITE_GATED_01.json
+@@ -0,0 +1,30 @@
++{
++  "schema_version": "0.3-draft",
++  "go_id": "GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01",
++  "job_id": "GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_WRITE_GATED_01",
++  "task": "WRITE_GATED",
++  "autonomy": "A4",
++  "preferred_worker": "glm-5.1",
++  "inputs": [
++    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/00_INITIAL_PROJECT_DOC.md",
++    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/20_OPENCLAW_E2E_RUNBOOK.md",
++    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/30_WORKER_JOB_GRAPH.md"
++  ],
++  "outputs": [
++    "reports/ai/workers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_WRITE_GATED_01.md"
++  ],
++  "required_sections": [
++    "13_ESTABLISHED",
++    "14_HYPOTHESIS",
++    "WRITE_PLAN",
++    "WRITE_DIFF_ATTENDU",
++    "VALIDATION_EXTERNE",
++    "DRY_RUN_RESULT",
++    "RISQUES",
++    "VERDICT_WRITE_GATED"
++  ],
++  "gate": "human_approve+dry_run",
++  "write_allowed": false,
++  "evidence_required": true,
++  "status": "DRAFT_ONLY"
++}
