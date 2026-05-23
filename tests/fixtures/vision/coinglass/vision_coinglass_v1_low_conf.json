@@ -1,0 +1,30 @@
+{
+  "contract_version": "v1",
+  "input_class": "vision_context.coinglass.v1",
+  "source_id": "coinglass_headless_bot",
+  "screenshot_ts": "2026-05-23T06:00:00Z",
+  "symbol": "BTCUSDT",
+  "timeframe": "1H",
+  "board": "liquidations",
+  "page": "liquidation_heatmap",
+  "freshness_state": "fresh",
+  "detections": [
+    {
+      "detected_metric_type": "liquidations_long",
+      "extracted_value": null,
+      "unit": "USD",
+      "confidence": 0.35,
+      "evidence_ref": "data/vision/coinglass/raw/screenshot_20260523_060000.png",
+      "notes": "Low confidence — value unreadable"
+    }
+  ],
+  "warnings": [
+    "liquidations_long: confidence 0.35 < 0.5 — value set to null"
+  ],
+  "refs": {
+    "raw_screenshot": "data/vision/coinglass/raw/screenshot_20260523_060000.png",
+    "normalized": "data/vision/coinglass/normalized/vision_20260523_060000.json",
+    "latest": "data/vision/coinglass/latest.json",
+    "events": "data/vision/coinglass/events.jsonl"
+  }
+}
