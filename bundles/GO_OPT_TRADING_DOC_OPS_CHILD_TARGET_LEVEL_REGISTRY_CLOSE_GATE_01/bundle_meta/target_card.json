@@ -2,6 +2,7 @@
   "go_id": "GO_OPT_TRADING_DOC_OPS_CHILD_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01",
   "target_id": "TARGET_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01",
   "master_target_id": "MASTER_TARGET_TARGET_LEVEL_REGISTRY_STANDARDIZED_01",
+  "master_target_description": "Matrice canonique utilisable pour empêcher la fermeture prématurée des chantiers parents — produit final documentaire opérationnel et vérifiable",
   "status": "transport_prepared",
   "repo": "opt-trading",
   "surface": "docs/governance",
@@ -20,5 +21,6 @@
   "patch_expected": true,
   "patch_location": "bundles/GO_OPT_TRADING_DOC_OPS_CHILD_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01/patches/<YYYYMMDD>_GO_OPT_TRADING_DOC_OPS_CHILD_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01_target_level_registry.patch",
   "zip_role": "none",
+  "zip_role_justification": "GO doc-only appliqué directement via GitHub, sans transport IDE/manuel nécessaire. Le patch canonique suffit comme artefact d'échange Git.",
   "created_at": "2026-05-23"
 }
