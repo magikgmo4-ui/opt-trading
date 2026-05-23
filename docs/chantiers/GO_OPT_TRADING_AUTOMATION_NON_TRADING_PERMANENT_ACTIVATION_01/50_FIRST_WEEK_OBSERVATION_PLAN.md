@@ -49,26 +49,42 @@ Soir :
 - [ ] Vérifier aucun timer non autorisé actif
 ```
 
-## J6 — Activation Phase 3 (+2 timers, Drive canary manuel)
+## J6 — Activation Phase 3A (+2 timers registry)
 
 ```text
 Matin :
-- [ ] Activer timers Phase 3
+- [ ] Activer timers Phase 3A
+- [ ] Vérifier systemd --user status
 - [ ] Exécuter Drive canary manuellement (première fois)
 - [ ] Vérifier readback
 - [ ] Vérifier ledger event
 - [ ] Compensation HITL du fichier canary
 
 Soir :
+- [ ] Gate : PASS → Phase 3B ? (Oui/Non)
+```
+
+## J7 — Activation Phase 3B (+5 timers external apps READ_ONLY)
+
+```text
+Matin :
+- [ ] Activer timers Phase 3B (airtable-health, clickup-health, botpress-health, sheets-health, telegram-digest)
+- [ ] Vérifier systemd --user status
+- [ ] Exécuter un canary write-gated externe manuellement (airtable ou sheets, première fois)
+- [ ] Vérifier readback
+- [ ] Vérifier ledger event
+
+Soir :
 - [ ] Gate finale : activation complète validée ?
 ```
 
-## J7 — Bilan semaine
+## J8 — Bilan semaine
 
 ```text
 - [ ] Résumé : timers actifs, jobs exécutés, PASS/FAIL/WARN
 - [ ] Vérifier aucun accès Gmail/Calendar/trading
 - [ ] Vérifier kill switch fonctionnel
+- [ ] Vérifier aucun write externe autonome non autorisé
 - [ ] Documenter leçons apprises
 - [ ] Décision : continuer / ajuster / rollback
 ```

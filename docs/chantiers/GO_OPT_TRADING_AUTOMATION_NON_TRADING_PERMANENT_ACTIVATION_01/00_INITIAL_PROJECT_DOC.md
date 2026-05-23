@@ -36,7 +36,7 @@ Activer uniquement les jobs non-trading déjà prouvés, avec scheduler contrôl
 - Aucun secret dans les logs
 - Rollback documenté et testé
 
-## Jobs autorisés
+## Jobs autorisés (READ_ONLY schedulés)
 
 - repo-status-check
 - repo-diff-check
@@ -50,7 +50,19 @@ Activer uniquement les jobs non-trading déjà prouvés, avec scheduler contrôl
 - bridge-contract-validation
 - hitl-scenarios-smoke
 - localcms-status-sync
-- Drive canary packet (WRITE_GATED / manual approve only)
+- airtable-read-health
+- clickup-read-health
+- botpress-read-health
+- sheets-read-health
+- telegram-automation-digest
+
+## Jobs autorisés (WRITE_GATED manuel seulement)
+
+- Drive canary packet
+- airtable-write-canary
+- clickup-write-canary
+- botpress-write-canary
+- sheets-write-canary
 
 ## Périmètre interdit
 
@@ -60,3 +72,4 @@ Activer uniquement les jobs non-trading déjà prouvés, avec scheduler contrôl
 - Broker/exchange/order
 - Write externe autonome
 - Scheduler permanent sur write-gated sans approval
+- Modification de données externes sans HITL

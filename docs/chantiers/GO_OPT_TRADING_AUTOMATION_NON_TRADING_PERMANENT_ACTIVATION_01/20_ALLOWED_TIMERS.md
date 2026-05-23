@@ -15,26 +15,38 @@
 | non-trading-capability-validate | capability-matrix-validate | 24 h | systemd timer | Oui |
 | non-trading-bridge-validate | bridge-contract-validation | 24 h | systemd timer | Oui |
 | non-trading-localcms-sync | localcms-status-sync | 5 min | systemd timer | Oui |
+| non-trading-airtable-health | airtable-read-health | 30 min | systemd timer | Oui |
+| non-trading-clickup-health | clickup-read-health | 30 min | systemd timer | Oui |
+| non-trading-botpress-health | botpress-read-health | 30 min | systemd timer | Oui |
+| non-trading-sheets-health | sheets-read-health | 30 min | systemd timer | Oui |
+| non-trading-telegram-digest | telegram-automation-digest | 1 h | systemd timer | Oui |
 
-## Timers WRITE_GATED (manuel seulement)
+## Jobs WRITE_GATED (manuel seulement, aucun timer permanent)
 
-| Job | Déclencheur |
-|-----|------------|
-| Drive canary packet | HITL manuel via `systemctl --user start non-trading-drive-canary` |
+| Job | Surface | Déclencheur |
+|-----|---------|------------|
+| Drive canary packet | drive | HITL manuel via `systemctl --user start non-trading-drive-canary` |
+| airtable-write-canary | airtable | HITL manuel |
+| clickup-write-canary | clickup | HITL manuel |
+| botpress-write-canary | botpress | HITL manuel |
+| sheets-write-canary | google_sheets | HITL manuel |
 
 ## Activation progressive
 
 ```
-Phase 1 : 5 timers lecture seule (repo-status, ledger-heartbeat, health-status, localcms-sync, strict-worker-smoke)
+Phase 1 : 5 timers READ_ONLY core (repo-status, ledger-heartbeat, health-status, localcms-sync, strict-worker-smoke)
 → 24h d'observation
 → Si PASS : Phase 2
 
-Phase 2 : +4 timers (repo-diff, repo-pr-audit, ledger-replay, anti-leak)
+Phase 2 : +4 timers READ_ONLY core (repo-diff, repo-pr-audit, ledger-replay, anti-leak)
 → 48h d'observation
 → Si PASS : Phase 3
 
-Phase 3 : +2 timers (capability-validate, bridge-validate)
-→ Drive canary en manuel uniquement
+Phase 3A : +2 timers READ_ONLY registry (capability-validate, bridge-validate)
+→ Si PASS : Phase 3B
+
+Phase 3B : +5 timers READ_ONLY external apps (airtable-health, clickup-health, botpress-health, sheets-health, telegram-digest)
+→ Drive canary + write canaries externes en manuel uniquement (aucun timer permanent)
 → Activation complète
 ```
 
