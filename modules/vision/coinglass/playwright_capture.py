@@ -11,6 +11,16 @@ logger = logging.getLogger(__name__)
 _DEFAULT_VIEWPORT = {"width": 1440, "height": 900}
 _DEFAULT_WAIT_MS = 4000
 _GOTO_TIMEOUT_MS = 30_000
+_USER_AGENT = (
+    "Mozilla/5.0 (X11; Linux x86_64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/124.0.0.0 Safari/537.36"
+)
+_LAUNCH_ARGS = [
+    "--disable-blink-features=AutomationControlled",
+    "--no-sandbox",
+    "--disable-dev-shm-usage",
+]
 
 
 def make_playwright_browser_fn(
@@ -37,14 +47,16 @@ def make_playwright_browser_fn(
         dest = dest_dir / f"screenshot_{tag}.png"
         logger.info("playwright: opening %s", url)
         with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
+            browser = p.chromium.launch(headless=True, args=_LAUNCH_ARGS)
             try:
-                page = browser.new_page(viewport=vp)
+                ctx = browser.new_context(viewport=vp, user_agent=_USER_AGENT)
+                page = ctx.new_page()
                 page.goto(url, wait_until="networkidle", timeout=_GOTO_TIMEOUT_MS)
                 page.wait_for_timeout(wait_ms)
                 page.screenshot(path=str(dest), full_page=False)
                 logger.info("playwright: screenshot written %s (%d bytes)", dest, dest.stat().st_size)
             finally:
+                ctx.close()
                 browser.close()
         return dest
 

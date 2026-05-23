@@ -8,7 +8,7 @@ from typing import Callable
 
 logger = logging.getLogger(__name__)
 
-COINGLASS_LIQUIDATIONS_URL = "https://www.coinglass.com/LiquidationData"
+COINGLASS_LIQUIDATIONS_URL = "https://www.coinglass.com/liquidations"
 
 RAW_DIR = Path("data/vision/coinglass/raw")
 

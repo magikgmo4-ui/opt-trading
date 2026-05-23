@@ -28,10 +28,10 @@ Stack complète mergée sur sot/mainline :
 ## RUNS_EFFECTUÉS
 
 ```yaml
-runs_effectués: 0
+runs_effectués: 1
 runs_pass: 0
-runs_fail: 0
-dernier_run: ~
+runs_fail: 1
+dernier_run: "2026-05-23T10:26:57Z"
 validate_ok: false
 desk_pro_ok: ~
 ```
@@ -40,8 +40,32 @@ desk_pro_ok: ~
 
 ## BLOCAGES_RENCONTRÉS
 
+### BLOCAGE_1 — URL obsolète + bot detection (2026-05-23)
+
 ```text
-[à remplir si interruption]
+Symptôme :
+  Run 1 → screenshot 10KB → 404 Not Found nginx
+  AI extraction : 0 detections (page vide)
+
+Cause 1 — URL obsolète :
+  modules/vision/coinglass/headless_capture.py hardcode :
+    COINGLASS_LIQUIDATIONS_URL = "https://www.coinglass.com/LiquidationData"
+  Coinglass a déplacé cette page :
+    301 → https://www.coinglass.com/liquidations
+  Curl (-L) confirme HTTP/2 200 sur /liquidations.
+
+Cause 2 — Bot detection CloudFront :
+  Playwright (headless Chromium) reçoit 404 après le redirect.
+  curl avec ou sans User-Agent reçoit HTTP 200.
+  CloudFront détecte le headless browser et sert une page 404.
+
+Impact :
+  Abort criterion met : Playwright ne peut pas charger coinglass.com.
+
+Fix requis :
+  1. Mettre à jour COINGLASS_LIQUIDATIONS_URL → /liquidations dans headless_capture.py
+  2. Ajouter args anti-détection dans playwright_capture.py (--disable-blink-features=AutomationControlled, user-agent réel)
+  3. Valider que la page charge correctement avant relancer les 3 runs
 ```
 
 ---
@@ -49,7 +73,9 @@ desk_pro_ok: ~
 ## PROCHAINE_ACTION
 
 ```text
-Démarrer les 3 runs staging selon 10_RUNBOOK_STAGING.md.
-Remplir 20_RUN_EVIDENCE.md au fil des runs.
-Remplir 30_ACCEPTANCE_REPORT.md après --validate PASS.
+1. Merger patch URL + anti-bot Playwright (child GO ou PR standalone)
+2. Vérifier capture test isolé : python -c "from modules.vision.coinglass.playwright_capture import ..."
+3. Relancer les 3 runs staging selon 10_RUNBOOK_STAGING.md
+4. Remplir 20_RUN_EVIDENCE.md au fil des runs
+5. Remplir 30_ACCEPTANCE_REPORT.md après --validate PASS
 ```
