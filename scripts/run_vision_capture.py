@@ -32,6 +32,7 @@ from modules.vision.coinglass.ai_extraction import make_ai_extraction_fn
 from modules.vision.coinglass.playwright_capture import make_playwright_browser_fn
 from modules.vision.coinglass.runner import run_capture
 from modules.vision.coinglass.staging_validator import validate_staging_runs
+from modules.vision.coinglass.telegram_sender import send_vision_summary
 
 _LOG_LEVEL = os.environ.get("LOG_LEVEL", "INFO").upper()
 logging.basicConfig(level=_LOG_LEVEL, format="%(asctime)s %(levelname)s %(name)s — %(message)s")
@@ -56,6 +57,9 @@ def cmd_capture(args: argparse.Namespace) -> int:
         "capture DONE — %d detections, freshness=%s",
         len(ctx.detections), ctx.freshness_state,
     )
+    if args.send:
+        sent = send_vision_summary()
+        logger.info("telegram send: %s", "OK" if sent else "SKIPPED/FAILED")
     return 0
 
 
@@ -74,6 +78,7 @@ def main() -> int:
 
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--validate", action="store_true", help="validate staging runs instead of capturing")
+    parser.add_argument("--send", action="store_true", help="send Telegram summary after capture")
     parser.add_argument("--required", type=int, default=3, help="consecutive PASS runs required (default: 3)")
     parser.add_argument("--symbol", default="BTCUSDT")
     parser.add_argument("--timeframe", default="1H")
