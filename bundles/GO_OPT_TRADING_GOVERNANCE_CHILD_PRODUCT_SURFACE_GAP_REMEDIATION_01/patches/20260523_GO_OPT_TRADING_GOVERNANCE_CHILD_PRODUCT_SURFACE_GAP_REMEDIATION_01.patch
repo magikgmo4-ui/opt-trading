@@ -1,0 +1,48 @@
+# Canonical patch — GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_GAP_REMEDIATION_01
+
+Source PR: https://github.com/magikgmo4-ui/opt-trading/pull/732
+Base: sot/mainline after PR #729 merge
+Mode: doc-only direct Git application
+Zip role: none
+
+This patch archives the intended diff for the product final surface remediation bundle.
+
+## Changed files
+
+- docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md
+- docs/chantiers/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_GAP_REMEDIATION_01/00_INITIAL_PROJECT_DOC.md
+- docs/index/inbox/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_GAP_REMEDIATION_01.md
+- bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_GAP_REMEDIATION_01/README_BUNDLE.md
+- bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_GAP_REMEDIATION_01/TARGETS.md
+- bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_GAP_REMEDIATION_01/bundle_meta/target_card.json
+
+## Summary
+
+- Applies validated `matrix_plan_target` / `master_plan_target` remediation.
+- Adds `PF_DATA_CENTER` as normalized data registry product surface.
+- Distinguishes `PF_TELEGRAM_SCREENER` from `PF_TELEGRAM_INGESTION`.
+- Distinguishes `PF_OPENCLAW_ORCHESTRATOR_FULL` from `PF_OPERATOR_RUNTIME`.
+- Replaces vague product reading with `PF_* -> 1_MASTER_TARGET -> 4_MASTER_PROJECT_PLAN -> 6_FINAL_TARGET -> BUNDLE_TARGET -> GO_ID`.
+- Keeps Webhook, router, gates, dispatchers, executors, collectors, machines and governance as supports unless explicitly promoted.
+- Closes no parent.
+
+## Canonical target chain
+
+```text
+PF_* -> 1_MASTER_TARGET -> 4_MASTER_PROJECT_PLAN -> 6_FINAL_TARGET -> BUNDLE_TARGET -> GO_ID -> NEXT_GO / CLOSE_GATE
+```
+
+## Validation checklist
+
+```text
+PF_DATA_CENTER present
+PF_TELEGRAM_SCREENER present
+PF_TELEGRAM_INGESTION present
+PF_OPENCLAW_ORCHESTRATOR_FULL present
+PF_OPERATOR_RUNTIME present
+PF_STRATEGY_FRAMEWORK_REGISTRY present
+PF_PERF_ENGINE_TRADING_LAB present
+support surfaces not promoted automatically
+no runtime mutation
+no parent closeout
+```
