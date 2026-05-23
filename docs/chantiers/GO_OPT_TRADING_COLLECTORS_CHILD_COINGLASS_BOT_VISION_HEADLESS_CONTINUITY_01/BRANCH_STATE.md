@@ -1,0 +1,50 @@
+---
+doc_id: GO_OPT_TRADING_COLLECTORS_CHILD_COINGLASS_BOT_VISION_HEADLESS_CONTINUITY_01_BRANCH_STATE
+doc_type: branch_state
+repo: opt-trading
+go_id: GO_OPT_TRADING_COLLECTORS_CHILD_COINGLASS_BOT_VISION_HEADLESS_CONTINUITY_01
+status: open
+created_at: 2026-05-23
+---
+
+# BRANCH_STATE
+
+## Branche
+
+```
+go/GO_OPT_TRADING_COLLECTORS_CHILD_COINGLASS_BOT_VISION_HEADLESS_CONTINUITY_01
+```
+
+## Base
+
+```
+sot/mainline  (après merge #707 — parent collectors ACCEPTED)
+```
+
+## Fichiers créés
+
+```
+docs/chantiers/GO_OPT_TRADING_COLLECTORS_CHILD_COINGLASS_BOT_VISION_HEADLESS_CONTINUITY_01/
+  00_INITIAL_PROJECT_DOC.md
+  10_DECISION_CONTEXT.md
+  20_BOT_VISION_HEADLESS_CONTRACT.md
+  30_DATA_FLOW_AND_STORAGE_PLAN.md
+  40_VALIDATION_AND_EVIDENCE_PLAN.md
+  50_NEXT_PATCHES.md
+  90_REPRISE_POINT.md
+  BRANCH_STATE.md
+
+docs/index/inbox/GO_OPT_TRADING_COLLECTORS_CHILD_COINGLASS_BOT_VISION_HEADLESS_CONTINUITY_01.md
+
+bundles/GO_OPT_TRADING_COLLECTORS_CHILD_COINGLASS_BOT_VISION_HEADLESS_CONTINUITY_01/
+  TARGETS.md
+```
+
+## Vérification
+
+```bash
+git diff --name-only origin/sot/mainline...HEAD
+git status --short
+```
+
+Résultat attendu : seuls les fichiers listés ci-dessus.
