@@ -1,0 +1,44 @@
+{
+  "go_id": "GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_CREATION_RULE_MATRIX_01",
+  "bundle_id": "GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_CREATION_RULE_MATRIX_01_bundle",
+  "target_id": "TARGET_MASTER_PROJECT_PLAN_CREATION_RULE_MATRIX_01",
+  "target_label": "Ajouter la règle de création structurée des GO et la lecture index global = MASTER_PROJECT_PLAN_INDEX.",
+  "master_target_id": "MASTER_TARGET_MASTER_PROJECT_PLAN_CREATION_RULE_MATRIX_01",
+  "master_target_label": "Matrice capable d'imposer GO_STRUCTURAL_ROLE à la création et de rattacher chaque GO à PF_*, MASTER_TARGET, MASTER_PROJECT_PLAN, parent et child selon son rôle.",
+  "target_status": "ready_for_review",
+  "master_target_status": "partially_reached",
+  "repo": "opt-trading",
+  "surface": "docs/governance",
+  "mode": "master_project_plan_creation_rule_doc_only",
+  "scope_allow": [
+    "docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01_MASTER_PROJECT_PLAN_CREATION_RULE_01.md",
+    "docs/chantiers/GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_CREATION_RULE_MATRIX_01/",
+    "docs/index/inbox/GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_CREATION_RULE_MATRIX_01.md",
+    "bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_CREATION_RULE_MATRIX_01/"
+  ],
+  "scope_deny": [
+    "runtime",
+    "secrets",
+    "root .patch committed",
+    "root .zip committed",
+    "mass migration of existing GO"
+  ],
+  "target_completion_criteria": [
+    "Rôles structurels GO_CHILD, GO_CHILD_ATTACHED_TO_PARENT, GO_PARENT, GO_PARENT_ATTACHED_TO_MASTER_PROJECT_PLAN et GO_MASTER_PROJECT_PLAN documentés.",
+    "GO_ORPHAN exclu comme rôle canonique.",
+    "NEXT_ATTACH_TARGET requis pour GO_CHILD ou GO_PARENT non rattaché.",
+    "Index global défini comme MASTER_PROJECT_PLAN_INDEX.",
+    "Aucun parent fermé par ce bundle."
+  ],
+  "after_target_reached": {
+    "evaluate_master_target": true,
+    "next_bundle_candidate": "GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_CREATION_RULE_APPLY_01",
+    "global_index_update_candidate": false,
+    "decision_rule": "Après publication, appliquer la règle aux nouvelles ouvertures et corriger progressivement les anciens GO sans migration massive."
+  },
+  "patch_expected": true,
+  "patch_location": "bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_CREATION_RULE_MATRIX_01/patches/20260523_GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_CREATION_RULE_MATRIX_01.patch",
+  "zip_role": "none",
+  "zip_role_justification": "GO doc-only appliqué directement via GitHub ; le patch canonique suffit comme artefact de transport.",
+  "created_at": "2026-05-23"
+}
