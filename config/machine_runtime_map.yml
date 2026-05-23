@@ -108,6 +108,7 @@ machines:
     required_timers: []
 
     optional_timers:
+      - opt-trading-fleet-orchestrator.timer
       - opt-trading-runtime-health.timer
 
     required_venvs:
