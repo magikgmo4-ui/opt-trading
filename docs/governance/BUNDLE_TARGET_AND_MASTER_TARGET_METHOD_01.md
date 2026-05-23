@@ -32,13 +32,14 @@ links:
 Définir la relation canonique entre :
 
 ```text
-plan validé
--> target
--> master_target
--> bundle
--> .patch GitHub
+1_MASTER_TARGET
+-> 4_MASTER_PROJECT_PLAN
+-> 6_FINAL_TARGET
+-> BUNDLE_TARGET
+-> GO_ID / bundle
+-> .patch GitHub / .zip de transport si utile
 -> instruction IDE
--> évaluation target/master_target
+-> évaluation BUNDLE_TARGET / FINAL_TARGET / MASTER_TARGET
 ```
 
 ## 2. Principe
@@ -51,17 +52,23 @@ Un plan validé devient :
 TARGET_CARD + chantier + bundle + .patch + instruction IDE
 ```
 
-## 3. Définitions
+## 3. Registre cible applique au bundle
 
-| Terme | Sens |
-|---|---|
-| `target` | objectif concret et vérifiable du bundle courant |
-| `master_target` | horizon supérieur auquel le target contribue |
-| `bundle` | paquet opérable pour IDE/opérateur |
-| `.patch` | artefact de transport session -> Git |
-| `target_reached` | target local atteint selon critères explicites |
-| `master_target_reached` | horizon atteint, testé ou utilisable réellement |
-| `next_bundle_candidate` | prochain bundle si le master target n'est pas atteint |
+| Niveau | Nom | Sens dans cette méthode |
+|---|---|---|
+| L0 | `1_MASTER_TARGET` | produit final utilisable, opérationnel, vérifiable et livrable |
+| L1 | `4_MASTER_PROJECT_PLAN` | checklist des livrables requis pour fermer proprement le parent |
+| L2 | `6_FINAL_TARGET` | résultat attendu de la phase actuelle |
+| L3 | `BUNDLE_TARGET` | livrable concret du bundle courant |
+| L4 | `GO_ID` | unité d'exécution traçable qui porte le bundle |
+| L5 | `NEXT_GO` | suite obligatoire si la target supérieure n'est pas atteinte |
+
+Mapping opérationnel minimal :
+
+- `TARGETS.md` doit expliciter au moins `1_MASTER_TARGET` et `6_FINAL_TARGET`
+- dans `target_card.json`, `target_id` / `target_label` portent le `BUNDLE_TARGET`
+- dans `target_card.json`, `master_target_id` / `master_target_label` portent le `1_MASTER_TARGET`
+- `4_MASTER_PROJECT_PLAN` reste porté par le chantier parent quand une fermeture parent devient recevable
 
 ## 4. Emplacements canoniques
 
@@ -73,6 +80,11 @@ bundles/<GO_ID>/patches/<YYYYMMDD>_<GO_ID>_<slug>.patch
 ```
 
 ## 5. Champs obligatoires `target_card.json`
+
+Dans ce fichier, le mot `target` désigne le `BUNDLE_TARGET` de niveau L3.
+
+Le `6_FINAL_TARGET` reste documenté dans `TARGETS.md` et le `1_MASTER_TARGET`
+reste l'horizon produit auquel le bundle contribue.
 
 ```json
 {
@@ -95,57 +107,60 @@ bundles/<GO_ID>/patches/<YYYYMMDD>_<GO_ID>_<slug>.patch
 
 ## 6. Évaluation après bundle
 
-Quand un bundle atteint son target :
+Quand un bundle atteint son `BUNDLE_TARGET` :
 
 1. relire `TARGETS.md`;
 2. relire `bundle_meta/target_card.json`;
 3. vérifier les critères de complétion;
-4. statuer `target_status`;
-5. évaluer `master_target_status`;
-6. si master target atteint : proposer batch d'index globaux;
-7. si master target non atteint : produire prochain target/bundle;
-8. si horizon change : proposer update global via batch.
+4. statuer `target_status` du `BUNDLE_TARGET`;
+5. évaluer si le `6_FINAL_TARGET` de la phase est atteint ou reste partiel;
+6. évaluer `master_target_status` du `1_MASTER_TARGET`;
+7. si le `1_MASTER_TARGET` est atteint : vérifier le `4_MASTER_PROJECT_PLAN` avant toute fermeture parent;
+8. si le `1_MASTER_TARGET` n'est pas atteint : produire le prochain `NEXT_GO` ou prochain bundle.
 
 ## 7. Chaîne canonique
 
 ```text
-PLAN_VALIDÉ_CHAIN:
-plan validé -> définir target + master_target -> produire bundle + .patch canonique -> utilisateur dépose patch à la racine -> IDE lit bundles/GO_OPT_TRADING_BUNDLES_CHILD_IDE_DEPORTABLE_PACK_01/docs/EXEMPLE_MATRICE_APPLICATION_PATCH.md -> IDE applique/valide/commit/push/PR/review -> évaluer target atteint -> évaluer master_target atteint ou prochain bundle.
+PLAN_VALIDE_CHAIN:
+1_MASTER_TARGET -> 4_MASTER_PROJECT_PLAN -> 6_FINAL_TARGET -> BUNDLE_TARGET -> GO_ID -> bundle + .patch canonique -> utilisateur depose patch a la racine -> IDE lit bundles/GO_OPT_TRADING_BUNDLES_CHILD_IDE_DEPORTABLE_PACK_01/docs/EXEMPLE_MATRICE_APPLICATION_PATCH.md -> IDE applique/valide/commit/push/PR/review -> evaluer BUNDLE_TARGET -> evaluer 6_FINAL_TARGET -> evaluer 1_MASTER_TARGET ou NEXT_GO.
 ```
 
 ## 8. Règle index globaux
 
 ```text
 GLOBAL_INDEX_RULE:
-les index globaux changent seulement si le master target ou l'horizon change réellement. Sinon parent local + inbox + bundle target status.
+les index globaux changent seulement si le 6_FINAL_TARGET ou le 1_MASTER_TARGET change reellement l'etat global. Sinon parent local + inbox + statut du BUNDLE_TARGET.
 ```
 
 ## 9. Anti-confusion
 
 | Élément | Ne signifie pas automatiquement |
 |---|---|
-| patch produit | target atteint |
-| patch appliqué | master target atteint |
+| patch produit | BUNDLE_TARGET atteint |
+| patch appliqué | 6_FINAL_TARGET atteint |
 | commit local | produit fini |
-| parent fermé | horizon terminé |
-| PR mergée | besoin global clos |
+| parent fermé | 4_MASTER_PROJECT_PLAN complété |
+| PR mergée | 1_MASTER_TARGET atteint |
 | target interne atteint | index global à modifier |
 
 ## 10. Formule de décision
 
 ```text
-Si target atteint et master_target non atteint:
-  produire le prochain target/bundle.
+Si BUNDLE_TARGET atteint et 6_FINAL_TARGET non atteint:
+  produire le prochain bundle ou NEXT_GO de phase.
 
-Si target atteint et master_target atteint:
-  proposer batch d'agrégation index globaux.
+Si 6_FINAL_TARGET atteint mais 1_MASTER_TARGET non atteint:
+  ouvrir le prochain NEXT_GO et maintenir le parent ouvert.
 
-Si target bloqué:
-  documenter blocker + next target ou remediation bundle.
+Si 1_MASTER_TARGET atteint:
+  verifier 4_MASTER_PROJECT_PLAN puis proposer batch d'agregation index globaux ou fermeture parent.
+
+Si BUNDLE_TARGET bloque:
+  documenter blocker + next bundle ou remediation.
 ```
 
 ## 11. Mémoire canonique courte
 
 ```text
-Plan validé = target défini = rattachement master_target = chantier/bundle = .patch GitHub canonique = IDE lit la matrice réelle = target évalué = master_target évalué.
+Plan valide = 1_MASTER_TARGET fixe = 6_FINAL_TARGET borne = BUNDLE_TARGET transporte = GO_ID execute = patch canonique applique = BUNDLE_TARGET evalue = 1_MASTER_TARGET rejuge.
 ```
