@@ -81,15 +81,15 @@ références et artefacts support sont exclus des index globaux actifs.
 
 | PARENT_PRODUCT | STATUT | TARGET | NEXT ACTION | SOURCE |
 |---|---|---|---|---|
-| `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01` | OPEN | canoniser méthode multi-agents | surveiller prochains INDEX_PATCH | `docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/PARENT_STATE.md` |
+| `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01` | OPEN | doctrine multi-agents canonique, reutilisable et agregeable vers les index globaux | surveiller prochains INDEX_PATCH | `docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/PARENT_STATE.md` |
 | `GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01` | OPEN | parent machine admin-trading | maintenir le parent ; ouvrir child si besoin produit | `docs/chantiers/GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01/01_cadrage_parent.md` |
 | `GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01` | OPEN | parent machine db-layer | maintenir le parent ; ouvrir child si besoin produit | `docs/chantiers/GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01/01_cadrage_parent.md` |
-| `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01` | ACTIVE | consolider lignées runtime | figer survivant/transition/legacy/archive en gap-only | `docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/00_cadrage.md` |
-| `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03` | OPEN | réduire compat réseau/ssh | ouvrir lot de réduction compat sur `scripts/reseau_ssh` | `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md` |
-| `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01` | ACTIVE | implémentation tmux-ide | exécuter `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01` | `docs/chantiers/GO_TMUX_IDE_OPT_TRADING_CADRAGE_01/00_cadrage.md` |
+| `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01` | ACTIVE | familles runtime homogenes avec lignees survivant/transition/legacy/archive explicites | figer survivant/transition/legacy/archive en gap-only | `docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/00_cadrage.md` |
+| `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03` | OPEN | famille `reseau_ssh*` consolidee autour d'une cible canonique unique sans ambiguite de continuite | ouvrir lot de réduction compat sur `scripts/reseau_ssh` | `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md` |
+| `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01` | ACTIVE | base tmux-ide stable, reattachable et transmissible pour `opt-trading` en SSH distant | exécuter `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01` | `docs/chantiers/GO_TMUX_IDE_OPT_TRADING_CADRAGE_01/00_cadrage.md` |
 | `GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01` | OPEN | intégration UI producer-consumer | reprise recommandée sur `GO_OPT_TRADING_UI_LOCALCMS_INVENTORY_01` | `docs/chantiers/GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01/01_cadrage_parent.md` |
-| `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` | OPEN | architecture équipe d'agents | utiliser comme base si GO enfant d'audit documentaire | `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/00_cadrage.md` |
-| `GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01` | ACTIVE | runtime tmux/opencode/openclaw | maintenir le runtime ; ouvrir suite si besoin produit | `docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/00_cadrage.md` |
+| `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` | OPEN | chantier parent canonique et reutilisable pour cadrer une architecture d'equipe d'agents specialisee | utiliser comme base si GO enfant d'audit documentaire | `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/00_cadrage.md` |
+| `GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01` | ACTIVE | architecture runtime continue `tmux` / `OpenCode` / `OpenClaw` / `Telegram` avec roles separes | maintenir le runtime ; ouvrir suite si besoin produit | `docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/00_cadrage.md` |
 
 ## Hors pilotage immédiat (parents ouverts sans produit actif immédiat)
 
@@ -115,6 +115,21 @@ Les GO suivants restent `OPEN` dans le tableau canonique, mais hors priorite ope
 - `GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01`
 - `GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01`
 - `GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01`
+
+## MASTER_TARGET candidats explicites (priorite operatoire)
+
+Les six parents ci-dessous portent une cible de niveau `1_MASTER_TARGET` deja lisible
+dans leur dossier chantier. Cette section les rend explicites dans l'index sans les
+fermer ni les promouvoir artificiellement.
+
+| PARENT_PRODUCT | MASTER_TARGET candidat | SOURCE |
+|---|---|---|
+| `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01` | session IDE terminale stable et reattachable pour `opt-trading`, avec layout operatoire et bundle de transfert canonique | `docs/chantiers/GO_TMUX_IDE_OPT_TRADING_CADRAGE_01/00_cadrage.md` |
+| `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01` | doctrine multi-agents canonique, reutilisable et indexable globalement, avec continuite parent locale maitrisee | `docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/PARENT_STATE.md` |
+| `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01` | fiches runtime courtes, homogenes et non redondantes, rattachees explicitement a leurs lignees | `docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/00_cadrage.md` |
+| `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03` | famille `reseau_ssh*` consolidee autour d'un survivant canonique explicite et d'une hierarchie runtime/doc/legacy claire | `docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md` |
+| `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01` | chantier parent canonique, autonome et reutilisable pour cadrer une architecture d'equipe d'agents specialisee | `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/00_cadrage.md` |
+| `GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01` | architecture d'utilisation continue ou `tmux`, `OpenCode`, `OpenClaw` et `Telegram` portent des roles separes et reprenables | `docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/00_cadrage.md` |
 
 ---
 

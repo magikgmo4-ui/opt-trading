@@ -1,8 +1,12 @@
 {
   "go_id": "GO_OPT_TRADING_DOC_OPS_CHILD_ZIP_ROOT_TRANSPORT_MATRIX_PATCH_01",
+  "bundle_id": "GO_OPT_TRADING_DOC_OPS_CHILD_ZIP_ROOT_TRANSPORT_MATRIX_PATCH_01_bundle",
   "target_id": "TARGET_ZIP_ROOT_TRANSPORT_MATRIX_PATCH_01",
+  "target_label": "Ajouter le protocole .zip racine temporaire dans MATRICE_DOC_OPS_MASTER_MATRIX_01.md section 10.1.1 et les invariants Partie 11.",
   "master_target_id": "MASTER_TARGET_ZIP_ROOT_TRANSPORT_PROTOCOL_STANDARDIZED_01",
-  "status": "transport_prepared",
+  "master_target_label": "Standardiser le protocole .zip racine temporaire dans la matrice maitre.",
+  "target_status": "merged",
+  "master_target_status": "reached",
   "repo": "opt-trading",
   "surface": "docs/governance",
   "mode": "matrix_patch_zip_root_transport",
@@ -22,6 +26,19 @@
     "KEEP_PARENT_PRODUCT",
     "MOVE_TO_CLOSED"
   ],
+  "target_completion_criteria": [
+    "MATRICE_DOC_OPS_MASTER_MATRIX_01.md section 10.1.1 decrit le protocole .zip racine complet.",
+    "Partie 11 contient les invariants .zip racine.",
+    "Bundle archive sous bundles/GO_OPT_TRADING_DOC_OPS_CHILD_ZIP_ROOT_TRANSPORT_MATRIX_PATCH_01/.",
+    "Patch archive sous patches/.",
+    "Aucun .zip racine committe."
+  ],
+  "after_target_reached": {
+    "evaluate_master_target": true,
+    "next_bundle_candidate": null,
+    "global_index_update_candidate": false,
+    "decision_rule": "Le protocole est standardise dans la matrice ; aucun bundle suivant n'est requis tant que la regle de transport reste stable."
+  },
   "patch_expected": true,
   "patch_location": "bundles/GO_OPT_TRADING_DOC_OPS_CHILD_ZIP_ROOT_TRANSPORT_MATRIX_PATCH_01/patches/<YYYYMMDD>_GO_OPT_TRADING_DOC_OPS_CHILD_ZIP_ROOT_TRANSPORT_MATRIX_PATCH_01_matrix_zip_root_transport.patch",
   "zip_role": "root_temporary_transport_only",

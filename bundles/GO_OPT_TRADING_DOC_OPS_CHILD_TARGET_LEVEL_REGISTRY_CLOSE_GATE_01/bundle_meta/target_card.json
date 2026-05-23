@@ -1,9 +1,12 @@
 {
   "go_id": "GO_OPT_TRADING_DOC_OPS_CHILD_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01",
+  "bundle_id": "GO_OPT_TRADING_DOC_OPS_CHILD_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01_bundle",
   "target_id": "TARGET_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01",
+  "target_label": "Ajouter TARGET_LEVEL_REGISTRY (section 10.6) et CLOSE_GATE_MASTER_TARGET (section 10.7) dans MATRICE_DOC_OPS_MASTER_MATRIX_01.md.",
   "master_target_id": "MASTER_TARGET_TARGET_LEVEL_REGISTRY_STANDARDIZED_01",
-  "master_target_description": "Matrice canonique utilisable pour empêcher la fermeture prématurée des chantiers parents — produit final documentaire opérationnel et vérifiable",
-  "status": "transport_prepared",
+  "master_target_label": "Matrice canonique utilisable pour empêcher la fermeture prématurée des chantiers parents — produit final documentaire opérationnel et vérifiable",
+  "target_status": "merged",
+  "master_target_status": "reached",
   "repo": "opt-trading",
   "surface": "docs/governance",
   "mode": "matrix_patch_target_level_registry",
@@ -18,6 +21,18 @@
     "runtime modules",
     "root .patch committed"
   ],
+  "target_completion_criteria": [
+    "MATRICE_DOC_OPS_MASTER_MATRIX_01.md contient la section 10.6 avec les 6 niveaux de cible.",
+    "MATRICE_DOC_OPS_MASTER_MATRIX_01.md contient la section 10.7 avec les regles de fermeture parent.",
+    "Bundle archive sous bundles/GO_OPT_TRADING_DOC_OPS_CHILD_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01/.",
+    "Patch archive sous patches/."
+  ],
+  "after_target_reached": {
+    "evaluate_master_target": true,
+    "next_bundle_candidate": null,
+    "global_index_update_candidate": false,
+    "decision_rule": "Le registre et la close gate sont integres a la matrice canonique ; aucun bundle suivant n'est requis tant qu'aucun nouveau niveau de cible n'est introduit."
+  },
   "patch_expected": true,
   "patch_location": "bundles/GO_OPT_TRADING_DOC_OPS_CHILD_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01/patches/<YYYYMMDD>_GO_OPT_TRADING_DOC_OPS_CHILD_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01_target_level_registry.patch",
   "zip_role": "none",
