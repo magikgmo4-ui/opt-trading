@@ -1,0 +1,808 @@
+{
+  "job_id": "repo-doc-link-check",
+  "scanned": 3269,
+  "findings": 305,
+  "status": "PASS",
+  "details": [
+    {
+      "file": "docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/03_decisions.md",
+      "missing_link": "file:///C:/Users/ghost/opt-trading/docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/02_journal_technique.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/menu_openclaw/docs/GO_OPENCLAW_CHAIN_03.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/hermes/00_overview.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/tools/hermes_bridge/generate.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/README.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/status/reseau_ssh_canonique.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/10_step_03_family_decision_reseau_ssh.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/92_plans_execution_sous_lots.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/README.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/status/reseau_ssh_canonique.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/10_step_03_family_decision_reseau_ssh.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/README.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/INSTALL.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/systemd/shared-sshfs.service.template"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/cmd.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/menu.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/sanity_check.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/shared_sshfs_permanent_cmd.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/shared_sshfs_permanent_menu.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/shared_sshfs_permanent_mount.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/README.md#L1-L29"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/systemd/shared-sshfs.service.template#L1-L18"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/INSTALL.sh#L4-L115"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/cmd.sh#L1-L29"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/sanity_check.sh#L1-L13"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/shared_sshfs_permanent_cmd.sh#L1-L113"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/ot/trae/OT_LIVE_01_MACHINE_DRILL.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/ot/trae/OT_LIVE_01_MACHINE_DRILL.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/ot/trae/OT_LIVE_01_MACHINE_DRILL.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/ot/trae/OT_LIVE_01_MACHINE_DRILL.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/README.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/INSTALL.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/cmd.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/menu.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/sanity_check.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/cmd.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/menu.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/sanity_check.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/README.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/README.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/INSTALL.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/systemd/shared-sshfs.service.template"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/cmd.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/menu.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/sanity_check.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/shared_sshfs_permanent_cmd.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/shared_sshfs_permanent_menu.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/shared_sshfs_permanent_mount.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/README.md#L1-L29"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/systemd/shared-sshfs.service.template#L1-L18"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/INSTALL.sh#L4-L115"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/cmd.sh#L1-L29"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/sanity_check.sh#L1-L13"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/shared_sshfs_permanent_cmd.sh#L1-L113"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/ot/trae/OT_LIVE_01_MACHINE_DRILL.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/ot/trae/OT_LIVE_01_MACHINE_DRILL.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/ot/trae/OT_LIVE_01_MACHINE_DRILL.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/ot/trae/OT_LIVE_01_MACHINE_DRILL.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/README.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/INSTALL.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/cmd.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/menu.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/sanity_check.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/cmd.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/menu.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/scripts/sanity_check.sh"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_DBLAYER_OPENCLAW_REMOTE_EXEC_REMEDIATION_01/17_REMEDIATION_SANDBOX_MODE_SUPPORT_AUDIT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/README.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/00_cadrage.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/01_liste_modules.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/00_cadrage.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/02_ensembles_a_consolider.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/00_cadrage.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/02_ensembles_a_consolider.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/status/desk_pro_stack_canonique.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/02_ensembles_a_consolider.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/status/deepseek_student_canonique.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/02_ensembles_a_consolider.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/status/reseau_ssh_canonique.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/02_ensembles_a_consolider.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/status/bot_vision_canonique.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/01_liste_modules.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/02_ensembles_a_consolider.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/04_step_02_hygiene_documentaire_batch1.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/05_step_02_hygiene_documentaire_batch2_openclaw.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/06_step_02_hygiene_documentaire_batch3_core.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/07_step_02_hygiene_documentaire_batch4_verticales.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/08_step_03_family_decision_bot_vision.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/09_step_03_family_decision_deepseek.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/10_step_03_family_decision_reseau_ssh.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/11_step_03b_consolidation_eval_reseau_share_transfer.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/12_step_03_family_decision_desk.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/13_step_04_role_map_desk_pro.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/14_step_04_role_map_deepseek_student.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/15_step_04_role_map_reseau_share_transfer.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/16_step_05_family_plan_registry_ui_navigation.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/17_step_05_family_plan_openclaw.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/18_step_05_family_plan_collectors_market_intelligence.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/19_step_05_family_plan_vision.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/20_step_06_family_contracts_engine_pipeline.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/21_step_06_family_contracts_runtime_edge_platform.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/22_step_06_family_contracts_repo_tooling_authoring.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/90_closeout.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/91_synthese_resultats.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/03_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/92_plans_execution_sous_lots.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_CURSOR_AI_CLAUDE_ARTIFACTS_OPERATOR_PACK_01/40_BUNDLE_INTEGRATION.md",
+      "missing_link": "./claude-artifacts/README.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_MODULE_CANONICAL_CONSOLIDATION_01/00_cadrage.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_MODULE_CANONICAL_CONSOLIDATION_01/01_grille_decision.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_MODULE_CANONICAL_CONSOLIDATION_01/00_cadrage.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_MODULE_CANONICAL_CONSOLIDATION_01/02_plan_operationnel_step_by_step.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_MODULE_CANONICAL_CONSOLIDATION_01/00_cadrage.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_MODULE_CANONICAL_CONSOLIDATION_01/03_priorisation_familles.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/00_cadrage.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/01_cartographie_suite.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/00_cadrage.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/02_plan_operationnel_step_by_step.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/00_cadrage.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/03_step_01_matrice_wrappers.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/02_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/00_cadrage.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/02_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/01_cartographie_suite.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/02_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/03_step_01_matrice_wrappers.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/02_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/04_step_02_runbook_de_suite.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/02_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/05_step_03_conventions_wrappers.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/02_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/06_step_04_audit_duplications.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/02_plan_operationnel_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01/90_closeout.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_PARENT_DIRECTORY_SYNTHESIS_01/94_plan_execution_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_PARENT_DIRECTORY_SYNTHESIS_01/91_arbre_references_dependances.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_PARENT_DIRECTORY_SYNTHESIS_01/94_plan_execution_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_PARENT_DIRECTORY_SYNTHESIS_01/92_plan_classement_optimal.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_PARENT_DIRECTORY_SYNTHESIS_01/94_plan_execution_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_PARENT_DIRECTORY_SYNTHESIS_01/93_priorisation_reclassements.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_PARENT_DIRECTORY_SYNTHESIS_01/94_plan_execution_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_PARENT_DIRECTORY_SYNTHESIS_01/95_step_04_alignement_documentaire.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_PARENT_DIRECTORY_SYNTHESIS_01/94_plan_execution_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_PARENT_DIRECTORY_SYNTHESIS_01/96_step_05_audit_exceptions_racine.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_PARENT_DIRECTORY_SYNTHESIS_01/94_plan_execution_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_PARENT_DIRECTORY_SYNTHESIS_01/97_step_06_verification_zones_grises.md"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_PARENT_DIRECTORY_SYNTHESIS_01/94_plan_execution_step_by_step.md",
+      "missing_link": "/C:/Users/ghost/opt-trading/docs/chantiers/GO_OPT_TRADING_PARENT_DIRECTORY_SYNTHESIS_01/98_step_07_arbitrage_enfants.md"
+    },
+    {
+      "file": "docs/chantiers/GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_STRATEGY_ID_REGISTRY_VALIDATION_01/30_IMPLEMENTATION_PLAN.md",
+      "missing_link": "[^\"']+"
+    },
+    {
+      "file": "docs/chantiers/GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_STRATEGY_ID_REGISTRY_VALIDATION_01/30_IMPLEMENTATION_PLAN.md",
+      "missing_link": "[^\"']+"
+    },
+    {
+      "file": "docs/chantiers/GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_STRATEGY_ID_REGISTRY_VALIDATION_01/30_IMPLEMENTATION_PLAN.md",
+      "missing_link": "[^\"']+"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/AUDIT_THEMATIQUE_MULTI_IA_IDE_AGENTS_SPACES_OPT_TRADING.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/ot/trae/OT_TRAE_SESSION_REPRISE.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/master_pack/mission_starter_pack/00_mission_start_guide.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/validated_prompt_factory/README.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/menu_openclaw/docs/GO_OPENCLAW_CHAIN_03.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/hermes/00_overview.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/tools/hermes_bridge/generate.sh"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/deepseek_hub/README.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/student_deepseek_runbook.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/mimo_open_observer/README.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/student/docs/MIMO_V2_PRO_FREE_CLOSEOUT.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/ot/trae/OT_TRAE_SESSION_REPRISE.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/ot/trae/README.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/ot/trae/12_ORCHESTRATOR_ENTRYPOINT_V1.txt"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/validated_prompt_factory/README.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/menu_openclaw/docs/GO_OPENCLAW_CHAIN_03.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/model_provider_openclaw/README.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/hermes/00_overview.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/tools/hermes_bridge/generate.sh"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/deepseek_hub/README.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/student_deepseek_runbook.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/AUDIT_THEMATIQUE_MULTI_IA_IDE_AGENTS_SPACES_OPT_TRADING.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/mimo_open_observer/README.md"
+    },
+    {
+      "file": "docs/governance/AUDIT_IA_ASSISTANTS_WORKFLOW_ROLE_ALIGNMENT_OPT_TRADING.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/student/docs/MIMO_V2_PRO_FREE_CLOSEOUT.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_ENGINE_DECISION_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_ENGINE_DECISION_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_ENGINE_DECISION_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_INGESTION_PHYSICAL_SCHEMA_DECISION_01.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_ENGINE_DECISION_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_ENGINE_DECISION_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_ENGINE_DECISION_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_ENGINE_DECISION_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_INGESTION_PHYSICAL_SCHEMA_DECISION_01.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_ENGINE_DECISION_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_runbook.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_ENGINE_DECISION_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_quick_reference.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_PHYSICAL_SCHEMA_DECISION_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_PHYSICAL_SCHEMA_DECISION_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_PHYSICAL_SCHEMA_DECISION_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_PHYSICAL_SCHEMA_DECISION_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_PHYSICAL_SCHEMA_DECISION_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_PHYSICAL_SCHEMA_DECISION_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_runbook.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_PHYSICAL_SCHEMA_DECISION_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_quick_reference.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_PHYSICAL_SCHEMA_DECISION_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/admin_trading_desk_pro_runbook.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_RUNTIME_GATING_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_RUNTIME_GATING_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_RUNTIME_GATING_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_INGESTION_PHYSICAL_SCHEMA_DECISION_01.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_RUNTIME_GATING_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_INGESTION_ENGINE_DECISION_01.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_RUNTIME_GATING_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/scripts/db_layer/desk_pro_db_cmd.sh"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_RUNTIME_GATING_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/scripts/db_layer/desk_pro_db_latest_shared_info.sh"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_runbook.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_quick_reference.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/desk_pro_multi_machine_map.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/admin_trading_desk_pro_runbook.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_INGESTION_SCHEMA_MAPPING_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/desk_snapshot_ingest/README.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_runbook.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_quick_reference.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/desk_pro_multi_machine_map.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/admin_trading_desk_pro_runbook.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared/README.md"
+    },
+    {
+      "file": "docs/governance/DB_LAYER_SHARED_TO_DB_INGESTION_SPEC_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/README.md"
+    },
+    {
+      "file": "docs/governance/DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/governance/AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md"
+    },
+    {
+      "file": "docs/governance/DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/admin_trading_desk_pro_runbook.md"
+    },
+    {
+      "file": "docs/governance/DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/student_desk_pro_runbook.md"
+    },
+    {
+      "file": "docs/governance/DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_runbook.md"
+    },
+    {
+      "file": "docs/governance/DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/desk_pro_multi_machine_map.md"
+    },
+    {
+      "file": "docs/governance/DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/desk_pro_release_ops_runbook.md"
+    },
+    {
+      "file": "docs/governance/DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_quick_reference.md"
+    },
+    {
+      "file": "docs/ot/kanban/OT_KANBAN_REALIGN_AFTER_RECONNECT_01_GAP_REPORT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/ot/closings/OT_NET_RECONNECT_03_CLOSING.txt"
+    },
+    {
+      "file": "docs/ot/kanban/OT_KANBAN_REALIGN_AFTER_RECONNECT_01_GAP_REPORT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/opt_trading_kanban_source_of_truth_2026-03-13_updated.md"
+    },
+    {
+      "file": "docs/ot/kanban/OT_KANBAN_REALIGN_AFTER_RECONNECT_01_REPORT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/master_pack/mission_starter_pack/00_mission_start_guide.md"
+    },
+    {
+      "file": "docs/ot/kanban/OT_KANBAN_REALIGN_AFTER_RECONNECT_01_REPORT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/ot/closings/OT_NET_RECONNECT_02_CLOSING.txt"
+    },
+    {
+      "file": "docs/ot/kanban/OT_KANBAN_REALIGN_AFTER_RECONNECT_01_REPORT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/ot/closings/OT_NET_RECONNECT_03_CLOSING.txt"
+    },
+    {
+      "file": "docs/ot/kanban/OT_KANBAN_REALIGN_AFTER_RECONNECT_01_REPORT.md",
+      "missing_link": "file:///c:/Users/ghost/opt-trading/opt_trading_kanban_source_of_truth_2026-03-13_updated.md"
+    }
+  ]
+}

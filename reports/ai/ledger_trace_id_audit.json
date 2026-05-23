@@ -1,0 +1,21 @@
+{
+  "job_id": "ledger-trace-id-audit",
+  "total_entries": 902,
+  "trace_id_coverage": {
+    "with_run_id": 902,
+    "missing_run_id": 0,
+    "unique_run_ids": 902
+  },
+  "timestamp_coverage": {
+    "with_timestamp": 902,
+    "missing_timestamp": 0
+  },
+  "host_coverage": {
+    "hosts_found": {
+      "fantome": 902
+    },
+    "missing_hostname": 0
+  },
+  "findings": [],
+  "status": "PASS"
+}

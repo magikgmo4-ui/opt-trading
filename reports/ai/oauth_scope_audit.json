@@ -1,0 +1,91 @@
+{
+  "job_id": "oauth-scope-audit",
+  "files_scanned": 2760,
+  "scope_references_found": 220,
+  "scope_details": [
+    {
+      "scope": "inline_scope:doc-only",
+      "count": 149
+    },
+    {
+      "scope": "inline_scope:docs",
+      "count": 82
+    },
+    {
+      "scope": "inline_scope:agent",
+      "count": 43
+    },
+    {
+      "scope": "inline_scope:initial",
+      "count": 26
+    },
+    {
+      "scope": "inline_scope:registry",
+      "count": 19
+    },
+    {
+      "scope": "inline_scope:doc_ops",
+      "count": 19
+    },
+    {
+      "scope": "inline_scope:governance",
+      "count": 16
+    },
+    {
+      "scope": "inline_scope:eleve",
+      "count": 12
+    },
+    {
+      "scope": "inline_scope:doc_type",
+      "count": 11
+    },
+    {
+      "scope": "inline_scope:modules",
+      "count": 9
+    },
+    {
+      "scope": "inline_scope:dans",
+      "count": 9
+    },
+    {
+      "scope": "inline_scope:repo",
+      "count": 8
+    },
+    {
+      "scope": "inline_scope:bounded-runtime-guard",
+      "count": 8
+    },
+    {
+      "scope": "inline_scope:global",
+      "count": 8
+    },
+    {
+      "scope": "inline_scope:limits",
+      "count": 7
+    },
+    {
+      "scope": "inline_scope:Inclus",
+      "count": 7
+    },
+    {
+      "scope": "inline_scope:Phase",
+      "count": 6
+    },
+    {
+      "scope": "inline_scope:reste",
+      "count": 6
+    },
+    {
+      "scope": "inline_scope:autoris",
+      "count": 6
+    },
+    {
+      "scope": "inline_scope:cursor-ai",
+      "count": 6
+    }
+  ],
+  "findings": [
+    "high scope reference count (220), review needed"
+  ],
+  "status": "PASS"
+}

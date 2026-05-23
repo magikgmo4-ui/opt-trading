@@ -1,0 +1,10 @@
+{
+  "job_id": "ledger-schema-validation",
+  "files_checked": [
+    "latest.json",
+    "healthcheck.jsonl",
+    "kill_switch.state"
+  ],
+  "findings": [],
+  "status": "PASS"
+}
