@@ -11,8 +11,16 @@
 
 ## État actuel
 
-- Initial commit : documentation du GO
-- Aucune modification de code source encore effectuée
+- Document structure créée et commitée
+- WARN register complété avec statuts pour les 13 WARN
+- P0 : `.env` permissions corrigées (chmod 600)
+- P1 : `REVIEW_DRAFT` et `CLOSEOUT_DRAFT` ajoutés à `tasks.index.json`
+- P1 : Handoff sources déclassifiées (artefacts obsolètes)
+- P1 : Gmail/Calendar/Drive reportés (CARRIED_FORWARD)
+- P1 : KG index entries déclassifiées (ratio 1:1)
+- P2 : FastAPI venv déclassifié (faux positif)
+- P2 : Kill switch déclassifié (présent dans l'Automation Cockpit)
+- P3 : Strict worker E2E reporté (CARRIED_FORWARD)
 
 ## Protection
 
