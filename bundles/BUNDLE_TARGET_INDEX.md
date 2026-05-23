@@ -49,6 +49,7 @@ bundle -> target -> master_target -> next bundle / index update candidate
 | bundle_go_id | target_id | target_status | master_target_id | master_target_status | next_bundle_candidate | global_index_update_candidate | refs |
 |---|---|---|---|---|---|---|---|
 | `GO_OPT_TRADING_BUNDLES_CHILD_IDE_DEPORTABLE_PACK_01` | `TARGET_IDE_DEPORTABLE_PATCH_APPLICATION_MATRIX_01` | `ready_for_ide` | `MASTER_TARGET_SESSION_TO_IDE_PATCH_TRANSPORT_01` | `partially_reached` | `TBD_AFTER_FIRST_IDE_USE` | `false` | `bundles/GO_OPT_TRADING_BUNDLES_CHILD_IDE_DEPORTABLE_PACK_01/TARGETS.md`; `bundles/GO_OPT_TRADING_BUNDLES_CHILD_IDE_DEPORTABLE_PACK_01/bundle_meta/target_card.json` |
+| `GO_OPT_TRADING_DOC_OPS_CHILD_GLOBAL_INDEX_PARENT_PRODUCT_REFRESH_01` | `TARGET_GLOBAL_INDEX_PARENT_PRODUCT_ONLY_01` | `in_progress` | `MASTER_TARGET_CONTINUITY_INDEX_CLEAN_PARENT_PRODUCT_STATE_01` | `in_progress` | `TBD_AFTER_CURRENT_GO_CLOSEOUT` | `true` | `bundles/GO_OPT_TRADING_DOC_OPS_CHILD_GLOBAL_INDEX_PARENT_PRODUCT_REFRESH_01/TARGETS.md`; `bundles/GO_OPT_TRADING_DOC_OPS_CHILD_GLOBAL_INDEX_PARENT_PRODUCT_REFRESH_01/bundle_meta/target_card.json` |
 
 ## Point de reprise
 

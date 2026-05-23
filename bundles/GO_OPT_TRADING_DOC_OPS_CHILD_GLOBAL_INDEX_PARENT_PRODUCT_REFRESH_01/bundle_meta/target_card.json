@@ -1,0 +1,39 @@
+{
+  "go_id": "GO_OPT_TRADING_DOC_OPS_CHILD_GLOBAL_INDEX_PARENT_PRODUCT_REFRESH_01",
+  "target_id": "TARGET_GLOBAL_INDEX_PARENT_PRODUCT_ONLY_01",
+  "master_target_id": "MASTER_TARGET_CONTINUITY_INDEX_CLEAN_PARENT_PRODUCT_STATE_01",
+  "status": "transport_prepared",
+  "repo": "opt-trading",
+  "surface": "docs/index",
+  "mode": "parent_product_only_global_index_refresh",
+  "scope_allow": [
+    "docs/index/GO_INDEX.md",
+    "docs/index/ACTIVE_STREAMS.md",
+    "docs/index/NEXT_GO_CANDIDATES.md",
+    "docs/index/REPRISE.md",
+    "docs/index/GO_CLOSED_INDEX.md",
+    "bundles/BUNDLE_TARGET_INDEX.md",
+    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_GLOBAL_INDEX_PARENT_PRODUCT_REFRESH_01/00_INITIAL_PROJECT_DOC.md",
+    "docs/index/inbox/GO_OPT_TRADING_DOC_OPS_CHILD_GLOBAL_INDEX_PARENT_PRODUCT_REFRESH_01.md",
+    "bundles/GO_OPT_TRADING_DOC_OPS_CHILD_GLOBAL_INDEX_PARENT_PRODUCT_REFRESH_01/"
+  ],
+  "scope_deny": [
+    "runtime",
+    "branch cleanup",
+    "secrets",
+    "runtime modules",
+    "root .patch committed"
+  ],
+  "classification_codes": [
+    "KEEP_PARENT_PRODUCT",
+    "MOVE_TO_CLOSED",
+    "KEEP_LOCAL_ONLY",
+    "MOVE_TO_INBOX",
+    "DROP_FROM_GLOBAL_INDEX",
+    "NEEDS_REVIEW"
+  ],
+  "patch_expected": true,
+  "patch_location": "bundles/GO_OPT_TRADING_DOC_OPS_CHILD_GLOBAL_INDEX_PARENT_PRODUCT_REFRESH_01/patches/<YYYYMMDD>_GO_OPT_TRADING_DOC_OPS_CHILD_GLOBAL_INDEX_PARENT_PRODUCT_REFRESH_01_global_index_parent_product_refresh.patch",
+  "zip_role": "transport_only_not_canonical_source",
+  "created_at": "2026-05-23"
+}
