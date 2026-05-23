@@ -1,0 +1,32 @@
+{
+  "go_id": "GO_OPT_TRADING_BUNDLES_CHILD_IDE_DEPORTABLE_PACK_01",
+  "bundle_id": "GO_OPT_TRADING_BUNDLES_CHILD_IDE_DEPORTABLE_PACK_01_bundle",
+  "target_id": "TARGET_IDE_DEPORTABLE_PATCH_APPLICATION_MATRIX_01",
+  "target_label": "Provide an IDE-deportable patch application matrix and bundle so ChatGPT session plans can be transported to Git via canonical .patch files.",
+  "target_status": "ready_for_ide",
+  "master_target_id": "MASTER_TARGET_SESSION_TO_IDE_PATCH_TRANSPORT_01",
+  "master_target_label": "Make ChatGPT conversation sessions produce canonical GitHub patches that IDE can apply through a stable matrix without reconstructing the plan.",
+  "master_target_status": "partially_reached",
+  "target_completion_criteria": [
+    "Patch is deposited at repo root as temporary inbox",
+    "Patch is bootstrapped/renamed into bundles/<GO_ID>/patches/",
+    "git apply --check passes",
+    "git apply succeeds",
+    "git diff --check passes",
+    "No root-level .patch is staged or committed",
+    "Local commit is created",
+    "Pre-push verification passes",
+    "Branch is pushed",
+    "PR is opened",
+    "Review is requested",
+    "Diff is conformant or blockers are documented"
+  ],
+  "after_target_reached": {
+    "evaluate_master_target": true,
+    "next_bundle_candidate": "TBD_AFTER_FIRST_IDE_USE",
+    "global_index_update_candidate": false,
+    "decision_rule": "If the bundle is used successfully on a real patch and the session-to-IDE patch chain becomes stable, consider master target reached or propose a next bundle for hardening."
+  },
+  "global_index_rule": "Do not update global indexes for this internal target alone. Propose a global index batch only if the master target or horizon changes.",
+  "canonical_matrix_file": "bundles/GO_OPT_TRADING_BUNDLES_CHILD_IDE_DEPORTABLE_PACK_01/docs/EXEMPLE_MATRICE_APPLICATION_PATCH.md"
+}
