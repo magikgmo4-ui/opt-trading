@@ -19,10 +19,14 @@ topic_keys:
 surface: governance
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
-point_de_reprise: "Partie 12 - Conditions de reouverture / lot suivant"
-updated_at: 2026-04-23
+point_de_reprise: "Regle d'entree obligatoire - creation GO / chantier / target"
+updated_at: 2026-05-23
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_PLAN_01.md
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01_MASTER_PROJECT_PLAN_CREATION_RULE_01.md
+  - docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md
+  - docs/governance/BUNDLE_TARGET_AND_MASTER_TARGET_METHOD_01.md
+  - docs/governance/SESSION_PATCH_TRANSPORT_METHOD_01.md
   - docs/governance/MATRICE_GOUVERNANTE_V2.md
   - docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md
   - docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md
@@ -42,6 +46,135 @@ links:
 ---
 
 # MATRICE_DOC_OPS_MASTER_MATRIX_01
+
+## Regle d'entree obligatoire - creation GO / chantier / target
+
+Cette matrice est la source souveraine a relire avant toute ouverture de GO,
+chantier, bundle, patch, zip, PR ou fermeture parent dans `opt-trading`.
+
+Les extensions, bundles, target cards, patches et index detaillent ou transportent
+la decision. Ils ne remplacent pas cette regle d'entree.
+
+### Chaine canonique de lecture
+
+```text
+PF_*
+-> 1_MASTER_TARGET
+-> 4_MASTER_PROJECT_PLAN
+-> GO_PARENT / parent de continuite
+-> GO_CHILD / child / bundle
+-> 6_FINAL_TARGET / BUNDLE_TARGET
+-> NEXT_GO / CLOSE_GATE
+```
+
+### Creation minimale obligatoire
+
+Tout nouveau GO ou chantier doit declarer, avant execution :
+
+```yaml
+GO_ID: <GO_...>
+GO_STRUCTURAL_ROLE: GO_CHILD | GO_CHILD_ATTACHED_TO_PARENT | GO_PARENT | GO_PARENT_ATTACHED_TO_MASTER_PROJECT_PLAN | GO_MASTER_PROJECT_PLAN
+PF_ID: <PF_* | null>
+MASTER_TARGET_ID: <MT_* | MASTER_TARGET_* | null>
+MASTER_PROJECT_PLAN_ID: <MPP_* | null>
+PARENT_GO_ID: <GO_* | null>
+NEXT_ATTACH_TARGET: <required if GO_CHILD or GO_PARENT is not attached>
+6_FINAL_TARGET: <current phase target>
+BUNDLE_TARGET: <target of the bundle, if transport/bundle is required>
+TRANSPORT_MODE: none | patch_only | bundle_patch | bundle_patch_zip
+CLOSE_GATE_MASTER_TARGET: pending | validated | not_applicable
+```
+
+### Roles structurels canoniques
+
+Les seuls `GO_STRUCTURAL_ROLE` autorises sont :
+
+```text
+GO_CHILD
+GO_CHILD_ATTACHED_TO_PARENT
+GO_PARENT
+GO_PARENT_ATTACHED_TO_MASTER_PROJECT_PLAN
+GO_MASTER_PROJECT_PLAN
+```
+
+`GO_ORPHAN` n'est pas un role canonique.
+
+Un `GO_CHILD` non encore rattache doit avoir `NEXT_ATTACH_TARGET`.
+Un `GO_PARENT` non encore rattache doit avoir `NEXT_ATTACH_TARGET`.
+
+### Rattachement obligatoire
+
+1. Un `GO_CHILD_ATTACHED_TO_PARENT` doit pointer vers `PARENT_GO_ID`.
+2. Un `GO_PARENT_ATTACHED_TO_MASTER_PROJECT_PLAN` doit pointer vers `MASTER_PROJECT_PLAN_ID`.
+3. Un `GO_MASTER_PROJECT_PLAN` doit pointer vers `PF_ID` et `1_MASTER_TARGET`.
+4. Un support, tool, machine, transport ou autre surface non-produit ne flotte pas seul : il doit avoir un parent de continuite ou un rattachement explicite a un `4_MASTER_PROJECT_PLAN`.
+5. Si le rattachement n'est pas encore prouve, `NEXT_ATTACH_TARGET` est obligatoire et le GO ne peut pas etre ferme comme livre.
+
+### Target et transport
+
+`6_FINAL_TARGET` decrit la cible de phase courante.
+
+`BUNDLE_TARGET` decrit le livrable concret du bundle courant seulement si un
+bundle, un patch, un zip, une execution IDE, une autre machine ou un depot manuel
+est requis.
+
+Le champ `TRANSPORT_MODE` gouverne les artefacts a produire :
+
+| TRANSPORT_MODE | Usage | Artefacts attendus |
+|---|---|---|
+| `none` | modification directe deja gouvernee par le repo ou lecture seule | aucun artefact de transport obligatoire |
+| `patch_only` | demande explicite de patch ou doc-only simple | `.patch` uniquement ; ne pas appliquer sans demande explicite |
+| `bundle_patch` | bundle documente sans zip requis | `TARGETS.md`, `target_card.json`, `.patch` canonique |
+| `bundle_patch_zip` | IDE, autre machine, depot manuel, operateur local ou execution deportee | bundle deportable, `.patch` canonique, `.zip` transportable |
+
+### PATCH_DEFAULT_RULE
+
+Quand l'utilisateur demande simplement `patch`, produire le `.patch` avant toute
+application directe.
+
+Par defaut, `patch` ne signifie pas : appliquer, commit, push, ouvrir PR,
+modifier runtime ou fermer parent.
+
+### Ouverture chantier et zip
+
+Quand un plan est valide et qu'un chantier est ouvert, les artefacts de transport
+dependent de `TRANSPORT_MODE`.
+
+Si l'execution est deportee vers IDE, autre machine, depot manuel, operateur local
+ou environnement non directement modifie par la session, le chantier doit prevoir :
+
+```text
+00_INITIAL_PROJECT_DOC
+TARGETS.md
+target_card.json
+bundle deportable
+.patch canonique
+.zip transportable
+```
+
+Si le lot est doc-only direct GitHub ou lecture seule, le `.zip` n'est pas
+obligatoire. Le `.patch` canonique peut suffire selon le scope.
+
+### Fermeture et close gate
+
+Un child, bundle, patch, commit ou PR ne ferme jamais un parent.
+
+Un parent ne peut etre ferme que si :
+
+```text
+PF_* prouve utilisable
++ 1_MASTER_TARGET atteint
++ 4_MASTER_PROJECT_PLAN complete ou explicitement declasse
++ CLOSE_GATE_MASTER_TARGET valide
+```
+
+Sinon, produire `NEXT_GO` ou documenter `REMAINING_GAP`.
+
+### Notes de precedence
+
+Les formulations de type `PLAN_VALIDE_CHAIN` sont des supports operatoires
+derives. Elles ne sont pas la source souveraine. En cas de divergence, cette
+matrice maitre prime.
 
 ## Objet
 
