@@ -13,6 +13,9 @@ _PROJECT_ROOT = _MODULE_DIR.parent.parent              # opt-trading root
 # Canonical Data Center paths (primary write target)
 _DC_DERIVATIVES_BASE = Path("data/data_center/derivatives")
 
+# Contract class view (neutral consumer path — decoupled from producer_id)
+_DC_VIEWS_BASE = Path("data/data_center/views")
+
 # Legacy / view paths (secondary, backward compat)
 _COLLECTORS_LATEST = Path("data/collectors/derivatives/latest.json")
 _COLLECTORS_BY_SYMBOL = Path("data/collectors/derivatives/cache/by_symbol")
@@ -98,6 +101,40 @@ def write_market_metrics_to_data_center(
 
 
 # ---------------------------------------------------------------------------
+# Contract class view writer (neutral consumer path)
+# ---------------------------------------------------------------------------
+
+def write_market_metrics_view(
+    payload: Union[MarketMetricsV1, dict],
+    root: Optional[Path] = None,
+) -> Optional[dict]:
+    """Contract class view: write market_metrics.v1 to data/data_center/views/market_metrics/.
+
+    Neutral consumer path — decoupled from any specific producer_id.
+    Multiple producers can feed this view; consumers always read from here.
+
+    Writes to:
+      data/data_center/views/market_metrics/latest.json
+      data/data_center/views/market_metrics/by_symbol/<SYMBOL>.json
+
+    Returns dict with 'latest' and 'by_symbol' Path values, or None if
+    provider is not_proven_runtime_adapter. Raises ValueError for invalid input_class.
+    """
+    root = Path(root) if root is not None else _PROJECT_ROOT
+    d = _to_dict(payload)
+    _validate_input_class(d)
+    if _is_not_proven_runtime_adapter(d):
+        return None
+    symbol = d.get("symbol", "UNKNOWN")
+    base = root / _DC_VIEWS_BASE / "market_metrics"
+    latest_dest = base / "latest.json"
+    by_symbol_dest = base / "by_symbol" / f"{symbol}.json"
+    _atomic_write_json(latest_dest, d)
+    _atomic_write_json(by_symbol_dest, d)
+    return {"latest": latest_dest, "by_symbol": by_symbol_dest}
+
+
+# ---------------------------------------------------------------------------
 # Full publish pipeline
 # ---------------------------------------------------------------------------
 
@@ -106,15 +143,17 @@ def publish_market_metrics(
     root: Optional[Path] = None,
     include_legacy_mirror: bool = True,
     include_deskpro_view: bool = True,
+    include_contract_view: bool = True,
 ) -> Optional[dict]:
-    """Full publish pipeline: Data Center canonical + optional legacy mirrors.
+    """Full publish pipeline: Data Center canonical + contract class view + optional legacy mirrors.
 
     Write order:
-      1. data/data_center/derivatives/<producer_id>/ (canonical — always)
-      2. data/collectors/derivatives/ (legacy mirror — optional)
-      3. data/deskpro/inputs/market_metrics/ (Desk Pro view — optional, migration_needed)
+      1. data/data_center/derivatives/<producer_id>/ (producer canonical — always)
+      2. data/data_center/views/market_metrics/ (contract class view — optional)
+      3. data/collectors/derivatives/ (legacy mirror — optional)
+      4. data/deskpro/inputs/market_metrics/ (Desk Pro legacy view — optional, migration_needed)
 
-    Returns dict with keys 'data_center', 'legacy', 'deskpro' (each a sub-dict
+    Returns dict with keys 'data_center', 'view', 'legacy', 'deskpro' (each a sub-dict
     with 'latest' and 'by_symbol' Path values, or None if skipped/not_proven).
     Returns None if provider is not_proven_runtime_adapter.
     Raises ValueError for invalid input_class.
@@ -127,6 +166,10 @@ def publish_market_metrics(
 
     dc = write_market_metrics_to_data_center(d, root=root)
 
+    view = None
+    if include_contract_view:
+        view = write_market_metrics_view(d, root=root)
+
     legacy = None
     if include_legacy_mirror:
         latest_p = write_market_metrics_latest(d, root=root)
@@ -138,7 +181,7 @@ def publish_market_metrics(
     if include_deskpro_view:
         deskpro = publish_market_metrics_for_deskpro(d, root=root)
 
-    return {"data_center": dc, "legacy": legacy, "deskpro": deskpro}
+    return {"data_center": dc, "view": view, "legacy": legacy, "deskpro": deskpro}
 
 
 # ---------------------------------------------------------------------------

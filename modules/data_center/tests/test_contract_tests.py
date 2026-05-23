@@ -27,6 +27,7 @@ from modules.derivatives_collector.app.market_metrics_v1 import (
 )
 from modules.derivatives_collector.app.market_metrics_writer import (
     write_market_metrics_to_data_center,
+    write_market_metrics_view,
     publish_market_metrics,
 )
 
@@ -205,16 +206,22 @@ class TestRegistryAlignment:
             assert cc in self.producer_contract_classes, \
                 f"{c['consumer_id']}: contract_class '{cc}' not found in any producer"
 
-    def test_desk_pro_reads_from_derivatives_producer_family(self):
+    def test_desk_pro_reads_from_contract_class_view(self):
+        """Desk Pro reads from the neutral view, not from a producer_id path."""
         desk_pro = next(c for c in self.consumers if c["consumer_id"] == "desk_pro__market_metrics")
-        assert "data/data_center/derivatives/" in desk_pro["read_path"]
+        assert "data/data_center/views/" in desk_pro["read_path"], \
+            f"desk_pro read_path must use views/, got: {desk_pro['read_path']}"
+        assert "bitget" not in desk_pro["read_path"], \
+            "desk_pro read_path must not reference a producer_id"
+        assert "binance" not in desk_pro["read_path"], \
+            "desk_pro read_path must not reference a producer_id"
 
-    def test_at_least_one_consumer_per_producer_family(self):
-        families = {p["family"] for p in self.producers}
-        consumer_paths = " ".join(c["read_path"] for c in self.consumers if c.get("read_path"))
-        for family in families:
-            assert family in consumer_paths, \
-                f"family '{family}' has no consumer reading from data/data_center/{family}/"
+    def test_latest_only_consumers_read_from_view(self):
+        """All latest_only market_metrics consumers read from the neutral view."""
+        for c in self.consumers:
+            if c.get("access_pattern") == "latest_only" and c.get("contract_class") == "market_metrics.v1":
+                assert "data/data_center/views/" in c["read_path"], \
+                    f"{c['consumer_id']}: latest_only consumer must read from views/"
 
     def test_no_consumer_reads_from_raw(self):
         """No production consumer should read from raw/ — that's for audit only."""
@@ -261,7 +268,7 @@ class TestWriterToDataCenterChain:
         finally:
             shutil.rmtree(td)
 
-    def test_binance_and_bitget_write_to_distinct_paths(self):
+    def test_binance_and_bitget_write_to_distinct_dc_paths(self):
         td = Path(tempfile.mkdtemp())
         try:
             r_binance = write_market_metrics_to_data_center(_make_full_payload("binance_derivatives"), root=td)
@@ -282,20 +289,18 @@ class TestWriterToDataCenterChain:
         finally:
             shutil.rmtree(td)
 
-    def test_consumer_read_path_is_reachable_after_write(self):
-        """The consumer registry read_path for desk_pro must be reachable after writer runs."""
+    def test_consumer_read_path_reachable_via_view_writer(self):
+        """desk_pro read_path is reachable after write_market_metrics_view — any provider."""
         td = Path(tempfile.mkdtemp())
         try:
             consumers = load_consumers_registry()["consumers"]
             desk_pro = next(c for c in consumers if c["consumer_id"] == "desk_pro__market_metrics")
-            # desk_pro read_path points to bitget — use that producer for this check
-            result = write_market_metrics_to_data_center(
-                _make_full_payload("bitget"), root=td
+            result = write_market_metrics_view(
+                _make_full_payload("binance_derivatives"), root=td
             )
-            dc_latest = result["latest"]
             expected_path = td / desk_pro["read_path"]
-            assert dc_latest == expected_path, \
-                f"writer produced {dc_latest} but consumer expects {expected_path}"
+            assert result["latest"] == expected_path, \
+                f"view writer produced {result['latest']} but consumer expects {expected_path}"
         finally:
             shutil.rmtree(td)
 
@@ -314,6 +319,7 @@ class TestDeskProChain:
             result = publish_market_metrics(payload, root=td)
             assert result is not None
             assert result["data_center"] is not None
+            assert result["view"] is not None
             assert result["deskpro"] is not None
             # Desk Pro reader reads from the deskpro view (pre-migration path)
             metrics = read_market_metrics(path=result["deskpro"]["latest"])
