@@ -1,0 +1,45 @@
+{
+  "go_id": "GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_GAP_REMEDIATION_01",
+  "bundle_id": "GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_GAP_REMEDIATION_01_bundle",
+  "target_id": "TARGET_PRODUCT_SURFACE_GAP_REMEDIATION_01",
+  "target_label": "Remédier le registre PRODUCT_FINAL_SURFACE_REGISTRY_01.md pour aligner les PF_*, MASTER_TARGET et surfaces support critiques.",
+  "master_target_id": "MASTER_TARGET_PRODUCT_FINAL_SURFACE_REGISTRY_MASTER_PLAN_TARGET_01",
+  "master_target_label": "Registre produit/surface utilisable comme matrice de rattachement PF_* -> 1_MASTER_TARGET -> 4_MASTER_PROJECT_PLAN -> 6_FINAL_TARGET -> BUNDLE_TARGET.",
+  "target_status": "ready_for_review",
+  "master_target_status": "partially_reached",
+  "repo": "opt-trading",
+  "surface": "docs/governance",
+  "mode": "product_surface_gap_remediation_doc_only",
+  "scope_allow": [
+    "docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md",
+    "docs/chantiers/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_GAP_REMEDIATION_01/",
+    "docs/index/inbox/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_GAP_REMEDIATION_01.md",
+    "bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_GAP_REMEDIATION_01/"
+  ],
+  "scope_deny": [
+    "runtime",
+    "secrets",
+    "root .patch committed",
+    "root .zip committed",
+    "global index mutation beyond inbox atom"
+  ],
+  "target_completion_criteria": [
+    "PRODUCT_FINAL_SURFACE_REGISTRY_01.md contient PF_DATA_CENTER.",
+    "PRODUCT_FINAL_SURFACE_REGISTRY_01.md distingue PF_TELEGRAM_SCREENER et PF_TELEGRAM_INGESTION.",
+    "PRODUCT_FINAL_SURFACE_REGISTRY_01.md distingue PF_OPENCLAW_ORCHESTRATOR_FULL et PF_OPERATOR_RUNTIME.",
+    "PRODUCT_FINAL_SURFACE_REGISTRY_01.md liste les supports critiques non promus automatiquement.",
+    "La chaîne PF_* -> 1_MASTER_TARGET -> 4_MASTER_PROJECT_PLAN -> 6_FINAL_TARGET -> BUNDLE_TARGET est explicitée.",
+    "Aucun parent n'est fermé par ce bundle."
+  ],
+  "after_target_reached": {
+    "evaluate_master_target": true,
+    "next_bundle_candidate": "GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_MASTER_PROJECT_PLAN_MATRIX_01",
+    "global_index_update_candidate": false,
+    "decision_rule": "Après remédiation du registre PF_*, ouvrir une passe qui crée ou rattache les MASTER_PROJECT_PLAN manquants par surface finale."
+  },
+  "patch_expected": true,
+  "patch_location": "bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_GAP_REMEDIATION_01/patches/20260523_GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_GAP_REMEDIATION_01.patch",
+  "zip_role": "none",
+  "zip_role_justification": "GO doc-only appliqué directement via GitHub ; le patch canonique suffit comme artefact de transport.",
+  "created_at": "2026-05-23"
+}
