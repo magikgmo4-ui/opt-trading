@@ -1,4 +1,4 @@
-﻿---
+---
 doc_id: OPT_TRADING_ACTIVE_STREAMS
 doc_type: reprise
 repo: opt-trading
@@ -19,6 +19,7 @@ point_de_reprise: "Section Flux actifs"
 updated_at: 2026-05-23
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+  - docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md
   - docs/index/GO_INDEX.md
   - docs/index/REPRISE.md
 ---
@@ -27,19 +28,28 @@ links:
 
 ## Objet
 
-Ce document référence les flux parents actifs avec produit utilisable dans `opt-trading`.
+Ce document référence les flux parents actifs avec produit utilisable ou correction structurelle de lecture produit dans `opt-trading`.
 
 ---
 
 ## Règles
 
-- ne référencer ici que les parents avec produit utilisable ou cible produit claire
-- les enfants, micro-GO, bundles et artefacts support vivent dans les dossiers chantier
-- l'etat reel du repo prime sur toute reconstruction documentaire
+- ne référencer ici que les parents avec produit utilisable, cible produit claire ou correction structurante de la lecture produit ;
+- les enfants, micro-GO, bundles et artefacts support vivent dans les dossiers chantier ;
+- l'état réel du repo prime sur toute reconstruction documentaire ;
+- `PRODUCT_FINAL_SURFACE_REGISTRY_01.md` classe les produits/surfaces finales utilisables `PF_*`.
 
 ---
 
 ## Flux parents actifs
+
+### GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01
+- produit utilisable : registre canonique des produits/surfaces finales `PF_*`
+- statut : OPEN
+- gap restant : audit des parents actifs contre `PF_*`
+- target courant : alignement matrice + index globaux
+- next action : `GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_CLOSE_GATE_AUDIT_01`
+- blocage : aucun ; doc/governance only
 
 ### GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01
 - produit utilisable : doctrine multi-agents canonisée
