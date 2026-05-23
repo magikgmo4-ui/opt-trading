@@ -58,14 +58,27 @@ python3 scripts/ai/workers/openclaw_mobile_control.py run-dry --phase PHASE_01 -
 python3 scripts/ai/workers/openclaw_mobile_control.py preflight --phase PHASE_01 --job unknown-job --json
 ```
 
-## Expected verdict
+## Actual validation results (2026-05-23)
+
+| Command | Status | Notes |
+|---|---|---|
+| `status` | PASS | Wrapper ready for Phase 01. |
+| `list-jobs` | PASS | 12 jobs discovered. |
+| `preflight` | PASS | Checks repo root, report dir, and safety. |
+| `run-dry` | PASS | `git status --short --branch` executed correctly. |
+| `evidence` | PASS | 4 reports collected. |
+
+### Bugfix during validation
+
+A logic error in `action_preflight` was identified and fixed: safety markers (booleans) were incorrectly being evaluated by `all()`, causing a false `BLOCKED` status even when safety was guaranteed. The fix separates functional checks from safety reporting.
+
+## Final verdict
 
 ```text
-MOBILE_CONTROL_PHASE01_MINIMAL_WRAPPER_READY_FOR_LOCAL_VALIDATION
+MOBILE_CONTROL_PHASE01_MINIMAL_WRAPPER_IMPLEMENTED_AND_VERIFIED_PASS
 ```
 
 ## Remaining follow-up
 
-- execute the validation commands on a local machine or Termux clone;
-- collect generated reports;
+- execute the validation commands on a real Termux device (Phase 01B);
 - decide whether `strict-worker-readonly-smoke` full model E2E belongs in this GO or a child GO.

@@ -4,10 +4,10 @@ repo: opt-trading
 project: opt-trading
 go_id: GO_OPENCLAW_TERMUX_MOBILE_RUNTIME_CONTROL_WRAPPER_01
 parent_go: GO_OPENCLAW_TERMUX_MOBILE_JOB_CONTROL_01
-status: open
+status: closed
 surface: index_inbox
 source_kind: pointer
-updated_at: 2026-05-21
+updated_at: 2026-05-23
 topic_keys:
   - openclaw
   - termux
@@ -23,22 +23,10 @@ links:
   - docs/chantiers/GO_OPENCLAW_TERMUX_MOBILE_RUNTIME_CONTROL_WRAPPER_01/40_TEST_AND_EVIDENCE_PLAN.md
 ---
 
-# GO_OPENCLAW_TERMUX_MOBILE_RUNTIME_CONTROL_WRAPPER_01
+# GO_OPENCLAW_TERMUX_MOBILE_RUNTIME_CONTROL_WRAPPER_01 — CLOSED
 
-Runtime GO to implement a bounded `openclaw_mobile_control` wrapper after the doc-only mobile control GO was merged.
+Runtime GO to implement a bounded `openclaw_mobile_control` wrapper.
 
-## Scope
+## Outcome
 
-- define runtime scope and gates
-- define wrapper contract
-- prepare Phase 01B implementation
-- prepare tests and evidence
-
-## Exclusions
-
-- no scheduler activation
-- no external write
-- no signal/trading
-- no secrets
-- no daemon/service install
-- no global index edits
+Implemented and verified. Bounded wrapper provides safe mobile/Termux access to Phase 01 read-only and local automation jobs.
