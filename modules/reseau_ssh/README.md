@@ -19,10 +19,12 @@ Ce répertoire racine est conservé comme point d'entrée de statut pour la fami
 - ne pas fusionner ni supprimer physiquement `step1b` dans ce lot
 - les wrappers racine historiques ont déjà été archivés sous `_archive/legacy_modules/reseau_ssh_root_wrappers_legacy/`
 - ne pas toucher au runtime live hors lot dédié
+- les capacités baseline à faible risque sont désormais absorbées sous `modules/reseau_ssh/{scripts,templates}`
 
 ## Frontière de suite
 - `reseau_ssh` est maintenant la surface canonique top-level de la lignée `reseau_ssh*`
 - l'implémentation nested `reseau_ssh_step2` reste interne à ce module
+- `baseline-hostname` est maintenant absorbé dans `modules/reseau_ssh/scripts/*`
 - `bootstrap`, `ssh-hardening-safe` et `ssh-lockdown` sont maintenant absorbés dans `modules/reseau_ssh/scripts/*`
 - `scripts/reseau_ssh/` reste seulement une surface `rollback_only`
 - il est adjacent, mais non fusionné, avec :

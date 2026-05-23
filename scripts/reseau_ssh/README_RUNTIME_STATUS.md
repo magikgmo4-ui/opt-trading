@@ -3,7 +3,7 @@
 ⚠️ **ATTENTION : CE DOSSIER N'EST PLUS LE POINT D'ENTRÉE CANONIQUE DES ALIAS COURTS.**
 
 ## ETAT DU RUNTIME (2026-04-25)
-Les scripts contenus dans ce dossier (`scripts/reseau_ssh/`) restent présents comme backend de compatibilité encore utilisé par la façade canonique, plus rollback.
+Les scripts contenus dans ce dossier (`scripts/reseau_ssh/`) restent présents comme surface legacy résiduelle et shims de délégation, plus comme backend supporté.
 
 Les alias courts `menu/cmd/sanity-reseau_ssh` ont été repointés vers `modules/reseau_ssh/scripts/*` sur :
 - `db-layer`
@@ -21,9 +21,8 @@ Et son implémentation interne est :
 - `modules/reseau_ssh/modules/reseau_ssh/reseau_ssh_step2/`
 
 Ce dossier runtime reste seulement :
-- une surface legacy conservée pour rollback et appel explicite seulement
-- une surface de rollback encore disponible
-- une surface à sortir progressivement du flux actif
+- une surface legacy résiduelle
+- une surface à archiver ou sortir du flux actif
 
 Les anciens wrappers racine historiques ont deja ete sortis du flux actif vers :
 - `_archive/legacy_modules/reseau_ssh_root_wrappers_legacy/`
@@ -40,9 +39,9 @@ Quand le canonique `modules/reseau_ssh` est présent, il doit déléguer vers :
 - `modules/reseau_ssh/scripts/install_canonical_shortcuts.sh`
 
 ## Blocage de sortie
-Ce dossier ne peut pas encore passer en archive directe, même si la façade canonique ne l'utilise plus.
+Ce dossier ne peut pas encore passer en archive directe tant que son installeur legacy délégant n'a pas été traité par un lot final dédié.
 
-Les commandes suivantes relèvent désormais d'un appel legacy explicite seulement :
+Les commandes suivantes sont retirées du flux supporté et doivent être remplacées par le workflow canonique :
 - `bootstrap`
 - `ssh-hardening-safe`
 - `ssh-lockdown`

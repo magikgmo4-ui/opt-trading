@@ -62,35 +62,30 @@ Use the canonical workflow instead:
   cmd-reseau_ssh wg-apply
   cmd-reseau_ssh wg-up
   cmd-reseau_ssh wg-status
-
-If you explicitly need the legacy compat backend, call it directly:
-  bash "$RESEAU_SSH_COMPAT_CMD" "$cmd" ...
 EOF
     exit 2
     ;;
   baseline-dry-run)
-    reseau_ssh_require_exec "$RESEAU_SSH_STEP1B_CMD"
-    exec bash "$RESEAU_SSH_STEP1B_CMD" dry-run "$@"
+    reseau_ssh_require_exec "$RESEAU_SSH_BASELINE_APPLY"
+    exec bash "$RESEAU_SSH_BASELINE_APPLY" "$@"
     ;;
   baseline-apply)
-    reseau_ssh_require_exec "$RESEAU_SSH_STEP1B_CMD"
-    exec bash "$RESEAU_SSH_STEP1B_CMD" apply "$@"
+    reseau_ssh_require_exec "$RESEAU_SSH_BASELINE_APPLY"
+    exec bash "$RESEAU_SSH_BASELINE_APPLY" --apply "$@"
     ;;
   baseline-hostname)
-    reseau_ssh_require_exec "$RESEAU_SSH_STEP1B_CMD"
-    exec bash "$RESEAU_SSH_STEP1B_CMD" hostname "$@"
+    reseau_ssh_require_exec "$RESEAU_SSH_BASELINE_HOSTNAME"
+    exec bash "$RESEAU_SSH_BASELINE_HOSTNAME" "$@"
     ;;
   baseline-sanity)
-    reseau_ssh_require_exec "$RESEAU_SSH_STEP1B_CMD"
-    exec bash "$RESEAU_SSH_STEP1B_CMD" sanity "$@"
+    reseau_ssh_require_exec "$RESEAU_SSH_BASELINE_SANITY"
+    exec bash "$RESEAU_SSH_BASELINE_SANITY" "$@"
     ;;
   baseline-show-hosts)
-    reseau_ssh_require_exec "$RESEAU_SSH_STEP1B_CMD"
-    exec bash "$RESEAU_SSH_STEP1B_CMD" show-hosts "$@"
+    sed -n '1,120p' "$RESEAU_SSH_BASELINE_HOSTS_TEMPLATE"
     ;;
   baseline-show-ssh)
-    reseau_ssh_require_exec "$RESEAU_SSH_STEP1B_CMD"
-    exec bash "$RESEAU_SSH_STEP1B_CMD" show-ssh "$@"
+    sed -n '1,220p' "$RESEAU_SSH_BASELINE_SSH_TEMPLATE"
     ;;
   help|-h|--help|"")
     cat <<'EOF'
@@ -116,13 +111,13 @@ Step 2 implementation:
   fw-dry-run
   fw-apply
 
-Compat backend:
+Canonical transition helpers:
   bootstrap
   ssh-hardening-safe
   ssh-lockdown
   wg-show               # deprecated alias to wg-status
 
-Baseline compat (step1b):
+Canonical baseline helpers:
   baseline-dry-run
   baseline-apply
   baseline-hostname <admin-trading|db-layer|student>

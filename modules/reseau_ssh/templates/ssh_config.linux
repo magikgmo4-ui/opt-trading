@@ -1,0 +1,32 @@
+# === reseau_ssh canonical config (Linux) ===
+# Aliases: admin-trading, db-layer, student, cursor-ai
+# Tries multiple keys to avoid mismatch (id_ed25519 and id_ed25519_fantome if present).
+
+Host *
+  ServerAliveInterval 30
+  ServerAliveCountMax 3
+  TCPKeepAlive yes
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_ed25519
+  IdentityFile ~/.ssh/id_ed25519_fantome
+
+Host admin-trading
+  HostName 192.168.16.155
+  User ghost
+  Port 22
+
+Host db-layer
+  HostName 192.168.16.179
+  User ghost
+  Port 22
+
+Host student
+  HostName 192.168.16.103
+  User student
+  Port 22
+
+# Dell Windows OpenSSH server (optional)
+Host cursor-ai
+  HostName 192.168.16.224
+  User ghost
+  Port 22

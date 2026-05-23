@@ -1,5 +1,30 @@
 #!/usr/bin/env bash
 set -euo pipefail
+
+CANONICAL_CMD="/opt/trading/modules/reseau_ssh/scripts/cmd.sh"
+
+if [[ ! -x "$CANONICAL_CMD" ]]; then
+  echo "ERROR: canonical reseau_ssh command missing: $CANONICAL_CMD" >&2
+  exit 2
+fi
+
+if [[ "${1:-}" == "" || "${1:-}" == "-h" || "${1:-}" == "--help" || "${1:-}" == "help" ]]; then
+  cat <<'USAGE'
+cmd-reseau_ssh (legacy shim)
+
+This legacy path is deprecated.
+Use the canonical module entrypoint instead:
+  /opt/trading/modules/reseau_ssh/scripts/cmd.sh <command>
+
+Short alias target:
+  cmd-reseau_ssh <command>
+USAGE
+  exit 0
+fi
+
+echo "INFO: legacy reseau_ssh cmd shim delegating to canonical module." >&2
+exec bash "$CANONICAL_CMD" "$@"
+
 BASE="/opt/trading/scripts/reseau_ssh"
 # shellcheck source=/dev/null
 source "$BASE/lib/common.sh"
@@ -10,14 +35,43 @@ cmd-reseau_ssh <command> [args]
 
 Commands:
   sanity
-  bootstrap                 # install packages + enable ufw + fail2ban (safe rules)
-  ssh-hardening-safe        # adds a drop-in config WITHOUT disabling password auth
-  ssh-lockdown              # disables password auth (requires existing authorized_keys)
-  wg-server-init [wg_ip]    # default wg_ip=10.66.66.1/24
-  wg-client-init <server_lan_ip> <client_wg_ip>  # writes /etc/wireguard/wg0.conf and prints it
-  wg-add-peer <peer_name> <peer_pubkey> <peer_wg_ip_cidr>
   wg-up | wg-down | wg-show
+
+Retired from supported flow:
+  bootstrap
+  ssh-hardening-safe
+  ssh-lockdown
+  wg-server-init
+  wg-client-init
+  wg-add-peer
+
+Use canonical workflow instead:
+  cmd-reseau_ssh wg-genkeys
+  cmd-reseau_ssh wg-render
+  cmd-reseau_ssh wg-apply
+  cmd-reseau_ssh wg-up
+  cmd-reseau_ssh wg-status
 USAGE
+}
+
+retired_legacy_command() {
+  local cmd="$1"
+  cat >&2 <<EOF
+ERROR: $cmd is retired from the supported reseau_ssh flow.
+Use the canonical workflow instead:
+  cmd-reseau_ssh <canonical-command>
+
+Examples:
+  cmd-reseau_ssh bootstrap
+  cmd-reseau_ssh ssh-hardening-safe
+  cmd-reseau_ssh ssh-lockdown
+  cmd-reseau_ssh wg-genkeys
+  cmd-reseau_ssh wg-render
+  cmd-reseau_ssh wg-apply
+  cmd-reseau_ssh wg-up
+  cmd-reseau_ssh wg-status
+EOF
+  exit 2
 }
 
 ensure_pkgs() {
@@ -222,12 +276,7 @@ main() {
   local cmd="${1:-}"; shift || true
   case "$cmd" in
     sanity) cmd_sanity ;;
-    bootstrap) cmd_bootstrap ;;
-    ssh-hardening-safe) cmd_ssh_hardening_safe ;;
-    ssh-lockdown) cmd_ssh_lockdown ;;
-    wg-server-init) wg_server_init "$@" ;;
-    wg-client-init) wg_client_init "$@" ;;
-    wg-add-peer) wg_add_peer "$@" ;;
+    bootstrap|ssh-hardening-safe|ssh-lockdown|wg-server-init|wg-client-init|wg-add-peer) retired_legacy_command "$cmd" ;;
     wg-up) wg_up ;;
     wg-down) wg_down ;;
     wg-show) wg_show ;;

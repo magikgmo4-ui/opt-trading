@@ -16,6 +16,11 @@ It remains the internal implementation layer used by the canonical facade:
 - top-level facade: `modules/reseau_ssh/scripts/*`
 - nested implementation: `modules/reseau_ssh/modules/reseau_ssh/reseau_ssh_step2/scripts/*`
 
+The published compatibility aliases for `*_step2` must now resolve through:
+- `modules/reseau_ssh/scripts/install_shortcuts.sh`
+
+The nested installer remains only as a delegating compatibility entrypoint.
+
 ## Goal
 - Add a **management WireGuard network** between:
   - admin-trading (hub) → db-layer, student, (optional) cursor-ai
