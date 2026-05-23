@@ -1,0 +1,9 @@
+[Unit]
+Description=Run non-trading ledger replay check every hour
+[Timer]
+OnBootSec=240s
+OnUnitActiveSec=1h
+Persistent=true
+Unit=non-trading-ledger-replay.service
+[Install]
+WantedBy=timers.target

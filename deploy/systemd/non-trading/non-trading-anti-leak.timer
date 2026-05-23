@@ -1,0 +1,9 @@
+[Unit]
+Description=Run non-trading anti-leak scan every 6 hours
+[Timer]
+OnBootSec=300s
+OnUnitActiveSec=6h
+Persistent=true
+Unit=non-trading-anti-leak.service
+[Install]
+WantedBy=timers.target

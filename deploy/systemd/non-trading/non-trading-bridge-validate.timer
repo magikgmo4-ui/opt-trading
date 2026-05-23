@@ -1,0 +1,9 @@
+[Unit]
+Description=Run non-trading bridge contract validation every 24 hours
+[Timer]
+OnBootSec=420s
+OnUnitActiveSec=24h
+Persistent=true
+Unit=non-trading-bridge-validate.service
+[Install]
+WantedBy=timers.target

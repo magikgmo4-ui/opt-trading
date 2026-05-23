@@ -1,0 +1,9 @@
+[Unit]
+Description=Run non-trading sheets health check every 30 minutes
+[Timer]
+OnBootSec=660s
+OnUnitActiveSec=30min
+Persistent=true
+Unit=non-trading-sheets-health.service
+[Install]
+WantedBy=timers.target

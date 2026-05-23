@@ -1,0 +1,9 @@
+[Unit]
+Description=Run non-trading airtable health check every 30 minutes
+[Timer]
+OnBootSec=480s
+OnUnitActiveSec=30min
+Persistent=true
+Unit=non-trading-airtable-health.service
+[Install]
+WantedBy=timers.target

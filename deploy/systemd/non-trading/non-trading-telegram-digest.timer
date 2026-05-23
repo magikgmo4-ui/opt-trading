@@ -1,0 +1,9 @@
+[Unit]
+Description=Run non-trading telegram digest every hour
+[Timer]
+OnBootSec=720s
+OnUnitActiveSec=1h
+Persistent=true
+Unit=non-trading-telegram-digest.service
+[Install]
+WantedBy=timers.target

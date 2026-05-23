@@ -1,0 +1,12 @@
+[Unit]
+Description=Non-Trading: capability matrix validation
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/trading
+ExecStart=/opt/trading/scripts/jobs/capability-matrix-validate.sh
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=nt-cap-matrix
+NoNewPrivileges=true
+[Install]
+WantedBy=default.target

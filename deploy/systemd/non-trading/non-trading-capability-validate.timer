@@ -1,0 +1,9 @@
+[Unit]
+Description=Run non-trading capability matrix validation every 24 hours
+[Timer]
+OnBootSec=360s
+OnUnitActiveSec=24h
+Persistent=true
+Unit=non-trading-capability-validate.service
+[Install]
+WantedBy=timers.target

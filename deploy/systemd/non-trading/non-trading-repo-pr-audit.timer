@@ -1,0 +1,9 @@
+[Unit]
+Description=Run non-trading repo PR audit every hour
+[Timer]
+OnBootSec=180s
+OnUnitActiveSec=1h
+Persistent=true
+Unit=non-trading-repo-pr-audit.service
+[Install]
+WantedBy=timers.target

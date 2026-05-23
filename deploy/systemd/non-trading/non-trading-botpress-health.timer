@@ -1,0 +1,9 @@
+[Unit]
+Description=Run non-trading botpress health check every 30 minutes
+[Timer]
+OnBootSec=600s
+OnUnitActiveSec=30min
+Persistent=true
+Unit=non-trading-botpress-health.service
+[Install]
+WantedBy=timers.target

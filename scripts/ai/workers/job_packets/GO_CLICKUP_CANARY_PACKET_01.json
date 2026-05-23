@@ -1,0 +1,52 @@
+{
+  "job_packet_id": "GO_CLICKUP_CANARY_PACKET_01",
+  "go_id": "GO_OPT_TRADING_AUTOMATION_NON_TRADING_PERMANENT_ACTIVATION_01",
+  "status": "WRITE_GATED",
+  "task_type": "WRITE_GATED",
+  "mode": "WRITE_GATED",
+  "app_target": "clickup",
+  "scope": {
+    "allowed_inputs": ["docs/chantiers/GO_EXTERNAL_APPS_BRIDGE_CONTRACTS_01/20_BRIDGE_CONTRACTS.md"],
+    "allowed_outputs": ["reports/ai/workers/"],
+    "denied_inputs_inherited": true
+  },
+  "canary_operations": [
+    {
+      "id": "clickup-canary-read",
+      "type": "READ_ONLY",
+      "description": "Lire une tâche test dans un espace canary ClickUp",
+      "readback_required": true
+    },
+    {
+      "id": "clickup-canary-write",
+      "type": "WRITE_GATED",
+      "description": "Créer une tâche test non destructive dans un espace canary ClickUp",
+      "write_constraints": ["NE PAS modifier les tâches existantes", "NE PAS supprimer", "NE PAS modifier les permissions"],
+      "requires_approval": true,
+      "dry_run_required": true
+    },
+    {
+      "id": "clickup-canary-readback",
+      "type": "READ_ONLY",
+      "description": "Vérifier que la tâche canary est accessible après création",
+      "depends_on": ["clickup-canary-write"],
+      "readback_required": true
+    },
+    {
+      "id": "clickup-compensation-path",
+      "type": "READ_ONLY",
+      "description": "Instructions de rollback pour suppression manuelle HITL",
+      "compensation": {"type": "manual_hitl", "instructions": "Supprimer manuellement la tâche canary dans l'espace ClickUp après validation humaine", "no_auto_delete": true}
+    }
+  ],
+  "acceptance": {
+    "must_not_delete": true,
+    "must_not_modify_permissions": true,
+    "must_not_modify_existing_records": true,
+    "readback_required": true,
+    "ledger_required": true,
+    "rollback_documented": true,
+    "requires_external_approval": true
+  },
+  "required_env_vars": ["CLICKUP_API_KEY", "CLICKUP_LIST_ID"]
+}

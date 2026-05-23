@@ -1,0 +1,9 @@
+[Unit]
+Description=Run non-trading clickup health check every 30 minutes
+[Timer]
+OnBootSec=540s
+OnUnitActiveSec=30min
+Persistent=true
+Unit=non-trading-clickup-health.service
+[Install]
+WantedBy=timers.target

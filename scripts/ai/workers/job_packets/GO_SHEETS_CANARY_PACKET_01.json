@@ -1,0 +1,53 @@
+{
+  "job_packet_id": "GO_SHEETS_CANARY_PACKET_01",
+  "go_id": "GO_OPT_TRADING_AUTOMATION_NON_TRADING_PERMANENT_ACTIVATION_01",
+  "status": "WRITE_GATED",
+  "task_type": "WRITE_GATED",
+  "mode": "WRITE_GATED",
+  "app_target": "google_sheets",
+  "scope": {
+    "allowed_inputs": ["docs/chantiers/GO_EXTERNAL_APPS_BRIDGE_CONTRACTS_01/20_BRIDGE_CONTRACTS.md"],
+    "allowed_outputs": ["reports/ai/workers/"],
+    "denied_inputs_inherited": true
+  },
+  "canary_operations": [
+    {
+      "id": "sheets-canary-read",
+      "type": "READ_ONLY",
+      "description": "Lire une cellule test dans une feuille canary Google Sheets",
+      "readback_required": true
+    },
+    {
+      "id": "sheets-canary-write",
+      "type": "WRITE_GATED",
+      "description": "Écrire une valeur test non destructive dans une cellule canary",
+      "write_constraints": ["NE PAS modifier les cellules existantes", "NE PAS supprimer", "NE PAS modifier les permissions", "NE PAS modifier la structure de la feuille"],
+      "requires_approval": true,
+      "dry_run_required": true
+    },
+    {
+      "id": "sheets-canary-readback",
+      "type": "READ_ONLY",
+      "description": "Vérifier que la valeur canary est lisible après écriture",
+      "depends_on": ["sheets-canary-write"],
+      "readback_required": true
+    },
+    {
+      "id": "sheets-compensation-path",
+      "type": "READ_ONLY",
+      "description": "Instructions de rollback pour effacement manuel HITL",
+      "compensation": {"type": "manual_hitl", "instructions": "Effacer manuellement la cellule canary dans la feuille Google Sheets après validation humaine", "no_auto_delete": true}
+    }
+  ],
+  "acceptance": {
+    "must_not_delete": true,
+    "must_not_modify_permissions": true,
+    "must_not_modify_existing_cells": true,
+    "must_not_modify_sheet_structure": true,
+    "readback_required": true,
+    "ledger_required": true,
+    "rollback_documented": true,
+    "requires_external_approval": true
+  },
+  "required_env_vars": ["GOOGLE_SHEETS_CREDENTIALS", "GOOGLE_SHEETS_CANARY_ID"]
+}

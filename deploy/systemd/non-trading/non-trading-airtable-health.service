@@ -1,0 +1,12 @@
+[Unit]
+Description=Non-Trading: airtable read health
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/trading
+ExecStart=/opt/trading/scripts/jobs/airtable-read-health.sh
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=nt-airtable-h
+NoNewPrivileges=true
+[Install]
+WantedBy=default.target

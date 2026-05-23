@@ -1,0 +1,9 @@
+[Unit]
+Description=Run non-trading repo diff check every 15 minutes
+[Timer]
+OnBootSec=120s
+OnUnitActiveSec=15min
+Persistent=true
+Unit=non-trading-repo-diff.service
+[Install]
+WantedBy=timers.target
