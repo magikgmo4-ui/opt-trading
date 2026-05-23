@@ -23,6 +23,8 @@ point_de_reprise: "Section Tableau canonique des chantiers"
 updated_at: 2026-05-23
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
+  - docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md
+  - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01_PRODUCT_SURFACE_ALIGNMENT_01.md
   - docs/governance/REPO_ROLE.md
   - docs/governance/DOC_LAYERS.md
 ---
@@ -37,6 +39,7 @@ Ce document référence les GO non clos connus et utiles à la continuité local
 
 - l'etat reel prouve prime sur toute reconstruction documentaire
 - `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md` gouverne la lecture produit / parent / GO / Git
+- `docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md` classe les produits/surfaces finales `PF_*`
 - `docs/governance/MATRICE_GOUVERNANTE_V2.md` reste une annexe stable secondaire
 - `docs/index/GO_INDEX.md` reste la verite de liste locale pour les parents, GO simples et sous-entrees retenues
 
@@ -70,17 +73,17 @@ Ce document référence les GO non clos connus et utiles à la continuité local
 - une surface documentaire non chantier peut être citée comme source, support ou référence, mais ne doit pas être listée comme chantier dans le tableau canonique
 - un repère de famille dérivé peut exister comme aide transverse non canonique ; il ne doit ni modifier la liste canonique ni porter la priorité opératoire à la place du tableau
 - les liens doivent pointer vers les artefacts détaillés dès qu’ils existent
+- un parent/GO ne doit pas être fermé si son `MASTER_TARGET` ne pointe pas vers un produit final utilisable ou une surface finale `PF_*` vérifiable
 
 ---
 
 ## Tableau canonique des parents produits
 
-Ce tableau canonique ne contient que les chantiers parents avec produit utilisable
-ou cible produit claire. Les enfants, micro-GO, bundles, patchs, branches, PR,
-références et artefacts support sont exclus des index globaux actifs.
+Ce tableau canonique contient les chantiers parents avec produit utilisable, cible produit claire ou correction structurelle de lecture produit. Les enfants, micro-GO, bundles, patchs, branches, PR, références et artefacts support sont exclus des index globaux actifs sauf demande explicite de propagation.
 
 | PARENT_PRODUCT | STATUT | TARGET | NEXT ACTION | SOURCE |
 |---|---|---|---|---|
+| `GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01` | OPEN | registre produits/surfaces finales `PF_*` | `GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_CLOSE_GATE_AUDIT_01` | `docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md` |
 | `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01` | OPEN | canoniser méthode multi-agents | surveiller prochains INDEX_PATCH | `docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/PARENT_STATE.md` |
 | `GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01` | OPEN | parent machine admin-trading | maintenir le parent ; ouvrir child si besoin produit | `docs/chantiers/GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01/01_cadrage_parent.md` |
 | `GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01` | OPEN | parent machine db-layer | maintenir le parent ; ouvrir child si besoin produit | `docs/chantiers/GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01/01_cadrage_parent.md` |
@@ -103,11 +106,12 @@ références et artefacts support sont exclus des index globaux actifs.
 
 ## Priorite operatoire
 
-- P0 : `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
-- P1 : `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
-- P2 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01`
+- P0 : `GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_CLOSE_GATE_AUDIT_01`
+- P1 : `GO_TMUX_IDE_OPT_TRADING_CADRAGE_01`
+- P2 : `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01`, `GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01`, `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03`
+- P3 : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, `GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01`
 
-Les GO suivants restent `OPEN` dans le tableau canonique, mais hors priorite operatoire immediate de cette passe resserree :
+Les GO suivants restent `OPEN` dans le tableau canonique, mais hors priorite operatoire immediate :
 
 - `GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01`
 - `GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01`
@@ -119,6 +123,14 @@ Les GO suivants restent `OPEN` dans le tableau canonique, mais hors priorite ope
 ---
 
 ## Entrées
+
+### GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01
+- repo : opt-trading
+- type : gouvernance / produit final / surfaces finales
+- statut : open
+- titre court : registre canonique des produits/surfaces finales `PF_*`
+- dernier état connu : registre créé ; matrice alignée via addendum ; index globaux alignés ; patch/bundle à appliquer/revoir
+- lien utile : `docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md`, `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01_PRODUCT_SURFACE_ALIGNMENT_01.md`, `docs/chantiers/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/00_INITIAL_PROJECT_DOC.md`
 
 ### GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01
 - repo : opt-trading

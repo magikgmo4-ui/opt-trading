@@ -1,0 +1,30 @@
+---
+doc_id: GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01_INBOX
+repo: opt-trading
+go_id: GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01
+status: open
+surface: docs/index/inbox
+created_at: 2026-05-23
+updated_at: 2026-05-23
+---
+
+# GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01
+
+## Objet
+
+Créer le registre canonique des produits/surfaces finales et aligner matrice + index globaux.
+
+## Livrables
+
+- `docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md`
+- `docs/chantiers/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/00_INITIAL_PROJECT_DOC.md`
+- `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01_PRODUCT_SURFACE_ALIGNMENT_01.md`
+- `docs/index/GO_INDEX.md`
+- `docs/index/NEXT_GO_CANDIDATES.md`
+- `docs/index/ACTIVE_STREAMS.md`
+- `docs/index/REPRISE.md`
+- `bundles/GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01/`
+
+## NEXT_GO recommandé
+
+`GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_CLOSE_GATE_AUDIT_01`
