@@ -10,9 +10,9 @@
       "output_path_root": "data/data_center/derivatives/derivatives_collector__bitget/",
       "write_mode": "atomic",
       "latency_class": "oneshot",
-      "collectable_metrics": ["open_interest", "funding_rate", "volume_futures"],
-      "missing_metrics": ["long_short_ratio", "liquidations_long", "liquidations_short"],
-      "coverage_status": "partial",
+      "collectable_metrics": ["open_interest", "funding_rate", "volume_futures", "long_short_ratio", "liquidations_long", "liquidations_short"],
+      "missing_metrics": [],
+      "coverage_status": "full",
       "validated_at": "2026-05-23",
       "last_write": null
     },
@@ -24,10 +24,10 @@
       "output_path_root": "data/data_center/derivatives/derivatives_collector__binance/",
       "write_mode": "atomic",
       "latency_class": "oneshot",
-      "collectable_metrics": ["open_interest", "funding_rate", "volume_futures"],
-      "missing_metrics": ["long_short_ratio", "liquidations_long", "liquidations_short"],
-      "coverage_status": "partial",
-      "validated_at": null,
+      "collectable_metrics": ["open_interest", "funding_rate", "volume_futures", "long_short_ratio", "liquidations_long", "liquidations_short"],
+      "missing_metrics": [],
+      "coverage_status": "full",
+      "validated_at": "2026-05-23",
       "last_write": null
     },
     {
