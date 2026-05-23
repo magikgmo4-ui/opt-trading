@@ -191,6 +191,19 @@ def render_ui_html() -> str:
     </div>
   </details>
 
+  <details class="tools-section" id="visionPanel" style="margin-top:16px">
+    <summary>Coinglass Vision</summary>
+    <div class="card" style="margin-top:10px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <button id="btnVision" class="action-btn">Refresh</button>
+        <span id="visionMeta" class="muted" style="font-size:12px"></span>
+      </div>
+      <div id="visionContent">
+        <span class="muted">Click Refresh to load vision data.</span>
+      </div>
+    </div>
+  </details>
+
 <script>
 const el = (id)=>document.getElementById(id);
 
@@ -444,10 +457,55 @@ async function testAlert(){
   }
 }
 
+async function refreshVision(){
+  el('btnVision').disabled = true;
+  el('visionMeta').textContent = 'loading…';
+  try{
+    const r = await fetch('/desk/vision');
+    const j = await r.json();
+    if(!j.ok || !j.vision){
+      el('visionContent').innerHTML = '<span class="muted">No vision data — ' + (j.reason||'unavailable') + '</span>';
+      el('visionMeta').textContent = '';
+      return;
+    }
+    const v = j.vision;
+    const age = j.age_hours != null ? j.age_hours.toFixed(1) + 'h ago' : '';
+    const freshColor = v.freshness_state === 'fresh' ? '#2e7d32' : (v.freshness_state === 'stale' ? '#e65100' : '#888');
+    el('visionMeta').innerHTML =
+      v.symbol + ' ' + v.timeframe + ' | ' +
+      '<span style="color:' + freshColor + ';font-weight:600">' + v.freshness_state + '</span>' +
+      (age ? ' | ' + age : '') + ' | ' + (v.screenshot_ts||'');
+
+    let html = '<table><thead><tr><th>metric</th><th>value</th><th>unit</th><th>conf</th><th>quality bar</th><th>notes</th></tr></thead><tbody>';
+    for(const det of (v.detections||[])){
+      const val = det.extracted_value != null ? det.extracted_value.toLocaleString() : '<em>N/A</em>';
+      const conf = det.confidence != null ? (det.confidence*100).toFixed(0)+'%' : '?';
+      const confColor = det.confidence >= 0.85 ? '#2e7d32' : (det.confidence >= 0.60 ? '#e65100' : '#c62828');
+      const barW = Math.round((det.confidence||0)*100);
+      const bar = '<div style="width:80px;height:8px;background:#eee;border-radius:4px;overflow:hidden"><div style="width:' + barW + '%;height:100%;background:' + confColor + '"></div></div>';
+      html += '<tr><td>' + det.detected_metric_type + '</td><td>' + val + '</td><td>' + (det.unit||'') + '</td><td style="color:' + confColor + ';font-weight:600">' + conf + '</td><td>' + bar + '</td><td class="muted">' + (det.notes||'') + '</td></tr>';
+    }
+    if(!(v.detections||[]).length) html += '<tr><td colspan="6" class="muted">No detections</td></tr>';
+    html += '</tbody></table>';
+    if((v.warnings||[]).length){
+      html += '<div style="margin-top:8px;padding:6px 10px;background:#fff8e1;border-left:3px solid #f9a825;border-radius:4px;font-size:12px">';
+      html += '<strong>Warnings:</strong> ' + v.warnings.join(' — ');
+      html += '</div>';
+    }
+    el('visionContent').innerHTML = html;
+  }catch(e){
+    el('visionContent').innerHTML = '<span class="muted">Error: ' + e + '</span>';
+    el('visionMeta').textContent = '';
+  }finally{
+    el('btnVision').disabled = false;
+  }
+}
+
 el('btnSnap').addEventListener('click', refreshSnap);
 el('btnSubmit').addEventListener('click', submitForm);
 el('btnStatus').addEventListener('click', refreshStatus);
 el('btnTestAlert').addEventListener('click', testAlert);
+el('btnVision').addEventListener('click', refreshVision);
 refreshStatus();
 </script>
 
