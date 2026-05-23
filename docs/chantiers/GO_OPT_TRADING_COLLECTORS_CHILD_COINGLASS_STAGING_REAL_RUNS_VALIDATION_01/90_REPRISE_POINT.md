@@ -73,9 +73,8 @@ Fix requis :
 ## PROCHAINE_ACTION
 
 ```text
-1. Merger patch URL + anti-bot Playwright (child GO ou PR standalone)
-2. Vérifier capture test isolé : python -c "from modules.vision.coinglass.playwright_capture import ..."
-3. Relancer les 3 runs staging selon 10_RUNBOOK_STAGING.md
-4. Remplir 20_RUN_EVIDENCE.md au fil des runs
-5. Remplir 30_ACCEPTANCE_REPORT.md après --validate PASS
+GO CLOSED — PASS_STAGING_REAL (2026-05-23).
+Patch #728 a résolu le blocage URL + bot detection.
+3 runs PASS consécutifs, --validate exit 0, /desk/vision ok=true.
+Voir 30_ACCEPTANCE_REPORT.md pour le verdict complet.
 ```
