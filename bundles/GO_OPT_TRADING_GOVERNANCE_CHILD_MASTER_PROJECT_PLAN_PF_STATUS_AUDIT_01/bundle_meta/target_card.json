@@ -1,0 +1,7 @@
+{
+  "go_id": "GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_PF_STATUS_AUDIT_01",
+  "target_id": "TARGET_MASTER_PROJECT_PLAN_PF_STATUS_AUDIT_01",
+  "parent_continuity": "GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_INDEX_SYNC_01",
+  "status": "audit_opened",
+  "mode": "doc_only"
+}
