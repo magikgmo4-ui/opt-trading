@@ -1,0 +1,15 @@
+---
+doc_id: GO_OPT_TRADING_COLLECTORS_CHILD_COINGLASS_STAGING_REAL_RUNS_VALIDATION_01_INBOX
+doc_type: inbox_entry
+repo: opt-trading
+go_id: GO_OPT_TRADING_COLLECTORS_CHILD_COINGLASS_STAGING_REAL_RUNS_VALIDATION_01
+parent_go_id: GO_OPT_TRADING_COLLECTORS_CHILD_COINGLASS_BOT_VISION_HEADLESS_CONTINUITY_01
+status: open
+created_at: 2026-05-23
+---
+
+# GO_OPT_TRADING_COLLECTORS_CHILD_COINGLASS_STAGING_REAL_RUNS_VALIDATION_01
+
+Child opérationnel de validation staging réelle. 3 captures Playwright + OpenAI Vision → `--validate --required 3` exit 0 → Desk Pro `/desk/vision` ok=true.
+
+Docs : `docs/chantiers/GO_OPT_TRADING_COLLECTORS_CHILD_COINGLASS_STAGING_REAL_RUNS_VALIDATION_01/`
