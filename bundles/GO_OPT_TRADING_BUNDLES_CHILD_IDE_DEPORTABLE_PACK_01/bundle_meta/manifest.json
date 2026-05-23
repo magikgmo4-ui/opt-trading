@@ -1,0 +1,43 @@
+{
+  "bundle_id": "GO_OPT_TRADING_BUNDLES_CHILD_IDE_DEPORTABLE_PACK_01_bundle",
+  "go_id": "GO_OPT_TRADING_BUNDLES_CHILD_IDE_DEPORTABLE_PACK_01",
+  "parent_go": "GO_OPT_TRADING_BUNDLES_REPO_STORAGE_PARENT_01",
+  "repo": "opt-trading",
+  "branch": "go/GO_OPT_TRADING_BUNDLES_CHILD_IDE_DEPORTABLE_PACK_01",
+  "bundle_type": "ide_bundle",
+  "created_at": "2026-05-21T00:00:00Z",
+  "purpose": "Reduce IDE workload by shipping ready-to-use prompts, checklists, templates and patch transport artifacts prepared in ChatGPT conversation.",
+  "patch_transport": {
+    "temporary_input_location": "repo root",
+    "canonical_storage": "bundles/GO_OPT_TRADING_BUNDLES_CHILD_IDE_DEPORTABLE_PACK_01/patches/",
+    "root_patch_committable": false,
+    "bootstrap_tools": [
+      "tools/session_transport/bootstrap_patch_inbox.sh",
+      "tools/session_transport/bootstrap_patch_inbox.ps1"
+    ]
+  },
+  "entrypoints": [
+    "README_BUNDLE.md",
+    "prompts/GO_PROMPT_01_PRECHECK_AND_SCOPE.md",
+    "prompts/GO_PROMPT_02_DOC_ONLY_APPLY.md",
+    "checklists/CHECKLIST_NO_FRICTION.md",
+    "patches/README_PATCHES.md"
+  ],
+  "constraints": [
+    "doc-only",
+    "no secrets",
+    "no runtime",
+    "no trading live",
+    "no global indexes",
+    "no new sovereign doctrine",
+    "no root-level patch committed"
+  ],
+  "validation": {
+    "no_secrets": true,
+    "readme_present": true,
+    "manifest_present": true,
+    "scripts_review_required": true,
+    "global_indexes_modified": false,
+    "runtime_modified": false
+  }
+}
