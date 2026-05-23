@@ -117,6 +117,7 @@ def _call_openai(image_path: Path, api_key: str, model: str) -> str:
         ],
         max_tokens=512,
         temperature=0,
+        response_format={"type": "json_object"},
     )
     return resp.choices[0].message.content or ""
 
