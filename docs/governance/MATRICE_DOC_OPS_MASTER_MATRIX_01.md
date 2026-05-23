@@ -719,6 +719,23 @@ plan validé
 → prochain bundle ou batch index global
 ```
 
+Protocole .zip racine temporaire :
+- dépôt temporaire à la racine repo ;
+- extraction depuis la racine ;
+- déplacement vers `bundles/<GO_ID>/` si le zip contient un bundle ;
+- application depuis le contenu extrait ;
+- suppression du .zip racine ;
+- interdiction de committer le .zip racine ;
+- si le zip contient un patch, archivage du patch sous `bundles/<GO_ID>/patches/`.
+
+Règle standard :
+- `.zip` = transport temporaire uniquement
+- racine repo = zone de dépôt temporaire seulement
+- extraction = obligatoire avant toute opération
+- application = depuis contenu extrait, jamais depuis le zip
+- suppression = obligatoire avant commit
+- source canonique = `bundles/<GO_ID>/` (pas le zip, pas la racine)
+
 ### 10.2 Ouverture sous-GO
 
 L'ouverture d'un sous-GO doit figer :
@@ -790,6 +807,8 @@ Les index globaux sont réservés aux changements structurels, aux fermetures, a
 - pas de `.zip` promu au rang de source canonique (le `.zip` transporte, il ne remplace pas le bundle)
 - pas de bundle sans chantier associé (`docs/chantiers/<GO_ID>/`)
 - pas de bundle sans entrée courte (`docs/index/inbox/<GO_ID>.md`)
+- pas de .zip racine conservé après extraction
+- pas d'extraction .zip vers une surface non canonique sans justification explicite
 
 ---
 

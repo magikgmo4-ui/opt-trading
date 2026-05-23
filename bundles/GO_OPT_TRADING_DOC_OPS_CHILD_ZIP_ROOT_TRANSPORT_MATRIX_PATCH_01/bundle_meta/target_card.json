@@ -1,0 +1,29 @@
+{
+  "go_id": "GO_OPT_TRADING_DOC_OPS_CHILD_ZIP_ROOT_TRANSPORT_MATRIX_PATCH_01",
+  "target_id": "TARGET_ZIP_ROOT_TRANSPORT_MATRIX_PATCH_01",
+  "master_target_id": "MASTER_TARGET_ZIP_ROOT_TRANSPORT_PROTOCOL_STANDARDIZED_01",
+  "status": "transport_prepared",
+  "repo": "opt-trading",
+  "surface": "docs/governance",
+  "mode": "matrix_patch_zip_root_transport",
+  "scope_allow": [
+    "docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md",
+    "bundles/GO_OPT_TRADING_DOC_OPS_CHILD_ZIP_ROOT_TRANSPORT_MATRIX_PATCH_01/"
+  ],
+  "scope_deny": [
+    "runtime",
+    "branch cleanup",
+    "secrets",
+    "runtime modules",
+    "root .patch committed",
+    "root .zip committed"
+  ],
+  "classification_codes": [
+    "KEEP_PARENT_PRODUCT",
+    "MOVE_TO_CLOSED"
+  ],
+  "patch_expected": true,
+  "patch_location": "bundles/GO_OPT_TRADING_DOC_OPS_CHILD_ZIP_ROOT_TRANSPORT_MATRIX_PATCH_01/patches/<YYYYMMDD>_GO_OPT_TRADING_DOC_OPS_CHILD_ZIP_ROOT_TRANSPORT_MATRIX_PATCH_01_matrix_zip_root_transport.patch",
+  "zip_role": "root_temporary_transport_only",
+  "created_at": "2026-05-23"
+}
