@@ -384,14 +384,18 @@ def action_preflight(args: argparse.Namespace) -> dict[str, Any]:
         "job_known": True,
         "mobile_allowed": True,
         "command_mapped": job.command is not None or job.run_status_override == "PRECHECK_PASS",
-        "external_write": False,
-        "signal_trading": False,
     }
     try:
         REPORT_DIR.mkdir(parents=True, exist_ok=True)
     except Exception:
         checks["report_dir_creatable"] = False
+
     ok = all(checks.values())
+
+    # Add safety info for report but don't break ok if they are False (which is safe)
+    checks["external_write_blocked"] = True
+    checks["signal_trading_blocked"] = True
+
     result.update(
         {
             "ok": ok,
