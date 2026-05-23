@@ -1,0 +1,12 @@
+[Unit]
+Description=Run non-trading repo status check every 5 minutes
+Documentation=file:///opt/trading/docs/chantiers/GO_OPT_TRADING_AUTOMATION_NON_TRADING_PERMANENT_ACTIVATION_01/20_ALLOWED_TIMERS.md
+
+[Timer]
+OnBootSec=60s
+OnUnitActiveSec=5min
+Persistent=true
+Unit=non-trading-repo-status.service
+
+[Install]
+WantedBy=timers.target

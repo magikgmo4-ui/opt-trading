@@ -1,0 +1,15 @@
+[Unit]
+Description=Non-Trading: localcms status sync
+Documentation=file:///opt/trading/docs/chantiers/GO_OPT_TRADING_AUTOMATION_NON_TRADING_PERMANENT_ACTIVATION_01/10_ACTIVATION_SCOPE.md
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/trading
+ExecStart=/opt/trading/scripts/jobs/localcms-status-sync.sh
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=nt-localcms
+NoNewPrivileges=true
+
+[Install]
+WantedBy=default.target

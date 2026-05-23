@@ -1,0 +1,12 @@
+[Unit]
+Description=Run non-trading strict worker readonly smoke every 30 minutes
+Documentation=file:///opt/trading/docs/chantiers/GO_OPT_TRADING_AUTOMATION_NON_TRADING_PERMANENT_ACTIVATION_01/20_ALLOWED_TIMERS.md
+
+[Timer]
+OnBootSec=120s
+OnUnitActiveSec=30min
+Persistent=true
+Unit=non-trading-strict-worker-smoke.service
+
+[Install]
+WantedBy=timers.target

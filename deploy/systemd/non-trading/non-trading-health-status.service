@@ -1,0 +1,15 @@
+[Unit]
+Description=Non-Trading: automation health status
+Documentation=file:///opt/trading/docs/chantiers/GO_OPT_TRADING_AUTOMATION_NON_TRADING_PERMANENT_ACTIVATION_01/10_ACTIVATION_SCOPE.md
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/trading
+ExecStart=/opt/trading/scripts/jobs/automation-health-status.sh
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=nt-health
+NoNewPrivileges=true
+
+[Install]
+WantedBy=default.target
