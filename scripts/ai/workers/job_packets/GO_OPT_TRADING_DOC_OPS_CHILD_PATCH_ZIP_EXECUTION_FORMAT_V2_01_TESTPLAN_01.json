@@ -1,0 +1,28 @@
+{
+  "schema_version": "0.3-draft",
+  "go_id": "GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01",
+  "job_id": "GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_TESTPLAN_01",
+  "task": "TESTPLAN",
+  "autonomy": "A2",
+  "preferred_worker": "qwen3.6-plus",
+  "inputs": [
+    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/00_INITIAL_PROJECT_DOC.md",
+    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/20_OPENCLAW_E2E_RUNBOOK.md",
+    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/30_WORKER_JOB_GRAPH.md"
+  ],
+  "outputs": [
+    "reports/ai/workers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_TESTPLAN_01.md"
+  ],
+  "required_sections": [
+    "TESTS_UNITAIRES",
+    "TESTS_SMOKE",
+    "COMMANDES",
+    "CRITERES_PASS_FAIL",
+    "RISQUES_RESTANTS",
+    "VERDICT_DRAFT_ONLY"
+  ],
+  "gate": "dry_run",
+  "write_allowed": false,
+  "evidence_required": true,
+  "status": "DRAFT_ONLY"
+}

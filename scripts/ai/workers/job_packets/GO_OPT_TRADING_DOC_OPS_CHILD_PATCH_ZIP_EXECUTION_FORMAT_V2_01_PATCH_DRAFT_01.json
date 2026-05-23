@@ -1,0 +1,28 @@
+{
+  "schema_version": "0.3-draft",
+  "go_id": "GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01",
+  "job_id": "GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_PATCH_DRAFT_01",
+  "task": "PATCH_DRAFT",
+  "autonomy": "A2",
+  "preferred_worker": "glm-5.1",
+  "inputs": [
+    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/00_INITIAL_PROJECT_DOC.md",
+    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/20_OPENCLAW_E2E_RUNBOOK.md",
+    "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/30_WORKER_JOB_GRAPH.md"
+  ],
+  "outputs": [
+    "reports/ai/workers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_PATCH_DRAFT_01.md"
+  ],
+  "required_sections": [
+    "OBJECTIF_PATCH",
+    "FICHIERS_TOUCHES",
+    "DIFF_ATTENDU",
+    "RISQUES",
+    "TESTS_A_EXECUTER",
+    "VERDICT_DRAFT_ONLY"
+  ],
+  "gate": "dry_run",
+  "write_allowed": false,
+  "evidence_required": true,
+  "status": "DRAFT_ONLY"
+}
