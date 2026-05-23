@@ -5,12 +5,15 @@ repo: opt-trading
 go_id: GO_OPT_TRADING_ADMIN_TRADING_SIGNAL_CHAIN_TOTAL_PRODUCT_PARENT_01
 status: open
 source_kind: canonical
-updated_at: 2026-05-19
+updated_at: 2026-05-23
 links:
   - docs/chantiers/GO_STRATEGY_SIGNAL_MONITORING_REPO_INVENTORY_01/10_CHAIN_SURFACE_PROOF_MAP.md
   - docs/chantiers/GO_DESKPRO_INPUT_EXPANSION_01/00_INITIAL_PROJECT_DOC.md
   - docs/chantiers/GO_TELEGRAM_EVENT_ROUTING_MAP_01/00_INITIAL_PROJECT_DOC.md
   - docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/00_INITIAL_PROJECT_DOC.md
+  - docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/00_cadrage.md
+  - docs/chantiers/GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01/00_INITIAL_PROJECT_DOC.md
+  - docs/chantiers/GO_OPT_TRADING_BUNDLES_REPO_STORAGE_PARENT_01/00_PARENT_CADRAGE.md
 ---
 
 # 01_CHAIN_CANONICAL_MAP
@@ -27,7 +30,7 @@ Produit final total voulu : une chaine totale composee de plusieurs chaines inde
 | --- | --- | --- |
 | operator phone / SSH | `30_EXECUTION_PROTOCOL.md` decrit `ssh admin-trading` | PARTIAL_DOC_PROOF |
 | tmux IDE | `docs/chantiers/GO_TMUX_IDE_OPT_TRADING_ADMIN_TRADING_TMUX_IDE_OPERATOR_WORKFLOW_MINIMAL_01/30_EXECUTION_PROTOCOL.md` | PRESENT_DOC |
-| OpenCode / OpenClaw runtime | references documentaires multiples ; `GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01` non localise sous ce nom | PARTIAL_DOC_PROOF |
+| OpenCode / OpenClaw runtime | `GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01` present localement ; recroisement/integration umbrella et validation runtime reelle (SSH/tmux/mobile) encore PENDING via `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01` | PRESENT_DOC_PARTIAL |
 
 ### 2. TradingView Alert Chain
 
@@ -85,12 +88,12 @@ Le tableau Kanban du bundle reste la reference principale. Ce fichier ne remplac
 
 ## Prochain item Kanban a faire
 
-`GO_STRATEGY_SIGNAL_MONITORING_REPO_INVENTORY_01`
+`GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
 
 ## Gaps encore ouverts
 
 - separation inbound/outbound Telegram a conserver dans tous les enfants
 - desk pro hub scoring total encore a contractualiser chaine par chaine
 - collectors Coinglass / exchange APIs a recroiser plus finement dans l'inventaire parent
-- E2E dry-run total umbrella non qualifie dans ce parent
+- E2E dry-run umbrella qualifie en fixture-only, mais parser Telegram inbound et writers reeles restent absents
 - closeout final umbrella impossible a ce stade
