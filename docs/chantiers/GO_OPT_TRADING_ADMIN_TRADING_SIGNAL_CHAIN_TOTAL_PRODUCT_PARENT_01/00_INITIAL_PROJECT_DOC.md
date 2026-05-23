@@ -77,6 +77,21 @@ Le parent conserve donc ces references bundle comme cible documentaire a respect
 - `docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/*`
 - `docs/product/guides/BOT_VISION.md`
 
+## Articulation des GOs runtime / bundles / umbrella
+
+Ce parent umbrella distingue explicitement :
+
+- parent umbrella produit total : `GO_OPT_TRADING_ADMIN_TRADING_SIGNAL_CHAIN_TOTAL_PRODUCT_PARENT_01` (ce dossier)
+- parent bundle storage : `GO_OPT_TRADING_BUNDLES_REPO_STORAGE_PARENT_01` (stockage/retrieval des artefacts et bundles)
+- runtime GO historique : `GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01` (cadrage/plan/decisions runtime OpenCode/OpenClaw)
+- runtime orchestrator GO operationnel : `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01` (validation read-only SSH/tmux/mobile + fleet health)
+
+Liens locaux :
+
+- `docs/chantiers/GO_OPT_TRADING_BUNDLES_REPO_STORAGE_PARENT_01/00_PARENT_CADRAGE.md`
+- `docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/00_cadrage.md`
+- `docs/chantiers/GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01/00_INITIAL_PROJECT_DOC.md`
+
 ## Kanban de reference
 
 Le tableau Kanban du bundle reste la carte de navigation principale du chantier umbrella. Comme `08_KANBAN_ROADMAP_PRODUIT_FINAL.md` n'est pas present localement sous ce nom, ce parent conserve :
@@ -88,16 +103,17 @@ Le tableau Kanban du bundle reste la carte de navigation principale du chantier 
 ## Prochain item Kanban a faire
 
 Le closeout final restant bloque par des surfaces encore ouvertes, le prochain
-child reel a poursuivre cote parent est le meilleur mapping local du runtime
-operateur distant :
+travail Kanban actif revient au dry-run umbrella fixture-only :
 
-`GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
+`GO_SIGNAL_CHAIN_E2E_DRY_RUN_01`
 
 ## Gaps encore ouverts
 
 - bundle exact non retrouve localement sous les noms fournis
-- runtime operator distant `GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01` non localise sous ce nom ; mapping local retenu: `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
+- runtime operator distant : `GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01` retrouve localement, mais pas encore recroise/integre proprement dans le mapping umbrella ; la validation runtime reelle SSH/tmux/mobile reste a prouver via `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
 - Bot Vision / headless screener encore ouvert au niveau umbrella
+- E2E umbrella fixture-only maintenant prouve, mais pas converti en preuves reelles par surface
+- parser Telegram inbound trades/setups absent
 - collectors Coinglass / exchange API encore a raccorder explicitement
 - implementation globale Google Sheets encore absente
 - closeout final umbrella encore bloque

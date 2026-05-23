@@ -17,11 +17,18 @@ links:
 
 Le produit final total reste ouvert jusqu'a livraison ou blocage explicite de toutes les chaines majeures.
 
+## Distinction runtime / bundles / umbrella
+
+- parent umbrella produit total : `GO_OPT_TRADING_ADMIN_TRADING_SIGNAL_CHAIN_TOTAL_PRODUCT_PARENT_01`
+- parent bundle storage : `GO_OPT_TRADING_BUNDLES_REPO_STORAGE_PARENT_01`
+- runtime GO historique : `GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01`
+- runtime orchestrator GO operationnel : `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
+
 ## Gaps par chaine
 
 ### Runtime operateur distant
 
-- `GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01` non localise sous ce nom exact
+- `GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01` retrouve localement, mais pas encore recroise/integre proprement dans le mapping umbrella ; la validation runtime reelle SSH/tmux/mobile reste a prouver via `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
 - preuves disponibles surtout documentaires cote `TMUX_IDE`
 - sous-lots runtime (OpenClaw operator + mobile smoke) recales sur preuves
   locales Python, mais les validations distantes SSH et le device mobile reel
@@ -66,7 +73,8 @@ Le produit final total reste ouvert jusqu'a livraison ou blocage explicite de to
 
 | Priorite | GO enfant | Raison |
 | --- | --- | --- |
-| P0 | `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01` | meilleur mapping local du runtime operateur distant `phone / SSH / tmux / OpenClaw / repo` |
+| P0 | `GO_SIGNAL_CHAIN_E2E_DRY_RUN_01` | runner umbrella fixture-only livre ; reste a convertir en preuves reelles ou blocages explicites par surface |
+| P0 | `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01` | meilleur mapping local du runtime operateur distant `phone / SSH / tmux / OpenClaw / repo`, validations SSH/mobile PENDING |
 | P1 | `GO_STRATEGY_SIGNAL_MONITORING_REPO_INVENTORY_01` | baseline repo-first deja alignee, a garder comme preuve transverse |
 | P1 | `GO_EVENT_TAXONOMY_01` | envelope transverse deja alignee |
 | P1 | `GO_TELEGRAM_EVENT_ROUTING_MAP_01` | outbound multi-destinations deja aligne |
@@ -76,14 +84,18 @@ Le produit final total reste ouvert jusqu'a livraison ou blocage explicite de to
 | P2 | `GO_TELEGRAM_LATENCY_BACKTEST_01` | mesure publique/latency deja alignee avant promotion strategie |
 | P2 | `GO_OPT_TRADING_OPENCLAW_TMUX_OPERATOR_IMPL_01` | sous-lot runtime reel (avant mobile), aligne sur preuves Python locales ; validations distantes encore PENDING |
 | P2 | `GO_OPT_TRADING_MOBILE_TMUX_OPERATOR_SMOKE_01` | sous-lot runtime mobile (apres OpenClaw), tests Python OK (skips si bash indisponible), device reel PENDING |
+| P2 | `GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01` | runtime GO historique (cadrage/plan/decisions) a recroiser explicitement avec le mapping umbrella et l'orchestrator fleet |
+| P3 | `GO_OPT_TRADING_BUNDLES_REPO_STORAGE_PARENT_01` | parent bundle storage : clarifier stockage/retrieval des artefacts et corriger la recherche des fichiers `00..10` attendus |
 
 ## Prochain item Kanban a faire
 
-`GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
+`GO_SIGNAL_CHAIN_E2E_DRY_RUN_01`
 
 ## Gaps encore ouverts
 
 - bundle exact absent sous noms initiaux
-- GO runtime bundle exact absent sous son nom ; mapping local retenu sur `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
+- runtime GO `GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01` retrouve localement, mais recroisement/integration umbrella encore incomplet ; validations runtime reelles SSH/tmux/mobile toujours PENDING via `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
+- runner umbrella fixture-only existe et passe, mais reste insuffisant pour closeout final
+- parser Telegram inbound absent
 - collectors Coinglass / exchange API a raffiner dans `GO_DESKPRO_INPUT_EXPANSION_01`
 - closeout final umbrella reste bloque tant que runtime, Bot Vision/headless et implementation globale Sheets ne sont pas fermes ou bloques explicitement
