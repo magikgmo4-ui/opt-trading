@@ -85,6 +85,26 @@ TRANSPORT_MODE: none | patch_only | bundle_patch | bundle_patch_zip
 CLOSE_GATE_MASTER_TARGET: pending | validated | not_applicable
 ```
 
+### Alias documentaire initial
+
+Dans les échanges conversationnels et les blocs de continuité, `2_INITIAL_PROJECT_DOC`
+désigne le rôle logique du document initial transporteur du projet ou du plan.
+
+Dans le repo, le fichier canonique correspondant est :
+
+`00_INITIAL_PROJECT_DOC.md`
+
+Règle d’équivalence :
+
+`2_INITIAL_PROJECT_DOC = tag logique conversationnel`
+`00_INITIAL_PROJECT_DOC.md = fichier canonique repo`
+
+Le tag logique ne remplace jamais le fichier repo. Toute ouverture de chantier
+doit matérialiser ou référencer le fichier canonique `00_INITIAL_PROJECT_DOC.md`
+dans `docs/chantiers/<GO_ID>/` ou dans le bundle concerné si le transport est
+déportable.
+
+
 ### Roles structurels canoniques
 
 Les seuls `GO_STRUCTURAL_ROLE` autorises sont :
