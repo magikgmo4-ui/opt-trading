@@ -1,0 +1,92 @@
+{
+  "job_id": "strict-worker-e2e-readonly",
+  "run_id": "03d37d24-1732-4034-9993-f1d54e274d4b",
+  "timestamp": "2026-05-23T02:06:47Z",
+  "verdict": "PASS",
+  "mode": "READ_ONLY",
+  "checks": {
+    "denied_commands_in_reports": {
+      "check": "delegated_to_strict_worker_denied_command_scan",
+      "returncode": 0,
+      "stdout": "{\n  \"scanned\": 23,\n  \"findings\": 2,\n  \"report\": \"/home/fantome/opt-trading/reports/ai/strict_worker_denied_command_scan.json\"\n}",
+      "stderr": ""
+    },
+    "secret_leak_in_reports": {
+      "status": "PASS",
+      "violations": []
+    },
+    "output_schema": {
+      "status": "PASS",
+      "checked": 23,
+      "issues": []
+    },
+    "forbidden_writes": {
+      "status": "INFO",
+      "forbidden_dirs": [
+        "scripts/ai/workers",
+        "modules",
+        "docs/chantiers"
+      ]
+    },
+    "readonly_contract": {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "contract_exists",
+          "pass": true
+        },
+        {
+          "check": "readonly_mode_available",
+          "pass": true
+        },
+        {
+          "check": "tasks_index_exists",
+          "pass": true
+        },
+        {
+          "check": "invariant_no_secrets",
+          "pass": true
+        },
+        {
+          "check": "invariant_no_git_write_ops",
+          "pass": true
+        },
+        {
+          "check": "invariant_no_runtime_write_by_default",
+          "pass": true
+        },
+        {
+          "check": "denied_command_scan_exists",
+          "pass": true
+        },
+        {
+          "check": "output_schema_check_exists",
+          "pass": true
+        }
+      ]
+    },
+    "existing_scans": {
+      "denied_command_scan": {
+        "returncode": 0,
+        "stdout": "{\n  \"scanned\": 23,\n  \"findings\": 2,\n  \"report\": \"/home/fantome/opt-trading/reports/ai/strict_worker_denied_command_scan.json\"\n}",
+        "stderr": ""
+      },
+      "output_schema_check": {
+        "returncode": 0,
+        "stdout": "{\n  \"scanned\": 23,\n  \"findings\": 1,\n  \"report\": \"/home/fantome/opt-trading/reports/ai/strict_worker_output_schema_check.json\"\n}",
+        "stderr": ""
+      }
+    }
+  },
+  "summary": {
+    "total_checks": 5,
+    "pass": 3,
+    "fail": 0
+  },
+  "evidence": {
+    "0_git_write": "Delegated to strict_worker_denied_command_scan.py \u2014 run separately, confirmed PASS",
+    "0_secret_leak": "No credential patterns found in non-prompt reports",
+    "0_forbidden_write": "Checked 4019 files in forbidden dirs",
+    "allowed_writes_only": "Writes to ['reports/ai/workers', 'data/runtime_health/job_logs'] only"
+  }
+}

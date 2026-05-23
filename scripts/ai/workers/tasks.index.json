@@ -64,6 +64,20 @@
       "required_sections": ["TESTS_UNITAIRES", "TESTS_SMOKE", "COMMANDES", "CRITERES_PASS_FAIL", "RISQUES_RESTANTS", "VERDICT_DRAFT_ONLY"],
       "preferred_workers": ["glm-5.1", "qwen3.6-plus", "kimi-k2.6", "glm-5", "minimax-m2.7", "big-pickle"]
     },
+    "REVIEW_DRAFT": {
+      "autonomy_max": "A2",
+      "writes_code": false,
+      "allowed_outputs": ["reports/ai/workers/**"],
+      "required_sections": ["CONTEXTE_REVUE", "FICHIERS_REVUS", "OBSERVATIONS", "RECOMMANDATIONS", "RISQUES", "VERDICT_DRAFT_ONLY"],
+      "preferred_workers": ["glm-5.1", "qwen3.6-plus", "kimi-k2.6", "big-pickle"]
+    },
+    "CLOSEOUT_DRAFT": {
+      "autonomy_max": "A2",
+      "writes_code": false,
+      "allowed_outputs": ["docs/chantiers/**", "reports/ai/workers/**"],
+      "required_sections": ["RESUME", "OBJECTIFS_ATTENTS", "TRAVAUX_EFFECTUES", "ECARTS", "WARN_REMAINING", "ARTEFACTS_PRODUITS", "LEGACY", "VERDICT_DRAFT_ONLY"],
+      "preferred_workers": ["minimax-m2.5", "qwen3.5-plus", "big-pickle", "qwen3.6-plus"]
+    },
     "CHERRY_PICK_INVENTORY": {
       "autonomy_max": "A2",
       "writes_code": false,
