@@ -1,0 +1,53 @@
+diff --git a/.gitignore b/.gitignore
+index d46e774d..ca66bbf4 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -32,6 +32,7 @@ backups/
+ *.bak.*
+ *.orig
+ *.patch
++!bundles/*/patches/*.patch
+ perf/*.bak*
+ webhook_server.py.bak*
+ .env
+@@ -46,6 +47,7 @@ envs/
+ !modules/env/env.py
+ *.tgz
+ *.zip
++!bundles/*/*.zip
+ 
+ # runtime data (generated)
+ /runtime/
+diff --git a/bundles/GO_OPT_TRADING_DOC_OPS_CHILD_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01/README_BUNDLE.md b/bundles/GO_OPT_TRADING_DOC_OPS_CHILD_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01/README_BUNDLE.md
+index 5693e6e0..b4a88946 100644
+--- a/bundles/GO_OPT_TRADING_DOC_OPS_CHILD_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01/README_BUNDLE.md
++++ b/bundles/GO_OPT_TRADING_DOC_OPS_CHILD_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01/README_BUNDLE.md
+@@ -14,3 +14,9 @@ Ajouter TARGET_LEVEL_REGISTRY (6 niveaux de cible) et CLOSE_GATE_MASTER_TARGET (
+ 
+ - chantier : `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01/`
+ - inbox : `docs/index/inbox/GO_OPT_TRADING_DOC_OPS_CHILD_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01.md`
++
++## Transport
++
++- `.patch` : présent et archivé sous `patches/` — source canonique d'échange Git
++- `.zip` : non requis — GO doc-only appliqué directement via GitHub, sans transport IDE/manuel
++- `zip_role = none` : exemption documentée dans `bundle_meta/target_card.json`
+diff --git a/bundles/GO_OPT_TRADING_DOC_OPS_CHILD_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01/bundle_meta/target_card.json b/bundles/GO_OPT_TRADING_DOC_OPS_CHILD_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01/bundle_meta/target_card.json
+index 824fd6eb..67610e96 100644
+--- a/bundles/GO_OPT_TRADING_DOC_OPS_CHILD_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01/bundle_meta/target_card.json
++++ b/bundles/GO_OPT_TRADING_DOC_OPS_CHILD_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01/bundle_meta/target_card.json
+@@ -2,6 +2,7 @@
+   "go_id": "GO_OPT_TRADING_DOC_OPS_CHILD_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01",
+   "target_id": "TARGET_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01",
+   "master_target_id": "MASTER_TARGET_TARGET_LEVEL_REGISTRY_STANDARDIZED_01",
++  "master_target_description": "Matrice canonique utilisable pour empêcher la fermeture prématurée des chantiers parents — produit final documentaire opérationnel et vérifiable",
+   "status": "transport_prepared",
+   "repo": "opt-trading",
+   "surface": "docs/governance",
+@@ -20,5 +21,6 @@
+   "patch_expected": true,
+   "patch_location": "bundles/GO_OPT_TRADING_DOC_OPS_CHILD_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01/patches/<YYYYMMDD>_GO_OPT_TRADING_DOC_OPS_CHILD_TARGET_LEVEL_REGISTRY_CLOSE_GATE_01_target_level_registry.patch",
+   "zip_role": "none",
++  "zip_role_justification": "GO doc-only appliqué directement via GitHub, sans transport IDE/manuel nécessaire. Le patch canonique suffit comme artefact d'échange Git.",
+   "created_at": "2026-05-23"
+ }
