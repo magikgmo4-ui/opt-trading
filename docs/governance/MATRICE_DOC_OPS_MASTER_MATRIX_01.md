@@ -785,6 +785,66 @@ L'entrée `docs/index/inbox/<GO_PARENT>.md` sert de trace courte en attente d'un
 
 Les index globaux sont réservés aux changements structurels, aux fermetures, aux ouvertures significatives, aux changements de statut global, aux changements de next GO global et aux batchs d'agrégation.
 
+### 10.6 Registre des niveaux de cible (TARGET_LEVEL_REGISTRY)
+
+Six noms utiles, quatre niveaux de cible/livrable :
+
+| Niveau | Nom | Fonction exacte | Est-ce une target ? |
+| -----: | ----------------------- | ----------------------------------------------------------------- | ------------------- |
+| L0 | `1_MASTER_TARGET` | Produit final utilisable, opérationnel, vérifiable et livrable | Oui, target suprême |
+| L1 | `4_MASTER_PROJECT_PLAN` | Plan complet des livrables requis pour atteindre le produit final | Non, checklist de fermeture |
+| L2 | `6_FINAL_TARGET` | Résultat attendu de la phase actuelle | Oui |
+| L3 | `BUNDLE_TARGET` | Livrable concret du bundle / patch / zip | Oui |
+| L4 | `GO_ID` | Unité d'exécution traçable | Oui, mais comme véhicule d'exécution |
+| L5 | `NEXT_GO` | Prochain pas si la target supérieure n'est pas atteinte | Non, mécanisme de continuité |
+
+Définitions canoniques :
+
+```text
+1_MASTER_TARGET    = produit final utilisable
+4_MASTER_PROJECT_PLAN = liste des livrables obligatoires pour produire ce résultat final
+6_FINAL_TARGET     = objectif de la phase courante
+BUNDLE_TARGET      = résultat concret attendu du bundle transportable
+GO_ID              = chantier ou sous-chantier nommé pour produire une partie du résultat
+NEXT_GO            = suite obligatoire si le MASTER_TARGET n'est pas encore atteint
+```
+
+Hiérarchie canonique :
+
+```text
+1_MASTER_TARGET
+  -> 4_MASTER_PROJECT_PLAN
+    -> 6_FINAL_TARGET
+      -> BUNDLE_TARGET
+        -> GO_ID
+          -> NEXT_GO
+```
+
+### 10.7 Porte de fermeture du MASTER_TARGET (CLOSE_GATE_MASTER_TARGET)
+
+Un chantier parent ne peut pas être fermé parce qu'un GO, patch, bundle ou PR est terminé.
+
+Il peut être fermé seulement si :
+
+```text
+1. Le MASTER_TARGET est atteint comme produit final utilisable.
+2. Les livrables du MASTER_PROJECT_PLAN sont complétés ou explicitement déclassés.
+3. Le produit peut être testé, utilisé ou repris.
+4. Les gaps restants ne bloquent pas l'usage réel.
+5. Sinon, créer NEXT_GO.
+```
+
+Invariants associés :
+
+```text
+MASTER_TARGET = produit final utilisable, pas intention générale.
+MASTER_PROJECT_PLAN = checklist de fermeture du produit final.
+GO_ID = unité d'exécution, pas preuve de produit fini.
+PR mergée ≠ MASTER_TARGET atteint.
+Bundle livré ≠ chantier parent fermé.
+Si le MASTER_TARGET n'est pas atteint, il faut NEXT_GO ou REMAINING_GAP.
+```
+
 ---
 
 ## Partie 11 - Invariants / interdits
