@@ -181,7 +181,11 @@ class TestConsumerRegistryConsistency:
 
     def test_not_implemented_consumers_remain_not_started(self):
         """Consumers without runtime readers must stay not_started — no fake runtime."""
-        no_reader = {"telegram_screener__signal_context", "google_sheets__market_reporting"}
+        no_reader = {
+            "telegram_screener__signal_context",
+            "google_sheets__market_reporting",
+            "strategy_framework__market_context",
+        }
         for c in self.consumers:
             if c["consumer_id"] in no_reader:
                 assert c["implementation_status"] == "not_started", \
@@ -236,6 +240,25 @@ class TestRegistryAlignment:
         """No latest_only consumer path may reference a producer_id."""
         for c in self.consumers:
             if c.get("access_pattern") == "latest_only" and c.get("contract_class") == "market_metrics.v1":
+                path = c["read_path"]
+                assert "bitget" not in path, \
+                    f"{c['consumer_id']}: read_path must not reference a producer_id"
+                assert "binance" not in path, \
+                    f"{c['consumer_id']}: read_path must not reference a producer_id"
+                assert "derivatives_collector__" not in path, \
+                    f"{c['consumer_id']}: read_path must not reference a producer_id"
+
+    def test_by_symbol_consumers_read_from_view(self):
+        """All by_symbol market_metrics.v1 consumers read from the view, not producer paths."""
+        for c in self.consumers:
+            if c.get("access_pattern") == "by_symbol" and c.get("contract_class") == "market_metrics.v1":
+                assert "data/data_center/views/" in c["read_path"], \
+                    f"{c['consumer_id']}: by_symbol consumer must read from views/"
+
+    def test_by_symbol_consumers_have_no_producer_id_in_path(self):
+        """No by_symbol consumer path may reference a producer_id."""
+        for c in self.consumers:
+            if c.get("access_pattern") == "by_symbol" and c.get("contract_class") == "market_metrics.v1":
                 path = c["read_path"]
                 assert "bitget" not in path, \
                     f"{c['consumer_id']}: read_path must not reference a producer_id"
@@ -322,6 +345,23 @@ class TestWriterToDataCenterChain:
             expected_path = td / desk_pro["read_path"]
             assert result["latest"] == expected_path, \
                 f"view writer produced {result['latest']} but consumer expects {expected_path}"
+        finally:
+            shutil.rmtree(td)
+
+    def test_strategy_framework_by_symbol_path_reachable_via_view_writer(self):
+        """strategy_framework by_symbol read_path is reachable after write_market_metrics_view."""
+        td = Path(tempfile.mkdtemp())
+        try:
+            consumers = load_consumers_registry()["consumers"]
+            sf = next(c for c in consumers if c["consumer_id"] == "strategy_framework__market_context")
+            result = write_market_metrics_view(
+                _make_full_payload("binance_derivatives"), root=td
+            )
+            # by_symbol path for BTCUSDT (default fixture symbol)
+            expected_path = td / sf["read_path"] / "BTCUSDT.json"
+            assert result["by_symbol"] == expected_path, \
+                f"view writer produced {result['by_symbol']} but strategy_framework expects {expected_path}"
+            assert result["by_symbol"].exists()
         finally:
             shutil.rmtree(td)
 
