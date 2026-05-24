@@ -47,6 +47,9 @@ def ensure_data_center_dirs(root: Path | None = None) -> Path:
     (views_mm / "by_symbol").mkdir(parents=True, exist_ok=True)
     (views_mm / "history").mkdir(parents=True, exist_ok=True)
 
+    views_ps = base / "views" / "pair_market_snapshot"
+    (views_ps / "by_symbol").mkdir(parents=True, exist_ok=True)
+
     return base
 
 

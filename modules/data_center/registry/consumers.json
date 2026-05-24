@@ -18,7 +18,7 @@
       "consumer_id": "desk_pro__spot_snapshot",
       "surface": "PF_DESK_PRO",
       "contract_class": "pair_market_snapshot.v1",
-      "read_path": "data/data_center/spot/collector_binance_spot/latest.json",
+      "read_path": "data/data_center/views/pair_market_snapshot/latest.json",
       "access_pattern": "latest_only",
       "fallback": "silent_empty",
       "implementation_status": "not_started",
