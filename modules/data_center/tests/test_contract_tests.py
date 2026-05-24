@@ -236,6 +236,16 @@ class TestConsumerRegistryConsistency:
                 assert c["fallback"] == "error", \
                     f"{c['consumer_id']}: critical consumer must have fallback=error"
 
+    def test_localcms_is_implemented(self):
+        localcms = next(c for c in self.consumers if c["consumer_id"] == "localcms__data_center_health")
+        assert localcms["implementation_status"] == "implemented"
+
+    def test_at_least_two_consumers_implemented(self):
+        """CLOSE_GATE_MASTER_TARGET requires ≥2 runtime consumers."""
+        implemented = [c for c in self.consumers if c["implementation_status"] == "implemented"]
+        assert len(implemented) >= 2, \
+            f"CLOSE_GATE_MASTER_TARGET requires ≥2 implemented consumers, got {len(implemented)}"
+
 
 # ---------------------------------------------------------------------------
 # 3. Registry alignment (producer ↔ consumer cross-check)

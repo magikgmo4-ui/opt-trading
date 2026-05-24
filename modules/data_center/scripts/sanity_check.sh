@@ -22,5 +22,7 @@ print(f'consumers : {len(c[\"consumers\"])} declared')
 implemented = [x for x in c['consumers'] if x['implementation_status'] == 'implemented']
 print(f'consumers implemented : {len(implemented)}')
 
+assert len(implemented) >= 2, f'CLOSE_GATE_MASTER_TARGET requires >=2 implemented consumers, got {len(implemented)}'
+
 print('PASS')
 "
