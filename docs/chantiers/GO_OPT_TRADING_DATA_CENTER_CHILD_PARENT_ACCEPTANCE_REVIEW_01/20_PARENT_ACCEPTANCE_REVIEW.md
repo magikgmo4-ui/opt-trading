@@ -162,3 +162,51 @@ PF_DATA_CENTER : OPEN
 
 Le parent peut être fermé. `PF_DATA_CENTER` reste OPEN pour accueillir de nouveaux producers,
 consumers et contrats.
+
+---
+
+## PF_DATA_CENTER_UNIVERSAL_SCOPE
+
+```text
+PF_DATA_CENTER is the universal normalized trading data layer.
+Accepting the initial parent does NOT close this scope.
+```
+
+Le parent initial `GO_OPT_TRADING_DATA_CENTER_PARENT_OPEN_01` accepte uniquement la **fondation** :
+
+- Registres producers/consumers
+- Règle de découplage views (producer path ≠ consumer path)
+- Contrats formalisés : `market_metrics.v1`, `pair_market_snapshot.v1`
+- Premiers consumers runtime : Desk Pro + LocalCMS
+
+Il ne ferme **pas** le périmètre de `PF_DATA_CENTER`.
+
+### Sources d'ingestion futures (non bloquantes)
+
+| Source | Type | Statut |
+|---|---|---|
+| API collectors (Binance, Bitget) | producer | opérationnel — last_write null |
+| bot vision TradingView | producer | headless — connexion DC non câblée |
+| bot vision Coinglass | producer | NOT_PROVEN_RUNTIME_ADAPTER permanent |
+| Telegram screener ingestion | producer | not_started |
+| strategy outputs | producer | not_started |
+| trading lab outputs | producer | not_started |
+| perf/replay outputs | producer | not_started |
+| trading stack events | producer | not_started |
+| toute donnée trading normalisée | producer | extensible |
+
+### Surfaces de consommation futures (non bloquantes)
+
+| Surface | Consumer | Statut |
+|---|---|---|
+| Desk Pro | `desk_pro__market_metrics`, `desk_pro__spot_snapshot` | 1 implemented, 1 not_started |
+| LocalCMS | `localcms__data_center_health` | implemented |
+| Telegram | `telegram_screener__signal_context` | not_started |
+| Strategy Framework | `strategy_framework__market_context` | not_started |
+| Perf Engine | `perf_engine__replay_context` | not_started |
+| Google Sheets | `google_sheets__market_reporting` | not_started |
+| Trading Stack | future | not declared |
+| Trading Labs | future | not declared |
+| autres surfaces futures | future | extensible |
+
+Les prochains GOs sont des **extensions de `PF_DATA_CENTER`**, pas une réouverture du parent initial.

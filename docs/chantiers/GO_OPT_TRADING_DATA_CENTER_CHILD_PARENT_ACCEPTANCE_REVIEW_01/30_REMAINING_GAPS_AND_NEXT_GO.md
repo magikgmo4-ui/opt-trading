@@ -50,6 +50,18 @@ Ces gaps ne bloquent pas la fermeture du parent. Chacun requiert un GO dédié d
 
 ---
 
+## PF_DATA_CENTER_UNIVERSAL_SCOPE
+
+`PF_DATA_CENTER` est la **base universelle normalisée de données trading**. Les gaps ci-dessous
+ne sont pas des défauts — ils sont des extensions naturelles d'une plateforme ouverte.
+
+Aucun de ces gaps ne bloque la fermeture du parent initial. Chacun est une **extension de
+`PF_DATA_CENTER`**, pas une réouverture du parent.
+
+```text
+PF_DATA_CENTER = OPEN — data layer universel, non limité à market_metrics.v1 et pair_market_snapshot.v1
+```
+
 ## NEXT_GO recommandés
 
 ### Priorité 1 — Confirm prod writes

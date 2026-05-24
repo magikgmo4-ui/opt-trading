@@ -39,3 +39,45 @@ Rapport complet :
 `PF_DATA_CENTER` reste **OPEN** pour accueillir de nouveaux producers, consumers et contrats.
 Le parent peut être fermé formellement si souhaité — la plateforme continue à évoluer
 sous `PF_DATA_CENTER`.
+
+---
+
+## PF_DATA_CENTER_UNIVERSAL_SCOPE
+
+```text
+PF_DATA_CENTER is the universal normalized trading data layer.
+Accepting the initial parent does NOT close this scope.
+```
+
+Le parent initial accepte la **fondation registry/view/consumer-decoupling** :
+- producer registry + consumer registry
+- règle `producer path ≠ consumer path (views/)`
+- contrats initiaux : `market_metrics.v1`, `pair_market_snapshot.v1`
+- premiers consumers runtime : Desk Pro + LocalCMS
+
+**Il ne ferme pas le périmètre de `PF_DATA_CENTER`.**
+
+### Futures sources d'ingestion (non bloquantes, non exhaustives)
+
+- API collectors (Binance spot, Bitget derivatives, futurs)
+- bot vision TradingView
+- bot vision Coinglass (`NOT_PROVEN_RUNTIME_ADAPTER` permanent)
+- Telegram screener ingestion
+- strategy outputs
+- trading lab outputs
+- perf/replay outputs
+- trading stack events
+- toute donnée trading normalisée et versionnée
+
+### Futures surfaces de consommation (non bloquantes, non exhaustives)
+
+- Desk Pro (extensions : spot snapshot, multi-symbol, alertes)
+- LocalCMS (extensions : producer health, live status)
+- Telegram screener
+- Strategy Framework
+- Perf Engine / Trading Labs
+- Google Sheets / reporting
+- Trading Stack
+- toute surface validée
+
+Les prochains GOs sont des **extensions de `PF_DATA_CENTER`**, pas une réouverture du parent initial.
