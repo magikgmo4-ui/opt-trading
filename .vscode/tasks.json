@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Generate Architecture Evidence Pack",
+      "type": "shell",
+      "command": "./scripts/make-architecture-evidence.sh",
+      "problemMatcher": []
+    }
+  ]
+}

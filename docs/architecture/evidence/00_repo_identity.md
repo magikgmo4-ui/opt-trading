@@ -1,0 +1,9 @@
+# Repo Identity
+
+## Git
+/home/fantome/opt-trading-clean
+go/GO_OPT_TRADING_ARCHITECTURE_PARENT_MERMAID_CARTOGRAPHY_01
+5d2e1df8d404b1ac13938809454e2b610c8bbee6
+
+## Date
+2026-05-24T04:21:00Z

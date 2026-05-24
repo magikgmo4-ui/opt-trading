@@ -1,0 +1,55 @@
+# Manifests
+
+## requirements.txt
+
+annotated-types==0.7.0
+anyio==4.12.1
+certifi==2026.1.4
+charset-normalizer==3.4.4
+distro==1.9.0
+h11==0.16.0
+httpcore==1.0.9
+httpx==0.28.1
+idna==3.11
+jiter==0.13.0
+openai==2.20.0
+pydantic==2.12.5
+pydantic_core==2.41.5
+requests==2.32.5
+sniffio==1.3.1
+tqdm==4.67.3
+typing-inspection==0.4.2
+typing_extensions==4.15.0
+urllib3==2.6.3
+fastapi==0.129.0
+uvicorn[standard]==0.41.0
+python-dotenv==1.2.1
+gspread==6.2.1
+google-auth==2.53.0
+tzdata==2026.2
+
+## README.md
+
+# opt-trading — Trading infra (TV Webhook + Perf)
+
+## Quickstart (Debian / Ubuntu)
+```bash
+cd /opt/trading
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+## Environment (.env)
+Create `/opt/trading/.env` (ignored by git).
+```bash
+TV_WEBHOOK_KEY=change_me
+OPS_ADMIN_KEY=change_me
+TELEGRAM_BOT_TOKEN=123:abc
+TELEGRAM_CHAT_ID=123456
+```
+
+## Verification
+```bash
+./scripts/verify_all.sh
+```
