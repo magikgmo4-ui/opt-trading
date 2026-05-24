@@ -93,8 +93,71 @@ jobs:
       source_registry: null
     status: implemented_existing
 
+  - job_id: strict-worker-model-registry-check
+    workflow: .github/workflows/strict-workers-validate.yml
+    role: worker_model_registry_validation
+    trigger:
+      - pull_request
+      - workflow_dispatch
+    owner_surface: github_actions
+    orchestrable_by_openclaw: true
+    input_schema:
+      registry: scripts/ai/workers/models.registry.json
+    output_schema:
+      status: PASS_FAIL
+      evidence: workflow_logs
+    risk_level: low
+    requires_secret: false
+    duplicates:
+      status: REUSE
+      duplicate_of: strict-worker-model-registry-check
+      source_registry: GO_OPT_TRADING_AUTOMATION_PARENT_NON_TRADING_SCHEDULED_ROLLOUT_01
+    status: implemented_existing
+
+  - job_id: strict-worker-task-index-check
+    workflow: .github/workflows/strict-workers-validate.yml
+    role: worker_task_index_validation
+    trigger:
+      - pull_request
+      - workflow_dispatch
+    owner_surface: github_actions
+    orchestrable_by_openclaw: true
+    input_schema:
+      index: scripts/ai/workers/tasks.index.json
+    output_schema:
+      status: PASS_FAIL
+      evidence: workflow_logs
+    risk_level: low
+    requires_secret: false
+    duplicates:
+      status: REUSE
+      duplicate_of: strict-worker-task-index-check
+      source_registry: GO_OPT_TRADING_AUTOMATION_PARENT_NON_TRADING_SCHEDULED_ROLLOUT_01
+    status: implemented_existing
+
+  - job_id: repo-diff-check
+    workflow: .github/workflows/openclaw-mcp-policy-static-validator.yml
+    role: repo_diff_hygiene
+    trigger:
+      - pull_request
+      - workflow_dispatch
+    owner_surface: github_actions
+    orchestrable_by_openclaw: true
+    input_schema:
+      diff_guard: .github/workflows/openclaw-mcp-policy-static-validator.yml
+    output_schema:
+      status: PASS_FAIL
+      evidence: workflow_logs
+    risk_level: low
+    requires_secret: false
+    duplicates:
+      status: REUSE
+      duplicate_of: repo-diff-check
+      source_registry: GO_OPT_TRADING_AUTOMATION_PARENT_NON_TRADING_SCHEDULED_ROLLOUT_01
+    status: implemented_existing
+
   - job_id: github-actions-workflow-inventory-check
-    workflow: null
+    workflow: .github/workflows/gh-actions-registry-validation.yml
     role: registry_integrity
     trigger:
       - pull_request
@@ -110,13 +173,13 @@ jobs:
     risk_level: low
     requires_secret: false
     duplicates:
-      status: MISSING
+      status: NEW
       duplicate_of: null
       source_registry: null
-    status: planned_child_go
+    status: implemented_child_go
 
   - job_id: github-actions-job-registry-check
-    workflow: null
+    workflow: .github/workflows/gh-actions-registry-validation.yml
     role: registry_integrity
     trigger:
       - pull_request
@@ -131,10 +194,10 @@ jobs:
     risk_level: low
     requires_secret: false
     duplicates:
-      status: MISSING
+      status: NEW
       duplicate_of: null
       source_registry: null
-    status: planned_child_go
+    status: implemented_child_go
 
   - job_id: openclaw-actions-orchestration-dry-run
     workflow: null
