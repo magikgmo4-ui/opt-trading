@@ -624,7 +624,7 @@ class TestWriteContractClassView(unittest.TestCase):
             shutil.rmtree(td)
 
     def test_view_path_decoupled_from_producer_id(self):
-        """Both binance and bitget write to the same view path — consumer is decoupled."""
+        """Both binance and bitget write to the same view latest path — consumer is decoupled."""
         import tempfile, shutil
         td = Path(tempfile.mkdtemp())
         try:
@@ -634,6 +634,22 @@ class TestWriteContractClassView(unittest.TestCase):
             view_path = str(r_binance["latest"])
             self.assertNotIn("bitget", view_path)
             self.assertNotIn("binance", view_path)
+        finally:
+            shutil.rmtree(td)
+
+    def test_view_by_symbol_decoupled_from_producer_id(self):
+        """Both binance and bitget by_symbol write to the same view path — no producer_id."""
+        import tempfile, shutil
+        td = Path(tempfile.mkdtemp())
+        try:
+            r_binance = write_market_metrics_view(_binance_full(), root=td)
+            r_bitget = write_market_metrics_view(_bitget_full(), root=td)
+            # same symbol (BTCUSDT) → same view by_symbol path
+            self.assertEqual(r_binance["by_symbol"], r_bitget["by_symbol"])
+            path_str = str(r_binance["by_symbol"])
+            self.assertNotIn("bitget", path_str)
+            self.assertNotIn("binance", path_str)
+            self.assertIn("views/market_metrics/by_symbol", path_str)
         finally:
             shutil.rmtree(td)
 
