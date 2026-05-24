@@ -179,6 +179,14 @@ class TestConsumerRegistryConsistency:
         assert desk_pro["migration_needed"] is False
         assert desk_pro["read_path_current"] is None
 
+    def test_not_implemented_consumers_remain_not_started(self):
+        """Consumers without runtime readers must stay not_started — no fake runtime."""
+        no_reader = {"telegram_screener__signal_context", "google_sheets__market_reporting"}
+        for c in self.consumers:
+            if c["consumer_id"] in no_reader:
+                assert c["implementation_status"] == "not_started", \
+                    f"{c['consumer_id']}: no reader exists, must be not_started"
+
     def test_critical_consumers_have_error_fallback(self):
         """Reporting/replay consumers must not silently fail."""
         critical = {"perf_engine__replay_context", "google_sheets__market_reporting"}
@@ -223,6 +231,18 @@ class TestRegistryAlignment:
             if c.get("access_pattern") == "latest_only" and c.get("contract_class") == "market_metrics.v1":
                 assert "data/data_center/views/" in c["read_path"], \
                     f"{c['consumer_id']}: latest_only consumer must read from views/"
+
+    def test_latest_only_consumers_have_no_producer_id_in_path(self):
+        """No latest_only consumer path may reference a producer_id."""
+        for c in self.consumers:
+            if c.get("access_pattern") == "latest_only" and c.get("contract_class") == "market_metrics.v1":
+                path = c["read_path"]
+                assert "bitget" not in path, \
+                    f"{c['consumer_id']}: read_path must not reference a producer_id"
+                assert "binance" not in path, \
+                    f"{c['consumer_id']}: read_path must not reference a producer_id"
+                assert "derivatives_collector__" not in path, \
+                    f"{c['consumer_id']}: read_path must not reference a producer_id"
 
     def test_no_consumer_reads_from_raw(self):
         """No production consumer should read from raw/ — that's for audit only."""
