@@ -25,11 +25,11 @@ def run_dry_run_test():
         sys.exit(1)
 
     # Job to test (low risk, dry-run)
-    job_id = "openclaw-actions-orchestration-dry-run"
+    job_id = "github-actions-job-registry-check"
     print(f"Testing job: {job_id}")
     
     # 1. Trigger
-    res = bridge.trigger_workflow(job_id, inputs={"mode": "dry_run"})
+    res = bridge.trigger_workflow(job_id, inputs={})
     if not res.get("ok"):
         print(f"[FAIL] Trigger failed: {res.get('error')}")
         sys.exit(1)
