@@ -1,0 +1,162 @@
+registry_id: GITHUB_ACTIONS_JOBS_REGISTRY_01
+target: github_actions_openclaw
+version: 0.1.0
+status: draft_opening_bundle
+updated_at: 2026-05-23
+
+schema:
+  required_fields:
+    - job_id
+    - workflow
+    - role
+    - trigger
+    - owner_surface
+    - orchestrable_by_openclaw
+    - input_schema
+    - output_schema
+    - risk_level
+    - requires_secret
+    - duplicates
+    - status
+
+jobs:
+  - job_id: strict-worker-job-packet-validate
+    workflow: .github/workflows/strict-workers-validate.yml
+    role: worker_job_packet_validation
+    trigger:
+      - pull_request
+      - workflow_dispatch
+    owner_surface: github_actions
+    orchestrable_by_openclaw: true
+    input_schema:
+      packet_glob: scripts/ai/workers/job_packets/*.json
+      tasks_index: scripts/ai/workers/tasks.index.json
+      models_registry: scripts/ai/workers/models.registry.json
+    output_schema:
+      status: PASS_FAIL
+      evidence: workflow_logs
+    risk_level: low
+    requires_secret: false
+    duplicates:
+      status: REUSE
+      duplicate_of: strict-worker-job-packet-validate
+      source_registry: GO_OPT_TRADING_AUTOMATION_PARENT_NON_TRADING_SCHEDULED_ROLLOUT_01
+    status: implemented_existing
+
+  - job_id: strict-worker-readonly-smoke
+    workflow: .github/workflows/strict-workers-smoke.yml
+    role: worker_readonly_smoke
+    trigger:
+      - pull_request
+      - workflow_dispatch
+    owner_surface: github_actions
+    orchestrable_by_openclaw: true
+    input_schema:
+      job_packet: scripts/ai/workers/job_packets/GO_STRICT_WORKERS_READONLY_SMOKE_01.json
+    output_schema:
+      status: PASS_FAIL
+      evidence:
+        - workflow_logs
+        - no_tracked_files_modified
+    risk_level: low
+    requires_secret: false
+    duplicates:
+      status: REUSE
+      duplicate_of: strict-worker-readonly-smoke
+      source_registry: GO_OPT_TRADING_AUTOMATION_PARENT_NON_TRADING_SCHEDULED_ROLLOUT_01
+    status: implemented_existing
+
+  - job_id: openclaw-mcp-policy-static-validator
+    workflow: .github/workflows/openclaw-mcp-policy-static-validator.yml
+    role: openclaw_policy_static_validation
+    trigger:
+      - pull_request
+      - workflow_dispatch
+    owner_surface: github_actions
+    orchestrable_by_openclaw: true
+    input_schema:
+      module: modules/governance/openclaw_mcp_policy_validator
+      tests:
+        - tests/test_openclaw_mcp_policy_validator.py
+        - tests/test_openclaw_mcp_policy_fixture_harness.py
+    output_schema:
+      status: PASS_FAIL
+      evidence:
+        - pytest_results
+        - fixture_harness_result
+        - git_diff_check
+    risk_level: low
+    requires_secret: false
+    duplicates:
+      status: REUSE
+      duplicate_of: null
+      source_registry: null
+    status: implemented_existing
+
+  - job_id: github-actions-workflow-inventory-check
+    workflow: null
+    role: registry_integrity
+    trigger:
+      - pull_request
+      - workflow_dispatch
+    owner_surface: github_actions
+    orchestrable_by_openclaw: true
+    input_schema:
+      registry: docs/registries/GITHUB_ACTIONS_WORKFLOWS_INVENTORY_01.yml
+      workflows_glob: .github/workflows/*.yml
+    output_schema:
+      status: PASS_FAIL
+      evidence: missing_or_extra_workflow_report
+    risk_level: low
+    requires_secret: false
+    duplicates:
+      status: MISSING
+      duplicate_of: null
+      source_registry: null
+    status: planned_child_go
+
+  - job_id: github-actions-job-registry-check
+    workflow: null
+    role: registry_integrity
+    trigger:
+      - pull_request
+      - workflow_dispatch
+    owner_surface: github_actions
+    orchestrable_by_openclaw: true
+    input_schema:
+      registry: docs/registries/GITHUB_ACTIONS_JOBS_REGISTRY_01.yml
+    output_schema:
+      status: PASS_FAIL
+      evidence: schema_validation_report
+    risk_level: low
+    requires_secret: false
+    duplicates:
+      status: MISSING
+      duplicate_of: null
+      source_registry: null
+    status: planned_child_go
+
+  - job_id: openclaw-actions-orchestration-dry-run
+    workflow: null
+    role: openclaw_orchestration_test
+    trigger:
+      - manual
+    owner_surface: openclaw
+    orchestrable_by_openclaw: false
+    input_schema:
+      registry: docs/registries/GITHUB_ACTIONS_JOBS_REGISTRY_01.yml
+      workflow_dispatch_target: strict_workers_smoke
+      mode: dry_run
+    output_schema:
+      status: PASS_FAIL_BLOCKED
+      evidence:
+        - run_id
+        - job_status
+        - logs_summary
+    risk_level: medium
+    requires_secret: true
+    duplicates:
+      status: OPENCLAW_ONLY
+      duplicate_of: null
+      source_registry: null
+    status: planned_after_actions_pass

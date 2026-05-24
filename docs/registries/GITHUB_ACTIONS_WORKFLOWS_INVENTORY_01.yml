@@ -1,0 +1,74 @@
+registry_id: GITHUB_ACTIONS_WORKFLOWS_INVENTORY_01
+target: github_actions_openclaw
+version: 0.1.0
+status: draft_opening_bundle
+source_ref: sot/mainline
+updated_at: 2026-05-23
+
+workflows:
+  - workflow_id: strict_workers_validate
+    path: .github/workflows/strict-workers-validate.yml
+    name: "Strict Workers — Validate Job Packets"
+    triggers:
+      - pull_request
+      - workflow_dispatch
+    permissions:
+      contents: read
+    jobs:
+      - validate
+    role:
+      - workers
+      - validation
+      - job_packet_validation
+    orchestrable_by_openclaw: true
+    risk_level: low
+    requires_secret: false
+    dedup_status: REUSE
+    maps_to_non_trading_jobs:
+      - strict-worker-job-packet-validate
+      - strict-worker-model-registry-check
+      - strict-worker-task-index-check
+
+  - workflow_id: strict_workers_smoke
+    path: .github/workflows/strict-workers-smoke.yml
+    name: "Strict Workers — Smoke Test"
+    triggers:
+      - pull_request
+      - workflow_dispatch
+    permissions:
+      contents: read
+    jobs:
+      - smoke
+    role:
+      - workers
+      - readonly_smoke
+      - no_tracked_diff_guard
+    orchestrable_by_openclaw: true
+    risk_level: low
+    requires_secret: false
+    dedup_status: REUSE
+    maps_to_non_trading_jobs:
+      - strict-worker-readonly-smoke
+
+  - workflow_id: openclaw_mcp_policy_static_validator
+    path: .github/workflows/openclaw-mcp-policy-static-validator.yml
+    name: "OpenClaw MCP Policy Static Validator"
+    triggers:
+      - pull_request
+      - workflow_dispatch
+    permissions:
+      contents: read
+    jobs:
+      - static-validator
+    role:
+      - governance
+      - openclaw
+      - static_policy_validation
+      - diff_hygiene
+    orchestrable_by_openclaw: true
+    risk_level: low
+    requires_secret: false
+    dedup_status: REUSE
+    maps_to_non_trading_jobs:
+      - repo-diff-check
+      - openclaw-mcp-policy-static-validator
