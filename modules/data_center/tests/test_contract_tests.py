@@ -173,10 +173,11 @@ class TestConsumerRegistryConsistency:
         desk_pro = next(c for c in self.consumers if c["consumer_id"] == "desk_pro__market_metrics")
         assert desk_pro["implementation_status"] == "implemented"
 
-    def test_desk_pro_migration_needed(self):
+    def test_desk_pro_migration_complete(self):
+        """Migration done: desk_pro reads DC view, no longer needs legacy path."""
         desk_pro = next(c for c in self.consumers if c["consumer_id"] == "desk_pro__market_metrics")
-        assert desk_pro["migration_needed"] is True
-        assert desk_pro["read_path_current"] is not None
+        assert desk_pro["migration_needed"] is False
+        assert desk_pro["read_path_current"] is None
 
     def test_critical_consumers_have_error_fallback(self):
         """Reporting/replay consumers must not silently fail."""

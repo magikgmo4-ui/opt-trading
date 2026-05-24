@@ -10,8 +10,8 @@
       "access_pattern": "latest_only",
       "fallback": "silent_empty",
       "implementation_status": "implemented",
-      "migration_needed": true,
-      "read_path_current": "data/deskpro/inputs/market_metrics/latest.json",
+      "migration_needed": false,
+      "read_path_current": null,
       "validated_at": "2026-05-23"
     },
     {
