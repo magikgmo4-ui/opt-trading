@@ -4,7 +4,13 @@
 Implementation of `doc_ops_create_chantier.py` to automate the creation of project documentation structures.
 
 ## Status
-PENDING
+PASS
+
+## Validation
+- Unit tests: PASS
+- Dry-run JSON: PASS
+- Conflict behavior: FAIL without --force (Hardenized)
+- Constraint checker: FAIL expected in DOC_ONLY mode as scripts/tests are modified (technical GO).
 
 ## Artifacts
 - dist/GO_OPT_TRADING_DOC_OPS_IMPL_GO_NAMING_DIRECTORY_CREATION_01.patch

@@ -104,8 +104,8 @@ def create_chantier(go_id, summary, doc_only=False, create_inbox=False, dry_run=
     )
 
     if os.path.exists(initial_doc_path) and not force:
-        skipped_files.append(initial_doc_path)
-        print(f"File already exists (skipped): {initial_doc_path}")
+        errors.append(f"Conflict: File already exists: {initial_doc_path}")
+        print(f"File already exists: {initial_doc_path}")
     else:
         if not dry_run:
             with open(initial_doc_path, "w") as f:
@@ -122,8 +122,8 @@ def create_chantier(go_id, summary, doc_only=False, create_inbox=False, dry_run=
             summary=summary or "(Define the purpose here)"
         )
         if os.path.exists(inbox_path) and not force:
-            skipped_files.append(inbox_path)
-            print(f"File already exists (skipped): {inbox_path}")
+            errors.append(f"Conflict: File already exists: {inbox_path}")
+            print(f"File already exists: {inbox_path}")
         else:
             if not dry_run:
                 with open(inbox_path, "w") as f:
@@ -133,14 +133,15 @@ def create_chantier(go_id, summary, doc_only=False, create_inbox=False, dry_run=
             else:
                 print(f"[DRY-RUN] Would create file: {inbox_path}")
 
+    status = "PASS" if not errors else "FAIL"
     result = {
-        "status": "PASS",
+        "status": status,
         "go_id": go_id,
         "created_files": created_files,
         "skipped_files": skipped_files,
         "errors": errors
     }
-    return True, result
+    return (not errors), result
 
 def main():
     parser = argparse.ArgumentParser(description="Doc Ops Chantier Creation Assistant")
