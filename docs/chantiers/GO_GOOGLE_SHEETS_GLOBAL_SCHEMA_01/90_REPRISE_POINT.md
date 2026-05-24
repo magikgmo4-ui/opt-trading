@@ -5,7 +5,7 @@ repo: opt-trading
 go_id: GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01
 status: active
 source_kind: canonical
-updated_at: 2026-05-19
+updated_at: 2026-05-24
 ---
 
 # 90_REPRISE_POINT - GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01
@@ -59,7 +59,7 @@ python -m pytest tests\e2e\test_sync_daily_session.py -q
 ## Next GO bundle
 
 ```text
-GO_TELEGRAM_LATENCY_BACKTEST_01
+GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_INVENTORY_01
 ```
 
 ## Tableau Kanban du bundle
@@ -70,7 +70,7 @@ chaine du produit final total.
 
 ## Prochain item Kanban exact
 
-`GO_TELEGRAM_LATENCY_BACKTEST_01`
+`GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_INVENTORY_01`
 
 ## Gaps encore ouverts
 

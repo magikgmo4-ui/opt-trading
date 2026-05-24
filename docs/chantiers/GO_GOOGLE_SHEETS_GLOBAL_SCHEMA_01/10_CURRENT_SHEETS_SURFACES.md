@@ -5,7 +5,7 @@ repo: opt-trading
 go_id: GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01
 status: reference
 source_kind: canonical
-updated_at: 2026-05-19
+updated_at: 2026-05-24
 ---
 
 # 10_CURRENT_SHEETS_SURFACES - État actuel (repo)
@@ -49,5 +49,5 @@ Resultat observe :
 
 - `MASTER_TARGET` : contribuer au produit final total via Google Sheets comme consumer transverse
 - `Kanban bundle` : reste la reference principale
-- `Prochain item Kanban` : `GO_TELEGRAM_LATENCY_BACKTEST_01`
+- `Prochain item Kanban` : `GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_INVENTORY_01`
 - `Gaps encore ouverts` : schema tabs 2-5 sans writer, controlled-write toujours borne, single-writer encore absent
