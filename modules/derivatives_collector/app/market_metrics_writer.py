@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Optional, Union
 
 from modules.derivatives_collector.app.market_metrics_v1 import MarketMetricsV1
+import re
 
 _MODULE_DIR = Path(__file__).resolve().parent.parent   # modules/derivatives_collector
 _PROJECT_ROOT = _MODULE_DIR.parent.parent              # opt-trading root
@@ -132,6 +133,41 @@ def write_market_metrics_view(
     _atomic_write_json(latest_dest, d)
     _atomic_write_json(by_symbol_dest, d)
     return {"latest": latest_dest, "by_symbol": by_symbol_dest}
+
+
+# ---------------------------------------------------------------------------
+# History view writer (full_history consumer path)
+# ---------------------------------------------------------------------------
+
+def write_market_metrics_history_view(
+    payload: Union[MarketMetricsV1, dict],
+    root: Optional[Path] = None,
+    run_id: Optional[str] = None,
+) -> Optional[dict]:
+    """History view: write market_metrics.v1 to data/data_center/views/market_metrics/history/.
+
+    Neutral consumer path — decoupled from any producer_id.
+    Each run appends a new file; history accumulates for replay consumers.
+
+    Writes to:
+      data/data_center/views/market_metrics/history/<SYMBOL>/<run_id>.json
+
+    run_id defaults to a sanitized form of metrics_ts (e.g. '20260523T000000Z').
+    Returns dict with 'history' Path value, or None if provider is
+    not_proven_runtime_adapter. Raises ValueError for invalid input_class.
+    """
+    root = Path(root) if root is not None else _PROJECT_ROOT
+    d = _to_dict(payload)
+    _validate_input_class(d)
+    if _is_not_proven_runtime_adapter(d):
+        return None
+    symbol = d.get("symbol", "UNKNOWN")
+    if run_id is None:
+        ts = d.get("metrics_ts", "")
+        run_id = re.sub(r"[^A-Za-z0-9_-]", "", ts) or "unknown"
+    dest = root / _DC_VIEWS_BASE / "market_metrics" / "history" / symbol / f"{run_id}.json"
+    _atomic_write_json(dest, d)
+    return {"history": dest}
 
 
 # ---------------------------------------------------------------------------

@@ -18,6 +18,7 @@ from modules.derivatives_collector.app.market_metrics_writer import (
     publish_market_metrics_for_deskpro,
     write_market_metrics_to_data_center,
     write_market_metrics_view,
+    write_market_metrics_history_view,
     publish_market_metrics,
 )
 
@@ -685,6 +686,81 @@ class TestWriteContractClassView(unittest.TestCase):
             self.assertNotEqual(view["latest"], dc["latest"])
             self.assertIn("views/market_metrics", str(view["latest"]))
             self.assertIn("derivatives/derivatives_collector__binance", str(dc["latest"]))
+        finally:
+            shutil.rmtree(td)
+
+
+class TestWriteHistoryView(unittest.TestCase):
+    def test_history_writes_to_symbol_subdir(self):
+        import tempfile, shutil
+        td = Path(tempfile.mkdtemp())
+        try:
+            result = write_market_metrics_history_view(_binance_full(), root=td, run_id="run001")
+            expected = td / "data/data_center/views/market_metrics/history/BTCUSDT/run001.json"
+            self.assertEqual(result["history"], expected)
+            self.assertTrue(expected.exists())
+        finally:
+            shutil.rmtree(td)
+
+    def test_history_path_decoupled_from_producer_id(self):
+        """binance and bitget both write to history/ with no producer_id in path."""
+        import tempfile, shutil
+        td = Path(tempfile.mkdtemp())
+        try:
+            r_binance = write_market_metrics_history_view(_binance_full(), root=td, run_id="run001")
+            r_bitget = write_market_metrics_history_view(_bitget_full(), root=td, run_id="run002")
+            for r in (r_binance, r_bitget):
+                path_str = str(r["history"])
+                self.assertNotIn("bitget", path_str)
+                self.assertNotIn("binance", path_str)
+                self.assertNotIn("derivatives_collector__", path_str)
+                self.assertIn("views/market_metrics/history", path_str)
+        finally:
+            shutil.rmtree(td)
+
+    def test_history_run_id_defaults_from_metrics_ts(self):
+        """Without explicit run_id, metrics_ts is sanitized into the filename."""
+        import tempfile, shutil
+        td = Path(tempfile.mkdtemp())
+        try:
+            result = write_market_metrics_history_view(_binance_full(), root=td)
+            # metrics_ts is "2026-05-23T00:00:00Z" → colons stripped → "2026-05-23T000000Z"
+            self.assertIn("2026-05-23T000000Z.json", str(result["history"]))
+        finally:
+            shutil.rmtree(td)
+
+    def test_history_not_proven_returns_none(self):
+        import tempfile, shutil
+        td = Path(tempfile.mkdtemp())
+        try:
+            result = write_market_metrics_history_view(_coinglass_not_proven(), root=td)
+            self.assertIsNone(result)
+            history_dir = td / "data/data_center/views/market_metrics/history"
+            self.assertFalse(history_dir.exists())
+        finally:
+            shutil.rmtree(td)
+
+    def test_history_accumulates_multiple_runs(self):
+        """Two calls with different run_ids produce two distinct files."""
+        import tempfile, shutil
+        td = Path(tempfile.mkdtemp())
+        try:
+            r1 = write_market_metrics_history_view(_binance_full(), root=td, run_id="run001")
+            r2 = write_market_metrics_history_view(_binance_full(), root=td, run_id="run002")
+            self.assertNotEqual(r1["history"], r2["history"])
+            self.assertTrue(r1["history"].exists())
+            self.assertTrue(r2["history"].exists())
+        finally:
+            shutil.rmtree(td)
+
+    def test_history_content_is_valid_market_metrics_v1(self):
+        import tempfile, shutil
+        td = Path(tempfile.mkdtemp())
+        try:
+            result = write_market_metrics_history_view(_bitget_full(), root=td, run_id="test")
+            data = json.loads(result["history"].read_text(encoding="utf-8"))
+            self.assertEqual(data["input_class"], "market_metrics.v1")
+            self.assertEqual(data["symbol"], "BTCUSDT")
         finally:
             shutil.rmtree(td)
 

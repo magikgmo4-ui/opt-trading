@@ -42,7 +42,7 @@
       "consumer_id": "perf_engine__replay_context",
       "surface": "PF_PERF_ENGINE_TRADING_LAB",
       "contract_class": "market_metrics.v1",
-      "read_path": "data/data_center/derivatives/derivatives_collector__bitget/normalized/",
+      "read_path": "data/data_center/views/market_metrics/history/",
       "access_pattern": "full_history",
       "fallback": "error",
       "implementation_status": "not_started",
