@@ -144,6 +144,14 @@ def get_runtime_tmux_live():
     })
 
 
+# ── Data Center endpoints ────────────────────────────────────────────
+
+@app.get("/data-center/health")
+def get_data_center_health():
+    from modules.data_center.localcms_health_reader import read_data_center_health
+    return JSONResponse(content=read_data_center_health())
+
+
 # ── Journal endpoints ────────────────────────────────────────────────
 
 def _list_journal_entries() -> list[dict]:

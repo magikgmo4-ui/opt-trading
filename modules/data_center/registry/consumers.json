@@ -81,10 +81,10 @@
       "read_path": "data/data_center/_registry/producers.json",
       "access_pattern": "status_only",
       "fallback": "silent_empty",
-      "implementation_status": "not_started",
+      "implementation_status": "implemented",
       "migration_needed": false,
       "read_path_current": null,
-      "validated_at": null
+      "validated_at": "2026-05-23"
     }
   ]
 }
