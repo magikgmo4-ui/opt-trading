@@ -87,3 +87,9 @@ def test_consumers_have_required_fields():
 def test_layout_creates_views_history_dir(tmp_path):
     base = ensure_data_center_dirs(tmp_path)
     assert (base / "views" / "market_metrics" / "history").is_dir()
+
+
+def test_layout_creates_views_pair_snapshot_dir(tmp_path):
+    base = ensure_data_center_dirs(tmp_path)
+    assert (base / "views" / "pair_market_snapshot").is_dir()
+    assert (base / "views" / "pair_market_snapshot" / "by_symbol").is_dir()

@@ -31,6 +31,7 @@ from modules.derivatives_collector.app.market_metrics_writer import (
     write_market_metrics_history_view,
     publish_market_metrics,
 )
+from modules.data_center.pair_snapshot_view_writer import write_pair_market_snapshot_view
 
 # ---------------------------------------------------------------------------
 # Fixtures
@@ -49,6 +50,39 @@ _FULL_METRICS = ["open_interest", "funding_rate", "volume_futures",
 KNOWN_FALLBACKS = {"silent_empty", "stale_ok", "error", "block"}
 KNOWN_COVERAGE_STATUSES = {"full", "partial", "not_proven_runtime_adapter", "spot_only"}
 KNOWN_IMPL_STATUSES = {"implemented", "planned", "not_started"}
+
+
+def _make_pair_snapshot_payload(symbol: str = "BTCUSDT") -> dict:
+    return {
+        "contract_version": "v1",
+        "schema_version": "v1",
+        "module_id": "collector_binance_spot",
+        "provider_id": "binance_spot",
+        "run_id": "20260523_000000_test",
+        "generated_at": "2026-05-23T00:00:00Z",
+        "entity_type": "pair_market_snapshot",
+        "records": [
+            {
+                "pair_symbol": symbol,
+                "base_asset": symbol[:3],
+                "quote_asset": "USDT",
+                "trading_status": "TRADING",
+                "is_spot_trading_allowed": True,
+                "last_price": "51200.00",
+                "open_price_24h": "50500.00",
+                "high_price_24h": "51500.00",
+                "low_price_24h": "50000.00",
+                "price_change_percent_24h": "1.25",
+                "volume_base_24h": "1234.56000000",
+                "volume_quote_24h": "63000000.00000000",
+                "trade_count_24h": 111111,
+                "window_open_at": "2026-05-23T00:00:00Z",
+                "window_close_at": "2026-05-23T08:00:00Z",
+                "weighted_avg_price_24h": "51000.00",
+                "source": {"provider_symbol": symbol},
+            }
+        ],
+    }
 
 
 def _make_full_payload(provider_id: str, symbol: str = "BTCUSDT") -> MarketMetricsV1:
@@ -187,6 +221,7 @@ class TestConsumerRegistryConsistency:
             "google_sheets__market_reporting",
             "strategy_framework__market_context",
             "perf_engine__replay_context",
+            "desk_pro__spot_snapshot",
         }
         for c in self.consumers:
             if c["consumer_id"] in no_reader:
@@ -290,6 +325,23 @@ class TestRegistryAlignment:
                 assert "normalized" not in path, \
                     f"{c['consumer_id']}: read_path must not reference a producer subdir"
 
+    def test_pair_snapshot_consumers_read_from_view(self):
+        """All pair_market_snapshot.v1 consumers read from the view, not producer paths."""
+        for c in self.consumers:
+            if c.get("contract_class") == "pair_market_snapshot.v1":
+                assert "data/data_center/views/" in c["read_path"], \
+                    f"{c['consumer_id']}: pair_market_snapshot consumer must read from views/"
+
+    def test_pair_snapshot_consumers_have_no_producer_id_in_path(self):
+        """No pair_market_snapshot consumer path may reference a producer_id."""
+        for c in self.consumers:
+            if c.get("contract_class") == "pair_market_snapshot.v1":
+                path = c["read_path"]
+                assert "collector_binance_spot" not in path, \
+                    f"{c['consumer_id']}: read_path must not reference a producer_id"
+                assert "binance_spot" not in path, \
+                    f"{c['consumer_id']}: read_path must not reference a producer_id"
+
     def test_no_consumer_reads_from_raw(self):
         """No production consumer should read from raw/ — that's for audit only."""
         for c in self.consumers:
@@ -385,6 +437,23 @@ class TestWriterToDataCenterChain:
             assert result["by_symbol"] == expected_path, \
                 f"view writer produced {result['by_symbol']} but strategy_framework expects {expected_path}"
             assert result["by_symbol"].exists()
+        finally:
+            shutil.rmtree(td)
+
+    def test_desk_pro_spot_snapshot_path_reachable_via_view_writer(self):
+        """desk_pro__spot_snapshot read_path is reachable after write_pair_market_snapshot_view."""
+        td = Path(tempfile.mkdtemp())
+        try:
+            consumers = load_consumers_registry()["consumers"]
+            snap = next(c for c in consumers if c["consumer_id"] == "desk_pro__spot_snapshot")
+            result = write_pair_market_snapshot_view(_make_pair_snapshot_payload(), root=td)
+            expected_path = td / snap["read_path"]
+            assert result["latest"] == expected_path, \
+                f"view writer produced {result['latest']} but consumer expects {expected_path}"
+            assert result["latest"].exists()
+            path_str = str(result["latest"])
+            assert "collector_binance_spot" not in path_str
+            assert "views/pair_market_snapshot" in path_str
         finally:
             shutil.rmtree(td)
 
