@@ -82,3 +82,8 @@ def test_consumers_have_required_fields():
     required = {"consumer_id", "surface", "read_path", "access_pattern", "fallback", "implementation_status"}
     for c in reg["consumers"]:
         assert required <= c.keys(), f"consumer {c.get('consumer_id')} missing fields"
+
+
+def test_layout_creates_views_history_dir(tmp_path):
+    base = ensure_data_center_dirs(tmp_path)
+    assert (base / "views" / "market_metrics" / "history").is_dir()

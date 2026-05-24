@@ -45,6 +45,7 @@ def ensure_data_center_dirs(root: Path | None = None) -> Path:
     # Contract class views (neutral consumer paths — decoupled from producer_id)
     views_mm = base / "views" / "market_metrics"
     (views_mm / "by_symbol").mkdir(parents=True, exist_ok=True)
+    (views_mm / "history").mkdir(parents=True, exist_ok=True)
 
     return base
 

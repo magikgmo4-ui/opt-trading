@@ -28,6 +28,7 @@ from modules.derivatives_collector.app.market_metrics_v1 import (
 from modules.derivatives_collector.app.market_metrics_writer import (
     write_market_metrics_to_data_center,
     write_market_metrics_view,
+    write_market_metrics_history_view,
     publish_market_metrics,
 )
 
@@ -185,6 +186,7 @@ class TestConsumerRegistryConsistency:
             "telegram_screener__signal_context",
             "google_sheets__market_reporting",
             "strategy_framework__market_context",
+            "perf_engine__replay_context",
         }
         for c in self.consumers:
             if c["consumer_id"] in no_reader:
@@ -266,6 +268,27 @@ class TestRegistryAlignment:
                     f"{c['consumer_id']}: read_path must not reference a producer_id"
                 assert "derivatives_collector__" not in path, \
                     f"{c['consumer_id']}: read_path must not reference a producer_id"
+
+    def test_full_history_consumers_read_from_view(self):
+        """All full_history market_metrics.v1 consumers read from the view, not producer paths."""
+        for c in self.consumers:
+            if c.get("access_pattern") == "full_history" and c.get("contract_class") == "market_metrics.v1":
+                assert "data/data_center/views/" in c["read_path"], \
+                    f"{c['consumer_id']}: full_history consumer must read from views/"
+
+    def test_full_history_consumers_have_no_producer_id_in_path(self):
+        """No full_history consumer path may reference a producer_id."""
+        for c in self.consumers:
+            if c.get("access_pattern") == "full_history" and c.get("contract_class") == "market_metrics.v1":
+                path = c["read_path"]
+                assert "bitget" not in path, \
+                    f"{c['consumer_id']}: read_path must not reference a producer_id"
+                assert "binance" not in path, \
+                    f"{c['consumer_id']}: read_path must not reference a producer_id"
+                assert "derivatives_collector__" not in path, \
+                    f"{c['consumer_id']}: read_path must not reference a producer_id"
+                assert "normalized" not in path, \
+                    f"{c['consumer_id']}: read_path must not reference a producer subdir"
 
     def test_no_consumer_reads_from_raw(self):
         """No production consumer should read from raw/ — that's for audit only."""
@@ -362,6 +385,26 @@ class TestWriterToDataCenterChain:
             assert result["by_symbol"] == expected_path, \
                 f"view writer produced {result['by_symbol']} but strategy_framework expects {expected_path}"
             assert result["by_symbol"].exists()
+        finally:
+            shutil.rmtree(td)
+
+    def test_perf_engine_history_path_reachable_via_history_writer(self):
+        """perf_engine full_history read_path is reachable after write_market_metrics_history_view."""
+        td = Path(tempfile.mkdtemp())
+        try:
+            consumers = load_consumers_registry()["consumers"]
+            perf = next(c for c in consumers if c["consumer_id"] == "perf_engine__replay_context")
+            result = write_market_metrics_history_view(
+                _make_full_payload("bitget"), root=td, run_id="20260523T000000Z"
+            )
+            assert result is not None
+            # history path: read_path/<SYMBOL>/<run_id>.json
+            expected_base = td / perf["read_path"] / "BTCUSDT"
+            assert result["history"].parent == expected_base
+            assert result["history"].exists()
+            path_str = str(result["history"])
+            assert "bitget" not in path_str
+            assert "derivatives_collector__" not in path_str
         finally:
             shutil.rmtree(td)
 
