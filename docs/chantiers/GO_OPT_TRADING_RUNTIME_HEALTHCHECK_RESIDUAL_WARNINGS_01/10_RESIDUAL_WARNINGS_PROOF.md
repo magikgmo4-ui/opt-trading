@@ -88,3 +88,55 @@ db-layer:
 
 Lecture : à configuration inchangée, l’absence de ces éléments optionnels (variables, ports, chemins) suffit à expliquer `ENV=WARN`, `PORTS=WARN`, `PATHS=WARN` même si aucun FAIL n’existe.
 
+## Preuves terrain read-only (2026-05-23)
+
+### `db-layer` — `/opt/trading/data/runtime_health/latest.json`
+
+```text
+overall_status = WARN
+ENV   = WARN (optional)
+PORTS = WARN (optional)
+PATHS = WARN (optional)
+```
+
+ENV (scope `db-layer`) :
+
+```text
+WARN env:TELEGRAM_BOT_TOKEN present=False required=False
+WARN env:ALLOWED_CHAT_ID    present=False required=False
+```
+
+PORTS (scope `db-layer`) :
+
+```text
+WARN port:openclaw_gateway 127.0.0.1:18789 required=False Connection refused
+WARN port:algo_hf_api      127.0.0.1:8000  required=False Connection refused
+```
+
+PATHS (scope `db-layer`) :
+
+```text
+WARN path:/var/log/trading required=False path does not exist
+PASS path:/shared          required=False ok
+PASS path:/opt/trading     required=True  ok
+PASS path:/opt/trading/data required=True ok
+```
+
+### Fleet — `db-layer` orchestrator (dry-run, no-telegram)
+
+```text
+fleet_status = WARN
+stale = cursor-ai, fantome
+failing = []
+unreachable = []
+```
+
+### `fantome` — `/opt/trading/data/runtime_health/latest.json`
+
+```text
+overall_status = PASS
+timestamp = 2026-05-23T15:31:35+00:00
+```
+
+Interprétation : la machine répond en SSH, mais le `latest.json` est ancien (stale du point de vue fleet).
+

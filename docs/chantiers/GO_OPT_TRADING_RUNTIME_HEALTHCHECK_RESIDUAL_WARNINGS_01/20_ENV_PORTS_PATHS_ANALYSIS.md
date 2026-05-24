@@ -129,3 +129,34 @@ Action read-only recommandée (terrain) :
 - vérifier existence + type + owner/group + permissions des chemins attendus
 - confirmer le chemin de montage réel si `/shared` n’est pas la racine retenue
 
+## Résultat terrain (2026-05-23) — classification db-layer
+
+Source : lecture read-only de `/opt/trading/data/runtime_health/latest.json` sur `db-layer`.
+
+### ENV
+
+```text
+WARN env:TELEGRAM_BOT_TOKEN present=False required=False
+WARN env:ALLOWED_CHAT_ID    present=False required=False
+```
+
+Conclusion : warning “bruit” cohérent avec `optional_env` sur `db-layer`.
+
+### PORTS
+
+```text
+WARN port:openclaw_gateway 127.0.0.1:18789 required=False Connection refused
+WARN port:algo_hf_api      127.0.0.1:8000  required=False Connection refused
+```
+
+Conclusion : warning “bruit” si ces services sont volontairement off sur `db-layer` hors besoins du moment.
+
+### PATHS
+
+```text
+WARN path:/var/log/trading required=False path does not exist
+PASS path:/shared          required=False ok
+```
+
+Conclusion : warning “bruit” probable si `db-layer` est journald-first et n’utilise pas `/var/log/trading`.
+
