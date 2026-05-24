@@ -28,6 +28,23 @@ _STALE_THRESHOLD_MINUTES = 15
 stale_machines = cursor-ai, fantome
 ```
 
+## Preuve terrain read-only (2026-05-23)
+
+Source : `python3 modules/runtime_health/fleet_orchestrator.py --dry-run --no-telegram` exécuté sur `db-layer`.
+
+```text
+fleet_status = WARN
+stale = cursor-ai, fantome
+unreachable = []
+failing = []
+```
+
+Preuve additionnelle : `fantome` répond en SSH mais son `latest.json` est ancien.
+
+```text
+fantome latest.json timestamp = 2026-05-23T15:31:35+00:00
+```
+
 ## Interprétation attendue
 
 Un “stale” peut signifier :
@@ -73,4 +90,10 @@ Politique minimale :
 - lister explicitement les machines autorisées à être stale
 - justifier pourquoi (role non-runtime / machine d’atelier / machine éteinte)
 - fixer un critère de révision (ex: “à réévaluer avant fermeture parent umbrella” ou “à réévaluer lors du prochain déploiement fleet”)
+
+## Décision proposée (pour ce GO)
+
+- `cursor-ai` : machine IDE/opérateur, autorisée à être stale tant que non engagée dans un cycle runtime.
+- `fantome` : machine opérateur secondaire / tests isolés, autorisée à être stale tant que non engagée.
+- Critère de révision : réévaluer dès qu’un déploiement fleet dépend de ces machines, ou si `unreachable` devient non vide.
 
