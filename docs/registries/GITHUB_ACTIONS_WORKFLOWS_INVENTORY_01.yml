@@ -72,3 +72,25 @@ workflows:
     maps_to_non_trading_jobs:
       - repo-diff-check
       - openclaw-mcp-policy-static-validator
+
+  - workflow_id: gh_actions_registry_validation
+    path: .github/workflows/gh-actions-registry-validation.yml
+    name: "GitHub Actions Registry Validation"
+    triggers:
+      - pull_request
+      - workflow_dispatch
+    permissions:
+      contents: read
+    jobs:
+      - validate
+    role:
+      - governance
+      - validation
+      - registry_integrity
+    orchestrable_by_openclaw: true
+    risk_level: low
+    requires_secret: false
+    dedup_status: NEW
+    maps_to_non_trading_jobs:
+      - github-actions-workflow-inventory-check
+      - github-actions-job-registry-check

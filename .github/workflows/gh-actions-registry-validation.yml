@@ -1,0 +1,29 @@
+name: GitHub Actions Registry Validation
+
+on:
+  pull_request:
+    branches:
+      - sot/mainline
+    paths:
+      - "docs/registries/GITHUB_ACTIONS_JOBS_REGISTRY_01.yml"
+      - "docs/registries/GITHUB_ACTIONS_WORKFLOWS_INVENTORY_01.yml"
+      - "scripts/validate_gh_actions_registries.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate Registries
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Install PyYAML
+        run: pip install PyYAML
+      - name: Run validation script
+        run: python3 scripts/validate_gh_actions_registries.py
