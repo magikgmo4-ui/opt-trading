@@ -451,8 +451,63 @@
   machine_target: msi_db_layer
   operator_visible: true
   ui_related: true
-  description: "Registre central des UIs (MSI First)"
+  description: "Surface operateur active et owner canonique de lecture ui_surfaces_registry"
   wrappers_expected: ["menu", "cmd", "sanity"]
   status: active
   priority: critical
   dependencies: []
+
+- module_name: modules_registry_reader
+  domain: registry
+  machine_target: any
+  operator_visible: false
+  ui_related: false
+  description: "Reader specialise et owner canonique de lecture modules_registry.yaml"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: high
+  dependencies: []
+
+- module_name: machines_registry_reader
+  domain: registry
+  machine_target: any
+  operator_visible: false
+  ui_related: false
+  description: "Reader specialise et owner canonique de lecture machines_registry.yaml"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: high
+  dependencies: []
+
+- module_name: wrappers_registry_reader
+  domain: registry
+  machine_target: any
+  operator_visible: false
+  ui_related: false
+  description: "Reader specialise et owner canonique de lecture wrappers_registry.yaml"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: high
+  dependencies: []
+
+- module_name: registry_meta_reader
+  domain: registry
+  machine_target: any
+  operator_visible: false
+  ui_related: false
+  description: "Meta-reader specialise et owner canonique de lecture meta_index.yaml"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: medium
+  dependencies: []
+
+- module_name: registry_router
+  domain: registry
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Facade de navigation vers les readers registry, sans lecture directe des sources de verite"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: medium
+  dependencies: ["registry_meta_reader", "machines_registry_reader", "modules_registry_reader", "ui_registry_msi", "wrappers_registry_reader"]
