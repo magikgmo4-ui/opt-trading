@@ -6,7 +6,10 @@
 - Test template generation.
 - Test `--dry-run` prevents any writes.
 - Test `--force` behavior on existing files.
+- Test conflict behavior: ensure it returns `FAIL` and exit 1 if file exists without `--force`.
+- Test `--json` output is valid and parseable.
 - Test `--create-inbox` adds the expected file.
 
 ## Integration Tests
 - Run the script against the current GO_ID in dry-run mode and check JSON output.
+- Verify exit code 1 on conflict without `--force`.
