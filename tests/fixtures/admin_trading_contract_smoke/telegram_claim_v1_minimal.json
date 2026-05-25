@@ -1,0 +1,20 @@
+{
+  "input_class": "telegram_claim.v1",
+  "claim_id": "tg_claim_20260525_000000_BTCUSDT",
+  "source": "telegram_screener",
+  "channel_id": "fixture_channel",
+  "message_id": "fixture_message_001",
+  "symbol": "BTCUSDT",
+  "timeframe": "H1",
+  "claim_ts": "2026-05-25T00:00:00Z",
+  "claim_type": "trade_context",
+  "text": "BTCUSDT testing resistance near 68500",
+  "entities": {
+    "direction": "long",
+    "levels": [65000.0, 68500.0],
+    "confidence": 0.72
+  },
+  "refs": {
+    "telegram_message_ref": "fixture://telegram/fixture_channel/fixture_message_001"
+  }
+}
