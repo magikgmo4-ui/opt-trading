@@ -68,6 +68,83 @@
   priority: critical
   dependencies: []
 
+- module_name: gateway_openclaw
+  domain: operator_tools
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Pilotage runtime du gateway OpenClaw via tmux"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: critical
+  dependencies: []
+
+- module_name: openclaw_config_modulaire
+  domain: operator_tools
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Configuration modulaire OpenClaw avec apply safe et rollback"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: high
+  dependencies: []
+
+- module_name: configure_openclaw
+  domain: operator_tools
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Facade operateur de configuration live OpenClaw"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: high
+  dependencies: ["openclaw_config_modulaire", "gateway_openclaw"]
+
+- module_name: doctor_openclaw
+  domain: operator_tools
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Facade de diagnostic et verification de sante OpenClaw"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: high
+  dependencies: ["configure_openclaw", "gateway_openclaw"]
+
+- module_name: evidence_openclaw
+  domain: operator_tools
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Capture de preuves et continuite documentaire OpenClaw"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: medium
+  dependencies: ["doctor_openclaw", "configure_openclaw"]
+
+- module_name: install_module_openclaw
+  domain: operator_tools
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Point d'entree d'installation des modules OpenClaw"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: medium
+  dependencies: []
+
+- module_name: openclaw_operator_bridge
+  domain: operator_tools
+  machine_target: any
+  operator_visible: false
+  ui_related: false
+  description: "Contrat d'interface borne entre opt-trading et OpenClaw gateway"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: high
+  dependencies: ["gateway_openclaw"]
+
 - module_name: desk_pro_dashboard
   domain: operator_tools
   machine_target: msi_db_layer
