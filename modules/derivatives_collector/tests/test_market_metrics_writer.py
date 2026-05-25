@@ -812,5 +812,79 @@ class TestPublishMarketMetricsView(unittest.TestCase):
             shutil.rmtree(td)
 
 
+class TestRuntimeRegistryIntegration(unittest.TestCase):
+    """write_market_metrics_to_data_center updates runtime registry."""
+
+    def test_write_to_dc_updates_runtime_registry(self):
+        import tempfile, shutil
+        from modules.data_center.runtime_registry import load_runtime_registry
+        td = Path(tempfile.mkdtemp())
+        try:
+            write_market_metrics_to_data_center(_bitget_full(), root=td)
+            rt = load_runtime_registry(root=td)
+            self.assertIn("derivatives_collector__bitget", rt["producers"])
+        finally:
+            shutil.rmtree(td)
+
+    def test_bitget_last_write_is_not_null_after_write(self):
+        import tempfile, shutil
+        from modules.data_center.runtime_registry import load_runtime_registry
+        td = Path(tempfile.mkdtemp())
+        try:
+            write_market_metrics_to_data_center(_bitget_full(), root=td)
+            rt = load_runtime_registry(root=td)
+            last_write = rt["producers"]["derivatives_collector__bitget"]["last_write"]
+            self.assertIsNotNone(last_write)
+        finally:
+            shutil.rmtree(td)
+
+    def test_binance_last_write_is_not_null_after_write(self):
+        import tempfile, shutil
+        from modules.data_center.runtime_registry import load_runtime_registry
+        td = Path(tempfile.mkdtemp())
+        try:
+            write_market_metrics_to_data_center(_binance_full(), root=td)
+            rt = load_runtime_registry(root=td)
+            last_write = rt["producers"]["derivatives_collector__binance"]["last_write"]
+            self.assertIsNotNone(last_write)
+        finally:
+            shutil.rmtree(td)
+
+    def test_last_output_path_under_dc_producer_dir(self):
+        import tempfile, shutil
+        from modules.data_center.runtime_registry import load_runtime_registry
+        td = Path(tempfile.mkdtemp())
+        try:
+            write_market_metrics_to_data_center(_bitget_full(), root=td)
+            rt = load_runtime_registry(root=td)
+            path = rt["producers"]["derivatives_collector__bitget"]["last_output_path"]
+            self.assertIn("data/data_center/derivatives/derivatives_collector__bitget", path)
+        finally:
+            shutil.rmtree(td)
+
+    def test_not_proven_does_not_update_registry(self):
+        import tempfile, shutil
+        from modules.data_center.runtime_registry import load_runtime_registry
+        td = Path(tempfile.mkdtemp())
+        try:
+            result = write_market_metrics_to_data_center(_coinglass_not_proven(), root=td)
+            self.assertIsNone(result)
+            rt = load_runtime_registry(root=td)
+            self.assertEqual(rt["producers"], {})
+        finally:
+            shutil.rmtree(td)
+
+    def test_update_registry_false_skips_registry(self):
+        import tempfile, shutil
+        from modules.data_center.runtime_registry import load_runtime_registry
+        td = Path(tempfile.mkdtemp())
+        try:
+            write_market_metrics_to_data_center(_bitget_full(), root=td, update_registry=False)
+            rt = load_runtime_registry(root=td)
+            self.assertEqual(rt["producers"], {})
+        finally:
+            shutil.rmtree(td)
+
+
 if __name__ == "__main__":
     unittest.main()

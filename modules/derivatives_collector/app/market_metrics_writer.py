@@ -73,12 +73,16 @@ def _resolve_producer_id(d: dict) -> Optional[str]:
 def write_market_metrics_to_data_center(
     payload: Union[MarketMetricsV1, dict],
     root: Optional[Path] = None,
+    update_registry: bool = True,
 ) -> Optional[dict]:
     """Write market_metrics.v1 to Data Center canonical paths.
 
     Writes to:
       data/data_center/derivatives/<producer_id>/latest.json
       data/data_center/derivatives/<producer_id>/cache/by_symbol/<SYMBOL>.json
+
+    When update_registry=True (default), records the write in the runtime
+    registry at data/data_center/_registry/producers.json.
 
     Returns dict with 'latest' and 'by_symbol' Path values, or None if
     provider is not_proven_runtime_adapter or producer_id is unknown.
@@ -98,6 +102,15 @@ def write_market_metrics_to_data_center(
     by_symbol_dest = base / "cache" / "by_symbol" / f"{symbol}.json"
     _atomic_write_json(latest_dest, d)
     _atomic_write_json(by_symbol_dest, d)
+    if update_registry:
+        from modules.data_center.runtime_registry import update_producer_last_write
+        update_producer_last_write(
+            producer_id=producer_id,
+            contract_class="market_metrics.v1",
+            output_path=str(latest_dest),
+            root=root,
+            evidence={"symbol": symbol, "provider_id": d.get("provider_id")},
+        )
     return {"latest": latest_dest, "by_symbol": by_symbol_dest}
 
 

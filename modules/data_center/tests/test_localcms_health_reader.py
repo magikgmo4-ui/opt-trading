@@ -40,3 +40,6 @@ class TestReadDataCenterHealth(unittest.TestCase):
     def test_read_at_is_set(self):
         self.assertIsInstance(self.result["read_at"], str)
         self.assertTrue(self.result["read_at"].startswith("2026"))
+
+    def test_producer_runtime_is_list(self):
+        self.assertIsInstance(self.result["producer_runtime"], list)
