@@ -146,6 +146,32 @@ Ouvrir une micro-PR de test si `workflow_dispatch` fonctionne.
 `GO_OPT_TRADING_GITHUB_ACTIONS_OPENCLAW_CHILD_GATED_PR_REQUIRED_CHECKS_01`
 (seulement après PASS de la présente GO)
 
+## 13_ESTABLISHED — PR #782 mergée, nouveau diagnostic
+
+PR #782 (suppression de `merge_group`) mergée sur `sot/mainline`. Cependant, `gh workflow run` retourne toujours HTTP 422 et les runs push continuent d'échouer en 0s.
+
+### Vrai root cause identifié
+
+```yaml
+# LIGNE 225 — colon dans la valeur `run:` non protégée
+        run: echo "PASS: gated PR scope checks completed."
+```
+
+Le `:` dans `PASS:` est interprété par le parser YAML comme un séparateur key:value, ce qui invalide tout le fichier. GitHub Actions rejette le workflow entier à cause de cette ligne, ce qui explique :
+- les runs en 0s ("workflow file issue")
+- le HTTP 422 sur `workflow_dispatch`
+
+**`merge_group` n'était pas la cause.** Le retrait de `merge_group` était une fausse piste (mais sans conséquence négative). Le vrai correctif est :
+
+```yaml
+        run: 'echo "PASS: gated PR scope checks completed."'
+```
+
+### Correctif final
+
+1. ~Retirer `merge_group` — fait (PR #782)~ ✅
+2. **Quoter la valeur `run:`** contenant un `:` dans le message — **PR #783**
+
 ## NEXT_GO optionnel (plus tard)
 
 `GO_OPT_TRADING_GITHUB_ACTIONS_OPENCLAW_CHILD_MERGE_GROUP_REINTRODUCTION_01`
