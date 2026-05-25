@@ -255,3 +255,35 @@ class TestAggregatorIntegration:
         from modules.desk_pro.service.aggregator import build_snapshot
         snap = build_snapshot(source="fixture")
         assert snap.meta.get("market_metrics") is None
+
+
+class TestMarketMetricsFixtureProof:
+    """Fixture-first proof: canonical fixture -> read_market_metrics() -> non-empty list."""
+
+    _FIXTURE = Path(__file__).parent / "fixtures" / "admin_trading_contract_smoke" / "market_metrics_v1_minimal.json"
+
+    def test_fixture_file_exists(self):
+        assert self._FIXTURE.exists(), f"Fixture not found: {self._FIXTURE}"
+
+    def test_fixture_is_valid_market_metrics_v1(self):
+        data = json.loads(self._FIXTURE.read_text(encoding="utf-8"))
+        assert data["input_class"] == "market_metrics.v1"
+        assert data["freshness_state"] == "fresh"
+        assert data["provider_coverage"]["status"] == "full"
+
+    def test_read_market_metrics_from_fixture_returns_non_empty_list(self, tmp_path):
+        fixture_data = json.loads(self._FIXTURE.read_text(encoding="utf-8"))
+        path = tmp_path / "latest.json"
+        path.write_text(json.dumps(fixture_data), encoding="utf-8")
+        metrics = read_market_metrics(path=path)
+        assert len(metrics) > 0, "read_market_metrics must return at least one Metric from fixture"
+
+    def test_read_market_metrics_from_fixture_covers_6_metrics(self, tmp_path):
+        fixture_data = json.loads(self._FIXTURE.read_text(encoding="utf-8"))
+        path = tmp_path / "latest.json"
+        path.write_text(json.dumps(fixture_data), encoding="utf-8")
+        metrics = read_market_metrics(path=path)
+        metric_names = {m.metric for m in metrics}
+        for expected in ("open_interest", "funding_rate", "volume_futures",
+                         "long_short_ratio", "liquidations_long", "liquidations_short"):
+            assert expected in metric_names, f"{expected} missing from fixture metrics"

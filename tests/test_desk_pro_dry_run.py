@@ -119,3 +119,49 @@ class TestDeskProDryRun:
         ok, errors = validate_desk_pro_dry_run_inputs(timer_payload)
         assert ok is True
         assert errors == []
+
+    def test_missing_market_metrics_is_warn_non_blocking(self):
+        v0 = _load("signal_event_v0_minimal.json")
+        snap = _load("desk_snapshot_minimal.json")
+        result = run_desk_pro_dry_run(v0, desk_snapshot=snap, market_metrics=None)
+        assert result["status"] == "WARN"
+        assert any("market_metrics missing" in w for w in result["warnings"])
+
+    def test_market_metrics_present_sets_summary_flag(self):
+        from modules.desk_pro.service.market_metrics_reader import read_market_metrics
+        v0 = _load("signal_event_v0_minimal.json")
+        snap = _load("desk_snapshot_minimal.json")
+        mm_fixture = _load("market_metrics_v1_minimal.json")
+        import tempfile, json
+        from pathlib import Path
+        td = Path(tempfile.mkdtemp())
+        try:
+            mm_path = td / "market_metrics_latest.json"
+            mm_path.write_text(json.dumps(mm_fixture), encoding="utf-8")
+            metrics = read_market_metrics(path=mm_path)
+            result = run_desk_pro_dry_run(v0, desk_snapshot=snap, market_metrics=metrics)
+            assert result["summary"]["market_metrics_present"] is True
+        finally:
+            import shutil; shutil.rmtree(td)
+
+    def test_market_metrics_present_removes_missing_warning(self):
+        from modules.desk_pro.service.market_metrics_reader import read_market_metrics
+        v0 = _load("signal_event_v0_minimal.json")
+        snap = _load("desk_snapshot_minimal.json")
+        mm_fixture = _load("market_metrics_v1_minimal.json")
+        import tempfile, json, shutil
+        from pathlib import Path
+        td = Path(tempfile.mkdtemp())
+        try:
+            mm_path = td / "market_metrics_latest.json"
+            mm_path.write_text(json.dumps(mm_fixture), encoding="utf-8")
+            metrics = read_market_metrics(path=mm_path)
+            result = run_desk_pro_dry_run(v0, desk_snapshot=snap, market_metrics=metrics)
+            assert not any("market_metrics missing" in w for w in result["warnings"])
+        finally:
+            shutil.rmtree(td)
+
+    def test_summary_market_metrics_present_false_when_absent(self):
+        v0 = _load("signal_event_v0_minimal.json")
+        result = run_desk_pro_dry_run(v0)
+        assert result["summary"]["market_metrics_present"] is False

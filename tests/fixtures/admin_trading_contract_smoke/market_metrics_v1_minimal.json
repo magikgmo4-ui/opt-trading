@@ -1,0 +1,32 @@
+{
+  "contract_version": "v1",
+  "input_class": "market_metrics.v1",
+  "module_id": "derivatives_collector",
+  "provider_id": "bitget",
+  "symbol": "BTCUSDT",
+  "metrics_ts": "2026-05-25T00:00:00Z",
+  "freshness_state": "fresh",
+  "provider_coverage": {
+    "status": "full",
+    "collectable_metrics": [
+      "open_interest", "funding_rate", "volume_futures",
+      "long_short_ratio", "liquidations_long", "liquidations_short"
+    ],
+    "missing_metrics": []
+  },
+  "metrics": {
+    "open_interest": 72145.89,
+    "funding_rate": 0.000125,
+    "volume_futures": 4890123456.78,
+    "long_short_ratio": 1.8234,
+    "liquidations_long": 987654.32,
+    "liquidations_short": 123456.78
+  },
+  "refs": {
+    "primary_output": "data/data_center/derivatives/derivatives_collector__bitget/BTCUSDT.json",
+    "meta_output": "data/data_center/derivatives/derivatives_collector__bitget/BTCUSDT.meta.json",
+    "latest": "data/data_center/views/market_metrics/latest.json",
+    "status": "data/data_center/derivatives/derivatives_collector__bitget/status.json"
+  },
+  "warnings": []
+}
