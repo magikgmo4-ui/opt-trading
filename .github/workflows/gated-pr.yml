@@ -6,9 +6,16 @@ on:
       - sot/mainline
     types: [opened, synchronize, reopened, ready_for_review]
   merge_group:
+    types:
+      - checks_requested
     branches:
       - sot/mainline
   workflow_dispatch:
+    inputs:
+      reason:
+        description: Manual gated-pr activation test
+        required: false
+        default: manual
 
 concurrency:
   group: gated-pr-${{ github.event.pull_request.number || github.ref }}
