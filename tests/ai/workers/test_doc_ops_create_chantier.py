@@ -26,6 +26,7 @@ class TestCreateChantierIntegrated(unittest.TestCase):
         os.chdir(self.tmp_root)
         os.makedirs("docs/chantiers")
         os.makedirs("docs/index/inbox")
+        os.makedirs("docs/templates/doc_ops")
 
     def tearDown(self):
         os.chdir(self.old_cwd)
@@ -93,11 +94,46 @@ class TestCreateChantierIntegrated(unittest.TestCase):
                     self.assertEqual(e.code, 0)
 
                 output = fake_out.getvalue()
-                # Find the JSON part (ignore possible non-JSON print lines if any)
+                # Find the JSON part
                 json_str = output[output.find('{'):]
                 data = json.loads(json_str)
                 self.assertEqual(data["go_id"], go_id)
                 self.assertEqual(data["status"], "PASS")
+
+    def test_external_template_v1(self):
+        # Create external templates
+        with open("docs/templates/doc_ops/chantier_initial_project_doc_v1.md", "w") as f:
+            f.write("EXTERNAL DOC {go_id}")
+        with open("docs/templates/doc_ops/inbox_entry_v1.md", "w") as f:
+            f.write("EXTERNAL INBOX {go_id}")
+
+        go_id = "GO_TEMPLATE_V1_01"
+        success, result = create_chantier(go_id, "Summary", template_version="v1", create_inbox=True)
+
+        self.assertTrue(success)
+        self.assertIn("loaded:", result["info"]["doc_template_status"])
+
+        with open(f"docs/chantiers/{go_id}/00_INITIAL_PROJECT_DOC.md", "r") as f:
+            self.assertEqual(f.read(), f"EXTERNAL DOC {go_id}")
+        with open(f"docs/index/inbox/{go_id}.md", "r") as f:
+            self.assertEqual(f.read(), f"EXTERNAL INBOX {go_id}")
+
+    def test_missing_template_version_fails(self):
+        go_id = "GO_MISSING_TEMPLATE_01"
+        success, result = create_chantier(go_id, "Summary", template_version="v999")
+
+        self.assertFalse(success)
+        self.assertEqual(result.get("exit_code"), 2)
+        self.assertTrue(any("not found" in e for e in result["errors"]))
+
+    def test_main_exit_code_2_on_missing_template(self):
+        go_id = "GO_EXIT_2_01"
+        with patch('sys.stderr', new=io.StringIO()) as fake_err:
+            with patch('sys.argv', ['prog', '--go-id', go_id, '--template-version', 'v999']):
+                with self.assertRaises(SystemExit) as cm:
+                    main()
+                self.assertEqual(cm.exception.code, 2)
+                self.assertIn("not found", fake_err.getvalue())
 
 if __name__ == "__main__":
     unittest.main()
