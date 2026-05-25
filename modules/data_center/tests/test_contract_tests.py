@@ -221,7 +221,6 @@ class TestConsumerRegistryConsistency:
             "google_sheets__market_reporting",
             "strategy_framework__market_context",
             "perf_engine__replay_context",
-            "desk_pro__spot_snapshot",
         }
         for c in self.consumers:
             if c["consumer_id"] in no_reader:

@@ -21,10 +21,10 @@
       "read_path": "data/data_center/views/pair_market_snapshot/latest.json",
       "access_pattern": "latest_only",
       "fallback": "silent_empty",
-      "implementation_status": "not_started",
+      "implementation_status": "implemented",
       "migration_needed": false,
       "read_path_current": null,
-      "validated_at": null
+      "validated_at": "2026-05-25"
     },
     {
       "consumer_id": "strategy_framework__market_context",
