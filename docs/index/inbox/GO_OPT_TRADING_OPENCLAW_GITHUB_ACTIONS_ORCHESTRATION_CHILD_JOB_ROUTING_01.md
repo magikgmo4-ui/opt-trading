@@ -1,0 +1,16 @@
+---
+doc_id: GO_OPT_TRADING_OPENCLAW_GITHUB_ACTIONS_ORCHESTRATION_CHILD_JOB_ROUTING_01_INBOX
+doc_type: inbox
+go_id: GO_OPT_TRADING_OPENCLAW_GITHUB_ACTIONS_ORCHESTRATION_CHILD_JOB_ROUTING_01
+parent_go_id: GO_OPT_TRADING_GITHUB_ACTIONS_OPENCLAW_MASTER_PROJECT_PLAN_01
+status: open
+created_at: 2026-05-25
+---
+
+# GO_OPT_TRADING_OPENCLAW_GITHUB_ACTIONS_ORCHESTRATION_CHILD_JOB_ROUTING_01
+
+Routage contrôlé des jobs GitHub Actions avec validation multi-critères.
+
+- **Script** : `scripts/openclaw_gh_actions_route_job.py`
+- **Modes** : list/filter/route/test
+- **Prochaine étape** : `GO_OPT_TRADING_OPENCLAW_GITHUB_ACTIONS_ORCHESTRATION_CHILD_JOB_RESULT_ROUTING_01`
