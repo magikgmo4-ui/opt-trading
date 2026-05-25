@@ -5,7 +5,7 @@ repo: opt-trading
 go_id: GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01
 status: active
 source_kind: canonical
-updated_at: 2026-05-24
+updated_at: 2026-05-25
 ---
 
 # 40_GAPS_AND_NEXT_GO
@@ -22,7 +22,7 @@ updated_at: 2026-05-24
 ## Next GO bundle
 
 ```text
-GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_INVENTORY_01
+GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_COLUMNS_CONTRACTS_01
 ```
 
-Raison: avant d’étendre l’écriture à de nouvelles tabs ou d’ouvrir des consumers, un inventaire repo-first doit identifier les surfaces existantes (Sheets/CSV/table-like) et les doublons potentiels.
+Raison: la liste/nomenclature canonique des feuilles (V1) est maintenant figée ; la prochaine étape est de définir les contrats de colonnes et le plan de fixtures CSV/artefacts, en restant doc-only et fixtures-first.
