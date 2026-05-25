@@ -18,6 +18,12 @@ def _is_signal_event_v1(payload: dict) -> bool:
     )
 
 
+def _validate_market_metrics(market_metrics: list | None) -> Tuple[bool, List[str]]:
+    if market_metrics is None or len(market_metrics) == 0:
+        return True, ["market_metrics missing: market-context-free synthesis"]
+    return True, []
+
+
 def _validate_visual_context(visual_context: dict | None) -> Tuple[bool, List[str]]:
     if visual_context is None:
         return True, ["visual_context missing: snapshot-only synthesis"]
@@ -42,6 +48,7 @@ def validate_desk_pro_dry_run_inputs(
     signal_event: dict,
     visual_context: dict | None = None,
     desk_snapshot: dict | None = None,
+    market_metrics: list | None = None,
 ) -> tuple[bool, list[str]]:
     errors: List[str] = []
 
@@ -68,6 +75,7 @@ def build_desk_pro_dry_run_synthesis(
     signal_event: dict,
     visual_context: dict | None = None,
     desk_snapshot: dict | None = None,
+    market_metrics: list | None = None,
 ) -> dict:
     signal_v1 = deepcopy(signal_event if _is_signal_event_v1(signal_event) else normalize_signal_event_v1(signal_event))
 
@@ -91,6 +99,9 @@ def build_desk_pro_dry_run_synthesis(
         warnings.extend(visual_messages)
     elif not visual_ok:
         errors.extend(visual_messages)
+
+    _, mm_messages = _validate_market_metrics(market_metrics)
+    warnings.extend(mm_messages)
 
     join_checks: Dict[str, Any] = {
         "timeframe_match": None,
@@ -136,10 +147,12 @@ def build_desk_pro_dry_run_synthesis(
         "join_checks": join_checks,
         "errors": errors,
         "warnings": warnings,
+        "market_metrics": market_metrics,
         "summary": {
             "signal_event_present": signal_v1 is not None,
             "visual_context_present": visual_context is not None,
             "desk_snapshot_present": desk_snapshot is not None,
+            "market_metrics_present": bool(market_metrics),
         },
     }
 
@@ -148,11 +161,13 @@ def run_desk_pro_dry_run(
     signal_event_payload: dict,
     visual_context: dict | None = None,
     desk_snapshot: dict | None = None,
+    market_metrics: list | None = None,
 ) -> dict:
     return build_desk_pro_dry_run_synthesis(
         signal_event=signal_event_payload,
         visual_context=visual_context,
         desk_snapshot=desk_snapshot,
+        market_metrics=market_metrics,
     )
 
 
