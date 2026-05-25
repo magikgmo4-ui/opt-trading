@@ -11,6 +11,9 @@ case "$CMD" in
   sanity)
     bash "$SCRIPT_DIR/sanity.sh"
     ;;
+  test)
+    cd "$PROJECT_ROOT" && python3 -m unittest modules.validation_gate.tests.test_gate -v
+    ;;
   approve)
     # Write operator approval for a request_id
     # Usage: cmd.sh approve <request_id> [APPROVE|REJECT]
@@ -30,6 +33,6 @@ print('Approval dir:', ValidationGate().approval_dir)
 "
     ;;
   help|*)
-    echo "Usage: cmd.sh [sanity|approve <req_id> [APPROVE|REJECT]|status|help]"
+    echo "Usage: cmd.sh [sanity|test|approve <req_id> [APPROVE|REJECT]|status|help]"
     ;;
 esac
