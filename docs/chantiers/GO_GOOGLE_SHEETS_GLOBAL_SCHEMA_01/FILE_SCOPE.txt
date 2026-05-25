@@ -1,0 +1,5 @@
+# FILE_SCOPE — GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01
+# Only these paths may be modified by this GO.
+
+docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/**
+docs/index/inbox/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01.md
