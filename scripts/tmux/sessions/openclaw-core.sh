@@ -1,33 +1,20 @@
 #!/usr/bin/env bash
-# SESSION 1 — openclaw-core (db-layer)
-# Gateway OpenClaw + operator bridge + health monitor
-set -e
-SESSION="openclaw-core"
+# openclaw-core session — gateway + bridge + health + logs
+set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 
-if tmux has-session -t "$SESSION" 2>/dev/null; then
-    echo "$SESSION already running"
-    exit 0
-fi
+SESSION="openclaw-core"
+TMUX="${TMUX_CMD:-tmux}"
 
-mkdir -p "$PROJECT_ROOT/logs"
+$TMUX new-session -d -s "$SESSION" -n core:gateway 2>/dev/null || true
+$TMUX send-keys -t "$SESSION:core:gateway" "cd $PROJECT_ROOT && modules/gateway_openclaw/scripts/gateway_openclaw_cmd.sh attach" Enter
 
-tmux new-session -d -s "$SESSION" -n "gateway"
-tmux send-keys -t "$SESSION:gateway" \
-    "cd '$PROJECT_ROOT' && bash modules/gateway_openclaw/cmd.sh attach 2>&1 | tee logs/gateway_openclaw.log" Enter
+$TMUX new-window -t "$SESSION" -n core:bridge
+$TMUX send-keys -t "$SESSION:core:bridge" "cd $PROJECT_ROOT && modules/openclaw_operator_bridge/scripts/cmd.sh start" Enter
 
-tmux new-window -t "$SESSION" -n "bridge"
-tmux send-keys -t "$SESSION:bridge" \
-    "cd '$PROJECT_ROOT' && bash modules/openclaw_operator_bridge/scripts/cmd.sh attach 2>&1 | tee logs/openclaw_operator_bridge.log" Enter
+$TMUX new-window -t "$SESSION" -n core:logs
+$TMUX send-keys -t "$SESSION:core:logs" "tail -f $PROJECT_ROOT/logs/openclaw-core.log 2>/dev/null || echo 'no log yet'" Enter
 
-tmux new-window -t "$SESSION" -n "health"
-tmux send-keys -t "$SESSION:health" \
-    "cd '$PROJECT_ROOT' && while true; do python3 scripts/tmux/health_check.py 2>&1 | tee -a logs/tmux_health.log; sleep 30; done" Enter
-
-tmux new-window -t "$SESSION" -n "logs"
-tmux send-keys -t "$SESSION:logs" \
-    "cd '$PROJECT_ROOT' && tail -f logs/gateway_openclaw.log" Enter
-
-tmux select-window -t "$SESSION:gateway"
-echo "$SESSION started (windows: gateway bridge health logs)"
+$TMUX new-window -t "$SESSION" -n core:health
+$TMUX send-keys -t "$SESSION:core:health" "while true; do curl -sf http://127.0.0.1:18789/health >/dev/null 2>&1 && echo '[OK] gateway live' || echo '[DOWN] gateway unreachable'; sleep 30; done" Enter
