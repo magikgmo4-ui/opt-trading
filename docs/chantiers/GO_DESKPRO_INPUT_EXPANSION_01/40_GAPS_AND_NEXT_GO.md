@@ -16,8 +16,8 @@ updated_at: 2026-05-19
 | --- | --- | --- |
 | input classes non implémentées | pas de sérialisation uniforme | ajouter wrappers read-only (fixtures-first) |
 | refs manquantes (`visual_context_ref`, `desk_snapshot_ref`) | jointure faible | producers doivent remplir refs |
-| vision_analysis absent | Desk Pro ne peut pas consommer “vision structured” | survivant canonique vision/headless |
-| market_metrics absent | scoring incomplet | définir métriques minimales + source |
+| ~~vision_analysis absent~~ | ~~Desk Pro ne peut pas consommer “vision structured”~~ | **FERMÉ** — GO_DESKPRO_INPUT_EXPANSION_CHILD_VISION_ANALYSIS_READONLY_01 |
+| ~~market_metrics absent~~ | ~~scoring incomplet~~ | **FERMÉ** — GO_DESKPRO_INPUT_EXPANSION_CHILD_MARKET_METRICS_READONLY_01 |
 | telegram_claim absent | inbound non consommable | registry + parsers + envelope |
 
 ## Next GO bundle
