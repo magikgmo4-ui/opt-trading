@@ -1,0 +1,10 @@
+{
+  "go_id": "GO_OPT_TRADING_GITHUB_ACTIONS_OPENCLAW_CHILD_GATED_PR_SCOPE_01",
+  "go_structural_role": "GO_CHILD_ATTACHED_TO_PARENT",
+  "parent_go_id": "GO_OPT_TRADING_GITHUB_ACTIONS_OPENCLAW_MASTER_PROJECT_PLAN_01",
+  "master_target": "github_actions_openclaw",
+  "bundle_target": "Add GitHub Actions gated PR scope checks before OpenClaw operational orchestration.",
+  "transport_mode": "bundle_patch_zip",
+  "close_gate_master_target": "not_applicable",
+  "next_go": "GO_OPT_TRADING_OPENCLAW_GITHUB_ACTIONS_ORCHESTRATION_CHILD_OPERATIONAL_01"
+}

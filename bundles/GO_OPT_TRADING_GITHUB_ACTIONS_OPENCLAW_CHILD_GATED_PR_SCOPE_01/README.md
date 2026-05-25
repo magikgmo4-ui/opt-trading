@@ -1,0 +1,3 @@
+# Bundle — GO_OPT_TRADING_GITHUB_ACTIONS_OPENCLAW_CHILD_GATED_PR_SCOPE_01
+
+Déposer `GO_OPT_TRADING_GITHUB_ACTIONS_OPENCLAW_CHILD_GATED_PR_SCOPE_01.patch` à la racine du repo et appliquer sur une branche dédiée.

@@ -1,0 +1,219 @@
+name: Gated PR — Scope and No-Overlap
+
+on:
+  pull_request:
+    branches:
+      - sot/mainline
+    types: [opened, synchronize, reopened, ready_for_review]
+  merge_group:
+    branches:
+      - sot/mainline
+  workflow_dispatch:
+
+concurrency:
+  group: gated-pr-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  gate-preflight:
+    name: gate/preflight
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate target and collect changed files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          BASE_REF="${GITHUB_BASE_REF:-sot/mainline}"
+
+          if [ "${{ github.event_name }}" = "pull_request" ] && [ "$BASE_REF" != "sot/mainline" ]; then
+            echo "FAIL: PR target must be sot/mainline, got $BASE_REF"
+            exit 1
+          fi
+
+          git fetch --no-tags --prune origin "$BASE_REF"
+
+          git diff --name-only "origin/${BASE_REF}...HEAD" | tee /tmp/gated_pr_changed_files.txt
+
+          if [ ! -s /tmp/gated_pr_changed_files.txt ]; then
+            echo "FAIL: no changed files detected"
+            exit 1
+          fi
+
+          echo "Changed files:"
+          cat /tmp/gated_pr_changed_files.txt
+
+  gate-file-scope:
+    name: gate/file-scope
+    runs-on: ubuntu-latest
+    needs: gate-preflight
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate current GO file scope
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          BASE_REF="${GITHUB_BASE_REF:-sot/mainline}"
+          git fetch --no-tags --prune origin "$BASE_REF"
+          git diff --name-only "origin/${BASE_REF}...HEAD" > /tmp/gated_pr_changed_files.txt
+
+          mapfile -t GO_IDS < <(
+            grep -E '^docs/chantiers/GO_[A-Z0-9_]+/' /tmp/gated_pr_changed_files.txt               | sed -E 's#^docs/chantiers/(GO_[A-Z0-9_]+)/.*#\1#'               | sort -u
+          )
+
+          if [ "${#GO_IDS[@]}" -ne 1 ]; then
+            echo "FAIL: exactly one GO chantier must be present in docs/chantiers/."
+            echo "Detected GO count: ${#GO_IDS[@]}"
+            printf '%s\n' "${GO_IDS[@]:-}"
+            exit 1
+          fi
+
+          GO_ID="${GO_IDS[0]}"
+          SCOPE_FILE="docs/chantiers/${GO_ID}/FILE_SCOPE.txt"
+
+          if [ ! -f "$SCOPE_FILE" ]; then
+            echo "FAIL: missing $SCOPE_FILE"
+            exit 1
+          fi
+
+          echo "GO_ID=$GO_ID"
+          echo "SCOPE_FILE=$SCOPE_FILE"
+
+          is_allowed() {
+            local file="$1"
+            local pattern
+            while IFS= read -r pattern || [ -n "$pattern" ]; do
+              pattern="${pattern%%#*}"
+              pattern="$(echo "$pattern" | sed -E 's/^[[:space:]]+|[[:space:]]+$//g')"
+              [ -z "$pattern" ] && continue
+
+              if [[ "$pattern" == *"/**" ]]; then
+                local prefix="${pattern%/**}"
+                if [[ "$file" == "$prefix" || "$file" == "$prefix/"* ]]; then
+                  return 0
+                fi
+              elif [[ "$file" == "$pattern" ]]; then
+                return 0
+              fi
+            done < "$SCOPE_FILE"
+            return 1
+          }
+
+          failed=0
+          while IFS= read -r file || [ -n "$file" ]; do
+            [ -z "$file" ] && continue
+            if ! is_allowed "$file"; then
+              echo "FAIL: file outside GO scope: $file"
+              failed=1
+            fi
+          done < /tmp/gated_pr_changed_files.txt
+
+          exit "$failed"
+
+  gate-no-lock-overlap:
+    name: gate/no-lock-overlap
+    runs-on: ubuntu-latest
+    needs: gate-preflight
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect competing FILE_SCOPE claims for changed files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          BASE_REF="${GITHUB_BASE_REF:-sot/mainline}"
+          git fetch --no-tags --prune origin "$BASE_REF"
+          git diff --name-only "origin/${BASE_REF}...HEAD" > /tmp/gated_pr_changed_files.txt
+
+          CURRENT_GO="$(
+            grep -E '^docs/chantiers/GO_[A-Z0-9_]+/' /tmp/gated_pr_changed_files.txt               | sed -E 's#^docs/chantiers/(GO_[A-Z0-9_]+)/.*#\1#'               | sort -u               | head -n 1
+          )"
+
+          if [ -z "$CURRENT_GO" ]; then
+            echo "FAIL: no current GO detected."
+            exit 1
+          fi
+
+          matches_scope() {
+            local scope_file="$1"
+            local file="$2"
+            local pattern
+
+            while IFS= read -r pattern || [ -n "$pattern" ]; do
+              pattern="${pattern%%#*}"
+              pattern="$(echo "$pattern" | sed -E 's/^[[:space:]]+|[[:space:]]+$//g')"
+              [ -z "$pattern" ] && continue
+
+              if [[ "$pattern" == *"/**" ]]; then
+                local prefix="${pattern%/**}"
+                if [[ "$file" == "$prefix" || "$file" == "$prefix/"* ]]; then
+                  return 0
+                fi
+              elif [[ "$file" == "$pattern" ]]; then
+                return 0
+              fi
+            done < "$scope_file"
+
+            return 1
+          }
+
+          failed=0
+
+          while IFS= read -r file || [ -n "$file" ]; do
+            [ -z "$file" ] && continue
+
+            while IFS= read -r scope_file || [ -n "$scope_file" ]; do
+              [ -z "$scope_file" ] && continue
+
+              other_go="$(echo "$scope_file" | sed -E 's#^docs/chantiers/(GO_[A-Z0-9_]+)/FILE_SCOPE.txt$#\1#')"
+
+              if [ "$other_go" = "$CURRENT_GO" ]; then
+                continue
+              fi
+
+              if matches_scope "$scope_file" "$file"; then
+                echo "FAIL: changed file is also claimed by another GO scope."
+                echo "file=$file"
+                echo "current_go=$CURRENT_GO"
+                echo "other_go=$other_go"
+                echo "scope_file=$scope_file"
+                failed=1
+              fi
+            done < <(find docs/chantiers -path '*/FILE_SCOPE.txt' -print | sort)
+          done < /tmp/gated_pr_changed_files.txt
+
+          exit "$failed"
+
+  gate-tests:
+    name: gate/tests
+    runs-on: ubuntu-latest
+    needs:
+      - gate-file-scope
+      - gate-no-lock-overlap
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Diff hygiene
+        run: git diff --check
+
+      - name: Gate complete
+        run: echo "PASS: gated PR scope checks completed."
