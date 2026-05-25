@@ -1,0 +1,29 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260525_000000_BTCUSDT_H1",
+  "symbol": "BTCUSDT",
+  "timeframe": "H1",
+  "analysis_ts": "2026-05-25T00:00:00Z",
+  "source_module": "bot_vision_step2",
+  "freshness_state": "fresh",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 65000.0,
+      "confidence": 0.85,
+      "note": "horizontal support, multiple touches"
+    },
+    {
+      "type": "resistance_level",
+      "value": 68500.0,
+      "confidence": 0.80,
+      "note": "prior high resistance"
+    },
+    {
+      "type": "trend_direction",
+      "value": "bullish",
+      "confidence": 0.75,
+      "note": "higher lows pattern"
+    }
+  ]
+}
