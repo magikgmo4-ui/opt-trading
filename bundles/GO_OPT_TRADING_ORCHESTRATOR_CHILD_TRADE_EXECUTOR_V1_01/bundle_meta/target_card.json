@@ -1,0 +1,17 @@
+{
+  "go_id": "GO_OPT_TRADING_ORCHESTRATOR_CHILD_TRADE_EXECUTOR_V1_01",
+  "bundle_type": "implementation",
+  "created": "2026-05-25",
+  "surface": "modules/trade_executor",
+  "pf": "PF_OPENCLAW_ORCHESTRATOR_FULL",
+  "status": "open",
+  "artifacts": {
+    "patch": "patches/trade_executor_v1.patch",
+    "tar_gz": "trade_executor_v1.tar.gz",
+    "zip": "trade_executor_v1.zip"
+  },
+  "verification": {
+    "tests": "28/28 PASS",
+    "sanity": "PASS"
+  }
+}
