@@ -1,0 +1,2 @@
+{"claim_id": "tg_claim_20260525_001_BTCUSDT", "claim_ts": "2026-05-25T08:45:00Z", "claim_type": "trade_context", "payload_ref": "tests/fixtures/admin_trading_contract_smoke/telegram_claim_v1_minimal.json"}
+{"claim_id": "tg_claim_20260525_002_ETHUSDT", "claim_ts": "2026-05-25T09:30:00Z", "claim_type": "trade_context", "payload_ref": "data/deskpro/inputs/telegram_claim/latest.json"}

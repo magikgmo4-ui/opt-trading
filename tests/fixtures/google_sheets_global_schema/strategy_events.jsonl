@@ -1,0 +1,3 @@
+{"event_id": "evt_20260525_signal_001", "event_type": "signal_event.v1", "event_ts": "2026-05-25T09:00:00Z", "symbol": "BTCUSDT", "timeframe": "H1", "payload_ref": "data/deskpro/dry_run/latest.json", "source_surface": "modules/desk_pro"}
+{"event_id": "evt_20260525_signal_002", "event_type": "signal_event.v1", "event_ts": "2026-05-25T10:00:00Z", "symbol": "ETHUSDT", "timeframe": "H4", "payload_ref": null, "source_surface": "modules/desk_pro"}
+{"event_id": "evt_20260524_context_001", "event_type": "market_context.v1", "event_ts": "2026-05-24T08:00:00Z", "symbol": null, "timeframe": null, "payload_ref": "data/data_center/views/market_metrics/latest.json", "source_surface": "modules/data_center"}

@@ -1,0 +1,3 @@
+{"watchlist_id": "wl_btc_h1_primary", "symbol": "BTCUSDT", "timeframe": "H1", "enabled": true}
+{"watchlist_id": "wl_eth_h4_secondary", "symbol": "ETHUSDT", "timeframe": "H4", "enabled": true}
+{"watchlist_id": "wl_sol_h1_disabled", "symbol": "SOLUSDT", "timeframe": "H1", "enabled": false}
