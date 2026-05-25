@@ -222,4 +222,5 @@ jobs:
         run: git diff --check
 
       - name: Gate complete
-        run: 'echo "PASS: gated PR scope checks completed."'
+        run: |
+          echo "PASS: gated PR scope checks completed."
