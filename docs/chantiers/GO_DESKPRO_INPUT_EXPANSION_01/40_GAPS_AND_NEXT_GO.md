@@ -18,7 +18,7 @@ updated_at: 2026-05-19
 | refs manquantes (`visual_context_ref`, `desk_snapshot_ref`) | jointure faible | producers doivent remplir refs |
 | ~~vision_analysis absent~~ | ~~Desk Pro ne peut pas consommer “vision structured”~~ | **FERMÉ** — GO_DESKPRO_INPUT_EXPANSION_CHILD_VISION_ANALYSIS_READONLY_01 |
 | ~~market_metrics absent~~ | ~~scoring incomplet~~ | **FERMÉ** — GO_DESKPRO_INPUT_EXPANSION_CHILD_MARKET_METRICS_READONLY_01 |
-| telegram_claim absent | inbound non consommable | registry + parsers + envelope |
+| ~~telegram_claim absent~~ | ~~inbound non consommable~~ | **FERMÉ** — GO_DESKPRO_INPUT_EXPANSION_CHILD_TELEGRAM_CLAIM_READONLY_01 |
 
 ## Next GO bundle
 

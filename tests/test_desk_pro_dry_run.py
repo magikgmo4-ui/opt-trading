@@ -212,3 +212,49 @@ class TestDeskProDryRun:
         v0 = _load("signal_event_v0_minimal.json")
         result = run_desk_pro_dry_run(v0)
         assert result["summary"]["vision_analysis_present"] is False
+
+    def test_missing_telegram_claim_is_warn_non_blocking(self):
+        v0 = _load("signal_event_v0_minimal.json")
+        snap = _load("desk_snapshot_minimal.json")
+        result = run_desk_pro_dry_run(v0, desk_snapshot=snap, telegram_claim=None)
+        assert result["status"] == "WARN"
+        assert any("telegram_claim missing" in w for w in result["warnings"])
+
+    def test_telegram_claim_present_sets_summary_flag(self):
+        from modules.desk_pro.service.telegram_claim_reader import read_telegram_claim
+        v0 = _load("signal_event_v0_minimal.json")
+        snap = _load("desk_snapshot_minimal.json")
+        tc_fixture = _load("telegram_claim_v1_minimal.json")
+        import tempfile, shutil, json
+        from pathlib import Path
+        td = Path(tempfile.mkdtemp())
+        try:
+            tc_path = td / "telegram_claim_latest.json"
+            tc_path.write_text(json.dumps(tc_fixture), encoding="utf-8")
+            tc = read_telegram_claim(path=tc_path)
+            result = run_desk_pro_dry_run(v0, desk_snapshot=snap, telegram_claim=tc)
+            assert result["summary"]["telegram_claim_present"] is True
+        finally:
+            shutil.rmtree(td)
+
+    def test_telegram_claim_present_removes_missing_warning(self):
+        from modules.desk_pro.service.telegram_claim_reader import read_telegram_claim
+        v0 = _load("signal_event_v0_minimal.json")
+        snap = _load("desk_snapshot_minimal.json")
+        tc_fixture = _load("telegram_claim_v1_minimal.json")
+        import tempfile, shutil, json
+        from pathlib import Path
+        td = Path(tempfile.mkdtemp())
+        try:
+            tc_path = td / "telegram_claim_latest.json"
+            tc_path.write_text(json.dumps(tc_fixture), encoding="utf-8")
+            tc = read_telegram_claim(path=tc_path)
+            result = run_desk_pro_dry_run(v0, desk_snapshot=snap, telegram_claim=tc)
+            assert not any("telegram_claim missing" in w for w in result["warnings"])
+        finally:
+            shutil.rmtree(td)
+
+    def test_summary_telegram_claim_present_false_when_absent(self):
+        v0 = _load("signal_event_v0_minimal.json")
+        result = run_desk_pro_dry_run(v0)
+        assert result["summary"]["telegram_claim_present"] is False

@@ -30,6 +30,12 @@ def _validate_vision_analysis(vision_analysis: dict | None) -> Tuple[bool, List[
     return True, []
 
 
+def _validate_telegram_claim(telegram_claim: dict | None) -> Tuple[bool, List[str]]:
+    if telegram_claim is None:
+        return True, ["telegram_claim missing: telegram-context-free synthesis"]
+    return True, []
+
+
 def _validate_visual_context(visual_context: dict | None) -> Tuple[bool, List[str]]:
     if visual_context is None:
         return True, ["visual_context missing: snapshot-only synthesis"]
@@ -56,6 +62,7 @@ def validate_desk_pro_dry_run_inputs(
     desk_snapshot: dict | None = None,
     market_metrics: list | None = None,
     vision_analysis: dict | None = None,
+    telegram_claim: dict | None = None,
 ) -> tuple[bool, list[str]]:
     errors: List[str] = []
 
@@ -84,6 +91,7 @@ def build_desk_pro_dry_run_synthesis(
     desk_snapshot: dict | None = None,
     market_metrics: list | None = None,
     vision_analysis: dict | None = None,
+    telegram_claim: dict | None = None,
 ) -> dict:
     signal_v1 = deepcopy(signal_event if _is_signal_event_v1(signal_event) else normalize_signal_event_v1(signal_event))
 
@@ -113,6 +121,9 @@ def build_desk_pro_dry_run_synthesis(
 
     _, va_messages = _validate_vision_analysis(vision_analysis)
     warnings.extend(va_messages)
+
+    _, tc_messages = _validate_telegram_claim(telegram_claim)
+    warnings.extend(tc_messages)
 
     join_checks: Dict[str, Any] = {
         "timeframe_match": None,
@@ -160,12 +171,14 @@ def build_desk_pro_dry_run_synthesis(
         "warnings": warnings,
         "market_metrics": market_metrics,
         "vision_analysis": vision_analysis,
+        "telegram_claim": telegram_claim,
         "summary": {
             "signal_event_present": signal_v1 is not None,
             "visual_context_present": visual_context is not None,
             "desk_snapshot_present": desk_snapshot is not None,
             "market_metrics_present": bool(market_metrics),
             "vision_analysis_present": vision_analysis is not None,
+            "telegram_claim_present": telegram_claim is not None,
         },
     }
 
@@ -176,6 +189,7 @@ def run_desk_pro_dry_run(
     desk_snapshot: dict | None = None,
     market_metrics: list | None = None,
     vision_analysis: dict | None = None,
+    telegram_claim: dict | None = None,
 ) -> dict:
     return build_desk_pro_dry_run_synthesis(
         signal_event=signal_event_payload,
@@ -183,6 +197,7 @@ def run_desk_pro_dry_run(
         desk_snapshot=desk_snapshot,
         market_metrics=market_metrics,
         vision_analysis=vision_analysis,
+        telegram_claim=telegram_claim,
     )
 
 
