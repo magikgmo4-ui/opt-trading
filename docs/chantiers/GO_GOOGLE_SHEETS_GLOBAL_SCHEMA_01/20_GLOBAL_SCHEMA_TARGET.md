@@ -5,7 +5,7 @@ repo: opt-trading
 go_id: GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01
 status: active
 source_kind: canonical
-updated_at: 2026-05-19
+updated_at: 2026-05-24
 ---
 
 # 20_GLOBAL_SCHEMA_TARGET - Tabs + colonnes (V1)
@@ -135,5 +135,5 @@ dry_run
 - `MASTER_TARGET` : standardiser Google Sheets pour le produit final total
 - `Tableau Kanban du bundle` : reste la navigation principale
 - `Produit final total voulu` : chaines separees mais liees entre webhook, Desk Pro, Telegram, Sheets, Perf et runtime
-- `Prochain item Kanban exact` : `GO_TELEGRAM_LATENCY_BACKTEST_01`
+- `Prochain item Kanban exact` : `GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_INVENTORY_01`
 - `Gaps encore ouverts` : writer transverse absent, tabs 2-5 non materialisees, schema a garder versionne avant toute ecriture

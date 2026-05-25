@@ -6,8 +6,14 @@ go_id: GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01
 status: active
 lifecycle_stage: cadrage
 source_kind: canonical
-updated_at: 2026-05-19
+updated_at: 2026-05-24
 links:
+  - docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/00_PARENT_UMBRELLA.md
+  - docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/KANBAN.md
+  - docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/INVENTORY.md
+  - docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/CANONICAL_SHEETS_DRAFT.md
+  - docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/PRODUCER_CONSUMER_MAP_DRAFT.md
+  - docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/fixtures/README.md
   - docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/10_CURRENT_SHEETS_SURFACES.md
   - docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/20_GLOBAL_SCHEMA_TARGET.md
   - docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/30_PROOF_MATRIX_AND_CONSTRAINTS.md
@@ -62,7 +68,7 @@ remplace pas le Kanban bundle par une roadmap concurrente.
 
 ## Prochain item Kanban a faire
 
-`GO_TELEGRAM_LATENCY_BACKTEST_01`
+`GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_INVENTORY_01`
 
 ## Gaps encore ouverts
 
