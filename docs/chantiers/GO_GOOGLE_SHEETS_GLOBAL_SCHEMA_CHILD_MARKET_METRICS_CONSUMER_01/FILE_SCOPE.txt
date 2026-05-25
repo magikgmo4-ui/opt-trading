@@ -1,0 +1,4 @@
+docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_MARKET_METRICS_CONSUMER_01/**
+docs/index/inbox/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_MARKET_METRICS_CONSUMER_01.md
+modules/google_sheets_global_schema/market_metrics_consumer.py
+tests/test_google_sheets_market_metrics_consumer.py
