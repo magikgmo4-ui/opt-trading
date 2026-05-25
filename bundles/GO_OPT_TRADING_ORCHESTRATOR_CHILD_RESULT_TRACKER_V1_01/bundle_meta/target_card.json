@@ -1,0 +1,17 @@
+{
+  "go_id": "GO_OPT_TRADING_ORCHESTRATOR_CHILD_RESULT_TRACKER_V1_01",
+  "bundle_type": "implementation",
+  "created": "2026-05-25",
+  "surface": "modules/result_tracker",
+  "pf": "PF_OPENCLAW_ORCHESTRATOR_FULL",
+  "status": "open",
+  "artifacts": {
+    "patch": "patches/result_tracker_v1.patch",
+    "tar_gz": "result_tracker_v1.tar.gz",
+    "zip": "result_tracker_v1.zip"
+  },
+  "verification": {
+    "tests": "26/26 PASS",
+    "sanity": "PASS"
+  }
+}

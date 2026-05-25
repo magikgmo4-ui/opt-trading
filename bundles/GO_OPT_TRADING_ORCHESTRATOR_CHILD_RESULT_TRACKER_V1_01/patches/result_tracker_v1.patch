@@ -1,0 +1,25 @@
+diff --git a/modules/result_tracker/__init__.py b/modules/result_tracker/__init__.py
+index e69de29b..9c5541da 100644
+--- a/modules/result_tracker/__init__.py
++++ b/modules/result_tracker/__init__.py
+@@ -0,0 +1,5 @@
++"""result_tracker — capture résultat trade, calcul P&L, détermination d'outcome.
++
++V1 : consommation de TradeResult, calcul P&L brut/net/fees, notification.
++Prochain GO : datasheet_writer pour persistance.
++"""
+\ No newline at end of file
+diff --git a/modules/result_tracker/app/__init__.py b/modules/result_tracker/app/__init__.py
+index e69de29b..9b4a39cd 100644
+--- a/modules/result_tracker/app/__init__.py
++++ b/modules/result_tracker/app/__init__.py
+@@ -0,0 +1,8 @@
++from .tracker import ResultTracker
++from .schema import CloseRequest, TradeRecord
++
++__all__ = [
++    "ResultTracker",
++    "CloseRequest",
++    "TradeRecord",
++]
+\ No newline at end of file
