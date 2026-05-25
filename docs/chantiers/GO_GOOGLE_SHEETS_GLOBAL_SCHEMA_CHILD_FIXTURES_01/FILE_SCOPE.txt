@@ -1,0 +1,4 @@
+docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_FIXTURES_01/**
+docs/index/inbox/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_FIXTURES_01.md
+tests/fixtures/google_sheets_global_schema/**
+tests/test_google_sheets_fixtures.py
