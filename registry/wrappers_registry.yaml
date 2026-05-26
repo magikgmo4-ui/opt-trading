@@ -83,6 +83,87 @@
   status: active
   notes: "Sanity KIL V1"
 
+- wrapper_name: menu-deepseek_hub
+  wrapper_family: menu
+  target_module: deepseek_hub
+  target_script: scripts/deepseek_hub_menu.sh
+  install_location: /usr/local/bin/menu-deepseek_hub
+  audience: operator
+  status: active
+  notes: "Hub operateur DeepSeek unifie"
+
+- wrapper_name: cmd-deepseek_hub
+  wrapper_family: cmd
+  target_module: deepseek_hub
+  target_script: scripts/deepseek_hub_cmd.sh
+  install_location: /usr/local/bin/cmd-deepseek_hub
+  audience: operator
+  status: active
+  notes: "CLI unifie DeepSeek"
+
+- wrapper_name: sanity-deepseek_hub
+  wrapper_family: sanity
+  target_module: deepseek_hub
+  target_script: scripts/sanity_check_deepseek_hub.sh
+  install_location: /usr/local/bin/sanity-deepseek_hub
+  audience: system
+  status: active
+  notes: "Sanity du hub DeepSeek"
+
+- wrapper_name: menu-deepseek_response
+  wrapper_family: menu
+  target_module: deepseek_response
+  target_script: scripts/menu.sh
+  install_location: /usr/local/bin/menu-deepseek_response
+  audience: operator
+  status: active
+  notes: "Menu DeepSeek response"
+
+- wrapper_name: cmd-deepseek_response
+  wrapper_family: cmd
+  target_module: deepseek_response
+  target_script: scripts/cmd.sh
+  install_location: /usr/local/bin/cmd-deepseek_response
+  audience: operator
+  status: active
+  notes: "CLI DeepSeek response"
+
+- wrapper_name: sanity-deepseek_response
+  wrapper_family: sanity
+  target_module: deepseek_response
+  target_script: scripts/sanity_check.sh
+  install_location: /usr/local/bin/sanity-deepseek_response
+  audience: system
+  status: active
+  notes: "Sanity DeepSeek response"
+
+- wrapper_name: menu-deepseek_thinking
+  wrapper_family: menu
+  target_module: deepseek_thinking
+  target_script: scripts/menu.sh
+  install_location: /usr/local/bin/menu-deepseek_thinking
+  audience: operator
+  status: active
+  notes: "Menu DeepSeek thinking"
+
+- wrapper_name: cmd-deepseek_thinking
+  wrapper_family: cmd
+  target_module: deepseek_thinking
+  target_script: scripts/cmd.sh
+  install_location: /usr/local/bin/cmd-deepseek_thinking
+  audience: operator
+  status: active
+  notes: "CLI DeepSeek thinking"
+
+- wrapper_name: sanity-deepseek_thinking
+  wrapper_family: sanity
+  target_module: deepseek_thinking
+  target_script: scripts/sanity_check.sh
+  install_location: /usr/local/bin/sanity-deepseek_thinking
+  audience: system
+  status: active
+  notes: "Sanity DeepSeek thinking"
+
 - wrapper_name: menu-ui_registry_msi
   wrapper_family: menu
   target_module: ui_registry_msi

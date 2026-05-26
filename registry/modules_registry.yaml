@@ -57,6 +57,39 @@
   priority: high
   dependencies: []
 
+- module_name: deepseek_hub
+  domain: operator_tools
+  machine_target: msi_db_layer
+  operator_visible: true
+  ui_related: true
+  description: "Hub operateur DeepSeek et owner documentaire de la famille"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: high
+  dependencies: ["deepseek_response", "deepseek_thinking"]
+
+- module_name: deepseek_response
+  domain: operator_tools
+  machine_target: student
+  operator_visible: true
+  ui_related: false
+  description: "Compatibilite operatoire DeepSeek pour reponses finales"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: medium
+  dependencies: []
+
+- module_name: deepseek_thinking
+  domain: operator_tools
+  machine_target: student
+  operator_visible: true
+  ui_related: false
+  description: "Compatibilite operatoire DeepSeek pour thinking archive"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: medium
+  dependencies: []
+
 - module_name: ops_menu_hub
   domain: operator_tools
   machine_target: msi_db_layer
