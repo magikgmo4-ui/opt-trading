@@ -1,0 +1,6 @@
+# FILE_SCOPE — GO_OPENCLAW_OPT_TRADING_TMUX_RUNTIME_SPINE_01
+# Only these paths may be modified by this GO.
+
+docs/chantiers/GO_OPENCLAW_OPT_TRADING_TMUX_RUNTIME_SPINE_01/**
+scripts/tmux/**
+tests/tmux/**
