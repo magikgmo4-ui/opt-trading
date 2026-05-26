@@ -2,11 +2,17 @@
 """
 E2E Dry-Run Pipeline - prouve le flux complet :
 signal_router → proposition_engine → validation_gate → trade_executor
-→ result_tracker → datasheet_writer → learning_feeder → LocalCMS
+→ result_tracker → datasheet_writer → learning_feeder → LocalCMS gate
 
 Sortie : JSON complet avec chaque étape + timestamps.
 Aucun ordre live, aucun fichier écrit.
 DRY_RUN=1 et PAPER_MODE=1 par défaut.
+
+LocalCMS gate (step 8) :
+  default            : absence LocalCMS = WARN_SKIPPED, rc=0
+  REQUIRE_LOCALCMS_E2E=1 : absence LocalCMS = BLOCKED, rc=1
+  SKIP_LOCALCMS_E2E=1    : LocalCMS check sauté, rc=0
+  LOCALCMS_URL           : URL custom (défaut http://127.0.0.1:8700)
 """
 from __future__ import annotations
 import json
@@ -14,6 +20,8 @@ import logging
 import sys
 import time
 import os
+import urllib.request
+from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -30,6 +38,94 @@ log = logging.getLogger("e2e_dry_run_pipeline")
 DRY_RUN = os.environ.get("DRY_RUN", "1") == "1"
 PAPER_MODE = os.environ.get("PAPER_MODE", "1") == "1"
 
+# ── LocalCMS gate configuration ──────────────────────────────────────────────
+LOCALCMS_URL = os.environ.get("LOCALCMS_URL", "http://127.0.0.1:8700")
+REQUIRE_LOCALCMS = os.environ.get("REQUIRE_LOCALCMS_E2E", "0") == "1"
+SKIP_LOCALCMS = os.environ.get("SKIP_LOCALCMS_E2E", "0") == "1"
+
+_LOCALCMS_ENDPOINTS = ["/health", "/menu", "/menu/state", "/runtime/tmux"]
+
+
+@dataclass
+class E2ELocalCMSGateResult:
+    status: str  # PASS | WARN_SKIPPED | BLOCKED
+    reason: str
+    url: str
+    mode: str    # default | require | skip
+
+
+def check_localcms_available(url: str, timeout: float = 2.0) -> tuple[bool, str]:
+    """Probe LocalCMS /health. Returns (reachable, error_msg). Never raises."""
+    try:
+        r = urllib.request.urlopen(f"{url}/health", timeout=timeout)
+        return r.status == 200, ""
+    except Exception as exc:
+        return False, str(exc)
+
+
+def classify_localcms_gate(
+    require: bool | None = None,
+    skip: bool | None = None,
+    url: str | None = None,
+) -> E2ELocalCMSGateResult:
+    """Classify LocalCMS availability into a structured gate result.
+
+    Parameters default to module-level env-derived values so the function is
+    testable by passing explicit args without mutating the environment.
+    """
+    _require = REQUIRE_LOCALCMS if require is None else require
+    _skip = SKIP_LOCALCMS if skip is None else skip
+    _url = LOCALCMS_URL if url is None else url
+    mode = "skip" if _skip else ("require" if _require else "default")
+
+    if _skip:
+        return E2ELocalCMSGateResult(
+            status="WARN_SKIPPED",
+            reason="SKIP_LOCALCMS_E2E=1 — LocalCMS check explicitly skipped",
+            url=_url,
+            mode=mode,
+        )
+
+    reachable, err = check_localcms_available(_url)
+
+    if reachable:
+        return E2ELocalCMSGateResult(
+            status="PASS",
+            reason="LocalCMS /health reachable",
+            url=_url,
+            mode=mode,
+        )
+
+    if _require:
+        return E2ELocalCMSGateResult(
+            status="BLOCKED",
+            reason=f"REQUIRE_LOCALCMS_E2E=1 — LocalCMS not reachable at {_url}: {err}",
+            url=_url,
+            mode=mode,
+        )
+
+    # Default: LocalCMS is optional — WARN_SKIPPED does not affect rc
+    return E2ELocalCMSGateResult(
+        status="WARN_SKIPPED",
+        reason=f"LocalCMS not reachable (optional in default mode): {err}",
+        url=_url,
+        mode=mode,
+    )
+
+
+def _check_lcms_endpoints_detail(url: str) -> dict:
+    """Probe all LocalCMS endpoints for detail when gate=PASS."""
+    results = {}
+    for ep in _LOCALCMS_ENDPOINTS:
+        try:
+            r = urllib.request.urlopen(f"{url}{ep}", timeout=3)
+            results[ep] = {"status": r.status, "ok": r.status == 200}
+        except Exception as exc:
+            results[ep] = {"status": "unreachable", "ok": False, "error": str(exc)}
+    return results
+
+
+# ── Pipeline helpers ──────────────────────────────────────────────────────────
 
 def _to_serializable(obj: object) -> dict:
     if hasattr(obj, "to_dict"):
@@ -38,7 +134,7 @@ def _to_serializable(obj: object) -> dict:
         from dataclasses import asdict
         d = asdict(obj)
         for key in ("proposition", "gate_decision", "trade_result",
-                     "trade_record", "signal", "engines_context"):
+                    "trade_record", "signal", "engines_context"):
             d.pop(key, None)
         return d
     if isinstance(obj, dict):
@@ -54,17 +150,7 @@ def step(name: str, result: object) -> dict:
     }
 
 
-def check_lcms_endpoints() -> dict:
-    results = {}
-    for ep in ["/health", "/menu", "/menu/state", "/runtime/tmux"]:
-        try:
-            import urllib.request
-            r = urllib.request.urlopen(f"http://127.0.0.1:8700{ep}", timeout=3)
-            results[ep] = {"status": r.status, "ok": r.status == 200}
-        except Exception as e:
-            results[ep] = {"status": "unreachable", "ok": False, "error": str(e)}
-    return results
-
+# ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> dict:
     t0 = time.time()
@@ -76,7 +162,28 @@ def main() -> dict:
         "steps": [],
     }
 
-    # ── Step 1: signal_router ──────────────────────────────────────
+    # ── Dispatcher setup (graceful fallback if requests not in env) ────────────
+    class _NoOpDispatcher:
+        def dispatch(self, *_, **__):
+            return {"ok": False, "skipped": "dispatcher_unavailable"}
+
+    try:
+        from modules.notification_dispatcher.app.dispatcher import NotificationDispatcher
+        from modules.notification_dispatcher.app.events import PipelineEvent
+        dispatcher = NotificationDispatcher()
+    except ImportError:
+        dispatcher = _NoOpDispatcher()
+
+        class PipelineEvent:  # type: ignore  # minimal fallback
+            def __init__(self, *, event_type, payload=None, signal_id="", request_id=""):
+                self.event_type = event_type
+                self.payload = payload or {}
+                self.signal_id = signal_id
+                self.request_id = request_id
+
+    dispatch_results: list = []
+
+    # ── Step 1: signal_router ──────────────────────────────────────────────────
     log.info("=== Step 1: signal_router ===")
     from modules.signal_router.app.router import route
 
@@ -95,7 +202,7 @@ def main() -> dict:
     report["steps"].append(step("1_signal_router", normalized))
     log.info("signal_id=%s ticker=%s side=%s", normalized.signal_id, normalized.ticker, normalized.side)
 
-    # ── Step 1b: desk_pro dry-run synthesis (fixture-only) ──────────
+    # ── Step 1b: desk_pro dry-run synthesis (fixture-only) ────────────────────
     log.info("=== Step 1b: desk_pro dry-run synthesis ===")
     from modules.desk_pro.dry_run import run_desk_pro_dry_run
 
@@ -134,13 +241,8 @@ def main() -> dict:
     )
     report["steps"].append(step("1b_desk_pro_dry_run", desk_pro_synthesis))
 
-    # ── Step 1c: notification_dispatcher (dry-run) ──────────────────
+    # ── Step 1c: notification_dispatcher (dry-run) ────────────────────────────
     log.info("=== Step 1c: notification_dispatcher (dry-run) ===")
-    from modules.notification_dispatcher.app.dispatcher import NotificationDispatcher
-    from modules.notification_dispatcher.app.events import PipelineEvent
-
-    dispatcher = NotificationDispatcher()
-    dispatch_results = []
     dispatch_results.append(
         dispatcher.dispatch(
             PipelineEvent(
@@ -160,9 +262,9 @@ def main() -> dict:
     )
     report["steps"].append(step("1c_notification_dispatcher_dry_run", {"dispatch": dispatch_results}))
 
-    # ── Step 2: proposition_engine ──────────────────────────────────
+    # ── Step 2: proposition_engine ────────────────────────────────────────────
     log.info("=== Step 2: proposition_engine ===")
-    from modules.proposition_engine.app.schema import PropositionRequest, NormalizedSignal as PropSignal
+    from modules.proposition_engine.app.schema import NormalizedSignal as PropSignal
     from modules.proposition_engine.app.schema import Proposition
 
     prop_signal = PropSignal.from_dict(normalized.to_dict())
@@ -223,7 +325,7 @@ def main() -> dict:
         )
     )
 
-    # ── Step 3: validation_gate ────────────────────────────────────
+    # ── Step 3: validation_gate ───────────────────────────────────────────────
     log.info("=== Step 3: validation_gate ===")
     from modules.validation_gate.app.schema import GateRequest
     from modules.validation_gate.app.gate import ValidationGate
@@ -244,7 +346,7 @@ def main() -> dict:
         report["duration_s"] = round(time.time() - t0, 3)
         return report
 
-    # ── Step 4: trade_executor ──────────────────────────────────────
+    # ── Step 4: trade_executor ────────────────────────────────────────────────
     log.info("=== Step 4: trade_executor ===")
     from modules.trade_executor.app.schema import TradeRequest
     from modules.trade_executor.app.executor import TradeExecutor
@@ -259,7 +361,7 @@ def main() -> dict:
     report["steps"].append(step("4_trade_executor", trade_result))
     log.info("status=%s fill_price=%s", trade_result.status, trade_result.fill_price)
 
-    # ── Step 5: result_tracker ──────────────────────────────────────
+    # ── Step 5: result_tracker ────────────────────────────────────────────────
     log.info("=== Step 5: result_tracker ===")
     from modules.result_tracker.app.schema import CloseRequest
     from modules.result_tracker.app.tracker import ResultTracker
@@ -295,7 +397,7 @@ def main() -> dict:
         )
     )
 
-    # ── Step 6: datasheet_writer ────────────────────────────────────
+    # ── Step 6: datasheet_writer ──────────────────────────────────────────────
     log.info("=== Step 6: datasheet_writer ===")
     from modules.datasheet_writer.app.writer import DatasheetWriter
 
@@ -303,7 +405,7 @@ def main() -> dict:
     report["steps"].append(step("6_datasheet_writer", write_result))
     log.info("dry_run=%s written=%s", write_result.dry_run, write_result.written)
 
-    # ── Step 7: learning_feeder ─────────────────────────────────────
+    # ── Step 7: learning_feeder ───────────────────────────────────────────────
     log.info("=== Step 7: learning_feeder ===")
     from modules.learning_feeder.app.schema import FeedRequest
     from modules.learning_feeder.app.feeder import LearningFeeder
@@ -329,13 +431,29 @@ def main() -> dict:
     )
     report["all_ok"] = all_ok
 
-    # ── Step 8: LocalCMS verification ──────────────────────────────
-    log.info("=== Step 8: LocalCMS endpoints ===")
-    lcms = check_lcms_endpoints()
-    report["localcms"] = lcms
-    lcms_ok = all(v["ok"] for v in lcms.values())
-    report["localcms_ok"] = lcms_ok
-    log.info("LocalCMS reachable=%s", lcms_ok)
+    # ── Step 8: LocalCMS gate ─────────────────────────────────────────────────
+    log.info("=== Step 8: LocalCMS gate ===")
+    lcms_gate = classify_localcms_gate()
+    log.info("LocalCMS gate: status=%s mode=%s reason=%s",
+             lcms_gate.status, lcms_gate.mode, lcms_gate.reason)
+
+    # Backward-compat keys expected by existing tests
+    if lcms_gate.status == "PASS":
+        lcms_endpoints = _check_lcms_endpoints_detail(lcms_gate.url)
+    else:
+        lcms_endpoints = {
+            ep: {"status": lcms_gate.status.lower(), "ok": False, "reason": lcms_gate.reason}
+            for ep in _LOCALCMS_ENDPOINTS
+        }
+    report["localcms"] = lcms_endpoints
+    report["localcms_ok"] = lcms_gate.status == "PASS"
+    report["localcms_gate"] = {
+        "status": lcms_gate.status,
+        "reason": lcms_gate.reason,
+        "url": lcms_gate.url,
+        "mode": lcms_gate.mode,
+    }
+    report["e2e_status"] = "PASS" if all_ok and lcms_gate.status != "BLOCKED" else "FAIL"
 
     return report
 
@@ -343,5 +461,6 @@ def main() -> dict:
 if __name__ == "__main__":
     report = main()
     print(json.dumps(report, indent=2, default=str))
-    ok = report.get("all_ok", False)
-    sys.exit(0 if ok else 1)
+    all_ok = report.get("all_ok", False)
+    gate_blocked = report.get("localcms_gate", {}).get("status") == "BLOCKED"
+    sys.exit(0 if (all_ok and not gate_blocked) else 1)
