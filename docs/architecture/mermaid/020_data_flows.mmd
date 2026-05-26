@@ -1,0 +1,103 @@
+flowchart TD
+  %% Evidence: docs/architecture/evidence/02_manifests.md
+  data_manifest_requirements_txt["requirements.txt"]
+
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  subgraph data_market_inputs["data_market_inputs"]
+    data_root_data_dir["data/"]
+    data_contract_marketdata_schema["contracts/schemas_marketdata/v1/"]
+    data_modules_data_center["modules/data_center/"]
+    market_modules_marketdata["modules/marketdata/"]
+    market_modules_market_scanner["modules/market_scanner/app/market_scanner.py"]
+    market_modules_derivatives_collector["modules/derivatives_collector/app/"]
+    data_trading_lab_data["modules/trading_lab_v1/data/"]
+  end
+
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  subgraph strat_risk_runtime["strat_risk_runtime"]
+    strat_modules_decision_strategy_logic["modules/decision_engine/app/strategy_logic.py"]
+    strat_modules_strategy_adapter["modules/strategy/adapter.py"]
+    strat_modules_strategy_registry["modules/strategy/registry.py"]
+    risk_modules_risk_calculator["modules/risk_engine/app/risk_calculator.py"]
+    risk_modules_risk_engine["modules/risk_engine/app/risk_engine.py"]
+  end
+
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  subgraph strat_backtesting_surface["strat_backtesting_surface"]
+    data_tools_daily_scalping_fetchers["tools/strategy/daily_scalping/fetch_bitget.py + fetch_dukascopy.py"]
+    data_tools_daily_scalping_load_data["tools/strategy/daily_scalping/load_data.py"]
+    market_tools_daily_scalping_normalizers["tools/strategy/daily_scalping/normalize_dukascopy.py + normalize_mt5.py"]
+    strat_tools_daily_scalping_logic["tools/strategy/daily_scalping/detectors.py + indicators.py + scorer.py"]
+    strat_tools_daily_scalping_simulator["tools/strategy/daily_scalping/simulator.py"]
+    strat_tools_daily_scalping_run_backtest["tools/strategy/daily_scalping/run_backtest.py"]
+    data_tools_dca_spot_load_data["tools/strategy/dca_spot/load_data.py"]
+    market_tools_dca_spot_fetchers["tools/strategy/dca_spot/fetch_d1_dukascopy.py + fetch_d1_yfinance.py"]
+    pricing_tools_dca_spot_engine["tools/strategy/dca_spot/engine.py"]
+    strat_tools_dca_spot_run_backtest["tools/strategy/dca_spot/run_backtest.py"]
+    strat_tools_dca_spot_run_variants["tools/strategy/dca_spot/run_dca_adaptive.py + run_optimization.py"]
+    data_tools_dca_capital_inputs["tools/strategy/dca_capital/fetch_fng.py + cycle_detector.py"]
+    strat_tools_dca_capital_runs["tools/strategy/dca_capital/run_comparison.py + run_v2_grid.py"]
+    pricing_tools_dca_capital_simulators["tools/strategy/dca_capital/simulator.py + simulator_v2.py"]
+    strat_tools_dca_cfd_short_logic["tools/strategy/dca_cfd_short/detector.py + indicators.py"]
+    strat_tools_dca_cfd_short_runs["tools/strategy/dca_cfd_short/run_cfd_grid.py + run_eval.py + run_signal_b.py"]
+    pricing_tools_dca_cfd_short_simulator["tools/strategy/dca_cfd_short/simulator.py"]
+  end
+
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  subgraph strat_execution_and_lab_links["strat_execution_and_lab_links"]
+    exec_modules_execution_engine["modules/execution_engine/"]
+    exec_modules_trade_executor["modules/trade_executor/app/executor.py"]
+    strat_modules_trading_lab_v1["modules/trading_lab_v1/app/trading_lab_v1.py"]
+  end
+
+  data_manifest_requirements_txt -->|declares pandas stack and runtime deps| data_tools_daily_scalping_load_data
+  data_manifest_requirements_txt -->|declares pandas stack and runtime deps| data_tools_dca_spot_load_data
+  data_manifest_requirements_txt -->|declares runtime deps| risk_modules_risk_calculator
+
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  risk_modules_risk_calculator -->|imported by| risk_modules_risk_engine
+  risk_modules_risk_calculator -->|imported by| core_webhook_server_runtime["webhook_server.py"]
+  exec_modules_execution_engine -->|imported by| core_webhook_server_runtime
+
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  strat_modules_strategy_adapter -->|imported by| strat_modules_trading_lab_v1
+  strat_modules_strategy_adapter -->|imported by| data_step_proposition_engine["modules/proposition_engine/app/engine.py"]
+  strat_modules_strategy_registry -.->|strategy id source probable| strat_modules_strategy_adapter
+
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  strat_tools_daily_scalping_run_backtest -->|imports| data_tools_daily_scalping_load_data
+  strat_tools_daily_scalping_run_backtest -->|imports| strat_tools_daily_scalping_logic
+  strat_tools_daily_scalping_run_backtest -->|imports| strat_tools_daily_scalping_simulator
+  strat_tools_dca_spot_run_backtest -->|imports| data_tools_dca_spot_load_data
+  strat_tools_dca_spot_run_backtest -->|imports| pricing_tools_dca_spot_engine
+  strat_tools_dca_spot_run_variants -->|imports| data_tools_dca_spot_load_data
+  strat_tools_dca_spot_run_variants -->|imports| pricing_tools_dca_spot_engine
+  strat_tools_dca_capital_runs -->|imports dca_spot data| data_tools_dca_spot_load_data
+  strat_tools_dca_capital_runs -->|imports| pricing_tools_dca_capital_simulators
+  strat_tools_dca_cfd_short_runs -->|imports dca_spot data| data_tools_dca_spot_load_data
+  strat_tools_dca_cfd_short_runs -->|imports| pricing_tools_dca_cfd_short_simulator
+
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  data_tools_daily_scalping_fetchers -.->|market source visible in filenames| data_tools_daily_scalping_load_data
+  market_tools_daily_scalping_normalizers -.->|normalization probable| data_tools_daily_scalping_load_data
+  market_tools_dca_spot_fetchers -.->|market source visible in filenames| data_tools_dca_spot_load_data
+  data_tools_dca_capital_inputs -.->|input preparation probable| strat_tools_dca_capital_runs
+
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  strat_modules_trading_lab_v1 -->|loads market csv| data_trading_lab_data
+  strat_modules_trading_lab_v1 -->|validates strategy id| strat_modules_strategy_adapter
+
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  data_modules_data_center -.->|market data family probable| market_modules_marketdata
+  market_modules_derivatives_collector -.->|market metrics family probable| data_modules_data_center
+  market_modules_market_scanner -.->|market scan output probable| strat_modules_decision_strategy_logic
+
+  data_market_inputs --> data_step_010_core_infra["010_core_infra.mmd"]
+  risk_modules_risk_engine --> data_step_010_core_infra
+  risk_modules_risk_calculator --> data_step_040_interfaces_workers["040_interfaces_workers.mmd"]
+  strat_tools_daily_scalping_run_backtest --> data_step_040_interfaces_workers
+  strat_tools_dca_spot_run_backtest --> data_step_040_interfaces_workers
