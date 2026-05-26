@@ -28,6 +28,7 @@ from modules.google_sheets_global_schema.sheets_writer import SheetsWriter, Writ
 from modules.result_tracker.app.schema import TradeRecord
 
 _ISO_OFFSET_RE = re.compile(r"\+00:00$")
+_MICROSECONDS_RE = re.compile(r"\.\d+(?=[Z+])")
 
 
 @dataclass
@@ -39,7 +40,11 @@ class SheetsAdapterResult:
 
 
 def _to_iso_utc_z(ts: str) -> str:
-    """Normalize ISO 8601 +00:00 suffix to Z. Leaves Z-terminated strings unchanged."""
+    """Normalize ISO 8601 timestamp to YYYY-MM-DDTHH:MM:SSZ (R5 format).
+
+    Strips sub-second precision and converts +00:00 offset to Z suffix.
+    """
+    ts = _MICROSECONDS_RE.sub("", ts)
     return _ISO_OFFSET_RE.sub("Z", ts)
 
 
