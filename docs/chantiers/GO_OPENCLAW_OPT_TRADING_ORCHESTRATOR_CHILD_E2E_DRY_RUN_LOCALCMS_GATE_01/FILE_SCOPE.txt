@@ -1,0 +1,4 @@
+scripts/e2e/dry_run_pipeline.py
+tests/e2e/test_dry_run_pipeline_localcms_gate.py
+docs/chantiers/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_CHILD_E2E_DRY_RUN_LOCALCMS_GATE_01/
+docs/index/inbox/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_CHILD_E2E_DRY_RUN_LOCALCMS_GATE_01.md
