@@ -1,12 +1,24 @@
 #!/usr/bin/env python3
 """
-E2E Dry-Run Pipeline - prouve le flux complet :
+E2E Post-Gate Live/Dry-Run Pipeline - prouve le flux complet :
 signal_router → proposition_engine → validation_gate → trade_executor
 → result_tracker → datasheet_writer → learning_feeder → LocalCMS gate
 
-Sortie : JSON complet avec chaque étape + timestamps.
-Aucun ordre live, aucun fichier écrit.
-DRY_RUN=1 et PAPER_MODE=1 par défaut.
+Sortie : JSON complet avec chaque étape + timestamps + e2e_post_gate_status.
+Aucun ordre live, aucun fichier écrit, aucun appel externe réel.
+
+Flags requis :
+  ALLOW_E2E_LIVE_DRY_RUN=1  : autorise le mode post-gate (obligatoire)
+  DRY_RUN=1                  : obligatoire ; si absent ou false → BLOCKED
+  ALLOW_LIVE_TRADE           : doit être absent ; si présent → BLOCKED
+
+Flags interdits :
+  ALLOW_LIVE_TRADE=1         : interdit dans ce mode
+
+Flags optionnels :
+  PAPER_MODE=1               : défaut 1
+  ALLOW_GOOGLE_SHEETS_API_WRITE=1 : non utilisé ici ; force fake ou BLOCKED
+  ALLOW_TELEGRAM_SEND=1           : non utilisé ici ; dispatcher reste dry_run
 
 LocalCMS gate (step 8) :
   default            : absence LocalCMS = WARN_SKIPPED, rc=0
@@ -38,12 +50,38 @@ log = logging.getLogger("e2e_dry_run_pipeline")
 DRY_RUN = os.environ.get("DRY_RUN", "1") == "1"
 PAPER_MODE = os.environ.get("PAPER_MODE", "1") == "1"
 
+# ── Post-gate authorization flags ─────────────────────────────────────────────
+ALLOW_E2E_LIVE_DRY_RUN = os.environ.get("ALLOW_E2E_LIVE_DRY_RUN", "0") == "1"
+ALLOW_LIVE_TRADE = os.environ.get("ALLOW_LIVE_TRADE", "0") == "1"
+ALLOW_GOOGLE_SHEETS_API_WRITE = os.environ.get("ALLOW_GOOGLE_SHEETS_API_WRITE", "0") == "1"
+ALLOW_TELEGRAM_SEND = os.environ.get("ALLOW_TELEGRAM_SEND", "0") == "1"
+
 # ── LocalCMS gate configuration ──────────────────────────────────────────────
 LOCALCMS_URL = os.environ.get("LOCALCMS_URL", "http://127.0.0.1:8700")
 REQUIRE_LOCALCMS = os.environ.get("REQUIRE_LOCALCMS_E2E", "0") == "1"
 SKIP_LOCALCMS = os.environ.get("SKIP_LOCALCMS_E2E", "0") == "1"
 
 _LOCALCMS_ENDPOINTS = ["/health", "/menu", "/menu/state", "/runtime/tmux"]
+
+
+def _preflight_post_gate() -> dict | None:
+    """Returns BLOCKED dict if a safety check fails, None if all checks pass."""
+    if not ALLOW_E2E_LIVE_DRY_RUN:
+        return {
+            "status": "BLOCKED",
+            "reason": "ALLOW_E2E_LIVE_DRY_RUN=1 required — post-gate mode not authorized",
+        }
+    if os.environ.get("DRY_RUN") != "1":
+        return {
+            "status": "BLOCKED",
+            "reason": "DRY_RUN=1 required and must be explicitly set (not just defaulted)",
+        }
+    if ALLOW_LIVE_TRADE:
+        return {
+            "status": "BLOCKED",
+            "reason": "ALLOW_LIVE_TRADE=1 detected — live trades forbidden in post-gate dry-run mode",
+        }
+    return None
 
 
 @dataclass
@@ -153,9 +191,33 @@ def step(name: str, result: object) -> dict:
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> dict:
+    # ── Preflight ─────────────────────────────────────────────────────────────
+    preflight_fail = _preflight_post_gate()
+    if preflight_fail:
+        log.error("E2E PREFLIGHT BLOCKED: %s", preflight_fail["reason"])
+        return {
+            "pipeline": "E2E post-gate live/dry-run",
+            "dry_run": DRY_RUN,
+            "paper_mode": PAPER_MODE,
+            "started_at": datetime.now(timezone.utc).isoformat(),
+            "steps": [],
+            "all_ok": False,
+            "e2e_post_gate_status": {
+                **preflight_fail,
+                "dry_run": False,
+                "live_trade": ALLOW_LIVE_TRADE,
+                "gate_status": "NONE",
+                "localcms_gate": "NONE",
+                "sheets_mode": "fake",
+                "telegram_mode": "dry_run",
+                "modules": {},
+            },
+        }
+
     t0 = time.time()
+    _gate_status_label: str = "NONE"
     report: dict[str, object] = {
-        "pipeline": "E2E dry-run pipeline",
+        "pipeline": "E2E post-gate live/dry-run",
         "dry_run": DRY_RUN,
         "paper_mode": PAPER_MODE,
         "started_at": datetime.now(timezone.utc).isoformat(),
@@ -337,8 +399,9 @@ def main() -> dict:
         require_operator=False,
     )
     decision = ValidationGate().gate(gate_req)
+    _gate_status_label = "APPROVED_PAPER" if (decision.verdict == "APPROVED" and DRY_RUN) else decision.verdict
     report["steps"].append(step("3_validation_gate", decision))
-    log.info("verdict=%s", decision.verdict)
+    log.info("verdict=%s gate_label=%s", decision.verdict, _gate_status_label)
 
     if decision.verdict != "APPROVED":
         log.warning("Gate REJECTED - stopping pipeline")
@@ -453,7 +516,37 @@ def main() -> dict:
         "url": lcms_gate.url,
         "mode": lcms_gate.mode,
     }
-    report["e2e_status"] = "PASS" if all_ok and lcms_gate.status != "BLOCKED" else "FAIL"
+    e2e_ok = all_ok and lcms_gate.status != "BLOCKED"
+    report["e2e_status"] = "PASS" if e2e_ok else "FAIL"
+
+    # ── e2e_post_gate_status ──────────────────────────────────────────────────
+    _module_step_map = {
+        "1_signal_router": "signal_router",
+        "2_proposition_engine": "proposition_engine",
+        "3_validation_gate": "validation_gate",
+        "4_trade_executor": "trade_executor",
+        "5_result_tracker": "result_tracker",
+        "6_datasheet_writer": "datasheet_writer",
+        "7_learning_feeder": "learning_feeder",
+    }
+    _modules_status: dict = {}
+    for _s in report.get("steps", []):
+        _mod = _module_step_map.get(_s["step"])
+        if _mod:
+            _r = _s.get("result", {})
+            _modules_status[_mod] = "FAIL" if (
+                isinstance(_r, dict) and _r.get("status") in ("error", "timeout")
+            ) else "PASS"
+    report["e2e_post_gate_status"] = {
+        "status": "PASS" if e2e_ok else "FAIL",
+        "dry_run": True,
+        "live_trade": False,
+        "gate_status": _gate_status_label,
+        "localcms_gate": lcms_gate.status,
+        "sheets_mode": "fake",
+        "telegram_mode": "dry_run",
+        "modules": _modules_status,
+    }
 
     return report
 
@@ -461,6 +554,9 @@ def main() -> dict:
 if __name__ == "__main__":
     report = main()
     print(json.dumps(report, indent=2, default=str))
+    post_gate = report.get("e2e_post_gate_status", {})
+    if post_gate.get("status") == "BLOCKED":
+        sys.exit(1)
     all_ok = report.get("all_ok", False)
     gate_blocked = report.get("localcms_gate", {}).get("status") == "BLOCKED"
     sys.exit(0 if (all_ok and not gate_blocked) else 1)
