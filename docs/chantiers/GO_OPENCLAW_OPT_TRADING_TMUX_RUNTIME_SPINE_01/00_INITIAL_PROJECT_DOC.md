@@ -4,15 +4,15 @@ doc_type: initial_project_doc
 repo: opt-trading
 project: opt-trading
 go_id: GO_OPENCLAW_OPT_TRADING_TMUX_RUNTIME_SPINE_01
-go_structural_role: GO_INDEPENDENT
-parent_go: ""
-master_project_plan_id: ""
+go_structural_role: GO_CHILD_ATTACHED_TO_PARENT
+parent_go: GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01
+master_project_plan_id: MPP_OPENCLAW_ORCHESTRATOR_FULL
 pf_id: PF_OPENCLAW_ORCHESTRATOR_FULL
 status: open
 lifecycle_stage: opening
 surface: scripts/tmux/
 source_kind: canonical
-updated_at: 2026-05-25
+updated_at: 2026-05-26
 topic_keys:
   - tmux
   - runtime
@@ -62,7 +62,8 @@ scripts/tmux/
     ├── apps-connectors.sh    → airtable + clickup + sheets
     ├── desk-pro.sh           → desk_pro + perf + orchestrator
     ├── kg-repo.sh            → memory_bricks + learning_feeder
-    └── localcms-ui.sh        → localcms consumer
+    ├── localcms-ui.sh        → localcms consumer
+    └── fleet-status.sh       → fleet health check
 ```
 
 ## 5_KEY_DECISIONS
@@ -91,9 +92,9 @@ NO_MANUAL_AD_HOC_LONG_RUNNING_PROCESS = true
 
 ## 8_TODO
 
-1. Créer les 9 scripts de session
-2. Créer start_all.sh, stop_all.sh, restart_session.sh, health_aggregator.sh, attach.sh
-3. Créer sanity.sh
-4. Vérifier syntaxe bash (shellcheck compatible)
-5. Produire .patch canonique
-6. Ouvrir PR
+1. ✅ Créer les 10 scripts de session
+2. ✅ Créer start_all.sh, stop_all.sh, restart_session.sh, health_aggregator.sh, attach.sh
+3. ✅ Créer sanity.sh
+4. ✅ Vérifier syntaxe bash (shellcheck compatible)
+5. ✅ Produire .patch canonique
+6. ✅ Ouvrir PR
