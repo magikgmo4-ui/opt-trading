@@ -1,0 +1,69 @@
+---
+title: "Plan de cartographie Mermaid — opt-trading architecture"
+---
+
+
+flowchart TB
+  subgraph Legend["Légende"]
+    L1[" "]:::planned --> L2["Fichier à produire"]
+    L3[" "]:::done --> L4["Produit final"]
+    L5[" "]:::active --> L6["En cours"]
+  end
+
+  subgraph Pipeline["Pipeline de production"]
+    direction LR
+    P1["000_plan.mmd"]:::active --> P2["010_core_infra.mmd"]:::planned
+    P2 --> P3["020_data_flows.mmd"]:::planned
+    P3 --> P4["030_business_logic.mmd"]:::planned
+    P4 --> P5["040_interfaces_workers.mmd"]:::planned
+    P5 --> P6["900_assembled_raw.mmd"]:::planned
+    P6 --> P7["990_architecture_final.mmd"]:::done
+  end
+
+  subgraph Services["Services live"]
+    S1["webhook_server.py<br/>port 8000<br/>Ingestion TradingView"]:::service
+    S2["perf/perf_app.py<br/>port 8010<br/>Analytique perf"]:::service
+    S3["modules/localcms/app/main.py<br/>port 8700<br/>Operations cockpit"]:::service
+  end
+
+  subgraph DataFlow["Flux de donnees"]
+    TV["TradingView"] -->|"POST /tv"| S1
+    S1 -->|"adapters/webhook_to_perf.py"| S2
+    S2 -->|"modules/desk_pro/"| S3
+    S1 -->|"state/events.jsonl"| F1["Fichier JSONL"]
+    S2 -->|"perf/perf.db"| F2["SQLite WAL"]
+  end
+
+  subgraph Modules["Modules metier"]
+    M1["risk_engine"]:::module
+    M2["execution_engine"]:::module
+    M3["position_engine"]:::module
+    M4["decision_engine"]:::module
+    M5["engines/registry"]:::module
+    M6["signal_router<br/>port 18900"]:::module
+  end
+
+  subgraph Packs["Evidence Pack existant"]
+    E1["00_repo_identity.md"]
+    E2["01_tree.txt"]
+    E3["02_manifests.md"]
+    E4["03_entrypoints.md"]
+    E5["05_external_dependencies.md"]
+    E6["07_infra.md"]
+  end
+
+  S1 --- Modules
+  Modules --- M1
+  Modules --- M5
+
+  P1 -.-> Packs
+  P2 -.-> Services
+  P3 -.-> S1
+  P4 -.-> Modules
+  P5 -.-> S3
+
+  classDef planned fill:#2d3748,stroke:#718096,color:#e2e8f0
+  classDef done fill:#276749,stroke:#48bb78,color:#e2e8f0
+  classDef active fill:#9b2c2c,stroke:#fc8181,color:#e2e8f0
+  classDef service fill:#2b6cb0,stroke:#63b3ed,color:#e2e8f0
+  classDef module fill:#6b46c1,stroke:#b794f4,color:#e2e8f0
