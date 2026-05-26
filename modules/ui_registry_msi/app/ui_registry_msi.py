@@ -29,6 +29,8 @@ class UIRegistry:
     def __init__(self):
         self.surfaces = []
         self.source_file = None
+        self.source_kind = None
+        self.is_canonical_source = False
         self.load_registry()
 
     def _parse_yaml_simple(self, file_path):
@@ -71,9 +73,11 @@ class UIRegistry:
                     self.surfaces = self._parse_yaml_simple(CENTRAL_REGISTRY_FILE)
                 
                 self.source_file = CENTRAL_REGISTRY_FILE
+                self.source_kind = "central"
+                self.is_canonical_source = True
                 return
             except Exception as e:
-                print(f"Warning: Failed to load central registry: {e}")
+                print(f"Warning: Failed to load central registry: {e}", file=sys.stderr)
 
         # Priority 2: Local Seed (JSON)
         if SEED_FILE.exists():
@@ -81,6 +85,13 @@ class UIRegistry:
                 with open(SEED_FILE, 'r', encoding='utf-8') as f:
                     self.surfaces = json.load(f)
                     self.source_file = SEED_FILE
+                    self.source_kind = "fallback_seed"
+                    self.is_canonical_source = False
+                    print(
+                        f"Warning: ui_registry_msi is running from fallback seed {SEED_FILE}; "
+                        f"central registry remains authoritative at {CENTRAL_REGISTRY_FILE}",
+                        file=sys.stderr,
+                    )
                     return
             except Exception as e:
                 print(f"Error loading seed: {e}")
@@ -92,6 +103,8 @@ class UIRegistry:
     def status(self):
         print(f"Module: ui_registry_msi")
         print(f"Source: {self.source_file}")
+        print(f"Source kind: {self.source_kind}")
+        print(f"Canonical source: {self.is_canonical_source}")
         print(f"Surfaces: {len(self.surfaces)}")
         print(f"Ready: {len(self.surfaces) > 0}")
 
