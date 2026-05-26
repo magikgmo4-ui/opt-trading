@@ -1,6 +1,6 @@
 {
   "registry_version": "v1",
-  "updated_at": "2026-05-23T00:00:00Z",
+  "updated_at": "2026-05-26T00:00:00Z",
   "consumers": [
     {
       "consumer_id": "desk_pro__market_metrics",
@@ -69,10 +69,10 @@
       "read_path": "data/data_center/views/market_metrics/latest.json",
       "access_pattern": "latest_only",
       "fallback": "error",
-      "implementation_status": "not_started",
+      "implementation_status": "implemented",
       "migration_needed": false,
       "read_path_current": null,
-      "validated_at": null
+      "validated_at": "2026-05-26"
     },
     {
       "consumer_id": "localcms__data_center_health",

@@ -214,11 +214,15 @@ class TestConsumerRegistryConsistency:
         assert desk_pro["migration_needed"] is False
         assert desk_pro["read_path_current"] is None
 
+    def test_google_sheets_market_reporting_is_implemented(self):
+        sheets = next(c for c in self.consumers if c["consumer_id"] == "google_sheets__market_reporting")
+        assert sheets["implementation_status"] == "implemented"
+        assert sheets["validated_at"] is not None
+
     def test_not_implemented_consumers_remain_not_started(self):
         """Consumers without runtime readers must stay not_started — no fake runtime."""
         no_reader = {
             "telegram_screener__signal_context",
-            "google_sheets__market_reporting",
             "strategy_framework__market_context",
             "perf_engine__replay_context",
         }
@@ -376,7 +380,7 @@ class TestWriterToDataCenterChain:
             )
             expected_root = td / producer["output_path_root"].rstrip("/")
             assert result["latest"] == expected_root / "latest.json"
-            assert "by_symbol/BTCUSDT.json" in str(result["by_symbol"])
+            assert result["by_symbol"].as_posix().endswith("/by_symbol/BTCUSDT.json")
         finally:
             shutil.rmtree(td)
 
@@ -392,7 +396,7 @@ class TestWriterToDataCenterChain:
             )
             expected_root = td / producer["output_path_root"].rstrip("/")
             assert result["latest"] == expected_root / "latest.json"
-            assert "ETHUSDT.json" in str(result["by_symbol"])
+            assert result["by_symbol"].as_posix().endswith("/by_symbol/ETHUSDT.json")
         finally:
             shutil.rmtree(td)
 
@@ -460,7 +464,7 @@ class TestWriterToDataCenterChain:
             assert result["latest"] == expected_path, \
                 f"view writer produced {result['latest']} but consumer expects {expected_path}"
             assert result["latest"].exists()
-            path_str = str(result["latest"])
+            path_str = result["latest"].as_posix()
             assert "collector_binance_spot" not in path_str
             assert "views/pair_market_snapshot" in path_str
         finally:
