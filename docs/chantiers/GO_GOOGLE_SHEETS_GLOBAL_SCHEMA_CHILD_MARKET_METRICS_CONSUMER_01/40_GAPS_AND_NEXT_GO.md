@@ -5,7 +5,7 @@ repo: opt-trading
 go_id: GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_MARKET_METRICS_CONSUMER_01
 status: active
 source_kind: canonical
-updated_at: 2026-05-25
+updated_at: 2026-05-26
 ---
 
 # 40_GAPS_AND_NEXT_GO — Lacunes et prochains GOs
@@ -28,6 +28,7 @@ updated_at: 2026-05-25
 
 ## Prochains GOs (ordre logique)
 
-1. **GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_WORKSHEET_TITLE_MIGRATION_01** — migration des titres de worksheets (renommage canonique si nécessaire)
-2. **GO_OPT_TRADING_ORCHESTRATOR_CHILD_DATASHEET_WRITER_V1_IMPL_01** — câblage datasheet_writer → SheetsWriter runtime
-3. **GO_OPT_TRADING_ORCHESTRATOR_CHILD_LEARNING_FEEDER_V1_IMPL_01** — câblage learning_feeder → SheetsWriter runtime
+1. **GO_OPT_TRADING_DATA_CENTER_CHILD_GOOGLE_SHEETS_CONSUMER_01** — consumer Data Center → Google Sheets plus large (registry + orchestration multi-surfaces), à ouvrir après la preuve bornée `market_metrics`
+2. **GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_WORKSHEET_TITLE_MIGRATION_01** — migration des titres de worksheets (renommage canonique si nécessaire)
+3. **GO_OPT_TRADING_ORCHESTRATOR_CHILD_DATASHEET_WRITER_V1_IMPL_01** — câblage datasheet_writer → SheetsWriter runtime
+4. **GO_OPT_TRADING_ORCHESTRATOR_CHILD_LEARNING_FEEDER_V1_IMPL_01** — câblage learning_feeder → SheetsWriter runtime

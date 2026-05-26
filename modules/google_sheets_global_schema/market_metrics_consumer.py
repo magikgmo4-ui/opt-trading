@@ -98,7 +98,10 @@ def write_market_metrics_to_sheets(
         source_ref = SOURCE_REF_LATEST
     else:
         resolved = source_path if source_path.is_absolute() else _root / source_path
-        source_ref = str(source_path)
+        try:
+            source_ref = resolved.relative_to(_root).as_posix()
+        except Exception:
+            source_ref = source_path.as_posix()
 
     payload = _load_mm_v1(resolved)
     if payload is None:
