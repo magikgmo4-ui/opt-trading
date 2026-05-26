@@ -1,5 +1,8 @@
 docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_API_WRITE_01/**
 docs/index/inbox/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_API_WRITE_01.md
-modules/google_sheets_global_schema/**
+modules/google_sheets_global_schema/__init__.py
+modules/google_sheets_global_schema/fake_sheets_client.py
+modules/google_sheets_global_schema/sheets_writer.py
+modules/google_sheets_global_schema/validator.py
 tests/test_google_sheets_api_write.py
 tests/test_google_sheets_no_api_calls.py
