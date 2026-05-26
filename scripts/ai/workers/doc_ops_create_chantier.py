@@ -9,11 +9,12 @@ from datetime import datetime
 # Canonical structure for Doc Ops chantiers
 CHARTIER_DIR = "docs/chantiers"
 INBOX_DIR = "docs/index/inbox"
+DEFAULT_TEMPLATE_DIR = "docs/templates/doc_ops"
 
 # GO_ID Regex: starts with GO_, uppercase, underscores, ends with _NN
 GO_ID_REGEX = r"^GO_[A-Z0-9_]+_[0-9]{2}$"
 
-INITIAL_DOC_TEMPLATE = """---
+INITIAL_DOC_FALLBACK = """---
 go_id: {go_id}
 doc_type: INITIAL_PROJECT_DOC
 repo: opt-trading
@@ -58,7 +59,7 @@ This document.
 (Define the current resume point)
 """
 
-INBOX_TEMPLATE = """# INBOX: {go_id}
+INBOX_FALLBACK = """# INBOX: {go_id}
 
 - **ID**: {go_id}
 - **PURPOSE**: {summary}
@@ -70,10 +71,25 @@ def validate_go_id(go_id):
         return False, f"Invalid GO_ID format: {go_id}. Must be GO_<UPPERCASE_AND_UNDERSCORES>_<NN>."
     return True, ""
 
-def create_chantier(go_id, summary, doc_only=False, create_inbox=False, dry_run=False, force=False):
+def load_template(template_dir, template_name, fallback_content):
+    if not template_dir:
+        return fallback_content, "using_fallback"
+
+    template_path = os.path.join(template_dir, template_name)
+    if os.path.exists(template_path):
+        try:
+            with open(template_path, "r") as f:
+                return f.read(), f"loaded:{template_path}"
+        except Exception as e:
+            return fallback_content, f"error_reading:{str(e)}"
+
+    return fallback_content, "not_found"
+
+def create_chantier(go_id, summary, doc_only=False, create_inbox=False, dry_run=False, force=False, template_version=None, template_dir=DEFAULT_TEMPLATE_DIR):
     created_files = []
     skipped_files = []
     errors = []
+    info = {}
 
     # 1. Validate GO_ID
     is_valid, err_msg = validate_go_id(go_id)
@@ -85,7 +101,26 @@ def create_chantier(go_id, summary, doc_only=False, create_inbox=False, dry_run=
     initial_doc_path = os.path.join(chantier_path, "00_INITIAL_PROJECT_DOC.md")
     inbox_path = os.path.join(INBOX_DIR, f"{go_id}.md")
 
-    # 3. Create directory
+    # 3. Load Templates
+    if template_version:
+        doc_template_name = f"chantier_initial_project_doc_{template_version}.md"
+        inbox_template_name = f"inbox_entry_{template_version}.md"
+
+        initial_doc_template, doc_status = load_template(template_dir, doc_template_name, INITIAL_DOC_FALLBACK)
+        inbox_template, inbox_status = load_template(template_dir, inbox_template_name, INBOX_FALLBACK)
+
+        info["doc_template_status"] = doc_status
+        info["inbox_template_status"] = inbox_status
+
+        if "not_found" in doc_status or "not_found" in inbox_status:
+            msg = f"Requested template version '{template_version}' not found in {template_dir}"
+            return False, {"errors": [msg], "status": "FAIL", "exit_code": 2}
+    else:
+        initial_doc_template = INITIAL_DOC_FALLBACK
+        inbox_template = INBOX_FALLBACK
+        info["template_mode"] = "fallback"
+
+    # 4. Create directory
     if not dry_run:
         if not os.path.exists(chantier_path):
             os.makedirs(chantier_path, exist_ok=True)
@@ -95,9 +130,9 @@ def create_chantier(go_id, summary, doc_only=False, create_inbox=False, dry_run=
     else:
         print(f"[DRY-RUN] Would create directory: {chantier_path}")
 
-    # 4. Create Initial Doc
+    # 5. Create Initial Doc
     updated_at = datetime.now().strftime("%Y-%m-%d")
-    initial_doc_content = INITIAL_DOC_TEMPLATE.format(
+    initial_doc_content = initial_doc_template.format(
         go_id=go_id,
         updated_at=updated_at,
         summary=summary or "(Define the master target here)"
@@ -115,9 +150,9 @@ def create_chantier(go_id, summary, doc_only=False, create_inbox=False, dry_run=
         else:
             print(f"[DRY-RUN] Would create file: {initial_doc_path}")
 
-    # 5. Create Inbox entry
+    # 6. Create Inbox entry
     if create_inbox:
-        inbox_content = INBOX_TEMPLATE.format(
+        inbox_content = inbox_template.format(
             go_id=go_id,
             summary=summary or "(Define the purpose here)"
         )
@@ -139,7 +174,8 @@ def create_chantier(go_id, summary, doc_only=False, create_inbox=False, dry_run=
         "go_id": go_id,
         "created_files": created_files,
         "skipped_files": skipped_files,
-        "errors": errors
+        "errors": errors,
+        "info": info
     }
     return (not errors), result
 
@@ -152,6 +188,8 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="Simulate actions without writing")
     parser.add_argument("--json", action="store_true", help="Output as JSON")
     parser.add_argument("--force", action="store_true", help="Overwrite existing files")
+    parser.add_argument("--template-version", help="Version of the templates to use (e.g., v1)")
+    parser.add_argument("--template-dir", default=DEFAULT_TEMPLATE_DIR, help="Directory containing templates")
 
     args = parser.parse_args()
 
@@ -161,7 +199,9 @@ def main():
         args.doc_only,
         args.create_inbox,
         args.dry_run,
-        args.force
+        args.force,
+        args.template_version,
+        args.template_dir
     )
 
     if args.json:
@@ -169,8 +209,12 @@ def main():
     elif not success:
         for err in result.get("errors", []):
             print(f"Error: {err}", file=sys.stderr)
+
+        # Specific exit code for missing templates
+        if result.get("exit_code") == 2:
+            sys.exit(2)
         sys.exit(1)
-    
+
     if not success:
         sys.exit(1)
 

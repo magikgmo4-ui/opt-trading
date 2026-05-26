@@ -1,0 +1,5 @@
+docs/chantiers/GO_OPT_TRADING_DOC_OPS_IMPL_TEMPLATE_VERSIONING_01/**
+docs/index/inbox/GO_OPT_TRADING_DOC_OPS_IMPL_TEMPLATE_VERSIONING_01.md
+docs/templates/doc_ops/**
+scripts/ai/workers/doc_ops_create_chantier.py
+tests/ai/workers/test_doc_ops_create_chantier.py
