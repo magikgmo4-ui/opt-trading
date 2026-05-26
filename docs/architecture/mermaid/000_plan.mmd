@@ -1,0 +1,112 @@
+---
+title: "Plan de cartographie Mermaid - opt-trading architecture"
+---
+
+## Scope
+
+- Sources autorisees uniquement: `00_repo_identity.md`, `01_tree.txt`, `02_manifests.md`
+- Regle: 5 blocs logiques maximum
+- Regle: ne rien inventer, ne pas detailler les fichiers internes
+- Regle: marquer les zones incertaines avec `TODO` ou `UNKNOWN`
+
+## Kanban textuel
+
+- `[done]` `evidence_scope_locked` - Le repo cible est `opt-trading` sur la branche `go/GO_OPT_TRADING_ARCHITECTURE_PARENT_MERMAID_CARTOGRAPHY_01`.
+- `[todo]` `step_01_core_runtime` - Cartographier `webhook_server.py`, `perf/`, `adapters/`, `shared/`, `data/` et `state/` / `UNKNOWN` si la frontiere persistence reste partielle.
+- `[todo]` `step_02_modules_family` - Cartographier `modules/` comme famille principale de surfaces runtime / `TODO` pour les sous-familles exactes.
+- `[todo]` `step_03_ops_and_deploy` - Cartographier `scripts/`, `deploy/`, `config/`, `configs/`, `registry/`.
+- `[todo]` `step_04_quality_and_contracts` - Cartographier `tests/`, `contracts/`, `schemas/`.
+- `[todo]` `step_05_tools_docs_outputs` - Cartographier `tools/`, `artifacts/`, `reports/`, `docs/`, `bundles/`, `_archive/`, `tmp/` / `UNKNOWN` pour les frontieres exactes entre support, historique et sortie.
+
+## Kanban Mermaid
+
+```mermaid
+kanban
+  todo[To do]
+    step_01_core_runtime[step_01_core_runtime]@{ priority: 'Very High' }
+    step_02_modules_family[step_02_modules_family]@{ priority: 'High' }
+    step_03_ops_and_deploy[step_03_ops_and_deploy]@{ priority: 'High' }
+    step_04_quality_and_contracts[step_04_quality_and_contracts]@{ priority: 'High' }
+    step_05_tools_docs_outputs[step_05_tools_docs_outputs]@{ priority: 'Medium' }
+  doing[Doing]
+    evidence_scope_locked[evidence_scope_locked]@{ priority: 'Very High' }
+  done[Done]
+    pass_1_plan_defined[pass_1_plan_defined]@{ priority: 'Very High' }
+```
+
+## Mermaid shells
+
+### step_01_core_runtime
+
+```mermaid
+flowchart TD
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  subgraph step_01_core_runtime["Step 01 - core runtime"]
+    subgraph core_runtime_entrypoints["webhook_server.py + perf/"]
+    end
+    subgraph core_runtime_adapters_shared["adapters/ + shared/"]
+    end
+    subgraph core_runtime_state_persistence["data/ + state/ + persistence TODO"]
+    end
+  end
+```
+
+### step_02_modules_family
+
+```mermaid
+flowchart TD
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  subgraph step_02_modules_family["Step 02 - modules family"]
+    subgraph modules_runtime_surface["modules/"]
+    end
+    subgraph modules_family_clusters["module clusters TODO"]
+    end
+    subgraph modules_runtime_boundaries["module boundaries UNKNOWN"]
+    end
+  end
+```
+
+### step_03_ops_and_deploy
+
+```mermaid
+flowchart TD
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  subgraph step_03_ops_and_deploy["Step 03 - ops and deploy"]
+    subgraph ops_scripts_surface["scripts/"]
+    end
+    subgraph ops_deploy_surface["deploy/"]
+    end
+    subgraph ops_config_registry_surface["config/ + configs/ + registry/"]
+    end
+  end
+```
+
+### step_04_quality_and_contracts
+
+```mermaid
+flowchart TD
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  subgraph step_04_quality_and_contracts["Step 04 - quality and contracts"]
+    subgraph quality_tests_surface["tests/"]
+    end
+    subgraph quality_contracts_surface["contracts/"]
+    end
+    subgraph quality_schemas_surface["schemas/"]
+    end
+  end
+```
+
+### step_05_tools_docs_outputs
+
+```mermaid
+flowchart TD
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  subgraph step_05_tools_docs_outputs["Step 05 - tools docs outputs"]
+    subgraph support_tools_surface["tools/ + bundles/"]
+    end
+    subgraph support_docs_reports_surface["docs/ + reports/"]
+    end
+    subgraph support_outputs_history_surface["artifacts/ + _archive/ + tmp/ UNKNOWN"]
+    end
+  end
+```
