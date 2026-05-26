@@ -1,0 +1,30 @@
+# Infra
+## Infra files
+./_archive/legacy_modules/reseau_ssh_step1/modules/reseau_ssh/reseau_ssh_step1/hosts.yaml
+./config/machine_runtime_map.yml
+./configs/openclaw/security/skill_policy.yaml
+./docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01/06_registry_derived_pilot.yaml
+./docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_METADATA_DERIVATION_01/08_registry_derived_pilot_delta.yaml
+./docs/ot/trading/schemas/xauusd_dual_stack_v1.profile.yaml
+./docs/registries/GITHUB_ACTIONS_JOBS_REGISTRY_01.yml
+./docs/registries/GITHUB_ACTIONS_WORKFLOWS_INVENTORY_01.yml
+./.github/workflows/gh-actions-registry-validation.yml
+./.github/workflows/openclaw-mcp-policy-static-validator.yml
+./.github/workflows/openclaw-skill-policy-warning-only.yml
+./.github/workflows/strict-workers-schedule.yml
+./.github/workflows/strict-workers-smoke.yml
+./.github/workflows/strict-workers-validate.yml
+./modules/mimo_open_observer/config/mimo_open_observer.yaml
+./modules/mimo_open_observer/registry_patch/modules_registry.entry.yaml
+./modules/mimo_open_observer/registry_patch/wrappers_registry.entries.yaml
+./modules/model_provider_openclaw/config/agent_model_matrix.yaml
+./modules/model_provider_openclaw/config/providers_policy.yaml
+./modules/reseau_ssh/modules/reseau_ssh/reseau_ssh_step2/inventory.yaml
+./modules/reseau_ssh_step1b/modules/reseau_ssh/reseau_ssh_step1b/inventory.yaml
+./modules/runtime_health/config/runtime_health.yml
+./registry/machines_registry.yaml
+./registry/meta_index.yaml
+./registry/modules_registry.yaml
+./registry/ui_surfaces_registry.yaml
+./registry/wrappers_registry.yaml
+./tools/strategy/daily_scalping/config.yaml

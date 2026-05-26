@@ -1,0 +1,228 @@
+flowchart LR
+  %% Evidence: docs/architecture/evidence/00_repo_identity.md
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  %% Evidence: docs/architecture/evidence/02_manifests.md
+  %% Evidence: docs/architecture/evidence/03_entrypoints.md
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  %% Evidence: docs/architecture/evidence/05_external_dependencies.md
+  %% Evidence: docs/architecture/evidence/06_tests.md
+  %% Evidence: docs/architecture/evidence/07_infra.md
+  %% Evidence: docs/architecture/evidence/08_notes_open_questions.md
+
+  subgraph final_core_runtime["Core runtime and persistence"]
+    requirements_txt["requirements.txt"]
+    readme_md["README.md"]
+    webhook_server_py["webhook_server.py"]
+    perf_perf_app_py["perf/perf_app.py"]
+    modules_env_env_py["modules/env/env.py"]
+    shared_logger_py["shared/logger.py"]
+    shared_telegram_notify_py["shared/telegram_notify.py"]
+    modules_auth_webhook_key_py["modules/auth/webhook_key.py"]
+    modules_engines_registry["modules/engines/registry"]
+    modules_webhook_paper_guards["modules/webhook/paper_guards"]
+    adapters_webhook_to_perf_py["adapters/webhook_to_perf.py"]
+    data_root_dir["data/"]
+    state_root_dir["state/"]
+    perf_db_sqlite["perf/perf.db WAL probable"]
+  end
+
+  subgraph final_data_and_business["Data, strategy and execution"]
+    modules_data_center["modules/data_center/"]
+    modules_marketdata["modules/marketdata/"]
+    modules_market_scanner["modules/market_scanner/app/market_scanner.py"]
+    modules_derivatives_collector["modules/derivatives_collector/app/"]
+    modules_decision_engine["modules/decision_engine/app/decision_engine.py"]
+    modules_strategy_logic["modules/decision_engine/app/strategy_logic.py"]
+    modules_strategy_adapter["modules/strategy/adapter.py"]
+    modules_strategy_registry["modules/strategy/registry.py"]
+    modules_risk_calculator["modules/risk_engine/app/risk_calculator.py"]
+    modules_risk_engine["modules/risk_engine/app/risk_engine.py"]
+    modules_execution_engine["modules/execution_engine/"]
+    modules_trade_executor["modules/trade_executor/app/executor.py"]
+    modules_proposition_engine["modules/proposition_engine/app/engine.py"]
+    modules_notification_dispatcher["modules/notification_dispatcher/app/dispatcher.py"]
+    modules_trading_lab_v1["modules/trading_lab_v1/app/trading_lab_v1.py"]
+    modules_trading_realtime_v1["modules/trading_realtime_v1/app/runtime_loop_v1.py"]
+    tools_strategy_root["tools/strategy/"]
+    artifacts_results["artifacts/results/"]
+  end
+
+  subgraph final_interfaces_and_entrypoints["HTTP, CLI and static entrypoints"]
+    modules_localcms_main["modules/localcms/app/main.py"]
+    modules_signal_router_server["modules/signal_router/app/server.py"]
+    modules_signal_router_route["modules/signal_router/app/router.py route(raw)"]
+    modules_memory_bricks_api_v2["modules/memory_bricks/app/api_v2_server.py"]
+    modules_perf_app_candidate["modules/perf/app.py UNKNOWN candidate"]
+    modules_perf_pyc_candidate["modules/perf/__pycache__/app.cpython-311.pyc UNKNOWN candidate"]
+    modules_hf_mcp_public_app["modules/hf_free_platform/spaces/mcp_public/app.py"]
+    modules_hf_tools_private_app["modules/hf_free_platform/spaces/tools_private/app.py"]
+    modules_hf_portal_static_index["modules/hf_free_platform/spaces/portal_static/index.html"]
+    registry_cockpit_static_index["registry/cockpit/automation/index.html"]
+    cli_collector_binance_spot["modules/collector_binance_spot/src/collector_binance_spot/cli.py"]
+    cli_collector_coingecko["modules/collector_coingecko/src/collector_coingecko/cli.py"]
+    cli_governance_validator["modules/governance/openclaw_mcp_policy_validator/cli.py"]
+    cli_governance_validator_main["modules/governance/openclaw_mcp_policy_validator/__main__.py"]
+    cli_kil_v1["modules/kil_v1/src/kil_v1/cli.py"]
+    cli_memory_bricks_v1["modules/memory_bricks/src/memory_bricks_v1/cli.py"]
+    cli_naming_normalizer["modules/naming_normalizer/app/cli.py"]
+    cli_proposition_engine_main["modules/proposition_engine/app/__main__.py"]
+    cli_signal_router_main["modules/signal_router/app/__main__.py"]
+    cli_notification_dispatcher_main["modules/notification_dispatcher/app/__main__.py"]
+    cli_openclaw_operator_bridge_main["modules/openclaw_operator_bridge/app/__main__.py"]
+  end
+
+  subgraph final_ops_and_governance["Ops, orchestration and governance"]
+    scripts_verify_all_sh["scripts/verify_all.sh"]
+    scripts_ai_workers["scripts/ai/workers/"]
+    scripts_tmux["scripts/tmux/"]
+    deploy_systemd["deploy/systemd/"]
+    github_workflows[".github/workflows/"]
+    modules_runtime_health["modules/runtime_health/"]
+    modules_validation_gate["modules/validation_gate/app/"]
+    modules_gateway_openclaw_scripts["modules/gateway_openclaw/scripts/"]
+    modules_openclaw_config_modulaire["modules/openclaw_config_modulaire/app/"]
+    modules_openclaw_operator_bridge["modules/openclaw_operator_bridge/app/bridge.py + client.py + schema.py"]
+    config_machine_runtime_map_yml["config/machine_runtime_map.yml"]
+    configs_openclaw_skill_policy_yaml["configs/openclaw/security/skill_policy.yaml"]
+    modules_model_provider_openclaw_config["modules/model_provider_openclaw/config/"]
+    registry_machines_yaml["registry/machines_registry.yaml"]
+    registry_meta_index_yaml["registry/meta_index.yaml"]
+    registry_modules_yaml["registry/modules_registry.yaml"]
+    registry_ui_surfaces_yaml["registry/ui_surfaces_registry.yaml"]
+    registry_wrappers_yaml["registry/wrappers_registry.yaml"]
+  end
+
+  subgraph final_quality_and_evidence["Quality, contracts and documentation"]
+    docs_architecture_evidence["docs/architecture/evidence/"]
+    docs_architecture_mermaid["docs/architecture/mermaid/"]
+    docs_chantiers["docs/chantiers/"]
+    tests_root["tests/"]
+    module_tests["modules/*/tests/"]
+    scripts_ai_tests["scripts/ai/tests/"]
+    contracts_marketdata["contracts/schemas_marketdata/v1/"]
+    schemas_webhook_event_v1_json["schemas/webhook_event_v1.json"]
+    reports_dir["reports/"]
+    bundles_dir["bundles/"]
+    archive_dir["_archive/"]
+    tmp_dir["tmp/ UNKNOWN usage boundary"]
+    notes_open_questions["08_notes_open_questions.md TODO"]
+    bot_vision_package_json["modules/bot_vision/headless_capture/package.json"]
+  end
+
+  ext_tradingview["TradingView alert"]
+  ext_telegram["Telegram notifier"]
+  ext_openclaw_gateway["OpenClaw gateway probable"]
+  ext_hf_spaces_runtime["Hugging Face Spaces runtime probable"]
+
+  requirements_txt -->|declares runtime deps| webhook_server_py
+  requirements_txt -->|declares runtime deps| perf_perf_app_py
+  requirements_txt -->|declares fastapi deps| modules_localcms_main
+  readme_md -->|documents quickstart| webhook_server_py
+  readme_md -->|documents quickstart| perf_perf_app_py
+
+  webhook_server_py -->|imports| modules_env_env_py
+  webhook_server_py -->|imports| shared_logger_py
+  webhook_server_py -->|imports| modules_auth_webhook_key_py
+  webhook_server_py -->|imports| modules_engines_registry
+  webhook_server_py -->|imports| modules_webhook_paper_guards
+  webhook_server_py -->|risk gate| modules_risk_calculator
+  webhook_server_py -->|execution path| modules_execution_engine
+  webhook_server_py -->|bridge funcs probable| adapters_webhook_to_perf_py
+  webhook_server_py -->|writes events probable| state_root_dir
+
+  perf_perf_app_py -->|imports| modules_env_env_py
+  perf_perf_app_py -->|imports| shared_logger_py
+  perf_perf_app_py -->|persists probable| perf_db_sqlite
+  adapters_webhook_to_perf_py -.->|cross-service adapter probable| perf_perf_app_py
+  shared_telegram_notify_py -.->|shared helper probable| webhook_server_py
+  shared_telegram_notify_py -.->|shared helper probable| perf_perf_app_py
+
+  ext_tradingview --> webhook_server_py
+  data_root_dir -.->|market inputs visible in tree| modules_data_center
+  modules_derivatives_collector -.->|market metrics family probable| modules_data_center
+  modules_data_center -.->|market data family probable| modules_marketdata
+  modules_market_scanner -.->|scan output probable| modules_strategy_logic
+  modules_decision_engine -.->|uses strategy logic probable| modules_strategy_logic
+  modules_strategy_registry -.->|strategy id source probable| modules_strategy_adapter
+  modules_strategy_logic -.->|signal and rule logic visible| modules_risk_calculator
+  modules_risk_calculator -->|imported by| modules_risk_engine
+  modules_trade_executor -->|execution implementation| modules_execution_engine
+  modules_proposition_engine -->|imports| modules_strategy_adapter
+  modules_trading_lab_v1 -->|imports| modules_strategy_adapter
+  modules_trading_realtime_v1 -.->|runtime surface probable| modules_strategy_adapter
+  tools_strategy_root -->|backtests and simulators| artifacts_results
+
+  perf_perf_app_py -->|mounts desk and perf UI probable| registry_cockpit_static_index
+  modules_localcms_main -->|local ops cockpit| registry_cockpit_static_index
+  cli_signal_router_main -->|imports run| modules_signal_router_server
+  modules_signal_router_server -->|imports route| modules_signal_router_route
+  modules_signal_router_route -->|business route| modules_proposition_engine
+  cli_proposition_engine_main -->|cli entrypoint| modules_proposition_engine
+  cli_notification_dispatcher_main -->|imports| modules_notification_dispatcher
+  modules_notification_dispatcher -->|imports strategy id validation| modules_strategy_adapter
+  modules_notification_dispatcher -->|sends probable| ext_telegram
+  cli_openclaw_operator_bridge_main -->|imports| modules_openclaw_operator_bridge
+  modules_openclaw_operator_bridge -.->|gateway call probable| ext_openclaw_gateway
+  modules_hf_portal_static_index -.->|static entrypoint visible only| modules_hf_mcp_public_app
+  modules_hf_mcp_public_app -.->|spaces runtime probable| ext_hf_spaces_runtime
+  modules_hf_tools_private_app -.->|spaces runtime probable| ext_hf_spaces_runtime
+  modules_perf_app_candidate -.->|entrypoint candidate UNKNOWN| perf_perf_app_py
+  modules_perf_pyc_candidate -.->|generated candidate UNKNOWN| perf_perf_app_py
+
+  cli_collector_binance_spot -->|collector entrypoint| modules_marketdata
+  cli_collector_coingecko -->|collector entrypoint| modules_marketdata
+  cli_governance_validator_main -->|python module entrypoint| cli_governance_validator
+  cli_memory_bricks_v1 -.->|CLI family visible in tree| modules_memory_bricks_api_v2
+  cli_naming_normalizer -.->|standalone cli visible in tree| modules_openclaw_config_modulaire
+  cli_kil_v1 -.->|standalone cli visible in tree| scripts_ai_workers
+
+  github_workflows -.->|validation and scheduled workers probable| scripts_ai_workers
+  github_workflows -.->|policy validation probable| configs_openclaw_skill_policy_yaml
+  scripts_verify_all_sh -.->|verification boundary| webhook_server_py
+  scripts_verify_all_sh -.->|verification boundary| perf_perf_app_py
+  scripts_ai_workers -->|job runtime| modules_validation_gate
+  scripts_tmux -.->|health and mobile smoke probable| modules_runtime_health
+  deploy_systemd -.->|schedules runtime health probable| modules_runtime_health
+  modules_runtime_health -.->|configured by| config_machine_runtime_map_yml
+  config_machine_runtime_map_yml --> registry_machines_yaml
+  registry_modules_yaml -->|registry inputs| modules_openclaw_config_modulaire
+  registry_meta_index_yaml -->|registry inputs| modules_openclaw_config_modulaire
+  registry_ui_surfaces_yaml -->|registry inputs| modules_openclaw_config_modulaire
+  registry_wrappers_yaml -->|registry inputs| modules_openclaw_config_modulaire
+  modules_model_provider_openclaw_config -.->|model routing probable| modules_openclaw_operator_bridge
+  modules_gateway_openclaw_scripts -.->|gateway control| ext_openclaw_gateway
+
+  tests_root -.->|repo-wide validation| webhook_server_py
+  tests_root -.->|repo-wide validation| perf_perf_app_py
+  module_tests -.->|module validation| modules_data_center
+  module_tests -.->|module validation| modules_proposition_engine
+  module_tests -.->|module validation| modules_trade_executor
+  scripts_ai_tests -.->|worker contract validation| scripts_ai_workers
+  contracts_marketdata -.->|market data contract probable| modules_data_center
+  schemas_webhook_event_v1_json -.->|webhook contract| webhook_server_py
+  docs_architecture_evidence -->|source of truth for map| docs_architecture_mermaid
+  docs_chantiers -->|tracks chantier decisions| docs_architecture_mermaid
+  reports_dir -.->|outputs and diagnostics probable| scripts_ai_workers
+  bundles_dir -.->|packaged outputs probable| docs_architecture_mermaid
+  archive_dir -.->|historical surfaces visible only| docs_architecture_mermaid
+  tmp_dir -.->|unknown support boundary| docs_architecture_mermaid
+  notes_open_questions -.->|remaining unknowns| docs_architecture_mermaid
+  bot_vision_package_json -.->|node runtime dependency evidence| ext_hf_spaces_runtime
+
+  classDef core fill:#E5E7EB,stroke:#374151,color:#111827
+  classDef data fill:#DCFCE7,stroke:#16A34A,color:#14532D
+  classDef api fill:#FFEDD5,stroke:#EA580C,color:#7C2D12
+  classDef business fill:#F3E8FF,stroke:#9333EA,color:#581C87
+  classDef execution fill:#DBEAFE,stroke:#2563EB,color:#1E3A8A
+  classDef infra fill:#FEF9C3,stroke:#CA8A04,color:#713F12
+  classDef external fill:#FEE2E2,stroke:#DC2626,color:#7F1D1D
+  classDef unknown fill:#F5F5F5,stroke:#737373,color:#404040,stroke-dasharray: 5 5
+
+  class requirements_txt,readme_md,webhook_server_py,perf_perf_app_py,modules_env_env_py,shared_logger_py,shared_telegram_notify_py,modules_auth_webhook_key_py,modules_engines_registry,modules_webhook_paper_guards,adapters_webhook_to_perf_py,data_root_dir,state_root_dir,perf_db_sqlite core
+  class modules_data_center,modules_marketdata,modules_market_scanner,modules_derivatives_collector,contracts_marketdata,artifacts_results data
+  class modules_localcms_main,modules_signal_router_server,modules_signal_router_route,modules_memory_bricks_api_v2,modules_hf_mcp_public_app,modules_hf_tools_private_app,modules_hf_portal_static_index,registry_cockpit_static_index,cli_collector_binance_spot,cli_collector_coingecko,cli_governance_validator,cli_governance_validator_main,cli_kil_v1,cli_memory_bricks_v1,cli_naming_normalizer,cli_proposition_engine_main,cli_signal_router_main,cli_notification_dispatcher_main,cli_openclaw_operator_bridge_main api
+  class modules_decision_engine,modules_strategy_logic,modules_strategy_adapter,modules_strategy_registry,modules_risk_calculator,modules_risk_engine,modules_proposition_engine,modules_notification_dispatcher,modules_trading_lab_v1,modules_validation_gate business
+  class modules_execution_engine,modules_trade_executor,modules_trading_realtime_v1,tools_strategy_root execution
+  class scripts_verify_all_sh,scripts_ai_workers,scripts_tmux,deploy_systemd,github_workflows,modules_runtime_health,modules_gateway_openclaw_scripts,modules_openclaw_config_modulaire,modules_openclaw_operator_bridge,config_machine_runtime_map_yml,configs_openclaw_skill_policy_yaml,modules_model_provider_openclaw_config,registry_machines_yaml,registry_meta_index_yaml,registry_modules_yaml,registry_ui_surfaces_yaml,registry_wrappers_yaml,docs_architecture_evidence,docs_architecture_mermaid,docs_chantiers,tests_root,module_tests,scripts_ai_tests,reports_dir,bundles_dir,archive_dir,bot_vision_package_json infra
+  class ext_tradingview,ext_telegram,ext_openclaw_gateway,ext_hf_spaces_runtime external
+  class modules_perf_app_candidate,modules_perf_pyc_candidate,tmp_dir,notes_open_questions unknown

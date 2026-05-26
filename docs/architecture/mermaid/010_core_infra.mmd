@@ -1,0 +1,86 @@
+flowchart TD
+  %% Evidence: docs/architecture/evidence/02_manifests.md
+  subgraph core_manifests_runtime["core_manifests_runtime"]
+    core_manifest_requirements_txt["requirements.txt"]
+    core_manifest_readme_md["README.md"]
+  end
+
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  %% Evidence: docs/architecture/evidence/07_infra.md
+  subgraph core_config_and_registry["core_config_and_registry"]
+    core_config_machine_runtime_map_yml["config/machine_runtime_map.yml"]
+    core_config_skill_policy_yaml["configs/openclaw/security/skill_policy.yaml"]
+    core_config_runtime_health_yml["modules/runtime_health/config/runtime_health.yml"]
+    core_registry_machines_registry_yaml["registry/machines_registry.yaml"]
+    core_registry_meta_index_yaml["registry/meta_index.yaml"]
+    core_registry_modules_registry_yaml["registry/modules_registry.yaml"]
+    core_registry_ui_surfaces_registry_yaml["registry/ui_surfaces_registry.yaml"]
+    core_registry_wrappers_registry_yaml["registry/wrappers_registry.yaml"]
+  end
+
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  subgraph core_shared_runtime["core_shared_runtime"]
+    core_modules_env_env_py["modules/env/env.py"]
+    core_shared_logger_py["shared/logger.py"]
+    core_shared_telegram_notify_py["shared/telegram_notify.py"]
+    core_modules_auth_webhook_key["modules/auth/webhook_key.py"]
+    core_modules_engines_registry["modules/engines/registry"]
+    core_modules_webhook_paper_guards["modules/webhook/paper_guards"]
+    core_adapter_webhook_to_perf_py["adapters/webhook_to_perf.py"]
+  end
+
+  %% Evidence: docs/architecture/evidence/03_entrypoints.md
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  subgraph core_entrypoints["core_entrypoints"]
+    core_entry_webhook_server_py["webhook_server.py"]
+    core_entry_perf_perf_app_py["perf/perf_app.py"]
+    core_entry_modules_perf_app_py["modules/perf/app.py UNKNOWN candidate"]
+  end
+
+  %% Evidence: docs/architecture/evidence/07_infra.md
+  subgraph core_internal_infra["core_internal_infra"]
+    core_deploy_systemd["deploy/systemd/"]
+    core_script_verify_all_sh["scripts/verify_all.sh"]
+  end
+
+  core_manifest_requirements_txt -->|declares runtime deps| core_entry_webhook_server_py
+  core_manifest_requirements_txt -->|declares runtime deps| core_entry_perf_perf_app_py
+  core_manifest_readme_md -->|documents quickstart| core_entry_webhook_server_py
+  core_manifest_readme_md -->|documents quickstart| core_entry_perf_perf_app_py
+
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  core_entry_webhook_server_py -->|imports| core_modules_env_env_py
+  core_entry_webhook_server_py -->|imports| core_shared_logger_py
+  core_entry_webhook_server_py -->|imports| core_modules_auth_webhook_key
+  core_entry_webhook_server_py -->|imports| core_modules_engines_registry
+  core_entry_webhook_server_py -->|imports| core_modules_webhook_paper_guards
+
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  core_entry_perf_perf_app_py -->|imports| core_modules_env_env_py
+  core_entry_perf_perf_app_py -->|imports| core_shared_logger_py
+
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  core_entry_modules_perf_app_py -.->|entrypoint candidate UNKNOWN| core_entry_perf_perf_app_py
+
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  core_shared_telegram_notify_py -.->|shared runtime helper probable| core_entry_webhook_server_py
+  core_shared_telegram_notify_py -.->|shared runtime helper probable| core_entry_perf_perf_app_py
+  core_adapter_webhook_to_perf_py -.->|cross-service adapter probable| core_entry_webhook_server_py
+  core_adapter_webhook_to_perf_py -.->|cross-service adapter probable| core_entry_perf_perf_app_py
+
+  %% Evidence: docs/architecture/evidence/07_infra.md
+  core_config_machine_runtime_map_yml -.->|infra mapping probable| core_deploy_systemd
+  core_config_skill_policy_yaml -.->|infra policy probable| core_deploy_systemd
+  core_config_runtime_health_yml -.->|runtime health probable| core_deploy_systemd
+  core_registry_machines_registry_yaml -.->|registry input probable| core_deploy_systemd
+  core_registry_meta_index_yaml -.->|registry input probable| core_deploy_systemd
+  core_registry_modules_registry_yaml -.->|registry input probable| core_deploy_systemd
+  core_registry_ui_surfaces_registry_yaml -.->|registry input probable| core_deploy_systemd
+  core_registry_wrappers_registry_yaml -.->|registry input probable| core_deploy_systemd
+  core_script_verify_all_sh -.->|verification boundary| core_entry_webhook_server_py
+  core_script_verify_all_sh -.->|verification boundary| core_entry_perf_perf_app_py
+
+  core_entry_webhook_server_py --> core_step_030_business_logic["030_business_logic.mmd"]
+  core_entry_webhook_server_py --> core_step_020_data_flows["020_data_flows.mmd"]
+  core_entry_perf_perf_app_py --> core_step_040_interfaces_workers["040_interfaces_workers.mmd"]

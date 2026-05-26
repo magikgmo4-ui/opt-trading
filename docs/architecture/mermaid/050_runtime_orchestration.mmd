@@ -1,0 +1,125 @@
+flowchart TD
+  %% Evidence: docs/architecture/evidence/07_infra.md
+  subgraph worker_github_actions_and_gates["worker_github_actions_and_gates"]
+    worker_gh_registry_validation[".github/workflows/gh-actions-registry-validation.yml"]
+    worker_gh_openclaw_policy_static[".github/workflows/openclaw-mcp-policy-static-validator.yml"]
+    worker_gh_openclaw_skill_policy[".github/workflows/openclaw-skill-policy-warning-only.yml"]
+    worker_gh_strict_workers_schedule[".github/workflows/strict-workers-schedule.yml"]
+    worker_gh_strict_workers_smoke[".github/workflows/strict-workers-smoke.yml"]
+    worker_gh_strict_workers_validate[".github/workflows/strict-workers-validate.yml"]
+    worker_docs_github_actions_jobs_registry["docs/registries/GITHUB_ACTIONS_JOBS_REGISTRY_01.yml"]
+    worker_docs_github_actions_workflows_inventory["docs/registries/GITHUB_ACTIONS_WORKFLOWS_INVENTORY_01.yml"]
+    worker_script_validate_gh_actions_registries["scripts/validate_gh_actions_registries.py"]
+    worker_validation_gate_app["modules/validation_gate/app/gate.py + operator_gate.py + risk_check.py + schema.py"]
+  end
+
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  subgraph worker_openclaw_orchestration["worker_openclaw_orchestration"]
+    worker_gateway_openclaw_scripts["modules/gateway_openclaw/scripts/start.sh + stop.sh + attach.sh + logs.sh"]
+    worker_openclaw_config_modulaire["modules/openclaw_config_modulaire/app/agents.json5 + tools.json5 + openclaw_root_template.json5"]
+    worker_openclaw_operator_bridge["modules/openclaw_operator_bridge/app/bridge.py + client.py + schema.py + __main__.py"]
+    worker_openclaw_github_actions_bridge["modules/openclaw_github_actions_bridge/app/bridge.py"]
+    worker_openclaw_tmux_operator["modules/openclaw_tmux_operator/scripts/health_aggregate.py"]
+    worker_openclaw_mobile_control["scripts/ai/workers/openclaw_mobile_control.py"]
+    worker_openclaw_gh_actions_dry_run["scripts/openclaw_gh_actions_dry_run.py"]
+    worker_adapter_botpress_openclaw["adapter_botpress_openclaw.py"]
+  end
+
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  subgraph worker_strict_workers_runtime["worker_strict_workers_runtime"]
+    worker_ai_health_status["scripts/ai/workers/health_status.py"]
+    worker_ai_runner_readonly["scripts/ai/workers/runner_readonly.py"]
+    worker_ai_run_task_sh["scripts/ai/workers/run_task.sh"]
+    worker_ai_validate_job["scripts/ai/workers/_validate_job.py"]
+    worker_ai_job_packets["scripts/ai/workers/job_packets/*.json"]
+    worker_ai_tasks_index["scripts/ai/workers/tasks.index.json"]
+    worker_ai_models_registry["scripts/ai/workers/models.registry.json"]
+    worker_ai_signal_processor["scripts/ai/workers/signal_processor.py"]
+    worker_ai_signal_stats["scripts/ai/workers/signal_stats.py"]
+    worker_ai_stuck_job_detector["scripts/ai/workers/stuck_job_detector.py"]
+    worker_ai_log_archive["scripts/ai/workers/strict_worker_log_archive.py"]
+    worker_ai_output_schema_check["scripts/ai/workers/strict_worker_output_schema_check.py"]
+    worker_ai_denied_command_scan["scripts/ai/workers/strict_worker_denied_command_scan.py"]
+    worker_ai_localcms_sync["scripts/ai/workers/localcms_automation_status_sync.py"]
+    worker_ai_ledger_writer["scripts/ai/workers/ledger_writer.py"]
+    worker_ai_ledger_audits["scripts/ai/workers/ledger_trace_id_audit.py + ledger_schema_validation.py + ledger_rotation_check.py + ledger_replay.py + ledger_blocked_events_digest.py"]
+  end
+
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  subgraph worker_tmux_and_runtime_surfaces["worker_tmux_and_runtime_surfaces"]
+    worker_tmux_health_check["scripts/tmux/health_check.py"]
+    worker_tmux_health_aggregator["scripts/tmux/health_aggregator.sh"]
+    worker_tmux_mobile_smoke["scripts/tmux/mobile_smoke.sh"]
+    worker_tmux_sanity["scripts/tmux/sanity.sh"]
+    worker_runtime_health_modules["modules/runtime_health/fleet_orchestrator.py + healthcheck.py + machine_map.py"]
+    worker_runtime_health_config["modules/runtime_health/config/runtime_health.yml"]
+    worker_deploy_systemd_runtime["deploy/systemd/ opt-trading-fleet-orchestrator.* + opt-trading-runtime-health.*"]
+  end
+
+  %% Evidence: docs/architecture/evidence/07_infra.md
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  subgraph worker_registries_and_policies["worker_registries_and_policies"]
+    worker_registry_machines["registry/machines_registry.yaml"]
+    worker_registry_meta_index["registry/meta_index.yaml"]
+    worker_registry_modules["registry/modules_registry.yaml"]
+    worker_registry_ui_surfaces["registry/ui_surfaces_registry.yaml"]
+    worker_registry_wrappers["registry/wrappers_registry.yaml"]
+    worker_config_machine_runtime_map["config/machine_runtime_map.yml"]
+    worker_config_skill_policy["configs/openclaw/security/skill_policy.yaml"]
+    worker_model_provider_policy["modules/model_provider_openclaw/config/agent_model_matrix.yaml + providers_policy.yaml"]
+    worker_registry_patch_entries["modules/mimo_open_observer/registry_patch/modules_registry.entry.yaml + wrappers_registry.entries.yaml"]
+    worker_registry_readers["modules/machines_registry_reader + modules/modules_registry_reader + modules/registry_meta_reader + modules/wrappers_registry_reader + modules/registry_router"]
+  end
+
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  worker_script_validate_gh_actions_registries -->|validates| worker_docs_github_actions_jobs_registry
+  worker_script_validate_gh_actions_registries -->|validates| worker_docs_github_actions_workflows_inventory
+  worker_gh_registry_validation -.->|uses registry validation probable| worker_script_validate_gh_actions_registries
+  worker_gh_openclaw_policy_static -.->|policy validation probable| worker_config_skill_policy
+  worker_gh_openclaw_skill_policy -.->|policy warning probable| worker_config_skill_policy
+  worker_gh_strict_workers_schedule -.->|runs strict workers probable| worker_ai_runner_readonly
+  worker_gh_strict_workers_smoke -.->|smoke gate probable| worker_ai_health_status
+  worker_gh_strict_workers_validate -.->|validation gate probable| worker_ai_validate_job
+
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  worker_openclaw_operator_bridge -->|gateway call probable| worker_gateway_openclaw_scripts
+  worker_openclaw_github_actions_bridge -.->|job routing probable| worker_openclaw_operator_bridge
+  worker_openclaw_gh_actions_dry_run -.->|dry run probable| worker_openclaw_github_actions_bridge
+  worker_openclaw_tmux_operator -.->|tmux health probable| worker_tmux_health_check
+  worker_adapter_botpress_openclaw -.->|adapter runtime probable| worker_openclaw_operator_bridge
+
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  worker_tmux_mobile_smoke -->|imports ALL_SESSIONS| worker_tmux_health_check
+  worker_tmux_sanity -->|imports tmux checks| worker_tmux_health_check
+  worker_deploy_systemd_runtime -.->|schedules runtime health probable| worker_runtime_health_modules
+  worker_runtime_health_modules -.->|configured by| worker_runtime_health_config
+  worker_ai_health_status -->|checks systemd timers| worker_deploy_systemd_runtime
+
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  worker_ai_run_task_sh --> worker_ai_validate_job
+  worker_ai_runner_readonly --> worker_ai_tasks_index
+  worker_ai_runner_readonly --> worker_ai_job_packets
+  worker_ai_signal_processor -.->|job routing probable| worker_ai_runner_readonly
+  worker_ai_ledger_writer --> worker_ai_ledger_audits
+  worker_ai_stuck_job_detector -.->|failure detection probable| worker_ai_runner_readonly
+  worker_ai_log_archive -.->|failure logs analysis probable| worker_ai_runner_readonly
+  worker_ai_output_schema_check -.->|result routing validation probable| worker_ai_runner_readonly
+  worker_ai_denied_command_scan -.->|validation gate probable| worker_ai_runner_readonly
+  worker_ai_localcms_sync -.->|status sync probable| worker_ai_runner_readonly
+
+  %% Evidence: docs/architecture/evidence/07_infra.md
+  worker_config_machine_runtime_map --> worker_registry_machines
+  worker_registry_modules --> worker_registry_readers
+  worker_registry_meta_index --> worker_registry_readers
+  worker_registry_wrappers --> worker_registry_readers
+  worker_registry_ui_surfaces --> worker_registry_readers
+  worker_model_provider_policy -.->|openclaw model routing probable| worker_openclaw_operator_bridge
+  worker_registry_patch_entries -.->|registry patch probable| worker_registry_modules
+
+  worker_validation_gate_app --> worker_step_030_business_logic["030_business_logic.mmd"]
+  worker_ai_signal_processor --> worker_step_040_interfaces_workers["040_interfaces_workers.mmd"]
+  worker_runtime_health_modules --> worker_step_010_core_infra["010_core_infra.mmd"]
+  worker_registry_readers --> worker_step_010_core_infra

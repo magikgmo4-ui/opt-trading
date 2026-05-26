@@ -1,0 +1,100 @@
+flowchart TD
+  %% Evidence: docs/architecture/evidence/02_manifests.md
+  biz_manifest_requirements_txt["requirements.txt"]
+
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  subgraph strat_signal_rules["strat_signal_rules"]
+    strat_decision_engine_runner["modules/decision_engine/app/decision_engine.py"]
+    strat_decision_strategy_logic["modules/decision_engine/app/strategy_logic.py"]
+    strat_strategy_adapter["modules/strategy/adapter.py"]
+    strat_strategy_registry["modules/strategy/registry.py"]
+    strat_trading_lab_runner["modules/trading_lab_v1/app/trading_lab_v1.py"]
+  end
+
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  subgraph biz_scoring_and_proposition["biz_scoring_and_proposition"]
+    scoring_desk_pro_service["modules/desk_pro/service/scoring.py"]
+    scoring_daily_scalping_scorer["tools/strategy/daily_scalping/scorer.py"]
+    scoring_daily_scalping_detectors["tools/strategy/daily_scalping/detectors.py"]
+    biz_proposition_engine["modules/proposition_engine/app/engine.py"]
+    biz_proposition_builder_prompt["modules/proposition_engine/app/builder_prompt.py"]
+    biz_proposition_engines_query["modules/proposition_engine/app/engines.py"]
+    biz_proposition_schema["modules/proposition_engine/app/schema.py"]
+  end
+
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  subgraph risk_rules_and_sizing["risk_rules_and_sizing"]
+    risk_risk_calculator["modules/risk_engine/app/risk_calculator.py"]
+    risk_risk_engine["modules/risk_engine/app/risk_engine.py"]
+    risk_webhook_risk_gate["webhook_server.py risk checks"]
+  end
+
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  subgraph biz_backtest_paths["biz_backtest_paths"]
+    data_daily_scalping_load_data["tools/strategy/daily_scalping/load_data.py"]
+    market_daily_scalping_indicators["tools/strategy/daily_scalping/indicators.py"]
+    pricing_daily_scalping_simulator["tools/strategy/daily_scalping/simulator.py"]
+    biz_daily_scalping_run_backtest["tools/strategy/daily_scalping/run_backtest.py"]
+    data_dca_spot_load_data["tools/strategy/dca_spot/load_data.py"]
+    market_dca_spot_indicators["tools/strategy/dca_spot/indicators.py"]
+    pricing_dca_spot_engine["tools/strategy/dca_spot/engine.py"]
+    biz_dca_spot_run_backtest["tools/strategy/dca_spot/run_backtest.py"]
+    pricing_dca_capital_simulators["tools/strategy/dca_capital/simulator.py + simulator_v2.py"]
+    biz_dca_capital_runs["tools/strategy/dca_capital/run_comparison.py + run_v2_grid.py"]
+    strat_dca_cfd_short_detector["tools/strategy/dca_cfd_short/detector.py"]
+    pricing_dca_cfd_short_simulator["tools/strategy/dca_cfd_short/simulator.py"]
+    biz_dca_cfd_short_runs["tools/strategy/dca_cfd_short/run_cfd_grid.py + run_eval.py + run_signal_b.py"]
+  end
+
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  biz_manifest_requirements_txt -->|declares runtime deps| scoring_desk_pro_service
+  biz_manifest_requirements_txt -->|declares runtime deps| risk_risk_calculator
+  biz_manifest_requirements_txt -->|declares pandas stack| biz_daily_scalping_run_backtest
+  biz_manifest_requirements_txt -->|declares pandas stack| biz_dca_spot_run_backtest
+
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  strat_trading_lab_runner -->|imports| strat_strategy_adapter
+  biz_proposition_engine -->|imports| strat_strategy_adapter
+  biz_proposition_engine -->|imports| biz_proposition_schema
+  biz_proposition_engine -->|imports| biz_proposition_engines_query
+  biz_proposition_engine -->|imports| biz_proposition_builder_prompt
+  biz_proposition_builder_prompt -->|imports schema| biz_proposition_schema
+
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  scoring_daily_scalping_scorer -->|imports Setup| scoring_daily_scalping_detectors
+  biz_daily_scalping_run_backtest -->|imports| data_daily_scalping_load_data
+  biz_daily_scalping_run_backtest -->|imports| market_daily_scalping_indicators
+  biz_daily_scalping_run_backtest -->|imports| scoring_daily_scalping_detectors
+  biz_daily_scalping_run_backtest -->|imports| scoring_daily_scalping_scorer
+  biz_daily_scalping_run_backtest -->|imports| pricing_daily_scalping_simulator
+
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  biz_dca_spot_run_backtest -->|imports| data_dca_spot_load_data
+  biz_dca_spot_run_backtest -->|imports| market_dca_spot_indicators
+  biz_dca_spot_run_backtest -->|imports| pricing_dca_spot_engine
+  biz_dca_capital_runs -->|imports dca_spot data| data_dca_spot_load_data
+  biz_dca_capital_runs -->|imports| pricing_dca_capital_simulators
+  biz_dca_cfd_short_runs -->|imports dca_spot data| data_dca_spot_load_data
+  biz_dca_cfd_short_runs -->|imports| strat_dca_cfd_short_detector
+  biz_dca_cfd_short_runs -->|imports| pricing_dca_cfd_short_simulator
+
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  risk_risk_calculator -->|imported by| risk_risk_engine
+  risk_risk_calculator -->|imported by| risk_webhook_risk_gate
+
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  strat_strategy_registry -.->|strategy id source probable| strat_strategy_adapter
+  strat_decision_engine_runner -.->|uses strategy logic probable| strat_decision_strategy_logic
+  strat_decision_strategy_logic -.->|signal and rule logic visible in filename| risk_risk_calculator
+
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  risk_webhook_risk_gate --> biz_step_010_core_infra["010_core_infra.mmd"]
+  biz_proposition_engine --> biz_step_040_interfaces_workers["040_interfaces_workers.mmd"]
+  risk_webhook_risk_gate --> biz_step_040_interfaces_workers
+  biz_daily_scalping_run_backtest --> biz_step_020_data_flows["020_data_flows.mmd"]
+  biz_dca_spot_run_backtest --> biz_step_020_data_flows
+  strat_trading_lab_runner --> biz_step_020_data_flows

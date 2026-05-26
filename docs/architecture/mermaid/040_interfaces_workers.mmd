@@ -1,0 +1,121 @@
+flowchart TD
+  %% Evidence: docs/architecture/evidence/02_manifests.md
+  api_manifest_requirements_txt["requirements.txt"]
+
+  %% Evidence: docs/architecture/evidence/03_entrypoints.md
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  subgraph api_http_and_route_surfaces["api_http_and_route_surfaces"]
+    api_webhook_server_fastapi["webhook_server.py"]
+    api_webhook_handlers["api_state + api_paper_guards + api_events + api_metrics + api_risk_quote + api_risk_status + dash"]
+    api_perf_perf_app["perf/perf_app.py"]
+    api_perf_handlers["perf_event + perf_summary + perf_equity + perf_open_trades + perf_trades + perf_ui"]
+    api_perf_desk_router["modules.desk_pro.api.routes.router"]
+    api_perf_desk_mount["modules.desk_pro.mount.mount"]
+    api_localcms_main["modules/localcms/app/main.py"]
+    api_localcms_handlers["health + menu + runtime_tmux + journal + metrics + ui_index"]
+    api_signal_router_server["modules/signal_router/app/server.py"]
+    api_signal_router_handler["SignalHandler"]
+    api_signal_router_route["modules/signal_router/app/router.py route(raw)"]
+    api_memory_bricks_v2_server["modules/memory_bricks/app/api_v2_server.py"]
+    api_modules_perf_app_candidate["modules/perf/app.py UNKNOWN candidate"]
+    api_modules_perf_pyc_candidate["modules/perf/__pycache__/app.cpython-311.pyc UNKNOWN candidate"]
+    api_hf_mcp_public_app["modules/hf_free_platform/spaces/mcp_public/app.py"]
+    api_hf_tools_private_app["modules/hf_free_platform/spaces/tools_private/app.py"]
+    api_hf_portal_static_index["modules/hf_free_platform/spaces/portal_static/index.html"]
+    api_registry_cockpit_index["registry/cockpit/automation/index.html"]
+  end
+
+  %% Evidence: docs/architecture/evidence/03_entrypoints.md
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  subgraph cli_entrypoints_surface["cli_entrypoints_surface"]
+    cli_collector_binance_spot["modules/collector_binance_spot/.../cli.py"]
+    cli_collector_coingecko["modules/collector_coingecko/.../cli.py"]
+    cli_governance_validator["modules/governance/openclaw_mcp_policy_validator/cli.py"]
+    cli_governance_validator_main["modules/governance/openclaw_mcp_policy_validator/__main__.py"]
+    cli_kil_v1["modules/kil_v1/src/kil_v1/cli.py"]
+    cli_memory_bricks_v1["modules/memory_bricks/src/memory_bricks_v1/cli.py"]
+    cli_naming_normalizer["modules/naming_normalizer/app/cli.py"]
+    cli_proposition_engine_main["modules/proposition_engine/app/__main__.py"]
+    cli_signal_router_main["modules/signal_router/app/__main__.py"]
+    cli_notification_dispatcher_main["modules/notification_dispatcher/app/__main__.py"]
+    cli_openclaw_operator_bridge_main["modules/openclaw_operator_bridge/app/__main__.py"]
+  end
+
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  subgraph worker_jobs_and_execution_runtime["worker_jobs_and_execution_runtime"]
+    worker_perf_monitors_loop["perf/perf_app.py monitors_loop()"]
+    worker_runtime_health_modules["modules/runtime_health/fleet_orchestrator.py + healthcheck.py"]
+    worker_runtime_health_config["modules/runtime_health/config/runtime_health.yml"]
+    worker_deploy_systemd_runtime["deploy/systemd/ opt-trading-fleet-orchestrator.* + opt-trading-runtime-health.*"]
+    worker_trading_realtime_runtime["modules/trading_realtime_v1/app/runtime_loop_v1.py + timer_v1.py + event_bridge_v1.py"]
+    worker_notification_dispatcher["modules/notification_dispatcher/app/dispatcher.py"]
+    worker_notification_events["modules/notification_dispatcher/app/events.py"]
+    exec_trade_executor["modules/trade_executor/app/executor.py"]
+    exec_openclaw_operator_bridge["modules/openclaw_operator_bridge/app/bridge.py"]
+    exec_openclaw_operator_client["modules/openclaw_operator_bridge/app/client.py"]
+    exec_openclaw_operator_schema["modules/openclaw_operator_bridge/app/schema.py"]
+  end
+
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  subgraph ext_connectors_if_visible["ext_connectors_if_visible"]
+    ext_telegram_gateway["Telegram notifier"]
+    ext_openclaw_gateway["OpenClaw gateway probable"]
+    broker_bitget_bridge_py["bitget_bridge.py"]
+    broker_simex_bitget_bridge["modules/simex_bitget_bridge/app/simex_bitget_bridge.py"]
+  end
+
+  api_manifest_requirements_txt -->|declares fastapi runtime deps| api_webhook_server_fastapi
+  api_manifest_requirements_txt -->|declares fastapi runtime deps| api_perf_perf_app
+  api_manifest_requirements_txt -->|declares fastapi runtime deps| api_localcms_main
+
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  api_webhook_server_fastapi -->|defines handlers| api_webhook_handlers
+  api_perf_perf_app -->|defines handlers| api_perf_handlers
+  api_perf_perf_app -->|imports router| api_perf_desk_router
+  api_perf_perf_app -->|imports mount| api_perf_desk_mount
+  api_localcms_main -->|defines handlers| api_localcms_handlers
+  api_signal_router_server -->|defines handler| api_signal_router_handler
+  api_signal_router_server -->|imports route| api_signal_router_route
+  cli_signal_router_main -->|imports run| api_signal_router_server
+
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  cli_proposition_engine_main -.->|cli entrypoint to business engine| worker_business_proposition_engine["modules/proposition_engine/app/engine.py"]
+  cli_notification_dispatcher_main -->|imports| worker_notification_dispatcher
+  cli_notification_dispatcher_main -->|imports| worker_notification_events
+  worker_notification_dispatcher -->|imports strategy id validation| worker_business_strategy_adapter["modules/strategy/adapter.py"]
+  worker_notification_dispatcher -->|imports send_telegram_html| ext_telegram_gateway
+
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  cli_openclaw_operator_bridge_main -->|imports| exec_openclaw_operator_bridge
+  cli_openclaw_operator_bridge_main -->|imports| exec_openclaw_operator_schema
+  exec_openclaw_operator_bridge -->|imports| exec_openclaw_operator_client
+  exec_openclaw_operator_bridge -->|imports| exec_openclaw_operator_schema
+  exec_openclaw_operator_client -.->|gateway call probable| ext_openclaw_gateway
+
+  %% Evidence: docs/architecture/evidence/04_imports_raw.txt
+  exec_trade_executor -->|imports proposition schema| worker_business_proposition_schema["modules/proposition_engine/app/schema.py"]
+  api_webhook_server_fastapi -->|imports Executor| exec_runtime_execution_engine["modules/execution_engine/executor.py"]
+  api_webhook_server_fastapi -->|uses HTTP perf bridge funcs| api_perf_perf_app
+  api_modules_perf_app_candidate -.->|entrypoint candidate UNKNOWN| api_perf_perf_app
+
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  worker_runtime_health_modules -.->|configured by| worker_runtime_health_config
+  worker_deploy_systemd_runtime -.->|schedules runtime health probable| worker_runtime_health_modules
+  worker_deploy_systemd_runtime -.->|schedules runtime surfaces probable| worker_trading_realtime_runtime
+  worker_perf_monitors_loop -->|worker inside perf app| api_perf_perf_app
+  api_memory_bricks_v2_server -.->|http server visible in tree probable| cli_memory_bricks_v1
+  broker_bitget_bridge_py -->|imports| broker_simex_bitget_bridge
+
+  %% Evidence: docs/architecture/evidence/03_entrypoints.md
+  api_modules_perf_pyc_candidate -.->|generated candidate UNKNOWN| api_perf_perf_app
+  api_hf_portal_static_index -.->|static entrypoint visible only| api_hf_mcp_public_app
+  cli_collector_binance_spot --> api_step_020_data_flows["020_data_flows.mmd"]
+  cli_collector_coingecko --> api_step_020_data_flows
+  api_signal_router_route --> api_step_030_business_logic["030_business_logic.mmd"]
+  worker_business_proposition_engine --> api_step_030_business_logic
+  worker_business_strategy_adapter --> api_step_030_business_logic
+  api_webhook_server_fastapi --> api_step_010_core_infra["010_core_infra.mmd"]
+  api_perf_perf_app --> api_step_010_core_infra
+  api_localcms_main --> api_step_010_core_infra
