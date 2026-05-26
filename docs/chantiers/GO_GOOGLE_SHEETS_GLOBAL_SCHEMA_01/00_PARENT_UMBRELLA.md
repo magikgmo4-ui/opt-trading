@@ -78,3 +78,21 @@ PF_GOOGLE_SHEETS_CONSUMER / google_sheets__market_reporting = implemented
 
 Ce pont est hors scope du parent umbrella Google Sheets (il vit sous PF_DATA_CENTER), mais il doit être visible dans la continuité.
 
+
+
+## Scope boundary
+
+`	ext
+GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01 = parent umbrella de schéma Google Sheets, pas chaîne produit finale.
+
+PF_DATA_CENTER = chaîne produit / registre normalisé.
+PF_DESK_PRO = hub consumer final opérateur.
+PF_GOOGLE_SHEETS_CONSUMER = surface consumer / export / reporting / journal.
+`
+
+
+`	ext
+NOTE: ce NEXT est doc/template local, pas une priorité produit centrale.
+NEXT produit réel (hors scope Google Sheets) :
+GO_OPT_TRADING_DATA_CENTER_CHILD_PRODUCER_WRITE_VALIDATION_01
+`
