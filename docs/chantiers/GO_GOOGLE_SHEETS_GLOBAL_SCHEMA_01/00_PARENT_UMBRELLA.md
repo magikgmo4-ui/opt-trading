@@ -6,12 +6,12 @@ go_id: GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01
 status: active
 lifecycle_stage: umbrella
 source_kind: canonical
-updated_at: 2026-05-24
+updated_at: 2026-05-26
 links:
   - docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/KANBAN.md
   - docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/INVENTORY.md
-  - docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/CANONICAL_SHEETS_DRAFT.md
-  - docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/PRODUCER_CONSUMER_MAP_DRAFT.md
+  - docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/CANONICAL_SHEETS.md
+  - docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/PRODUCER_CONSUMER_MAP.md
   - docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/fixtures/README.md
   - docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/10_CURRENT_SHEETS_SURFACES.md
   - docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/20_GLOBAL_SCHEMA_TARGET.md
@@ -63,8 +63,18 @@ Desk Pro est le hub consumer final ; Google Sheets doit devenir un consumer tran
 ## Prochain child logique
 
 ```text
-GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_INVENTORY_01
+GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_TEMPLATE_EXPORT_01
 ```
 
-Objectif : inventorier toutes les références Google Sheets, CSV, table registry, exports, dashboards, logs tabulaires, snapshots et fixtures, sans toucher au code applicatif.
+Objectif : produire un template de feuille transportable (fixtures-first), ou un plan de migration, sans rouvrir les chantiers déjà intégrés.
+
+## Pont Data Center (établi)
+
+Le consumer market_metrics est livré côté Google Sheets global schema, et le rattachement Data Center est implémenté :
+
+```text
+PF_GOOGLE_SHEETS_CONSUMER / google_sheets__market_reporting = implemented
+```
+
+Ce pont est hors scope du parent umbrella Google Sheets (il vit sous PF_DATA_CENTER), mais il doit être visible dans la continuité.
 
