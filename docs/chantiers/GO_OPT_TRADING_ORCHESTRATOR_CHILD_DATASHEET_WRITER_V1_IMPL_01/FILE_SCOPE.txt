@@ -1,0 +1,4 @@
+docs/chantiers/GO_OPT_TRADING_ORCHESTRATOR_CHILD_DATASHEET_WRITER_V1_IMPL_01/**
+docs/index/inbox/GO_OPT_TRADING_ORCHESTRATOR_CHILD_DATASHEET_WRITER_V1_IMPL_01.md
+modules/datasheet_writer/app/sheets_adapter.py
+modules/datasheet_writer/tests/test_sheets_adapter.py
