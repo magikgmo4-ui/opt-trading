@@ -18,6 +18,13 @@ try:
 except ImportError:
     _DISPATCHER_AVAILABLE = False
 
+    class PipelineEvent:  # type: ignore  # minimal fallback when dispatcher unavailable
+        def __init__(self, *, event_type, signal_id="", request_id="", payload=None):
+            self.event_type = event_type
+            self.signal_id = signal_id
+            self.request_id = request_id
+            self.payload = payload or {}
+
 log = logging.getLogger("result_tracker")
 
 _OUTCOME_EPSILON = 1e-8
