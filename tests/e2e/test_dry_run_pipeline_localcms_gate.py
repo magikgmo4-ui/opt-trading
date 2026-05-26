@@ -145,10 +145,11 @@ class TestScriptLocalcmsGate(unittest.TestCase):
     """Tests via subprocess — vérifier rc et structure du rapport JSON."""
 
     def _run(self, extra_env: dict | None = None, timeout: int = 30) -> tuple[int, dict]:
-        env = {**os.environ, "DRY_RUN": "1", "PAPER_MODE": "1"}
+        env = {**os.environ, "DRY_RUN": "1", "PAPER_MODE": "1", "ALLOW_E2E_LIVE_DRY_RUN": "1"}
         env.pop("REQUIRE_LOCALCMS_E2E", None)
         env.pop("SKIP_LOCALCMS_E2E", None)
         env.pop("LOCALCMS_URL", None)
+        env.pop("ALLOW_LIVE_TRADE", None)
         if extra_env:
             env.update(extra_env)
         r = subprocess.run(
