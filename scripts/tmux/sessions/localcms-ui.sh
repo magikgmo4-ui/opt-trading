@@ -1,29 +1,17 @@
 #!/usr/bin/env bash
-# SESSION 9 — localcms-ui (db-layer)
-# LocalCMS consumer (FastAPI) + health + logs
-set -e
-SESSION="localcms-ui"
+# localcms-ui session — localcms consumer + health + logs
+set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 
-if tmux has-session -t "$SESSION" 2>/dev/null; then
-    echo "$SESSION already running"
-    exit 0
-fi
+SESSION="localcms-ui"
+TMUX="${TMUX_CMD:-tmux}"
 
-mkdir -p "$PROJECT_ROOT/logs"
+$TMUX new-session -d -s "$SESSION" -n lcms:consumer 2>/dev/null || true
+$TMUX send-keys -t "$SESSION:lcms:consumer" "cd $PROJECT_ROOT && modules/localcms/app.py 2>&1 | tee $PROJECT_ROOT/logs/localcms.log" Enter
 
-tmux new-session -d -s "$SESSION" -n "consumer"
-tmux send-keys -t "$SESSION:consumer" \
-    "cd '$PROJECT_ROOT' && uvicorn modules.localcms.app.main:app --host 127.0.0.1 --port 8700 2>&1 | tee logs/localcms_consumer.log" Enter
+$TMUX new-window -t "$SESSION" -n lcms:health
+$TMUX send-keys -t "$SESSION:lcms:health" "cd $PROJECT_ROOT && while true; do curl -sf http://127.0.0.1:8700/health >/dev/null 2>&1 && echo '[OK] localcms live' || echo '[DOWN] localcms unreachable'; sleep 30; done" Enter
 
-tmux new-window -t "$SESSION" -n "health"
-tmux send-keys -t "$SESSION:health" \
-    "cd '$PROJECT_ROOT' && while true; do curl -sf http://127.0.0.1:8700/health >/dev/null && echo 'localcms-ui health OK' || echo 'localcms-ui health DOWN'; sleep 30; done 2>&1 | tee -a logs/localcms_health.log" Enter
-
-tmux new-window -t "$SESSION" -n "logs"
-tmux send-keys -t "$SESSION:logs" \
-    "cd '$PROJECT_ROOT' && tail -f logs/localcms_consumer.log" Enter
-
-tmux select-window -t "$SESSION:consumer"
-echo "$SESSION started (windows: consumer health logs)"
+$TMUX new-window -t "$SESSION" -n lcms:logs
+$TMUX send-keys -t "$SESSION:lcms:logs" "tail -f $PROJECT_ROOT/logs/localcms.log 2>/dev/null || echo 'no log yet'" Enter

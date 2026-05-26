@@ -1,33 +1,20 @@
 #!/usr/bin/env bash
-# SESSION 7 — desk-pro (admin-trading)
-# desk_pro runner + orchestrator + perf
-set -e
-SESSION="desk-pro"
+# desk-pro session — desk_pro + perf + orchestrator
+set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 
-if tmux has-session -t "$SESSION" 2>/dev/null; then
-    echo "$SESSION already running"
-    exit 0
-fi
+SESSION="desk-pro"
+TMUX="${TMUX_CMD:-tmux}"
 
-mkdir -p "$PROJECT_ROOT/logs"
+$TMUX new-session -d -s "$SESSION" -n desk:runner 2>/dev/null || true
+$TMUX send-keys -t "$SESSION:desk:runner" "cd $PROJECT_ROOT && modules/desk_pro_runner/scripts/cmd.sh run-and-show 2>&1 | tee $PROJECT_ROOT/logs/desk_pro.log" Enter
 
-tmux new-session -d -s "$SESSION" -n "runner"
-tmux send-keys -t "$SESSION:runner" \
-    "cd '$PROJECT_ROOT' && bash modules/desk_pro_runner/cmd.sh run-and-show 2>&1 | tee logs/desk_pro.log" Enter
+$TMUX new-window -t "$SESSION" -n desk:orchestrator
+$TMUX send-keys -t "$SESSION:desk:orchestrator" "cd $PROJECT_ROOT && echo 'desk_pro_orchestrator — conductor'" Enter
 
-tmux new-window -t "$SESSION" -n "orchestrator"
-tmux send-keys -t "$SESSION:orchestrator" \
-    "cd '$PROJECT_ROOT' && bash modules/desk_pro_orchestrator/cmd.sh run 2>&1 | tee logs/desk_pro_orchestrator.log" Enter
+$TMUX new-window -t "$SESSION" -n desk:perf
+$TMUX send-keys -t "$SESSION:desk:perf" "cd $PROJECT_ROOT && modules/perf/scripts/perf_cmd.sh start 2>&1 | tee $PROJECT_ROOT/logs/perf.log" Enter
 
-tmux new-window -t "$SESSION" -n "perf"
-tmux send-keys -t "$SESSION:perf" \
-    "cd '$PROJECT_ROOT' && bash scripts/desk_pro_cmd.sh run 2>&1 | tee logs/perf.log" Enter
-
-tmux new-window -t "$SESSION" -n "logs"
-tmux send-keys -t "$SESSION:logs" \
-    "cd '$PROJECT_ROOT' && tail -f logs/desk_pro.log" Enter
-
-tmux select-window -t "$SESSION:runner"
-echo "$SESSION started (windows: runner orchestrator perf logs)"
+$TMUX new-window -t "$SESSION" -n desk:logs
+$TMUX send-keys -t "$SESSION:desk:logs" "tail -f $PROJECT_ROOT/logs/desk_pro.log 2>/dev/null || echo 'no log yet'" Enter
