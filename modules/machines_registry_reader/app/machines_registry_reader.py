@@ -26,6 +26,8 @@ class MachinesRegistry:
     def __init__(self):
         self.machines = []
         self.source_file = None
+        self.source_kind = None
+        self.is_canonical_source = False
         self.load_registry()
 
     def _parse_yaml_simple(self, file_path):
@@ -66,6 +68,8 @@ class MachinesRegistry:
                     self.machines = self._parse_yaml_simple(CENTRAL_REGISTRY_FILE)
                 
                 self.source_file = CENTRAL_REGISTRY_FILE
+                self.source_kind = "central"
+                self.is_canonical_source = True
                 return
             except Exception as e:
                 print(f"Error: Failed to load registry: {e}")
@@ -77,6 +81,8 @@ class MachinesRegistry:
     def status(self):
         print(f"Module: machines_registry_reader")
         print(f"Source: {self.source_file}")
+        print(f"Source kind: {self.source_kind}")
+        print(f"Canonical source: {self.is_canonical_source}")
         print(f"Machines: {len(self.machines)}")
         print(f"Ready: {len(self.machines) > 0}")
 

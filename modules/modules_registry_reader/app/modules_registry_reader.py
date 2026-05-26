@@ -25,6 +25,8 @@ class ModulesRegistry:
     def __init__(self):
         self.modules = []
         self.source_file = None
+        self.source_kind = None
+        self.is_canonical_source = False
         self.load_registry()
 
     def _parse_yaml_simple(self, file_path):
@@ -80,6 +82,8 @@ class ModulesRegistry:
                     self.modules = self._parse_yaml_simple(CENTRAL_REGISTRY_FILE)
                 
                 self.source_file = CENTRAL_REGISTRY_FILE
+                self.source_kind = "central"
+                self.is_canonical_source = True
                 return
             except Exception as e:
                 print(f"Error: Failed to load registry: {e}")
@@ -91,6 +95,8 @@ class ModulesRegistry:
     def status(self):
         print(f"Module: modules_registry_reader")
         print(f"Source: {self.source_file}")
+        print(f"Source kind: {self.source_kind}")
+        print(f"Canonical source: {self.is_canonical_source}")
         print(f"Modules: {len(self.modules)}")
         print(f"Ready: {len(self.modules) > 0}")
 
