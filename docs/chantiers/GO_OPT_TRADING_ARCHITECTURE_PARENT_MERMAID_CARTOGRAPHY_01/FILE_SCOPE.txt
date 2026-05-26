@@ -1,0 +1,8 @@
+# Allowed file scope for GO_OPT_TRADING_ARCHITECTURE_PARENT_MERMAID_CARTOGRAPHY_01
+.vscode/tasks.json
+scripts/make-architecture-evidence.sh
+docs/architecture/PLAN_CARTOGRAPHIE_MERMAID.md
+docs/architecture/evidence/**
+docs/architecture/mermaid/**
+docs/chantiers/GO_OPT_TRADING_ARCHITECTURE_PARENT_MERMAID_CARTOGRAPHY_01/**
+docs/index/inbox/GO_OPT_TRADING_ARCHITECTURE_PARENT_MERMAID_CARTOGRAPHY_01.md
