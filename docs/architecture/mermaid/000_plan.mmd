@@ -1,69 +1,112 @@
 ---
-title: "Plan de cartographie Mermaid — opt-trading architecture"
+title: "Plan de cartographie Mermaid - opt-trading architecture"
 ---
 
+## Scope
 
-flowchart TB
-  subgraph Legend["Légende"]
-    L1[" "]:::planned --> L2["Fichier à produire"]
-    L3[" "]:::done --> L4["Produit final"]
-    L5[" "]:::active --> L6["En cours"]
+- Sources autorisees uniquement: `00_repo_identity.md`, `01_tree.txt`, `02_manifests.md`
+- Regle: 5 blocs logiques maximum
+- Regle: ne rien inventer, ne pas detailler les fichiers internes
+- Regle: marquer les zones incertaines avec `TODO` ou `UNKNOWN`
+
+## Kanban textuel
+
+- `[done]` `evidence_scope_locked` - Le repo cible est `opt-trading` sur la branche `go/GO_OPT_TRADING_ARCHITECTURE_PARENT_MERMAID_CARTOGRAPHY_01`.
+- `[todo]` `step_01_core_runtime` - Cartographier `webhook_server.py`, `perf/`, `adapters/`, `shared/`, `data/` et `state/` / `UNKNOWN` si la frontiere persistence reste partielle.
+- `[todo]` `step_02_modules_family` - Cartographier `modules/` comme famille principale de surfaces runtime / `TODO` pour les sous-familles exactes.
+- `[todo]` `step_03_ops_and_deploy` - Cartographier `scripts/`, `deploy/`, `config/`, `configs/`, `registry/`.
+- `[todo]` `step_04_quality_and_contracts` - Cartographier `tests/`, `contracts/`, `schemas/`.
+- `[todo]` `step_05_tools_docs_outputs` - Cartographier `tools/`, `artifacts/`, `reports/`, `docs/`, `bundles/`, `_archive/`, `tmp/` / `UNKNOWN` pour les frontieres exactes entre support, historique et sortie.
+
+## Kanban Mermaid
+
+```mermaid
+kanban
+  todo[To do]
+    step_01_core_runtime[step_01_core_runtime]@{ priority: 'Very High' }
+    step_02_modules_family[step_02_modules_family]@{ priority: 'High' }
+    step_03_ops_and_deploy[step_03_ops_and_deploy]@{ priority: 'High' }
+    step_04_quality_and_contracts[step_04_quality_and_contracts]@{ priority: 'High' }
+    step_05_tools_docs_outputs[step_05_tools_docs_outputs]@{ priority: 'Medium' }
+  doing[Doing]
+    evidence_scope_locked[evidence_scope_locked]@{ priority: 'Very High' }
+  done[Done]
+    pass_1_plan_defined[pass_1_plan_defined]@{ priority: 'Very High' }
+```
+
+## Mermaid shells
+
+### step_01_core_runtime
+
+```mermaid
+flowchart TD
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  subgraph step_01_core_runtime["Step 01 - core runtime"]
+    subgraph core_runtime_entrypoints["webhook_server.py + perf/"]
+    end
+    subgraph core_runtime_adapters_shared["adapters/ + shared/"]
+    end
+    subgraph core_runtime_state_persistence["data/ + state/ + persistence TODO"]
+    end
   end
+```
 
-  subgraph Pipeline["Pipeline de production"]
-    direction LR
-    P1["000_plan.mmd"]:::active --> P2["010_core_infra.mmd"]:::planned
-    P2 --> P3["020_data_flows.mmd"]:::planned
-    P3 --> P4["030_business_logic.mmd"]:::planned
-    P4 --> P5["040_interfaces_workers.mmd"]:::planned
-    P5 --> P6["900_assembled_raw.mmd"]:::planned
-    P6 --> P7["990_architecture_final.mmd"]:::done
+### step_02_modules_family
+
+```mermaid
+flowchart TD
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  subgraph step_02_modules_family["Step 02 - modules family"]
+    subgraph modules_runtime_surface["modules/"]
+    end
+    subgraph modules_family_clusters["module clusters TODO"]
+    end
+    subgraph modules_runtime_boundaries["module boundaries UNKNOWN"]
+    end
   end
+```
 
-  subgraph Services["Services live"]
-    S1["webhook_server.py<br/>port 8000<br/>Ingestion TradingView"]:::service
-    S2["perf/perf_app.py<br/>port 8010<br/>Analytique perf"]:::service
-    S3["modules/localcms/app/main.py<br/>port 8700<br/>Operations cockpit"]:::service
+### step_03_ops_and_deploy
+
+```mermaid
+flowchart TD
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  subgraph step_03_ops_and_deploy["Step 03 - ops and deploy"]
+    subgraph ops_scripts_surface["scripts/"]
+    end
+    subgraph ops_deploy_surface["deploy/"]
+    end
+    subgraph ops_config_registry_surface["config/ + configs/ + registry/"]
+    end
   end
+```
 
-  subgraph DataFlow["Flux de donnees"]
-    TV["TradingView"] -->|"POST /tv"| S1
-    S1 -->|"adapters/webhook_to_perf.py"| S2
-    S2 -->|"modules/desk_pro/"| S3
-    S1 -->|"state/events.jsonl"| F1["Fichier JSONL"]
-    S2 -->|"perf/perf.db"| F2["SQLite WAL"]
+### step_04_quality_and_contracts
+
+```mermaid
+flowchart TD
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  subgraph step_04_quality_and_contracts["Step 04 - quality and contracts"]
+    subgraph quality_tests_surface["tests/"]
+    end
+    subgraph quality_contracts_surface["contracts/"]
+    end
+    subgraph quality_schemas_surface["schemas/"]
+    end
   end
+```
 
-  subgraph Modules["Modules metier"]
-    M1["risk_engine"]:::module
-    M2["execution_engine"]:::module
-    M3["position_engine"]:::module
-    M4["decision_engine"]:::module
-    M5["engines/registry"]:::module
-    M6["signal_router<br/>port 18900"]:::module
+### step_05_tools_docs_outputs
+
+```mermaid
+flowchart TD
+  %% Evidence: docs/architecture/evidence/01_tree.txt
+  subgraph step_05_tools_docs_outputs["Step 05 - tools docs outputs"]
+    subgraph support_tools_surface["tools/ + bundles/"]
+    end
+    subgraph support_docs_reports_surface["docs/ + reports/"]
+    end
+    subgraph support_outputs_history_surface["artifacts/ + _archive/ + tmp/ UNKNOWN"]
+    end
   end
-
-  subgraph Packs["Evidence Pack existant"]
-    E1["00_repo_identity.md"]
-    E2["01_tree.txt"]
-    E3["02_manifests.md"]
-    E4["03_entrypoints.md"]
-    E5["05_external_dependencies.md"]
-    E6["07_infra.md"]
-  end
-
-  S1 --- Modules
-  Modules --- M1
-  Modules --- M5
-
-  P1 -.-> Packs
-  P2 -.-> Services
-  P3 -.-> S1
-  P4 -.-> Modules
-  P5 -.-> S3
-
-  classDef planned fill:#2d3748,stroke:#718096,color:#e2e8f0
-  classDef done fill:#276749,stroke:#48bb78,color:#e2e8f0
-  classDef active fill:#9b2c2c,stroke:#fc8181,color:#e2e8f0
-  classDef service fill:#2b6cb0,stroke:#63b3ed,color:#e2e8f0
-  classDef module fill:#6b46c1,stroke:#b794f4,color:#e2e8f0
+```
