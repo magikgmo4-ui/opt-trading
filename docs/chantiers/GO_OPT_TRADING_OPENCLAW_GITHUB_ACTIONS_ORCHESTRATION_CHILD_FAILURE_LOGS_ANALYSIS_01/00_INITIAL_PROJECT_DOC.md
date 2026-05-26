@@ -16,28 +16,36 @@ Ajouter l’analyse contrôlée des logs d’échec GitHub Actions.
 This document.
 
 ## 3_INITIAL_NEED
-(Document the initial need here)
+Ajouter l'analyse contrôlée des logs d'échec GitHub Actions pour OpenClaw, avec classification canonique et suggestion de next_action sans mutation automatique.
 
 ## 4_MASTER_PROJECT_PLAN
-- [ ] Task 1
-- [ ] Task 2
+- [x] Implementation of `openclaw_gh_actions_analyze_failure_logs.py`
+- [x] Enhancement of `GitHubActionsBridge` for log retrieval
+- [x] Classification matrix (9 types + UNKNOWN)
+- [x] Test and validation
+- [x] Documentation and closeout
 
 ## 6_FINAL_TARGET
-(Define the final target result)
+Un script CLI `openclaw_gh_actions_analyze_failure_logs.py` qui :
+- classifie les échecs GitHub Actions en 9 types canoniques
+- propose une next_action sans exécution
+- supporte --run-id, --simulate, --test, --output
 
 ## 7_CANONICAL_STATE
-(Define what the final successful state looks like)
+- 9/9 classifications testées et PASS
+- `dangerous_action_executed` toujours false
+- Rapport d'analyse généré
+- Aucune mutation automatique
 
 ## 12_INVARIANTS
 - No modification of global indexes.
 - No modification of CI workflows.
 - No modification of trading/runtime modules.
+- No automatic mutations.
+- `dangerous_action_executed` must always be false.
 
 ## 16_TODO
 - [x] Initiation
-- [ ] Implementation
-- [ ] Validation
-- [ ] Close Gate
-
-## 17_RESUME_POINT
-(Define the current resume point)
+- [x] Implementation
+- [x] Validation
+- [x] Close Gate
