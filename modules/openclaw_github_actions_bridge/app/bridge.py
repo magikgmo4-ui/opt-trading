@@ -87,8 +87,7 @@ class GitHubActionsBridge:
                         "status": status,
                         "conclusion": conclusion,
                         "run_id": run_id,
-                        "html_url": run_data.get("html_url"),
-                        "workflow_id": run_data.get("workflow_id")
+                        "html_url": run_data.get("html_url")
                     }
                 
                 print(f"Run {run_id} status: {status}...")
@@ -98,22 +97,6 @@ class GitHubActionsBridge:
             time.sleep(interval_s)
             
         return {"ok": False, "error": "Timeout reached while polling run status"}
-
-    def get_run_jobs(self, run_id: int) -> Dict[str, Any]:
-        url = f"{self.api_base}/repos/{self.repo}/actions/runs/{run_id}/jobs"
-        response = requests.get(url, headers=self._get_headers())
-        if response.status_code == 200:
-            return {"ok": True, "jobs": response.json().get("jobs", [])}
-        else:
-            return {"ok": False, "error": f"Failed to get jobs for run {run_id}: {response.text}"}
-
-    def get_job_logs(self, job_id: int) -> Dict[str, Any]:
-        url = f"{self.api_base}/repos/{self.repo}/actions/jobs/{job_id}/logs"
-        response = requests.get(url, headers=self._get_headers())
-        if response.status_code == 200:
-            return {"ok": True, "content": response.text}
-        else:
-            return {"ok": False, "error": f"Failed to get logs for job {job_id}: {response.text}"}
 
 if __name__ == "__main__":
     # Minimal self-test if run as script

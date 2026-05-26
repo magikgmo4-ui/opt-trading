@@ -3,15 +3,35 @@ import argparse
 import json
 import os
 import re
+import requests
 import sys
 from pathlib import Path
 from typing import Dict, Any, List, Optional
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+GITHUB_REPO = os.getenv("GITHUB_REPOSITORY")
+API_BASE = "https://api.github.com"
 
-from modules.openclaw_github_actions_bridge.app.bridge import GitHubActionsBridge
+def _gh_headers():
+    return {
+        "Authorization": f"Bearer {GITHUB_TOKEN}",
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28"
+    }
+
+def _get_run_jobs(run_id: int) -> Dict[str, Any]:
+    url = f"{API_BASE}/repos/{GITHUB_REPO}/actions/runs/{run_id}/jobs"
+    resp = requests.get(url, headers=_gh_headers())
+    if resp.status_code == 200:
+        return {"ok": True, "jobs": resp.json().get("jobs", [])}
+    return {"ok": False, "error": f"Failed to get jobs: {resp.text}"}
+
+def _get_job_logs(job_id: int) -> Dict[str, Any]:
+    url = f"{API_BASE}/repos/{GITHUB_REPO}/actions/jobs/{job_id}/logs"
+    resp = requests.get(url, headers=_gh_headers())
+    if resp.status_code == 200:
+        return {"ok": True, "content": resp.text}
+    return {"ok": False, "error": f"Failed to get logs: {resp.text}"}
 
 # Canonical Classifications
 CLASSIFICATIONS = {
@@ -63,7 +83,7 @@ CLASSIFICATIONS = {
 }
 
 class FailureAnalyzer:
-    def __init__(self, bridge: Optional[GitHubActionsBridge] = None):
+    def __init__(self, bridge=None):
         self.bridge = bridge
 
     def classify_error(self, logs: str) -> Dict[str, Any]:
@@ -85,11 +105,11 @@ class FailureAnalyzer:
         }
 
     def analyze_run(self, run_id: int) -> Dict[str, Any]:
-        if not self.bridge:
-            return {"ok": False, "error": "Bridge not initialized"}
+        if not GITHUB_TOKEN or not GITHUB_REPO:
+            return {"ok": False, "error": "GITHUB_TOKEN and GITHUB_REPOSITORY must be set"}
 
         # 1. Get jobs
-        jobs_resp = self.bridge.get_run_jobs(run_id)
+        jobs_resp = _get_run_jobs(run_id)
         if not jobs_resp.get("ok"):
             return jobs_resp
 
@@ -102,7 +122,7 @@ class FailureAnalyzer:
             job_name = job.get("name")
             
             # 2. Get logs
-            logs_resp = self.bridge.get_job_logs(job_id)
+            logs_resp = _get_job_logs(job_id)
             logs = logs_resp.get("content", "") if logs_resp.get("ok") else ""
             
             # 3. Classify
@@ -195,8 +215,6 @@ def main():
         return
     elif args.run_id:
         try:
-            bridge = GitHubActionsBridge(args.registry)
-            analyzer.bridge = bridge
             result = analyzer.analyze_run(args.run_id)
         except Exception as e:
             print(f"Error: {e}", file=sys.stderr)
