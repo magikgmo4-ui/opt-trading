@@ -98,7 +98,7 @@ def test_known_strategy_id_silent(tmp_path: Path, monkeypatch: pytest.MonkeyPatc
     event = trading_lab_v1.build_market_event(profile, _session(), _features())
 
     assert event["strategy_id"] == "xau_session_open_v1"
-    assert not any("unknown" in rec.message for rec in caplog.records)
+    assert not any("STRATEGY_ID_UNKNOWN" in rec.message for rec in caplog.records)
 
 
 def test_unknown_strategy_id_warns(tmp_path: Path, monkeypatch: pytest.MonkeyPatch, caplog: pytest.LogCaptureFixture) -> None:
@@ -109,7 +109,7 @@ def test_unknown_strategy_id_warns(tmp_path: Path, monkeypatch: pytest.MonkeyPat
     event = trading_lab_v1.build_market_event(profile, _session(), _features())
 
     assert event["strategy_id"] == "unknown_strategy_v99"
-    assert any("unknown profile strategy_id" in rec.message for rec in caplog.records)
+    assert any("STRATEGY_ID_UNKNOWN" in rec.message for rec in caplog.records)
 
 
 def test_missing_strategy_id_uses_and_validates_fallback(tmp_path: Path, monkeypatch: pytest.MonkeyPatch, caplog: pytest.LogCaptureFixture) -> None:
@@ -120,7 +120,7 @@ def test_missing_strategy_id_uses_and_validates_fallback(tmp_path: Path, monkeyp
     event = trading_lab_v1.build_market_event(profile, _session(), _features())
 
     assert event["strategy_id"] == "xau_session_open_v1"
-    assert not any("unknown" in rec.message for rec in caplog.records)
+    assert not any("STRATEGY_ID_UNKNOWN" in rec.message for rec in caplog.records)
 
 
 def test_build_market_event_output_unchanged_except_warning_side_effect(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
