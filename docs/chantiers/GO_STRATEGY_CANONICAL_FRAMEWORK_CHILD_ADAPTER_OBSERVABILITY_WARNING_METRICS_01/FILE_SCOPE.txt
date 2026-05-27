@@ -1,0 +1,12 @@
+docs/chantiers/GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_ADAPTER_OBSERVABILITY_WARNING_METRICS_01/**
+modules/strategy/adapter.py
+modules/signal_router/app/router.py
+modules/signal_router/tests/test_strategy_id_adapter_readonly.py
+modules/proposition_engine/app/engine.py
+modules/proposition_engine/tests/test_strategy_id_adapter_readonly.py
+modules/notification_dispatcher/app/dispatcher.py
+modules/notification_dispatcher/tests/test_strategy_id_adapter_readonly.py
+modules/trading_realtime_v1/app/event_bridge_v1.py
+modules/trading_realtime_v1/app/runtime_loop_v1.py
+modules/trading_lab_v1/app/trading_lab_v1.py
+tests/test_strategy_adapter.py

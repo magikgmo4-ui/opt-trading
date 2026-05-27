@@ -38,7 +38,7 @@ def test_known_strategy_id_silent(caplog):
     }
     ns = route(raw)
     assert ns.strategy_id == KNOWN_ID
-    assert not any("unknown strategy_id" in rec.message for rec in caplog.records)
+    assert not any("STRATEGY_ID_UNKNOWN" in rec.message for rec in caplog.records)
 
 
 def test_unknown_strategy_id_warns(caplog):
@@ -53,7 +53,7 @@ def test_unknown_strategy_id_warns(caplog):
     }
     ns = route(raw)
     assert ns.strategy_id == UNKNOWN_ID
-    assert any("unknown strategy_id" in rec.message for rec in caplog.records)
+    assert any("STRATEGY_ID_UNKNOWN" in rec.message for rec in caplog.records)
 
 
 def test_signal_output_unchanged_for_known():

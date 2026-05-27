@@ -4,7 +4,7 @@ import time
 import uuid
 from typing import Any, Mapping
 
-from modules.strategy.adapter import validate_strategy_id
+from modules.strategy.adapter import validate_strategy_id, log_unknown_strategy_id_warning
 from .schema import SignalIn, NormalizedSignal, SignalValidationError, Side
 
 log = logging.getLogger("signal_router")
@@ -67,7 +67,7 @@ def route(raw: Mapping[str, Any]) -> NormalizedSignal:
     signal_in = parse_incoming(raw)
     normalized = normalize(signal_in)
     if not validate_strategy_id(normalized.strategy_id):
-        log.warning("unknown strategy_id %r", normalized.strategy_id)
+        log_unknown_strategy_id_warning(normalized.strategy_id, "signal_router")
     log.info(
         "signal routed signal_id=%s ticker=%s side=%s price=%s",
         normalized.signal_id, normalized.ticker, normalized.side, normalized.price,
