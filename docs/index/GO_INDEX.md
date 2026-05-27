@@ -170,6 +170,13 @@ fermer ni les promouvoir artificiellement.
 ---
 
 ## Entrées
+### GO_OPT_TRADING_DOC_OPS_IMPL_GO_INDEX_INSERTION_ASSISTANT_AUTO_INSERT_01
+- repo : opt-trading
+- type : chantier technique
+- statut : OPEN
+- titre court : Appliquer une insertion réelle contrôlée dans GO_INDEX.md avec l'assistant Doc Ops.
+- dernier état connu : Appliquer une insertion réelle contrôlée dans GO_INDEX.md avec l'assistant Doc Ops.
+- lien utile : `docs/chantiers/GO_OPT_TRADING_DOC_OPS_IMPL_GO_INDEX_INSERTION_ASSISTANT_AUTO_INSERT_01/00_INITIAL_PROJECT_DOC.md`
 
 ### GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01
 - repo : opt-trading
