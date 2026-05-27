@@ -12,7 +12,7 @@ Nouveau master project plan pour standardiser GitHub Actions comme couche CI/job
 
 ## NEXT_GO
 
-`GO_OPT_TRADING_GITHUB_ACTIONS_OPENCLAW_CHILD_REGISTRY_VALIDATION_01`
+`GO_OPT_TRADING_GITHUB_ACTIONS_OPENCLAW_MASTER_CLOSE_GATE_CONSOLIDATION_01`
 
 ## Surfaces
 
@@ -22,4 +22,4 @@ Nouveau master project plan pour standardiser GitHub Actions comme couche CI/job
 
 ## Global index
 
-Modifier les index globaux seulement si la lecture repo confirme que `github_actions_openclaw` devient un nouvel horizon global actif.
+Lecture repo et chaine chantier confirment que `github_actions_openclaw` reste un horizon actif a suivre globalement tant que le master target n'est pas ferme.

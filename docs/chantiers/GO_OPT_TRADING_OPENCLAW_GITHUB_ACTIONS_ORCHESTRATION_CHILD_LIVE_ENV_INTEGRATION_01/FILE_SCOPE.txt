@@ -1,0 +1,4 @@
+docs/chantiers/GO_OPT_TRADING_OPENCLAW_GITHUB_ACTIONS_ORCHESTRATION_CHILD_LIVE_ENV_INTEGRATION_01/**
+docs/index/inbox/GO_OPT_TRADING_OPENCLAW_GITHUB_ACTIONS_ORCHESTRATION_CHILD_LIVE_ENV_INTEGRATION_01.md
+scripts/openclaw_gh_actions_live_env.py
+tests/openclaw/test_openclaw_gh_actions_live_integration.py

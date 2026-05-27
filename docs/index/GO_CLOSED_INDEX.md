@@ -107,6 +107,7 @@ Normalisation retenue :
 | GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01 | GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_RISK_LIMITS_AND_KILL_SWITCH_IMPL_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_RISK_LIMITS_AND_KILL_SWITCH_IMPL_01/90_CLOSEOUT.md` |
 | GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01 | GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_MONITORING_AND_SECRETS_AUDIT_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_MONITORING_AND_SECRETS_AUDIT_01/90_CLOSEOUT.md` |
 | GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01 | GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_MONITORING_PNL_ALERT_THRESHOLDS_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_MONITORING_PNL_ALERT_THRESHOLDS_01/90_CLOSEOUT.md` |
+| GO_OPT_TRADING_GITHUB_ACTIONS_OPENCLAW_MASTER_PROJECT_PLAN_01 | GO_OPT_TRADING_GITHUB_ACTIONS_OPENCLAW_MASTER_PROJECT_PLAN_01 | — | CLOSED | oui | `docs/chantiers/GO_OPT_TRADING_GITHUB_ACTIONS_OPENCLAW_MASTER_PROJECT_PLAN_01/CLOSE_GATE.md`<br>`docs/index/GO_INDEX.md`<br>`docs/index/GO_CLOSED_INDEX.md` |
 
 ---
 
@@ -561,3 +562,11 @@ Ces entrées détaillées sont sorties de `docs/index/GO_INDEX.md`.
 - dernier etat connu : P&L tracking et alert thresholds spécifiés ; monitoring reste PARTIAL ; production non ouverte
 - verdict : PARTIAL (spécifié, non implémenté)
 - lien utile : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_PRODUCTION_MONITORING_PNL_ALERT_THRESHOLDS_01/90_CLOSEOUT.md`
+
+### GO_OPT_TRADING_GITHUB_ACTIONS_OPENCLAW_MASTER_PROJECT_PLAN_01
+- repo : opt-trading
+- type : master project plan / github actions / openclaw
+- statut : closed
+- titre court : master target github_actions_openclaw
+- dernier état connu : close gate master consolidee avec preuve live reelle (run `26486400740`) ; close gate PASS ; 10 conditions de fermeture validees ; aucun gap bloqueur residuel ; chantier clos
+- lien utile : `docs/chantiers/GO_OPT_TRADING_GITHUB_ACTIONS_OPENCLAW_MASTER_PROJECT_PLAN_01/CLOSE_GATE.md`, `docs/index/GO_INDEX.md`, `docs/index/GO_CLOSED_INDEX.md`
