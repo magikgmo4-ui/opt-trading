@@ -18,6 +18,7 @@ Merged derived audits:
 docs/chantiers/GO_OPT_TRADING_ARCHITECTURE_CHILD_RUNTIME_CRITICAL_PATH_AUDIT_01/20_RUNTIME_CRITICAL_PATH_AUDIT.md
 docs/chantiers/GO_OPT_TRADING_ARCHITECTURE_CHILD_REGISTRY_OWNERSHIP_AUDIT_01/20_REGISTRY_OWNERSHIP_AUDIT.md
 docs/chantiers/GO_OPT_TRADING_ARCHITECTURE_CHILD_HUB_REFACTOR_CANDIDATES_01/20_HUB_REFACTOR_CANDIDATES.md
+docs/chantiers/GO_OPT_TRADING_ARCHITECTURE_CHILD_RUNTIME_LINK_PROOF_01/20_RUNTIME_LINK_PROOF.md
 ```
 
 ## VERDICT
@@ -71,6 +72,7 @@ NEXT_GO proposed: yes
 Runtime critical path child merged: yes
 Registry ownership child merged: yes
 Hub refactor candidates child merged: yes
+Runtime link proof child merged: yes
 Branch clean: verified by git status --short
 ```
 
@@ -88,12 +90,16 @@ PR #853 merged into go/GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01
 PR #855 merged into go/GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01
   - hub refactor candidates
   - merge commit: 75344833a432bfb8413a283e18b65677483e1110
+
+PR #857 merged into go/GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01
+  - runtime link proof
+  - merge commit: b5ff650e2da892db80c5d8636b6f270fc07ad0cd
 ```
 
 ## RESUME_POINT
 
 ```text
 Child audit termine.
-Les childs runtime critical path, registry ownership et hub refactor candidates sont maintenant merges.
-Prochaine decision : ouvrir un child de preuve fine ou un child de refactor code cible a partir des priorites P1.
+Les childs runtime critical path, registry ownership, hub refactor candidates et runtime link proof sont maintenant merges.
+Prochaine decision : ouvrir un child de refactor code cible seulement sur une boundary maintenant assez sure.
 ```
