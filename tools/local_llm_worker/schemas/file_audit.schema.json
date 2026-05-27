@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Local LLM File Audit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "file",
+    "file_type",
+    "purpose",
+    "established",
+    "hypothesis",
+    "remaining_gap",
+    "todo",
+    "risk",
+    "duplicate_candidate",
+    "patch_proposal",
+    "confidence"
+  ],
+  "properties": {
+    "file": {
+      "type": "string"
+    },
+    "file_type": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "established": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "hypothesis": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "remaining_gap": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "todo": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "risk": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "duplicate_candidate": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "patch_proposal": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    }
+  }
+}

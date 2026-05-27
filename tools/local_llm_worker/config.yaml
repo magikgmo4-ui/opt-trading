@@ -1,0 +1,35 @@
+runtime: ollama
+model: gemma
+
+input_roots:
+  - docs
+
+output_dir: tools/local_llm_worker/outputs
+
+audit:
+  max_files: 5
+  max_chars_per_file: 12000
+  chunking:
+    enabled: true
+    max_chars_per_chunk: 3000
+  include_extensions:
+    - .md
+    - .txt
+    - .py
+    - .json
+    - .yaml
+    - .yml
+  exclude_dirs:
+    - .git
+    - node_modules
+    - .venv
+    - venv
+    - tools/local_llm_worker/outputs
+  exclude_files:
+    - __init__.py
+
+llm:
+  temperature: 0
+  timeout_seconds: 300
+  require_json: true
+  passes: 2

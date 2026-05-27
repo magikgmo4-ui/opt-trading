@@ -21,6 +21,7 @@ id_ed25519
 .secrets/bitget.env
 
 # Runtime / state / logs
+tools/local_llm_worker/outputs/
 state/
 logs/
 tmp/
