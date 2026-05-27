@@ -8,19 +8,27 @@ MAP_FILE="$TRADING_ROOT/config/machine_runtime_map.yml"
 DATA_DIR="$TRADING_ROOT/data/runtime_health"
 
 PYTHON=""
+PYTHON_REJECTS=()
 for candidate in \
   "$TRADING_ROOT/venv/bin/python3" \
   "/usr/bin/python3" \
   "python3"
 do
   if command -v "$candidate" &>/dev/null || [ -x "$candidate" ]; then
-    PYTHON="$candidate"
-    break
+    if "$candidate" -c "import yaml" >/dev/null 2>&1; then
+      PYTHON="$candidate"
+      break
+    fi
+    PYTHON_REJECTS+=("$candidate (missing yaml)")
   fi
 done
 
 if [ -z "$PYTHON" ]; then
-  echo "FATAL: no python3 found" >&2
+  echo "FATAL: no python3 with PyYAML found" >&2
+  if [ "${#PYTHON_REJECTS[@]}" -gt 0 ]; then
+    printf 'Rejected python candidates:\n' >&2
+    printf ' - %s\n' "${PYTHON_REJECTS[@]}" >&2
+  fi
   exit 1
 fi
 
