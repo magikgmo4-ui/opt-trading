@@ -23,6 +23,8 @@ KNOWN_IDS = {
     "GOLD_CFD_LONG",
     "range_strategy_v1",
     "btc_coinm_accumulation",
+    "DCA_ON_FEAR_SOLID_STOCKS",
+    "e2e_dry_run",
 }
 
 
@@ -45,7 +47,7 @@ class TestGetKnownIds:
         assert get_known_ids() == KNOWN_IDS
 
     def test_count(self):
-        assert len(get_known_ids()) == 7
+        assert len(get_known_ids()) == 9
 
 
 class TestLookupStrategy:
@@ -68,7 +70,7 @@ class TestLookupStrategy:
 class TestGetAllEntries:
     def test_count(self):
         entries = get_all_entries()
-        assert len(entries) == 7
+        assert len(entries) == 9
 
     def test_all_known(self):
         ids = {e.strategy_id for e in get_all_entries()}
