@@ -1,0 +1,13 @@
+docs/chantiers/GO_OPT_TRADING_DEEPSEEK_RUNTIME_COMPAT_WRAPPERS_CLEANUP_01/00_INITIAL_PROJECT_DOC.md
+docs/chantiers/GO_OPT_TRADING_DEEPSEEK_RUNTIME_COMPAT_WRAPPERS_CLEANUP_01/40_REPRISE.md
+docs/chantiers/GO_OPT_TRADING_DEEPSEEK_RUNTIME_COMPAT_WRAPPERS_CLEANUP_01/FILE_SCOPE.txt
+scripts/student/student_cmd.sh
+scripts/student/student_menu.sh
+scripts/student/student_sanity_check.sh
+scripts/student/deepseek_student_cmd.sh
+scripts/student/deepseek_student_menu.sh
+scripts/student/deepseek_student_sanity_check.sh
+scripts/student/deepseek_student_install.sh
+scripts/install_student_shortcuts.sh
+modules/repo_hygiene/repo_hygiene_lib.sh
+tests/governance/test_deepseek_runtime_compat_wrappers.py
