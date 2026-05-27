@@ -1,0 +1,1 @@
+Child GO opened from merged parent. Scope: Termux+Tasker implementation V1.
