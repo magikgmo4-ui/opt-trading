@@ -21,7 +21,7 @@ surface: continuity
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 point_de_reprise: "Section MASTER_PROJECT_PLAN_INDEX"
-updated_at: 2026-05-23
+updated_at: 2026-05-26
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md

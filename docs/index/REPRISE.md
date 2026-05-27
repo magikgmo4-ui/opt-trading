@@ -96,6 +96,27 @@ GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_CREATION_RULE_MATRIX_01
 
 Objectif : inscrire dans la matrice la règle de création avec rôles structurels : `GO_CHILD`, `GO_CHILD_ATTACHED_TO_PARENT`, `GO_PARENT`, `GO_PARENT_ATTACHED_TO_MASTER_PROJECT_PLAN`, `GO_MASTER_PROJECT_PLAN`.
 
+## Reprise architecture Mermaid
+
+```text
+Point de reprise architecture courant:
+go/GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01
+
+Closeout canonique:
+docs/chantiers/GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01/90_CLOSEOUT.md
+
+Chaîne consolidée:
+parent Mermaid cartography
+-> child audit architecture
+-> child runtime critical path merged
+-> child registry ownership merged
+-> child hub refactor candidates merged
+-> child runtime link proof merged
+
+Dernier commit connu:
+3c0a253d docs: update audit closeout after runtime proof merge
+```
+
 ## Reprise opérationnelle
 
 1. Lire `docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md`.
@@ -103,6 +124,7 @@ Objectif : inscrire dans la matrice la règle de création avec rôles structure
 3. Lire `docs/index/ACTIVE_STREAMS.md`, section `MASTER_PROJECT_PLAN active streams`.
 4. Créer ou rattacher les parents manquants selon le `MASTER_PROJECT_PLAN_ID`.
 5. Ne fermer aucun parent si son produit final utilisable n'est pas atteint.
+6. Pour la continuité architecture Mermaid, reprendre depuis `docs/chantiers/GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01/90_CLOSEOUT.md`.
 
 ## Hors pilotage immédiat
 

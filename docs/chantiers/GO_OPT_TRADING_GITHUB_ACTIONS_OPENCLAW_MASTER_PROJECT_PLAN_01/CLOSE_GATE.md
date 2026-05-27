@@ -2,30 +2,36 @@
 
 ## CLOSE_GATE_MASTER_TARGET
 
-`pending`
+`PASS`
 
 ## Conditions de fermeture
 
-Le master target `github_actions_openclaw` peut être fermé seulement si :
+Le master target `github_actions_openclaw` est fermé. Toutes les conditions sont remplies :
 
-1. tous les workflows GitHub Actions nécessaires sont inventoriés ;
-2. tous les jobs non-trading sont mappés ou explicitement exclus ;
-3. les doublons sont résolus ;
-4. le registre GitHub Actions est validé ;
-5. les workflows essentiels passent en PR ;
-6. au moins un workflow `workflow_dispatch` est testé ;
-7. OpenClaw lit le registre ;
-8. OpenClaw déclenche un workflow dry-run ;
-9. OpenClaw lit le status/logs/artifacts ;
-10. aucun merge/apply/runtime trading automatique n'est introduit.
+1. [x] tous les workflows GitHub Actions nécessaires sont inventoriés ;
+2. [x] tous les jobs non-trading sont mappés ou explicitement exclus ;
+3. [x] les doublons sont résolus ;
+4. [x] le registre GitHub Actions est validé ;
+5. [x] les workflows essentiels passent en PR ;
+6. [x] au moins un workflow `workflow_dispatch` est testé ;
+7. [x] OpenClaw lit le registre ;
+8. [x] OpenClaw déclenche un workflow dry-run ;
+9. [x] OpenClaw lit le status/logs/artifacts ;
+10. [x] aucun merge/apply/runtime trading automatique n'est introduit.
 
-## Non fermeture
+## Fermeture
 
-Ce bundle ouvre le chantier.
-Il ne ferme pas le master target.
+Le master target `github_actions_openclaw` est formellement clos.
+
+La chaine GitHub Actions -> OpenClaw est livrée en mode contrôle avec :
+
+- registres GitHub Actions validés
+- gated PR actif
+- workflows CI standardisés
+- orchestration OpenClaw fonctionnelle (routage, résultat, analyse, patch draft)
+- preuve E2E live réelle sur `strict-worker-readonly-smoke` (run `26486400740`)
+- `dangerous_action_executed: false` vérifié
 
 ## NEXT_GO
 
-`GO_OPT_TRADING_GITHUB_ACTIONS_OPENCLAW_CHILD_REGISTRY_VALIDATION_01`
-
-Objectif : valider les registres + compléter l'inventaire complet `.github/workflows`.
+Aucun. Le chantier est clos.

@@ -17,6 +17,9 @@ docs/architecture/mermaid/990_architecture_final.mmd
 ## COMMITS CHANTIER
 
 ```text
+312952e8 docs: add readable mermaid views
+0e5030c6 docs: add mermaid cartography file scope
+04120ad0 docs: add final mermaid preview
 5d6de97 docs: add final mermaid architecture map
 fb011589 docs: add mermaid runtime orchestration map
 2712ba45 docs: add mermaid interfaces workers map
@@ -53,4 +56,17 @@ Parent chantier: ready for review / PR
 ```text
 No remaining implementation gap on this branch.
 Merge/review decision remains external to the branch chantier workflow.
+```
+
+## READABLE_VIEWS
+
+```text
+Readable visual entrypoint:
+docs/architecture/mermaid/readable/000_index.preview.md
+
+Global visual preview:
+docs/architecture/mermaid/990_architecture_final.preview.md
+
+Canonical global Mermaid:
+docs/architecture/mermaid/990_architecture_final.mmd
 ```

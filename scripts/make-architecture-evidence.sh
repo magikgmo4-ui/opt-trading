@@ -4,6 +4,8 @@ set -euo pipefail
 OUT="docs/architecture/evidence"
 mkdir -p "$OUT"
 
+TREE_EXCLUDES=".git|node_modules|dist|build|coverage|__pycache__|.venv|venv|.next|target|vendor|tmp|_archive"
+
 echo "# Repo Identity" > "$OUT/00_repo_identity.md"
 {
   echo
@@ -18,7 +20,7 @@ echo "# Repo Identity" > "$OUT/00_repo_identity.md"
 
 echo "# Tree" > "$OUT/01_tree.txt"
 if command -v tree >/dev/null 2>&1; then
-  tree -a -I ".git|node_modules|dist|build|coverage|__pycache__|.venv|venv|.next|target|vendor" >> "$OUT/01_tree.txt"
+  tree -a -I "$TREE_EXCLUDES" >> "$OUT/01_tree.txt"
 else
   find . \
     -path "./.git" -prune -o \
@@ -27,8 +29,11 @@ else
     -path "./build" -prune -o \
     -path "./coverage" -prune -o \
     -path "./__pycache__" -prune -o \
+    -path "./tmp" -prune -o \
+    -path "./_archive" -prune -o \
     -path "./.venv" -prune -o \
     -path "./venv" -prune -o \
+    -name "*.pyc" -prune -o \
     -type f -print | sort >> "$OUT/01_tree.txt"
 fi
 
@@ -66,6 +71,10 @@ echo "# Entrypoints" > "$OUT/03_entrypoints.md"
     -path "./node_modules" -prune -o \
     -path "./dist" -prune -o \
     -path "./build" -prune -o \
+    -path "./coverage" -prune -o \
+    -path "./tmp" -prune -o \
+    -path "./_archive" -prune -o \
+    -path "*/__pycache__" -prune -o \
     -type f \( \
       -name "main.*" -o \
       -name "index.*" -o \
@@ -74,7 +83,7 @@ echo "# Entrypoints" > "$OUT/03_entrypoints.md"
       -name "cli.*" -o \
       -name "__main__.py" -o \
       -name "manage.py" \
-    \) -print | sort
+    \) ! -name "*.pyc" -print | sort
 } >> "$OUT/03_entrypoints.md"
 
 echo "# Imports Raw" > "$OUT/04_imports_raw.txt"
@@ -85,6 +94,10 @@ if command -v rg >/dev/null 2>&1; then
     --glob '!dist/**' \
     --glob '!build/**' \
     --glob '!coverage/**' \
+    --glob '!tmp/**' \
+    --glob '!_archive/**' \
+    --glob '!**/__pycache__/**' \
+    --glob '!**/*.pyc' \
     --glob '!vendor/**' \
     --glob '!target/**' \
     . > "$OUT/04_imports_raw.txt" || true
@@ -98,6 +111,12 @@ echo "# External Dependencies" > "$OUT/05_external_dependencies.md"
   find . \
     -path "./.git" -prune -o \
     -path "./node_modules" -prune -o \
+    -path "./dist" -prune -o \
+    -path "./build" -prune -o \
+    -path "./coverage" -prune -o \
+    -path "./tmp" -prune -o \
+    -path "./_archive" -prune -o \
+    -path "*/__pycache__" -prune -o \
     -type f \( \
       -name "package.json" -o \
       -name "pyproject.toml" -o \
@@ -105,7 +124,7 @@ echo "# External Dependencies" > "$OUT/05_external_dependencies.md"
       -name "go.mod" -o \
       -name "Cargo.toml" -o \
       -name "pom.xml" \
-    \) -print | sort
+    \) ! -name "*.pyc" -print | sort
 } >> "$OUT/05_external_dependencies.md"
 
 echo "# Tests" > "$OUT/06_tests.md"
@@ -114,11 +133,17 @@ echo "# Tests" > "$OUT/06_tests.md"
   find . \
     -path "./.git" -prune -o \
     -path "./node_modules" -prune -o \
+    -path "./dist" -prune -o \
+    -path "./build" -prune -o \
+    -path "./coverage" -prune -o \
+    -path "./tmp" -prune -o \
+    -path "./_archive" -prune -o \
+    -path "*/__pycache__" -prune -o \
     -type f \( \
       -name "*test*" -o \
       -name "*spec*" -o \
       -path "*/tests/*" \
-    \) -print | sort
+    \) ! -name "*.pyc" -print | sort
 } >> "$OUT/06_tests.md"
 
 echo "# Infra" > "$OUT/07_infra.md"
@@ -127,6 +152,12 @@ echo "# Infra" > "$OUT/07_infra.md"
   find . \
     -path "./.git" -prune -o \
     -path "./node_modules" -prune -o \
+    -path "./dist" -prune -o \
+    -path "./build" -prune -o \
+    -path "./coverage" -prune -o \
+    -path "./tmp" -prune -o \
+    -path "./_archive" -prune -o \
+    -path "*/__pycache__" -prune -o \
     -type f \( \
       -name "Dockerfile" -o \
       -name "docker-compose*.yml" -o \
@@ -135,7 +166,7 @@ echo "# Infra" > "$OUT/07_infra.md"
       -name "*.yaml" -o \
       -name "*.yml" -o \
       -path "*/.github/workflows/*" \
-    \) -print | sort
+    \) ! -name "*.pyc" -print | sort
 } >> "$OUT/07_infra.md"
 
 echo "Evidence pack generated in $OUT"

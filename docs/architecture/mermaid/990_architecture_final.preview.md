@@ -6,6 +6,16 @@ Source canonique :
 docs/architecture/mermaid/990_architecture_final.mmd
 ```
 
+Vues lisibles :
+
+- `docs/architecture/mermaid/readable/000_index.preview.md`
+- `docs/architecture/mermaid/readable/010_core_runtime.preview.md`
+- `docs/architecture/mermaid/readable/020_data_strategy_execution.preview.md`
+- `docs/architecture/mermaid/readable/030_interfaces_entrypoints.preview.md`
+- `docs/architecture/mermaid/readable/040_ops_governance.preview.md`
+- `docs/architecture/mermaid/readable/050_quality_contracts_docs.preview.md`
+- `docs/architecture/mermaid/readable/060_trading_runtime_critical_path.preview.md`
+
 Visualisation Mermaid :
 
 ```mermaid

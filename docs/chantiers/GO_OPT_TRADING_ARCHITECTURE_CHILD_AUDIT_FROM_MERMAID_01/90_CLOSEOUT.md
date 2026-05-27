@@ -1,0 +1,112 @@
+# 90_CLOSEOUT - GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01
+
+## CANONICAL_STATE
+
+```text
+Branch:
+go/GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01
+
+Audit source:
+docs/architecture/mermaid/readable/000_index.preview.md
+docs/architecture/mermaid/readable/*.preview.md
+docs/architecture/mermaid/990_architecture_final.mmd
+
+Audit report:
+docs/chantiers/GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01/20_ARCHITECTURE_AUDIT.md
+
+Merged derived audits:
+docs/chantiers/GO_OPT_TRADING_ARCHITECTURE_CHILD_RUNTIME_CRITICAL_PATH_AUDIT_01/20_RUNTIME_CRITICAL_PATH_AUDIT.md
+docs/chantiers/GO_OPT_TRADING_ARCHITECTURE_CHILD_REGISTRY_OWNERSHIP_AUDIT_01/20_REGISTRY_OWNERSHIP_AUDIT.md
+docs/chantiers/GO_OPT_TRADING_ARCHITECTURE_CHILD_HUB_REFACTOR_CANDIDATES_01/20_HUB_REFACTOR_CANDIDATES.md
+docs/chantiers/GO_OPT_TRADING_ARCHITECTURE_CHILD_RUNTIME_LINK_PROOF_01/20_RUNTIME_LINK_PROOF.md
+docs/chantiers/GO_OPT_TRADING_ARCHITECTURE_CHILD_GLOBAL_INDEX_RESUME_SYNC_01/90_CLOSEOUT.md
+```
+
+## VERDICT
+
+```text
+Architecture cartographiee et auditee.
+La carte globale est exploitable comme inventaire.
+Les vues readable sont necessaires pour lecture operationnelle.
+Le repo montre une bonne separation macro, mais plusieurs hubs critiques doivent etre surveilles.
+```
+
+## POINTS_FORTS
+
+```text
+- Cartographie Evidence Pack first.
+- Separation macro claire : core, data, interfaces, ops/governance, quality/docs.
+- Vues lisibles disponibles.
+- Parent Mermaid non modifie par l'audit.
+- Zones probable / UNKNOWN conservees au lieu d'etre inventees.
+```
+
+## POINTS_FAIBLES
+
+```text
+- Densite elevee de la carte globale.
+- Hubs critiques probablement trop charges.
+- Hierarchie des registries et ownership data/state a clarifier.
+- Relations probable / UNKNOWN a valider par preuves code.
+```
+
+## NEXT_GO_PRIORISES
+
+```text
+1. GO_OPT_TRADING_ARCHITECTURE_CHILD_RUNTIME_CRITICAL_PATH_AUDIT_01
+   Objectif : isoler et valider le chemin runtime trading critique.
+
+2. GO_OPT_TRADING_ARCHITECTURE_CHILD_REGISTRY_OWNERSHIP_AUDIT_01
+   Objectif : clarifier les registries, ownership, sources d'autorite.
+
+3. GO_OPT_TRADING_ARCHITECTURE_CHILD_HUB_REFACTOR_CANDIDATES_01
+   Objectif : identifier les fichiers hubs a decouper ou stabiliser.
+```
+
+## CLOSE_GATE
+
+```text
+Audit report present: yes
+Parent Mermaid untouched: yes
+Readable views used: yes
+NEXT_GO proposed: yes
+Runtime critical path child merged: yes
+Registry ownership child merged: yes
+Hub refactor candidates child merged: yes
+Runtime link proof child merged: yes
+Global index resume sync child merged: yes
+Branch clean: verified by git status --short
+```
+
+## DERIVED_AUDITS_MERGED
+
+```text
+PR #852 merged into go/GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01
+  - runtime critical path
+  - merge commit: dfcb2db48b2326879f56e7b17e99cb1d34d6c9f8
+
+PR #853 merged into go/GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01
+  - registry ownership
+  - merge commit: e4f751b8daf887ddeca09fe28e423f6ccd507a9d
+
+PR #855 merged into go/GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01
+  - hub refactor candidates
+  - merge commit: 75344833a432bfb8413a283e18b65677483e1110
+
+PR #857 merged into go/GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01
+  - runtime link proof
+  - merge commit: b5ff650e2da892db80c5d8636b6f270fc07ad0cd
+
+PR #858 merged into go/GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01
+  - global index resume sync
+  - merge commit: 0084dd4bd0d16b4dbafbfe0412864d1df09a5210
+```
+
+## RESUME_POINT
+
+```text
+Child audit termine.
+Les childs runtime critical path, registry ownership, hub refactor candidates et runtime link proof sont maintenant merges.
+Le point de reprise architecture est maintenant aussi propage dans les index globaux.
+Prochaine decision : ouvrir un child de refactor code cible seulement sur une boundary maintenant assez sure.
+```

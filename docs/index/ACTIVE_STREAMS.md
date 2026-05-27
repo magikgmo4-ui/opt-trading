@@ -17,7 +17,7 @@ surface: chantier
 source_kind: canonical
 reference_canonique_principale: docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
 point_de_reprise: "Section MASTER_PROJECT_PLAN active streams"
-updated_at: 2026-05-23
+updated_at: 2026-05-26
 links:
   - docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md
   - docs/governance/PRODUCT_FINAL_SURFACE_REGISTRY_01.md
@@ -70,6 +70,14 @@ Depuis la remédiation produit/surface, les flux actifs doivent être lus comme 
 ## Flux parents actifs historiques
 
 Ces flux restent utiles comme continuité existante. Leur rattachement cible est désormais visible dans la table `MASTER_PROJECT_PLAN active streams`.
+
+### GO_OPT_TRADING_GITHUB_ACTIONS_OPENCLAW_MASTER_PROJECT_PLAN_01
+- produit utilisable : chaine GitHub Actions/OpenClaw operationnelle en mode controle, avec registre repo, workflows gates PR et orchestration non destructive
+- statut : CLOSED/PASS
+- gap restant : aucun — close gate master consolidee et PASsee ; preuve live reelle (run `26486400740`) acquise ; 10 conditions de fermeture validees
+- target courant : closed — master target `github_actions_openclaw` ferme
+- next action : aucun — chantier clos
+- blocage : aucun — close gate master PASsee
 
 ### GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01
 - produit utilisable : registre canonique des produits/surfaces finales `PF_*`
@@ -150,6 +158,14 @@ Ces flux restent utiles comme continuité existante. Leur rattachement cible est
 - target courant : runtime tmux/opencode/openclaw
 - next action : maintenir le runtime ; ouvrir suite si besoin produit
 - blocage : aucun
+
+### GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01
+- produit utilisable : chaîne architecture Mermaid cartographiée, auditée et priorisée
+- statut : ACTIVE
+- gap restant : ouvrir uniquement des children de preuve fine ou de refactor code ciblé
+- target courant : continuité audit architecture + reprise propre depuis closeout
+- next action : `GO_OPT_TRADING_ARCHITECTURE_CHILD_RUNTIME_LINK_PROOF_01` déjà mergé ; prochaine suite selon boundary de refactor sûre
+- blocage : ne pas refactorer le code avant preuve suffisante des boundaries critiques
 
 ---
 
