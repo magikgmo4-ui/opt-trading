@@ -1,0 +1,4 @@
+docs/chantiers/GO_OPT_TRADING_DATA_CENTER_CHILD_REFS_TIMESTAMPS_PRODUCER_STANDARD_01/**
+docs/index/inbox/GO_OPT_TRADING_DATA_CENTER_CHILD_REFS_TIMESTAMPS_PRODUCER_STANDARD_01.md
+modules/data_center/refs_timestamps.py
+modules/data_center/tests/test_refs_timestamps.py

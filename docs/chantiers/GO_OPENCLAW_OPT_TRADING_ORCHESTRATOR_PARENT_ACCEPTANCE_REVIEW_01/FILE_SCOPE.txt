@@ -1,0 +1,5 @@
+docs/chantiers/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_ACCEPTANCE_REVIEW_01/**
+modules/notification_dispatcher/app/__init__.py
+modules/validation_gate/app/gate.py
+modules/trade_executor/app/executor.py
+modules/result_tracker/app/tracker.py

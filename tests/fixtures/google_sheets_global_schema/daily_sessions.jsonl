@@ -1,0 +1,3 @@
+{"run_id": "run_20260525_001", "started_at": "2026-05-25T08:00:00Z", "ended_at": "2026-05-25T08:05:30Z", "status": "success", "machine_id": "fantome", "report_ref": "data/sessions/run_20260525_001/report.json"}
+{"run_id": "run_20260525_002", "started_at": "2026-05-25T10:00:00Z", "ended_at": "2026-05-25T10:03:12Z", "status": "warn", "machine_id": "fantome", "report_ref": "data/sessions/run_20260525_002/report.json"}
+{"run_id": "run_20260524_001", "started_at": "2026-05-24T08:00:00Z", "ended_at": null, "status": "fail", "machine_id": null, "report_ref": null}

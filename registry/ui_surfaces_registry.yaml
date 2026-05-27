@@ -11,6 +11,16 @@
   status: ready
   priority: high
 
+- surface_name: deepseek_hub
+  source_module: deepseek_hub
+  machine_target: msi_db_layer
+  category: ui/index/modules
+  audience: operator
+  description: "Hub operateur DeepSeek unifie pour la famille deepseek*."
+  actions: "menu-deepseek_hub"
+  status: ready
+  priority: medium
+
 - surface_name: desk_pro_dashboard
   source_module: desk_pro_dashboard
   machine_target: msi_db_layer

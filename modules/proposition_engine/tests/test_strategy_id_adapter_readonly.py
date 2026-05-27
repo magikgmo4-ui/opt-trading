@@ -41,7 +41,7 @@ def test_known_strategy_id_silent(caplog):
     req = PropositionRequest(signal=_signal(KNOWN_ID), dry_run=True)
     prop = eng.propose(req)
     assert prop.status == "ok"
-    assert not any("unknown strategy_id" in rec.message for rec in caplog.records)
+    assert not any("STRATEGY_ID_UNKNOWN" in rec.message for rec in caplog.records)
 
 
 def test_unknown_strategy_id_warns(caplog):
@@ -50,7 +50,7 @@ def test_unknown_strategy_id_warns(caplog):
     req = PropositionRequest(signal=_signal(UNKNOWN_ID), dry_run=True)
     prop = eng.propose(req)
     assert prop.status == "ok"
-    assert any("unknown strategy_id" in rec.message for rec in caplog.records)
+    assert any("STRATEGY_ID_UNKNOWN" in rec.message for rec in caplog.records)
     assert prop.action == "HOLD"
 
 

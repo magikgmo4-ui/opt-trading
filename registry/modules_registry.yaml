@@ -57,6 +57,39 @@
   priority: high
   dependencies: []
 
+- module_name: deepseek_hub
+  domain: operator_tools
+  machine_target: msi_db_layer
+  operator_visible: true
+  ui_related: true
+  description: "Hub operateur DeepSeek et owner documentaire de la famille"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: high
+  dependencies: ["deepseek_response", "deepseek_thinking"]
+
+- module_name: deepseek_response
+  domain: operator_tools
+  machine_target: student
+  operator_visible: true
+  ui_related: false
+  description: "Compatibilite operatoire DeepSeek pour reponses finales"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: medium
+  dependencies: []
+
+- module_name: deepseek_thinking
+  domain: operator_tools
+  machine_target: student
+  operator_visible: true
+  ui_related: false
+  description: "Compatibilite operatoire DeepSeek pour thinking archive"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: medium
+  dependencies: []
+
 - module_name: ops_menu_hub
   domain: operator_tools
   machine_target: msi_db_layer
@@ -68,49 +101,159 @@
   priority: critical
   dependencies: []
 
+- module_name: gateway_openclaw
+  domain: operator_tools
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Pilotage runtime du gateway OpenClaw via tmux"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: critical
+  dependencies: []
+
+- module_name: openclaw_config_modulaire
+  domain: operator_tools
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Configuration modulaire OpenClaw avec apply safe et rollback"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: high
+  dependencies: []
+
+- module_name: configure_openclaw
+  domain: operator_tools
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Facade operateur de configuration live OpenClaw"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: high
+  dependencies: ["openclaw_config_modulaire", "gateway_openclaw"]
+
+- module_name: doctor_openclaw
+  domain: operator_tools
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Facade de diagnostic et verification de sante OpenClaw"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: high
+  dependencies: ["configure_openclaw", "gateway_openclaw"]
+
+- module_name: evidence_openclaw
+  domain: operator_tools
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Capture de preuves et continuite documentaire OpenClaw"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: medium
+  dependencies: ["doctor_openclaw", "configure_openclaw"]
+
+- module_name: install_module_openclaw
+  domain: operator_tools
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Point d'entree d'installation des modules OpenClaw"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: medium
+  dependencies: []
+
+- module_name: openclaw_operator_bridge
+  domain: operator_tools
+  machine_target: any
+  operator_visible: false
+  ui_related: false
+  description: "Contrat d'interface borne entre opt-trading et OpenClaw gateway"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: high
+  dependencies: ["gateway_openclaw"]
+
 - module_name: desk_pro_dashboard
   domain: operator_tools
   machine_target: msi_db_layer
   operator_visible: true
   ui_related: true
-  description: "Dashboard de supervision temps réel"
-  wrappers_expected: ["cmd"]
+  description: "Surface dashboard et export des runs Desk Pro"
+  wrappers_expected: ["cmd", "menu", "sanity"]
   status: beta
   priority: high
-  dependencies: ["desk_pro_runner"]
+  dependencies: ["desk_pro_runner", "desk_pro_orchestrator"]
+
+- module_name: desk_pro
+  domain: operator_tools
+  machine_target: admin_trading
+  operator_visible: false
+  ui_related: true
+  description: "Coeur partage API/UI/service de la stack Desk Pro"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: critical
+  dependencies: []
 
 - module_name: desk_pro_runner
   domain: operator_tools
   machine_target: admin_trading
-  operator_visible: false
+  operator_visible: true
   ui_related: false
-  description: "Orchestrateur d'exécution principal"
-  wrappers_expected: ["cmd", "sanity"]
+  description: "Facade operateur canonique de la stack Desk Pro"
+  wrappers_expected: ["cmd", "menu", "sanity"]
   status: active
   priority: critical
-  dependencies: ["probability_engine", "decision_engine"]
+  dependencies: ["desk_pro_orchestrator", "desk_pro_dashboard"]
+
+- module_name: desk_pro_orchestrator
+  domain: operator_tools
+  machine_target: admin_trading
+  operator_visible: false
+  ui_related: false
+  description: "Backbone d'execution de la stack Desk Pro"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: critical
+  dependencies: ["decision_engine", "risk_engine", "execution_engine", "position_engine", "perf_engine", "journal_engine", "portfolio_engine"]
 
 - module_name: desk_capture_inputs
   domain: operator_tools
   machine_target: admin_trading
-  operator_visible: true
-  ui_related: true
-  description: "Interface de saisie manuelle de signaux"
-  wrappers_expected: ["cmd"]
+  operator_visible: false
+  ui_related: false
+  description: "Satellite d'extraction d'inputs depuis les snapshots Desk"
+  wrappers_expected: ["cmd", "menu", "sanity"]
   status: active
   priority: medium
-  dependencies: ["desk_pro_runner"]
+  dependencies: ["desk_snapshot_ingest"]
 
 - module_name: desk_analyze
   domain: operator_tools
   machine_target: admin_trading
   operator_visible: true
-  ui_related: true
-  description: "Commande d'analyse à la demande"
-  wrappers_expected: ["cmd"]
+  ui_related: false
+  description: "Satellite d'analyse locale a partir des snapshots Desk"
+  wrappers_expected: ["cmd", "menu", "sanity"]
   status: active
   priority: medium
-  dependencies: ["desk_pro_runner"]
+  dependencies: ["desk_snapshot_ingest"]
+
+- module_name: desk_common
+  domain: operator_tools
+  machine_target: admin_trading
+  operator_visible: false
+  ui_related: false
+  description: "Support shared minimal pour chemins runtime et wrappers Desk"
+  wrappers_expected: ["cmd", "menu", "sanity"]
+  status: active
+  priority: low
+  dependencies: []
 
 # === ANALYSIS ENGINES ===
 - module_name: derivatives_analyzer
@@ -307,42 +450,97 @@
   domain: monitoring
   machine_target: msi_db_layer
   operator_visible: true
-  ui_related: true
-  description: "État rapide du desk"
-  wrappers_expected: ["cmd"]
+  ui_related: false
+  description: "Satellite de state canonique pour la stack Desk"
+  wrappers_expected: ["cmd", "menu", "sanity"]
   status: active
   priority: high
-  dependencies: ["desk_pro_dashboard"]
+  dependencies: ["desk_snapshot_ingest", "desk_capture_inputs"]
 
 - module_name: desk_snapshot_ingest
   domain: monitoring
   machine_target: admin_trading
   operator_visible: false
   ui_related: false
-  description: "Ingestion d'historique"
-  wrappers_expected: ["cmd"]
+  description: "Satellite d'ingestion snapshots depuis l'inbox SFTP"
+  wrappers_expected: ["cmd", "menu", "sanity"]
   status: active
   priority: low
-  dependencies: ["desk_pro_dashboard"]
+  dependencies: ["desk_common"]
 
 - module_name: desk_retention
   domain: maintenance
   machine_target: admin_trading
   operator_visible: false
   ui_related: false
-  description: "Nettoyage des données historiques"
-  wrappers_expected: ["cmd"]
+  description: "Satellite de retention et hygiene des artefacts Desk"
+  wrappers_expected: ["cmd", "menu", "sanity"]
   status: active
   priority: low
-  dependencies: ["desk_pro_dashboard"]
+  dependencies: ["desk_snapshot_ingest"]
 
 - module_name: ui_registry_msi
   domain: registry
   machine_target: msi_db_layer
   operator_visible: true
   ui_related: true
-  description: "Registre central des UIs (MSI First)"
+  description: "Surface operateur active et owner canonique de lecture ui_surfaces_registry"
   wrappers_expected: ["menu", "cmd", "sanity"]
   status: active
   priority: critical
   dependencies: []
+
+- module_name: modules_registry_reader
+  domain: registry
+  machine_target: any
+  operator_visible: false
+  ui_related: false
+  description: "Reader specialise et owner canonique de lecture modules_registry.yaml"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: high
+  dependencies: []
+
+- module_name: machines_registry_reader
+  domain: registry
+  machine_target: any
+  operator_visible: false
+  ui_related: false
+  description: "Reader specialise et owner canonique de lecture machines_registry.yaml"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: high
+  dependencies: []
+
+- module_name: wrappers_registry_reader
+  domain: registry
+  machine_target: any
+  operator_visible: false
+  ui_related: false
+  description: "Reader specialise et owner canonique de lecture wrappers_registry.yaml"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: high
+  dependencies: []
+
+- module_name: registry_meta_reader
+  domain: registry
+  machine_target: any
+  operator_visible: false
+  ui_related: false
+  description: "Meta-reader specialise et owner canonique de lecture meta_index.yaml"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: medium
+  dependencies: []
+
+- module_name: registry_router
+  domain: registry
+  machine_target: any
+  operator_visible: true
+  ui_related: false
+  description: "Facade de navigation vers les readers registry, sans lecture directe des sources de verite"
+  wrappers_expected: ["menu", "cmd", "sanity"]
+  status: active
+  priority: medium
+  dependencies: ["registry_meta_reader", "machines_registry_reader", "modules_registry_reader", "ui_registry_msi", "wrappers_registry_reader"]

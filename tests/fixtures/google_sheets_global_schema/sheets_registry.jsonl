@@ -1,0 +1,11 @@
+{"tab_name": "sheets_registry", "schema_version": "v1", "owner_pf": "PF_GOOGLE_SHEETS_CONSUMER", "schema_status": "active", "updated_at": "2026-05-25T00:00:00Z"}
+{"tab_name": "daily_sessions", "schema_version": "v1", "owner_pf": "PF_GOOGLE_SHEETS_CONSUMER", "schema_status": "active", "updated_at": "2026-05-25T00:00:00Z"}
+{"tab_name": "strategy_events", "schema_version": "v1", "owner_pf": "PF_DESK_PRO", "schema_status": "planned", "updated_at": "2026-05-25T00:00:00Z"}
+{"tab_name": "strategy_perf", "schema_version": "v1", "owner_pf": "PF_PERF_ENGINE_TRADING_LAB", "schema_status": "planned", "updated_at": "2026-05-25T00:00:00Z"}
+{"tab_name": "strategy_gates", "schema_version": "v1", "owner_pf": "PF_STRATEGY_FRAMEWORK_REGISTRY", "schema_status": "planned", "updated_at": "2026-05-25T00:00:00Z"}
+{"tab_name": "registry_candidates", "schema_version": "v1", "owner_pf": "PF_STRATEGY_FRAMEWORK_REGISTRY", "schema_status": "planned", "updated_at": "2026-05-25T00:00:00Z"}
+{"tab_name": "market_metrics", "schema_version": "v1", "owner_pf": "PF_DATA_CENTER", "schema_status": "planned", "updated_at": "2026-05-25T00:00:00Z"}
+{"tab_name": "desk_snapshots", "schema_version": "v1", "owner_pf": "PF_DESK_PRO", "schema_status": "planned", "updated_at": "2026-05-25T00:00:00Z"}
+{"tab_name": "visual_context", "schema_version": "v1", "owner_pf": "PF_DESK_PRO", "schema_status": "planned", "updated_at": "2026-05-25T00:00:00Z"}
+{"tab_name": "telegram_claims", "schema_version": "v1", "owner_pf": "PF_TELEGRAM_SCREENER", "schema_status": "planned", "updated_at": "2026-05-25T00:00:00Z"}
+{"tab_name": "watchlists", "schema_version": "v1", "owner_pf": "PF_GOOGLE_SHEETS_CONSUMER", "schema_status": "planned", "updated_at": "2026-05-25T00:00:00Z"}

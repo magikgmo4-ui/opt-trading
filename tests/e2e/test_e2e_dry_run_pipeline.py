@@ -150,7 +150,7 @@ class TestE2EDryRunPipeline(unittest.TestCase):
 
     def test_pipeline_script_runs(self):
         import subprocess
-        env = {**__import__("os").environ, "DRY_RUN": "1", "PAPER_MODE": "1"}
+        env = {**__import__("os").environ, "DRY_RUN": "1", "PAPER_MODE": "1", "ALLOW_E2E_LIVE_DRY_RUN": "1"}
         r = subprocess.run(
             [__import__("sys").executable, str(PROJECT_ROOT / "scripts/e2e/dry_run_pipeline.py")],
             capture_output=True, text=True, timeout=30, env=env,
@@ -158,12 +158,12 @@ class TestE2EDryRunPipeline(unittest.TestCase):
         if r.returncode != 0:
             self.fail(f"Pipeline failed (rc={r.returncode}): STDERR={r.stderr[:500]}")
         report = json.loads(r.stdout)
-        self.assertEqual(report["pipeline"], "E2E dry-run pipeline")
+        self.assertEqual(report["pipeline"], "E2E post-gate live/dry-run")
         self.assertTrue(report["dry_run"])
 
     def test_pipeline_all_steps_present(self):
         import subprocess
-        env = {**__import__("os").environ, "DRY_RUN": "1", "PAPER_MODE": "1"}
+        env = {**__import__("os").environ, "DRY_RUN": "1", "PAPER_MODE": "1", "ALLOW_E2E_LIVE_DRY_RUN": "1"}
         r = subprocess.run(
             [__import__("sys").executable, str(PROJECT_ROOT / "scripts/e2e/dry_run_pipeline.py")],
             capture_output=True, text=True, timeout=30, env=env,
@@ -180,7 +180,7 @@ class TestE2EDryRunPipeline(unittest.TestCase):
 
     def test_pipeline_includes_desk_pro_fixture_synthesis(self):
         import subprocess
-        env = {**__import__("os").environ, "DRY_RUN": "1", "PAPER_MODE": "1"}
+        env = {**__import__("os").environ, "DRY_RUN": "1", "PAPER_MODE": "1", "ALLOW_E2E_LIVE_DRY_RUN": "1"}
         r = subprocess.run(
             [__import__("sys").executable, str(PROJECT_ROOT / "scripts/e2e/dry_run_pipeline.py")],
             capture_output=True, text=True, timeout=30, env=env,
@@ -201,7 +201,7 @@ class TestE2EDryRunPipeline(unittest.TestCase):
 
     def test_pipeline_no_live_trade(self):
         import subprocess
-        env = {**__import__("os").environ, "DRY_RUN": "1", "PAPER_MODE": "1"}
+        env = {**__import__("os").environ, "DRY_RUN": "1", "PAPER_MODE": "1", "ALLOW_E2E_LIVE_DRY_RUN": "1"}
         r = subprocess.run(
             [__import__("sys").executable, str(PROJECT_ROOT / "scripts/e2e/dry_run_pipeline.py")],
             capture_output=True, text=True, timeout=30, env=env,
@@ -237,7 +237,7 @@ class TestE2EDryRunPipeline(unittest.TestCase):
 
     def test_localcms_endpoints_mentioned_in_report(self):
         import subprocess
-        env = {**__import__("os").environ, "DRY_RUN": "1", "PAPER_MODE": "1"}
+        env = {**__import__("os").environ, "DRY_RUN": "1", "PAPER_MODE": "1", "ALLOW_E2E_LIVE_DRY_RUN": "1"}
         r = subprocess.run(
             [__import__("sys").executable, str(PROJECT_ROOT / "scripts/e2e/dry_run_pipeline.py")],
             capture_output=True, text=True, timeout=30, env=env,
@@ -248,7 +248,7 @@ class TestE2EDryRunPipeline(unittest.TestCase):
 
     def test_pipeline_succeeds_all_7_steps(self):
         import subprocess
-        env = {**__import__("os").environ, "DRY_RUN": "1", "PAPER_MODE": "1"}
+        env = {**__import__("os").environ, "DRY_RUN": "1", "PAPER_MODE": "1", "ALLOW_E2E_LIVE_DRY_RUN": "1"}
         r = subprocess.run(
             [__import__("sys").executable, str(PROJECT_ROOT / "scripts/e2e/dry_run_pipeline.py")],
             capture_output=True, text=True, timeout=30, env=env,
@@ -258,7 +258,7 @@ class TestE2EDryRunPipeline(unittest.TestCase):
 
     def test_pipeline_all_steps_have_no_error_status(self):
         import subprocess
-        env = {**__import__("os").environ, "DRY_RUN": "1", "PAPER_MODE": "1"}
+        env = {**__import__("os").environ, "DRY_RUN": "1", "PAPER_MODE": "1", "ALLOW_E2E_LIVE_DRY_RUN": "1"}
         r = subprocess.run(
             [__import__("sys").executable, str(PROJECT_ROOT / "scripts/e2e/dry_run_pipeline.py")],
             capture_output=True, text=True, timeout=30, env=env,
@@ -317,7 +317,9 @@ class TestE2EDryRunPipelineInvariants(unittest.TestCase):
     def test_dry_run_env_default(self):
         import subprocess, os
         clean_env = {k: v for k, v in os.environ.items()
-                     if k not in ("DRY_RUN", "PAPER_MODE")}
+                     if k not in ("DRY_RUN", "PAPER_MODE", "ALLOW_E2E_LIVE_DRY_RUN", "ALLOW_LIVE_TRADE")}
+        clean_env["ALLOW_E2E_LIVE_DRY_RUN"] = "1"
+        clean_env["DRY_RUN"] = "1"  # must be explicit with preflight
         r = subprocess.run(
             [__import__("sys").executable, str(PROJECT_ROOT / "scripts/e2e/dry_run_pipeline.py")],
             capture_output=True, text=True, timeout=30, env=clean_env,
@@ -327,7 +329,7 @@ class TestE2EDryRunPipelineInvariants(unittest.TestCase):
 
     def test_closeout_no_artifacts(self):
         import subprocess, os
-        env = {**os.environ, "DRY_RUN": "1", "PAPER_MODE": "1"}
+        env = {**os.environ, "DRY_RUN": "1", "PAPER_MODE": "1", "ALLOW_E2E_LIVE_DRY_RUN": "1"}
         r = subprocess.run(
             [__import__("sys").executable, str(PROJECT_ROOT / "scripts/e2e/dry_run_pipeline.py")],
             capture_output=True, text=True, timeout=30, env=env,

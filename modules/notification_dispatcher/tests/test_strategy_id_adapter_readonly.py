@@ -34,7 +34,7 @@ def test_known_strategy_id_silent(caplog):
     e = _event({"ticker": "BTCUSDT", "side": "BUY", "price": 65000, "tf": "1h", "strategy_id": KNOWN_ID})
     result = NotificationDispatcher().dispatch(e, dry_run=True)
     assert result["ok"] is True
-    assert not any("unknown strategy_id" in rec.message for rec in caplog.records)
+    assert not any("STRATEGY_ID_UNKNOWN" in rec.message for rec in caplog.records)
 
 
 def test_unknown_strategy_id_warns(caplog):
@@ -42,7 +42,7 @@ def test_unknown_strategy_id_warns(caplog):
     e = _event({"ticker": "BTCUSDT", "side": "BUY", "price": 65000, "tf": "1h", "strategy_id": UNKNOWN_ID})
     result = NotificationDispatcher().dispatch(e, dry_run=True)
     assert result["ok"] is True
-    assert any("unknown strategy_id" in rec.message for rec in caplog.records)
+    assert any("STRATEGY_ID_UNKNOWN" in rec.message for rec in caplog.records)
 
 
 def test_no_strategy_id_no_validation(caplog):
@@ -50,7 +50,7 @@ def test_no_strategy_id_no_validation(caplog):
     e = _event({"ticker": "BTCUSDT", "side": "BUY", "price": 65000, "tf": "1h"})
     result = NotificationDispatcher().dispatch(e, dry_run=True)
     assert result["ok"] is True
-    assert not any("unknown strategy_id" in rec.message for rec in caplog.records)
+    assert not any("STRATEGY_ID_UNKNOWN" in rec.message for rec in caplog.records)
 
 
 def test_message_output_unchanged_for_known():

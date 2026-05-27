@@ -22,5 +22,14 @@ print(f'consumers : {len(c[\"consumers\"])} declared')
 implemented = [x for x in c['consumers'] if x['implementation_status'] == 'implemented']
 print(f'consumers implemented : {len(implemented)}')
 
+assert len(implemented) >= 2, f'CLOSE_GATE_MASTER_TARGET requires >=2 implemented consumers, got {len(implemented)}'
+
+from modules.data_center.runtime_registry import load_runtime_registry
+rt = load_runtime_registry()
+written = [pid for pid, info in rt.get('producers', {}).items() if info.get('last_write')]
+print(f'producers with last_write : {len(written)} / {len(p[\"producers\"])}')
+for pid in written:
+    print(f'  {pid} : {rt[\"producers\"][pid][\"last_write\"]}')
+
 print('PASS')
 "

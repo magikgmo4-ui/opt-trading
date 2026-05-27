@@ -5,7 +5,7 @@ repo: opt-trading
 go_id: GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01
 status: open
 source_kind: canonical
-updated_at: 2026-05-23
+updated_at: 2026-05-26
 ---
 
 # 90_REPRISE
@@ -26,11 +26,18 @@ produit final total voulu :
 
 ## Etat de cette passe
 
-La passe courante inscrit les preuves reelles de validation runtime distante
-strict read-only 1 a 10. Aucun runtime n'a ete modifie par ce patch
-documentaire.
+Ce chantier conserve les preuves de validation runtime distante strict read-only
+1 a 10.
 
-Verdict global :
+Deux passes sont a considerer :
+
+- `2026-05-23` : validation 1 a 10 `PASS_WITH_WARNINGS` (reference historique).
+- `2026-05-26` : incident runtime `db-layer` (gateway down + tmux absent) puis
+  recovery minimal via `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_DB_LAYER_GATEWAY_RECOVERY_01`,
+  suivi d'un replay 1 a 10 `PASS_WITH_WARNINGS` et d'un mobile smoke read-only
+  `PASS_WITH_WARNINGS`.
+
+Verdict global (passe `2026-05-23`) :
 
 ```text
 STRICT_READ_ONLY_1_10 = PASS_WITH_WARNINGS
@@ -44,6 +51,23 @@ NEXT_FIX_GO = GO_OPT_TRADING_RUNTIME_HEALTHCHECK_PYTHON_ENV_FIX_01
 Le GO ne doit pas etre ferme en `PASS_FULL`. Les warnings restent a traiter
 dans un GO de correction separe, en priorite le mismatch Python/PyYAML du
 runtime healthcheck.
+
+Verdict global (passe `2026-05-26` post-recovery) :
+
+```text
+STRICT_READ_ONLY_1_10 = PASS_WITH_WARNINGS
+RUNTIME_LOCK = LEVE_PARTIELLEMENT
+RECOVERY_GO = GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_DB_LAYER_GATEWAY_RECOVERY_01
+EVIDENCE = 57_DB_LAYER_GATEWAY_RECOVERY_RESULTS.md
+WATCHDOG_11_12 = NOT_RUN_STRICT_READ_ONLY
+```
+
+Mobile smoke (passe `2026-05-26`) :
+
+```text
+MOBILE_SMOKE = PASS_WITH_WARNINGS
+EVIDENCE = 59_MOBILE_SMOKE_RESULTS.md
+```
 
 ## Preuves repo relues
 
@@ -71,6 +95,8 @@ runtime healthcheck.
 
 Source detaillee : `56_STRICT_READ_ONLY_VALIDATION_RESULTS_1_10.md`.
 
+Passe `2026-05-23` :
+
 | Etape | Surface | Verdict | Preuve / lecture |
 |---:|---|---|---|
 | 1 | `db-layer` repo preflight | WARN | branche OK `sot/mainline...origin/sot/mainline` ; untracked `.claude/`, `artifacts/backtests/`, `secrets/` |
@@ -89,6 +115,32 @@ Synthese :
 ```text
 6 PASS
 4 WARN
+0 FAIL
+0 BLOCKED
+```
+
+Passe `2026-05-26` (post-recovery db-layer) :
+
+Source : `57_DB_LAYER_GATEWAY_RECOVERY_RESULTS.md`.
+
+| Etape | Surface | Verdict | Preuve / lecture |
+|---:|---|---|---|
+| 1 | `db-layer` repo preflight | WARN | repo drift: branche GO active + modified/untracked (`.claude/`, `artifacts/backtests/`, `secrets/`) |
+| 2 | `admin-trading` repo preflight | WARN | untracked `secrets/` |
+| 3 | OpenClaw health | WARN | health OK ; warning allowlist Telegram vide |
+| 4 | OpenClaw probe | PASS | `Reachable: yes` ; RPC ok |
+| 5 | fleet/runtime health | WARN | `fleet_status: WARN` (stale/unreachable) |
+| 6 | `tmux ls db-layer` | PASS | session `openclaw-core` presente (user ghost) |
+| 7 | `openclaw-core` session | PASS | `rc=0` |
+| 8 | `tmux ls admin-trading` | PASS | sessions presentes : `apps-connectors`, `desk-pro`, `market-data`, `screeners`, `trading-pipeline` |
+| 9 | `desk-pro` session | PASS | `rc=0` |
+| 10 | `screeners` session | PASS | `rc=0` |
+
+Synthese :
+
+```text
+7 PASS
+3 WARN
 0 FAIL
 0 BLOCKED
 ```
@@ -173,7 +225,7 @@ prematurement l'umbrella.
   mais `/opt/trading/venv/bin/python3` ne charge pas PyYAML alors que
   `/usr/bin/python3` le charge ; STEP 5 reste `WARN`
 - watchdog 11-12 non execute dans cette validation strict read-only
-- mobile SSH/tmux reel non valide dans cette passe
+- mobile SSH/tmux reel valide en read-only : `PASS_WITH_WARNINGS` (2026-05-26)
 - closeout umbrella final bloque par runtime + Bot Vision/headless +
   collectors/API + implementation Sheets globale
 

@@ -1,0 +1,8 @@
+docs/chantiers/GO_OPT_TRADING_REGISTRY_SOURCE_OF_TRUTH_IMPL_01/00_INITIAL_PROJECT_DOC.md
+docs/chantiers/GO_OPT_TRADING_REGISTRY_SOURCE_OF_TRUTH_IMPL_01/FILE_SCOPE.txt
+modules/modules_registry_reader/app/modules_registry_reader.py
+modules/machines_registry_reader/app/machines_registry_reader.py
+modules/wrappers_registry_reader/app/wrappers_registry_reader.py
+modules/registry_meta_reader/app/registry_meta_reader.py
+modules/ui_registry_msi/app/ui_registry_msi.py
+tests/governance/test_registry_source_of_truth_contract.py

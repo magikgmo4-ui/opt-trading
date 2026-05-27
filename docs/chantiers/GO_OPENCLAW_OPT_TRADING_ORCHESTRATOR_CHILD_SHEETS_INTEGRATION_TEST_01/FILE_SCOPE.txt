@@ -1,0 +1,2 @@
+docs/chantiers/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_CHILD_SHEETS_INTEGRATION_TEST_01/**
+modules/datasheet_writer/tests/test_sheets_integration.py

@@ -91,6 +91,9 @@ def _localcms_snapshot() -> dict:
 def _run_pipeline() -> dict:
     if str(PROJECT_ROOT) not in sys.path:
         sys.path.insert(0, str(PROJECT_ROOT))
+    # Journal always runs in post-gate dry-run mode — inject required flags
+    os.environ.setdefault("ALLOW_E2E_LIVE_DRY_RUN", "1")
+    os.environ.setdefault("DRY_RUN", "1")
     from scripts.e2e.dry_run_pipeline import main as pipeline_main
     return pipeline_main()
 

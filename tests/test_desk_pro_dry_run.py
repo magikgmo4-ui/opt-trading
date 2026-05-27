@@ -119,3 +119,142 @@ class TestDeskProDryRun:
         ok, errors = validate_desk_pro_dry_run_inputs(timer_payload)
         assert ok is True
         assert errors == []
+
+    def test_missing_market_metrics_is_warn_non_blocking(self):
+        v0 = _load("signal_event_v0_minimal.json")
+        snap = _load("desk_snapshot_minimal.json")
+        result = run_desk_pro_dry_run(v0, desk_snapshot=snap, market_metrics=None)
+        assert result["status"] == "WARN"
+        assert any("market_metrics missing" in w for w in result["warnings"])
+
+    def test_market_metrics_present_sets_summary_flag(self):
+        from modules.desk_pro.service.market_metrics_reader import read_market_metrics
+        v0 = _load("signal_event_v0_minimal.json")
+        snap = _load("desk_snapshot_minimal.json")
+        mm_fixture = _load("market_metrics_v1_minimal.json")
+        import tempfile, json
+        from pathlib import Path
+        td = Path(tempfile.mkdtemp())
+        try:
+            mm_path = td / "market_metrics_latest.json"
+            mm_path.write_text(json.dumps(mm_fixture), encoding="utf-8")
+            metrics = read_market_metrics(path=mm_path)
+            result = run_desk_pro_dry_run(v0, desk_snapshot=snap, market_metrics=metrics)
+            assert result["summary"]["market_metrics_present"] is True
+        finally:
+            import shutil; shutil.rmtree(td)
+
+    def test_market_metrics_present_removes_missing_warning(self):
+        from modules.desk_pro.service.market_metrics_reader import read_market_metrics
+        v0 = _load("signal_event_v0_minimal.json")
+        snap = _load("desk_snapshot_minimal.json")
+        mm_fixture = _load("market_metrics_v1_minimal.json")
+        import tempfile, json, shutil
+        from pathlib import Path
+        td = Path(tempfile.mkdtemp())
+        try:
+            mm_path = td / "market_metrics_latest.json"
+            mm_path.write_text(json.dumps(mm_fixture), encoding="utf-8")
+            metrics = read_market_metrics(path=mm_path)
+            result = run_desk_pro_dry_run(v0, desk_snapshot=snap, market_metrics=metrics)
+            assert not any("market_metrics missing" in w for w in result["warnings"])
+        finally:
+            shutil.rmtree(td)
+
+    def test_summary_market_metrics_present_false_when_absent(self):
+        v0 = _load("signal_event_v0_minimal.json")
+        result = run_desk_pro_dry_run(v0)
+        assert result["summary"]["market_metrics_present"] is False
+
+    def test_missing_vision_analysis_is_warn_non_blocking(self):
+        v0 = _load("signal_event_v0_minimal.json")
+        snap = _load("desk_snapshot_minimal.json")
+        result = run_desk_pro_dry_run(v0, desk_snapshot=snap, vision_analysis=None)
+        assert result["status"] == "WARN"
+        assert any("vision_analysis missing" in w for w in result["warnings"])
+
+    def test_vision_analysis_present_sets_summary_flag(self):
+        from modules.desk_pro.service.vision_analysis_reader import read_vision_analysis
+        v0 = _load("signal_event_v0_minimal.json")
+        snap = _load("desk_snapshot_minimal.json")
+        va_fixture = _load("vision_analysis_v1_minimal.json")
+        import tempfile, shutil
+        from pathlib import Path
+        td = Path(tempfile.mkdtemp())
+        try:
+            va_path = td / "vision_analysis_latest.json"
+            import json
+            va_path.write_text(json.dumps(va_fixture), encoding="utf-8")
+            va = read_vision_analysis(path=va_path)
+            result = run_desk_pro_dry_run(v0, desk_snapshot=snap, vision_analysis=va)
+            assert result["summary"]["vision_analysis_present"] is True
+        finally:
+            shutil.rmtree(td)
+
+    def test_vision_analysis_present_removes_missing_warning(self):
+        from modules.desk_pro.service.vision_analysis_reader import read_vision_analysis
+        v0 = _load("signal_event_v0_minimal.json")
+        snap = _load("desk_snapshot_minimal.json")
+        va_fixture = _load("vision_analysis_v1_minimal.json")
+        import tempfile, shutil, json
+        from pathlib import Path
+        td = Path(tempfile.mkdtemp())
+        try:
+            va_path = td / "vision_analysis_latest.json"
+            va_path.write_text(json.dumps(va_fixture), encoding="utf-8")
+            va = read_vision_analysis(path=va_path)
+            result = run_desk_pro_dry_run(v0, desk_snapshot=snap, vision_analysis=va)
+            assert not any("vision_analysis missing" in w for w in result["warnings"])
+        finally:
+            shutil.rmtree(td)
+
+    def test_summary_vision_analysis_present_false_when_absent(self):
+        v0 = _load("signal_event_v0_minimal.json")
+        result = run_desk_pro_dry_run(v0)
+        assert result["summary"]["vision_analysis_present"] is False
+
+    def test_missing_telegram_claim_is_warn_non_blocking(self):
+        v0 = _load("signal_event_v0_minimal.json")
+        snap = _load("desk_snapshot_minimal.json")
+        result = run_desk_pro_dry_run(v0, desk_snapshot=snap, telegram_claim=None)
+        assert result["status"] == "WARN"
+        assert any("telegram_claim missing" in w for w in result["warnings"])
+
+    def test_telegram_claim_present_sets_summary_flag(self):
+        from modules.desk_pro.service.telegram_claim_reader import read_telegram_claim
+        v0 = _load("signal_event_v0_minimal.json")
+        snap = _load("desk_snapshot_minimal.json")
+        tc_fixture = _load("telegram_claim_v1_minimal.json")
+        import tempfile, shutil, json
+        from pathlib import Path
+        td = Path(tempfile.mkdtemp())
+        try:
+            tc_path = td / "telegram_claim_latest.json"
+            tc_path.write_text(json.dumps(tc_fixture), encoding="utf-8")
+            tc = read_telegram_claim(path=tc_path)
+            result = run_desk_pro_dry_run(v0, desk_snapshot=snap, telegram_claim=tc)
+            assert result["summary"]["telegram_claim_present"] is True
+        finally:
+            shutil.rmtree(td)
+
+    def test_telegram_claim_present_removes_missing_warning(self):
+        from modules.desk_pro.service.telegram_claim_reader import read_telegram_claim
+        v0 = _load("signal_event_v0_minimal.json")
+        snap = _load("desk_snapshot_minimal.json")
+        tc_fixture = _load("telegram_claim_v1_minimal.json")
+        import tempfile, shutil, json
+        from pathlib import Path
+        td = Path(tempfile.mkdtemp())
+        try:
+            tc_path = td / "telegram_claim_latest.json"
+            tc_path.write_text(json.dumps(tc_fixture), encoding="utf-8")
+            tc = read_telegram_claim(path=tc_path)
+            result = run_desk_pro_dry_run(v0, desk_snapshot=snap, telegram_claim=tc)
+            assert not any("telegram_claim missing" in w for w in result["warnings"])
+        finally:
+            shutil.rmtree(td)
+
+    def test_summary_telegram_claim_present_false_when_absent(self):
+        v0 = _load("signal_event_v0_minimal.json")
+        result = run_desk_pro_dry_run(v0)
+        assert result["summary"]["telegram_claim_present"] is False

@@ -5,7 +5,7 @@ repo: opt-trading
 go_id: GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01
 status: active
 source_kind: canonical
-updated_at: 2026-05-19
+updated_at: 2026-05-25
 ---
 
 # 40_GAPS_AND_NEXT_GO
@@ -22,7 +22,7 @@ updated_at: 2026-05-19
 ## Next GO bundle
 
 ```text
-GO_TELEGRAM_LATENCY_BACKTEST_01
+GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_COLUMNS_CONTRACTS_01
 ```
 
-Raison: une fois les contrats (taxonomy/routing/inbound registry/desk pro inputs/sheets schema) posés, le backtest latency est l’étape suivante du produit avant perf/registry promotion.
+Raison: la liste/nomenclature canonique des feuilles (V1) est maintenant figée ; la prochaine étape est de définir les contrats de colonnes et le plan de fixtures CSV/artefacts, en restant doc-only et fixtures-first.

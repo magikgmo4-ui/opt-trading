@@ -9,7 +9,7 @@ status: open
 lifecycle_stage: planning
 surface: docs/chantiers
 source_kind: canonical
-updated_at: 2026-05-14
+updated_at: 2026-05-23
 topic_keys:
   - orchestration
   - openclaw
@@ -22,9 +22,26 @@ links:
   - docs/chantiers/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01/REPRISE_DB_LAYER_20260505.md
   - docs/chantiers/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01/11_NEXT_GO_SEQUENCE_AND_IDE_BUNDLE_PLAN.md
   - docs/chantiers/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01/04_OPERATOR_BRIDGE_SPEC.md
+  - docs/chantiers/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_SYSTEM_MASTER_PLAN_FRESHNESS_AUDIT_01/00_FRESHNESS_AUDIT.md
 ---
 
 # 00_SYSTEM_MASTER_PLAN
+
+## NOTE_DE_FRAÎCHEUR_2026-05-23
+
+Ce master plan a été rafraîchi après la fusion de l'audit de fraîcheur PR #764.
+
+Le document historique `01_AUDIT_SURFACES_AND_STATE.md` du 2026-05-14 reste conservé comme audit daté. Les statuts opérationnels ci-dessous reflètent l'état réel post-closeouts du 2026-05-16 :
+
+```text
+OPENCLAW_OPERATOR_BRIDGE = PASS
+SIGNAL_ROUTER = PASS
+NOTIFICATION_DISPATCHER = PASS
+PROPOSITION_ENGINE = PASS
+NEXT_REAL_GO = GO_OPT_TRADING_ORCHESTRATOR_CHILD_VALIDATION_GATE_V1_01
+```
+
+---
 
 ## 1_MASTER_TARGET
 
@@ -48,7 +65,10 @@ REPRISE = REPRISE_DB_LAYER_20260505.md
   - Invocation correcte : openclaw agent as ghost
   - tmux supervision chain : MERGED PASS
   - Bridge V1 spec existe (04_OPERATOR_BRIDGE_SPEC.md)
-  - Bridge V1 implémentation : NON ENCORE OUVERTE
+  - Bridge V1 implémentation : PASS (GO_OPENCLAW_OPT_TRADING_CHILD_OPERATOR_BRIDGE_IMPL_V1_01)
+  - Signal Router V1 : PASS (GO_OPT_TRADING_ORCHESTRATOR_CHILD_SIGNAL_ROUTER_V1_01)
+  - Notification Dispatcher V1 : PASS (GO_OPT_TRADING_ORCHESTRATOR_CHILD_NOTIFICATION_DISPATCHER_V1_01)
+  - Proposition Engine V1 : PASS (GO_OPT_TRADING_ORCHESTRATOR_CHILD_PROPOSITION_ENGINE_V1_01)
 ```
 
 ---
@@ -73,7 +93,11 @@ RULE:
 | Surface | Rôle | Machine hôte | État |
 | --- | --- | --- | --- |
 | `openclaw_gateway` | Runtime IA — exécute les tâches bornées | db-layer | OPÉRATIONNEL |
-| `openclaw_operator_bridge` | Contrat d'interface opt-trading → OpenClaw | db-layer | SPEC OK — IMPL MANQUANTE |
+| `openclaw_operator_bridge` | Contrat d'interface opt-trading → OpenClaw | db-layer | PASS — OPÉRATIONNEL |
+| `signal_router` | Normalise les signaux entrants TradingView | admin-trading/db-layer | PASS — NormalizedSignal JSON |
+| `notification_dispatcher` | Diffuse les événements pipeline vers Telegram | db-layer | PASS — dry-run dispatch OK |
+| `proposition_engine` | Transforme signal normalisé en proposition via OpenClaw | db-layer | PASS — proposition JSON |
+| `validation_gate` | Gate auto + approbation Telegram | db-layer | NEXT_GO RÉEL |
 | `localcms_consumer` | UI lecture — consomme données opt-trading | db-layer | REALIGNMENT DONE |
 | `deploy_module_multi_machine` | Déployeur cross-machine | all | EXISTANT |
 | `validated_prompt_factory` | Générateur de prompts validés | db-layer | EXISTANT |
@@ -88,7 +112,7 @@ RULE:
 | **Airtable** | Base de données orchestration, tables de décision | ↔ lecture/écriture | PARENT OUVERT |
 | **ClickUp** | Tracking GO / tâches / suivi projet | → écriture | CONTINUITY OUVERT |
 | **Figma** | Design UI — wireframes LocalCMS / dashboards | → référence | NON INTÉGRÉ |
-| **Botpress** | Bot conversationnel / workflow automatisé | ↔ bidirectionnel | PARENT OUVERT |
+| **Botpress** | Bot conversationnel / workflow automatisé | ↔ bidirectionnel | IMPL PASS LOCAL — E2E TELEGRAM NON OUVERT |
 | **Sheets** | Datasheets résultats / P&L / reporting | → écriture | NON INTÉGRÉ |
 
 ---
@@ -99,18 +123,18 @@ RULE:
 RÈGLE: chaque worker a un rôle unique, borné, sans empiétement.
 ```
 
-| Worker | Rôle | Input | Output | Interdit |
-| --- | --- | --- | --- | --- |
-| `signal_router` | Reçoit webhook TradingView, valide format, route vers pipeline | webhook HTTP | signal JSON normalisé | décision de trade |
-| `proposition_engine` | Évalue signal, génère proposition de trade via OpenClaw | signal JSON | proposition JSON | exécution directe |
-| `validation_gate` | Présente proposition à l'opérateur (Telegram) ou applique règle auto | proposition JSON | proposition validée / rejetée | trade sans approbation |
-| `trade_executor` | Exécute trade validé sur l'exchange | proposition validée | trade_id + fill JSON | proposition non validée |
-| `result_tracker` | Capture résultat trade, calcule P&L brut | trade_id + fill | résultat JSON | écriture datasheet |
-| `datasheet_writer` | Écrit résultat vers Sheets / Airtable | résultat JSON | ligne datasheet confirmée | calcul P&L |
-| `learning_feeder` | Envoie contexte résultat vers OpenClaw pour amélioration future | résultat + contexte | feedback structuré | modification de trade |
-| `notification_dispatcher` | Envoie notifications Telegram aux étapes clés | événement quelconque | message Telegram | décision opérationnelle |
-| `task_tracker` | Sync état pipeline vers ClickUp / Airtable | état pipeline | tâche mise à jour | trade ou notification |
-| `ui_renderer` | Sert données vers LocalCMS consumer | état + données | réponse UI | écriture base prod |
+| Worker | Rôle | Input | Output | Interdit | État |
+| --- | --- | --- | --- | --- | --- |
+| `signal_router` | Reçoit webhook TradingView, valide format, route vers pipeline | webhook HTTP | signal JSON normalisé | décision de trade | PASS |
+| `proposition_engine` | Évalue signal, génère proposition de trade via OpenClaw | signal JSON | proposition JSON | exécution directe | PASS |
+| `validation_gate` | Présente proposition à l'opérateur (Telegram) ou applique règle auto | proposition JSON | proposition validée / rejetée | trade sans approbation | NEXT_GO |
+| `trade_executor` | Exécute trade validé sur l'exchange | proposition validée | trade_id + fill JSON | proposition non validée | NON OUVERT |
+| `result_tracker` | Capture résultat trade, calcule P&L brut | trade_id + fill | résultat JSON | écriture datasheet | NON OUVERT |
+| `datasheet_writer` | Écrit résultat vers Sheets / Airtable | résultat JSON | ligne datasheet confirmée | calcul P&L | NON OUVERT |
+| `learning_feeder` | Envoie contexte résultat vers OpenClaw pour amélioration future | résultat + contexte | feedback structuré | modification de trade | NON OUVERT |
+| `notification_dispatcher` | Envoie notifications Telegram aux étapes clés | événement quelconque | message Telegram | décision opérationnelle | PASS |
+| `task_tracker` | Sync état pipeline vers ClickUp / Airtable | état pipeline | tâche mise à jour | trade ou notification | NON OUVERT |
+| `ui_renderer` | Sert données vers LocalCMS consumer | état + données | réponse UI | écriture base prod | NON OUVERT |
 
 ---
 
@@ -126,44 +150,51 @@ signal → proposition → validation → trade → résultat → datasheet → 
 [1] SIGNAL
     TradingView webhook → signal_router
     → format validé : {ticker, side, price, timestamp, strategy_id}
+    → état : PASS
 
 [2] PROPOSITION
     signal_router → proposition_engine
     → appel OpenClaw builder : "évalue signal, propose trade"
     → résultat : {action, size, entry, sl, tp, confidence, rationale}
+    → état : PASS
 
 [3] VALIDATION
     proposition_engine → validation_gate
     → si auto-gate : check règles risk limits (kill switch)
     → si opérateur : notification Telegram + attente réponse
     → résultat : APPROVED / REJECTED + motif
+    → état : NEXT_GO RÉEL
 
 [4] TRADE
     validation_gate → trade_executor (si APPROVED)
     → appel exchange API
     → résultat : {trade_id, fill_price, fill_qty, timestamp}
+    → état : NON OUVERT
 
 [5] RÉSULTAT
     trade_executor → result_tracker
     → suivi position : open → close
     → calcul P&L : {gross_pnl, net_pnl, fees, duration}
+    → état : NON OUVERT
 
 [6] DATASHEET
     result_tracker → datasheet_writer
     → écriture Sheets : ligne résultat trade
     → écriture Airtable : enregistrement orchestration
+    → état : NON OUVERT
 
 [7] LEARNING
     result_tracker → learning_feeder → OpenClaw builder
     → contexte : {signal, proposition, résultat, P&L}
     → feedback structuré : amélioration propositions futures
+    → état : NON OUVERT
 ```
 
 ### Flux de notification parallèle
 
 ```
-Chaque étape clé → notification_dispatcher → Telegram
-Chaque changement d'état → task_tracker → ClickUp / Airtable
+Chaque étape clé → notification_dispatcher → Telegram (PASS)
+Chaque changement d'état → task_tracker → ClickUp / Airtable (NON OUVERT)
 ```
 
 ---
@@ -176,7 +207,7 @@ RÔLE: source de signal primaire
 INTÉGRATION: webhook HTTP POST vers signal_router
 DONNÉES SORTANTES: ticker, side, price, alert_message, strategy_id
 CONTRAINTE: signal brut non exécutable directement — passe par proposition_engine
-ÉTAT: webhook opérationnel (admin-trading) — à brancher signal_router
+ÉTAT: webhook opérationnel ; signal_router PASS
 ```
 
 ### Telegram
@@ -186,7 +217,7 @@ INTÉGRATION: bot Telegram bidirectionnel
 DONNÉES SORTANTES: events, propositions, résultats
 DONNÉES ENTRANTES: approbations, rejets, commandes manuelles
 CONTRAINTE: jamais source de signal de trade direct
-ÉTAT: opérationnel (notification enable PASS)
+ÉTAT: opérationnel ; notification_dispatcher PASS ; validation_gate NEXT_GO
 ```
 
 ### Airtable
@@ -224,7 +255,7 @@ RÔLE: bot conversationnel + workflow automation
 USAGE: interface opérateur avancée, commandes structurées
 INTÉGRATION: Botpress API + webhook
 CONTRAINTE: wrapper au-dessus de Telegram, pas un remplaçant
-ÉTAT: GO_TRADING_PIPELINE_BOTPRESS_OPERATOR_PARENT_01 OUVERT
+ÉTAT: impl PASS local ; GO_TRADING_BOTPRESS_TELEGRAM_SMOKE_E2E_01 reste non ouvert
 ```
 
 ### Sheets
@@ -242,29 +273,65 @@ INTÉGRATION: Google Sheets API via datasheet_writer
 
 ## 8_ROADMAP_CHILD_GO_PAR_SURFACE
 
-### Séquence obligatoire (bloquante)
+### Séquence déjà PASS
 
 ```text
 PHASE 1 — Bridge V1 (fondation)
   GO_OPENCLAW_OPT_TRADING_CHILD_OPERATOR_BRIDGE_IMPL_V1_01
   Livrable: modules/openclaw_operator_bridge/ opérationnel local
-  Préreq: Gateway opérationnel (DONE)
-  Bloque: proposition_engine, learning_feeder
+  Statut: PASS
+  Débloque: proposition_engine, learning_feeder
 
-PHASE 2 — Proposition engine V1
+PHASE 2A — Signal Router V1
+  GO_OPT_TRADING_ORCHESTRATOR_CHILD_SIGNAL_ROUTER_V1_01
+  Livrable: webhook TradingView → signal JSON normalisé
+  Statut: PASS
+
+PHASE 2B — Notification Dispatcher V1
+  GO_OPT_TRADING_ORCHESTRATOR_CHILD_NOTIFICATION_DISPATCHER_V1_01
+  Livrable: événements pipeline → Telegram structuré
+  Statut: PASS
+
+PHASE 2C — Proposition Engine V1
   GO_OPT_TRADING_ORCHESTRATOR_CHILD_PROPOSITION_ENGINE_V1_01
   Livrable: signal → OpenClaw → proposition JSON
-  Préreq: Bridge V1
-  Bloque: validation_gate, trade_executor
+  Statut: PASS
+  Débloque: validation_gate, trade_executor
+```
 
+### Séquence obligatoire restante
+
+```text
 PHASE 3 — Validation gate
   GO_OPT_TRADING_ORCHESTRATOR_CHILD_VALIDATION_GATE_V1_01
   Livrable: gate auto + Telegram approval flow
-  Préreq: Proposition engine + Telegram opérationnel
+  Préreq: proposition_engine PASS + notification_dispatcher PASS + Telegram opérationnel
+  Statut: NEXT_GO RÉEL
   Bloque: trade_executor live
+
+PHASE 4 — Trade executor
+  GO_OPT_TRADING_ORCHESTRATOR_CHILD_TRADE_EXECUTOR_V1_01
+  Préreq: validation_gate PASS
+  Statut: NON OUVERT
+
+PHASE 5 — Result tracker + datasheet writer
+  GO_OPT_TRADING_ORCHESTRATOR_CHILD_RESULT_TRACKER_V1_01
+  GO_OPT_TRADING_ORCHESTRATOR_CHILD_DATASHEET_WRITER_V1_01
+  Préreq: trade_executor opérationnel
+  Statut: NON OUVERT
+
+PHASE 6 — Learning feeder
+  GO_OPT_TRADING_ORCHESTRATOR_CHILD_LEARNING_FEEDER_V1_01
+  Préreq: Bridge V1 PASS + result_tracker
+  Statut: NON OUVERT
+
+PHASE 7 — Sheets integration
+  GO_OPT_TRADING_ORCHESTRATOR_CHILD_SHEETS_WRITER_V1_01
+  Préreq: datasheet_writer
+  Statut: NON OUVERT
 ```
 
-### Séquence parallèle (indépendante)
+### Séquence parallèle / indépendante
 
 ```text
 TRACK A — Airtable orchestration
@@ -275,38 +342,12 @@ TRACK B — ClickUp sync
   GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01 (OUVERT)
   → child task_tracker : sync état GO + pipeline
 
-TRACK C — Signal router
-  GO_OPT_TRADING_ORCHESTRATOR_CHILD_SIGNAL_ROUTER_V1_01
-  Livrable: webhook TradingView → signal JSON normalisé
-  Préreq: aucun (premier GO technique)
+TRACK C — Botpress Telegram E2E
+  GO_TRADING_BOTPRESS_TELEGRAM_SMOKE_E2E_01
+  Préreq: Botpress impl PASS local
+  Statut: NON OUVERT
 
-TRACK D — Notification dispatcher
-  GO_OPT_TRADING_ORCHESTRATOR_CHILD_NOTIFICATION_DISPATCHER_V1_01
-  Livrable: événements pipeline → Telegram structuré
-  Préreq: Telegram opérationnel (DONE)
-```
-
-### Séquence différée (post-phase-2)
-
-```text
-PHASE 4 — Result tracker + datasheet writer
-  GO_OPT_TRADING_ORCHESTRATOR_CHILD_RESULT_TRACKER_V1_01
-  GO_OPT_TRADING_ORCHESTRATOR_CHILD_DATASHEET_WRITER_V1_01
-  Préreq: trade_executor opérationnel
-
-PHASE 5 — Learning feeder
-  GO_OPT_TRADING_ORCHESTRATOR_CHILD_LEARNING_FEEDER_V1_01
-  Préreq: Bridge V1 + result_tracker
-
-PHASE 6 — Sheets integration
-  GO_OPT_TRADING_ORCHESTRATOR_CHILD_SHEETS_WRITER_V1_01
-  Préreq: datasheet_writer
-
-PHASE 7 — Botpress layer
-  GO_TRADING_PIPELINE_BOTPRESS_OPERATOR_PARENT_01 (OUVERT)
-  Préreq: notification_dispatcher + validation_gate
-
-PHASE 8 — Figma / LocalCMS UI
+TRACK D — Figma / LocalCMS UI
   GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01 (OUVERT)
   Préreq: signal_router + résultats disponibles
 ```
@@ -316,19 +357,18 @@ PHASE 8 — Figma / LocalCMS UI
 ## 9_ORDRE_D_OUVERTURE_RECOMMANDÉ
 
 ```text
-IMMÉDIAT (débloquant tout):
-  1. GO_OPENCLAW_OPT_TRADING_CHILD_OPERATOR_BRIDGE_IMPL_V1_01
+IMMÉDIAT (prochain GO réel):
+  1. GO_OPT_TRADING_ORCHESTRATOR_CHILD_VALIDATION_GATE_V1_01
 
-PARALLÈLE IMMÉDIAT (indépendant du bridge):
-  2. GO_OPT_TRADING_ORCHESTRATOR_CHILD_SIGNAL_ROUTER_V1_01
-  3. GO_OPT_TRADING_ORCHESTRATOR_CHILD_NOTIFICATION_DISPATCHER_V1_01
+APRÈS VALIDATION_GATE:
+  2. GO_OPT_TRADING_ORCHESTRATOR_CHILD_TRADE_EXECUTOR_V1_01
+  3. GO_OPT_TRADING_ORCHESTRATOR_CHILD_RESULT_TRACKER_V1_01
+  4. GO_OPT_TRADING_ORCHESTRATOR_CHILD_DATASHEET_WRITER_V1_01
+  5. GO_OPT_TRADING_ORCHESTRATOR_CHILD_LEARNING_FEEDER_V1_01
 
-APRÈS BRIDGE:
-  4. GO_OPT_TRADING_ORCHESTRATOR_CHILD_PROPOSITION_ENGINE_V1_01
-  5. GO_OPT_TRADING_ORCHESTRATOR_CHILD_VALIDATION_GATE_V1_01
-
-APRÈS PROPOSITION + VALIDATION:
-  6. trade_executor → result_tracker → datasheet_writer → learning_feeder
+PARALLÈLE NON BLOQUANT:
+  6. GO_TRADING_BOTPRESS_TELEGRAM_SMOKE_E2E_01
+  7. Airtable / ClickUp / LocalCMS children selon disponibilité machine
 ```
 
 ---
@@ -349,13 +389,14 @@ NO_GLOBAL_INDEX_AUTO    = GO_INDEX/ACTIVE_STREAMS non modifiés sans delta prouv
 ## 17_RESUME_POINT
 
 ```text
-FIRST_CHILD_GO =
-  GO_OPENCLAW_OPT_TRADING_CHILD_OPERATOR_BRIDGE_IMPL_V1_01
-  (débloque toute la séquence IA)
+CURRENT_STATE =
+  GO_OPENCLAW_OPT_TRADING_CHILD_OPERATOR_BRIDGE_IMPL_V1_01 = PASS
+  GO_OPT_TRADING_ORCHESTRATOR_CHILD_SIGNAL_ROUTER_V1_01 = PASS
+  GO_OPT_TRADING_ORCHESTRATOR_CHILD_NOTIFICATION_DISPATCHER_V1_01 = PASS
+  GO_OPT_TRADING_ORCHESTRATOR_CHILD_PROPOSITION_ENGINE_V1_01 = PASS
 
-PARALLEL_GO =
-  GO_OPT_TRADING_ORCHESTRATOR_CHILD_SIGNAL_ROUTER_V1_01
-  (débloque le flux entrant TradingView)
+NEXT_REAL_GO =
+  GO_OPT_TRADING_ORCHESTRATOR_CHILD_VALIDATION_GATE_V1_01
 
 PARENTS_OUVERTS_À_CONSERVER:
   GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01

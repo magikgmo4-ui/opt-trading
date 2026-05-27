@@ -1,0 +1,25 @@
+diff --git a/modules/trade_executor/__init__.py b/modules/trade_executor/__init__.py
+index e69de29b..aae85e9f 100644
+--- a/modules/trade_executor/__init__.py
++++ b/modules/trade_executor/__init__.py
+@@ -0,0 +1,5 @@
++"""trade_executor — exécution de trades validés par validation_gate.
++
++V1 : paper adapter uniquement — pas de Bitget live.
++INVARIANT: NO_LIVE_TRADE_WITHOUT_GATE — gate_decision doit être APPROVED.
++"""
+\ No newline at end of file
+diff --git a/modules/trade_executor/app/__init__.py b/modules/trade_executor/app/__init__.py
+index e69de29b..23768d16 100644
+--- a/modules/trade_executor/app/__init__.py
++++ b/modules/trade_executor/app/__init__.py
+@@ -0,0 +1,8 @@
++from .executor import TradeExecutor
++from .schema import TradeRequest, TradeResult
++
++__all__ = [
++    "TradeExecutor",
++    "TradeRequest",
++    "TradeResult",
++]
+\ No newline at end of file

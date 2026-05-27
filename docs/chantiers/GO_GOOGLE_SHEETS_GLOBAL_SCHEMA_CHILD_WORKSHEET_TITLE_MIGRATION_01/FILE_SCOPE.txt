@@ -1,0 +1,4 @@
+docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_WORKSHEET_TITLE_MIGRATION_01/**
+docs/index/inbox/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_WORKSHEET_TITLE_MIGRATION_01.md
+modules/google_sheets_global_schema/worksheet_migrator.py
+tests/test_google_sheets_worksheet_migrator.py

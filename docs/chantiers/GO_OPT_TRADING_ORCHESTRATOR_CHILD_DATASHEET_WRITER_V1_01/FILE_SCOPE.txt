@@ -1,0 +1,13 @@
+docs/chantiers/GO_OPT_TRADING_ORCHESTRATOR_CHILD_DATASHEET_WRITER_V1_01/**
+modules/datasheet_writer/__init__.py
+modules/datasheet_writer/README.md
+modules/datasheet_writer/app/__init__.py
+modules/datasheet_writer/app/__main__.py
+modules/datasheet_writer/app/schema.py
+modules/datasheet_writer/app/writer.py
+modules/datasheet_writer/scripts/cmd.sh
+modules/datasheet_writer/scripts/install_shortcuts.sh
+modules/datasheet_writer/scripts/menu.sh
+modules/datasheet_writer/scripts/sanity.sh
+modules/datasheet_writer/tests/__init__.py
+modules/datasheet_writer/tests/test_writer.py

@@ -5,7 +5,7 @@ repo: opt-trading
 go_id: GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01
 status: active
 source_kind: canonical
-updated_at: 2026-05-19
+updated_at: 2026-05-25
 ---
 
 # 90_REPRISE_POINT - GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01
@@ -27,7 +27,9 @@ produit final total voulu :
 ## Résumé
 
 - l’existant (daily session sync) est inventorié
-- un schéma global V1 (tabs + colonnes) est défini
+- le child inventory repo-first est mergé (Sheets/CSV/table-like)
+- le child canonical tables est mergé (liste canonique des tabs V1)
+- les contrats de colonnes restent à produire (fixtures-first, doc-only)
 - la politique d’écriture contrôlée reste stricte (dry-run default)
 
 ## Validation locale
@@ -59,7 +61,7 @@ python -m pytest tests\e2e\test_sync_daily_session.py -q
 ## Next GO bundle
 
 ```text
-GO_TELEGRAM_LATENCY_BACKTEST_01
+GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_COLUMNS_CONTRACTS_01
 ```
 
 ## Tableau Kanban du bundle
@@ -70,7 +72,7 @@ chaine du produit final total.
 
 ## Prochain item Kanban exact
 
-`GO_TELEGRAM_LATENCY_BACKTEST_01`
+`GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_CHILD_COLUMNS_CONTRACTS_01`
 
 ## Gaps encore ouverts
 
