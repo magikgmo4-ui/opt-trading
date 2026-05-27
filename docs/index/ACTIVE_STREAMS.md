@@ -151,6 +151,14 @@ Ces flux restent utiles comme continuité existante. Leur rattachement cible est
 - next action : maintenir le runtime ; ouvrir suite si besoin produit
 - blocage : aucun
 
+### GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01
+- produit utilisable : chaîne architecture Mermaid cartographiée, auditée et priorisée
+- statut : ACTIVE
+- gap restant : ouvrir uniquement des children de preuve fine ou de refactor code ciblé
+- target courant : continuité audit architecture + reprise propre depuis closeout
+- next action : `GO_OPT_TRADING_ARCHITECTURE_CHILD_RUNTIME_LINK_PROOF_01` déjà mergé ; prochaine suite selon boundary de refactor sûre
+- blocage : ne pas refactorer le code avant preuve suffisante des boundaries critiques
+
 ---
 
 ## Hors pilotage immédiat (parents sans produit actif immédiat)
