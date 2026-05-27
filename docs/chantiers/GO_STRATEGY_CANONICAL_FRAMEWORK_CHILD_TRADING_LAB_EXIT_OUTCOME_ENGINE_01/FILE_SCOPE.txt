@@ -1,6 +1,5 @@
 docs/chantiers/GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_TRADING_LAB_EXIT_OUTCOME_ENGINE_01/**
 modules/trading_lab_v1/app/exit_outcome_v1.py
-modules/trading_lab_v1/app/trading_lab_v1.py
 modules/trading_lab_v1/tests/test_exit_outcome_v1.py
 modules/trading_lab_v1/data/sample_xauusd_m1_real_like.csv
 docs/index/inbox/GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_TRADING_LAB_EXIT_OUTCOME_ENGINE_01.md
