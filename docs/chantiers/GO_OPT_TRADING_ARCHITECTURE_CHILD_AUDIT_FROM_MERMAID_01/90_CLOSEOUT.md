@@ -19,6 +19,7 @@ docs/chantiers/GO_OPT_TRADING_ARCHITECTURE_CHILD_RUNTIME_CRITICAL_PATH_AUDIT_01/
 docs/chantiers/GO_OPT_TRADING_ARCHITECTURE_CHILD_REGISTRY_OWNERSHIP_AUDIT_01/20_REGISTRY_OWNERSHIP_AUDIT.md
 docs/chantiers/GO_OPT_TRADING_ARCHITECTURE_CHILD_HUB_REFACTOR_CANDIDATES_01/20_HUB_REFACTOR_CANDIDATES.md
 docs/chantiers/GO_OPT_TRADING_ARCHITECTURE_CHILD_RUNTIME_LINK_PROOF_01/20_RUNTIME_LINK_PROOF.md
+docs/chantiers/GO_OPT_TRADING_ARCHITECTURE_CHILD_GLOBAL_INDEX_RESUME_SYNC_01/90_CLOSEOUT.md
 ```
 
 ## VERDICT
@@ -73,6 +74,7 @@ Runtime critical path child merged: yes
 Registry ownership child merged: yes
 Hub refactor candidates child merged: yes
 Runtime link proof child merged: yes
+Global index resume sync child merged: yes
 Branch clean: verified by git status --short
 ```
 
@@ -94,6 +96,10 @@ PR #855 merged into go/GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01
 PR #857 merged into go/GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01
   - runtime link proof
   - merge commit: b5ff650e2da892db80c5d8636b6f270fc07ad0cd
+
+PR #858 merged into go/GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01
+  - global index resume sync
+  - merge commit: 0084dd4bd0d16b4dbafbfe0412864d1df09a5210
 ```
 
 ## RESUME_POINT
@@ -101,5 +107,6 @@ PR #857 merged into go/GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01
 ```text
 Child audit termine.
 Les childs runtime critical path, registry ownership, hub refactor candidates et runtime link proof sont maintenant merges.
+Le point de reprise architecture est maintenant aussi propage dans les index globaux.
 Prochaine decision : ouvrir un child de refactor code cible seulement sur une boundary maintenant assez sure.
 ```
