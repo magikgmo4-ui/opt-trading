@@ -23,7 +23,7 @@ MARKET_RUNS_JSONL = STATE_DIR / "market_runs_v1.jsonl"
 FEATURES_JSONL = STATE_DIR / "features_v1.jsonl"
 BATCH_RUNS_JSONL = STATE_DIR / "batch_runs_v1.jsonl"
 BATCH_REPORTS_JSONL = STATE_DIR / "batch_reports_v1.jsonl"
-SAMPLE_MARKET_CSV = BASE / "data" / "sample_xauusd_m1.csv"
+SAMPLE_MARKET_CSV = BASE / "data" / "sample_xauusd_m1_real_like.csv"
 DEFAULT_STRATEGY_ID = "xau_session_open_v1"
 
 log = logging.getLogger("trading_lab_v1")
@@ -374,6 +374,7 @@ def build_feature_payload(profile: dict, session: dict, rows: list[dict], analys
 
     entry = round(first_five[-1]["close"], 4)
     sl = round(first5_low if direction != "bearish" else first5_high, 4)
+    entry_candle_ts = first_five[-1]["ts"].isoformat(timespec="seconds")
 
     base_payload.update({
         "open_candle": open_candle,
@@ -384,6 +385,7 @@ def build_feature_payload(profile: dict, session: dict, rows: list[dict], analys
         **fvg,
         "variant_id": variant_id,
         "entry": entry,
+        "entry_candle_ts": entry_candle_ts,
         "sl": sl,
         "rr_planned": 2.0,
     })
@@ -464,6 +466,7 @@ def build_trade(event: dict) -> dict:
 def build_market_trade(event: dict, features: dict) -> dict:
     trade = build_trade(event)
     trade["entry"] = features["entry"]
+    trade["entry_candle_ts"] = features.get("entry_candle_ts")
     trade["sl"] = features["sl"]
     trade["rr_planned"] = features["rr_planned"]
     trade["tp_plan"] = {"type": "rr_multiple", "rr_target": features["rr_planned"]}
@@ -562,9 +565,74 @@ def batch_report(args: list[str]) -> int:
         "avg_fvg_gap_points": avg([f.get("fvg_gap_points") for f in features]),
         "avg_rr_planned": avg([f.get("rr_planned") for f in features]),
         "trade_results": counts_by(trades, "result"),
+        "win_count": sum(1 for t in trades if t.get("result") == "win"),
+        "loss_count": sum(1 for t in trades if t.get("result") == "loss"),
+        "timeout_count": sum(1 for t in trades if t.get("result") == "timeout"),
+        "avg_r_realized": avg([t.get("r_realized") for t in trades]),
     }
     append_jsonl(BATCH_REPORTS_JSONL, report)
     print(json.dumps(report, indent=2, ensure_ascii=False))
+    return 0
+
+
+def apply_outcomes(args: list[str]) -> int:
+    """Resolve exit outcomes for all open trades using post-entry candles from a CSV."""
+    from modules.trading_lab_v1.app.exit_outcome_v1 import resolve_exit_outcome, get_post_entry_candles
+
+    csv_path = Path(args[0]) if args else SAMPLE_MARKET_CSV
+    profile = load_profile()
+    tz_name = profile["frame"].get("timezone") or "America/Montreal"
+
+    trades = load_jsonl(TRADES_JSONL)
+    if not trades:
+        print(json.dumps({"message": "no trades found", "resolved": 0}, indent=2))
+        return 0
+
+    all_rows = load_market_csv(csv_path, tz_name)
+    resolved = 0
+    updated: list[dict] = []
+
+    for trade in trades:
+        if trade.get("execution_state") != "virtual_open":
+            updated.append(trade)
+            continue
+        entry = trade.get("entry")
+        sl = trade.get("sl")
+        rr = trade.get("rr_planned", 2.0)
+        direction = trade.get("direction", "bullish")
+        entry_candle_ts = trade.get("entry_candle_ts") or trade.get("entry_ts")
+        if entry is None or sl is None or entry_candle_ts is None:
+            updated.append(trade)
+            continue
+        post_candles = get_post_entry_candles(all_rows, entry_candle_ts, tz_name)
+        outcome = resolve_exit_outcome(entry, sl, rr, direction, post_candles)
+        trade.update({
+            "result": outcome["result"],
+            "r_realized": outcome["r_realized"],
+            "exit_price": outcome["exit_price"],
+            "exit_ts": outcome["exit_ts"],
+            "bars_held": outcome["bars_held"],
+            "outcome_reason": outcome["outcome_reason"],
+            "tp": outcome["tp"],
+            "execution_state": "virtual_closed" if outcome["result"] != "timeout" else "virtual_open",
+        })
+        resolved += 1
+        updated.append(trade)
+
+    TRADES_JSONL.parent.mkdir(parents=True, exist_ok=True)
+    with TRADES_JSONL.open("w", encoding="utf-8") as fh:
+        for t in updated:
+            fh.write(json.dumps(t, ensure_ascii=False) + "\n")
+
+    r_vals = [t["r_realized"] for t in updated if t.get("r_realized") is not None]
+    print(json.dumps({
+        "resolved": resolved,
+        "total": len(trades),
+        "wins": sum(1 for t in updated if t.get("result") == "win"),
+        "losses": sum(1 for t in updated if t.get("result") == "loss"),
+        "timeouts": sum(1 for t in updated if t.get("result") == "timeout"),
+        "avg_r_realized": round(sum(r_vals) / len(r_vals), 4) if r_vals else None,
+    }, indent=2))
     return 0
 
 
@@ -687,6 +755,7 @@ def param_sweep_export(args: list[str]) -> int:
 
 COMMANDS = {
     "batch-report": batch_report,
+    "apply-outcomes": apply_outcomes,
     "show-last-batch-report": show_last_batch_report,
     "param-sweep-run": param_sweep_run,
     "param-sweep-batch": param_sweep_batch,
