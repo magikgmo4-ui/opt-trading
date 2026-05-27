@@ -6,7 +6,7 @@ from pathlib import Path
 from statistics import mean
 from zoneinfo import ZoneInfo
 
-from modules.strategy.adapter import validate_strategy_id
+from modules.strategy.adapter import validate_strategy_id, log_unknown_strategy_id_warning
 
 BASE = Path(__file__).resolve().parents[1]
 REPO_ROOT = BASE.parents[1]
@@ -15,10 +15,7 @@ PROFILE_ID = "xauusd_dual_stack_v1"
 STRATEGY_ID = "xau_session_open_v1"
 
 if not validate_strategy_id(STRATEGY_ID):
-    print(
-        f"[WARNING] strategy_id {STRATEGY_ID!r} not found in registry",
-        file=sys.stderr,
-    )
+    log_unknown_strategy_id_warning(STRATEGY_ID, "trading_realtime_v1.runtime_loop_v1")
 SYMBOL = "XAUUSD"
 LIVE_SOURCE_PATH = REPO_ROOT / "modules" / "trading_lab_v1" / "data" / "sample_live_reference_v1.jsonl"
 STATE_DIR = REPO_ROOT / "state" / "trading_realtime_v1"

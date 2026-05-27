@@ -3,7 +3,7 @@ import logging
 import os
 from typing import Any
 
-from modules.strategy.adapter import validate_strategy_id
+from modules.strategy.adapter import validate_strategy_id, log_unknown_strategy_id_warning
 from shared.telegram_notify import send_telegram_html
 from .events import PipelineEvent, format_message
 
@@ -24,7 +24,7 @@ class NotificationDispatcher:
 
         sid = event.payload.get("strategy_id", "")
         if sid and not validate_strategy_id(sid):
-            log.warning("unknown strategy_id %r", sid)
+            log_unknown_strategy_id_warning(sid, "notification_dispatcher")
 
         message = format_message(event)
 

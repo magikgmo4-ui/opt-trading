@@ -9,7 +9,7 @@ from pathlib import Path
 from statistics import mean
 from zoneinfo import ZoneInfo
 
-from modules.strategy.adapter import validate_strategy_id
+from modules.strategy.adapter import validate_strategy_id, log_unknown_strategy_id_warning
 
 BASE = Path(__file__).resolve().parents[1]
 REPO_ROOT = BASE.parents[1]
@@ -151,7 +151,7 @@ def resolve_strategy_id(profile: dict) -> str:
     strategy_id = profile["strategy"].get("strategy_id") or DEFAULT_STRATEGY_ID
     if not validate_strategy_id(strategy_id):
         source = "fallback" if not profile["strategy"].get("strategy_id") else "profile"
-        log.warning("unknown %s strategy_id %r", source, strategy_id)
+        log_unknown_strategy_id_warning(strategy_id, f"trading_lab_v1:{source}")
     return strategy_id
 
 
