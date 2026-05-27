@@ -13,6 +13,10 @@ docs/architecture/mermaid/990_architecture_final.mmd
 
 Audit report:
 docs/chantiers/GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01/20_ARCHITECTURE_AUDIT.md
+
+Merged derived audits:
+docs/chantiers/GO_OPT_TRADING_ARCHITECTURE_CHILD_RUNTIME_CRITICAL_PATH_AUDIT_01/20_RUNTIME_CRITICAL_PATH_AUDIT.md
+docs/chantiers/GO_OPT_TRADING_ARCHITECTURE_CHILD_REGISTRY_OWNERSHIP_AUDIT_01/20_REGISTRY_OWNERSHIP_AUDIT.md
 ```
 
 ## VERDICT
@@ -63,12 +67,27 @@ Audit report present: yes
 Parent Mermaid untouched: yes
 Readable views used: yes
 NEXT_GO proposed: yes
+Runtime critical path child merged: yes
+Registry ownership child merged: yes
 Branch clean: verified by git status --short
+```
+
+## DERIVED_AUDITS_MERGED
+
+```text
+PR #852 merged into go/GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01
+  - runtime critical path
+  - merge commit: dfcb2db48b2326879f56e7b17e99cb1d34d6c9f8
+
+PR #853 merged into go/GO_OPT_TRADING_ARCHITECTURE_CHILD_AUDIT_FROM_MERMAID_01
+  - registry ownership
+  - merge commit: e4f751b8daf887ddeca09fe28e423f6ccd507a9d
 ```
 
 ## RESUME_POINT
 
 ```text
 Child audit termine.
-Prochaine decision : ouvrir un child cible sur runtime critical path ou registry ownership.
+Les deux childs prioritaires runtime critical path et registry ownership sont maintenant merges.
+Prochaine decision : ouvrir GO_OPT_TRADING_ARCHITECTURE_CHILD_HUB_REFACTOR_CANDIDATES_01 ou un child de preuve plus fin.
 ```
