@@ -34,7 +34,8 @@ Deux passes sont a considerer :
 - `2026-05-23` : validation 1 a 10 `PASS_WITH_WARNINGS` (reference historique).
 - `2026-05-26` : incident runtime `db-layer` (gateway down + tmux absent) puis
   recovery minimal via `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_DB_LAYER_GATEWAY_RECOVERY_01`,
-  suivi d'un replay 1 a 10 `PASS_WITH_WARNINGS`.
+  suivi d'un replay 1 a 10 `PASS_WITH_WARNINGS` et d'un mobile smoke read-only
+  `PASS_WITH_WARNINGS`.
 
 Verdict global (passe `2026-05-23`) :
 
@@ -59,6 +60,13 @@ RUNTIME_LOCK = LEVE_PARTIELLEMENT
 RECOVERY_GO = GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_DB_LAYER_GATEWAY_RECOVERY_01
 EVIDENCE = 57_DB_LAYER_GATEWAY_RECOVERY_RESULTS.md
 WATCHDOG_11_12 = NOT_RUN_STRICT_READ_ONLY
+```
+
+Mobile smoke (passe `2026-05-26`) :
+
+```text
+MOBILE_SMOKE = PASS_WITH_WARNINGS
+EVIDENCE = 59_MOBILE_SMOKE_RESULTS.md
 ```
 
 ## Preuves repo relues
@@ -217,7 +225,7 @@ prematurement l'umbrella.
   mais `/opt/trading/venv/bin/python3` ne charge pas PyYAML alors que
   `/usr/bin/python3` le charge ; STEP 5 reste `WARN`
 - watchdog 11-12 non execute dans cette validation strict read-only
-- mobile SSH/tmux reel non valide dans cette passe
+- mobile SSH/tmux reel valide en read-only : `PASS_WITH_WARNINGS` (2026-05-26)
 - closeout umbrella final bloque par runtime + Bot Vision/headless +
   collectors/API + implementation Sheets globale
 
