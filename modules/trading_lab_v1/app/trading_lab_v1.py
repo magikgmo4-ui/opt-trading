@@ -645,6 +645,53 @@ def show_last_batch_report(_: list[str]) -> int:
     return 0
 
 
+def batch_run(args: list[str]) -> int:
+    """Run process_market_run for all enabled sessions × available dates in a CSV."""
+    csv_path = Path(args[0]) if args else SAMPLE_MARKET_CSV
+    filter_session = args[1] if len(args) > 1 else None
+    start_date = args[2] if len(args) > 2 else None
+    end_date = args[3] if len(args) > 3 else None
+
+    profile = load_profile()
+    tz_name = profile["frame"].get("timezone") or "America/Montreal"
+    rows = load_market_csv(csv_path, tz_name)
+    enabled_sessions = [s for s in profile["frame"]["sessions"] if s.get("enabled", False)]
+    if filter_session:
+        enabled_sessions = [s for s in enabled_sessions if s.get("session_id") == filter_session]
+
+    runs_done = 0
+    for session in enabled_sessions:
+        dates = available_dates_for_session(rows, session)
+        for date in sorted(dates):
+            if start_date and date < start_date:
+                continue
+            if end_date and date > end_date:
+                continue
+            process_market_run(profile, session, csv_path, date)
+            runs_done += 1
+
+    print(json.dumps({"runs_done": runs_done, "csv": str(csv_path)}, indent=2))
+    return 0
+
+
+def run_with_outcomes(args: list[str]) -> int:
+    """Full pipeline: clear state → batch_run → apply_outcomes → batch_report.
+
+    Produces trades with resolved outcomes in a single command.
+    State files (features, events, trades) are cleared before each run.
+    """
+    csv_path = Path(args[0]) if args else SAMPLE_MARKET_CSV
+
+    for path in (FEATURES_JSONL, EVENTS_JSONL, TRADES_JSONL):
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("", encoding="utf-8")
+
+    batch_run([str(csv_path)] + args[1:])
+    apply_outcomes([str(csv_path)])
+    batch_report([])
+    return 0
+
+
 def _sweep_data_path() -> Path:
     return REPO_ROOT / "modules" / "trading_lab_v1" / "data" / "btcusd_coinm_backtest_data.jsonl"
 
@@ -754,6 +801,8 @@ def param_sweep_export(args: list[str]) -> int:
 
 
 COMMANDS = {
+    "batch-run": batch_run,
+    "run-with-outcomes": run_with_outcomes,
     "batch-report": batch_report,
     "apply-outcomes": apply_outcomes,
     "show-last-batch-report": show_last_batch_report,
