@@ -206,10 +206,10 @@ La réalité du repo prime sur toute entrée du registre.
 | code_id | path | status | raison | next_action |
 |---|---|---|---|---|
 | `router_module_shell` | `modules/router/` | CANDIDATE | facade CLI wrapper (info/readme/ls/grep/menu) — pas de logique Python — FALSE_POSITIVE doublon | KEEP |
-| `trae_module_validator` | `modules/trae_module_validator/` | BLOCKED_UNKNOWN_CONSUMER | rôle non documenté, absent de CLAUDE.md | BLOCKED_NEEDS_OWNER |
-| `portfolio_engine` | `modules/portfolio_engine/app/portfolio_engine.py` | BLOCKED_UNKNOWN_CONSUMER | consommateurs non identifiés | BLOCKED_NEEDS_CONSUMER_AUDIT |
-| `probability_engine` | `modules/probability_engine/app/probability_engine.py` | BLOCKED_UNKNOWN_CONSUMER | consommateurs non identifiés | BLOCKED_NEEDS_CONSUMER_AUDIT |
-| `reseau_ssh_step1b` | `modules/reseau_ssh_step1b/` | BLOCKED_UNKNOWN_CONSUMER | relation avec reseau_ssh non documentée | BLOCKED_NEEDS_OWNER |
+| `trae_module_validator` | `modules/trae_module_validator/` | CANDIDATE | ops_menu_hub/scripts/menu.sh:152,162 — entrée menu `menu-trae_module_validator` | KEEP |
+| `portfolio_engine` | `modules/portfolio_engine/app/portfolio_engine.py` | ACTIVE | desk_pro_orchestrator:44 (import dynamique) + desk_pro_dashboard | KEEP |
+| `probability_engine` | `modules/probability_engine/app/probability_engine.py` | ACTIVE | desk_pro_orchestrator:36 (import dynamique) + proposition_engine/engines.py:17-19 | KEEP |
+| `reseau_ssh_step1b` | `modules/reseau_ssh_step1b/` | CANDIDATE | reseau_ssh/scripts/_reseau_ssh_common.sh:35 — RESEAU_SSH_STEP1B_DIR | KEEP |
 
 ---
 
@@ -229,9 +229,9 @@ La réalité du repo prime sur toute entrée du registre.
 | A01 | 22 modules sans sanity_check.sh | batch sanity_check missing |
 | A02 | execution_engine/scripts/ — scripts doublés différents | GO_CODE_OPS_OPT_TRADING_CHILD_DEDUP_AUDIT_01 |
 | A03 | modules/router/ — facade CLI wrapper, FALSE_POSITIVE confirmé | registre corrigé — KEEP |
-| A04 | validate_master_target_continuity.py sans test | ADD_TEST batch |
-| A05 | validate_strategy_registry.py sans test | ADD_TEST batch |
-| A06 | schemas S02+S03 sans test de validation | ADD_TEST batch |
+| A04 | validate_master_target_continuity.py sans test | DONE — tests/governance/test_master_target_validator.py (4 PASS) |
+| A05 | validate_strategy_registry.py sans test | DONE — tests/governance/test_strategy_registry_validator.py (5 PASS) |
+| A06 | schemas S02+S03 sans test de validation | DONE — tests/governance/test_trading_schemas.py (10 PASS) |
 
 ---
 
@@ -239,15 +239,15 @@ La réalité du repo prime sur toute entrée du registre.
 
 | Catégorie | Entrées |
 |---|---|
-| ACTIVE | ~60 |
-| CANDIDATE | 2 |
-| BLOCKED_UNKNOWN_CONSUMER | 4 |
+| ACTIVE | ~62 |
+| CANDIDATE | 4 |
+| BLOCKED_UNKNOWN_CONSUMER | 0 |
 | DELETE_CANDIDATE | 2 |
 | ARCHIVED | 1 |
 | DELETED (D05) | 3 |
 | **Total** | **~72** |
 
-> Dernière mise à jour 2026-05-28 : D05 supprimé (commit ce0648db) ; A03 corrigé CANDIDATE/KEEP.
+> Dernière mise à jour 2026-05-28 : D05 supprimé (commit ce0648db) ; A03 corrigé CANDIDATE/KEEP ; T03-T06 BLOCKED qualifiés (4→0) ; A04-A06 tests créés.
 
 Scope non encore enregistré (entrées LOW) :
 - `tools/strategy/*/run_*.py` (backtests)
