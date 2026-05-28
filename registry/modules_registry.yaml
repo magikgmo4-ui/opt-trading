@@ -382,6 +382,7 @@
 - module_name: shared_sshfs_permanent
   domain: infrastructure
   machine_target: any
+  placement_mode: cross_host_facade
   operator_visible: false
   ui_related: false
   description: "Client Linux: montage SSHFS permanent de /shared depuis admin-trading"
@@ -392,7 +393,8 @@
 
 - module_name: shared
   domain: infrastructure
-  machine_target: any
+  machine_target: admin_trading
+  placement_mode: cross_host_facade
   operator_visible: true
   ui_related: false
   description: "UX minimale pour la surface canonique /shared (ls/get/put)"
@@ -425,7 +427,8 @@
 
 - module_name: reseau_ssh
   domain: infrastructure
-  machine_target: any
+  machine_target: admin_trading
+  placement_mode: cross_host_facade
   operator_visible: true
   ui_related: false
   description: "Facade canonique reseau/ssh: baseline, WG/firewall et compat transitoire"
