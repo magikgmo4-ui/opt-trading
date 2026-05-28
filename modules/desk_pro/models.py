@@ -1,6 +1,6 @@
 from __future__ import annotations
 from typing import List, Optional, Literal, Dict
-from pydantic import BaseModel, Field
+from shared.pydantic_compat import BaseModel, Field
 
 TF = Literal["W", "D"]
 

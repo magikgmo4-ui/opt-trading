@@ -1,0 +1,8 @@
+# FILE_SCOPE — GO_OPT_TRADING_DESK_PRO_CHILD_PYDANTIC_COMPAT_01
+# Only these paths may be modified by this GO.
+
+shared/pydantic_compat.py
+modules/desk_pro/models.py
+perf/perf_app.py
+docs/chantiers/GO_OPT_TRADING_DESK_PRO_CHILD_PYDANTIC_COMPAT_01/**
+bundles/GO_OPT_TRADING_DESK_PRO_CHILD_PYDANTIC_COMPAT_01/**
