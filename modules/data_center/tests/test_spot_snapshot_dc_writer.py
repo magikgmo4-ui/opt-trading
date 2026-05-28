@@ -7,6 +7,7 @@ from pathlib import Path
 from modules.data_center.spot_snapshot_dc_writer import write_spot_snapshot_to_data_center
 
 _PAYLOAD = {
+    "schema": "pair_market_snapshot.v1",
     "contract_version": "v1",
     "schema_version": "v1",
     "module_id": "collector_binance_spot",

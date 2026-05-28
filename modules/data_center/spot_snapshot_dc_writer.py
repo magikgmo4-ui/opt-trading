@@ -5,10 +5,15 @@ import tempfile
 from pathlib import Path
 from typing import Optional
 
+from modules.data_center.schemas.registry import get_schema
+from modules.data_center.validation.schema_validator import validate_blob
+from modules.data_center.storage.manifest_writer import write_manifest
+
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 _PRODUCER_ID = "collector_binance_spot"
 _CONTRACT_CLASS = "pair_market_snapshot.v1"
 _PRODUCER_BASE = Path("data/data_center/spot/collector_binance_spot")
+_DC_SCHEMA = "pair_market_snapshot.v1"
 
 
 def _atomic_write_json(path: Path, payload: dict) -> None:
@@ -29,17 +34,26 @@ def write_spot_snapshot_to_data_center(
 ) -> dict:
     """Write a pair_market_snapshot payload to the DC producer path and consumer view.
 
+    Validates payload against pair_market_snapshot.v1 schema via schema_validator,
+    writes producer latest.json, consumer view, manifest (via manifest_writer),
+    and optionally updates the runtime registry.
+
     Producer path:
       data/data_center/spot/collector_binance_spot/latest.json
+      data/data_center/spot/collector_binance_spot/manifest.json
 
     Consumer view (via write_pair_market_snapshot_view):
       data/data_center/views/pair_market_snapshot/latest.json
       data/data_center/views/pair_market_snapshot/by_symbol/<SYM>.json
 
-    Optionally registers the write in the runtime registry.
+    Raises ValueError if entity_type is wrong or schema validation fails.
     Never calls Binance API or any external service.
     """
     root = Path(root) if root is not None else _PROJECT_ROOT
+
+    valid, errors = validate_blob(payload)
+    if not valid:
+        raise ValueError(f"Schema validation failed: {'; '.join(errors)}")
 
     if payload.get("entity_type") != "pair_market_snapshot":
         raise ValueError(
@@ -48,6 +62,18 @@ def write_spot_snapshot_to_data_center(
 
     producer_latest = root / _PRODUCER_BASE / "latest.json"
     _atomic_write_json(producer_latest, payload)
+
+    write_manifest(
+        producer_dir=root / _PRODUCER_BASE,
+        producer_id=_PRODUCER_ID,
+        schema_name=_DC_SCHEMA,
+        status="ok",
+        extra={
+            "run_id": payload.get("run_id"),
+            "generated_at": payload.get("generated_at"),
+            "record_count": len(payload.get("records", [])),
+        },
+    )
 
     from modules.data_center.pair_snapshot_view_writer import write_pair_market_snapshot_view
     view_result = write_pair_market_snapshot_view(payload, root=root)

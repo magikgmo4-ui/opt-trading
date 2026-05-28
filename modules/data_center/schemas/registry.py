@@ -116,6 +116,24 @@ EVENT_V1 = _make_spec(
     },
 )
 
+PAIR_MARKET_SNAPSHOT_V1 = _make_spec(
+    required_fields=[
+        "schema", "contract_version", "schema_version", "module_id", "provider_id",
+        "run_id", "generated_at", "entity_type", "records",
+    ],
+    field_types={
+        "schema": str,
+        "contract_version": str,
+        "schema_version": str,
+        "module_id": str,
+        "provider_id": str,
+        "run_id": str,
+        "generated_at": str,
+        "entity_type": str,
+        "records": list,
+    },
+)
+
 register_schema("market_metrics.v1", MARKET_METRICS_V1)
 register_schema("oi.v1", OI_V1)
 register_schema("funding.v1", FUNDING_V1)
@@ -123,3 +141,4 @@ register_schema("liquidations.v1", LIQUIDATIONS_V1)
 register_schema("long_short.v1", LONG_SHORT_V1)
 register_schema("signal.v1", SIGNAL_V1)
 register_schema("event.v1", EVENT_V1)
+register_schema("pair_market_snapshot.v1", PAIR_MARKET_SNAPSHOT_V1)
