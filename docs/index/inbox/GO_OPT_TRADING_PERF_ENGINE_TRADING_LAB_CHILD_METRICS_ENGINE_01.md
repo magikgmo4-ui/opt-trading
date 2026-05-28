@@ -1,0 +1,8 @@
+---
+doc_id: GO_OPT_TRADING_PERF_ENGINE_TRADING_LAB_CHILD_METRICS_ENGINE_01_INBOX
+doc_type: inbox
+repo: opt-trading
+go_id: GO_OPT_TRADING_PERF_ENGINE_TRADING_LAB_CHILD_METRICS_ENGINE_01
+status: open
+created_at: 2026-05-28
+---

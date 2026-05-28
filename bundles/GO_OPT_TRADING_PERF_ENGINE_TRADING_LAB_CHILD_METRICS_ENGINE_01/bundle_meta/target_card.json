@@ -1,0 +1,8 @@
+{
+  "go_id": "GO_OPT_TRADING_PERF_ENGINE_TRADING_LAB_CHILD_METRICS_ENGINE_01",
+  "go_structural_role": "GO_CHILD_ATTACHED_TO_PARENT",
+  "parent_go_id": "GO_OPT_TRADING_PERF_ENGINE_TRADING_LAB_PARENT_OPEN_01",
+  "pf_id": "PF_PERF_ENGINE_TRADING_LAB",
+  "bundle_target": "calcul metriques performance",
+  "type": "doc-only"
+}
