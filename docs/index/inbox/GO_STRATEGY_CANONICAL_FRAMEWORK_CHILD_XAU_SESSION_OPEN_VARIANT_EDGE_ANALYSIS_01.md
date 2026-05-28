@@ -2,8 +2,8 @@
 go_id: GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_XAU_SESSION_OPEN_VARIANT_EDGE_ANALYSIS_01
 status: DONE
 verdict: PASS_XAU_SESSION_OPEN_VARIANT_EDGE_ANALYSIS_01
-pr: TBD
-merge_commit: TBD
+pr: 882
+merge_commit: 42b07c30
 ---
 
 Analyse edge par variant sur 33 jours Dukascopy (46 trades non-neutral). `xau_open_sweep_fvg` est le seul variant avec edge positif : 40% wr, avg_r +0.71 sur 20 trades. `xau_open_sweep_no_fvg` est le drag principal : 17% wr, avg_r -0.37 sur 23 trades. Commande `variant-report` et filtre variant (`--variants`) implémentés. 24 tests PASS.
