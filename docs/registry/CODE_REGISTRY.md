@@ -205,7 +205,7 @@ La réalité du repo prime sur toute entrée du registre.
 
 | code_id | path | status | raison | next_action |
 |---|---|---|---|---|
-| `router_module_shell` | `modules/router/` | BLOCKED_UNKNOWN_CONSUMER | module shell vide — rôle inconnu | BLOCKED_NEEDS_OWNER |
+| `router_module_shell` | `modules/router/` | CANDIDATE | facade CLI wrapper (info/readme/ls/grep/menu) — pas de logique Python — FALSE_POSITIVE doublon | KEEP |
 | `trae_module_validator` | `modules/trae_module_validator/` | BLOCKED_UNKNOWN_CONSUMER | rôle non documenté, absent de CLAUDE.md | BLOCKED_NEEDS_OWNER |
 | `portfolio_engine` | `modules/portfolio_engine/app/portfolio_engine.py` | BLOCKED_UNKNOWN_CONSUMER | consommateurs non identifiés | BLOCKED_NEEDS_CONSUMER_AUDIT |
 | `probability_engine` | `modules/probability_engine/app/probability_engine.py` | BLOCKED_UNKNOWN_CONSUMER | consommateurs non identifiés | BLOCKED_NEEDS_CONSUMER_AUDIT |
@@ -228,7 +228,7 @@ La réalité du repo prime sur toute entrée du registre.
 |---|---|---|
 | A01 | 22 modules sans sanity_check.sh | batch sanity_check missing |
 | A02 | execution_engine/scripts/ — scripts doublés différents | GO_CODE_OPS_OPT_TRADING_CHILD_DEDUP_AUDIT_01 |
-| A03 | modules/router/ — module shell sans code Python | qualifier ou supprimer |
+| A03 | modules/router/ — facade CLI wrapper, FALSE_POSITIVE confirmé | registre corrigé — KEEP |
 | A04 | validate_master_target_continuity.py sans test | ADD_TEST batch |
 | A05 | validate_strategy_registry.py sans test | ADD_TEST batch |
 | A06 | schemas S02+S03 sans test de validation | ADD_TEST batch |
