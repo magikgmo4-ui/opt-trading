@@ -1,0 +1,31 @@
+{
+  "bundle_id": "BINANCE_SPOT_COLLECTOR_RUNTIME_V1",
+  "go_id": "GO_OPT_TRADING_DATA_CENTER_CHILD_BINANCE_SPOT_COLLECTOR_RUNTIME_01",
+  "title": "Binance Spot Collector Data Center Runtime",
+  "description": "Wire collector_binance_spot to Data Center: register pair_market_snapshot.v1 schema, validate via schema_validator, write manifest via manifest_writer, write to data/data_center/spot/collector_binance_spot/",
+  "parent_go": "GO_OPT_TRADING_DATA_CENTER_PARENT_OPEN_01",
+  "status": "deliverable",
+  "total_tests": 52,
+  "passed": 52,
+  "pre_existing_failures": [
+    "test_run_sanity_returns_ok_without_secret — _ensure_runtime_directories not defined (pre-existing on sot/mainline)"
+  ],
+  "files": {
+    "modified": [
+      "modules/data_center/schemas/registry.py",
+      "modules/data_center/spot_snapshot_dc_writer.py",
+      "modules/collector_binance_spot/src/collector_binance_spot/run.py",
+      "modules/data_center/tests/test_spot_snapshot_dc_writer.py"
+    ],
+    "created": [
+      "tests/data_center/test_binance_spot_dc_runtime.py",
+      "docs/chantiers/GO_OPT_TRADING_DATA_CENTER_CHILD_BINANCE_SPOT_COLLECTOR_RUNTIME_01/00_INITIAL_PROJECT_DOC.md",
+      "docs/chantiers/GO_OPT_TRADING_DATA_CENTER_CHILD_BINANCE_SPOT_COLLECTOR_RUNTIME_01/10_IMPLEMENTATION_SPEC.md",
+      "docs/chantiers/GO_OPT_TRADING_DATA_CENTER_CHILD_BINANCE_SPOT_COLLECTOR_RUNTIME_01/20_TEST_PLAN.md",
+      "docs/chantiers/GO_OPT_TRADING_DATA_CENTER_CHILD_BINANCE_SPOT_COLLECTOR_RUNTIME_01/40_GAPS_AND_NEXT_GO.md",
+      "docs/chantiers/GO_OPT_TRADING_DATA_CENTER_CHILD_BINANCE_SPOT_COLLECTOR_RUNTIME_01/90_CLOSEOUT.md",
+      "docs/chantiers/GO_OPT_TRADING_DATA_CENTER_CHILD_BINANCE_SPOT_COLLECTOR_RUNTIME_01/TARGETS.md",
+      "docs/chantiers/GO_OPT_TRADING_DATA_CENTER_CHILD_BINANCE_SPOT_COLLECTOR_RUNTIME_01/target_card.json"
+    ]
+  }
+}

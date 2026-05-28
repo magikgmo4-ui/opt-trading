@@ -1,0 +1,10 @@
+# FILE_SCOPE — GO_OPT_TRADING_DATA_CENTER_CHILD_BINANCE_SPOT_COLLECTOR_RUNTIME_01
+# Only these paths may be modified by this GO.
+
+docs/chantiers/GO_OPT_TRADING_DATA_CENTER_CHILD_BINANCE_SPOT_COLLECTOR_RUNTIME_01/**
+bundles/GO_OPT_TRADING_DATA_CENTER_CHILD_BINANCE_SPOT_COLLECTOR_RUNTIME_01/**
+modules/collector_binance_spot/src/collector_binance_spot/run.py
+modules/data_center/schemas/registry.py
+modules/data_center/spot_snapshot_dc_writer.py
+modules/data_center/tests/test_spot_snapshot_dc_writer.py
+tests/data_center/test_binance_spot_dc_runtime.py

@@ -29,6 +29,11 @@ from .client import BinanceSpotClient
 from .config import BinanceSpotRuntimeConfig, load_runtime_config, validate_runtime_requirements
 from .normalize import normalize_pair_market_snapshot
 
+try:
+    from modules.data_center.spot_snapshot_dc_writer import write_spot_snapshot_to_data_center
+except ImportError:
+    write_spot_snapshot_to_data_center = None
+
 
 def run_sanity(module_dir: Path, client: BinanceSpotClient | Any | None = None) -> dict[str, Any]:
     config = load_runtime_config(module_dir)
@@ -146,6 +151,18 @@ def run_collection(module_dir: Path, client: BinanceSpotClient | Any | None = No
         latest = _build_latest(config, run_id, generated_at, normalized_path, normalized_payload)
         atomic_write_json(config.paths.manifest_path, manifest)
         atomic_write_json(config.paths.latest_path, latest)
+
+        if write_spot_snapshot_to_data_center is not None:
+            try:
+                dc_payload = dict(normalized_payload)
+                dc_payload["schema"] = "pair_market_snapshot.v1"
+                write_spot_snapshot_to_data_center(
+                    dc_payload,
+                    root=config.paths.module_dir.parent.parent,
+                    update_registry=True,
+                )
+            except Exception:
+                pass
 
         append_event_record(
             events_path=config.paths.events_path,
