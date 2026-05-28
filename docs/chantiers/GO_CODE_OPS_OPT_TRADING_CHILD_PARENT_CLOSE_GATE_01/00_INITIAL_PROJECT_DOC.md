@@ -6,8 +6,8 @@ project: opt-trading
 module: code_ops
 go_id: GO_CODE_OPS_OPT_TRADING_CHILD_PARENT_CLOSE_GATE_01
 parent_go_id: GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01
-status: open
-lifecycle_stage: executing
+status: closed
+lifecycle_stage: done
 topic_keys:
   - opt-trading
   - code_ops
