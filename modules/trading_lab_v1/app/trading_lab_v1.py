@@ -473,7 +473,13 @@ def build_market_trade(event: dict, features: dict) -> dict:
     return trade
 
 
-def process_market_run(profile: dict, session: dict, csv_path: Path, analysis_date: str | None) -> dict:
+def process_market_run(
+    profile: dict,
+    session: dict,
+    csv_path: Path,
+    analysis_date: str | None,
+    variant_allowlist: set[str] | None = None,
+) -> dict:
     tz_name = profile["frame"].get("timezone") or "America/Montreal"
     rows = load_market_csv(csv_path, tz_name)
     selected_rows, chosen_date = select_session_rows(rows, session, analysis_date)
@@ -484,7 +490,8 @@ def process_market_run(profile: dict, session: dict, csv_path: Path, analysis_da
     append_jsonl(EVENTS_JSONL, event)
     trade_written = None
     trade = None
-    if features["sequence_complete"] and features["first5_direction"] != "neutral":
+    variant_allowed = variant_allowlist is None or features.get("variant_id") in variant_allowlist
+    if features["sequence_complete"] and features["first5_direction"] != "neutral" and variant_allowed:
         trade = build_market_trade(event, features)
         append_jsonl(TRADES_JSONL, trade)
         trade_written = str(TRADES_JSONL)
@@ -645,12 +652,41 @@ def show_last_batch_report(_: list[str]) -> int:
     return 0
 
 
+def variant_report(args: list[str]) -> int:
+    """Per-variant breakdown of W/L/T, win_rate, avg_r from current TRADES_JSONL."""
+    trades = load_jsonl(TRADES_JSONL)
+    by_variant: dict[str, list[dict]] = {}
+    for t in trades:
+        vid = t.get("variant_id") or "unknown"
+        by_variant.setdefault(vid, []).append(t)
+
+    report: dict[str, dict] = {}
+    for vid, ts in sorted(by_variant.items()):
+        wins = sum(1 for t in ts if t.get("result") == "win")
+        losses = sum(1 for t in ts if t.get("result") == "loss")
+        timeouts = sum(1 for t in ts if t.get("result") == "timeout")
+        r_vals = [t["r_realized"] for t in ts if t.get("r_realized") is not None]
+        report[vid] = {
+            "n": len(ts),
+            "win": wins,
+            "loss": losses,
+            "timeout": timeouts,
+            "win_rate": round(wins / len(ts), 4) if ts else None,
+            "avg_r": round(sum(r_vals) / len(r_vals), 4) if r_vals else None,
+        }
+
+    print(json.dumps(report, indent=2, ensure_ascii=False))
+    return 0
+
+
 def batch_run(args: list[str]) -> int:
     """Run process_market_run for all enabled sessions × available dates in a CSV."""
     csv_path = Path(args[0]) if args else SAMPLE_MARKET_CSV
     filter_session = args[1] if len(args) > 1 else None
     start_date = args[2] if len(args) > 2 else None
     end_date = args[3] if len(args) > 3 else None
+    variant_filter_raw = args[4] if len(args) > 4 else None
+    variant_allowlist: set[str] | None = set(variant_filter_raw.split(",")) if variant_filter_raw else None
 
     profile = load_profile()
     tz_name = profile["frame"].get("timezone") or "America/Montreal"
@@ -667,7 +703,7 @@ def batch_run(args: list[str]) -> int:
                 continue
             if end_date and date > end_date:
                 continue
-            process_market_run(profile, session, csv_path, date)
+            process_market_run(profile, session, csv_path, date, variant_allowlist)
             runs_done += 1
 
     print(json.dumps({"runs_done": runs_done, "csv": str(csv_path)}, indent=2))
@@ -806,6 +842,7 @@ COMMANDS = {
     "batch-report": batch_report,
     "apply-outcomes": apply_outcomes,
     "show-last-batch-report": show_last_batch_report,
+    "variant-report": variant_report,
     "param-sweep-run": param_sweep_run,
     "param-sweep-batch": param_sweep_batch,
     "param-sweep-report": param_sweep_report,
