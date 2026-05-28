@@ -181,17 +181,19 @@ jobs:
             return 1
           }
 
-          is_merged_go() {
+          is_inactive_go() {
             local go_id="$1"
 
             if git log --merges --format=%s "origin/${BASE_REF}" --grep="from .*/go/${go_id}$" -n 1 | grep -q .; then
               return 0
             fi
 
-            if git show-ref --verify --quiet "refs/remotes/origin/go/${go_id}"; then
-              if git merge-base --is-ancestor "refs/remotes/origin/go/${go_id}" "origin/${BASE_REF}"; then
-                return 0
-              fi
+            if ! git show-ref --verify --quiet "refs/remotes/origin/go/${go_id}"; then
+              return 0
+            fi
+
+            if git merge-base --is-ancestor "refs/remotes/origin/go/${go_id}" "origin/${BASE_REF}"; then
+              return 0
             fi
 
             return 1
@@ -211,7 +213,7 @@ jobs:
                 continue
               fi
 
-              if is_merged_go "$other_go"; then
+              if is_inactive_go "$other_go"; then
                 continue
               fi
 
