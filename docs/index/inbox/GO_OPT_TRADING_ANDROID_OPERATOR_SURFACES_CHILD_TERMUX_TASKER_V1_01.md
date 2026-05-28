@@ -1,1 +1,1 @@
-Child GO opened from merged parent. Scope: Termux+Tasker implementation V1.
+Child GO_OPT_TRADING_ANDROID_OPERATOR_SURFACES_CHILD_TERMUX_TASKER_V1_01 opened from parent merge (2facfbc2). PHASE_01: real install doc, SSH key guide, tmux health probes, Tasker integration, recovery scenarios, PASS checklist. Branch: go/GO_OPT_TRADING_ANDROID_OPERATOR_SURFACES_CHILD_TERMUX_TASKER_V1_01.
