@@ -41,8 +41,9 @@ def test_schema_registry_idempotent():
 
 def test_market_metrics_required_fields():
     spec = get_schema("market_metrics.v1")
-    assert "timestamp" in spec["required_fields"]
-    assert "data" in spec["required_fields"]
+    assert "metrics_ts" in spec["required_fields"]
+    assert "metrics" in spec["required_fields"]
+    assert "produced_at" in spec["required_fields"]
 
 
 def test_signal_v1_required_fields():

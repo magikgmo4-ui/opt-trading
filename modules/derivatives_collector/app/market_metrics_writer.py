@@ -2,9 +2,12 @@ from __future__ import annotations
 
 import json
 import tempfile
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional, Union
 
+from modules.data_center.storage.manifest_writer import write_manifest
+from modules.data_center.validation.schema_validator import validate_blob
 from modules.derivatives_collector.app.market_metrics_v1 import MarketMetricsV1
 import re
 
@@ -48,6 +51,20 @@ def _to_dict(payload: Union[MarketMetricsV1, dict]) -> dict:
     return dict(payload)
 
 
+def enrich_produced_at(
+    payload: Union[MarketMetricsV1, dict],
+    override_timestamp: Optional[str] = None,
+) -> dict:
+    d = _to_dict(payload)
+    enriched = dict(d)
+    enriched.setdefault("schema", "market_metrics.v1")
+    enriched.setdefault(
+        "produced_at",
+        override_timestamp or datetime.now(timezone.utc).isoformat(),
+    )
+    return enriched
+
+
 def _validate_input_class(d: dict) -> None:
     if d.get("input_class") != "market_metrics.v1":
         raise ValueError(
@@ -89,8 +106,11 @@ def write_market_metrics_to_data_center(
     Raises ValueError for invalid input_class.
     """
     root = Path(root) if root is not None else _PROJECT_ROOT
-    d = _to_dict(payload)
+    d = enrich_produced_at(payload)
     _validate_input_class(d)
+    valid, errors = validate_blob(d)
+    if not valid:
+        raise ValueError(f"Schema validation failed: {'; '.join(errors)}")
     if _is_not_proven_runtime_adapter(d):
         return None
     producer_id = _resolve_producer_id(d)
@@ -102,6 +122,12 @@ def write_market_metrics_to_data_center(
     by_symbol_dest = base / "cache" / "by_symbol" / f"{symbol}.json"
     _atomic_write_json(latest_dest, d)
     _atomic_write_json(by_symbol_dest, d)
+    manifest_path = write_manifest(
+        producer_dir=_DC_DERIVATIVES_BASE / producer_id,
+        producer_id=producer_id,
+        schema_name=d["schema"],
+        root=root,
+    )
     if update_registry:
         from modules.data_center.runtime_registry import update_producer_last_write
         update_producer_last_write(
@@ -111,7 +137,7 @@ def write_market_metrics_to_data_center(
             root=root,
             evidence={"symbol": symbol, "provider_id": d.get("provider_id")},
         )
-    return {"latest": latest_dest, "by_symbol": by_symbol_dest}
+    return {"latest": latest_dest, "by_symbol": by_symbol_dest, "manifest": manifest_path}
 
 
 # ---------------------------------------------------------------------------
@@ -135,8 +161,11 @@ def write_market_metrics_view(
     provider is not_proven_runtime_adapter. Raises ValueError for invalid input_class.
     """
     root = Path(root) if root is not None else _PROJECT_ROOT
-    d = _to_dict(payload)
+    d = enrich_produced_at(payload)
     _validate_input_class(d)
+    valid, errors = validate_blob(d)
+    if not valid:
+        raise ValueError(f"Schema validation failed: {'; '.join(errors)}")
     if _is_not_proven_runtime_adapter(d):
         return None
     symbol = d.get("symbol", "UNKNOWN")

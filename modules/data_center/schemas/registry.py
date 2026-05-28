@@ -26,15 +26,35 @@ def _make_spec(
 
 
 MARKET_METRICS_V1 = _make_spec(
-    required_fields=["schema", "schema_version", "producer", "symbol", "timestamp", "data"],
-    optional_fields=["coverage"],
+    required_fields=[
+        "schema",
+        "contract_version",
+        "input_class",
+        "module_id",
+        "provider_id",
+        "symbol",
+        "metrics_ts",
+        "freshness_state",
+        "provider_coverage",
+        "metrics",
+        "refs",
+        "produced_at",
+    ],
+    optional_fields=["warnings"],
     field_types={
         "schema": str,
-        "schema_version": str,
-        "producer": str,
+        "contract_version": str,
+        "input_class": str,
+        "module_id": str,
+        "provider_id": str,
         "symbol": str,
-        "timestamp": str,
-        "data": dict,
+        "metrics_ts": str,
+        "freshness_state": str,
+        "provider_coverage": dict,
+        "metrics": dict,
+        "refs": dict,
+        "produced_at": str,
+        "warnings": list,
     },
 )
 
