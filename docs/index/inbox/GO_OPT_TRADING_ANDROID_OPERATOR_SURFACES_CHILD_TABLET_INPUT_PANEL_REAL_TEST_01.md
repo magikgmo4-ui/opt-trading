@@ -1,0 +1,1 @@
+Child GO opened for real-device TABLET_INPUT_PANEL_V1 testing. Scope: Unified Remote / Stream Deck Mobile / keyboard / mouse / stylus / PC1-PC2 switching. Manual tests only.
