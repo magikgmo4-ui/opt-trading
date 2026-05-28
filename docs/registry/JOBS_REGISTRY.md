@@ -79,8 +79,10 @@ Entrées notables :
 | job_id | path | status | task_type | next_action |
 |---|---|---|---|---|
 | `jp_drive_canary` | `job_packets/GO_DRIVE_CANARY_PACKET_01.json` | WRITE_GATED | WRITE_GATED | keep |
-| `jp_strict_readonly_smoke` | `job_packets/GO_STRICT_WORKERS_READONLY_SMOKE_01.json` | DRAFT_ONLY | ? | formalize |
-| `jp_strict_pool_smoke_*` | `job_packets/GO_STRICT_WORKERS_POOL_SMOKE_*.json` (3) | DRAFT_ONLY | ? | blocked_review |
+| `jp_strict_readonly_smoke` | `job_packets/GO_STRICT_WORKERS_READONLY_SMOKE_01.json` | candidate | READ_INVENTORY | keep |
+| `jp_strict_pool_smoke_deepseek` | `job_packets/GO_STRICT_WORKERS_POOL_SMOKE_DEEPSEEK_V4_FLASH_FREE.json` | candidate | READ_INVENTORY | keep |
+| `jp_strict_pool_smoke_ring` | `job_packets/GO_STRICT_WORKERS_POOL_SMOKE_RING_2_6_1T_FREE.json` | deprecated | READ_INVENTORY | — (worker=deepseek, nom trompeur) |
+| `jp_strict_pool_smoke_trinity` | `job_packets/GO_STRICT_WORKERS_POOL_SMOKE_TRINITY_LARGE_PREVIEW_FREE.json` | deprecated | READ_INVENTORY | — (worker=nemotron, nom trompeur) |
 | `jp_doc_ops_*` | `job_packets/GO_OPT_TRADING_DOC_OPS_*` (8) | DRAFT_ONLY | varies | blocked_review |
 | `jp_strict_a4_negative_*` | `job_packets/GO_STRICT_WORKERS_A4_NEGATIVE_*` (5) | TEST_NEGATIVE | — | keep (tests) |
 
@@ -188,8 +190,9 @@ Entrées notables :
 | Statut | Count |
 |---|---|
 | active | ~45 |
-| candidate | ~8 |
+| candidate | ~10 (+2 : jp_strict_readonly_smoke, jp_strict_pool_smoke_deepseek) |
+| deprecated | ~12 (+2 : jp_strict_pool_smoke_ring, jp_strict_pool_smoke_trinity) |
 | experimental | 2 |
-| blocked_review | ~5 (job_packets DRAFT) |
+| DRAFT_ONLY (pending_parent) | ~16 (MATRIX×8, PATCH_IMPL×1, DOC_OPS×7) |
 
-> Dernière mise à jour 2026-05-28 — v1.1 : B06 qualifié LEGACY_REPLACED (8 scripts deprecated) ; ai_tasks_index statut → active. GO_AUTOMATION_OPS_OPT_TRADING_CHILD_JOBS_DEDUP_AUDIT_01.
+> Dernière mise à jour 2026-05-28 — v1.2 : DRAFT_PACKETS_PROMOTION_01 — 2 packets → candidate, 2 → deprecated, 16 pending_parent documentés. GO_AUTOMATION_OPS_OPT_TRADING_CHILD_DRAFT_PACKETS_PROMOTION_01.
