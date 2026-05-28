@@ -1,0 +1,14 @@
+{
+  "go_id": "GO_OPT_TRADING_DATA_CENTER_CHILD_RUNTIME_CONSUMERS_PHASE_2C_01",
+  "title": "Implement runtime market-metrics consumers for strategy and perf",
+  "status": "open",
+  "targets": [
+    "modules/strategy/market_context_reader.py",
+    "modules/perf_engine/replay_context_reader.py",
+    "modules/data_center/registry/consumers.json",
+    "modules/data_center/tests/test_contract_tests.py",
+    "tests/data_center/test_runtime_consumers_phase2c.py",
+    "docs/chantiers/GO_OPT_TRADING_DATA_CENTER_CHILD_RUNTIME_CONSUMERS_PHASE_2C_01/**",
+    "bundles/GO_OPT_TRADING_DATA_CENTER_CHILD_RUNTIME_CONSUMERS_PHASE_2C_01/**"
+  ]
+}

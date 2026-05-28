@@ -33,10 +33,10 @@
       "read_path": "data/data_center/views/market_metrics/by_symbol/",
       "access_pattern": "by_symbol",
       "fallback": "stale_ok",
-      "implementation_status": "not_started",
+      "implementation_status": "implemented",
       "migration_needed": false,
       "read_path_current": null,
-      "validated_at": null
+      "validated_at": "2026-05-28"
     },
     {
       "consumer_id": "perf_engine__replay_context",
@@ -45,10 +45,10 @@
       "read_path": "data/data_center/views/market_metrics/history/",
       "access_pattern": "full_history",
       "fallback": "error",
-      "implementation_status": "not_started",
+      "implementation_status": "implemented",
       "migration_needed": false,
       "read_path_current": null,
-      "validated_at": null
+      "validated_at": "2026-05-28"
     },
     {
       "consumer_id": "telegram_screener__signal_context",

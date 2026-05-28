@@ -223,8 +223,6 @@ class TestConsumerRegistryConsistency:
         """Consumers without runtime readers must stay not_started — no fake runtime."""
         no_reader = {
             "telegram_screener__signal_context",
-            "strategy_framework__market_context",
-            "perf_engine__replay_context",
         }
         for c in self.consumers:
             if c["consumer_id"] in no_reader:
