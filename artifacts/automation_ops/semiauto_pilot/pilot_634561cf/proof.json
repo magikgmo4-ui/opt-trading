@@ -1,0 +1,25 @@
+{
+  "run_id": "pilot_634561cf",
+  "go_id": "GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_PILOT_SCOPE_01",
+  "parent_go_id": "GO_AUTOMATION_OPS_OPT_TRADING_PARENT_SEMIAUTO_RUNTIME_PILOT_01",
+  "mode": "dry_run",
+  "input_prompt_path": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_JOBS_REGISTRY_PILOT_02/go_prompt.json",
+  "actions_planned": [
+    "read docs/registry/JOBS_REGISTRY.md",
+    "identify DRAFT_ONLY job_packets (sections 3) \u2014 17 entries analysables",
+    "identify experimental entries (section 2) \u2014 ai_models_registry",
+    "identify candidate+add_test entries (sections 4, 7) \u2014 6 entries",
+    "analyse anomalies B01-B05",
+    "propose next_action par entr\u00e9e cibl\u00e9e",
+    "write proof artifacts",
+    "submit to human gate"
+  ],
+  "actions_executed": [
+    "read GO_PROMPT",
+    "validate handoff contract"
+  ],
+  "stop_conditions": [],
+  "human_gate_required": true,
+  "verdict": "PASS_DRY_RUN",
+  "next_go": "GO_AUTOMATION_OPS_OPT_TRADING_CHILD_JOBS_DEDUP_AUDIT_01"
+}
