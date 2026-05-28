@@ -1,0 +1,29 @@
+{
+  "go_id": "GO_AUTOMATION_OPS_OPT_TRADING_CHILD_DRAFT_PACKETS_PROMOTION_01",
+  "parent_go_id": "GO_AUTOMATION_OPS_OPT_TRADING_PARENT_SEMIAUTO_RUNTIME_PILOT_01",
+  "action": "qualify_draft_packets_and_update_registry",
+  "source": "scripts/ai/workers/job_packets/",
+  "scope": {
+    "total_packets": 30,
+    "draft_only_analysed": 20,
+    "promote_candidate": 2,
+    "deprecate": 2,
+    "pending_parent": 16
+  },
+  "human_gate_required": true,
+  "mode": "dry_run",
+  "actions_planned": [
+    "read scripts/ai/workers/job_packets/ (30 fichiers)",
+    "read scripts/ai/workers/models.registry.json (23 modèles)",
+    "classify 20 DRAFT_ONLY by family (A-E)",
+    "verify worker status per packet (VERIFIED vs RETIRED)",
+    "check parent chantier status per family",
+    "verdict: 2 promote_candidate, 2 deprecate, 16 pending_parent",
+    "update 4 packet files status field",
+    "update docs/registry/JOBS_REGISTRY.md section 3",
+    "write proof artifacts",
+    "submit to human gate"
+  ],
+  "stop_conditions": [],
+  "next_go": ""
+}

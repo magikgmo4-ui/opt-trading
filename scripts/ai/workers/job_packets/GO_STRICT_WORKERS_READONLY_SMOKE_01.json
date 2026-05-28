@@ -1,7 +1,7 @@
 {
   "job_packet_id": "GO_STRICT_WORKERS_READONLY_SMOKE_01",
   "go_id": "GO_OPT_TRADING_STRICT_WORKERS_PARENT_01",
-  "status": "DRAFT_ONLY",
+  "status": "candidate",
   "task_type": "READ_INVENTORY",
   "worker_candidates": [
     "qwen3.5-plus",

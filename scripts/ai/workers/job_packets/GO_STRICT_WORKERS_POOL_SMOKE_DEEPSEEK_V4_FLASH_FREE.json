@@ -1,7 +1,7 @@
 {
   "job_packet_id": "GO_STRICT_WORKERS_POOL_SMOKE_DEEPSEEK_V4_FLASH_FREE",
   "go_id": "GO_OPT_TRADING_STRICT_WORKERS_CHILD_WORKER_POOL_SMOKE_01",
-  "status": "DRAFT_ONLY",
+  "status": "candidate",
   "task_type": "READ_INVENTORY",
   "worker_assigned": "deepseek-v4-flash-free",
   "worker_status": "VERIFIED_FREE",
