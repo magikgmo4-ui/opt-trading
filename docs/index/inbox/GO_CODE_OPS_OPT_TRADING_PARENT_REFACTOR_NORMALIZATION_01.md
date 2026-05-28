@@ -6,11 +6,11 @@ project: opt-trading
 module: code_ops
 go_id: GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01
 parent_go_id: GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01
-status: open
-lifecycle_stage: audit_first_refactor_planning
+status: closed
+lifecycle_stage: merged
 surface: index_inbox
 source_kind: canonical
-updated_at: 2026-05-20
+updated_at: 2026-05-28
 topic_keys:
   - code_ops
   - refactor
@@ -46,7 +46,7 @@ Parent Code Ops ouvert pour cadrer un refactor structurant audit-first :
 
 ## Statut
 
-`OPEN / DOC_ONLY_PARENT`
+`CLOSED / MERGED — PR #899 intégrée dans sot/mainline (commit 7432ab92)`
 
 ## Invariants
 
@@ -55,11 +55,9 @@ Parent Code Ops ouvert pour cadrer un refactor structurant audit-first :
 - pas de refactor sans inventaire ;
 - pas d'index global modifie dans cette passe.
 
-## NEXT_GO
+## Closeout
 
-`GO_CODE_OPS_OPT_TRADING_CHILD_CODE_INVENTORY_01`
-
-## Point de reprise
-
-Reprendre depuis `docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/00_INITIAL_PROJECT_DOC.md`.
-Lancer l'inventaire reel puis construire le registre initial.
+Parent clos. Dernier audit : `GO_CODE_OPS_OPT_TRADING_CHILD_POST_MERGE_AUDIT_01` = PASS_POST_MERGE_AUDIT.
+Tests governance : 29/29 PASS sur sot/mainline @ 456ec16c.
+Remaining gap : CLEANUP_BAK_01 = BLOCKED_PERMISSIONS (sudo opérateur, non bloquant CI).
+Voir : `docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/90_PARENT_CLOSEOUT.md`
