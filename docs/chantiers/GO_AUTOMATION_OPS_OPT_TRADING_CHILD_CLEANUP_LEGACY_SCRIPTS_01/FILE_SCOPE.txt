@@ -1,0 +1,11 @@
+docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_CLEANUP_LEGACY_SCRIPTS_01/**
+docs/index/inbox/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_CLEANUP_LEGACY_SCRIPTS_01.md
+docs/registry/JOBS_REGISTRY.md
+scripts/apply_desk_pro_toolbox_patch.sh
+scripts/apply_desk_pro_ui_inject_patch.sh
+scripts/apply_desk_pro_ui_plus_patch.sh
+scripts/apply_desk_pro_ui_toolbox_fix.sh
+scripts/apply_desk_pro_ui_toolbox_fix_v2.sh
+scripts/apply_desk_pro_ui_toolbox_fix_v3.sh
+scripts/apply_desk_pro_ui_toolbox_fix_v4.sh
+scripts/apply_desk_pro_ui_toolbox_final.sh

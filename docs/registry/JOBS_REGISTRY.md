@@ -131,18 +131,18 @@ Entrées notables :
 
 ---
 
-## Section 6 — Scripts legacy patch desk_pro (DEPRECATED)
+## Section 6 — Scripts legacy patch desk_pro (DELETED)
 
 | job_id | path | type | status | preuve | next_action |
 |---|---|---|---|---|---|
-| `dp_toolbox_patch` | `scripts/apply_desk_pro_toolbox_patch.sh` | shell | deprecated | routes.py:299-354 déjà patché | delete_after_proof |
-| `dp_ui_inject_patch` | `scripts/apply_desk_pro_ui_inject_patch.sh` | shell | deprecated | routes.py:299-354 déjà patché | delete_after_proof |
-| `dp_ui_plus_patch` | `scripts/apply_desk_pro_ui_plus_patch.sh` | shell | deprecated | routes.py:299-354 déjà patché | delete_after_proof |
-| `dp_ui_toolbox_fix` | `scripts/apply_desk_pro_ui_toolbox_fix.sh` | shell | deprecated | routes.py:299-354 déjà patché | delete_after_proof |
-| `dp_ui_toolbox_fix_v2` | `scripts/apply_desk_pro_ui_toolbox_fix_v2.sh` | shell | deprecated | routes.py:299-354 déjà patché | delete_after_proof |
-| `dp_ui_toolbox_fix_v3` | `scripts/apply_desk_pro_ui_toolbox_fix_v3.sh` | shell | deprecated | routes.py:299-354 déjà patché | delete_after_proof |
-| `dp_ui_toolbox_fix_v4` | `scripts/apply_desk_pro_ui_toolbox_fix_v4.sh` | shell | deprecated | routes.py:299-354 déjà patché | delete_after_proof |
-| `dp_ui_toolbox_final` | `scripts/apply_desk_pro_ui_toolbox_final.sh` | shell | deprecated | routes.py:299-354 déjà patché | delete_after_proof |
+| `dp_toolbox_patch` | `scripts/apply_desk_pro_toolbox_patch.sh` | shell | deleted | routes.py:299-354 patché — GO_CLEANUP_LEGACY_SCRIPTS_01 | — |
+| `dp_ui_inject_patch` | `scripts/apply_desk_pro_ui_inject_patch.sh` | shell | deleted | routes.py:299-354 patché — GO_CLEANUP_LEGACY_SCRIPTS_01 | — |
+| `dp_ui_plus_patch` | `scripts/apply_desk_pro_ui_plus_patch.sh` | shell | deleted | routes.py:299-354 patché — GO_CLEANUP_LEGACY_SCRIPTS_01 | — |
+| `dp_ui_toolbox_fix` | `scripts/apply_desk_pro_ui_toolbox_fix.sh` | shell | deleted | routes.py:299-354 patché — GO_CLEANUP_LEGACY_SCRIPTS_01 | — |
+| `dp_ui_toolbox_fix_v2` | `scripts/apply_desk_pro_ui_toolbox_fix_v2.sh` | shell | deleted | routes.py:299-354 patché — GO_CLEANUP_LEGACY_SCRIPTS_01 | — |
+| `dp_ui_toolbox_fix_v3` | `scripts/apply_desk_pro_ui_toolbox_fix_v3.sh` | shell | deleted | routes.py:299-354 patché — GO_CLEANUP_LEGACY_SCRIPTS_01 | — |
+| `dp_ui_toolbox_fix_v4` | `scripts/apply_desk_pro_ui_toolbox_fix_v4.sh` | shell | deleted | routes.py:299-354 patché — GO_CLEANUP_LEGACY_SCRIPTS_01 | — |
+| `dp_ui_toolbox_final` | `scripts/apply_desk_pro_ui_toolbox_final.sh` | shell | deleted | routes.py:299-354 patché — GO_CLEANUP_LEGACY_SCRIPTS_01 | — |
 
 ---
 
