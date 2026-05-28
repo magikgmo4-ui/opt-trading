@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # === run_task.sh — Strict Workers Runtime Lock ===
 # GO: GO_OPT_TRADING_STRICT_WORKERS_CHILD_RUNTIME_LOCK_AND_E2E_01
 # Phase A: Verrouiller le runner

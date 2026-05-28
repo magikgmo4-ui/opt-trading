@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -Eeuo pipefail
 
 DRY_RUN_MODE="${DRY_RUN_MODE:-true}"
