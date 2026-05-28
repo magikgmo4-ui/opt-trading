@@ -1,0 +1,14 @@
+{
+  "go_id": "GO_OPT_TRADING_DATA_CENTER_CHILD_MARKET_METRICS_WRITER_ENRICH_PRODUCED_AT_01",
+  "title": "Align market_metrics_writer with Data Center schema and produced_at enrichment",
+  "status": "open",
+  "targets": [
+    "modules/derivatives_collector/app/market_metrics_writer.py",
+    "modules/data_center/schemas/registry.py",
+    "tests/data_center/test_schema_validator.py",
+    "tests/data_center/test_schemas.py",
+    "tests/derivatives_collector/test_market_metrics_writer_dc_alignment.py",
+    "docs/chantiers/GO_OPT_TRADING_DATA_CENTER_CHILD_MARKET_METRICS_WRITER_ENRICH_PRODUCED_AT_01/**",
+    "bundles/GO_OPT_TRADING_DATA_CENTER_CHILD_MARKET_METRICS_WRITER_ENRICH_PRODUCED_AT_01/**"
+  ]
+}

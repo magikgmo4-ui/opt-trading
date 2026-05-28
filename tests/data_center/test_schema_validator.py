@@ -11,17 +11,24 @@ def test_validate_schema_missing_required():
     valid, errors = validate_schema({}, "market_metrics.v1")
     assert not valid
     assert any("schema" in e for e in errors)
-    assert any("timestamp" in e for e in errors)
+    assert any("metrics_ts" in e for e in errors)
 
 
 def test_validate_schema_valid():
     blob = {
         "schema": "market_metrics.v1",
-        "schema_version": "v1",
-        "producer": "test",
+        "contract_version": "v1",
+        "input_class": "market_metrics.v1",
+        "module_id": "derivatives_collector",
+        "provider_id": "binance_derivatives",
         "symbol": "BTCUSDT",
-        "timestamp": "2026-05-28T00:00:00Z",
-        "data": {"price": 50000},
+        "metrics_ts": "2026-05-28T00:00:00Z",
+        "freshness_state": "fresh",
+        "provider_coverage": {"status": "full", "collectable_metrics": [], "missing_metrics": []},
+        "metrics": {"open_interest": 50000},
+        "refs": {"primary_output": "a", "meta_output": "b", "latest": "c", "status": "d"},
+        "produced_at": "2026-05-28T00:00:00+00:00",
+        "warnings": [],
     }
     valid, errors = validate_schema(blob, "market_metrics.v1")
     assert valid, errors
@@ -31,29 +38,41 @@ def test_validate_schema_valid():
 def test_validate_schema_wrong_type():
     blob = {
         "schema": "market_metrics.v1",
-        "schema_version": "v1",
-        "producer": "test",
+        "contract_version": "v1",
+        "input_class": "market_metrics.v1",
+        "module_id": "derivatives_collector",
+        "provider_id": "binance_derivatives",
         "symbol": "BTCUSDT",
-        "timestamp": "2026-05-28T00:00:00Z",
-        "data": "not_a_dict",
+        "metrics_ts": "2026-05-28T00:00:00Z",
+        "freshness_state": "fresh",
+        "provider_coverage": {"status": "full", "collectable_metrics": [], "missing_metrics": []},
+        "metrics": "not_a_dict",
+        "refs": {"primary_output": "a", "meta_output": "b", "latest": "c", "status": "d"},
+        "produced_at": "2026-05-28T00:00:00+00:00",
     }
     valid, errors = validate_schema(blob, "market_metrics.v1")
     assert not valid
-    assert any("data" in e for e in errors)
+    assert any("metrics" in e for e in errors)
 
 
 def test_validate_schema_null_field():
     blob = {
         "schema": "market_metrics.v1",
-        "schema_version": "v1",
-        "producer": "test",
+        "contract_version": "v1",
+        "input_class": "market_metrics.v1",
+        "module_id": "derivatives_collector",
+        "provider_id": "binance_derivatives",
         "symbol": "BTCUSDT",
-        "timestamp": "2026-05-28T00:00:00Z",
-        "data": None,
+        "metrics_ts": "2026-05-28T00:00:00Z",
+        "freshness_state": "fresh",
+        "provider_coverage": {"status": "full", "collectable_metrics": [], "missing_metrics": []},
+        "metrics": None,
+        "refs": {"primary_output": "a", "meta_output": "b", "latest": "c", "status": "d"},
+        "produced_at": "2026-05-28T00:00:00+00:00",
     }
     valid, errors = validate_schema(blob, "market_metrics.v1")
     assert not valid
-    assert any("data" in e for e in errors)
+    assert any("metrics" in e for e in errors)
 
 
 def test_validate_blob_uses_schema_field():

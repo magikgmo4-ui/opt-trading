@@ -1,0 +1,10 @@
+# FILE_SCOPE — GO_OPT_TRADING_DATA_CENTER_CHILD_MARKET_METRICS_WRITER_ENRICH_PRODUCED_AT_01
+# Only these paths may be modified by this GO.
+
+docs/chantiers/GO_OPT_TRADING_DATA_CENTER_CHILD_MARKET_METRICS_WRITER_ENRICH_PRODUCED_AT_01/**
+bundles/GO_OPT_TRADING_DATA_CENTER_CHILD_MARKET_METRICS_WRITER_ENRICH_PRODUCED_AT_01/**
+modules/derivatives_collector/app/market_metrics_writer.py
+modules/data_center/schemas/registry.py
+tests/data_center/test_schema_validator.py
+tests/data_center/test_schemas.py
+tests/derivatives_collector/test_market_metrics_writer_dc_alignment.py
