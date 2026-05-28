@@ -16,9 +16,6 @@ ALLOWED_PLACEMENT_MODES = {
 }
 DEFERRED_ANY_ALLOWLIST = {
     "mimo_open_observer",
-    "shared_sshfs_permanent",
-    "shared",
-    "reseau_ssh",
 }
 
 
