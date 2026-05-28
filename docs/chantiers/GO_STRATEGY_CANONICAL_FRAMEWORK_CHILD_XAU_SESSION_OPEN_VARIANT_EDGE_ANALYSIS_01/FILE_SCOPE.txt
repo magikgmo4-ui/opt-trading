@@ -1,0 +1,4 @@
+modules/trading_lab_v1/app/trading_lab_v1.py
+modules/trading_lab_v1/tests/test_variant_edge_analysis.py
+docs/chantiers/GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_XAU_SESSION_OPEN_VARIANT_EDGE_ANALYSIS_01/FILE_SCOPE.txt
+docs/index/inbox/GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_XAU_SESSION_OPEN_VARIANT_EDGE_ANALYSIS_01.md
