@@ -241,10 +241,13 @@ La réalité du repo prime sur toute entrée du registre.
 |---|---|
 | ACTIVE | ~60 |
 | CANDIDATE | 2 |
-| BLOCKED_UNKNOWN_CONSUMER | 5 |
+| BLOCKED_UNKNOWN_CONSUMER | 4 |
 | DELETE_CANDIDATE | 2 |
 | ARCHIVED | 1 |
-| **Total** | **~70** |
+| DELETED (D05) | 3 |
+| **Total** | **~72** |
+
+> Dernière mise à jour 2026-05-28 : D05 supprimé (commit ce0648db) ; A03 corrigé CANDIDATE/KEEP.
 
 Scope non encore enregistré (entrées LOW) :
 - `tools/strategy/*/run_*.py` (backtests)
