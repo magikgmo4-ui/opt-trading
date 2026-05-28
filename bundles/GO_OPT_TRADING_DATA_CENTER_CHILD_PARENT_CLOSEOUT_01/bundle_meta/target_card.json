@@ -1,0 +1,8 @@
+{
+  "go_id": "GO_OPT_TRADING_DATA_CENTER_CHILD_PARENT_CLOSEOUT_01",
+  "go_structural_role": "GO_CHILD_CLOSEOUT",
+  "parent_go_id": "GO_OPT_TRADING_DATA_CENTER_PARENT_OPEN_01",
+  "pf_id": "PF_DATA_CENTER",
+  "bundle_target": "closeout parent PF_DATA_CENTER",
+  "type": "doc-only"
+}
