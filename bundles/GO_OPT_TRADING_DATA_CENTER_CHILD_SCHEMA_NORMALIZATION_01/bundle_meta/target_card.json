@@ -1,0 +1,8 @@
+{
+  "go_id": "GO_OPT_TRADING_DATA_CENTER_CHILD_SCHEMA_NORMALIZATION_01",
+  "go_structural_role": "GO_CHILD_ATTACHED_TO_PARENT",
+  "parent_go_id": "GO_OPT_TRADING_DATA_CENTER_PARENT_OPEN_01",
+  "pf_id": "PF_DATA_CENTER",
+  "bundle_target": "normalisation schemas Data Center",
+  "type": "doc-only"
+}
