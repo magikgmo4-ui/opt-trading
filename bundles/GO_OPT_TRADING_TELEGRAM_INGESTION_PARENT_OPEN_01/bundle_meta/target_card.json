@@ -1,0 +1,25 @@
+{
+  "go_id": "GO_OPT_TRADING_TELEGRAM_INGESTION_PARENT_OPEN_01",
+  "pf_id": "PF_TELEGRAM_INGESTION",
+  "master_target_id": "MT_TELEGRAM_INGESTION_OPERATIONAL",
+  "master_project_plan_id": "MPP_TELEGRAM_INGESTION_OPERATIONAL",
+  "parent_go_id": null,
+  "structural_role": "GO_PARENT_ATTACHED_TO_MASTER_PROJECT_PLAN",
+  "bundle_target": "ouverture parent Telegram Ingestion",
+  "phase": "PHASE_01",
+  "type": "doc-only",
+  "depends_on": ["GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_GAP_REMEDIATION_01"],
+  "files": [
+    "docs/chantiers/GO_OPT_TRADING_TELEGRAM_INGESTION_PARENT_OPEN_01/00_INITIAL_PROJECT_DOC.md",
+    "docs/chantiers/GO_OPT_TRADING_TELEGRAM_INGESTION_PARENT_OPEN_01/99_PARENT_ACCEPTANCE_STATUS.md",
+    "docs/chantiers/GO_OPT_TRADING_TELEGRAM_INGESTION_PARENT_OPEN_01/FILE_SCOPE.txt",
+    "docs/index/inbox/GO_OPT_TRADING_TELEGRAM_INGESTION_PARENT_OPEN_01.md"
+  ],
+  "validation": {
+    "gates": "doc-only, no runtime mutation, no parent closure, no locked index modification",
+    "git_diff_check": "clean",
+    "runtime_mutation": "none",
+    "parent_closed": "none"
+  },
+  "next_go": "GO_OPT_TRADING_TELEGRAM_INGESTION_CHILD_INBOUND_PARSER_01"
+}
