@@ -1,0 +1,6 @@
+docs/chantiers/GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_TRADING_LAB_DUKASCOPY_M1_COLLECTOR_01/**
+tools/trading_lab/__init__.py
+tools/trading_lab/collect_dukascopy_xauusd_m1.py
+tools/trading_lab/tests/__init__.py
+tools/trading_lab/tests/test_collect_dukascopy_m1.py
+docs/index/inbox/GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_TRADING_LAB_DUKASCOPY_M1_COLLECTOR_01.md
