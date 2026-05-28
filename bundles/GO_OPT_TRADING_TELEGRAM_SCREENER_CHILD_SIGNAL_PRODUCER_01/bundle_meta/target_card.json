@@ -1,0 +1,28 @@
+{
+  "go_id": "GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_SIGNAL_PRODUCER_01",
+  "go_structural_role": "GO_CHILD_ATTACHED_TO_PARENT",
+  "parent_go_id": "GO_OPT_TRADING_TELEGRAM_SCREENER_PARENT_OPEN_01",
+  "pf_id": "PF_TELEGRAM_SCREENER",
+  "bundle_target": "produire screener signals vers Desk Pro",
+  "phase": "PHASE_02_CHILD",
+  "type": "doc-only",
+  "depends_on": [
+    "GO_OPT_TRADING_TELEGRAM_SCREENER_PARENT_OPEN_01",
+    "GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_SCREENER_PARSER_01"
+  ],
+  "files": [
+    "docs/chantiers/GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_SIGNAL_PRODUCER_01/00_INITIAL_PROJECT_DOC.md",
+    "docs/chantiers/GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_SIGNAL_PRODUCER_01/10_SIGNAL_SPEC.md",
+    "docs/chantiers/GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_SIGNAL_PRODUCER_01/20_TEST_PLAN.md",
+    "docs/chantiers/GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_SIGNAL_PRODUCER_01/40_GAPS_AND_NEXT_GO.md",
+    "docs/chantiers/GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_SIGNAL_PRODUCER_01/90_CLOSEOUT.md",
+    "docs/chantiers/GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_SIGNAL_PRODUCER_01/FILE_SCOPE.txt"
+  ],
+  "validation": {
+    "gates": "doc-only, no runtime mutation, no parent closure, no locked index modification",
+    "git_diff_check": "clean",
+    "runtime_mutation": "none",
+    "parent_closed": "none"
+  },
+  "next_go": "GO_OPT_TRADING_TELEGRAM_INGESTION_CHILD_INBOUND_PARSER_01"
+}
