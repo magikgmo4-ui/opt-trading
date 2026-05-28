@@ -2,8 +2,8 @@
 go_id: GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_TRADING_LAB_REAL_BROKER_MEASUREMENT_02
 status: DONE
 verdict: PASS_TRADING_LAB_REAL_BROKER_MEASUREMENT_02
-pr: TBD
-merge_commit: TBD
+pr: 879
+merge_commit: 40e1d0cb
 ---
 
 Mesure réelle sur 33 jours Dukascopy XAUUSD M1 (2026-03-10 → 2026-04-11). Filtre neutral implémenté : sessions direction=neutral skippées (aucun trade placé). Pipeline 46 trades réels : 12W/24L/10T, avg_r=0.0 (break-even). perf_status promu à MEASURED. Win rate 26% insuffisant pour edge positif — piste d'amélioration identifiée.
