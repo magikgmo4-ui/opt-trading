@@ -1,0 +1,1 @@
+Runtime proof child GO_OPT_TRADING_ANDROID_OPERATOR_SURFACES_CHILD_TERMUX_TASKER_RUNTIME_PROOF_01 opened from PHASE_01 merge. Objective: prove health_probes.sh, Tasker, SSH, tmux, recovery on real Android device. Branch: go/GO_OPT_TRADING_ANDROID_OPERATOR_SURFACES_CHILD_TERMUX_TASKER_RUNTIME_PROOF_01.
