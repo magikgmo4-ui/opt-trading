@@ -1,0 +1,22 @@
+{
+  "go_id": "GO_OPT_TRADING_TELEGRAM_INGESTION_CHILD_INBOUND_PARSER_01",
+  "go_structural_role": "GO_CHILD_ATTACHED_TO_PARENT",
+  "parent_go_id": "GO_OPT_TRADING_TELEGRAM_INGESTION_PARENT_OPEN_01",
+  "pf_id": "PF_TELEGRAM_INGESTION",
+  "bundle_target": "parser messages Telegram inbound",
+  "phase": "PHASE_01_CHILD",
+  "type": "doc-only",
+  "depends_on": ["GO_OPT_TRADING_TELEGRAM_INGESTION_PARENT_OPEN_01"],
+  "files": [
+    "docs/chantiers/.../00_INITIAL_PROJECT_DOC.md",
+    "docs/chantiers/.../10_INBOUND_SPEC.md",
+    "docs/chantiers/.../20_TEST_PLAN.md",
+    "docs/chantiers/.../40_GAPS_AND_NEXT_GO.md",
+    "docs/chantiers/.../90_CLOSEOUT.md",
+    "docs/chantiers/.../FILE_SCOPE.txt"
+  ],
+  "validation": {
+    "gates": "doc-only, no runtime mutation, no parent closure, no locked index modification"
+  },
+  "next_go": "GO_OPT_TRADING_PERF_ENGINE_TRADING_LAB_CHILD_EVENT_TRACKER_01"
+}
