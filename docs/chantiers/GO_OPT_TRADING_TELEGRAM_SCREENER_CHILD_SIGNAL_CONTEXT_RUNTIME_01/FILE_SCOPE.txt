@@ -1,0 +1,8 @@
+# FILE_SCOPE — GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_SIGNAL_CONTEXT_RUNTIME_01
+# Only these paths may be modified by this GO.
+
+docs/chantiers/GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_SIGNAL_CONTEXT_RUNTIME_01/**
+bundles/GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_SIGNAL_CONTEXT_RUNTIME_01/**
+modules/telegram_screener/**
+modules/data_center/registry/consumers.json
+tests/**/*telegram*screener*.py
