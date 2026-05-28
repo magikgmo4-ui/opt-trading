@@ -35,6 +35,18 @@ except ImportError:
     write_spot_snapshot_to_data_center = None
 
 
+def _ensure_runtime_directories(config: BinanceSpotRuntimeConfig) -> None:
+    ensure_writable_directories(
+        config.paths.runtime_dir,
+        config.paths.logs_dir,
+        config.paths.outputs_dir,
+        config.paths.raw_dir,
+        config.paths.normalized_dir,
+        config.paths.snapshots_dir,
+    )
+    ensure_file(config.paths.errors_path)
+
+
 def run_sanity(module_dir: Path, client: BinanceSpotClient | Any | None = None) -> dict[str, Any]:
     config = load_runtime_config(module_dir)
     _ensure_runtime_directories(config)
@@ -53,15 +65,7 @@ def run_sanity(module_dir: Path, client: BinanceSpotClient | Any | None = None) 
 
 def run_collection(module_dir: Path, client: BinanceSpotClient | Any | None = None) -> dict[str, Any]:
     config = load_runtime_config(module_dir)
-    ensure_writable_directories(
-        config.paths.runtime_dir,
-        config.paths.logs_dir,
-        config.paths.outputs_dir,
-        config.paths.raw_dir,
-        config.paths.normalized_dir,
-        config.paths.snapshots_dir,
-    )
-    ensure_file(config.paths.errors_path)
+    _ensure_runtime_directories(config)
 
     run_id = build_run_id()
     run_log_path = config.paths.logs_dir / f"run_{run_id}.jsonl"

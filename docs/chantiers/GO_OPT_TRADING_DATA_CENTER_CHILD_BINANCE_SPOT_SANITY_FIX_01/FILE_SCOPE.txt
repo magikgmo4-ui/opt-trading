@@ -1,0 +1,6 @@
+# FILE_SCOPE — GO_OPT_TRADING_DATA_CENTER_CHILD_BINANCE_SPOT_SANITY_FIX_01
+# Only these paths may be modified by this GO.
+
+docs/chantiers/GO_OPT_TRADING_DATA_CENTER_CHILD_BINANCE_SPOT_SANITY_FIX_01/**
+bundles/GO_OPT_TRADING_DATA_CENTER_CHILD_BINANCE_SPOT_SANITY_FIX_01/**
+modules/collector_binance_spot/src/collector_binance_spot/run.py
