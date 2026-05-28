@@ -1,0 +1,24 @@
+{
+  "run_id": "pilot_0e1e6443",
+  "go_id": "GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_PILOT_SCOPE_01",
+  "parent_go_id": "GO_AUTOMATION_OPS_OPT_TRADING_PARENT_SEMIAUTO_RUNTIME_PILOT_01",
+  "mode": "dry_run",
+  "input_prompt_path": "/tmp/mainline_audit_prompt.json",
+  "actions_planned": [
+    "audit: v\u00e9rifier \u00e9tat sot/mainline post-merges #922 #924 #875 #923 #925",
+    "audit: lister les PRs ouvertes \u2014 r\u00e9sultat attendu 0",
+    "audit: lister les 8 derniers commits mainline",
+    "audit: v\u00e9rifier pr\u00e9sence modules/automation_ops/semiauto_pilot/",
+    "audit: v\u00e9rifier tests 17/17 PASS",
+    "produire preuve JSON + Markdown",
+    "retourner verdict au gate humain"
+  ],
+  "actions_executed": [
+    "read GO_PROMPT",
+    "validate handoff contract"
+  ],
+  "stop_conditions": [],
+  "human_gate_required": true,
+  "verdict": "PASS_DRY_RUN",
+  "next_go": ""
+}
