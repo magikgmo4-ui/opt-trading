@@ -1,6 +1,28 @@
 {
   "go_id": "GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_INDEX_SYNC_01",
-  "target": "TARGET_MASTER_PROJECT_PLAN_INDEX_SYNC_WITH_UMBRELLA_PARENT_01",
+  "pf_id": "PF_GOVERNANCE_TRANSPORT",
+  "master_target_id": "MT_GOVERNANCE_MASTER_PROJECT_PLAN_INDEX_SYNC",
+  "master_project_plan_id": "MPP_GOVERNANCE_MASTER_PROJECT_PLAN_INDEX",
+  "parent_go_id": "GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_FINAL_REGISTRY_01",
+  "structural_role": "GO_CHILD_ATTACHED_TO_PARENT",
+  "bundle_target": "patch doc-only synchronisation index",
+  "phase": "PHASE_01",
   "type": "doc-only",
-  "surface_audit": "see main project doc"
+  "files": [
+    "docs/chantiers/GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_INDEX_SYNC_01/00_INITIAL_PROJECT_DOC.md",
+    "docs/chantiers/GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_INDEX_SYNC_01/10_AUDIT_INDEX_SYNC.md",
+    "docs/chantiers/GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_INDEX_SYNC_01/20_INDEX_SYNC_PLAN.md",
+    "docs/chantiers/GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_INDEX_SYNC_01/30_VALIDATION.md",
+    "docs/chantiers/GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_INDEX_SYNC_01/40_GAPS_AND_NEXT_GO.md",
+    "docs/chantiers/GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_INDEX_SYNC_01/90_CLOSEOUT.md",
+    "docs/chantiers/GO_OPT_TRADING_GOVERNANCE_CHILD_MASTER_PROJECT_PLAN_INDEX_SYNC_01/FILE_SCOPE.txt"
+  ],
+  "index_sync": "DEFERRED — NEXT_GO_CANDIDATES.md and REPRISE.md locked by 9 other GOs (no-lock-overlap gate). Audit completed, modifications documented but not applied.",
+  "validation": {
+    "gates": "7/8 PASS (gate 4,5 deferred for no-lock-overlap)",
+    "git_diff_check": "clean",
+    "runtime_mutation": "none",
+    "parent_closed": "none"
+  },
+  "next_go": "GO_OPT_TRADING_GOVERNANCE_CHILD_PRODUCT_SURFACE_GAP_REMEDIATION_01"
 }
