@@ -36,7 +36,7 @@ Légende statuts :
 | `gha_registry_validation` | `.github/workflows/gh-actions-registry-validation.yml` | gha | pr (paths) / manual | CI/CD | rapport validation YAML | aucun secret | active | scripts/validate_gh_actions_registries.py | low | keep |
 | `gha_openclaw_mcp_policy` | `.github/workflows/openclaw-mcp-policy-static-validator.yml` | gha | pr (paths) / manual | openclaw | rapport policy MCP | aucun secret | active | tests/test_openclaw_mcp_policy_validator.py | medium | keep |
 | `gha_openclaw_skill_policy` | `.github/workflows/openclaw-skill-policy-warning-only.yml` | gha | manual only | openclaw | warning report | aucun secret | candidate | — | low | keep |
-| `gha_strict_workers_schedule` | `.github/workflows/strict-workers-schedule.yml` | gha | schedule (lun 08:00) / manual | ai_workers | audit report | aucun secret | active | — | medium | add_test |
+| `gha_strict_workers_schedule` | `.github/workflows/strict-workers-schedule.yml` | gha | schedule (lun 08:00) / manual | ai_workers | audit report | aucun secret | active | tests/test_signal_workers.py | medium | keep |
 | `gha_strict_workers_smoke` | `.github/workflows/strict-workers-smoke.yml` | gha | pr (paths) / manual | ai_workers | smoke results | aucun secret | active | — | low | keep |
 | `gha_strict_workers_validate` | `.github/workflows/strict-workers-validate.yml` | gha | pr (paths) / manual | ai_workers | validation job_packets | aucun secret | active | scripts/ai/workers/_validate_job.py | medium | keep |
 
@@ -104,8 +104,8 @@ Entrées notables :
 | `aw_strict_denied_scan` | `scripts/ai/workers/strict_worker_denied_command_scan.py` | python | ai_workers | scan commandes interdites | active | medium | keep |
 | `aw_strict_log_archive` | `scripts/ai/workers/strict_worker_log_archive.py` | python | ai_workers | archivage logs strict | active | low | keep |
 | `aw_strict_output_schema` | `scripts/ai/workers/strict_worker_output_schema_check.py` | python | ai_workers | valide schema output | active | medium | keep |
-| `aw_signal_processor` | `scripts/ai/workers/signal_processor.py` | python | ai_workers | traitement signaux | candidate | high | add_test |
-| `aw_signal_stats` | `scripts/ai/workers/signal_stats.py` | python | ai_workers | stats signaux | candidate | medium | add_test |
+| `aw_signal_processor` | `scripts/ai/workers/signal_processor.py` | python | ai_workers | traitement signaux | candidate | high | keep |
+| `aw_signal_stats` | `scripts/ai/workers/signal_stats.py` | python | ai_workers | stats signaux | candidate | medium | keep |
 | `aw_health_status` | `scripts/ai/workers/health_status.py` | python | ai_workers | état santé système | active | low | keep |
 | `aw_stuck_job` | `scripts/ai/workers/stuck_job_detector.py` | python | ai_workers | détecte jobs bloqués | active | medium | keep |
 | `aw_permission_drift` | `scripts/ai/workers/permission_drift_check.py` | python | ai_workers | audit dérives permissions | active | medium | keep |
@@ -195,4 +195,4 @@ Entrées notables :
 | experimental | 2 |
 | DRAFT_ONLY (pending_parent) | ~16 (MATRIX×8, PATCH_IMPL×1, DOC_OPS×7) |
 
-> Dernière mise à jour 2026-05-28 — v1.2 : DRAFT_PACKETS_PROMOTION_01 — 2 packets → candidate, 2 → deprecated, 16 pending_parent documentés. GO_AUTOMATION_OPS_OPT_TRADING_CHILD_DRAFT_PACKETS_PROMOTION_01.
+> Dernière mise à jour 2026-05-28 — v1.3 : ADD_TEST_SIGNAL_SCHEDULE_BATCH_01 — aw_signal_processor + aw_signal_stats : add_test → keep (34 tests) ; gha_strict_workers_schedule : add_test → keep. GO_OPT_TRADING_CHILD_ADD_TEST_SIGNAL_SCHEDULE_BATCH_01.
