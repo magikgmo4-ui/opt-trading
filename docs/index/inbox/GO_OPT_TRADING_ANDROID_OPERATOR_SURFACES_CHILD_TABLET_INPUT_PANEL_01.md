@@ -1,0 +1,1 @@
+Child GO_OPT_TRADING_ANDROID_OPERATOR_SURFACES_CHILD_TABLET_INPUT_PANEL_01 opened under parent. Scope: tablet as pure input panel — Unified Remote, Stream Deck Mobile, keyboard, mouse, stylus, multi-PC switching. Doc-only. Branch: go/GO_OPT_TRADING_ANDROID_OPERATOR_SURFACES_CHILD_TABLET_INPUT_PANEL_01.
