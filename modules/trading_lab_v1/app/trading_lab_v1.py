@@ -484,7 +484,7 @@ def process_market_run(profile: dict, session: dict, csv_path: Path, analysis_da
     append_jsonl(EVENTS_JSONL, event)
     trade_written = None
     trade = None
-    if features["sequence_complete"]:
+    if features["sequence_complete"] and features["first5_direction"] != "neutral":
         trade = build_market_trade(event, features)
         append_jsonl(TRADES_JSONL, trade)
         trade_written = str(TRADES_JSONL)
