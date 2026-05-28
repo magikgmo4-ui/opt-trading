@@ -13,7 +13,7 @@ from modules.desk_pro.api.routes import router as desk_router
 
 from fastapi.responses import HTMLResponse
 from modules.desk_pro.mount import mount as mount_desk_pro
-from pydantic import BaseModel, Field
+from shared.pydantic_compat import BaseModel, Field
 
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.getenv("PERF_DB_PATH", os.path.join(APP_DIR, "perf.db"))

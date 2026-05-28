@@ -1,0 +1,12 @@
+{
+  "go_id": "GO_OPT_TRADING_DESK_PRO_CHILD_PYDANTIC_COMPAT_01",
+  "title": "Provide local pydantic compat for Desk Pro imports",
+  "status": "open",
+  "targets": [
+    "shared/pydantic_compat.py",
+    "modules/desk_pro/models.py",
+    "perf/perf_app.py",
+    "docs/chantiers/GO_OPT_TRADING_DESK_PRO_CHILD_PYDANTIC_COMPAT_01/**",
+    "bundles/GO_OPT_TRADING_DESK_PRO_CHILD_PYDANTIC_COMPAT_01/**"
+  ]
+}
