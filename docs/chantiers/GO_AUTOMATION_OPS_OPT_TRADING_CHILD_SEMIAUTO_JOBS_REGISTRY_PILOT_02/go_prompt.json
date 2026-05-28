@@ -1,0 +1,26 @@
+{
+  "go_id": "GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_JOBS_REGISTRY_PILOT_02",
+  "parent_go_id": "GO_AUTOMATION_OPS_OPT_TRADING_PARENT_SEMIAUTO_RUNTIME_PILOT_01",
+  "action": "read_jobs_registry_and_propose_promotions",
+  "source": "docs/registry/JOBS_REGISTRY.md",
+  "scope": {
+    "include_status": ["DRAFT_ONLY", "experimental", "candidate"],
+    "include_next_action": ["formalize", "blocked_review", "add_test"],
+    "exclude_status": ["deleted", "TEST_NEGATIVE", "TEST_POSITIVE"],
+    "sections": [2, 3, 4, 7]
+  },
+  "human_gate_required": true,
+  "mode": "dry_run",
+  "actions_planned": [
+    "read docs/registry/JOBS_REGISTRY.md",
+    "identify DRAFT_ONLY job_packets (sections 3) — 17 entries analysables",
+    "identify experimental entries (section 2) — ai_models_registry",
+    "identify candidate+add_test entries (sections 4, 7) — 6 entries",
+    "analyse anomalies B01-B05",
+    "propose next_action par entrée ciblée",
+    "write proof artifacts",
+    "submit to human gate"
+  ],
+  "stop_conditions": [],
+  "next_go": "GO_AUTOMATION_OPS_OPT_TRADING_CHILD_JOBS_DEDUP_AUDIT_01"
+}
