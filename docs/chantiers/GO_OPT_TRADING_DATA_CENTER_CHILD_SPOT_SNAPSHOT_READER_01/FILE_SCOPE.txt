@@ -1,6 +1,4 @@
 docs/chantiers/GO_OPT_TRADING_DATA_CENTER_CHILD_SPOT_SNAPSHOT_READER_01/**
 docs/index/inbox/GO_OPT_TRADING_DATA_CENTER_CHILD_SPOT_SNAPSHOT_READER_01.md
-modules/data_center/spot_snapshot_dc_writer.py
-modules/data_center/tests/test_spot_snapshot_dc_writer.py
 modules/desk_pro/service/spot_snapshot_reader.py
 tests/test_desk_pro_spot_snapshot_reader.py
