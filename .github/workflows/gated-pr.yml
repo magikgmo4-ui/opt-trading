@@ -181,6 +181,22 @@ jobs:
             return 1
           }
 
+          is_merged_go() {
+            local go_id="$1"
+
+            if git log --merges --format=%s "origin/${BASE_REF}" --grep="from .*/go/${go_id}$" -n 1 | grep -q .; then
+              return 0
+            fi
+
+            if git show-ref --verify --quiet "refs/remotes/origin/go/${go_id}"; then
+              if git merge-base --is-ancestor "refs/remotes/origin/go/${go_id}" "origin/${BASE_REF}"; then
+                return 0
+              fi
+            fi
+
+            return 1
+          }
+
           failed=0
 
           while IFS= read -r file || [ -n "$file" ]; do
@@ -192,6 +208,10 @@ jobs:
               other_go="$(echo "$scope_file" | sed -E 's#^docs/chantiers/(GO_[A-Z0-9_]+)/FILE_SCOPE.txt$#\1#')"
 
               if [ "$other_go" = "$CURRENT_GO" ]; then
+                continue
+              fi
+
+              if is_merged_go "$other_go"; then
                 continue
               fi
 
