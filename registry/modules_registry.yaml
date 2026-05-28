@@ -5,6 +5,7 @@
 - module_name: validated_prompt_factory
   domain: operator_tools
   machine_target: any
+  placement_mode: portable_tool
   operator_visible: true
   ui_related: false
   description: "Générateur de prompts validés (ChatGPT, Trae, Bundle)"
@@ -16,6 +17,7 @@
 - module_name: trae_module_validator
   domain: operator_tools
   machine_target: any
+  placement_mode: portable_tool
   operator_visible: true
   ui_related: false
   description: "Validateur de structure de module Trae"
@@ -27,6 +29,7 @@
 - module_name: workflow_post_change_v2
   domain: operator_tools
   machine_target: any
+  placement_mode: portable_tool
   operator_visible: false
   ui_related: false
   description: "Hook post-change (Canonique Patché)"
@@ -104,6 +107,7 @@
 - module_name: gateway_openclaw
   domain: operator_tools
   machine_target: any
+  placement_mode: cross_host_facade
   operator_visible: true
   ui_related: false
   description: "Pilotage runtime du gateway OpenClaw via tmux"
@@ -115,6 +119,7 @@
 - module_name: openclaw_config_modulaire
   domain: operator_tools
   machine_target: any
+  placement_mode: cross_host_facade
   operator_visible: true
   ui_related: false
   description: "Configuration modulaire OpenClaw avec apply safe et rollback"
@@ -126,6 +131,7 @@
 - module_name: configure_openclaw
   domain: operator_tools
   machine_target: any
+  placement_mode: cross_host_facade
   operator_visible: true
   ui_related: false
   description: "Facade operateur de configuration live OpenClaw"
@@ -137,6 +143,7 @@
 - module_name: doctor_openclaw
   domain: operator_tools
   machine_target: any
+  placement_mode: cross_host_facade
   operator_visible: true
   ui_related: false
   description: "Facade de diagnostic et verification de sante OpenClaw"
@@ -148,6 +155,7 @@
 - module_name: evidence_openclaw
   domain: operator_tools
   machine_target: any
+  placement_mode: cross_host_facade
   operator_visible: true
   ui_related: false
   description: "Capture de preuves et continuite documentaire OpenClaw"
@@ -159,6 +167,7 @@
 - module_name: install_module_openclaw
   domain: operator_tools
   machine_target: any
+  placement_mode: cross_host_facade
   operator_visible: true
   ui_related: false
   description: "Point d'entree d'installation des modules OpenClaw"
@@ -170,6 +179,7 @@
 - module_name: openclaw_operator_bridge
   domain: operator_tools
   machine_target: any
+  placement_mode: cross_host_facade
   operator_visible: false
   ui_related: false
   description: "Contrat d'interface borne entre opt-trading et OpenClaw gateway"
@@ -493,6 +503,7 @@
 - module_name: modules_registry_reader
   domain: registry
   machine_target: any
+  placement_mode: portable_tool
   operator_visible: false
   ui_related: false
   description: "Reader specialise et owner canonique de lecture modules_registry.yaml"
@@ -504,6 +515,7 @@
 - module_name: machines_registry_reader
   domain: registry
   machine_target: any
+  placement_mode: portable_tool
   operator_visible: false
   ui_related: false
   description: "Reader specialise et owner canonique de lecture machines_registry.yaml"
@@ -515,6 +527,7 @@
 - module_name: wrappers_registry_reader
   domain: registry
   machine_target: any
+  placement_mode: portable_tool
   operator_visible: false
   ui_related: false
   description: "Reader specialise et owner canonique de lecture wrappers_registry.yaml"
@@ -526,6 +539,7 @@
 - module_name: registry_meta_reader
   domain: registry
   machine_target: any
+  placement_mode: portable_tool
   operator_visible: false
   ui_related: false
   description: "Meta-reader specialise et owner canonique de lecture meta_index.yaml"
@@ -537,6 +551,7 @@
 - module_name: registry_router
   domain: registry
   machine_target: any
+  placement_mode: cross_host_facade
   operator_visible: true
   ui_related: false
   description: "Facade de navigation vers les readers registry, sans lecture directe des sources de verite"

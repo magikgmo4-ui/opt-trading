@@ -101,10 +101,16 @@ class ModulesRegistry:
         print(f"Ready: {len(self.modules) > 0}")
 
     def list_modules(self):
-        print(f"{'MODULE':<25} {'DOMAIN':<20} {'TARGET':<15} {'PRIORITY':<10}")
-        print("-" * 75)
+        print(f"{'MODULE':<25} {'DOMAIN':<20} {'TARGET':<15} {'PLACEMENT':<20} {'PRIORITY':<10}")
+        print("-" * 100)
         for m in self.modules:
-            print(f"{m.get('module_name', 'N/A'):<25} {m.get('domain', 'N/A'):<20} {m.get('machine_target', 'N/A'):<15} {m.get('priority', 'N/A'):<10}")
+            print(
+                f"{m.get('module_name', 'N/A'):<25} "
+                f"{m.get('domain', 'N/A'):<20} "
+                f"{m.get('machine_target', 'N/A'):<15} "
+                f"{m.get('placement_mode', 'N/A'):<20} "
+                f"{m.get('priority', 'N/A'):<10}"
+            )
 
     def show_domains(self):
         domains = {}
