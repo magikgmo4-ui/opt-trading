@@ -1,4 +1,3 @@
 docs/chantiers/GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_TRADING_LAB_APPLY_OUTCOMES_PIPELINE_INTEGRATION_01/**
-modules/trading_lab_v1/app/trading_lab_v1.py
 modules/trading_lab_v1/tests/test_pipeline_integration_v1.py
 docs/index/inbox/GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_TRADING_LAB_APPLY_OUTCOMES_PIPELINE_INTEGRATION_01.md
