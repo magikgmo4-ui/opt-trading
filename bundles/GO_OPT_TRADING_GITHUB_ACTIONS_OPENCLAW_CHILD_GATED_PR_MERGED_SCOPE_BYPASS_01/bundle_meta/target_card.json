@@ -1,0 +1,10 @@
+{
+  "go_id": "GO_OPT_TRADING_GITHUB_ACTIONS_OPENCLAW_CHILD_GATED_PR_MERGED_SCOPE_BYPASS_01",
+  "title": "Ignore inactive GO scope locks in gated PR overlap check",
+  "status": "open",
+  "targets": [
+    ".github/workflows/gated-pr.yml",
+    "docs/chantiers/GO_OPT_TRADING_GITHUB_ACTIONS_OPENCLAW_CHILD_GATED_PR_MERGED_SCOPE_BYPASS_01/**",
+    "bundles/GO_OPT_TRADING_GITHUB_ACTIONS_OPENCLAW_CHILD_GATED_PR_MERGED_SCOPE_BYPASS_01/**"
+  ]
+}
