@@ -48,7 +48,7 @@ Légende statuts :
 |---|---|---|---|---|---|---|---|---|---|---|
 | `ai_run_task` | `scripts/ai/workers/run_task.sh` | shell | manual / openclaw_call | ai_workers | job_packet JSON | worker output | active | strict-workers-smoke.yml | medium | keep |
 | `ai_validate_job` | `scripts/ai/workers/_validate_job.py` | python | pr / manual | ai_workers | job_packets/*.json | validation report | active | strict-workers-validate.yml | low | keep |
-| `ai_tasks_index` | `scripts/ai/workers/tasks.index.json` | config | — | ai_workers | — | task routing | experimental | — | medium | formalize |
+| `ai_tasks_index` | `scripts/ai/workers/tasks.index.json` | config | — | ai_workers | — | constraints + task routing (denied_inputs:9, denied_commands:8, task_types:10) | active | strict-workers-validate.yml | medium | keep |
 | `ai_models_registry` | `scripts/ai/workers/models.registry.json` | config | — | ai_workers | — | model routing | experimental | — | low | formalize |
 
 ---
@@ -131,7 +131,22 @@ Entrées notables :
 
 ---
 
-## Section 6 — Scripts opérateurs racine (clés)
+## Section 6 — Scripts legacy patch desk_pro (DEPRECATED)
+
+| job_id | path | type | status | preuve | next_action |
+|---|---|---|---|---|---|
+| `dp_toolbox_patch` | `scripts/apply_desk_pro_toolbox_patch.sh` | shell | deprecated | routes.py:299-354 déjà patché | delete_after_proof |
+| `dp_ui_inject_patch` | `scripts/apply_desk_pro_ui_inject_patch.sh` | shell | deprecated | routes.py:299-354 déjà patché | delete_after_proof |
+| `dp_ui_plus_patch` | `scripts/apply_desk_pro_ui_plus_patch.sh` | shell | deprecated | routes.py:299-354 déjà patché | delete_after_proof |
+| `dp_ui_toolbox_fix` | `scripts/apply_desk_pro_ui_toolbox_fix.sh` | shell | deprecated | routes.py:299-354 déjà patché | delete_after_proof |
+| `dp_ui_toolbox_fix_v2` | `scripts/apply_desk_pro_ui_toolbox_fix_v2.sh` | shell | deprecated | routes.py:299-354 déjà patché | delete_after_proof |
+| `dp_ui_toolbox_fix_v3` | `scripts/apply_desk_pro_ui_toolbox_fix_v3.sh` | shell | deprecated | routes.py:299-354 déjà patché | delete_after_proof |
+| `dp_ui_toolbox_fix_v4` | `scripts/apply_desk_pro_ui_toolbox_fix_v4.sh` | shell | deprecated | routes.py:299-354 déjà patché | delete_after_proof |
+| `dp_ui_toolbox_final` | `scripts/apply_desk_pro_ui_toolbox_final.sh` | shell | deprecated | routes.py:299-354 déjà patché | delete_after_proof |
+
+---
+
+## Section 7 — Scripts opérateurs racine (clés)
 
 | job_id | path | type | trigger | owner_surface | status | risk | next_action |
 |---|---|---|---|---|---|---|---|
@@ -153,7 +168,7 @@ Entrées notables :
 | B03 | orchestration/ contrat non connecté aux workers | qualifier en dedup audit |
 | B04 | signal_processor + oauth_scope_audit sans test | ADD_TEST batch dédié |
 | B05 | gha_strict_workers_schedule sans test unitaire | ADD_TEST batch dédié |
-| B06 | 6 scripts apply_desk_pro_*.sh sans registre | GO_JOBS_DEDUP_AUDIT |
+| B06 | 8 scripts apply_desk_pro_*.sh — LEGACY_REPLACED | DELETE — batch GO_AUTOMATION_OPS_OPT_TRADING_CHILD_CLEANUP_LEGACY_SCRIPTS_01 |
 
 ---
 
@@ -167,7 +182,8 @@ Entrées notables :
 | AI workers Python | 24 |
 | OpenClaw scripts | 7 |
 | Scripts opérateurs racine clés | 6 |
-| **Total référencé v1** | **~78** |
+| Scripts legacy patch deprecated (B06) | 8 |
+| **Total référencé v1** | **~86** |
 
 | Statut | Count |
 |---|---|
@@ -176,4 +192,4 @@ Entrées notables :
 | experimental | 2 |
 | blocked_review | ~5 (job_packets DRAFT) |
 
-> Dernière mise à jour 2026-05-28 — v1 initial, GO_AUTOMATION_OPS_OPT_TRADING_CHILD_JOBS_REGISTRY_01
+> Dernière mise à jour 2026-05-28 — v1.1 : B06 qualifié LEGACY_REPLACED (8 scripts deprecated) ; ai_tasks_index statut → active. GO_AUTOMATION_OPS_OPT_TRADING_CHILD_JOBS_DEDUP_AUDIT_01.
