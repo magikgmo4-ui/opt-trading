@@ -78,18 +78,31 @@ Les 5 `TEST_NEGATIVE` (`jp_strict_a4_negative_*`) sont du matériel de test — 
 ## 4_GATE_HUMAIN — DÉCISIONS_REQUISES
 
 ```
-STATUS : EN_ATTENTE_OPÉRATEUR
+STATUS : VALIDÉ_OPÉRATEUR — 2026-05-28
 ```
 
 | # | Question | Décision opérateur |
 |---|----------|--------------------|
-| D1 | Confirmer lancement `JOBS_DEDUP_AUDIT_01` pour B01-B03 + DRAFT_ONLY (17 packets) ? | [ ] OUI / [ ] NON |
-| D2 | Ouvrir GO ADD_TEST batch pour B04+B05 (`signal_processor`, `signal_stats`, `gha_schedule`) ? | [ ] OUI / [ ] NON |
-| D3 | Ouvrir GO séparé pour `aw_oauth_audit` (high risk) ? | [ ] OUI / [ ] NON |
-| D4 | Formaliser `ai_models_registry` dans un GO court ? | [ ] OUI / [ ] NON |
-| D5 | Smoke + promouvoir `aw_localcms_sync`, `aw_openclaw_mobile`, `op_deploy_wrappers` ? | [ ] OUI / [ ] NON |
+| D1 | Ouvrir GO promotion 17 DRAFT_ONLY + B01-B03 ? | **OUI** |
+| D2 | Ouvrir GO ADD_TEST batch (`signal_processor`, `signal_stats`, `gha_schedule`) ? | **OUI** |
+| D3 | Ouvrir GO séparé pour `aw_oauth_audit` (high risk) ? | **OUI** |
+| D4 | Formaliser `ai_models_registry` dans un GO court ? | **NON** |
+| D5 | Smoke + promouvoir `aw_localcms_sync`, `aw_openclaw_mobile`, `op_deploy_wrappers` ? | **OUI** |
 
-## 5_DIFF_CHECK
+Note D1 : `GO_AUTOMATION_OPS_OPT_TRADING_CHILD_JOBS_DEDUP_AUDIT_01` est déjà fermé (LEGACY_REPLACED B06, FALSE_POSITIVE B01-B05).
+Les 17 DRAFT_ONLY job_packets ont été laissés en attente d'un GO dédié. Ce GO sera nouveau :
+`GO_AUTOMATION_OPS_OPT_TRADING_CHILD_DRAFT_PACKETS_PROMOTION_01`.
+
+## 5_PROCHAINS_GOs_VALIDÉS
+
+| GO | Périmètre | Déclencheur |
+|----|-----------|-------------|
+| `GO_AUTOMATION_OPS_OPT_TRADING_CHILD_DRAFT_PACKETS_PROMOTION_01` | 17 DRAFT_ONLY job_packets — qualifier + formaliser | D1 OUI |
+| `GO_OPT_TRADING_CHILD_ADD_TEST_SIGNAL_SCHEDULE_BATCH_01` | signal_processor + signal_stats + gha_strict_workers_schedule | D2 OUI |
+| `GO_OPT_TRADING_CHILD_OAUTH_AUDIT_ADD_TEST_01` | aw_oauth_audit seul (high risk) | D3 OUI |
+| `GO_OPT_TRADING_CHILD_CANDIDATE_WORKERS_SMOKE_PROMOTE_01` | localcms_sync + openclaw_mobile + deploy_wrappers → smoke → active | D5 OUI |
+
+## 6_DIFF_CHECK
 
 ```bash
 # Vérification : JOBS_REGISTRY.md non modifié
