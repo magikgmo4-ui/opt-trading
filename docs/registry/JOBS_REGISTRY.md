@@ -109,7 +109,7 @@ Entrées notables :
 | `aw_health_status` | `scripts/ai/workers/health_status.py` | python | ai_workers | état santé système | active | low | keep |
 | `aw_stuck_job` | `scripts/ai/workers/stuck_job_detector.py` | python | ai_workers | détecte jobs bloqués | active | medium | keep |
 | `aw_permission_drift` | `scripts/ai/workers/permission_drift_check.py` | python | ai_workers | audit dérives permissions | active | medium | keep |
-| `aw_oauth_audit` | `scripts/ai/workers/oauth_scope_audit.py` | python | ai_workers | audit scopes OAuth | candidate | high | add_test |
+| `aw_oauth_audit` | `scripts/ai/workers/oauth_scope_audit.py` | python | ai_workers | audit scopes OAuth | candidate | high | keep |
 | `aw_repo_frontmatter` | `scripts/ai/workers/repo_doc_frontmatter_lint.py` | python | ai_workers | lint frontmatter docs | active | low | keep |
 | `aw_repo_link_check` | `scripts/ai/workers/repo_doc_link_check.py` | python | ai_workers | vérifie liens docs | active | low | keep |
 | `aw_kill_switch` | `scripts/ai/workers/kill_switch_fullstop_test.py` | python | ai_workers | test kill switch | active | high | keep |
@@ -195,4 +195,4 @@ Entrées notables :
 | experimental | 2 |
 | DRAFT_ONLY (pending_parent) | ~16 (MATRIX×8, PATCH_IMPL×1, DOC_OPS×7) |
 
-> Dernière mise à jour 2026-05-28 — v1.3 : ADD_TEST_SIGNAL_SCHEDULE_BATCH_01 — aw_signal_processor + aw_signal_stats : add_test → keep (34 tests) ; gha_strict_workers_schedule : add_test → keep. GO_OPT_TRADING_CHILD_ADD_TEST_SIGNAL_SCHEDULE_BATCH_01.
+> Dernière mise à jour 2026-05-28 — v1.4 : OAUTH_AUDIT_ADD_TEST_01 — aw_oauth_audit : add_test → keep (30 tests subprocess+regex+logic). GO_OPT_TRADING_CHILD_OAUTH_AUDIT_ADD_TEST_01.
