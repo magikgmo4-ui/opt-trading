@@ -44,10 +44,14 @@ Le produit final total reste ouvert jusqu'a livraison ou blocage explicite de to
 - paire canonique documentee, mais raccord umbrella complet restant a poser
 - survivant unique et bridge Desk Pro/Telegram encore a stabiliser hors de ce parent
 
-### Telegram screener inbound
+### Telegram screener inbound — CLOSED
 
-- registry channels documente
-- aucun parser inbound trades/setups prouve a ce stade
+- registry channels runtime implemente (22 tests)
+- parser inbound trades/setups/news/alpha implemente (32 tests)
+- signal producer + Desk Pro adapter (18 tests)
+- filtrage/routage (23 tests)
+- pipeline wiring orchestrator (21 tests)
+- **116 tests total, 0 network, 0 secrets**
 
 ### Telegram notification outbound
 

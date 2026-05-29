@@ -35,12 +35,12 @@ Livrer le produit final total de toute la chaine signal/screener/Telegram/Desk P
 | 3 | Event taxonomy transverse | DOC_ALIGNED | `GO_EVENT_TAXONOMY_01` |
 | 4 | Telegram routing outbound multi-destinations | DOC_ALIGNED | `GO_TELEGRAM_EVENT_ROUTING_MAP_01` |
 | 5 | Desk Pro hub input expansion | DOC_ALIGNED | `GO_DESKPRO_INPUT_EXPANSION_01` |
-| 6 | Telegram screener inbound registry | DOC_ALIGNED | `GO_TELEGRAM_SCREENER_CHANNEL_REGISTRY_01` |
+| 6 | Telegram screener inbound registry | RUNTIME_CLOSED | `modules/telegram_screener/registry/` (22 tests) + channel_registry_runtime child GO |
 | 7 | Google Sheets global schema | DOC_ALIGNED | `GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01` |
 | 8 | Telegram latency / public-call backtest | DOC_ALIGNED | `GO_TELEGRAM_LATENCY_BACKTEST_01` |
 | 9 | Strategy registry latency integration | DOC_ALIGNED | `GO_STRATEGY_REGISTRY_TELEGRAM_LATENCY_01` |
 | 10 | Perf engine strategy score | DOC_ALIGNED | `GO_PERF_ENGINE_STRATEGY_SCORE_01` |
-| 11 | Signal chain E2E dry-run | ACTIVE_FIXTURE_PASS | `GO_SIGNAL_CHAIN_E2E_DRY_RUN_01` |
+| 11 | Signal chain E2E dry-run | FIXTURE_PASS | `GO_SIGNAL_CHAIN_E2E_DRY_RUN_01` |
 | 12 | Final closeout umbrella | BLOCKED_BY_OPEN_SURFACES | parent current GO |
 
 ## Surfaces majeures a ne pas considerer comme fermees
@@ -48,7 +48,7 @@ Livrer le produit final total de toute la chaine signal/screener/Telegram/Desk P
 - TradingView webhook -> Desk Pro
 - Bot Vision headless screener
 - Coinglass / API collectors
-- Telegram Screener inbound
+- Telegram Screener inbound — **NOW CLOSED (116 tests)**
 - Telegram Notification outbound multi-chats/bots
 - Desk Pro hub scoring
 - Google Sheets global schema / implementation
@@ -60,11 +60,8 @@ Livrer le produit final total de toute la chaine signal/screener/Telegram/Desk P
 
 ## Prochain item Kanban exact
 
-`GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
-
-## Prochain GO exact
-
-`GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
+`GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01` (runtime distant)
+ou `PF_BOT_VISION_HEADLESS` (vision closeout pending)
 
 ## Gaps encore ouverts
 
