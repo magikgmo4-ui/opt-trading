@@ -49,7 +49,7 @@ Légende statuts :
 | `ai_run_task` | `scripts/ai/workers/run_task.sh` | shell | manual / openclaw_call | ai_workers | job_packet JSON | worker output | active | strict-workers-smoke.yml | medium | keep |
 | `ai_validate_job` | `scripts/ai/workers/_validate_job.py` | python | pr / manual | ai_workers | job_packets/*.json | validation report | active | strict-workers-validate.yml | low | keep |
 | `ai_tasks_index` | `scripts/ai/workers/tasks.index.json` | config | — | ai_workers | — | constraints + task routing (denied_inputs:9, denied_commands:8, task_types:10) | active | strict-workers-validate.yml | medium | keep |
-| `ai_models_registry` | `scripts/ai/workers/models.registry.json` | config | — | ai_workers | — | model routing | experimental | — | low | formalize |
+| `ai_models_registry` | `scripts/ai/workers/models.registry.json` | config | — | ai_workers | — | model routing | candidate | tests/test_models_registry.py | low | keep |
 
 ---
 
@@ -190,9 +190,9 @@ Entrées notables :
 | Statut | Count |
 |---|---|
 | active | ~48 (+3 : aw_localcms_sync, aw_openclaw_mobile, op_deploy_wrappers) |
-| candidate | ~7 (+2 : jp_strict_readonly_smoke, jp_strict_pool_smoke_deepseek ; -3 promus active) |
+| candidate | ~8 (+2 : jp_strict_readonly_smoke, jp_strict_pool_smoke_deepseek ; -3 promus active ; +1 ai_models_registry) |
 | deprecated | ~12 (+2 : jp_strict_pool_smoke_ring, jp_strict_pool_smoke_trinity) |
 | experimental | 2 |
 | DRAFT_ONLY (pending_parent) | ~16 (MATRIX×8, PATCH_IMPL×1, DOC_OPS×7) |
 
-> Dernière mise à jour 2026-05-28 — v1.5 : CANDIDATE_WORKERS_SMOKE_PROMOTE_01 — aw_localcms_sync + aw_openclaw_mobile + op_deploy_wrappers : candidate → active (43 tests — test_candidate_workers.py). B04/B05 CLOSED. GO_OPT_TRADING_CHILD_CANDIDATE_WORKERS_SMOKE_PROMOTE_01.
+> Dernière mise à jour 2026-05-28 — v1.6 : MODELS_REGISTRY_FORMALIZE_01 — ai_models_registry : schema_version 1.0 + experimental → candidate (23 tests — test_models_registry.py). GO_AUTOMATION_OPS_OPT_TRADING_CHILD_MODELS_REGISTRY_FORMALIZE_01.
