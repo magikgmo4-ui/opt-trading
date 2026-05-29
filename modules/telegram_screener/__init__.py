@@ -19,6 +19,10 @@ from .router import (
     FilterRouter,
     RouteDecision,
 )
+from .pipeline import (
+    ScreenerPipeline,
+    PipelineResult,
+)
 from .signal import (
     produce_screener_signal,
     produce_batch,
@@ -42,6 +46,8 @@ __all__ = [
     "load_channel_registry",
     "FilterRouter",
     "RouteDecision",
+    "ScreenerPipeline",
+    "PipelineResult",
     "SIGNAL_CONTEXT_LATEST",
     "read_signal_context",
     "produce_screener_signal",
