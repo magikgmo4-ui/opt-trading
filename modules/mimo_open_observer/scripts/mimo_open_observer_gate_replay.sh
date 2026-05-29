@@ -1,6 +1,20 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+if [[ "${MIMO_OPEN_OBSERVER_ALLOW_ARCHIVED_RUNTIME:-0}" != "1" ]]; then
+  cat >&2 <<'EOF'
+MIMO Open Observer gate_replay is archived residual runtime.
+Scheduler entrypoints are disabled by default.
+
+If you explicitly need this residual behavior:
+  MIMO_OPEN_OBSERVER_ALLOW_ARCHIVED_RUNTIME=1 bash modules/mimo_open_observer/scripts/mimo_open_observer_gate_replay.sh ...
+
+See:
+  modules/mimo_open_observer/LEGACY.md
+EOF
+  exit 2
+fi
+
 SOURCE_PATH="${BASH_SOURCE[0]}"
 while [ -h "${SOURCE_PATH}" ]; do
   SOURCE_DIR="$(cd -P "$(dirname "${SOURCE_PATH}")" && pwd)"

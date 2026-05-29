@@ -1,5 +1,5 @@
 [Unit]
-Description=MiMo gate_replay oneshot scheduler (non-live)
+Description=MiMo gate_replay oneshot scheduler (archived residual, non-live)
 After=local-fs.target
 
 [Service]

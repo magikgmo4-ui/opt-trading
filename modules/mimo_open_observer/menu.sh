@@ -2,6 +2,20 @@
 set -euo pipefail
 SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
+if [[ "${MIMO_OPEN_OBSERVER_ALLOW_ARCHIVED_RUNTIME:-0}" != "1" ]]; then
+  cat <<'EOF'
+MIMO Open Observer is archived residual runtime.
+The interactive menu is disabled by default.
+
+Read first:
+  modules/mimo_open_observer/LEGACY.md
+
+If you explicitly need the residual menu:
+  MIMO_OPEN_OBSERVER_ALLOW_ARCHIVED_RUNTIME=1 bash modules/mimo_open_observer/menu.sh
+EOF
+  exit 2
+fi
+
 while true; do
   echo ""
   echo "=== MIMO OPEN OBSERVER v0 ==="

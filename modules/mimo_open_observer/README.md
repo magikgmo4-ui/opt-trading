@@ -1,9 +1,21 @@
 # mimo_open_observer
 
+## Archive status
+
+This module is kept as archival residue.
+
+It is no longer treated as a default active runtime line.
+
+Historical consolidation docs classify it as `CLOSED (student)` and archive-oriented, while the code, fixtures, scheduler files, and local outputs are kept for traceability.
+
+See `LEGACY.md` for the current runtime/archival rule.
+
 ## Description
 Module doc-first pour observer XAUUSD à l'ouverture, détecter le premier FVG sur les 5 premières bougies M1 de 18:00 (America/Montreal), journaliser l'événement brut, puis enrichir avec des outcomes simples à +30m / +60m.
 
 ## Statut
+- lifecycle: archival residue
+- default runtime mode: disabled by default, opt-in only
 - phase: K8.4 minimal scheduler wiring
 - doc pack: complet
 - package Python: complet (K1..K8)
@@ -84,6 +96,10 @@ cmd.sh show_stats
 ```
 
 ## Minimal scheduler wiring
+Archived note:
+the scheduler artifacts are kept as historical/runtime residue.
+They are no longer intended to run by default without explicit archival override.
+
 Wrapper ops minimal :
 ```bash
 bash modules/mimo_open_observer/scripts/mimo_open_observer_gate_replay.sh
