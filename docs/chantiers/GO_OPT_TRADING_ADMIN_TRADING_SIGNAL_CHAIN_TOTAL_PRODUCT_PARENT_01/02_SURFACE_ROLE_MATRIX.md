@@ -29,7 +29,7 @@ Classifier chaque surface minimale du produit final total selon la regle `produc
 | Headless Screener | producer | `modules/bot_vision/headless_capture/` | capture headless visuelle |
 | Coinglass | producer | references repo/docs presentes, inventaire detaille a poursuivre | collecteur externe a confirmer chaine fine |
 | exchange/API collectors | producer | collectors references docs/repo | inventaire detaille a poursuivre |
-| Telegram Screener | producer | registry inbound doc present, parser absent | inbound separe de l'outbound |
+| Telegram Screener | producer | `modules/telegram_screener/` (116 tests) + `modules/telegram_ingestion/` (62 tests) | pipeline complet : ingestion → parser → route → producer → adapter |
 | Telegram Notification Dispatcher | router | `modules/notification_dispatcher/` | routage outbound structure |
 | Telegram bots/chats/topics | consumer | chantier routing map | destinations, pas source canonique strategie |
 | Google Sheets | consumer | `GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01`, `sync_daily_session.py` | consumer transverse seulement |
@@ -53,7 +53,7 @@ Le tableau Kanban du bundle reste la navigation principale. Cette matrice sert d
 
 ## Prochain item Kanban a faire
 
-`GO_STRATEGY_SIGNAL_MONITORING_REPO_INVENTORY_01`
+`TBD` (all Telegram chains now CLOSED)
 
 ## Gaps encore ouverts
 

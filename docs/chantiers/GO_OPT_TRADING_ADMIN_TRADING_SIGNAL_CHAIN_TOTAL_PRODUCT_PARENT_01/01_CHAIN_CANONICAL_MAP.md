@@ -28,35 +28,13 @@ Produit final total voulu : une chaine totale composee de plusieurs chaines inde
 
 | Surface | Preuve locale | Etat |
 | --- | --- | --- |
-| operator phone / SSH | `30_EXECUTION_PROTOCOL.md` decrit `ssh admin-trading` | PARTIAL_DOC_PROOF |
-| tmux IDE | `docs/chantiers/GO_TMUX_IDE_OPT_TRADING_ADMIN_TRADING_TMUX_IDE_OPERATOR_WORKFLOW_MINIMAL_01/30_EXECUTION_PROTOCOL.md` | PRESENT_DOC |
-| OpenCode / OpenClaw runtime | `GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01` present localement ; recroisement/integration umbrella et validation runtime reelle (SSH/tmux/mobile) encore PENDING via `GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01` | PRESENT_DOC_PARTIAL |
-
-### 2. TradingView Alert Chain
-
-| Segment | Preuve locale | Etat |
-| --- | --- | --- |
-| TradingView -> webhook | `webhook_server.py`, `modules/webhook/`, `docs/product/guides/TRADINGVIEW_TELEGRAM_PIPELINE.md` | PRESENT |
-| webhook -> signal_event | `state/events.jsonl`, `signal_event` dans `20_INPUT_CONSUMER_MAP.md` | PRESENT |
-| signal_event -> workers | `modules/signal_router/`, `proposition_engine`, `validation_gate`, `trade_executor`, `result_tracker`, `datasheet_writer`, `learning_feeder` | PRESENT |
-| workers -> Desk Pro | `docs/chantiers/GO_STRATEGY_SIGNAL_MONITORING_REPO_INVENTORY_01/10_CHAIN_SURFACE_PROOF_MAP.md` | PRESENT |
-| Desk Pro -> Telegram/Sheets/Perf | outbound/consumer surfaces presentes mais chainage total encore incomplet | PARTIAL |
-
-### 3. Bot Vision / Headless Screener Chain
-
-| Segment | Preuve locale | Etat |
-| --- | --- | --- |
-| headless capture | `modules/bot_vision/headless_capture/`, `capture_headless.js` | PRESENT |
-| vision consumer | `modules/vision_bot/`, `modules/bot_vision_step2/`, `docs/product/guides/BOT_VISION.md` | PRESENT |
-| artefacts Desk Pro / Telegram | guide Bot Vision + references Desk Pro / Telegram | PARTIAL |
-
-### 4. Telegram Screener Inbound Chain
-
-| Segment | Preuve locale | Etat |
-| --- | --- | --- |
-| registry channels inbound | `docs/chantiers/GO_TELEGRAM_SCREENER_CHANNEL_REGISTRY_01/10_CURRENT_INBOUND_SURFACES.md` | DOC_PRESENT |
-| ingest/parsers screener trades-setups | pas de parser inbound prouve | GAP |
-| replay/backtest scoring | `scripts/telegram/latency_backtest.py` et docs latency presentes ; inbound screener non chaine completement | PARTIAL |
+| registry channels inbound | `modules/telegram_screener/registry/` + `channels.yaml` | RUNTIME_PRESENT (22 tests) |
+| ingest/parsers screener trades-setups | `modules/telegram_screener/parser/` (trade, news, alpha parsers) | RUNTIME_PRESENT (32 tests) |
+| signal producer + Desk Pro adapter | `modules/telegram_screener/signal/` (telegram_claim.v1) | RUNTIME_PRESENT (18 tests) |
+| filtrage/routage | `modules/telegram_screener/router/` (FilterRouter, 5 rules) | RUNTIME_PRESENT (23 tests) |
+| pipeline wiring | `modules/telegram_screener/pipeline/` (ScreenerPipeline) | RUNTIME_PRESENT (21 tests) |
+| Telegram ingestion | `modules/telegram_ingestion/` (InboundClient, normalizer, router, Telethon) | RUNTIME_PRESENT (62 tests) |
+| replay/backtest scoring | `scripts/telegram/latency_backtest.py` et docs latency presentes | PARTIAL |
 
 ### 5. Telegram Notification Outbound Chain
 
@@ -88,12 +66,13 @@ Le tableau Kanban du bundle reste la reference principale. Ce fichier ne remplac
 
 ## Prochain item Kanban a faire
 
-`GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01`
+`GO_OPT_TRADING_RUNTIME_ORCHESTRATOR_TMUX_FLEET_MOBILE_DEPLOY_01` (runtime distant)
+— Ou `PF_BOT_VISION_HEADLESS` (vision/headless closeout)
 
-## Gaps encore ouverts
+## Gaps encore ouverts (post-closeout)
 
 - separation inbound/outbound Telegram a conserver dans tous les enfants
 - desk pro hub scoring total encore a contractualiser chaine par chaine
 - collectors Coinglass / exchange APIs a recroiser plus finement dans l'inventaire parent
-- E2E dry-run umbrella qualifie en fixture-only, mais parser Telegram inbound et writers reeles restent absents
-- closeout final umbrella impossible a ce stade
+- E2E dry-run umbrella qualifie en fixture-only, writers reeles restent absents
+- Bot Vision / headless screener closeout pending
