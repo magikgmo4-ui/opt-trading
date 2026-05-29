@@ -113,8 +113,8 @@ Entrées notables :
 | `aw_repo_frontmatter` | `scripts/ai/workers/repo_doc_frontmatter_lint.py` | python | ai_workers | lint frontmatter docs | active | low | keep |
 | `aw_repo_link_check` | `scripts/ai/workers/repo_doc_link_check.py` | python | ai_workers | vérifie liens docs | active | low | keep |
 | `aw_kill_switch` | `scripts/ai/workers/kill_switch_fullstop_test.py` | python | ai_workers | test kill switch | active | high | keep |
-| `aw_localcms_sync` | `scripts/ai/workers/localcms_automation_status_sync.py` | python | ai_workers | sync status localcms | candidate | medium | keep |
-| `aw_openclaw_mobile` | `scripts/ai/workers/openclaw_mobile_control.py` | python | ai_workers | contrôle mobile openclaw | candidate | medium | keep |
+| `aw_localcms_sync` | `scripts/ai/workers/localcms_automation_status_sync.py` | python | ai_workers | sync status localcms | active | medium | keep |
+| `aw_openclaw_mobile` | `scripts/ai/workers/openclaw_mobile_control.py` | python | ai_workers | contrôle mobile openclaw | active | medium | keep |
 | `aw_runner_readonly` | `scripts/ai/workers/runner_readonly.py` | python | ai_workers | runner lecture seule | active | low | keep |
 
 ---
@@ -156,7 +156,7 @@ Entrées notables :
 | `op_smoke` | `scripts/smoke.sh` | shell | manual / ci | ops | active | low | keep |
 | `op_diagnose` | `scripts/diagnose.sh` | shell | manual | ops | active | low | keep |
 | `op_post_change` | `scripts/post_change.sh` | shell | manual | ops | active | low | keep |
-| `op_deploy_wrappers` | `scripts/deploy_wrappers_ot_wrap_01.sh` | shell | manual | ops | candidate | medium | keep |
+| `op_deploy_wrappers` | `scripts/deploy_wrappers_ot_wrap_01.sh` | shell | manual | ops | active | medium | keep |
 | `op_desk_pro_cmd` | `scripts/desk_pro_cmd.sh` | shell | manual | desk_pro | active | medium | keep |
 
 ---
@@ -168,8 +168,8 @@ Entrées notables :
 | B01 | tasks.index.json en DRAFT_ONLY — pas de registre formel | formaliser dans jobs dedup audit |
 | B02 | 22 job_packets DRAFT_ONLY sans owner ni test | GO_AUTOMATION_OPS_OPT_TRADING_CHILD_JOBS_DEDUP_AUDIT_01 |
 | B03 | orchestration/ contrat non connecté aux workers | qualifier en dedup audit |
-| B04 | signal_processor + oauth_scope_audit sans test | ADD_TEST batch dédié |
-| B05 | gha_strict_workers_schedule sans test unitaire | ADD_TEST batch dédié |
+| B04 | signal_processor + oauth_scope_audit sans test | CLOSED — tests/test_signal_workers.py (34) + tests/test_oauth_scope_audit.py (30) |
+| B05 | gha_strict_workers_schedule sans test unitaire | CLOSED — tests/test_signal_workers.py TestScheduleWorkflow (7) |
 | B06 | 8 scripts apply_desk_pro_*.sh — LEGACY_REPLACED | DELETE — batch GO_AUTOMATION_OPS_OPT_TRADING_CHILD_CLEANUP_LEGACY_SCRIPTS_01 |
 
 ---
@@ -189,10 +189,10 @@ Entrées notables :
 
 | Statut | Count |
 |---|---|
-| active | ~45 |
-| candidate | ~10 (+2 : jp_strict_readonly_smoke, jp_strict_pool_smoke_deepseek) |
+| active | ~48 (+3 : aw_localcms_sync, aw_openclaw_mobile, op_deploy_wrappers) |
+| candidate | ~7 (+2 : jp_strict_readonly_smoke, jp_strict_pool_smoke_deepseek ; -3 promus active) |
 | deprecated | ~12 (+2 : jp_strict_pool_smoke_ring, jp_strict_pool_smoke_trinity) |
 | experimental | 2 |
 | DRAFT_ONLY (pending_parent) | ~16 (MATRIX×8, PATCH_IMPL×1, DOC_OPS×7) |
 
-> Dernière mise à jour 2026-05-28 — v1.4 : OAUTH_AUDIT_ADD_TEST_01 — aw_oauth_audit : add_test → keep (30 tests subprocess+regex+logic). GO_OPT_TRADING_CHILD_OAUTH_AUDIT_ADD_TEST_01.
+> Dernière mise à jour 2026-05-28 — v1.5 : CANDIDATE_WORKERS_SMOKE_PROMOTE_01 — aw_localcms_sync + aw_openclaw_mobile + op_deploy_wrappers : candidate → active (43 tests — test_candidate_workers.py). B04/B05 CLOSED. GO_OPT_TRADING_CHILD_CANDIDATE_WORKERS_SMOKE_PROMOTE_01.
