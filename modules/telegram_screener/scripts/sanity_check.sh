@@ -19,6 +19,8 @@ MOD="$(cd "$MOD" && pwd -P)"
 [ -f "$MOD/registry/models.py" ] || { echo "FAIL: registry models missing"; exit 2; }
 [ -f "$MOD/registry/loader.py" ] || { echo "FAIL: registry loader missing"; exit 2; }
 [ -f "$MOD/registry/channels.yaml" ] || { echo "FAIL: registry channels.yaml missing"; exit 2; }
+[ -d "$MOD/router" ] || { echo "FAIL: router missing"; exit 2; }
+[ -f "$MOD/router/__init__.py" ] || { echo "FAIL: router __init__ missing"; exit 2; }
 [ -x "$MOD/scripts/cmd.sh" ] || { echo "FAIL: cmd.sh not executable"; exit 2; }
 [ -x "$MOD/scripts/menu.sh" ] || { echo "FAIL: menu.sh not executable"; exit 2; }
 echo "PASS: telegram_screener sanity OK"

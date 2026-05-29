@@ -15,6 +15,10 @@ from .registry import (
     load_channel_registry,
 )
 from .service.signal_context_reader import SIGNAL_CONTEXT_LATEST, read_signal_context
+from .router import (
+    FilterRouter,
+    RouteDecision,
+)
 from .signal import (
     produce_screener_signal,
     produce_batch,
@@ -36,6 +40,8 @@ __all__ = [
     "ChannelRegistry",
     "TrustTier",
     "load_channel_registry",
+    "FilterRouter",
+    "RouteDecision",
     "SIGNAL_CONTEXT_LATEST",
     "read_signal_context",
     "produce_screener_signal",
