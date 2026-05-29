@@ -1,0 +1,9 @@
+# FILE_SCOPE — GO_OPT_TRADING_TELEGRAM_INGESTION_CHILD_CONSUMER_DISTRIBUTION_01
+
+modules/telegram_ingestion/distribution/**
+modules/telegram_ingestion/__init__.py
+tests/test_telegram_ingestion_consumer_router.py
+docs/chantiers/GO_OPT_TRADING_TELEGRAM_INGESTION_CHILD_CONSUMER_DISTRIBUTION_01/**
+bundles/GO_OPT_TRADING_TELEGRAM_INGESTION_CHILD_CONSUMER_DISTRIBUTION_01/**
+docs/index/inbox/GO_OPT_TRADING_TELEGRAM_INGESTION_CHILD_CONSUMER_DISTRIBUTION_01.md
+docs/index/GO_INDEX.md

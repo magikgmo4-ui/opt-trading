@@ -9,6 +9,11 @@ from .normalizer import (
     MetadataExtractor,
     extract_metadata,
 )
+from .distribution import (
+    Consumer,
+    ConsumerRouter,
+    ScreenerConsumer,
+)
 
 __all__ = [
     "InboundClient",
@@ -22,4 +27,7 @@ __all__ = [
     "detect_type",
     "MetadataExtractor",
     "extract_metadata",
+    "Consumer",
+    "ConsumerRouter",
+    "ScreenerConsumer",
 ]
