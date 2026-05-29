@@ -15,6 +15,10 @@ MOD="$(cd "$MOD" && pwd -P)"
 [ -f "$MOD/signal/signal_schema.py" ] || { echo "FAIL: signal_schema missing"; exit 2; }
 [ -f "$MOD/signal/signal_producer.py" ] || { echo "FAIL: signal_producer missing"; exit 2; }
 [ -f "$MOD/signal/desk_pro_adapter.py" ] || { echo "FAIL: desk_pro_adapter missing"; exit 2; }
+[ -d "$MOD/registry" ] || { echo "FAIL: registry missing"; exit 2; }
+[ -f "$MOD/registry/models.py" ] || { echo "FAIL: registry models missing"; exit 2; }
+[ -f "$MOD/registry/loader.py" ] || { echo "FAIL: registry loader missing"; exit 2; }
+[ -f "$MOD/registry/channels.yaml" ] || { echo "FAIL: registry channels.yaml missing"; exit 2; }
 [ -x "$MOD/scripts/cmd.sh" ] || { echo "FAIL: cmd.sh not executable"; exit 2; }
 [ -x "$MOD/scripts/menu.sh" ] || { echo "FAIL: menu.sh not executable"; exit 2; }
 echo "PASS: telegram_screener sanity OK"
