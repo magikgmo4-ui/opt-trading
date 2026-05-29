@@ -221,9 +221,7 @@ class TestConsumerRegistryConsistency:
 
     def test_not_implemented_consumers_remain_not_started(self):
         """Consumers without runtime readers must stay not_started — no fake runtime."""
-        no_reader = {
-            "telegram_screener__signal_context",
-        }
+        no_reader = set()
         for c in self.consumers:
             if c["consumer_id"] in no_reader:
                 assert c["implementation_status"] == "not_started", \
