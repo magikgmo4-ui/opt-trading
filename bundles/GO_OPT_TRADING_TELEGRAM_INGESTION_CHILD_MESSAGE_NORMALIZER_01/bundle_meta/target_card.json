@@ -1,0 +1,9 @@
+{
+  "target_card": "GO_OPT_TRADING_TELEGRAM_INGESTION_CHILD_MESSAGE_NORMALIZER_01",
+  "bundle_target": "MessageNormalizer",
+  "surface": "modules/telegram_ingestion",
+  "pf_id": "PF_TELEGRAM_INGESTION",
+  "parent_go_id": "GO_OPT_TRADING_TELEGRAM_INGESTION_PARENT_OPEN_01",
+  "predecessor_go": "GO_OPT_TRADING_TELEGRAM_INGESTION_CHILD_INBOUND_PARSER_RUNTIME_01",
+  "status": "open"
+}
