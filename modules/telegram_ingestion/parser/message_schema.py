@@ -23,9 +23,10 @@ class InboundMessage:
     timestamp: str
     raw_text: str
     normalized_type: str = "text"
+    metadata: dict | None = None
 
     @classmethod
-    def from_raw(cls, raw: RawMessage, normalized_type: str = "text") -> "InboundMessage":
+    def from_raw(cls, raw: RawMessage, normalized_type: str = "text", metadata: dict | None = None) -> "InboundMessage":
         return cls(
             message_id=raw.message_id,
             channel=raw.channel,
@@ -33,4 +34,5 @@ class InboundMessage:
             timestamp=raw.timestamp or datetime.now(timezone.utc).isoformat(),
             raw_text=raw.raw_text,
             normalized_type=normalized_type,
+            metadata=metadata,
         )

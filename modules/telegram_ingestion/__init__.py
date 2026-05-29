@@ -1,6 +1,14 @@
 from .parser.inbound_client import InboundClient, MockClient
 from .parser.message_receiver import MessageReceiver
 from .parser.message_schema import RawMessage, InboundMessage
+from .normalizer import (
+    MessageNormalizer,
+    normalize_message,
+    TypeDetector,
+    detect_type,
+    MetadataExtractor,
+    extract_metadata,
+)
 
 __all__ = [
     "InboundClient",
@@ -8,4 +16,10 @@ __all__ = [
     "MessageReceiver",
     "RawMessage",
     "InboundMessage",
+    "MessageNormalizer",
+    "normalize_message",
+    "TypeDetector",
+    "detect_type",
+    "MetadataExtractor",
+    "extract_metadata",
 ]
