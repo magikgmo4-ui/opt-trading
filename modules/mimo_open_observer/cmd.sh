@@ -3,10 +3,31 @@ set -euo pipefail
 MODULE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(cd "$MODULE_DIR/../.." && pwd)"
 
+require_archived_runtime_opt_in() {
+  cat >&2 <<'EOF'
+MIMO Open Observer is archived residual runtime.
+Active commands are disabled by default.
+
+To run a residual command explicitly, use:
+  MIMO_OPEN_OBSERVER_ALLOW_ARCHIVED_RUNTIME=1 bash modules/mimo_open_observer/cmd.sh <command> ...
+
+See:
+  modules/mimo_open_observer/LEGACY.md
+EOF
+  exit 2
+}
+
 cd "$ROOT_DIR" || exit 1
 
 cmd="${1:-help}"
 shift 2>/dev/null || true
+
+case "$cmd" in
+  help|docs-index|sanity) ;;
+  detect_once|detect_range|replay|gate_replay|check_window|sample_pending|build_stats|show_stats)
+    [[ "${MIMO_OPEN_OBSERVER_ALLOW_ARCHIVED_RUNTIME:-0}" == "1" ]] || require_archived_runtime_opt_in
+    ;;
+esac
 
 case "$cmd" in
   help)

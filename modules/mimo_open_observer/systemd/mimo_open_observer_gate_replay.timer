@@ -1,5 +1,5 @@
 [Unit]
-Description=Run MiMo gate_replay at configured 18:00 market open
+Description=Run MiMo gate_replay at configured 18:00 market open (archived residual)
 
 [Timer]
 OnCalendar=Sun,Mon,Tue,Wed,Thu *-*-* 18:00:00
