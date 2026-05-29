@@ -1,0 +1,12 @@
+{
+  "go_id": "GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_CHANNEL_REGISTRY_RUNTIME_IMPL_01",
+  "title": "Implement Telegram Screener channel registry runtime",
+  "status": "open",
+  "targets": [
+    "modules/telegram_screener/registry/**",
+    "tests/test_telegram_screener_registry.py",
+    "modules/telegram_screener/scripts/sanity_check.sh",
+    "docs/chantiers/GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_CHANNEL_REGISTRY_RUNTIME_IMPL_01/**",
+    "bundles/GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_CHANNEL_REGISTRY_RUNTIME_IMPL_01/**"
+  ]
+}
