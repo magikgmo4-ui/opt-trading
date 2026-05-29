@@ -1,0 +1,46 @@
+[
+  {
+    "raw": "BTCUSDT: LONG @ 65000",
+    "source_channel": "test_channel_signals",
+    "pair": "BTCUSDT",
+    "direction": "LONG",
+    "price": 65000.0,
+    "sl": null,
+    "tp": null,
+    "size": null,
+    "confidence": "LOW"
+  },
+  {
+    "raw": "ETHUSDT: SHORT @ 3500 SL 3450 TP 3600",
+    "source_channel": "test_channel_signals",
+    "pair": "ETHUSDT",
+    "direction": "SHORT",
+    "price": 3500.0,
+    "sl": 3450.0,
+    "tp": 3600.0,
+    "size": null,
+    "confidence": "HIGH"
+  },
+  {
+    "raw": "SOLUSDT: LONG @ 145 SL 140 TP 155 SIZE 2.5",
+    "source_channel": "test_channel_signals",
+    "pair": "SOLUSDT",
+    "direction": "LONG",
+    "price": 145.0,
+    "sl": 140.0,
+    "tp": 155.0,
+    "size": "2.5",
+    "confidence": "HIGH"
+  },
+  {
+    "raw": "DOGEUSDT: LONG @ 0.085 SL 0.080",
+    "source_channel": "test_channel_signals",
+    "pair": "DOGEUSDT",
+    "direction": "LONG",
+    "price": 0.085,
+    "sl": 0.080,
+    "tp": null,
+    "size": null,
+    "confidence": "MEDIUM"
+  }
+]
