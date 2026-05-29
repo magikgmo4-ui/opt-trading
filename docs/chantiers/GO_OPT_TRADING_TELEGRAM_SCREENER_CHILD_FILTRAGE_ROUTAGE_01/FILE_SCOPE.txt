@@ -1,0 +1,10 @@
+# FILE_SCOPE — GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_FILTRAGE_ROUTAGE_01
+
+modules/telegram_screener/router/**
+modules/telegram_screener/__init__.py
+tests/test_telegram_screener_router.py
+modules/telegram_screener/scripts/sanity_check.sh
+docs/chantiers/GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_FILTRAGE_ROUTAGE_01/**
+bundles/GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_FILTRAGE_ROUTAGE_01/**
+docs/index/inbox/GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_FILTRAGE_ROUTAGE_01.md
+docs/index/GO_INDEX.md
