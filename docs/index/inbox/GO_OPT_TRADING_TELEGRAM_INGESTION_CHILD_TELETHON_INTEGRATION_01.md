@@ -1,0 +1,22 @@
+---
+doc_id: GO_OPT_TRADING_TELEGRAM_INGESTION_CHILD_TELETHON_INTEGRATION_01_INBOX
+doc_type: inbox
+repo: opt-trading
+go_id: GO_OPT_TRADING_TELEGRAM_INGESTION_CHILD_TELETHON_INTEGRATION_01
+status: open
+created_at: 2026-05-29
+updated_at: 2026-05-29
+---
+
+# GO_OPT_TRADING_TELEGRAM_INGESTION_CHILD_TELETHON_INTEGRATION_01
+
+## Rôle
+
+Child GO d'implémentation du client Telegram live via Telethon.
+Dernier gap pour CLOSE_GATE du parent PF_TELEGRAM_INGESTION.
+
+## Prochain geste
+
+```text
+GO_OPT_TRADING_TELEGRAM_INGESTION_CHILD_TELETHON_INTEGRATION_01
+```

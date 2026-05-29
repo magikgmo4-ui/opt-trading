@@ -1,0 +1,10 @@
+# FILE_SCOPE — GO_OPT_TRADING_TELEGRAM_INGESTION_CHILD_TELETHON_INTEGRATION_01
+
+modules/telegram_ingestion/parser/telethon_client.py
+modules/telegram_ingestion/__init__.py
+requirements.txt
+tests/test_telegram_ingestion_telethon_client.py
+docs/chantiers/GO_OPT_TRADING_TELEGRAM_INGESTION_CHILD_TELETHON_INTEGRATION_01/**
+bundles/GO_OPT_TRADING_TELEGRAM_INGESTION_CHILD_TELETHON_INTEGRATION_01/**
+docs/index/inbox/GO_OPT_TRADING_TELEGRAM_INGESTION_CHILD_TELETHON_INTEGRATION_01.md
+docs/index/GO_INDEX.md
