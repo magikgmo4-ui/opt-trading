@@ -1,0 +1,10 @@
+# FILE_SCOPE — GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_SIGNAL_PRODUCER_RUNTIME_IMPL_01
+# Only these paths may be modified by this GO.
+
+modules/telegram_screener/signal/**
+tests/test_telegram_screener_signal_producer.py
+modules/telegram_screener/__init__.py
+modules/telegram_screener/scripts/sanity_check.sh
+docs/chantiers/GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_SIGNAL_PRODUCER_RUNTIME_IMPL_01/**
+bundles/GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_SIGNAL_PRODUCER_RUNTIME_IMPL_01/**
+docs/index/inbox/GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_SIGNAL_PRODUCER_RUNTIME_IMPL_01.md
