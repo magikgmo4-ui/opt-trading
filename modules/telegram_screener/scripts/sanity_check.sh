@@ -21,6 +21,8 @@ MOD="$(cd "$MOD" && pwd -P)"
 [ -f "$MOD/registry/channels.yaml" ] || { echo "FAIL: registry channels.yaml missing"; exit 2; }
 [ -d "$MOD/router" ] || { echo "FAIL: router missing"; exit 2; }
 [ -f "$MOD/router/__init__.py" ] || { echo "FAIL: router __init__ missing"; exit 2; }
+[ -d "$MOD/pipeline" ] || { echo "FAIL: pipeline missing"; exit 2; }
+[ -f "$MOD/pipeline/__init__.py" ] || { echo "FAIL: pipeline __init__ missing"; exit 2; }
 [ -x "$MOD/scripts/cmd.sh" ] || { echo "FAIL: cmd.sh not executable"; exit 2; }
 [ -x "$MOD/scripts/menu.sh" ] || { echo "FAIL: menu.sh not executable"; exit 2; }
 echo "PASS: telegram_screener sanity OK"
