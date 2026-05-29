@@ -1,0 +1,17 @@
+[
+  {
+    "raw": "AAPL: breakout pattern detected on daily",
+    "source_channel": "test_channel_alpha",
+    "ticker": "AAPL"
+  },
+  {
+    "raw": "BTC: dominance increasing above 60%",
+    "source_channel": "test_channel_alpha",
+    "ticker": "BTC"
+  },
+  {
+    "raw": "ETH: whale accumulation spotted at support",
+    "source_channel": "test_channel_alpha",
+    "ticker": "ETH"
+  }
+]

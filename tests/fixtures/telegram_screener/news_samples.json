@@ -1,0 +1,17 @@
+[
+  {
+    "raw": "[MACRO] FOMC rate decision expected hawkish",
+    "source_channel": "test_channel_news",
+    "category": "MACRO"
+  },
+  {
+    "raw": "[ALERT] Flash crash on BTC across all exchanges",
+    "source_channel": "test_channel_news",
+    "category": "ALERT"
+  },
+  {
+    "raw": "[ECONOMIC] US CPI data release at 13:30 UTC",
+    "source_channel": "test_channel_news",
+    "category": "ECONOMIC"
+  }
+]
