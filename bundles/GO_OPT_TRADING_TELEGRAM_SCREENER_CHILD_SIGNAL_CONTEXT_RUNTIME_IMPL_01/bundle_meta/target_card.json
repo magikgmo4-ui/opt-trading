@@ -1,0 +1,13 @@
+{
+  "go_id": "GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_SIGNAL_CONTEXT_RUNTIME_IMPL_01",
+  "title": "Implement Telegram Screener market metrics runtime consumer",
+  "status": "open",
+  "targets": [
+    "modules/telegram_screener/**",
+    "modules/data_center/registry/consumers.json",
+    "modules/data_center/tests/test_contract_tests.py",
+    "tests/test_telegram_screener_signal_context_reader.py",
+    "docs/chantiers/GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_SIGNAL_CONTEXT_RUNTIME_IMPL_01/**",
+    "bundles/GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_SIGNAL_CONTEXT_RUNTIME_IMPL_01/**"
+  ]
+}

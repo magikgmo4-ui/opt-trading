@@ -57,10 +57,10 @@
       "read_path": "data/data_center/views/market_metrics/latest.json",
       "access_pattern": "latest_only",
       "fallback": "silent_empty",
-      "implementation_status": "not_started",
+      "implementation_status": "implemented",
       "migration_needed": false,
       "read_path_current": null,
-      "validated_at": null
+      "validated_at": "2026-05-28"
     },
     {
       "consumer_id": "google_sheets__market_reporting",
