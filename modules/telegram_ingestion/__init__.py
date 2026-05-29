@@ -14,6 +14,7 @@ from .distribution import (
     ConsumerRouter,
     ScreenerConsumer,
 )
+from .parser.telethon_client import TelethonInboundClient
 
 __all__ = [
     "InboundClient",
@@ -30,4 +31,5 @@ __all__ = [
     "Consumer",
     "ConsumerRouter",
     "ScreenerConsumer",
+    "TelethonInboundClient",
 ]
