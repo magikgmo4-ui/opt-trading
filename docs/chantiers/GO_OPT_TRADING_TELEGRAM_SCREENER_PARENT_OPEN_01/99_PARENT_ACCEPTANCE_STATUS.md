@@ -7,7 +7,7 @@ module: telegram_screener
 go_id: GO_OPT_TRADING_TELEGRAM_SCREENER_PARENT_OPEN_01
 status: closed
 lifecycle_stage: closeout
-updated_at: 2026-05-28
+updated_at: 2026-05-29
 ---
 
 # 99_PARENT_ACCEPTANCE_STATUS
@@ -15,7 +15,7 @@ updated_at: 2026-05-28
 ```text
 GO_OPT_TRADING_TELEGRAM_SCREENER_PARENT_OPEN_01 : CLOSED / ACCEPTED
 PF_TELEGRAM_SCREENER                            : ACTIVE
-CLOSE_GATE_MASTER_TARGET                        : ATTEINT (conditionnel)
+CLOSE_GATE_MASTER_TARGET                        : ATTEINT
 ```
 
 ## Child GOs livrés
@@ -25,11 +25,14 @@ CLOSE_GATE_MASTER_TARGET                        : ATTEINT (conditionnel)
 | `GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_SIGNAL_CONTEXT_RUNTIME_IMPL_01` | MERGED (#939) | market metrics context reader |
 | `GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_SCREENER_PARSER_RUNTIME_IMPL_01` | MERGED (#942) | parser runtime (trade, news, alpha) |
 | `GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_SIGNAL_PRODUCER_RUNTIME_IMPL_01` | MERGED (#943) | signal producer + Desk Pro adapter |
+| `GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_CHANNEL_REGISTRY_RUNTIME_IMPL_01` | MERGED (#945) | channel registry YAML + loader (22 tests) |
+| `GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_FILTRAGE_ROUTAGE_01` | MERGED (#948) | FilterRouter 5 règles (23 tests) |
+| `GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_PIPELINE_WIRING_01` | MERGED (#951) | ScreenerPipeline orchestrateur (21 tests) |
 
 ## Note
 
-Parent fermé après livraison des 3 child GOs runtime. Le pipeline est complet :
-`raw telegram → parser → signal producer → Desk Pro adapter → telegram_claim.v1`
+Pipeline Telegram Screener complet — 6 child GOs mergés, 116 tests.
 
-La close gate conditionnelle (channel registry, filtrage) est différée vers le prochain GO :
-`GO_OPT_TRADING_TELEGRAM_SCREENER_CHILD_CHANNEL_REGISTRY_RUNTIME_IMPL_01`
+```python
+ScreenerPipeline().run(raw_text, channel_alias) → telegram_claim.v1
+```
