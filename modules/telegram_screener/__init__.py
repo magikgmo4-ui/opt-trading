@@ -8,6 +8,12 @@ from .parser import (
     Direction,
     Confidence,
 )
+from .registry import (
+    Channel,
+    ChannelRegistry,
+    TrustTier,
+    load_channel_registry,
+)
 from .service.signal_context_reader import SIGNAL_CONTEXT_LATEST, read_signal_context
 from .signal import (
     produce_screener_signal,
@@ -26,6 +32,10 @@ __all__ = [
     "SignalType",
     "Direction",
     "Confidence",
+    "Channel",
+    "ChannelRegistry",
+    "TrustTier",
+    "load_channel_registry",
     "SIGNAL_CONTEXT_LATEST",
     "read_signal_context",
     "produce_screener_signal",

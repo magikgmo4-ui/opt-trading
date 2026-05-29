@@ -1,0 +1,28 @@
+version: 1
+updated_at: "2026-05-28"
+channels:
+  - alias: "TG_SRC_SIGNALS_01"
+    kind: "channel"
+    title: "Signals Channel A"
+    trust_tier: "C"
+    categories: ["signals", "macro"]
+    expected_parsers: ["trade_claim", "news"]
+    symbols_scope: ["BTCUSDT", "ETHUSDT"]
+    timeframes_scope: ["1h", "4h"]
+    allow_forwarded: false
+    allow_media: true
+    enabled: false
+    notes: "placeholder — no real channel IDs in repo"
+
+  - alias: "TG_SRC_NEWS_01"
+    kind: "channel"
+    title: "News Channel B"
+    trust_tier: "B"
+    categories: ["news", "macro"]
+    expected_parsers: ["news"]
+    symbols_scope: []
+    timeframes_scope: []
+    allow_forwarded: true
+    allow_media: true
+    enabled: true
+    notes: "placeholder — validated news source"
