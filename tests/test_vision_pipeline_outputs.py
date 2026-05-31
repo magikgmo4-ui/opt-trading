@@ -42,6 +42,11 @@ class TestCaptureMetadata:
         data = load_fixture(self.FIXTURE)
         assert data["status"] in ("ready", "blocked", "invalid_visual")
 
+    def test_png_path_optional_when_present_is_string(self):
+        data = load_fixture(self.FIXTURE)
+        if "png_path" in data:
+            assert isinstance(data["png_path"], str)
+
     def test_valid_screen_types(self):
         data = load_fixture(self.FIXTURE)
         valid = {
@@ -298,6 +303,24 @@ class TestRunPipelineScript:
         path = PROFILES_DIR / "scripts" / "run_vision_pipeline.py"
         source = path.read_text(encoding="utf-8")
         assert "signal_validator" in source
+
+    def test_resolve_png_falls_back_to_processed_dir(self, tmp_path):
+        import importlib.util
+        path = PROFILES_DIR / "scripts" / "run_vision_pipeline.py"
+        spec = importlib.util.spec_from_file_location("run_vision_pipeline_png", str(path))
+        assert spec is not None and spec.loader is not None
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+
+        inbox = tmp_path / "vision_inbox"
+        processed = tmp_path / "vision_processed"
+        inbox.mkdir()
+        processed.mkdir()
+        png_name = "screen_tradingview_BTCUSDT.P_H1_2026-05-31_02-07-43.png"
+        (processed / png_name).write_bytes(b"png")
+
+        resolved = mod._resolve_png({"output_png": png_name}, inbox)
+        assert resolved == str(processed / png_name)
 
 
 # ── Vision Analysis Writer ────────────────────────────────

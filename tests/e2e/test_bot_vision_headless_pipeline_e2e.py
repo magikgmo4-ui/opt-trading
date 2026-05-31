@@ -255,3 +255,47 @@ def test_run_vision_pipeline_full_chart_execution_path_uses_validated_signals_fo
     assert any(call["cmd"][1] == str(rvp.VISION_ANALYSIS_WRITER) for call in calls)
     assert any(call["cmd"][1] == str(rvp.SIGNAL_VALIDATOR) for call in calls)
     assert any(call["cmd"][1] == str(rvp.TELEGRAM_FILTER_SCRIPT) for call in calls)
+
+
+def test_run_vision_pipeline_loads_telegram_env_from_bot_vision_env_file(tmp_path, monkeypatch):
+    rvp = _load_script("run_vision_pipeline")
+
+    env_file = tmp_path / "bot_vision.env"
+    env_file.write_text(
+        "TELEGRAM_BOT_TOKEN=test-token\nTELEGRAM_CHAT_ID=-123456\n",
+        encoding="utf-8",
+    )
+
+    monkeypatch.delenv("TELEGRAM_BOT_TOKEN", raising=False)
+    monkeypatch.delenv("TELEGRAM_CHAT_ID", raising=False)
+    monkeypatch.setattr(rvp, "BOT_VISION_STEP2_ENV", env_file)
+
+    rvp._ensure_telegram_env()
+
+    import os
+
+    assert os.environ["TELEGRAM_BOT_TOKEN"] == "test-token"
+    assert os.environ["TELEGRAM_CHAT_ID"] == "-123456"
+
+
+def test_run_vision_pipeline_loads_telegram_env_from_fallback_opt_trading_env(tmp_path, monkeypatch):
+    rvp = _load_script("run_vision_pipeline")
+
+    primary_env = tmp_path / "missing.env"
+    fallback_env = tmp_path / "bot_vision.env"
+    fallback_env.write_text(
+        "TELEGRAM_BOT_TOKEN=fallback-token\nTELEGRAM_CHAT_ID=-654321\n",
+        encoding="utf-8",
+    )
+
+    monkeypatch.delenv("TELEGRAM_BOT_TOKEN", raising=False)
+    monkeypatch.delenv("TELEGRAM_CHAT_ID", raising=False)
+    monkeypatch.setattr(rvp, "BOT_VISION_STEP2_ENV", primary_env)
+    monkeypatch.setattr(rvp, "BOT_VISION_STEP2_ENV_FALLBACK", fallback_env)
+
+    rvp._ensure_telegram_env()
+
+    import os
+
+    assert os.environ["TELEGRAM_BOT_TOKEN"] == "fallback-token"
+    assert os.environ["TELEGRAM_CHAT_ID"] == "-654321"

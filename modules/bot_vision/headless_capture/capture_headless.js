@@ -484,6 +484,7 @@ async function captureOne(profile) {
       screenshot_mode: options.screenshotMode,
       viewport: VIEWPORT,
       created_at_utc: new Date().toISOString(),
+      png_path: pngPath,
       output_png: basePng,
       output_json: baseJson
     };
