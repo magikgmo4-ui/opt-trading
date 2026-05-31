@@ -3,9 +3,10 @@ doc_id: GO_OPENCLAW_OPT_TRADING_DBLAYER_GATEWAY_AGENT_ORCHESTRATION_PARENT_01_CA
 doc_type: cadrage_parent
 repo: opt-trading
 go_id: GO_OPENCLAW_OPT_TRADING_DBLAYER_GATEWAY_AGENT_ORCHESTRATION_PARENT_01
-status: open
-lifecycle_stage: cadrage
+status: closed
+lifecycle_stage: closed
 created_at: 2026-05-31
+closed_at: 2026-05-31
 machine: db-layer
 openclaw_version: 2026.3.11 (29dc654)
 gateway_port: 18789
