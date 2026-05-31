@@ -1,0 +1,8 @@
+# FILE_SCOPE — GO_STRICT_WORKERS_CHILD_RUNNER_WRITEGATED_01
+# Child GO — runner_writegated.py + smoke test end-to-end WRITE_GATED
+
+docs/chantiers/GO_STRICT_WORKERS_CHILD_RUNNER_WRITEGATED_01/**
+scripts/ai/workers/runner_writegated.py
+scripts/ai/workers/job_packets/GO_STRICT_WORKERS_WRITE_GATED_SMOKE_01.json
+reports/ai/workers/GO_STRICT_WORKERS_WRITE_GATED_SMOKE_01.md
+reports/ai/workers/GO_STRICT_WORKERS_WRITE_GATED_SMOKE_01_RUNNER.json
