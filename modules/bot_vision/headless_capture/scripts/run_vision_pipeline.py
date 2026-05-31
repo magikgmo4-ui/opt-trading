@@ -88,6 +88,18 @@ def _read_sidecar(path: Path) -> dict[str, Any] | None:
         return None
 
 
+def _read_latest_summary() -> dict[str, Any] | None:
+    latest_link = REPO_ROOT / "data" / "deskpro" / "vision" / "latest"
+    if latest_link.exists():
+        summary_path = latest_link.resolve() / "summary.json"
+        if summary_path.exists():
+            return _read_sidecar(summary_path)
+    fallback = REPO_ROOT / "data" / "deskpro" / "vision" / "latest" / "summary.json"
+    if fallback.exists():
+        return _read_sidecar(fallback)
+    return None
+
+
 def _resolve_png(meta: dict[str, Any], inbox: Path) -> str | None:
     png_name = meta.get("output_png", "")
     png_path = inbox / png_name if png_name else None
@@ -490,6 +502,7 @@ def main() -> int:
 
         # ── Cross-validation via signal_validator ──
         print("\n--- Signal cross-validation ---")
+        validated_summary_input = None
         sv_cmd = [sys.executable or "python3", str(SIGNAL_VALIDATOR), "--symbol", symbol]
         try:
             sv_result = subprocess.run(sv_cmd, capture_output=True, text=True, timeout=15)
@@ -499,6 +512,10 @@ def main() -> int:
                 confirmed = sv_data.get("confirmed_count", 0)
                 deduped = sv_data.get("deduped_count", 0)
                 print(f"  Validated: {validated} signals ({confirmed} confirmed, {deduped} deduplicated)")
+                latest_summary = _read_latest_summary()
+                if latest_summary is not None:
+                    validated_summary_input = dict(latest_summary)
+                    validated_summary_input["signals"] = sv_data.get("validated_signals", [])
             elif sv_result.returncode != 0:
                 print(f"  SKIP: signal_validator exit {sv_result.returncode}", file=sys.stderr)
         except subprocess.TimeoutExpired:
@@ -513,7 +530,11 @@ def main() -> int:
         tg_cmd = [sys.executable or "python3", str(TELEGRAM_FILTER_SCRIPT)]
         tg_cmd.extend(["--confidence", str(args.telegram_threshold)])
         try:
-            tg_result = subprocess.run(tg_cmd, capture_output=True, text=True, timeout=30)
+            tg_input = None
+            if validated_summary_input is not None:
+                tg_cmd.append("--stdin")
+                tg_input = json.dumps(validated_summary_input)
+            tg_result = subprocess.run(tg_cmd, input=tg_input, capture_output=True, text=True, timeout=30)
             if tg_result.stdout:
                 tg_data = json.loads(tg_result.stdout.strip())
                 should_send = tg_data.get("send", False) and not args.no_telegram
