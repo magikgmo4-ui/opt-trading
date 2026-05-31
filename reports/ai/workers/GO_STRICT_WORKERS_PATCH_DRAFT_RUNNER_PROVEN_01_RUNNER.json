@@ -1,0 +1,79 @@
+{
+  "job_id": "GO_STRICT_WORKERS_PATCH_DRAFT_RUNNER_PROVEN_01",
+  "worker": "glm-5.1",
+  "task_type": "PATCH_DRAFT",
+  "dry_run": false,
+  "started_at": "2026-05-31T09:48:20.441121+00:00",
+  "read_operations": [
+    {
+      "path": "docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md",
+      "size_bytes": 3004
+    },
+    {
+      "path": "docs/chantiers/GO_STRICT_WORKERS_RUNTIME_RUNNER_READONLY_01/90_CLOSEOUT.md",
+      "size_bytes": 2248
+    }
+  ],
+  "write_attempts_blocked": [],
+  "status": "PASS",
+  "read_count": 2,
+  "completed_at": "2026-05-31T09:48:20.441479+00:00",
+  "validation": {
+    "status": "PASS",
+    "job_id": "GO_STRICT_WORKERS_PATCH_DRAFT_RUNNER_PROVEN_01",
+    "task_type": "PATCH_DRAFT",
+    "default_worker": "glm-5.1",
+    "valid_workers": [
+      "big-pickle",
+      "glm-5.1",
+      "kimi-k2.6",
+      "qwen3.6-plus"
+    ],
+    "output_file": "/opt/trading/reports/ai/workers/GO_STRICT_WORKERS_PATCH_DRAFT_RUNNER_PROVEN_01.md",
+    "autonomy_max": "A2",
+    "required_sections": [
+      "OBJECTIF_PATCH",
+      "FICHIERS_TOUCHES",
+      "DIFF_ATTENDU",
+      "RISQUES",
+      "TESTS_A_EXECUTER",
+      "VERDICT_DRAFT_ONLY"
+    ],
+    "writes_code": false,
+    "allowed_inputs": [
+      "docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md",
+      "docs/chantiers/GO_STRICT_WORKERS_RUNTIME_RUNNER_READONLY_01/90_CLOSEOUT.md"
+    ],
+    "global_invariants": {
+      "no_secrets": true,
+      "no_env_files": true,
+      "no_git_write_ops": true,
+      "no_runtime_write_by_default": true,
+      "requires_external_validation": true,
+      "output_status": "DRAFT_ONLY",
+      "only_verified_models": true
+    },
+    "denied_commands": [
+      "git add",
+      "git commit",
+      "git push",
+      "git rebase",
+      "git merge",
+      "rm -rf",
+      "chmod -R",
+      "chown -R"
+    ],
+    "denied_inputs": [
+      ".env",
+      "**/.env",
+      "**/*secret*",
+      "**/*token*",
+      "**/*credential*",
+      "**/id_rsa",
+      "**/id_ed25519",
+      "**/*.pem",
+      "**/*.key"
+    ],
+    "warnings": []
+  }
+}
