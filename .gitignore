@@ -94,6 +94,11 @@ scripts/runlog
 *TOKEN*
 *PASSWORD*
 
+# runtime untracked dirs — never commit
+secrets/
+reports/ai/mobile_control/
+artifacts/automation_ops/semiauto_pilot/pilot_*/
+
 # shared packet staging (Option B — local copy of bridge packets)
 _shared_packets/
 
