@@ -1,0 +1,37 @@
+{
+  "job_packet_id": "GO_STRICT_WORKERS_E2E_STEP1_READ_INVENTORY_01",
+  "go_id": "GO_STRICT_WORKERS_CHILD_E2E_PIPELINE_01",
+  "status": "DRAFT_ONLY",
+  "task_type": "READ_INVENTORY",
+  "worker_candidates": ["big-pickle", "qwen3.5-plus", "minimax-m2.5"],
+  "default_worker": "big-pickle",
+  "model_registry": "scripts/ai/workers/models.registry.json",
+  "task_index": "scripts/ai/workers/tasks.index.json",
+  "pipeline": {
+    "step": 1,
+    "of": 2,
+    "next_step": "GO_STRICT_WORKERS_E2E_STEP2_REVIEW_DRAFT_01"
+  },
+  "scope": {
+    "allowed_inputs": [
+      "docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md"
+    ],
+    "denied_inputs_inherited": true,
+    "allowed_outputs": [
+      "reports/ai/workers/GO_STRICT_WORKERS_E2E_STEP1_READ_INVENTORY_01.md"
+    ]
+  },
+  "instructions": [
+    "Lire STRICT_WORKERS_AUTONOMIE_ETROITE_01.md.",
+    "Produire un inventaire structuré : sections présentes, runners référencés, modes autorisés, interdits.",
+    "Classer chaque élément en ETABLI / HYPOTHESE / TODO.",
+    "Output DRAFT_ONLY dans le rapport autorisé."
+  ],
+  "acceptance": {
+    "must_not_write_runtime": true,
+    "must_not_modify_repo": true,
+    "must_not_read_secrets": true,
+    "must_reference_only_allowed_inputs": true,
+    "must_end_with_verdict_draft_only": true
+  }
+}

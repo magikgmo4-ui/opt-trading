@@ -1,0 +1,78 @@
+{
+  "job_id": "GO_STRICT_WORKERS_E2E_STEP2_REVIEW_DRAFT_01",
+  "worker": "glm-5.1",
+  "task_type": "REVIEW_DRAFT",
+  "dry_run": false,
+  "started_at": "2026-05-31T10:51:42.818260+00:00",
+  "read_operations": [
+    {
+      "path": "docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md",
+      "size_bytes": 3269
+    },
+    {
+      "path": "reports/ai/workers/GO_STRICT_WORKERS_E2E_STEP1_READ_INVENTORY_01.md",
+      "size_bytes": 2325
+    }
+  ],
+  "write_attempts_blocked": [],
+  "status": "PASS",
+  "read_count": 2,
+  "completed_at": "2026-05-31T10:51:42.818686+00:00",
+  "validation": {
+    "status": "PASS",
+    "job_id": "GO_STRICT_WORKERS_E2E_STEP2_REVIEW_DRAFT_01",
+    "task_type": "REVIEW_DRAFT",
+    "default_worker": "glm-5.1",
+    "valid_workers": [
+      "glm-5.1",
+      "kimi-k2.6",
+      "qwen3.6-plus"
+    ],
+    "output_file": "/opt/trading/reports/ai/workers/GO_STRICT_WORKERS_E2E_STEP2_REVIEW_DRAFT_01.md",
+    "autonomy_max": "A2",
+    "required_sections": [
+      "CONTEXTE_REVUE",
+      "FICHIERS_REVUS",
+      "OBSERVATIONS",
+      "RECOMMANDATIONS",
+      "RISQUES",
+      "VERDICT_DRAFT_ONLY"
+    ],
+    "writes_code": false,
+    "allowed_inputs": [
+      "docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md",
+      "reports/ai/workers/GO_STRICT_WORKERS_E2E_STEP1_READ_INVENTORY_01.md"
+    ],
+    "global_invariants": {
+      "no_secrets": true,
+      "no_env_files": true,
+      "no_git_write_ops": true,
+      "no_runtime_write_by_default": true,
+      "requires_external_validation": true,
+      "output_status": "DRAFT_ONLY",
+      "only_verified_models": true
+    },
+    "denied_commands": [
+      "git add",
+      "git commit",
+      "git push",
+      "git rebase",
+      "git merge",
+      "rm -rf",
+      "chmod -R",
+      "chown -R"
+    ],
+    "denied_inputs": [
+      ".env",
+      "**/.env",
+      "**/*secret*",
+      "**/*token*",
+      "**/*credential*",
+      "**/id_rsa",
+      "**/id_ed25519",
+      "**/*.pem",
+      "**/*.key"
+    ],
+    "warnings": []
+  }
+}
