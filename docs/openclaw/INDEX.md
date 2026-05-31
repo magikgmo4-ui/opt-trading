@@ -21,6 +21,7 @@ Bibliothèque opérateur OpenClaw. Source : cartographie des 77 sources du paren
 | Governance / targets | 2 | [governance/INDEX.md](governance/INDEX.md) |
 | Branches git | 37 | voir chantiers/INDEX.md section branches |
 | **Loop contract** | **5 formats** | [loop_contract/INDEX.md](loop_contract/INDEX.md) |
+| **Fleet matrix** | **6 machines** | [fleet/INDEX.md](fleet/INDEX.md) |
 
 ## Architecture OpenClaw dans opt-trading
 

@@ -1,0 +1,6 @@
+# FILE_SCOPE — GO_OPENCLAW_DBLAYER_DOCS_RESEARCH_LIBRARY_CHILD_FLEET_MATRIX_01
+# Only these paths may be modified by this GO.
+
+docs/chantiers/GO_OPENCLAW_DBLAYER_DOCS_RESEARCH_LIBRARY_CHILD_FLEET_MATRIX_01/**
+docs/openclaw/fleet/**
+docs/openclaw/INDEX.md
