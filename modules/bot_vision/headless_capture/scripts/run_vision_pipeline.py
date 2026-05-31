@@ -53,6 +53,8 @@ DESKPRO_VISION_ANALYSIS_PATH = DESKPRO_VISION_ANALYSIS_DIR / "latest.json"
 # bot_vision_step2 paths (production module, may not exist in dev env)
 BOT_VISION_STEP2_APP = REPO_ROOT / "modules" / "bot_vision_step2" / "app" / "bot_vision_step2.py"
 BOT_VISION_STEP2_VENV = Path("/opt/trading/.venvs/bot_vision_step2/bin/python")
+BOT_VISION_STEP2_ENV = REPO_ROOT / "modules" / "bot_vision_step2" / "config" / "bot_vision.env"
+BOT_VISION_STEP2_ENV_FALLBACK = Path("/opt/trading/modules/bot_vision_step2/config/bot_vision.env")
 
 SCREEN_TYPE_LABELS: dict[str, str] = {
     "CHART_TECHNICAL": "Chart technique",
@@ -100,6 +102,52 @@ def _read_latest_summary() -> dict[str, Any] | None:
     return None
 
 
+def _load_env_file(path: Path) -> dict[str, str]:
+    if not path.exists():
+        return {}
+    env: dict[str, str] = {}
+    for raw_line in path.read_text(encoding="utf-8", errors="replace").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        env[key.strip()] = value.strip()
+    return env
+
+
+def _ensure_telegram_env() -> None:
+    if os.getenv("TELEGRAM_BOT_TOKEN") and os.getenv("TELEGRAM_CHAT_ID"):
+        return
+    loaded = _load_env_file(BOT_VISION_STEP2_ENV)
+    if not loaded and BOT_VISION_STEP2_ENV_FALLBACK != BOT_VISION_STEP2_ENV:
+        loaded = _load_env_file(BOT_VISION_STEP2_ENV_FALLBACK)
+    for key in ("TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID"):
+        if not os.getenv(key):
+            value = loaded.get(key, "").strip()
+            if value and value != "REPLACE_ME":
+                os.environ[key] = value
+
+
+def _processed_candidates(inbox: Path) -> list[Path]:
+    candidates: list[Path] = []
+    env_path = os.getenv("VISION_PROCESSED") or os.getenv("BOT_VISION_PROCESSED")
+    if env_path:
+        candidates.append(Path(env_path))
+    if inbox.parent:
+        candidates.append(inbox.parent / "vision_processed")
+    repo_default = REPO_ROOT / "data" / "vision_processed"
+    candidates.append(repo_default)
+
+    deduped: list[Path] = []
+    seen: set[str] = set()
+    for candidate in candidates:
+        key = str(candidate)
+        if key not in seen:
+            seen.add(key)
+            deduped.append(candidate)
+    return deduped
+
+
 def _resolve_png(meta: dict[str, Any], inbox: Path) -> str | None:
     png_name = meta.get("output_png", "")
     png_path = inbox / png_name if png_name else None
@@ -108,6 +156,11 @@ def _resolve_png(meta: dict[str, Any], inbox: Path) -> str | None:
     alt = Path(meta.get("png_path", "")) if meta.get("png_path") else None
     if alt and alt.exists():
         return str(alt)
+    if png_name:
+        for processed_dir in _processed_candidates(inbox):
+            candidate = processed_dir / png_name
+            if candidate.exists():
+                return str(candidate)
     return None
 
 
@@ -544,6 +597,7 @@ def main() -> int:
                     summary_text = tg_data.get("summary", "")
                     run_id = tg_data.get("run_id", "")
                     try:
+                        _ensure_telegram_env()
                         sys.path.insert(0, str(REPO_ROOT / "shared"))
                         from telegram_notify import send_telegram  # type: ignore
                         send_telegram(summary_text)
