@@ -26,5 +26,21 @@
   "gate": "human_approve+dry_run",
   "write_allowed": false,
   "evidence_required": true,
-  "status": "DRAFT_ONLY"
+  "status": "DRAFT_ONLY",
+  "job_packet_id": "GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_WRITE_GATED_01",
+  "task_type": "WRITE_GATED",
+  "worker_candidates": [
+    "glm-5.1"
+  ],
+  "default_worker": "glm-5.1",
+  "scope": {
+    "allowed_inputs": [
+      "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/00_INITIAL_PROJECT_DOC.md",
+      "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/20_OPENCLAW_E2E_RUNBOOK.md",
+      "docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01/30_WORKER_JOB_GRAPH.md"
+    ],
+    "allowed_outputs": [
+      "reports/ai/workers/GO_OPT_TRADING_DOC_OPS_CHILD_PATCH_ZIP_EXECUTION_FORMAT_V2_01_WRITE_GATED_01.md"
+    ]
+  }
 }

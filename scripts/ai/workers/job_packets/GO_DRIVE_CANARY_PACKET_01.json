@@ -17,7 +17,8 @@
     "denied_inputs_inherited": true,
     "allowed_outputs": [
       "reports/ai/workers/GO_DRIVE_CANARY_REPORT.md",
-      "data/runtime_health/job_logs/"
+      "data/runtime_health/job_logs/",
+      "reports/ai/workers/GO_DRIVE_CANARY_PACKET_01.md"
     ]
   },
   "canary_operations": [
@@ -47,7 +48,9 @@
       "type": "READ_ONLY",
       "description": "Vérifier que le fichier canary est accessible et lisible après upload",
       "action": "Lire le fichier canary uploadé, vérifier son contenu, reporter le timestamp et le run_id",
-      "depends_on": ["drive-upload-report-canary"],
+      "depends_on": [
+        "drive-upload-report-canary"
+      ],
       "readback_required": true
     },
     {
@@ -75,5 +78,9 @@
     "GOOGLE_DRIVE_CREDENTIALS",
     "GOOGLE_DRIVE_FOLDER_ID"
   ],
-  "missing_credentials_note": "Ce packet est prêt à exécution. Les credentials GOOGLE_DRIVE_CREDENTIALS et GOOGLE_DRIVE_FOLDER_ID doivent être définis dans l'environnement d'exécution. En leur absence, le canary ne peut pas être exécuté mais la structure est complète."
+  "missing_credentials_note": "Ce packet est prêt à exécution. Les credentials GOOGLE_DRIVE_CREDENTIALS et GOOGLE_DRIVE_FOLDER_ID doivent être définis dans l'environnement d'exécution. En leur absence, le canary ne peut pas être exécuté mais la structure est complète.",
+  "worker_candidates": [
+    "qwen3.5-plus"
+  ],
+  "default_worker": "qwen3.5-plus"
 }
