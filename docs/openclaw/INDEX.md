@@ -16,11 +16,11 @@ Bibliothèque opérateur OpenClaw. Source : cartographie des 77 sources du paren
 | Surface | Count | Index |
 | --- | --- | --- |
 | Modules runtime | 9 | [modules/INDEX.md](modules/INDEX.md) |
-| Chantiers GO | 19 | [chantiers/INDEX.md](chantiers/INDEX.md) |
+| Chantiers GO | 130+ | [chantiers/INDEX.md](chantiers/INDEX.md) |
 | Hermes bridge | 10 | [hermes/INDEX.md](hermes/INDEX.md) |
 | Governance / targets | 2 | [governance/INDEX.md](governance/INDEX.md) |
 | Branches git | 37 | voir chantiers/INDEX.md section branches |
-| **Total sources** | **77** | |
+| **Loop contract** | **5 formats** | [loop_contract/INDEX.md](loop_contract/INDEX.md) |
 
 ## Architecture OpenClaw dans opt-trading
 
