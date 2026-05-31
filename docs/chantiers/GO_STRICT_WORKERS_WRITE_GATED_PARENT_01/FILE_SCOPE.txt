@@ -1,4 +1,4 @@
 # FILE_SCOPE — GO_STRICT_WORKERS_WRITE_GATED_PARENT_01
-# Parent GO — WRITE_GATED : runner contrôlé + smoke end-to-end
+# Parent GO — WRITE_GATED : runner contrôlé + smoke end-to-end — CLOSED 2026-05-31
 
 docs/chantiers/GO_STRICT_WORKERS_WRITE_GATED_PARENT_01/**
