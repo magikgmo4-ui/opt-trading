@@ -8,15 +8,18 @@ import os, json, time, sqlite3, uuid
 from datetime import datetime, timezone
 from typing import Optional, Dict, Any, List
 
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Body
 from modules.desk_pro.api.routes import router as desk_router
+from modules.perf_engine.app.perf_engine import score_strategy_events
 
 from fastapi.responses import HTMLResponse
 from modules.desk_pro.mount import mount as mount_desk_pro
 from shared.pydantic_compat import BaseModel, Field
 
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(APP_DIR)
 DB_PATH = os.getenv("PERF_DB_PATH", os.path.join(APP_DIR, "perf.db"))
+OBS_EVENTS_PATH = os.getenv("OBS_EVENTS_PATH", os.path.join(PROJECT_ROOT, "state", "observation_events.jsonl"))
 
 # ---- Telegram (optional) ----
 TELEGRAM_TOKEN = (os.getenv("TELEGRAM_BOT_TOKEN") or os.getenv("TELEGRAM_TOKEN", "")).strip()
@@ -381,6 +384,36 @@ def startup():
     t = threading.Thread(target=monitors_loop, daemon=True)
     t.start()
 
+# ---------------- ObservationEvent helpers ----------------
+
+def _extract_obs_strategy_id(payload: dict) -> str | None:
+    sid = payload.get("strategy_id")
+    if not sid:
+        strategy = payload.get("strategy", {})
+        if isinstance(strategy, dict):
+            sid = strategy.get("strategy_id")
+    return str(sid).strip() if sid else None
+
+def _load_obs_events() -> list[dict]:
+    if not os.path.exists(OBS_EVENTS_PATH):
+        return []
+    out = []
+    with open(OBS_EVENTS_PATH, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                out.append(json.loads(line))
+            except json.JSONDecodeError:
+                continue
+    return out
+
+def _append_obs_event(event: dict) -> None:
+    os.makedirs(os.path.dirname(OBS_EVENTS_PATH), exist_ok=True)
+    with open(OBS_EVENTS_PATH, "a", encoding="utf-8") as f:
+        f.write(json.dumps(event, ensure_ascii=False) + "\n")
+
 # ---------------- Routes ----------------
 @app.post("/perf/event")
 def perf_event(ev: PerfEvent):
@@ -460,6 +493,25 @@ def perf_trades(
 
     con.close()
     return {"trades": [dict(r) for r in rows], "limit": limit, "filters": params}
+
+@app.post("/perf/observation_event")
+def post_observation_event(payload: Dict[str, Any] = Body(...)):
+    strategy_id = _extract_obs_strategy_id(payload)
+    if not strategy_id:
+        raise HTTPException(400, "strategy_id required (flat or nested under 'strategy.strategy_id')")
+    event_id = "OE_" + uuid.uuid4().hex[:16]
+    if not payload.get("produced_at"):
+        payload["produced_at"] = now_iso()
+    payload["_event_id"] = event_id
+    _append_obs_event(payload)
+    return {"ok": True, "event_id": event_id, "strategy_id": strategy_id, "produced_at": payload["produced_at"]}
+
+@app.get("/perf/strategy/{strategy_id}/promotion_gate")
+def get_promotion_gate(strategy_id: str):
+    events = _load_obs_events()
+    result = score_strategy_events(events, strategy_id=strategy_id)
+    result["total_events_loaded"] = len(events)
+    return result
 
 @app.get("/perf/ui", response_class=HTMLResponse)
 def perf_ui():
