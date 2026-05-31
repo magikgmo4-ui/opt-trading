@@ -32,8 +32,10 @@ from typing import Any
 
 try:
     from PIL import Image
+    from PIL import ImageOps
 except ImportError:
     Image = None
+    ImageOps = None
 
 REPO_ROOT = Path(__file__).resolve().parents[4]
 
@@ -108,55 +110,113 @@ def _tesseract_available() -> bool:
         return False
 
 
+def _parse_numeric_token(token: str) -> float | None:
+    raw = token.strip().replace(",", "")
+    multiplier = 1.0
+    if raw.lower().endswith("b"):
+        multiplier = 1_000_000_000.0
+        raw = raw[:-1]
+    elif raw.lower().endswith("m"):
+        multiplier = 1_000_000.0
+        raw = raw[:-1]
+    elif raw.lower().endswith("k"):
+        multiplier = 1_000.0
+        raw = raw[:-1]
+    elif raw.endswith("%"):
+        raw = raw[:-1]
+    try:
+        return float(raw) * multiplier
+    except ValueError:
+        return None
+
+
+def _extract_with_ocr_text(text: str, screen_type: str) -> list[dict[str, Any]]:
+    detections: list[dict[str, Any]] = []
+    lowered = screen_type.lower()
+
+    if "liquidity" in lowered or "liquidation" in lowered:
+        metric_cycle = ["liquidations_long", "liquidations_short", "liquidation_heatmap_level"]
+        for idx, match in enumerate(re.finditer(r'([+-]?\d+(?:[\d,.]*\d)?(?:[KMB%])?)', text, re.IGNORECASE)):
+            parsed = _parse_numeric_token(match.group(1))
+            if parsed is None:
+                continue
+            metric = metric_cycle[min(idx, len(metric_cycle) - 1)]
+            unit = "USD" if metric != "liquidation_heatmap_level" else "price"
+            detections.append({
+                "extracted_value": parsed,
+                "detected_metric_type": metric,
+                "confidence": 0.58 if metric != "liquidation_heatmap_level" else 0.62,
+                "detection_method": "ocr_raw",
+                "unit": unit,
+            })
+
+    elif "funding" in lowered:
+        for match in re.finditer(r'([+-]?\d+(?:\.\d+)?%)', text):
+            parsed = _parse_numeric_token(match.group(1))
+            if parsed is None:
+                continue
+            detections.append({
+                "extracted_value": parsed,
+                "detected_metric_type": "funding_rate",
+                "confidence": 0.56,
+                "detection_method": "ocr_raw",
+                "unit": "percent",
+            })
+
+    elif "open_interest" in lowered or "oi_" in lowered:
+        for idx, match in enumerate(re.finditer(r'([+-]?\d+(?:[\d,.]*\d)?(?:[KMB]))', text, re.IGNORECASE)):
+            parsed = _parse_numeric_token(match.group(1))
+            if parsed is None:
+                continue
+            metric = "open_interest" if idx == 0 else "open_interest_change_24h"
+            detections.append({
+                "extracted_value": parsed,
+                "detected_metric_type": metric,
+                "confidence": 0.57,
+                "detection_method": "ocr_raw",
+                "unit": "USD",
+            })
+
+    elif "longshortratio" in lowered or "ls_ratio" in lowered:
+        for match in re.finditer(r'([+-]?\d+(?:\.\d+)?)', text):
+            parsed = _parse_numeric_token(match.group(1))
+            if parsed is None:
+                continue
+            detections.append({
+                "extracted_value": parsed,
+                "detected_metric_type": "long_short_ratio",
+                "confidence": 0.55,
+                "detection_method": "ocr_raw",
+                "unit": "ratio",
+            })
+
+    # Keep signal-rich but bounded output.
+    return detections[:3]
+
+
 def _extract_with_ocr(image_path: Path, screen_type: str) -> list[dict[str, Any]]:
     """Attempt real OCR extraction. Returns list of detections or empty list."""
     if not _tesseract_available():
         return []
-    if Image is None:
+    if Image is None or ImageOps is None:
         return []
 
     import pytesseract
 
     try:
         img = Image.open(str(image_path))
-        text = pytesseract.image_to_string(img)
+        variants = [img]
 
-        detections: list[dict[str, Any]] = []
-        slug = screen_type.lower()
+        # Try a couple of cheap preprocessing variants before giving up.
+        grayscale = ImageOps.grayscale(img)
+        variants.append(grayscale)
+        variants.append(ImageOps.autocontrast(grayscale))
 
-        # Very basic extraction patterns — will be refined per page layout
-        if "liquidity" in slug or "liquidation" in slug:
-            for match in re.finditer(r'(\d+[\d,.]*)\s*[MKMB]', text, re.IGNORECASE):
-                raw = match.group(1).replace(",", "").replace(" ", "")
-                try:
-                    val = float(raw)
-                    detections.append({
-                        "extracted_value": val,
-                        "detected_metric_type": "liquidations_long",
-                        "confidence": 0.55,
-                        "detection_method": "ocr_raw",
-                        "unit": "USD",
-                    })
-                except ValueError:
-                    pass
-
-        if "funding" in slug:
-            for match in re.finditer(r'([+-]?\d+\.\d+%?)', text):
-                raw = match.group(1).replace("%", "")
-                try:
-                    val = float(raw)
-                    detections.append({
-                        "extracted_value": val,
-                        "detected_metric_type": "funding_rate",
-                        "confidence": 0.50,
-                        "detection_method": "ocr_raw",
-                        "unit": "percent",
-                    })
-                except ValueError:
-                    pass
-
-        if detections:
-            return detections
+        for variant in variants:
+            text = pytesseract.image_to_string(variant)
+            detections = _extract_with_ocr_text(text, screen_type)
+            if detections:
+                return detections
         return []
 
     except Exception as e:
@@ -182,6 +242,8 @@ def analyze(
     capture_id = f"cg_{screen_type.lower()}_{symbol}_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}"
 
     detections: list[dict[str, Any]] = []
+    final_method = "stub"
+    warnings: list[str] = []
 
     # Try real OCR first if requested
     if use_real_ocr and png_path:
@@ -192,10 +254,21 @@ def analyze(
             ocr_detections = _extract_with_ocr(png_full, screen_type)
             if ocr_detections:
                 detections = ocr_detections
+                final_method = "ocr_real"
+            else:
+                warnings.append("real_ocr_requested_but_no_metrics_extracted")
+        else:
+            warnings.append("real_ocr_requested_but_image_missing")
+    elif use_real_ocr:
+        warnings.append("real_ocr_requested_without_png_path")
+
+    if use_real_ocr and not detections and not _tesseract_available():
+        warnings.append("pytesseract_not_available")
 
     # Fallback to stub if no OCR results
     if not detections:
         detections = _stub_values_for_symbol(symbol, screen_type)
+        final_method = "stub"
 
     return {
         "input_class": "vision_context.coinglass.v1",
@@ -207,11 +280,13 @@ def analyze(
         "freshness_state": "fresh",
         "screen_type": screen_type,
         "coinglass_slug": _coinglass_slug(screen_type),
-        "detection_method": "ocr_real" if use_real_ocr and detections else "stub",
+        "detection_method": final_method,
         "detections": detections,
+        "warnings": warnings,
         "refs": {
             "capture_source": source,
             "image_ref": png_path,
+            "requested_real_ocr": use_real_ocr,
         },
     }
 

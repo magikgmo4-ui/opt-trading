@@ -106,6 +106,142 @@ class TestCoinglassOCRAnalyzerStub:
         assert len(data["detections"]) > 0
 
 
+class TestCoinglassOCRRuntimePath:
+    def test_parse_numeric_token_handles_suffixes(self):
+        sys.path.insert(0, str(SCRIPTS_DIR))
+        try:
+            from coinglass_ocr_analyzer import _parse_numeric_token
+        finally:
+            sys.path.pop(0)
+
+        assert _parse_numeric_token("42.5M") == 42_500_000.0
+        assert _parse_numeric_token("1.2B") == 1_200_000_000.0
+        assert _parse_numeric_token("67.5K") == 67_500.0
+        assert _parse_numeric_token("0.12%") == 0.12
+
+    def test_extract_with_ocr_text_liquidity(self):
+        sys.path.insert(0, str(SCRIPTS_DIR))
+        try:
+            from coinglass_ocr_analyzer import _extract_with_ocr_text
+        finally:
+            sys.path.pop(0)
+
+        detections = _extract_with_ocr_text("Long 42.5M Short 38.2M Heatmap 67.5K", "LIQUIDITY_COINGLASS")
+        assert len(detections) >= 2
+        assert detections[0]["detected_metric_type"] == "liquidations_long"
+        assert detections[1]["detected_metric_type"] == "liquidations_short"
+
+    def test_extract_with_ocr_text_funding(self):
+        sys.path.insert(0, str(SCRIPTS_DIR))
+        try:
+            from coinglass_ocr_analyzer import _extract_with_ocr_text
+        finally:
+            sys.path.pop(0)
+
+        detections = _extract_with_ocr_text("Binance +0.012% Bybit -0.008%", "FUNDING_COINGLASS")
+        assert len(detections) >= 2
+        assert all(det["detected_metric_type"] == "funding_rate" for det in detections)
+
+    def test_extract_with_ocr_text_oi(self):
+        sys.path.insert(0, str(SCRIPTS_DIR))
+        try:
+            from coinglass_ocr_analyzer import _extract_with_ocr_text
+        finally:
+            sys.path.pop(0)
+
+        detections = _extract_with_ocr_text("OI 72.1B Change 1.2B", "OI_COINGLASS")
+        assert len(detections) >= 2
+        assert detections[0]["detected_metric_type"] == "open_interest"
+
+    def test_extract_with_ocr_text_ls_ratio(self):
+        sys.path.insert(0, str(SCRIPTS_DIR))
+        try:
+            from coinglass_ocr_analyzer import _extract_with_ocr_text
+        finally:
+            sys.path.pop(0)
+
+        detections = _extract_with_ocr_text("Binance 1.25 OKX 1.18", "LS_RATIO_COINGLASS")
+        assert len(detections) >= 2
+        assert all(det["detected_metric_type"] == "long_short_ratio" for det in detections)
+
+    def test_real_ocr_fallback_reports_stub_method(self, monkeypatch, tmp_path):
+        sys.path.insert(0, str(SCRIPTS_DIR))
+        try:
+            import coinglass_ocr_analyzer as mod
+        finally:
+            sys.path.pop(0)
+
+        png = tmp_path / "cg.png"
+        png.write_bytes(b"fake")
+        monkeypatch.setattr(mod, "_extract_with_ocr", lambda image_path, screen_type: [])
+
+        result = mod.analyze(
+            {
+                "screen_type": "LIQUIDITY_COINGLASS",
+                "symbol": "BTCUSDT.P",
+                "source": "coinglass",
+                "png_path": str(png),
+            },
+            use_real_ocr=True,
+        )
+        assert result["detection_method"] == "stub"
+        assert "real_ocr_requested_but_no_metrics_extracted" in result["warnings"]
+        assert result["refs"]["requested_real_ocr"] is True
+
+    def test_real_ocr_success_reports_ocr_method(self, monkeypatch, tmp_path):
+        sys.path.insert(0, str(SCRIPTS_DIR))
+        try:
+            import coinglass_ocr_analyzer as mod
+        finally:
+            sys.path.pop(0)
+
+        png = tmp_path / "cg.png"
+        png.write_bytes(b"fake")
+        monkeypatch.setattr(
+            mod,
+            "_extract_with_ocr",
+            lambda image_path, screen_type: [{
+                "extracted_value": 42_500_000.0,
+                "detected_metric_type": "liquidations_long",
+                "confidence": 0.61,
+                "detection_method": "ocr_raw",
+                "unit": "USD",
+            }],
+        )
+
+        result = mod.analyze(
+            {
+                "screen_type": "LIQUIDITY_COINGLASS",
+                "symbol": "BTCUSDT.P",
+                "source": "coinglass",
+                "png_path": str(png),
+            },
+            use_real_ocr=True,
+        )
+        assert result["detection_method"] == "ocr_real"
+        assert result["detections"][0]["detected_metric_type"] == "liquidations_long"
+        assert result["warnings"] == []
+
+    def test_real_ocr_missing_png_adds_warning(self):
+        sys.path.insert(0, str(SCRIPTS_DIR))
+        try:
+            import coinglass_ocr_analyzer as mod
+        finally:
+            sys.path.pop(0)
+
+        result = mod.analyze(
+            {
+                "screen_type": "LIQUIDITY_COINGLASS",
+                "symbol": "BTCUSDT.P",
+                "source": "coinglass",
+                "png_path": "/does/not/exist.png",
+            },
+            use_real_ocr=True,
+        )
+        assert result["detection_method"] == "stub"
+        assert "real_ocr_requested_but_image_missing" in result["warnings"]
+
+
 # ── Vision Context Writer ─────────────────────────────────
 
 class TestVisionContextWriter:
