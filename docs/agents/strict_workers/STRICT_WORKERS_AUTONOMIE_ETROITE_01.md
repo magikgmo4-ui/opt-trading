@@ -64,6 +64,10 @@ Prompt standard -> task index -> runner sécurisé -> rapport DRAFT_ONLY -> cons
 | TESTPLAN | lister tests et critères PASS/FAIL | non |
 | CHERRY_PICK_INVENTORY | classer commits et dépendances | non |
 | CLOSEOUT_DRAFT | préparer un closeout sans verdict final | non |
+| REVIEW_DRAFT | réviser un rapport ou un patch produit par un worker | non |
+| FAST_TRIAGE | classer rapidement un lot de fichiers ou tickets | non |
+| ENDPOINT_AUDIT | auditer les modèles disponibles sur un endpoint | non |
+| WRITE_GATED | écrire sur cible autorisée après gate explicite | oui (gate) |
 
 ## Interdits permanents
 
@@ -128,6 +132,14 @@ validation_date : 2026-05-31
 preuve          : 5 reads, 0 writes
 no-write guard  : actif et testé
 source          : GO_STRICT_WORKERS_RUNTIME_RUNNER_READONLY_01 — PASS (PR #995)
+```
+
+```text
+runner          : scripts/ai/workers/runner_writegated.py
+validation_date : 2026-05-31
+preuve          : 1 read, 1 write (gate --gate-approved)
+gardes          : BLOCKED_NO_GATE, max_lines=50, write_allowlist
+source          : GO_STRICT_WORKERS_CHILD_RUNNER_WRITEGATED_01 — PASS (PR #1024)
 ```
 
 ## Prochaine étape
