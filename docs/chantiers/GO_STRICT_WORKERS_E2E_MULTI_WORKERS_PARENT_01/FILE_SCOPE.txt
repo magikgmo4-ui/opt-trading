@@ -1,0 +1,4 @@
+# FILE_SCOPE — GO_STRICT_WORKERS_E2E_MULTI_WORKERS_PARENT_01
+# Parent GO — E2E multi-workers : pipeline 2 workers avec chaînage sortie→entrée
+
+docs/chantiers/GO_STRICT_WORKERS_E2E_MULTI_WORKERS_PARENT_01/**
