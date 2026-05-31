@@ -1,0 +1,14 @@
+[
+  {
+    "source": "tradingview",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "15m",
+    "url": "https://www.tradingview.com/chart/?symbol=BTCUSDT.P&interval=15",
+    "page_id": "btcusdt_15m_poc",
+    "wait_until": "networkidle",
+    "timeout_ms": 45000,
+    "post_load_wait_ms": 5000,
+    "visual_check_enabled": true,
+    "indicators": ["EMA20", "EMA50", "EMA200", "VWAP", "RSI", "MACD", "Volume"]
+  }
+]

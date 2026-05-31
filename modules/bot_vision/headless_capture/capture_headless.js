@@ -365,6 +365,7 @@ async function captureOne(profile) {
       symbol: symbol || 'dashboard',
       timeframe: timeframe || 'H1',
       url,
+      indicators: profile.indicators || null,
       status: captureStatus,
       visual_status: visualStatus,
       wait_until: options.waitUntil,
