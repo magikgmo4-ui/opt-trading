@@ -1,0 +1,9 @@
+# FILE_SCOPE — GO_OPENCLAW_DBLAYER_DOCS_RESEARCH_LIBRARY_CHILD_EXTRACTION_01
+# Retrofix: FILE_SCOPE.txt was missing at merge time (PR #972).
+
+docs/chantiers/GO_OPENCLAW_DBLAYER_DOCS_RESEARCH_LIBRARY_CHILD_EXTRACTION_01/**
+docs/openclaw/INDEX.md
+docs/openclaw/modules/**
+docs/openclaw/chantiers/**
+docs/openclaw/hermes/**
+docs/openclaw/governance/**
