@@ -39,12 +39,12 @@ scripts/install_shortcuts.sh — wrappers /usr/local/bin
 
 | Fiche | Statut |
 | --- | --- |
-| configure_openclaw.md | à remplir |
-| doctor_openclaw.md | à remplir |
-| evidence_openclaw.md | à remplir |
-| gateway_openclaw.md | à remplir |
-| install_module_openclaw.md | à remplir |
-| menu_openclaw.md | à remplir |
-| model_provider_openclaw.md | à remplir |
-| openclaw_config_modulaire.md | à remplir |
-| tradingview_observer_openclaw.md | à remplir |
+| configure_openclaw.md | produit |
+| doctor_openclaw.md | produit |
+| evidence_openclaw.md | produit |
+| gateway_openclaw.md | produit |
+| install_module_openclaw.md | produit |
+| menu_openclaw.md | produit |
+| model_provider_openclaw.md | produit |
+| openclaw_config_modulaire.md | produit |
+| tradingview_observer_openclaw.md | produit |
