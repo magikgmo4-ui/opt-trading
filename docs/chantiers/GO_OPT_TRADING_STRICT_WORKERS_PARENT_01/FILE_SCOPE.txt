@@ -1,0 +1,4 @@
+# FILE_SCOPE — GO_OPT_TRADING_STRICT_WORKERS_PARENT_01
+# Retrofix : FILE_SCOPE.txt absent au commit initial
+
+docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01/**
