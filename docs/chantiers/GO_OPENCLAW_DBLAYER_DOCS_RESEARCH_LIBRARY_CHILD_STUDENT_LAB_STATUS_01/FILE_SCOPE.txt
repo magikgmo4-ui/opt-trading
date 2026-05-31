@@ -1,0 +1,6 @@
+# FILE_SCOPE — GO_OPENCLAW_DBLAYER_DOCS_RESEARCH_LIBRARY_CHILD_STUDENT_LAB_STATUS_01
+# Only these paths may be modified by this GO.
+
+docs/chantiers/GO_OPENCLAW_DBLAYER_DOCS_RESEARCH_LIBRARY_CHILD_STUDENT_LAB_STATUS_01/**
+docs/openclaw/student_lab/**
+docs/openclaw/INDEX.md
