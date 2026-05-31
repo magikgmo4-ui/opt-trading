@@ -18,7 +18,7 @@ surface: docs/agents
 source_kind: canonical
 reference_canonique_principale: docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md
 point_de_reprise: "Construire la matrice des modèles workers"
-updated_at: 2026-04-26
+updated_at: 2026-05-31
 links:
   - docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01/00_INITIAL_PROJECT_DOC.md
   - docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01/BRANCH_STATE.md
@@ -118,6 +118,16 @@ model: opencode/big-pickle
 role: extraction / inventaire / brouillon
 authority: non_souverain
 status: pilote
+```
+
+## Runner validé
+
+```text
+runner          : scripts/ai/workers/runner_readonly.py
+validation_date : 2026-05-31
+preuve          : 5 reads, 0 writes
+no-write guard  : actif et testé
+source          : GO_STRICT_WORKERS_RUNTIME_RUNNER_READONLY_01 — PASS (PR #995)
 ```
 
 ## Prochaine étape
