@@ -1,130 +1,170 @@
-# 30_ANALYSIS_CONTRACT
+---
+doc_id: GO_OPT_TRADING_BOT_VISION_HEADLESS_CHILD_INPUT_CAPTURE_ANALYSIS_OUTPUT_PIPELINE_01_ANALYSIS_CONTRACT
+doc_type: analysis_contract
+repo: opt-trading
+go_id: GO_OPT_TRADING_BOT_VISION_HEADLESS_CHILD_INPUT_CAPTURE_ANALYSIS_OUTPUT_PIPELINE_01
+---
 
-## Objectif
+# 30_ANALYSIS_CONTRACT.md
 
-Definir comment la couche d'analyse transforme les screenshots en donnees
-lisibles, classifiees et reutilisables.
+Analyse par type d'écran : OCR, détection de contenu, extraction de signaux, format de sortie.
 
-## Couches d'analyse
+## 1_ANALYSIS_CHAIN
 
-- OCR / lecture visuelle
-- detection de contenu
-- extraction de signaux, niveaux, tendance, setup
-- classification du type de contenu
+```
+Capture screenshot
+  ↓
+Classification du screen_type (déduit ou explicite)
+  ↓
+Analyseur spécialisé par type
+  ↓
+Extraction : tendance, niveaux, signaux, risques
+  ↓
+Génération du JSON d'analyse
+  ↓
+(optionnel) Résumé texte pour Telegram
+  ↓
+(optionnel) Données structurées pour Data Center
+```
 
-## Shapes deja etablis dans le repo
+## 2_ANALYSEURS_PAR_TYPE
 
-### Vision context Coinglass
+### 2.1 CHART_TECHNICAL_SCREEN
 
-Le shape deja consomme par DeskPro pour `vision_context.coinglass.v1` contient :
+Objectif : lecture technique pure.
 
-- `contract_version`
-- `input_class`
-- `source_id`
-- `screenshot_ts`
-- `symbol`
-- `timeframe`
-- `board`
-- `page`
-- `freshness_state`
-- `detections`
-- `warnings`
-- `refs`
+Analyse attendue :
 
-### Shape des detections etabli
+| Champ | Type | Description |
+|-------|------|-------------|
+| trend_direction | string | haussier / baissier / neutre |
+| market_structure | string | HH/HL, LH/LL, range, consolidation |
+| support_resistance | number[] | Niveaux S/R détectés |
+| breakout_breakdown | boolean | Breakout ou breakdown en cours |
+| volatility_state | string | contraction / expansion / normale |
+| momentum_state | string | bullish / bearish / weakening / strengthening |
+| volume_confirmation | boolean | Volume confirme-t-il le mouvement ? |
+| invalidations | string[] | Scénarios invalides |
 
-Les tests DeskPro fixent deja la forme suivante pour chaque detection :
+### 2.2 LIQUIDITY_DERIVATIVES_SCREEN
 
-| Champ | Description |
-|---|---|
-| `detected_metric_type` | type de metrique ou signal detecte |
-| `extracted_value` | valeur extraite ou `null` |
-| `unit` | unite (`USD`, etc.) |
-| `confidence` | float `0.0 - 1.0` |
-| `evidence_ref` | ref vers image ou preuve |
-| `notes` | details libres |
+Objectif : comprendre la pression levier / liquidation.
 
-Metriques deja observees :
+Analyse attendue :
 
-- `liquidations_long`
-- `liquidations_short`
-- `long_short_ratio`
-- `open_interest`
-- `liquidation_heatmap_level`
+| Champ | Type | Description |
+|-------|------|-------------|
+| liquidity_zones | number[] | Zones de liquidité |
+| long_squeeze_risk | boolean | Risque de squeeze longs |
+| short_squeeze_risk | boolean | Risque de squeeze shorts |
+| funding_extreme | boolean | Funding anormal |
+| oi_expansion_or_flush | string | Expansion ou flush de l'OI |
+| crowding_direction | string | Côté crowding : long / short / neutre |
+| trap_probability | string | low / medium / high |
 
-## Types d'analyse recommandes pour le pipeline elargi
+### 2.3 MACRO_CROSS_ASSET_SCREEN
 
-| `analysis_type` | Usage |
-|---|---|
-| `ocr` | lecture texte simple |
-| `chart_setup` | analyse chart / niveaux / biais |
-| `heatmap` | lecture heatmap / flow / cluster |
-| `macro_panel` | synthese dashboard macro |
-| `mixed` | plusieurs modes sur une meme capture |
+Objectif : relier BTC / gold / oil / DXY / yields.
 
-## Regles de confiance
+Analyse attendue :
 
-- seuil bas utile deja etabli dans le repo : `confidence < 0.60`
-- Coinglass Telegram summary :
-  - `confidence < 0.85` -> warning explicite
-  - `confidence < 0.60` -> low confidence
-- recommandation pipeline :
-  - `< 0.60` : detection non fiable, ne pas promouvoir en signal exploitable
-  - `0.60 - 0.84` : detection usable avec warning
-  - `>= 0.85` : detection forte
+| Champ | Type | Description |
+|-------|------|-------------|
+| risk_on_risk_off | string | risk_on / risk_off / neutre |
+| dxy_pressure | string | haussier / baissier / neutre sur BTC |
+| gold_safe_haven_bid | boolean | Or en mode safe haven |
+| oil_inflation_pressure | boolean | Pétrole signale inflation |
+| btc_correlation_break | boolean | BTC décorrélé du DXY/gold |
+| macro_divergence | string[] | Divergences inter-actifs |
 
-## Contrat de sortie recommande
+### 2.4 ETF_CRYPTO_SCREEN
 
-### Bloc `vision_analysis`
+Objectif : capter le narratif institutionnel BTC.
 
-| Champ | Description |
-|---|---|
-| `input_class` | `vision_analysis.v1` |
-| `capture_id` | jointure avec la capture |
-| `source_id` | source logique |
-| `symbol` | symbole principal |
-| `timeframe` | timeframe visible ou deduite |
-| `analysis_type` | type d'analyse |
-| `summary` | resume texte court |
-| `setup_bias` | `bull`, `bear`, `neutral`, `mixed` |
-| `key_levels` | liste de niveaux extraits |
-| `detections` | liste structuree de detections |
-| `warnings` | liste de warnings |
-| `confidence` | confiance globale |
+Analyse attendue :
 
-### Shape recommande pour une detection elargie
+| Champ | Type | Description |
+|-------|------|-------------|
+| etf_relative_strength | string | Force relative des ETF vs spot |
+| btc_spot_confirmation | boolean | Spot confirme le mouvement ETF |
+| gbtc_pressure | string | Pression GBTC (premium/discount) |
+| institutional_bid_proxy | string | Signal institutionnel déduit |
+| gap_vs_spot | number | Écart ETF / spot |
+
+### 2.5 STOCK_SCREENER_SCREEN
+
+Objectif : détecter rotation sectorielle et momentum actions.
+
+Analyse attendue :
+
+| Champ | Type | Description |
+|-------|------|-------------|
+| sector_rotation | string[] | Secteurs en rotation |
+| momentum_clusters | string[] | Clusters de momentum |
+| risk_appetite | string | Appétit au risque actions |
+| theme_strength | object | Force par thème (AI, defense, etc.) |
+| relative_volume_spike | string[] | Tickers avec volume anormal |
+| watchlist_candidates | string[] | Candidats à surveiller |
+
+### 2.6 NEWS_SENTIMENT_SCREEN
+
+Objectif : relier mouvement prix ↔ catalyseur.
+
+Analyse attendue :
+
+| Champ | Type | Description |
+|-------|------|-------------|
+| event_type | string | Type d'événement |
+| asset_impacted | string | Actif impacté |
+| sentiment | string | Positif / négatif / neutre |
+| urgency | string | haute / moyenne / faible |
+| price_reaction | string | Réaction prix observée |
+| confirmed_or_unconfirmed | string | Confirmé / rumeur |
+
+## 3_FORMAT_ANALYSE_GENERIQUE
 
 ```json
 {
-  "detected_metric_type": "open_interest",
-  "extracted_value": 126069243.0,
-  "unit": "USD",
-  "confidence": 1.0,
-  "evidence_ref": "data/vision/coinglass/raw/screenshot.png",
-  "notes": "ocr exact",
-  "zone_id": "oi_top_right",
-  "source_kind": "heatmap"
+  "capture_id": "uuid",
+  "screen_type": "CHART_TECHNICAL_SCREEN",
+  "asset": "BTCUSDT",
+  "timeframe": "15m",
+  "summary": "BTC teste une résistance avec volume en hausse.",
+  "signals": [
+    {
+      "type": "breakout_attempt",
+      "direction": "bullish",
+      "confidence": 0.68,
+      "evidence": ["price above VWAP", "volume increasing", "RSI rising"]
+    }
+  ],
+  "levels": {
+    "support": [104000, 102800],
+    "resistance": [106500, 108000]
+  },
+  "risk_flags": ["funding elevated", "liquidity above current price"],
+  "next_watch": "confirmation above resistance or rejection back below VWAP",
+  "analysis_timestamp_utc": "2026-05-29T00:00:00Z",
+  "analysis_version": "v1"
 }
 ```
 
-## Regles de derivation
+## 4_METHODES_D_ANALYSE
 
-1. Une capture peut produire zero, une ou plusieurs detections.
-2. `extracted_value = null` doit rester permis mais ne doit pas etre promu en metrique DeskPro.
-3. Les detections doivent rester tracables vers une preuve image via `evidence_ref`.
-4. La `confidence` globale d'analyse ne doit pas exceder arbitrairement la meilleure preuve disponible.
+| Méthode | Usage | Priorité |
+|---------|-------|----------|
+| OCR (texte dans l'image) | Lire niveaux, prix, indicateurs | P0 |
+| Détection de couleur / forme | Identifier bougies, lignes, zones | P1 |
+| Classification CNN | Type de pattern (range, trend, volatility) | P2 |
+| LLM vision (OpenAI) | Analyse sémantique complète | P0 |
 
-## Format de sortie vise
+## 5_CONFIDENCE_SCORE
 
-- raw_capture_reference
-- extracted_signal
-- generated_summary
-- distribution_payload
+Chaque signal embarque un score de confiance [0.0, 1.0] :
 
-## Mapping source -> payload derive -> consumer
-
-| Source | Payload derive principal | Consumer cible |
-|---|---|---|
-| Coinglass heatmap / liquidations | `vision_context.coinglass.v1` | DeskPro vision panel + metrics reader |
-| TradingView chart | `visual_context` + `vision_analysis.v1` | DeskPro dry-run / vues futures |
-| Macro dashboard | `vision_analysis.v1` + payload Data Center | DeskPro synthese / contexte |
+| Plage | Interprétation |
+|-------|---------------|
+| 0.0 – 0.3 | Spéculatif, peu de preuves |
+| 0.3 – 0.6 | Possible, preuves partielles |
+| 0.6 – 0.8 | Probable, preuves convergentes |
+| 0.8 – 1.0 | Confirmé, preuves fortes |

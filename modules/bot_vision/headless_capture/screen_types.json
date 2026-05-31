@@ -1,0 +1,103 @@
+{
+  "$schema": "screen_types.v1",
+  "title": "bot_vision screen type registry",
+  "version": "1.0.0",
+  "screen_types": [
+    {
+      "id": "CHART_TECHNICAL",
+      "label": "Chart technique",
+      "description": "Single TradingView chart with technical indicators",
+      "source": "tradingview",
+      "layout": "single",
+      "analysis_mode": "full",
+      "analyzer": "bot_vision_step2",
+      "capture_profile": "profiles.production.json",
+      "telegram_policy": "send_if_high_confidence"
+    },
+    {
+      "id": "DASHBOARD_MACRO",
+      "label": "Dashboard macro 2x2",
+      "description": "Quad-slot macro dashboard composed from 4 individual captures",
+      "source": "tradingview",
+      "layout": "quad",
+      "analysis_mode": "quad",
+      "analyzer": "bot_vision_step2 + compose_quad",
+      "capture_profile": "profiles.macro_dashboard.json",
+      "telegram_policy": "send_if_high_confidence"
+    },
+    {
+      "id": "LIQUIDITY_COINGLASS",
+      "label": "Liquidations Coinglass",
+      "description": "Coinglass liquidation heatmap and data tables",
+      "source": "coinglass",
+      "layout": "single",
+      "analysis_mode": "ocr",
+      "analyzer": "coinglass_ocr_analyzer (A-07)",
+      "capture_profile": "profiles.coinglass.json",
+      "telegram_policy": "send_if_critical"
+    },
+    {
+      "id": "FUNDING_COINGLASS",
+      "label": "Funding rate Coinglass",
+      "description": "Coinglass funding rate table across exchanges",
+      "source": "coinglass",
+      "layout": "single",
+      "analysis_mode": "ocr",
+      "analyzer": "coinglass_ocr_analyzer (A-07)",
+      "capture_profile": "profiles.coinglass.json",
+      "telegram_policy": "send_if_critical"
+    },
+    {
+      "id": "OI_COINGLASS",
+      "label": "Open interest Coinglass",
+      "description": "Coinglass open interest chart and aggregate table",
+      "source": "coinglass",
+      "layout": "single",
+      "analysis_mode": "ocr",
+      "analyzer": "coinglass_ocr_analyzer (A-07)",
+      "capture_profile": "profiles.coinglass.json",
+      "telegram_policy": "send_if_critical"
+    },
+    {
+      "id": "LS_RATIO_COINGLASS",
+      "label": "Long/Short ratio Coinglass",
+      "description": "Coinglass long/short ratio by exchange",
+      "source": "coinglass",
+      "layout": "single",
+      "analysis_mode": "ocr",
+      "analyzer": "coinglass_ocr_analyzer (A-07)",
+      "telegram_policy": "send_if_critical"
+    },
+    {
+      "id": "ETF_CRYPTO",
+      "label": "ETF crypto",
+      "description": "Crypto ETF single chart (IBIT, FBTC, GBTC, BITB, ARKB)",
+      "source": "tradingview",
+      "layout": "single",
+      "analysis_mode": "full",
+      "analyzer": "bot_vision_step2",
+      "capture_profile": "profiles.production.json",
+      "telegram_policy": "send_if_high_confidence"
+    },
+    {
+      "id": "SCREENER_STOCKS",
+      "label": "Screener actions",
+      "description": "Stock screener results page (biggest caps, trending, AI, defense, spatial, crypto stocks, energy)",
+      "source": "tradingview_screener",
+      "layout": "single",
+      "analysis_mode": "ocr",
+      "analyzer": "screener_analyzer (A-08)",
+      "telegram_policy": "send_if_critical"
+    },
+    {
+      "id": "NEWS_SENTIMENT",
+      "label": "News / sentiment",
+      "description": "Crypto news aggregation and sentiment analysis",
+      "source": "news_aggregator",
+      "layout": "single",
+      "analysis_mode": "stub",
+      "analyzer": "news_sentiment_analyzer (A-09)",
+      "telegram_policy": "send_if_critical"
+    }
+  ]
+}

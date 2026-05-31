@@ -1,72 +1,94 @@
-# 10_INPUT_SURFACES_INVENTORY
+---
+doc_id: GO_OPT_TRADING_BOT_VISION_HEADLESS_CHILD_INPUT_CAPTURE_ANALYSIS_OUTPUT_PIPELINE_01_INPUT_INVENTORY
+doc_type: input_surfaces_inventory
+repo: opt-trading
+go_id: GO_OPT_TRADING_BOT_VISION_HEADLESS_CHILD_INPUT_CAPTURE_ANALYSIS_OUTPUT_PIPELINE_01
+---
 
-## Objectif
+# 10_INPUT_SURFACES_INVENTORY.md
 
-Cataloguer les surfaces d'entree que le pipeline headless doit couvrir avant la
-validation capture/analyse.
+Catalogue canonique des sources d'entrée pour le pipeline headless.
 
-## Colonnes canoniques
+## A. Crypto majors
 
-| URL / adresse source | Type de page | Type de contenu | Assets couverts | Charts / indices / screeners | Priorite | Besoins de capture |
-|---|---|---|---|---|---|---|
-| Coinglass dashboard headless | dashboard web | liquidations / OI / long-short / heatmap | BTC, ETH puis extension multi-assets | screener derive / heatmap / ratios | P1 | viewport stable, crop par zone, multi-capture possible |
-| Trading chart dashboard headless | chart web | screenshot chart + overlays | BTC/ETH/XAU puis watchlist | charts par timeframe | P1 | full-page ou crop chart principal, timeframe visible |
-| Indices / macro dashboard | dashboard web | contexte macro visuel | DXY, indices, correlations | indices / panneaux macro | P2 | section capturee ciblee, texte lisible |
-| Multi-section screener page | screener web | tableaux, rankings, watchlists | liste d'assets variable | screeners | P2 | viewport long ou captures par section |
-| Legacy ShareX fallback | capture locale | image brute fallback | selon usage operateur | hors headless primaire | P3 | compat vision_inbox, pas source canonique cible |
+| Actif | Alias | Source principale | Priorité | Type de page | Vue |
+|-------|-------|-------------------|----------|--------------|-----|
+| `BTCUSDT` | BTC perp | TradingView + Coinglass | P0 | Chart + derivatives | TV chart + liquidation heatmap + funding |
+| `BTC` spot | BTC index / BTCUSD | TradingView | P0 | Chart | TV chart spot |
+| `ETHUSDT` | ETH perp | TradingView + Coinglass | P1 | Chart + derivatives | TV chart + liquidation |
+| `TOTAL / TOTAL2 / TOTAL3` | market cap crypto | TradingView | P1 | Chart | TV chart market cap |
+| `BTC.D` | dominance BTC | TradingView | P1 | Chart | TV chart dominance |
 
-## Etat etabli du repo
+## B. ETF crypto
 
-- `modules/bot_vision/headless_capture/README.md` confirme un pipeline Playwright + Chromium
-  destine a capturer des dashboards/charts trading.
-- Les profils headless portent aujourd'hui `source`, `url`, et optionnellement
-  `symbol`, `timeframe`.
-- La sortie actuelle ecrit des couples `PNG + sidecar JSON` dans `vision_inbox/`.
-- Une voie runtime Coinglass existe deja et alimente aussi
-  `data/deskpro/inputs/vision_context/coinglass/latest.json`.
+| Donnée | Source | Priorité | Type de page | Vue |
+|--------|--------|----------|--------------|-----|
+| BTC ETF flows | TradingView stocks | P1 | Stock chart | IBIT / FBTC / GBTC / BITB / ARKB |
+| ETH ETF flows | TradingView stocks | P2 | Stock chart | ETHE / ETHA / FETH |
 
-## Surfaces prioritaires candidates
+## C. Métaux / macro risk
 
-### P1 — a figer d'abord
+| Actif | Alias | Source | Priorité | Type de page | Vue |
+|-------|-------|--------|----------|--------------|-----|
+| `XAUUSDT` | Gold crypto pair | TradingView / exchange | P0 | Chart | TV chart crypto gold pair |
+| `XAUUSD` | Gold spot | TradingView | P0 | Chart | TV chart forex gold |
+| `DXY` | Dollar index | TradingView | P0 | Chart | TV chart dollar index |
+| `US10Y` | rendement 10 ans | TradingView | P1 | Chart | TV chart yield |
+| `VIX` | stress marché | TradingView | P1 | Chart | TV chart volatility |
 
-| Surface | Pourquoi |
-|---|---|
-| Coinglass headless | deja relie a `vision_context.coinglass.v1` et a un panel DeskPro |
-| chart dashboard principal | candidat naturel pour screenshots exploitables en analyse / setup |
+## D. Énergie
 
-### P2 — expansion ensuite
+| Actif | Alias | Source | Priorité | Type de page | Vue |
+|-------|-------|--------|----------|--------------|-----|
+| `BZUSDT` | Brent proxy Bitget | TradingView / exchange | P0 | Chart | TV chart crypto oil pair |
+| `BRENT` | Brent oil | TradingView | P0 | Chart | TV chart commodity |
+| `WTI` | crude oil | TradingView | P0 | Chart | TV chart commodity |
+| Gasoline / essence | RB futures / proxy | TV / exchange | P2 | Chart | TV chart |
 
-| Surface | Pourquoi |
-|---|---|
-| macro / indices dashboard | enrichit le contexte DeskPro |
-| screener multi-sections | utile pour rankings / scans mais capture plus complexe |
+## E. Coinglass / derivatives intelligence
 
-## Mapping minimal a figer par source
+| Écran | Objectif | Priorité |
+|-------|----------|----------|
+| Liquidation heatmap | Zones de liquidations actives | P0 |
+| Funding rate | Extreme funding detection | P0 |
+| Open interest | OI expansion / flush | P0 |
+| Long/Short ratio | Crowding detection | P0 |
+| Order book imbalance | Order flow pressure | P1 |
+| Top trader ratio | Smart money proxy | P1 |
+| Exchange liquidation clusters | Cluster map per exchange | P1 |
 
-Pour chaque source retenue, documenter au minimum :
+## F. Stocks screener
 
-- identifiant source
-- URL canonique
-- type de page
-- asset ou universe cible
-- timeframe si applicable
-- viewport attendu
-- zones d'interet
-- mode de capture : full-page / crop / multi-capture
-- output attendu : raw only / analyse / setup / telegram / data center
+| Screener | Objectif | Priorité |
+|----------|----------|----------|
+| Biggest caps | Apple, Microsoft, Nvidia, Amazon, Meta, Google, Tesla | P0 |
+| Trending stocks | Rotation sectorielle du jour | P1 |
+| AI stocks | NVDA, AMD, PLTR, SMCI, AVGO, TSM, ARM | P1 |
+| Defense stocks | LMT, RTX, NOC, GD, HII, KTOS | P1 |
+| Space stocks | RKLB, LUNR, ASTS, PL, SPCE, IRDM | P2 |
+| Crypto stocks | COIN, MSTR, MARA, RIOT, CLSK | P1 |
+| Oil / energy stocks | XOM, CVX, OXY, SLB | P1 |
 
-## Sections a remplir
+## G. Macro dashboard
 
-- URL / adresse source
-- type de page
-- type de contenu
-- assets couverts
-- charts / indices / screeners
-- priorite
-- besoins de capture
+| Vue | Objectif | Priorité |
+|-----|----------|----------|
+| Multi-chart 2x2 ou 3x2 | BTC / Gold / DXY / Oil corrélation | P0 |
+| Economic calendar | Events à fort impact | P1 |
+| Earnings calendar | Earnings reports | P2 |
 
-## TODO
+## H. Format d'entrée requis par source
 
-- `INPUT_SURFACES_INVENTORY`
-- figer le mapping URL -> viewport -> zones d'interet
-- relier chaque source a un contrat de sortie DeskPro ou Data Center explicite
+| Source | URL pattern | Auth needed | Viewport recommandé |
+|--------|-------------|-------------|---------------------|
+| TradingView chart | `https://www.tradingview.com/chart/?symbol=...` | Non (read-only) | 1920x1080 |
+| Coinglass | `https://www.coinglass.com/...` | Non (read-only) | 1920x1080 |
+| Screener TV | `https://www.tradingview.com/screener/...` | Non (read-only) | 1920x1080 |
+
+## I. Priorisation générale
+
+| Priorité | Critère | Délai |
+|----------|---------|-------|
+| P0 | Core trading (BTC, Gold, Oil, DXY) — impact direct sur décision | Immédiat |
+| P1 | Support de décision (ETF, Coinglass, screener) | Court terme |
+| P2 | Enrichissement (Space stocks, Gasoline, Earnings) | Moyen terme |

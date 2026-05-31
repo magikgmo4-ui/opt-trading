@@ -23,6 +23,48 @@ const POST_LOAD_WAIT_MS = 3000;
 const WAIT_UNTIL = 'networkidle';
 const SCREENSHOT_MODE = 'viewport';
 const MIN_FILE_SIZE = 1024; // 1 KB minimum
+const MARKET_HOURS_ENABLED = process.env.BOT_VISION_MARKET_HOURS !== '0'; // enabled by default
+
+// Screen type defaults
+const DEFAULT_SCREEN_TYPE = 'CHART_TECHNICAL';
+const DEFAULT_LAYOUT = 'single';
+
+// Market hours rules: [day_of_week_bitmask (1=Mon..64=Sun), start_hour, end_hour, timezone]
+// Bitmask: Mon=1, Tue=2, Wed=4, Thu=8, Fri=16, Sat=32, Sun=64
+const MARKET_HOURS_RULES = {
+  '24h':           { weekdays: 127, start: 0, end: 24, tz: 'UTC' },
+  'us_market':     { weekdays: 31,  start: 9.5, end: 16, tz: 'America/New_York' },
+  'forex':         { weekdays: 127, start: 0, end: 23, tz: 'UTC' },
+};
+
+// Asset → market hours mapping (by symbol prefix match)
+const MARKET_HOURS_MAP = [
+  // Crypto → 24/7
+  { match: /USDT\.?P?$/i, rule: '24h' },
+  { match: /^BZUSDT$/i, rule: '24h' },
+  { match: /^CRYPTOCAP:/i, rule: '24h' },
+  { match: /^COINGLASS$/i, rule: '24h' },
+  // US equities/ETF
+  { match: /^NASDAQ:/i, rule: 'us_market' },
+  { match: /^NYSE:/i, rule: 'us_market' },
+  { match: /^OTC:/i, rule: 'us_market' },
+  { match: /^SPY$/i, rule: 'us_market' },
+  // US macro indices
+  { match: /^TVC:/i, rule: 'us_market' },
+  // US commodities
+  { match: /^NYMEX:/i, rule: 'us_market' },
+  // FX
+  { match: /^FX:/i, rule: 'forex' },
+  { match: /^OANDA:/i, rule: 'forex' },
+];
+
+// Valid screen types (from docs/chantiers capture mapping 02_SCREEN_TYPES.md)
+const VALID_SCREEN_TYPES = new Set([
+  'CHART_TECHNICAL', 'DASHBOARD_MACRO',
+  'LIQUIDITY_COINGLASS', 'FUNDING_COINGLASS',
+  'OI_COINGLASS', 'LS_RATIO_COINGLASS',
+  'ETF_CRYPTO', 'SCREENER_STOCKS', 'NEWS_SENTIMENT'
+]);
 
 // Status constants
 const STATUS_READY = 'ready';
@@ -47,6 +89,36 @@ const VISUAL_LOADING_STATE_DETECTED = 'loading_state_detected';
 const DEFAULT_LOADING_SELECTORS = ['loading', 'spinner', 'please wait', 'loader', 'progress'];
 const BLANK_PNG_SIZE_THRESHOLD = 15360; // 15 KB heuristic for uniform/blank image
 const VISUAL_CHECK_ENABLED = true;
+
+// ── Market hours check ──────────────────────────────────
+function isInMarketHours(symbol) {
+  if (!MARKET_HOURS_ENABLED) return true;
+
+  const rule = MARKET_HOURS_MAP.find(r => r.match.test(symbol));
+  if (!rule) return true; // unknown → allow
+
+  const hours = MARKET_HOURS_RULES[rule.rule];
+  if (!hours) return true;
+
+  const now = new Date();
+  const options = { timeZone: hours.tz, hour: 'numeric', minute: 'numeric', weekday: 'long' };
+  const formatter = new Intl.DateTimeFormat('en-US', options);
+  const parts = formatter.formatToParts(now);
+  let hourVal = 0, minVal = 0, weekdayName = '';
+
+  for (const p of parts) {
+    if (p.type === 'hour') hourVal = parseInt(p.value, 10);
+    if (p.type === 'minute') minVal = parseInt(p.value, 10);
+    if (p.type === 'weekday') weekdayName = p.value.toLowerCase();
+  }
+
+  const currentMin = hourVal + minVal / 60;
+  const dayBit = { sunday: 64, monday: 1, tuesday: 2, wednesday: 4, thursday: 8, friday: 16, saturday: 32 }[weekdayName] || 0;
+
+  if (!(hours.weekdays & dayBit)) return false; // wrong day
+  if (currentMin < hours.start || currentMin >= hours.end) return false; // outside window
+  return true;
+}
 
 const VALID_WAIT_UNTIL = new Set(['networkidle', 'domcontentloaded', 'load']);
 const VALID_SCREENSHOT_MODE = new Set(['viewport']);
@@ -200,11 +272,20 @@ async function classifyVisual(pngPath, page, loadingSelectors) {
 }
 
 // ── Blocked sidecar writer ──────────────────────────────
+function screenType(profile) {
+  const st = profile.screen_type || DEFAULT_SCREEN_TYPE;
+  return VALID_SCREEN_TYPES.has(st) ? st : DEFAULT_SCREEN_TYPE;
+}
+
 function writeBlockedSidecar(baseJson, profile, options, blockedReason, errorMessage) {
   const { source, symbol, timeframe, url, page_id } = profile;
   const sidecar = {
     producer: 'bot_vision_headless',
     capture_mode: 'playwright_chromium',
+    screen_type: screenType(profile),
+    layout: profile.layout || DEFAULT_LAYOUT,
+    dashboard_id: profile.dashboard_id || null,
+    dashboard_slot: profile.dashboard_slot || null,
     page_id: page_id || null,
     source,
     symbol: symbol || 'dashboard',
@@ -269,6 +350,27 @@ async function captureOne(profile) {
     page = await context.newPage();
     page.setDefaultTimeout(options.timeoutMs);
 
+    // ── Market hours check ──────────────────────────
+    if (!isInMarketHours(symbol || 'CRYPTOCAP:TOTAL')) {
+      console.log(`SKIP: ${source} ${symbol || ''} — outside market hours`);
+      const sidecar = {
+        producer: 'bot_vision_headless',
+        capture_mode: 'playwright_chromium',
+        screen_type: screenType(profile),
+        layout: profile.layout || DEFAULT_LAYOUT,
+        source,
+        symbol: symbol || 'dashboard',
+        timeframe: timeframe || 'H1',
+        url,
+        status: 'blocked',
+        blocked_reason: 'OUTSIDE_MARKET_HOURS',
+        created_at_utc: new Date().toISOString(),
+      };
+      atomicWrite(OUT_DIR, baseJson, sidecar, true);
+      console.log(`BLOCKED: ${source} ${symbol || ''} | outside market hours`);
+      return;
+    }
+
     // ── Page navigation ──────────────────────────────
     let gotoError = null;
     try {
@@ -319,6 +421,10 @@ async function captureOne(profile) {
       const sidecar = {
         producer: 'bot_vision_headless',
         capture_mode: 'playwright_chromium',
+        screen_type: screenType(profile),
+        layout: profile.layout || DEFAULT_LAYOUT,
+        dashboard_id: profile.dashboard_id || null,
+        dashboard_slot: profile.dashboard_slot || null,
         page_id: pageId || null,
         source,
         symbol: symbol || 'dashboard',
@@ -360,11 +466,16 @@ async function captureOne(profile) {
     const sidecar = {
       producer: 'bot_vision_headless',
       capture_mode: 'playwright_chromium',
+      screen_type: screenType(profile),
+      layout: profile.layout || DEFAULT_LAYOUT,
+      dashboard_id: profile.dashboard_id || null,
+      dashboard_slot: profile.dashboard_slot || null,
       page_id: pageId || null,
       source,
       symbol: symbol || 'dashboard',
       timeframe: timeframe || 'H1',
       url,
+      indicators: profile.indicators || null,
       status: captureStatus,
       visual_status: visualStatus,
       wait_until: options.waitUntil,

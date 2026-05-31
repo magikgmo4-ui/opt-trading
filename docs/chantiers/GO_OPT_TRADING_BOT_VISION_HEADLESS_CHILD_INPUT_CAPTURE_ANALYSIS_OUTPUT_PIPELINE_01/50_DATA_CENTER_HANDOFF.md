@@ -1,217 +1,156 @@
-# 50_DATA_CENTER_HANDOFF
+---
+doc_id: GO_OPT_TRADING_BOT_VISION_HEADLESS_CHILD_INPUT_CAPTURE_ANALYSIS_OUTPUT_PIPELINE_01_DATA_CENTER
+doc_type: data_center_handoff
+repo: opt-trading
+go_id: GO_OPT_TRADING_BOT_VISION_HEADLESS_CHILD_INPUT_CAPTURE_ANALYSIS_OUTPUT_PIPELINE_01
+---
 
-## Objectif
+# 50_DATA_CENTER_HANDOFF.md
 
-Documenter le schema `max data out` du pipeline vision vers Data Center.
+Schéma "max data out" vers Data Center.
 
-## Categories proposees
+## 1_PRINCIPES
 
-- `raw_capture`
-- `visual_context`
-- `vision_analysis`
-- `extracted_signal`
-- `generated_summary`
-- `distribution_payload`
+- Data Center reçoit le maximum de données structurées
+- Pas de filtage côté émission (c'est au consommateur de filtrer)
+- Distinguer 4 catégories : raw_capture / extracted_signal / generated_summary / distribution_payload
+- Chaque payload est autonome (capture_id + timestamp + source)
 
-## Alignement avec les conventions Data Center du repo
+## 2_CATEGORIES_DE_PAYLOAD
 
-Le handoff vision doit reutiliser autant que possible les conventions deja
-visibles dans `market_metrics.v1` et dans les contrats producer Data Center :
+| Catégorie | Contenu | Volumétrie |
+|-----------|---------|------------|
+| `raw_capture` | Métadonnées de capture (sans image), statut analyse | 1 par capture |
+| `extracted_signal` | Signaux extraits par analyseur | 1 par analyse |
+| `generated_summary` | Résumé texte + setup + niveaux | 1 par analyse significative |
+| `distribution_payload` | Payload complet pour DeskPro/Telegram | 1 par payload distribué |
 
-- top-level `schema`
-- top-level `input_class`
-- `contract_version`
-- `module_id`
-- `produced_at`
-- `refs`
-- payload JSON stable, lisible par des consumers filesystem et DeskPro
-
-Le producer contract existant documente aussi un layout `data/data_center/<producer>/`
-avec `raw/`, `normalized/`, `latest.json`, `manifest.json`, `status.json`.
-
-## Positionnement recommande
-
-### 1. Payload Data Center canonique
-
-Le pipeline bot vision devrait produire un payload principal de type :
-
-- `schema = vision_pipeline_payload.v1`
-- `input_class = vision_pipeline_payload.v1`
-
-Ce payload principal peut ensuite alimenter :
-
-- une vue Data Center neutre
-- une extraction `visual_context` pour DeskPro dry-run
-- une extraction `vision_analysis.v1` pour DeskPro
-- une extraction `vision_context.<source>.v1` specialisee quand une source a deja
-  un consumer dedie, comme `vision_context.coinglass.v1`
-
-### 2. Derives compatibles DeskPro
-
-Pour garder la compatibilite avec les consumers existants, le handoff doit
-pouvoir produire ou deriver :
-
-- `visual_context` avec les champs requis par `load_latest_visual_context()`
-- `vision_analysis.v1` avec le resume exploitable
-- `vision_context.coinglass.v1` pour le panel vision Coinglass quand applicable
-
-## Schéma max data out recommandé
-
-### Top-level
-
-| Champ | Description |
-|---|---|
-| `schema` | contrat Data Center canonique, propose: `vision_pipeline_payload.v1` |
-| `input_class` | meme valeur que `schema` pour lecture consumer simple |
-| `contract_version` | version du contrat (`v1`) |
-| `module_id` | producteur logique, ex. `bot_vision_headless` |
-| `producer_id` | producteur runtime ou source specialisee |
-| `produced_at` | timestamp ISO UTC du handoff |
-| `capture_timestamp` | timestamp ISO UTC de la capture source |
-| `source_url` | origine de la capture |
-| `source_id` | identifiant source canonique |
-| `asset_scope` | assets / indices / screener concernes |
-| `refs` | refs vers images, runs, manifests, files |
-| `freshness_state` | fresh / stale / unknown |
-| `confidence` | confiance globale du payload |
-
-### Bloc `raw_capture`
-
-| Champ | Description |
-|---|---|
-| `capture_id` | identifiant unique de capture |
-| `image_ref` | chemin ou URI image raw |
-| `annotated_image_ref` | image annotee si generee |
-| `viewport` | viewport applique |
-| `capture_mode` | full-page / crop / multi-capture |
-| `sections` | zones capturees |
-| `file_size_bytes` | garde-fou anti 0-byte |
-| `sha256` | hash optionnel d'integrite |
-
-### Bloc `visual_context`
-
-Ce bloc doit rester compatible avec DeskPro dry-run.
-
-| Champ | Description |
-|---|---|
-| `source` | source logique de la capture |
-| `capture_id` | ref de jointure |
-| `symbol` | symbole principal |
-| `timeframe` | timeframe visible ou deduite |
-| `captured_at` | timestamp de capture |
-| `image_ref` | image de reference |
-| `status` | ok / partial / failed |
-
-### Bloc `vision_analysis`
-
-| Champ | Description |
-|---|---|
-| `input_class` | `vision_analysis.v1` si payload derive |
-| `analysis_type` | OCR / setup / heatmap / mixed |
-| `summary` | resume texte court |
-| `setup_bias` | bull / bear / neutral / mixed |
-| `key_levels` | niveaux extraits |
-| `detections` | detections structurees |
-| `warnings` | alertes de confiance / ambiguite |
-| `confidence` | confiance analyse |
-
-### Bloc `generated_outputs`
-
-| Champ | Description |
-|---|---|
-| `raw_image_available` | image raw presente |
-| `annotated_image_available` | image annotee presente |
-| `textual_analysis` | analyse textuelle longue ou courte |
-| `setup_summary` | resume setup court |
-| `telegram_payload` | payload de distribution potentiel |
-| `deskpro_payload` | projection resumee pour DeskPro |
-
-### Bloc `distribution_payload`
-
-| Champ | Description |
-|---|---|
-| `telegram` | message ou structure outbound Telegram |
-| `deskpro` | bloc d'affichage ou de jointure DeskPro |
-| `data_center_views` | vues ciblees a publier |
-
-## Exemple de shape propose
+## 3_SCHEMA_MAX_DATA_OUT
 
 ```json
 {
-  "schema": "vision_pipeline_payload.v1",
-  "input_class": "vision_pipeline_payload.v1",
-  "contract_version": "v1",
-  "module_id": "bot_vision_headless",
-  "producer_id": "coinglass_headless_bot",
-  "produced_at": "2026-05-29T12:00:00Z",
-  "capture_timestamp": "2026-05-29T11:59:30Z",
-  "source_id": "coinglass_heatmap",
-  "source_url": "https://...",
-  "asset_scope": ["BTC", "ETH"],
-  "freshness_state": "fresh",
-  "confidence": 0.84,
-  "refs": {
-    "image_ref": "data/vision/...png",
-    "annotated_image_ref": "data/vision/...annotated.png",
-    "manifest_ref": "data/data_center/.../manifest.json"
+  "payload_id": "uuid",
+  "payload_type": "raw_capture|extracted_signal|generated_summary|distribution_payload",
+  "pipeline_version": "v1",
+  "go_id": "GO_OPT_TRADING_BOT_VISION_HEADLESS_CHILD_INPUT_CAPTURE_ANALYSIS_OUTPUT_PIPELINE_01",
+
+  "capture": {
+    "capture_id": "uuid",
+    "timestamp_utc": "2026-05-29T00:00:00Z",
+    "source": "tradingview",
+    "screen_type": "CHART_TECHNICAL_SCREEN",
+    "asset": "BTCUSDT",
+    "asset_class": "crypto",
+    "timeframe": "15m",
+    "url_key": "tradingview_btcusdt_15m",
+    "indicators_visible": ["EMA20", "EMA50", "EMA200", "VWAP", "RSI", "MACD", "Volume"],
+    "viewport": "1920x1080",
+    "full_page": true,
+    "image_path": "data/screenshots/{capture_id}.png",
+    "image_size_bytes": null,
+    "image_hash": "sha256:...",
+    "trigger_type": "scheduled|price|volume|liquidity|macro|screener",
+    "trigger_value": null
   },
-  "raw_capture": {
-    "capture_id": "cap_...",
-    "viewport": {"width": 1440, "height": 2200},
-    "capture_mode": "multi-capture",
-    "sections": ["heatmap", "liquidations", "oi"]
+
+  "analysis": {
+    "analysis_id": "uuid",
+    "analysis_timestamp_utc": "2026-05-29T00:00:10Z",
+    "analysis_version": "v1",
+    "analysis_method": "llm_vision|ocr|heuristic|hybrid",
+    "status": "done|pending|failed",
+    "error": null,
+    "summary": "BTC teste une résistance avec volume en hausse.",
+    "signals": [
+      {
+        "type": "breakout_attempt",
+        "direction": "bullish",
+        "confidence": 0.68,
+        "evidence": ["price above VWAP", "volume increasing", "RSI rising"]
+      }
+    ],
+    "levels": {
+      "support": [104000, 102800],
+      "resistance": [106500, 108000]
+    },
+    "trend": {
+      "direction": "bullish",
+      "structure": "HH/HL",
+      "strength": "moderate"
+    },
+    "momentum": {
+      "rsi": 62,
+      "macd": "bullish_cross",
+      "state": "rising"
+    },
+    "volatility": {
+      "state": "normal",
+      "atr_percent": 0.8
+    },
+    "risk_flags": ["funding elevated", "liquidity above current price"],
+    "context": {
+      "dxy_trend": "bearish",
+      "gold_trend": "bullish",
+      "oil_trend": "neutral"
+    },
+    "next_watch": "confirmation above resistance or rejection back below VWAP"
   },
-  "visual_context": {
-    "source": "coinglass_headless_bot",
-    "capture_id": "cap_...",
-    "symbol": "BTC",
-    "timeframe": "H1",
-    "captured_at": "2026-05-29T11:59:30Z",
-    "image_ref": "data/vision/...png",
-    "status": "ok"
+
+  "setup": null,
+
+  "distribution": {
+    "telegram": {
+      "sent": true,
+      "message_preview": "BTCUSDT (15m) — Breakout attempt...",
+      "sent_at_utc": "2026-05-29T00:00:15Z"
+    },
+    "deskpro": {
+      "ready": true,
+      "ingested_at_utc": null,
+      "view_url": null
+    }
   },
-  "vision_analysis": {
-    "input_class": "vision_analysis.v1",
-    "analysis_type": "heatmap+ocr",
-    "summary": "Liquidation cluster above price, OI rising.",
-    "setup_bias": "bull",
-    "key_levels": [108500, 109200],
-    "detections": []
+
+  "image_refs": {
+    "raw": "data/screenshots/{capture_id}.png",
+    "annotated": null,
+    "thumbnail": null
   },
-  "generated_outputs": {
-    "textual_analysis": "...",
-    "setup_summary": "...",
-    "telegram_payload": {"enabled": false},
-    "deskpro_payload": {"panel": "vision"}
-  }
+
+  "tags": ["BTC", "breakout", "volume", "funding_watch"],
+  "pipeline_duration_ms": 15000
 }
 ```
 
-## Règles de dérivation recommandées
+## 4_ENDPOINTS_DATA_CENTER
 
-1. Le payload principal doit etre preservable tel quel dans Data Center.
-2. `visual_context` doit pouvoir etre extrait sans appel externe.
-3. `vision_analysis.v1` doit pouvoir etre publie comme payload derive si DeskPro
-   ou d'autres consumers le lisent directement.
-4. Une source specialisee peut publier un payload secondaire, ex.
-   `vision_context.coinglass.v1`, si un consumer existant l'exige deja.
-5. Les refs images et manifests doivent toujours rester resolvables localement.
+| Endpoint | Payload | Méthode |
+|----------|---------|---------|
+| `POST /dc/ingest/vision/raw` | `raw_capture` | Envoi immédiat après capture |
+| `POST /dc/ingest/vision/analysis` | `extracted_signal` | Envoi immédiat après analyse |
+| `POST /dc/ingest/vision/summary` | `generated_summary` | Envoi si analyse significative |
+| `POST /dc/ingest/vision/distribution` | `distribution_payload` | Envoi après distribution Telegram |
 
-## Contrat minimal
+## 5_RETRY_POLICY
 
-| Champ | Description |
-|---|---|
-| source_url | origine de la capture |
-| capture_timestamp | horodatage |
-| asset_scope | assets / indices / screener concernes |
-| capture_ref | reference de l'image source |
-| extracted_data | champs structures extraits |
-| generated_outputs | sorties derivees |
-| confidence | niveau de confiance |
-| schema_version | version du payload |
+- Retry : max 3 tentatives, intervalle 5s
+- Timeout : 10s par requête
+- Fallback : écriture locale dans `data/dc_fallback/` si Data Center indisponible
+- Replay : script de rejeu depuis `data/dc_fallback/`
 
-## TODO
+## 6_VOLUMETRIE_ESTIMEE
 
-- `DATA_CENTER_MAX_DATA_OUT_SCHEMA`
-- choisir si `vision_pipeline_payload.v1` devient schema canonique ou simple schema de travail
-- decider quelles vues Data Center exposeront le payload principal vs les payloads derives
+| Échelon | Captures/jour | Payloads/jour | Stockage images/jour |
+|---------|---------------|---------------|---------------------|
+| Minimum (scheduled only) | ~50 | ~200 | ~200 MB |
+| Moyen (scheduled + triggers) | ~200 | ~800 | ~800 MB |
+| Maximum (tous triggers) | ~500 | ~2000 | ~2 GB |
+
+## 7_RETENTION_DATA_CENTER
+
+| Type | Rétention | Archive |
+|------|-----------|---------|
+| Images raw | 7 jours | Optionnel S3/GCS |
+| Analyses JSON | 30 jours | 90 jours |
+| Setups | 90 jours | 1 an |
+| Distribution logs | 30 jours | 90 jours |

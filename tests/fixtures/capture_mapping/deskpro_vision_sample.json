@@ -1,0 +1,13 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260530_120000_BTCUSDT.P_1h",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-05-30T12:05:00Z",
+  "source_module": "bot_vision_step2",
+  "freshness_state": "fresh",
+  "signals": [
+    { "type": "support_level", "value": 65000.0, "confidence": 0.85, "note": "support confirmé" },
+    { "type": "trend_direction", "value": "bullish", "confidence": 0.75, "note": "structure haussière" }
+  ]
+}

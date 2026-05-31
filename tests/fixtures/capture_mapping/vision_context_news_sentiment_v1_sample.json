@@ -1,0 +1,24 @@
+{
+  "input_class": "vision_context.news_sentiment.v1",
+  "source_id": "news_sentiment_headless_bot",
+  "analysis_ts": "2026-05-30T14:00:00Z",
+  "freshness_state": "fresh",
+  "sources_fetched": ["coindesk", "cointelegraph", "theblock"],
+  "article_count": 3,
+  "articles": [
+    {"source": "coindesk", "headline": "Bitcoin Holds Above $65K", "sentiment": "positive", "score": 0.65, "topics": ["bitcoin"], "published_at": "2026-05-30T13:45:00Z", "fetch_method": "stub", "confidence": 0.85},
+    {"source": "cointelegraph", "headline": "Fed Rate Decision Looms", "sentiment": "negative", "score": -0.35, "topics": ["fed", "rates"], "published_at": "2026-05-30T13:30:00Z", "fetch_method": "stub", "confidence": 0.78},
+    {"source": "theblock", "headline": "BTC Options OI Hits Record", "sentiment": "positive", "score": 0.75, "topics": ["bitcoin", "options"], "published_at": "2026-05-30T13:15:00Z", "fetch_method": "stub", "confidence": 0.82}
+  ],
+  "aggregate": {
+    "average_sentiment_score": 0.35,
+    "sentiment_label": "positive",
+    "positive_count": 2,
+    "neutral_count": 0,
+    "negative_count": 1,
+    "dominant_topics": ["bitcoin", "fed", "rates", "options"]
+  },
+  "refs": {
+    "sources": ["coindesk", "cointelegraph", "theblock"]
+  }
+}

@@ -1,132 +1,149 @@
-# 20_CAPTURE_CONTRACT
+---
+doc_id: GO_OPT_TRADING_BOT_VISION_HEADLESS_CHILD_INPUT_CAPTURE_ANALYSIS_OUTPUT_PIPELINE_01_CAPTURE_CONTRACT
+doc_type: capture_contract
+repo: opt-trading
+go_id: GO_OPT_TRADING_BOT_VISION_HEADLESS_CHILD_INPUT_CAPTURE_ANALYSIS_OUTPUT_PIPELINE_01
+---
 
-## Objectif
+# 20_CAPTURE_CONTRACT.md
 
-Definir le contrat de capture pour rendre les screenshots reproductibles et
-utilisables par la couche d'analyse.
+Spécification de capture : viewport, fréquence, sections, full-page vs crop, multi-capture.
 
-## Points a valider
+## 1_TYPES_DE_CAPTURE
 
-- viewport
-- frequence
-- sections
-- full-page vs crop
-- multi-capture
-- reproductibilite
-- fichiers 0-byte / `.uploading` interdits
+| Type | Description | Viewport | Sections | Mode |
+|------|-------------|----------|----------|------|
+| `CHART_TECHNICAL_SCREEN` | Chart TradingView plein écran + indicateurs | 1920x1080 | Full page ou crop chart area | Full-page |
+| `LIQUIDITY_DERIVATIVES_SCREEN` | Coinglass liquidation / funding / OI | 1920x1080 | Section heatmap + funding + OI + L/S | Multi-section |
+| `MACRO_CROSS_ASSET_SCREEN` | Multi-chart BTC / Gold / DXY / Oil | 1920x1080 | Grille 2x2 | Full-page |
+| `ETF_CRYPTO_SCREEN` | ETF BTC spot vs futures | 1920x1080 | Par ETF individuel | Single chart |
+| `STOCK_SCREENER_SCREEN` | Screener actions | 1920x1080 | Tableau complet | Full-page |
+| `NEWS_SENTIMENT_SCREEN` | News / calendar | 1920x1080 | Section news | Section |
+| `COINGLASS_LIQUIDATION` | Liquidation heatmap | 1920x1080 | Full heatmap | Full-page |
+| `COINGLASS_FUNDING` | Funding rate | 1920x1080 | Section funding | Section |
+| `COINGLASS_OI` | Open interest | 1920x1080 | Section OI | Section |
+| `COINGLASS_LS_RATIO` | Long/Short ratio | 1920x1080 | Section L/S | Section |
 
-## Contrat de capture actuel observe dans le repo
+## 2_FORMAT_DE_CAPTURE
 
-Le runtime `capture_headless.js` impose deja :
+Chaque screenshot produit un fichier avec métadonnées embarquées :
 
-- viewport par defaut `1920x1080`
-- `screenshot_mode = viewport`
-- status de capture : `ready`, `blocked`, `invalid_visual`
-- visual status : `pass`, `possible_spinner`, `blank_or_uniform`,
-  `too_small`, `loading_state_detected`, `unchecked`
-- garde-fou taille mini : `MIN_FILE_SIZE = 1024`
-- write atomique `.uploading -> final`
-- sidecar JSON avec :
-  - `producer`
-  - `capture_mode`
-  - `page_id`
-  - `source`
-  - `symbol`
-  - `timeframe`
-  - `url`
-  - `status`
-  - `visual_status`
-  - `wait_until`
-  - `timeout_ms`
-  - `post_load_wait_ms`
-  - `screenshot_mode`
-  - `viewport`
-  - `created_at_utc`
-  - `output_png`
-  - `output_json`
+```
+data/screenshots/{capture_id}.png
+```
 
-## Sources P1 a cadrer en priorite
+Format minimal des métadonnées :
 
-### TradingView charts
+```json
+{
+  "capture_id": "uuid",
+  "timestamp_utc": "2026-05-29T00:00:00Z",
+  "source": "tradingview|coinglass|screener|calendar",
+  "screen_type": "CHART_TECHNICAL_SCREEN",
+  "asset": "BTCUSDT",
+  "asset_class": "crypto",
+  "timeframe": "15m",
+  "url_key": "tradingview_btcusdt_15m",
+  "indicators_visible": ["EMA20", "EMA50", "EMA200", "VWAP", "RSI", "MACD", "Volume"],
+  "image_path": "data/screenshots/{capture_id}.png",
+  "analysis_status": "pending|done|failed",
+  "telegram_status": "none|sent|skipped",
+  "deskpro_status": "pending|ingested"
+}
+```
 
-Sources deja observees dans les profils :
+## 3_VIEWPORT_ET_CROP
 
-- `BTCUSDT.P` / H1
-- `BINANCE:BTCUSDT` / H1
-- `BINANCE:BTCUSDTPERP` / H1
-- `BYBIT:BTCUSDT.P` / H1
-- `OANDA:XAUUSD` / H1
+| Stratégie | Quand | Exemple |
+|-----------|-------|---------|
+| Full-page | Chart plein écran, screener, heatmap | CHART_TECHNICAL_SCREEN |
+| Crop zone | Section spécifique d'une page | Funding rate panel uniquement |
+| Multi-capture | Plusieurs sections d'une même page | Heatmap + Funding + OI + L/S en 4 screenshots |
 
-Parametres deja utilises :
+## 4_FREQUENCE_DE_CAPTURE
 
-- `page_id`
-- `source = tradingview`
-- `wait_until = domcontentloaded` ou `load`
-- `post_load_wait_ms = 5000` a `15000`
-- `timeout_ms = 45000` a `60000`
-- `screenshot_mode = viewport`
-- `visual_check_enabled = true`
+### Plan fixe (time-based)
 
-Contrat recommande P1 TradingView :
+| Fenêtre | Captures | Justification |
+|---------|----------|---------------|
+| 04:00–05:00 ET | DXY, gold, oil, BTC | Pré-market Europe / commodities |
+| 08:00–09:30 ET | Stocks, ETF, BTC, DXY | Pré-market US |
+| 09:30 ET | BTC, ETF, stocks, DXY, gold | Open US |
+| 10:00–11:00 ET | Charts + liquidity | Confirmation open |
+| 14:00 ET | DXY, yields, gold, BTC | Fenêtre Fed / macro |
+| 16:00 ET | ETF, stocks, BTC | Close US |
+| 20:00 ET | BTC, gold, oil | Futures / Asia prep |
+| Funding windows | Coinglass / exchange | Perp pressure |
 
-| Champ | Regle recommandee |
-|---|---|
-| `page_id` | obligatoire, stable par strategie de capture |
-| `source` | `tradingview` |
-| `symbol` | obligatoire |
-| `timeframe` | obligatoire |
-| `url` | obligatoire, version canonique de la page |
-| `wait_until` | `domcontentloaded` par defaut, `load` si page lourde |
-| `post_load_wait_ms` | >= 10000 si overlays/scripts tardifs |
-| `timeout_ms` | 45000-60000 |
-| `visual_check_enabled` | `true` |
+### Triggers événementiels
 
-### Coinglass pages
+Déclencher capture si :
 
-Sources deja observees dans les profils :
+**Prix / volatilité :**
+- price_change_5m >= seuil
+- price_change_15m >= seuil
+- ATR_spike = true
+- volume_relative > 2.0
+- breakout previous high / low
+- cross EMA 20/50/200
+- supertrend flip
+- RSI > 70 ou < 30
+- MACD cross
+- VWAP reclaim / rejection
 
-- `LiquidationData?coin=BTC`
-- `FundingRate/BITCOIN`
+**Liquidité :**
+- open_interest_change élevé
+- funding_rate extrême
+- liquidation_cluster proche du prix
+- long_short_ratio déséquilibré
+- orderbook imbalance visible
+- large liquidation event
 
-Contrat recommande P1 Coinglass :
+**Macro :**
+- DXY breakout / breakdown
+- US10Y spike
+- Gold breakout
+- Oil breakout
+- VIX spike
+- BTC diverge fortement du DXY ou gold
 
-| Champ | Regle recommandee |
-|---|---|
-| `page_id` | obligatoire |
-| `source` | `coinglass` |
-| `symbol` | obligatoire |
-| `timeframe` | valeur logique de board (`FLOW` observe) |
-| `url` | URL canonique board/page |
-| `wait_until` | `domcontentloaded` |
-| `post_load_wait_ms` | >= 15000 pour stabiliser widgets |
-| `timeout_ms` | 60000 |
-| `visual_check_enabled` | `true` |
+**Screener :**
+- stock relative volume > 2
+- stock move > 3% intraday
+- mega cap move > 1.5%
+- sector cluster actif
+- AI / defense / space trend détectée
+- crypto stocks bougent avec BTC
 
-## Matrice de validation capture P1
+## 5_TIME-FRAMES_CHART
 
-| Source | Validation minimale | Echec bloquant |
-|---|---|---|
-| TradingView chart | screenshot lisible, timeframe visible, chart principal present | blank, spinner, chart absent, image trop petite |
-| Coinglass board | captures widgets attendus, texte exploitable, board coherente | page chargee partiellement, anti-bot, widgets manquants |
+| Timeframe | Usage | Priorité |
+|-----------|-------|----------|
+| 1m | Scalping / entrées fines | P1 |
+| 5m | Intraday court | P1 |
+| 15m | Intraday standard | P0 |
+| 1h | Intraday moyen | P0 |
+| 4h | Swing | P0 |
+| 1D | Trend principal | P0 |
 
-## Decision full-page vs crop
+## 6_INDICATEURS_MINIMUM
 
-- etat actuel observe : `viewport` uniquement
-- recommandation P1 : conserver `viewport` comme base canonique tant qu'aucun
-  mapping par zones n'est fige
-- extension P2 : autoriser `crop` ou `multi-capture` par source quand une page
-  contient plusieurs sections utiles non lisibles dans un viewport unique
+| Indicateur | Rôle |
+|------------|------|
+| EMA 20 / 50 / 200 | Trend structure |
+| VWAP | Fair value intraday |
+| Volume | Confirmation |
+| RSI | Momentum / extrêmes |
+| MACD | Cross / divergence |
+| Supertrend | Trend following stop |
+| ATR | Volatilité |
+| Bollinger Bands / Keltner | Volatility envelope |
+| Volume Profile / VPVR | High-activity zones |
 
-## Frequence recommandee
+## 7_REPRODUCTIBILITE
 
-- baseline existante : timer 10 min sur le runtime historique
-- P1 : conserver une frequence moderee compatible avec screenshots stables
-- a documenter par source si certaines pages ont une cinetique plus lente ou plus rapide
-
-## Preuves attendues
-
-- captures identiques sur runs comparables
-- zones d'interet conformes au mapping source
-- sortie exploitable par OCR / vision sans retraitement manuel
-- sidecar JSON coherent avec les metadonnees de capture
-- aucun fichier 0-byte, aucun `.uploading` stale residuel
+- Même URL → même rendu (cache, time, thème fixe)
+- Même viewport → mêmes proportions
+- Même intervalle → mêmes données visibles
+- Même thème TradingView (dark) → pas de variations cosmétiques
+- Timeout capture : 30s max avant retry (max 3 retries)

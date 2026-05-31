@@ -1,0 +1,12 @@
+[Unit]
+Description=Run Bot Vision Orchestrator every 10 minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=10min
+RandomizedDelaySec=30s
+Persistent=false
+Unit=bot-vision-orchestrator.service
+
+[Install]
+WantedBy=timers.target

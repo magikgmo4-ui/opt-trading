@@ -1,78 +1,53 @@
----
-doc_id: GO_OPT_TRADING_BOT_VISION_HEADLESS_CHILD_CAPTURE_MAPPING_MAX_OUTPUT_01_CADRAGE_CHILD
-doc_type: initial_project_doc
-repo: opt-trading
-go_id: GO_OPT_TRADING_BOT_VISION_HEADLESS_CHILD_CAPTURE_MAPPING_MAX_OUTPUT_01
-go_structural_role: GO_CHILD_ATTACHED_TO_PARENT
-parent_go_id: GO_OPT_TRADING_COLLECTORS_BOT_VISION_PARENT_01
-pf_id: PF_BOT_VISION_HEADLESS
-status: open
-lifecycle_stage: planning
-surface: modules/bot_vision
-source_kind: canonical
-created_at: 2026-05-29
-updated_at: 2026-05-29
-links:
-  - docs/chantiers/GO_OPT_TRADING_COLLECTORS_BOT_VISION_PARENT_01/00_INITIAL_PROJECT_DOC.md
-  - docs/chantiers/GO_OPT_TRADING_BOT_VISION_HEADLESS_CHILD_INPUT_CAPTURE_ANALYSIS_OUTPUT_PIPELINE_01/00_SCOPE_AND_OBJECTIVE.md
----
+# 00 — Cadrage Child GO
 
-# GO_OPT_TRADING_BOT_VISION_HEADLESS_CHILD_CAPTURE_MAPPING_MAX_OUTPUT_01
+## Parent
+**PF_BOT_VISION_HEADLESS** — reste OUVERT (non clos par ce GO).
 
-## 7_CANONICAL_STATE
-
-```text
-OBJECTIF = screenshots -> analyse vision -> donnees structurees -> Data Center -> Telegram / DeskPro
-SURFACE = PF_BOT_VISION_HEADLESS + DeskPro input expansion
-STATUS = capture mapping non stabilise
+## GO
 ```
-
-## 1_MASTER_TARGET
-
-Construire un systeme de capture visuelle capable de maximiser l'output
-exploitable depuis TradingView / Coinglass / screeners / charts / indices /
-ETF / commodities vers screenshots normalises, analyse par type d'ecran,
-signaux structures, ingestion Data Center, alertes Telegram et exploitation
-DeskPro.
-
-## 4_MASTER_PROJECT_PLAN
-
-| Bloc | Role |
-|---|---|
-| `CAPTURE_MAP` | Definir quoi capturer, ou, quand, avec quel layout |
-| `SCREEN_TYPE_SCHEMA` | Definir le type d'ecran : chart, liquidity, screener, ETF, macro, news |
-| `ANALYSIS_SET` | Definir quelle analyse appliquer a chaque type d'ecran |
-| `TRIGGER_ENGINE` | Declencher les captures selon horaire, variation, signal ou evenement |
-| `DATA_CENTER_INGESTION` | Stocker image + metadonnees + analyse JSON |
-| `TELEGRAM_OUTPUT` | Envoyer uniquement les sorties utiles, filtrees et resumees |
-| `DESKPRO_OUTPUT` | Alimenter l'interface / data center avec les resultats longs |
-
-## 5_GO_PLAN
-
-```text
 GO_OPT_TRADING_BOT_VISION_HEADLESS_CHILD_CAPTURE_MAPPING_MAX_OUTPUT_01
-GO_STRUCTURAL_ROLE = GO_CHILD_ATTACHED_TO_PARENT
-PARENT = PF_BOT_VISION_HEADLESS
-FINAL_TARGET = stabiliser le mapping screenshot + analyse + ingestion
 ```
 
-## 6_FINAL_TARGET
+## Nature
+**Implementation + résultats** — pas un chantier doc-only.
 
-Un plan executable qui dit :
-
-1. quelles pages capturer
-2. quels actifs suivre
-3. quels indicateurs afficher
-4. quels triggers declenchent une capture
-5. quel analyseur traiter chaque screenshot
-6. quel JSON envoyer au Data Center
-7. quel resume envoyer a Telegram
-
-## 17_RESUME_POINT
-
-```text
-Reprise depuis PF_BOT_VISION_HEADLESS.
-Creer un child GO dedie au mapping de capture maximaliste.
-Objectif : passer de screenshots bruts a un systeme structure :
-capture -> analyse -> JSON -> Data Center -> Telegram -> DeskPro.
+Le cœur est :
 ```
+captures réelles
+→ analyse vision par type d'écran
+→ JSON exploitable (vision_analysis.v1)
+→ ingestion Data Center
+→ sortie DeskPro
+→ résumé Telegram filtré
+→ preuves de résultats
+```
+
+## Périmètre
+- Définir les **assets** à capturer (crypto, macro, ETF, commodities, screeners)
+- Définir les **screen types** et leur classification
+- Définir les **triggers** (fréquences, conditions)
+- Définir les **outputs** : capture_metadata, vision_analysis.v1, DeskPro, Data Center, Telegram
+- Produire une **pipeline minimale exécutable** réutilisant l'existant (bot_vision_step2, headless_capture, desk_snapshot_ingest)
+- Produire des **fixtures, tests, et preuves de résultats**
+
+## Hors périmètre
+- Fermeture de PF_BOT_VISION_HEADLESS
+- Création d'une pipeline concurrente à bot_vision_step2
+- Modification des index globaux (sauf changement global prouvé)
+- Implémentation des analyseurs OCR Coinglass (A-07) ou screener (A-08) — ces sujets sont des GOs futurs
+
+## Dépendances
+- modules/bot_vision/headless_capture/ (Node.js + Playwright) — capture
+- modules/bot_vision_step2/ (Python + OpenAI) — analyse vision
+- modules/desk_snapshot_ingest/ — ingestion snapshots DeskPro
+- modules/desk_pro/ — readers DeskPro (vision_analysis_reader, vision_context_reader)
+- modules/data_center/ — ingestion Data Center
+- shared/telegram_notify.py — envoi Telegram
+
+## Réutilisation
+Ce GO ne crée **pas** de pipeline concurrente. Il ajoute :
+1. Un registre machine des assets/screens (*.json)
+2. Un writer vision_analysis.v1 (transforme sortie bot_vision_step2 → contrat DeskPro/DC)
+3. Un filtre Telegram (résumé court seulement si signal pertinent)
+4. Des fixtures et tests de validation
+5. L'intégration dans run_vision_pipeline.py existant

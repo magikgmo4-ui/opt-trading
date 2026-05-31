@@ -1,0 +1,25 @@
+{
+  "input_class": "vision_context.screener.v1",
+  "screener_symbol": "SCREENER_BIGGEST_CAPS",
+  "screener_label": "biggest_caps",
+  "source_id": "tradingview_screener_headless_bot",
+  "captured_at": "2026-05-30T14:00:00Z",
+  "analysis_ts": "2026-05-30T14:05:00Z",
+  "freshness_state": "fresh",
+  "analysis_method": "stub",
+  "stocks": [
+    {"symbol": "AAPL", "name": "Apple Inc", "price": 198.50, "change_pct": 1.25, "volume": 52400000, "confidence": 0.72, "detection_method": "stub"},
+    {"symbol": "MSFT", "name": "Microsoft Corp", "price": 425.30, "change_pct": 0.85, "volume": 28100000, "confidence": 0.72, "detection_method": "stub"},
+    {"symbol": "NVDA", "name": "NVIDIA Corp", "price": 875.40, "change_pct": 2.80, "volume": 45200000, "confidence": 0.72, "detection_method": "stub"}
+  ],
+  "stock_count": 3,
+  "top_gainers": [
+    {"symbol": "NVDA", "name": "NVIDIA Corp", "price": 875.40, "change_pct": 2.80, "volume": 45200000}
+  ],
+  "top_losers": [],
+  "avg_change_pct": 0.85,
+  "refs": {
+    "capture_source": "tradingview_screener",
+    "image_ref": "/tmp/bot_vision_headless/screener_biggest_caps.png"
+  }
+}

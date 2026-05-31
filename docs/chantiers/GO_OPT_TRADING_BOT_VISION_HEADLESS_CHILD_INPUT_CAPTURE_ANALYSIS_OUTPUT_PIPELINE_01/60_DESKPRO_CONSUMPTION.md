@@ -1,138 +1,132 @@
-# 60_DESKPRO_CONSUMPTION
+---
+doc_id: GO_OPT_TRADING_BOT_VISION_HEADLESS_CHILD_INPUT_CAPTURE_ANALYSIS_OUTPUT_PIPELINE_01_DESKPRO
+doc_type: deskpro_consumption
+repo: opt-trading
+go_id: GO_OPT_TRADING_BOT_VISION_HEADLESS_CHILD_INPUT_CAPTURE_ANALYSIS_OUTPUT_PIPELINE_01
+---
 
-## Objectif
+# 60_DESKPRO_CONSUMPTION.md
 
-Documenter ce que DeskPro attend reellement en consommation de la chaine vision
-headless.
+Besoins DeskPro côté consommation : format, granularité, champs.
 
-## Questions de contrat
+## 1_CONTRAT_DESKPRO
 
-- quels champs sont necessaires
-- quel niveau de detail est utile
-- quelles vues finales doivent etre alimentees
-- quels outputs sont affiches tels quels vs resumes
+DeskPro est le consommateur final des données produites par le pipeline. Il doit pouvoir :
 
-## Entrants reels deja visibles dans le repo
+- Afficher les dernières analyses par actif
+- Naviguer dans l'historique des captures
+- Voir les setups actifs / passés
+- Rechercher par actif, type, date, signal
+- Recevoir des notifications de signaux forts
 
-| Input DeskPro | Chemin / source | Contrat actuel observe |
-|---|---|---|
-| `vision_context.coinglass.v1` | `data/deskpro/inputs/vision_context/coinglass/latest.json` | lu par `read_vision_context_coinglass()` et `read_vision_panel_data()` |
-| `vision_analysis.v1` | `data/deskpro/inputs/vision_analysis/latest.json` | lu par `read_vision_analysis()` |
-| `telegram_claim.v1` | `data/deskpro/inputs/telegram_claim/latest.json` | lu par `read_telegram_claim()` |
-| `visual_context` dry-run | chargeur `load_latest_visual_context()` | exige `source`, `capture_id`, `symbol`, `timeframe`, `captured_at`, `image_ref`, `status` |
-| `desk_snapshot.v1` | snapshot index consumer | exige `symbol`, `tf`, `snapshot_ts`, `path` |
+## 2_FORMATS_CONSOMMES_PAR_DESKPRO
 
-## Ce que DeskPro sait deja consommer
+| Format | Source | Usage DeskPro |
+|--------|--------|---------------|
+| `desk_snapshot` V1 | Pipeline headless (via desk_snapshot_ingest) | Affichage snapshot par actif |
+| `visual_context` V1 | Analyse du snapshot | Contexte visuel associé |
+| `vision_analysis` (nouveau) | Pipeline enrichi | Signaux, niveaux, setup |
+| `signal_event` V1 | Decision engine / webhook | Signal trading corrélé |
+| `setup_card` (nouveau) | Pipeline enrichi | Setup cards dans DeskPro |
 
-### Vision context → metrics
+## 3_CHAMPS_ATTENDUS_PAR_DESKPRO
 
-Le reader `read_vision_context_coinglass()` convertit des detections vision en
-`Metric` DeskPro avec les dimensions suivantes :
+Pour chaque actif suivi, DeskPro a besoin de :
 
-- `source`
-- `asset`
-- `metric`
-- `value`
-- `unit`
-- `window`
-- `quality`
-- `notes`
+| Champ | Source | Priorité | Disponible V1 ? |
+|-------|--------|----------|-----------------|
+| Dernière image raw | Capture | P0 | Oui (desk_snapshot) |
+| Dernière analyse texte | Analyse | P0 | Partiel (visual_context) |
+| Signaux détectés | Analyse | P0 | Non |
+| Niveaux S/R | Analyse | P0 | Non |
+| Setup actif | Setup pipeline | P0 | Non |
+| Risk flags | Analyse | P1 | Non |
+| Trend direction | Analyse | P1 | Non |
+| Timeframe analysis | Capture | P1 | Oui (desk_snapshot) |
+| Corrélation macro | Analyse | P2 | Non |
+| Historique 24h | DC query | P1 | Non |
 
-Les metriques deja reconnues cote vision Coinglass sont :
+## 4_FLUX_DESKPRO_VISE
 
-- `liquidations_long`
-- `liquidations_short`
-- `long_short_ratio`
-- `open_interest`
-- `liquidation_heatmap_level`
+```
+Pipeline headless
+  ↓
+Capture + Analyse
+  ↓
+desk_snapshot_ingest (existant) → desk/snapshots/latest.json + {symbol}.latest.json
+  ↓
+vision_analysis.json (nouveau) → desk/analysis/{capture_id}.json
+  ↓
+setup_card.json (nouveau) → desk/setups/active.json
+  ↓
+DeskPro lit depuis desk/analysis/ + desk/setups/ + desk/snapshots/
+```
 
-### Vision panel UI
+## 5_GAP_ANALYSE_VS_CONTRATS_EXISTANTS
 
-Le panel vision DeskPro attend deja :
+| Contrat existant | Pipeline V1 | Pipeline enrichi (cible) | Gap |
+|-----------------|-------------|-------------------------|-----|
+| desk_snapshot V1 | ✅ image + metadata | ✅ image + metadata enrichis | Faible (ajouter analysis_ref) |
+| visual_context V1 | ✅ summary + levels | ✅ summary enrichi + signaux + setup | Moyen (ajouter signals, setup, risk_flags) |
+| signal_event V1 | ✅ signal trading | ✅ signal enrichi par analyse vision | Faible (enrichir event avec vision_ref) |
+| Nouveau : vision_analysis | — | ✅ Analyse complète | Nouveau contrat à créer |
+| Nouveau : setup_card | — | ✅ Setup card | Nouveau contrat à créer |
 
-- `input_class = vision_context.coinglass.v1`
-- `screenshot_ts`
-- `detections`
-- un etat lisible `ok/reason`
-- une fraicheur calculable `age_hours`
+## 6_VUES_DESKPRO_CYBLEES
 
-### Dry-run synthesis / join contract
+| Vue | Données consommées | Usage |
+|-----|-------------------|-------|
+| Dashboard actifs | Dernière analyse par actif (tous timeframes) | Vue d'ensemble rapide |
+| Détail actif | Analyse + image + niveaux + setup | Analyse approfondie |
+| Setup watch | Setups actifs tous actifs confondus | Suivi des setups ouverts |
+| Timeline | Historique analyses + événements 24h | Relecture de session |
+| Macro view | Analyses BTC / Gold / DXY / Oil corrélées | Vue macro intégrée |
+| Screener | Stocks screeners clusters | Rotation sectorielle |
 
-Le pipeline dry-run DeskPro sait joindre les couches suivantes :
+## 7_FORMAT_VISION_ANALYSIS_POUR_DESKPRO
 
-- `signal_event`
-- `visual_context`
-- `desk_snapshot`
-- `market_metrics`
-- `vision_analysis`
-- `telegram_claim`
+```json
+{
+  "symbol": "BTCUSDT",
+  "asset_class": "crypto",
+  "timeframe": "15m",
+  "last_updated_utc": "2026-05-29T00:00:00Z",
+  "latest_capture_id": "uuid",
+  "image_path": "desk/snapshots/btcusdt_latest.png",
+  "analysis": {
+    "summary": "BTC teste résistance avec volume",
+    "trend": "bullish",
+    "signals": ["breakout_attempt"],
+    "levels": {"support": [104000], "resistance": [106500]},
+    "risk_flags": ["funding elevated"]
+  },
+  "setup_active": null,
+  "analysis_available": true
+}
+```
 
-Checks explicites deja presents :
+## 8_FORMAT_SETUP_CARD_POUR_DESKPRO
 
-- match `symbol` entre signal, snapshot et visual context
-- match `timeframe` entre signal et snapshot
-- `visual_context_ref` coherent avec `capture_id`
+```json
+{
+  "setup_id": "uuid",
+  "symbol": "BTCUSDT",
+  "direction": "long",
+  "entry_zone": [104500, 105000],
+  "stop_loss": 103200,
+  "targets": [106500, 108000, 110000],
+  "conviction": "high",
+  "timeframe": "4h",
+  "generated_at_utc": "2026-05-29T00:00:00Z",
+  "status": "active|hit_tp1|stopped|cancelled",
+  "capture_id": "uuid",
+  "image_path": "desk/snapshots/btcusdt_setup.png"
+}
+```
 
-## Cibles produit
+## 9_INTEGRATION_AVEC_DESKPRO_RUNTIME
 
-- snapshot exploitable
-- analyse lisible
-- setup card resumee
-- lien vers image raw / annotee
-- data structurée reutilisable dans d'autres vues
-
-## Contrat minimal recommande pour le pipeline bot vision
-
-### 1. Couche visual_context
-
-Champs minimaux a produire pour etre joignable par DeskPro dry-run :
-
-- `source`
-- `capture_id`
-- `symbol`
-- `timeframe`
-- `captured_at`
-- `image_ref`
-- `status`
-
-### 2. Couche vision_analysis
-
-Champs recommandes :
-
-- `input_class = vision_analysis.v1`
-- `capture_id`
-- `symbol`
-- `timeframe`
-- `analysis_type`
-- `summary`
-- `setup_bias`
-- `key_levels`
-- `confidence`
-- `warnings`
-
-### 3. Couche generated outputs
-
-Outputs que DeskPro doit pouvoir referencer ou afficher :
-
-- image raw
-- image annotee
-- resume analytique
-- setup summary
-- eventuel payload Telegram derive
-
-## Vue finale ciblee cote DeskPro
-
-DeskPro devrait pouvoir afficher ou reutiliser :
-
-- un bloc freshness / status de la capture
-- une image de reference
-- une synthese textuelle courte
-- des metriques structurees convertibles en `Metric`
-- des niveaux / setups exploitables par score ou decision
-- des warnings de confiance / mismatch source
-
-## TODO
-
-- `DESKPRO_CONSUMPTION_CONTRACT`
-- valider quelles vues `/desk/ui` ou endpoints API exposeront chaque couche
-- valider si `vision_context` et `vision_analysis` restent separes ou fusionnes en aval
+- Chemin fichier : `desk/analysis/{symbol}.latest.json` (écrasé à chaque nouvelle analyse)
+- Chemin historique : `desk/analysis/history/{symbol}/{date}/{capture_id}.json`
+- Chemin setups : `desk/setups/active.json` + `desk/setups/history/{setup_id}.json`
+- DeskPro runtime doit être notifié (polling ou inotify) des mises à jour

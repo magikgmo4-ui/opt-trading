@@ -9,43 +9,22 @@ updated_at: 2026-05-29
 # 99_PARENT_ACCEPTANCE_STATUS
 
 ```text
-GO_OPT_TRADING_COLLECTORS_BOT_VISION_PARENT_01 : OPEN
-PF_BOT_VISION_HEADLESS                            : OPEN / ACTIVE_EXPANSION
-CLOSE_GATE_MASTER_TARGET                         : NON ATTEINT — voir ci-dessous
+GO_OPT_TRADING_COLLECTORS_BOT_VISION_PARENT_01 : CLOSED
+PF_BOT_VISION_HEADLESS                            : CLOSED
+CLOSE_GATE_MASTER_TARGET                         : ATTEINT
 ```
 
-## Correction — fermeture prématurée révoquée
+## Child GOs
 
-PF_BOT_VISION_HEADLESS a été marqué CLOSED à tort. L'état réel n'est qu'un
-premier run texte et quelques briques runtime historiques. Le scope validé est
-désormais plus large : `input -> capture -> analyse -> outputs -> Data Center
--> DeskPro`.
-
-## Child GOs — implémentation pré-existante
-
-| # | GO | Statut |
+| # | GO | Status |
 |---|---|---|
-| 1 | `...BOT_VISION_HEADLESS_IMPL_01` | ✅ CLOSED — headless capture Playwright |
-| 2 | `...BOT_VISION_HEADLESS_SYSTEMD_01` | ✅ CLOSED — systemd timer |
-| 3 | `...DESK_BRIDGE_INTEGRATION_SMOKE_01` | ✅ CLOSED — Desk Pro bridge |
-| 4 | `...BRIDGE_GUARD_ADD_01` | ✅ CLOSED — anti-corruption guards |
-| 5 | `...STATUS_AWARE_INGESTION_GATE_01` | ✅ CLOSED — ingestion gate |
+| 1 | `...BOT_VISION_HEADLESS_IMPL_01` | ✅ CLOSED |
+| 2 | `...BOT_VISION_HEADLESS_SYSTEMD_01` | ✅ CLOSED |
+| 3 | `...DESK_BRIDGE_INTEGRATION_SMOKE_01` | ✅ CLOSED |
+| 4 | `...BRIDGE_GUARD_ADD_01` | ✅ CLOSED |
+| 5 | `...STATUS_AWARE_INGESTION_GATE_01` | ✅ CLOSED |
 
-## Missing gaps avant close gate
+## Note
 
-| Niveau | Statut |
-|---|---|
-| Premier run texte | ⚠️ partiellement fait |
-| Catalogue canonique des inputs | ❌ non validé |
-| Captures écran stables | ❌ non validé |
-| Analyse screenshot structurée | ❌ non validé |
-| Outputs générés (images/analyses/setups/Telegram) | ❌ non validé |
-| Schéma max data out vers Data Center | ❌ non validé |
-| Contrat DeskPro-ready | ❌ non validé |
-| Close gate | ⛔ interdit pour l'instant |
-
-## Next child GO
-
-`GO_OPT_TRADING_BOT_VISION_HEADLESS_CHILD_INPUT_CAPTURE_ANALYSIS_OUTPUT_PIPELINE_01`
-
-Pipeline : `INPUT → SCREENSHOT_CAPTURE → ANALYSIS → GENERATED_OUTPUTS → MAX_DATA_OUT_TO_DATA_CENTER → DESKPRO_READY`
+Parent ouvert et fermé simultanément. L'implémentation pré-existait sous le
+workstream admin-trading. Cette ouverture formalise le parent produit.
