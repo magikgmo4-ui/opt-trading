@@ -64,6 +64,7 @@ bout.
 | `GO_OPT_TRADING_ADMIN_TRADING_CHILD_BOT_VISION_HEADLESS_DESK_BRIDGE_INTEGRATION_SMOKE_01` | Desk Pro bridge integration smoke |
 | `GO_OPT_TRADING_ADMIN_TRADING_BOT_VISION_STATUS_AWARE_INGESTION_GATE_01` | Status-aware ingestion gate |
 | `GO_OPT_TRADING_BOT_VISION_HEADLESS_CHILD_INPUT_CAPTURE_ANALYSIS_OUTPUT_PIPELINE_01` | Expansion canonique du pipeline complet input -> DeskPro |
+| `GO_OPT_TRADING_BOT_VISION_HEADLESS_CHILD_CAPTURE_MAPPING_MAX_OUTPUT_01` | Stabilisation du mapping maximaliste capture -> analyse -> JSON -> Data Center -> Telegram -> DeskPro |
 
 ## CLOSE_GATE_MASTER_TARGET
 
