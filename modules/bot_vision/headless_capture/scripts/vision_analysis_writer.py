@@ -203,6 +203,27 @@ def write_deskpro(data: dict[str, Any]) -> Path:
     return path
 
 
+def _load_symbol_analyses(path: Path) -> list[dict[str, Any]]:
+    if not path.exists():
+        return []
+    try:
+        existing = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+    if isinstance(existing, list):
+        return [item for item in existing if isinstance(item, dict)]
+    if isinstance(existing, dict):
+        return [existing]
+    return []
+
+
+def _merge_symbol_analyses(existing: list[dict[str, Any]], new_data: dict[str, Any]) -> list[dict[str, Any]]:
+    new_capture_id = str(new_data.get("capture_id", ""))
+    merged = [item for item in existing if str(item.get("capture_id", "")) != new_capture_id]
+    merged.append(new_data)
+    return sorted(merged, key=lambda item: str(item.get("analysis_ts", "")))
+
+
 def write_data_center(data: dict[str, Any]) -> Path:
     DC_VISION_ANALYSIS_DIR.mkdir(parents=True, exist_ok=True)
     DC_VISION_BY_SYMBOL_DIR.mkdir(parents=True, exist_ok=True)
@@ -216,7 +237,8 @@ def write_data_center(data: dict[str, Any]) -> Path:
 
     symbol = data.get("symbol", "UNKNOWN")
     sym_path = DC_VISION_BY_SYMBOL_DIR / f"{symbol}.json"
-    sym_path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+    merged = _merge_symbol_analyses(_load_symbol_analyses(sym_path), data)
+    sym_path.write_text(json.dumps(merged, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"OK: DataCenter <- {sym_path}")
 
     ts = data.get("analysis_ts", _utc_now_iso()).replace(":", "-").replace("T", "_")[:19]
