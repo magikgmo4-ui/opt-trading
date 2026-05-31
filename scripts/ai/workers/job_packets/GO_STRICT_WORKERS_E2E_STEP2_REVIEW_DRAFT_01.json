@@ -1,0 +1,39 @@
+{
+  "job_packet_id": "GO_STRICT_WORKERS_E2E_STEP2_REVIEW_DRAFT_01",
+  "go_id": "GO_STRICT_WORKERS_CHILD_E2E_PIPELINE_01",
+  "status": "DRAFT_ONLY",
+  "task_type": "REVIEW_DRAFT",
+  "worker_candidates": ["glm-5.1", "kimi-k2.6", "qwen3.6-plus"],
+  "default_worker": "glm-5.1",
+  "model_registry": "scripts/ai/workers/models.registry.json",
+  "task_index": "scripts/ai/workers/tasks.index.json",
+  "pipeline": {
+    "step": 2,
+    "of": 2,
+    "previous_step": "GO_STRICT_WORKERS_E2E_STEP1_READ_INVENTORY_01",
+    "chained_input": "reports/ai/workers/GO_STRICT_WORKERS_E2E_STEP1_READ_INVENTORY_01.md"
+  },
+  "scope": {
+    "allowed_inputs": [
+      "docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md",
+      "reports/ai/workers/GO_STRICT_WORKERS_E2E_STEP1_READ_INVENTORY_01.md"
+    ],
+    "denied_inputs_inherited": true,
+    "allowed_outputs": [
+      "reports/ai/workers/GO_STRICT_WORKERS_E2E_STEP2_REVIEW_DRAFT_01.md"
+    ]
+  },
+  "instructions": [
+    "Lire STRICT_WORKERS_AUTONOMIE_ETROITE_01.md (doc source).",
+    "Lire GO_STRICT_WORKERS_E2E_STEP1_READ_INVENTORY_01.md (inventaire produit par Worker A).",
+    "Réviser l'inventaire du Step 1 : observations, recommandations, gaps identifiés.",
+    "Output DRAFT_ONLY dans le rapport autorisé."
+  ],
+  "acceptance": {
+    "must_not_write_runtime": true,
+    "must_not_modify_repo": true,
+    "must_not_read_secrets": true,
+    "must_reference_only_allowed_inputs": true,
+    "must_end_with_verdict_draft_only": true
+  }
+}
