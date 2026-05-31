@@ -345,7 +345,8 @@
 
 - module_name: mimo_open_observer
   domain: analysis_engines
-  machine_target: any
+  machine_target: student
+  placement_mode: single_host
   operator_visible: true
   ui_related: false
   description: "Observateur d'ouverture XAUUSD (FVG M1x5 + journal + stats simples)"

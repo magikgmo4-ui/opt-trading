@@ -14,9 +14,7 @@ ALLOWED_PLACEMENT_MODES = {
     "portable_tool",
     "compatibility_shim",
 }
-DEFERRED_ANY_ALLOWLIST = {
-    "mimo_open_observer",
-}
+DEFERRED_ANY_ALLOWLIST = set()
 
 
 def load_modules_registry():

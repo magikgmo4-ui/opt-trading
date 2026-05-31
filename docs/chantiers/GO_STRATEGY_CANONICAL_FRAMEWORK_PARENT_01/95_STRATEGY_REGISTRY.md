@@ -27,7 +27,7 @@ Toute stratégie utilisable dans le pipeline doit figurer ici.
 
 | # | strategy_id | strategy_version | setup_type | status | lifecycle | parent_go | telegram_latency |
 |---|-------------|-----------------|-----------|--------|-----------|-----------|----------------|
-| 1 | `SMC_ICT_CHOCH_BOS_RETEST` | `0.1.0` | `SWEEP_CHOCH_BOS_FVG_OB_RETEST` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` | UNMEASURED |
+| 1 | `SMC_ICT_CHOCH_BOS_RETEST` | `0.1.0` | `SWEEP_CHOCH_BOS_FVG_OB_RETEST` | open | ACTIVE_PAPER | `GO_STRATEGY_SMC_ICT_CHILD_LIVE_OBSERVATION_01` | UNMEASURED |
 | 2 | `xau_session_open_v1` | `v0.1.0` | `session_open` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` | UNMEASURED |
 | 3 | `COINM_SHORT` | `v0.1.0` | `lower_high_structure_ma_break` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` | UNMEASURED |
 | 4 | `USDTM_LONG` | `v0.1.0` | `bullish_confirmation_pullback` | open | CANDIDATE | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` | UNMEASURED |
@@ -50,12 +50,12 @@ Toute stratégie utilisable dans le pipeline doit figurer ici.
 | `setup_type` | `SWEEP_CHOCH_BOS_FVG_OB_RETEST` |
 | `family` | `SMC_ICT` |
 | `direction` | `WATCH_ONLY` |
-| `observation_status` | `CANDIDATE` |
+| `observation_status` | `ACTIVE_PAPER` |
 | `perf_status` | `UNMEASURED` |
 | `telegram_latency_status` | `UNMEASURED` |
-| `go_id` | `GO_SMC_ICT_OPT_TRADING_OBSERVATION_SIGNAL_ENRICHMENT_01` |
+| `go_id` | `GO_STRATEGY_SMC_ICT_CHILD_LIVE_OBSERVATION_01` |
 | `parent_go` | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
-| `docs_path` | `docs/chantiers/GO_SMC_ICT_OPT_TRADING_OBSERVATION_SIGNAL_ENRICHMENT_01/` |
+| `docs_path` | `docs/chantiers/GO_STRATEGY_SMC_ICT_CHILD_LIVE_OBSERVATION_01/` |
 | `created_at` | `2026-05-17` |
 
 ### 3.2_xau_session_open_v1
