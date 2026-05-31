@@ -1,0 +1,30 @@
+{
+  "job_packet_id": "GO_STRICT_WORKERS_3W_STEP1_READ_INVENTORY_01",
+  "go_id": "GO_STRICT_WORKERS_CHILD_E2E_PIPELINE_3W_01",
+  "status": "DRAFT_ONLY",
+  "task_type": "READ_INVENTORY",
+  "worker_candidates": ["big-pickle", "qwen3.5-plus", "minimax-m2.5"],
+  "default_worker": "big-pickle",
+  "model_registry": "scripts/ai/workers/models.registry.json",
+  "task_index": "scripts/ai/workers/tasks.index.json",
+  "pipeline": {
+    "step": 1,
+    "of": 3,
+    "next_step": "GO_STRICT_WORKERS_3W_STEP2_PATCH_DRAFT_01"
+  },
+  "scope": {
+    "allowed_inputs": [
+      "docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md"
+    ],
+    "denied_inputs_inherited": true,
+    "allowed_outputs": [
+      "reports/ai/workers/GO_STRICT_WORKERS_3W_STEP1_READ_INVENTORY_01.md"
+    ]
+  },
+  "instructions": [
+    "Lire STRICT_WORKERS_AUTONOMIE_ETROITE_01.md.",
+    "Inventorier : runners référencés, modes autorisés, sections présentes.",
+    "Identifier précisément les éléments absents ou obsolètes (runner_writegated, modes manquants).",
+    "Classer en ETABLI / GAP / TODO. Output DRAFT_ONLY."
+  ]
+}

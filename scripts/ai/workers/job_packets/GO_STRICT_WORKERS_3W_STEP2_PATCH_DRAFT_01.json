@@ -1,0 +1,35 @@
+{
+  "job_packet_id": "GO_STRICT_WORKERS_3W_STEP2_PATCH_DRAFT_01",
+  "go_id": "GO_STRICT_WORKERS_CHILD_E2E_PIPELINE_3W_01",
+  "status": "DRAFT_ONLY",
+  "task_type": "PATCH_DRAFT",
+  "worker_candidates": ["kimi-k2.6", "glm-5.1", "qwen3.6-plus"],
+  "default_worker": "kimi-k2.6",
+  "model_registry": "scripts/ai/workers/models.registry.json",
+  "task_index": "scripts/ai/workers/tasks.index.json",
+  "pipeline": {
+    "step": 2,
+    "of": 3,
+    "previous_step": "GO_STRICT_WORKERS_3W_STEP1_READ_INVENTORY_01",
+    "chained_input": "reports/ai/workers/GO_STRICT_WORKERS_3W_STEP1_READ_INVENTORY_01.md",
+    "next_step": "GO_STRICT_WORKERS_3W_STEP3_REVIEW_DRAFT_01"
+  },
+  "scope": {
+    "allowed_inputs": [
+      "docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md",
+      "reports/ai/workers/GO_STRICT_WORKERS_3W_STEP1_READ_INVENTORY_01.md"
+    ],
+    "denied_inputs_inherited": true,
+    "allowed_outputs": [
+      "reports/ai/workers/GO_STRICT_WORKERS_3W_STEP2_PATCH_DRAFT_01.md"
+    ]
+  },
+  "instructions": [
+    "Lire STRICT_WORKERS_AUTONOMIE_ETROITE_01.md (doc cible).",
+    "Lire GO_STRICT_WORKERS_3W_STEP1_READ_INVENTORY_01.md (inventaire Step 1 — big-pickle).",
+    "Proposer un patch unified diff pour adresser les GAPs identifiés au Step 1 :",
+    "  - Ajouter runner_writegated.py dans la section '## Runner validé'",
+    "  - Ajouter les 4 modes manquants dans '## Modes initiaux autorisés' : REVIEW_DRAFT, FAST_TRIAGE, ENDPOINT_AUDIT, WRITE_GATED",
+    "Format unified diff. Ne PAS appliquer. Output DRAFT_ONLY."
+  ]
+}

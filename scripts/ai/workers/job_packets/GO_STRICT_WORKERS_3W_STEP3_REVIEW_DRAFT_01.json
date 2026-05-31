@@ -1,0 +1,37 @@
+{
+  "job_packet_id": "GO_STRICT_WORKERS_3W_STEP3_REVIEW_DRAFT_01",
+  "go_id": "GO_STRICT_WORKERS_CHILD_E2E_PIPELINE_3W_01",
+  "status": "DRAFT_ONLY",
+  "task_type": "REVIEW_DRAFT",
+  "worker_candidates": ["qwen3.6-plus", "glm-5.1", "minimax-m2.7"],
+  "default_worker": "qwen3.6-plus",
+  "model_registry": "scripts/ai/workers/models.registry.json",
+  "task_index": "scripts/ai/workers/tasks.index.json",
+  "pipeline": {
+    "step": 3,
+    "of": 3,
+    "previous_step": "GO_STRICT_WORKERS_3W_STEP2_PATCH_DRAFT_01",
+    "chained_inputs": [
+      "reports/ai/workers/GO_STRICT_WORKERS_3W_STEP1_READ_INVENTORY_01.md",
+      "reports/ai/workers/GO_STRICT_WORKERS_3W_STEP2_PATCH_DRAFT_01.md"
+    ]
+  },
+  "scope": {
+    "allowed_inputs": [
+      "docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md",
+      "reports/ai/workers/GO_STRICT_WORKERS_3W_STEP1_READ_INVENTORY_01.md",
+      "reports/ai/workers/GO_STRICT_WORKERS_3W_STEP2_PATCH_DRAFT_01.md"
+    ],
+    "denied_inputs_inherited": true,
+    "allowed_outputs": [
+      "reports/ai/workers/GO_STRICT_WORKERS_3W_STEP3_REVIEW_DRAFT_01.md"
+    ]
+  },
+  "instructions": [
+    "Lire STRICT_WORKERS_AUTONOMIE_ETROITE_01.md (doc source).",
+    "Lire GO_STRICT_WORKERS_3W_STEP1_READ_INVENTORY_01.md (inventaire big-pickle).",
+    "Lire GO_STRICT_WORKERS_3W_STEP2_PATCH_DRAFT_01.md (patch kimi-k2.6).",
+    "Réviser : le patch adresse-t-il correctement les gaps du Step 1 ?",
+    "Observations, recommandations, risques résiduels. Output DRAFT_ONLY."
+  ]
+}
