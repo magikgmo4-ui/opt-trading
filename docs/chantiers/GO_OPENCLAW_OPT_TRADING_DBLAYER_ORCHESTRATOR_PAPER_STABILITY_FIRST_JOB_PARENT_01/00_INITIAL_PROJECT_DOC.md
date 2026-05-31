@@ -3,9 +3,10 @@ doc_id: GO_OPENCLAW_OPT_TRADING_DBLAYER_ORCHESTRATOR_PAPER_STABILITY_FIRST_JOB_P
 doc_type: cadrage_parent
 repo: opt-trading
 go_id: GO_OPENCLAW_OPT_TRADING_DBLAYER_ORCHESTRATOR_PAPER_STABILITY_FIRST_JOB_PARENT_01
-status: open
-lifecycle_stage: cadrage
+status: closed
+lifecycle_stage: closed
 created_at: 2026-05-30
+closed_at: 2026-05-31
 parent_go: GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01
 pf_source: PAPER_PROMOTION_GATE_01
 machine_cible: db-layer
