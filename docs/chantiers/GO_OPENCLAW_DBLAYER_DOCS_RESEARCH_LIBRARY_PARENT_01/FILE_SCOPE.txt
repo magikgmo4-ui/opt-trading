@@ -1,0 +1,4 @@
+# FILE_SCOPE — GO_OPENCLAW_DBLAYER_DOCS_RESEARCH_LIBRARY_PARENT_01
+# Closeout: adds acceptance report and marks parent closed.
+
+docs/chantiers/GO_OPENCLAW_DBLAYER_DOCS_RESEARCH_LIBRARY_PARENT_01/**
