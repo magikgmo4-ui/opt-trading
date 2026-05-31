@@ -50,12 +50,12 @@ Toute stratégie utilisable dans le pipeline doit figurer ici.
 | `setup_type` | `SWEEP_CHOCH_BOS_FVG_OB_RETEST` |
 | `family` | `SMC_ICT` |
 | `direction` | `WATCH_ONLY` |
-| `observation_status` | `CANDIDATE` |
+| `observation_status` | `ACTIVE_PAPER` |
 | `perf_status` | `UNMEASURED` |
 | `telegram_latency_status` | `UNMEASURED` |
-| `go_id` | `GO_SMC_ICT_OPT_TRADING_OBSERVATION_SIGNAL_ENRICHMENT_01` |
+| `go_id` | `GO_STRATEGY_SMC_ICT_CHILD_LIVE_OBSERVATION_01` |
 | `parent_go` | `GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01` |
-| `docs_path` | `docs/chantiers/GO_SMC_ICT_OPT_TRADING_OBSERVATION_SIGNAL_ENRICHMENT_01/` |
+| `docs_path` | `docs/chantiers/GO_STRATEGY_SMC_ICT_CHILD_LIVE_OBSERVATION_01/` |
 | `created_at` | `2026-05-17` |
 
 ### 3.2_xau_session_open_v1
