@@ -1,0 +1,4 @@
+# FILE_SCOPE — GO_STRICT_WORKERS_RUNTIME_RUNNER_READONLY_01
+# Closeout : FILE_SCOPE + acceptance report pour le runner read-only
+
+docs/chantiers/GO_STRICT_WORKERS_RUNTIME_RUNNER_READONLY_01/**
