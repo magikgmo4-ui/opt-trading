@@ -1,0 +1,23 @@
+{
+  "go_id": "GO_STRATEGY_SMC_ICT_CHILD_LIVE_OBSERVATION_01",
+  "parent_go_id": "GO_AUTOMATION_OPS_OPT_TRADING_PARENT_SEMIAUTO_RUNTIME_PILOT_01",
+  "action": "activate_paper_observation",
+  "strategy_id": "SMC_ICT_CHOCH_BOS_RETEST",
+  "strategy_version": "0.1.0",
+  "target_lifecycle": "ACTIVE_PAPER",
+  "observation_window_days": 14,
+  "human_gate_required": true,
+  "mode": "dry_run",
+  "phase1_gate": {
+    "date_gate": "2026-05-30",
+    "runs_actual": 248,
+    "runs_threshold": 30,
+    "days_elapsed": 14,
+    "days_threshold": 14,
+    "fail_count": 7,
+    "fail_count_threshold": 0,
+    "fail_count_accepted_by_operator": true,
+    "fail_reason": "infrastructure transients 2026-05-26 (tmux down, localcms unreachable, steps=[], 0.015s)",
+    "operator_verdict": "PASS_WITH_INFRA_EXCEPTION"
+  }
+}

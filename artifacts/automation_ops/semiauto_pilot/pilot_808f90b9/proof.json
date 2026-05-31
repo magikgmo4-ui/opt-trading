@@ -1,0 +1,22 @@
+{
+  "run_id": "pilot_808f90b9",
+  "go_id": "GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_PILOT_SCOPE_01",
+  "parent_go_id": "GO_AUTOMATION_OPS_OPT_TRADING_PARENT_SEMIAUTO_RUNTIME_PILOT_01",
+  "mode": "dry_run",
+  "input_prompt_path": "docs/chantiers/GO_STRATEGY_SMC_ICT_CHILD_LIVE_OBSERVATION_01/go_prompt.json",
+  "actions_planned": [
+    "read GO_PROMPT",
+    "validate handoff contract",
+    "check stop conditions",
+    "write proof artefacts",
+    "return verdict"
+  ],
+  "actions_executed": [
+    "read GO_PROMPT",
+    "validate handoff contract"
+  ],
+  "stop_conditions": [],
+  "human_gate_required": true,
+  "verdict": "PASS_DRY_RUN",
+  "next_go": ""
+}
