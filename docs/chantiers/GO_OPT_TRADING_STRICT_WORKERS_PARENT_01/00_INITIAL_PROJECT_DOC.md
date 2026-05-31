@@ -5,8 +5,9 @@ repo: opt-trading
 project: opt-trading
 module: agents
 go_id: GO_OPT_TRADING_STRICT_WORKERS_PARENT_01
-status: draft_canonical
-lifecycle_stage: opening
+status: closed
+lifecycle_stage: closed
+closed_at: 2026-05-31
 topic_keys:
   - opt-trading
   - strict_workers
