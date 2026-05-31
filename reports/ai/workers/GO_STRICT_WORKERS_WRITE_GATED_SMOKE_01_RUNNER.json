@@ -1,0 +1,84 @@
+{
+  "job_id": "GO_STRICT_WORKERS_WRITE_GATED_SMOKE_01",
+  "task_type": "WRITE_GATED",
+  "status": "PASS",
+  "dry_run": false,
+  "gate_approved": true,
+  "read_count": 1,
+  "read_operations": [
+    {
+      "path": "docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md",
+      "size_bytes": 3269
+    }
+  ],
+  "write_plan_count": 1,
+  "write_results": [
+    {
+      "target": "reports/ai/workers/GO_STRICT_WORKERS_WRITE_GATED_SMOKE_01.md",
+      "lines": 34,
+      "status": "WRITTEN"
+    }
+  ],
+  "writes_executed": 1,
+  "writes_blocked": 0,
+  "produced_at": "2026-05-31T10:14:14.049722+00:00",
+  "validation": {
+    "status": "PASS",
+    "job_id": "GO_STRICT_WORKERS_WRITE_GATED_SMOKE_01",
+    "task_type": "WRITE_GATED",
+    "default_worker": "glm-5.1",
+    "valid_workers": [
+      "big-pickle",
+      "glm-5.1",
+      "kimi-k2.6",
+      "qwen3.6-plus"
+    ],
+    "output_file": "/opt/trading/reports/ai/workers/GO_STRICT_WORKERS_WRITE_GATED_SMOKE_01.md",
+    "autonomy_max": "A4",
+    "required_sections": [
+      "13_ESTABLISHED",
+      "14_HYPOTHESIS",
+      "WRITE_PLAN",
+      "WRITE_DIFF_ATTENDU",
+      "VALIDATION_EXTERNE",
+      "DRY_RUN_RESULT",
+      "RISQUES",
+      "VERDICT_WRITE_GATED"
+    ],
+    "writes_code": false,
+    "allowed_inputs": [
+      "docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md"
+    ],
+    "global_invariants": {
+      "no_secrets": true,
+      "no_env_files": true,
+      "no_git_write_ops": true,
+      "no_runtime_write_by_default": true,
+      "requires_external_validation": true,
+      "output_status": "DRAFT_ONLY",
+      "only_verified_models": true
+    },
+    "denied_commands": [
+      "git add",
+      "git commit",
+      "git push",
+      "git rebase",
+      "git merge",
+      "rm -rf",
+      "chmod -R",
+      "chown -R"
+    ],
+    "denied_inputs": [
+      ".env",
+      "**/.env",
+      "**/*secret*",
+      "**/*token*",
+      "**/*credential*",
+      "**/id_rsa",
+      "**/id_ed25519",
+      "**/*.pem",
+      "**/*.key"
+    ],
+    "warnings": []
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "job_packet_id": "GO_STRICT_WORKERS_WRITE_GATED_SMOKE_01",
+  "go_id": "GO_STRICT_WORKERS_CHILD_RUNNER_WRITEGATED_01",
+  "status": "WRITE_GATED",
+  "task_type": "WRITE_GATED",
+  "worker_candidates": ["glm-5.1", "kimi-k2.6", "qwen3.6-plus", "big-pickle"],
+  "default_worker": "glm-5.1",
+  "model_registry": "scripts/ai/workers/models.registry.json",
+  "task_index": "scripts/ai/workers/tasks.index.json",
+  "scope": {
+    "allowed_inputs": [
+      "docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md"
+    ],
+    "denied_inputs_inherited": true,
+    "allowed_outputs": [
+      "reports/ai/workers/GO_STRICT_WORKERS_WRITE_GATED_SMOKE_01.md"
+    ]
+  },
+  "instructions": [
+    "Lire STRICT_WORKERS_AUTONOMIE_ETROITE_01.md.",
+    "Produire une ligne de statut confirmant la section '## Runner validé' présente.",
+    "Écrire le résultat dans reports/ai/workers/GO_STRICT_WORKERS_WRITE_GATED_SMOKE_01.md via write_plan."
+  ],
+  "write_plan": [
+    {
+      "target": "reports/ai/workers/GO_STRICT_WORKERS_WRITE_GATED_SMOKE_01.md",
+      "content": "---\nreport_id: GO_STRICT_WORKERS_WRITE_GATED_SMOKE_01\ngo_id: GO_STRICT_WORKERS_CHILD_RUNNER_WRITEGATED_01\ntask_type: WRITE_GATED\nstatus: SMOKE_PASS\nproduced_at: 2026-05-31\ngate_approved: true\n---\n\n# WRITE_GATED Smoke — GO_STRICT_WORKERS_WRITE_GATED_SMOKE_01\n\n## 13_ESTABLISHED\nrunner_writegated.py opérationnel — write_plan PASS, gate --gate-approved requis.\n\n## 14_HYPOTHESIS\nAucune — smoke confirme le comportement attendu.\n\n## WRITE_PLAN\ncible: reports/ai/workers/GO_STRICT_WORKERS_WRITE_GATED_SMOKE_01.md | WRITTEN\n\n## WRITE_DIFF_ATTENDU\nFichier créé dans reports/ai/workers/ (cible dans write_allowlist).\n\n## VALIDATION_EXTERNE\nGate --gate-approved passé. Revue: contenu conforme.\n\n## DRY_RUN_RESULT\nDRY_RUN_PASS — cible valide, 0 writes exécutés.\n\n## RISQUES\nAucun risque critique — cible dédiée smoke, non destructive.\n\n## VERDICT_WRITE_GATED\nVERDICT=SMOKE_PASS reads=1 writes=1 blocked=0\n"
+    }
+  ],
+  "acceptance": {
+    "must_not_read_secrets": true,
+    "must_reference_only_allowed_inputs": true,
+    "must_require_gate_approved_for_writes": true,
+    "must_block_forbidden_targets": true
+  }
+}
