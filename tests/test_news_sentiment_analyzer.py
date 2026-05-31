@@ -39,6 +39,7 @@ class TestNewsSentimentAnalyzerImport:
         assert "coindesk" in source
         assert "cointelegraph" in source
         assert "theblock" in source
+        assert "FEED_URLS" in source
 
 
 # ── Stub mode output ───────────────────────────────────────
@@ -52,10 +53,11 @@ class TestNewsSentimentAnalyzerStub:
         finally:
             sys.path.pop(0)
 
-        result = analyze(sources=["coindesk"])
+        result = analyze(sources=["coindesk"], prefer_live=False)
         assert result["input_class"] == "vision_context.news_sentiment.v1"
         assert result["article_count"] > 0
         assert len(result["articles"]) > 0
+        assert result["refs"]["fetch_mode"] == "stub"
 
     def test_articles_have_required_fields(self):
         import importlib.util
@@ -65,7 +67,7 @@ class TestNewsSentimentAnalyzerStub:
         finally:
             sys.path.pop(0)
 
-        result = analyze(sources=["coindesk", "cointelegraph"])
+        result = analyze(sources=["coindesk", "cointelegraph"], prefer_live=False)
         for article in result["articles"]:
             assert "source" in article
             assert "headline" in article
@@ -82,7 +84,7 @@ class TestNewsSentimentAnalyzerStub:
         finally:
             sys.path.pop(0)
 
-        result = analyze(sources=["coindesk", "cointelegraph", "theblock"])
+        result = analyze(sources=["coindesk", "cointelegraph", "theblock"], prefer_live=False)
         agg = result["aggregate"]
         assert "average_sentiment_score" in agg
         assert "sentiment_label" in agg
@@ -94,7 +96,7 @@ class TestNewsSentimentAnalyzerStub:
 
     def test_analyze_pipe_via_cli(self):
         cmd = [sys.executable, str(SCRIPTS_DIR / "news_sentiment_analyzer.py"),
-               "--sources", "coindesk", "cointelegraph"]
+               "--sources", "coindesk", "cointelegraph", "--stub-only"]
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=15)
         assert result.returncode == 0
         data = json.loads(result.stdout.strip())
@@ -110,7 +112,7 @@ class TestNewsSentimentAnalyzerStub:
         finally:
             sys.path.pop(0)
 
-        result = analyze(sources=NEWS_SOURCES)
+        result = analyze(sources=NEWS_SOURCES, prefer_live=False)
         seen_sources = {a["source"] for a in result["articles"]}
         for s in NEWS_SOURCES:
             assert s in seen_sources, f"Missing articles from source: {s}"
@@ -123,12 +125,82 @@ class TestNewsSentimentAnalyzerStub:
         finally:
             sys.path.pop(0)
 
-        r1 = analyze(sources=["coindesk"])
-        r2 = analyze(sources=["coindesk"])
+        r1 = analyze(sources=["coindesk"], prefer_live=False)
+        r2 = analyze(sources=["coindesk"], prefer_live=False)
         assert len(r1["articles"]) == len(r2["articles"])
         for a1, a2 in zip(r1["articles"], r2["articles"]):
             assert a1["headline"] == a2["headline"]
             assert a1["score"] == a2["score"]
+
+
+class TestNewsSentimentAnalyzerLiveFallback:
+    def test_live_fetch_used_when_available(self, monkeypatch):
+        import importlib.util
+        sys.path.insert(0, str(SCRIPTS_DIR))
+        try:
+            from news_sentiment_analyzer import analyze
+        finally:
+            sys.path.pop(0)
+
+        def fake_fetch(source: str, limit: int = 5):
+            return [{
+                "source": source,
+                "headline": f"{source} ETF inflows resume",
+                "sentiment": "positive",
+                "score": 0.54,
+                "topics": ["bitcoin", "institutional"],
+                "published_at": "2026-05-31T12:00:00Z",
+                "fetch_method": "rss",
+                "confidence": 0.82,
+            }]
+
+        monkeypatch.setattr("news_sentiment_analyzer._fetch_live_articles", fake_fetch)
+        result = analyze(sources=["coindesk", "cointelegraph"], prefer_live=True)
+        assert result["article_count"] == 2
+        assert result["refs"]["fetch_mode"] == "live"
+        assert all(article["fetch_method"] == "rss" for article in result["articles"])
+
+    def test_stub_fallback_when_live_fetch_empty(self, monkeypatch):
+        import importlib.util
+        sys.path.insert(0, str(SCRIPTS_DIR))
+        try:
+            from news_sentiment_analyzer import analyze
+        finally:
+            sys.path.pop(0)
+
+        monkeypatch.setattr("news_sentiment_analyzer._fetch_live_articles", lambda source, limit=5: [])
+        result = analyze(sources=["coindesk"], prefer_live=True)
+        assert result["article_count"] > 0
+        assert result["refs"]["fetch_mode"] == "stub"
+        assert all(article["fetch_method"] == "stub" for article in result["articles"])
+
+    def test_mixed_mode_when_some_sources_live(self, monkeypatch):
+        import importlib.util
+        sys.path.insert(0, str(SCRIPTS_DIR))
+        try:
+            from news_sentiment_analyzer import analyze
+        finally:
+            sys.path.pop(0)
+
+        def fake_fetch(source: str, limit: int = 5):
+            if source == "coindesk":
+                return [{
+                    "source": source,
+                    "headline": "Bitcoin ETF inflows grow",
+                    "sentiment": "positive",
+                    "score": 0.36,
+                    "topics": ["bitcoin", "institutional"],
+                    "published_at": "2026-05-31T12:00:00Z",
+                    "fetch_method": "rss",
+                    "confidence": 0.82,
+                }]
+            return []
+
+        monkeypatch.setattr("news_sentiment_analyzer._fetch_live_articles", fake_fetch)
+        result = analyze(sources=["coindesk", "cointelegraph"], prefer_live=True)
+        assert result["refs"]["fetch_mode"] == "mixed"
+        methods = {article["fetch_method"] for article in result["articles"]}
+        assert methods == {"rss", "stub"}
 
 
 # ── News Sentiment Writer ──────────────────────────────────
