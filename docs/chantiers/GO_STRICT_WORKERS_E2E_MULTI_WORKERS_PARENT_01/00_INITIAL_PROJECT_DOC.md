@@ -4,8 +4,8 @@ doc_type: initial_project_doc
 repo: opt-trading
 go_id: GO_STRICT_WORKERS_E2E_MULTI_WORKERS_PARENT_01
 parent_go: GO_OPT_TRADING_STRICT_WORKERS_PARENT_01
-status: open
-lifecycle_stage: impl
+status: closed
+lifecycle_stage: closed
 created_at: 2026-05-31
 task_type: PARENT
 ---
