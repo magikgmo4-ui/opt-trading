@@ -32,32 +32,50 @@ Base: origin/sot/mainline
 
 Pipeline planning terminé (docs/chantiers/GO_OPT_TRADING_BOT_VISION_HEADLESS_CHILD_INPUT_CAPTURE_ANALYSIS_OUTPUT_PIPELINE_01/).
 Module capture existant : modules/bot_vision/headless_capture/ (Playwright + Chromium, profiles.json, capture_headless.js).
-Pas d'analyseur, pas de pipeline output, pas de liaison Data Center ni DeskPro.
+Module analyse existant (production) : modules/bot_vision_step2/ (OpenAI vision, resize/crop, Telegram, DeskPro artifacts).
+
+⚠ Architecture : ne PAS reconstruire localement ce que bot_vision_step2 fait déjà.
+   Ce POC est un adaptateur qui :
+   - utilise capture_headless.js (Playwright) — unique, pas dans bot_vision_step2
+   - délègue l'analyse à bot_vision_step2 analyze_latest
+   - écrit vision_analysis.v1 au chemin canonique du reader DeskPro
 
 ## Objectif
 
-POC fonctionnel du pipeline complet sur un actif unique (BTCUSDT 15m) :
-capture → analyse → outputs → Data Center → DeskPro.
+POC fonctionnel du pipeline sur BTCUSDT 15m, en réutilisant l'infra existante :
+capture_headless.js (Playwright) → bot_vision_step2 (analyse) → DeskPro.
 
 ## Périmètre
 
-| Bloc | Fait | À faire |
+| Bloc | Fait | Méthode |
 |------|------|---------|
-| Capture Playwright | ✅ Existant | Valider profile BTCUSDT 15m |
-| Analyse LLM/OCR | ❌ | Intégrer analyseur vision |
-| vision_analysis.json | ❌ | Produire et écrire |
-| Payload Data Center | ❌ | Structurer et POST |
-| Telegram filtré | ❌ | Envoyer résumé si signal fort |
-| desk/analysis/btcusdt.latest.json | ❌ | Écrire pour DeskPro |
+| Capture Playwright | ✅ Existant | capture_headless.js (profile BTCUSDT 15m) |
+| Analyse LLM/OCR | ✅ Existant (prod) | bot_vision_step2 analyze_latest (OpenAI gpt-4.1-mini) |
+| vision_analysis.v1 | ✅ Stub | run_vision_pipeline.py → data/deskpro/inputs/vision_analysis/latest.json |
+| Telegram | ✅ Existant (prod) | bot_vision_step2 (image + analyse caption) |
+| DeskPro output | ✅ Existant (prod) | bot_vision_step2 → summary.json + DESKPRO_VISION_DIR |
 
 ## Livrables
 
-1. Playwright profile BTCUSDT 15m validé → capture PNG + sidecar meta
-2. Analyseur vision (LLM + OCR) branché → JSON analysis
-3. vision_analysis.json écrit dans desk/analysis/
-4. Payload structuré Data Center produit (POST ou fallback local)
-5. Message Telegram envoyé (filtré, si signal >= 0.6)
-6. desk/analysis/btcusdt.latest.json consommable par DeskPro
+1. ✅ Profile Playwright BTCUSDT 15m (profiles.btcusdt_poc.json)
+2. ✅ capture_headless.js enrichi (indicators dans sidecar)
+3. ✅ run_vision_pipeline.py — adaptateur capture → bot_vision_step2 → DeskPro
+4. ✅ vision_analysis.v1 au chemin canonique du reader DeskPro (data/deskpro/inputs/vision_analysis/latest.json)
+5. ❌ ~~analyze_capture.py~~ supprimé (dupliquait bot_vision_step2)
+
+## Architecture retenue
+
+```
+capture_headless.js (Playwright)
+  → vision_inbox/
+    → bot_vision_step2 analyze_latest (OpenAI, Telegram, artifacts)
+    → run_vision_pipeline.py (stub vision_analysis.v1 pour DeskPro reader)
+
+Voie alternative (via bridge existant) :
+  vision_inbox/ → bridge_vision_to_desk_inbox.sh → inbox/
+    → desk_snapshot_ingest → /opt/trading/desk/snapshots/latest.json
+    → desk_analyze analyze_latest.py (lecture latest.json + Binance data)
+```
 
 ## Règles strictes
 
