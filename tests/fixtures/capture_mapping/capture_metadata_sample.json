@@ -1,0 +1,22 @@
+{
+  "producer": "bot_vision_headless",
+  "capture_mode": "playwright_chromium",
+  "screen_type": "CHART_TECHNICAL",
+  "layout": "single",
+  "page_id": "tv_btc_1h",
+  "source": "tradingview",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "url": "https://www.tradingview.com/chart/?symbol=BTCUSDT.P&interval=60",
+  "indicators": ["EMA20", "EMA50", "EMA200", "VWAP", "RSI", "MACD", "Volume"],
+  "status": "ready",
+  "visual_status": "pass",
+  "wait_until": "networkidle",
+  "timeout_ms": 45000,
+  "post_load_wait_ms": 5000,
+  "screenshot_mode": "viewport",
+  "viewport": { "width": 1920, "height": 1080 },
+  "created_at_utc": "2026-05-30T12:00:00.000Z",
+  "output_png": "screen_tradingview_BTCUSDT.P_1h_2026-05-30_12-00-00.png",
+  "output_json": "screen_tradingview_BTCUSDT.P_1h_2026-05-30_12-00-00.json"
+}

@@ -1,0 +1,39 @@
+{
+  "input_class": "vision_context.coinglass.v1",
+  "symbol": "BTCUSDT.P",
+  "source_id": "coinglass_headless_bot",
+  "capture_id": "cg_liquidity_coinglass_BTCUSDT.P_20260530_120000",
+  "screenshot_ts": "2026-05-30T12:00:00Z",
+  "analysis_ts": "2026-05-30T12:00:00Z",
+  "freshness_state": "fresh",
+  "screen_type": "LIQUIDITY_COINGLASS",
+  "coinglass_slug": "LiquidationData",
+  "detection_method": "stub",
+  "detections": [
+    {
+      "extracted_value": 42500000,
+      "detected_metric_type": "liquidations_long",
+      "confidence": 0.78,
+      "detection_method": "stub",
+      "unit": "USD"
+    },
+    {
+      "extracted_value": 38200000,
+      "detected_metric_type": "liquidations_short",
+      "confidence": 0.76,
+      "detection_method": "stub",
+      "unit": "USD"
+    },
+    {
+      "extracted_value": 67500,
+      "detected_metric_type": "liquidation_heatmap_level",
+      "confidence": 0.82,
+      "detection_method": "stub",
+      "unit": "USD"
+    }
+  ],
+  "refs": {
+    "capture_source": "coinglass",
+    "image_ref": "/srv/sftp/shared_files/shared/vision_inbox/screen_coinglass_BTCUSDT.P_NOW_2026-05-30_12-00-00.png"
+  }
+}

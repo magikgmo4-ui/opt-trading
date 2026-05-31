@@ -1,0 +1,33 @@
+{
+  "send": true,
+  "reason": "3 signal(s) above 0.70% confidence",
+  "min_confidence": 0.70,
+  "run_id": "2026-05-30_12-00-00",
+  "symbols": ["BTCUSDT.P"],
+  "filtered_signal_count": 3,
+  "summary": "A) Résumé global:\n- BTC 1h haussier, support 65000 validé, résistance 68500 en vue\n- Momentum RSI neutre mais MACD positif\n- Volume en baisse = prudence\n\nB) Chart BTCUSDT.P 1h:\n- Support: 65000 (confirmé)\n- Résistance: 68500\n- Tendance: bullish\n- Invalidation: < 63500",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 65000.0,
+      "confidence": 0.85,
+      "note": "horizontal support, multiple touches"
+    },
+    {
+      "type": "resistance_level",
+      "value": 68500.0,
+      "confidence": 0.80,
+      "note": "prior high resistance"
+    },
+    {
+      "type": "trend_direction",
+      "value": "bullish",
+      "confidence": 0.75,
+      "note": "higher lows pattern"
+    }
+  ],
+  "telegram_payload": {
+    "message": "A) Résumé global:\n- BTC 1h haussier, support 65000 validé, résistance 68500 en vue\n- Momentum RSI neutre mais MACD positif\n- Volume en baisse = prudence\n\nB) Chart BTCUSDT.P 1h:\n- Support: 65000 (confirmé)\n- Résistance: 68500\n- Tendance: bullish\n- Invalidation: < 63500",
+    "disable_web_page_preview": true
+  }
+}

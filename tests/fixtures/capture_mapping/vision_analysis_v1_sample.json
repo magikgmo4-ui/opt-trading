@@ -1,0 +1,51 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260530_120000_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-05-30T12:05:00Z",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-05-30_12-00-00",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 65000.0,
+      "confidence": 0.85,
+      "note": "horizontal support, multiple touches on 1h"
+    },
+    {
+      "type": "resistance_level",
+      "value": 68500.0,
+      "confidence": 0.80,
+      "note": "prior high resistance, untested since breakout"
+    },
+    {
+      "type": "trend_direction",
+      "value": "bullish",
+      "confidence": 0.75,
+      "note": "higher lows pattern on 1h, EMA20 > EMA50"
+    },
+    {
+      "type": "key_level",
+      "value": 67200.0,
+      "confidence": 0.65,
+      "note": "short-term pivot, VWAP confluence"
+    },
+    {
+      "type": "invalidation_level",
+      "value": 63500.0,
+      "confidence": 0.70,
+      "note": "invalidation below 63500 would flip structure to bearish"
+    }
+  ],
+  "analysis_summary": "BTCUSDT 1h: structure haussière avec support à 65000 et résistance à 68500. RSI neutre, MACD positif. Volume en baisse = prudence sur la poursuite. Seuil d'invalidation à 63500.",
+  "symbols_found": ["BTCUSDT.P"],
+  "refs": {
+    "summary_json": "2026-05-30_12-00-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-05-30_12-00-00.png"
+  }
+}

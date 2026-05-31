@@ -1,0 +1,115 @@
+{
+  "$schema": "trigger_config.v1",
+  "title": "bot_vision trigger engine configuration",
+  "version": "1.0.0",
+  "global": {
+    "min_capture_interval_seconds": 300,
+    "max_consecutive_failures": 3,
+    "cooldown_after_failure_minutes": 15
+  },
+  "schedules": {
+    "every_15m": {
+      "description": "High-priority crypto charts",
+      "cron": "*/15 * * * *",
+      "interval_seconds": 900,
+      "max_jitter_seconds": 60
+    },
+    "every_1h": {
+      "description": "Standard timeframe charts",
+      "cron": "0 * * * *",
+      "interval_seconds": 3600,
+      "max_jitter_seconds": 120
+    },
+    "every_4h": {
+      "description": "Macro dashboards and lower-frequency assets",
+      "cron": "0 */4 * * *",
+      "interval_seconds": 14400,
+      "max_jitter_seconds": 300
+    },
+    "every_6h": {
+      "description": "News sentiment / low-frequency aggregates",
+      "cron": "0 */6 * * *",
+      "interval_seconds": 21600,
+      "max_jitter_seconds": 300
+    },
+    "every_24h": {
+      "description": "Daily screener snapshots",
+      "cron": "0 8 * * *",
+      "interval_seconds": 86400,
+      "max_jitter_seconds": 600
+    }
+  },
+  "asset_overrides": [
+    {
+      "symbol": "BTCUSDT.P",
+      "schedule": "every_15m",
+      "timeframes": ["15m","1h"]
+    },
+    {
+      "symbol": "ETHUSDT.P",
+      "schedule": "every_15m",
+      "timeframes": ["15m","1h"]
+    },
+    {
+      "symbol": "OANDA:XAUUSD",
+      "schedule": "every_1h",
+      "timeframes": ["1h","4h"]
+    },
+    {
+      "symbol": "TVC:DXY",
+      "schedule": "every_1h",
+      "timeframes": ["1h"]
+    },
+    {
+      "symbol": "TVC:US10Y",
+      "schedule": "every_4h",
+      "timeframes": ["1h"]
+    },
+    {
+      "symbol": "TVC:VIX",
+      "schedule": "every_4h",
+      "timeframes": ["1h"]
+    },
+    {
+      "symbol": "NASDAQ:IBIT",
+      "schedule": "every_1h",
+      "timeframes": ["1h"]
+    },
+    {
+      "symbol": "NYMEX:CL1!",
+      "schedule": "every_4h",
+      "timeframes": ["1h"]
+    }
+  ],
+  "screen_type_defaults": {
+    "CHART_TECHNICAL": { "schedule": "every_1h", "timeframes": ["1h","4h"] },
+    "DASHBOARD_MACRO": { "schedule": "every_4h" },
+    "LIQUIDITY_COINGLASS": { "schedule": "every_4h" },
+    "FUNDING_COINGLASS": { "schedule": "every_4h" },
+    "OI_COINGLASS": { "schedule": "every_4h" },
+    "LS_RATIO_COINGLASS": { "schedule": "every_4h" },
+    "ETF_CRYPTO": { "schedule": "every_4h" },
+    "SCREENER_STOCKS": { "schedule": "every_24h" },
+    "NEWS_SENTIMENT": { "schedule": "every_6h" }
+  },
+  "market_hours": {
+    "crypto": { "capture_24h": true },
+    "etf": { "capture_24h": false, "active_window": "09:30-16:00", "timezone": "America/New_York" },
+    "forex": { "capture_24h": false, "active_window": "00:00-23:00", "timezone": "UTC" }
+  },
+  "telegram_triggers": {
+    "high_confidence_signal": {
+      "min_signals": 1,
+      "min_confidence": 0.75,
+      "description": "At least one signal with >= 75% confidence"
+    },
+    "critical_liquidation": {
+      "min_liquidations_usd": 50000000,
+      "description": "Liquidation event exceeding $50M"
+    },
+    "macro_divergence": {
+      "required_assets": ["BTCUSDT.P", "OANDA:XAUUSD", "TVC:DXY"],
+      "description": "Cross-asset divergence detected on macro dashboard"
+    }
+  }
+}

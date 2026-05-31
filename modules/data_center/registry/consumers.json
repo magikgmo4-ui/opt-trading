@@ -1,6 +1,6 @@
 {
   "registry_version": "v1",
-  "updated_at": "2026-05-26T00:00:00Z",
+  "updated_at": "2026-05-30T12:00:00Z",
   "consumers": [
     {
       "consumer_id": "desk_pro__market_metrics",
@@ -85,6 +85,90 @@
       "migration_needed": false,
       "read_path_current": null,
       "validated_at": "2026-05-23"
+    },
+    {
+      "consumer_id": "desk_pro__vision_analysis",
+      "surface": "PF_DESK_PRO",
+      "contract_class": "vision_analysis.v1",
+      "read_path": "data/deskpro/inputs/vision_analysis/latest.json",
+      "access_pattern": "latest_only",
+      "fallback": "silent_empty",
+      "implementation_status": "implemented",
+      "migration_needed": false,
+      "read_path_current": null,
+      "validated_at": "2026-05-30"
+    },
+    {
+      "consumer_id": "desk_pro__vision_context_coinglass",
+      "surface": "PF_DESK_PRO",
+      "contract_class": "vision_context.coinglass.v1",
+      "read_path": "data/deskpro/inputs/vision_context/coinglass/latest.json",
+      "access_pattern": "latest_only",
+      "fallback": "silent_empty",
+      "implementation_status": "implemented",
+      "migration_needed": false,
+      "read_path_current": null,
+      "validated_at": "2026-05-30"
+    },
+    {
+      "consumer_id": "dashboards__vision_analysis_history",
+      "surface": "PF_DASHBOARDS",
+      "contract_class": "vision_analysis.v1",
+      "read_path": "data/data_center/views/vision_analysis/history/",
+      "access_pattern": "full_history",
+      "fallback": "silent_empty",
+      "implementation_status": "implemented",
+      "migration_needed": false,
+      "read_path_current": null,
+      "validated_at": "2026-05-30"
+    },
+    {
+      "consumer_id": "desk_pro__vision_context_screener",
+      "surface": "PF_DESK_PRO",
+      "contract_class": "vision_context.screener.v1",
+      "read_path": "data/deskpro/inputs/vision_context/screener/latest.json",
+      "access_pattern": "latest_only",
+      "fallback": "silent_empty",
+      "implementation_status": "implemented",
+      "migration_needed": false,
+      "read_path_current": null,
+      "validated_at": "2026-05-30"
+    },
+    {
+      "consumer_id": "dashboards__screener_history",
+      "surface": "PF_DASHBOARDS",
+      "contract_class": "vision_context.screener.v1",
+      "read_path": "data/data_center/views/vision_context/screener/history/",
+      "access_pattern": "full_history",
+      "fallback": "silent_empty",
+      "implementation_status": "implemented",
+      "migration_needed": false,
+      "read_path_current": null,
+      "validated_at": "2026-05-30"
+    },
+    {
+      "consumer_id": "desk_pro__vision_context_news_sentiment",
+      "surface": "PF_DESK_PRO",
+      "contract_class": "vision_context.news_sentiment.v1",
+      "read_path": "data/deskpro/inputs/vision_context/news_sentiment/latest.json",
+      "access_pattern": "latest_only",
+      "fallback": "silent_empty",
+      "implementation_status": "implemented",
+      "migration_needed": false,
+      "read_path_current": null,
+      "validated_at": "2026-05-30"
+    },
+    {
+      "consumer_id": "dashboards__news_sentiment_history",
+      "surface": "PF_DASHBOARDS",
+      "contract_class": "vision_context.news_sentiment.v1",
+      "read_path": "data/data_center/views/vision_context/news_sentiment/history/",
+      "access_pattern": "full_history",
+      "fallback": "silent_empty",
+      "implementation_status": "implemented",
+      "migration_needed": false,
+      "read_path_current": null,
+      "validated_at": "2026-05-30"
     }
   ]
 }
