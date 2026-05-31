@@ -1,0 +1,5 @@
+# FILE_SCOPE — GO_STRICT_WORKERS_BILAN_01
+# Bilan strict workers au 2026-05-31 — état canonique du framework
+
+docs/chantiers/GO_STRICT_WORKERS_BILAN_01/**
+docs/agents/strict_workers/STRICT_WORKERS_BILAN_2026_05_31.md
