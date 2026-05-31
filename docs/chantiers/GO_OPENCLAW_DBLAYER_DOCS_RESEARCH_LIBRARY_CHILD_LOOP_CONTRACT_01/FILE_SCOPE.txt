@@ -1,0 +1,6 @@
+# FILE_SCOPE — GO_OPENCLAW_DBLAYER_DOCS_RESEARCH_LIBRARY_CHILD_LOOP_CONTRACT_01
+# Retrofix: FILE_SCOPE.txt was missing at merge time (PR #973).
+
+docs/chantiers/GO_OPENCLAW_DBLAYER_DOCS_RESEARCH_LIBRARY_CHILD_LOOP_CONTRACT_01/**
+docs/openclaw/INDEX.md
+docs/openclaw/loop_contract/**
