@@ -123,13 +123,22 @@ def main() -> int:
     ap.add_argument("--screen-type", required=True)
     ap.add_argument("--symbol", required=True)
     ap.add_argument("--timeframe", required=True)
+    ap.add_argument("--channel-id", default=None)
+    ap.add_argument("--message-id", default=None)
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
     if not args.stdin:
         raise SystemExit("ERROR: --stdin required")
     payload = json.loads(sys.stdin.read())
-    claim = build_claim(payload, screen_type=args.screen_type, symbol=args.symbol, timeframe=args.timeframe)
+    claim = build_claim(
+        payload,
+        screen_type=args.screen_type,
+        symbol=args.symbol,
+        timeframe=args.timeframe,
+        channel_id=args.channel_id,
+        message_id=args.message_id,
+    )
     if args.dry_run:
         print(json.dumps(claim, indent=2, ensure_ascii=False))
         return 0

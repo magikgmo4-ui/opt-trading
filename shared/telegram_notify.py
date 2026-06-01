@@ -23,6 +23,25 @@ def _append_jsonl(path: Path, record: dict[str, Any]) -> None:
         f.write(json.dumps(record, default=str) + "\n")
 
 
+def _extract_telegram_refs(response: requests.Response) -> tuple[str | None, str | None]:
+    try:
+        payload = response.json()
+    except ValueError:
+        return None, None
+
+    result = payload.get("result") if isinstance(payload, dict) else None
+    if not isinstance(result, dict):
+        return None, None
+
+    message_id = result.get("message_id")
+    chat = result.get("chat")
+    chat_id = chat.get("id") if isinstance(chat, dict) else None
+    return (
+        str(chat_id) if chat_id not in (None, "") else None,
+        str(message_id) if message_id not in (None, "") else None,
+    )
+
+
 def send_telegram_with_metrics(
     message: str,
     *,
@@ -58,10 +77,13 @@ def send_telegram_with_metrics(
     start = perf_counter()
     status_code = None
     err = None
+    telegram_chat_id = None
+    telegram_message_id = None
     try:
         r = requests.post(url, json=payload, timeout=timeout_s)
         status_code = r.status_code
         r.raise_for_status()
+        telegram_chat_id, telegram_message_id = _extract_telegram_refs(r)
         ok = True
     except requests.RequestException as exc:
         ok = False
@@ -78,6 +100,8 @@ def send_telegram_with_metrics(
         "timeout_s": timeout_s,
         "message_len": len(text),
         "error": err,
+        "telegram_chat_id": telegram_chat_id,
+        "telegram_message_id": telegram_message_id,
     }
 
     log_path = os.getenv("TELEGRAM_LATENCY_LOG_PATH")
