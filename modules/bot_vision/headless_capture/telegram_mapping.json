@@ -1,0 +1,79 @@
+{
+  "$schema": "telegram_mapping.v1",
+  "title": "bot_vision Telegram follow-up mapping",
+  "version": "1.0.0",
+  "routes": [
+    {
+      "screen_type": "CHART_TECHNICAL",
+      "input_class": "vision_analysis.v1",
+      "trigger": "validated_signals_above_confidence",
+      "cooldown_minutes": 30,
+      "summary_source": "telegram_filter",
+      "delivery": "send_telegram"
+    },
+    {
+      "screen_type": "ETF_CRYPTO",
+      "input_class": "vision_analysis.v1",
+      "trigger": "validated_signals_above_confidence",
+      "cooldown_minutes": 30,
+      "summary_source": "telegram_filter",
+      "delivery": "send_telegram"
+    },
+    {
+      "screen_type": "DASHBOARD_MACRO",
+      "input_class": "vision_analysis.v1",
+      "trigger": "validated_signals_above_confidence",
+      "cooldown_minutes": 60,
+      "summary_source": "telegram_filter",
+      "delivery": "send_telegram"
+    },
+    {
+      "screen_type": "LIQUIDITY_COINGLASS",
+      "input_class": "vision_context.coinglass.v1",
+      "trigger": "critical_liquidation",
+      "cooldown_minutes": 60,
+      "summary_source": "coinglass_summary_pending",
+      "delivery": "future_route"
+    },
+    {
+      "screen_type": "FUNDING_COINGLASS",
+      "input_class": "vision_context.coinglass.v1",
+      "trigger": "critical_funding_pending",
+      "cooldown_minutes": 60,
+      "summary_source": "coinglass_summary_pending",
+      "delivery": "future_route"
+    },
+    {
+      "screen_type": "OI_COINGLASS",
+      "input_class": "vision_context.coinglass.v1",
+      "trigger": "critical_oi_pending",
+      "cooldown_minutes": 60,
+      "summary_source": "coinglass_summary_pending",
+      "delivery": "future_route"
+    },
+    {
+      "screen_type": "LS_RATIO_COINGLASS",
+      "input_class": "vision_context.coinglass.v1",
+      "trigger": "critical_ratio_pending",
+      "cooldown_minutes": 60,
+      "summary_source": "coinglass_summary_pending",
+      "delivery": "future_route"
+    },
+    {
+      "screen_type": "SCREENER_STOCKS",
+      "input_class": "vision_context.screener.v1",
+      "trigger": "top_movers_pending",
+      "cooldown_minutes": 360,
+      "summary_source": "screener_summary_pending",
+      "delivery": "future_route"
+    },
+    {
+      "screen_type": "NEWS_SENTIMENT",
+      "input_class": "vision_context.news_sentiment.v1",
+      "trigger": "aggregate_sentiment_pending",
+      "cooldown_minutes": 360,
+      "summary_source": "news_summary_pending",
+      "delivery": "future_route"
+    }
+  ]
+}
