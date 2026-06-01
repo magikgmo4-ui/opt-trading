@@ -9,6 +9,12 @@ from modules.desk_pro.models import Metric
 VISION_CONTEXT_LATEST = Path(
     "data/deskpro/inputs/vision_context/coinglass/latest.json"
 )
+VISION_CONTEXT_NEWS_LATEST = Path(
+    "data/deskpro/inputs/vision_context/news_sentiment/latest.json"
+)
+VISION_CONTEXT_SCREENER_LATEST = Path(
+    "data/deskpro/inputs/vision_context/screener/latest.json"
+)
 
 _METRIC_UNITS = {
     "liquidations_long": "USD",
@@ -71,3 +77,25 @@ def read_vision_context_coinglass(path: Optional[Path] = None) -> List[Metric]:
         )
 
     return result
+
+
+def _read_context_payload(path: Path, input_class: str) -> Optional[dict]:
+    if not path.exists():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+    if not isinstance(data, dict):
+        return None
+    if data.get("input_class") != input_class:
+        return None
+    return data
+
+
+def read_vision_context_news_sentiment(path: Optional[Path] = None) -> Optional[dict]:
+    return _read_context_payload(path or VISION_CONTEXT_NEWS_LATEST, "vision_context.news_sentiment.v1")
+
+
+def read_vision_context_screener(path: Optional[Path] = None) -> Optional[dict]:
+    return _read_context_payload(path or VISION_CONTEXT_SCREENER_LATEST, "vision_context.screener.v1")

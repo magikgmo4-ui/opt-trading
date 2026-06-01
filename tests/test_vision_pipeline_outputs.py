@@ -304,6 +304,11 @@ class TestRunPipelineScript:
         source = path.read_text(encoding="utf-8")
         assert "signal_validator" in source
 
+    def test_has_telegram_claim_writer_ref(self):
+        path = PROFILES_DIR / "scripts" / "run_vision_pipeline.py"
+        source = path.read_text(encoding="utf-8")
+        assert "telegram_claim_writer" in source
+
     def test_resolve_png_falls_back_to_processed_dir(self, tmp_path):
         import importlib.util
         path = PROFILES_DIR / "scripts" / "run_vision_pipeline.py"

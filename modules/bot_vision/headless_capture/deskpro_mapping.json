@@ -1,0 +1,70 @@
+{
+  "$schema": "deskpro_mapping.v1",
+  "title": "bot_vision DeskPro follow-up mapping",
+  "version": "1.0.0",
+  "routes": [
+    {
+      "screen_type": "CHART_TECHNICAL",
+      "input_class": "vision_analysis.v1",
+      "deskpro_path": "data/deskpro/inputs/vision_analysis/latest.json",
+      "reader": "modules.desk_pro.service.vision_analysis_reader.read_vision_analysis",
+      "presentation": "analysis"
+    },
+    {
+      "screen_type": "ETF_CRYPTO",
+      "input_class": "vision_analysis.v1",
+      "deskpro_path": "data/deskpro/inputs/vision_analysis/latest.json",
+      "reader": "modules.desk_pro.service.vision_analysis_reader.read_vision_analysis",
+      "presentation": "analysis"
+    },
+    {
+      "screen_type": "DASHBOARD_MACRO",
+      "input_class": "vision_analysis.v1",
+      "deskpro_path": "data/deskpro/inputs/vision_analysis/latest.json",
+      "reader": "modules.desk_pro.service.vision_analysis_reader.read_vision_analysis",
+      "presentation": "analysis"
+    },
+    {
+      "screen_type": "LIQUIDITY_COINGLASS",
+      "input_class": "vision_context.coinglass.v1",
+      "deskpro_path": "data/deskpro/inputs/vision_context/coinglass/latest.json",
+      "reader": "modules.desk_pro.service.vision_context_reader.read_vision_context_coinglass",
+      "presentation": "metrics"
+    },
+    {
+      "screen_type": "FUNDING_COINGLASS",
+      "input_class": "vision_context.coinglass.v1",
+      "deskpro_path": "data/deskpro/inputs/vision_context/coinglass/latest.json",
+      "reader": "modules.desk_pro.service.vision_context_reader.read_vision_context_coinglass",
+      "presentation": "metrics"
+    },
+    {
+      "screen_type": "OI_COINGLASS",
+      "input_class": "vision_context.coinglass.v1",
+      "deskpro_path": "data/deskpro/inputs/vision_context/coinglass/latest.json",
+      "reader": "modules.desk_pro.service.vision_context_reader.read_vision_context_coinglass",
+      "presentation": "metrics"
+    },
+    {
+      "screen_type": "LS_RATIO_COINGLASS",
+      "input_class": "vision_context.coinglass.v1",
+      "deskpro_path": "data/deskpro/inputs/vision_context/coinglass/latest.json",
+      "reader": "modules.desk_pro.service.vision_context_reader.read_vision_context_coinglass",
+      "presentation": "metrics"
+    },
+    {
+      "screen_type": "SCREENER_STOCKS",
+      "input_class": "vision_context.screener.v1",
+      "deskpro_path": "data/deskpro/inputs/vision_context/screener/latest.json",
+      "reader": "modules.desk_pro.service.vision_context_reader.read_vision_context_screener",
+      "presentation": "context"
+    },
+    {
+      "screen_type": "NEWS_SENTIMENT",
+      "input_class": "vision_context.news_sentiment.v1",
+      "deskpro_path": "data/deskpro/inputs/vision_context/news_sentiment/latest.json",
+      "reader": "modules.desk_pro.service.vision_context_reader.read_vision_context_news_sentiment",
+      "presentation": "context"
+    }
+  ]
+}
