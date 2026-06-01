@@ -10,7 +10,12 @@ from fastapi.responses import HTMLResponse
 from modules.desk_pro.models import DeskForm, Snapshot, ScoreResult
 from modules.desk_pro.service.aggregator import build_snapshot
 from modules.desk_pro.service.scoring import compute_probability
-from modules.desk_pro.service.vision_panel import read_vision_panel_data
+from modules.desk_pro.service.vision_panel import (
+    read_news_panel_data,
+    read_screener_panel_data,
+    read_telegram_claim_panel_data,
+    read_vision_panel_data,
+)
 from modules.desk_pro.ui.page import render_ui_html
 
 WEBHOOK_BASE = "http://127.0.0.1:8000"
@@ -457,6 +462,21 @@ cmd-desk_pro logs 200</pre>
 def desk_vision():
     """Return current vision_context.coinglass.v1 data for the Desk Pro panel."""
     return read_vision_panel_data()
+
+
+@router.get("/vision/news")
+def desk_vision_news():
+    return read_news_panel_data()
+
+
+@router.get("/vision/screener")
+def desk_vision_screener():
+    return read_screener_panel_data()
+
+
+@router.get("/vision/telegram-claim")
+def desk_vision_telegram_claim():
+    return read_telegram_claim_panel_data()
 
 
 @router.get("/logs/latest")
