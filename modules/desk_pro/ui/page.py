@@ -204,6 +204,36 @@ def render_ui_html() -> str:
     </div>
   </details>
 
+  <details class="tools-section" id="followupPanel" style="margin-top:16px">
+    <summary>Follow-up Surfaces</summary>
+    <div class="grid">
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <button id="btnNewsVision" class="action-btn">Refresh</button>
+          <span id="newsVisionMeta" class="muted" style="font-size:12px"></span>
+        </div>
+        <h3 style="margin-top:0">News Sentiment</h3>
+        <div id="newsVisionContent"><span class="muted">Click Refresh to load news sentiment.</span></div>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <button id="btnScreenerVision" class="action-btn">Refresh</button>
+          <span id="screenerVisionMeta" class="muted" style="font-size:12px"></span>
+        </div>
+        <h3 style="margin-top:0">Screener Context</h3>
+        <div id="screenerVisionContent"><span class="muted">Click Refresh to load screener context.</span></div>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <button id="btnTelegramClaim" class="action-btn">Refresh</button>
+          <span id="telegramClaimMeta" class="muted" style="font-size:12px"></span>
+        </div>
+        <h3 style="margin-top:0">Telegram Claim</h3>
+        <div id="telegramClaimContent"><span class="muted">Click Refresh to load telegram claim.</span></div>
+      </div>
+    </div>
+  </details>
+
 <script>
 const el = (id)=>document.getElementById(id);
 
@@ -219,6 +249,10 @@ function badge(ok, label, labelFail){
   const color = warn ? '#e65100' : (good ? '#2e7d32' : '#c62828');
   const text = warn ? 'WARN' : (good ? (label||'OK') : (labelFail||'DOWN'));
   return `<span style="display:inline-block;padding:1px 8px;border-radius:999px;background:${color};color:#fff;font-size:11px;margin:1px 0">${text}</span>`;
+}
+
+function renderKeyValueList(entries){
+  return '<ul style="margin:0;padding-left:18px">' + entries.map(e=>`<li>${e}</li>`).join('') + '</ul>';
 }
 
 async function refreshStatus(){
@@ -501,12 +535,83 @@ async function refreshVision(){
   }
 }
 
+async function refreshSimplePanel(url, contentId, metaId, renderFn){
+  const content = el(contentId);
+  const meta = el(metaId);
+  try{
+    const r = await fetch(url);
+    const j = await r.json();
+    if(!j.ok){
+      content.innerHTML = '<span class="muted">No data — ' + (j.reason||'unavailable') + '</span>';
+      meta.textContent = '';
+      return;
+    }
+    const payload = j.payload || j.vision || {};
+    content.innerHTML = renderFn(payload);
+    meta.textContent = j.age_hours == null ? '' : (j.age_hours.toFixed(1) + 'h ago');
+  }catch(e){
+    content.innerHTML = '<span class="muted">Error: ' + e + '</span>';
+    meta.textContent = '';
+  }
+}
+
+function renderNews(payload){
+  const agg = payload.aggregate || {};
+  const top = (payload.articles || []).slice(0,3).map(a => `${a.source}: ${a.headline}`);
+  return renderKeyValueList([
+    `sentiment=${agg.sentiment_label||'n/a'}`,
+    `avg_score=${agg.average_sentiment_score ?? 'n/a'}`,
+    `articles=${payload.article_count ?? 0}`,
+    `top=${top.join(' | ') || 'n/a'}`,
+  ]);
+}
+
+function renderScreener(payload){
+  const top = (payload.top_gainers || []).slice(0,3).map(s => `${s.symbol} ${s.change_pct}%`);
+  return renderKeyValueList([
+    `label=${payload.screener_label||payload.screener_symbol||'n/a'}`,
+    `stocks=${payload.stock_count ?? 0}`,
+    `avg_change=${payload.avg_change_pct ?? 'n/a'}`,
+    `top=${top.join(' | ') || 'n/a'}`,
+  ]);
+}
+
+function renderTelegramClaim(payload){
+  const entities = payload.entities || {};
+  return renderKeyValueList([
+    `type=${payload.claim_type||'n/a'}`,
+    `symbol=${payload.symbol||'n/a'}`,
+    `timeframe=${payload.timeframe||'n/a'}`,
+    `direction=${entities.direction||'n/a'}`,
+    `confidence=${entities.confidence ?? 'n/a'}`,
+    `levels=${(entities.levels||[]).join(', ') || 'n/a'}`,
+  ]);
+}
+
+async function refreshNewsVision(){
+  return refreshSimplePanel('/desk/vision/news', 'newsVisionContent', 'newsVisionMeta', renderNews);
+}
+
+async function refreshScreenerVision(){
+  return refreshSimplePanel('/desk/vision/screener', 'screenerVisionContent', 'screenerVisionMeta', renderScreener);
+}
+
+async function refreshTelegramClaim(){
+  return refreshSimplePanel('/desk/vision/telegram-claim', 'telegramClaimContent', 'telegramClaimMeta', renderTelegramClaim);
+}
+
 el('btnSnap').addEventListener('click', refreshSnap);
 el('btnSubmit').addEventListener('click', submitForm);
 el('btnStatus').addEventListener('click', refreshStatus);
 el('btnTestAlert').addEventListener('click', testAlert);
 el('btnVision').addEventListener('click', refreshVision);
+el('btnNewsVision').addEventListener('click', refreshNewsVision);
+el('btnScreenerVision').addEventListener('click', refreshScreenerVision);
+el('btnTelegramClaim').addEventListener('click', refreshTelegramClaim);
 refreshStatus();
+refreshNewsVision();
+refreshScreenerVision();
+refreshTelegramClaim();
 </script>
 
 </body>
