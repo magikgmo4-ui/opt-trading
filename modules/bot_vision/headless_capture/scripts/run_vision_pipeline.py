@@ -38,6 +38,7 @@ CAPTURE_SCRIPT = HEADLESS_DIR / "capture_headless.js"
 COMPOSE_SCRIPT = HEADLESS_DIR / "scripts" / "compose_quad.py"
 VISION_ANALYSIS_WRITER = HEADLESS_DIR / "scripts" / "vision_analysis_writer.py"
 TELEGRAM_FILTER_SCRIPT = HEADLESS_DIR / "scripts" / "telegram_filter.py"
+TELEGRAM_CLAIM_WRITER = HEADLESS_DIR / "scripts" / "telegram_claim_writer.py"
 COINGLASS_OCR_ANALYZER = HEADLESS_DIR / "scripts" / "coinglass_ocr_analyzer.py"
 VISION_CONTEXT_WRITER = HEADLESS_DIR / "scripts" / "vision_context_writer.py"
 SCREENER_ANALYZER = HEADLESS_DIR / "scripts" / "screener_analyzer.py"
@@ -596,6 +597,22 @@ def main() -> int:
                 if should_send:
                     summary_text = tg_data.get("summary", "")
                     run_id = tg_data.get("run_id", "")
+                    tc_cmd = [
+                        sys.executable or "python3",
+                        str(TELEGRAM_CLAIM_WRITER),
+                        "--stdin",
+                        "--screen-type", screen_type,
+                        "--symbol", symbol,
+                        "--timeframe", timeframe,
+                    ]
+                    try:
+                        tc_result = subprocess.run(tc_cmd, input=tg_result.stdout, capture_output=True, text=True, timeout=15)
+                        if tc_result.stdout:
+                            print(tc_result.stdout.strip())
+                        if tc_result.returncode != 0:
+                            print(f"WARN: telegram_claim_writer exit {tc_result.returncode}", file=sys.stderr)
+                    except subprocess.TimeoutExpired:
+                        print("WARN: telegram_claim_writer timed out", file=sys.stderr)
                     try:
                         _ensure_telegram_env()
                         sys.path.insert(0, str(REPO_ROOT / "shared"))
