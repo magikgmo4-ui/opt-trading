@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "updated_at": "2026-06-02",
+  "channels": [
+    {
+      "alias": "coinglass_alerts",
+      "source_ref": "coinglass_alerts",
+      "enabled": true,
+      "categories": ["context", "crypto", "liquidity"],
+      "notes": "Proven live capture channel"
+    },
+    {
+      "alias": "cryptoquant_official",
+      "source_ref": "cryptoquant_official",
+      "enabled": true,
+      "categories": ["context", "crypto", "onchain"],
+      "notes": "Proven live capture channel"
+    },
+    {
+      "alias": "glassnode",
+      "source_ref": "glassnode",
+      "enabled": true,
+      "categories": ["context", "crypto", "onchain"],
+      "notes": "Proven live capture channel"
+    },
+    {
+      "alias": "arkhamintelligence",
+      "source_ref": "arkhamintelligence",
+      "enabled": true,
+      "categories": ["context", "crypto", "wallets"],
+      "notes": "Proven live capture channel"
+    },
+    {
+      "alias": "whale_alert_io",
+      "source_ref": "whale_alert_io",
+      "enabled": true,
+      "categories": ["context", "crypto", "whale"],
+      "notes": "Proven live capture channel"
+    },
+    {
+      "alias": "goldsignals",
+      "source_ref": "goldsignals",
+      "enabled": false,
+      "categories": ["signals", "gold"],
+      "notes": "Candidate handle to validate before live rollout"
+    },
+    {
+      "alias": "goldtrading",
+      "source_ref": "goldtrading",
+      "enabled": false,
+      "categories": ["signals", "gold"],
+      "notes": "Candidate handle to validate before live rollout"
+    },
+    {
+      "alias": "xauusd",
+      "source_ref": "xauusd",
+      "enabled": false,
+      "categories": ["signals", "gold", "forex"],
+      "notes": "Candidate handle to validate before live rollout"
+    },
+    {
+      "alias": "gold_scalping",
+      "source_ref": "gold_scalping",
+      "enabled": false,
+      "categories": ["signals", "gold", "scalping"],
+      "notes": "Candidate handle to validate before live rollout"
+    },
+    {
+      "alias": "gold_intraday",
+      "source_ref": "gold_intraday",
+      "enabled": false,
+      "categories": ["signals", "gold", "intraday"],
+      "notes": "Candidate handle to validate before live rollout"
+    },
+    {
+      "alias": "forexsignals",
+      "source_ref": "forexsignals",
+      "enabled": false,
+      "categories": ["signals", "forex"],
+      "notes": "Candidate handle to validate before live rollout"
+    },
+    {
+      "alias": "forexgoldsignals",
+      "source_ref": "forexgoldsignals",
+      "enabled": false,
+      "categories": ["signals", "forex", "gold"],
+      "notes": "Candidate handle to validate before live rollout"
+    },
+    {
+      "alias": "fxpremiumsignals",
+      "source_ref": "fxpremiumsignals",
+      "enabled": false,
+      "categories": ["signals", "forex"],
+      "notes": "Candidate handle to validate before live rollout"
+    },
+    {
+      "alias": "binancekillers",
+      "source_ref": "binancekillers",
+      "enabled": false,
+      "categories": ["signals", "crypto"],
+      "notes": "Candidate handle to validate before live rollout"
+    },
+    {
+      "alias": "wallstreetqueenofficial",
+      "source_ref": "wallstreetqueenofficial",
+      "enabled": false,
+      "categories": ["signals", "crypto"],
+      "notes": "Candidate handle to validate before live rollout"
+    },
+    {
+      "alias": "learn2trade",
+      "source_ref": "learn2trade",
+      "enabled": false,
+      "categories": ["signals", "crypto", "forex"],
+      "notes": "Candidate handle to validate before live rollout"
+    },
+    {
+      "alias": "fatpigsignals",
+      "source_ref": "fatpigsignals",
+      "enabled": false,
+      "categories": ["signals", "crypto"],
+      "notes": "Candidate handle to validate before live rollout"
+    }
+  ]
+}
