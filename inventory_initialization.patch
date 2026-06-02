@@ -1,0 +1,342 @@
+diff --git a/configs/env/registry/credentials.yaml b/configs/env/registry/credentials.yaml
+index 095113ca..69c8fdac 100644
+--- a/configs/env/registry/credentials.yaml
++++ b/configs/env/registry/credentials.yaml
+@@ -11,3 +11,59 @@ credentials:
+     provider: telegram
+     type: bot_token
+     env_var: TELEGRAM_BOT_TOKEN
++  - id: telegram_session_path
++    provider: telegram
++    type: file_path
++    env_var: TELEGRAM_SESSION_PATH
++  - id: tv_webhook_secret
++    provider: tradingview
++    type: webhook_secret
++    env_var: TV_WEBHOOK_SECRET
++  - id: google_service_account_json
++    provider: google
++    type: file_path
++    env_var: GOOGLE_SERVICE_ACCOUNT_JSON_PATH
++  - id: google_sheets_spreadsheet_id
++    provider: google
++    type: resource_id
++    env_var: GOOGLE_SHEETS_SPREADSHEET_ID
++  - id: gh_token
++    provider: github
++    type: auth_token
++    env_var: GH_TOKEN
++  - id: binance_api_key
++    provider: binance
++    type: api_key
++    env_var: BINANCE_API_KEY
++  - id: coinglass_api_key
++    provider: coinglass
++    type: api_key
++    env_var: COINGLASS_API_KEY
++  - id: ollama_base_url
++    provider: ollama
++    type: url
++    env_var: OLLAMA_BASE_URL
++  - id: openai_api_key
++    provider: openai
++    type: api_key
++    env_var: OPENAI_API_KEY
++  - id: anthropic_api_key
++    provider: anthropic
++    type: api_key
++    env_var: ANTHROPIC_API_KEY
++  - id: gemini_api_key
++    provider: google
++    type: api_key
++    env_var: GEMINI_API_KEY
++  - id: db_host
++    provider: local
++    type: host
++    env_var: DB_HOST
++  - id: db_user
++    provider: local
++    type: username
++    env_var: DB_USER
++  - id: db_password
++    provider: local
++    type: password
++    env_var: DB_PASSWORD
+diff --git a/configs/env/registry/jobs.yaml b/configs/env/registry/jobs.yaml
+index 24f82b9f..6575a6c7 100644
+--- a/configs/env/registry/jobs.yaml
++++ b/configs/env/registry/jobs.yaml
+@@ -1,3 +1,17 @@
+ jobs:
+   - id: telegram_collect_channel
+     requires_role: telegram_collector
++  - id: tv_webhook_receive
++    requires_role: webhook_receiver
++  - id: sheets_append_rows
++    requires_role: google_sheets_writer
++  - id: repo_ops
++    requires_role: git_dev
++  - id: market_snapshot_fetch
++    requires_role: market_data_readonly
++  - id: llm_local_inference
++    requires_role: llm_local
++  - id: llm_cloud_inference
++    requires_role: llm_cloud
++  - id: db_maintenance
++    requires_role: datacenter
+diff --git a/configs/env/registry/machines.yaml b/configs/env/registry/machines.yaml
+index 43a901f1..4fa16c07 100644
+--- a/configs/env/registry/machines.yaml
++++ b/configs/env/registry/machines.yaml
+@@ -1,9 +1,26 @@
+ machines:
+-  - id: fantome
++  - id: admin-trading
+     roles:
++      - datacenter
++      - market_data_readonly
++      - webhook_receiver
++      - google_sheets_writer
++  - id: db-layer
++    roles:
++      - datacenter
+       - telegram_collector
++      - market_data_readonly
++  - id: student
++    roles:
++      - llm_local
++      - deskpro_user
++  - id: cursor-ai
++    roles:
+       - git_dev
+-  - id: admin-trading
++      - llm_cloud
++  - id: fantome
+     roles:
+-      - datacenter
++      - telegram_collector
++      - git_dev
+       - market_data_readonly
++      - llm_local
+diff --git a/configs/env/registry/roles.yaml b/configs/env/registry/roles.yaml
+index 71c62294..9b8a8ad5 100644
+--- a/configs/env/registry/roles.yaml
++++ b/configs/env/registry/roles.yaml
+@@ -4,5 +4,33 @@ roles:
+       - telegram_api_id
+       - telegram_api_hash
+       - telegram_bot_token_main
++      - telegram_session_path
++  - id: webhook_receiver
++    credentials:
++      - tv_webhook_secret
++  - id: google_sheets_writer
++    credentials:
++      - google_service_account_json
++      - google_sheets_spreadsheet_id
+   - id: git_dev
++    credentials:
++      - gh_token
++  - id: market_data_readonly
++    credentials:
++      - binance_api_key
++      - coinglass_api_key
++  - id: deskpro_user
+     credentials: []
++  - id: llm_local
++    credentials:
++      - ollama_base_url
++  - id: llm_cloud
++    credentials:
++      - openai_api_key
++      - anthropic_api_key
++      - gemini_api_key
++  - id: datacenter
++    credentials:
++      - db_host
++      - db_user
++      - db_password
+diff --git a/configs/env/roles/llm_cloud.env.example b/configs/env/roles/llm_cloud.env.example
+new file mode 100644
+index 00000000..039ea9e5
+--- /dev/null
++++ b/configs/env/roles/llm_cloud.env.example
+@@ -0,0 +1,4 @@
++# LLM Cloud credentials
++OPENAI_API_KEY=
++ANTHROPIC_API_KEY=
++GEMINI_API_KEY=
+diff --git a/configs/env/roles/telegram_collector.env.example b/configs/env/roles/telegram_collector.env.example
+index a487a51c..2c58359b 100644
+--- a/configs/env/roles/telegram_collector.env.example
++++ b/configs/env/roles/telegram_collector.env.example
+@@ -2,3 +2,4 @@
+ TELEGRAM_API_ID=
+ TELEGRAM_API_HASH=
+ TELEGRAM_BOT_TOKEN=
++TELEGRAM_SESSION_PATH=
+diff --git a/configs/env/roles/webhook_receiver.env.example b/configs/env/roles/webhook_receiver.env.example
+new file mode 100644
+index 00000000..1caf227c
+--- /dev/null
++++ b/configs/env/roles/webhook_receiver.env.example
+@@ -0,0 +1,2 @@
++# Webhook Receiver credentials
++TV_WEBHOOK_SECRET=
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01/00_INITIAL_PROJECT_DOC.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01/00_INITIAL_PROJECT_DOC.md
+new file mode 100644
+index 00000000..d489b55f
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01/00_INITIAL_PROJECT_DOC.md
+@@ -0,0 +1,20 @@
++# GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01
++
++**GO_STRUCTURAL_ROLE:** GO_CHILD_ATTACHED_TO_PARENT
++**PARENT:** GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01
++
++## Objectif
++Fixer l’inventaire complet des credentials actuellement nécessaires au projet opt-trading, sans viser une machine en particulier.
++
++## Portée
++- Identification de toutes les applications et services nécessitant des secrets.
++- Mapping des jobs vers les credentials requis.
++- Définition des rôles autorisés à accéder à ces credentials.
++- Assignation des rôles aux profils de machines.
++- Identification des manques et gaps actuels.
++
++## Livrables
++- Documentation de l'inventaire complet.
++- Mise à jour des registres YAML (`credentials`, `jobs`, `roles`, `machines`).
++- Templates `.env.example` complétés pour chaque rôle.
++- Validation via les scripts canoniques.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01/10_CURRENT_APPS_AND_SERVICES_SCOPE.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01/10_CURRENT_APPS_AND_SERVICES_SCOPE.md
+new file mode 100644
+index 00000000..0bb8b391
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01/10_CURRENT_APPS_AND_SERVICES_SCOPE.md
+@@ -0,0 +1,21 @@
++# Current Apps and Services Scope
++
++L'inventaire couvre les surfaces suivantes :
++
++## Services de Collecte
++- **Telegram Collector**: Collecte de signaux et données depuis des canaux Telegram.
++- **Market Data Readonly**: APIs de prix et métriques (Coinglass, Binance).
++
++## Intégrations Externes
++- **TradingView Webhook**: Réception d'alertes stratégiques.
++- **Google Sheets**: Écriture et lecture de registres et journaux de bord.
++- **GitHub**: Opérations sur les dépôts, PRs et gestion de flotte.
++
++## Outils de Productivité & Analyse
++- **DeskPro CLI/GUI**: Analyse de snapshots et gestion de bureau.
++- **LLM Local (Ollama)**: Inférence locale pour revue de code et analyse.
++- **LLM Cloud (OpenAI, Anthropic, Gemini)**: Inférence externe pour tâches complexes.
++
++## Infrastructure
++- **Data Center**: Accès aux bases de données et stockage persistant.
++- **Access Management**: SSH, WireGuard (credentials d'accès à l'infrastructure).
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01/20_JOB_TO_CREDENTIAL_REQUIREMENTS_MATRIX.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01/20_JOB_TO_CREDENTIAL_REQUIREMENTS_MATRIX.md
+new file mode 100644
+index 00000000..9f26a0a4
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01/20_JOB_TO_CREDENTIAL_REQUIREMENTS_MATRIX.md
+@@ -0,0 +1,13 @@
++# Job to Credential Requirements Matrix
++
++| Service | Job | Credentials Requis |
++|---------|-----|-------------------|
++| Telegram | `telegram_collect_channel` | `TELEGRAM_API_ID`, `TELEGRAM_API_HASH`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_SESSION_PATH` |
++| TradingView | `tv_webhook_receive` | `TV_WEBHOOK_SECRET` |
++| Google Sheets | `sheets_append_rows` | `GOOGLE_SERVICE_ACCOUNT_JSON_PATH`, `GOOGLE_SHEETS_SPREADSHEET_ID` |
++| GitHub | `repo_ops` | `GH_TOKEN` |
++| Market Data | `market_snapshot_fetch` | `BINANCE_API_KEY`, `BINANCE_SECRET_KEY`, `COINGLASS_API_KEY` |
++| DeskPro | `deskpro_analysis` | (Chemins locaux, pas de secrets globaux) |
++| LLM Local | `llm_local_inference` | `OLLAMA_BASE_URL` |
++| LLM Cloud | `llm_cloud_inference` | `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `GEMINI_API_KEY` |
++| Data Center | `db_maintenance` | `DB_HOST`, `DB_USER`, `DB_PASSWORD` |
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01/30_ROLE_TO_CREDENTIAL_ACCESS_MATRIX.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01/30_ROLE_TO_CREDENTIAL_ACCESS_MATRIX.md
+new file mode 100644
+index 00000000..7721f0a1
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01/30_ROLE_TO_CREDENTIAL_ACCESS_MATRIX.md
+@@ -0,0 +1,13 @@
++# Role to Credential Access Matrix
++
++| Rôle | Credentials Autorisés |
++|------|----------------------|
++| `telegram_collector` | `TELEGRAM_API_ID`, `TELEGRAM_API_HASH`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_SESSION_PATH` |
++| `webhook_receiver` | `TV_WEBHOOK_SECRET` |
++| `google_sheets_writer` | `GOOGLE_SERVICE_ACCOUNT_JSON_PATH`, `GOOGLE_SHEETS_SPREADSHEET_ID` |
++| `git_dev` | `GH_TOKEN`, `GIT_AUTHOR_NAME`, `GIT_AUTHOR_EMAIL` |
++| `market_data_readonly` | `BINANCE_API_KEY`, `COINGLASS_API_KEY` |
++| `deskpro_user` | (Accès FS local) |
++| `llm_local` | `OLLAMA_BASE_URL` |
++| `llm_cloud` | `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `GEMINI_API_KEY` |
++| `datacenter` | `DB_HOST`, `DB_USER`, `DB_PASSWORD` |
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01/40_PROFILE_TO_ROLE_ASSIGNMENT_MATRIX.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01/40_PROFILE_TO_ROLE_ASSIGNMENT_MATRIX.md
+new file mode 100644
+index 00000000..e0f6ca7c
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01/40_PROFILE_TO_ROLE_ASSIGNMENT_MATRIX.md
+@@ -0,0 +1,9 @@
++# Profile to Role Assignment Matrix
++
++| Profil Machine | Rôles Assignés |
++|----------------|---------------|
++| `admin-trading` | `datacenter`, `market_data_readonly`, `webhook_receiver`, `google_sheets_writer` |
++| `db-layer` | `datacenter`, `telegram_collector`, `market_data_readonly` |
++| `student` | `llm_local`, `deskpro_user` |
++| `cursor-ai` | `git_dev`, `llm_cloud` |
++| `fantome` | `telegram_collector`, `git_dev`, `market_data_readonly`, `llm_local` |
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01/50_GAPS_AND_MISSING_CREDENTIALS.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01/50_GAPS_AND_MISSING_CREDENTIALS.md
+new file mode 100644
+index 00000000..90ae1cb0
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01/50_GAPS_AND_MISSING_CREDENTIALS.md
+@@ -0,0 +1,12 @@
++# Gaps and Missing Credentials
++
++## Gaps Identifiés
++1. **Telegram Sessions**: Le chemin `.session` n'est pas encore modélisé comme un credential "path".
++2. **Cloud LLM Keys**: Les variables Anthropic et Gemini ne sont pas encore présentes dans les templates.
++3. **DB Access**: Distinction nécessaire entre read-only et read-write pour le rôle `datacenter`.
++4. **Secrets de Flotte**: SSH keys et accès VPN/WireGuard ne sont pas encore dans le registry.
++
++## Actions à Entreprendre
++- Ajouter les IDs manquants au registry `credentials.yaml`.
++- Affiner les jobs dans `jobs.yaml`.
++- Compléter les rôles dans `roles.yaml`.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01/60_NEXT_MIGRATION_PLAN.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01/60_NEXT_MIGRATION_PLAN.md
+new file mode 100644
+index 00000000..62fbc78f
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01/60_NEXT_MIGRATION_PLAN.md
+@@ -0,0 +1,15 @@
++# Next Migration Plan
++
++Une fois cet inventaire stabilisé et fusionné :
++
++## Étape 1 : Migration Telegram
++- Child GO dédié.
++- Installation des credentials sur `fantome` et `admin-trading`.
++- Validation via les scripts canoniques.
++
++## Étape 2 : Migration Google Sheets
++- Child GO dédié.
++- Configuration du service account.
++
++## Étape 3 : Migration TradingView
++- Sécurisation du webhook secret.
+diff --git a/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01.md b/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01.md
+new file mode 100644
+index 00000000..27364348
+--- /dev/null
++++ b/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01.md
+@@ -0,0 +1,6 @@
++# Inbox: GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01
++
++- **Status:** INITIALIZED
++- **Branch:** go/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01
++- **Focus:** Inventaire global des besoins en credentials.
++- **Link:** [Dossier Chantier](../../chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01/00_INITIAL_PROJECT_DOC.md)

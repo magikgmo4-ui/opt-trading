@@ -1,3 +1,17 @@
 jobs:
   - id: telegram_collect_channel
     requires_role: telegram_collector
+  - id: tv_webhook_receive
+    requires_role: webhook_receiver
+  - id: sheets_append_rows
+    requires_role: google_sheets_writer
+  - id: repo_ops
+    requires_role: git_dev
+  - id: market_snapshot_fetch
+    requires_role: market_data_readonly
+  - id: llm_local_inference
+    requires_role: llm_local
+  - id: llm_cloud_inference
+    requires_role: llm_cloud
+  - id: db_maintenance
+    requires_role: datacenter
