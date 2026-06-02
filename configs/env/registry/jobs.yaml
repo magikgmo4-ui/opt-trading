@@ -1,0 +1,3 @@
+jobs:
+  - id: telegram_collect_channel
+    requires_role: telegram_collector

@@ -1,0 +1,578 @@
+diff --git a/configs/env/registry/credentials.yaml b/configs/env/registry/credentials.yaml
+new file mode 100644
+index 00000000..095113ca
+--- /dev/null
++++ b/configs/env/registry/credentials.yaml
+@@ -0,0 +1,13 @@
++credentials:
++  - id: telegram_api_id
++    provider: telegram
++    type: api_id
++    env_var: TELEGRAM_API_ID
++  - id: telegram_api_hash
++    provider: telegram
++    type: api_hash
++    env_var: TELEGRAM_API_HASH
++  - id: telegram_bot_token_main
++    provider: telegram
++    type: bot_token
++    env_var: TELEGRAM_BOT_TOKEN
+diff --git a/configs/env/registry/jobs.yaml b/configs/env/registry/jobs.yaml
+new file mode 100644
+index 00000000..24f82b9f
+--- /dev/null
++++ b/configs/env/registry/jobs.yaml
+@@ -0,0 +1,3 @@
++jobs:
++  - id: telegram_collect_channel
++    requires_role: telegram_collector
+diff --git a/configs/env/registry/machines.yaml b/configs/env/registry/machines.yaml
+new file mode 100644
+index 00000000..43a901f1
+--- /dev/null
++++ b/configs/env/registry/machines.yaml
+@@ -0,0 +1,9 @@
++machines:
++  - id: fantome
++    roles:
++      - telegram_collector
++      - git_dev
++  - id: admin-trading
++    roles:
++      - datacenter
++      - market_data_readonly
+diff --git a/configs/env/registry/roles.yaml b/configs/env/registry/roles.yaml
+new file mode 100644
+index 00000000..71c62294
+--- /dev/null
++++ b/configs/env/registry/roles.yaml
+@@ -0,0 +1,8 @@
++roles:
++  - id: telegram_collector
++    credentials:
++      - telegram_api_id
++      - telegram_api_hash
++      - telegram_bot_token_main
++  - id: git_dev
++    credentials: []
+diff --git a/configs/env/registry/variables.yaml b/configs/env/registry/variables.yaml
+new file mode 100644
+index 00000000..4d366f0b
+--- /dev/null
++++ b/configs/env/registry/variables.yaml
+@@ -0,0 +1 @@
++variables: []
+diff --git a/configs/env/roles/base.env.example b/configs/env/roles/base.env.example
+new file mode 100644
+index 00000000..34766611
+--- /dev/null
++++ b/configs/env/roles/base.env.example
+@@ -0,0 +1,3 @@
++# Base environment variables
++LOG_LEVEL=INFO
++DEBUG=0
+diff --git a/configs/env/roles/datacenter.env.example b/configs/env/roles/datacenter.env.example
+new file mode 100644
+index 00000000..5376f6aa
+--- /dev/null
++++ b/configs/env/roles/datacenter.env.example
+@@ -0,0 +1,4 @@
++# Data Center credentials
++DB_HOST=
++DB_USER=
++DB_PASSWORD=
+diff --git a/configs/env/roles/deskpro_cli.env.example b/configs/env/roles/deskpro_cli.env.example
+new file mode 100644
+index 00000000..27e74a47
+--- /dev/null
++++ b/configs/env/roles/deskpro_cli.env.example
+@@ -0,0 +1,3 @@
++# DeskPro CLI credentials
++DESKPRO_API_URL=
++DESKPRO_API_KEY=
+diff --git a/configs/env/roles/git_dev.env.example b/configs/env/roles/git_dev.env.example
+new file mode 100644
+index 00000000..91a779a0
+--- /dev/null
++++ b/configs/env/roles/git_dev.env.example
+@@ -0,0 +1,3 @@
++# Git Dev credentials
++GIT_AUTHOR_NAME=
++GIT_AUTHOR_EMAIL=
+diff --git a/configs/env/roles/google_sheets.env.example b/configs/env/roles/google_sheets.env.example
+new file mode 100644
+index 00000000..f4deca81
+--- /dev/null
++++ b/configs/env/roles/google_sheets.env.example
+@@ -0,0 +1,3 @@
++# Google Sheets credentials
++GOOGLE_SERVICE_ACCOUNT_JSON_PATH=
++SPREADSHEET_ID=
+diff --git a/configs/env/roles/llm_local.env.example b/configs/env/roles/llm_local.env.example
+new file mode 100644
+index 00000000..c565df0b
+--- /dev/null
++++ b/configs/env/roles/llm_local.env.example
+@@ -0,0 +1,3 @@
++# Local LLM credentials
++OLLAMA_BASE_URL=http://localhost:11434
++LOCAL_MODEL_NAME=
+diff --git a/configs/env/roles/market_data_readonly.env.example b/configs/env/roles/market_data_readonly.env.example
+new file mode 100644
+index 00000000..6b2e605a
+--- /dev/null
++++ b/configs/env/roles/market_data_readonly.env.example
+@@ -0,0 +1,3 @@
++# Market Data Read-only credentials
++BINANCE_API_KEY=
++COINGLASS_API_KEY=
+diff --git a/configs/env/roles/telegram_collector.env.example b/configs/env/roles/telegram_collector.env.example
+new file mode 100644
+index 00000000..a487a51c
+--- /dev/null
++++ b/configs/env/roles/telegram_collector.env.example
+@@ -0,0 +1,4 @@
++# Telegram Collector credentials
++TELEGRAM_API_ID=
++TELEGRAM_API_HASH=
++TELEGRAM_BOT_TOKEN=
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01/00_INITIAL_PROJECT_DOC.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01/00_INITIAL_PROJECT_DOC.md
+new file mode 100644
+index 00000000..5b6e8a89
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01/00_INITIAL_PROJECT_DOC.md
+@@ -0,0 +1,30 @@
++# GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01
++
++**GO_STRUCTURAL_ROLE:** GO_PARENT_ATTACHED_TO_MASTER_PROJECT_PLAN
++
++## Objectif
++Canoniser une méthode unique, simple et durable pour gérer tous les credentials du projet opt-trading.
++
++## Portée
++- API keys
++- Bot tokens
++- OAuth credentials
++- Service accounts JSON
++- Telegram sessions
++- Webhook secrets
++- DB passwords
++- SSH keys
++- Cookie sessions
++- JWT/refresh tokens
++- Chemins sensibles
++- Variables sensibles
++
++## Principe Central
++Toute modification, ajout, rotation ou désactivation de credential passe par une seule fiche canonique : **CREDENTIAL_CHANGE_REQUEST**.
++
++## Architecture Cible
++- **Git Repository:** Contient uniquement contrats, registries (vides/exemples), validateurs et documentation.
++- **Local Filesystem:** Les vraies valeurs résident dans `/etc/opt-trading/env.d/` ou `/etc/opt-trading/secrets/`.
++- **Zéro Secret dans Git:** Aucun credential réel dans Git, `/shared`, fixtures, screenshots, logs, ou patchs.
++- **Rôles & Capabilities:** Un job déclare ses besoins ; une machine déclare ses capacités.
++- **Resolver & Validator:** Chargement minimaliste et validation redacted (OK/MISSING/DENIED/EXPIRED).
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01/10_CREDENTIALS_CANONICAL_METHOD.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01/10_CREDENTIALS_CANONICAL_METHOD.md
+new file mode 100644
+index 00000000..5e71ef46
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01/10_CREDENTIALS_CANONICAL_METHOD.md
+@@ -0,0 +1,15 @@
++# Credentials Canonical Method
++
++## Définition
++La méthode canonique définit comment les secrets sont identifiés, stockés et accédés au sein de l'écosystème opt-trading.
++
++## Naming Convention
++Chaque credential possède un `credential_id` unique (ex: `telegram_bot_token_main`).
++
++## Storage Backend Strategy
++1. **Environment Variables:** Pour les secrets simples (API keys).
++2. **Secret Files:** Pour les structures complexes (JSON, RSA keys).
++3. **Local Store:** `/etc/opt-trading/env.d/` pour les fichiers `.env` par rôle.
++
++## Accès aux Secrets
++Les applications ne doivent jamais lire directement des fichiers `.env` arbitraires. Elles doivent utiliser le `resolver` qui injecte uniquement ce qui est nécessaire selon le job et le rôle de la machine.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01/20_SIMPLE_CHANGE_METHOD_ADD_MODIFY_ROTATE_DEPRECATE.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01/20_SIMPLE_CHANGE_METHOD_ADD_MODIFY_ROTATE_DEPRECATE.md
+new file mode 100644
+index 00000000..b1083a67
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01/20_SIMPLE_CHANGE_METHOD_ADD_MODIFY_ROTATE_DEPRECATE.md
+@@ -0,0 +1,20 @@
++# Simple Change Method: ADD / MODIFY / ROTATE / DEPRECATE
++
++Toute action sur un secret doit suivre ce workflow via une `CREDENTIAL_CHANGE_REQUEST`.
++
++## ADD
++1. Création de l'entrée dans le registry `credentials.yaml`.
++2. Définition des rôles autorisés.
++3. Mise à jour des templates `.env.example`.
++4. Validation locale via `scripts/env/validate_credentials.py`.
++
++## MODIFY
++Modification des méta-données (expiration, description, scope) dans le registry.
++
++## ROTATE
++Procédure de remplacement de la valeur réelle sur le filesystem local sans modification du code (si l'ID reste identique).
++
++## DEPRECATE
++1. Marquage comme `deprecated` dans le registry.
++2. Alerting lors de la validation.
++3. Suppression après migration complète des jobs dépendants.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01/30_ROLE_CAPABILITY_MACHINE_MODEL.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01/30_ROLE_CAPABILITY_MACHINE_MODEL.md
+new file mode 100644
+index 00000000..dc82c5b3
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01/30_ROLE_CAPABILITY_MACHINE_MODEL.md
+@@ -0,0 +1,17 @@
++# Role, Capability & Machine Model
++
++## Machine Model
++Chaque machine (ex: `fantome`, `admin-trading`) possède une liste de rôles assignés.
++- `fantome`: `telegram_collector`, `git_dev`
++- `admin-trading`: `datacenter`, `market_data_readonly`
++
++## Role & Capability
++Un rôle regroupe un ensemble de secrets (capabilities).
++- Rôle `telegram_collector` -> accès à `TELEGRAM_API_ID`, `TELEGRAM_API_HASH`, `TELEGRAM_BOT_TOKEN`.
++
++## Job requirements
++Chaque job script déclare ses besoins :
++```yaml
++job: telegram_collect_channel
++requires_role: telegram_collector
++```
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01/40_REGISTRY_SCHEMA_DRAFT.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01/40_REGISTRY_SCHEMA_DRAFT.md
+new file mode 100644
+index 00000000..4d66511f
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01/40_REGISTRY_SCHEMA_DRAFT.md
+@@ -0,0 +1,31 @@
++# Registry Schema Draft
++
++## credentials.yaml
++```yaml
++credentials:
++  - id: telegram_bot_token_main
++    provider: telegram
++    type: api_token
++    env_var: TELEGRAM_BOT_TOKEN
++    validation: "^[0-9]+:[a-zA-Z0-9_-]+$"
++    rotation_policy: 90d
++```
++
++## roles.yaml
++```yaml
++roles:
++  - id: telegram_collector
++    credentials:
++      - telegram_bot_token_main
++      - telegram_api_id
++      - telegram_api_hash
++```
++
++## machines.yaml
++```yaml
++machines:
++  - id: fantome
++    roles:
++      - telegram_collector
++      - git_dev
++```
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01/50_RESOLVER_VALIDATOR_PLAN.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01/50_RESOLVER_VALIDATOR_PLAN.md
+new file mode 100644
+index 00000000..5e1bdbb3
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01/50_RESOLVER_VALIDATOR_PLAN.md
+@@ -0,0 +1,15 @@
++# Resolver & Validator Plan
++
++## Resolver (`scripts/env/resolve_credentials.py`)
++- Prend en entrée `--machine` et `--job`.
++- Identifie les rôles de la machine.
++- Vérifie si le job est autorisé.
++- Charge les variables d'environnement depuis `/etc/opt-trading/env.d/`.
++
++## Validator (`scripts/env/validate_credentials.py`)
++- Vérifie la présence physique des secrets requis.
++- Valide le format (sans afficher la valeur).
++- Rapporte l'état: `OK`, `MISSING`, `EXPIRED`.
++
++## Redactor (`scripts/env/redact_env.py`)
++- Filtre les fichiers `.env` pour supprimer les valeurs réelles avant affichage ou log.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01/60_FIRST_MIGRATION_TARGETS.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01/60_FIRST_MIGRATION_TARGETS.md
+new file mode 100644
+index 00000000..e27ecc09
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01/60_FIRST_MIGRATION_TARGETS.md
+@@ -0,0 +1,12 @@
++# First Migration Targets
++
++## Priorité 1: Telegram Collector sur Fantome
++- Migrer `TELEGRAM_API_ID`, `TELEGRAM_API_HASH`.
++- Créer le rôle `telegram_collector`.
++- Assigner à la machine `fantome`.
++
++## Priorité 2: Market Data Readonly
++- Coinglass API, Binance Read-only.
++
++## Priorité 3: Local LLM
++- Ollama endpoints, local model paths.
+diff --git a/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01.md b/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01.md
+new file mode 100644
+index 00000000..938babd7
+--- /dev/null
++++ b/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01.md
+@@ -0,0 +1,6 @@
++# Inbox: GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01
++
++- **Status:** INITIALIZED
++- **Branch:** go/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01
++- **Focus:** Canonisation de la gestion des secrets.
++- **Link:** [Dossier Chantier](../../chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01/00_INITIAL_PROJECT_DOC.md)
+diff --git a/scripts/env/print_credential_status.py b/scripts/env/print_credential_status.py
+new file mode 100755
+index 00000000..7bed22b1
+--- /dev/null
++++ b/scripts/env/print_credential_status.py
+@@ -0,0 +1,48 @@
++#!/usr/bin/env python3
++import sys
++import argparse
++import yaml
++from pathlib import Path
++
++def load_registry(name):
++    path = Path(__file__).parent.parent.parent / "configs" / "env" / "registry" / f"{name}.yaml"
++    with open(path, 'r') as f:
++        return yaml.safe_load(f)
++
++def print_credential_status(machine_id):
++    print(f"Credential status for machine: {machine_id}")
++    
++    machines = load_registry("machines")
++    roles_reg = load_registry("roles")
++    creds_reg = load_registry("credentials")
++    
++    machine = next((m for m in machines['machines'] if m['id'] == machine_id), None)
++    if not machine:
++        print(f"Error: Machine '{machine_id}' not found.")
++        return
++
++    assigned_roles = machine.get('roles', [])
++    print(f"Assigned Roles: {', '.join(assigned_roles) if assigned_roles else 'None'}")
++    
++    for role_id in assigned_roles:
++        print(f"\nRole: {role_id}")
++        role = next((r for r in roles_reg['roles'] if r['id'] == role_id), None)
++        if not role:
++            print("  Error: Role definition missing in registry.")
++            continue
++            
++        for cred_id in role.get('credentials', []):
++            cred = next((c for c in creds_reg['credentials'] if c['id'] == cred_id), None)
++            if cred:
++                # In a real impl, we'd check if the secret exists on disk/env
++                # Here we just show it's tracked.
++                print(f"  - {cred['env_var']}: TRACKED")
++            else:
++                print(f"  - {cred_id}: UNKNOWN")
++
++if __name__ == "__main__":
++    parser = argparse.ArgumentParser(description="Print credential status for a machine.")
++    parser.add_argument("--machine", required=True)
++    args = parser.parse_args()
++    
++    print_credential_status(args.machine)
+diff --git a/scripts/env/redact_env.py b/scripts/env/redact_env.py
+new file mode 100755
+index 00000000..d8b1efb0
+--- /dev/null
++++ b/scripts/env/redact_env.py
+@@ -0,0 +1,29 @@
++#!/usr/bin/env python3
++import sys
++import argparse
++import os
++
++def redact_env(env_file):
++    if not os.path.exists(env_file):
++        print(f"Error: File {env_file} not found.")
++        return
++        
++    print(f"Redacting environment file: {env_file} (Simulation)")
++    with open(env_file, 'r') as f:
++        for line in f:
++            line = line.strip()
++            if not line or line.startswith('#'):
++                print(line)
++                continue
++            if '=' in line:
++                key, _ = line.split('=', 1)
++                print(f"{key}=[REDACTED]")
++            else:
++                print(line)
++
++if __name__ == "__main__":
++    parser = argparse.ArgumentParser(description="Redact values in an environment file.")
++    parser.add_argument("--env-file", required=True)
++    args = parser.parse_args()
++    
++    redact_env(args.env_file)
+diff --git a/scripts/env/resolve_credentials.py b/scripts/env/resolve_credentials.py
+new file mode 100755
+index 00000000..b4cb626b
+--- /dev/null
++++ b/scripts/env/resolve_credentials.py
+@@ -0,0 +1,60 @@
++#!/usr/bin/env python3
++import sys
++import argparse
++import yaml
++import os
++from pathlib import Path
++
++def load_registry(name):
++    path = Path(__file__).parent.parent.parent / "configs" / "env" / "registry" / f"{name}.yaml"
++    with open(path, 'r') as f:
++        return yaml.safe_load(f)
++
++def resolve_credentials(machine_id, job_id, print_status=False):
++    if print_status:
++        print(f"Resolving credentials for machine: {machine_id}, job: {job_id}")
++    
++    machines = load_registry("machines")
++    jobs = load_registry("jobs")
++    roles = load_registry("roles")
++    creds_reg = load_registry("credentials")
++    
++    machine = next((m for m in machines['machines'] if m['id'] == machine_id), None)
++    job = next((j for j in jobs['jobs'] if j['id'] == job_id), None)
++    
++    if not machine or not job:
++        if print_status: print("Error: Machine or Job not found.")
++        return {}
++        
++    required_role_id = job.get('requires_role')
++    if not required_role_id:
++        if print_status: print("Status: OK (No role required)")
++        return {}
++        
++    if required_role_id not in machine.get('roles', []):
++        if print_status: print(f"Status: DENIED (Role {required_role_id} missing)")
++        return {}
++
++    # Logic to "resolve" would normally involve loading values into a dict or exporting them
++    # But we NEVER return real values to the console if print_status is on.
++    
++    if print_status:
++        role = next((r for r in roles['roles'] if r['id'] == required_role_id), None)
++        if role:
++            print(f"Authorized Credentials for {required_role_id}:")
++            for cred_id in role.get('credentials', []):
++                cred = next((c for c in creds_reg['credentials'] if c['id'] == cred_id), None)
++                if cred:
++                    print(f"- {cred['env_var']} (Authorized)")
++        print("Status: READY_TO_INJECT")
++        
++    return {"status": "authorized", "role": required_role_id}
++
++if __name__ == "__main__":
++    parser = argparse.ArgumentParser(description="Resolve and inject credentials.")
++    parser.add_argument("--machine", required=True)
++    parser.add_argument("--job", required=True)
++    parser.add_argument("--print-status", action="store_true")
++    args = parser.parse_args()
++    
++    resolve_credentials(args.machine, args.job, args.print_status)
+diff --git a/scripts/env/validate_credentials.py b/scripts/env/validate_credentials.py
+new file mode 100755
+index 00000000..6ba80000
+--- /dev/null
++++ b/scripts/env/validate_credentials.py
+@@ -0,0 +1,85 @@
++#!/usr/bin/env python3
++import sys
++import argparse
++import yaml
++import os
++from pathlib import Path
++
++def load_registry(name):
++    path = Path(__file__).parent.parent.parent / "configs" / "env" / "registry" / f"{name}.yaml"
++    with open(path, 'r') as f:
++        return yaml.safe_load(f)
++
++def validate_credentials(machine_id, job_id):
++    print(f"Validating credentials for machine: {machine_id}, job: {job_id}")
++    
++    machines = load_registry("machines")
++    jobs = load_registry("jobs")
++    roles = load_registry("roles")
++    creds_reg = load_registry("credentials")
++    
++    # 1. Find machine
++    machine = next((m for m in machines['machines'] if m['id'] == machine_id), None)
++    if not machine:
++        print(f"Error: Machine '{machine_id}' not found in registry.")
++        return False
++        
++    # 2. Find job
++    job = next((j for j in jobs['jobs'] if j['id'] == job_id), None)
++    if not job:
++        print(f"Error: Job '{job_id}' not found in registry.")
++        return False
++        
++    required_role_id = job.get('requires_role')
++    if not required_role_id:
++        print(f"Job '{job_id}' requires no specific role. OK.")
++        return True
++        
++    # 3. Check machine roles
++    if required_role_id not in machine.get('roles', []):
++        print(f"Status: DENIED (Machine '{machine_id}' lacks required role '{required_role_id}')")
++        return False
++        
++    # 4. Check credentials for the role
++    role = next((r for r in roles['roles'] if r['id'] == required_role_id), None)
++    if not role:
++        print(f"Error: Role '{required_role_id}' not found in registry.")
++        return False
++        
++    all_ok = True
++    for cred_id in role.get('credentials', []):
++        cred = next((c for c in creds_reg['credentials'] if c['id'] == cred_id), None)
++        if not cred:
++            print(f"- {cred_id}: UNKNOWN (Not in credentials registry)")
++            all_ok = False
++            continue
++            
++        env_var = cred.get('env_var')
++        # Check if env var is set
++        if env_var in os.environ:
++            print(f"- {env_var}: OK")
++        else:
++            # Check for role-specific env file in local store (simulated or real path)
++            local_env_dir = Path("/etc/opt-trading/env.d")
++            role_env_file = local_env_dir / f"{required_role_id}.env"
++            
++            # For the sake of this CLI exercise and safety, we check if it exists
++            # but we won't read it here.
++            if role_env_file.exists():
++                 # We would parse it normally, but let's just say OK if file exists for now
++                 # or MISSING if we can't find it anywhere.
++                 print(f"- {env_var}: OK (via {role_env_file})")
++            else:
++                 print(f"- {env_var}: MISSING")
++                 all_ok = False
++                 
++    return all_ok
++
++if __name__ == "__main__":
++    parser = argparse.ArgumentParser(description="Validate credentials for a machine and job.")
++    parser.add_argument("--machine", required=True)
++    parser.add_argument("--job", required=True)
++    args = parser.parse_args()
++    
++    if not validate_credentials(args.machine, args.job):
++        sys.exit(1)

@@ -1,0 +1,8 @@
+roles:
+  - id: telegram_collector
+    credentials:
+      - telegram_api_id
+      - telegram_api_hash
+      - telegram_bot_token_main
+  - id: git_dev
+    credentials: []

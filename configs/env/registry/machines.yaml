@@ -1,0 +1,9 @@
+machines:
+  - id: fantome
+    roles:
+      - telegram_collector
+      - git_dev
+  - id: admin-trading
+    roles:
+      - datacenter
+      - market_data_readonly
