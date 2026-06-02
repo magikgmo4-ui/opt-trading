@@ -1,0 +1,150 @@
+diff --git a/configs/env/registry/machines.yaml b/configs/env/registry/machines.yaml
+index d67962d9..baa6d936 100644
+--- a/configs/env/registry/machines.yaml
++++ b/configs/env/registry/machines.yaml
+@@ -30,3 +30,4 @@ machines:
+       - llm_local
+     eligible_roles:
+       - webhook_receiver
++      - datacenter
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md
+new file mode 100644
+index 00000000..49d9ef1e
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md
+@@ -0,0 +1,19 @@
++# GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01
++
++**GO_STRUCTURAL_ROLE:** GO_CHILD_ATTACHED_TO_PARENT
++**PARENT:** GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01
++**DEPENDS_ON:** GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01
++
++## Objectif
++Opérationnaliser le setup Data Center credentials pour le rôle `datacenter`.
++
++## Portée
++- Définition du scope des credentials de base de données (Host, User, Password).
++- Validation des autorisations par rôle et profil machine.
++- Procédure de setup local sécurisé (hors Git).
++- Vérification via les scripts canoniques `validate` et `resolve`.
++
++## Livrables
++- Documentation de setup et de validation.
++- Registres et templates à jour.
++- Patch d'initialisation du rôle.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01/10_DATACENTER_CREDENTIALS_SCOPE.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01/10_DATACENTER_CREDENTIALS_SCOPE.md
+new file mode 100644
+index 00000000..e31d69e8
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01/10_DATACENTER_CREDENTIALS_SCOPE.md
+@@ -0,0 +1,12 @@
++# Data Center Credentials Scope
++
++Les credentials suivants sont nécessaires pour le rôle `datacenter` :
++
++| Credential ID | Env Var | Type | Description |
++|---------------|---------|------|-------------|
++| `db_host` | `DB_HOST` | `host` | Adresse de l'hôte de la base de données. |
++| `db_user` | `DB_USER` | `username` | Nom d'utilisateur pour la connexion DB. |
++| `db_password` | `DB_PASSWORD` | `password` | Mot de passe pour la connexion DB. |
++
++## Sécurité des accès
++Le rôle `datacenter` donne un accès direct aux données persistantes du projet. Le mot de passe doit être traité comme un secret critique.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01/20_ROLE_AND_PROFILE_AUTHORIZATION.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01/20_ROLE_AND_PROFILE_AUTHORIZATION.md
+new file mode 100644
+index 00000000..1b7148b6
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01/20_ROLE_AND_PROFILE_AUTHORIZATION.md
+@@ -0,0 +1,13 @@
++# Role and Profile Authorization
++
++Le rôle `datacenter` est réservé aux machines effectuant des opérations de maintenance, de stockage ou d'analyse lourde.
++
++## Statuts d'Autorisation
++
++| Profil Machine | Statut | Action |
++|----------------|--------|--------|
++| `admin-trading` | **AUTHORIZED_ACTIVE** | Activé par défaut. |
++| `db-layer` | **AUTHORIZED_ACTIVE** | Activé par défaut. |
++| `fantome` | **ELIGIBLE_DISABLED_BY_DEFAULT** | Éligible pour debug local. |
++| `student` | **FORBIDDEN** | Interdit. |
++| `cursor-ai` | **FORBIDDEN** | Interdit. |
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md
+new file mode 100644
+index 00000000..a7eb1d07
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md
+@@ -0,0 +1,26 @@
++# Local Setup Procedure
++
++Cette procédure doit être effectuée manuellement sur chaque machine autorisée.
++
++## 1. Structure des répertoires
++```bash
++sudo install -d -m 700 /etc/opt-trading/env.d/roles
++```
++
++## 2. Configuration du Rôle
++Utiliser `sudoedit` pour créer le fichier d'environnement :
++```bash
++sudoedit /etc/opt-trading/env.d/roles/datacenter.env
++```
++
++Contenu attendu :
++```env
++DB_HOST=XXXXX_VOTRE_HOST_ICI_XXXXX
++DB_USER=YYYYY_VOTRE_USER_ICI_YYYYY
++DB_PASSWORD=ZZZZZ_VOTRE_PASSWORD_ICI_ZZZZZ
++```
++
++## 3. Sécurisation finale
++```bash
++sudo chmod 600 /etc/opt-trading/env.d/roles/datacenter.env
++```
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01/40_VALIDATION_AND_RESOLVER_CHECKS.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01/40_VALIDATION_AND_RESOLVER_CHECKS.md
+new file mode 100644
+index 00000000..6806e6dd
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01/40_VALIDATION_AND_RESOLVER_CHECKS.md
+@@ -0,0 +1,13 @@
++# Validation and Resolver Checks
++
++## Validation de l'Authorization
++```bash
++# Pour admin-trading (Activé)
++python3 scripts/env/validate_credentials.py --machine admin-trading --job db_maintenance
++
++# Pour fantome (Éligible mais désactivé)
++python3 scripts/env/validate_credentials.py --machine fantome --job db_maintenance
++```
++
++## Résolution
++Le resolver chargera les variables `DB_HOST`, `DB_USER` et `DB_PASSWORD` uniquement sur les machines où le rôle est `AUTHORIZED_ACTIVE`.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01/60_GAPS_AND_NEXT_GO.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01/60_GAPS_AND_NEXT_GO.md
+new file mode 100644
+index 00000000..1642eb11
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01/60_GAPS_AND_NEXT_GO.md
+@@ -0,0 +1,7 @@
++# Gaps and Next GO
++
++## Gaps
++- Absence de distinction entre accès `RO` (Read-Only) et `RW` (Read-Write) au niveau du rôle `datacenter`.
++
++## Prochain GO
++- `GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01`: Setup du rôle `llm_cloud` (OpenAI, Anthropic, Gemini).
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01/FILE_SCOPE.txt b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01/FILE_SCOPE.txt
+new file mode 100644
+index 00000000..e69de29b
+diff --git a/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01.md b/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01.md
+new file mode 100644
+index 00000000..a4e52a6b
+--- /dev/null
++++ b/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01.md
+@@ -0,0 +1,6 @@
++# Inbox: GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01
++
++- **Status:** INITIALIZED
++- **Branch:** go/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01
++- **Focus:** Opérationnalisation du rôle `datacenter`.
++- **Link:** [Dossier Chantier](../../chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md)
