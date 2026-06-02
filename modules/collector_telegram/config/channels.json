@@ -40,23 +40,23 @@
     {
       "alias": "goldsignals",
       "source_ref": "goldsignals",
-      "enabled": false,
+      "enabled": true,
       "categories": ["signals", "gold"],
-      "notes": "Candidate handle to validate before live rollout"
+      "notes": "Candidate handle validated live on 2026-06-02"
     },
     {
       "alias": "goldtrading",
       "source_ref": "goldtrading",
-      "enabled": false,
+      "enabled": true,
       "categories": ["signals", "gold"],
-      "notes": "Candidate handle to validate before live rollout"
+      "notes": "Candidate handle validated live on 2026-06-02"
     },
     {
       "alias": "xauusd",
       "source_ref": "xauusd",
-      "enabled": false,
+      "enabled": true,
       "categories": ["signals", "gold", "forex"],
-      "notes": "Candidate handle to validate before live rollout"
+      "notes": "Candidate handle validated live on 2026-06-02"
     },
     {
       "alias": "gold_scalping",
@@ -75,9 +75,9 @@
     {
       "alias": "forexsignals",
       "source_ref": "forexsignals",
-      "enabled": false,
+      "enabled": true,
       "categories": ["signals", "forex"],
-      "notes": "Candidate handle to validate before live rollout"
+      "notes": "Candidate handle validated live on 2026-06-02"
     },
     {
       "alias": "forexgoldsignals",
@@ -96,30 +96,30 @@
     {
       "alias": "binancekillers",
       "source_ref": "binancekillers",
-      "enabled": false,
+      "enabled": true,
       "categories": ["signals", "crypto"],
-      "notes": "Candidate handle to validate before live rollout"
+      "notes": "Candidate handle validated live on 2026-06-02"
     },
     {
       "alias": "wallstreetqueenofficial",
       "source_ref": "wallstreetqueenofficial",
-      "enabled": false,
+      "enabled": true,
       "categories": ["signals", "crypto"],
-      "notes": "Candidate handle to validate before live rollout"
+      "notes": "Candidate handle validated live on 2026-06-02"
     },
     {
       "alias": "learn2trade",
       "source_ref": "learn2trade",
-      "enabled": false,
+      "enabled": true,
       "categories": ["signals", "crypto", "forex"],
-      "notes": "Candidate handle to validate before live rollout"
+      "notes": "Candidate handle validated live on 2026-06-02"
     },
     {
       "alias": "fatpigsignals",
       "source_ref": "fatpigsignals",
-      "enabled": false,
+      "enabled": true,
       "categories": ["signals", "crypto"],
-      "notes": "Candidate handle to validate before live rollout"
+      "notes": "Candidate handle validated live on 2026-06-02"
     }
   ]
 }
