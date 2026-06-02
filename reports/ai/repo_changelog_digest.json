@@ -1,0 +1,162 @@
+{
+  "job_id": "repo-changelog-digest",
+  "period": "24 hours ago",
+  "generated_at": "2026-06-02T03:36:31.248884Z",
+  "commit_count": 20,
+  "commits": [
+    {
+      "sha": "905d9feb",
+      "subject": "Merge pull request #1049 from magikgmo4-ui/go/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_LOT1_CRON_01",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-01 23:32:56 -0400"
+    },
+    {
+      "sha": "1658d681",
+      "subject": "feat(cron): Lot 1 install\u00e9 \u2014 GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_LOT1_CRON_01",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-01 23:13:10 -0400"
+    },
+    {
+      "sha": "6e1b3aae",
+      "subject": "Merge pull request #1048 from magikgmo4-ui/go/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_LOT1_SMOKE_01",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-01 23:09:29 -0400"
+    },
+    {
+      "sha": "d772dccc",
+      "subject": "feat(lot1-smoke): PASS \u2014 GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_LOT1_SMOKE_01",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-01 23:08:39 -0400"
+    },
+    {
+      "sha": "5c1614bc",
+      "subject": "Merge pull request #1046 from magikgmo4-ui/go/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_ACTIVATION_PRIORITY_01",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-01 23:02:40 -0400"
+    },
+    {
+      "sha": "e4cf4531",
+      "subject": "docs(jobs): matrice d'activation prioris\u00e9e \u2014 GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_ACTIVATION_PRIORITY_01",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-01 22:41:18 -0400"
+    },
+    {
+      "sha": "cc28797f",
+      "subject": "Merge pull request #1045 from magikgmo4-ui/go/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_BRIDGE_DISPATCH_01",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-01 22:21:21 -0400"
+    },
+    {
+      "sha": "fd56a917",
+      "subject": "feat(bridge): GO_OPENCLAW_DBLAYER_WORKERS_CHILD_BRIDGE_DISPATCH_01 \u2014 c\u00e2bler OperatorBridge \u2192 dispatcher",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-01 22:21:03 -0400"
+    },
+    {
+      "sha": "077e8ae9",
+      "subject": "Merge pull request #1044 from magikgmo4-ui/go/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_STRICT_DISPATCHER_01_CLOSEOUT",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-01 22:16:48 -0400"
+    },
+    {
+      "sha": "2e1a3e53",
+      "subject": "docs(dispatcher): 20_ACCEPTANCE_REPORT \u2014 GO_OPENCLAW_DBLAYER_WORKERS_CHILD_STRICT_DISPATCHER_01 PASS",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-01 22:16:32 -0400"
+    },
+    {
+      "sha": "b926ca01",
+      "subject": "Merge pull request #1043 from magikgmo4-ui/go/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_STRICT_DISPATCHER_01",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-01 22:15:51 -0400"
+    },
+    {
+      "sha": "499d5669",
+      "subject": "feat(dispatcher): GO_OPENCLAW_DBLAYER_WORKERS_CHILD_STRICT_DISPATCHER_01 \u2014 dispatcher d\u00e9terministe OpenClaw \u2192 strict_workers",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-01 22:14:14 -0400"
+    },
+    {
+      "sha": "91eeb3f8",
+      "subject": "feat(collector-telegram): parse goldtrading and cryptoquant formats (#1041)",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-01 21:36:53 -0400"
+    },
+    {
+      "sha": "516eea00",
+      "subject": "feat(collector-telegram): add real message parser fixtures (#1040)",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-01 21:27:44 -0400"
+    },
+    {
+      "sha": "b4b72ed0",
+      "subject": "feat(collector-telegram): enable validated candidate channels (#1039)",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-01 21:15:44 -0400"
+    },
+    {
+      "sha": "ea66231c",
+      "subject": "feat(collector-telegram): add live collector scaffold (#1038)",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-01 21:10:33 -0400"
+    },
+    {
+      "sha": "a7ee312a",
+      "subject": "fix(bot-vision): persist real telegram message refs in claim (#1037)",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-01 20:08:42 -0400"
+    },
+    {
+      "sha": "f90372c4",
+      "subject": "feat(desk-pro): add follow-up surfaces \u2014 news sentiment, screener context, telegram claim",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-01 14:46:16 -0400"
+    },
+    {
+      "sha": "93a1b5ed",
+      "subject": "feat(bot-vision): add canonical telegram_claim flow and inbox consistency check",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-01 13:59:08 -0400"
+    },
+    {
+      "sha": "340a2aa2",
+      "subject": "docs(bot-vision): package admin-trading operator tools bundle",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-01 12:24:20 -0400"
+    }
+  ],
+  "files_changed_count": 90,
+  "files_changed": [
+    ".env.example",
+    "docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md",
+    "docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_BRIDGE_DISPATCH_01/00_INITIAL_PROJECT_DOC.md",
+    "docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_BRIDGE_DISPATCH_01/20_ACCEPTANCE_REPORT.md",
+    "docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_BRIDGE_DISPATCH_01/FILE_SCOPE.txt",
+    "docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_ACTIVATION_PRIORITY_01/00_INITIAL_PROJECT_DOC.md",
+    "docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_ACTIVATION_PRIORITY_01/10_ACTIVATION_MATRIX.md",
+    "docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_ACTIVATION_PRIORITY_01/20_ACCEPTANCE_REPORT.md",
+    "docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_ACTIVATION_PRIORITY_01/FILE_SCOPE.txt",
+    "docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_LOT1_CRON_01/00_INITIAL_PROJECT_DOC.md",
+    "docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_LOT1_CRON_01/20_ACCEPTANCE_REPORT.md",
+    "docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_LOT1_CRON_01/FILE_SCOPE.txt",
+    "docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_LOT1_SMOKE_01/00_INITIAL_PROJECT_DOC.md",
+    "docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_LOT1_SMOKE_01/10_SMOKE_RESULTS.md",
+    "docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_LOT1_SMOKE_01/20_ACCEPTANCE_REPORT.md",
+    "docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_LOT1_SMOKE_01/FILE_SCOPE.txt",
+    "docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_STRICT_DISPATCHER_01/00_INITIAL_PROJECT_DOC.md",
+    "docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_STRICT_DISPATCHER_01/20_ACCEPTANCE_REPORT.md",
+    "docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_STRICT_DISPATCHER_01/FILE_SCOPE.txt",
+    "docs/chantiers/GO_OPT_TRADING_BOT_VISION_HEADLESS_CHILD_OPERATOR_TOOLS_BUNDLE_01/00_CADRAGE.md",
+    "docs/chantiers/GO_OPT_TRADING_BOT_VISION_HEADLESS_CHILD_OPERATOR_TOOLS_BUNDLE_01/01_USAGE.md",
+    "docs/chantiers/GO_STRICT_WORKERS_CHILD_PATCH_APPLY_3W_STEP2_01/20_ACCEPTANCE_REPORT.md",
+    "docs/chantiers/GO_STRICT_WORKERS_CHILD_PATCH_APPLY_3W_STEP2_01/FILE_SCOPE.txt",
+    "modules/bot_vision/headless_capture/deskpro_mapping.json",
+    "modules/bot_vision/headless_capture/scripts/run_vision_pipeline.py",
+    "modules/bot_vision/headless_capture/scripts/telegram_claim_writer.py",
+    "modules/bot_vision/headless_capture/telegram_mapping.json",
+    "modules/collector_telegram/.gitignore",
+    "modules/collector_telegram/README.md",
+    "modules/collector_telegram/config/channels.json"
+  ],
+  "status": "PASS"
+}

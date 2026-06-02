@@ -1,0 +1,61 @@
+# Lot 2 — Jobs récurrents opt-trading
+# GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_LOT2_01
+# Installer via : scripts/schedule/lot2/install_lot2_cron.sh
+#
+SHELL=/bin/bash
+REPO=/opt/trading
+PY=/opt/trading/venv/bin/python3
+LOGDIR=/opt/trading/data/logs/cron
+
+# --- 5 min ---
+# kill-switch-state-check
+*/5 * * * * cd $REPO && $PY scripts/ai/workers/kill_switch_state_check.py >> $LOGDIR/kill_switch_state.log 2>&1
+
+# --- 6 h ---
+# anti-leak-scan
+20 */6 * * * cd $REPO && $PY scripts/ai/workers/anti_leak_scan.py >> $LOGDIR/anti_leak_scan.log 2>&1
+
+# --- hourly ---
+# strict-worker-failure-report (after workers run)
+30 * * * * cd $REPO && $PY scripts/ai/workers/strict_worker_failure_report.py >> $LOGDIR/failure_report.log 2>&1
+
+# --- daily 00:15 ---
+# repo-go-index-audit
+15 0 * * * cd $REPO && $PY scripts/ai/workers/repo_go_index_audit.py >> $LOGDIR/go_index_audit.log 2>&1
+
+# repo-closeout-eligibility-check
+16 0 * * * cd $REPO && $PY scripts/ai/workers/repo_closeout_eligibility_check.py >> $LOGDIR/closeout_eligibility.log 2>&1
+
+# repo-orphan-files-audit
+17 0 * * * cd $REPO && $PY scripts/ai/workers/repo_orphan_files_audit.py >> $LOGDIR/orphan_audit.log 2>&1
+
+# repo-changelog-digest
+18 0 * * * cd $REPO && $PY scripts/ai/workers/repo_changelog_digest.py >> $LOGDIR/changelog_digest.log 2>&1
+
+# strict-worker-registry-check (models + tasks)
+19 0 * * * cd $REPO && $PY scripts/ai/workers/strict_worker_registry_check.py >> $LOGDIR/registry_check.log 2>&1
+
+# ledger-trace-id-audit
+20 0 * * * cd $REPO && $PY scripts/ai/workers/ledger_trace_id_audit.py >> $LOGDIR/trace_audit.log 2>&1
+
+# strict-worker-output-schema-check
+21 0 * * * cd $REPO && $PY scripts/ai/workers/strict_worker_output_schema_check.py >> $LOGDIR/output_schema.log 2>&1
+
+# env-file-presence-check
+22 0 * * * cd $REPO && bash scripts/ai/workers/env_file_presence_check.sh >> $LOGDIR/env_presence.log 2>&1
+
+# gitignore-secrets-policy-check
+23 0 * * * cd $REPO && bash scripts/ai/workers/gitignore_secrets_policy_check.sh >> $LOGDIR/gitignore_policy.log 2>&1
+
+# repo-branch-audit
+24 0 * * * cd $REPO && bash scripts/ai/workers/repo_branch_audit.sh >> $LOGDIR/branch_audit.log 2>&1
+
+# oauth-scope-audit
+25 0 * * * cd $REPO && $PY scripts/ai/workers/oauth_scope_audit.py >> $LOGDIR/oauth_audit.log 2>&1
+
+# --- DEFERRED (Lot 2B — infra manquante) ---
+# capability-matrix-validate  : matrix à formaliser
+# hitl-scenarios-smoke        : HITL infra incomplète
+# ai-team-handoff-dry-run     : role registry absent
+# task-router-dry-run         : router à implémenter
+# localcms-workers-state-sync : cockpit infra

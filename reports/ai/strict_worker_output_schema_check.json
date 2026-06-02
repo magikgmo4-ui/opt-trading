@@ -1,11 +1,47 @@
 {
   "job_id": "strict-worker-output-schema-check",
-  "scanned": 23,
-  "findings": 1,
+  "scanned": 30,
+  "findings": 7,
   "status": "PASS",
   "details": [
     {
-      "file": "GO_STRICT_WORKERS_READONLY_SMOKE_01.md",
+      "file": "GO_STRICT_WORKERS_3W_STEP1_READ_INVENTORY_01.md",
+      "issues": [
+        "missing_heading"
+      ]
+    },
+    {
+      "file": "GO_STRICT_WORKERS_3W_STEP2_PATCH_DRAFT_01.md",
+      "issues": [
+        "missing_heading"
+      ]
+    },
+    {
+      "file": "GO_STRICT_WORKERS_3W_STEP3_REVIEW_DRAFT_01.md",
+      "issues": [
+        "missing_heading"
+      ]
+    },
+    {
+      "file": "GO_STRICT_WORKERS_E2E_STEP1_READ_INVENTORY_01.md",
+      "issues": [
+        "missing_heading"
+      ]
+    },
+    {
+      "file": "GO_STRICT_WORKERS_E2E_STEP2_REVIEW_DRAFT_01.md",
+      "issues": [
+        "missing_heading"
+      ]
+    },
+    {
+      "file": "GO_STRICT_WORKERS_PATCH_DRAFT_RUNNER_PROVEN_01.md",
+      "issues": [
+        "missing_heading"
+      ]
+    },
+    {
+      "file": "GO_STRICT_WORKERS_WRITE_GATED_SMOKE_01.md",
       "issues": [
         "missing_heading"
       ]
