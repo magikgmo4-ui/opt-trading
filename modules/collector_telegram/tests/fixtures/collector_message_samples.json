@@ -45,9 +45,15 @@
     "channel": "learn2trade",
     "message_id": "386",
     "raw_text": "**Long Vs Short Position ****📊****\n\n**Learn & Practice 📈**\n****@Learn2Trade**",
-    "message_type": "UNKNOWN_RAW",
-    "parser_status": "unparsed",
-    "parsed": null
+    "message_type": "NEWS_CATALYST",
+    "parser_status": "partial",
+    "parsed": {
+      "headline": "Long Vs Short Position 📊",
+      "summary": "Learn & Practice 📈\n@Learn2Trade",
+      "assets": [],
+      "source_type": "market_pulse",
+      "bias": null
+    }
   },
   {
     "channel": "wallstreetqueenofficial",
@@ -103,6 +109,35 @@
       "summary": "This combination of network friction and potential exchange-bound liquidity could possibly indicate a somewhat bearish outlook for the asset in the near term.",
       "assets": ["ETH"],
       "source_type": "research_note"
+    }
+  },
+  {
+    "channel": "glassnode",
+    "message_id": "1680",
+    "raw_text": "#BTC trades at $71.3K under growing pressure. Sellers dominate spot, ETF outflows accelerate to $1.3B, and fresh capital has stalled. Structure has broken and momentum favours the downside near-term.\n\nRead this week’s Market Pulse👇\n[https://glassno.de/4nXysLe](https://glassno.de/4nXysLe)",
+    "message_type": "NEWS_CATALYST",
+    "parser_status": "partial",
+    "parsed": {
+      "headline": "#BTC trades at $71.3K under growing pressure. Sellers dominate spot, ETF outflows accelerate to $1.3B, and fresh capital has stalled. Structure has broken and momentum favours the downside near-term.",
+      "summary": "Read this week’s Market Pulse👇\n[https://glassno.de/4nXysLe](https://glassno.de/4nXysLe)",
+      "assets": ["BTC"],
+      "source_type": "market_pulse",
+      "bias": "bearish"
+    }
+  },
+  {
+    "channel": "arkhamintelligence",
+    "message_id": "175",
+    "raw_text": "**BREAKING: ARKHAM UNCOVERS $3.5B HEIST - THE LARGEST EVER**\n\nLuBian was a Chinese mining pool with facilities in China & Iran. Based on analysis of on-chain data, it appears that 127,426 BTC was stolen from LuBian in December 2020, worth $3.5 billion at the time and now worth approximately $14.5 billion.\n\nNeither LuBian nor the hacker have publicly acknowledged the hack. Arkham is the first to report it. Details below:\n\nhttps://x.com/arkham/status/1951729790299394113",
+    "message_type": "NEWS_CATALYST",
+    "parser_status": "partial",
+    "parsed": {
+      "headline": "BREAKING: ARKHAM UNCOVERS $3.5B HEIST - THE LARGEST EVER",
+      "summary": "LuBian was a Chinese mining pool with facilities in China & Iran. Based on analysis of on-chain data, it appears that 127,426 BTC was stolen from LuBian in December 2020, worth $3.5 billion at the time and now worth approximately $14.5 billion.",
+      "assets": ["BTC"],
+      "source_type": "event_announcement",
+      "event_type": "breaking_research",
+      "magnitude": "$3.5B"
     }
   }
 ]
