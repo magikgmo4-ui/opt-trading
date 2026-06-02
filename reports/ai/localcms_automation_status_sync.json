@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-21T06:11:55.337825+00:00",
+  "generated_at": "2026-06-02T03:03:32.491976+00:00",
   "git": {
-    "branch": "go/GO_OPT_TRADING_OPENCLAW_PARENT_AUTOMATION_GAPS_CLOSE_01",
-    "commit": "79d5b1bd"
+    "branch": "go/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_LOT1_SMOKE_01",
+    "commit": "5c1614bc"
   },
   "menu_loaded": true,
   "menu_domains": 14,
@@ -11,11 +11,11 @@
   "health_status": null,
   "ledger": {
     "exists": true,
-    "event_count": 120,
+    "event_count": 20,
     "last_event": {
-      "event_type": "canary",
+      "event_type": "MOBILE_CONTROL",
       "status": "PASS",
-      "timestamp": "2026-05-21T04:40:28.120543+00:00"
+      "timestamp": "2026-05-31T02:13:31.370831+00:00"
     }
   },
   "tmux": {

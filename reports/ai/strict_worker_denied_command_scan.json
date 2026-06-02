@@ -1,9 +1,15 @@
 {
   "job_id": "strict-worker-denied-command-scan",
-  "scanned": 23,
-  "findings": 2,
+  "scanned": 30,
+  "findings": 5,
   "status": "PASS",
   "details": [
+    {
+      "file": "GO_STRICT_WORKERS_3W_STEP1_READ_INVENTORY_01.md",
+      "matches": [
+        "rm -rf"
+      ]
+    },
     {
       "file": "GO_STRICT_WORKERS_CHERRY_PICK_INVENTORY_MATRIX_01.md",
       "matches": [
@@ -18,12 +24,24 @@
       ]
     },
     {
+      "file": "GO_STRICT_WORKERS_E2E_STEP1_READ_INVENTORY_01.md",
+      "matches": [
+        "rm -rf"
+      ]
+    },
+    {
       "file": "GO_STRICT_WORKERS_PHASE_C_E2E_REPORT.md",
       "matches": [
         "git add",
         "rm -rf",
         "chmod -R",
         "chown -R"
+      ]
+    },
+    {
+      "file": "GO_STRICT_WORKERS_READONLY_SMOKE_01.md",
+      "matches": [
+        "rm -rf"
       ]
     }
   ]
