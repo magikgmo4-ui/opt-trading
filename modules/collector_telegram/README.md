@@ -17,6 +17,18 @@ Entry points:
 - `scripts/run_telegram_collector.sh`
 - `modules/collector_telegram/scripts/cmd.sh`
 
+Secrets/runtime env:
+- loaded automatically from repo root `.env`
+- optional overrides supported in `.env.local` and `.env.telegram.local`
+- expected Telegram vars:
+  - `TELEGRAM_API_ID`
+  - `TELEGRAM_API_HASH`
+  - `TELEGRAM_SESSION_PATH` (optional)
+
+Example local setup:
+- copy values into `.env` or `.env.telegram.local`
+- then run `./scripts/run_telegram_collector.sh --channel coinglass_alerts --limit 5 run`
+
 Default runtime artifacts stay local and ignored:
 - `modules/collector_telegram/outputs/`
 - `modules/collector_telegram/logs/`
