@@ -5,6 +5,8 @@ machines:
       - market_data_readonly
       - webhook_receiver
       - google_sheets_writer
+    eligible_roles:
+      - telegram_collector
   - id: db-layer
     roles:
       - datacenter

@@ -35,9 +35,14 @@ def validate_credentials(machine_id, job_id):
         print(f"Job '{job_id}' requires no specific role. OK.")
         return True
 
-    # 3. Check machine roles
-    if required_role_id not in machine.get('roles', []):
-        print(f"Status: DENIED (Machine '{machine_id}' lacks required role '{required_role_id}')")
+    # 3. Check machine roles (Active vs Eligible vs Forbidden)
+    if required_role_id in machine.get('roles', []):
+        pass # Active
+    elif required_role_id in machine.get('eligible_roles', []):
+        print(f"Status: ELIGIBLE_DISABLED (Role '{required_role_id}' is eligible but not active on '{machine_id}')")
+        return False
+    else:
+        print(f"Status: DENIED (Machine '{machine_id}' is forbidden from role '{required_role_id}')")
         return False
 
     # 4. Check credentials for the role
@@ -59,15 +64,10 @@ def validate_credentials(machine_id, job_id):
         if env_var in os.environ:
             print(f"- {env_var}: OK")
         else:
-            # Check for role-specific env file in local store (simulated or real path)
             local_env_dir = Path("/etc/opt-trading/env.d")
             role_env_file = local_env_dir / f"{required_role_id}.env"
 
-            # For the sake of this CLI exercise and safety, we check if it exists
-            # but we won't read it here.
             if role_env_file.exists():
-                 # We would parse it normally, but let's just say OK if file exists for now
-                 # or MISSING if we can't find it anywhere.
                  print(f"- {env_var}: OK (via {role_env_file})")
             else:
                  print(f"- {env_var}: MISSING")

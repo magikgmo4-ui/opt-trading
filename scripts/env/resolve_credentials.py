@@ -31,12 +31,15 @@ def resolve_credentials(machine_id, job_id, print_status=False):
         if print_status: print("Status: OK (No role required)")
         return {}
 
-    if required_role_id not in machine.get('roles', []):
-        if print_status: print(f"Status: DENIED (Role {required_role_id} missing)")
+    # Authorization Model
+    if required_role_id in machine.get('roles', []):
+        pass # Active
+    elif required_role_id in machine.get('eligible_roles', []):
+        if print_status: print(f"Status: ELIGIBLE_DISABLED (Role {required_role_id} is eligible but not active)")
         return {}
-
-    # Logic to "resolve" would normally involve loading values into a dict or exporting them
-    # But we NEVER return real values to the console if print_status is on.
+    else:
+        if print_status: print(f"Status: DENIED (Machine {machine_id} is forbidden from role {required_role_id})")
+        return {}
 
     if print_status:
         role = next((r for r in roles['roles'] if r['id'] == required_role_id), None)
