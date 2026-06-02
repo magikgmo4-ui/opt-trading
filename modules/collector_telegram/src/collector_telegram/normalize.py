@@ -52,6 +52,15 @@ _CRYPTOQUANT_RE = re.compile(
     re.IGNORECASE | re.DOTALL,
 )
 _ASSET_RE = re.compile(r"\b(BTC|BITCOIN|ETH|ETHEREUM|AAVE|XRP|XLM|USDT|ALTCOIN|ALTCOINS)\b", re.IGNORECASE)
+_GLASSNODE_WEEKLY_RE = re.compile(
+    r"(?P<title>The Week On-Chain.*?|#BTC[^\n]*|\$BTC[^\n]*|[^\n]+)\n\n(?P<body>.+)",
+    re.IGNORECASE | re.DOTALL,
+)
+_ARKHAM_EVENT_RE = re.compile(
+    r"\*\*(?P<headline>(ANNOUNCING|BREAKING|RESEARCH REPORT|[A-Z0-9$& :\-]+NOW ON ARKHAM|[A-Z0-9$& :\-]+ IS LIVE ON ARKHAM)[^\n]*)\*\*\n\n(?P<body>.+)",
+    re.IGNORECASE | re.DOTALL,
+)
+_MAGNITUDE_RE = re.compile(r"\$[0-9.,]+\s*(?:BILLION|MILLION|B|M)?|[0-9.,]+\s*BTC", re.IGNORECASE)
 
 
 def parse_message(raw: RawMessage) -> dict[str, Any]:
@@ -104,6 +113,14 @@ def parse_message(raw: RawMessage) -> dict[str, Any]:
     cryptoquant_context = _parse_cryptoquant_context(raw.raw_text)
     if cryptoquant_context is not None:
         return _parsed_payload(raw, "NEWS_CATALYST", "partial", 0.5, cryptoquant_context)
+
+    arkham_context = _parse_arkham_context(raw.raw_text)
+    if arkham_context is not None:
+        return _parsed_payload(raw, "NEWS_CATALYST", "partial", 0.56, arkham_context)
+
+    glassnode_context = _parse_glassnode_context(raw.raw_text)
+    if glassnode_context is not None:
+        return _parsed_payload(raw, "NEWS_CATALYST", "partial", 0.58, glassnode_context)
 
     hyperliquid = _parse_hyperliquid(raw.raw_text)
     if hyperliquid is not None:
@@ -341,8 +358,91 @@ def _parse_cryptoquant_context(raw_text: str) -> dict[str, Any] | None:
     }
 
 
+def _parse_glassnode_context(raw_text: str) -> dict[str, Any] | None:
+    match = _GLASSNODE_WEEKLY_RE.search(raw_text)
+    if not match:
+        return None
+    title = match.group("title").strip().replace("**", "")
+    body = match.group("body").strip()
+    if len(title) < 8 or len(body) < 20:
+        return None
+    assets = _extract_assets(title + "\n" + body)
+    return {
+        "headline": title,
+        "summary": _first_meaningful_paragraph(body),
+        "assets": assets,
+        "source_type": "weekly_report" if "week on-chain" in title.lower() else "market_pulse",
+        "bias": _infer_bias(title + "\n" + body),
+    }
+
+
+def _parse_arkham_context(raw_text: str) -> dict[str, Any] | None:
+    match = _ARKHAM_EVENT_RE.search(raw_text)
+    if not match:
+        return None
+    headline = match.group("headline").strip().replace("**", "")
+    body = match.group("body").strip()
+    assets = _extract_assets(headline + "\n" + body)
+    magnitude = _MAGNITUDE_RE.search(headline + "\n" + body)
+    return {
+        "headline": headline,
+        "summary": _first_meaningful_paragraph(body),
+        "assets": assets,
+        "source_type": "event_announcement",
+        "event_type": _infer_arkham_event_type(headline),
+        "magnitude": magnitude.group(0) if magnitude else None,
+    }
+
+
 def _extract_int_levels(raw_value: str) -> list[float]:
     return [float(match.group(0)) for match in re.finditer(r"[0-9]{4,5}(?:\.[0-9]+)?", raw_value)]
+
+
+def _extract_assets(text: str) -> list[str]:
+    assets = []
+    seen: set[str] = set()
+    for asset in _ASSET_RE.findall(text):
+        normalized = asset.upper()
+        if normalized == "BITCOIN":
+            normalized = "BTC"
+        elif normalized == "ETHEREUM":
+            normalized = "ETH"
+        elif normalized == "ALTCOINS":
+            normalized = "ALTCOIN"
+        if normalized not in seen:
+            seen.add(normalized)
+            assets.append(normalized)
+    return assets
+
+
+def _infer_bias(text: str) -> str | None:
+    lower = text.lower()
+    bullish_hits = sum(token in lower for token in ("bull", "upside", "recovery", "supportive", "positive", "rebound"))
+    bearish_hits = sum(token in lower for token in ("bear", "downside", "outflow", "selling", "resistance", "pressure"))
+    if bullish_hits > bearish_hits:
+        return "bullish"
+    if bearish_hits > bullish_hits:
+        return "bearish"
+    return None
+
+
+def _infer_arkham_event_type(headline: str) -> str:
+    upper = headline.upper()
+    if "BREAKING" in upper:
+        return "breaking_research"
+    if "RESEARCH REPORT" in upper:
+        return "research_report"
+    if "ANNOUNCING" in upper or "LIVE ON ARKHAM" in upper or "NOW ON ARKHAM" in upper:
+        return "product_announcement"
+    return "announcement"
+
+
+def _first_meaningful_paragraph(text: str) -> str:
+    for block in text.split("\n\n"):
+        cleaned = block.replace("**", "").strip()
+        if cleaned and not cleaned.startswith("http") and len(cleaned) > 20:
+            return cleaned
+    return text.replace("**", "").strip()
 
 
 def _parse_price_series(raw_value: str) -> list[float]:
