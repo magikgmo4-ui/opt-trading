@@ -1,0 +1,158 @@
+diff --git a/configs/env/registry/machines.yaml b/configs/env/registry/machines.yaml
+index baa6d936..dc1421f0 100644
+--- a/configs/env/registry/machines.yaml
++++ b/configs/env/registry/machines.yaml
+@@ -7,6 +7,7 @@ machines:
+       - google_sheets_writer
+     eligible_roles:
+       - telegram_collector
++      - llm_cloud
+   - id: db-layer
+     roles:
+       - datacenter
+@@ -31,3 +32,4 @@ machines:
+     eligible_roles:
+       - webhook_receiver
+       - datacenter
++      - llm_cloud
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md
+new file mode 100644
+index 00000000..ed634cb0
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md
+@@ -0,0 +1,19 @@
++# GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01
++
++**GO_STRUCTURAL_ROLE:** GO_CHILD_ATTACHED_TO_PARENT
++**PARENT:** GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01
++**DEPENDS_ON:** GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01
++
++## Objectif
++Opérationnaliser le setup LLM Cloud credentials pour le rôle `llm_cloud`.
++
++## Portée
++- Définition du scope des credentials OpenAI, Anthropic et Gemini.
++- Validation des autorisations par rôle et profil machine.
++- Procédure de setup local sécurisé (hors Git).
++- Vérification via les scripts canoniques `validate` et `resolve`.
++
++## Livrables
++- Documentation de setup et de validation.
++- Registres et templates à jour.
++- Patch d'initialisation du rôle.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/10_LLM_CLOUD_CREDENTIALS_SCOPE.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/10_LLM_CLOUD_CREDENTIALS_SCOPE.md
+new file mode 100644
+index 00000000..c7239052
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/10_LLM_CLOUD_CREDENTIALS_SCOPE.md
+@@ -0,0 +1,12 @@
++# LLM Cloud Credentials Scope
++
++Les credentials suivants sont nécessaires pour le rôle `llm_cloud` :
++
++| Credential ID | Env Var | Type | Description |
++|---------------|---------|------|-------------|
++| `openai_api_key` | `OPENAI_API_KEY` | `api_key` | Clé API pour les services OpenAI. |
++| `anthropic_api_key` | `ANTHROPIC_API_KEY` | `api_key` | Clé API pour les services Anthropic (Claude). |
++| `gemini_api_key` | `GEMINI_API_KEY` | `api_key` | Clé API pour les services Google Gemini. |
++
++## Sécurité des clés
++Ces clés permettent d'effectuer des appels facturés. Elles doivent être strictement protégées et ne jamais être partagées ou logguées.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/20_ROLE_AND_PROFILE_AUTHORIZATION.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/20_ROLE_AND_PROFILE_AUTHORIZATION.md
+new file mode 100644
+index 00000000..175489cd
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/20_ROLE_AND_PROFILE_AUTHORIZATION.md
+@@ -0,0 +1,13 @@
++# Role and Profile Authorization
++
++Le rôle `llm_cloud` est destiné aux machines effectuant des tâches de raisonnement complexe ou de génération de contenu via des APIs externes.
++
++## Statuts d'Autorisation
++
++| Profil Machine | Statut | Action |
++|----------------|--------|--------|
++| `cursor-ai` | **AUTHORIZED_ACTIVE** | Activé par défaut (développement assisté). |
++| `fantome` | **ELIGIBLE_DISABLED_BY_DEFAULT** | Éligible pour tâches d'IA autonomes. |
++| `admin-trading` | **ELIGIBLE_DISABLED_BY_DEFAULT** | Éligible pour analyse de sentiment prod. |
++| `db-layer` | **FORBIDDEN** | Interdit. |
++| `student` | **FORBIDDEN** | Interdit (utilisation de LLM local recommandée). |
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md
+new file mode 100644
+index 00000000..9a21e6f1
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md
+@@ -0,0 +1,26 @@
++# Local Setup Procedure
++
++Cette procédure doit être effectuée manuellement sur chaque machine autorisée.
++
++## 1. Structure des répertoires
++```bash
++sudo install -d -m 700 /etc/opt-trading/env.d/roles
++```
++
++## 2. Configuration du Rôle
++Utiliser `sudoedit` pour créer le fichier d'environnement :
++```bash
++sudoedit /etc/opt-trading/env.d/roles/llm_cloud.env
++```
++
++Contenu attendu :
++```env
++OPENAI_API_KEY=XXXXX_VOTRE_CLE_OPENAI_ICI_XXXXX
++ANTHROPIC_API_KEY=YYYYY_VOTRE_CLE_ANTHROPIC_ICI_YYYYY
++GEMINI_API_KEY=ZZZZZ_VOTRE_CLE_GEMINI_ICI_ZZZZZ
++```
++
++## 3. Sécurisation finale
++```bash
++sudo chmod 600 /etc/opt-trading/env.d/roles/llm_cloud.env
++```
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/40_VALIDATION_AND_RESOLVER_CHECKS.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/40_VALIDATION_AND_RESOLVER_CHECKS.md
+new file mode 100644
+index 00000000..2fb63044
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/40_VALIDATION_AND_RESOLVER_CHECKS.md
+@@ -0,0 +1,13 @@
++# Validation and Resolver Checks
++
++## Validation de l'Authorization
++```bash
++# Pour cursor-ai (Activé)
++python3 scripts/env/validate_credentials.py --machine cursor-ai --job llm_cloud_inference
++
++# Pour fantome (Éligible mais désactivé)
++python3 scripts/env/validate_credentials.py --machine fantome --job llm_cloud_inference
++```
++
++## Résolution
++Le resolver chargera les clés d'API uniquement sur les machines où le rôle est `AUTHORIZED_ACTIVE`.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/60_GAPS_AND_NEXT_GO.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/60_GAPS_AND_NEXT_GO.md
+new file mode 100644
+index 00000000..42c1029f
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/60_GAPS_AND_NEXT_GO.md
+@@ -0,0 +1,7 @@
++# Gaps and Next GO
++
++## Gaps
++- Mise en place de quotas ou de monitoring de consommation par API key.
++
++## Prochain GO
++- `GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01`: Setup du rôle `git_dev` (Git config, optional GH tokens).
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/FILE_SCOPE.txt b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/FILE_SCOPE.txt
+new file mode 100644
+index 00000000..e69de29b
+diff --git a/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01.md b/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01.md
+new file mode 100644
+index 00000000..a94bc371
+--- /dev/null
++++ b/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01.md
+@@ -0,0 +1,6 @@
++# Inbox: GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01
++
++- **Status:** INITIALIZED
++- **Branch:** go/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01
++- **Focus:** Opérationnalisation du rôle `llm_cloud`.
++- **Link:** [Dossier Chantier](../../chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md)
