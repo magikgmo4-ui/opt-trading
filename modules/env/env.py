@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 import os
 from pathlib import Path
 from typing import Any, Optional, Dict
@@ -21,15 +22,19 @@ def ensure_dirs() -> Dict[str, Path]:
 def load_env(dotenv_path: Optional[Path] = None) -> None:
     """
     Minimal env loader:
-    - If python-dotenv exists, load .env
+    - If python-dotenv exists, load .env and optional local overlays
     - Otherwise do nothing (env must be set by systemd/export)
     """
-    if dotenv_path is None:
-        dotenv_path = _PROJECT_ROOT / ".env"
+    env_paths = [dotenv_path] if dotenv_path is not None else [
+        _PROJECT_ROOT / ".env",
+        _PROJECT_ROOT / ".env.local",
+        _PROJECT_ROOT / ".env.telegram.local",
+    ]
     try:
         from dotenv import load_dotenv  # type: ignore
-        if dotenv_path.exists():
-            load_dotenv(dotenv_path)
+        for index, env_path in enumerate(env_paths):
+            if env_path.exists():
+                load_dotenv(env_path, override=index > 0)
     except Exception:
         # no python-dotenv installed or failure: ignore
         pass

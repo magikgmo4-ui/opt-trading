@@ -4,11 +4,21 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 ENV_FILE="${ENV_FILE:-$ROOT/.env}"
 
-if [[ -f "$ENV_FILE" ]]; then
-  set -a
-  # shellcheck disable=SC1090
-  source "$ENV_FILE"
-  set +a
+load_one_env() {
+  local path="$1"
+  if [[ -f "$path" ]]; then
+    set -a
+    # shellcheck disable=SC1090
+    source "$path"
+    set +a
+  fi
+}
+
+load_one_env "$ENV_FILE"
+
+if [[ "$ENV_FILE" == "$ROOT/.env" ]]; then
+  load_one_env "$ROOT/.env.local"
+  load_one_env "$ROOT/.env.telegram.local"
 fi
 
 : "${TV_PERF_SCHEME:=http}"
