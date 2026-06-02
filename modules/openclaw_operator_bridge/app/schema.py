@@ -3,7 +3,7 @@ from dataclasses import dataclass, field
 from typing import Any
 
 
-ALLOWED_ACTIONS = {"ask", "build", "evaluate", "review"}
+ALLOWED_ACTIONS = {"ask", "build", "evaluate", "review", "dispatch"}
 
 
 @dataclass

@@ -1,0 +1,7 @@
+modules/openclaw_operator_bridge/app/schema.py
+modules/openclaw_operator_bridge/app/client.py
+modules/openclaw_operator_bridge/app/bridge.py
+modules/openclaw_operator_bridge/tests/test_bridge_mock.py
+docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_BRIDGE_DISPATCH_01/FILE_SCOPE.txt
+docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_BRIDGE_DISPATCH_01/00_INITIAL_PROJECT_DOC.md
+docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_BRIDGE_DISPATCH_01/20_ACCEPTANCE_REPORT.md

@@ -98,5 +98,101 @@ class TestBridgeMock(unittest.TestCase):
         self.assertEqual(d["result"]["content"], "mock response content")
 
 
+MOCK_DISPATCH_PASS = {
+    "dispatcher": "openclaw_strict_worker_dispatcher",
+    "status": "DRY_RUN_PASS",
+    "job_packet_id": "DISPATCHER_SMOKE_READONLY_01",
+    "task_type": "READ_INVENTORY",
+    "runner_called": "runner_readonly.py",
+    "dry_run": True,
+    "gate_approved": False,
+    "runner_result": {"status": "DRY_RUN_PASS"},
+    "report_path": "reports/ai/workers/DISPATCHER_SMOKE_READONLY_01_RUNNER.json",
+    "dispatched_at": "2026-06-02T00:00:00+00:00",
+    "completed_at": "2026-06-02T00:00:01+00:00",
+}
+
+MOCK_DISPATCH_REFUSED = {
+    "dispatcher": "openclaw_strict_worker_dispatcher",
+    "status": "REFUSED",
+    "job_packet_id": "DISPATCHER_SMOKE_REFUSED_01",
+    "reason": "unknown or missing task_type: 'UNKNOWN_TASK_TYPE'",
+}
+
+
+class TestBridgeDispatch(unittest.TestCase):
+
+    def _send_dispatch(self, parameters: dict, stdout: str) -> object:
+        bridge = OperatorBridge()
+        req = BridgeRequest(action="dispatch", instruction="run job", parameters=parameters)
+        with patch("app.client.subprocess.run") as mock_run:
+            mock_run.return_value = _make_proc(stdout)
+            return bridge.send(req)
+
+    def test_dispatch_in_allowed_actions(self):
+        self.assertIn("dispatch", ALLOWED_ACTIONS)
+
+    def test_dispatch_action_accepted_by_schema(self):
+        req = BridgeRequest(action="dispatch", instruction="run job",
+                            parameters={"packet_id": "DISPATCHER_SMOKE_READONLY_01"})
+        req.validate()  # must not raise
+
+    def test_dispatch_pass_returns_ok(self):
+        resp = self._send_dispatch(
+            {"packet_id": "DISPATCHER_SMOKE_READONLY_01", "dry_run": True},
+            json.dumps(MOCK_DISPATCH_PASS),
+        )
+        self.assertEqual(resp.status, "ok")
+        self.assertEqual(resp.content, "DRY_RUN_PASS")
+
+    def test_dispatch_structured_contains_format3(self):
+        resp = self._send_dispatch(
+            {"packet_id": "DISPATCHER_SMOKE_READONLY_01", "dry_run": True},
+            json.dumps(MOCK_DISPATCH_PASS),
+        )
+        self.assertEqual(resp.structured.get("dispatcher"), "openclaw_strict_worker_dispatcher")
+        self.assertEqual(resp.structured.get("task_type"), "READ_INVENTORY")
+        self.assertEqual(resp.structured.get("runner_called"), "runner_readonly.py")
+
+    def test_dispatch_refused_returns_error(self):
+        resp = self._send_dispatch(
+            {"packet_id": "DISPATCHER_SMOKE_REFUSED_01", "dry_run": True},
+            json.dumps(MOCK_DISPATCH_REFUSED),
+        )
+        self.assertEqual(resp.status, "error")
+        self.assertIn("REFUSED", resp.error)
+
+    def test_dispatch_missing_packet_params_raises(self):
+        bridge = OperatorBridge()
+        req = BridgeRequest(action="dispatch", instruction="no packet", parameters={})
+        with patch("app.client.subprocess.run") as mock_run:
+            mock_run.return_value = _make_proc("")
+            resp = bridge.send(req)
+        self.assertEqual(resp.status, "error")
+
+    def test_dispatch_packet_json_param_builds_correct_cmd(self):
+        bridge = OperatorBridge()
+        packet = {"job_packet_id": "X", "task_type": "READ_INVENTORY", "default_worker": "big-pickle"}
+        req = BridgeRequest(action="dispatch", instruction="inline",
+                            parameters={"packet_json": json.dumps(packet), "dry_run": True})
+        with patch("app.client.subprocess.run") as mock_run:
+            mock_run.return_value = _make_proc(json.dumps(MOCK_DISPATCH_PASS))
+            bridge.send(req)
+        call_args = mock_run.call_args[0][0]
+        self.assertIn("--packet-json", call_args)
+        self.assertIn("--dry-run", call_args)
+
+    def test_dispatch_gate_approved_flag_forwarded(self):
+        bridge = OperatorBridge()
+        req = BridgeRequest(action="dispatch", instruction="write job",
+                            parameters={"packet_id": "X", "dry_run": False, "gate_approved": True})
+        with patch("app.client.subprocess.run") as mock_run:
+            mock_run.return_value = _make_proc(json.dumps(MOCK_DISPATCH_PASS))
+            bridge.send(req)
+        call_args = mock_run.call_args[0][0]
+        self.assertIn("--gate-approved", call_args)
+        self.assertNotIn("--dry-run", call_args)
+
+
 if __name__ == "__main__":
     unittest.main()

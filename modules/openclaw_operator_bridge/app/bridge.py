@@ -2,7 +2,7 @@ from __future__ import annotations
 import uuid
 import logging
 from .schema import BridgeRequest, BridgeResponse, ActionNotAllowed, BridgeError, BridgeTimeout
-from .client import call_builder
+from .client import call_builder, call_dispatcher
 
 log = logging.getLogger("openclaw_operator_bridge")
 
@@ -28,13 +28,20 @@ class OperatorBridge:
         log.info("bridge.send action=%s request_id=%s", request.action, request.request_id)
 
         try:
-            response = call_builder(
-                action=request.action,
-                instruction=request.instruction,
-                context=request.context,
-                request_id=request.request_id,
-                timeout_s=request.timeout_s,
-            )
+            if request.action == "dispatch":
+                response = call_dispatcher(
+                    parameters=request.parameters,
+                    request_id=request.request_id,
+                    timeout_s=request.timeout_s,
+                )
+            else:
+                response = call_builder(
+                    action=request.action,
+                    instruction=request.instruction,
+                    context=request.context,
+                    request_id=request.request_id,
+                    timeout_s=request.timeout_s,
+                )
         except BridgeTimeout as exc:
             log.error("bridge timeout: %s", exc)
             return BridgeResponse(
