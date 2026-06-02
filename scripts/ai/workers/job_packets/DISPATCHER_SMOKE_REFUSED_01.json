@@ -1,0 +1,18 @@
+{
+  "job_packet_id": "DISPATCHER_SMOKE_REFUSED_01",
+  "go_id": "GO_OPENCLAW_DBLAYER_WORKERS_CHILD_STRICT_DISPATCHER_01",
+  "status": "DRAFT_ONLY",
+  "task_type": "UNKNOWN_TASK_TYPE",
+  "worker_candidates": ["big-pickle"],
+  "default_worker": "big-pickle",
+  "model_registry": "scripts/ai/workers/models.registry.json",
+  "task_index": "scripts/ai/workers/tasks.index.json",
+  "scope": {
+    "allowed_inputs": [],
+    "denied_inputs_inherited": true,
+    "allowed_outputs": []
+  },
+  "instructions": [
+    "Ce packet a un task_type inconnu — doit être refusé par le dispatcher."
+  ]
+}

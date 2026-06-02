@@ -1,0 +1,7 @@
+scripts/ai/workers/openclaw_strict_worker_dispatcher.py
+scripts/ai/workers/job_packets/DISPATCHER_SMOKE_READONLY_01.json
+scripts/ai/workers/job_packets/DISPATCHER_SMOKE_WRITEGATED_01.json
+scripts/ai/workers/job_packets/DISPATCHER_SMOKE_REFUSED_01.json
+tests/test_openclaw_strict_worker_dispatcher.py
+docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_STRICT_DISPATCHER_01/FILE_SCOPE.txt
+docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_STRICT_DISPATCHER_01/00_INITIAL_PROJECT_DOC.md
