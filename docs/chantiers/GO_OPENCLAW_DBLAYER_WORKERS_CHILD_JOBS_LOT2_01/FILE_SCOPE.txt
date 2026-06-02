@@ -1,0 +1,17 @@
+scripts/ai/workers/kill_switch_state_check.py
+scripts/ai/workers/anti_leak_scan.py
+scripts/ai/workers/strict_worker_failure_report.py
+scripts/ai/workers/repo_go_index_audit.py
+scripts/ai/workers/repo_closeout_eligibility_check.py
+scripts/ai/workers/repo_orphan_files_audit.py
+scripts/ai/workers/repo_changelog_digest.py
+scripts/ai/workers/strict_worker_registry_check.py
+scripts/ai/workers/env_file_presence_check.sh
+scripts/ai/workers/gitignore_secrets_policy_check.sh
+scripts/ai/workers/repo_branch_audit.sh
+scripts/schedule/lot2/lot2_crontab.txt
+scripts/schedule/lot2/install_lot2_cron.sh
+scripts/schedule/lot2/uninstall_lot2_cron.sh
+docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_LOT2_01/FILE_SCOPE.txt
+docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_LOT2_01/00_INITIAL_PROJECT_DOC.md
+docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_LOT2_01/20_ACCEPTANCE_REPORT.md
