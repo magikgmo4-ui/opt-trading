@@ -1,0 +1,10 @@
+# Politique par défaut — validation_gate V1
+# Toutes les valeurs peuvent être surchargées via variables d'environnement.
+min_confidence: 0.6        # GATE_MIN_CONFIDENCE — en dessous : AUTO_REJECTED
+high_confidence: 0.8       # GATE_HIGH_CONFIDENCE — au-dessus : ALLOW (sans operator si require_operator=False)
+dry_approve_threshold: 0.7 # seuil de simulation opérateur en dry_run
+allowed_actions:
+  - BUY
+  - SELL
+kill_switch_env: TRADING_KILL_SWITCH
+approval_dir: data/gate_approvals

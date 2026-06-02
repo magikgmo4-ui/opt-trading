@@ -1,8 +1,8 @@
 {
   "job_id": "anti-leak-scan",
-  "scanned_at": "2026-06-02T03:36:21.177457Z",
-  "files_scanned": 7460,
-  "findings_count": 16,
+  "scanned_at": "2026-06-02T04:20:03.462151Z",
+  "files_scanned": 7590,
+  "findings_count": 34,
   "findings": [
     {
       "file": "docs/chantiers/GO_OPT_TRADING_AIRTABLE_ORCHESTRATION_PARENT_01/05_IMPLEMENTATION_SPEC.md",
@@ -33,6 +33,12 @@
       "line": 78,
       "pattern": "api_key literal",
       "snippet": "API_KEY=$OPENAI_API_KEY"
+    },
+    {
+      "file": "inventory_initialization.patch",
+      "line": 166,
+      "pattern": "api_key literal",
+      "snippet": "API_KEY=\n+ANTHROPIC_API_KEY="
     },
     {
       "file": "modules/airtable_bridge/README.md",
@@ -99,6 +105,24 @@
       "line": 147,
       "pattern": "api_key literal",
       "snippet": "api_key = os.environ.get("
+    },
+    {
+      "file": "project_initialization.patch",
+      "line": 127,
+      "pattern": "api_key literal",
+      "snippet": "API_KEY=\n+COINGLASS_API_KEY="
+    },
+    {
+      "file": "reports/ai/anti_leak_scan.json",
+      "line": 11,
+      "pattern": "api_key literal",
+      "snippet": "API_KEY=\\nAIRTABLE_BASE_ID="
+    },
+    {
+      "file": "reports/ai/anti_leak_scan.json",
+      "line": 17,
+      "pattern": "api_key literal",
+      "snippet": "API_KEY = configur\\u00e9e"
     }
   ],
   "status": "WARN"

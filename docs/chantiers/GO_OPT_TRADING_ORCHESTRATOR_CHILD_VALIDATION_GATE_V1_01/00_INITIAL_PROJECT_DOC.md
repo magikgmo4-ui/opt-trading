@@ -8,7 +8,7 @@ go_structural_role: GO_CHILD_ATTACHED_TO_PARENT
 parent_go: GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01
 master_project_plan_id: MPP_OPENCLAW_ORCHESTRATOR_FULL
 pf_id: PF_OPENCLAW_ORCHESTRATOR_FULL
-status: open
+status: closed
 lifecycle_stage: opening
 surface: modules/validation_gate
 source_kind: canonical
