@@ -13,7 +13,7 @@ def _notify(failures: list) -> None:
         sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[3]))
         from modules.env.env import load_env
         load_env()
-        from shared.telegram_notify import send_telegram_html
+        from shared.telegram_channels import send_to_channel
         lines = [f"🔴 <b>scheduler-dead-letter WARN</b>"]
         lines.append(f"{len(failures)} erreur(s) cron dans les {LOOKBACK_HOURS}h :")
         seen_logs: set = set()
@@ -22,7 +22,7 @@ def _notify(failures: list) -> None:
             if log not in seen_logs:
                 lines.append(f"• <code>{log}</code> l.{f['line']}: {f['content'][:60]}")
                 seen_logs.add(log)
-        send_telegram_html("\n".join(lines), source="scheduler_dead_letter_check")
+        send_to_channel("alerts", "\n".join(lines), source="scheduler_dead_letter_check")
     except Exception:
         pass
 

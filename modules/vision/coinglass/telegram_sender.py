@@ -13,8 +13,8 @@ SendFn = Callable[[str], None]
 
 
 def _default_send_fn(message: str) -> None:
-    from shared.telegram_notify import send_telegram_html
-    send_telegram_html(message, source="coinglass_vision")
+    from shared.telegram_channels import send_to_channel
+    send_to_channel("push", message, source="coinglass_vision")
 
 
 def send_vision_summary(

@@ -10,13 +10,13 @@ def _notify(count: int, items: list) -> None:
         sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[3]))
         from modules.env.env import load_env
         load_env()
-        from shared.telegram_notify import send_telegram_html
+        from shared.telegram_channels import send_to_channel
         lines = [f"⏳ <b>pending-approvals-digest WARN</b>"]
         lines.append(f"{count} approbation(s) en attente :")
         for item in items[:5]:
             aid = item.get("approval_id", item.get("id", "?"))
             lines.append(f"• <code>{aid}</code>")
-        send_telegram_html("\n".join(lines), source="pending_approvals_digest")
+        send_to_channel("alerts", "\n".join(lines), source="pending_approvals_digest")
     except Exception:
         pass
 

@@ -10,13 +10,13 @@ def _notify(findings: list, state_value: str | None) -> None:
         sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[3]))
         from modules.env.env import load_env
         load_env()
-        from shared.telegram_notify import send_telegram_html
+        from shared.telegram_channels import send_to_channel
         lines = ["🚨 <b>kill-switch-state-check WARN</b>"]
         if state_value:
             lines.append(f"État : <code>{state_value}</code>")
         for f in findings:
             lines.append(f"• {f}")
-        send_telegram_html("\n".join(lines), source="kill_switch_state_check")
+        send_to_channel("alerts", "\n".join(lines), source="kill_switch_state_check")
     except Exception:
         pass
 

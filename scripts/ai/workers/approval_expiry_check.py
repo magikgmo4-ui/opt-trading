@@ -11,12 +11,12 @@ def _notify(expired: list) -> None:
         sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[3]))
         from modules.env.env import load_env
         load_env()
-        from shared.telegram_notify import send_telegram_html
+        from shared.telegram_channels import send_to_channel
         lines = [f"⚠️ <b>approval-expiry-check WARN</b>"]
         lines.append(f"{len(expired)} approbation(s) expirée(s) (>{EXPIRY_HOURS}h) :")
         for e in expired[:5]:
             lines.append(f"• <code>{e['id']}</code> — {e['age_hours']}h")
-        send_telegram_html("\n".join(lines), source="approval_expiry_check")
+        send_to_channel("alerts", "\n".join(lines), source="approval_expiry_check")
     except Exception:
         pass
 

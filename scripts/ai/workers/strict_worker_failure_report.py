@@ -12,12 +12,12 @@ def _notify(failures: list) -> None:
         sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[3]))
         from modules.env.env import load_env
         load_env()
-        from shared.telegram_notify import send_telegram_html
+        from shared.telegram_channels import send_to_channel
         lines = [f"🔴 <b>strict-worker-failure-report WARN</b>"]
         lines.append(f"{len(failures)} worker(s) en échec :")
         for f in failures[:5]:
             lines.append(f"• <code>{f['job_packet_id']}</code> — {f['status']}")
-        send_telegram_html("\n".join(lines), source="strict_worker_failure_report")
+        send_to_channel("alerts", "\n".join(lines), source="strict_worker_failure_report")
     except Exception:
         pass
 
