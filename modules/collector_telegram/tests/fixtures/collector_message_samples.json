@@ -77,5 +77,32 @@
       "sl_state": "Breakeven",
       "sl": 6.626
     }
+  },
+  {
+    "channel": "goldtrading",
+    "message_id": "55860",
+    "raw_text": "STNBY ZONE BUY RANGE\n\n@ 4520 - 4517 - 4514 ✅\n\nZONE BUY ketika kena SL ZONE PERTAMA \n\n@ 4510 - 4506 - 4502 ✅",
+    "message_type": "TRADE_SIGNAL",
+    "parser_status": "partial",
+    "parsed": {
+      "symbol": "XAUUSD",
+      "side": "LONG",
+      "entry": [4520.0, 4517.0, 4514.0, 4510.0, 4506.0, 4502.0],
+      "tp": [],
+      "sl": null
+    }
+  },
+  {
+    "channel": "cryptoquant_official",
+    "message_id": "3631",
+    "raw_text": "Exploring Potential Bearish Signals: Rising ETH Failed Transactions and Exchange Inflows\n\n“This combination of network friction and potential exchange-bound liquidity could possibly indicate a somewhat bearish outlook for the asset in the near term.” – [Read More](https://cryptoquant.com/insights/quicktake/6a172cf7f2609c4353778035-Exploring-Potential-Bearish-Signals-Rising-ETH-Failed-Transactions-and-Exchange-?utm_source=telegram&utm_medium=sns&utm_campaign=quicktake&utm_content=nino)\n \nBy [nino](https://cryptoquant.com/profile/u/nino?tab=dashboard&utm_source=twitter&utm_medium=sns&utm_campaign=profile&utm_content=nino) | @cryptoquant_official",
+    "message_type": "NEWS_CATALYST",
+    "parser_status": "partial",
+    "parsed": {
+      "headline": "Exploring Potential Bearish Signals: Rising ETH Failed Transactions and Exchange Inflows",
+      "summary": "This combination of network friction and potential exchange-bound liquidity could possibly indicate a somewhat bearish outlook for the asset in the near term.",
+      "assets": ["ETH"],
+      "source_type": "research_note"
+    }
   }
 ]

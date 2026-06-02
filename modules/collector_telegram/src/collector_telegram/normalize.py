@@ -39,6 +39,19 @@ _WSQ_SIGNAL_RE = re.compile(
 _FATPIG_HEADER_RE = re.compile(r"TP(?P<tp_level>[123]) HIT\s+[—-]\s+(?P<symbol>[A-Z0-9\u4e00-\u9fff]+)/USDT", re.IGNORECASE)
 _FATPIG_SOLD_RE = re.compile(r"Sold\s+(?P<sold_pct>[0-9]+)%\s+at\s+\$(?P<hit_price>[0-9.]+)", re.IGNORECASE)
 _FATPIG_SL_RE = re.compile(r"SL moved\s*[→:]\s*(?P<sl_label>[^\n(]+?)(?:\s*\(\$?(?P<sl_price>[0-9.]+)\))?(?:\n|$)", re.IGNORECASE)
+_GOLDTRADING_ZONE_RE = re.compile(
+    r"STNBY ZONE BUY RANGE.*?@\s*(?P<zone1>[0-9\s\-]+).*?ZONE BUY.*?@\s*(?P<zone2>[0-9\s\-]+)",
+    re.IGNORECASE | re.DOTALL,
+)
+_GOLDTRADING_TP_RE = re.compile(
+    r"HIT\s+(?P<pips>[0-9]+)\s+PIPS.*?(?:TP\s+(?P<tp_kind>PARSIAL|TAMAK))?.*?(?P<tp_price>[0-9]{4,5}(?:\.[0-9]+)?)?",
+    re.IGNORECASE,
+)
+_CRYPTOQUANT_RE = re.compile(
+    r"(?P<title>[^\n]+)\n\n[“\"]?(?P<thesis>.+?)[”\"]?\s*[–-]\s*\[Read More\]",
+    re.IGNORECASE | re.DOTALL,
+)
+_ASSET_RE = re.compile(r"\b(BTC|BITCOIN|ETH|ETHEREUM|AAVE|XRP|XLM|USDT|ALTCOIN|ALTCOINS)\b", re.IGNORECASE)
 
 
 def parse_message(raw: RawMessage) -> dict[str, Any]:
@@ -83,6 +96,14 @@ def parse_message(raw: RawMessage) -> dict[str, Any]:
     fatpig_update = _parse_fatpig_update(raw.raw_text)
     if fatpig_update is not None:
         return _parsed_payload(raw, "MARKET_STRUCTURE", "partial", 0.7, fatpig_update)
+
+    goldtrading_signal = _parse_goldtrading_signal(raw.raw_text)
+    if goldtrading_signal is not None:
+        return _parsed_payload(raw, goldtrading_signal.pop("message_type"), goldtrading_signal.pop("parser_status"), goldtrading_signal.pop("parser_score"), goldtrading_signal)
+
+    cryptoquant_context = _parse_cryptoquant_context(raw.raw_text)
+    if cryptoquant_context is not None:
+        return _parsed_payload(raw, "NEWS_CATALYST", "partial", 0.5, cryptoquant_context)
 
     hyperliquid = _parse_hyperliquid(raw.raw_text)
     if hyperliquid is not None:
@@ -257,6 +278,71 @@ def _parse_fatpig_update(raw_text: str) -> dict[str, Any] | None:
         "sl_state": stop.group("sl_label").strip(),
         "sl": float(sl_price) if sl_price else None,
     }
+
+
+def _parse_goldtrading_signal(raw_text: str) -> dict[str, Any] | None:
+    zone = _GOLDTRADING_ZONE_RE.search(raw_text)
+    if zone is not None:
+        entries = _extract_int_levels(zone.group("zone1")) + _extract_int_levels(zone.group("zone2"))
+        return {
+            "message_type": "TRADE_SIGNAL",
+            "parser_status": "partial",
+            "parser_score": 0.62,
+            "symbol": "XAUUSD",
+            "side": "LONG",
+            "entry": entries,
+            "tp": [],
+            "sl": None,
+        }
+
+    tp = _GOLDTRADING_TP_RE.search(raw_text)
+    if tp is None or "HIT" not in raw_text.upper():
+        return None
+    tp_price = tp.group("tp_price")
+    parsed: dict[str, Any] = {
+        "message_type": "MARKET_STRUCTURE",
+        "parser_status": "partial",
+        "parser_score": 0.45,
+        "symbol": "XAUUSD",
+        "event": "TP_HIT",
+        "pips": int(tp.group("pips")),
+    }
+    if tp.group("tp_kind"):
+        parsed["tp_kind"] = tp.group("tp_kind").upper()
+    if tp_price:
+        parsed["tp_price"] = float(tp_price)
+    return parsed
+
+
+def _parse_cryptoquant_context(raw_text: str) -> dict[str, Any] | None:
+    match = _CRYPTOQUANT_RE.search(raw_text)
+    if not match:
+        return None
+    title = match.group("title").strip()
+    thesis = match.group("thesis").strip()
+    assets = []
+    seen: set[str] = set()
+    for asset in _ASSET_RE.findall(title + "\n" + thesis):
+        normalized = asset.upper()
+        if normalized == "BITCOIN":
+            normalized = "BTC"
+        elif normalized == "ETHEREUM":
+            normalized = "ETH"
+        elif normalized == "ALTCOINS":
+            normalized = "ALTCOIN"
+        if normalized not in seen:
+            seen.add(normalized)
+            assets.append(normalized)
+    return {
+        "headline": title,
+        "summary": thesis,
+        "assets": assets,
+        "source_type": "research_note",
+    }
+
+
+def _extract_int_levels(raw_value: str) -> list[float]:
+    return [float(match.group(0)) for match in re.finditer(r"[0-9]{4,5}(?:\.[0-9]+)?", raw_value)]
 
 
 def _parse_price_series(raw_value: str) -> list[float]:
