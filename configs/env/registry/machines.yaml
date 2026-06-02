@@ -30,3 +30,4 @@ machines:
       - llm_local
     eligible_roles:
       - webhook_receiver
+      - datacenter
