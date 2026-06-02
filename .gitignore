@@ -15,6 +15,9 @@ env/
 *.key
 *.pem
 *.crt
+*.p12
+id_rsa
+id_ed25519
 .secrets/bitget.env
 
 # Runtime / state / logs

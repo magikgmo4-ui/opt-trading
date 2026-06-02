@@ -161,6 +161,58 @@ Entrées notables :
 
 ---
 
+## Section 8 — AI workers — cron Lot 2A (11 scripts)
+
+Scripts de surveillance sécurité/repo activés en cron Lot 2A (`scripts/schedule/lot2/`).
+
+| job_id | path | type | cadence | rôle | status | risk |
+|---|---|---|---|---|---|---|
+| `aw_kill_switch_state` | `scripts/ai/workers/kill_switch_state_check.py` | python | 30 min | vérifie kill_switch.state | active | medium |
+| `aw_anti_leak_scan` | `scripts/ai/workers/anti_leak_scan.py` | python | daily 01:30 | scan secrets dans fichiers git-trackés | active | medium |
+| `aw_strict_failure_report` | `scripts/ai/workers/strict_worker_failure_report.py` | python | daily 01:31 | rapport FAIL/BLOCKED dans reports/ai/workers/ | active | low |
+| `aw_repo_go_index_audit` | `scripts/ai/workers/repo_go_index_audit.py` | python | daily 01:32 | audit GOs ouverts/stale >30j | active | low |
+| `aw_repo_closeout_check` | `scripts/ai/workers/repo_closeout_eligibility_check.py` | python | daily 01:33 | GOs avec PASS acceptance mais open initial doc | active | low |
+| `aw_repo_orphan_audit` | `scripts/ai/workers/repo_orphan_files_audit.py` | python | daily 01:34 | scripts .py/.sh non référencés | active | low |
+| `aw_repo_changelog` | `scripts/ai/workers/repo_changelog_digest.py` | python | daily 01:35 | digest git log 24h | active | low |
+| `aw_strict_registry_check` | `scripts/ai/workers/strict_worker_registry_check.py` | python | daily 01:36 | valide models.registry.json + tasks.index.json | active | medium |
+| `aw_env_presence` | `scripts/ai/workers/env_file_presence_check.sh` | shell | daily 01:37 | vérifie présence .env et vars critiques | active | medium |
+| `aw_gitignore_policy` | `scripts/ai/workers/gitignore_secrets_policy_check.sh` | shell | daily 01:38 | vérifie patterns secrets dans .gitignore | active | medium |
+| `aw_repo_branch_audit` | `scripts/ai/workers/repo_branch_audit.sh` | shell | daily 01:39 | audit branches locales stale >30j | active | low |
+
+---
+
+## Section 9 — AI workers — cron Lot 2B (5 scripts)
+
+Scripts HITL/cockpit/task-routing activés en cron Lot 2B (`scripts/schedule/lot2b/`).
+
+| job_id | path | type | cadence | rôle | status | risk |
+|---|---|---|---|---|---|---|
+| `aw_hitl_scenarios_smoke` | `scripts/ai/workers/hitl_scenarios_smoke.py` | python | nightly 01:00 | dry-run HITL flow validation | active | low |
+| `aw_ai_team_handoff` | `scripts/ai/workers/ai_team_handoff_dry_run.py` | python | nightly 01:01 | valide handoff spec agents | active | low |
+| `aw_task_router_dry_run` | `scripts/ai/workers/task_router_dry_run.py` | python | nightly 01:02 | valide task_type→runner routing vs tasks.index.json | active | low |
+| `aw_capability_matrix` | `scripts/ai/workers/capability_matrix_validate.py` | python | nightly 01:03 | valide sections capability docs/agents/ | active | low |
+| `aw_localcms_workers_sync` | `scripts/ai/workers/localcms_workers_state_sync.py` | python | 30 min | sync reports/ai/workers/*.json → tmp/localcms_workers_state.json | active | low |
+
+---
+
+## Section 10 — AI workers — cron Lot 3 (9 scripts)
+
+Scripts HITL/cockpit/scheduler/security activés en cron Lot 3 (`scripts/schedule/lot3/`).
+
+| job_id | path | type | cadence | rôle | status | risk |
+|---|---|---|---|---|---|---|
+| `aw_pending_approvals` | `scripts/ai/workers/pending_approvals_digest.py` | python | hourly :45 | digest approval queue | active | low |
+| `aw_approval_expiry` | `scripts/ai/workers/approval_expiry_check.py` | python | hourly :46 | vérifie expirations approvals | active | medium |
+| `aw_dead_letter_check` | `scripts/ai/workers/scheduler_dead_letter_check.py` | python | hourly :47 | scan logs cron ERROR/FAIL 24h | active | medium |
+| `aw_token_presence` | `scripts/ai/workers/external_token_presence_check.py` | python | daily 01:10 | vérifie présence tokens externes critiques | active | medium |
+| `aw_deny_by_default` | `scripts/ai/workers/deny_by_default_check.py` | python | daily 01:11 | vérifie config deny-by-default dispatcher | active | medium |
+| `aw_role_registry` | `scripts/ai/workers/ai_team_role_registry_check.py` | python | daily 01:12 | valide configs/env/registry/roles.yaml | active | low |
+| `aw_crontab_list` | `scripts/ai/workers/scheduler_crontab_list.py` | python | daily 01:13 | snapshot crontab actif | active | low |
+| `aw_safe_buttons_check` | `scripts/ai/workers/localcms_safe_buttons_check.py` | python | daily 01:14 | vérifie POST/DELETE patterns localcms | active | low |
+| `aw_ledger_view_refresh` | `scripts/ai/workers/localcms_ledger_view_refresh.py` | python | 15 min | refresh tmp/localcms_ledger_view.json | active | low |
+
+---
+
 ## Anomalies à traiter (lots dédiés)
 
 | anomalie_id | description | lot requis |
@@ -174,25 +226,26 @@ Entrées notables :
 
 ---
 
-## Statistiques v1
+## Statistiques v2
 
 | Catégorie | Count |
 |---|---|
 | GHA workflows | 7 |
 | AI worker entry points | 4 (run_task + validate + 2 configs) |
 | job_packets | 30 |
-| AI workers Python | 24 |
+| AI workers Python (Sections 4+8+9+10) | 49 (+25 Lots 2A/2B/3) |
+| AI workers Shell (Lot 2A) | 3 |
 | OpenClaw scripts | 7 |
 | Scripts opérateurs racine clés | 6 |
 | Scripts legacy patch deprecated (B06) | 8 |
-| **Total référencé v1** | **~86** |
+| **Total référencé v2** | **~114** |
 
 | Statut | Count |
 |---|---|
-| active | ~48 (+3 : aw_localcms_sync, aw_openclaw_mobile, op_deploy_wrappers) |
-| candidate | ~8 (+2 : jp_strict_readonly_smoke, jp_strict_pool_smoke_deepseek ; -3 promus active ; +1 ai_models_registry) |
-| deprecated | ~12 (+2 : jp_strict_pool_smoke_ring, jp_strict_pool_smoke_trinity) |
+| active | ~73 (+25 Lots 2A/2B/3 actifs en cron) |
+| candidate | ~8 |
+| deprecated | ~12 |
 | experimental | 2 |
-| DRAFT_ONLY (pending_parent) | ~16 (MATRIX×8, PATCH_IMPL×1, DOC_OPS×7) |
+| DRAFT_ONLY (pending_parent) | ~16 |
 
-> Dernière mise à jour 2026-05-28 — v1.6 : MODELS_REGISTRY_FORMALIZE_01 — ai_models_registry : schema_version 1.0 + experimental → candidate (23 tests — test_models_registry.py). GO_AUTOMATION_OPS_OPT_TRADING_CHILD_MODELS_REGISTRY_FORMALIZE_01.
+> Dernière mise à jour 2026-06-01 — v2.0 : activation Lots 2A (11) + 2B (5) + 3 (9) = 25 nouveaux scripts cron. Sections 8-10 ajoutées. GO_OPENCLAW_DBLAYER_WORKERS_CHILD_CLOSEOUT_LOT2B_LOT3_01.
