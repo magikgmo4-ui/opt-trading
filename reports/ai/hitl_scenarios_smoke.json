@@ -1,0 +1,24 @@
+{
+  "job_id": "hitl-scenarios-smoke",
+  "checked_at": "2026-06-02T03:56:05.736873Z",
+  "dry_run": true,
+  "hitl_specs_found": 517,
+  "scenarios": [
+    {
+      "scenario": "proposal-packet-create",
+      "mode": "dry-run",
+      "result": "PASS_SPEC_FOUND"
+    },
+    {
+      "scenario": "approval-expiry-check",
+      "mode": "dry-run",
+      "result": "PASS"
+    },
+    {
+      "scenario": "dual-confirm-required-check",
+      "mode": "dry-run",
+      "result": "PASS"
+    }
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,38 @@
+# Lot 3 — Jobs récurrents opt-trading (HITL / cockpit / scheduler / security)
+# GO_OPENCLAW_DBLAYER_WORKERS_CHILD_CLOSEOUT_LOT2B_LOT3_01
+# Installer via : scripts/schedule/lot3/install_lot3_cron.sh
+#
+SHELL=/bin/bash
+REPO=/opt/trading
+PY=/opt/trading/venv/bin/python3
+LOGDIR=/opt/trading/data/logs/cron
+
+# --- hourly ---
+# pending-approvals-digest
+45 * * * * cd $REPO && $PY scripts/ai/workers/pending_approvals_digest.py >> $LOGDIR/pending_approvals.log 2>&1
+
+# approval-expiry-check
+46 * * * * cd $REPO && $PY scripts/ai/workers/approval_expiry_check.py >> $LOGDIR/approval_expiry.log 2>&1
+
+# scheduler-dead-letter-check
+47 * * * * cd $REPO && $PY scripts/ai/workers/scheduler_dead_letter_check.py >> $LOGDIR/dead_letter.log 2>&1
+
+# --- daily 01:10 ---
+# external-token-presence-check
+10 1 * * * cd $REPO && $PY scripts/ai/workers/external_token_presence_check.py >> $LOGDIR/token_presence.log 2>&1
+
+# deny-by-default-check
+11 1 * * * cd $REPO && $PY scripts/ai/workers/deny_by_default_check.py >> $LOGDIR/deny_default.log 2>&1
+
+# ai-team-role-registry-check
+12 1 * * * cd $REPO && $PY scripts/ai/workers/ai_team_role_registry_check.py >> $LOGDIR/role_registry.log 2>&1
+
+# scheduler-crontab-list
+13 1 * * * cd $REPO && $PY scripts/ai/workers/scheduler_crontab_list.py >> $LOGDIR/crontab_list.log 2>&1
+
+# localcms-safe-buttons-check
+14 1 * * * cd $REPO && $PY scripts/ai/workers/localcms_safe_buttons_check.py >> $LOGDIR/safe_buttons.log 2>&1
+
+# --- 15 min ---
+# localcms-ledger-view-refresh
+*/15 * * * * cd $REPO && $PY scripts/ai/workers/localcms_ledger_view_refresh.py >> $LOGDIR/ledger_view.log 2>&1

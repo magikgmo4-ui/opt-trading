@@ -1,0 +1,20 @@
+{
+  "job_id": "external-token-presence-check",
+  "checked_at": "2026-06-02T03:56:06.185334Z",
+  "checked_count": 4,
+  "present": 0,
+  "missing": [
+    "TV_WEBHOOK_KEY",
+    "OPS_ADMIN_KEY",
+    "TELEGRAM_BOT_TOKEN",
+    "TELEGRAM_CHAT_ID"
+  ],
+  "blank": [],
+  "findings": [
+    "MISSING: TV_WEBHOOK_KEY",
+    "MISSING: OPS_ADMIN_KEY",
+    "MISSING: TELEGRAM_BOT_TOKEN",
+    "MISSING: TELEGRAM_CHAT_ID"
+  ],
+  "status": "WARN"
+}

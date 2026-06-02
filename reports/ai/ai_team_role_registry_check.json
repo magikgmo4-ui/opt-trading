@@ -1,0 +1,11 @@
+{
+  "job_id": "ai-team-role-registry-check",
+  "checked_at": "2026-06-02T03:56:06.379180Z",
+  "roles_found": [],
+  "findings": [
+    "expected role not found: operator",
+    "expected role not found: reader",
+    "expected role not found: writer"
+  ],
+  "status": "WARN"
+}

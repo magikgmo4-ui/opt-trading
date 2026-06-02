@@ -1,0 +1,40 @@
+{
+  "job_id": "task-router-dry-run",
+  "checked_at": "2026-06-02T03:56:06.087629Z",
+  "dry_run": true,
+  "known_task_types": [],
+  "routes_tested": [
+    {
+      "task_type": "READ_INVENTORY",
+      "expected_runner": "runner_readonly.py",
+      "in_index": false,
+      "result": "WARN_NOT_IN_INDEX"
+    },
+    {
+      "task_type": "PATCH_DRAFT",
+      "expected_runner": "runner_readonly.py",
+      "in_index": false,
+      "result": "WARN_NOT_IN_INDEX"
+    },
+    {
+      "task_type": "DOC_DRAFT",
+      "expected_runner": "runner_readonly.py",
+      "in_index": false,
+      "result": "WARN_NOT_IN_INDEX"
+    },
+    {
+      "task_type": "WRITE_GATED",
+      "expected_runner": "runner_writegated.py",
+      "in_index": false,
+      "result": "WARN_NOT_IN_INDEX"
+    },
+    {
+      "task_type": "FAST_TRIAGE",
+      "expected_runner": "runner_readonly.py",
+      "in_index": false,
+      "result": "WARN_NOT_IN_INDEX"
+    }
+  ],
+  "findings": [],
+  "status": "PASS"
+}

@@ -1,0 +1,8 @@
+{
+  "job_id": "pending-approvals-digest",
+  "generated_at": "2026-06-02T03:56:06.334375Z",
+  "count": 0,
+  "items": [],
+  "note": "queue file not found \u2014 no pending approvals",
+  "status": "PASS"
+}

@@ -1,0 +1,11 @@
+{
+  "job_id": "approval-expiry-check",
+  "checked_at": "2026-06-02T03:56:06.285276Z",
+  "pending_count": 0,
+  "expired_count": 0,
+  "expired": [],
+  "findings": [
+    "approvals_queue.json not found at data/runtime_health/approvals_queue.json \u2014 queue empty"
+  ],
+  "status": "WARN"
+}

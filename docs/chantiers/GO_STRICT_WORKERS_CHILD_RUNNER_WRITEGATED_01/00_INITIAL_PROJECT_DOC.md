@@ -4,7 +4,7 @@ doc_type: initial_project_doc
 repo: opt-trading
 go_id: GO_STRICT_WORKERS_CHILD_RUNNER_WRITEGATED_01
 parent_go: GO_STRICT_WORKERS_WRITE_GATED_PARENT_01
-status: open
+status: closed
 lifecycle_stage: impl
 created_at: 2026-05-31
 task_type: WRITE_GATED
