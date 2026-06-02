@@ -1,9 +1,22 @@
-"""Check approval queue for expired entries — reads approval state if present."""
-import json, pathlib, datetime
+"""Check approval queue for expired entries — alerts Telegram on expiry."""
+import json, pathlib, datetime, sys
 
 APPROVAL_QUEUE = pathlib.Path("data/runtime_health/approvals_queue.json")
 REPORT_PATH = pathlib.Path("reports/ai/approval_expiry_check.json")
 EXPIRY_HOURS = 24
+
+
+def _notify(expired: list) -> None:
+    try:
+        sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[3]))
+        from shared.telegram_notify import send_telegram_html
+        lines = [f"⚠️ <b>approval-expiry-check WARN</b>"]
+        lines.append(f"{len(expired)} approbation(s) expirée(s) (>{EXPIRY_HOURS}h) :")
+        for e in expired[:5]:
+            lines.append(f"• <code>{e['id']}</code> — {e['age_hours']}h")
+        send_telegram_html("\n".join(lines), source="approval_expiry_check")
+    except Exception:
+        pass
 
 
 def main():
@@ -46,6 +59,8 @@ def main():
     REPORT_PATH.write_text(json.dumps(report, indent=2))
     print(json.dumps({"job_id": report["job_id"], "pending": len(pending),
                       "expired": len(expired), "status": status}, indent=2))
+    if status == "WARN" and expired:
+        _notify(expired)
 
 if __name__ == "__main__":
     main()

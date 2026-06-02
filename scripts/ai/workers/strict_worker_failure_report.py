@@ -1,10 +1,23 @@
-"""Digest of FAIL/BLOCKED/RUNNER_ERROR runner reports in reports/ai/workers/."""
-import json, pathlib, datetime
+"""Digest of FAIL/BLOCKED/RUNNER_ERROR runner reports — alerts Telegram on failures."""
+import json, pathlib, datetime, sys
 
 REPORTS_DIR = pathlib.Path("reports/ai/workers")
 REPORT_PATH = pathlib.Path("reports/ai/strict_worker_failure_report.json")
 
 FAILURE_STATUSES = {"FAIL", "BLOCKED", "RUNNER_ERROR", "REFUSED", "INVALID_INPUT"}
+
+
+def _notify(failures: list) -> None:
+    try:
+        sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[3]))
+        from shared.telegram_notify import send_telegram_html
+        lines = [f"🔴 <b>strict-worker-failure-report WARN</b>"]
+        lines.append(f"{len(failures)} worker(s) en échec :")
+        for f in failures[:5]:
+            lines.append(f"• <code>{f['job_packet_id']}</code> — {f['status']}")
+        send_telegram_html("\n".join(lines), source="strict_worker_failure_report")
+    except Exception:
+        pass
 
 
 def main():
@@ -38,6 +51,8 @@ def main():
     REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
     REPORT_PATH.write_text(json.dumps(report, indent=2))
     print(json.dumps(report, indent=2))
+    if failures:
+        _notify(failures)
 
 if __name__ == "__main__":
     main()
