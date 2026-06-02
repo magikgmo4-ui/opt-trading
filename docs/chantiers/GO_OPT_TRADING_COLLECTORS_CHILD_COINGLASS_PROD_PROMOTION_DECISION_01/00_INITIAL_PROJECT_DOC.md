@@ -3,7 +3,7 @@ go_id: GO_OPT_TRADING_COLLECTORS_CHILD_COINGLASS_PROD_PROMOTION_DECISION_01
 doc_type: initial_project_doc
 repo: opt-trading
 parent_go_id: GO_OPT_TRADING_COLLECTORS_CHILD_COINGLASS_BOT_VISION_HEADLESS_CONTINUITY_01
-status: open
+status: closed
 created_at: 2026-05-23
 branch: go/GO_OPT_TRADING_COLLECTORS_CHILD_COINGLASS_PROD_PROMOTION_DECISION_01
 surface: doc-only — décision opérationnelle

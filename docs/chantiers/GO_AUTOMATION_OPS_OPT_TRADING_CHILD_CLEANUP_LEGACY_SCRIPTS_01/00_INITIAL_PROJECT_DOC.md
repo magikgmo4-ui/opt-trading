@@ -6,7 +6,7 @@ project: opt-trading
 module: automation_ops
 go_id: GO_AUTOMATION_OPS_OPT_TRADING_CHILD_CLEANUP_LEGACY_SCRIPTS_01
 parent_go_id: GO_AUTOMATION_OPS_OPT_TRADING_PARENT_ARCHITECTURE_JOBS_SEMIAUTO_REFACTOR_01
-status: open
+status: closed
 lifecycle_stage: in_progress
 topic_keys:
   - legacy_scripts

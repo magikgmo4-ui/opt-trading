@@ -4,7 +4,7 @@ doc_type: initial_project_doc
 repo: opt-trading
 go_id: GO_OPT_TRADING_COLLECTORS_CHILD_COINGLASS_STAGING_ACTIVATION_A_01
 parent_go_id: GO_OPT_TRADING_COLLECTORS_CHILD_COINGLASS_BOT_VISION_HEADLESS_CONTINUITY_01
-status: open
+status: closed
 created_at: 2026-05-23
 updated_at: 2026-05-23
 ---

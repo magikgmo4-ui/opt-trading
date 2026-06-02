@@ -6,7 +6,7 @@ project: opt-trading
 module: derivatives_collector
 go_id: GO_OPT_TRADING_COLLECTORS_CHILD_FAST_STORAGE_CACHE_01
 parent_go_id: GO_OPT_TRADING_COLLECTORS_PARENT_API_NORMALIZATION_01
-status: open
+status: closed
 surface: docs/chantiers
 source_kind: canonical
 created_at: 2026-05-23
