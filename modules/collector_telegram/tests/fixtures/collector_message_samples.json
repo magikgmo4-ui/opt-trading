@@ -1,0 +1,81 @@
+[
+  {
+    "channel": "xauusd",
+    "message_id": "5606",
+    "raw_text": "⚠️ FREE SIGNAL\n\n🚨 BUY GOLD NOW  📈\n\n🎯 Entry Point: 4496.0 / 4488.0\n❌ Stop Loss:  4485.0\n\n✅ TP1: 4503.0\n✅ TP2: 4510.0\n✅ TP3: OPEN",
+    "message_type": "TRADE_SIGNAL",
+    "parser_status": "parsed",
+    "parsed": {
+      "symbol": "XAUUSD",
+      "side": "LONG",
+      "entry": [4496.0, 4488.0],
+      "tp": [4503.0, 4510.0],
+      "sl": 4485.0
+    }
+  },
+  {
+    "channel": "goldsignals",
+    "message_id": "9613",
+    "raw_text": "**🏛️ XAUHQ | GOLD SIGNAL 🟡\n\nDIRECTION: **↗️ BUY**\nENTRY: 4462/68.5\nSTOP LOSS:** 4452**🛡️\n\nTAKE PROFIT:\n TP1 → 4480\n TP2 → 4495\n TP3 → 4510\n TP4 →4530/50 (Optional)\n\nRISK: 0.50% - 1% Max\nPatience pays more than prediction.**",
+    "message_type": "TRADE_SIGNAL",
+    "parser_status": "parsed",
+    "parsed": {
+      "symbol": "XAUUSD",
+      "side": "LONG",
+      "entry": [4462.0, 4468.5],
+      "tp": [4480.0, 4495.0, 4510.0, 4530.0, 4550.0],
+      "sl": 4452.0
+    }
+  },
+  {
+    "channel": "binancekillers",
+    "message_id": "20156",
+    "raw_text": "📍**SIGNAL ID: #2138📍\nCOIN: ****$INJ****/USDT (2-5x)\nDirection: LONG\n**➖➖➖➖➖➖➖\nTarget 1: 5.25✅\nTarget 2: 5.50✅\nTarget 3: 5.75✅\nTarget 4: 6.25✅\nTarget 5: 6.75✅\nTarget 6: 7.25✅\n\n🔥225% Profit (5x)🔥\n\nOur VIPs know exactly what to do to maximize profits. Book your seat now and never miss another move!\n👉**Message: ****t.me/BKConciergeBot**\n➖➖➖➖➖➖➖\n- Binance Killers®",
+    "message_type": "TRADE_SIGNAL",
+    "parser_status": "partial",
+    "parsed": {
+      "symbol": "INJUSDT",
+      "side": "LONG",
+      "entry": [],
+      "tp": [5.25, 5.5, 5.75, 6.25, 6.75, 7.25],
+      "sl": null
+    }
+  },
+  {
+    "channel": "learn2trade",
+    "message_id": "386",
+    "raw_text": "**Long Vs Short Position ****📊****\n\n**Learn & Practice 📈**\n****@Learn2Trade**",
+    "message_type": "UNKNOWN_RAW",
+    "parser_status": "unparsed",
+    "parsed": null
+  },
+  {
+    "channel": "wallstreetqueenofficial",
+    "message_id": "10020",
+    "raw_text": "🔥** FREE SIGNAL** 🔥\n\n**COIN: ****#ACEUSDT**\n\n**Direction:** Long\n\n**Leverage: **5-10x\n\n**Technical Analysis:**\n\nIt has already broken out of the descending resistance trendline on a bigger timeframe, which is a massive bullish sign. There is no resistance nearby, so this could lead to a big pump in the price. We could soon see a significant increase, and it could hit the upper resistance zone. Buy it now and hold it for good returns, potentially 10x-15x.\n\nEntry: Market Price \n\nTargets: 0.1500 - 0.1700 - 0.2000 - 0.2500 - 0.3000 - 0.4000 - 0.4500$+\n\nStoploss: 0.095",
+    "message_type": "TRADE_SIGNAL",
+    "parser_status": "parsed",
+    "parsed": {
+      "symbol": "ACEUSDT",
+      "side": "LONG",
+      "entry": [],
+      "tp": [0.15, 0.17, 0.2, 0.25, 0.3, 0.4, 0.45],
+      "sl": 0.095
+    }
+  },
+  {
+    "channel": "fatpigsignals",
+    "message_id": "5068",
+    "raw_text": "✅ TP1 HIT — INJ/USDT\n━━━━━━━━━━━━━━━━━━━━━━━\n💵 Sold 40% at $7.0940 (+7.1%)\n🔒 SL moved → Breakeven ($6.6260)\n⬆️ PYRAMIDED: Added 100% position\n━━━━━━━━━━━━━━━━━━━━━━━\nRemaining riding to TP2/TP3\n⏰ 16:15 UTC",
+    "message_type": "MARKET_STRUCTURE",
+    "parser_status": "partial",
+    "parsed": {
+      "symbol": "INJUSDT",
+      "event": "TP1_HIT",
+      "sold_pct": 40,
+      "hit_price": 7.094,
+      "sl_state": "Breakeven",
+      "sl": 6.626
+    }
+  }
+]
