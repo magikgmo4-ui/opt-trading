@@ -1,0 +1,5 @@
+# FILE_SCOPE — GO_STRICT_WORKERS_CHILD_PATCH_APPLY_3W_STEP2_01
+# Application du patch Step 2 (kimi-k2.6) approuvé par Step 3 (qwen3.6-plus)
+
+docs/chantiers/GO_STRICT_WORKERS_CHILD_PATCH_APPLY_3W_STEP2_01/**
+docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md
