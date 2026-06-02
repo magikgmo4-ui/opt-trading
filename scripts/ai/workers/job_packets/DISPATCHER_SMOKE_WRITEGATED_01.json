@@ -1,0 +1,30 @@
+{
+  "job_packet_id": "DISPATCHER_SMOKE_WRITEGATED_01",
+  "go_id": "GO_OPENCLAW_DBLAYER_WORKERS_CHILD_STRICT_DISPATCHER_01",
+  "status": "DRAFT_ONLY",
+  "task_type": "WRITE_GATED",
+  "worker_candidates": ["glm-5.1", "qwen3.6-plus"],
+  "default_worker": "glm-5.1",
+  "model_registry": "scripts/ai/workers/models.registry.json",
+  "task_index": "scripts/ai/workers/tasks.index.json",
+  "scope": {
+    "allowed_inputs": [
+      "docs/openclaw/INDEX.md"
+    ],
+    "denied_inputs_inherited": true,
+    "allowed_outputs": [
+      "reports/ai/workers/DISPATCHER_SMOKE_WRITEGATED_01.md",
+      "docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_STRICT_DISPATCHER_01/*.md"
+    ]
+  },
+  "write_plan": [
+    {
+      "target": "reports/ai/workers/DISPATCHER_SMOKE_WRITEGATED_01.md",
+      "content": "# DISPATCHER SMOKE WRITEGATED\n\nStatus: GATE_APPROVED_TEST\n"
+    }
+  ],
+  "instructions": [
+    "Smoke test write-gated path du dispatcher.",
+    "Output DRAFT_ONLY."
+  ]
+}
