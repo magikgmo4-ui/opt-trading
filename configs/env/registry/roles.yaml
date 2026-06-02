@@ -4,5 +4,33 @@ roles:
       - telegram_api_id
       - telegram_api_hash
       - telegram_bot_token_main
+      - telegram_session_path
+  - id: webhook_receiver
+    credentials:
+      - tv_webhook_secret
+  - id: google_sheets_writer
+    credentials:
+      - google_service_account_json
+      - google_sheets_spreadsheet_id
   - id: git_dev
+    credentials:
+      - gh_token
+  - id: market_data_readonly
+    credentials:
+      - binance_api_key
+      - coinglass_api_key
+  - id: deskpro_user
     credentials: []
+  - id: llm_local
+    credentials:
+      - ollama_base_url
+  - id: llm_cloud
+    credentials:
+      - openai_api_key
+      - anthropic_api_key
+      - gemini_api_key
+  - id: datacenter
+    credentials:
+      - db_host
+      - db_user
+      - db_password

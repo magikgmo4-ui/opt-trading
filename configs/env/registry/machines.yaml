@@ -1,9 +1,26 @@
 machines:
-  - id: fantome
-    roles:
-      - telegram_collector
-      - git_dev
   - id: admin-trading
     roles:
       - datacenter
       - market_data_readonly
+      - webhook_receiver
+      - google_sheets_writer
+  - id: db-layer
+    roles:
+      - datacenter
+      - telegram_collector
+      - market_data_readonly
+  - id: student
+    roles:
+      - llm_local
+      - deskpro_user
+  - id: cursor-ai
+    roles:
+      - git_dev
+      - llm_cloud
+  - id: fantome
+    roles:
+      - telegram_collector
+      - git_dev
+      - market_data_readonly
+      - llm_local
