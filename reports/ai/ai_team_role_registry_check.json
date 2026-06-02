@@ -1,11 +1,17 @@
 {
   "job_id": "ai-team-role-registry-check",
-  "checked_at": "2026-06-02T03:56:06.379180Z",
-  "roles_found": [],
-  "findings": [
-    "expected role not found: operator",
-    "expected role not found: reader",
-    "expected role not found: writer"
+  "checked_at": "2026-06-02T04:07:04.059731Z",
+  "roles_found": [
+    "telegram_collector",
+    "webhook_receiver",
+    "google_sheets_writer",
+    "git_dev",
+    "market_data_readonly",
+    "deskpro_user",
+    "llm_local",
+    "llm_cloud",
+    "datacenter"
   ],
-  "status": "WARN"
+  "findings": [],
+  "status": "PASS"
 }
