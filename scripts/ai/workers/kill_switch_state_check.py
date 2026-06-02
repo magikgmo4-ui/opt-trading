@@ -8,6 +8,8 @@ REPORT_PATH = pathlib.Path("reports/ai/kill_switch_state_check.json")
 def _notify(findings: list, state_value: str | None) -> None:
     try:
         sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[3]))
+        from modules.env.env import load_env
+        load_env()
         from shared.telegram_notify import send_telegram_html
         lines = ["🚨 <b>kill-switch-state-check WARN</b>"]
         if state_value:

@@ -8,6 +8,8 @@ REPORT_PATH = pathlib.Path("reports/ai/pending_approvals_digest.json")
 def _notify(count: int, items: list) -> None:
     try:
         sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[3]))
+        from modules.env.env import load_env
+        load_env()
         from shared.telegram_notify import send_telegram_html
         lines = [f"⏳ <b>pending-approvals-digest WARN</b>"]
         lines.append(f"{count} approbation(s) en attente :")

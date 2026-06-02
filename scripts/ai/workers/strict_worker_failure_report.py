@@ -10,6 +10,8 @@ FAILURE_STATUSES = {"FAIL", "BLOCKED", "RUNNER_ERROR", "REFUSED", "INVALID_INPUT
 def _notify(failures: list) -> None:
     try:
         sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[3]))
+        from modules.env.env import load_env
+        load_env()
         from shared.telegram_notify import send_telegram_html
         lines = [f"🔴 <b>strict-worker-failure-report WARN</b>"]
         lines.append(f"{len(failures)} worker(s) en échec :")

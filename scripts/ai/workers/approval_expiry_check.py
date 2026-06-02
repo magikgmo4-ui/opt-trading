@@ -9,6 +9,8 @@ EXPIRY_HOURS = 24
 def _notify(expired: list) -> None:
     try:
         sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[3]))
+        from modules.env.env import load_env
+        load_env()
         from shared.telegram_notify import send_telegram_html
         lines = [f"⚠️ <b>approval-expiry-check WARN</b>"]
         lines.append(f"{len(expired)} approbation(s) expirée(s) (>{EXPIRY_HOURS}h) :")
