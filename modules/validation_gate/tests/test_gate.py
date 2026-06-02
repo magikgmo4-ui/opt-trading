@@ -349,5 +349,33 @@ class TestValidationGate(unittest.TestCase):
         self.assertTrue(dec.meta["notif"]["ok"])
 
 
+class TestMalformedRequest(unittest.TestCase):
+
+    def test_gate_proposition_error_status(self):
+        # Proposition with status=error is treated as malformed → BLOCK
+        with tempfile.TemporaryDirectory() as d:
+            g = ValidationGate(approval_dir=Path(d), dispatcher=_mock_dispatcher())
+            bad_prop = _prop(status="error", error="bridge_unreachable")
+            req = GateRequest(proposition=bad_prop, dry_run=True)
+            dec = g.gate(req)
+        self.assertEqual(dec.verdict, "REJECTED")
+        self.assertIn("proposition_error", dec.reason)
+
+    def test_gate_proposition_action_skip(self):
+        with tempfile.TemporaryDirectory() as d:
+            g = ValidationGate(approval_dir=Path(d), dispatcher=_mock_dispatcher())
+            req = GateRequest(proposition=_prop(action="SKIP"), dry_run=True)
+            dec = g.gate(req)
+        self.assertEqual(dec.verdict, "REJECTED")
+        self.assertIn("SKIP", dec.reason)
+
+    def test_gate_request_id_preserved(self):
+        with tempfile.TemporaryDirectory() as d:
+            g = ValidationGate(approval_dir=Path(d), dispatcher=_mock_dispatcher())
+            req = GateRequest(proposition=_prop(confidence=0.85), dry_run=True, request_id="fixed-id")
+            dec = g.gate(req)
+        self.assertEqual(dec.request_id, "fixed-id")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

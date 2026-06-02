@@ -1,8 +1,8 @@
 {
   "job_id": "repo-orphan-files-audit",
-  "checked_at": "2026-06-02T03:36:27.118384Z",
-  "tracked_scripts": 1475,
-  "orphan_candidates": 98,
+  "checked_at": "2026-06-02T04:17:02.493944Z",
+  "tracked_scripts": 1509,
+  "orphan_candidates": 132,
   "candidates": [
     "modules/bot_vision/headless_capture/scripts/run_orchestrator.sh",
     "modules/collector_telegram/tests/test_collector_telegram_module.py",
@@ -26,14 +26,14 @@
     "modules/trading_lab_v1/tests/test_exit_outcome_v1.py",
     "modules/trading_lab_v1/tests/test_pipeline_integration_v1.py",
     "modules/trading_lab_v1/tests/test_variant_edge_analysis.py",
+    "scripts/ai/workers/ai_team_handoff_dry_run.py",
+    "scripts/ai/workers/ai_team_role_registry_check.py",
+    "scripts/ai/workers/anti_leak_scan.py",
+    "scripts/ai/workers/approval_expiry_check.py",
+    "scripts/ai/workers/capability_matrix_validate.py",
+    "scripts/ai/workers/deny_by_default_check.py",
     "scripts/ai/workers/doc_ops_create_chantier.py",
-    "scripts/automation_ops/run_semiauto_pilot.sh",
-    "scripts/e2e/bot_vision_admin_trading_canonical_checkout.py",
-    "scripts/e2e/bot_vision_admin_trading_runtime_stabilize.py",
-    "scripts/e2e/bot_vision_inbox_processed_consistency.py",
-    "scripts/e2e/bot_vision_runtime_real_preflight.py",
-    "scripts/e2e/register_e2e_bundle.py",
-    "scripts/openclaw_gh_actions_analyze_failure_logs.py"
+    "scripts/ai/workers/env_file_presence_check.sh"
   ],
   "status": "WARN"
 }
