@@ -1,0 +1,142 @@
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md
+new file mode 100644
+index 00000000..ee8b50d6
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md
+@@ -0,0 +1,19 @@
++# GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01
++
++**GO_STRUCTURAL_ROLE:** GO_CHILD_ATTACHED_TO_PARENT
++**PARENT:** GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01
++**DEPENDS_ON:** GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01
++
++## Objectif
++Opérationnaliser le setup DeskPro credentials pour le rôle `deskpro_user`.
++
++## Portée
++- Définition du scope des configurations DeskPro (API URL, API Key, chemins locaux).
++- Validation des autorisations par rôle et profil machine.
++- Procédure de setup local sécurisé (hors Git).
++- Vérification via les scripts canoniques `validate` et `resolve`.
++
++## Livrables
++- Documentation de setup et de validation.
++- Registres et templates à jour.
++- Patch d'initialisation du rôle.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01/10_DESKPRO_CREDENTIALS_SCOPE.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01/10_DESKPRO_CREDENTIALS_SCOPE.md
+new file mode 100644
+index 00000000..eb372552
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01/10_DESKPRO_CREDENTIALS_SCOPE.md
+@@ -0,0 +1,12 @@
++# DeskPro Credentials Scope
++
++Le rôle `deskpro_user` concerne l'accès aux outils de tableau de bord et d'analyse DeskPro.
++
++| Credential ID | Env Var | Type | Description |
++|---------------|---------|------|-------------|
++| `deskpro_api_url` | `DESKPRO_API_URL` | `url` | URL de l'API DeskPro. |
++| `deskpro_api_key` | `DESKPRO_API_KEY` | `api_key` | Clé API DeskPro. |
++
++## Variables de Configuration
++- `DESKPRO_SNAPSHOT_DIR`: Chemin local vers les snapshots d'analyse.
++- `DESKPRO_GUI_ENABLED`: Activation de l'interface graphique (0/1).
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01/20_ROLE_AND_PROFILE_AUTHORIZATION.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01/20_ROLE_AND_PROFILE_AUTHORIZATION.md
+new file mode 100644
+index 00000000..83b6b8f1
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01/20_ROLE_AND_PROFILE_AUTHORIZATION.md
+@@ -0,0 +1,13 @@
++# Role and Profile Authorization
++
++Le rôle `deskpro_user` est destiné aux profils d'étudiants et de développement local pour l'analyse de données.
++
++## Statuts d'Autorisation
++
++| Profil Machine | Statut | Action |
++|----------------|--------|--------|
++| `student` | **AUTHORIZED_ACTIVE** | Activé par défaut. |
++| `fantome` | **AUTHORIZED_ACTIVE** | Activé par défaut. |
++| `db-layer` | **ELIGIBLE_DISABLED_BY_DEFAULT** | Éligible pour debug data. |
++| `admin-trading` | **FORBIDDEN** | Interdit (utilisation prod non recommandée). |
++| `cursor-ai` | **FORBIDDEN** | Interdit. |
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md
+new file mode 100644
+index 00000000..14a02695
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md
+@@ -0,0 +1,27 @@
++# Local Setup Procedure
++
++Cette procédure doit être effectuée manuellement sur chaque machine autorisée.
++
++## 1. Structure des répertoires
++```bash
++sudo install -d -m 700 /etc/opt-trading/env.d/roles
++```
++
++## 2. Configuration du Rôle
++Utiliser `sudoedit` pour créer le fichier d'environnement :
++```bash
++sudoedit /etc/opt-trading/env.d/roles/deskpro_user.env
++```
++
++Contenu attendu :
++```env
++DESKPRO_API_URL=http://localhost:8000
++DESKPRO_API_KEY=XXXXX_VOTRE_CLE_DESKPRO_ICI_XXXXX
++DESKPRO_SNAPSHOT_DIR=/home/fantome/opt-trading-clean/data/snapshots
++DESKPRO_GUI_ENABLED=1
++```
++
++## 3. Sécurisation finale
++```bash
++sudo chmod 600 /etc/opt-trading/env.d/roles/deskpro_user.env
++```
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01/40_VALIDATION_AND_RESOLVER_CHECKS.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01/40_VALIDATION_AND_RESOLVER_CHECKS.md
+new file mode 100644
+index 00000000..5e535c57
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01/40_VALIDATION_AND_RESOLVER_CHECKS.md
+@@ -0,0 +1,13 @@
++# Validation and Resolver Checks
++
++## Validation de l'Authorization
++```bash
++# Pour student (Activé)
++python3 scripts/env/validate_credentials.py --machine student --job deskpro_analysis
++
++# Pour fantome (Activé)
++python3 scripts/env/validate_credentials.py --machine fantome --job deskpro_analysis
++```
++
++## Résolution
++Le resolver chargera les variables DeskPro uniquement sur les machines où le rôle est `AUTHORIZED_ACTIVE`.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01/60_GAPS_AND_NEXT_GO.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01/60_GAPS_AND_NEXT_GO.md
+new file mode 100644
+index 00000000..3ed2ec04
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01/60_GAPS_AND_NEXT_GO.md
+@@ -0,0 +1,7 @@
++# Gaps and Next GO
++
++## Gaps
++- Harmonisation des chemins de snapshots entre les environnements Docker et natifs.
++
++## Prochain GO
++- `GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01`: Setup du rôle `llm_local` (Ollama configuration).
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01/FILE_SCOPE.txt b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01/FILE_SCOPE.txt
+new file mode 100644
+index 00000000..e69de29b
+diff --git a/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01.md b/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01.md
+new file mode 100644
+index 00000000..92edd86a
+--- /dev/null
++++ b/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01.md
+@@ -0,0 +1,6 @@
++# Inbox: GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01
++
++- **Status:** INITIALIZED
++- **Branch:** go/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01
++- **Focus:** Opérationnalisation du rôle `deskpro_user`.
++- **Link:** [Dossier Chantier](../../chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md)
