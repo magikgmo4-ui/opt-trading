@@ -2,7 +2,7 @@
 go_id: GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_CHILD_LOCALCMS_OBSERVATION_VIEW_SMOKE_01
 doc_type: initial_project_doc
 repo: opt-trading
-status: open
+status: closed
 parent: GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01
 created_at: 2026-05-17
 surface: smoke / validation
