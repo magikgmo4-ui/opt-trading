@@ -7,6 +7,7 @@ machines:
       - google_sheets_writer
     eligible_roles:
       - telegram_collector
+      - llm_cloud
   - id: db-layer
     roles:
       - datacenter
@@ -31,3 +32,4 @@ machines:
     eligible_roles:
       - webhook_receiver
       - datacenter
+      - llm_cloud
