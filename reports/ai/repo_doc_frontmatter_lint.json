@@ -1,7 +1,7 @@
 {
   "job_id": "repo-doc-frontmatter-lint",
-  "scanned": 3269,
-  "findings": 2756,
+  "scanned": 4748,
+  "findings": 3540,
   "status": "PASS",
   "details": [
     {
@@ -432,6 +432,12 @@
       ]
     },
     {
+      "file": "docs/architecture/PLAN_CARTOGRAPHIE_MERMAID.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
       "file": "docs/architecture/PROJECT_SNAPSHOT_GLOBAL_2026-04-18.md",
       "issues": [
         "invalid_line:- opt-trading",
@@ -458,6 +464,107 @@
         "invalid_line:- registry/meta_index.yaml",
         "invalid_line:- registry/ui_surfaces_registry.yaml",
         "invalid_line:- docs/ARCHITECTURE.md"
+      ]
+    },
+    {
+      "file": "docs/architecture/evidence/00_repo_identity.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/architecture/evidence/02_manifests.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/architecture/evidence/03_entrypoints.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/architecture/evidence/05_external_dependencies.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/architecture/evidence/06_tests.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/architecture/evidence/07_infra.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/architecture/evidence/08_notes_open_questions.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/architecture/mermaid/990_architecture_final.preview.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/architecture/mermaid/readable/000_index.preview.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/architecture/mermaid/readable/010_core_runtime.preview.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/architecture/mermaid/readable/020_data_strategy_execution.preview.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/architecture/mermaid/readable/030_interfaces_entrypoints.preview.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/architecture/mermaid/readable/040_ops_governance.preview.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/architecture/mermaid/readable/050_quality_contracts_docs.preview.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/architecture/mermaid/readable/060_trading_runtime_critical_path.preview.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AI_TEAM_HANDOFF_MEMORY_POLICY_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- docs/agents/strict_workers/MODELS_MATRIX_01.md",
+        "invalid_line:- docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md",
+        "invalid_line:- scripts/ai/workers/tasks.index.json",
+        "invalid_line:- scripts/ai/workers/models.registry.json",
+        "invalid_line:- modules/model_provider_openclaw/config/agent_model_matrix.yaml",
+        "invalid_line:- config/machine_runtime_map.yml"
       ]
     },
     {
@@ -515,6 +622,514 @@
         "invalid_line:- docs/index/ACTIVE_STREAMS.md",
         "invalid_line:- docs/index/REPRISE.md",
         "invalid_line:- docs/index/NEXT_GO_CANDIDATES.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OBSERVABILITY_LEDGER_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- deploy/systemd/opt-trading-runtime-health.service",
+        "invalid_line:- deploy/systemd/opt-trading-fleet-orchestrator.service",
+        "invalid_line:- config/machine_runtime_map.yml",
+        "invalid_line:- data/runtime_health/"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_ARCHITECTURE_MAP_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- opt-trading",
+        "invalid_line:- automation_ops",
+        "invalid_line:- architecture",
+        "invalid_line:- flow_map",
+        "invalid_line:- human_gates",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_PARENT_ARCHITECTURE_JOBS_SEMIAUTO_REFACTOR_01/10_ARCHITECTURE_REFACTOR_SCOPE.md",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_ARCHITECTURE_MAP_01/10_ARCHITECTURE_SURFACES.md",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_ARCHITECTURE_MAP_01/20_FLOW_MAP.md",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_ARCHITECTURE_MAP_01/30_HUMAN_AGENT_GATES.md",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_ARCHITECTURE_MAP_01/40_GAPS_AND_NEXT_GO.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_CLEANUP_LEGACY_SCRIPTS_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- legacy_scripts",
+        "invalid_line:- desk_pro",
+        "invalid_line:- cleanup",
+        "invalid_line:- automation_ops",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_CLEANUP_LEGACY_SCRIPTS_01/10_DELETION_PROOF.md",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_CLEANUP_LEGACY_SCRIPTS_01/20_ACCEPTANCE_REPORT.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_DRAFT_PACKETS_PROMOTION_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- opt-trading",
+        "invalid_line:- automation_ops",
+        "invalid_line:- job_packets",
+        "invalid_line:- promotion",
+        "invalid_line:- jobs_registry",
+        "invalid_line:- docs/registry/JOBS_REGISTRY.md",
+        "invalid_line:- scripts/ai/workers/job_packets/",
+        "invalid_line:- scripts/ai/workers/models.registry.json",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_JOBS_REGISTRY_PILOT_02/40_GAPS_AND_NEXT_GO.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_JOBS_DEDUP_AUDIT_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- opt-trading",
+        "invalid_line:- automation_ops",
+        "invalid_line:- jobs_dedup",
+        "invalid_line:- draft_packets",
+        "invalid_line:- legacy_scripts",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_PARENT_ARCHITECTURE_JOBS_SEMIAUTO_REFACTOR_01/30_JOBS_DEDUP_PROTOCOL.md",
+        "invalid_line:- docs/registry/JOBS_REGISTRY.md",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_JOBS_DEDUP_AUDIT_01/10_DUPLICATE_CANDIDATES.md",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_JOBS_DEDUP_AUDIT_01/20_CONSUMER_MAP.md",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_JOBS_DEDUP_AUDIT_01/30_DECISION_TABLE.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_JOBS_REGISTRY_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- opt-trading",
+        "invalid_line:- automation_ops",
+        "invalid_line:- jobs_registry",
+        "invalid_line:- github_actions",
+        "invalid_line:- ai_workers",
+        "invalid_line:- openclaw",
+        "invalid_line:- docs/registry/JOBS_REGISTRY.md",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_PARENT_ARCHITECTURE_JOBS_SEMIAUTO_REFACTOR_01/20_JOBS_REGISTRY_SPEC.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_MASTER_TARGET_REFACTOR_CLOSE_GATE_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_MASTER_TARGET_REFACTOR_CLOSE_GATE_01/10_REFACTOR_CHAIN_SUMMARY.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_MASTER_TARGET_REFACTOR_CLOSE_GATE_01/20_MASTER_TARGET_STATUS.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_MASTER_TARGET_REFACTOR_CLOSE_GATE_01/30_LIMITS_AND_NEXT_USAGE.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_MODELS_REGISTRY_FORMALIZE_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- scripts/ai/workers/models.registry.json",
+        "invalid_line:- tests/test_models_registry.py",
+        "invalid_line:- docs/registry/JOBS_REGISTRY.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_JOBS_REGISTRY_PILOT_02/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- opt-trading",
+        "invalid_line:- automation_ops",
+        "invalid_line:- semiauto_pilot",
+        "invalid_line:- jobs_registry",
+        "invalid_line:- docs/registry/JOBS_REGISTRY.md",
+        "invalid_line:- modules/automation_ops/semiauto_pilot/pilot_runner.py",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_PILOT_REAL_CASE_01/40_GAPS_AND_NEXT_GO.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_JOBS_REGISTRY_PILOT_CLOSEOUT_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_JOBS_REGISTRY_PILOT_02/20_RUN_REPORT.md",
+        "invalid_line:- docs/registry/JOBS_REGISTRY.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_LOOP_MAINLINE_AUDIT_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_LOOP_MAINLINE_AUDIT_01/10_AUDIT_SCOPE.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_LOOP_MAINLINE_AUDIT_01/20_RUN_REPORT.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_LOOP_MAINLINE_AUDIT_01/30_PROOF_INDEX.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_LOOP_MAINLINE_AUDIT_01/40_GAPS_AND_NEXT_GO.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_LOOP_PROTOCOL_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- semiauto_loop",
+        "invalid_line:- go_prompt",
+        "invalid_line:- operator_handoff",
+        "invalid_line:- templates",
+        "invalid_line:- automation_ops",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_LOOP_PROTOCOL_01/10_LOOP_PROTOCOL_DETAIL.md",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_LOOP_PROTOCOL_01/20_TEMPLATES.md",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_LOOP_PROTOCOL_01/30_PILOT_TEST.md",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_LOOP_PROTOCOL_01/40_ACCEPTANCE_REPORT.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_PILOT_REAL_CASE_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_PILOT_REAL_CASE_01/10_REAL_CASE_SCOPE.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_PILOT_REAL_CASE_01/20_RUN_REPORT.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_PILOT_REAL_CASE_01/30_PROOF_INDEX.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_PILOT_REAL_CASE_01/40_GAPS_AND_NEXT_GO.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_PILOT_SCOPE_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_PILOT_SCOPE_01/10_PILOT_SCOPE.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_PILOT_SCOPE_01/20_RUNTIME_FLOW.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_PILOT_SCOPE_01/30_PROOF_SAMPLE.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_PILOT_SCOPE_01/40_GAPS_AND_NEXT_GO.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_RUNTIME_PILOT_CLOSEOUT_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_RUNTIME_PILOT_CLOSEOUT_01/10_PARENT_CLOSE_GATE.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_RUNTIME_PILOT_CLOSEOUT_01/20_RUNTIME_PROOF_SUMMARY.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_CHILD_SEMIAUTO_RUNTIME_PILOT_CLOSEOUT_01/30_LIMITS_AND_GAPS.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_PARENT_ARCHITECTURE_JOBS_SEMIAUTO_REFACTOR_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- opt-trading",
+        "invalid_line:- automation_ops",
+        "invalid_line:- architecture",
+        "invalid_line:- jobs",
+        "invalid_line:- semi_automation",
+        "invalid_line:- github_actions",
+        "invalid_line:- openclaw",
+        "invalid_line:- operator_handoff",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_PARENT_ARCHITECTURE_JOBS_SEMIAUTO_REFACTOR_01/10_ARCHITECTURE_REFACTOR_SCOPE.md",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_PARENT_ARCHITECTURE_JOBS_SEMIAUTO_REFACTOR_01/20_JOBS_REGISTRY_SPEC.md",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_PARENT_ARCHITECTURE_JOBS_SEMIAUTO_REFACTOR_01/30_JOBS_DEDUP_PROTOCOL.md",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_PARENT_ARCHITECTURE_JOBS_SEMIAUTO_REFACTOR_01/40_SEMIAUTO_LOOP_PROTOCOL.md",
+        "invalid_line:- docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_PARENT_ARCHITECTURE_JOBS_SEMIAUTO_REFACTOR_01/50_OPERATOR_HANDOFF_FORMAT.md",
+        "invalid_line:- docs/index/inbox/GO_AUTOMATION_OPS_OPT_TRADING_PARENT_ARCHITECTURE_JOBS_SEMIAUTO_REFACTOR_01.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_OPS_OPT_TRADING_PARENT_SEMIAUTO_RUNTIME_PILOT_01/90_PARENT_CLOSEOUT.md",
+      "issues": [
+        "missing_frontmatter"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_AUTOMATION_SECURITY_SECRETS_PERMISSIONS_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- configs/openclaw/security/skill_policy.yaml",
+        "invalid_line:- docs/chantiers/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_PARENT_01/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_PERMISSION_MATRIX_01.md",
+        "invalid_line:- docs/chantiers/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_PARENT_01/GO_OPENCLAW_OPT_TRADING_RUNTIME_SECURITY_CHILD_POLICY_SCHEMA_01.md",
+        "invalid_line:- docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_CHILD_WRITE_GATE_A4_01/A4_WRITE_GATE_POLICY.md",
+        "invalid_line:- config/machine_runtime_map.yml"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_CI_SCHEDULER_AUTOMATION_STABILITY_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- .github/workflows/strict-workers-validate.yml",
+        "invalid_line:- .github/workflows/strict-workers-smoke.yml",
+        "invalid_line:- .github/workflows/strict-workers-schedule.yml",
+        "invalid_line:- deploy/systemd/opt-trading-runtime-health.timer",
+        "invalid_line:- deploy/systemd/opt-trading-fleet-orchestrator.timer"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_CLEANUP_BAK_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_DEDUP_AUDIT_01/30_DECISION_TABLE.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_CLEANUP_SCRIPTS_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_DEDUP_AUDIT_01/30_DECISION_TABLE.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_DEDUP_AUDIT_01/20_CONSUMER_MAP.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_CODE_INVENTORY_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- opt-trading",
+        "invalid_line:- code_ops",
+        "invalid_line:- code_inventory",
+        "invalid_line:- audit_first",
+        "invalid_line:- no_mutation",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/00_INITIAL_PROJECT_DOC.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/10_CODE_INVENTORY_PROTOCOL.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_CODE_INVENTORY_01/10_FILE_INVENTORY.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_CODE_INVENTORY_01/20_ENTRYPOINTS.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_CODE_INVENTORY_01/30_VALIDATORS_AND_SCHEMAS.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_CODE_INVENTORY_01/40_RISK_MAP.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_CODE_INVENTORY_01/50_NEXT_REGISTRY_INPUT.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_CODE_REGISTRY_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- opt-trading",
+        "invalid_line:- code_ops",
+        "invalid_line:- code_registry",
+        "invalid_line:- audit_first",
+        "invalid_line:- no_mutation",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/20_CODE_REGISTRY_SPEC.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_CODE_INVENTORY_01/50_NEXT_REGISTRY_INPUT.md",
+        "invalid_line:- docs/registry/CODE_REGISTRY.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_CODE_REGISTRY_01/10_DEDUP_QUALIFICATIONS.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_CODE_REGISTRY_01/20_REGISTRY_DECISION.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_COMPATIBILITY_MATRIX_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- opt-trading",
+        "invalid_line:- code_ops",
+        "invalid_line:- compatibility",
+        "invalid_line:- debian",
+        "invalid_line:- windows",
+        "invalid_line:- wsl",
+        "invalid_line:- tmux",
+        "invalid_line:- github_actions",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/40_COMPATIBILITY_MATRIX.md",
+        "invalid_line:- docs/registry/CODE_REGISTRY.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_COMPATIBILITY_MATRIX_01/10_COMPATIBILITY_MATRIX.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_COMPATIBILITY_MATRIX_01/20_COMPAT_FINDINGS.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_DEDUP_AUDIT_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- opt-trading",
+        "invalid_line:- code_ops",
+        "invalid_line:- dedup",
+        "invalid_line:- anti_doublon",
+        "invalid_line:- audit_first",
+        "invalid_line:- no_mutation",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/30_DEDUP_AUDIT_PROTOCOL.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_CODE_REGISTRY_01/10_DEDUP_QUALIFICATIONS.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_DEDUP_AUDIT_01/10_DUPLICATE_CANDIDATES.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_DEDUP_AUDIT_01/20_CONSUMER_MAP.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_DEDUP_AUDIT_01/30_DECISION_TABLE.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_DEDUP_AUDIT_01/40_SAFE_MERGE_CANDIDATES.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_DEDUP_AUDIT_01/50_BLOCKED_OR_RISKY_CASES.md",
+        "invalid_line:- docs/registry/CODE_REGISTRY.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_PARENT_CLOSE_GATE_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- opt-trading",
+        "invalid_line:- code_ops",
+        "invalid_line:- close_gate",
+        "invalid_line:- rebase",
+        "invalid_line:- parent_closeout",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/00_INITIAL_PROJECT_DOC.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_PARENT_CLOSE_GATE_01/10_PARENT_CLOSE_GATE.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_PARENT_CLOSE_GATE_01/20_BRANCH_REBASE_OR_SYNC_REPORT.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_PARENT_CLOSE_GATE_01/30_VALIDATION_REPORT.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/90_PARENT_CLOSEOUT.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_POST_MERGE_AUDIT_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- opt-trading",
+        "invalid_line:- code_ops",
+        "invalid_line:- post_merge_audit",
+        "invalid_line:- sot_mainline",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/90_PARENT_CLOSEOUT.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_POST_MERGE_AUDIT_01/10_AUDIT_REPORT.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_SAFE_REFACTOR_BATCH_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- opt-trading",
+        "invalid_line:- code_ops",
+        "invalid_line:- shebang",
+        "invalid_line:- portability",
+        "invalid_line:- github_actions",
+        "invalid_line:- python_version",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_COMPATIBILITY_MATRIX_01/10_COMPATIBILITY_MATRIX.md",
+        "invalid_line:- docs/registry/CODE_REGISTRY.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_SANITY_CHECK_BATCH_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- opt-trading",
+        "invalid_line:- code_ops",
+        "invalid_line:- sanity_check",
+        "invalid_line:- convention",
+        "invalid_line:- modules",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_DEDUP_AUDIT_01/40_SAFE_MERGE_CANDIDATES.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_CODE_OPS_OPT_TRADING_CHILD_TEST_LOCK_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- opt-trading",
+        "invalid_line:- code_ops",
+        "invalid_line:- test_lock",
+        "invalid_line:- validation",
+        "invalid_line:- registry",
+        "invalid_line:- blocked_qualify",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/60_TEST_LOCK_AND_VALIDATION.md",
+        "invalid_line:- docs/registry/CODE_REGISTRY.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/00_INITIAL_PROJECT_DOC.md",
+      "issues": [
+        "invalid_line:- opt-trading",
+        "invalid_line:- code_ops",
+        "invalid_line:- refactor",
+        "invalid_line:- normalization",
+        "invalid_line:- code_registry",
+        "invalid_line:- dedup",
+        "invalid_line:- compatibility",
+        "invalid_line:- test_lock",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/10_CODE_INVENTORY_PROTOCOL.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/20_CODE_REGISTRY_SPEC.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/30_DEDUP_AUDIT_PROTOCOL.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/40_COMPATIBILITY_MATRIX.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/50_REFACTOR_BATCH_PLAN.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/60_TEST_LOCK_AND_VALIDATION.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/70_OPERATOR_PROMPTS.md",
+        "invalid_line:- docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/80_OPENING_CHECKPOINT.md",
+        "invalid_line:- docs/index/inbox/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01.md"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/40_COMPATIBILITY_MATRIX.md",
+      "issues": [
+        "invalid_line:- compatibility",
+        "invalid_line:- windows",
+        "invalid_line:- debian",
+        "invalid_line:- wsl",
+        "invalid_line:- tmux",
+        "invalid_line:- github_actions",
+        "invalid_line:- code_ops"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/50_REFACTOR_BATCH_PLAN.md",
+      "issues": [
+        "invalid_line:- refactor_batch",
+        "invalid_line:- safe_refactor",
+        "invalid_line:- code_ops",
+        "invalid_line:- phased_plan"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/60_TEST_LOCK_AND_VALIDATION.md",
+      "issues": [
+        "invalid_line:- tests",
+        "invalid_line:- validation",
+        "invalid_line:- smoke",
+        "invalid_line:- regression_lock",
+        "invalid_line:- code_ops"
+      ]
+    },
+    {
+      "file": "docs/chantiers/GO_CODE_OPS_OPT_TRADING_PARENT_REFACTOR_NORMALIZATION_01/70_OPERATOR_PROMPTS.md",
+      "issues": [
+        "invalid_line:- go_prompt",
+        "invalid_line:- cursor_ai",
+        "invalid_line:- ide",
+        "invalid_line:- operator",
+        "invalid_line:- code_ops"
       ]
     },
     {
@@ -1088,733 +1703,6 @@
         "invalid_line:- docs/chantiers/GO_COLLECTORS_VOCABULARY_ALIGNMENT_01/01_VOCABULARY_BASELINE.md",
         "invalid_line:- docs/chantiers/GO_COLLECTORS_VOCABULARY_ALIGNMENT_01/02_CANONICAL_VOCABULARY_MAP.md",
         "invalid_line:- docs/chantiers/GO_COLLECTORS_VOCABULARY_ALIGNMENT_01/03_ADOPTION_RULES.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_CONTINUITE_PRODUIT_MULTI_CHANTIER_CANON_01/00_cadrage.md",
-      "issues": [
-        "invalid_line:- opt-trading",
-        "invalid_line:- continuity",
-        "invalid_line:- product_continuity",
-        "invalid_line:- hierarchy",
-        "invalid_line:- canon",
-        "invalid_line:- docs/index/GO_INDEX.md",
-        "invalid_line:- docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md",
-        "invalid_line:- docs/governance/AUDIT_CONTINUITE_PRODUIT_OPT_TRADING.md",
-        "invalid_line:- docs/index/REPRISE.md",
-        "invalid_line:- docs/governance/SESSION_DOCUMENTATION_GATE.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_DB_LAYER_REPRISE_AUDIT_01/90_CLOSEOUT.md",
-      "issues": [
-        "missing_key:doc_id"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_DB_LAYER_REPRISE_AUDIT_01/SESSION_GOVERNANCE_20260517.md",
-      "issues": [
-        "missing_key:doc_id"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_DESKPRO_INPUT_EXPANSION_01/00_INITIAL_PROJECT_DOC.md",
-      "issues": [
-        "invalid_line:- docs/chantiers/GO_DESKPRO_INPUT_EXPANSION_01/10_CURRENT_INPUT_SURFACES.md",
-        "invalid_line:- docs/chantiers/GO_DESKPRO_INPUT_EXPANSION_01/20_TARGET_INPUT_CLASSES.md",
-        "invalid_line:- docs/chantiers/GO_DESKPRO_INPUT_EXPANSION_01/30_PROOF_MATRIX_AND_CONSTRAINTS.md",
-        "invalid_line:- docs/chantiers/GO_DESKPRO_INPUT_EXPANSION_01/40_GAPS_AND_NEXT_GO.md",
-        "invalid_line:- docs/chantiers/GO_DESKPRO_INPUT_EXPANSION_01/90_REPRISE_POINT.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_DESKPRO_INPUT_EXPANSION_01/10_CURRENT_INPUT_SURFACES.md",
-      "issues": [
-        "invalid_line:- docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_RUNTIME_REVIEW_REPRISE_01/20_INPUT_CONSUMER_MAP.md",
-        "invalid_line:- docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_DRY_RUN_IMPL_01/30_IMPLEMENTATION_NOTES.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_EVENT_TAXONOMY_01/00_INITIAL_PROJECT_DOC.md",
-      "issues": [
-        "invalid_line:- docs/chantiers/GO_EVENT_TAXONOMY_01/10_CURRENT_EVENT_SURFACES.md",
-        "invalid_line:- docs/chantiers/GO_EVENT_TAXONOMY_01/20_CANONICAL_EVENT_ENVELOPE.md",
-        "invalid_line:- docs/chantiers/GO_EVENT_TAXONOMY_01/30_EVENT_FAMILY_MAPPING.md",
-        "invalid_line:- docs/chantiers/GO_EVENT_TAXONOMY_01/90_REPRISE_POINT.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/00B_parent_scope_and_structure.md",
-      "issues": [
-        "invalid_line:- github",
-        "invalid_line:- inventaire",
-        "invalid_line:- audit",
-        "invalid_line:- consolidation",
-        "invalid_line:- parent_chantier",
-        "invalid_line:- sub_chantiers",
-        "invalid_line:- docs/governance/SESSION_DOCUMENTATION_GATE.md",
-        "invalid_line:- docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md",
-        "invalid_line:- docs/index/REPRISE.md",
-        "invalid_line:- docs/index/GO_INDEX.md",
-        "invalid_line:- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/00_cadrage.md",
-        "invalid_line:- docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/00_cadrage.md",
-      "issues": [
-        "invalid_line:- github",
-        "invalid_line:- audit",
-        "invalid_line:- branches",
-        "invalid_line:- trunks",
-        "invalid_line:- module_families",
-        "invalid_line:- cartography",
-        "invalid_line:- docs/governance/SESSION_DOCUMENTATION_GATE.md",
-        "invalid_line:- docs/INDEX.md",
-        "invalid_line:- docs/master_pack/mission_starter_pack/00_mission_start_guide.md",
-        "invalid_line:- journal/index/ACTIVE_GO_MATRIX.md",
-        "invalid_line:- docs/governance/HUMAN_CONTINUITY_TRANSMISSION.md",
-        "invalid_line:- docs/ot/kanban/opt_trading_kanban_source_of_truth.md",
-        "invalid_line:- docs/ot/closings/OT_GITHUB_PARK_CONSOLIDATION_DECISION_02B_CLOSING.txt",
-        "invalid_line:- docs/governance/GITHUB_PARK_CONSOLIDATION_DECISION_02C.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/01_branch_trunk_cross_audit.md",
-      "issues": [
-        "invalid_line:- github",
-        "invalid_line:- branches",
-        "invalid_line:- trunks",
-        "invalid_line:- audit",
-        "invalid_line:- cross_read",
-        "invalid_line:- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/00_cadrage.md",
-        "invalid_line:- docs/governance/GITHUB_PARK_CONSOLIDATION_DECISION_02.md",
-        "invalid_line:- docs/governance/GITHUB_PARK_CONSOLIDATION_DECISION_02B.md",
-        "invalid_line:- docs/governance/GITHUB_PARK_CONSOLIDATION_DECISION_02C.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/01_plan.md",
-      "issues": [
-        "missing_frontmatter"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/02_journal_technique.md",
-      "issues": [
-        "missing_frontmatter"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/02_module_family_consolidation_audit.md",
-      "issues": [
-        "invalid_line:- opt-trading",
-        "invalid_line:- modules",
-        "invalid_line:- families",
-        "invalid_line:- consolidation",
-        "invalid_line:- audit",
-        "invalid_line:- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/00_cadrage.md",
-        "invalid_line:- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/01_branch_trunk_cross_audit.md",
-        "invalid_line:- docs/governance/GITHUB_PARK_CONSOLIDATION_DECISION_02.md",
-        "invalid_line:- docs/governance/GO_OPT_TRADING_WORKFLOW_POST_CHANGE_CONSOLIDATION_03.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/03_decisions.md",
-      "issues": [
-        "missing_frontmatter"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/03_file_role_cartography.md",
-      "issues": [
-        "invalid_line:- github",
-        "invalid_line:- file_role",
-        "invalid_line:- cartography",
-        "invalid_line:- trunks",
-        "invalid_line:- governance",
-        "invalid_line:- runtime",
-        "invalid_line:- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/00_cadrage.md",
-        "invalid_line:- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/01_branch_trunk_cross_audit.md",
-        "invalid_line:- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/02_module_family_consolidation_audit.md",
-        "invalid_line:- docs/governance/GITHUB_PARK_CONSOLIDATION_DECISION_02.md",
-        "invalid_line:- docs/governance/GITHUB_PARK_CONSOLIDATION_DECISION_02B.md",
-        "invalid_line:- docs/governance/GITHUB_PARK_CONSOLIDATION_DECISION_02C.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/04_branch_trunk_cross_audit_target.md",
-      "issues": [
-        "invalid_line:- github",
-        "invalid_line:- branches",
-        "invalid_line:- trunks",
-        "invalid_line:- convergence",
-        "invalid_line:- canonical",
-        "invalid_line:- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/00_cadrage.md",
-        "invalid_line:- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/01_branch_trunk_cross_audit.md",
-        "invalid_line:- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/04_consolidation_targets_and_go_list.md",
-        "invalid_line:- docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/03_decisions.md",
-        "invalid_line:- docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md",
-        "invalid_line:- docs/chantiers/GO_GIT_BRANCH_HOUSEKEEPING_METHOD_01/90_closeout.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/04_consolidation_targets_and_go_list.md",
-      "issues": [
-        "invalid_line:- github",
-        "invalid_line:- consolidation",
-        "invalid_line:- targets",
-        "invalid_line:- go_list",
-        "invalid_line:- ide_bundle",
-        "invalid_line:- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/00_cadrage.md",
-        "invalid_line:- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/00B_parent_scope_and_structure.md",
-        "invalid_line:- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/02_module_family_consolidation_audit.md",
-        "invalid_line:- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/03_file_role_cartography.md",
-        "invalid_line:- docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_03/00_cadrage.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/90_closeout.md",
-      "issues": [
-        "invalid_line:- github",
-        "invalid_line:- audit",
-        "invalid_line:- branches",
-        "invalid_line:- trunks",
-        "invalid_line:- park",
-        "invalid_line:- closeout",
-        "invalid_line:- docs/index/GO_INDEX.md",
-        "invalid_line:- docs/index/REPRISE.md",
-        "invalid_line:- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/00_cadrage.md",
-        "invalid_line:- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/01_branch_trunk_cross_audit.md",
-        "invalid_line:- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/03_decisions.md",
-        "invalid_line:- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/04_branch_trunk_cross_audit_target.md",
-        "invalid_line:- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/04_consolidation_targets_and_go_list.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_ABSORBED_NON_SOT_LOW_RISK_RECLASS_01/00_cadrage.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- branches",
-        "invalid_line:- absorbed",
-        "invalid_line:- low-risk",
-        "invalid_line:- drop-remote",
-        "invalid_line:- docs/index/BRANCH_STATE.md",
-        "invalid_line:- docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_ABSORBED_NON_SOT_LOW_RISK_RECLASS_01/03_decisions.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- branches",
-        "invalid_line:- absorbed",
-        "invalid_line:- low-risk",
-        "invalid_line:- drop-remote",
-        "invalid_line:- docs/chantiers/GO_GIT_ABSORBED_NON_SOT_LOW_RISK_RECLASS_01/00_cadrage.md",
-        "invalid_line:- docs/index/BRANCH_STATE.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_AI_TEAM_ARCHITECTURE_PARENT_DOC_ONLY_INTEGRATION_01/00_cadrage.md",
-      "issues": [
-        "invalid_line:- docs/index/GO_INDEX.md",
-        "invalid_line:- docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md",
-        "invalid_line:- docs/chantiers/GO_GIT_AI_TEAM_ARCHITECTURE_PARENT_DOC_ONLY_INTEGRATION_01/03_decisions.md",
-        "missing_key:doc_id"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_AI_TEAM_ARCHITECTURE_PARENT_DOC_ONLY_INTEGRATION_01/03_decisions.md",
-      "issues": [
-        "missing_frontmatter"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_BACKUP_MAIN_BEFORE_FILTER_ARBITRATION_01/00_cadrage.md",
-      "issues": [
-        "invalid_line:- docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md",
-        "invalid_line:- docs/chantiers/GO_GIT_KEEP_REFERENCE_CANON_CLOSEOUT_01/03_decisions.md",
-        "invalid_line:- docs/chantiers/GO_GIT_BACKUP_MAIN_BEFORE_FILTER_ARBITRATION_01/03_decisions.md",
-        "missing_key:doc_id"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_BACKUP_MAIN_BEFORE_FILTER_ARBITRATION_01/03_decisions.md",
-      "issues": [
-        "missing_frontmatter"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_BRANCH_DROP_SAFE_ABSORBED_01/00_cadrage.md",
-      "issues": [
-        "invalid_line:- docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md",
-        "invalid_line:- docs/chantiers/GO_GIT_BACKUP_MAIN_BEFORE_FILTER_ARBITRATION_01/03_decisions.md",
-        "invalid_line:- docs/chantiers/GO_GIT_BRANCH_DROP_SAFE_ABSORBED_01/03_decisions.md",
-        "missing_key:doc_id"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_BRANCH_DROP_SAFE_ABSORBED_01/03_decisions.md",
-      "issues": [
-        "missing_frontmatter"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_BRANCH_HOUSEKEEPING_METHOD_01/00_cadrage.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- branches",
-        "invalid_line:- housekeeping",
-        "invalid_line:- workflow",
-        "invalid_line:- skill",
-        "invalid_line:- docs/governance/SESSION_DOCUMENTATION_GATE.md",
-        "invalid_line:- docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md",
-        "invalid_line:- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/04_branch_trunk_cross_audit_target.md",
-        "invalid_line:- docs/index/GO_INDEX.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_BRANCH_HOUSEKEEPING_METHOD_01/90_closeout.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- branches",
-        "invalid_line:- housekeeping",
-        "invalid_line:- governance",
-        "invalid_line:- skill",
-        "invalid_line:- docs/chantiers/GO_GIT_BRANCH_HOUSEKEEPING_METHOD_01/00_cadrage.md",
-        "invalid_line:- docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md",
-        "invalid_line:- docs/chantiers/GO_GITHUB_PARK_AUDIT_EXPANSION_01/04_branch_trunk_cross_audit_target.md",
-        "invalid_line:- docs/index/GO_INDEX.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_GITHUB_PARK_CLOSEOUT_ABSORBED_RECLASS_01/00_cadrage.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- branches",
-        "invalid_line:- github-park",
-        "invalid_line:- closeout",
-        "invalid_line:- drop-remote",
-        "invalid_line:- docs/index/BRANCH_STATE.md",
-        "invalid_line:- docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_GITHUB_PARK_CLOSEOUT_ABSORBED_RECLASS_01/03_decisions.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- branches",
-        "invalid_line:- github-park",
-        "invalid_line:- closeout",
-        "invalid_line:- drop-remote",
-        "invalid_line:- docs/chantiers/GO_GIT_GITHUB_PARK_CLOSEOUT_ABSORBED_RECLASS_01/00_cadrage.md",
-        "invalid_line:- docs/index/BRANCH_STATE.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_GO_REPOS_AGENT_ROLE_INITIAL_CLASSIFICATION_01/00_cadrage.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- classification",
-        "invalid_line:- keep-active",
-        "invalid_line:- go_repos_agent",
-        "invalid_line:- docs/chantiers/GO_GIT_AI_TEAM_ARCHITECTURE_PARENT_DOC_ONLY_INTEGRATION_01/00_cadrage.md",
-        "invalid_line:- docs/chantiers/GO_GIT_AI_TEAM_ARCHITECTURE_PARENT_DOC_ONLY_INTEGRATION_01/03_decisions.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_GO_REPOS_AGENT_ROLE_INITIAL_CLASSIFICATION_01/03_decisions.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- classification",
-        "invalid_line:- keep-active",
-        "invalid_line:- go_repos_agent",
-        "invalid_line:- docs/chantiers/GO_GIT_GO_REPOS_AGENT_ROLE_INITIAL_CLASSIFICATION_01/00_cadrage.md",
-        "invalid_line:- docs/chantiers/GO_GIT_AI_TEAM_ARCHITECTURE_PARENT_DOC_ONLY_INTEGRATION_01/00_cadrage.md",
-        "invalid_line:- docs/chantiers/GO_GIT_AI_TEAM_ARCHITECTURE_PARENT_DOC_ONLY_INTEGRATION_01/03_decisions.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_HERMES_ABSORBED_RECLASS_01/00_cadrage.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- branches",
-        "invalid_line:- hermes",
-        "invalid_line:- absorbed",
-        "invalid_line:- drop-remote",
-        "invalid_line:- docs/index/BRANCH_STATE.md",
-        "invalid_line:- docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_HERMES_ABSORBED_RECLASS_01/03_decisions.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- branches",
-        "invalid_line:- hermes",
-        "invalid_line:- absorbed",
-        "invalid_line:- drop-remote",
-        "invalid_line:- docs/chantiers/GO_GIT_HERMES_ABSORBED_RECLASS_01/00_cadrage.md",
-        "invalid_line:- docs/index/BRANCH_STATE.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_KEEP_REFERENCE_CANON_CLOSEOUT_01/00_cadrage.md",
-      "issues": [
-        "invalid_line:- docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md",
-        "invalid_line:- docs/index/GO_CLOSED_INDEX.md",
-        "invalid_line:- docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md",
-        "invalid_line:- docs/trading/TRADING_DUAL_STACK_V1_0_CLARIFIED.md",
-        "invalid_line:- modules/menu_openclaw/docs/GO_OPENCLAW_INFRA_BASELINE_01.md",
-        "missing_key:doc_id"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_KEEP_REFERENCE_CANON_CLOSEOUT_01/03_decisions.md",
-      "issues": [
-        "missing_frontmatter"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_MIMO_MISC_ABSORBED_RECLASS_01/00_cadrage.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- branches",
-        "invalid_line:- mimo",
-        "invalid_line:- misc",
-        "invalid_line:- absorbed",
-        "invalid_line:- drop-remote",
-        "invalid_line:- docs/index/BRANCH_STATE.md",
-        "invalid_line:- docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_MIMO_MISC_ABSORBED_RECLASS_01/03_decisions.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- branches",
-        "invalid_line:- mimo",
-        "invalid_line:- misc",
-        "invalid_line:- absorbed",
-        "invalid_line:- drop-remote",
-        "invalid_line:- docs/chantiers/GO_GIT_MIMO_MISC_ABSORBED_RECLASS_01/00_cadrage.md",
-        "invalid_line:- docs/index/BRANCH_STATE.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01/00_cadrage.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- branches",
-        "invalid_line:- openclaw",
-        "invalid_line:- absorbed",
-        "invalid_line:- drop-remote",
-        "invalid_line:- docs/index/BRANCH_STATE.md",
-        "invalid_line:- docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01/03_decisions.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- branches",
-        "invalid_line:- openclaw",
-        "invalid_line:- absorbed",
-        "invalid_line:- drop-remote",
-        "invalid_line:- docs/chantiers/GO_GIT_OPENCLAW_ABSORBED_SUBLOT_RECLASS_01/00_cadrage.md",
-        "invalid_line:- docs/index/BRANCH_STATE.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_OPENCLAW_STATE_DIR_READ_09_CLASSIFICATION_01/00_cadrage.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- classification",
-        "invalid_line:- openclaw",
-        "invalid_line:- drop-remote",
-        "invalid_line:- absorbed",
-        "invalid_line:- docs/index/BRANCH_STATE.md",
-        "invalid_line:- docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md",
-        "invalid_line:- modules/menu_openclaw/docs/GO_OPENCLAW_STATE_DIR_READ_09.md",
-        "invalid_line:- modules/menu_openclaw/docs/GO_OPENCLAW_INFRA_BASELINE_01.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_OPENCLAW_STATE_DIR_READ_09_CLASSIFICATION_01/03_decisions.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- classification",
-        "invalid_line:- openclaw",
-        "invalid_line:- drop-remote",
-        "invalid_line:- absorbed",
-        "invalid_line:- docs/chantiers/GO_GIT_OPENCLAW_STATE_DIR_READ_09_CLASSIFICATION_01/00_cadrage.md",
-        "invalid_line:- docs/index/BRANCH_STATE.md",
-        "invalid_line:- modules/menu_openclaw/docs/GO_OPENCLAW_STATE_DIR_READ_09.md",
-        "invalid_line:- modules/menu_openclaw/docs/GO_OPENCLAW_INFRA_BASELINE_01.md",
-        "invalid_line:- modules/menu_openclaw/docs/GO_OPENCLAW_STATE_DIR_REPAIR_10/00_cadrage.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_OPENCLAW_STATE_DIR_REPAIR_10_CLASSIFICATION_01/00_cadrage.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- classification",
-        "invalid_line:- keep-active",
-        "invalid_line:- openclaw",
-        "invalid_line:- state-dir-repair",
-        "invalid_line:- docs/chantiers/GO_OPT_TRADING_RESEAU_SSH_RUNTIME_COMPAT_RETIREMENT_01/00_cadrage.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_OPENCLAW_STATE_DIR_REPAIR_10_CLASSIFICATION_01/03_decisions.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- classification",
-        "invalid_line:- drop-remote",
-        "invalid_line:- openclaw",
-        "invalid_line:- state-dir-repair",
-        "invalid_line:- docs/chantiers/GO_GIT_OPENCLAW_STATE_DIR_REPAIR_10_CLASSIFICATION_01/00_cadrage.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_PRODUCT_CARDS_SESSION_ABSORBED_RECLASS_01/00_cadrage.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- branches",
-        "invalid_line:- product",
-        "invalid_line:- cards",
-        "invalid_line:- session",
-        "invalid_line:- absorbed",
-        "invalid_line:- drop-remote",
-        "invalid_line:- docs/index/BRANCH_STATE.md",
-        "invalid_line:- docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_PRODUCT_CARDS_SESSION_ABSORBED_RECLASS_01/03_decisions.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- branches",
-        "invalid_line:- product",
-        "invalid_line:- cards",
-        "invalid_line:- session",
-        "invalid_line:- absorbed",
-        "invalid_line:- drop-remote",
-        "invalid_line:- docs/chantiers/GO_GIT_PRODUCT_CARDS_SESSION_ABSORBED_RECLASS_01/00_cadrage.md",
-        "invalid_line:- docs/index/BRANCH_STATE.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_PROGRESSIVE_MIGRATION_START_13/00_cadrage.md",
-      "issues": [
-        "invalid_line:- opt-trading",
-        "invalid_line:- migration",
-        "invalid_line:- git",
-        "invalid_line:- governance",
-        "invalid_line:- documentation",
-        "invalid_line:- docs/index/GO_INDEX.md",
-        "invalid_line:- docs/governance/REPO_ROLE.md",
-        "invalid_line:- docs/governance/DOC_LAYERS.md",
-        "invalid_line:- docs/governance/MEMORY_BRICKS_MAPPING.md",
-        "invalid_line:- docs/index/REPRISE.md",
-        "invalid_line:- docs/governance/SESSION_DOCUMENTATION_GATE.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_RUNTIME_ENGINE_HELPERS_ABSORBED_RECLASS_01/00_cadrage.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- branches",
-        "invalid_line:- runtime",
-        "invalid_line:- engine",
-        "invalid_line:- helpers",
-        "invalid_line:- absorbed",
-        "invalid_line:- drop-remote",
-        "invalid_line:- docs/index/BRANCH_STATE.md",
-        "invalid_line:- docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_RUNTIME_ENGINE_HELPERS_ABSORBED_RECLASS_01/03_decisions.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- branches",
-        "invalid_line:- runtime",
-        "invalid_line:- engine",
-        "invalid_line:- helpers",
-        "invalid_line:- absorbed",
-        "invalid_line:- drop-remote",
-        "invalid_line:- docs/chantiers/GO_GIT_RUNTIME_ENGINE_HELPERS_ABSORBED_RECLASS_01/00_cadrage.md",
-        "invalid_line:- docs/index/BRANCH_STATE.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_SIMEX_ABSORBED_RECLASS_01/00_cadrage.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- branches",
-        "invalid_line:- simex",
-        "invalid_line:- absorbed",
-        "invalid_line:- drop-remote",
-        "invalid_line:- docs/index/BRANCH_STATE.md",
-        "invalid_line:- docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_SIMEX_ABSORBED_RECLASS_01/03_decisions.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- branches",
-        "invalid_line:- simex",
-        "invalid_line:- absorbed",
-        "invalid_line:- drop-remote",
-        "invalid_line:- docs/chantiers/GO_GIT_SIMEX_ABSORBED_RECLASS_01/00_cadrage.md",
-        "invalid_line:- docs/index/BRANCH_STATE.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_SOT_BUILD_AUDIT_01/00_cadrage.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- branches",
-        "invalid_line:- sot-build",
-        "invalid_line:- audit",
-        "invalid_line:- keep-reference",
-        "invalid_line:- docs/index/BRANCH_STATE.md",
-        "invalid_line:- docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GIT_SOT_BUILD_AUDIT_01/03_decisions.md",
-      "issues": [
-        "invalid_line:- git",
-        "invalid_line:- branches",
-        "invalid_line:- sot-build",
-        "invalid_line:- audit",
-        "invalid_line:- keep-reference",
-        "invalid_line:- docs/chantiers/GO_GIT_SOT_BUILD_AUDIT_01/00_cadrage.md",
-        "invalid_line:- docs/index/BRANCH_STATE.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/00_INITIAL_PROJECT_DOC.md",
-      "issues": [
-        "invalid_line:- docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/10_CURRENT_SHEETS_SURFACES.md",
-        "invalid_line:- docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/20_GLOBAL_SCHEMA_TARGET.md",
-        "invalid_line:- docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/30_PROOF_MATRIX_AND_CONSTRAINTS.md",
-        "invalid_line:- docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/40_GAPS_AND_NEXT_GO.md",
-        "invalid_line:- docs/chantiers/GO_GOOGLE_SHEETS_GLOBAL_SCHEMA_01/90_REPRISE_POINT.md",
-        "invalid_line:- docs/chantiers/GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01/85_GOOGLE_SHEETS_EXPORT_MAPPING.md",
-        "invalid_line:- docs/chantiers/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_DAILY_SESSION_GOOGLE_SHEETS_CONTROLLED_SYNC_01/00_GO_MASTER.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_LIVE_ARTIFACTS_CLAUDE_COWORK_IDE_BUNDLE_01/01_IDE_HANDOFF.md",
-      "issues": [
-        "missing_frontmatter"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_LOCALCMS_FORMS_INTEGRATION_DOC_01/00_cadrage.md",
-      "issues": [
-        "invalid_line:- localcms",
-        "invalid_line:- forms",
-        "invalid_line:- integration",
-        "invalid_line:- documentation",
-        "invalid_line:- consumer_ui",
-        "invalid_line:- docs/architecture/PROJECT_SNAPSHOT_GLOBAL_2026-04-18.md",
-        "invalid_line:- docs/index/GO_INDEX.md"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_CI_ACTIVATION_01/00_CADRAGE.md",
-      "issues": [
-        "missing_frontmatter"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_CI_ACTIVATION_01/01_CI_ACTIVATION_DECISION.md",
-      "issues": [
-        "missing_frontmatter"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_CI_ACTIVATION_01/02_WORKFLOW_REVIEW.md",
-      "issues": [
-        "missing_frontmatter"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_CI_ACTIVATION_01/03_LOCAL_TEST_RESULTS.md",
-      "issues": [
-        "missing_frontmatter"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_CI_ACTIVATION_01/90_CLOSEOUT.md",
-      "issues": [
-        "missing_frontmatter"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_CI_DRAFT_01/00_CADRAGE.md",
-      "issues": [
-        "missing_frontmatter"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_CI_DRAFT_01/01_CI_DRAFT_PRINCIPLES.md",
-      "issues": [
-        "missing_frontmatter"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_CI_DRAFT_01/02_CI_COMMAND_MATRIX.md",
-      "issues": [
-        "missing_frontmatter"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_CI_DRAFT_01/03_CI_FAIL_CLOSED_RULES.md",
-      "issues": [
-        "missing_frontmatter"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_CI_DRAFT_01/04_CI_NO_SECRET_NO_RUNTIME_POLICY.md",
-      "issues": [
-        "missing_frontmatter"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_CI_DRAFT_01/05_CI_FIXTURE_HARNESS_INTEGRATION.md",
-      "issues": [
-        "missing_frontmatter"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_CI_DRAFT_01/06_CI_WARNING_POLICY.md",
-      "issues": [
-        "missing_frontmatter"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_CI_DRAFT_01/07_CI_WORKFLOW_DRAFT_MARKDOWN_ONLY.md",
-      "issues": [
-        "missing_frontmatter"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_CI_DRAFT_01/08_CI_ACTIVATION_GATE.md",
-      "issues": [
-        "missing_frontmatter"
-      ]
-    },
-    {
-      "file": "docs/chantiers/GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_CI_DRAFT_01/90_CLOSEOUT.md",
-      "issues": [
-        "missing_frontmatter"
       ]
     }
   ]

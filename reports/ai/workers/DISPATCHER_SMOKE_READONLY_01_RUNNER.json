@@ -1,19 +1,16 @@
 {
   "status": "DRY_RUN_PASS",
-  "job_id": "GO_STRICT_WORKERS_READONLY_SMOKE_01",
+  "job_id": "DISPATCHER_SMOKE_READONLY_01",
   "validation": {
     "status": "PASS",
-    "job_id": "GO_STRICT_WORKERS_READONLY_SMOKE_01",
+    "job_id": "DISPATCHER_SMOKE_READONLY_01",
     "task_type": "READ_INVENTORY",
-    "default_worker": "qwen3.5-plus",
+    "default_worker": "big-pickle",
     "valid_workers": [
       "big-pickle",
-      "gpt-5-nano",
-      "kimi-k2.5",
-      "minimax-m2.5",
       "qwen3.5-plus"
     ],
-    "output_file": "/opt/trading/reports/ai/workers/GO_STRICT_WORKERS_READONLY_SMOKE_01.md",
+    "output_file": "/opt/trading/reports/ai/workers/DISPATCHER_SMOKE_READONLY_01.md",
     "autonomy_max": "A1",
     "required_sections": [
       "13_ESTABLISHED",
@@ -26,11 +23,7 @@
     ],
     "writes_code": false,
     "allowed_inputs": [
-      "docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md",
-      "docs/agents/strict_workers/MODELS_MATRIX_01.md",
-      "docs/agents/strict_workers/MODEL_ID_VALIDATION_01.md",
-      "scripts/ai/workers/tasks.index.json",
-      "scripts/ai/workers/models.registry.json"
+      "docs/openclaw/INDEX.md"
     ],
     "global_invariants": {
       "no_secrets": true,

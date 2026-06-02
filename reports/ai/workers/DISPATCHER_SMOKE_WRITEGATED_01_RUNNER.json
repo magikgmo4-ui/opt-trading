@@ -1,36 +1,49 @@
 {
+  "job_id": "DISPATCHER_SMOKE_WRITEGATED_01",
+  "task_type": "WRITE_GATED",
   "status": "DRY_RUN_PASS",
-  "job_id": "GO_STRICT_WORKERS_READONLY_SMOKE_01",
+  "dry_run": true,
+  "gate_approved": false,
+  "read_count": 1,
+  "read_operations": [
+    {
+      "path": "docs/openclaw/INDEX.md",
+      "size_bytes": 1991
+    }
+  ],
+  "write_plan_count": 1,
+  "write_results": [
+    {
+      "target": "reports/ai/workers/DISPATCHER_SMOKE_WRITEGATED_01.md",
+      "lines": 3,
+      "status": "DRY_RUN_WOULD_WRITE"
+    }
+  ],
+  "produced_at": "2026-06-02T02:14:07.538502+00:00",
   "validation": {
     "status": "PASS",
-    "job_id": "GO_STRICT_WORKERS_READONLY_SMOKE_01",
-    "task_type": "READ_INVENTORY",
-    "default_worker": "qwen3.5-plus",
+    "job_id": "DISPATCHER_SMOKE_WRITEGATED_01",
+    "task_type": "WRITE_GATED",
+    "default_worker": "glm-5.1",
     "valid_workers": [
-      "big-pickle",
-      "gpt-5-nano",
-      "kimi-k2.5",
-      "minimax-m2.5",
-      "qwen3.5-plus"
+      "glm-5.1",
+      "qwen3.6-plus"
     ],
-    "output_file": "/opt/trading/reports/ai/workers/GO_STRICT_WORKERS_READONLY_SMOKE_01.md",
-    "autonomy_max": "A1",
+    "output_file": "/opt/trading/reports/ai/workers/DISPATCHER_SMOKE_WRITEGATED_01.md",
+    "autonomy_max": "A4",
     "required_sections": [
       "13_ESTABLISHED",
       "14_HYPOTHESIS",
-      "15_REMAINING_GAP",
-      "16_TODO",
-      "FICHIERS_LUS",
+      "WRITE_PLAN",
+      "WRITE_DIFF_ATTENDU",
+      "VALIDATION_EXTERNE",
+      "DRY_RUN_RESULT",
       "RISQUES",
-      "VERDICT_DRAFT_ONLY"
+      "VERDICT_WRITE_GATED"
     ],
     "writes_code": false,
     "allowed_inputs": [
-      "docs/agents/strict_workers/STRICT_WORKERS_AUTONOMIE_ETROITE_01.md",
-      "docs/agents/strict_workers/MODELS_MATRIX_01.md",
-      "docs/agents/strict_workers/MODEL_ID_VALIDATION_01.md",
-      "scripts/ai/workers/tasks.index.json",
-      "scripts/ai/workers/models.registry.json"
+      "docs/openclaw/INDEX.md"
     ],
     "global_invariants": {
       "no_secrets": true,
@@ -63,7 +76,5 @@
       "**/*.key"
     ],
     "warnings": []
-  },
-  "dry_run": true,
-  "message": "no operations executed (--dry-run)"
+  }
 }

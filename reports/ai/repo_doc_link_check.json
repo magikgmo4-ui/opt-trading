@@ -1,7 +1,7 @@
 {
   "job_id": "repo-doc-link-check",
-  "scanned": 3269,
-  "findings": 305,
+  "scanned": 4748,
+  "findings": 320,
   "status": "PASS",
   "details": [
     {
@@ -781,28 +781,28 @@
       "missing_link": "file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_quick_reference.md"
     },
     {
-      "file": "docs/ot/kanban/OT_KANBAN_REALIGN_AFTER_RECONNECT_01_GAP_REPORT.md",
-      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/ot/closings/OT_NET_RECONNECT_03_CLOSING.txt"
+      "file": "docs/index/inbox/GO_OPT_TRADING_DOC_OPS_IMPL_GO_INDEX_INSERTION_ASSISTANT_01.md",
+      "missing_link": "../chantiers/GO_OPT_TRADING_DOC_OPS_IMPL_GO_INDEX_INSERTION_ASSISTANT_01/00_INITIAL_PROJECT_DOC.md"
     },
     {
-      "file": "docs/ot/kanban/OT_KANBAN_REALIGN_AFTER_RECONNECT_01_GAP_REPORT.md",
-      "missing_link": "file:///c:/Users/ghost/opt-trading/opt_trading_kanban_source_of_truth_2026-03-13_updated.md"
+      "file": "docs/index/inbox/GO_OPT_TRADING_DOC_OPS_IMPL_GO_INDEX_INSERTION_ASSISTANT_AUTO_INSERT_01.md",
+      "missing_link": "../chantiers/GO_OPT_TRADING_DOC_OPS_IMPL_GO_INDEX_INSERTION_ASSISTANT_AUTO_INSERT_01/00_INITIAL_PROJECT_DOC.md"
     },
     {
-      "file": "docs/ot/kanban/OT_KANBAN_REALIGN_AFTER_RECONNECT_01_REPORT.md",
-      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/master_pack/mission_starter_pack/00_mission_start_guide.md"
+      "file": "docs/index/inbox/GO_OPT_TRADING_DOC_OPS_IMPL_GO_NAMING_DIRECTORY_CREATION_01.md",
+      "missing_link": "../chantiers/GO_OPT_TRADING_DOC_OPS_IMPL_GO_NAMING_DIRECTORY_CREATION_01/00_INITIAL_PROJECT_DOC.md"
     },
     {
-      "file": "docs/ot/kanban/OT_KANBAN_REALIGN_AFTER_RECONNECT_01_REPORT.md",
-      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/ot/closings/OT_NET_RECONNECT_02_CLOSING.txt"
+      "file": "docs/index/inbox/GO_OPT_TRADING_DOC_OPS_IMPL_TEMPLATE_VERSIONING_01.md",
+      "missing_link": "../chantiers/GO_OPT_TRADING_DOC_OPS_IMPL_TEMPLATE_VERSIONING_01/00_INITIAL_PROJECT_DOC.md"
     },
     {
-      "file": "docs/ot/kanban/OT_KANBAN_REALIGN_AFTER_RECONNECT_01_REPORT.md",
-      "missing_link": "file:///c:/Users/ghost/opt-trading/docs/ot/closings/OT_NET_RECONNECT_03_CLOSING.txt"
+      "file": "docs/index/inbox/GO_OPT_TRADING_GITHUB_ACTIONS_OPENCLAW_CHILD_REGISTRY_VALIDATION_01.md",
+      "missing_link": "../chantiers/GO_OPT_TRADING_GITHUB_ACTIONS_OPENCLAW_CHILD_REGISTRY_VALIDATION_01/00_INITIAL_PROJECT_DOC.md"
     },
     {
-      "file": "docs/ot/kanban/OT_KANBAN_REALIGN_AFTER_RECONNECT_01_REPORT.md",
-      "missing_link": "file:///c:/Users/ghost/opt-trading/opt_trading_kanban_source_of_truth_2026-03-13_updated.md"
+      "file": "docs/index/inbox/GO_OPT_TRADING_OPENCLAW_GITHUB_ACTIONS_ORCHESTRATION_CHILD_01.md",
+      "missing_link": "../chantiers/GO_OPT_TRADING_OPENCLAW_GITHUB_ACTIONS_ORCHESTRATION_CHILD_01/00_INITIAL_PROJECT_DOC.md"
     }
   ]
 }
