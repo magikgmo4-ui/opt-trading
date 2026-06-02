@@ -597,28 +597,39 @@ def main() -> int:
                 if should_send:
                     summary_text = tg_data.get("summary", "")
                     run_id = tg_data.get("run_id", "")
-                    tc_cmd = [
-                        sys.executable or "python3",
-                        str(TELEGRAM_CLAIM_WRITER),
-                        "--stdin",
-                        "--screen-type", screen_type,
-                        "--symbol", symbol,
-                        "--timeframe", timeframe,
-                    ]
                     try:
+                        _ensure_telegram_env()
+                        sys.path.insert(0, str(REPO_ROOT / "shared"))
+                        from telegram_notify import send_telegram_with_metrics  # type: ignore
+                        send_result = send_telegram_with_metrics(
+                            summary_text,
+                            source="bot_vision",
+                            tags={"run_id": run_id, "screen_type": screen_type, "symbol": symbol, "timeframe": timeframe},
+                        )
+                        if not send_result.get("ok"):
+                            raise RuntimeError(send_result.get("error") or "Telegram send failed")
+                        tc_cmd = [
+                            sys.executable or "python3",
+                            str(TELEGRAM_CLAIM_WRITER),
+                            "--stdin",
+                            "--screen-type", screen_type,
+                            "--symbol", symbol,
+                            "--timeframe", timeframe,
+                        ]
+                        channel_id = send_result.get("telegram_chat_id")
+                        message_id = send_result.get("telegram_message_id")
+                        if channel_id:
+                            tc_cmd.extend(["--channel-id", str(channel_id)])
+                        if message_id:
+                            tc_cmd.extend(["--message-id", str(message_id)])
                         tc_result = subprocess.run(tc_cmd, input=tg_result.stdout, capture_output=True, text=True, timeout=15)
                         if tc_result.stdout:
                             print(tc_result.stdout.strip())
                         if tc_result.returncode != 0:
                             print(f"WARN: telegram_claim_writer exit {tc_result.returncode}", file=sys.stderr)
+                        print(f"  OK: Telegram sent (run_id={run_id})")
                     except subprocess.TimeoutExpired:
                         print("WARN: telegram_claim_writer timed out", file=sys.stderr)
-                    try:
-                        _ensure_telegram_env()
-                        sys.path.insert(0, str(REPO_ROOT / "shared"))
-                        from telegram_notify import send_telegram  # type: ignore
-                        send_telegram(summary_text)
-                        print(f"  OK: Telegram sent (run_id={run_id})")
                     except ImportError:
                         print("  SKIP: shared/telegram_notify.py not available", file=sys.stderr)
                     except Exception as e:
