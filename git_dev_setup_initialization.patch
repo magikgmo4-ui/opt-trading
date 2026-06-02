@@ -1,0 +1,153 @@
+diff --git a/configs/env/registry/machines.yaml b/configs/env/registry/machines.yaml
+index dc1421f0..0bd2237c 100644
+--- a/configs/env/registry/machines.yaml
++++ b/configs/env/registry/machines.yaml
+@@ -8,6 +8,7 @@ machines:
+     eligible_roles:
+       - telegram_collector
+       - llm_cloud
++      - git_dev
+   - id: db-layer
+     roles:
+       - datacenter
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md
+new file mode 100644
+index 00000000..2410d460
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md
+@@ -0,0 +1,19 @@
++# GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01
++
++**GO_STRUCTURAL_ROLE:** GO_CHILD_ATTACHED_TO_PARENT
++**PARENT:** GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01
++**DEPENDS_ON:** GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01
++
++## Objectif
++Opérationnaliser le setup Git Dev credentials pour le rôle `git_dev`.
++
++## Portée
++- Définition du scope des credentials GitHub et identité Git.
++- Validation des autorisations par rôle et profil machine.
++- Procédure de setup local sécurisé (hors Git).
++- Vérification via les scripts canoniques `validate` et `resolve`.
++
++## Livrables
++- Documentation de setup et de validation.
++- Registres et templates à jour.
++- Patch d'initialisation du rôle.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01/10_GIT_DEV_CREDENTIALS_SCOPE.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01/10_GIT_DEV_CREDENTIALS_SCOPE.md
+new file mode 100644
+index 00000000..683ccb1c
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01/10_GIT_DEV_CREDENTIALS_SCOPE.md
+@@ -0,0 +1,12 @@
++# Git Dev Credentials Scope
++
++Les credentials suivants sont nécessaires pour le rôle `git_dev` :
++
++| Credential ID | Env Var | Type | Description |
++|---------------|---------|------|-------------|
++| `gh_token` | `GH_TOKEN` | `auth_token` | Token d'accès GitHub pour les opérations CLI (`gh pr create`, etc.). |
++| `git_author_name` | `GIT_AUTHOR_NAME` | `string` | Nom de l'auteur des commits Git. |
++| `git_author_email` | `GIT_AUTHOR_EMAIL` | `string` | Email de l'auteur des commits Git. |
++
++## Sécurité du Token
++Le `GH_TOKEN` doit avoir le périmètre minimal nécessaire (repo, workflow) et ne jamais être exposé.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01/20_ROLE_AND_PROFILE_AUTHORIZATION.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01/20_ROLE_AND_PROFILE_AUTHORIZATION.md
+new file mode 100644
+index 00000000..9d643cff
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01/20_ROLE_AND_PROFILE_AUTHORIZATION.md
+@@ -0,0 +1,13 @@
++# Role and Profile Authorization
++
++Le rôle `git_dev` est destiné aux machines de développement et d'automatisation de dépôt.
++
++## Statuts d'Autorisation
++
++| Profil Machine | Statut | Action |
++|----------------|--------|--------|
++| `cursor-ai` | **AUTHORIZED_ACTIVE** | Activé par défaut. |
++| `fantome` | **AUTHORIZED_ACTIVE** | Activé par défaut. |
++| `admin-trading` | **ELIGIBLE_DISABLED_BY_DEFAULT** | Éligible pour maintenance repo prod. |
++| `db-layer` | **FORBIDDEN** | Interdit. |
++| `student` | **FORBIDDEN** | Interdit. |
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md
+new file mode 100644
+index 00000000..5acdc659
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md
+@@ -0,0 +1,26 @@
++# Local Setup Procedure
++
++Cette procédure doit être effectuée manuellement sur chaque machine autorisée.
++
++## 1. Structure des répertoires
++```bash
++sudo install -d -m 700 /etc/opt-trading/env.d/roles
++```
++
++## 2. Configuration du Rôle
++Utiliser `sudoedit` pour créer le fichier d'environnement :
++```bash
++sudoedit /etc/opt-trading/env.d/roles/git_dev.env
++```
++
++Contenu attendu :
++```env
++GH_TOKEN=XXXXX_VOTRE_TOKEN_GH_ICI_XXXXX
++GIT_AUTHOR_NAME="Votre Nom"
++GIT_AUTHOR_EMAIL="votre.email@exemple.com"
++```
++
++## 3. Sécurisation finale
++```bash
++sudo chmod 600 /etc/opt-trading/env.d/roles/git_dev.env
++```
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01/40_VALIDATION_AND_RESOLVER_CHECKS.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01/40_VALIDATION_AND_RESOLVER_CHECKS.md
+new file mode 100644
+index 00000000..c34281ff
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01/40_VALIDATION_AND_RESOLVER_CHECKS.md
+@@ -0,0 +1,13 @@
++# Validation and Resolver Checks
++
++## Validation de l'Authorization
++```bash
++# Pour fantome (Activé)
++python3 scripts/env/validate_credentials.py --machine fantome --job repo_ops
++
++# Pour cursor-ai (Activé)
++python3 scripts/env/validate_credentials.py --machine cursor-ai --job repo_ops
++```
++
++## Résolution
++Le resolver chargera les variables d'identité Git et le token GitHub uniquement sur les machines où le rôle est `AUTHORIZED_ACTIVE`.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01/60_GAPS_AND_NEXT_GO.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01/60_GAPS_AND_NEXT_GO.md
+new file mode 100644
+index 00000000..02fde1bb
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01/60_GAPS_AND_NEXT_GO.md
+@@ -0,0 +1,7 @@
++# Gaps and Next GO
++
++## Gaps
++- Gestion des clés GPG pour la signature des commits non incluse dans ce rôle pour l'instant.
++
++## Prochain GO
++- `GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01`: Setup du rôle `deskpro_user`.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01/FILE_SCOPE.txt b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01/FILE_SCOPE.txt
+new file mode 100644
+index 00000000..e69de29b
+diff --git a/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01.md b/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01.md
+new file mode 100644
+index 00000000..b9722d9a
+--- /dev/null
++++ b/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01.md
+@@ -0,0 +1,6 @@
++# Inbox: GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01
++
++- **Status:** INITIALIZED
++- **Branch:** go/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01
++- **Focus:** Opérationnalisation du rôle `git_dev`.
++- **Link:** [Dossier Chantier](../../chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_GIT_DEV_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md)
