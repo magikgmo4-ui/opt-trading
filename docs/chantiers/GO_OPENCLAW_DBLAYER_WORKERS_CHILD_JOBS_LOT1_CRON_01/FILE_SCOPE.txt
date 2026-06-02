@@ -1,0 +1,7 @@
+scripts/schedule/lot1/lot1_crontab.txt
+scripts/schedule/lot1/install_lot1_cron.sh
+scripts/schedule/lot1/uninstall_lot1_cron.sh
+scripts/schedule/lot1/run_readonly_smoke.sh
+docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_LOT1_CRON_01/FILE_SCOPE.txt
+docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_LOT1_CRON_01/00_INITIAL_PROJECT_DOC.md
+docs/chantiers/GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_LOT1_CRON_01/20_ACCEPTANCE_REPORT.md

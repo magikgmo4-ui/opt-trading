@@ -1,0 +1,61 @@
+# Lot 1 — Jobs récurrents opt-trading
+# GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_LOT1_CRON_01
+# Installer via : scripts/schedule/lot1/install_lot1_cron.sh
+# Désinstaller  : scripts/schedule/lot1/uninstall_lot1_cron.sh
+#
+# Prérequis : /opt/trading/venv activé, gh auth login réalisé
+#
+SHELL=/bin/bash
+REPO=/opt/trading
+PY=/opt/trading/venv/bin/python3
+LOGDIR=/opt/trading/data/logs/cron
+
+# --- 15 min ---
+# automation-health-status
+*/15 * * * * cd $REPO && $PY scripts/ai/workers/health_status.py >> $LOGDIR/health_status.log 2>&1
+
+# ledger-heartbeat
+*/15 * * * * cd $REPO && $PY scripts/ai/workers/ledger_writer.py --event-type heartbeat --actor-id cron-scheduler --surface-id ledger --action heartbeat --status PASS >> $LOGDIR/ledger_heartbeat.log 2>&1
+
+# stuck-job-detector
+*/15 * * * * cd $REPO && $PY scripts/ai/workers/stuck_job_detector.py >> $LOGDIR/stuck_job_detector.log 2>&1
+
+# --- 30 min ---
+# localcms-automation-status-sync
+*/30 * * * * cd $REPO && $PY scripts/ai/workers/localcms_automation_status_sync.py >> $LOGDIR/localcms_status_sync.log 2>&1
+
+# --- 1 h ---
+# ledger-replay-check
+0 * * * * cd $REPO && $PY scripts/ai/workers/ledger_replay.py >> $LOGDIR/ledger_replay.log 2>&1
+
+# ledger-schema-validation
+5 * * * * cd $REPO && $PY scripts/ai/workers/ledger_schema_validation.py >> $LOGDIR/ledger_schema.log 2>&1
+
+# ledger-blocked-events-digest
+10 * * * * cd $REPO && $PY scripts/ai/workers/ledger_blocked_events_digest.py >> $LOGDIR/ledger_blocked.log 2>&1
+
+# repo-pr-audit
+15 * * * * cd $REPO && gh pr list --state open --json number,title,headRefName,updatedAt >> $LOGDIR/repo_pr_audit.log 2>&1
+
+# --- 6 h ---
+# strict-worker-readonly-smoke (via dispatcher — wrapper gère git stage)
+0 */6 * * * bash /opt/trading/scripts/schedule/lot1/run_readonly_smoke.sh
+
+# --- daily 00:05 ---
+# strict-worker-log-archive
+5 0 * * * cd $REPO && $PY scripts/ai/workers/strict_worker_log_archive.py >> $LOGDIR/log_archive.log 2>&1
+
+# permission-drift-check
+6 0 * * * cd $REPO && $PY scripts/ai/workers/permission_drift_check.py >> $LOGDIR/permission_drift.log 2>&1
+
+# repo-doc-frontmatter-lint
+7 0 * * * cd $REPO && $PY scripts/ai/workers/repo_doc_frontmatter_lint.py >> $LOGDIR/frontmatter_lint.log 2>&1
+
+# repo-doc-link-check
+8 0 * * * cd $REPO && $PY scripts/ai/workers/repo_doc_link_check.py >> $LOGDIR/link_check.log 2>&1
+
+# ledger-rotation-check
+9 0 * * * cd $REPO && $PY scripts/ai/workers/ledger_rotation_check.py >> $LOGDIR/rotation_check.log 2>&1
+
+# --- event-driven (pas de cron) ---
+# strict-worker-denied-command-scan : déclenché after chaque dispatcher run, pas de timer
