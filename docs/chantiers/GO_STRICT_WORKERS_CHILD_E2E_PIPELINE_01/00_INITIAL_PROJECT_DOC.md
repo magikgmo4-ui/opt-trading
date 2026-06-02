@@ -4,7 +4,7 @@ doc_type: initial_project_doc
 repo: opt-trading
 go_id: GO_STRICT_WORKERS_CHILD_E2E_PIPELINE_01
 parent_go: GO_STRICT_WORKERS_E2E_MULTI_WORKERS_PARENT_01
-status: open
+status: closed
 lifecycle_stage: impl
 created_at: 2026-05-31
 task_type: E2E_PIPELINE

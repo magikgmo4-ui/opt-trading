@@ -1,0 +1,45 @@
+{
+  "job_id": "scheduler-dead-letter-check",
+  "checked_at": "2026-06-02T03:56:06.482127Z",
+  "lookback_hours": 24,
+  "failures_found": 7,
+  "failures": [
+    {
+      "log": "readonly_smoke.log",
+      "line": 2,
+      "content": "status=ok content=DRY_RUN_PASS error=None"
+    },
+    {
+      "log": "stuck_job_detector.log",
+      "line": 5,
+      "content": "    \"FAIL\": 127,"
+    },
+    {
+      "log": "stuck_job_detector.log",
+      "line": 13,
+      "content": "      \"status\": \"FAIL\","
+    },
+    {
+      "log": "stuck_job_detector.log",
+      "line": 82,
+      "content": "    \"FAIL\": 127,"
+    },
+    {
+      "log": "stuck_job_detector.log",
+      "line": 90,
+      "content": "      \"status\": \"FAIL\","
+    },
+    {
+      "log": "stuck_job_detector.log",
+      "line": 159,
+      "content": "    \"FAIL\": 127,"
+    },
+    {
+      "log": "stuck_job_detector.log",
+      "line": 167,
+      "content": "      \"status\": \"FAIL\","
+    }
+  ],
+  "error": null,
+  "status": "WARN"
+}

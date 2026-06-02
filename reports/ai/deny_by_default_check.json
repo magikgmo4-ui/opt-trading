@@ -1,0 +1,24 @@
+{
+  "job_id": "deny-by-default-check",
+  "checked_at": "2026-06-02T03:56:06.232145Z",
+  "checks": [
+    {
+      "check": "no_git_write_ops",
+      "result": "PASS"
+    },
+    {
+      "check": "no_runtime_write_by_default",
+      "result": "PASS"
+    },
+    {
+      "check": "dispatcher_write_gate",
+      "result": "PASS"
+    },
+    {
+      "check": "runner_writegated_exists",
+      "result": "PASS"
+    }
+  ],
+  "findings": [],
+  "status": "PASS"
+}

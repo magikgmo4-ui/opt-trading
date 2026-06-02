@@ -4,7 +4,7 @@ doc_type: initial_project_doc
 parent_go: GO_OPENCLAW_DBLAYER_DOCS_RESEARCH_LIBRARY_PARENT_01
 repo: opt-trading
 go_id: GO_OPENCLAW_DBLAYER_DOCS_RESEARCH_LIBRARY_CHILD_STUDENT_LAB_STATUS_01
-status: open
+status: closed
 created_at: 2026-05-30
 ---
 

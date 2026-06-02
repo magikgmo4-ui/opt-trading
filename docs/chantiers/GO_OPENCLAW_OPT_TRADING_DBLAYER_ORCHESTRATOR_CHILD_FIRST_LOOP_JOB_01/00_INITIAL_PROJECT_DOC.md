@@ -4,7 +4,7 @@ doc_type: initial_project_doc
 repo: opt-trading
 go_id: GO_OPENCLAW_OPT_TRADING_DBLAYER_ORCHESTRATOR_CHILD_FIRST_LOOP_JOB_01
 parent_go: GO_OPENCLAW_OPT_TRADING_DBLAYER_ORCHESTRATOR_PAPER_STABILITY_FIRST_JOB_PARENT_01
-status: open
+status: closed
 lifecycle_stage: cadrage
 created_at: 2026-05-31
 machine_cible: db-layer

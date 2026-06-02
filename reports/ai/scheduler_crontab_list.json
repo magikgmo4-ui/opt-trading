@@ -1,0 +1,121 @@
+{
+  "job_id": "scheduler-crontab-list",
+  "checked_at": "2026-06-02T03:56:06.432926Z",
+  "active_entries": 28,
+  "entries": [
+    {
+      "schedule": "*/15 * * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/health_status.py >> $LOGDIR/health_status.log"
+    },
+    {
+      "schedule": "*/15 * * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/ledger_writer.py --event-type heartbeat --act"
+    },
+    {
+      "schedule": "*/15 * * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/stuck_job_detector.py >> $LOGDIR/stuck_job_de"
+    },
+    {
+      "schedule": "*/30 * * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/localcms_automation_status_sync.py >> $LOGDIR"
+    },
+    {
+      "schedule": "0 * * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/ledger_replay.py >> $LOGDIR/ledger_replay.log"
+    },
+    {
+      "schedule": "5 * * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/ledger_schema_validation.py >> $LOGDIR/ledger"
+    },
+    {
+      "schedule": "10 * * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/ledger_blocked_events_digest.py >> $LOGDIR/le"
+    },
+    {
+      "schedule": "15 * * * *",
+      "command": "cd $REPO && gh pr list --state open --json number,title,headRefName,updatedAt >>"
+    },
+    {
+      "schedule": "0 */6 * * *",
+      "command": "bash /opt/trading/scripts/schedule/lot1/run_readonly_smoke.sh"
+    },
+    {
+      "schedule": "5 0 * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/strict_worker_log_archive.py >> $LOGDIR/log_a"
+    },
+    {
+      "schedule": "6 0 * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/permission_drift_check.py >> $LOGDIR/permissi"
+    },
+    {
+      "schedule": "7 0 * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/repo_doc_frontmatter_lint.py >> $LOGDIR/front"
+    },
+    {
+      "schedule": "8 0 * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/repo_doc_link_check.py >> $LOGDIR/link_check."
+    },
+    {
+      "schedule": "9 0 * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/ledger_rotation_check.py >> $LOGDIR/rotation_"
+    },
+    {
+      "schedule": "*/5 * * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/kill_switch_state_check.py >> $LOGDIR/kill_sw"
+    },
+    {
+      "schedule": "20 */6 * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/anti_leak_scan.py >> $LOGDIR/anti_leak_scan.l"
+    },
+    {
+      "schedule": "30 * * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/strict_worker_failure_report.py >> $LOGDIR/fa"
+    },
+    {
+      "schedule": "15 0 * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/repo_go_index_audit.py >> $LOGDIR/go_index_au"
+    },
+    {
+      "schedule": "16 0 * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/repo_closeout_eligibility_check.py >> $LOGDIR"
+    },
+    {
+      "schedule": "17 0 * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/repo_orphan_files_audit.py >> $LOGDIR/orphan_"
+    },
+    {
+      "schedule": "18 0 * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/repo_changelog_digest.py >> $LOGDIR/changelog"
+    },
+    {
+      "schedule": "19 0 * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/strict_worker_registry_check.py >> $LOGDIR/re"
+    },
+    {
+      "schedule": "20 0 * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/ledger_trace_id_audit.py >> $LOGDIR/trace_aud"
+    },
+    {
+      "schedule": "21 0 * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/strict_worker_output_schema_check.py >> $LOGD"
+    },
+    {
+      "schedule": "22 0 * * *",
+      "command": "cd $REPO && bash scripts/ai/workers/env_file_presence_check.sh >> $LOGDIR/env_pr"
+    },
+    {
+      "schedule": "23 0 * * *",
+      "command": "cd $REPO && bash scripts/ai/workers/gitignore_secrets_policy_check.sh >> $LOGDIR"
+    },
+    {
+      "schedule": "24 0 * * *",
+      "command": "cd $REPO && bash scripts/ai/workers/repo_branch_audit.sh >> $LOGDIR/branch_audit"
+    },
+    {
+      "schedule": "25 0 * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/oauth_scope_audit.py >> $LOGDIR/oauth_audit.l"
+    }
+  ],
+  "error": null,
+  "status": "PASS"
+}

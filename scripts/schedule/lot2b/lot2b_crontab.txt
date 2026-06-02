@@ -1,0 +1,25 @@
+# Lot 2B — Jobs récurrents opt-trading
+# GO_OPENCLAW_DBLAYER_WORKERS_CHILD_CLOSEOUT_LOT2B_LOT3_01
+# Installer via : scripts/schedule/lot2b/install_lot2b_cron.sh
+#
+SHELL=/bin/bash
+REPO=/opt/trading
+PY=/opt/trading/venv/bin/python3
+LOGDIR=/opt/trading/data/logs/cron
+
+# --- nightly 01:00 ---
+# hitl-scenarios-smoke
+0 1 * * * cd $REPO && $PY scripts/ai/workers/hitl_scenarios_smoke.py >> $LOGDIR/hitl_scenarios_smoke.log 2>&1
+
+# ai-team-handoff-dry-run
+1 1 * * * cd $REPO && $PY scripts/ai/workers/ai_team_handoff_dry_run.py >> $LOGDIR/handoff_dry_run.log 2>&1
+
+# task-router-dry-run
+2 1 * * * cd $REPO && $PY scripts/ai/workers/task_router_dry_run.py >> $LOGDIR/task_router_dry_run.log 2>&1
+
+# capability-matrix-validate
+3 1 * * * cd $REPO && $PY scripts/ai/workers/capability_matrix_validate.py >> $LOGDIR/capability_matrix.log 2>&1
+
+# --- 30 min ---
+# localcms-workers-state-sync
+*/30 * * * * cd $REPO && $PY scripts/ai/workers/localcms_workers_state_sync.py >> $LOGDIR/localcms_workers_state.log 2>&1

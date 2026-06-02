@@ -4,7 +4,7 @@ doc_type: initial_project_doc
 repo: opt-trading
 go_id: GO_OPENCLAW_DBLAYER_WORKERS_CHILD_JOBS_LOT1_CRON_01
 parent_go: GO_OPENCLAW_DBLAYER_DOCS_RESEARCH_LIBRARY_PARENT_01
-status: open
+status: closed
 opened_at: 2026-06-02
 ---
 
