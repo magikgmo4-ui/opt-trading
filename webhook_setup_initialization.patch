@@ -1,0 +1,169 @@
+diff --git a/configs/env/registry/machines.yaml b/configs/env/registry/machines.yaml
+index b90244fc..d67962d9 100644
+--- a/configs/env/registry/machines.yaml
++++ b/configs/env/registry/machines.yaml
+@@ -12,6 +12,8 @@ machines:
+       - datacenter
+       - telegram_collector
+       - market_data_readonly
++    eligible_roles:
++      - webhook_receiver
+   - id: student
+     roles:
+       - llm_local
+@@ -26,3 +28,5 @@ machines:
+       - git_dev
+       - market_data_readonly
+       - llm_local
++    eligible_roles:
++      - webhook_receiver
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md
+new file mode 100644
+index 00000000..f7a4a16c
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md
+@@ -0,0 +1,19 @@
++# GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01
++
++**GO_STRUCTURAL_ROLE:** GO_CHILD_ATTACHED_TO_PARENT
++**PARENT:** GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01
++**DEPENDS_ON:** GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01
++
++## Objectif
++Opérationnaliser le setup TradingView Webhook credentials pour le rôle `webhook_receiver`.
++
++## Portée
++- Définition du scope du secret Webhook TradingView.
++- Validation des autorisations par rôle et profil machine.
++- Procédure de setup local sécurisé (hors Git).
++- Vérification via les scripts canoniques `validate` et `resolve`.
++
++## Livrables
++- Documentation de setup et de validation.
++- Registres et templates à jour.
++- Patch d'initialisation du rôle.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/10_TRADINGVIEW_WEBHOOK_CREDENTIALS_SCOPE.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/10_TRADINGVIEW_WEBHOOK_CREDENTIALS_SCOPE.md
+new file mode 100644
+index 00000000..f298aee2
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/10_TRADINGVIEW_WEBHOOK_CREDENTIALS_SCOPE.md
+@@ -0,0 +1,10 @@
++# TradingView Webhook Credentials Scope
++
++Les credentials suivants sont nécessaires pour le rôle `webhook_receiver` :
++
++| Credential ID | Env Var | Type | Description |
++|---------------|---------|------|-------------|
++| `tv_webhook_secret` | `TV_WEBHOOK_SECRET` | `webhook_secret` | Secret partagé entre TradingView et le serveur webhook pour authentifier les alertes. |
++
++## Sécurité du Secret
++Le secret doit être une chaîne complexe (UUID ou token généré) et ne doit jamais être partagé en dehors du serveur de réception et de l'interface TradingView.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/20_ROLE_AND_PROFILE_AUTHORIZATION.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/20_ROLE_AND_PROFILE_AUTHORIZATION.md
+new file mode 100644
+index 00000000..351c4344
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/20_ROLE_AND_PROFILE_AUTHORIZATION.md
+@@ -0,0 +1,13 @@
++# Role and Profile Authorization
++
++Le rôle `webhook_receiver` est restreint aux machines capables d'exposer un endpoint public ou de traiter les alertes entrantes.
++
++## Statuts d'Autorisation
++
++| Profil Machine | Statut | Action |
++|----------------|--------|--------|
++| `admin-trading` | **AUTHORIZED_ACTIVE** | Activé par défaut (serveur de prod). |
++| `db-layer` | **ELIGIBLE_DISABLED_BY_DEFAULT** | Éligible pour tests ou backup. |
++| `fantome` | **ELIGIBLE_DISABLED_BY_DEFAULT** | Éligible pour développement local. |
++| `student` | **FORBIDDEN** | Interdit. |
++| `cursor-ai` | **FORBIDDEN** | Interdit. |
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md
+new file mode 100644
+index 00000000..cbafc8c0
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md
+@@ -0,0 +1,24 @@
++# Local Setup Procedure
++
++Cette procédure doit être effectuée manuellement sur chaque machine autorisée.
++
++## 1. Structure des répertoires
++```bash
++sudo install -d -m 700 /etc/opt-trading/env.d/roles
++```
++
++## 2. Configuration du Rôle
++Utiliser `sudoedit` pour créer le fichier d'environnement :
++```bash
++sudoedit /etc/opt-trading/env.d/roles/webhook_receiver.env
++```
++
++Contenu attendu :
++```env
++TV_WEBHOOK_SECRET=XXXXX_VOTRE_SECRET_PARTAGE_ICI_XXXXX
++```
++
++## 3. Sécurisation finale
++```bash
++sudo chmod 600 /etc/opt-trading/env.d/roles/webhook_receiver.env
++```
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/40_VALIDATION_AND_RESOLVER_CHECKS.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/40_VALIDATION_AND_RESOLVER_CHECKS.md
+new file mode 100644
+index 00000000..52cc69bb
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/40_VALIDATION_AND_RESOLVER_CHECKS.md
+@@ -0,0 +1,13 @@
++# Validation and Resolver Checks
++
++## Validation de l'Authorization
++```bash
++# Pour admin-trading (Activé)
++python3 scripts/env/validate_credentials.py --machine admin-trading --job tv_webhook_receive
++
++# Pour fantome (Éligible mais désactivé)
++python3 scripts/env/validate_credentials.py --machine fantome --job tv_webhook_receive
++```
++
++## Résolution
++Le resolver chargera `TV_WEBHOOK_SECRET` uniquement sur les machines où le rôle est `AUTHORIZED_ACTIVE`.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/60_GAPS_AND_NEXT_GO.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/60_GAPS_AND_NEXT_GO.md
+new file mode 100644
+index 00000000..a16f2d42
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/60_GAPS_AND_NEXT_GO.md
+@@ -0,0 +1,7 @@
++# Gaps and Next GO
++
++## Gaps
++- Nécessité d'un script de test (smoke test) pour simuler une requête Webhook authentifiée localement.
++
++## Prochain GO
++- `GO_OPT_TRADING_SECURITY_CREDENTIALS_MARKET_DATA_ROLE_SETUP_CHILD_01`: Setup du rôle `market_data_readonly` (Binance, Coinglass).
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/FILE_SCOPE.txt b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/FILE_SCOPE.txt
+new file mode 100644
+index 00000000..da034747
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/FILE_SCOPE.txt
+@@ -0,0 +1,10 @@
++configs/env/registry/machines.yaml
++docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md
++docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/10_TRADINGVIEW_WEBHOOK_CREDENTIALS_SCOPE.md
++docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/20_ROLE_AND_PROFILE_AUTHORIZATION.md
++docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md
++docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/40_VALIDATION_AND_RESOLVER_CHECKS.md
++docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/60_GAPS_AND_NEXT_GO.md
++docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/FILE_SCOPE.txt
++docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01.md
++webhook_setup_initialization.patch
+diff --git a/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01.md b/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01.md
+new file mode 100644
+index 00000000..bc57de04
+--- /dev/null
++++ b/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01.md
+@@ -0,0 +1,6 @@
++# Inbox: GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01
++
++- **Status:** INITIALIZED
++- **Branch:** go/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01
++- **Focus:** Opérationnalisation du rôle `webhook_receiver`.
++- **Link:** [Dossier Chantier](../../chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md)

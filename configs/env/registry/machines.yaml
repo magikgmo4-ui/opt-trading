@@ -12,6 +12,8 @@ machines:
       - datacenter
       - telegram_collector
       - market_data_readonly
+    eligible_roles:
+      - webhook_receiver
   - id: student
     roles:
       - llm_local
@@ -26,3 +28,5 @@ machines:
       - git_dev
       - market_data_readonly
       - llm_local
+    eligible_roles:
+      - webhook_receiver
