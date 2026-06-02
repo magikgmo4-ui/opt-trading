@@ -7,7 +7,7 @@ go_id: GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_CHILD_SHEETS_INTEGRATION_TEST_01
 go_structural_role: GO_CHILD_ATTACHED_TO_PARENT
 parent_go: GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_ACCEPTANCE_REVIEW_01
 pf_id: PF_OPENCLAW_ORCHESTRATOR_FULL
-status: open
+status: closed
 lifecycle_stage: opening
 surface: modules/datasheet_writer
 source_kind: canonical

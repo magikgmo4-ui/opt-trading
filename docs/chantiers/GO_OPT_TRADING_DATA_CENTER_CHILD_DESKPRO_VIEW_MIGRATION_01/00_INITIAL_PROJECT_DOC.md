@@ -6,7 +6,7 @@ project: opt-trading
 module: desk_pro
 go_id: GO_OPT_TRADING_DATA_CENTER_CHILD_DESKPRO_VIEW_MIGRATION_01
 parent_go_id: GO_OPT_TRADING_DATA_CENTER_PARENT_OPEN_01
-status: open
+status: closed
 lifecycle_stage: implementation
 surface: docs/chantiers
 source_kind: canonical
