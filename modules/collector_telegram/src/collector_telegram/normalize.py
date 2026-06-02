@@ -18,6 +18,27 @@ _WHALE_TRANSFER_RE = re.compile(
     r"(?P<amount>[0-9,]+) \$(?P<asset>[A-Z0-9]+) \((?P<usd>[0-9,]+) USD\) (?P<action>transferred|minted|burned|locked)",
     re.IGNORECASE,
 )
+_FREE_SIGNAL_RE = re.compile(
+    r"(?P<side>BUY|SELL) GOLD NOW.*?Entry Point:\s*(?P<entry>[^\n]+).*?Stop Loss:\s*(?P<sl>[0-9.]+).*?TP1:\s*(?P<tp1>[0-9.]+).*?TP2:\s*(?P<tp2>[0-9.]+)",
+    re.IGNORECASE | re.DOTALL,
+)
+_XAUHQ_SIGNAL_RE = re.compile(
+    r"DIRECTION:\s*\*\*(?:↗️|↘️)?\s*(?P<side>BUY|SELL)\*\*.*?ENTRY:\s*(?P<entry>[^\n]+).*?STOP LOSS:\*\*\s*(?P<sl>[0-9.]+)\*\*.*?TAKE PROFIT:(?P<tp_block>.*?)(?:RISK:|$)",
+    re.IGNORECASE | re.DOTALL,
+)
+_TP_VALUE_RE = re.compile(r"TP\d+\s*[→:]+\s*(?P<value>[0-9./]+)")
+_BINANCE_KILLERS_RE = re.compile(
+    r"COIN:\s*\*+\$(?P<symbol>[A-Z0-9]+)\*+/USDT.*?Direction:\s*(?P<side>LONG|SHORT).*?(?P<targets>(?:Target\s+\d+:\s*[0-9.]+✅?\s*)+)",
+    re.IGNORECASE | re.DOTALL,
+)
+_BK_TARGET_RE = re.compile(r"Target\s+\d+:\s*(?P<value>[0-9.]+)")
+_WSQ_SIGNAL_RE = re.compile(
+    r"COIN:\s*\*+[#$]?(?P<symbol>[A-Z0-9]+)\*+.*?Direction:\*+\s*(?P<side>Long|Short).*?Entry:\s*(?P<entry>[^\n]+).*?Targets:\s*(?P<targets>[^\n]+).*?Stoploss:\s*(?P<sl>[0-9.]+)",
+    re.IGNORECASE | re.DOTALL,
+)
+_FATPIG_HEADER_RE = re.compile(r"TP(?P<tp_level>[123]) HIT\s+[—-]\s+(?P<symbol>[A-Z0-9\u4e00-\u9fff]+)/USDT", re.IGNORECASE)
+_FATPIG_SOLD_RE = re.compile(r"Sold\s+(?P<sold_pct>[0-9]+)%\s+at\s+\$(?P<hit_price>[0-9.]+)", re.IGNORECASE)
+_FATPIG_SL_RE = re.compile(r"SL moved\s*[→:]\s*(?P<sl_label>[^\n(]+?)(?:\s*\(\$?(?P<sl_price>[0-9.]+)\))?(?:\n|$)", re.IGNORECASE)
 
 
 def parse_message(raw: RawMessage) -> dict[str, Any]:
@@ -42,6 +63,26 @@ def parse_message(raw: RawMessage) -> dict[str, Any]:
     if alpha is not None:
         normalized = {"symbol": alpha.pair, "message": alpha.metadata.get("message")}
         return _parsed_payload(raw, "ALPHA_SIGNAL", "parsed", 0.55, normalized)
+
+    free_signal = _parse_free_gold_signal(raw.raw_text)
+    if free_signal is not None:
+        return _parsed_payload(raw, "TRADE_SIGNAL", "parsed", 0.9, free_signal)
+
+    xuahq_signal = _parse_xauhq_signal(raw.raw_text)
+    if xuahq_signal is not None:
+        return _parsed_payload(raw, "TRADE_SIGNAL", "parsed", 0.92, xuahq_signal)
+
+    bk_signal = _parse_binance_killers_signal(raw.raw_text)
+    if bk_signal is not None:
+        return _parsed_payload(raw, "TRADE_SIGNAL", "partial", 0.8, bk_signal)
+
+    wsq_signal = _parse_wsq_signal(raw.raw_text)
+    if wsq_signal is not None:
+        return _parsed_payload(raw, "TRADE_SIGNAL", "parsed", 0.88, wsq_signal)
+
+    fatpig_update = _parse_fatpig_update(raw.raw_text)
+    if fatpig_update is not None:
+        return _parsed_payload(raw, "MARKET_STRUCTURE", "partial", 0.7, fatpig_update)
 
     hyperliquid = _parse_hyperliquid(raw.raw_text)
     if hyperliquid is not None:
@@ -141,6 +182,106 @@ def _parse_whale_transfer(raw_text: str) -> dict[str, Any] | None:
         "amount_usd": float(match.group("usd").replace(",", "")),
         "event": match.group("action").lower(),
     }
+
+
+def _parse_free_gold_signal(raw_text: str) -> dict[str, Any] | None:
+    match = _FREE_SIGNAL_RE.search(raw_text)
+    if not match:
+        return None
+    side = "LONG" if match.group("side").upper() == "BUY" else "SHORT"
+    entry = _parse_price_series(match.group("entry"))
+    return {
+        "symbol": "XAUUSD",
+        "side": side,
+        "entry": entry,
+        "tp": [float(match.group("tp1")), float(match.group("tp2"))],
+        "sl": float(match.group("sl")),
+    }
+
+
+def _parse_xauhq_signal(raw_text: str) -> dict[str, Any] | None:
+    match = _XAUHQ_SIGNAL_RE.search(raw_text)
+    if not match:
+        return None
+    side = "LONG" if match.group("side").upper() == "BUY" else "SHORT"
+    targets = []
+    for tp_match in _TP_VALUE_RE.finditer(match.group("tp_block")):
+        targets.extend(_parse_price_series(tp_match.group("value")))
+    return {
+        "symbol": "XAUUSD",
+        "side": side,
+        "entry": _parse_price_series(match.group("entry")),
+        "tp": targets,
+        "sl": float(match.group("sl")),
+    }
+
+
+def _parse_binance_killers_signal(raw_text: str) -> dict[str, Any] | None:
+    match = _BINANCE_KILLERS_RE.search(raw_text)
+    if not match:
+        return None
+    return {
+        "symbol": f"{match.group('symbol').upper()}USDT",
+        "side": match.group("side").upper(),
+        "entry": [],
+        "tp": [float(tp.group("value")) for tp in _BK_TARGET_RE.finditer(match.group("targets"))],
+        "sl": None,
+    }
+
+
+def _parse_wsq_signal(raw_text: str) -> dict[str, Any] | None:
+    match = _WSQ_SIGNAL_RE.search(raw_text)
+    if not match:
+        return None
+    return {
+        "symbol": match.group("symbol").upper(),
+        "side": "LONG" if match.group("side").upper() == "LONG" else "SHORT",
+        "entry": [] if match.group("entry").strip().lower() == "market price" else _parse_price_series(match.group("entry")),
+        "tp": [float(value.strip().replace("$+", "")) for value in match.group("targets").split("-") if value.strip()],
+        "sl": float(match.group("sl")),
+    }
+
+
+def _parse_fatpig_update(raw_text: str) -> dict[str, Any] | None:
+    header = _FATPIG_HEADER_RE.search(raw_text)
+    sold = _FATPIG_SOLD_RE.search(raw_text)
+    stop = _FATPIG_SL_RE.search(raw_text)
+    if not header or not sold or not stop:
+        return None
+    sl_price = stop.group("sl_price")
+    return {
+        "symbol": f"{header.group('symbol').upper()}USDT",
+        "event": f"TP{header.group('tp_level')}_HIT",
+        "sold_pct": int(sold.group("sold_pct")),
+        "hit_price": float(sold.group("hit_price")),
+        "sl_state": stop.group("sl_label").strip(),
+        "sl": float(sl_price) if sl_price else None,
+    }
+
+
+def _parse_price_series(raw_value: str) -> list[float]:
+    values = [part.strip() for part in raw_value.replace("-", "/").split("/") if part.strip() and part.strip().upper() != "OPEN"]
+    if not values:
+        return []
+    parsed = [float(values[0])]
+    for value in values[1:]:
+        parsed.append(_expand_shorthand(parsed[-1], value))
+    return parsed
+
+
+def _expand_shorthand(previous: float, raw_value: str) -> float:
+    if re.fullmatch(r"[0-9]+(?:\.[0-9]+)?", raw_value) and float(raw_value) >= 100:
+        return float(raw_value)
+    previous_text = f"{previous:.4f}".rstrip("0").rstrip(".")
+    prev_int = previous_text.split(".")[0]
+    if "." in raw_value:
+        int_part, frac_part = raw_value.split(".", 1)
+        if len(int_part) < len(prev_int):
+            int_part = prev_int[: len(prev_int) - len(int_part)] + int_part
+        return float(f"{int_part}.{frac_part}")
+    if len(raw_value) < len(prev_int):
+        raw_value = prev_int[: len(prev_int) - len(raw_value)] + raw_value
+    return float(raw_value)
 
 
 def _channel_role(channel_alias: str) -> str:
