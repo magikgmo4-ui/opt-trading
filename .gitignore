@@ -99,6 +99,9 @@ scripts/runlog
 
 # runtime untracked dirs — never commit
 secrets/
+*.session
+*.session-journal
+modules/collector_telegram/runtime/
 reports/ai/mobile_control/
 artifacts/automation_ops/semiauto_pilot/pilot_*/
 
