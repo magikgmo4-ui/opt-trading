@@ -1,6 +1,6 @@
 {
   "job_id": "anti-leak-scan",
-  "scanned_at": "2026-06-02T10:20:03.005334Z",
+  "scanned_at": "2026-06-03T04:20:03.310980Z",
   "files_scanned": 7604,
   "findings_count": 40,
   "findings": [
@@ -120,9 +120,9 @@
     },
     {
       "file": "reports/ai/anti_leak_scan.json",
-      "line": 11,
-      "pattern": "api_key literal",
-      "snippet": "API_KEY=\\nAIRTABLE_BASE_ID="
+      "line": 41,
+      "pattern": "secret literal",
+      "snippet": "SECRET=XXXXX_VOTRE_SECRET_PARTAGE_ICI_XXXXX"
     }
   ],
   "status": "WARN"

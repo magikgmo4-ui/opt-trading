@@ -1,6 +1,6 @@
 {
   "job_id": "scheduler-dead-letter-check",
-  "checked_at": "2026-06-03T03:47:02.799364Z",
+  "checked_at": "2026-06-03T05:47:02.040435Z",
   "lookback_hours": 24,
   "failures_found": 20,
   "failures": [
@@ -65,6 +65,16 @@
       "content": "    \"FAIL\": 127,"
     },
     {
+      "log": "ledger_blocked.log",
+      "line": 521,
+      "content": "    \"FAIL\": 127,"
+    },
+    {
+      "log": "ledger_blocked.log",
+      "line": 564,
+      "content": "    \"FAIL\": 127,"
+    },
+    {
       "log": "readonly_smoke.log",
       "line": 2,
       "content": "status=ok content=DRY_RUN_PASS error=None"
@@ -80,6 +90,11 @@
       "content": "print(f\"status={resp.status} content={resp.content} error={resp.error}\")"
     },
     {
+      "log": "readonly_smoke.log",
+      "line": 28,
+      "content": "print(f\"status={resp.status} content={resp.content} error={resp.error}\")"
+    },
+    {
       "log": "repo_pr_audit.log",
       "line": 8,
       "content": "error connecting to api.github.com"
@@ -88,21 +103,6 @@
       "log": "repo_pr_audit.log",
       "line": 10,
       "content": "error connecting to api.github.com"
-    },
-    {
-      "log": "stuck_job_detector.log",
-      "line": 5,
-      "content": "    \"FAIL\": 127,"
-    },
-    {
-      "log": "stuck_job_detector.log",
-      "line": 13,
-      "content": "      \"status\": \"FAIL\","
-    },
-    {
-      "log": "stuck_job_detector.log",
-      "line": 82,
-      "content": "    \"FAIL\": 127,"
     }
   ],
   "error": null,

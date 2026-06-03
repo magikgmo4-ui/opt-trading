@@ -164,7 +164,8 @@ def main():
         print(json.dumps({"status": "ERROR", "reason": f"packet not found: {packet_path}"}))
         sys.exit(1)
 
-    _check_git_clean()
+    if not args.dry_run:
+        _check_git_clean()
 
     with open(packet_path) as f:
         packet = json.load(f)

@@ -1,6 +1,6 @@
 {
   "job_id": "strict-worker-log-archive",
   "archived_files": 50,
-  "archive": "data/runtime_health/job_logs/archive/strict_worker_reports_20260602_040501.tar.gz",
+  "archive": "data/runtime_health/job_logs/archive/strict_worker_reports_20260603_040501.tar.gz",
   "status": "PASS"
 }
