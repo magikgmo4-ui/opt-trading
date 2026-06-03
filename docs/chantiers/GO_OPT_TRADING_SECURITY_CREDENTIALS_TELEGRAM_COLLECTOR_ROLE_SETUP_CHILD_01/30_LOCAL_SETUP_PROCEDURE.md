@@ -21,6 +21,12 @@ TELEGRAM_API_HASH=YYYYY
 TELEGRAM_SESSION_PATH=/etc/opt-trading/secrets/telegram/collector.session
 TELEGRAM_BOT_TOKEN=ZZZZZ:AAAAA
 TELEGRAM_CHANNELS_CONFIG=configs/telegram/channels.yaml
+TELEGRAM_ALERT_CHAT_ID=NNNNN
+# Multi-canal routing (PR #1063) — laisser vide pour fallback sur TELEGRAM_CHAT_ID
+TELEGRAM_CHAT_ID_ALERTS=
+TELEGRAM_CHAT_ID_PIPELINE=
+TELEGRAM_CHAT_ID_PUSH=
+TELEGRAM_CHAT_ID_OPS=
 ```
 
 ## 3. Sécurisation
