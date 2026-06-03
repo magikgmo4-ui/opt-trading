@@ -1,7 +1,7 @@
 {
   "job_id": "repo-closeout-eligibility-check",
-  "checked_at": "2026-06-02T04:16:01.645917Z",
-  "total_checked": 57,
+  "checked_at": "2026-06-03T04:16:01.532114Z",
+  "total_checked": 58,
   "eligible_count": 0,
   "eligible": [],
   "status": "PASS"

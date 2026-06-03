@@ -1,8 +1,8 @@
 {
   "job_id": "repo-orphan-files-audit",
-  "checked_at": "2026-06-02T04:17:02.493944Z",
-  "tracked_scripts": 1509,
-  "orphan_candidates": 132,
+  "checked_at": "2026-06-03T04:17:05.425835Z",
+  "tracked_scripts": 1510,
+  "orphan_candidates": 133,
   "candidates": [
     "modules/bot_vision/headless_capture/scripts/run_orchestrator.sh",
     "modules/collector_telegram/tests/test_collector_telegram_module.py",

@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-03T04:00:01.250334+00:00",
+  "generated_at": "2026-06-03T06:30:01.133565+00:00",
   "git": {
-    "branch": "go/GO_CRON_TELEGRAM_TMUX_ALERTS_01",
-    "commit": "1e5d648a"
+    "branch": "go/GO_OPT_TRADING_SECURITY_CREDENTIALS_TELEGRAM_MULTICHANNEL_CHILD_01",
+    "commit": "86acef68"
   },
   "menu_loaded": true,
   "menu_domains": 14,
@@ -11,16 +11,19 @@
   "health_status": null,
   "ledger": {
     "exists": true,
-    "event_count": 72,
+    "event_count": 81,
     "last_event": {
       "event_type": "heartbeat",
       "status": "PASS",
-      "timestamp": "2026-06-03T04:00:01.249933+00:00"
+      "timestamp": "2026-06-03T06:15:01.616981+00:00"
     }
   },
   "tmux": {
-    "available": false,
-    "sessions": []
+    "available": true,
+    "sessions": [
+      "cron-workers"
+    ],
+    "count": 1
   },
   "phase": "PHASE_01",
   "job_id": "localcms-automation-status-sync",
