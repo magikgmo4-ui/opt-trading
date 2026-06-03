@@ -16,7 +16,7 @@ python3 perf/perf_app.py         # Perf analytics API — port 8010
 ./scripts/verify_all.sh
 
 # Tests
-python3 -m pytest tests/                        # all 714 tests
+python3 -m pytest tests/                        # all ~1933 tests
 python3 -m pytest tests/test_foo.py::test_name  # single test
 ./scripts/smoke.sh                              # live API smoke (needs server running)
 ./scripts/diagnose.sh                           # system diagnostics
@@ -48,6 +48,8 @@ No Makefile. No pytest.ini — pytest runs with defaults.
 - `modules/decision_engine/app/strategy_logic.py` — hardcoded signal config
 - `modules/perf_engine/` — intermediate position tracker (candidate → active → closed); distinct from `perf/perf_app.py` which is the FastAPI service that exposes results
 - `modules/desk_pro/` — shared API/UI/service core for Desk Pro, mounted at `/desk` in perf_app; operational entry point is `modules/desk_pro_runner/` (runner → orchestrator → dashboard stack)
+- `modules/telegram_screener/` — parses/routes inbound Telegram screener signals (parser → normalizer → router → signal pipeline)
+- `modules/telegram_ingestion/` — low-level Telegram ingest (Telethon client → parser → normalizer → distribution)
 - `shared/logger.py` — `setup_logger(name)` for all modules
 - `shared/telegram_notify.py` — Telegram alerts (metrics tracked)
 
@@ -98,13 +100,25 @@ Standalone backtesting engines, not imported by the live services. Each family (
 - `modules/openclaw_config_modulaire/` — manages `~/.openclaw/config.d/` (safe apply + rollback for `agents.json5`, `tools.json5`)
 - `modules/gateway_openclaw/` — starts/stops the OpenClaw gateway via tmux (no systemd); session `openclaw-gateway` under the `openclaw` user
 
+### AI strict workers (`scripts/ai/workers/`)
+
+Deterministic dispatcher for routing AI job packets to the correct runner. **No LLM is involved in dispatch.**
+
+- `openclaw_strict_worker_dispatcher.py` — canonical entry point; routes by `task_type`: `WRITE_GATED` → `runner_writegated.py`, all others → `runner_readonly.py`
+- `tasks.index.json` — task types with autonomy levels, allowed outputs, required sections, preferred models
+- `models.registry.json` — verified model registry with roles and autonomy caps (A0–A2); only `VERIFIED`/`VERIFIED_FREE` models may be used
+- Job outputs go to `reports/ai/workers/`; top-level AI check outputs go to `reports/ai/*.json`
+- `WRITE_GATED` tasks require `--gate-approved` flag; missing it exits with code 4 (REFUSED)
+
+Exit codes: 0=PASS, 1=INVALID_INPUT, 2=BLOCKED(git dirty), 3=REJECTED, 4=REFUSED, 5=RUNNER_ERROR
+
 ### Chantier docs pattern
 
 Feature work lives in `docs/chantiers/<GO_ID>/`:
 - `00_INITIAL_PROJECT_DOC.md` — concept + rules
 - `20_ACCEPTANCE_REPORT.md` — results + verdict
 
-Branch naming: `go/GO_<NAME>_01`. Main branch: `sot/mainline`.
+Branch naming: `go/GO_<NAME>_01`. Main branch: `sot/mainline` (origin HEAD). PRs target `sot/mainline`, not `main`.
 
 ### Tests structure
 
@@ -114,6 +128,8 @@ Branch naming: `go/GO_<NAME>_01`. Main branch: `sot/mainline`.
 - `tests/governance/` — policy and schema validation
 - `tests/openclaw/` — openclaw module tests
 - `tests/runtime_health/` — cursor/fleet health checks
+- `tests/ai/workers/` — strict worker dispatcher and runner tests
+- `tests/automation_ops/` — semiauto pilot contract tests
 
 ## Gated workflow (from `workflow_ai/.cursorrules`)
 
