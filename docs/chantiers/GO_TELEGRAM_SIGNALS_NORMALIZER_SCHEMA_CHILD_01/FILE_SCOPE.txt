@@ -1,0 +1,5 @@
+docs/chantiers/GO_TELEGRAM_SIGNALS_NORMALIZER_SCHEMA_CHILD_01/**
+docs/index/inbox/GO_TELEGRAM_SIGNALS_NORMALIZER_SCHEMA_CHILD_01.md
+modules/telegram_screener/schema.py
+modules/telegram_screener/normalizer.py
+tests/test_telegram_screener_normalizer.py
