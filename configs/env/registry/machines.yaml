@@ -5,10 +5,29 @@ machines:
       - market_data_readonly
       - webhook_receiver
       - google_sheets_writer
-    eligible_roles:
       - telegram_collector
+      - airtable_user
+      - clickup_user
+      - infrastructure
+    eligible_roles:
       - llm_cloud
       - git_dev
+      - figma_designer
+
+  - id: fantome
+    roles:
+      - telegram_collector
+      - git_dev
+      - market_data_readonly
+      - llm_local
+      - infrastructure
+    eligible_roles:
+      - webhook_receiver
+      - datacenter
+      - llm_cloud
+      - airtable_user
+      - clickup_user
+
   - id: db-layer
     roles:
       - datacenter
@@ -17,21 +36,18 @@ machines:
     eligible_roles:
       - webhook_receiver
       - llm_local
-  - id: student
-    roles:
-      - llm_local
-      - deskpro_user
+
   - id: cursor-ai
     roles:
       - git_dev
       - llm_cloud
-  - id: fantome
-    roles:
-      - telegram_collector
-      - git_dev
-      - market_data_readonly
-      - llm_local
     eligible_roles:
-      - webhook_receiver
-      - datacenter
-      - llm_cloud
+      - figma_designer
+
+  - id: student
+    roles:
+      - llm_local
+      - deskpro_user
+    eligible_roles:
+      - airtable_user
+      - clickup_user
