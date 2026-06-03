@@ -444,22 +444,29 @@ def serve() -> None:
 
                     target = (c.get("TELEGRAM_CHAT_ID") or chat_id).strip()
 
+                    # ── Command Center dispatch ──
+                    if text.startswith("/") and not text.startswith("/chatid"):
+                        try:
+                            _root = str(Path(__file__).resolve().parents[3])
+                            if _root not in sys.path:
+                                sys.path.insert(0, _root)
+                            from modules.telegram_command_center.app.commands import dispatch
+                            resp, ch = dispatch(text)
+                            if resp:
+                                if ch and ch != chat_id:
+                                    from shared.telegram_channels import send_to_channel
+                                    send_to_channel(ch, resp, source=f"cmd:{text.split()[0]}")
+                                else:
+                                    tg_send_message(c, chat_id, resp)
+                        except Exception as exc:
+                            print(f"WARN: command dispatch failed: {exc}", flush=True)
+                        continue
+
                     if text.startswith("/chatid"):
                         try:
                             tg_send_message(c, target, f"chat_id={chat_id}")
                         except Exception as e:
                             print(f"WARN: /chatid send failed: {e}", flush=True)
-                        continue
-
-                    if text.startswith("/analyze"):
-                        # DESK_ANALYZE_LOCAL_FASTPATH_V2: local latest.json via desk_analyze (no Telegram media dependency)
-                        import subprocess
-                        script = "/opt/trading/modules/desk_analyze/analyze_latest.py"
-                        r = subprocess.run(["python3", script], capture_output=True, text=True)
-                        report = (r.stdout or "").strip() or (r.stderr or "").strip() or f"[desk_analyze] rc={r.returncode}"
-                        max_len = 3800
-                        for i in range(0, len(report), max_len):
-                            tg_api(c, "sendMessage", {"chat_id": chat_id, "text": report[i:i+max_len], "disable_web_page_preview": True})
                         continue
                 cb = upd.get("callback_query") or {}
                 if cb:

@@ -1,0 +1,10 @@
+# GO_TELEGRAM_USER_EXPERIENCE_CHILD_COMMAND_CENTER_01 — FILE_SCOPE
+
+# Command center module
+modules/telegram_command_center/**
+
+# Integration into existing bot_vision_step2 polling loop
+modules/bot_vision_step2/app/bot_vision_step2.py
+
+# Gouvernance chantier courant
+docs/chantiers/GO_TELEGRAM_USER_EXPERIENCE_CHILD_COMMAND_CENTER_01/**
