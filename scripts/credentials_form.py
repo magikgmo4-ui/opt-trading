@@ -42,9 +42,8 @@ CREDS = [
     {"id": "tv_webhook_key",           "provider": "TradingView", "env_var": "TV_WEBHOOK_KEY",                   "storage": "env",      "file": str(DOTENV_FILE)},
     {"id": "tv_webhook_secret",        "provider": "TradingView", "env_var": "TV_WEBHOOK_SECRET",                "storage": "env",      "file": str(DOTENV_FILE)},
     {"id": "ops_admin_key",            "provider": "Internal",    "env_var": "OPS_ADMIN_KEY",                    "storage": "env",      "file": str(DOTENV_FILE)},
-    # Google
-    {"id": "google_service_account",   "provider": "Google",      "env_var": "GOOGLE_SERVICE_ACCOUNT_JSON_PATH", "storage": "env",      "file": str(DOTENV_FILE)},
-    {"id": "google_sheets_id",         "provider": "Google",      "env_var": "GOOGLE_SHEETS_SPREADSHEET_ID",     "storage": "env",      "file": str(DOTENV_FILE)},
+    # Google — auth via ADC (gcloud auth application-default login), no service account JSON
+    {"id": "google_sheets_sync_id",    "provider": "Google",      "env_var": "GOOGLE_SHEETS_SYNC_SHEET_ID",      "storage": "env",      "file": str(DOTENV_FILE)},
     {"id": "gemini_api_key",           "provider": "Google",      "env_var": "GEMINI_API_KEY",                   "storage": "env",      "file": str(DOTENV_FILE)},
     # GitHub
     {"id": "gh_token",                 "provider": "GitHub",      "env_var": "GH_TOKEN",                         "storage": "env",      "file": str(DOTENV_FILE)},
