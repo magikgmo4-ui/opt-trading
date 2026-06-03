@@ -1,0 +1,94 @@
+---
+# Telegram Channel Routing Map — opt-trading
+# Source canonique : configs/telegram/channel_map.yaml
+# Code de routing  : shared/telegram_channels.py
+#
+# Chaque canal = un groupe Telegram distinct.
+# Si la var d'env d'un canal n'est pas définie → fallback TELEGRAM_CHAT_ID.
+#
+# Pour créer un canal :
+#   1. Créer un groupe Telegram
+#   2. Ajouter le bot (TELEGRAM_BOT_TOKEN)
+#   3. Récupérer le CHAT_ID : /getUpdates ou @userinfobot
+#   4. Ajouter la var dans .env
+#   5. Mettre à jour ce fichier
+
+channels:
+
+  # ── ALERTS ────────────────────────────────────────────────────────────────
+  # WARN/ERROR venant des workers cron et de la santé runtime.
+  # Audience : opérateur seul — jamais de données de marché ici.
+  alerts:
+    env_var: TELEGRAM_CHAT_ID_ALERTS
+    description: "Alertes système — cron WARN, kill switch, dead letter, workers FAIL"
+    callers:
+      - scripts/ai/workers/kill_switch_state_check.py
+      - scripts/ai/workers/scheduler_dead_letter_check.py
+      - scripts/ai/workers/strict_worker_failure_report.py
+      - scripts/ai/workers/approval_expiry_check.py
+      - modules/runtime_health/fleet_orchestrator.py
+      - modules/runtime_health/healthcheck.py
+    examples:
+      - "🚨 kill-switch STOP"
+      - "🔴 3 workers FAIL dans reports/ai/workers/"
+      - "🔴 2 erreurs cron dans les 24h"
+      - "⚠️ 1 approbation expirée >24h"
+
+  # ── PIPELINE ──────────────────────────────────────────────────────────────
+  # Événements du pipeline de trading : signal → proposition → gate → trade.
+  # Audience : opérateur — contient les propositions à approuver.
+  pipeline:
+    env_var: TELEGRAM_CHAT_ID_PIPELINE
+    description: "Pipeline trading — signal, proposition, approbation, résultat"
+    callers:
+      - modules/notification_dispatcher/app/dispatcher.py  # tous event_types
+      - scripts/ai/workers/pending_approvals_digest.py
+      - perf/perf_app.py
+    event_types:
+      - signal_received
+      - proposition_generated
+      - approval_required        # → répondre APPROVE ou REJECT
+      - trade_executed
+      - result_known
+      - pipeline_error
+      - pipeline_info
+    examples:
+      - "📡 Signal reçu BTCUSDT BUY"
+      - "🧠 Proposition générée — entry 65000, SL 63000, TP 70000"
+      - "⏳ Approbation requise → APPROVE / REJECT"
+      - "⏳ 2 approbations en attente"
+
+  # ── PUSH ──────────────────────────────────────────────────────────────────
+  # Contenu externe poussé automatiquement : vision, market data, coinglass.
+  # Audience : flux de données — volume élevé, pas de décision opérateur.
+  push:
+    env_var: TELEGRAM_CHAT_ID_PUSH
+    description: "Push contenu — bot_vision, coinglass, market data, news"
+    callers:
+      - modules/bot_vision_step2/app/bot_vision_step2.py
+      - modules/bot_vision/headless_capture/scripts/run_vision_pipeline.py
+      - modules/vision/coinglass/telegram_sender.py
+    examples:
+      - "📊 Rapport coinglass OI/Funding"
+      - "📰 News sentiment BTC"
+      - "🖼 Vision capture screenshot"
+
+  # ── OPS ───────────────────────────────────────────────────────────────────
+  # Commandes opérateur, tool outputs, résultats d'actions manuelles.
+  # Audience : opérateur — retour d'exécution de commandes.
+  ops:
+    env_var: TELEGRAM_CHAT_ID_OPS
+    description: "Commandes & tools — réponses CLI, actions tmux, sorties OpenClaw"
+    callers:
+      - modules/openclaw_tmux_operator/         # résultats tmux
+      - scripts/schedule/lot1/run_readonly_smoke.sh  # résultat smoke
+    examples:
+      - "✅ strict-worker-smoke status=ok"
+      - "📋 tmux cron-workers:readonly-smoke terminé"
+
+  # ── DEFAULT ───────────────────────────────────────────────────────────────
+  # Fallback pour tout caller non mappé explicitement.
+  default:
+    env_var: TELEGRAM_CHAT_ID
+    description: "Canal par défaut — fallback pour callers non encore migrés"
+    note: "À vider progressivement au fur et à mesure des migrations"

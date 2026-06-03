@@ -1,0 +1,28 @@
+# GO_CRON_TELEGRAM_TMUX_ALERTS_01 — FILE_SCOPE
+# Seuls ces fichiers peuvent être modifiés dans cette PR.
+
+# Telegram routing multi-canal
+configs/telegram/channel_map.yaml
+shared/telegram_channels.py
+modules/notification_dispatcher/app/dispatcher.py
+modules/runtime_health/fleet_orchestrator.py
+modules/vision/coinglass/telegram_sender.py
+
+# Strict workers — alertes canal Telegram
+scripts/ai/workers/approval_expiry_check.py
+scripts/ai/workers/kill_switch_state_check.py
+scripts/ai/workers/pending_approvals_digest.py
+scripts/ai/workers/scheduler_dead_letter_check.py
+scripts/ai/workers/strict_worker_failure_report.py
+
+# Smoke cron
+scripts/schedule/lot1/run_readonly_smoke.sh
+
+# Smoke dry-run fix — restore reports/ai/workers/ avant git diff pour ne pas modifier de fichier tracké
+.github/workflows/strict-workers-smoke.yml
+
+# Rapports AI workers générés automatiquement (output des workers strict)
+reports/ai/**
+
+# Gouvernance chantier
+docs/chantiers/GO_CRON_TELEGRAM_TMUX_ALERTS_01/**

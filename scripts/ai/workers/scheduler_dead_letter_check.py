@@ -1,11 +1,30 @@
-"""Check cron logs for recent failures — dead-letter detection."""
-import json, pathlib, datetime, re
+"""Check cron logs for recent failures — dead-letter detection with Telegram alert."""
+import json, pathlib, datetime, re, sys
 
 LOGS_DIR = pathlib.Path("data/logs/cron")
 REPORT_PATH = pathlib.Path("reports/ai/scheduler_dead_letter_check.json")
 LOOKBACK_HOURS = 24
 FAILURE_PATTERNS = [re.compile(p, re.IGNORECASE) for p in
                     [r'\bERROR\b', r'\bFAIL\b', r'\bTraceback\b', r'\bException\b']]
+
+
+def _notify(failures: list) -> None:
+    try:
+        sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[3]))
+        from modules.env.env import load_env
+        load_env()
+        from shared.telegram_channels import send_to_channel
+        lines = [f"🔴 <b>scheduler-dead-letter WARN</b>"]
+        lines.append(f"{len(failures)} erreur(s) cron dans les {LOOKBACK_HOURS}h :")
+        seen_logs: set = set()
+        for f in failures[:5]:
+            log = f["log"]
+            if log not in seen_logs:
+                lines.append(f"• <code>{log}</code> l.{f['line']}: {f['content'][:60]}")
+                seen_logs.add(log)
+        send_to_channel("alerts", "\n".join(lines), source="scheduler_dead_letter_check")
+    except Exception:
+        pass
 
 
 def scan_logs():
@@ -44,6 +63,8 @@ def main():
     REPORT_PATH.write_text(json.dumps(report, indent=2))
     print(json.dumps({"job_id": report["job_id"], "failures": len(failures),
                       "status": status}, indent=2))
+    if failures:
+        _notify(failures)
 
 if __name__ == "__main__":
     main()

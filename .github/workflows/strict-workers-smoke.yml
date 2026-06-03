@@ -26,6 +26,10 @@ jobs:
         run: |
           bash scripts/ai/workers/run_task.sh \
             scripts/ai/workers/job_packets/GO_STRICT_WORKERS_READONLY_SMOKE_01.json
+      - name: Restore generated prompt artifacts
+        run: |
+          # _PROMPT.txt files are generated render artifacts — restore to keep diff clean
+          git checkout -- reports/ai/workers/ 2>/dev/null || true
       - name: Verify no tracked files modified
         run: |
           if [ -n "$(git diff --name-only)" ]; then

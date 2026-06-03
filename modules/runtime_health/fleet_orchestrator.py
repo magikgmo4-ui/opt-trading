@@ -380,11 +380,6 @@ def maybe_notify_fleet(
     if no_telegram:
         return
 
-    token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-    chat_id = os.environ.get("TELEGRAM_CHAT_ID", "") or os.environ.get("ALLOWED_CHAT_ID", "")
-    if not token or not chat_id:
-        return
-
     changes = _fleet_changes(prev, report)
     if not changes:
         return
@@ -411,7 +406,11 @@ def maybe_notify_fleet(
     if failing:
         lines.append(f"Failing: {', '.join(failing)}")
 
-    _send_telegram(token, chat_id, "\n".join(lines))
+    try:
+        from shared.telegram_channels import send_to_channel
+        send_to_channel("alerts", "\n".join(lines), source="fleet_orchestrator")
+    except Exception:
+        pass
 
 
 # ---------------------------------------------------------------------------

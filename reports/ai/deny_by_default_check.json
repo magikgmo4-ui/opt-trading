@@ -1,6 +1,6 @@
 {
   "job_id": "deny-by-default-check",
-  "checked_at": "2026-06-02T03:56:06.232145Z",
+  "checked_at": "2026-06-02T05:11:01.297614Z",
   "checks": [
     {
       "check": "no_git_write_ops",
