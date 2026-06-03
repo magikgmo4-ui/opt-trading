@@ -16,6 +16,7 @@ machines:
       - market_data_readonly
     eligible_roles:
       - webhook_receiver
+      - llm_local
   - id: student
     roles:
       - llm_local

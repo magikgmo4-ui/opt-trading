@@ -1,0 +1,150 @@
+diff --git a/configs/env/registry/machines.yaml b/configs/env/registry/machines.yaml
+index 0bd2237c..6a83b69f 100644
+--- a/configs/env/registry/machines.yaml
++++ b/configs/env/registry/machines.yaml
+@@ -16,6 +16,7 @@ machines:
+       - market_data_readonly
+     eligible_roles:
+       - webhook_receiver
++      - llm_local
+   - id: student
+     roles:
+       - llm_local
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md
+new file mode 100644
+index 00000000..0d8e996d
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md
+@@ -0,0 +1,19 @@
++# GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01
++
++**GO_STRUCTURAL_ROLE:** GO_CHILD_ATTACHED_TO_PARENT
++**PARENT:** GO_OPT_TRADING_SECURITY_CREDENTIALS_CANONICAL_METHOD_PARENT_01
++**DEPENDS_ON:** GO_OPT_TRADING_SECURITY_CREDENTIALS_REQUIREMENTS_INVENTORY_CHILD_01
++
++## Objectif
++Opérationnaliser le setup LLM Local credentials pour le rôle `llm_local`.
++
++## Portée
++- Définition du scope des configurations Ollama et modèles locaux.
++- Validation des autorisations par rôle et profil machine.
++- Procédure de setup local sécurisé (hors Git).
++- Vérification via les scripts canoniques `validate` et `resolve`.
++
++## Livrables
++- Documentation de setup et de validation.
++- Registres et templates à jour.
++- Patch d'initialisation du rôle.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01/10_LLM_LOCAL_CREDENTIALS_SCOPE.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01/10_LLM_LOCAL_CREDENTIALS_SCOPE.md
+new file mode 100644
+index 00000000..c32be538
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01/10_LLM_LOCAL_CREDENTIALS_SCOPE.md
+@@ -0,0 +1,10 @@
++# LLM Local Credentials Scope
++
++Le rôle `llm_local` concerne l'accès aux serveurs d'inférence IA locaux (ex: Ollama).
++
++| Credential ID | Env Var | Type | Description |
++|---------------|---------|------|-------------|
++| `ollama_base_url` | `OLLAMA_BASE_URL` | `url` | URL de base du serveur Ollama. |
++
++## Variables de Configuration
++- `LOCAL_MODEL_NAME`: Nom du modèle local à utiliser par défaut (ex: `mistral`, `llama3`).
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01/20_ROLE_AND_PROFILE_AUTHORIZATION.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01/20_ROLE_AND_PROFILE_AUTHORIZATION.md
+new file mode 100644
+index 00000000..695ad338
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01/20_ROLE_AND_PROFILE_AUTHORIZATION.md
+@@ -0,0 +1,13 @@
++# Role and Profile Authorization
++
++Le rôle `llm_local` est destiné aux machines effectuant des tâches d'IA sans dépendance aux APIs cloud.
++
++## Statuts d'Autorisation
++
++| Profil Machine | Statut | Action |
++|----------------|--------|--------|
++| `student` | **AUTHORIZED_ACTIVE** | Activé par défaut. |
++| `fantome` | **AUTHORIZED_ACTIVE** | Activé par défaut. |
++| `db-layer` | **ELIGIBLE_DISABLED_BY_DEFAULT** | Éligible pour analyse locale. |
++| `admin-trading` | **FORBIDDEN** | Interdit (utilisation prod cloud privilégiée). |
++| `cursor-ai` | **FORBIDDEN** | Interdit. |
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md
+new file mode 100644
+index 00000000..0fe2c371
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md
+@@ -0,0 +1,25 @@
++# Local Setup Procedure
++
++Cette procédure doit être effectuée manuellement sur chaque machine autorisée.
++
++## 1. Structure des répertoires
++```bash
++sudo install -d -m 700 /etc/opt-trading/env.d/roles
++```
++
++## 2. Configuration du Rôle
++Utiliser `sudoedit` pour créer le fichier d'environnement :
++```bash
++sudoedit /etc/opt-trading/env.d/roles/llm_local.env
++```
++
++Contenu attendu :
++```env
++OLLAMA_BASE_URL=http://localhost:11434
++LOCAL_MODEL_NAME=mistral
++```
++
++## 3. Sécurisation finale
++```bash
++sudo chmod 600 /etc/opt-trading/env.d/roles/llm_local.env
++```
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01/40_VALIDATION_AND_RESOLVER_CHECKS.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01/40_VALIDATION_AND_RESOLVER_CHECKS.md
+new file mode 100644
+index 00000000..4488e024
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01/40_VALIDATION_AND_RESOLVER_CHECKS.md
+@@ -0,0 +1,13 @@
++# Validation and Resolver Checks
++
++## Validation de l'Authorization
++```bash
++# Pour student (Activé)
++python3 scripts/env/validate_credentials.py --machine student --job llm_local_inference
++
++# Pour fantome (Activé)
++python3 scripts/env/validate_credentials.py --machine fantome --job llm_local_inference
++```
++
++## Résolution
++Le resolver chargera l'URL Ollama uniquement sur les machines où le rôle est `AUTHORIZED_ACTIVE`.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01/60_GAPS_AND_NEXT_GO.md b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01/60_GAPS_AND_NEXT_GO.md
+new file mode 100644
+index 00000000..b9b17015
+--- /dev/null
++++ b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01/60_GAPS_AND_NEXT_GO.md
+@@ -0,0 +1,7 @@
++# Gaps and Next GO
++
++## Gaps
++- Vérification de la disponibilité du serveur Ollama au moment de la résolution.
++
++## Prochain GO
++- Close-out global de la migration des credentials vers la méthode canonique.
+diff --git a/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01/FILE_SCOPE.txt b/docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01/FILE_SCOPE.txt
+new file mode 100644
+index 00000000..e69de29b
+diff --git a/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01.md b/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01.md
+new file mode 100644
+index 00000000..a3da1c18
+--- /dev/null
++++ b/docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01.md
+@@ -0,0 +1,6 @@
++# Inbox: GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01
++
++- **Status:** INITIALIZED
++- **Branch:** go/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01
++- **Focus:** Opérationnalisation du rôle `llm_local`.
++- **Link:** [Dossier Chantier](../../chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_LOCAL_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md)
