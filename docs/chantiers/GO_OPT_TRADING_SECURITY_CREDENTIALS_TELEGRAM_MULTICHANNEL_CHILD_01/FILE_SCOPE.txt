@@ -8,9 +8,5 @@ configs/env/registry/roles.yaml
 # Template local setup
 configs/env/roles/telegram_collector.env.example
 
-# Mise à jour docs chantier précédent (scope + procédure locale)
-docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TELEGRAM_COLLECTOR_ROLE_SETUP_CHILD_01/10_TELEGRAM_CREDENTIALS_SCOPE.md
-docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TELEGRAM_COLLECTOR_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md
-
 # Gouvernance chantier courant
 docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TELEGRAM_MULTICHANNEL_CHILD_01/**
