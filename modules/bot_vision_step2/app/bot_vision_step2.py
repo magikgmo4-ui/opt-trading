@@ -339,8 +339,17 @@ def analyze_latest(chat_id_override: Optional[str]=None) -> Dict[str, Any]:
     log("done")
 
     # Optional Telegram notify
-    target = (chat_id_override or c.get("TELEGRAM_CHAT_ID") or "").strip()
+    if chat_id_override:
+        target = chat_id_override.strip()
+    else:
+        target = ""
+        try:
+            from shared.telegram_channels import get_chat_id
+            target = get_chat_id("push")
+        except Exception:
+            target = (c.get("TELEGRAM_CHAT_ID") or "").strip()
     if target:
+        c["TELEGRAM_CHAT_ID"] = target
         try:
             kb = {"inline_keyboard":[
                 [{"text":"Send all (4 charts)", "callback_data": f"sendall:{run_id}"}],
@@ -361,9 +370,14 @@ def analyze_latest(chat_id_override: Optional[str]=None) -> Dict[str, Any]:
 
 def send_latest_to_telegram() -> None:
     c = cfg(); ensure_dirs(c)
-    target = (c.get("TELEGRAM_CHAT_ID") or "").strip()
+    try:
+        from shared.telegram_channels import get_chat_id
+        target = get_chat_id("push")
+    except Exception:
+        target = (c.get("TELEGRAM_CHAT_ID") or "").strip()
     if not target:
         raise RuntimeError("TELEGRAM_CHAT_ID must be set for scheduled sending.")
+    c["TELEGRAM_CHAT_ID"] = target
     src = latest_screenshot(c)
 
     state_path = Path(c["WORKDIR"]) / "sender_state.json"

@@ -80,7 +80,6 @@ OPS_ADMIN_KEY = os.getenv("OPS_ADMIN_KEY", "").strip()
 
 TELEGRAM_ENABLED = os.getenv("TELEGRAM_ENABLED", "0").strip() in ("1", "true", "True", "yes", "YES")
 TELEGRAM_BOT_TOKEN = (os.getenv("TELEGRAM_BOT_TOKEN") or os.getenv("TELEGRAM_TOKEN") or "").strip()
-TELEGRAM_CHAT_ID = (os.getenv("TELEGRAM_CHAT_ID") or os.getenv("TELEGRAM_CHAT") or "").strip()
 
 # Inactivity alert (used by dashboard "stale" logic)
 INACTIVITY_SEC_DEFAULT = int(os.getenv("INACTIVITY_SEC", "3600"))  # 1h
@@ -259,24 +258,13 @@ def set_router_state(active_engine: Optional[str]) -> Dict[str, Any]:
     write_json_file(ROUTER_STATE, st)
     return st
 
-def telegram_send(text: str) -> bool:
+def telegram_send(text: str, channel: str = "pipeline") -> bool:
     if not TELEGRAM_ENABLED:
         return False
-    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
-        return False
-
-    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-    data = urllib.parse.urlencode({
-        "chat_id": TELEGRAM_CHAT_ID,
-        "text": text,
-        "disable_web_page_preview": "true"
-    }).encode("utf-8")
-
     try:
-        req = urllib.request.Request(url, data=data, method="POST")
-        with urllib.request.urlopen(req, timeout=8) as resp:
-            _ = resp.read()
-        return True
+        from shared.telegram_channels import send_to_channel
+        result = send_to_channel(channel, text, source="webhook_server")
+        return bool(result.get("ok"))
     except Exception:
         return False
 

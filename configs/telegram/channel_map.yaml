@@ -20,29 +20,33 @@ channels:
   # Audience : opérateur seul — jamais de données de marché ici.
   alerts:
     env_var: TELEGRAM_CHAT_ID_ALERTS
-    description: "Alertes système — cron WARN, kill switch, dead letter, workers FAIL"
+    description: "Alertes système — cron WARN, kill switch, dead letter, workers FAIL, health"
     callers:
       - scripts/ai/workers/kill_switch_state_check.py
       - scripts/ai/workers/scheduler_dead_letter_check.py
       - scripts/ai/workers/strict_worker_failure_report.py
       - scripts/ai/workers/approval_expiry_check.py
+      - scripts/ai/workers/pending_approvals_digest.py
       - modules/runtime_health/fleet_orchestrator.py
       - modules/runtime_health/healthcheck.py
+      - modules/desk_pro/api/routes.py
+      - modules/health/scripts/health-alert
     examples:
       - "🚨 kill-switch STOP"
       - "🔴 3 workers FAIL dans reports/ai/workers/"
       - "🔴 2 erreurs cron dans les 24h"
       - "⚠️ 1 approbation expirée >24h"
+      - "🟢 Health PASS — all blocks OK"
 
   # ── PIPELINE ──────────────────────────────────────────────────────────────
   # Événements du pipeline de trading : signal → proposition → gate → trade.
   # Audience : opérateur — contient les propositions à approuver.
   pipeline:
     env_var: TELEGRAM_CHAT_ID_PIPELINE
-    description: "Pipeline trading — signal, proposition, approbation, résultat"
+    description: "Pipeline trading — signal, proposition, approbation, résultat, perf monitoring"
     callers:
       - modules/notification_dispatcher/app/dispatcher.py  # tous event_types
-      - scripts/ai/workers/pending_approvals_digest.py
+      - webhook_server.py
       - perf/perf_app.py
     event_types:
       - signal_received
@@ -56,7 +60,7 @@ channels:
       - "📡 Signal reçu BTCUSDT BUY"
       - "🧠 Proposition générée — entry 65000, SL 63000, TP 70000"
       - "⏳ Approbation requise → APPROVE / REJECT"
-      - "⏳ 2 approbations en attente"
+      - "⚠️ PERF: no activity 45m — check webhook"
 
   # ── PUSH ──────────────────────────────────────────────────────────────────
   # Contenu externe poussé automatiquement : vision, market data, coinglass.
@@ -82,9 +86,12 @@ channels:
     callers:
       - modules/openclaw_tmux_operator/         # résultats tmux
       - scripts/schedule/lot1/run_readonly_smoke.sh  # résultat smoke
+      - modules/desk_analyze/scripts/cmd.sh     # /analyze output
+      - shared/telegram_send_cli.py             # CLI wrapper for bash scripts
     examples:
       - "✅ strict-worker-smoke status=ok"
       - "📋 tmux cron-workers:readonly-smoke terminé"
+      - "📊 /analyze report — desk snapshot"
 
   # ── DEFAULT ───────────────────────────────────────────────────────────────
   # Fallback pour tout caller non mappé explicitement.

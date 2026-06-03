@@ -703,25 +703,6 @@ def run_orchestrator(cfg: dict) -> list:
 # ---------------------------------------------------------------------------
 
 
-def send_telegram(token: str, chat_id: str, message: str) -> bool:
-    """Send a Telegram message. Returns True on success."""
-    if _urllib_request is None:
-        return False
-    url = f"https://api.telegram.org/bot{token}/sendMessage"
-    payload = json.dumps({"chat_id": chat_id, "text": message, "parse_mode": "HTML"}).encode()
-    req = _urllib_request.Request(
-        url,
-        data=payload,
-        headers={"Content-Type": "application/json"},
-        method="POST",
-    )
-    try:
-        with _urllib_request.urlopen(req, timeout=10) as resp:
-            return resp.status == 200
-    except Exception:
-        return False
-
-
 def maybe_notify_telegram(
     cfg: dict,
     overall_status: str,
@@ -749,10 +730,7 @@ def maybe_notify_telegram(
         if previous_status == overall_status:
             return
 
-    token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-    chat_id = os.environ.get("ALLOWED_CHAT_ID", "")
-
-    if not token or not chat_id:
+    if not os.environ.get("TELEGRAM_BOT_TOKEN", ""):
         return
 
     # Build message (no secrets in message)
@@ -776,7 +754,11 @@ def maybe_notify_telegram(
         lines.append(f"WARN blocks: {', '.join(warning_blocks)}")
 
     message = "\n".join(lines)
-    send_telegram(token, chat_id, message)
+    try:
+        from shared.telegram_channels import send_to_channel
+        send_to_channel("alerts", message, source="runtime_health")
+    except Exception:
+        pass
 
 
 # ---------------------------------------------------------------------------

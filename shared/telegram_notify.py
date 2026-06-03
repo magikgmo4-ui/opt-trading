@@ -51,9 +51,11 @@ def send_telegram_with_metrics(
     parse_mode: str | None = "HTML",
     disable_web_page_preview: bool = True,
     timeout_s: float = 10.0,
+    token: str | None = None,
+    chat_id: str | None = None,
 ) -> dict[str, Any]:
-    token = os.getenv("TELEGRAM_BOT_TOKEN") or os.getenv("TELEGRAM_TOKEN")
-    chat_id = os.getenv("TELEGRAM_CHAT_ID")
+    token = token or os.getenv("TELEGRAM_BOT_TOKEN") or os.getenv("TELEGRAM_TOKEN")
+    chat_id = chat_id or os.getenv("TELEGRAM_CHAT_ID")
 
     if not token or not chat_id:
         return {

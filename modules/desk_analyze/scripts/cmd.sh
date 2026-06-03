@@ -13,9 +13,7 @@ PY="$BASE/analyze_latest.py"
 : "${STALE_MINUTES:=15}"
 : "${TIMEZONE:=America/Montreal}"
 
-: "${TELEGRAM_API_BASE:=https://api.telegram.org}"
-: "${TELEGRAM_BOT_TOKEN:=}"
-: "${TELEGRAM_CHAT_ID:=}"
+REPO_ROOT="$(cd "$BASE/../.." && pwd)"
 
 usage(){
   cat <<EOF
@@ -52,18 +50,10 @@ preview_json(){
 }
 
 send(){
-  if [[ -z "${TELEGRAM_BOT_TOKEN:-}" || -z "${TELEGRAM_CHAT_ID:-}" ]]; then
-    echo "ERROR: TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID must be set" >&2
-    return 2
-  fi
   TEXT="$(preview)"
-  curl -sS -X POST \
-    "${TELEGRAM_API_BASE}/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
-    --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
-    --data-urlencode "text=${TEXT}" \
-    --data-urlencode "disable_web_page_preview=true" \
-    >/dev/null
-  echo "OK: sent /analyze to chat_id=$TELEGRAM_CHAT_ID"
+  python3 "$REPO_ROOT/shared/telegram_send_cli.py" "ops" "$TEXT" 2>/dev/null && \
+    echo "OK: sent /analyze to ops channel" || \
+    echo "ERROR: failed to send to ops channel" >&2
 }
 
 print_config(){
