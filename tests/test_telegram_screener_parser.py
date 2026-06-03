@@ -203,22 +203,31 @@ class TestCoinglassParser:
             assert result is not None
             expected = sample["expected"]
             assert result["asset"] == expected["asset"]
-            assert result["symbol"] == expected["symbol"]
-            assert result["direction"] == expected["direction"]
-            assert result["entry"] == expected["entry"]
-            assert result["leverage"] == expected["leverage"]
-            assert result["exchange_source"] == expected["exchange_source"]
             assert result["parse_status"] == expected["parse_status"]
             assert result["confidence"] == expected["confidence"]
-            assert result["raw_text_ref"] == expected["raw_text_ref"]
-            assert result["notional_usd"] == expected["notional_usd"]
-            assert result["message_timestamp"] == sample["timestamp"]
-            assert result["tp1"] is None
-            assert result["tp2"] is None
-            assert result["tp3"] is None
-            assert result["stop_loss"] is None
-            assert result["timeframe"] is None
+            assert result["raw_text_ref"] == f"{sample['source_channel']}:{sample['message_id']}"
             assert result["parse_errors"] == []
+            if result["schema"] == "telegram_trade_signal_candidate.v1":
+                assert result["symbol"] == expected["symbol"]
+                assert result["direction"] == expected["direction"]
+                assert result["entry"] == expected["entry"]
+                assert result["leverage"] == expected["leverage"]
+                assert result["exchange_source"] == expected["exchange_source"]
+                assert result["notional_usd"] == expected["notional_usd"]
+                assert result["message_timestamp"] == sample["timestamp"]
+                assert result["tp1"] is None
+                assert result["tp2"] is None
+                assert result["tp3"] is None
+                assert result["stop_loss"] is None
+                assert result["timeframe"] is None
+            else:
+                assert result["transaction_type"] == expected["transaction_type"]
+                assert result["amount_asset"] == expected["amount_asset"]
+                assert result["amount_usd"] == expected["amount_usd"]
+                assert result["from_entity"] == expected["from_entity"]
+                assert result["to_entity"] == expected["to_entity"]
+                assert result["from_identified"] == expected["from_identified"]
+                assert result["to_identified"] == expected["to_identified"]
 
     def test_unknown_coinglass_format_returns_none(self):
         result = parse_coinglass_alert(
@@ -230,6 +239,55 @@ class TestCoinglassParser:
             )
         )
         assert result is None
+
+    def test_coinglass_transfer_format_parses(self):
+        samples = _load_fixture("coinglass_alert_samples.json")
+        transfer_samples = [s for s in samples if "大额转账" in s["raw_text"]]
+        assert len(transfer_samples) > 0
+        for sample in transfer_samples:
+            result = parse_coinglass_alert(
+                RawMessage(
+                    message_id=sample["message_id"],
+                    channel=sample["source_channel"],
+                    raw_text=sample["raw_text"],
+                    timestamp=sample["timestamp"],
+                )
+            )
+            assert result is not None
+            assert result["schema"] == "telegram_transfer_candidate.v1"
+            expected = sample["expected"]
+            assert result["asset"] == expected["asset"]
+            assert result["amount_asset"] == expected["amount_asset"]
+            assert result["amount_usd"] == expected["amount_usd"]
+            assert result["from_entity"] == expected["from_entity"]
+            assert result["to_entity"] == expected["to_entity"]
+            assert result["from_identified"] == expected["from_identified"]
+            assert result["to_identified"] == expected["to_identified"]
+            assert result["transaction_type"] == expected["transaction_type"]
+            assert result["confidence"] == expected["confidence"]
+            assert result["parse_status"] == expected["parse_status"]
+            assert result["parse_errors"] == []
+            assert result["raw_text_ref"] == f"{sample['source_channel']}:{sample['message_id']}"
+
+    def test_coinglass_whale_still_parses_after_transfer_addition(self):
+        samples = _load_fixture("coinglass_alert_samples.json")
+        whale_samples = [s for s in samples if "Hyperliquid巨鲸" in s["raw_text"]]
+        assert len(whale_samples) > 0
+        for sample in whale_samples:
+            result = parse_coinglass_alert(
+                RawMessage(
+                    message_id=sample["message_id"],
+                    channel=sample["source_channel"],
+                    raw_text=sample["raw_text"],
+                    timestamp=sample["timestamp"],
+                )
+            )
+            assert result is not None
+            assert result["schema"] == "telegram_trade_signal_candidate.v1"
+            expected = sample["expected"]
+            assert result["asset"] == expected["asset"]
+            assert result["direction"] == expected["direction"]
+            assert result["entry"] == expected["entry"]
 
 
 # ---------------------------------------------------------------------------

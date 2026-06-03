@@ -11,11 +11,51 @@ _COINGLASS_ALERT_RE = re.compile(
     re.IGNORECASE,
 )
 
+_COINGLASS_TRANSFER_RE = re.compile(
+    r"\*\*大额转账\*\* : \*\*(?P<amount_asset>[\d,]+)\*\* #(?P<asset>[A-Z0-9]+) \(\*\*(?P<amount_usd>[\d,]+)\*\* USD\)\s*(?:\n|\\n) 从 (?P<from_entity>[^ ]+) 钱包 转移到 (?P<to_entity>[^ ]+) 钱包",
+)
+
+
+def _parse_amount(raw: str) -> float:
+    return float(raw.replace(",", ""))
+
+
+def parse_coinglass_transfer(raw: RawMessage) -> dict[str, Any] | None:
+    match = _COINGLASS_TRANSFER_RE.search(raw.raw_text)
+    if not match:
+        return None
+
+    from_entity = match.group("from_entity")
+    to_entity = match.group("to_entity")
+    is_unknown_from = from_entity == "未知"
+    is_unknown_to = to_entity == "未知"
+
+    confidence = "MEDIUM" if (not is_unknown_from and not is_unknown_to) else "LOW"
+    parse_status = "PARSED" if (not is_unknown_from and not is_unknown_to) else "PARTIAL"
+
+    return {
+        "schema": "telegram_transfer_candidate.v1",
+        "source_channel": raw.channel,
+        "message_timestamp": raw.timestamp,
+        "raw_text_ref": f"{raw.channel}:{raw.message_id}",
+        "asset": match.group("asset").upper(),
+        "amount_asset": _parse_amount(match.group("amount_asset")),
+        "amount_usd": _parse_amount(match.group("amount_usd")),
+        "from_entity": from_entity,
+        "to_entity": to_entity,
+        "from_identified": not is_unknown_from,
+        "to_identified": not is_unknown_to,
+        "transaction_type": "TRANSFER",
+        "confidence": confidence,
+        "parse_status": parse_status,
+        "parse_errors": [],
+    }
+
 
 def parse_coinglass_alert(raw: RawMessage) -> dict[str, Any] | None:
     match = _COINGLASS_ALERT_RE.search(raw.raw_text)
     if not match:
-        return None
+        return parse_coinglass_transfer(raw)
 
     side = "LONG" if match.group("side") == "多" else "SHORT"
     return {
