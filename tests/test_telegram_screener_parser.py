@@ -1,10 +1,12 @@
 import json
 from pathlib import Path
 
+from modules.telegram_ingestion.parser.message_schema import RawMessage
 from modules.telegram_screener.parser import (
     parse_trade_setup,
     parse_news_alert,
     parse_alpha_signal,
+    parse_coinglass_alert,
     normalize_signal,
     ScreenerSignal,
     SignalType,
@@ -180,6 +182,54 @@ class TestAlphaParser:
             result = parse_alpha_signal(s["raw"], source_channel=s["source_channel"])
             assert result is not None, f"Failed to parse: {s['raw']}"
             assert result.pair == s["ticker"], f"ticker mismatch for: {s['raw']}"
+
+
+# ---------------------------------------------------------------------------
+# Coinglass parser
+# ---------------------------------------------------------------------------
+
+class TestCoinglassParser:
+    def test_valid_coinglass_alert_samples_parse(self):
+        samples = _load_fixture("coinglass_alert_samples.json")
+        for sample in samples:
+            result = parse_coinglass_alert(
+                RawMessage(
+                    message_id=sample["message_id"],
+                    channel=sample["source_channel"],
+                    raw_text=sample["raw_text"],
+                    timestamp=sample["timestamp"],
+                )
+            )
+            assert result is not None
+            expected = sample["expected"]
+            assert result["asset"] == expected["asset"]
+            assert result["symbol"] == expected["symbol"]
+            assert result["direction"] == expected["direction"]
+            assert result["entry"] == expected["entry"]
+            assert result["leverage"] == expected["leverage"]
+            assert result["exchange_source"] == expected["exchange_source"]
+            assert result["parse_status"] == expected["parse_status"]
+            assert result["confidence"] == expected["confidence"]
+            assert result["raw_text_ref"] == expected["raw_text_ref"]
+            assert result["notional_usd"] == expected["notional_usd"]
+            assert result["message_timestamp"] == sample["timestamp"]
+            assert result["tp1"] is None
+            assert result["tp2"] is None
+            assert result["tp3"] is None
+            assert result["stop_loss"] is None
+            assert result["timeframe"] is None
+            assert result["parse_errors"] == []
+
+    def test_unknown_coinglass_format_returns_none(self):
+        result = parse_coinglass_alert(
+            RawMessage(
+                message_id="1",
+                channel="coinglass_alerts",
+                raw_text="random coinglass text without a parsable whale setup",
+                timestamp="2026-06-03T04:05:40+00:00",
+            )
+        )
+        assert result is None
 
 
 # ---------------------------------------------------------------------------

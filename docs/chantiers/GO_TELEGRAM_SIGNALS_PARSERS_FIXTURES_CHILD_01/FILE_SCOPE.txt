@@ -1,0 +1,5 @@
+docs/chantiers/GO_TELEGRAM_SIGNALS_PARSERS_FIXTURES_CHILD_01/**
+docs/index/inbox/GO_TELEGRAM_SIGNALS_PARSERS_FIXTURES_CHILD_01.md
+modules/telegram_screener/**
+tests/fixtures/telegram_screener/**
+tests/test_telegram_screener_parser.py

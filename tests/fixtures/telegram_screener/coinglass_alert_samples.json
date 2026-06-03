@@ -1,0 +1,92 @@
+[
+  {
+    "message_id": "215026",
+    "source_channel": "coinglass_alerts",
+    "timestamp": "2026-06-03T04:05:40+00:00",
+    "raw_text": "实时监控：Hyperliquid巨鲸**(0x71b1)** 以 **25x** 杠杆做多**BTC**,开仓价格 **$66447.4**,仓位价值**130.0万**美元. \\n点击查看详情:\\n[https://www.coinglass.com/hyperliquid/0x71b1...](https://www.coinglass.com/zh/hyperliquid/0x71b117d68974aa4c5615669ae70e8e13ce7479c8)",
+    "expected": {
+      "asset": "BTC",
+      "symbol": "BTC",
+      "direction": "LONG",
+      "entry": 66447.4,
+      "leverage": 25,
+      "exchange_source": "Hyperliquid",
+      "parse_status": "PARTIAL",
+      "confidence": "MEDIUM",
+      "raw_text_ref": "coinglass_alerts:215026",
+      "notional_usd": 1300000.0
+    }
+  },
+  {
+    "message_id": "215025",
+    "source_channel": "coinglass_alerts",
+    "timestamp": "2026-06-03T04:05:03+00:00",
+    "raw_text": "实时监控：Hyperliquid巨鲸**(0xa9bb)** 以 **40x** 杠杆做多**BTC**,开仓价格 **$66063.5**,仓位价值**104.8万**美元. \\n点击查看详情:\\n[https://www.coinglass.com/hyperliquid/0xa9bb...](https://www.coinglass.com/zh/hyperliquid/0xa9bbc87ba4ab1460ac2e447113172a2643106bcb)",
+    "expected": {
+      "asset": "BTC",
+      "symbol": "BTC",
+      "direction": "LONG",
+      "entry": 66063.5,
+      "leverage": 40,
+      "exchange_source": "Hyperliquid",
+      "parse_status": "PARTIAL",
+      "confidence": "MEDIUM",
+      "raw_text_ref": "coinglass_alerts:215025",
+      "notional_usd": 1048000.0
+    }
+  },
+  {
+    "message_id": "215024",
+    "source_channel": "coinglass_alerts",
+    "timestamp": "2026-06-03T04:04:37+00:00",
+    "raw_text": "实时监控：Hyperliquid巨鲸**(0xa6ee)** 以 **25x** 杠杆做空**ETH**,开仓价格 **$1826.25**,仓位价值**339.7万**美元. \\n点击查看详情:\\n[https://www.coinglass.com/hyperliquid/0xa6ee...](https://www.coinglass.com/zh/hyperliquid/0xa6ee1ed1ae80b8352603654b39f5e7b9bedd5078)",
+    "expected": {
+      "asset": "ETH",
+      "symbol": "ETH",
+      "direction": "SHORT",
+      "entry": 1826.25,
+      "leverage": 25,
+      "exchange_source": "Hyperliquid",
+      "parse_status": "PARTIAL",
+      "confidence": "MEDIUM",
+      "raw_text_ref": "coinglass_alerts:215024",
+      "notional_usd": 3397000.0
+    }
+  },
+  {
+    "message_id": "215023",
+    "source_channel": "coinglass_alerts",
+    "timestamp": "2026-06-03T04:00:30+00:00",
+    "raw_text": "实时监控：Hyperliquid巨鲸**(0x10f1)** 以 **25x** 杠杆做多**ETH**,开仓价格 **$1830.97**,仓位价值**100.0万**美元. \\n点击查看详情:\\n[https://www.coinglass.com/hyperliquid/0x10f1...](https://www.coinglass.com/zh/hyperliquid/0x10f1d87fbb7617df5641d1c2bcb26f143f43202f)",
+    "expected": {
+      "asset": "ETH",
+      "symbol": "ETH",
+      "direction": "LONG",
+      "entry": 1830.97,
+      "leverage": 25,
+      "exchange_source": "Hyperliquid",
+      "parse_status": "PARTIAL",
+      "confidence": "MEDIUM",
+      "raw_text_ref": "coinglass_alerts:215023",
+      "notional_usd": 1000000.0
+    }
+  },
+  {
+    "message_id": "215022",
+    "source_channel": "coinglass_alerts",
+    "timestamp": "2026-06-03T03:58:08+00:00",
+    "raw_text": "实时监控：Hyperliquid巨鲸**(0xa864)** 以 **25x** 杠杆做空**ETH**,开仓价格 **$1828.89**,仓位价值**293.0万**美元. \\n点击查看详情:\\n[https://www.coinglass.com/hyperliquid/0xa864...](https://www.coinglass.com/zh/hyperliquid/0xa864144d507da1f5a90aae0147b8cba6d93a21cb)",
+    "expected": {
+      "asset": "ETH",
+      "symbol": "ETH",
+      "direction": "SHORT",
+      "entry": 1828.89,
+      "leverage": 25,
+      "exchange_source": "Hyperliquid",
+      "parse_status": "PARTIAL",
+      "confidence": "MEDIUM",
+      "raw_text_ref": "coinglass_alerts:215022",
+      "notional_usd": 2930000.0
+    }
+  }
+]
