@@ -3,6 +3,16 @@
 Objectif: permettre à Windows (ShareX) d'envoyer des captures d'écran vers **admin-trading** (headless) via SFTP,
 puis générer une sortie **.md** (et éventuellement JSON) dans un dossier outbox.
 
+## Runtime Status
+
+`vision_bot` is legacy support for ShareX/SFTP OCR-style ingestion.
+It is no longer the canonical production pipeline when `headless_capture`
+and `bot-vision-orchestrator.timer` are available.
+
+Preferred production chain:
+
+`headless_capture -> run_vision_pipeline.py -> bot_vision_step2 -> DeskPro/Data Center/Telegram`
+
 Le module est **fonctionnel sans API**:
 - Engine par défaut: **OCR (tesseract CLI si présent)** → extrait du texte de la capture
 - Sinon fallback: **dummy** (placeholder)

@@ -103,6 +103,107 @@ def _read_latest_summary() -> dict[str, Any] | None:
     return None
 
 
+def _latest_run_dir() -> Path | None:
+    latest_link = REPO_ROOT / "data" / "deskpro" / "vision" / "latest"
+    if latest_link.exists():
+        try:
+            return latest_link.resolve()
+        except Exception:
+            return None
+    fallback_path = REPO_ROOT / "data" / "deskpro" / "vision" / "latest_path.txt"
+    if fallback_path.exists():
+        try:
+            return Path(fallback_path.read_text(encoding="utf-8").strip())
+        except Exception:
+            return None
+    return None
+
+
+def _latest_dashboard_path(summary: dict[str, Any] | None) -> Path | None:
+    run_dir = _latest_run_dir()
+    if run_dir is None or summary is None:
+        return None
+    rel = (((summary.get("files") or {}).get("dashboard")) or "").strip()
+    if not rel:
+        return None
+    path = run_dir / rel
+    return path if path.exists() else None
+
+
+def _fallback_photo_caption(symbol: str, timeframe: str, screen_type: str, reason: str) -> str:
+    return f"{symbol} {timeframe} [{screen_type}]\n{reason}"[:900]
+
+
+def _coinglass_image_path(data: dict[str, Any]) -> Path | None:
+    refs = data.get("refs") or {}
+    image_ref = str(refs.get("image_ref") or "").strip()
+    if not image_ref:
+        return None
+    path = Path(image_ref)
+    if not path.is_absolute():
+        path = REPO_ROOT / path
+    return path if path.exists() else None
+
+
+def _format_compact_number(value: Any) -> str:
+    try:
+        num = float(value)
+    except (TypeError, ValueError):
+        return "n/a"
+    if abs(num) >= 1_000_000_000:
+        return f"{num / 1_000_000_000:.2f}B"
+    if abs(num) >= 1_000_000:
+        return f"{num / 1_000_000:.2f}M"
+    if abs(num) >= 1_000:
+        return f"{num / 1_000:.2f}K"
+    return f"{num:.2f}".rstrip("0").rstrip(".")
+
+
+def _build_coinglass_caption(data: dict[str, Any]) -> str:
+    symbol = str(data.get("symbol") or "UNKNOWN")
+    screen_type = str(data.get("screen_type") or "COINGLASS")
+    detections = data.get("detections") or []
+    lines = [f"{symbol} [{screen_type}]"]
+    for det in detections[:4]:
+        metric = str(det.get("detected_metric_type") or "metric")
+        value = _format_compact_number(det.get("extracted_value"))
+        unit = str(det.get("unit") or "").strip()
+        conf = det.get("confidence")
+        conf_txt = f" conf={float(conf):.2f}" if isinstance(conf, (int, float)) else ""
+        lines.append(f"- {metric}: {value}{unit and ' ' + unit or ''}{conf_txt}")
+    if data.get("warnings"):
+        lines.append(f"Warnings: {len(data.get('warnings') or [])}")
+    return "\n".join(lines)[:900]
+
+
+def _build_screener_caption(data: dict[str, Any]) -> str:
+    screener = str(data.get("screener_symbol") or "SCREENER")
+    avg = data.get("avg_change_pct")
+    lines = [f"{screener} [SCREENER_STOCKS]"]
+    if isinstance(avg, (int, float)):
+        lines.append(f"Avg change: {float(avg):+.2f}%")
+    for stock in (data.get("top_gainers") or [])[:3]:
+        lines.append(f"+ {stock.get('symbol','?')}: {float(stock.get('change_pct', 0)):+.2f}%")
+    for stock in (data.get("top_losers") or [])[:2]:
+        lines.append(f"- {stock.get('symbol','?')}: {float(stock.get('change_pct', 0)):+.2f}%")
+    return "\n".join(lines)[:900]
+
+
+def _build_news_caption(data: dict[str, Any]) -> str:
+    agg = data.get("aggregate") or {}
+    label = str(agg.get("sentiment_label") or "neutral")
+    score = agg.get("average_sentiment_score")
+    lines = [f"NEWS_SENTIMENT [{label}]"]
+    if isinstance(score, (int, float)):
+        lines.append(f"Average score: {float(score):+.3f}")
+    articles = data.get("articles") or []
+    for article in articles[:3]:
+        headline = str(article.get("headline") or "").strip()
+        if headline:
+            lines.append(f"- {headline[:120]}")
+    return "\n".join(lines)[:900]
+
+
 def _load_env_file(path: Path) -> dict[str, str]:
     if not path.exists():
         return {}
@@ -415,6 +516,7 @@ def main() -> int:
 
     # ── Dispatch Coinglass captures to OCR analyzer ──
     coinglass_ok = False
+    coinglass_payload: dict[str, Any] | None = None
     if screen_type in COINGLASS_TYPES and not args.dry_run:
         print(f"\n--- Coinglass OCR analyzer ({screen_type}) ---")
         inbox_sidecar = next(iter(sorted(Path(VISION_INBOX).glob("screen_*.json"), key=os.path.getmtime, reverse=True)), None)
@@ -426,6 +528,7 @@ def main() -> int:
                 cg_result = subprocess.run(cg_cmd, capture_output=True, text=True, timeout=60)
                 if cg_result.returncode == 0 and cg_result.stdout.strip():
                     cg_data = json.loads(cg_result.stdout.strip())
+                    coinglass_payload = cg_data
                     det_count = len(cg_data.get("detections", []))
                     print(f"  Detections: {det_count} (method: {cg_data.get('detection_method', 'N/A')})")
                     # Publish to DeskPro + Data Center
@@ -451,6 +554,7 @@ def main() -> int:
 
     # ── Dispatch Screener captures to screener analyzer ──
     screener_ok = False
+    screener_payload: dict[str, Any] | None = None
     if screen_type in SCREENER_TYPES and not args.dry_run:
         print(f"\n--- Screener analyzer ({symbol}) ---")
         inbox_sidecar = next(iter(sorted(Path(VISION_INBOX).glob("screen_*.json"), key=os.path.getmtime, reverse=True)), None)
@@ -462,6 +566,7 @@ def main() -> int:
                 sa_result = subprocess.run(sa_cmd, capture_output=True, text=True, timeout=60)
                 if sa_result.returncode == 0 and sa_result.stdout.strip():
                     sa_data = json.loads(sa_result.stdout.strip())
+                    screener_payload = sa_data
                     sc = sa_data.get("stock_count", 0)
                     avg_chg = sa_data.get("avg_change_pct", 0)
                     print(f"  Stocks: {sc} (avg change: {avg_chg:+.2f}%, method: {sa_data.get('analysis_method', 'N/A')})")
@@ -488,6 +593,7 @@ def main() -> int:
 
     # ── Dispatch News/Sentiment to news_sentiment_analyzer ──
     news_ok = False
+    news_payload: dict[str, Any] | None = None
     if screen_type in NEWS_SENTIMENT_TYPES and not args.dry_run:
         print(f"\n--- News sentiment analyzer ---")
         ns_cmd = [sys.executable or "python3", str(NEWS_SENTIMENT_ANALYZER)]
@@ -495,6 +601,7 @@ def main() -> int:
             ns_result = subprocess.run(ns_cmd, capture_output=True, text=True, timeout=60)
             if ns_result.returncode == 0 and ns_result.stdout.strip():
                 ns_data = json.loads(ns_result.stdout.strip())
+                news_payload = ns_data
                 ac = ns_data.get("article_count", 0)
                 avg_s = ns_data.get("aggregate", {}).get("average_sentiment_score", 0)
                 print(f"  Articles: {ac} (avg sentiment: {avg_s:+.3f})")
@@ -594,21 +701,38 @@ def main() -> int:
                 should_send = tg_data.get("send", False) and not args.no_telegram
                 reason = tg_data.get("reason", "N/A")
                 print(f"  Decision: {'SEND' if should_send else 'SKIP'} ({reason})")
-                if should_send:
-                    summary_text = tg_data.get("summary", "")
-                    run_id = tg_data.get("run_id", "")
-                    try:
-                        _ensure_telegram_env()
-                        sys.path.insert(0, str(REPO_ROOT))
+                summary_text = tg_data.get("summary", "")
+                run_id = tg_data.get("run_id", "")
+                try:
+                    _ensure_telegram_env()
+                    sys.path.insert(0, str(REPO_ROOT))
+                    tags = {"run_id": run_id, "screen_type": screen_type, "symbol": symbol, "timeframe": timeframe}
+                    send_result = None
+                    if screen_type in {"CHART_TECHNICAL", "ETF_CRYPTO", "DASHBOARD_MACRO"} and not args.no_telegram:
+                        from shared.telegram_channels import send_photo_to_channel  # type: ignore
+                        dashboard_path = _latest_dashboard_path(latest_summary)
+                        if dashboard_path is not None:
+                            caption = summary_text[:900] if should_send and summary_text else _fallback_photo_caption(symbol, timeframe, screen_type, reason)
+                            send_result = send_photo_to_channel(
+                                "push",
+                                str(dashboard_path),
+                                caption=caption,
+                                source="bot_vision",
+                                tags=tags,
+                            )
+                    elif should_send:
                         from shared.telegram_channels import send_to_channel  # type: ignore
                         send_result = send_to_channel(
                             "push",
                             summary_text,
                             source="bot_vision",
-                            tags={"run_id": run_id, "screen_type": screen_type, "symbol": symbol, "timeframe": timeframe},
+                            tags=tags,
                         )
-                        if not send_result.get("ok"):
-                            raise RuntimeError(send_result.get("error") or "Telegram send failed")
+
+                    if send_result is not None and not send_result.get("ok"):
+                        raise RuntimeError(send_result.get("error") or "Telegram send failed")
+
+                    if should_send:
                         tc_cmd = [
                             sys.executable or "python3",
                             str(TELEGRAM_CLAIM_WRITER),
@@ -617,8 +741,8 @@ def main() -> int:
                             "--symbol", symbol,
                             "--timeframe", timeframe,
                         ]
-                        channel_id = send_result.get("telegram_chat_id")
-                        message_id = send_result.get("telegram_message_id")
+                        channel_id = send_result.get("telegram_chat_id") if send_result else None
+                        message_id = send_result.get("telegram_message_id") if send_result else None
                         if channel_id:
                             tc_cmd.extend(["--channel-id", str(channel_id)])
                         if message_id:
@@ -629,12 +753,14 @@ def main() -> int:
                         if tc_result.returncode != 0:
                             print(f"WARN: telegram_claim_writer exit {tc_result.returncode}", file=sys.stderr)
                         print(f"  OK: Telegram sent (run_id={run_id})")
-                    except subprocess.TimeoutExpired:
-                        print("WARN: telegram_claim_writer timed out", file=sys.stderr)
-                    except ImportError:
-                        print("  SKIP: shared/telegram_notify.py not available", file=sys.stderr)
-                    except Exception as e:
-                        print(f"  ERROR: Telegram send failed: {e}", file=sys.stderr)
+                    elif send_result is not None:
+                        print(f"  OK: Telegram screenshot pushed (run_id={run_id})")
+                except subprocess.TimeoutExpired:
+                    print("WARN: telegram_claim_writer timed out", file=sys.stderr)
+                except ImportError:
+                    print("  SKIP: shared/telegram_notify.py not available", file=sys.stderr)
+                except Exception as e:
+                    print(f"  ERROR: Telegram send failed: {e}", file=sys.stderr)
             if tg_result.returncode not in (0, 2):
                 print(f"WARN: telegram_filter exit {tg_result.returncode}", file=sys.stderr)
                 if tg_result.stderr:
@@ -645,6 +771,78 @@ def main() -> int:
             print("WARN: telegram_filter not found, skipping", file=sys.stderr)
         except json.JSONDecodeError:
             print("WARN: telegram_filter returned invalid JSON", file=sys.stderr)
+
+    if coinglass_ok and coinglass_payload is not None and not args.no_telegram:
+        print("\n--- Telegram Coinglass push ---")
+        try:
+            _ensure_telegram_env()
+            sys.path.insert(0, str(REPO_ROOT))
+            from shared.telegram_channels import send_photo_to_channel  # type: ignore
+
+            image_path = _coinglass_image_path(coinglass_payload)
+            if image_path is None:
+                print("WARN: no Coinglass image_ref found for Telegram push", file=sys.stderr)
+            else:
+                result = send_photo_to_channel(
+                    "push",
+                    str(image_path),
+                    caption=_build_coinglass_caption(coinglass_payload),
+                    source="bot_vision_coinglass",
+                    tags={"screen_type": screen_type, "symbol": symbol, "timeframe": timeframe},
+                )
+                if not result.get("ok"):
+                    raise RuntimeError(result.get("error") or "Telegram photo send failed")
+                print(f"  OK: Coinglass screenshot pushed ({symbol})")
+        except Exception as e:
+            print(f"WARN: Coinglass Telegram push failed: {e}", file=sys.stderr)
+
+    if screener_ok and screener_payload is not None and not args.no_telegram:
+        print("\n--- Telegram Screener push ---")
+        try:
+            _ensure_telegram_env()
+            sys.path.insert(0, str(REPO_ROOT))
+            from shared.telegram_channels import send_photo_to_channel  # type: ignore
+
+            image_path = _coinglass_image_path(screener_payload)
+            if image_path is None:
+                print("WARN: no Screener image_ref found for Telegram push", file=sys.stderr)
+            else:
+                result = send_photo_to_channel(
+                    "push",
+                    str(image_path),
+                    caption=_build_screener_caption(screener_payload),
+                    source="bot_vision_screener",
+                    tags={"screen_type": screen_type, "symbol": symbol, "timeframe": timeframe},
+                )
+                if not result.get("ok"):
+                    raise RuntimeError(result.get("error") or "Telegram photo send failed")
+                print(f"  OK: Screener screenshot pushed ({symbol})")
+        except Exception as e:
+            print(f"WARN: Screener Telegram push failed: {e}", file=sys.stderr)
+
+    if news_ok and news_payload is not None and not args.no_telegram:
+        print("\n--- Telegram News push ---")
+        try:
+            _ensure_telegram_env()
+            sys.path.insert(0, str(REPO_ROOT))
+            from shared.telegram_channels import send_photo_to_channel  # type: ignore
+
+            image_path = _coinglass_image_path(news_payload)
+            if image_path is None:
+                print("WARN: no News image_ref found for Telegram push", file=sys.stderr)
+            else:
+                result = send_photo_to_channel(
+                    "push",
+                    str(image_path),
+                    caption=_build_news_caption(news_payload),
+                    source="bot_vision_news",
+                    tags={"screen_type": screen_type, "symbol": symbol, "timeframe": timeframe},
+                )
+                if not result.get("ok"):
+                    raise RuntimeError(result.get("error") or "Telegram photo send failed")
+                print(f"  OK: News screenshot pushed ({symbol})")
+        except Exception as e:
+            print(f"WARN: News Telegram push failed: {e}", file=sys.stderr)
 
     elapsed = time.time() - t0
     print(f"\nPipeline complete in {elapsed:.1f}s")

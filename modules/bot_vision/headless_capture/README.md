@@ -4,6 +4,19 @@ Headless browser capture for bot_vision pipeline.
 Uses Playwright + Chromium to capture trading chart dashboards
 and writes them directly to vision_inbox with atomic writes.
 
+## Canonical Runtime
+
+Current production intent is:
+
+`bot-vision-orchestrator.timer`
+-> `capture_headless.js`
+-> `run_vision_pipeline.py`
+-> per-screen-type analysis/publish
+-> Telegram / DeskPro / Data Center outputs
+
+This is the canonical visual pipeline.
+`vision_bot` is legacy ShareX/OCR support and is not the primary production chain.
+
 ## Dependencies
 
 - Node.js >= 18

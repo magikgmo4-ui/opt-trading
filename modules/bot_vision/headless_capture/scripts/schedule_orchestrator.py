@@ -149,6 +149,9 @@ def _check_market_hours(profile: dict[str, Any], trigger_config: dict[str, Any])
     if cfg_path.exists():
         source = cfg_path.read_text(encoding="utf-8")
         if "BOT_VISION_MARKET_HOURS" in source:
+            prelude = source[:source.index("const VALID_WAIT_UNTIL")]
+            prelude = prelude.replace("#!/usr/bin/env node\n", "", 1)
+            prelude = prelude.replace("const { chromium } = require('playwright');", "")
             env = os.environ.copy()
             env.setdefault("BOT_VISION_MARKET_HOURS", "1")
             result = subprocess.run(
@@ -160,9 +163,9 @@ def _check_market_hours(profile: dict[str, Any], trigger_config: dict[str, Any])
                 """ % (
                     json.dumps({}),
                     json.dumps(symbol),
-                    source[:source.index("const VALID_WAIT_UNTIL")],
+                    prelude,
                 )],
-                capture_output=True, text=True, timeout=10,
+                capture_output=True, text=True, timeout=10, cwd=str(HEADLESS_DIR),
             )
             return "PASS" in result.stdout
     return True
@@ -308,6 +311,8 @@ def main() -> int:
 
         if ret != 0:
             failed += 1
+            if args.dry_run:
+                continue
             consecutive = state.get(key, {}).get("consecutive_failures", 0) + 1
             max_fail = trigger_config.get("global", {}).get("max_consecutive_failures", 3)
             if consecutive >= max_fail:
@@ -317,6 +322,8 @@ def main() -> int:
             state[key] = {"last_run_ts": now_ts, "consecutive_failures": consecutive, "last_status": "failed"}
         else:
             ran += 1
+            if args.dry_run:
+                continue
             state[key] = {"last_run_ts": now_ts, "consecutive_failures": 0, "last_status": "ok"}
 
         # Run analysis pipeline after successful capture (only in non-dry-run non-once mode)

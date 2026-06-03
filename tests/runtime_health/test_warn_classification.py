@@ -44,7 +44,7 @@ BASE_CFG = {
     },
     "artifacts": {
         "optional": [
-            {"path": "/opt/trading/data/desk_pro/vision", "label": "desk_vision_dir", "max_age_minutes": 120},
+            {"path": "/opt/trading/data/deskpro/vision", "label": "desk_vision_dir", "max_age_minutes": 120},
             {"path": "/opt/trading/desk/snapshots", "label": "desk_snapshots_dir", "max_age_minutes": 120},
         ]
     },

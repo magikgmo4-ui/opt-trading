@@ -12,9 +12,14 @@ Notes:
 ## Family status
 - `bot_vision_step2` is not treated as the single final survivor of the family
 - current transitory operational chain is:
-  - `vision_bot` for capture / inbox-outbox
-  - `bot_vision_step2` for Telegram + Vision analysis + Desk Pro artifacts
+  - `headless_capture` / orchestrator for canonical capture and type dispatch
+  - `bot_vision_step2` for Telegram + Vision analysis + Desk Pro artifacts on chart-like screenshots
 - `bot_vision` remains the legacy `step1` skeleton
+
+Current production preference:
+- `bot-vision-orchestrator.timer` drives the main visual pipeline
+- `bot_vision_step2` handles chart/dashboard analysis and Telegram command UX
+- `vision_bot` is legacy ShareX/OCR support, not the primary runtime
 
 ## Unified wrapper
 

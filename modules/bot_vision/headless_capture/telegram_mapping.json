@@ -9,7 +9,8 @@
       "trigger": "validated_signals_above_confidence",
       "cooldown_minutes": 30,
       "summary_source": "telegram_filter",
-      "delivery": "send_telegram"
+      "delivery": "push_summary_text",
+      "telegram_status": "implemented"
     },
     {
       "screen_type": "ETF_CRYPTO",
@@ -17,7 +18,8 @@
       "trigger": "validated_signals_above_confidence",
       "cooldown_minutes": 30,
       "summary_source": "telegram_filter",
-      "delivery": "send_telegram"
+      "delivery": "push_summary_text",
+      "telegram_status": "implemented"
     },
     {
       "screen_type": "DASHBOARD_MACRO",
@@ -25,7 +27,8 @@
       "trigger": "validated_signals_above_confidence",
       "cooldown_minutes": 60,
       "summary_source": "telegram_filter",
-      "delivery": "send_telegram"
+      "delivery": "push_summary_text",
+      "telegram_status": "implemented"
     },
     {
       "screen_type": "LIQUIDITY_COINGLASS",
@@ -33,7 +36,8 @@
       "trigger": "critical_liquidation",
       "cooldown_minutes": 60,
       "summary_source": "coinglass_summary_pending",
-      "delivery": "future_route"
+      "delivery": "not_implemented",
+      "telegram_status": "pending"
     },
     {
       "screen_type": "FUNDING_COINGLASS",
@@ -41,7 +45,8 @@
       "trigger": "critical_funding_pending",
       "cooldown_minutes": 60,
       "summary_source": "coinglass_summary_pending",
-      "delivery": "future_route"
+      "delivery": "not_implemented",
+      "telegram_status": "pending"
     },
     {
       "screen_type": "OI_COINGLASS",
@@ -49,7 +54,8 @@
       "trigger": "critical_oi_pending",
       "cooldown_minutes": 60,
       "summary_source": "coinglass_summary_pending",
-      "delivery": "future_route"
+      "delivery": "not_implemented",
+      "telegram_status": "pending"
     },
     {
       "screen_type": "LS_RATIO_COINGLASS",
@@ -57,7 +63,8 @@
       "trigger": "critical_ratio_pending",
       "cooldown_minutes": 60,
       "summary_source": "coinglass_summary_pending",
-      "delivery": "future_route"
+      "delivery": "not_implemented",
+      "telegram_status": "pending"
     },
     {
       "screen_type": "SCREENER_STOCKS",
@@ -65,7 +72,8 @@
       "trigger": "top_movers_pending",
       "cooldown_minutes": 360,
       "summary_source": "screener_summary_pending",
-      "delivery": "future_route"
+      "delivery": "push_photo_caption",
+      "telegram_status": "implemented"
     },
     {
       "screen_type": "NEWS_SENTIMENT",
@@ -73,7 +81,8 @@
       "trigger": "aggregate_sentiment_pending",
       "cooldown_minutes": 360,
       "summary_source": "news_summary_pending",
-      "delivery": "future_route"
+      "delivery": "push_photo_caption",
+      "telegram_status": "implemented"
     }
   ]
 }
