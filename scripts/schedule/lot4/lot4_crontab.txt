@@ -1,0 +1,11 @@
+# Lot 4 — Telegram production capture
+# GO_TELEGRAM_SIGNALS_CAPTURE_EXPANSION_CHILD_01_CRON_01
+# Installer via : scripts/schedule/lot4/install_lot4_cron.sh
+# Désinstaller  : scripts/schedule/lot4/uninstall_lot4_cron.sh
+#
+SHELL=/bin/bash
+REPO=/home/fantome/opt-trading-clean
+LOGDIR=/home/fantome/opt-trading-clean/data/logs/cron
+
+# --- every 30 min ---
+*/30 * * * * cd $REPO && bash scripts/run_telegram_production.sh >> $LOGDIR/telegram_production.log 2>&1
