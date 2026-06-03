@@ -223,6 +223,8 @@ def analyze(
             "dominant_topics": list({t for a in articles for t in a.get("topics", [])}),
         },
         "refs": {
+            "capture_source": str((sidecar or {}).get("source", "news_sentiment_headless")),
+            "image_ref": str((sidecar or {}).get("png_path") or (sidecar or {}).get("output_png") or ""),
             "sources": sources,
             "feed_urls": {source: FEED_URLS[source] for source in sources if source in FEED_URLS},
             "fetch_mode": fetch_mode,

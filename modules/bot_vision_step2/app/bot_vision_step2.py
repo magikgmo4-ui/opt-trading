@@ -43,7 +43,7 @@ def cfg() -> Dict[str, str]:
         "VISION_INBOX": g("VISION_INBOX", "/srv/sftp/shared_files/shared/vision_inbox"),
         "VISION_PROCESSED": g("VISION_PROCESSED", "/srv/sftp/shared_files/shared/vision_processed"),
         "VISION_OUTBOX": g("VISION_OUTBOX", "/srv/sftp/shared_files/shared/vision_outbox"),
-        "DESKPRO_VISION_DIR": g("DESKPRO_VISION_DIR", "/opt/trading/data/desk_pro/vision"),
+        "DESKPRO_VISION_DIR": g("DESKPRO_VISION_DIR", "/opt/trading/data/deskpro/vision"),
         "WORKDIR": g("WORKDIR", "/opt/trading/_work/bot_vision_step2"),
         "MAX_W": g("MAX_W", "1280"),
         "MAX_H": g("MAX_H", "720"),
@@ -451,13 +451,27 @@ def serve() -> None:
                             if _root not in sys.path:
                                 sys.path.insert(0, _root)
                             from modules.telegram_command_center.app.commands import dispatch
-                            resp, ch = dispatch(text)
+                            resp, ch, action = dispatch(text, chat_id=chat_id)
                             if resp:
                                 if ch and ch != chat_id:
                                     from shared.telegram_channels import send_to_channel
                                     send_to_channel(ch, resp, source=f"cmd:{text.split()[0]}")
                                 else:
                                     tg_send_message(c, chat_id, resp)
+                            if action and action.get("kind") == "send_photo_channel":
+                                try:
+                                    from shared.telegram_channels import get_chat_id
+                                    target_photo_chat = get_chat_id(str(action.get("channel") or "push"))
+                                    if not target_photo_chat:
+                                        raise RuntimeError("target photo channel is not configured")
+                                    tg_send_photo(
+                                        c,
+                                        target_photo_chat,
+                                        Path(str(action["photo_path"])),
+                                        caption=str(action.get("caption") or ""),
+                                    )
+                                except Exception as photo_exc:
+                                    tg_send_message(c, chat_id, f"Snapshot send failed: {photo_exc}")
                         except Exception as exc:
                             print(f"WARN: command dispatch failed: {exc}", flush=True)
                         continue

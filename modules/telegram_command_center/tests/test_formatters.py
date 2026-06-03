@@ -14,12 +14,10 @@ class TestAlert:
         assert "FAIL" in msg
         assert "/health" in msg
 
-    def test_html_tags(self):
+    def test_plain_text(self):
         msg = alert("X", "source", "WARN", "impact", "action")
-        assert "<b>" in msg
-        assert "<code>" in msg
-        assert "</b>" in msg
-        assert "</code>" in msg
+        assert "<b>" not in msg
+        assert "<code>" not in msg
 
 
 class TestDecisionRequired:
@@ -42,10 +40,20 @@ class TestDecisionRequired:
         msg = decision_required("SOLUSDT", "LONG", 140, 135, 150, confidence="HIGH")
         assert "HIGH" in msg
 
-    def test_html_tags(self):
+    def test_plain_text(self):
         msg = decision_required("X", "LONG", 1, 2, 3)
-        assert "<b>" in msg
-        assert "<code>" in msg
+        assert "<b>" not in msg
+        assert "<code>" not in msg
+
+
+class TestNoRawHtml:
+    def test_help_text_has_no_raw_html(self):
+        msg = help_text([("/help", "show help")])
+        assert "<" not in msg
+
+    def test_route_test_has_no_raw_html(self):
+        msg = route_test_result("ops", True, 10)
+        assert "<" not in msg
 
 
 class TestInfo:

@@ -115,6 +115,78 @@ def send_telegram_with_metrics(
     return record
 
 
+def send_telegram_photo_with_metrics(
+    photo_path: str,
+    *,
+    caption: str = "",
+    source: str | None = None,
+    tags: dict[str, Any] | None = None,
+    parse_mode: str | None = None,
+    timeout_s: float = 20.0,
+    token: str | None = None,
+    chat_id: str | None = None,
+) -> dict[str, Any]:
+    token = token or os.getenv("TELEGRAM_BOT_TOKEN") or os.getenv("TELEGRAM_TOKEN")
+    chat_id = chat_id or os.getenv("TELEGRAM_CHAT_ID")
+
+    if not token or not chat_id:
+        return {
+            "ok": False,
+            "error": "Telegram env vars not set",
+            "timestamp": _utc_now_iso(),
+            "source": source or "",
+            "tags": tags or {},
+        }
+
+    url = f"https://api.telegram.org/bot{token}/sendPhoto"
+    data = {
+        "chat_id": chat_id,
+        "caption": caption,
+    }
+    if parse_mode:
+        data["parse_mode"] = parse_mode
+
+    start = perf_counter()
+    status_code = None
+    err = None
+    telegram_chat_id = None
+    telegram_message_id = None
+    try:
+        with open(photo_path, "rb") as photo_file:
+            r = requests.post(url, data=data, files={"photo": photo_file}, timeout=timeout_s)
+        status_code = r.status_code
+        r.raise_for_status()
+        telegram_chat_id, telegram_message_id = _extract_telegram_refs(r)
+        ok = True
+    except (OSError, requests.RequestException) as exc:
+        ok = False
+        err = str(exc)
+
+    duration_ms = int((perf_counter() - start) * 1000)
+    record = {
+        "timestamp": _utc_now_iso(),
+        "source": source or "",
+        "tags": tags or {},
+        "ok": ok,
+        "duration_ms": duration_ms,
+        "status_code": status_code,
+        "timeout_s": timeout_s,
+        "message_len": len(caption),
+        "error": err,
+        "telegram_chat_id": telegram_chat_id,
+        "telegram_message_id": telegram_message_id,
+        "photo_path": photo_path,
+    }
+
+    log_path = os.getenv("TELEGRAM_LATENCY_LOG_PATH")
+    if log_path:
+        _append_jsonl(Path(log_path), record)
+    else:
+        _append_jsonl(_default_log_path(), record)
+
+    return record
+
+
 def send_telegram(message: str, *, source: str | None = None, tags: dict[str, Any] | None = None):
     r = send_telegram_with_metrics(message, source=source, tags=tags, escape=True, parse_mode="HTML")
     if not r.get("ok"):

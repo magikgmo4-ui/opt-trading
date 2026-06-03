@@ -1,7 +1,6 @@
 """Standardized message formatters per Telegram channel.
 
-Each formatter returns a short, actionable HTML message suitable for its channel.
-Follows the formats defined in GO_TELEGRAM_USER_EXPERIENCE_CHILD_COMMAND_CENTER_01.
+Each formatter returns short, actionable plain-text messages suitable for mobile Telegram.
 """
 from __future__ import annotations
 from typing import Any
@@ -9,9 +8,9 @@ from typing import Any
 
 def alert(title: str, source: str, status: str, impact: str, action: str) -> str:
     return (
-        f"🔴 <b>ALERT</b>\n"
-        f"Source: <code>{source}</code>\n"
-        f"Status: <b>{status}</b>\n"
+        f"🔴 ALERT: {title}\n"
+        f"Source: {source}\n"
+        f"Status: {status}\n"
         f"Impact: {impact}\n"
         f"Action: {action}"
     )
@@ -30,24 +29,24 @@ def decision_required(
     if isinstance(tp, list):
         tp_line = " / ".join(str(t) for t in tp)
     lines = [
-        "🟡 <b>DECISION REQUIRED</b>",
-        f"Asset: <code>{asset}</code>",
-        f"Direction: <b>{direction}</b>",
-        f"Entry: <code>{entry}</code>",
-        f"SL: <code>{sl}</code>",
-        f"TP: <code>{tp_line}</code>",
+        "🟡 DECISION REQUIRED",
+        f"Asset: {asset}",
+        f"Direction: {direction}",
+        f"Entry: {entry}",
+        f"SL: {sl}",
+        f"TP: {tp_line}",
     ]
     if confidence:
-        lines.append(f"Confidence: <code>{confidence}</code>")
+        lines.append(f"Confidence: {confidence}")
     if rationale:
         lines.append(f"Rationale: {rationale}")
     lines.append("")
-    lines.append("Action: <b>APPROVE</b> / <b>REJECT</b>")
+    lines.append("Action: APPROVE / REJECT")
     return "\n".join(lines)
 
 
 def info(title: str, details: list[str], action: str = "none") -> str:
-    lines = [f"📊 <b>{title}</b>"]
+    lines = [f"📊 {title}"]
     for d in details:
         lines.append(d)
     lines.append(f"Action: {action}")
@@ -55,9 +54,9 @@ def info(title: str, details: list[str], action: str = "none") -> str:
 
 
 def snapshot(items: list[tuple[str, str]], summary: str = "", action: str = "none") -> str:
-    lines = ["📊 <b>MARKET SNAPSHOT</b>"]
+    lines = ["📊 MARKET SNAPSHOT"]
     for label, value in items:
-        lines.append(f"{label}: <code>{value}</code>")
+        lines.append(f"{label}: {value}")
     if summary:
         lines.append(f"Summary: {summary}")
     lines.append(f"Action: {action}")
@@ -66,9 +65,9 @@ def snapshot(items: list[tuple[str, str]], summary: str = "", action: str = "non
 
 def ops_result(command: str, status: str, details: str = "") -> str:
     lines = [
-        "✅ <b>OPS RESULT</b>",
-        f"Command: <code>{command}</code>",
-        f"Status: <b>{status}</b>",
+        "✅ OPS RESULT",
+        f"Command: {command}",
+        f"Status: {status}",
     ]
     if details:
         lines.append(f"Details: {details}")
@@ -77,31 +76,31 @@ def ops_result(command: str, status: str, details: str = "") -> str:
 
 def error(command: str, reason: str) -> str:
     return (
-        f"⚠️ <b>Command error</b>\n"
-        f"Command: <code>{command}</code>\n"
+        f"⚠️ Command error\n"
+        f"Command: {command}\n"
         f"Reason: {reason}"
     )
 
 
 def routes_summary(channels: dict[str, str]) -> str:
-    lines = ["🗺 <b>Telegram routes</b>"]
+    lines = ["🗺 Telegram routes"]
     for ch, desc in channels.items():
-        lines.append(f"• <code>{ch:10s}</code> → {desc}")
+        lines.append(f"- {ch:10s} -> {desc}")
     return "\n".join(lines)
 
 
 def help_text(commands: list[tuple[str, str]]) -> str:
-    lines = ["<b>Available commands</b>"]
+    lines = ["Available commands"]
     for cmd, desc in commands:
-        lines.append(f"• <code>{cmd:15s}</code> {desc}")
+        lines.append(f"- {cmd:15s} {desc}")
     return "\n".join(lines)
 
 
 def route_test_result(channel: str, ok: bool, duration_ms: float) -> str:
     status_icon = "✅" if ok else "❌"
     return (
-        f"{status_icon} <b>Route test</b>\n"
-        f"Channel: <code>{channel}</code>\n"
-        f"Result: <b>{'OK' if ok else 'FAIL'}</b>\n"
-        f"Duration: <code>{duration_ms:.0f}ms</code>"
+        f"{status_icon} Route test\n"
+        f"Channel: {channel}\n"
+        f"Result: {'OK' if ok else 'FAIL'}\n"
+        f"Duration: {duration_ms:.0f}ms"
     )
