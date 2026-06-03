@@ -92,7 +92,7 @@ DEFAULT_CONFIG = {
                 "path": "/srv/sftp/shared_files/shared/vision_processed",
                 "writable": False,
             },
-            {"path": "/opt/trading/data/desk_pro/vision", "writable": True},
+            {"path": "/opt/trading/data/deskpro/vision", "writable": True},
         ],
         "optional": [
             {"path": "/opt/trading/desk/snapshots", "writable": False},
@@ -101,7 +101,7 @@ DEFAULT_CONFIG = {
     "artifacts": {
         "optional": [
             {
-                "path": "/opt/trading/data/desk_pro/vision",
+                "path": "/opt/trading/data/deskpro/vision",
                 "label": "desk_vision_dir",
                 "max_age_minutes": 120,
             },

@@ -12,6 +12,8 @@ Fallback : si la var d'env du canal n'est pas définie → TELEGRAM_CHAT_ID.
 """
 from __future__ import annotations
 import os
+from functools import lru_cache
+from pathlib import Path
 from typing import Any
 
 # Canal → variable d'environnement
@@ -24,11 +26,42 @@ CHANNEL_ENV: dict[str, str] = {
     "default":  "TELEGRAM_CHAT_ID",
 }
 
+ENV_FILES: tuple[Path, ...] = (
+    Path("/opt/trading/.env"),
+    Path("/opt/trading/modules/bot_vision_step2/config/bot_vision.env"),
+    Path("/opt/trading/configs/env/roles/telegram_collector.env"),
+)
+
+
+def _read_env_file(path: Path) -> dict[str, str]:
+    if not path.exists():
+        return {}
+    values: dict[str, str] = {}
+    for raw_line in path.read_text(encoding="utf-8", errors="replace").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        values[key.strip()] = value.strip()
+    return values
+
+
+@lru_cache(maxsize=1)
+def _file_env() -> dict[str, str]:
+    merged: dict[str, str] = {}
+    for path in ENV_FILES:
+        merged.update(_read_env_file(path))
+    return merged
+
+
+def _getenv(name: str) -> str:
+    return os.getenv(name) or _file_env().get(name, "")
+
 
 def get_chat_id(channel: str = "default") -> str:
     """Return the chat_id for a named channel, falling back to TELEGRAM_CHAT_ID."""
     env_var = CHANNEL_ENV.get(channel, "TELEGRAM_CHAT_ID")
-    return os.getenv(env_var) or os.getenv("TELEGRAM_CHAT_ID", "")
+    return _getenv(env_var) or _getenv("TELEGRAM_CHAT_ID")
 
 
 def send_to_channel(
@@ -45,7 +78,7 @@ def send_to_channel(
     """
     from shared.telegram_notify import send_telegram_with_metrics
 
-    token = os.getenv("TELEGRAM_BOT_TOKEN") or os.getenv("TELEGRAM_TOKEN", "")
+    token = _getenv("TELEGRAM_BOT_TOKEN") or _getenv("TELEGRAM_TOKEN")
     chat_id = get_chat_id(channel)
 
     if not token or not chat_id:
@@ -56,6 +89,32 @@ def send_to_channel(
         token=token,
         chat_id=chat_id,
         parse_mode="HTML",
+        source=source,
+        tags={**(tags or {}), "channel": channel},
+    )
+
+
+def send_photo_to_channel(
+    channel: str,
+    photo_path: str,
+    *,
+    caption: str = "",
+    source: str | None = None,
+    tags: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    from shared.telegram_notify import send_telegram_photo_with_metrics
+
+    token = _getenv("TELEGRAM_BOT_TOKEN") or _getenv("TELEGRAM_TOKEN")
+    chat_id = get_chat_id(channel)
+
+    if not token or not chat_id:
+        return {"ok": False, "error": f"telegram config missing for channel={channel!r}"}
+
+    return send_telegram_photo_with_metrics(
+        photo_path,
+        caption=caption,
+        token=token,
+        chat_id=chat_id,
         source=source,
         tags={**(tags or {}), "channel": channel},
     )

@@ -106,6 +106,30 @@ class TestStateManagement:
         assert result.returncode == 0
         assert "state reset" in result.stdout
 
+    def test_dry_run_does_not_write_state(self, tmp_path, monkeypatch):
+        import importlib.util
+
+        path = SCRIPTS_DIR / "schedule_orchestrator.py"
+        spec = importlib.util.spec_from_file_location("schedule_orchestrator", str(path))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+
+        state_path = tmp_path / "state.json"
+        cooldown_path = tmp_path / "cooldown.json"
+        monkeypatch.setattr(mod, "STATE_PATH", state_path)
+        monkeypatch.setattr(mod, "COOLDOWN_PATH", cooldown_path)
+
+        original_argv = sys.argv[:]
+        try:
+            sys.argv = ["schedule_orchestrator.py", "--dry-run", "--force-all"]
+            rc = mod.main()
+        finally:
+            sys.argv = original_argv
+
+        assert rc == 0
+        assert not state_path.exists()
+        assert not cooldown_path.exists()
+
 
 # ── Profile loading ───────────────────────────────────────
 
@@ -194,3 +218,64 @@ class TestOrchestratorCLI:
                    "--once", "--profile", str(path), "--dry-run"]
             result = subprocess.run(cmd, capture_output=True, text=True, timeout=15)
             assert result.returncode == 0
+
+
+class TestRunVisionPipelineHelpers:
+    def test_build_coinglass_caption(self):
+        import importlib.util
+
+        path = SCRIPTS_DIR / "run_vision_pipeline.py"
+        spec = importlib.util.spec_from_file_location("run_vision_pipeline", str(path))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+
+        payload = {
+            "symbol": "BTCUSDT.P",
+            "screen_type": "LIQUIDITY_COINGLASS",
+            "detections": [
+                {"detected_metric_type": "liquidations_long", "extracted_value": 42500000, "unit": "USD", "confidence": 0.78},
+                {"detected_metric_type": "liquidation_heatmap_level", "extracted_value": 67500, "unit": "USD", "confidence": 0.82},
+            ],
+        }
+
+        caption = mod._build_coinglass_caption(payload)
+        assert "BTCUSDT.P" in caption
+        assert "LIQUIDITY_COINGLASS" in caption
+        assert "liquidations_long" in caption
+        assert "42.50M" in caption
+
+    def test_build_screener_caption(self):
+        import importlib.util
+
+        path = SCRIPTS_DIR / "run_vision_pipeline.py"
+        spec = importlib.util.spec_from_file_location("run_vision_pipeline", str(path))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+
+        payload = {
+            "screener_symbol": "SCREENER_AI",
+            "avg_change_pct": 1.25,
+            "top_gainers": [{"symbol": "NVDA", "change_pct": 2.8}],
+            "top_losers": [{"symbol": "SNOW", "change_pct": -0.4}],
+        }
+        caption = mod._build_screener_caption(payload)
+        assert "SCREENER_AI" in caption
+        assert "NVDA" in caption
+        assert "+2.80%" in caption
+
+    def test_build_news_caption(self):
+        import importlib.util
+
+        path = SCRIPTS_DIR / "run_vision_pipeline.py"
+        spec = importlib.util.spec_from_file_location("run_vision_pipeline", str(path))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+
+        payload = {
+            "aggregate": {"sentiment_label": "positive", "average_sentiment_score": 0.65},
+            "articles": [{"headline": "Bitcoin Holds Above $65K as ETF Inflows Resume"}],
+        }
+        caption = mod._build_news_caption(payload)
+        assert "positive" in caption
+        assert "+0.650" in caption
+        assert "Bitcoin Holds Above" in caption
