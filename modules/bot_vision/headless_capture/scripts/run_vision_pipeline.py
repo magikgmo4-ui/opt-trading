@@ -599,9 +599,10 @@ def main() -> int:
                     run_id = tg_data.get("run_id", "")
                     try:
                         _ensure_telegram_env()
-                        sys.path.insert(0, str(REPO_ROOT / "shared"))
-                        from telegram_notify import send_telegram_with_metrics  # type: ignore
-                        send_result = send_telegram_with_metrics(
+                        sys.path.insert(0, str(REPO_ROOT))
+                        from shared.telegram_channels import send_to_channel  # type: ignore
+                        send_result = send_to_channel(
+                            "push",
                             summary_text,
                             source="bot_vision",
                             tags={"run_id": run_id, "screen_type": screen_type, "symbol": symbol, "timeframe": timeframe},

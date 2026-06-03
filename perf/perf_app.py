@@ -23,7 +23,6 @@ OBS_EVENTS_PATH = os.getenv("OBS_EVENTS_PATH", os.path.join(PROJECT_ROOT, "state
 
 # ---- Telegram (optional) ----
 TELEGRAM_TOKEN = (os.getenv("TELEGRAM_BOT_TOKEN") or os.getenv("TELEGRAM_TOKEN", "")).strip()
-TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
 NO_ACTIVITY_MIN = int(os.getenv("PERF_NO_ACTIVITY_MIN", "30"))
 DD_ALERT_PCT = float(os.getenv("PERF_DD_ALERT_PCT", "5.0"))  # % global
 ENGINE_DD_ALERT_PCT = float(os.getenv("PERF_ENGINE_DD_ALERT_PCT", "7.0"))  # % engine
@@ -342,14 +341,14 @@ def kpis() -> Dict[str, Any]:
     }
 
 # ---------------- Telegram sender ----------------
-def telegram_send(text: str):
-    if not (TELEGRAM_TOKEN and TELEGRAM_CHAT_ID):
+def telegram_send(text: str, channel: str = "pipeline"):
+    if not TELEGRAM_TOKEN:
         return
-    import urllib.request, urllib.parse
-    url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
-    data = urllib.parse.urlencode({"chat_id": TELEGRAM_CHAT_ID, "text": text}).encode()
     try:
-        urllib.request.urlopen(url, data=data, timeout=10).read()
+        from modules.env.env import load_env
+        load_env()
+        from shared.telegram_channels import send_to_channel
+        send_to_channel(channel, text, source="perf_app")
     except Exception:
         pass
 

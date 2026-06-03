@@ -141,19 +141,13 @@ def _read_alerts(limit: int = 10) -> list:
     except Exception:
         return []
 
-def _telegram_send(text: str) -> dict:
-    token = _env_str("TELEGRAM_BOT_TOKEN")
-    chat_id = _env_str("TELEGRAM_CHAT_ID")
-    if not token or not chat_id:
-        return {"sent": False, "reason": "not configured"}
+def _telegram_send(text: str, channel: str = "alerts") -> dict:
     try:
-        url = f"https://api.telegram.org/bot{token}/sendMessage"
-        payload = json.dumps({"chat_id": chat_id, "text": text, "parse_mode": "HTML"}).encode()
-        req = urllib.request.Request(url, data=payload, method="POST")
-        req.add_header("Content-Type", "application/json")
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            body = json.loads(resp.read())
-            return {"sent": body.get("ok", False), "reason": "telegram"}
+        from modules.env.env import load_env
+        load_env()
+        from shared.telegram_channels import send_to_channel
+        result = send_to_channel(channel, text, source="desk_pro")
+        return {"sent": result.get("ok", False), "reason": "telegram"}
     except Exception as e:
         return {"sent": False, "reason": str(e)}
 
