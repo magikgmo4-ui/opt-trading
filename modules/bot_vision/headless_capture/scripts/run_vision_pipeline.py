@@ -130,6 +130,23 @@ def _latest_dashboard_path(summary: dict[str, Any] | None) -> Path | None:
     return path if path.exists() else None
 
 
+def _metadata_path_for_meta(meta: dict[str, Any], inbox: Path) -> Path | None:
+    output_json = str(meta.get("output_json") or "").strip()
+    if output_json:
+        path = inbox / output_json
+        if path.exists():
+            return path
+    png_path = str(meta.get("png_path") or "").strip()
+    if png_path:
+        path = Path(png_path)
+        if not path.is_absolute():
+            path = inbox / path
+        candidate = path.with_suffix(".json")
+        if candidate.exists():
+            return candidate
+    return None
+
+
 def _fallback_photo_caption(symbol: str, timeframe: str, screen_type: str, reason: str) -> str:
     return f"{symbol} {timeframe} [{screen_type}]\n{reason}"[:900]
 
@@ -645,7 +662,7 @@ def main() -> int:
         print("\n--- Publishing vision_analysis.v1 ---")
         va_cmd = [sys.executable or "python3", str(VISION_ANALYSIS_WRITER)]
         if meta:
-            inbox_file = next(iter(Path(VISION_INBOX).glob("screen_*.json")), None)
+            inbox_file = _metadata_path_for_meta(meta, Path(VISION_INBOX))
             if inbox_file:
                 va_cmd.extend(["--metadata", str(inbox_file)])
         try:

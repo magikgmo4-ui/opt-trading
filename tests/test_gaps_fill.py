@@ -59,7 +59,7 @@ class TestSupplementaryProfiles:
     def test_contains_brent(self):
         data = json.loads(self.PROFILE_FILE.read_text(encoding="utf-8"))
         symbols = {p.get("symbol") for p in data}
-        assert "BZUSDT" in symbols
+        assert "BITGET:BZUSDT" in symbols
 
     def test_required_fields_per_entry(self):
         data = json.loads(self.PROFILE_FILE.read_text(encoding="utf-8"))
@@ -107,6 +107,7 @@ class TestMarketHoursImplementation:
         source = self.JS_PATH.read_text(encoding="utf-8")
         assert "USDT" in source
         assert "BZUSDT" in source
+        assert "BITGET:BZUSDT" in source
 
     def test_skipped_outside_hours(self):
         source = self.JS_PATH.read_text(encoding="utf-8")
@@ -132,8 +133,8 @@ class TestTelegramIntegration:
 
     def test_telegram_send_call(self):
         source = self.SCRIPT_PATH.read_text(encoding="utf-8")
-        assert "send_telegram" in source
-        assert "telegram_notify" in source
+        assert "send_to_channel" in source or "send_photo_to_channel" in source
+        assert "shared.telegram_channels" in source
 
     def test_telegram_decision_based_on_filter(self):
         source = self.SCRIPT_PATH.read_text(encoding="utf-8")
@@ -177,7 +178,7 @@ class TestCaptureMapUpdated:
         path = PROFILES_DIR / "capture_map.json"
         data = json.loads(path.read_text(encoding="utf-8"))
         symbols = {a["symbol"] for a in data["assets"]}
-        required = {"TOTAL", "TOTAL2", "TOTAL3", "BTC.D", "NASDAQ:FBTC", "GBTC", "BITB", "ARKB", "BZUSDT", "NYMEX:RB1!"}
+        required = {"TOTAL", "TOTAL2", "TOTAL3", "BTC.D", "NASDAQ:FBTC", "GBTC", "BITB", "ARKB", "BITGET:BZUSDT", "NYMEX:RB1!"}
         missing = required - symbols
         assert not missing, f"Missing assets in capture_map: {missing}"
 
@@ -207,6 +208,8 @@ class TestRemainingScreeners:
                 assert entry.get("source") == "tradingview_screener"
                 assert "url" in entry
                 assert entry.get("page_id", "").startswith("tv_screener_")
+                assert entry.get("quality_retry_enabled") is True
+                assert entry.get("quality_retry_extra_wait_ms", 0) >= 20000
 
     def test_no_duplicate_screener_page_ids(self):
         data = json.loads(self.PROFILE_FILE.read_text(encoding="utf-8"))
@@ -239,6 +242,15 @@ class TestDataCenterRegistry:
                 assert p["contract_class"] == "vision_analysis.v1"
             if p["producer_id"] == "bot_vision_headless__coinglass":
                 assert p["contract_class"] == "vision_context.coinglass.v1"
+
+
+class TestQualityStrategy:
+    DC_REGISTRY_DIR = Path(__file__).resolve().parent.parent / "modules" / "data_center" / "registry"
+
+    def test_capture_map_declares_improve_before_reject(self):
+        path = PROFILES_DIR / "capture_map.json"
+        data = json.loads(path.read_text(encoding="utf-8"))
+        assert data["quality_strategy"]["principle"] == "improve_before_reject"
 
     def test_producer_family_vision(self):
         data = json.loads((self.DC_REGISTRY_DIR / "producers.json").read_text(encoding="utf-8"))

@@ -89,6 +89,12 @@ def _load_all_profiles() -> list[dict[str, Any]]:
                     profiles.extend(data)
             except (json.JSONDecodeError, FileNotFoundError):
                 pass
+    profiles.sort(
+        key=lambda profile: (
+            -int(profile.get("capture_priority", 0) or 0),
+            str(profile.get("page_id", profile.get("symbol", "unknown"))),
+        )
+    )
     return profiles
 
 

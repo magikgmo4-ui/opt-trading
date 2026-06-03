@@ -127,7 +127,7 @@
       ]
     },
     {
-      "symbol": "BZUSDT",
+      "symbol": "BITGET:BZUSDT",
       "category": "commodity",
       "screens": [
         { "screen_type": "CHART_TECHNICAL", "timeframes": ["1h","4h","1d"], "priority": 3 }
@@ -232,5 +232,13 @@
       "frequency": "every_6h",
       "sources": ["coindesk", "cointelegraph", "theblock"]
     }
-  ]
+  ],
+  "quality_strategy": {
+    "principle": "improve_before_reject",
+    "notes": [
+      "retry weak screenshots with extra wait before marking invalid_visual",
+      "prefer layout-aware analysis prompts over hard filtering",
+      "keep low-signal screenshots visible in telegram push with concise captions"
+    ]
+  }
 }

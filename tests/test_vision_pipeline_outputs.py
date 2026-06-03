@@ -235,6 +235,9 @@ class TestScreenTypesRegistry:
             assert "source" in st
             assert "layout" in st
             assert st["layout"] in ("single", "quad")
+            assert "input_family" in st
+            assert st["input_family"] in ("single_chart", "dashboard_quad", "coinglass_panel", "screener_table", "news_feed")
+            assert "analyze_template" in st
 
 
 # ── Trigger Config ────────────────────────────────────────

@@ -147,6 +147,18 @@ class TestProfileLoading:
         symbols = {p.get("symbol") for p in profiles if p.get("symbol")}
         assert "BTCUSDT.P" in symbols
 
+    def test_profiles_sorted_by_capture_priority(self):
+        import importlib.util
+        sys.path.insert(0, str(SCRIPTS_DIR))
+        try:
+            from schedule_orchestrator import _load_all_profiles
+        finally:
+            sys.path.pop(0)
+
+        profiles = _load_all_profiles()
+        priorities = [int(p.get("capture_priority", 0) or 0) for p in profiles[:10]]
+        assert priorities == sorted(priorities, reverse=True)
+
 
 # ── Runner script ─────────────────────────────────────────
 
@@ -279,3 +291,44 @@ class TestRunVisionPipelineHelpers:
         assert "positive" in caption
         assert "+0.650" in caption
         assert "Bitcoin Holds Above" in caption
+
+    def test_metadata_path_for_meta_prefers_output_json(self, tmp_path):
+        import importlib.util
+
+        path = SCRIPTS_DIR / "run_vision_pipeline.py"
+        spec = importlib.util.spec_from_file_location("run_vision_pipeline", str(path))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+
+        inbox = tmp_path / "vision_inbox"
+        inbox.mkdir()
+        sidecar = inbox / "screen_demo.json"
+        sidecar.write_text("{}", encoding="utf-8")
+
+        result = mod._metadata_path_for_meta({"output_json": "screen_demo.json"}, inbox)
+        assert result == sidecar
+
+
+class TestBotVisionStep2Prompting:
+    def test_single_layout_prompt(self):
+        import importlib.util
+        path = Path(__file__).resolve().parent.parent / "modules" / "bot_vision_step2" / "app" / "bot_vision_step2.py"
+        spec = importlib.util.spec_from_file_location("bot_vision_step2", str(path))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+
+        prompt = mod.build_openai_prompt({"layout": "single", "symbol": "BTCUSDT.P", "timeframe": "15m"}, 1)
+        assert "graphique unique" in prompt
+        assert "slot='single'" in prompt
+        assert "BTCUSDT.P" in prompt
+
+    def test_quad_layout_prompt(self):
+        import importlib.util
+        path = Path(__file__).resolve().parent.parent / "modules" / "bot_vision_step2" / "app" / "bot_vision_step2.py"
+        spec = importlib.util.spec_from_file_location("bot_vision_step2", str(path))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+
+        prompt = mod.build_openai_prompt({"layout": "quad", "screen_type": "DASHBOARD_MACRO"}, 4)
+        assert "dashboard avec 4 graphiques" in prompt
+        assert "Chart 1" in prompt
