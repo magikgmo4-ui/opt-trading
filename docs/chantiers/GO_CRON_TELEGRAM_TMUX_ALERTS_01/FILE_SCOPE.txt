@@ -21,5 +21,8 @@ scripts/schedule/lot1/run_readonly_smoke.sh
 # Smoke dry-run fix — prompt écrit dans /tmp/ pour ne pas modifier de fichier tracké
 scripts/ai/workers/run_task.sh
 
+# Rapports AI workers générés automatiquement (output des workers strict)
+reports/ai/**
+
 # Gouvernance chantier
 docs/chantiers/GO_CRON_TELEGRAM_TMUX_ALERTS_01/**
