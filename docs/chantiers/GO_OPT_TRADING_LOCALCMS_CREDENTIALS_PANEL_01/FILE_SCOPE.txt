@@ -1,0 +1,3 @@
+docs/chantiers/GO_OPT_TRADING_LOCALCMS_CREDENTIALS_PANEL_01/**
+modules/localcms/app/main.py
+scripts/credentials_form.py
