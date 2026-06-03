@@ -64,6 +64,9 @@ _MAGNITUDE_RE = re.compile(r"\$[0-9.,]+\s*(?:BILLION|MILLION|B|M)?|[0-9.,]+\s*BT
 
 
 def parse_message(raw: RawMessage) -> dict[str, Any]:
+    if not raw.raw_text or not raw.raw_text.strip():
+        return _parsed_payload(raw, "NOISE", "skipped", 0.0, None)
+
     trade = parse_trade_setup(raw.raw_text, source_channel=raw.channel, timestamp=raw.timestamp)
     if trade is not None:
         normalized = {
@@ -158,7 +161,7 @@ def summarize_channel(messages: list[dict[str, Any]], channel_alias: str) -> dic
         "claims_count": claims_count,
         "needs_review_count": needs_review_count,
         "unknown_raw_count": unknown_raw_count,
-        "noise_count": 0,
+        "noise_count": sum(1 for item in messages if item["message_type"] == "NOISE"),
         "dominant_message_types": [name for name, _ in counter.most_common(3)],
         "avg_parser_score": round(sum(scores) / len(scores), 4) if scores else 0.0,
         "supported_formats": sorted(counter.keys()),
