@@ -88,5 +88,23 @@
       "raw_text_ref": "coinglass_alerts:215022",
       "notional_usd": 2930000.0
     }
+  },
+  {
+    "message_id": "215043",
+    "source_channel": "coinglass_alerts",
+    "timestamp": "2026-06-03T05:04:58+00:00",
+    "raw_text": "**大额转账** : **6,368** #WBTC (**422,638,351** USD) \\n 从 未知 钱包 转移到 未知 钱包 \\n点击查看详情:\\n[https://etherscan.io/tx/0x3305...](https://etherscan.io/tx/0x3305688892296996faefdea805018cf8a2b44f47e7c1961c8fdebb1fc39dbed0)",
+    "expected": {
+      "asset": "WBTC",
+      "amount_asset": 6368.0,
+      "amount_usd": 422638351.0,
+      "from_entity": "未知",
+      "to_entity": "未知",
+      "from_identified": false,
+      "to_identified": false,
+      "transaction_type": "TRANSFER",
+      "confidence": "LOW",
+      "parse_status": "PARTIAL"
+    }
   }
 ]

@@ -25,7 +25,9 @@ def _load_fixture(name: str) -> list[dict]:
 class TestCoinglassDictToCandidate:
     def test_valid_coinglass_dict(self):
         samples = _load_fixture("coinglass_alert_samples.json")
-        for sample in samples:
+        whale_samples = [s for s in samples if "Hyperliquid巨鲸" in s["raw_text"]]
+        assert len(whale_samples) > 0
+        for sample in whale_samples:
             exp = sample["expected"]
             raw_dict = {**exp, "source_channel": sample["source_channel"]}
             cand = coinglass_dict_to_candidate(raw_dict)
@@ -240,7 +242,9 @@ class TestCandidateToScreenerSignal:
 class TestNormalizeCoinglassDict:
     def test_integration(self):
         samples = _load_fixture("coinglass_alert_samples.json")
-        for sample in samples:
+        whale_samples = [s for s in samples if "Hyperliquid巨鲸" in s["raw_text"]]
+        assert len(whale_samples) > 0
+        for sample in whale_samples:
             exp = sample["expected"]
             raw_dict = {**exp, "source_channel": sample["source_channel"]}
             signal = normalize_coinglass_dict(raw_dict)
