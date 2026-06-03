@@ -1,0 +1,24 @@
+# GO_TELEGRAM_ROUTING_AUDIT_CHILD_CHAT_SPLIT_ENFORCEMENT_01 — FILE_SCOPE
+
+# Routing config
+configs/telegram/channel_map.yaml
+
+# Shared routing modules
+shared/telegram_channels.py
+shared/telegram_notify.py
+shared/telegram_send_cli.py
+
+# Python callers migrés
+webhook_server.py
+perf/perf_app.py
+modules/desk_pro/api/routes.py
+modules/bot_vision_step2/app/bot_vision_step2.py
+modules/bot_vision/headless_capture/scripts/run_vision_pipeline.py
+modules/runtime_health/healthcheck.py
+
+# Bash callers migrés
+modules/health/scripts/health-alert
+modules/desk_analyze/scripts/cmd.sh
+
+# Gouvernance chantier courant
+docs/chantiers/GO_TELEGRAM_ROUTING_AUDIT_CHILD_CHAT_SPLIT_ENFORCEMENT_01/**
