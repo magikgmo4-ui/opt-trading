@@ -1,6 +1,6 @@
 {
   "job_id": "scheduler-dead-letter-check",
-  "checked_at": "2026-06-03T05:47:02.040435Z",
+  "checked_at": "2026-06-03T06:47:01.490708Z",
   "lookback_hours": 24,
   "failures_found": 20,
   "failures": [
@@ -75,6 +75,11 @@
       "content": "    \"FAIL\": 127,"
     },
     {
+      "log": "ledger_blocked.log",
+      "line": 607,
+      "content": "    \"FAIL\": 127,"
+    },
+    {
       "log": "readonly_smoke.log",
       "line": 2,
       "content": "status=ok content=DRY_RUN_PASS error=None"
@@ -97,11 +102,6 @@
     {
       "log": "repo_pr_audit.log",
       "line": 8,
-      "content": "error connecting to api.github.com"
-    },
-    {
-      "log": "repo_pr_audit.log",
-      "line": 10,
       "content": "error connecting to api.github.com"
     }
   ],
