@@ -27,6 +27,9 @@ bash scripts/run_telegram_collector.sh --channel coinglass_alerts --limit 20 run
 echo ""
 echo "--- whale_alert_io limit=20 ---"
 bash scripts/run_telegram_collector.sh --channel whale_alert_io --limit 20 run 2>&1
+echo ""
+echo "--- cryptoquant_official limit=20 ---"
+bash scripts/run_telegram_collector.sh --channel cryptoquant_official --limit 20 run 2>&1
 '
 
 echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] Telegram production capture end"
