@@ -4,6 +4,7 @@ from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pathlib import Path
 import json
+import re
 import subprocess
 import sys
 from datetime import date, datetime, timezone
@@ -108,6 +109,273 @@ def _build_tmux_report() -> dict:
         "non_critical_down": sorted(non_critical_down),
         "sessions": sessions_detail,
     }
+
+
+# ── Credentials panel ────────────────────────────────────────────────
+
+_DOTENV_FILE = PROJECT_ROOT / ".env"
+_ROLES_DIR = Path("/etc/opt-trading/env.d/roles")
+_OPENCLAW_JSON = Path.home() / ".openclaw" / "openclaw.json"
+_SSHFS_ENV = Path("/etc/opt-trading/shared_sshfs_permanent.env")
+
+_CREDS: list[dict] = [
+    # Telegram
+    {"id": "telegram_api_id",          "provider": "Telegram",    "env_var": "TELEGRAM_API_ID",                  "storage": "env",      "file": str(_DOTENV_FILE)},
+    {"id": "telegram_api_hash",        "provider": "Telegram",    "env_var": "TELEGRAM_API_HASH",                "storage": "env",      "file": str(_DOTENV_FILE)},
+    {"id": "telegram_bot_token_main",  "provider": "Telegram",    "env_var": "TELEGRAM_BOT_TOKEN",               "storage": "env",      "file": str(_DOTENV_FILE)},
+    {"id": "telegram_session_path",    "provider": "Telegram",    "env_var": "TELEGRAM_SESSION_PATH",            "storage": "env",      "file": str(_DOTENV_FILE)},
+    {"id": "telegram_alert_chat_id",   "provider": "Telegram",    "env_var": "TELEGRAM_ALERT_CHAT_ID",           "storage": "env",      "file": str(_DOTENV_FILE)},
+    {"id": "telegram_channels_config", "provider": "Telegram",    "env_var": "TELEGRAM_CHANNELS_CONFIG",         "storage": "env",      "file": str(_DOTENV_FILE)},
+    {"id": "telegram_chat_id_alerts",  "provider": "Telegram",    "env_var": "TELEGRAM_CHAT_ID_ALERTS",          "storage": "role",     "file": str(_ROLES_DIR / "telegram_collector.env"),  "role": "telegram_collector"},
+    {"id": "telegram_chat_id_pipeline","provider": "Telegram",    "env_var": "TELEGRAM_CHAT_ID_PIPELINE",        "storage": "role",     "file": str(_ROLES_DIR / "telegram_collector.env"),  "role": "telegram_collector"},
+    {"id": "telegram_chat_id_push",    "provider": "Telegram",    "env_var": "TELEGRAM_CHAT_ID_PUSH",            "storage": "role",     "file": str(_ROLES_DIR / "telegram_collector.env"),  "role": "telegram_collector"},
+    {"id": "telegram_chat_id_ops",     "provider": "Telegram",    "env_var": "TELEGRAM_CHAT_ID_OPS",             "storage": "role",     "file": str(_ROLES_DIR / "telegram_collector.env"),  "role": "telegram_collector"},
+    # TradingView / Internal
+    {"id": "tv_webhook_key",           "provider": "TradingView", "env_var": "TV_WEBHOOK_KEY",                   "storage": "env",      "file": str(_DOTENV_FILE)},
+    {"id": "tv_webhook_secret",        "provider": "TradingView", "env_var": "TV_WEBHOOK_SECRET",                "storage": "env",      "file": str(_DOTENV_FILE)},
+    {"id": "ops_admin_key",            "provider": "Internal",    "env_var": "OPS_ADMIN_KEY",                    "storage": "env",      "file": str(_DOTENV_FILE)},
+    # Google
+    {"id": "google_service_account",   "provider": "Google",      "env_var": "GOOGLE_SERVICE_ACCOUNT_JSON_PATH", "storage": "env",      "file": str(_DOTENV_FILE)},
+    {"id": "google_sheets_id",         "provider": "Google",      "env_var": "GOOGLE_SHEETS_SPREADSHEET_ID",     "storage": "env",      "file": str(_DOTENV_FILE)},
+    {"id": "gemini_api_key",           "provider": "Google",      "env_var": "GEMINI_API_KEY",                   "storage": "env",      "file": str(_DOTENV_FILE)},
+    # GitHub
+    {"id": "gh_token",                 "provider": "GitHub",      "env_var": "GH_TOKEN",                         "storage": "env",      "file": str(_DOTENV_FILE)},
+    # Binance
+    {"id": "binance_api_key",          "provider": "Binance",     "env_var": "BINANCE_API_KEY",                  "storage": "env",      "file": str(_DOTENV_FILE)},
+    # Coinglass
+    {"id": "coinglass_api_key",        "provider": "Coinglass",   "env_var": "COINGLASS_API_KEY",                "storage": "env",      "file": str(_DOTENV_FILE)},
+    # LLM local
+    {"id": "ollama_base_url",          "provider": "Ollama",      "env_var": "OLLAMA_BASE_URL",                  "storage": "env",      "file": str(_DOTENV_FILE)},
+    # LLM cloud (via openclaw)
+    {"id": "openai_api_key",           "provider": "OpenAI",      "env_var": "OPENAI_API_KEY",                   "storage": "openclaw", "file": str(_OPENCLAW_JSON)},
+    {"id": "anthropic_api_key",        "provider": "Anthropic",   "env_var": "ANTHROPIC_API_KEY",                "storage": "openclaw", "file": str(_OPENCLAW_JSON)},
+    # Database
+    {"id": "db_host",                  "provider": "Database",    "env_var": "DB_HOST",                          "storage": "env",      "file": str(_DOTENV_FILE)},
+    {"id": "db_user",                  "provider": "Database",    "env_var": "DB_USER",                          "storage": "env",      "file": str(_DOTENV_FILE)},
+    {"id": "db_password",              "provider": "Database",    "env_var": "DB_PASSWORD",                      "storage": "env",      "file": str(_DOTENV_FILE)},
+    # Airtable
+    {"id": "airtable_api_key",         "provider": "Airtable",    "env_var": "AIRTABLE_API_KEY",                 "storage": "role",     "file": str(_ROLES_DIR / "airtable_user.env"),        "role": "airtable_user"},
+    {"id": "airtable_base_id",         "provider": "Airtable",    "env_var": "AIRTABLE_BASE_ID",                 "storage": "role",     "file": str(_ROLES_DIR / "airtable_user.env"),        "role": "airtable_user"},
+    # DeskPro
+    {"id": "deskpro_api_key",          "provider": "DeskPro",     "env_var": "DESKPRO_API_KEY",                  "storage": "role",     "file": str(_ROLES_DIR / "deskpro_user.env"),         "role": "deskpro_user"},
+    {"id": "deskpro_api_url",          "provider": "DeskPro",     "env_var": "DESKPRO_API_URL",                  "storage": "role",     "file": str(_ROLES_DIR / "deskpro_user.env"),         "role": "deskpro_user"},
+    # ClickUp
+    {"id": "clickup_token",            "provider": "ClickUp",     "env_var": "CLICKUP_TOKEN",                    "storage": "role",     "file": str(_ROLES_DIR / "clickup_user.env"),         "role": "clickup_user"},
+    # Figma (future)
+    {"id": "figma_token",              "provider": "Figma",       "env_var": "FIGMA_TOKEN",                      "storage": "role",     "file": str(_ROLES_DIR / "figma_designer.env"),      "role": "figma_designer", "cred_status": "future"},
+    {"id": "figma_file_key",           "provider": "Figma",       "env_var": "FIGMA_FILE_KEY",                   "storage": "role",     "file": str(_ROLES_DIR / "figma_designer.env"),      "role": "figma_designer", "cred_status": "future"},
+    # Infrastructure
+    {"id": "sshfs_identity_file",      "provider": "Internal",    "env_var": "IDENTITY_FILE",                    "storage": "env",      "file": str(_SSHFS_ENV)},
+    {"id": "wireguard_private_key",    "provider": "Internal",    "env_var": None,                               "storage": "system",   "file": "/etc/wireguard/wg0.conf"},
+    {"id": "termux_ssh_key",           "provider": "Internal",    "env_var": None,                               "storage": "system",   "file": str(Path.home() / ".ssh" / "id_ed25519_termux")},
+]
+
+
+def _cred_check_env(file_path: str, env_var: str) -> str:
+    try:
+        p = Path(file_path)
+        if not p.exists():
+            return "ABSENT"
+        for line in p.read_text().splitlines():
+            if re.match(rf"^{re.escape(env_var)}=.+", line.strip()):
+                return "SET"
+        return "ABSENT"
+    except (OSError, PermissionError):
+        return "UNKNOWN"
+
+
+def _cred_check_role(file_path: str, env_var: str) -> str:
+    try:
+        r = subprocess.run(
+            ["sudo", "-n", "grep", "-c", f"^{env_var}=.", file_path],
+            capture_output=True, text=True, timeout=3,
+        )
+        if r.returncode == 0 and r.stdout.strip() not in ("", "0"):
+            return "SET"
+        return "ABSENT"
+    except Exception:
+        return "UNKNOWN"
+
+
+def _cred_check_system(file_path: str) -> str:
+    try:
+        p = Path(file_path)
+        if p.exists():
+            return "SET"
+    except (OSError, PermissionError):
+        pass
+    try:
+        r = subprocess.run(["sudo", "-n", "test", "-f", file_path], capture_output=True, timeout=3)
+        return "SET" if r.returncode == 0 else "ABSENT"
+    except Exception:
+        return "UNKNOWN"
+
+
+def _resolve_cred_status(cred: dict) -> str:
+    if cred.get("cred_status") == "future":
+        return "FUTURE"
+    storage = cred.get("storage")
+    env_var = cred.get("env_var")
+    file_path = cred.get("file", "")
+    if storage == "system":
+        return _cred_check_system(file_path)
+    if storage == "openclaw":
+        return "SET" if _OPENCLAW_JSON.exists() else "ABSENT"
+    if not env_var:
+        return "UNKNOWN"
+    if storage == "env":
+        return _cred_check_env(file_path, env_var)
+    if storage == "role":
+        return _cred_check_role(file_path, env_var)
+    return "UNKNOWN"
+
+
+def _build_credentials_status() -> list[dict]:
+    return [{**c, "status": _resolve_cred_status(c)} for c in _CREDS]
+
+
+def _cred_update_cmd(cred: dict) -> str:
+    if cred.get("cred_status") == "future":
+        return "—"
+    storage = cred.get("storage", "")
+    role = cred.get("role", "")
+    file_path = cred.get("file", "")
+    if storage == "openclaw":
+        return "openclaw configure"
+    if storage == "role" and role:
+        return f"scripts/env_role_sync.sh pull &lt;machine&gt; {role}"
+    if storage == "system":
+        return "# see ROTATION_RUNBOOK.md"
+    if storage == "env":
+        short = file_path.replace(str(Path.home()), "~")
+        return f"vim {short}"
+    return "—"
+
+
+def _cred_status_badge(status: str) -> str:
+    mapping = {
+        "SET":     '<span class="cred-set">SET</span>',
+        "ABSENT":  '<span class="cred-absent">ABSENT</span>',
+        "FUTURE":  '<span class="cred-future">FUTURE</span>',
+        "UNKNOWN": '<span class="cred-unknown">UNKNOWN</span>',
+    }
+    return mapping.get(status, mapping["UNKNOWN"])
+
+
+def _credentials_html(creds: list[dict]) -> str:
+    active = [c for c in creds if c.get("cred_status") != "future"]
+    set_n = sum(1 for c in active if c["status"] == "SET")
+    absent_n = sum(1 for c in active if c["status"] == "ABSENT")
+    unknown_n = sum(1 for c in active if c["status"] == "UNKNOWN")
+    future_n = sum(1 for c in creds if c["status"] == "FUTURE")
+
+    from collections import OrderedDict
+    providers: dict[str, list[dict]] = OrderedDict()
+    for c in creds:
+        providers.setdefault(c["provider"], []).append(c)
+
+    provider_tables = ""
+    for prov, pcreds in providers.items():
+        rows = ""
+        for c in pcreds:
+            fshort = c["file"].replace(str(Path.home()), "~").replace(str(PROJECT_ROOT), ".")
+            rows += f"""
+<tr>
+  <td><code style="font-size:11px">{c['id']}</code></td>
+  <td><code style="font-size:11px">{c.get('env_var') or '—'}</code></td>
+  <td>{_cred_status_badge(c['status'])}</td>
+  <td style="font-size:11px;color:#666">{c['storage']}</td>
+  <td style="font-size:11px;color:#888;font-family:monospace;word-break:break-all">{fshort}</td>
+  <td><code style="font-size:10px;background:#1d1d1f;color:#e8e8e8;padding:2px 6px;border-radius:4px;white-space:nowrap">{_cred_update_cmd(c)}</code></td>
+</tr>"""
+        pset = sum(1 for c in pcreds if c["status"] == "SET")
+        ptot = len([c for c in pcreds if c.get("cred_status") != "future"])
+        hdr = f'<span style="font-size:11px;color:#888;font-weight:normal">{pset}/{ptot} set</span>' if ptot else ""
+        provider_tables += f"""
+<div style="margin-bottom:24px">
+  <h3 style="font-size:14px;font-weight:600;margin-bottom:8px">{prov} {hdr}</h3>
+  <table>
+    <thead><tr><th>ID</th><th>Env Var</th><th>Status</th><th>Storage</th><th>File</th><th>Update Command</th></tr></thead>
+    <tbody>{rows}</tbody>
+  </table>
+</div>"""
+
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>LocalCMS — Credentials</title>
+  <style>
+    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    body {{ font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: #f5f5f7; color: #1d1d1f; }}
+    .layout {{ display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }}
+    .sidebar {{ background: #1d1d1f; color: #f5f5f7; padding: 20px 12px; overflow-y: auto; position: sticky; top: 0; height: 100vh; }}
+    .sidebar h1 {{ font-size: 16px; font-weight: 600; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #333; }}
+    .sidebar h1 small {{ display: block; font-size: 11px; font-weight: 400; color: #888; margin-top: 2px; }}
+    .nav-item {{ display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; color: #ccc; text-decoration: none; font-size: 13px; margin-bottom: 2px; }}
+    .nav-item:hover {{ background: #333; color: #fff; }}
+    .nav-active {{ background: #333; color: #fff; }}
+    .main {{ padding: 24px 32px; max-width: 1200px; }}
+    .main h2 {{ font-size: 22px; margin-bottom: 8px; }}
+    .subtitle {{ color: #666; font-size: 14px; margin-bottom: 24px; }}
+    .summary-bar {{ display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }}
+    .summary-card {{ flex: 1; min-width: 120px; padding: 16px; border-radius: 12px; border: 1px solid #e6e6e6; background: #fff; }}
+    .summary-card .num {{ font-size: 28px; font-weight: 700; }}
+    .summary-card .label {{ font-size: 12px; color: #666; margin-top: 4px; }}
+    table {{ width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e6e6e6; }}
+    th, td {{ padding: 8px 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 13px; }}
+    th {{ background: #fafafa; font-weight: 600; color: #666; text-transform: uppercase; font-size: 11px; letter-spacing: .5px; }}
+    .cred-set    {{ display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:#d1fae5;color:#065f46; }}
+    .cred-absent {{ display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:#ffe4e6;color:#9f1239; }}
+    .cred-unknown{{ display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:#f3f4f6;color:#6b7280; }}
+    .cred-future {{ display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:#e0e7ff;color:#3730a3; }}
+    .notice {{ background:#fef3c7;border:1px solid #fde68a;border-radius:8px;padding:10px 14px;font-size:13px;margin-bottom:16px;color:#92400e; }}
+    .links-bar {{ display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px; }}
+    .links-bar a {{ color:#1d1d1f;padding:4px 10px;border:1px solid #ddd;border-radius:8px;text-decoration:none;font-size:12px; }}
+    .links-bar a:hover {{ background:#eee; }}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h1>LocalCMS<small>Central UI — opt-trading</small></h1>
+    <a class="nav-item" href="/">← Dashboard</a>
+    <a class="nav-item" href="/journal">📋 Journal</a>
+    <a class="nav-item" href="/metrics">📊 Metrics</a>
+    <a class="nav-item nav-active" href="/credentials">🔑 Credentials</a>
+    <div style="margin-top:auto;padding-top:16px;border-top:1px solid #333;font-size:11px;color:#666;margin-left:10px">
+      <div><a href="/health" style="color:#888;text-decoration:none">/health</a></div>
+      <div><a href="/credentials/json" style="color:#888;text-decoration:none">/credentials/json</a></div>
+    </div>
+  </nav>
+  <main class="main">
+    <h2>🔑 Credentials Registry</h2>
+    <p class="subtitle">Statut de tous les credentials par provider — valeurs jamais affichées.</p>
+    <div class="summary-bar">
+      <div class="summary-card" style="border-left:4px solid #30d158"><div class="num">{set_n}</div><div class="label">SET</div></div>
+      <div class="summary-card" style="border-left:4px solid #ff453a"><div class="num">{absent_n}</div><div class="label">ABSENT</div></div>
+      <div class="summary-card" style="border-left:4px solid #999"><div class="num">{unknown_n}</div><div class="label">UNKNOWN</div></div>
+      <div class="summary-card" style="border-left:4px solid #5e5ce6"><div class="num">{future_n}</div><div class="label">FUTURE</div></div>
+      <div class="summary-card"><div class="num">{len(active)}</div><div class="label">Total actifs</div></div>
+    </div>
+    <div class="notice">
+      Lecture seule — aucune valeur n'est affichée. Pour mettre à jour :
+      <code style="background:#fff;border:1px solid #ddd;padding:1px 6px;border-radius:4px">python3 scripts/credentials_form.py</code>
+    </div>
+    <div class="links-bar">
+      <a href="/">← Dashboard</a>
+      <a href="/credentials/json">JSON API</a>
+    </div>
+    {provider_tables}
+    <div style="margin-top:16px;font-size:12px;color:#666">
+      Dernière vérification : {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}
+    </div>
+    <div style="height:40px"></div>
+  </main>
+</div>
+</body>
+</html>"""
 
 
 # ── API endpoints ────────────────────────────────────────────────────
@@ -899,6 +1167,22 @@ def journal_detail_html(run_id: str):
         return HTMLResponse(content=f"<h2>Error reading journal: {e}</h2><a href='/journal'>← Back</a>", status_code=500)
 
 
+@app.get("/credentials", response_class=HTMLResponse)
+def credentials_html():
+    creds = _build_credentials_status()
+    return HTMLResponse(content=_credentials_html(creds))
+
+
+@app.get("/credentials/json")
+def credentials_json():
+    creds = _build_credentials_status()
+    return JSONResponse(content=[
+        {"id": c["id"], "provider": c["provider"], "env_var": c.get("env_var"),
+         "status": c["status"], "storage": c["storage"], "file": c["file"]}
+        for c in creds
+    ])
+
+
 # ── HTML UI ──────────────────────────────────────────────────────────
 
 @app.get("/", response_class=HTMLResponse)
@@ -1084,6 +1368,10 @@ def ui_index(request: Request):
       <a class="nav-item" href="/metrics"><span class="nav-icon">📊</span><span class="nav-label">Dashboard</span></a>
     </div>
     <div style="margin-bottom:16px">
+      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Security</div>
+      <a class="nav-item" href="/credentials"><span class="nav-icon">🔑</span><span class="nav-label">Credentials</span></a>
+    </div>
+    <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Menu</div>
       {nav_items}
     </div>
@@ -1096,6 +1384,7 @@ def ui_index(request: Request):
       <div><a href="/journal" style="color:#888;text-decoration:none">/journal</a></div>
       <div><a href="/journal/daily" style="color:#888;text-decoration:none">/journal/daily</a></div>
       <div><a href="/metrics" style="color:#888;text-decoration:none">/metrics</a></div>
+      <div><a href="/credentials" style="color:#888;text-decoration:none">/credentials</a></div>
     </div>
   </nav>
 
@@ -1176,6 +1465,8 @@ def ui_index(request: Request):
         <tr><td><a href="/runtime/tmux/live">/runtime/tmux/live</a></td><td>Live TMUX session list</td></tr>
         <tr><td><a href="/metrics">/metrics</a></td><td>Dashboard métriques agrégées (HTML)</td></tr>
         <tr><td><a href="/metrics/daily">/metrics/daily</a></td><td>Métriques daily session (JSON)</td></tr>
+        <tr><td><a href="/credentials">/credentials</a></td><td>Credentials registry — statut SET/ABSENT par provider (HTML)</td></tr>
+        <tr><td><a href="/credentials/json">/credentials/json</a></td><td>Credentials registry (JSON)</td></tr>
       </tbody>
     </table>
 
