@@ -148,7 +148,58 @@ def data_url(path: Path) -> str:
     b64 = base64.b64encode(path.read_bytes()).decode("ascii")
     return f"data:{mime};base64,{b64}"
 
-def call_openai(c: Dict[str, str], images: List[Path]) -> Dict[str, Any]:
+
+def load_sidecar_meta(src: Path) -> Dict[str, Any]:
+    sidecar = src.with_suffix(".json")
+    if not sidecar.exists():
+        return {}
+    try:
+        data = json.loads(sidecar.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def build_openai_prompt(meta: Dict[str, Any], image_count: int) -> str:
+    layout = str(meta.get("layout", "single") or "single").strip().lower()
+    screen_type = str(meta.get("screen_type", "CHART_TECHNICAL") or "CHART_TECHNICAL").strip()
+    symbol = str(meta.get("symbol", "inconnu") or "inconnu").strip()
+    timeframe = str(meta.get("timeframe", "?") or "?").strip()
+
+    if screen_type == "DASHBOARD_MACRO" or layout == "quad" or image_count > 1:
+        return (
+            "Tu es un assistant d'analyse de marché (trading). L'image montre un dashboard avec 4 graphiques (grille 2x2).\n"
+            "Objectif: donner une lecture RAPIDE, actionnable et structurée, en FRANÇAIS.\n\n"
+            "Contraintes:\n"
+            "- Ne devine pas: si un symbole/timeframe n'est pas lisible, indique 'inconnu'.\n"
+            "- Utilise le vocabulaire: tendance, structure (HH/HL/LH/LL), zones clés (S/R), scénario, invalidation.\n"
+            "- 6 à 12 lignes max par graphique.\n\n"
+            "Format de sortie EXACT:\n"
+            "A) Résumé global (3 bullets max)\n"
+            "B) Chart 1 (haut-gauche): ...\n"
+            "C) Chart 2 (haut-droit): ...\n"
+            "D) Chart 3 (bas-gauche): ...\n"
+            "E) Chart 4 (bas-droit): ...\n"
+            "F) DeskPro (JSON compact sur 1 bloc) avec clés: run_id, charts[{slot,bias,structure,supports,resistances,plan,invalidation}]\n"
+        )
+
+    return (
+        f"Tu es un assistant d'analyse de marché (trading). L'image montre un graphique unique pour {symbol} au timeframe {timeframe}.\n"
+        "Objectif: donner une lecture RAPIDE, actionnable et structurée, en FRANÇAIS.\n\n"
+        "Contraintes:\n"
+        "- Analyse uniquement le graphique visible.\n"
+        "- Ne parle pas de grille 2x2 ni d'autres charts.\n"
+        "- Ne devine pas: si le symbole ou le timeframe n'est pas lisible, indique 'inconnu'.\n"
+        "- Utilise le vocabulaire: tendance, structure (HH/HL/LH/LL), zones clés (S/R), scénario, invalidation.\n"
+        "- 8 à 14 lignes max.\n\n"
+        "Format de sortie EXACT:\n"
+        "A) Résumé global (3 bullets max)\n"
+        f"B) Chart unique ({symbol} {timeframe}): ...\n"
+        "C) DeskPro (JSON compact sur 1 bloc) avec clés: run_id, charts[{slot,bias,structure,supports,resistances,plan,invalidation}]\n"
+        "Utilise slot='single'.\n"
+    )
+
+def call_openai(c: Dict[str, str], images: List[Path], meta: Optional[Dict[str, Any]]=None) -> Dict[str, Any]:
     api_key = c.get("OPENAI_API_KEY","")
     if not api_key or api_key == "REPLACE_ME":
         raise RuntimeError("OPENAI_API_KEY not set in bot_vision.env")
@@ -159,21 +210,7 @@ def call_openai(c: Dict[str, str], images: List[Path]) -> Dict[str, Any]:
     client = OpenAI(api_key=api_key)
     model = c.get("OPENAI_MODEL","gpt-4.1-mini")
 
-    prompt = (
-        "Tu es un assistant d'analyse de marché (trading). L'image montre un dashboard avec 4 graphiques (grille 2x2).\n"
-        "Objectif: donner une lecture RAPIDE, actionnable et structurée, en FRANÇAIS.\n\n"
-        "Contraintes:\n"
-        "- Ne devine pas: si un symbole/timeframe n'est pas lisible, indique 'inconnu'.\n"
-        "- Utilise le vocabulaire: tendance, structure (HH/HL/LH/LL), zones clés (S/R), scénario, invalidation.\n"
-        "- 6 à 12 lignes max par graphique.\n\n"
-        "Format de sortie EXACT:\n"
-        "A) Résumé global (3 bullets max)\n"
-        "B) Chart 1 (haut-gauche): ...\n"
-        "C) Chart 2 (haut-droit): ...\n"
-        "D) Chart 3 (bas-gauche): ...\n"
-        "E) Chart 4 (bas-droit): ...\n"
-        "F) DeskPro (JSON compact sur 1 bloc) avec clés: run_id, charts[{slot,bias,structure,supports,resistances,plan,invalidation}]\n"
-    )
+    prompt = build_openai_prompt(meta or {}, len(images))
 
     content: List[Dict[str, Any]] = [{"type":"input_text","text":prompt}]
     for p in images:
@@ -284,6 +321,7 @@ def analyze_latest(chat_id_override: Optional[str]=None) -> Dict[str, Any]:
     log("start")
 
     src = latest_screenshot(c)
+    meta = load_sidecar_meta(src)
     log("source", path=str(src))
 
     # Resize once (cheap)
@@ -292,15 +330,19 @@ def analyze_latest(chat_id_override: Optional[str]=None) -> Dict[str, Any]:
     w,h = resize_to_jpeg(src, resized, max_w, max_h, q)
     log("resized", w=w, h=h, path=str(resized))
 
+    layout = str(meta.get("layout", "single") or "single").strip().lower()
     crops: List[Path] = []
-    if c["CROP_MODE"] == "quad":
+    if c["CROP_MODE"] == "quad" and layout == "quad":
         crops = crop_quadrants(resized, charts_dir)
         log("cropped", files=[p.name for p in crops])
 
     # OpenAI analyze
     mode = c["ANALYZE_MODE"]
-    images_for_ai = [resized] if mode == "single" else (crops if crops else [resized])
-    oa = call_openai(c, images_for_ai)
+    if layout == "single":
+        images_for_ai = [resized]
+    else:
+        images_for_ai = [resized] if mode == "single" else (crops if crops else [resized])
+    oa = call_openai(c, images_for_ai, meta=meta)
     text_out = oa.get("output_text","")
     signals = extract_json(text_out)
 

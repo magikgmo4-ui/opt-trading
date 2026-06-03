@@ -42,6 +42,7 @@ const MARKET_HOURS_MAP = [
   // Crypto → 24/7
   { match: /USDT\.?P?$/i, rule: '24h' },
   { match: /^BZUSDT$/i, rule: '24h' },
+  { match: /^BITGET:BZUSDT$/i, rule: '24h' },
   { match: /^CRYPTOCAP:/i, rule: '24h' },
   { match: /^COINGLASS$/i, rule: '24h' },
   // US equities/ETF
@@ -89,6 +90,7 @@ const VISUAL_LOADING_STATE_DETECTED = 'loading_state_detected';
 const DEFAULT_LOADING_SELECTORS = ['loading', 'spinner', 'please wait', 'loader', 'progress'];
 const BLANK_PNG_SIZE_THRESHOLD = 15360; // 15 KB heuristic for uniform/blank image
 const VISUAL_CHECK_ENABLED = true;
+const QUALITY_RETRY_EXTRA_WAIT_MS = 12000;
 
 // ── Market hours check ──────────────────────────────────
 function isInMarketHours(symbol) {
@@ -226,8 +228,20 @@ function profileOptions(profile) {
     postLoadWaitMs: numberOption(profile.post_load_wait_ms, POST_LOAD_WAIT_MS, 'post_load_wait_ms'),
     screenshotMode,
     visualCheckEnabled: profile.visual_check_enabled !== undefined ? !!profile.visual_check_enabled : VISUAL_CHECK_ENABLED,
-    domLoadingSelectors: Array.isArray(profile.dom_loading_selectors) ? profile.dom_loading_selectors : DEFAULT_LOADING_SELECTORS
+    domLoadingSelectors: Array.isArray(profile.dom_loading_selectors) ? profile.dom_loading_selectors : DEFAULT_LOADING_SELECTORS,
+    qualityRetryEnabled: profile.quality_retry_enabled !== undefined ? !!profile.quality_retry_enabled : true,
+    qualityRetryExtraWaitMs: numberOption(profile.quality_retry_extra_wait_ms, QUALITY_RETRY_EXTRA_WAIT_MS, 'quality_retry_extra_wait_ms')
   };
+}
+
+function shouldRetryVisual(result) {
+  if (!result || result.status !== STATUS_INVALID_VISUAL) return false;
+  return [
+    VISUAL_TOO_SMALL,
+    VISUAL_BLANK_OR_UNIFORM,
+    VISUAL_LOADING_STATE_DETECTED,
+    VISUAL_POSSIBLE_SPINNER,
+  ].includes(result.visualStatus);
 }
 
 // ── Visual classification ───────────────────────────────
@@ -450,7 +464,17 @@ async function captureOne(profile) {
 
     if (options.visualCheckEnabled) {
       try {
-        const result = await classifyVisual(pngPath, page, options.domLoadingSelectors);
+        let result = await classifyVisual(pngPath, page, options.domLoadingSelectors);
+        if (options.qualityRetryEnabled && shouldRetryVisual(result)) {
+          console.log(`QUALITY_RETRY: ${source} ${symbol || ''} -> wait ${options.qualityRetryExtraWaitMs}ms (${result.visualStatus})`);
+          await page.waitForTimeout(options.qualityRetryExtraWaitMs);
+          const retryBuffer = await page.screenshot({ type: 'png', fullPage: false });
+          const retriedPath = atomicWrite(OUT_DIR, basePng, retryBuffer);
+          if (retriedPath) {
+            pngPath = retriedPath;
+            result = await classifyVisual(pngPath, page, options.domLoadingSelectors);
+          }
+        }
         visualStatus = result.visualStatus;
         captureStatus = result.status;
       } catch (err) {
