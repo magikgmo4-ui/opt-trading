@@ -1,8 +1,8 @@
 {
   "job_id": "repo-branch-audit",
-  "checked_at": "2026-06-02T03:37:24Z",
-  "total_remote": 631,
-  "merged_count": 427,
+  "checked_at": "2026-06-02T04:24:01Z",
+  "total_remote": 643,
+  "merged_count": 431,
   "stale_count": 16,
   "stale_branches": [
     "origin/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01(27d)",

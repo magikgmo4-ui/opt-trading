@@ -105,7 +105,7 @@ with open(os.environ['VALIDATION_FILE']) as f:
     d = json.load(f)
 job_id = d['job_id']
 output_dir = os.environ['OUTPUT_DIR_PATH']
-prompt_file = os.path.join(output_dir, f'{job_id}_PROMPT.txt')
+prompt_file = f'/tmp/{job_id}_PROMPT.txt'
 
 sections = '\n'.join(f'{i+1}. {s}' for i, s in enumerate(d['required_sections']))
 denied_cmds = '\n'.join(f'  - {c}' for c in d['denied_commands'])

@@ -1,8 +1,8 @@
 {
   "job_id": "hitl-scenarios-smoke",
-  "checked_at": "2026-06-02T03:56:05.736873Z",
+  "checked_at": "2026-06-02T05:00:01.769418Z",
   "dry_run": true,
-  "hitl_specs_found": 517,
+  "hitl_specs_found": 520,
   "scenarios": [
     {
       "scenario": "proposal-packet-create",
