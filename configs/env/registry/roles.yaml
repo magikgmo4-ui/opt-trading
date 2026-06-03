@@ -13,7 +13,9 @@ roles:
       - telegram_chat_id_ops
   - id: webhook_receiver
     credentials:
+      - tv_webhook_key
       - tv_webhook_secret
+      - ops_admin_key
   - id: google_sheets_writer
     credentials:
       - google_service_account_json
@@ -26,7 +28,21 @@ roles:
       - binance_api_key
       - coinglass_api_key
   - id: deskpro_user
-    credentials: []
+    credentials:
+      - deskpro_api_key
+      - deskpro_api_url
+  - id: airtable_user
+    credentials:
+      - airtable_api_key
+      - airtable_base_id
+  - id: clickup_user
+    credentials:
+      - clickup_token
+  - id: figma_designer
+    credentials:
+      - figma_token
+      - figma_file_key
+    status: future
   - id: llm_local
     credentials:
       - ollama_base_url
@@ -40,3 +56,9 @@ roles:
       - db_host
       - db_user
       - db_password
+  - id: infrastructure
+    credentials:
+      - sshfs_identity_file
+      - wireguard_private_key
+      - termux_ssh_key
+    note: SSH/SSHFS/VPN/Termux — credentials are system-level files, not env vars
