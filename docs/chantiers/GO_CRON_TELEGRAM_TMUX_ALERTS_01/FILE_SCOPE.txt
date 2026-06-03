@@ -18,8 +18,8 @@ scripts/ai/workers/strict_worker_failure_report.py
 # Smoke cron
 scripts/schedule/lot1/run_readonly_smoke.sh
 
-# Smoke dry-run fix — prompt écrit dans /tmp/ pour ne pas modifier de fichier tracké
-scripts/ai/workers/run_task.sh
+# Smoke dry-run fix — restore reports/ai/workers/ avant git diff pour ne pas modifier de fichier tracké
+.github/workflows/strict-workers-smoke.yml
 
 # Rapports AI workers générés automatiquement (output des workers strict)
 reports/ai/**
