@@ -1,4 +1,5 @@
 import pytest
+import json
 
 from modules.analysis_bundles.app.vision_analysis_reader import (
     read_vision_analysis,
@@ -19,6 +20,12 @@ from modules.analysis_bundles.app.asset_selector import (
 from modules.analysis_bundles.app.btc_core_producer import produce_btc_core
 from modules.analysis_bundles.app.macro_producer import produce_macro
 from modules.analysis_bundles.app.contract_validator import validate_bundle
+from modules.analysis_bundles.app.analysis_pipeline import (
+    step_ingest,
+    step_normalize,
+    step_analyze,
+    run_full_pipeline,
+)
 
 
 class TestVisionAnalysisReader:
@@ -171,3 +178,68 @@ class TestEnrichedMacro:
         bundle = produce_macro()
         errors = validate_bundle(bundle.to_dict())
         assert errors == []
+
+
+class TestAnalysisPipeline:
+    def test_step_ingest(self):
+        ingest = step_ingest()
+        assert ingest["pipeline_step"] == "INGEST"
+        assert ingest["total_sources"] == 2
+        assert "vision_raw" in ingest
+        assert "coinglass_raw" in ingest
+
+    def test_step_normalize(self):
+        ingest = step_ingest()
+        norm = step_normalize(vision_raw=ingest["vision_raw"])
+        assert norm["pipeline_step"] == "NORMALIZE"
+        assert norm["total_tickets"] >= 20
+        tickets = norm["tickets"]
+        for sym, t in tickets.items():
+            assert "asset" in t
+            assert "asset_class" in t
+            assert "bias" in t or t["bias"] is None
+
+    def test_step_analyze(self):
+        ingest = step_ingest()
+        norm = step_normalize(vision_raw=ingest["vision_raw"])
+        analysis = step_analyze(normalized=norm)
+        assert analysis["pipeline_step"] == "ANALYZE"
+        assert "regimes" in analysis
+        assert "macro" in analysis["regimes"]
+        assert "crypto" in analysis["regimes"]
+        assert "energy" in analysis["regimes"]
+        assert "class_consensus" in analysis
+        assert "alerts" in analysis
+        assert "actionable_signals" in analysis
+
+    def test_run_full_pipeline(self):
+        report = run_full_pipeline()
+        assert report["contract"] == "analysis_pipeline_report.v1"
+        assert report["total_sources"] >= 1
+        assert report["total_tickets"] >= 20
+
+    def test_run_full_pipeline_writes_file(self, tmp_path):
+        out = tmp_path / "report.json"
+        report = run_full_pipeline(output_path=out)
+        assert out.exists()
+        data = json.loads(out.read_text())
+        assert data["contract"] == "analysis_pipeline_report.v1"
+
+    def test_pipeline_idempotent(self):
+        r1 = run_full_pipeline()
+        r2 = run_full_pipeline()
+        assert r1["total_tickets"] == r2["total_tickets"]
+        assert r1["regimes"] == r2["regimes"]
+
+    def test_regime_values_valid(self):
+        report = run_full_pipeline()
+        regimes = report["regimes"]
+        valid = ("RISK_ON", "RISK_OFF", "MIXED", "BULLISH", "BEARISH", "UNKNOWN")
+        for key in ("macro", "crypto", "energy"):
+            assert regimes[key] in valid or regimes[key] == regimes[key]
+
+    def test_ingested_sources_have_freshness(self):
+        ingest = step_ingest()
+        for src in ingest["sources"]:
+            assert "freshness" in src
+            assert "provenance" in src

@@ -7,6 +7,7 @@ from .verdict_consumer import produce_verdict, consume_and_write
 from .vision_analysis_reader import read_vision_analysis, list_available_symbols, extract_signals_from_vision
 from .data_center_router import produce_data_center_coverage, route_to_data_center
 from .asset_selector import produce_asset_ticket, produce_all_tickets, produce_summary_by_class
+from .analysis_pipeline import step_ingest, step_normalize, step_analyze, run_full_pipeline
 
 __all__ = [
     "BundleOutput",
@@ -28,4 +29,8 @@ __all__ = [
     "produce_asset_ticket",
     "produce_all_tickets",
     "produce_summary_by_class",
+    "step_ingest",
+    "step_normalize",
+    "step_analyze",
+    "run_full_pipeline",
 ]

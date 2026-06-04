@@ -83,6 +83,15 @@ summary = produce_summary_by_class()
 print(json.dumps(summary, indent=2, default=str))
 "
     ;;
+  report)
+    python3 -c "
+import json, sys
+sys.path.insert(0, '.')
+from modules.analysis_bundles.app.analysis_pipeline import run_full_pipeline
+report = run_full_pipeline()
+print(json.dumps(report, indent=2, default=str))
+"
+    ;;
   status)
     python3 -c "
 import sys; sys.path.insert(0, '.')
@@ -98,6 +107,6 @@ print('DataCenterRouter: OK')
 "
     ;;
   help|*)
-    echo "Usage: cmd.sh [sanity|test|validate <file>|btc|macro|verdict|datacenter|tickets|status|help]"
+    echo "Usage: cmd.sh [sanity|test|validate <file>|btc|macro|verdict|datacenter|tickets|report|status|help]"
     ;;
 esac
