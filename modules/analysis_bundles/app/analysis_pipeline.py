@@ -46,11 +46,16 @@ def step_ingest() -> dict:
     # Coinglass OCR
     cg_path = _PROJECT_ROOT / "data" / "deskpro" / "inputs" / "vision_context" / "coinglass" / "latest.json"
     coinglass_raw = None
+    coinglass_freshness = "MISSING"
     if cg_path.exists():
         try:
             coinglass_raw = json.loads(cg_path.read_text(encoding="utf-8"))
+            if coinglass_raw and coinglass_raw.get("detection_method") == "stub":
+                coinglass_freshness = "STALE"
+            else:
+                coinglass_freshness = "FRESH"
         except Exception:
-            pass
+            coinglass_freshness = "MISSING"
 
     # Data center coverage
     coverage = produce_data_center_coverage()
@@ -67,7 +72,7 @@ def step_ingest() -> dict:
         IngestedSource(
             source_id="coinglass_ocr",
             symbol_count=1 if coinglass_raw else 0,
-            freshness="FRESH" if coinglass_raw else "MISSING",
+            freshness=coinglass_freshness,
             provenance=coverage["sources"]["coinglass_ocr"]["provenance"],
             ingested_at=now,
             files=[str(cg_path)] if coinglass_raw else [],

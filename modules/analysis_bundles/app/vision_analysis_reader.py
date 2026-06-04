@@ -1,9 +1,11 @@
 import json
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Optional
 
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
 _BY_SYMBOL_DIR = _PROJECT_ROOT / "data" / "data_center" / "views" / "vision_analysis" / "by_symbol"
+_STALE_THRESHOLD_HOURS = 6
 
 
 def read_vision_analysis(symbol: str) -> Optional[dict]:
@@ -28,6 +30,26 @@ def read_vision_analysis(symbol: str) -> Optional[dict]:
     return first
 
 
+def _age_degrade_freshness(freshness: str, analysis_ts_str: Optional[str]) -> str:
+    """Degrade freshness to STALE if analysis_ts is older than threshold."""
+    if freshness not in ("FRESH", "fresh"):
+        return freshness
+    if analysis_ts_str is None:
+        return freshness
+    try:
+        # Parse ISO-ish timestamp (handles +/- offset)
+        ts = analysis_ts_str.replace("Z", "+00:00")
+        if len(ts) > 19 and ts[10] == "T":
+            ts = ts[:19] + "+00:00"
+        analysis_dt = datetime.fromisoformat(ts)
+        age = datetime.now(timezone.utc) - analysis_dt
+        if age > timedelta(hours=_STALE_THRESHOLD_HOURS):
+            return "STALE"
+    except (ValueError, TypeError):
+        pass
+    return freshness
+
+
 def read_vision_analysis_freshness(symbol: str) -> dict:
     """Return freshness summary for a symbol's vision analysis."""
     capture = read_vision_analysis(symbol)
@@ -44,11 +66,14 @@ def read_vision_analysis_freshness(symbol: str) -> dict:
     signals = capture.get("signals", [])
     if not isinstance(signals, list):
         signals = []
+    raw_freshness = capture.get("freshness_state", "UNKNOWN").upper()
+    analysis_ts = capture.get("analysis_ts")
+    freshness = _age_degrade_freshness(raw_freshness, analysis_ts)
     return {
         "symbol": symbol,
         "source": "vision_analysis.v1",
-        "freshness": capture.get("freshness_state", "UNKNOWN").upper(),
-        "analysis_ts": capture.get("analysis_ts"),
+        "freshness": freshness,
+        "analysis_ts": analysis_ts,
         "timeframe": capture.get("timeframe"),
         "screen_type": capture.get("screen_type"),
         "signal_count": len(signals),
@@ -91,19 +116,30 @@ def extract_signals_from_vision(symbol: str) -> dict:
 
     summary = capture.get("analysis_summary", "")
     if isinstance(summary, str):
-        if "haussier" in summary.lower() or "hauss" in summary.lower():
-            bias = "BULLISH"
-        elif "baissier" in summary.lower() or "baiss" in summary.lower():
+        s_lower = summary.lower()
+        bull_count = s_lower.count("haussier") + s_lower.count("hauss")
+        bear_count = s_lower.count("baissier") + s_lower.count("baiss")
+        if bear_count > bull_count:
             bias = "BEARISH"
-        elif "neutre" in summary.lower() or "range" in summary.lower():
+        elif bull_count > bear_count:
+            bias = "BULLISH"
+        elif "neutre" in s_lower or "range" in s_lower:
             bias = "NEUTRAL"
+
+    # Plan text override: if keyword bias conflicts with explicit plan, use plan
+    if plan and isinstance(plan, str):
+        plan_lower = plan.lower()
+        if any(w in plan_lower for w in ("short ", "vendre", "short sous", "short sur", "baissier")):
+            bias = "BEARISH"
+        elif any(w in plan_lower for w in ("long ", "achat", "acheter", "acheté", "haussier")):
+            bias = "BULLISH"
 
     return {
         "symbol": symbol,
         "available": True,
         "timeframe": capture.get("timeframe"),
         "screen_type": capture.get("screen_type"),
-        "freshness": capture.get("freshness_state", "UNKNOWN").upper(),
+        "freshness": _age_degrade_freshness(capture.get("freshness_state", "UNKNOWN").upper(), capture.get("analysis_ts")),
         "analysis_ts": capture.get("analysis_ts"),
         "supports": supports,
         "resistances": resistances,

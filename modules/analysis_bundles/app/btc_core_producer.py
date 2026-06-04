@@ -62,10 +62,21 @@ def _read_coinglass_vision() -> dict:
     if data.get("input_class") != "vision_context.coinglass.v1":
         return {"source": "vision_context.coinglass.v1", "freshness": "STALE", "produced_at": None}
 
+    detection_method = data.get("detection_method", "")
+    requested_real = data.get("refs", {}).get("requested_real_ocr", False)
+
+    # Stub detection degrades freshness
+    if detection_method == "stub" and not requested_real:
+        freshness = "STALE"
+    else:
+        freshness = data.get("freshness_state", "UNKNOWN").upper()
+
     return {
         "source": "vision_context.coinglass.v1",
-        "freshness": data.get("freshness_state", "UNKNOWN").upper(),
+        "freshness": freshness,
         "produced_at": data.get("screenshot_ts"),
+        "detection_method": detection_method,
+        "requested_real_ocr": requested_real,
     }
 
 
