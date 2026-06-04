@@ -105,8 +105,9 @@ class TestConfidence:
     def test_divergent_is_low(self):
         assert _compute_confidence("FRESH", "FRESH", "HIGH", "DIVERGENT", "BULLISH", "RISK_OFF") == "LOW"
 
-    def test_stale_is_low(self):
-        assert _compute_confidence("STALE", "FRESH", "HIGH", "ALIGNED", "BULLISH", "RISK_ON") == "LOW"
+    def test_stale_allows_medium_with_good_bias(self):
+        # STALE no longer blocks — freshness is a separate concern
+        assert _compute_confidence("STALE", "FRESH", "HIGH", "ALIGNED", "BULLISH", "RISK_ON") == "HIGH"
 
     def test_unknown_btc_is_unknown(self):
         assert _compute_confidence("FRESH", "FRESH", "LOW", "ALIGNED", "UNKNOWN", "RISK_ON") == "UNKNOWN"

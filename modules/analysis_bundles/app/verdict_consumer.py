@@ -52,10 +52,11 @@ def _compute_confidence(
 ) -> str:
     if btc_bias == "UNKNOWN" or macro_regime == "UNKNOWN":
         return "UNKNOWN"
-    if btc_freshness == "STALE" or macro_freshness == "STALE":
-        return "LOW"
+    if btc_freshness == "UNKNOWN" or macro_freshness == "UNKNOWN":
+        return "UNKNOWN"
     if alignment == "DIVERGENT":
         return "LOW"
+    # STALE is OK for confidence — freshness degrades reliability but doesn't block
     if btc_confidence == "HIGH" and alignment == "ALIGNED":
         return "HIGH"
     if btc_confidence in ("HIGH", "MEDIUM") and alignment == "ALIGNED":
