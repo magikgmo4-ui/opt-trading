@@ -10,6 +10,8 @@ from .vision_analysis_reader import extract_signals_from_vision, read_vision_ana
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
 _BY_SYMBOL_DIR = _PROJECT_ROOT / "data" / "data_center" / "views" / "vision_analysis" / "by_symbol"
 
+_CORE_MACRO_SYMBOLS = {"TVC:DXY", "TVC:VIX", "TVC:US10Y", "OANDA:XAUUSD", "SPY"}
+
 _VISION_MACRO_MAP = {
     "TVC:DXY": {"asset": "DXY", "label": "Dollar Index", "status": "ESTABLISHED"},
     "TVC:VIX": {"asset": "VIX", "label": "Volatility Index", "status": "ESTABLISHED"},
@@ -164,11 +166,8 @@ def produce_macro() -> BundleOutput:
 
     analysis, missing = _derive_macro_analysis(inputs)
 
-    established_inputs = {
-        k: v for k, v in inputs.items()
-        if _VISION_MACRO_MAP.get(k, _CRYPTO_MACRO_MAP.get(k, {})).get("status") == "ESTABLISHED"
-    }
-    freshness, data_quality = _derive_freshness(established_inputs) if established_inputs else ("UNKNOWN", "HYPOTHESIS")
+    core_inputs = {k: v for k, v in inputs.items() if k in _CORE_MACRO_SYMBOLS}
+    freshness, data_quality = _derive_freshness(core_inputs) if core_inputs else ("UNKNOWN", "HYPOTHESIS")
 
     source_refs = []
     for tv_sym in _VISION_MACRO_MAP:
