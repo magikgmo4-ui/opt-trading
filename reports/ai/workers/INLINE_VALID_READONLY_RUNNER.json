@@ -9,7 +9,7 @@
     "valid_workers": [
       "big-pickle"
     ],
-    "output_file": "/opt/trading/reports/ai/workers/INLINE_VALID_READONLY.md",
+    "output_file": "/home/fantome/opt-trading-clean/reports/ai/workers/INLINE_VALID_READONLY.md",
     "autonomy_max": "A1",
     "required_sections": [
       "13_ESTABLISHED",

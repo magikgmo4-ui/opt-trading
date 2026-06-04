@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-03T06:30:01.133565+00:00",
+  "generated_at": "2026-06-03T07:24:31.853682+00:00",
   "git": {
-    "branch": "go/GO_OPT_TRADING_SECURITY_CREDENTIALS_TELEGRAM_MULTICHANNEL_CHILD_01",
-    "commit": "86acef68"
+    "branch": "go/GO_TELEGRAM_USER_EXPERIENCE_CHILD_COMMAND_CENTER_01",
+    "commit": "6532aa65"
   },
   "menu_loaded": true,
   "menu_domains": 14,
@@ -11,19 +11,16 @@
   "health_status": null,
   "ledger": {
     "exists": true,
-    "event_count": 81,
+    "event_count": 48,
     "last_event": {
-      "event_type": "heartbeat",
+      "event_type": "MOBILE_CONTROL",
       "status": "PASS",
-      "timestamp": "2026-06-03T06:15:01.616981+00:00"
+      "timestamp": "2026-06-03T07:24:19.002020+00:00"
     }
   },
   "tmux": {
-    "available": true,
-    "sessions": [
-      "cron-workers"
-    ],
-    "count": 1
+    "available": false,
+    "sessions": []
   },
   "phase": "PHASE_01",
   "job_id": "localcms-automation-status-sync",

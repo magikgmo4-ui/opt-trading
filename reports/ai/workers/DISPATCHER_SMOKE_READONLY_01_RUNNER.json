@@ -10,7 +10,7 @@
       "big-pickle",
       "qwen3.5-plus"
     ],
-    "output_file": "/opt/trading/reports/ai/workers/DISPATCHER_SMOKE_READONLY_01.md",
+    "output_file": "/home/fantome/opt-trading-clean/reports/ai/workers/DISPATCHER_SMOKE_READONLY_01.md",
     "autonomy_max": "A1",
     "required_sections": [
       "13_ESTABLISHED",

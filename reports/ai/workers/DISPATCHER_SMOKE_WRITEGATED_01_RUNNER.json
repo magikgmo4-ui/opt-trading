@@ -19,7 +19,7 @@
       "status": "DRY_RUN_WOULD_WRITE"
     }
   ],
-  "produced_at": "2026-06-03T05:56:19.338177+00:00",
+  "produced_at": "2026-06-03T07:24:35.337440+00:00",
   "validation": {
     "status": "PASS",
     "job_id": "DISPATCHER_SMOKE_WRITEGATED_01",
@@ -29,7 +29,7 @@
       "glm-5.1",
       "qwen3.6-plus"
     ],
-    "output_file": "/opt/trading/reports/ai/workers/DISPATCHER_SMOKE_WRITEGATED_01.md",
+    "output_file": "/home/fantome/opt-trading-clean/reports/ai/workers/DISPATCHER_SMOKE_WRITEGATED_01.md",
     "autonomy_max": "A4",
     "required_sections": [
       "13_ESTABLISHED",
