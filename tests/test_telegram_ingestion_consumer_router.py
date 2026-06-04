@@ -1,5 +1,6 @@
 import pytest
 
+from modules.desk_pro.telegram.parsers import ParsedTelegramMessage
 from modules.telegram_ingestion import InboundMessage
 from modules.telegram_ingestion.distribution import Consumer, ConsumerRouter, ScreenerConsumer
 
@@ -133,3 +134,41 @@ class TestScreenerConsumer:
         consumer.handle(InboundMessage(message_id="1", channel="ch", sender=None, timestamp="t", raw_text="a"))
         consumer.handle(InboundMessage(message_id="2", channel="ch", sender=None, timestamp="t", raw_text="b"))
         assert len(consumer.handled) == 2
+
+    def test_produces_parsed_result(self):
+        consumer = ScreenerConsumer()
+        msg = InboundMessage(message_id="1", channel="ch", sender=None, timestamp="t", raw_text="a")
+        consumer.handle(msg)
+        assert len(consumer.results) == 1
+        assert isinstance(consumer.results[0], ParsedTelegramMessage)
+
+    def test_unknown_raw_message_has_no_claim(self):
+        consumer = ScreenerConsumer()
+        msg = InboundMessage(message_id="1", channel="ch", sender=None, timestamp="t", raw_text="hello world")
+        consumer.handle(msg)
+        assert consumer.results[0].claim is None
+        assert consumer.results[0].message_type == "UNKNOWN_RAW"
+        assert len(consumer.claims) == 0
+
+    def test_trade_setup_message_produces_claim(self):
+        consumer = ScreenerConsumer()
+        text = "BTC LONG Entry: 50000 Stop Loss: 49000 Target: 52000"
+        msg = InboundMessage(message_id="42", channel="live_xauusd_gold_freesignal", sender=None, timestamp="t", raw_text=text)
+        consumer.handle(msg)
+        assert len(consumer.claims) == 1
+        assert consumer.claims[0]["claim_type"] == "TRADE_SETUP"
+        assert consumer.claims[0]["asset"] == "BTC"
+        assert consumer.claims[0]["direction"] == "LONG"
+
+    def test_multiple_messages_tracked_separately(self):
+        consumer = ScreenerConsumer()
+        m1 = InboundMessage(message_id="1", channel="ch", sender=None, timestamp="t", raw_text="hello")
+        m2_text = "BTC LONG Entry: 50000 Stop Loss: 49000 Target: 52000"
+        m2 = InboundMessage(message_id="2", channel="live_xauusd_gold_freesignal", sender=None, timestamp="t", raw_text=m2_text)
+        consumer.handle(m1)
+        consumer.handle(m2)
+        assert len(consumer.handled) == 2
+        assert len(consumer.results) == 2
+        assert len(consumer.claims) == 1
+        assert consumer.results[0].message_type == "UNKNOWN_RAW"
+        assert consumer.results[1].message_type == "TRADE_SETUP"
