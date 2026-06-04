@@ -54,6 +54,7 @@ class BundleOutput:
     analysis: dict
     missing_inputs: list[str] = field(default_factory=list)
     source_refs: list[str] = field(default_factory=list)
+    data_quality: str = "UNKNOWN"
 
     def to_dict(self) -> dict:
         return asdict(self)

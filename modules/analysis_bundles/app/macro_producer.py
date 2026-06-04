@@ -122,18 +122,22 @@ def _derive_macro_analysis(inputs: dict) -> tuple[dict, list[str]]:
     }, missing
 
 
-def _derive_freshness(inputs: dict) -> str:
+def _derive_freshness(inputs: dict) -> tuple[str, str]:
     states = []
     for inp in inputs.values():
         if isinstance(inp, dict):
-            states.append(inp.get("freshness", "UNKNOWN").upper())
+            f = inp.get("freshness", "UNKNOWN").upper()
+            if f != "MISSING":
+                states.append(f)
     if not states:
-        return "UNKNOWN"
+        return "UNKNOWN", "HYPOTHESIS"
     if all(s == "FRESH" for s in states):
-        return "FRESH"
-    if "MISSING" in states:
-        return "STALE"
-    return "STALE"
+        return "FRESH", "FULL"
+    if any(s == "FRESH" for s in states):
+        return "STALE", "DEGRADED"
+    if any(s == "STALE" for s in states):
+        return "STALE", "DEGRADED"
+    return "UNKNOWN", "HYPOTHESIS"
 
 
 def produce_macro() -> BundleOutput:
@@ -158,7 +162,7 @@ def produce_macro() -> BundleOutput:
         k: v for k, v in inputs.items()
         if _VISION_MACRO_MAP.get(k, _CRYPTO_MACRO_MAP.get(k, {})).get("status") == "ESTABLISHED"
     }
-    freshness = _derive_freshness(established_inputs) if established_inputs else "UNKNOWN"
+    freshness, data_quality = _derive_freshness(established_inputs) if established_inputs else ("UNKNOWN", "HYPOTHESIS")
 
     source_refs = []
     for tv_sym in _VISION_MACRO_MAP:
@@ -175,6 +179,7 @@ def produce_macro() -> BundleOutput:
         bundle_id="macro.v1",
         produced_at=now,
         freshness_state=freshness,
+        data_quality=data_quality,
         assets=assets,
         inputs=inputs,
         analysis=analysis,
