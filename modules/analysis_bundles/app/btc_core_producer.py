@@ -184,24 +184,44 @@ def _derive_analysis(
 def _derive_freshness(inputs: dict) -> tuple[str, str]:
     """Derive freshness and data_quality from input states.
     
-    Freshness = FRESH if all present inputs are FRESH, STALE if any stale, UNKNOWN if none.
-    data_quality = FULL | DEGRADED | STUB | HYPOTHESIS
+    Freshness = FRESH if majority of present inputs are FRESH.
+    data_quality = FULL | DEGRADED | STUB (if coinglass is stub)
     """
     states = []
-    for inp in inputs.values():
+    for name, inp in inputs.items():
         if isinstance(inp, dict):
             f = inp.get("freshness", "UNKNOWN").upper()
             if f != "MISSING":
-                states.append(f)
+                states.append((name, f))
     if not states:
         return "UNKNOWN", "HYPOTHESIS"
-    if all(s == "FRESH" for s in states):
-        return "FRESH", "FULL"
-    if any(s == "FRESH" for s in states):
-        return "STALE", "DEGRADED"
-    if any(s == "STALE" for s in states):
-        return "STALE", "DEGRADED"
-    return "UNKNOWN", "HYPOTHESIS"
+    
+    fresh_count = sum(1 for _, f in states if f == "FRESH")
+    stale_count = sum(1 for _, f in states if f == "STALE")
+    total = len(states)
+    
+    # Check if coinglass is a stub
+    cg = inputs.get("coinglass_vision", {})
+    is_stub = cg.get("detection_method") == "stub" if isinstance(cg, dict) else False
+    
+    # Derive quality
+    if fresh_count == total:
+        quality = "FULL" if not is_stub else "DEGRADED"
+        freshness = "FRESH"
+    elif fresh_count > total / 2:
+        quality = "DEGRADED"
+        freshness = "FRESH"
+    elif fresh_count > 0:
+        quality = "DEGRADED"
+        freshness = "STALE"
+    else:
+        quality = "DEGRADED"
+        freshness = "STALE"
+    
+    if is_stub:
+        quality = "STUB"
+    
+    return freshness, quality
 
 
 def produce_btc_core(symbol: str = "BTCUSDT", asset: str = "BTC") -> BundleOutput:

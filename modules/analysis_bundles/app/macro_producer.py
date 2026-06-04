@@ -123,6 +123,7 @@ def _derive_macro_analysis(inputs: dict) -> tuple[dict, list[str]]:
 
 
 def _derive_freshness(inputs: dict) -> tuple[str, str]:
+    """Derive freshness and data_quality from input states."""
     states = []
     for inp in inputs.values():
         if isinstance(inp, dict):
@@ -131,13 +132,18 @@ def _derive_freshness(inputs: dict) -> tuple[str, str]:
                 states.append(f)
     if not states:
         return "UNKNOWN", "HYPOTHESIS"
-    if all(s == "FRESH" for s in states):
+    
+    fresh_count = sum(1 for f in states if f == "FRESH")
+    total = len(states)
+    
+    if fresh_count == total:
         return "FRESH", "FULL"
-    if any(s == "FRESH" for s in states):
+    elif fresh_count > total / 2:
+        return "FRESH", "DEGRADED"
+    elif fresh_count > 0:
         return "STALE", "DEGRADED"
-    if any(s == "STALE" for s in states):
+    else:
         return "STALE", "DEGRADED"
-    return "UNKNOWN", "HYPOTHESIS"
 
 
 def produce_macro() -> BundleOutput:

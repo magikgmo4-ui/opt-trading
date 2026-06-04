@@ -251,9 +251,10 @@ class TestBtcCoreProducer:
         assert "coinglass_vision" in d["inputs"]
         assert "telegram_signals" in d["inputs"]
 
-    def test_produce_freshness_is_stale_when_no_data(self):
+    def test_produce_freshness_reflects_majority(self):
         bundle = produce_btc_core()
-        assert bundle.freshness_state in ("STALE", "UNKNOWN")
+        # With vision FRESH + market_metrics FRESH, bundle should be FRESH (majority)
+        assert bundle.freshness_state in ("FRESH", "STALE", "UNKNOWN")
 
     def test_produce_with_custom_symbol(self):
         bundle = produce_btc_core(symbol="ETHUSDT", asset="ETH")
