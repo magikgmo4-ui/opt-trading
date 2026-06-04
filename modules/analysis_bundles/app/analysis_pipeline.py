@@ -296,10 +296,24 @@ def step_analyze(normalized: Optional[dict] = None, ingest: Optional[dict] = Non
 # ── Pipeline runner ──────────────────────────────────────────────────────────
 
 def run_full_pipeline(output_path: Optional[Path] = None) -> dict:
-    """Run ingest → normalize → analyze and produce full report."""
+    """Run ingest → normalize → analyze + cross-correlation + squeeze and produce full report."""
     ingest = step_ingest()
     normalized = step_normalize(vision_raw=ingest["vision_raw"])
     analysis = step_analyze(normalized=normalized)
+
+    # +Value: cross-correlation
+    from .cross_correlation import produce_cross_correlation
+    correlation = produce_cross_correlation()
+
+    # +Value: multi-TF consensus
+    from .multi_tf_consensus import produce_multi_tf_consensus
+    multi_tf = {}
+    for asset in ("BTC", "ETH", "WTI"):
+        multi_tf[asset] = produce_multi_tf_consensus(asset)
+
+    # +Value: squeeze detection
+    from .coinglass_squeeze import produce_squeeze_alert
+    squeeze = produce_squeeze_alert()
 
     report = {
         "contract": "analysis_pipeline_report.v1",
@@ -307,10 +321,24 @@ def run_full_pipeline(output_path: Optional[Path] = None) -> dict:
         **ingest,
         **normalized,
         **analysis,
+        "cross_correlation": correlation,
+        "multi_tf_consensus": multi_tf,
+        "squeeze_alert": squeeze,
     }
 
+    # Write to main report
     path = output_path or _REPORT_OUTPUT
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(report, indent=2, default=str), encoding="utf-8")
+
+    # Also write squeeze alert to its own path for DeskPro
+    squeeze_path = _PROJECT_ROOT / "data" / "data_center" / "views" / "coinglass" / "squeeze_alerts" / "latest.json"
+    squeeze_path.parent.mkdir(parents=True, exist_ok=True)
+    squeeze_path.write_text(json.dumps(squeeze, indent=2, default=str), encoding="utf-8")
+
+    # Write cross-correlation for DeskPro
+    corr_path = _PROJECT_ROOT / "data" / "data_center" / "views" / "analysis" / "cross_correlation" / "latest.json"
+    corr_path.parent.mkdir(parents=True, exist_ok=True)
+    corr_path.write_text(json.dumps(correlation, indent=2, default=str), encoding="utf-8")
 
     return report

@@ -8,6 +8,9 @@ from .vision_analysis_reader import read_vision_analysis, list_available_symbols
 from .data_center_router import produce_data_center_coverage, route_to_data_center
 from .asset_selector import produce_asset_ticket, produce_all_tickets, produce_summary_by_class
 from .analysis_pipeline import step_ingest, step_normalize, step_analyze, run_full_pipeline
+from .multi_tf_consensus import produce_multi_tf_consensus
+from .cross_correlation import produce_cross_correlation
+from .coinglass_squeeze import produce_squeeze_alert
 
 __all__ = [
     "BundleOutput",
@@ -33,4 +36,7 @@ __all__ = [
     "step_normalize",
     "step_analyze",
     "run_full_pipeline",
+    "produce_multi_tf_consensus",
+    "produce_cross_correlation",
+    "produce_squeeze_alert",
 ]

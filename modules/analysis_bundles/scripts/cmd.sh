@@ -92,6 +92,34 @@ report = run_full_pipeline()
 print(json.dumps(report, indent=2, default=str))
 "
     ;;
+  squeeze)
+    python3 -c "
+import json, sys
+sys.path.insert(0, '.')
+from modules.analysis_bundles.app.coinglass_squeeze import produce_squeeze_alert
+alert = produce_squeeze_alert()
+print(json.dumps(alert, indent=2, default=str))
+"
+    ;;
+  correlation)
+    python3 -c "
+import json, sys
+sys.path.insert(0, '.')
+from modules.analysis_bundles.app.cross_correlation import produce_cross_correlation
+corr = produce_cross_correlation()
+print(json.dumps(corr, indent=2, default=str))
+"
+    ;;
+  multitf)
+    python3 -c "
+import json, sys
+sys.path.insert(0, '.')
+from modules.analysis_bundles.app.multi_tf_consensus import produce_multi_tf_consensus
+for asset in ('BTC', 'ETH', 'WTI'):
+    result = produce_multi_tf_consensus(asset)
+    print(f'{asset}: consensus={result[\"consensus\"]} bias={result.get(\"bias\",\"?\")} score={result[\"score\"]} tfs={result[\"timeframes\"]}')
+"
+    ;;    
   status)
     python3 -c "
 import sys; sys.path.insert(0, '.')
