@@ -37,11 +37,18 @@ def _age_degrade_freshness(freshness: str, analysis_ts_str: Optional[str]) -> st
     if analysis_ts_str is None:
         return freshness
     try:
-        # Parse ISO-ish timestamp (handles +/- offset)
-        ts = analysis_ts_str.replace("Z", "+00:00")
-        if len(ts) > 19 and ts[10] == "T":
-            ts = ts[:19] + "+00:00"
-        analysis_dt = datetime.fromisoformat(ts)
+        analysis_dt = None
+        ts = analysis_ts_str.strip()
+        if "Z" in ts:
+            analysis_dt = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+        elif "+" in ts[10:]:
+            analysis_dt = datetime.fromisoformat(ts)
+        elif "-" in ts[10:]:
+            analysis_dt = datetime.fromisoformat(ts)
+        else:
+            analysis_dt = datetime.fromisoformat(ts + "+00:00")
+        if analysis_dt.tzinfo is None:
+            analysis_dt = analysis_dt.replace(tzinfo=timezone.utc)
         age = datetime.now(timezone.utc) - analysis_dt
         if age > timedelta(hours=_STALE_THRESHOLD_HOURS):
             return "STALE"

@@ -61,14 +61,18 @@ def _derive_macro_analysis(inputs: dict) -> tuple[dict, list[str]]:
     spy = inputs.get("SPY", {})
     us10y = inputs.get("TVC:US10Y", {})
 
+    dxy_avail = dxy.get("freshness") not in ("MISSING",)
+    spy_avail = spy.get("freshness") not in ("MISSING",)
+    gold_avail = gold.get("freshness") not in ("MISSING",)
+    vix_avail = vix.get("freshness") not in ("MISSING",)
     dxy_fresh = dxy.get("freshness") == "FRESH"
     spy_fresh = spy.get("freshness") == "FRESH"
     gold_fresh = gold.get("freshness") == "FRESH"
-    vix_fresh = vix.get("freshness") == "FRESH"
 
-    fresh_count = sum([dxy_fresh, spy_fresh, gold_fresh, vix_fresh])
+    avail_count = sum([dxy_avail, spy_avail, gold_avail, vix_avail])
+    fresh_count = sum([dxy_fresh, spy_fresh, gold_fresh, vix_avail and vix.get("freshness") == "FRESH"])
 
-    if fresh_count == 0:
+    if avail_count == 0:
         missing.append("ALL: no macro data available")
         return {
             "timeframe": "1D",
@@ -80,24 +84,26 @@ def _derive_macro_analysis(inputs: dict) -> tuple[dict, list[str]]:
             "confidence": "UNKNOWN",
         }, missing
 
-    # Derive macro regime from real data
+    # Use bias even from stale data, degrade confidence
     spy_bias = spy.get("bias")
     dxy_bias = dxy.get("bias")
     gold_bias = gold.get("bias")
 
-    if spy_fresh and spy_bias == "BULLISH":
+    if spy_avail and spy_bias == "BULLISH":
         regime = "RISK_ON"
-    elif spy_fresh and spy_bias == "BEARISH":
+    elif spy_avail and spy_bias == "BEARISH":
         regime = "RISK_OFF"
-    elif dxy_fresh and dxy_bias == "BULLISH" and gold_bias == "BEARISH":
+    elif dxy_avail and dxy_bias == "BULLISH" and gold_bias == "BEARISH":
         regime = "RISK_OFF"
-    elif gold_fresh and gold_bias == "BULLISH":
+    elif gold_avail and gold_bias == "BULLISH":
         regime = "RISK_ON"
     else:
-        regime = "UNKNOWN"
+        regime = "RISK_OFF" if gold_bias == "BEARISH" else "UNKNOWN"
 
-    bias_short = spy_bias if spy_bias else "NEUTRAL"
+    bias_short = spy_bias if spy_bias else gold_bias if gold_bias else "NEUTRAL"
     confidence = "MEDIUM" if fresh_count >= 3 else "LOW"
+    if fresh_count < avail_count:
+        missing.append(f"macro: {avail_count - fresh_count}/{avail_count} sources stale, confidence degraded")
 
     for tv_sym, info in _VISION_MACRO_MAP.items():
         inp = inputs.get(tv_sym, {})
