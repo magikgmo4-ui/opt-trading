@@ -125,16 +125,19 @@ def _derive_analysis(
 ) -> tuple[dict, list[str]]:
     missing = []
     va_bias = va.get("bias") if isinstance(va, dict) else None
+    va_available = va_bias is not None
     va_fresh = va.get("freshness") in ("FRESH", "fresh") if isinstance(va, dict) else False
 
     oi_present = cg.get("freshness") not in ("MISSING", "STALE")
     ts_count = ts.get("count", 0) if isinstance(ts, dict) else 0
 
-    # Derive bias: prefer vision analysis if available, else fallback to stubs
-    if va_fresh and va_bias is not None:
+    # Derive bias: prefer vision analysis, degrade confidence if stale
+    if va_available:
         bias_short = va_bias
         regime = "TRENDING" if va_bias != "NEUTRAL" else "RANGING"
-        confidence = "MEDIUM"
+        confidence = "MEDIUM" if va_fresh else "LOW"
+        if not va_fresh:
+            missing.append("vision_analysis: stale (>6h old), confidence degraded")
     elif oi_present and ts_count > 0:
         bias_short = "BULLISH"
         regime = "TRENDING"
@@ -147,7 +150,7 @@ def _derive_analysis(
         bias_short = "UNKNOWN"
         regime = "UNKNOWN"
         confidence = "UNKNOWN"
-        missing.append("ALL: no data available")
+        missing.append("ALL: no data available, not even stale vision analysis")
 
     bias_intra = bias_short if bias_short != "UNKNOWN" else "UNKNOWN"
     squeeze = "LOW"
@@ -158,7 +161,7 @@ def _derive_analysis(
         missing.append("coinglass_vision: data file not found")
     if ts.get("count", 0) == 0:
         missing.append("telegram_signals: no BTC signals found")
-    if not va_fresh:
+    if not va_available:
         missing.append("vision_analysis: no BTC chart analysis available")
 
     invalidation = None
