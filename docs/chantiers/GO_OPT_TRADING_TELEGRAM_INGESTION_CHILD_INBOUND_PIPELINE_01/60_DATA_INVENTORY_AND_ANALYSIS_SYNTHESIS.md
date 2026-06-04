@@ -3,7 +3,9 @@
 ## GO: GO_OPT_TRADING_ANALYSIS_BUNDLES
 ## Branch: sot/mainline
 ## Date: 2026-06-04 08:20Z
-## Status: TRADABLE SYSTEM — LIVE
+## Status: GATED SYSTEM — CONTEXT READY, EXECUTION BLOCKED
+
+> **See also**: `70_CANONICAL_DATA_TABLE.md` — complete per-symbol inventory, missing screenshots, 16 consumers, 4 operational modes.
 
 ---
 
@@ -97,16 +99,18 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  ADMIN-TRADING (capture hourly via cron)                    │
+│  ADMIN-TRADING (capture hourly via cron, OpenAI on-demand)  │
 │  ┌───────────────────────┐  ┌──────────────────────────────┐│
 │  │ headless_capture.js   │  │ bot_vision_step2 (OpenAI)    ││
 │  │ profiles.production   │  │ analyze_latest → TA chart    ││
 │  │ profiles.coinglass     │  │ supports/resistances/bias    ││
+│  │ [--no-delegate]       │  │ [ON_DEMAND only]             ││
 │  └─────────┬─────────────┘  └──────────────┬───────────────┘│
 │            │                                │                │
 │            ▼                                ▼                │
-│  vision_inbox (PNG+JSON)  →   vision_analysis.v1 (24 files) │
-│  coinglass latest.json    →   data_center views             │
+│  vision_inbox (PNG+JSON)  ←  vision_analysis.v1 (OpenAI)    │
+│  coinglass latest.json    ←  data_center views              │
+│  [ALWAYS ON]                  [ON_DEMAND, --skip-capture]    │
 └──────────────────────────┬──────────────────────────────────┘
                            │ rsync every 30min
                            ▼
@@ -125,7 +129,8 @@
 │    └─────────────────────┬───────────────────────────┘      │
 │                          ▼                                   │
 │               verdict_consumer                              │
-│          BTC × Macro = ALIGNED BULLISH 95                  │
+│          BTC × Macro = analytical signal                   │
+│          CONTEXT_READY=YES, EXECUTION_READY=NO              │
 │                          │                                   │
 │    ┌─────────────────────┼───────────────────────────┐      │
 │    │                     ▼                           │      │
@@ -169,35 +174,78 @@ data/deskpro/inputs/
 
 ## 5. CALENDRIER CRON
 
-| Machine | Frequence | Commande |
-|---|---|---|
-| **admin-trading** | Hourly (0 * * * *) | `cron_capture.sh` → profiles.production + profiles.coinglass |
-| **local** | Every 30min (*/30 * * * *) | sync_admin_trading.sh + market_metrics + full pipeline |
+| Machine | Frequence | Commande | Mode |
+|---|---|---|---|
+| **admin-trading** | Hourly (0 * * * *) | `cron_capture.sh` → profiles.production + coinglass, `--no-delegate` | Capture+Ingest ON, OpenAI ON_DEMAND |
+| **local** | Every 30min (*/30 * * * *) | sync_admin_trading.sh + market_metrics + full pipeline | Always ON |
+
+### How to trigger OpenAI analysis (manual):
+
+```bash
+# On admin-trading:
+cd /opt/trading/modules/bot_vision/headless_capture
+# Analyze existing screenshots without re-capturing:
+python3 scripts/run_vision_pipeline.py --profile profiles.production.json --skip-capture
+# Or for a single symbol:
+python3 scripts/run_vision_pipeline.py --profile profiles.btcusdt_poc.json --skip-capture
+```
 
 ---
 
 ## 6. DECISION GATE
 
+### Context gate (analytical signal — PASS)
+
 | Check | Status |
 |---|---|
-| BTC vision FRESH | ✓ BULLISH, supports 62800/63200, resistances 64400/64600 |
-| Macro core FRESH | ✓ DXY/SPX/VIX FRESH, GOLD/US10Y STALE → RISK_ON |
-| Multi-TF consensus | ✓ BTC 15m+1h agree → BULLISH 100 |
-| BTC × Macro aligned | ✓ ALIGNED BULLISH, score 95 |
-| Confidence MEDIUM | ✓ |
-| TRADABLE | **YES** (data_quality=STUB, coinglass stub) |
+| BTC vision bias | BULLISH, supports 62800/63200, resistances 64400/64600 |
+| Macro core consensus | RISK_ON (DXY/SPX/VIX bullish, GOLD/US10Y bearish) |
+| Multi-TF consensus | BTC 15m+1h agree → BULLISH 100 |
+| BTC x Macro aligned | ALIGNED BULLISH, score 95 |
+| Cross-correlation | 10 pairs tracked (pending fresh data) |
+
+### Execution gate (trading — BLOCKED)
+
+| Check | Status | Blocker |
+|---|---|---|
+| Coinglass OCR | **STUB** | `detection_method=stub`, OI=72B plausible but unverified |
+| market_metrics | **SYNTHETIC** | Prices derived from vision analysis, not live API |
+| telegram_screener | **MISSING** | No Telegram signals parsed |
+| Vision freshness | **STALE** | All 24 analyses >6h (cron hourly active, will recover) |
+| Data quality | **DEGRADED/STUB** | 3/6 sources are STUB, HYPOTHESIS, or MISSING |
+
+### Verdict
+
+```
+CONTEXT_READY    = YES  (analytical signal: ALIGNED BULLISH 95)
+EXECUTION_READY  = NO   (blocked: coinglass stub + market_metrics synthetic)
+AUTO_TRADE       = NO   (never auto-trade without all sources PROVEN + FRESH)
+MANUAL_SETUP     = MAYBE (operator review required)
+```
+
+### Unblock criteria
+
+| To unblock | Action |
+|---|---|
+| Coinglass STUB → LIVE | `--real-ocr` flag on admin-trading |
+| market_metrics SYNTHETIC → LIVE | Binance/Bitget API writer active |
+| telegram_screener MISSING → LIVE | Screener pipeline active on 201 raw messages |
+| Vision STALE → FRESH | Hourly cron will recover freshness within 2 cycles |
 
 ---
 
 ## 7. GAPS RESTANTS
 
-| Gap | Impact | Action |
-|---|---|---|
-| 4 ETF blind spots | IBIT seul utilisable | Retirer ARKB/BITB/FBTC/GBTC des profiles |
-| Coinglass stub | Squeeze alerts inactifs | Activer `--real-ocr` |
-| Telegram screener MISSING | Zero signaux Telegram | Activer pipeline screener |
-| Market metrics synthetic | Prix approximes | Brancher API exchange reelle |
-| 24 vision STALE | Cron pas encore declenche | Prochain cycle dans <1h → 22 FRESH |
+| Gap | Impact | Action | Priority |
+|---|---|---|---|
+| Coinglass stub | Squeeze alerts inactifs, execution gate bloque | Activer `--real-ocr` sur admin-trading | **P0** |
+| market_metrics synthetic | Prix approximes, execution gate bloque | Brancher API exchange reelle (Binance/Bitget) | **P0** |
+| telegram_screener MISSING | Zero signaux Telegram en entree | Activer pipeline screener sur 201 raw messages | **P1** |
+| 4 ETF blind spots | IBIT seul utilisable | Retirer ARKB/BITB/FBTC/GBTC des profiles | P1 |
+| 24 vision STALE | Cron on_demand (no OpenAI analysis) | Prochain cycle → captures OK, mais analyse OpenAI on-demand | P1 |
+| 13 screenshots manquants | BTC 4h/1d, GOLD 4h/1d, DXY 4h/1d... | Ajouter aux profiles capture | P2 |
+
+> See `70_CANONICAL_DATA_TABLE.md` for complete per-symbol inventory, missing screenshots, and consumer table.
 
 ---
 
