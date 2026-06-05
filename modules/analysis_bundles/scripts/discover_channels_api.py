@@ -85,7 +85,11 @@ async def discover_all():
 
 def output_candidates(channels: dict):
     """Write discovered channels to discovery_candidates.json."""
-    candidates_path = Path(__file__).resolve().parent.parent.parent / "configs" / "telegram" / "discovery_candidates.json"
+    project_root = Path(__file__).resolve().parent.parent.parent.parent
+    candidates_path = project_root / "configs" / "telegram" / "discovery_candidates.json"
+    # Fallback for admin-trading
+    if not candidates_path.parent.exists():
+        candidates_path = Path("/opt/trading/configs/telegram/discovery_candidates.json")
 
     candidates = []
     for username, info in channels.items():
@@ -107,6 +111,7 @@ def output_candidates(channels: dict):
             "next_action": "collect_sample",
         })
 
+    candidates_path.parent.mkdir(parents=True, exist_ok=True)
     with open(candidates_path, "w") as f:
         json.dump({"version": 1, "candidates": candidates}, f, indent=2)
 
