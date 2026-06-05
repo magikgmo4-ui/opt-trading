@@ -72,6 +72,16 @@ _CHANNEL_PRIORITY = {
 }
 
 _DISCOVERY_MAX_MSGS = 200  # Limit DISCOVERY channels to last N messages
+_BATCH_SIZE = 100          # Messages per channel per batch
+
+# LLM/OCR gate: only top candidates
+_LLM_OCR_ALLOWED_MODES = {"ACTIVE", "QUALIFIED"}
+
+
+def is_llm_ocr_allowed(channel: str) -> bool:
+    """Check if LLM/OCR analysis is allowed for this channel."""
+    ch_info = _CHANNEL_PRIORITY.get(channel, {})
+    return ch_info.get("mode") in _LLM_OCR_ALLOWED_MODES
 
 
 def read_all_raw_messages() -> list[dict]:
