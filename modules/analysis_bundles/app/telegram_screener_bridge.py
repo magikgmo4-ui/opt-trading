@@ -72,6 +72,10 @@ def produce_telegram_signals() -> list[dict]:
 
     _SIGNALS_DIR.mkdir(parents=True, exist_ok=True)
 
+    # Clean old signal files before regenerating
+    for old in _SIGNALS_DIR.glob("signal_*.json"):
+        old.unlink()
+
     signals_written = []
     for msg in messages:
         parsed = parse_telegram_message(msg)
