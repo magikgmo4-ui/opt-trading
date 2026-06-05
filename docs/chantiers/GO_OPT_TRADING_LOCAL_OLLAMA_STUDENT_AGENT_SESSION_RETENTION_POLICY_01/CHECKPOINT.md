@@ -31,3 +31,7 @@ GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_SESSION_RETENTION_POLICY_01
 - n_ctx=4096 limite structurelle du modèle sur ce CPU
 - Pas de compaction automatique efficace dans OpenClaw actuel
 - Rotation manuelle oubliable
+
+## RISKS
+
+- À qualifier.

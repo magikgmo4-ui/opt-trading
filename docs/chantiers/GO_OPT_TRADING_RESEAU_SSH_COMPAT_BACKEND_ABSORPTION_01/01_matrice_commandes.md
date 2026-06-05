@@ -52,3 +52,7 @@ Les commandes suivantes ont ete retirees de la facade canonique et ne restent ac
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

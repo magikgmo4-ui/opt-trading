@@ -300,3 +300,7 @@ Decision de lot :
 
 ## Point de reprise
 Derouler `03_plan_operationnel_step_by_step.md` en commençant par le lot `P1`.
+
+## RISKS
+
+- À qualifier.

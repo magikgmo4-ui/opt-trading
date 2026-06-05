@@ -39,3 +39,7 @@ Cadre de criticite de travail :
 ## 17_RESUME_POINT
 
 L'export JSON graph reel ne devra etre ouvert qu'apres stabilisation de ces criticites candidates par les GOs LocalCMS/TMUX et daily journal mapping.
+
+## RISKS
+
+- À qualifier.

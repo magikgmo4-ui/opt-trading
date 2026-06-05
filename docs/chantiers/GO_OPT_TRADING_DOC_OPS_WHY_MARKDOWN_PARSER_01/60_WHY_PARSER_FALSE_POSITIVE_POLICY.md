@@ -33,3 +33,7 @@ Reduire les faux positifs du futur parser WHY.
 ## Invariant
 
 Le parser doit rester audit-oriented et non auto-correctif.
+
+## RISKS
+
+- À qualifier.

@@ -62,3 +62,7 @@ Le plan ne change pas :
 ## 17_RESUME_POINT
 
 Le refinement doit rendre le meme graph plus lisible, pas produire un graph plus riche.
+
+## RISKS
+
+- À qualifier.

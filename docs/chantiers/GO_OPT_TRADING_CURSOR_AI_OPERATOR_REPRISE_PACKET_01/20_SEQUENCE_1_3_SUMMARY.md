@@ -56,3 +56,7 @@ Resume des positions 1 a 3 de la sequence cursor-ai.
 | alert_webhook | ACTIVE_CONTINUITY preservee |
 | admin-trading | Gate fermee, non ouvert |
 | Runtime | Non modifie |
+
+## RISKS
+
+- À qualifier.

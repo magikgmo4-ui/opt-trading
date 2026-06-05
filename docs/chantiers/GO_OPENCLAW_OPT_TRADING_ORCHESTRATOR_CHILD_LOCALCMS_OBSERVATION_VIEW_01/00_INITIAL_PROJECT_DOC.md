@@ -94,3 +94,7 @@ Ce child GO est **doc-only**.
 | `30_FIELD_MAPPING_OBSERVATION_EVENT_SUMMARY.md` | Mapping champ par champ source → output |
 | `40_GAPS_AND_IMPLEMENTATION_OPTIONS.md` | Gaps identifiés et options d'implémentation |
 | `90_CLOSEOUT.md` | Closeout draft — décision pour le GO suivant |
+
+## RISKS
+
+- À qualifier.

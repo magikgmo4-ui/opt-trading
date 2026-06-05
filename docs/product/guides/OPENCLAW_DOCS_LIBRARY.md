@@ -80,3 +80,7 @@ Elle sert a lire l'ecosysteme OpenClaw, retrouver les sources utiles et preparer
 ## NEXT_GO
 
 `GO_OPENCLAW_DBLAYER_DOCS_SOURCE_CARTOGRAPHY_CHILD_01`
+
+## RISKS
+
+- À qualifier.

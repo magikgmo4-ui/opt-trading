@@ -31,3 +31,7 @@ links:
 | --- | --- | --- | --- | --- |
 | `GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01` | `ACTIVE` | matrice d'audit produite, lots executes documentes, reliquats explicitement qualifies | `CLOSE_NOW` | le parent a atteint sa cible d'audit et de planification sans qu'un nouveau move soit requis ici |
 | `GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01` | `ACTIVE` | politique racine stable apres qualification finale du dernier shim racine | `CLOSE_NOW` | `REPO_ROOT_POLICY.md` absorbe desormais le dernier cas ouvert sans gap de politique residuel |
+
+## RISKS
+
+- À qualifier.

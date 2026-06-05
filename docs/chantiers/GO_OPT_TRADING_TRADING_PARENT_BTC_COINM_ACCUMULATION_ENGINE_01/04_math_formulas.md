@@ -524,3 +524,7 @@ Les conversions notionnel <-> taille, le PnL inverse, le funding et la liquidati
 Les zones UNKNOWN sont explicites et bloquantes pour tout mode simulation_exploitable.
 Le document reste purement documentaire : aucune connexion exchange, aucun backtest, aucune execution live.
 ```
+
+## RISKS
+
+- À qualifier.

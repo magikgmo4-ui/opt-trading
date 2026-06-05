@@ -13,3 +13,7 @@ Supprimer les scripts doublons `desk_pro_menu.sh` une fois que `ops_menu_hub` es
 
 ## 4. DOCUMENTATION
 Ajouter ces routines canoniques dans `docs/master_pack/00_current_state_and_standards.md` pour référence future.
+
+## RISKS
+
+- À qualifier.

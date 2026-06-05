@@ -20,3 +20,7 @@ Reduire le system prompt / tools / workspace OpenClaw pour permettre a qwen2.5:3
 
 ## Branche
 - `go/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_WORKSPACE_SLIM_01` depuis `origin/sot/mainline`
+
+## RISKS
+
+- À qualifier.

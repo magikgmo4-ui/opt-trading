@@ -25,3 +25,7 @@ Paper validation is complete. All scenarios passed. Evidence consolidated.
 4. Separate paper and live runtimes
 5. Implement kill switch
 6. Document risk limits
+
+## RISKS
+
+- À qualifier.

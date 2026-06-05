@@ -71,3 +71,7 @@ Elle est :
 Donc toute preuve runtime collectée sur cette surface doit être traitée comme
 preuve d'un runtime désaligné, pas comme preuve de l'état canonique.
 ```
+
+## RISKS
+
+- À qualifier.

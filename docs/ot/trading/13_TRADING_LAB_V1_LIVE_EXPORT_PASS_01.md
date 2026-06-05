@@ -32,3 +32,7 @@ Le rendu LIVE est séparé du runner d’observation : observation et export res
 ## TRIGGER NATUREL SUIVANT
 
 `GO_OT_TRADING_REALTIME_V1_SKELETON_PASS_01`
+
+## RISKS
+
+- À qualifier.

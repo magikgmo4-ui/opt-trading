@@ -59,3 +59,7 @@ ea85e22 Merge pull request #316 from magikgmo4-ui/go/GO_OPT_TRADING_ADMIN_TRADIN
 ## Conclusion sync
 
 `admin-trading:/opt/trading` est revenu sur `sot/mainline`, aligne avec `origin/sot/mainline`, au commit `edfff71`.
+
+## RISKS
+
+- À qualifier.

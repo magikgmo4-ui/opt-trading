@@ -15,3 +15,7 @@ Ajouter un `README_ENTRYPOINTS.md` dans `scripts/admin_trading/` pour expliquer 
 ## 4. PRINCIPE DE STABILITÉ
 L'objectif est de figer l'usage, pas de changer le code.
 On ne touche pas aux fichiers, on change la façon dont on les documente.
+
+## RISKS
+
+- À qualifier.

@@ -231,3 +231,7 @@ Arbre de décision initial pour filtrer les PRs non concernées.
 Variantes pour PR mineure et pour nouveau produit.
 Exemple complet fourni (PR #243).
 ```
+
+## RISKS
+
+- À qualifier.

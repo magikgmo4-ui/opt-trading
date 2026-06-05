@@ -120,3 +120,7 @@ Document the final workflow path, exact triggers, commands, permissions, and res
 ## 19_TO_REMEMBER
 
 Local admissibility is not a license to push or merge.
+
+## RISKS
+
+- À qualifier.

@@ -88,3 +88,7 @@ Règle :
 
 ## REPRISE
 - mise à jour continue via `GO_OPT_TRADING_CANON_STRUCTURE_REALIGNMENT_01`
+
+## RISKS
+
+- À qualifier.

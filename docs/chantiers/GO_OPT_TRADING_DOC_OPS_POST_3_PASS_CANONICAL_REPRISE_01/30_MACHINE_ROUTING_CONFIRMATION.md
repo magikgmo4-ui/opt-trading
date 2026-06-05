@@ -21,3 +21,7 @@
 ## Regle de routage
 
 Pour toute demande "chantiers pour <machine>", ouvrir directement `docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md` et ressortir le bloc correspondant sans rearbitrage complet.
+
+## RISKS
+
+- À qualifier.

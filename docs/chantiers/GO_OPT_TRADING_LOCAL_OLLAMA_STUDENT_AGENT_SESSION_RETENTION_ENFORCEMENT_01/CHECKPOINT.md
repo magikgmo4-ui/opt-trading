@@ -32,3 +32,7 @@ GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_SESSION_RETENTION_ENFORCEMENT_01
 - n_ctx=4096 non modifiable sans changement de modèle
 - Script d'exécution en sudo (vérifier permissions)
 - Purge accidentelle si RETENTION_DAYS trop bas
+
+## RISKS
+
+- À qualifier.

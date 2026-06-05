@@ -182,3 +182,7 @@ Créer :
 ## 17_RESUME_POINT
 
 Prochaine étape : créer `06_graph_schema_v1.md` (coeur du système).
+
+## RISKS
+
+- À qualifier.

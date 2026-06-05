@@ -94,3 +94,7 @@ choisir la prochaine surface canonique apres review du rendu v0
 ```text
 WIP / RENDER_REVIEW_GO_OPENED / REVIEW_ONLY
 ```
+
+## RISKS
+
+- À qualifier.

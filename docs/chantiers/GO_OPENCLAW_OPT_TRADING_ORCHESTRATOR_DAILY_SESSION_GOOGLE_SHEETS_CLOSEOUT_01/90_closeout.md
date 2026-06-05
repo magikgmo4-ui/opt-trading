@@ -95,3 +95,7 @@ python scripts/sheets/sync_daily_session.py --latest --controlled-write
 - **Dashboard** : lire le Sheets en lecture seule pour agréger les métriques
 - **Multi-signal** : étendre le sync à d'autres signaux (SELL, paper multi-ticker)
 - **Paper-mode élargi** : activer le paper-mode sur plusieurs assets en parallèle
+
+## RISKS
+
+- À qualifier.

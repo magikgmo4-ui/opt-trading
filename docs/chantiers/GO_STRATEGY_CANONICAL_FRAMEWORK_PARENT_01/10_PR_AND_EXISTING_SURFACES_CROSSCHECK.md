@@ -90,3 +90,7 @@ Toute observation strategie enrichit ObservationEvent.
 Tout consumer lit ObservationEvent ou ses agregats.
 Aucun module strategie ne cree sa propre chaine producteur -> decision -> execution.
 ```
+
+## RISKS
+
+- À qualifier.

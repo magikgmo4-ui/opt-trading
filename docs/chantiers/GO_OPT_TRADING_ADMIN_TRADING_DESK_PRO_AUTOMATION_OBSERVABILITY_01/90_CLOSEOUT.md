@@ -68,3 +68,7 @@ Service state: static, inactive, no journal entries yet
 Host units: /etc/systemd/system/desk_pro_dry_run.service, /etc/systemd/system/desk_pro_dry_run.timer
 Next GO: GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_TIMER_START_GATED_01
 ```
+
+## RISKS
+
+- À qualifier.

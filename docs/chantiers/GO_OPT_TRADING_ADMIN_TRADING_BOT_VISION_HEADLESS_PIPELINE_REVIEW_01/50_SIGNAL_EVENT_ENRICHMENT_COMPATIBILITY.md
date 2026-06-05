@@ -106,3 +106,7 @@ La jointure entre `signal_event` et `visual_context` peut se faire par :
 ## Verdict
 
 L'enrichissement `signal_event` ↔ `visual_context` est **faisable** sans coupling direct, par jointure symbol/timeframe/timestamp. Les refs explicites sont préparées dans les schémas V1 mais non produites par le runtime actuel. Le join par fenêtre temporelle est le mode opérationnel immédiat.
+
+## RISKS
+
+- À qualifier.

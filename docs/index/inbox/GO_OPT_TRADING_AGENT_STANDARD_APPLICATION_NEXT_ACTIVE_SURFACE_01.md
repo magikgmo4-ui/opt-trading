@@ -15,3 +15,7 @@ Surface retenue : Admin/Trading Desk Pro.
 
 - `docs/chantiers/.../SURFACE_SELECTION_REPORT_01.md`
 - `docs/chantiers/.../CHECKPOINT.md`
+
+## RISKS
+
+- À qualifier.

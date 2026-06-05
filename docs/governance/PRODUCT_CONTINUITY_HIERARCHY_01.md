@@ -64,3 +64,7 @@ Paysage global conservé pour ne pas perdre l'historique et les briques de souti
 
 ## 3. Règle de dérivation
 La dérivation des memory_bricks ne s'effectue **qu'après** la stabilisation des synthèses produit (fiches produit finales) de l'Anneau A.
+
+## RISKS
+
+- À qualifier.

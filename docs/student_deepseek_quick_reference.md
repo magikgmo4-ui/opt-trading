@@ -23,3 +23,7 @@
 **Emplacements Clés**
 - **Logs** : `/opt/trading/data/logs/deepseek_student/`
 - **Module** : `modules/deepseek_hub/`
+
+## RISKS
+
+- À qualifier.

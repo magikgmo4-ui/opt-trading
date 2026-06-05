@@ -48,3 +48,7 @@ CANONICAL_DB=/opt/trading/modules/perf/data/perf.db
 retire → legacy renamed to perf/perf.db.retired_20260512_000848
 legacy_exists=0, canonical_exists=1
 ```
+
+## RISKS
+
+- À qualifier.

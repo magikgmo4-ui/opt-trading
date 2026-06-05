@@ -66,3 +66,7 @@ Les futurs chantiers peuvent utiliser ce cadrage pour implementer:
 ## Invariant final
 
 Le parser WHY ne doit jamais modifier les documents sources ni remplacer une review humaine sur surface critique.
+
+## RISKS
+
+- À qualifier.

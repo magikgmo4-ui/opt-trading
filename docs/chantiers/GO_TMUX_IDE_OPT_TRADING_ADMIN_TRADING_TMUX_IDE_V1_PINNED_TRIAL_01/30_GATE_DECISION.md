@@ -60,3 +60,7 @@ Objectif recommande :
 ## 17_RESUME_POINT
 
 La prochaine etape doit ouvrir un GO separe pour la gate `ide.yml`, si cette suite est validee.
+
+## RISKS
+
+- À qualifier.

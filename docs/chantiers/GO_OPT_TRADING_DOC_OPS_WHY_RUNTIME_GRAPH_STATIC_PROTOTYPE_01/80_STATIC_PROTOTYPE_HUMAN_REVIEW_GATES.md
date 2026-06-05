@@ -32,3 +32,7 @@ Definir les gates review humaine du prototype WHY/runtime.
 ## Invariant
 
 Le prototype WHY/runtime ne doit jamais remplacer une validation humaine critique.
+
+## RISKS
+
+- À qualifier.

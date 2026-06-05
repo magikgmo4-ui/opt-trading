@@ -22,3 +22,7 @@ Une phase suivante ne s'ouvre qu'après PASS de sa dépendance.
 - Chaque phase est traçable via son fichier dédié.
 - Le closeout final est dans `90_CLOSEOUT.md`.
 - Les risques et invariants sont dans `80_RISKS_AND_INVARIANTS.md`.
+
+## RISKS
+
+- À qualifier.

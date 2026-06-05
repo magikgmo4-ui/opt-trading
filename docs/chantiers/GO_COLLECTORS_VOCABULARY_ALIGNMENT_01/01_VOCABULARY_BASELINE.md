@@ -60,3 +60,7 @@ Boundaries famille :
 - payload schema derives vs spot
 - provider endpoint details
 ```
+
+## RISKS
+
+- À qualifier.

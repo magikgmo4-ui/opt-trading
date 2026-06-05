@@ -185,3 +185,7 @@ Memoire projet candidate :
 ```text
 GO_OPENCLAW_GOVERNANCE_MCP_POLICY_SCHEMA_01 convertit MCP Boundary + Human Gates + Trace/Evals en schema policy canonique doc-only, sans runtime ni index global.
 ```
+
+## RISKS
+
+- À qualifier.

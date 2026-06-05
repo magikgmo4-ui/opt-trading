@@ -44,3 +44,7 @@ links:
 - `GO_INDEX.md` doit lister le present GO enfant et les deux nouveaux parents ouverts ;
 - `NEXT_GO_CANDIDATES.md`, `ACTIVE_STREAMS.md` et `REPRISE.md` doivent montrer que `PARENT_OPENING_BATCH` est le sous-GO actif du parent split ;
 - `BRANCH_STATE.md` reste intact car aucune branche parent distincte n'est creee ni representee dans ce passage.
+
+## RISKS
+
+- À qualifier.

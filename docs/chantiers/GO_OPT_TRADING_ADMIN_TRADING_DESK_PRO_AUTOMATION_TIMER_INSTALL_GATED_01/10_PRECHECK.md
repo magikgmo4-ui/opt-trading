@@ -43,3 +43,7 @@ PYTHONPATH=/opt/trading python -m pytest tests/test_signal_event_adapter.py test
 ## Decision
 
 Precheck PASS, installation autorisee.
+
+## RISKS
+
+- À qualifier.

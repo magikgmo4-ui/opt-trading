@@ -51,3 +51,7 @@ Ne pas supprimer :
 ## Note
 
 Ce GO documente les actions de nettoyage. La suppression effective des branches locales est laissee a l'operateur (action manuelle, pas automatique).
+
+## RISKS
+
+- À qualifier.

@@ -385,3 +385,7 @@ Objectif immédiat :
 - L’utilisateur veut analyser les effets indirects de SpaceX sur les actions cotées.
 - L’utilisateur veut comparer FLY / RKLB / ASTS / PL avec AMD/NVDA comme couche IA.
 - L’utilisateur veut un modèle de risque parabolic growth x2/x5/x10 séparé des fondamentaux.
+
+## RISKS
+
+- À qualifier.

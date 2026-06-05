@@ -123,3 +123,7 @@ sudo bash /opt/trading/scripts/schedule/uninstall_scheduler_service.sh
 ```
 
 État final : aucun fichier systemd, aucun timer actif.
+
+## RISKS
+
+- À qualifier.

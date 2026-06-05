@@ -78,3 +78,7 @@ ouvrir une review ergonomie/session ou un realignement repo distant avant config
 ```text
 PASS_CONTROLLED_SESSION
 ```
+
+## RISKS
+
+- À qualifier.

@@ -135,3 +135,7 @@ Restauration eventuelle: action manuelle explicite et documentee a partir du bac
 - ce runbook ne couvre pas les actions `sudo`
 - ce runbook ne transforme pas `ops_wrappers` en module runtime standard
 - tout changement impliquant `/usr/local/bin` exige une consigne explicite supplementaire
+
+## RISKS
+
+- À qualifier.

@@ -43,3 +43,7 @@ De nouveaux types de bundle peuvent etre ajoutes si :
 | `bundles/OPERATOR_FLOW.md` | Operator pack (ce GO) |
 | `bundles/NO_RUNTIME_NO_SENSITIVE_RULES.md` | Operator pack (ce GO) |
 | `docs/chantiers/GO_LIVE_ARTIFACTS_CLAUDE_COWORK_IDE_BUNDLE_01/` | IDE handoff bundle |
+
+## RISKS
+
+- À qualifier.

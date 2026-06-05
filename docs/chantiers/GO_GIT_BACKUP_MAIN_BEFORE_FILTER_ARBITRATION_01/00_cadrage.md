@@ -47,3 +47,7 @@ Traiter uniquement :
 ## VERDICT
 
 - PASS - `backup/main-before-filter` sort en `DROP_REMOTE_CANDIDATE` sans suppression effectuee dans ce passage
+
+## RISKS
+
+- À qualifier.

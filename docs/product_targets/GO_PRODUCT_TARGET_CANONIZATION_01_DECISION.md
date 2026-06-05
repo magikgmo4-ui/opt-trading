@@ -92,3 +92,7 @@ Ne pas:
 - casser scripts/student
 - forcer unification prematuree
 - perdre tracabilite runtime reel
+
+## RISKS
+
+- À qualifier.

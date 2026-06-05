@@ -117,3 +117,7 @@ git checkout -b go/GO_OPT_TRADING_CURSOR_AI_CLAUDE_ARTIFACTS_REAL_USAGE_TEST_01 
 ## Cloture
 
 Ce GO demontre que le pack Claude artifacts (`bundles/claude-artifacts/`) est operationnel en usage reel pour un operateur cursor-ai. Tous les artefacts sont presents, intacts, lisibles, executables et conformes aux invariants. Le flow de handoff est complet et autonome.
+
+## RISKS
+
+- À qualifier.

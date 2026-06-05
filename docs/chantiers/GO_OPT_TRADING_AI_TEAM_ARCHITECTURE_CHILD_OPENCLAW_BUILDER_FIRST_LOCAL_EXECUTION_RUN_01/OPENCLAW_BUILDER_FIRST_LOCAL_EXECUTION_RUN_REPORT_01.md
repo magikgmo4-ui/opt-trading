@@ -171,3 +171,7 @@ Statut documente = UP_AND_STABLE (cf. closeout PR #401)
 **PASS** — L'audit local/sandbox de `docs/chantiers/` est complete sans anomalie, sans exposition de secret, sans write non planifie, sans acces remote ni SSH.
 
 Prochaine etape : closeout `90_CLOSEOUT.md`.
+
+## RISKS
+
+- À qualifier.

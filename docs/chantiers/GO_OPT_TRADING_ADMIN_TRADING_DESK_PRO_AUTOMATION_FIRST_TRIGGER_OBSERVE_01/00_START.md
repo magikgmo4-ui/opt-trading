@@ -21,3 +21,7 @@ parent_commit: 6e78622
 ## Objectif
 
 Observer le premier trigger naturel post-fix du timer Desk Pro dry-run et confirmer le resultat metier attendu sans action systemd supplementaire.
+
+## RISKS
+
+- À qualifier.

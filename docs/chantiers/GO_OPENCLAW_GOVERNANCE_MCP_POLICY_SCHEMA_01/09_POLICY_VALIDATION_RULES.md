@@ -130,3 +130,7 @@ Memoire projet candidate :
 ```text
 OpenClaw policy validation is fail-closed: missing class, gate, trace, eval, secret policy, default or rollback blocks promotion.
 ```
+
+## RISKS
+
+- À qualifier.

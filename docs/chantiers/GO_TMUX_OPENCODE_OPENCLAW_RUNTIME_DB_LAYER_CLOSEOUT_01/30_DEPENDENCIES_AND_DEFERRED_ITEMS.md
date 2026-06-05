@@ -32,3 +32,7 @@
 - Le cycle borne `OpenClaw/db-layer` est suffisamment clarifie et stabilise localement.
 - `admin-trading` ne doit pas etre rouvert maintenant.
 - `LocalCMS` redevient le prochain sujet logique sur `db-layer`.
+
+## RISKS
+
+- À qualifier.

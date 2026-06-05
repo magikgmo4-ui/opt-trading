@@ -21,3 +21,7 @@ Creer une reprise post-merge independante qui confirme que le produit est utilis
 ## Statut
 
 OPEN → PASS attendu apres execution.
+
+## RISKS
+
+- À qualifier.

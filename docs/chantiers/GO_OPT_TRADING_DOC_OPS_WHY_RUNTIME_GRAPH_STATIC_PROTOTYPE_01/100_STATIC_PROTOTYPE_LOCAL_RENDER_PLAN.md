@@ -33,3 +33,7 @@ Preparer le premier render local du prototype WHY/runtime.
 ## Invariant
 
 Le render local WHY/runtime doit rester audit-oriented et non destructif.
+
+## RISKS
+
+- À qualifier.

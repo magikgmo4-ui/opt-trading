@@ -32,3 +32,7 @@ Le meilleur point pour la validation read-only est dans `route()`, après `norma
 - Le `strategy_id` est finalisé (fallback déjà appliqué).
 - La validation n'interfère pas avec `parse_incoming()` ou `normalize()`.
 - Un warning log peut être émis sans changer le retour.
+
+## RISKS
+
+- À qualifier.

@@ -66,3 +66,7 @@ Les closeouts locaux manquants de `GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01`
 ### D10
 
 `GO_PARENT_THREAD_MAP.md` reste une vue derivee et ne doit recevoir qu un patch de statut, pas de relecture de structure globale.
+
+## RISKS
+
+- À qualifier.

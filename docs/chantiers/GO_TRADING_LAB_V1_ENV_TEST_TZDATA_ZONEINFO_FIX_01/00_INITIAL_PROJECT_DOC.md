@@ -26,3 +26,7 @@ Corriger les echecs preexistants de `trading_lab_v1` lies a `ZoneInfo("America/M
 - traiter le sujet comme dependance environnement/test ;
 - ne pas rouvrir le rollout adapter strategie ;
 - ne pas modifier la logique trading sauf necessite minimale.
+
+## RISKS
+
+- À qualifier.

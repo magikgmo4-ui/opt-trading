@@ -57,3 +57,7 @@ Le corps brut n'a pas ete expose dans cette preuve.
 ## Conclusion
 
 `/api/paper/guards` n'est pas disponible sur le runtime reel. Les guards ne peuvent donc pas etre declares PASS.
+
+## RISKS
+
+- À qualifier.

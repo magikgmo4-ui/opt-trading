@@ -62,3 +62,7 @@ PORT_8010 = UP (pid 57479 — deskpro_api_daemon.sh)
 `GO_OPT_TRADING_DESKPRO_ALERT_RUNTIME_LONG_RUN_MONITOR_01`
 
 Objectif : laisser tourner les services sur une fenêtre contrôlée, vérifier absence de fuite mémoire/logs, JSONL/cooldown sur durée, statut health périodique, stabilité ports 8000/8010.
+
+## RISKS
+
+- À qualifier.

@@ -131,3 +131,7 @@ Future test harness requirements must explain how snippets are extracted, valida
 ## 19_TO_REMEMBER
 
 The corpus prepares tests; it is not itself a test suite.
+
+## RISKS
+
+- À qualifier.

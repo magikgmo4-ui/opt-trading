@@ -24,3 +24,7 @@ doc_type: runtime_surface_audit
 - **Non agressif** : absent de `AGGRESSIVE_ENGINES` et `AGGRESSIVE_ACTIVE_ENGINES`.
 - **Logique risk dédiée** : seul engine avec une branche conditionnelle dans `risk_calculator.py:104`.
 - **1 instrument** : XAUUSD (gold CFD), timeframe invalidation M15.
+
+## RISKS
+
+- À qualifier.

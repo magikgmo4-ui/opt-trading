@@ -85,3 +85,7 @@ Ce GO est ACTIVE et traite de la migration Git progressive. C'est un GO simple a
 ## Matrice canonique creee ?
 
 Non. Dans ce premier lot, la matrice reste dans le dossier chantier. La creation de `docs/index/GO_PARENT_THREAD_MAP.md` n'est pas prevue ici.
+
+## RISKS
+
+- À qualifier.

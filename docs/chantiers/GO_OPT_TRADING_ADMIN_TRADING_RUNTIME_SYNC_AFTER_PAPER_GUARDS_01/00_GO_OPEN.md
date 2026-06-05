@@ -30,3 +30,7 @@ After merge of PR #346, the runtime must be synchronized and the guards endpoint
 - No live trading orders
 - No configuration changes to runtime flags
 - Read-only verification + server restart only
+
+## RISKS
+
+- À qualifier.

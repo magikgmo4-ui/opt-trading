@@ -34,3 +34,7 @@ Apres ce restart, aucun nouveau run service n'etait encore visible au moment de 
 ## Conclusion
 
 Le fix est prouve localement par tests et execution safe du script. La confirmation host du payload corrige demande le prochain trigger naturel ou un GO d'observation dedie.
+
+## RISKS
+
+- À qualifier.

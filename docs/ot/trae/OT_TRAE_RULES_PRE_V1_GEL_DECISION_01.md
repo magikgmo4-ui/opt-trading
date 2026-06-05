@@ -32,3 +32,7 @@ Acter, de manière strictement doc-only, si le bloc “Rules Trae V1” doit êt
 
 ## 7. Point de reprise
 - Suite recommandée : `GO_OT_NEXT_MISSION_SELECTION_01` (décider explicitement si ouverture de la couche Agents V1, sans inventer de nouveau GO).
+
+## RISKS
+
+- À qualifier.

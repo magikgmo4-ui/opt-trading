@@ -55,3 +55,7 @@ links:
 ## Point de reprise
 Le prochain travail démarre sur :
 **formalisation des conventions d’usage (GO_TMUX_RUNTIME_CONVENTIONS_01)**
+
+## RISKS
+
+- À qualifier.

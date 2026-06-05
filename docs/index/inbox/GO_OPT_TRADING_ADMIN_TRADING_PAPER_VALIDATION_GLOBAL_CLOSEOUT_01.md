@@ -39,3 +39,7 @@ Conditions production définies (7):
 7. GO production isolé
 
 Production NON ouverte dans ce GO.
+
+## RISKS
+
+- À qualifier.

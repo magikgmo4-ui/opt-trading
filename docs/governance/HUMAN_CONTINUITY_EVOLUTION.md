@@ -107,3 +107,7 @@ Elle doit aussi savoir :
 
 Bloc humain complémentaire.
 À utiliser comme référence d’évolution de la continuité, sans le substituer aux closeouts, index, reprises ni à la compaction.
+
+## RISKS
+
+- À qualifier.

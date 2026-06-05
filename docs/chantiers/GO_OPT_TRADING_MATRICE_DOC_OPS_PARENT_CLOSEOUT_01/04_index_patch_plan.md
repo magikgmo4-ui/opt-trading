@@ -35,3 +35,7 @@ links:
 - aucun changement sur `REPRISE.md`, `ACTIVE_STREAMS.md` et `NEXT_GO_CANDIDATES.md` car le parent matrice n'y porte deja plus de geste operatoire actif
 - aucun changement sur `BRANCH_STATE.md`
 - aucun changement sur runtime, modules ou scripts
+
+## RISKS
+
+- À qualifier.

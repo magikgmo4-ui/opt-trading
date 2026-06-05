@@ -35,3 +35,7 @@ Cette passe reste contrôlée et observation-only : aucun daemon système, aucun
 ## TRIGGER NATUREL SUIVANT
 
 `GO_OT_TRADING_REALTIME_V1_CLOSEOUT_01`
+
+## RISKS
+
+- À qualifier.

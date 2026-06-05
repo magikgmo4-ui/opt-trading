@@ -194,3 +194,7 @@ Recommended minimal `stage` categories:
 ## 10. Recommended next trigger
 
 GO_COLLECTORS_LIFECYCLE_COMPAT_PATCH_01
+
+## RISKS
+
+- À qualifier.

@@ -58,3 +58,7 @@ Le draft `ide.yml` doit rester minimal :
 ## 17_RESUME_POINT
 
 Les exigences autorisent un draft minimal et une validation statique. Elles n'autorisent pas encore une session complete.
+
+## RISKS
+
+- À qualifier.

@@ -22,3 +22,7 @@ Branches cursor-ai encore actives :
 - 6 fichiers OPERATIONS_PARENT (chantier + inbox)
 - 10 fichiers POST_MERGE_REPRISE (chantier propre + chantier OPERATIONS_PARENT update + inbox)
 - 14 fichiers SHARED_PACKET (chantier + inbox + .gitignore + export_shared_packet.ps1)
+
+## RISKS
+
+- À qualifier.

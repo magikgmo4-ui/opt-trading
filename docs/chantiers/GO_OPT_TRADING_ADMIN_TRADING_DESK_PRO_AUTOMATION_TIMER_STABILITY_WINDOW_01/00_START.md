@@ -21,3 +21,7 @@ parent_commit: df75c00
 ## Objectif
 
 Observer une fenetre de stabilite naturelle du timer Desk Pro dry-run apres le premier trigger post-fix valide.
+
+## RISKS
+
+- À qualifier.

@@ -150,3 +150,7 @@ ls /etc/systemd/system/daily-session.*            # should not exist
 - Prechecks TMUX + LocalCMS exécutés avant chaque run
 - Chemins absolus dans les fichiers systemd (WorkingDirectory, ExecStart)
 - Le timer peut être désactivé immédiatement sans perte de données
+
+## RISKS
+
+- À qualifier.

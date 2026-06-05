@@ -80,3 +80,7 @@ Champs exclus du premier export :
 ## 17_RESUME_POINT
 
 Le premier schema JSON reel est volontairement reduit a `sources`, `nodes`, `edges` et notes d'export, sans overlays ni donnees live.
+
+## RISKS
+
+- À qualifier.

@@ -39,3 +39,7 @@ Même pattern : import + validation read-only après `STRATEGY_ID`.
 | `xau_session_open_v1` présent dans registry (actuel) | Silence, aucune sortie |
 | `xau_session_open_v1` absent du registry (futur) | Warning stderr, runtime continue |
 | Import du module | Validation run, runtime unchanged |
+
+## RISKS
+
+- À qualifier.

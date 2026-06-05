@@ -33,3 +33,7 @@ Definir les regles observabilite du WHY lint experimental.
 ## Invariant
 
 Le lint WHY ne doit jamais inferer une observabilite runtime absente.
+
+## RISKS
+
+- À qualifier.

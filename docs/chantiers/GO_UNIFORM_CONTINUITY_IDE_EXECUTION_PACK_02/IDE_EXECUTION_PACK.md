@@ -152,3 +152,7 @@ L’IDE doit produire au minimum :
 - commit(s) réalisés
 - vérification de cohérence courte
 - point de reprise suivant
+
+## RISKS
+
+- À qualifier.

@@ -55,3 +55,7 @@ links:
 - valider la mise a jour des surfaces de continuite ;
 - utiliser `90_closeout.md` comme point de reprise exact ;
 - attendre une instruction explicite avant tout push.
+
+## RISKS
+
+- À qualifier.

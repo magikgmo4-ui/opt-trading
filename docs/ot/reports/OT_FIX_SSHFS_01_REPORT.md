@@ -48,3 +48,7 @@ Diagnostic précis et proportionné : `shared_sshfs_permanent` n’est pas “ca
 ## 9. POINT DE REPRISE SUIVANT
 - Micro-mission ultérieure (si décidée) : corriger la robustesse symlink des scripts famille A (ou supprimer leur usage) et clarifier quel système doit porter `shared-sshfs.service` (admin-trading vs autres machines), avant toute activation live.
 
+
+## RISKS
+
+- À qualifier.

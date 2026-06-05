@@ -40,3 +40,7 @@ Collector coingecko : 5 fonctions locales restantes (read_status, status_as_text
 Collector binance : 5 fonctions locales restantes (same)
 Toutes délèguent à collectors_core maintenant.
 ```
+
+## RISKS
+
+- À qualifier.

@@ -27,3 +27,7 @@ updated_at: 2026-05-11
 - no service or timer unit file changed
 - no manual service start
 - no trade, Telegram, webhook, or .env access
+
+## RISKS
+
+- À qualifier.

@@ -51,3 +51,7 @@ Le lot rend la facade top-level publiable cote repo sans modifier encore :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

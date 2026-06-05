@@ -47,3 +47,7 @@ Le gap principal est l'absence d'une couche WHY centralisee et explicitement ind
 - Aucun index global sauf rattachement machine explicite.
 - Aucun refactor produit.
 - Aucun changement de statut global.
+
+## RISKS
+
+- À qualifier.

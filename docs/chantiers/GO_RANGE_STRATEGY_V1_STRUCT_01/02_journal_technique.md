@@ -39,3 +39,7 @@ links:
 ### 2026-04-14 — suite logique retenue
 - prochain GO retenu : `GO_RANGE_STRATEGY_V1_RULES_01`
 - objet de la suite : formalisation explicite des règles opératoires minimales
+
+## RISKS
+
+- À qualifier.

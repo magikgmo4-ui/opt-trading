@@ -106,3 +106,7 @@ Le WHY layer doit devenir:
 - opposable,
 - lisible par humain + IA,
 - exploitable avant toute phase APPLY.
+
+## RISKS
+
+- À qualifier.

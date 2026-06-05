@@ -23,3 +23,7 @@ doc_type: gate_decision
 ## Verdict
 
 Premier raccord runtime read-only validé. Prochaine étape : raccorder `trading_lab_v1` ou `signal_router`.
+
+## RISKS
+
+- À qualifier.

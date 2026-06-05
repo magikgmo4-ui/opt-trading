@@ -45,3 +45,7 @@ Le repo dispose maintenant d'un cadrage lint WHY capable de:
 ## Invariant final
 
 Le WHY lint doit rester lecture seule, warning-only, non destructif, sans validation runtime autonome et sans remplacement de review humaine.
+
+## RISKS
+
+- À qualifier.

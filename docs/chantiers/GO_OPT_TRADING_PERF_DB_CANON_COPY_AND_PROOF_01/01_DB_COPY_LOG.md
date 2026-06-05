@@ -62,3 +62,7 @@ La copie est strictement non destructive.
 Le legacy est intact.
 Le checksum est identique.
 ```
+
+## RISKS
+
+- À qualifier.

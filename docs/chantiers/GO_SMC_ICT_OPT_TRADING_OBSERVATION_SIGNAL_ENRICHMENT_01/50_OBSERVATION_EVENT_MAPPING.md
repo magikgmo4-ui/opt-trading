@@ -230,3 +230,7 @@ smc_ict_events.jsonl separe
 telegram_smc_signal sans ObservationEvent
 perf_smc_score sans ObservationEvent evidence
 ```
+
+## RISKS
+
+- À qualifier.

@@ -22,3 +22,7 @@ OpenClaw lab local → provider ollama → Ollama 127.0.0.1:11434 → deepseek-r
 - Aucun secret expose
 - Aucun prompt long
 - Si E2E inaccessible sans secret, produire GAP documente
+
+## RISKS
+
+- À qualifier.

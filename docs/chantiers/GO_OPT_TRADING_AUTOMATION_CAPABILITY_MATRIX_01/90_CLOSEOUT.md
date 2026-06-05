@@ -52,3 +52,7 @@ VERDICT = PASS
 ```text
 GO_OPT_TRADING_AUTOMATION_OBSERVABILITY_PLAN_01
 ```
+
+## RISKS
+
+- À qualifier.

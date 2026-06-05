@@ -50,3 +50,7 @@ Apres merge:
   - WHY governance dashboard,
   - WHY lint experiment,
   - WHY worker reel potentiel.
+
+## RISKS
+
+- À qualifier.

@@ -145,3 +145,7 @@ source          : GO_STRICT_WORKERS_CHILD_RUNNER_WRITEGATED_01 — PASS (PR #102
 ## Prochaine étape
 
 Recevoir la liste de modèles à qualifier et créer une matrice multi-worker.
+
+## RISKS
+
+- À qualifier.

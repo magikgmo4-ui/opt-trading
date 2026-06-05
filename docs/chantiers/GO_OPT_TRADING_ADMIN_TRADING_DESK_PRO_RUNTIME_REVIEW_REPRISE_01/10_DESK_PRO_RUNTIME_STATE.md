@@ -102,3 +102,7 @@ Dernier run observé: **2026-05-04** (récent, contrairement au GAP-01 du parent
 ## Synthèse
 
 Desk Pro est un consumer **disponible** mais **non automatisé**. Les inputs frais existent (`desk/snapshots/latest.json`), mais les agrégats (`desk/state/latest.json`, `/shared/desk_pro/latest/`) sont stale. Le pipeline fonctionne quand il est lancé manuellement.
+
+## RISKS
+
+- À qualifier.

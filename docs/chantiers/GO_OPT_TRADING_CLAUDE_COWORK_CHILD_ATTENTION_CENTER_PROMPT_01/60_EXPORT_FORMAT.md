@@ -69,3 +69,7 @@ Cet export est seulement defini ici comme format cible.
 - recommendation unique
 - liste des sources
 - niveau de preuve machine
+
+## RISKS
+
+- À qualifier.

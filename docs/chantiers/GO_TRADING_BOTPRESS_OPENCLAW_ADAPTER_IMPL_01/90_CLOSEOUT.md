@@ -32,3 +32,7 @@ Botpress operator complet → smoke E2E Telegram:
 ```text
 GO_TRADING_BOTPRESS_TELEGRAM_SMOKE_E2E_01
 ```
+
+## RISKS
+
+- À qualifier.

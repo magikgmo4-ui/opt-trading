@@ -83,3 +83,7 @@ Content: WARN, errors=[], safety flags all true
 Timer: active/waiting
 Next GO: GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_ARTIFACT_STABILITY_WINDOW_01
 ```
+
+## RISKS
+
+- À qualifier.

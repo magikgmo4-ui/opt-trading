@@ -79,3 +79,7 @@ links:
 3. Vérifier `ls reports/` en début de run.
 4. Envisager un snapshot repo read-only dédié si la fréquence des runs augmente.
 5. Pour MULTI_MACHINE_VIEW enrichie, demander un rapport machine ou un log daté avant le run.
+
+## RISKS
+
+- À qualifier.

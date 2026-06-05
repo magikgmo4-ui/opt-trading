@@ -18,3 +18,7 @@
 ## Prochain GO
 
 Phase 1 — Local MCP Observer smoke (10_PHASE_1_LOCAL_MCP_OBSERVER.md).
+
+## RISKS
+
+- À qualifier.

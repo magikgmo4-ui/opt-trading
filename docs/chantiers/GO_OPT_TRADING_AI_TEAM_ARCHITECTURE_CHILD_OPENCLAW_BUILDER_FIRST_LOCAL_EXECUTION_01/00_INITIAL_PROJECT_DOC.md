@@ -69,3 +69,7 @@ GATE_STATUS: READY_FOR_LOCAL_EXECUTION
 Blockers: SSH/remote = BLOCKED (acceptable pour local)
 Conditions: toutes satisfaites pour sandbox locale
 ```
+
+## RISKS
+
+- À qualifier.

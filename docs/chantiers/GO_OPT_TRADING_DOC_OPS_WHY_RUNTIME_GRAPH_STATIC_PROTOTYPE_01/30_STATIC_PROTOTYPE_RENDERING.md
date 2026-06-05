@@ -37,3 +37,7 @@ Definir le moteur de rendu du prototype graph statique WHY/runtime.
 ## Invariant
 
 Le rendu WHY/runtime doit rester statique, explicable et non decisionnel.
+
+## RISKS
+
+- À qualifier.

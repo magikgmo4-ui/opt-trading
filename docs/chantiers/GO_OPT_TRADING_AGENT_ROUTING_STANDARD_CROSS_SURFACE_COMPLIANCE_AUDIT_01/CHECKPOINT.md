@@ -19,3 +19,7 @@ GO_OPT_TRADING_AGENT_ROUTING_STANDARD_CROSS_SURFACE_COMPLIANCE_AUDIT_01
 ## Prochaine étape
 
 Fermer le GO après merge.
+
+## RISKS
+
+- À qualifier.

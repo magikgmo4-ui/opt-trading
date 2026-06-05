@@ -101,3 +101,7 @@ appliquer patch
 → agréger rapport
 → documenter résultats
 ```
+
+## RISKS
+
+- À qualifier.

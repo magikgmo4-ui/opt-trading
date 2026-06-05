@@ -411,3 +411,7 @@ Memory Bricks candidates:
 ```text
 PASS_REAL_DOCS_SCAN_SPEC_DOC_ONLY
 ```
+
+## RISKS
+
+- À qualifier.

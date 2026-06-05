@@ -17,3 +17,7 @@ Ne pas supprimer `scripts/desk_pro_*.sh` (risque de casser des cronjobs ou habit
 - **Pas de suppression** de `scripts/desk_pro_*.sh`.
 
 L'objectif est de figer la connaissance, pas de refactorer le code.
+
+## RISKS
+
+- À qualifier.

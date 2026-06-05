@@ -25,3 +25,7 @@ docs/chantiers/GO_OPT_TRADING_CLAUDE_COWORK_PARENT_LIVE_ARTIFACTS_01/02_REMAININ
 - Aucun admin-trading
 - Aucun output live
 - 100% doc-only
+
+## RISKS
+
+- À qualifier.

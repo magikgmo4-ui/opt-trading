@@ -25,3 +25,7 @@ Definir les panneaux observabilite du futur WHY governance dashboard.
 ## Invariant
 
 Les panneaux observabilite ne doivent jamais remplacer une validation runtime humaine.
+
+## RISKS
+
+- À qualifier.

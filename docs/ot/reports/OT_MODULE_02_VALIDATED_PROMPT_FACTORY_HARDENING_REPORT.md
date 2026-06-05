@@ -113,3 +113,7 @@ python modules/validated_prompt_factory/app/validated_prompt_factory.py ^
 ## 11. POINT DE REPRISE EXACT
 > **GO_OT_MODULE_03_VALIDATED_PROMPT_FACTORY_ADOPTION**
 
+
+## RISKS
+
+- À qualifier.

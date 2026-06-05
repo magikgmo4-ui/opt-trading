@@ -128,3 +128,7 @@ Traduire l'arbre de dependances et le plan de classement en priorites d'action, 
 
 ## Point de reprise
 Traiter les points `SAFE` en premier. Les points `VERIFY` n'autorisent aucun move physique avant preuve ciblee.
+
+## RISKS
+
+- À qualifier.

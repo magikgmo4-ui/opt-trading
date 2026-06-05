@@ -35,3 +35,7 @@ Extraire les derniers helpers génériques encore dupliqués côté collecteurs 
 - pas de migration runtime
 - helpers génériques seulement
 ```
+
+## RISKS
+
+- À qualifier.

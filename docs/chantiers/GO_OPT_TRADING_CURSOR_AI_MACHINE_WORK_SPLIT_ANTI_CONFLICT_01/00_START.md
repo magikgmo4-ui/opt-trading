@@ -32,3 +32,7 @@ Operer depuis plusieurs machines (cursor-ai, admin-trading, db-layer, student, f
 ## Regle de routage
 
 Quand l'utilisateur demande "chantiers pour <machine>", la reponse doit ressortir le bloc machine correspondant depuis `docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md`.
+
+## RISKS
+
+- À qualifier.

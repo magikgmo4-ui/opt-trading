@@ -20,3 +20,7 @@
 - ne pas supprimer cette branche dans ce GO
 - ne pas melanger sa suppression eventuelle avec `GO_GIT_BRANCH_DROP_SAFE_ABSORBED_01`
 - si suppression il y a, l'ouvrir comme passage Git separe et explicitement valide
+
+## RISKS
+
+- À qualifier.

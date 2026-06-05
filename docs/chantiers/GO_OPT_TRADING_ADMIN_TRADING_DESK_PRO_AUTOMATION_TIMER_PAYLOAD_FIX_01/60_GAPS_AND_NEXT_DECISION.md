@@ -27,3 +27,7 @@ The next sane step is to observe the next natural trigger with the fixed payload
 ## Alternative
 
 `GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_TIMER_PAYLOAD_FIX_02`
+
+## RISKS
+
+- À qualifier.

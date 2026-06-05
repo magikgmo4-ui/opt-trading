@@ -81,3 +81,7 @@ PASS
 
 ## Next GO recommande
 - `GO_OPENCLAW_STATE_DIR_REPAIR_10`
+
+## RISKS
+
+- À qualifier.

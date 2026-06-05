@@ -28,3 +28,7 @@ Une surface simple sur une seule machine peut devenir critique lorsqu'elle parti
 ## Invariant
 
 Le score WHY ne doit jamais inferer une topologie machine sans preuve documentaire.
+
+## RISKS
+
+- À qualifier.

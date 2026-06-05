@@ -42,3 +42,7 @@
 - `desk_pro_dashboard` semble être la meilleure candidate pour une UI de synthèse utilisateur.
 - `perf` semble être une surface existante mais encore plus wrapper/générique que vraiment “MSI-friendly”.
 - Les moteurs probability/trades sont prêts à être **indexés visuellement** avant d’être transformés en UI dédiées.
+
+## RISKS
+
+- À qualifier.

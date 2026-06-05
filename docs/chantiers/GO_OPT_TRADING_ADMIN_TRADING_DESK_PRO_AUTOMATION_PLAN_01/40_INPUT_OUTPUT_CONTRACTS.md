@@ -55,3 +55,7 @@ updated_at: 2026-05-09
 - stale input critique => `status=stale`
 - partial artifact set => `status=partial`
 - successful dry-run => `status=ok`
+
+## RISKS
+
+- À qualifier.

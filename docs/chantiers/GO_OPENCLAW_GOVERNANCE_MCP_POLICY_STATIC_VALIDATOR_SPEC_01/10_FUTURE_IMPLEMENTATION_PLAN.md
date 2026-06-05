@@ -144,3 +144,7 @@ Future implementation closeout must prove:
 ## 19_TO_REMEMBER
 
 Static validation is a precondition for policy use, not a replacement for human gates or runtime safeguards.
+
+## RISKS
+
+- À qualifier.

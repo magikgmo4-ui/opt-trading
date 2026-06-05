@@ -40,3 +40,7 @@ Le retry `PAPER_TEST` est bloque avant execution.
 ## Suite
 
 Synchroniser `admin-trading` sur `sot/mainline @ e34b995` ou plus recent, puis refaire uniquement `GET /api/paper/guards`. Le retry reste interdit tant que les guards ne retournent pas PASS.
+
+## RISKS
+
+- À qualifier.

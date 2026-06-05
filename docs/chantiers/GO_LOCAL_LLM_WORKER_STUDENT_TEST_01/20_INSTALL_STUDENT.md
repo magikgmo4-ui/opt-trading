@@ -66,3 +66,7 @@ Paramètres à valider :
 - `max_files`
 - `max_chars_per_file`
 - `output_dir`
+
+## RISKS
+
+- À qualifier.

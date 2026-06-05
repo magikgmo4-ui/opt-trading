@@ -91,3 +91,7 @@ Tests: 84/84 passed
 Timer: active/waiting
 Next GO: GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_INPUT_SEQUENCE_CLOSEOUT_01
 ```
+
+## RISKS
+
+- À qualifier.

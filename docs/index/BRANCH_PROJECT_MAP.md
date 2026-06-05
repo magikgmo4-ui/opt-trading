@@ -111,3 +111,7 @@ Pour toute suite sur cette cartographie :
 - les branches restantes sont maintenant presque entierement lisibles par projet
 - les branches supprimees du cycle housekeeping sont rattachees a des familles stables
 - il reste 3 cas faibles a conserver explicitement en `INCONNUE`
+
+## RISKS
+
+- À qualifier.

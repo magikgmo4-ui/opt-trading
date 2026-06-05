@@ -86,3 +86,7 @@ Apres merge:
 - Repartir de `docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01/SPEC_WHY_LINT_EXPERIMENT_01.md` pour le cadrage parent.
 - Utiliser ce `140_CLOSEOUT.md` pour le verdict et l'etat de reprise.
 - En l'absence d'instruction contraire, la prochaine branche de travail doit etre un child GO doc-only, pas une reactivation du parent actuel.
+
+## RISKS
+
+- À qualifier.

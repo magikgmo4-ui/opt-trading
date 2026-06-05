@@ -20,3 +20,7 @@
 
 ## Invariant
 Aucun apply avant l'inventaire reel et la qualification explicite des exceptions.
+
+## RISKS
+
+- À qualifier.

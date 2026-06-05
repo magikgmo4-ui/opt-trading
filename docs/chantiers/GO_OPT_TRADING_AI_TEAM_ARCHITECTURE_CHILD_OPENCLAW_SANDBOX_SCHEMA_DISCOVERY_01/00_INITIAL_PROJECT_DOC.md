@@ -68,3 +68,7 @@ Decouvrir, documenter et canoniser le schema supporte de `sandbox.mode` avant to
 4. Determiner si SSH/network peut etre autorise sans desactiver le sandbox.
 5. Produire une matrice de decision.
 6. Revenir ensuite au runtime uniquement si une option sure est prouvee.
+
+## RISKS
+
+- À qualifier.

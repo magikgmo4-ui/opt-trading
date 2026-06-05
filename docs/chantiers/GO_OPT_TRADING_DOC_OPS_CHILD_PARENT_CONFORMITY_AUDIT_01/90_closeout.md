@@ -44,3 +44,7 @@ Les parents `admin-trading` et `db-layer` sont conformes. `student` et `fantome`
 
 Point de reprise exact :
 `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01/01_conformity_matrix.md`
+
+## RISKS
+
+- À qualifier.

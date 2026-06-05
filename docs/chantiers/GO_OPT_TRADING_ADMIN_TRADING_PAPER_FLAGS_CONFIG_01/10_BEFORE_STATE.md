@@ -44,3 +44,7 @@ Paper flags absent from `/opt/trading/.env`. Existing vars: `TV_PERF_HOST`, `TV_
 ## Ledger
 
 No `ledger_paper.json` file exists.
+
+## RISKS
+
+- À qualifier.

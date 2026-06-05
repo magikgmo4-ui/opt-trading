@@ -80,3 +80,7 @@ perf/perf.db               → présent (36864 bytes, mtime 2026-04-09)
 ```text
 git checkout backup/pre-perf-sync-20260511_232839
 ```
+
+## RISKS
+
+- À qualifier.

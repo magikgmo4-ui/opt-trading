@@ -40,3 +40,7 @@ R5. Les env overrides servent a surcharger, pas a remplacer la doctrine.
 La famille collectors dispose d'une doctrine config explicite et partagee,
 sans refonte disruptive du runtime existant.
 ```
+
+## RISKS
+
+- À qualifier.

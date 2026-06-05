@@ -77,3 +77,7 @@ links:
 ## Reprise
 - point de reprise : `docs/chantiers/GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01/02_journal_technique.md`
 - prochaine action recommandée : poursuivre sur les parents actifs restants via `docs/index/NEXT_GO_CANDIDATES.md`
+
+## RISKS
+
+- À qualifier.

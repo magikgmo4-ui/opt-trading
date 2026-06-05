@@ -76,3 +76,7 @@ docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_CHILD_RUNTIME_LOCK_AND_E2E_01/90_CL
 - pas de PATCH_DRAFT sans validation externe
 - stash branch_arbitration preserve
 ```
+
+## RISKS
+
+- À qualifier.

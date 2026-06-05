@@ -21,3 +21,7 @@ Un tradeoff doit toujours:
 - identifier ce qui est sacrifie,
 - identifier ce qui est protege,
 - rester coherent avec les invariants.
+
+## RISKS
+
+- À qualifier.

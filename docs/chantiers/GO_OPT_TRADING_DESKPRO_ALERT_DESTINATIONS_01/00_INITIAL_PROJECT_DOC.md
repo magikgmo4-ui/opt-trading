@@ -32,3 +32,7 @@ Brancher des destinations d'alerte optionnelles (Telegram, webhook) au-dessus du
 - Alert dispatch existant (PR #552)
 - 322/322 PASS
 - Aucun secret en code, uniquement env vars
+
+## RISKS
+
+- À qualifier.

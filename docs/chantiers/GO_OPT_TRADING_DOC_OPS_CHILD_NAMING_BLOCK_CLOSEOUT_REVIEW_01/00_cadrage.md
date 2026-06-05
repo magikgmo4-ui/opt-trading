@@ -46,3 +46,7 @@ Relire le bloc naming, verifier les artefacts reellement presents et arbitrer le
 - `GO_OPT_TRADING_CHILD_NAMING_NORMALIZER_01` peut etre ferme maintenant
 - `GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01` reste ouvert faute d'inventaire repo-first prouve dans le repo
 - `GO_OPT_TRADING_PARENT_NAMING_CANON_01` reste ouvert car le parent depend encore de l'inventaire et de la qualification des exceptions legacy
+
+## RISKS
+
+- À qualifier.

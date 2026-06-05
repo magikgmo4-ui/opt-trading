@@ -203,3 +203,7 @@ Future harness must preserve one primary error code per fixture.
 ## 19_TO_REMEMBER
 
 Schema ambiguity is a policy failure, not a warning.
+
+## RISKS
+
+- À qualifier.

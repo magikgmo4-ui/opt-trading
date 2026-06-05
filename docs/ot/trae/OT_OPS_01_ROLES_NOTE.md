@@ -30,3 +30,7 @@ Clarifier la distinction entre Runner, Orchestrator et Dashboard pour éviter le
 - `desk_pro_runner` : DOIT avoir un wrapper global (`cmd`, `menu`).
 - `desk_pro_dashboard` : DOIT avoir un wrapper global (`cmd`).
 - `desk_pro_orchestrator` : NE DOIT PAS avoir de wrapper global (interne).
+
+## RISKS
+
+- À qualifier.

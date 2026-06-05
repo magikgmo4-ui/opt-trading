@@ -71,3 +71,7 @@ links:
 - **GO a rattachement secondaire** : 1 (RESEAU_SSH -> admin-trading, db-layer)
 - **GO a ne pas deplacer** : 8
 - **GO a revoir** : 0
+
+## RISKS
+
+- À qualifier.

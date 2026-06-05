@@ -25,3 +25,7 @@ doc_type: gate_decision
 - 1 instrument (BTC USDT-M uniquement).
 - Filtre `btc_is_leader` restrictif.
 - Priorité #3 (dernier).
+
+## RISKS
+
+- À qualifier.

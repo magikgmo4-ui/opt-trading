@@ -77,3 +77,7 @@ Verdict G2 :
 ```text
 CONSTAT PARTIEL UNIQUEMENT
 ```
+
+## RISKS
+
+- À qualifier.

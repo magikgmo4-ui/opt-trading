@@ -55,3 +55,7 @@ Qu'est-ce qui necessite mon attention maintenant, pourquoi, avec quelle preuve, 
 - ne jamais proposer une ecriture automatique ;
 - ne jamais presenter un merge comme obligatoire sans preuve Git reelle ;
 - preferer un signal prioritaire unique a une liste floue.
+
+## RISKS
+
+- À qualifier.

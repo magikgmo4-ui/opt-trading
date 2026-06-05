@@ -46,3 +46,7 @@ links:
 ## Ce qui n'est pas encore une ouverture
 
 Ce tableau n'ouvre aucun parent. Il fige seulement la cible future et le cadrage minimal a verifier avant `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01`.
+
+## RISKS
+
+- À qualifier.

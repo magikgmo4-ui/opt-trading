@@ -31,3 +31,7 @@ La granularite regex GO retenue pour l'outillage est :
 
 ## DECISION_08
 Un lot separe reste necessaire avant tout depot repo eventuel.
+
+## RISKS
+
+- À qualifier.

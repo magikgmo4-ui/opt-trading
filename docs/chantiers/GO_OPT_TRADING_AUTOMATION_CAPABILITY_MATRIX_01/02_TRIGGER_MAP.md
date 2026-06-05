@@ -75,3 +75,7 @@ links:
 - TradingView Pipeline : webhook actif
 - PERF : listener 8010 + Telegram timers
 ```
+
+## RISKS
+
+- À qualifier.

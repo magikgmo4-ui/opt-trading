@@ -41,3 +41,7 @@ Clore le rollout complet de l'adapter strategie sur les engines cibles.
 - aucune nouvelle strategie ;
 - aucune modification registry ;
 - aucune remediation environnement test.
+
+## RISKS
+
+- À qualifier.

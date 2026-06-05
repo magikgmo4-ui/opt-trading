@@ -76,3 +76,7 @@ docs/index/inbox/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01.md
 Attendre la liste de modèles utilisateur.
 Créer ensuite la matrice multi-worker.
 ```
+
+## RISKS
+
+- À qualifier.

@@ -61,3 +61,7 @@ Aucune relance runtime n'est autorisee tant que les trois lignes suivantes ne so
 2. Remplacer A / B / C par les options reellement presentes.
 3. Selectionner une option par gap.
 4. Creer ensuite un plan d'execution borne si les trois gates sont VALIDATED.
+
+## RISKS
+
+- À qualifier.

@@ -23,3 +23,7 @@ Implementer l adapter Botpress ↔ OpenClaw selon la spec #231.
 - `adapter_botpress_openclaw.py` — module adapter
 - `smoke_adapter.py` — smoke tests
 - `logs/` — journal (exclu du commit)
+
+## RISKS
+
+- À qualifier.

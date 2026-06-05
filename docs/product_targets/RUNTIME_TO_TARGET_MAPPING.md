@@ -83,3 +83,7 @@ Statut: PARTIEL
   - runtime legacy
   - hub candidat
   - couche operateur
+
+## RISKS
+
+- À qualifier.

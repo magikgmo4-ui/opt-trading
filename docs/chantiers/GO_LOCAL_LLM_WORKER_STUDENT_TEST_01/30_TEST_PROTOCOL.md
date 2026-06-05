@@ -76,3 +76,7 @@ Le GO peut passer en revue si :
 - limites documentées ;
 - aucune modification automatique ;
 - prochaine extension clairement définie ou chantier stoppé.
+
+## RISKS
+
+- À qualifier.

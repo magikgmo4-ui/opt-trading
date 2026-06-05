@@ -161,3 +161,7 @@ Prochaine action:
 ```text
 Executer commandes de preuve locale pour PLAN_A, puis valider progression vers execution.
 ```
+
+## RISKS
+
+- À qualifier.

@@ -36,3 +36,7 @@ Cadrer les futures evolutions du prototype WHY/runtime.
 ## Invariant
 
 Les futures evolutions WHY/runtime ne doivent jamais supprimer la gouvernance humaine critique.
+
+## RISKS
+
+- À qualifier.

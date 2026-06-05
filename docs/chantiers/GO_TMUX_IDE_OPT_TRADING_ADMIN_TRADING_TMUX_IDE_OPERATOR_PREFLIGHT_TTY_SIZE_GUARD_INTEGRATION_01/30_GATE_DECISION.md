@@ -10,3 +10,7 @@ PASS_INTEGRATION_PATCH_PREPARED
 * Le guard precede 	imeout 12s npx -y tmux-ide@1.3.1.
 * Le diff inclut le dossier GO et la surface canonique.
 * Aucun index global n'est modifie.
+
+## RISKS
+
+- À qualifier.

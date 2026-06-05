@@ -63,3 +63,7 @@ Fiche courte de lignée pour la famille `deepseek*` côté surface student.
 ## Reprise
 - reprise immédiate documentée dans `GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01`
 - arbitrage structurel final à reprendre plus loin si une vraie bascule de `scripts/student/` vers `modules/` est lancée
+
+## RISKS
+
+- À qualifier.

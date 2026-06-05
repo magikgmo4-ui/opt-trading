@@ -71,3 +71,7 @@ Definir les familles de warnings du WHY lint, leur severite, leur axe source, le
 4. Aucun warning ne doit suggerer une correction automatique.
 5. Aucun warning ne doit bloquer la CI.
 6. Aucun warning ne doit declencher une action runtime.
+
+## RISKS
+
+- À qualifier.

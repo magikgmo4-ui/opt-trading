@@ -62,3 +62,7 @@ aucun elargissement runtime
 - `00_INITIAL_PROJECT_DOC.md`
 - `DBLAYER_ORCHESTRATOR_PAPER_PROMOTION_GATE_01.md`
 - `90_CLOSEOUT.md`
+
+## RISKS
+
+- À qualifier.

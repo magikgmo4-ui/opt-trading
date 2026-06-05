@@ -65,3 +65,7 @@ Parent admin-trading reste ouvert pour les prochains workstreams.
 ## Next GO
 
 GO_OPT_TRADING_ADMIN_TRADING_WEBHOOK_RUNTIME_REVIEW_01 (P2)
+
+## RISKS
+
+- À qualifier.

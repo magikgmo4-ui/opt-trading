@@ -225,3 +225,7 @@ sudo systemctl restart tv-webhook.service
 | 6 | SELL TV_TEST | 200 | Message | - | |
 | 7 | Rejeu x3 | 200x3 | 3 messages | - | |
 | 8 | Verif finale | - | - | 0 trades | |
+
+## RISKS
+
+- À qualifier.

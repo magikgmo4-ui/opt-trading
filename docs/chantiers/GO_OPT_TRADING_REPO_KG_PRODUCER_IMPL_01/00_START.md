@@ -29,3 +29,7 @@ Implementer le Producer Repo KG V1 lecture seule qui genere `graph_bundle.json` 
 - Lecture seule
 - Aucun secret scanne
 - Aucun runtime modifie
+
+## RISKS
+
+- À qualifier.

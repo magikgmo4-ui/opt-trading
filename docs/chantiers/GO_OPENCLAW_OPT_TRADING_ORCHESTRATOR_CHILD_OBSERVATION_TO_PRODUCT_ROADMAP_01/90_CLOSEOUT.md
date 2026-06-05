@@ -81,3 +81,7 @@ Relire : 40_NEXT_CHILD_GO_DECISION.md → choisir B, C ou D selon état observé
 [ ] HOLD — attendre validation avant fermeture
 [ ] AMEND — des corrections sont requises avant fermeture
 ```
+
+## RISKS
+
+- À qualifier.

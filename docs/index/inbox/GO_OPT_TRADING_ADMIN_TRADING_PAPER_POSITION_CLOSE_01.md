@@ -29,3 +29,7 @@ Cycle PAPER_TEST complet:
 4. Position fermée ✓
 
 Prochaine suite: scénarios paper additionnels ou validation production.
+
+## RISKS
+
+- À qualifier.

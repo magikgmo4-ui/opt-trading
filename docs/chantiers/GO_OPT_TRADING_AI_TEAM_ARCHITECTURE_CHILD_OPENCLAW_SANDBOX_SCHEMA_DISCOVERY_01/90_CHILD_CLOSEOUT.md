@@ -136,3 +136,7 @@ Objectif :
 - aucune commande remote au départ ;
 - preuve de réponse structurée ;
 - stop conditions strictes.
+
+## RISKS
+
+- À qualifier.

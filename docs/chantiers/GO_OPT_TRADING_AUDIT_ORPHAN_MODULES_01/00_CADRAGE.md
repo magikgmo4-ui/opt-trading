@@ -137,3 +137,7 @@ AUDIT_ORPHAN_MODULES_01 ouvert.
 0 runtime, 0 secret, audit documentaire uniquement.
 Prochaine action : validation → audit → consolidation plan → closeout.
 ```
+
+## RISKS
+
+- À qualifier.

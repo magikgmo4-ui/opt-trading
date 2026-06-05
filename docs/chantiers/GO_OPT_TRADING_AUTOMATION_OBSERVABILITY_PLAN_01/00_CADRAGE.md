@@ -88,3 +88,7 @@ docs/chantiers/GO_OPT_TRADING_AUTOMATION_OBSERVABILITY_PLAN_01/
 - 0 service change
 - plan seulement, pas d'implémentation
 ```
+
+## RISKS
+
+- À qualifier.

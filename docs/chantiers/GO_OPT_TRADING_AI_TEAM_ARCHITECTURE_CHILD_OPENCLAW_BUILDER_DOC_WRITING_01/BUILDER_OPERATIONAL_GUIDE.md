@@ -64,3 +64,7 @@ test -z "$(git status --short)"
 ## Warning
 
 A previous direct gateway call produced a `gateway token mismatch`. This guide does not resolve that issue. It documents the controlled usage boundary only.
+
+## RISKS
+
+- À qualifier.

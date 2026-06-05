@@ -86,3 +86,7 @@ Conclusion :
 
 - les probes `npx` n'ont pas modifie le worktree
 - aucune installation repo n'a ete effectuee
+
+## RISKS
+
+- À qualifier.

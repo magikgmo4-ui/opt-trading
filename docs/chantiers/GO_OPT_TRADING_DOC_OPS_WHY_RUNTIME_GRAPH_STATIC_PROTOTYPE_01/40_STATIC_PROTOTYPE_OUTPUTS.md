@@ -36,3 +36,7 @@ Definir les outputs du prototype graph statique WHY/runtime.
 ## Invariant
 
 Les outputs WHY/runtime doivent rester reviewables, statiques et non destructifs.
+
+## RISKS
+
+- À qualifier.

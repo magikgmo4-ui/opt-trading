@@ -34,3 +34,7 @@ Cette passe renforce la sécurité fonctionnelle du runtime sans ouvrir l’exé
 ## TRIGGER NATUREL SUIVANT
 
 `GO_OT_TRADING_REALTIME_V1_TIMER_PASS_01`
+
+## RISKS
+
+- À qualifier.

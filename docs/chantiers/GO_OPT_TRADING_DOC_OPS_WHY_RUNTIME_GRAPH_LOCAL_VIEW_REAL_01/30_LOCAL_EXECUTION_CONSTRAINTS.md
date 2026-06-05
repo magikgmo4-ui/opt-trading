@@ -35,3 +35,7 @@ Definir les contraintes d'execution locale du render WHY/runtime.
 ## Invariant
 
 Le render WHY/runtime doit rester local, explicable et non decisionnel.
+
+## RISKS
+
+- À qualifier.

@@ -66,3 +66,7 @@ Le retrait ou l'archivage de ces deux wrappers est maintenant :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

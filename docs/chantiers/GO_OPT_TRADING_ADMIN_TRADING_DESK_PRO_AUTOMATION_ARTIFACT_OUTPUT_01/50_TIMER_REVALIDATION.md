@@ -27,3 +27,7 @@ updated_at: 2026-05-11
 ## Observation
 
 The installed service `ExecStart` points to the repo script `modules/desk_pro/desk_pro_dry_run.sh` — which now writes to `/opt/trading/runtime/desk_pro_dry_run/` by default. The next natural trigger will produce the new artifacts.
+
+## RISKS
+
+- À qualifier.

@@ -47,3 +47,7 @@ collectors_core.lifecycle
 Le socle runtime/lifecycle spot devient encore plus homogène,
 sans aucune modification du métier ni des providers.
 ```
+
+## RISKS
+
+- À qualifier.

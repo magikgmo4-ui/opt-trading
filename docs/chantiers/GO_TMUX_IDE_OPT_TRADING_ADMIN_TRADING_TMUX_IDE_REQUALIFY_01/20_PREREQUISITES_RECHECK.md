@@ -41,3 +41,7 @@ IDE_YML_ABSENT
 | `ide.yml` | absent |
 
 Les prerequis systeme de base sont disponibles, mais `tmux-ide` et `ide.yml` ne sont toujours pas presents.
+
+## RISKS
+
+- À qualifier.

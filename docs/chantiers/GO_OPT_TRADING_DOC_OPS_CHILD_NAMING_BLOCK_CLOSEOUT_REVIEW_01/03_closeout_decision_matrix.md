@@ -37,3 +37,7 @@ links:
 ### GO_OPT_TRADING_PARENT_NAMING_CANON_01
 - closeout refuse
 - motif : le parent reste dependant de l'enfant inventory et de la qualification des exceptions legacy
+
+## RISKS
+
+- À qualifier.

@@ -29,3 +29,7 @@ L'etape saine suivante est un GO de start gate pour observer un premier run cont
 ## Alternative
 
 `GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_OBSERVABILITY_FIX_01`
+
+## RISKS
+
+- À qualifier.

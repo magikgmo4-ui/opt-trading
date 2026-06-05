@@ -51,3 +51,7 @@ bash /opt/trading/modules/bot_vision/headless_capture/scripts/uninstall_systemd.
 - ShareX sur Windows peut toujours envoyer vers vision_inbox via SFTP
 - Le nommage (screen_YYYY-MM-DD_HH-mm-ss_RANDOM.png) est compatible
 - vision_bot traite toutes les sources de maniere transparente
+
+## RISKS
+
+- À qualifier.

@@ -134,3 +134,7 @@ docs/product/PRODUCT_USAGE_ATLAS.md
 docs/product/FINAL_TARGET_GAPS.md
 docs/product/PRODUCT_USAGE_GRAPH.mmd
 ```
+
+## RISKS
+
+- À qualifier.

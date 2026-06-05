@@ -39,3 +39,7 @@ La visualisation couvre:
 ## Invariant
 
 La visualisation doit rester lecture seule et audit-oriented.
+
+## RISKS
+
+- À qualifier.

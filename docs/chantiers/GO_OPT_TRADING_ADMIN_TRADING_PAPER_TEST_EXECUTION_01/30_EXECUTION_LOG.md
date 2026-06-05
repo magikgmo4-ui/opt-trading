@@ -94,3 +94,7 @@ Raison: les guards paper requis etaient absents ou ambigus avant execution.
 | `ledger_live.json` | absent avant/apres |
 | `ledger_paper.json` | absent avant/apres |
 | worktree cible | propre avant/apres |
+
+## RISKS
+
+- À qualifier.

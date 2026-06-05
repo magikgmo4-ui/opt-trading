@@ -40,3 +40,7 @@ links:
 
 - absence ancienne de `90_closeout.md` sur `CONTINUITY_INDEX_REALIGNMENT_01` et `CANON_STRUCTURE_REALIGNMENT_01`
 - statuts actifs residuels dans les index alors que les artefacts sont deja livres
+
+## RISKS
+
+- À qualifier.

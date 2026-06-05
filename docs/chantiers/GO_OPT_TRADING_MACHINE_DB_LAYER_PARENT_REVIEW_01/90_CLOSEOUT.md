@@ -80,3 +80,7 @@ PASS
 
 ## Next GO recommande
 - `GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_DB_LAYER_REVIEW_01`
+
+## RISKS
+
+- À qualifier.

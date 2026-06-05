@@ -220,3 +220,7 @@ GO_OPENCLAW_GOVERNANCE_MCP_POLICY_SCHEMA_01 etablit le schema policy MCP OpenCla
 ```text
 PASS_DOC_ONLY
 ```
+
+## RISKS
+
+- À qualifier.

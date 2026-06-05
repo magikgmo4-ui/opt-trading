@@ -48,3 +48,7 @@ Cartographier l ensemble des surfaces OpenClaw du repo pour:
 ```
 docs/chantiers/GO_OPENCLAW_DBLAYER_DOCS_RESEARCH_LIBRARY_PARENT_01/00_CADRAGE_PARENT.md
 ```
+
+## RISKS
+
+- À qualifier.

@@ -60,3 +60,7 @@ Si reprise ulterieure :
 - relire `docs/hermes/GO_HERMES_OPENCLAW_BRIDGE_05_EXEC_01.md`
 - relire `docs/hermes/HERMES_OPENCLAW_BRIDGE_CASE_01_RESULT_2026-04-09.txt`
 - ouvrir ensuite seulement un nouveau GO si le besoin reel le justifie.
+
+## RISKS
+
+- À qualifier.

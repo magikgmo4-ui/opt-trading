@@ -32,3 +32,7 @@ La priorite documentaire doit suivre:
 ## Invariant
 
 Le parser ne doit jamais traiter un document historique comme une source runtime prioritaire sans preuve explicite.
+
+## RISKS
+
+- À qualifier.

@@ -48,3 +48,7 @@ Les launchers resolvent maintenant la DB dans cet ordre :
 Pas de rupture si la DB canonique n'existe pas.
 Le runtime reste fonctionnel sur perf/perf.db.
 ```
+
+## RISKS
+
+- À qualifier.

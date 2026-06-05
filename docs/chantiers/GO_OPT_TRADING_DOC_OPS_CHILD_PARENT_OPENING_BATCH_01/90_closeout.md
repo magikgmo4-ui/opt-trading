@@ -51,3 +51,7 @@ Point de reprise exact :
 
 GO suivant logique apres validation humaine de ce delta :
 `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01`
+
+## RISKS
+
+- À qualifier.

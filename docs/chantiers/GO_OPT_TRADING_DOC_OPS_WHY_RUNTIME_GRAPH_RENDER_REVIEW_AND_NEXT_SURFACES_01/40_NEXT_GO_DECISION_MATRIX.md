@@ -71,3 +71,7 @@ La suite canonique recommandee est `GO_OPT_TRADING_DOC_OPS_WHY_RUNTIME_GRAPH_REN
 ```text
 PASS / NEXT_GO_SELECTED_RENDER_READABILITY_REFINEMENT
 ```
+
+## RISKS
+
+- À qualifier.

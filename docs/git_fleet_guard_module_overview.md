@@ -26,3 +26,7 @@ Le module écrit :
 - un rapport JSON détaillé
 - un rapport Markdown lisible
 - un `latest.*` pour reprise rapide
+
+## RISKS
+
+- À qualifier.

@@ -52,3 +52,7 @@ Aucune retirée. Les 4 branches A_VERIFIER sont conservées dans le bloc avec un
 ## Fichier modifié
 
 `docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md` — section Bloc ADMIN_TRADING uniquement.
+
+## RISKS
+
+- À qualifier.

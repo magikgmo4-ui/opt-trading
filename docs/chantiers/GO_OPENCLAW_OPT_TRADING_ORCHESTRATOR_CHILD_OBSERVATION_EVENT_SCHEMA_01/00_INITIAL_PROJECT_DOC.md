@@ -104,3 +104,7 @@ Ce child GO est **doc-only**.
 | `30_PRODUCER_CONSUMER_MAPPING.md` | Qui produit, qui consomme, comment |
 | `40_LOCALCMS_AND_DASHBOARD_READINESS.md` | LocalCMS actuel vs cible |
 | `90_CLOSEOUT.md` | Closeout draft |
+
+## RISKS
+
+- À qualifier.

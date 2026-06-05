@@ -81,3 +81,7 @@ curl http://127.0.0.1:11434/api/generate \
 - Script diagnostic : `docs/chantiers/.../scripts/session_diagnostic.sh`
 - Script purge : `docs/chantiers/.../scripts/purge_old_sessions.sh`
 - Runbook rotation : `docs/chantiers/.../RUNBOOK_SESSION_ROTATION_01.md`
+
+## RISKS
+
+- À qualifier.

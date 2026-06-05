@@ -153,3 +153,7 @@ Memoire projet candidate :
 ```text
 OpenClaw Governor can decide only after class, gate, trace and eval bindings are coherent.
 ```
+
+## RISKS
+
+- À qualifier.

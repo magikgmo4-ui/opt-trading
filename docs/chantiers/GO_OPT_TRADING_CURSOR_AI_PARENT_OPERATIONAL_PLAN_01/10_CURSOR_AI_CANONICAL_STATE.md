@@ -50,3 +50,7 @@ La map cursor-ai est clean en 6 sous-sections :
 - Aucun runtime cursor-ai ouvert ou modifie.
 - Aucune alerte reelle declenchee.
 - Serveur webhook non touche.
+
+## RISKS
+
+- À qualifier.

@@ -39,3 +39,7 @@ Les ecarts classes `LEGACY_TOLERE`, `REFERENCE_ONLY` et `REVIEW_REQUIRED` ne jus
 
 ## DECISION_05
 Le prochain lot naming, s'il est ouvert, doit viser l'arbitrage de closeout du parent naming et non un apply batch.
+
+## RISKS
+
+- À qualifier.

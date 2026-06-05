@@ -139,3 +139,7 @@ CONSOLIDATION_STRATEGY_CLUSTER_01 ouvert.
 Zéro couplage Python → migration simple.
 Prochaine action : validation → plan de migration → closeout.
 ```
+
+## RISKS
+
+- À qualifier.

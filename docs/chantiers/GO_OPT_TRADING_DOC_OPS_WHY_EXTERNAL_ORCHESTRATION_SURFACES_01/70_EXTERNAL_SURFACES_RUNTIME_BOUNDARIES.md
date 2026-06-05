@@ -32,3 +32,7 @@ Verrouiller les frontieres runtime des surfaces externes.
 ## Invariant
 
 Aucune surface externe ne doit devenir un orchestrateur runtime autonome sans governance explicite.
+
+## RISKS
+
+- À qualifier.

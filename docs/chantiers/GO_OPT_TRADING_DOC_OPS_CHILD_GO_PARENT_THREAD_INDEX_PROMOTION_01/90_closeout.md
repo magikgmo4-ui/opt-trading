@@ -86,3 +86,7 @@ docs/index/GO_PARENT_THREAD_MAP.md  (nouveau)
 ## Point de reprise exact
 
 `docs/index/GO_PARENT_THREAD_MAP.md`
+
+## RISKS
+
+- À qualifier.

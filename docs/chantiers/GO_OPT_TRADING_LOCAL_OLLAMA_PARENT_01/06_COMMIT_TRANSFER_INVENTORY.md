@@ -70,3 +70,7 @@
 - **differer** l'index entry de branche comme simple reference locale
 - **rejeter** tout merge aveugle des index globaux
 - **importer manuellement** les faits du child `6572ae8` dans les nouveaux documents du parent
+
+## RISKS
+
+- À qualifier.

@@ -340,3 +340,7 @@ Memoire projet candidate :
 ```text
 Policy examples remain documentation until a dedicated GO creates and validates YAML/JSON runtime artifacts.
 ```
+
+## RISKS
+
+- À qualifier.

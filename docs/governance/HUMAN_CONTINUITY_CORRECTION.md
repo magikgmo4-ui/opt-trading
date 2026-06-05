@@ -91,3 +91,7 @@ Elle doit aussi savoir :
 
 Bloc humain complémentaire.
 À utiliser comme référence de correction et de redirection de la continuité, sans le substituer aux closeouts, index, reprises ni à la compaction.
+
+## RISKS
+
+- À qualifier.

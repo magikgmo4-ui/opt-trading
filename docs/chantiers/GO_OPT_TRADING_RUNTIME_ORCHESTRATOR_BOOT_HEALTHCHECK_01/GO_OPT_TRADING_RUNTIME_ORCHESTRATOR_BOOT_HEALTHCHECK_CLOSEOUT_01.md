@@ -94,3 +94,7 @@ Objectif :
 - Détecter machine absente ou stale (> 15min)
 - Notifier Telegram/Desk si une machine attendue ne répond pas
 - `fleet_orchestrator.py` est déjà implémenté — il s'agit de le câbler en timer systemd sur db-layer
+
+## RISKS
+
+- À qualifier.

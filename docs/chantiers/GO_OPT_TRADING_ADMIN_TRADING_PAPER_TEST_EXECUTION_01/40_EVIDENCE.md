@@ -88,3 +88,7 @@ status=OPEN
 ## Limite
 
 La preuve positive d'une simulation paper complete n'existe pas dans ce GO, car le payload a ete bloque avant execution. Le verdict ne valide donc pas le passage `PAPER_TEST`; il valide uniquement que le test n'a pas ete lance dans un contexte non conforme.
+
+## RISKS
+
+- À qualifier.

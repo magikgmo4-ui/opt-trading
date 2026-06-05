@@ -75,3 +75,7 @@ Note : des timeouts réseau historiques existent dans les logs (évènements pas
 ## 8. VERDICT FINAL
 `shared_sshfs_permanent` est **déployé et opérationnel en live** sur `db-layer` (service + mount `/shared` prouvés). La voie canonique “/shared” est donc prouvée côté client mount.
 
+
+## RISKS
+
+- À qualifier.

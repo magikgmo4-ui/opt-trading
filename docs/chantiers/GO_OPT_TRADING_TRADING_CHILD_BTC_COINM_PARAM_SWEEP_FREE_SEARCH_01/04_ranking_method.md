@@ -217,3 +217,7 @@ Le ranking principal reste simple : delta_btc_net.
 La sophistication arrive ensuite via les filtres, les tie-breakers,
 et les vues separees brut / realistic / exchange-feasible / destructif.
 ```
+
+## RISKS
+
+- À qualifier.

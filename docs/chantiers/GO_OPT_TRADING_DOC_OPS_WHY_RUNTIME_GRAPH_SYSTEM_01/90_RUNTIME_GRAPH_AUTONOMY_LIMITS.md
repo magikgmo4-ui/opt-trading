@@ -33,3 +33,7 @@ Les surfaces R4/R5 doivent garder:
 ## Invariant
 
 Le WHY runtime graph reste une aide d'audit et de visualisation, jamais une autorite autonome.
+
+## RISKS
+
+- À qualifier.

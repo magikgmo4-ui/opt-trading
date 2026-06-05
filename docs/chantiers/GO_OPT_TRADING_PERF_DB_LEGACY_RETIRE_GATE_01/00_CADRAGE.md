@@ -36,3 +36,7 @@ Fixer le gate documentaire qui doit être franchi avant de retirer la dépendanc
 Pas de retrait effectif dans ce lot.
 Seulement la définition des conditions de retrait.
 ```
+
+## RISKS
+
+- À qualifier.

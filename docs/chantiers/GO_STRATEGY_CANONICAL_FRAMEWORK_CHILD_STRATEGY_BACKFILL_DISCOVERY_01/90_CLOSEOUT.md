@@ -74,3 +74,7 @@ ouvrir GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_COINM_SHORT_REGULARIZATION_01
 → puis range / BTC accumulation
 → puis modules/strategy/ quand le modèle est stabilisé
 ```
+
+## RISKS
+
+- À qualifier.

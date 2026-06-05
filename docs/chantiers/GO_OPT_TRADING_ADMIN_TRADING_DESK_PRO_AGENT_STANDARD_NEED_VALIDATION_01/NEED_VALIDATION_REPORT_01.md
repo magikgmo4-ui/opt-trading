@@ -37,3 +37,7 @@ Si un besoin émerge à l'avenir, appliquer le standard Student/Ollama comme ré
 3. Trace de décision
 4. Précheck surface
 5. Aucun trade/worker implicite
+
+## RISKS
+
+- À qualifier.

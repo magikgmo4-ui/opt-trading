@@ -40,3 +40,7 @@ c1603081 docs: record admin-trading paper test retry execution
 6a48c1ee docs: record admin-trading runtime sync after paper guards
 2df4f09e docs: record paper test retry blocked by stale runtime
 ```
+
+## RISKS
+
+- À qualifier.

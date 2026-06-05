@@ -170,3 +170,7 @@ The later GO must document every command, input path, output path, and failure m
 ## 19_TO_REMEMBER
 
 The fixture corpus is not a runtime policy source. The future harness must treat it as test data only.
+
+## RISKS
+
+- À qualifier.

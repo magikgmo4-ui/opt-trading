@@ -49,3 +49,7 @@
 ## Next GO recommande
 - Aucun next GO immediat — cet objectif est atteint
 - Si besoin futur : `GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_BONJOUR_DISABLE` — desactiver l'annonce Bonjour/mDNS du gateway
+
+## RISKS
+
+- À qualifier.

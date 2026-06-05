@@ -82,3 +82,7 @@ Le passage vers `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01` ne dev
 3. propagation coherente dans `GO_INDEX.md`, `NEXT_GO_CANDIDATES.md`, `ACTIVE_STREAMS.md` et `REPRISE.md` ;
 4. confirmation explicite que `BRANCH_STATE.md` reste inchange ;
 5. verification finale du diff doc-only.
+
+## RISKS
+
+- À qualifier.

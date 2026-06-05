@@ -120,3 +120,7 @@ Le lot de consolidation 03 retient uniquement :
 ## Verdict
 
 **PASS — consolidation de continuité retenue et correctif minimal appliqué**
+
+## RISKS
+
+- À qualifier.

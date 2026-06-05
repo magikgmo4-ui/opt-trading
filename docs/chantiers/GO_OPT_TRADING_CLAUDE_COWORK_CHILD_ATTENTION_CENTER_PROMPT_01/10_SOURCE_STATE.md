@@ -52,3 +52,7 @@ Le parent Claude Cowork a deja fixe cinq points qui deviennent obligatoires dans
 ## Decision locale
 
 Ce GO ne rouvre aucun gap produit du pack Claude Artifacts. Il exploite le pack `product_closed` comme couche operateur pour produire un prompt final stable et executable.
+
+## RISKS
+
+- À qualifier.

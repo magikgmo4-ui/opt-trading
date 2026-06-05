@@ -57,3 +57,7 @@ Il sert à :
 Trigger courant clos au niveau squelette : `GO_OT_TRADING_LAB_V1_SKELETON_01`
 
 Trigger naturel suivant : `GO_OT_TRADING_LAB_V1_FIRST_RUNNER_PASS_01`
+
+## RISKS
+
+- À qualifier.

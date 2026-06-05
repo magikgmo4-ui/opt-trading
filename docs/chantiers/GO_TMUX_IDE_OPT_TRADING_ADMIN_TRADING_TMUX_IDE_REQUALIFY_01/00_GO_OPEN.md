@@ -42,3 +42,7 @@ Requalifier `tmux-ide` sur `admin-trading:/opt/trading` apres merge de la sequen
 - Ne pas toucher `db-layer`.
 - Ne pas toucher `OpenClaw`.
 - Cette PR documente uniquement la requalification.
+
+## RISKS
+
+- À qualifier.

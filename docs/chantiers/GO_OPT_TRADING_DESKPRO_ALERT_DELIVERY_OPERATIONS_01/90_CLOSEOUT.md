@@ -48,3 +48,7 @@ Alerte réelle (_check_alert, degraded/down) :
 
 Fallback JSONL = trace locale des alertes réelles uniquement
 ```
+
+## RISKS
+
+- À qualifier.

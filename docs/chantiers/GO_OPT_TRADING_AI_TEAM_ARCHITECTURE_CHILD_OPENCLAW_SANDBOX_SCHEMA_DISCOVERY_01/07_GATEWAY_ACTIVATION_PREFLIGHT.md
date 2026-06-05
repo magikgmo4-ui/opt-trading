@@ -193,3 +193,7 @@ Rôle :
 3. Définir les conditions d'arrêt immédiat ;
 4. Préparer le rollback explicite ;
 5. Ne démarrer le gateway que si validation humaine obtenue.
+
+## RISKS
+
+- À qualifier.

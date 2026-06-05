@@ -182,3 +182,7 @@ Regle :
 
 ## Point de reprise
 Avant tout nouveau reclassement physique, verifier d'abord si la cible appartient a la bonne classe dans ce plan. Si oui, le move est justifie; sinon, preferer une clarification documentaire.
+
+## RISKS
+
+- À qualifier.

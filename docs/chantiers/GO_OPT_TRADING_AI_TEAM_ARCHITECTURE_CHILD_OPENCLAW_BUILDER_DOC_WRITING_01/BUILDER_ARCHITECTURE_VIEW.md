@@ -49,3 +49,7 @@ builder documentation flow can continue, but gateway hardening requires a separa
 ## Boundary
 
 This architecture view is not a runtime deployment spec. It only documents the controlled builder documentation workflow.
+
+## RISKS
+
+- À qualifier.

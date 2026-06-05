@@ -29,3 +29,7 @@ curl -s -X POST http://127.0.0.1:8010/perf/observation_event \
   -d '{"strategy_id":"SMC_ICT_CHOCH_BOS_RETEST","signal":{"direction":"LONG_WATCH","confidence":0.65}}'
 curl -s "http://127.0.0.1:8010/perf/strategy/SMC_ICT_CHOCH_BOS_RETEST/promotion_gate"
 ```
+
+## RISKS
+
+- À qualifier.

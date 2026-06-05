@@ -102,3 +102,7 @@ Toutes les fixtures sont synthétiques. Aucun token, API key, ou payload réel n
 | visual_context V1 | `symbol`, `timeframe`, `captured_at`, `status` | visual_context fixture | — |
 | desk_snapshot | `symbol`, `tf`, `snapshot_ts`, `path` | desk_snapshot fixture | — |
 | Desk Pro synthesis | ensemble | toutes | test `TestDeskProSynthesisSmoke` |
+
+## RISKS
+
+- À qualifier.

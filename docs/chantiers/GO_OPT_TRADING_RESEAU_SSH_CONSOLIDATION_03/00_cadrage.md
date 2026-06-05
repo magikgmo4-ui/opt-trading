@@ -379,3 +379,7 @@ Pour cette suite :
 ## Statut
 
 **OPEN — cadrage parent maintenu, sous-chantier de convergence vers module unique fixé dans le parent**
+
+## RISKS
+
+- À qualifier.

@@ -49,3 +49,7 @@ Traiter la branche desk-pro avant toute suite `tmux-ide` :
 ## Suite
 
 La suite `tmux-ide` reste reportee tant que cette resolution Git n'est pas executee.
+
+## RISKS
+
+- À qualifier.

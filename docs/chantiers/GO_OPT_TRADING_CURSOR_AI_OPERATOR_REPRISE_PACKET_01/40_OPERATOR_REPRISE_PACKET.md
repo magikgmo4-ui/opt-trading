@@ -109,3 +109,7 @@ gh pr merge <NUM> --merge --delete-branch
 ## Sequence terminee
 
 Positions 1-4 de la sequence cursor-ai executees. Voir `50_NEXT_GO_OPTIONS.md` pour les suites possibles.
+
+## RISKS
+
+- À qualifier.

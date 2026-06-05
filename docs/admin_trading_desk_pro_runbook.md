@@ -135,3 +135,7 @@ Les commandes suivantes sont celles à utiliser sur `admin-trading` :
 
 ---
 *Dernière mise à jour : 2026-03-06*
+
+## RISKS
+
+- À qualifier.

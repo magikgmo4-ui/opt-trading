@@ -86,3 +86,7 @@ Reference `90_CLOSEOUT.md` for the final local evidence snapshot.
 ## 19_TO_REMEMBER
 
 This inbox entry does not authorize push, merge, or PR.
+
+## RISKS
+
+- À qualifier.

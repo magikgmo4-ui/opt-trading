@@ -13,3 +13,7 @@ Politique canonique de routage modèle/provider pour décider quel moteur utilis
 - `docs/chantiers/.../TASK_TO_MODEL_CAPABILITY_MATRIX_01.md`
 - `docs/chantiers/.../RUNBOOK_PROVIDER_ESCALATION_01.md`
 - `docs/chantiers/.../CHECKPOINT.md`
+
+## RISKS
+
+- À qualifier.

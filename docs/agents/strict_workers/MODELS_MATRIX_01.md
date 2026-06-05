@@ -217,3 +217,7 @@ Test 3 — CONSOLIDATION : revue modèle fort/humain + git diff + tests réels.
 ```
 
 Aucun modèle n'est promu décideur final.
+
+## RISKS
+
+- À qualifier.

@@ -46,3 +46,7 @@ Le repo dispose maintenant d'un cadrage WHY pour evaluer ClickUp, Botpress, KG e
 ## Invariant final
 
 Aucune surface externe ne doit devenir source runtime autonome, orchestrateur implicite ou autorite governance sans WHY explicite, observabilite, reprise et review humaine.
+
+## RISKS
+
+- À qualifier.

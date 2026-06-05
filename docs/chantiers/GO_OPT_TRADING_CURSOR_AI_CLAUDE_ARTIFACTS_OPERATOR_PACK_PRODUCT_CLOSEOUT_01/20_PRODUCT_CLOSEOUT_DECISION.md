@@ -47,3 +47,7 @@ Reouvrir seulement si :
 - un usage operateur detecte une ambiguite bloquante
 - une nouvelle surface Claude artifacts apparait
 - un changement de gouvernance bundle impose une mise a jour
+
+## RISKS
+
+- À qualifier.

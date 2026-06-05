@@ -22,3 +22,7 @@ doc_type: test_plan
 - `python -m pytest modules/notification_dispatcher/tests/ -q`
 - `python -m pytest modules/trading_lab_v1/tests/test_strategy_id_adapter_readonly.py -q`
 - tests trading_lab pertinents disponibles
+
+## RISKS
+
+- À qualifier.

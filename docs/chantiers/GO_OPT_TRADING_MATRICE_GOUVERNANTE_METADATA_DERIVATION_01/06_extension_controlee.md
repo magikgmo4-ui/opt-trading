@@ -153,3 +153,7 @@ Si une suite est ouverte :
 - etendre a un autre sous-ensemble borne de documents deja stabilises doctrinalement
 - conserver un registre derive non souverain par petits lots
 - ne pas ouvrir de synchronisation documentaire reelle sans lot distinct
+
+## RISKS
+
+- À qualifier.

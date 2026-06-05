@@ -39,3 +39,7 @@
 - Aucun secret ni contenu complet de `openclaw.json` n'a ete expose dans ce GO.
 - La materialisation locale des sous-GO `GO_TMUX_RUNTIME_CONVENTIONS_01`, `GO_OPENCLAW_COMMAND_SCOPE_01`, `GO_TMUX_RUNTIME_CONTRACT_01`, `GO_TMUX_OPENCODE_OPENCLAW_MODES_01` et `GO_RUNTIME_GUARDRAILS_01` n'a pas ete prouvee sous forme de dossiers `docs/chantiers/`.
 - `GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01` n'est pas materialise localement et reste seulement une reference differee.
+
+## RISKS
+
+- À qualifier.

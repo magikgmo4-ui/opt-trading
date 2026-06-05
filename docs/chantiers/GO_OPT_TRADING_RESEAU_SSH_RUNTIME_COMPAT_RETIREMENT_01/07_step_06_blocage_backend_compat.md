@@ -58,3 +58,7 @@ Avant tout archivage de `scripts/reseau_ssh`, il faut ouvrir un lot borne pour :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

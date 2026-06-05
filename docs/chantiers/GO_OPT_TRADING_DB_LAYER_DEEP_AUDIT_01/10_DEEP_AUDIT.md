@@ -28,3 +28,7 @@ updated_at: 2026-05-14
 
 - Les preuves manquantes n'etaient pas visibles sur la ligne locale, mais bien presentes sur les branches distantes.
 - Le deep audit confirme qu'il fallait lire directement le contenu distant avant tout verdict final.
+
+## RISKS
+
+- À qualifier.

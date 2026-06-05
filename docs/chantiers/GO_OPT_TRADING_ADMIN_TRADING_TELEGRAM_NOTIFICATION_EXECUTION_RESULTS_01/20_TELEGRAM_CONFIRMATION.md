@@ -49,3 +49,7 @@ qty: 20.0 | risk_usd: 100.0
 **PASS** — La notification Telegram fonctionne correctement dans le flux
 `/tv → Telegram`. Les messages sont envoyes pour chaque payload valide.
 Aucun secret n'est expose dans les messages.
+
+## RISKS
+
+- À qualifier.

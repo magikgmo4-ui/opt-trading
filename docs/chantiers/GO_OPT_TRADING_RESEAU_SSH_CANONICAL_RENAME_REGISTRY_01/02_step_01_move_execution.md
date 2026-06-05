@@ -38,3 +38,7 @@ Le move top-level ne regle pas a lui seul :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

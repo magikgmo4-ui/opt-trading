@@ -25,3 +25,7 @@ scope: doc-only
 
 Ce GO ne fait qu'ouvrir et borner le travail de realignement.
 Il ne modifie pas `admin-trading` dans cette PR.
+
+## RISKS
+
+- À qualifier.

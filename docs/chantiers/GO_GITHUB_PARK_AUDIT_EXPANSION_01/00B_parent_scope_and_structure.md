@@ -156,3 +156,7 @@ cible_locale_go:
 reference_canonique_principale:
 point_de_reprise:
 ```
+
+## RISKS
+
+- À qualifier.

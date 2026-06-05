@@ -18,3 +18,7 @@ GO_OPT_TRADING_AGENT_MODEL_ROUTING_FIRST_CONTROLLED_EXECUTION_01
 ## Prochaine étape
 
 Fermer le GO après merge.
+
+## RISKS
+
+- À qualifier.

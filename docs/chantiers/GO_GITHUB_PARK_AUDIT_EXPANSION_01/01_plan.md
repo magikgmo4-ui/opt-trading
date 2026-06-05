@@ -137,3 +137,7 @@ Interdits
 - pas de promotion du support externe en source canonique
 - pas de mélange entre rôle machine, rôle IA, rôle repo
 - pas de patch hors périmètre du GO sans le signaler explicitement
+
+## RISKS
+
+- À qualifier.

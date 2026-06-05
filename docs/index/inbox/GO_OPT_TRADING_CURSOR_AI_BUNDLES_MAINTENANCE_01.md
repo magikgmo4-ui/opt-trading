@@ -25,3 +25,7 @@ Option B — Maintenance Bundles : completer le pack Claude artifacts avec CHECK
 ## Suite
 
 `50_NEXT_GO_OPTIONS.md` — Option C recommandee (export operateur).
+
+## RISKS
+
+- À qualifier.

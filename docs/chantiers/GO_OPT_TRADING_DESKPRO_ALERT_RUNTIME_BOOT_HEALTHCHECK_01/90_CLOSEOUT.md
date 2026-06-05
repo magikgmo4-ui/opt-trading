@@ -62,3 +62,7 @@ PORT_8010 = UP (deskpro_api_daemon.sh)
 `GO_OPT_TRADING_DESKPRO_ALERT_RUNTIME_RECOVERY_DRILL_01`
 
 Objectif : simuler arrêt/redémarrage des deux services, vérifier transition `down → healthy`, confirmer alerting, logs et JSONL. Secrets exclus.
+
+## RISKS
+
+- À qualifier.

@@ -63,3 +63,7 @@ links:
 
 ## Next GO
 - se conformer au `Next GO` du chantier parent `GO_GITHUB_PARK_AUDIT_EXPANSION_01` et à la matrice `docs/index/REPRISE.md`
+
+## RISKS
+
+- À qualifier.

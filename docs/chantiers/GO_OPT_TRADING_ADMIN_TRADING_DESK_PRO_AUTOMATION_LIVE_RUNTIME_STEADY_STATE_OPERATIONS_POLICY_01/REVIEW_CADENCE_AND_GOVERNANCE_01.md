@@ -15,3 +15,7 @@ updated_at: 2026-05-14
 | Incident review | Per event | FAIL/STOP | Post-mortem |
 | Quota review | Weekly | Calendar | Quota observation |
 | Expansion decision | On request | New GO | Risk analysis |
+
+## RISKS
+
+- À qualifier.

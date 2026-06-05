@@ -178,3 +178,7 @@ Ces briques doivent etre alignees, pas reconstruites.
 ## 7. Point de reprise
 
 Prochain fichier : `02_AGENT_SKILL_PROVIDER_MATRIX.md`.
+
+## RISKS
+
+- À qualifier.

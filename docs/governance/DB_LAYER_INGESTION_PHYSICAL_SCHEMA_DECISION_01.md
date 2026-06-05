@@ -168,3 +168,7 @@ Le schéma ci-dessous doit pouvoir être matérialisé dans n’importe quel mot
 - [db_layer_desk_pro_runbook.md](file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_runbook.md)
 - [db_layer_desk_pro_quick_reference.md](file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_quick_reference.md)
 - [admin_trading_desk_pro_runbook.md](file:///c:/Users/ghost/opt-trading/docs/admin_trading_desk_pro_runbook.md)
+
+## RISKS
+
+- À qualifier.

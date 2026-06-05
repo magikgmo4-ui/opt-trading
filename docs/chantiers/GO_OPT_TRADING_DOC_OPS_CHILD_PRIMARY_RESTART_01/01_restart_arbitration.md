@@ -55,3 +55,7 @@ Le flux unique retenu maintenant est :
 - aucune ouverture du `PARENT_OPENING_BATCH` ;
 - aucune ouverture des 5 parents project/machine ;
 - aucune reouverture des lots fermes en amont.
+
+## RISKS
+
+- À qualifier.

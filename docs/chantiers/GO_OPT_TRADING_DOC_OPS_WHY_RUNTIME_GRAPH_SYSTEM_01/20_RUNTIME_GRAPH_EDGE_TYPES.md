@@ -37,3 +37,7 @@ Le graphe doit aider a:
 ## Invariant
 
 Aucune relation ne doit impliquer une orchestration runtime autonome.
+
+## RISKS
+
+- À qualifier.

@@ -47,3 +47,7 @@ Ce verdict ne ferme pas :
 - le workflow Bundles global
 - les chantiers admin-trading
 - les surfaces runtime
+
+## RISKS
+
+- À qualifier.

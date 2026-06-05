@@ -239,3 +239,7 @@ Le Telegram watch signal ne peut pas promouvoir seul.
 | PAPER_VALIDATED -> MULTI_SIGNAL | Humain | Phase 1 valide x2 periodes | Non ouvert en v0.1.0 |
 | MULTI_SIGNAL -> LIVE_REVIEW_ONLY | Humain | Dossier complet, PR #510 | Non ouvert en v0.1.0 |
 | -> RETIRED | Humain + gate | 5+ failures ou drift | Recommande automatiquement |
+
+## RISKS
+
+- À qualifier.

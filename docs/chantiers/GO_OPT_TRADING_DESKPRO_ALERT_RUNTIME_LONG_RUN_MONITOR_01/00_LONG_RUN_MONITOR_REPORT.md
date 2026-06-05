@@ -93,3 +93,7 @@ Health stability : PASS — webhook:pass constant, health cohérent
 Ports 8000/8010  : PASS — stables du T0 au T+3min
 Tests 111/111    : PASS
 ```
+
+## RISKS
+
+- À qualifier.

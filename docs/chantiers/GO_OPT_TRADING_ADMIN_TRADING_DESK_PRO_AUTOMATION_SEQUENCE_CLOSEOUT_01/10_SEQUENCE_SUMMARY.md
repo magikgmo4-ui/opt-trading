@@ -27,3 +27,7 @@ updated_at: 2026-05-11
 ## Summary
 
 La sequence a d'abord etabli le mode dry-run pur, puis a versionne et installe les fichiers systemd, a corrige le payload timer pour le rendre contract-compatible, et a valide plusieurs executions naturelles stables sans side effect interdit.
+
+## RISKS
+
+- À qualifier.

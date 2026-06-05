@@ -307,3 +307,7 @@ git status --porcelain  # doit etre propre
 | deepseek-v4-flash-free | VERIFIED_FREE | A1 |
 | ring-2.6-1t-free | VERIFIED_FREE | A1 |
 | trinity-large-preview-free | VERIFIED_FREE | A1 |
+
+## RISKS
+
+- À qualifier.

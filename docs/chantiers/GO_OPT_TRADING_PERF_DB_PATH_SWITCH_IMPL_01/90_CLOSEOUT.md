@@ -43,3 +43,7 @@ Aucun déplacement de DB n'est forcé.
 ```text
 GO_OPT_TRADING_PERF_DB_LEGACY_RETIRE_GATE_01
 ```
+
+## RISKS
+
+- À qualifier.

@@ -15,3 +15,7 @@ Notes :
 - Utiliser ce document comme aide-mémoire compacte, pas comme procédure complète.
 - Le workflow détaillé, les cas d'erreur, et le scope de validation par machine vivent dans le runbook.
 - La validation runtime finale `scripts/admin_trading/desk_pro_cmd.sh status` / `cmd-desk_pro_runner status` ne concerne que `admin-trading`.
+
+## RISKS
+
+- À qualifier.

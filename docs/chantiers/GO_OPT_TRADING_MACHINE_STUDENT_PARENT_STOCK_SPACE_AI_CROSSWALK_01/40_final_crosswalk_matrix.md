@@ -88,3 +88,7 @@ Prochain mouvement :
 - créer closeout student crosswalk ;
 - pousser les branches non poussées ;
 - préparer PR documentaire sans toucher aux index globaux.
+
+## RISKS
+
+- À qualifier.

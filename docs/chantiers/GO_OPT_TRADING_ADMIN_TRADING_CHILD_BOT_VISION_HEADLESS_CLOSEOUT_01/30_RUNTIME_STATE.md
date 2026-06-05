@@ -51,3 +51,7 @@ updated_at: 2026-05-04
 - desk_bridge.timer: exit 0/SUCCESS
 - 3 guards anti 0-byte/.uploading en place
 - Aucun crash PIL depuis le deploiement du guard
+
+## RISKS
+
+- À qualifier.

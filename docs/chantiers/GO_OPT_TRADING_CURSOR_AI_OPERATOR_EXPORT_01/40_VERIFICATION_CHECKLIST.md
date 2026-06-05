@@ -35,3 +35,7 @@ git diff --name-only | grep -vE "^(bundles/|docs/)"  # doit etre vide
 ## Verdict
 
 PASS si toutes les verifications sont OK.
+
+## RISKS
+
+- À qualifier.

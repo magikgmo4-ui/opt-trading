@@ -35,3 +35,7 @@ _shared_packets/tradingview_observer/
     20260505_003000_bridge_packet_v1.json
     latest_bridge_packet.json
 ```
+
+## RISKS
+
+- À qualifier.

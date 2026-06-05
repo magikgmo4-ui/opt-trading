@@ -64,3 +64,7 @@ links:
 - `docs/governance/` : `53` fichiers `CANON`
 - scripts racine et `scripts/` : `156` items `CANON`
 - aucune proposition d'audit ne demande de correction reelle dans ce lot
+
+## RISKS
+
+- À qualifier.

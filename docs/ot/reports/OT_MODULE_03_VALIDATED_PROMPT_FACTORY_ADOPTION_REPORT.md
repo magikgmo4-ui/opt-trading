@@ -73,3 +73,7 @@ Voir les commandes et sorties dans le closing (ou logs de terminal) et les fichi
 ## 8. POINT DE REPRISE EXACT
 > **GO_OT_MODULE_04_VALIDATED_PROMPT_FACTORY_LINUX_WRAPPERS_SMOKE**
 
+
+## RISKS
+
+- À qualifier.

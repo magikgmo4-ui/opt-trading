@@ -86,3 +86,7 @@ Verdict dans `90_CLOSEOUT.md`.
 - Snapshot repo read-only dédié : non configuré → repo actif utilisé en lecture seule par convention
 - Live Artifact HTML : non généré dans ce run (gap documenté)
 - Machine states : tous ETAT_DECLARE sauf cursor-ai (ETAT_VERIFIE partiel via session active)
+
+## RISKS
+
+- À qualifier.

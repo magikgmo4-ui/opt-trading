@@ -143,3 +143,7 @@ Après exécution, produire :
 docs/chantiers/GO_OPT_TRADING_REPO_KG_PARENT_GRAPH_SYSTEM_01/ide_bundle/REPORT_TESTS_ULTRA_CONCRETS.md
 docs/chantiers/GO_OPT_TRADING_REPO_KG_PARENT_GRAPH_SYSTEM_01/ide_bundle/GAP_REPORT_TESTS_ULTRA_CONCRETS.md
 ```
+
+## RISKS
+
+- À qualifier.

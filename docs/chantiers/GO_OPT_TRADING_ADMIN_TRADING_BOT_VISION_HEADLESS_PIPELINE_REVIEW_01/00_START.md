@@ -54,3 +54,7 @@ Auditer le pipeline Bot Vision Headless comme producer de `visual_context`, comp
 ## Runtime side effects attendus
 
 `NONE`
+
+## RISKS
+
+- À qualifier.

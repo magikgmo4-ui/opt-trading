@@ -47,3 +47,7 @@ Produire une décision claire sur l'indexation du pack documentaire builder, san
 ## 17_RESUME_POINT
 
 Reprendre à la rédaction de `01_INDEXATION_CANDIDATE_MATRIX.md`.
+
+## RISKS
+
+- À qualifier.

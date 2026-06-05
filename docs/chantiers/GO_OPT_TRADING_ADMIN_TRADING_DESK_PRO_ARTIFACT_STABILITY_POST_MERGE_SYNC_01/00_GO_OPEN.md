@@ -41,3 +41,7 @@ Synchroniser `admin-trading:/opt/trading` sur `sot/mainline` apres merge de la P
 - Pas d'installation `tmux-ide`.
 - Pas de creation `ide.yml`.
 - Documentation locale uniquement dans cette PR.
+
+## RISKS
+
+- À qualifier.

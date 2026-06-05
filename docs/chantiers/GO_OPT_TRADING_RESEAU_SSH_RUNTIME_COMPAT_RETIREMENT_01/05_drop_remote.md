@@ -62,3 +62,7 @@ La branche est candidate a suppression distante car :
 - elle a ete publiee et verifiee
 - elle n'a pas ete fusionnee dans `sot/mainline`
 - elle ne fait plus partie du flux de travail actif
+
+## RISKS
+
+- À qualifier.

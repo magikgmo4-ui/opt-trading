@@ -38,3 +38,7 @@ L'ordre doit:
 ## Invariant
 
 Aucune implementation reelle WHY ne doit contourner la governance humaine.
+
+## RISKS
+
+- À qualifier.

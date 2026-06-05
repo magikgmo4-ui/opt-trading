@@ -14,3 +14,7 @@ Pipeline fonctionnel. Modèle 0.5B non fiable pour tâche d'audit (hallucination
 ## Document
 
 - `docs/chantiers/.../CHECKPOINT.md`
+
+## RISKS
+
+- À qualifier.

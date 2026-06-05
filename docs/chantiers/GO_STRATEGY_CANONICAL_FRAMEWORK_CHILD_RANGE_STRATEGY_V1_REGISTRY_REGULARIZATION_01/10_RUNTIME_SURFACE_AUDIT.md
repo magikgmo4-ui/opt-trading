@@ -21,3 +21,7 @@ Aucune référence Python — pas de code engine, pas de runtime.
 ### Surfaces runtime
 
 Aucune. Candidat doc-only pur.
+
+## RISKS
+
+- À qualifier.

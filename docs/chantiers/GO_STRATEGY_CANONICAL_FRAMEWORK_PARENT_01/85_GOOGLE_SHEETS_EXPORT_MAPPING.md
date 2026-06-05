@@ -123,3 +123,7 @@ sync log fields
 ```
 
 Il ne doit pas activer le write automatique.
+
+## RISKS
+
+- À qualifier.

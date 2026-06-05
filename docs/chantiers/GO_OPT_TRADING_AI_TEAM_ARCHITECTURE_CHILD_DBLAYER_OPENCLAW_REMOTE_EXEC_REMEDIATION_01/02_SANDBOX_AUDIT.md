@@ -41,3 +41,7 @@ Source : `03_REMOTE_EXEC_STATE.md` — `sandbox.mode = all`, `sandboxed = true` 
 ## Decision
 
 A arbitrer. L'option C est la plus sure car elle ne modifie pas la securite OpenClaw.
+
+## RISKS
+
+- À qualifier.

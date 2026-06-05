@@ -73,3 +73,7 @@ links:
 Aucun GO automatique. Voir `50_NEXT_GO_OPTIONS.md` pour les options A-E.
 
 La sequence cursor-ai complete est terminee.
+
+## RISKS
+
+- À qualifier.

@@ -89,3 +89,7 @@ Trace:
 ## VERDICT
 
 **APPLICATION_SMOKE_PASS** — Standard operationnel applique avec succes sur 3 taches non-trading. Selection provider conforme, fallback ladder operationnel, traces de decision produites.
+
+## RISKS
+
+- À qualifier.

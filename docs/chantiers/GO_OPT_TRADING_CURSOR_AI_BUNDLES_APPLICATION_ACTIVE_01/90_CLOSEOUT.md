@@ -75,3 +75,7 @@ GO_OPT_TRADING_CURSOR_AI_ALERT_WEBHOOK_PRE_ADMIN_GATE_SPEC_01
 ```
 
 Position 3 dans la sequence : spec de gate avant admin-trading.
+
+## RISKS
+
+- À qualifier.

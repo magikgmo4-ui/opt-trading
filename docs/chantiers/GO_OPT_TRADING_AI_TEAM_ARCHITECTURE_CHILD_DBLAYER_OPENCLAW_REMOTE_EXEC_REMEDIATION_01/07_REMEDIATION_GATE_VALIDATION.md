@@ -155,3 +155,7 @@ Apres collecte des preuves :
 4. si une gate est `BLOCKED`, creer `08_REMEDIATION_BLOCKER_REPORT.md` — fait.
 
 Runtime reste interdit dans ce document.
+
+## RISKS
+
+- À qualifier.

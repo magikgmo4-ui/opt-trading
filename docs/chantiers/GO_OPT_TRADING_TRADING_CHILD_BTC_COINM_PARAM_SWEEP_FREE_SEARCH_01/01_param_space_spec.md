@@ -234,3 +234,7 @@ tant qu'elles restent mathematiquement definies.
 Les garde-fous deviennent des dimensions ou des seuils de diagnostic,
 pas des filtres obligatoires de generation.
 ```
+
+## RISKS
+
+- À qualifier.

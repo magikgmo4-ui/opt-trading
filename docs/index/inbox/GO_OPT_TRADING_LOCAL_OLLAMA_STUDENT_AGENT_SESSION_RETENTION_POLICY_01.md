@@ -28,3 +28,7 @@ Empêcher la saturation des sessions agent local Ollama sur Student.
 ## Prochaine action
 
 Valider la politique, tester rotation manuelle, décider automation.
+
+## RISKS
+
+- À qualifier.

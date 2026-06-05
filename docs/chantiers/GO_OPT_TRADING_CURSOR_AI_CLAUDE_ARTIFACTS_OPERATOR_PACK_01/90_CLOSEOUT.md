@@ -69,3 +69,7 @@ links:
 - Ouverture canonique : `docs/chantiers/GO_OPT_TRADING_CURSOR_AI_CLAUDE_ARTIFACTS_OPERATOR_PACK_01/00_GO_OPEN.md`
 - Workflow operateur : `docs/chantiers/GO_OPT_TRADING_CURSOR_AI_CLAUDE_ARTIFACTS_OPERATOR_PACK_01/40_USAGE_WORKFLOW.md`
 - Handoff deja merge : `docs/chantiers/GO_OPT_TRADING_CURSOR_AI_OPERATOR_REPRISE_PACKET_01/40_OPERATOR_REPRISE_PACKET.md`
+
+## RISKS
+
+- À qualifier.

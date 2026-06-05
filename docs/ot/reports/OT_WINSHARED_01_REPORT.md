@@ -59,3 +59,7 @@ Date (America/Montreal) : 2026-03-13
 ## 10. IMPACT SUR OT-SVC-01 ET LIGNE CANONIQUE PROJET
 - Réserve “Windows” : réduite (procédure formalisée), mais pas levée sans preuve directe sur poste.
 
+
+## RISKS
+
+- À qualifier.

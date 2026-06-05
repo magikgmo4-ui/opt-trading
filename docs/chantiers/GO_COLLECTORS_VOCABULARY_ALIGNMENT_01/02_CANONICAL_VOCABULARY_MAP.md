@@ -61,3 +61,7 @@ error_code     = code stable lisible machine
 errors.jsonl   = journal append-only des erreurs
 events.jsonl   = journal append-only des evenements de run
 ```
+
+## RISKS
+
+- À qualifier.

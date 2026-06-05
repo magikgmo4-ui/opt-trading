@@ -60,3 +60,7 @@ Health integration :
 - aucun restart
 - aucun deploy
 ```
+
+## RISKS
+
+- À qualifier.

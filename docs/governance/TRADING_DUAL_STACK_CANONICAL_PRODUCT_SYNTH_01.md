@@ -30,3 +30,7 @@ Framework trading unique avec un même noyau LAB/REALTIME, imposant la disciplin
 
 ## 7. Prochain GO recommandé
 > GO_OT_TRADING_REALTIME_V1_CHAIN_CLOSED_01 (uniquement si besoin d'extension réelle identifié)
+
+## RISKS
+
+- À qualifier.

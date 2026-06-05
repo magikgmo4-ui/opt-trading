@@ -113,3 +113,7 @@ Aucune modification :
 
 ## Next GO recommande
 `GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_OLLAMA_MODEL_EVALUATION_01`
+
+## RISKS
+
+- À qualifier.

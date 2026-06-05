@@ -43,3 +43,7 @@ SAFE = document preserves no SSH / no runtime patch / no global index update
 DOC_ADOPTION_STATUS = PASS
 FINAL_DECISION = DOC_PACK_ADOPTED_LOCAL
 ```
+
+## RISKS
+
+- À qualifier.

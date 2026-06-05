@@ -78,3 +78,7 @@ LOT 2 — retrait du journal et réalignement continuité :
 ## REPRISE
 Point de reprise local :
 - `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/03_decisions.md`
+
+## RISKS
+
+- À qualifier.

@@ -52,3 +52,7 @@ links:
 3. helpers config non disruptifs
 4. wrappers http seulement si duplication prouvée
 ```
+
+## RISKS
+
+- À qualifier.

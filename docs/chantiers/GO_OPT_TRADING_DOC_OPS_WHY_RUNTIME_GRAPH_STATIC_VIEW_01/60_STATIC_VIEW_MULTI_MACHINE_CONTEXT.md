@@ -36,3 +36,7 @@ Contextualiser les vues WHY/runtime multi-machine.
 ## Invariant
 
 Le contexte multi-machine WHY/runtime ne doit jamais devenir une orchestration distribuee autonome.
+
+## RISKS
+
+- À qualifier.

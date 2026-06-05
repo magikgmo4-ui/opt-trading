@@ -17,3 +17,7 @@
 - Nodes manquants
 - Edges incohérentes
 - Hypothèses détectées
+
+## RISKS
+
+- À qualifier.

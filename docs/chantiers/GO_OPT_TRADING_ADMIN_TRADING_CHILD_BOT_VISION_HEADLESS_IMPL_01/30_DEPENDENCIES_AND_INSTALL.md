@@ -51,3 +51,7 @@ npx playwright install chromium
 Aucun apt install necessaire. Playwright gere Chromium de maniere autonome.
 Pas de Xvfb requis (Playwright headless natif).
 Pas de librairies systeme supplementaires (Node.js suffit).
+
+## RISKS
+
+- À qualifier.

@@ -75,3 +75,7 @@ Point de reprise :
 ## Resultat
 
 Aucun artefact du pack n'a du etre modifie pour executer ce run documentaire.
+
+## RISKS
+
+- À qualifier.

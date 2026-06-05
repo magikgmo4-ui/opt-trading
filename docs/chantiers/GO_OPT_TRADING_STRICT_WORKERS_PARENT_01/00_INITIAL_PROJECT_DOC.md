@@ -391,3 +391,7 @@ Memory Brick projet candidat :
 ```text
 Les modèles comme Big Pickle doivent être intégrés comme strict workers / auto workers à autonomie étroite : ils peuvent entreprendre seuls des micro-tâches seulement si elles sont indexées, filtrées, sans secrets, sans write durable non validé, avec sortie DRAFT_ONLY, puis consolidation par modèle fort + tests + Git diff.
 ```
+
+## RISKS
+
+- À qualifier.

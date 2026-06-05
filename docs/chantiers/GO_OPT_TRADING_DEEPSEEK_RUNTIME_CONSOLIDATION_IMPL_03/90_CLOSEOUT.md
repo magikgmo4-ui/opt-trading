@@ -51,3 +51,7 @@ Retrait differe :
 ```text
 #252 CLUSTER_CONSOLIDATION → #339 PLAN → #340 IMPL_01 → #341 IMPL_02 → #342 IMPL_03
 ```
+
+## RISKS
+
+- À qualifier.

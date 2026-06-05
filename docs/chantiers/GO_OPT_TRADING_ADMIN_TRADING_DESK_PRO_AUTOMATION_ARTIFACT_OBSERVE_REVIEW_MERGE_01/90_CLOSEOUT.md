@@ -76,3 +76,7 @@ git push -u origin go/GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_ARTIFACT_
 ```
 
 PR titre : `docs: plan desk pro artifact observe review merge`
+
+## RISKS
+
+- À qualifier.

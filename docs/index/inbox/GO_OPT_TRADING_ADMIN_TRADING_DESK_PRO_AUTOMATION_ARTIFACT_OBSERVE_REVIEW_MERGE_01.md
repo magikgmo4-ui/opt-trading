@@ -50,3 +50,7 @@ Puis merger si la revue et les tests passent.
 ## Suite
 
 Apres merge desk-pro, ouvrir un GO d'execution pour realigner `admin-trading:/opt/trading` sur `sot/mainline`. La suite `tmux-ide` reste reportee jusque-la.
+
+## RISKS
+
+- À qualifier.

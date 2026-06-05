@@ -204,3 +204,7 @@ Exécution validée et appliquée :
 Règle retenue :
 - le pack reste un helper legacy non canonique
 - son emplacement normalisé est désormais documentaire, pas racine
+
+## RISKS
+
+- À qualifier.

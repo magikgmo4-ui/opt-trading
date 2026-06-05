@@ -45,3 +45,7 @@ NEXT_GO_READY = document peut être écrit dans un child séparé
 DOC_PLAN_REVIEW_STATUS = PASS
 FINAL_DECISION = DOC_PLAN_APPROVED_FOR_WRITING
 ```
+
+## RISKS
+
+- À qualifier.

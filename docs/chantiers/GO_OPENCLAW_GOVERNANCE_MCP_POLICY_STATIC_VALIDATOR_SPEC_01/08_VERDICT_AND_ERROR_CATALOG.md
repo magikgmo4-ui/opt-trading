@@ -135,3 +135,7 @@ Future implementation must document precedence when multiple errors occur. Recom
 ## 19_TO_REMEMBER
 
 Error reporting is part of the safety boundary because it prevents silent policy drift.
+
+## RISKS
+
+- À qualifier.

@@ -68,3 +68,7 @@ ssh -o BatchMode=yes -o ConnectTimeout=5 admin-trading 'cd /opt/trading && cmd-v
 ## 7. POINT DE REPRISE EXACT
 > **GO_OT_MODULE_06_VALIDATED_PROMPT_FACTORY_OPERATOR_RUNBOOK**
 
+
+## RISKS
+
+- À qualifier.

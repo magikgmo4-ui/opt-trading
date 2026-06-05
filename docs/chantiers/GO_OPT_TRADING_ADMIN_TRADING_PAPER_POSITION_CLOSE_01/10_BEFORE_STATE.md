@@ -26,3 +26,7 @@
 - Entry: 65000.0
 - Source: GO_OPT_TRADING_ADMIN_TRADING_PAPER_TEST_RETRY_01
 - Action: CLOSE
+
+## RISKS
+
+- À qualifier.

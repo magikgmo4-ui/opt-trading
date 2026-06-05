@@ -114,3 +114,7 @@ Final closeout must include the exact modified fixture files and the warning cou
 ## 19_TO_REMEMBER
 
 `PASS_FIXTURE_HARNESS` remains static evidence only.
+
+## RISKS
+
+- À qualifier.

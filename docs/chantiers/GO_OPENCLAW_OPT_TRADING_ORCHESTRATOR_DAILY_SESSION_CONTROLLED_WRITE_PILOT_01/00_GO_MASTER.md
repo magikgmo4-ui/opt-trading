@@ -34,3 +34,7 @@ en utilisant un run_id existant.
 - No live trade / No Bitget order
 - LocalCMS read-only
 - Credentials via env vars uniquement
+
+## RISKS
+
+- À qualifier.

@@ -63,3 +63,7 @@ La prochaine action utile est un lot d'execution separe :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

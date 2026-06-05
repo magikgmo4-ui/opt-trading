@@ -53,3 +53,7 @@ ShareX reste fallback. Les deux sources peuvent coexister:
 
 Le contrat d'entree (vision_inbox/screen_*.png) est identique.
 Aucune modification necessaire des modules downstream.
+
+## RISKS
+
+- À qualifier.

@@ -46,3 +46,7 @@ Formaliser pour tous les prochains parents :
 ## 17_RESUME_POINT
 
 Lire `01_PATCH_PROPOSAL.md`, puis appliquer le bloc proposé dans `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md` lors d'un passage local/rebase sûr.
+
+## RISKS
+
+- À qualifier.

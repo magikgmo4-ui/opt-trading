@@ -36,3 +36,7 @@ Preparer le modele export JSON du WHY runtime graph.
 ## Invariant
 
 L'export JSON WHY runtime graph ne doit jamais devenir une API runtime autonome.
+
+## RISKS
+
+- À qualifier.

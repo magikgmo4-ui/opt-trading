@@ -114,3 +114,7 @@ C en premier → A en parallèle → B quand seuil atteint → D après B
 - Rollback systemd disponible
 - No secrets in repo or logs
 - Kill switch non testé = expansion bloquée
+
+## RISKS
+
+- À qualifier.

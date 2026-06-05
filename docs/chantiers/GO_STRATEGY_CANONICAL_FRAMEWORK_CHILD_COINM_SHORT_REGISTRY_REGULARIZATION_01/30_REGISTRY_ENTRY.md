@@ -37,3 +37,7 @@ doc_type: registry_entry_proposal
 - Priorité #1 dans `pick_one_signal()`.
 - Présent dans les guards paper test, le registry engine, et la configuration webhook.
 - Default engine pour `bitget_to_tv_runner.py`.
+
+## RISKS
+
+- À qualifier.

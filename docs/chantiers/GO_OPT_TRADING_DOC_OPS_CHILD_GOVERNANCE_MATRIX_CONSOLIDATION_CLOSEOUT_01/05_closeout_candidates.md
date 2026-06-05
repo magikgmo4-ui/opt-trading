@@ -58,3 +58,7 @@ Closeouts locaux presents :
 
 - `GO_OPT_TRADING_DOC_OPS_CHILD_GO_PARENT_THREAD_MAP_01`
 - `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01`
+
+## RISKS
+
+- À qualifier.

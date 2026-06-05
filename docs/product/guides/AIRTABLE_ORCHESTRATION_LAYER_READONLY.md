@@ -132,3 +132,7 @@ Futur cockpit data leger : journal trading, validation humaine, dashboard operat
 
 - `docs/chantiers/GO_OPT_TRADING_AIRTABLE_ORCHESTRATION_PARENT_01/99_VERDICT.md`
 - `docs/chantiers/GO_OPT_TRADING_AIRTABLE_ORCHESTRATION_PARENT_01/04_PRODUCT_FINISH_PLAN.md`
+
+## RISKS
+
+- À qualifier.

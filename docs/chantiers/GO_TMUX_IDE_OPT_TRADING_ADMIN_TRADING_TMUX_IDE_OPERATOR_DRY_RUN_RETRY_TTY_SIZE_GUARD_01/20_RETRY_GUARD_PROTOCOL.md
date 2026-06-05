@@ -113,3 +113,7 @@ Protocole retry execute avec ide.yml temporaire, stty guard, timeout, status, in
 NEXT:
 Lire 30_RETRY_DRY_RUN_RESULTS.md.
 ```
+
+## RISKS
+
+- À qualifier.

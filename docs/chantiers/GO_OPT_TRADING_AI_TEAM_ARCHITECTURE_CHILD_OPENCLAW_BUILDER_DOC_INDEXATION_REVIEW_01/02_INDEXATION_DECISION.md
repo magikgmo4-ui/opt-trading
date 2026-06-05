@@ -60,3 +60,7 @@ Only open if discoverability needs a lightweight pointer.
 ## 17_RESUME_POINT
 
 Proceed to closeout. Do not modify global indexes in this child.
+
+## RISKS
+
+- À qualifier.

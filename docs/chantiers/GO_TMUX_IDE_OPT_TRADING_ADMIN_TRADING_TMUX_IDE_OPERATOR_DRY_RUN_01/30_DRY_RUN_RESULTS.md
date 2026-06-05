@@ -147,3 +147,7 @@ Interpretation :
 ```text
 BLOCKED_START_TMUX_COMMAND_FAILED
 ```
+
+## RISKS
+
+- À qualifier.

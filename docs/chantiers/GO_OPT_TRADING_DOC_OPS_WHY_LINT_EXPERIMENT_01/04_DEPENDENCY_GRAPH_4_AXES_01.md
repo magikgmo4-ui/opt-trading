@@ -82,3 +82,7 @@ Source canonique (gouvernance, runtime security, WHY graph)
 3. WHY lint ne corrige jamais un axe source.
 4. Toute correction remonte a l'axe source, pas a WHY lint.
 5. Le graphe est acyclique dans le sens de l'autorite : gouvernance → runtime security → cible produit → WHY lint.
+
+## RISKS
+
+- À qualifier.

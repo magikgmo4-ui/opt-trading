@@ -71,3 +71,7 @@ Ajouter une vue LocalCMS historique des sessions quotidiennes du pipeline dry-ru
 - Pas de restart depuis LocalCMS
 - Aucun write depuis l'UI
 - Toute donnée vient du JSON déjà produit par le daily session journal
+
+## RISKS
+
+- À qualifier.

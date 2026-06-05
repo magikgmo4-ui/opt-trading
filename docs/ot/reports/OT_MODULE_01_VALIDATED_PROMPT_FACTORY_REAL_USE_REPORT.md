@@ -86,3 +86,7 @@ Sortie observée :
 ## 9. POINT DE REPRISE EXACT
 > **GO_OT_MODULE_02_VALIDATED_PROMPT_FACTORY_HARDENING**
 
+
+## RISKS
+
+- À qualifier.

@@ -31,3 +31,7 @@ Aligner `docs/index/BRANCH_STATE.md` pour les deux branches `KEEP_ACTIVE` confir
 ## Point de reprise
 
 Verifier la PR dediee de realignement puis traiter les lots B, C et D separement.
+
+## RISKS
+
+- À qualifier.

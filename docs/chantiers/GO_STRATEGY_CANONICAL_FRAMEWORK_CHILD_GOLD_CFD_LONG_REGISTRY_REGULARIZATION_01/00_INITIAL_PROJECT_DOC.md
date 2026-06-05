@@ -27,3 +27,7 @@ Promouvoir `GOLD_CFD_LONG` de `STRATEGY_CANDIDATE P2` vers `strategy_id` officie
 
 Inclus : audit, spec minimale, entrée registry #5, validation.
 Exclu : pas de refactor, pas de changement runtime, pas de modules/strategy/.
+
+## RISKS
+
+- À qualifier.

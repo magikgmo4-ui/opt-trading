@@ -43,3 +43,7 @@ PASS
 - P1 Atlas complet
 - DeepSeek clarifie en lecture
 - NEXT_GO propose : `GO_OPT_TRADING_DEEPSEEK_RUNTIME_CONSOLIDATION_PLAN_01`
+
+## RISKS
+
+- À qualifier.

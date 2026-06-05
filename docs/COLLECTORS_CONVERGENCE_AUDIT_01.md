@@ -115,3 +115,7 @@ Only later decide whether selective runtime extraction into `collectors_core` is
 ## 9. Next trigger
 
 GO_COLLECTORS_FAMILY_DOCTRINE_01
+
+## RISKS
+
+- À qualifier.

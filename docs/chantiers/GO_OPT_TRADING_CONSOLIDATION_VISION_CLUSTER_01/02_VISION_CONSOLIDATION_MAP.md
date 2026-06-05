@@ -113,3 +113,7 @@ VISION se consolide autour d'une paire, pas d'un monolithe.
 bot_vision = legacy, headless_capture = compat utile.
 Tout changement runtime est differe a VISION_RUNTIME_CONSOLIDATION_PLAN_01.
 ```
+
+## RISKS
+
+- À qualifier.

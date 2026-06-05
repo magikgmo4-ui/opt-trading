@@ -130,3 +130,7 @@ La suite correcte est :
 ## MEM_CANDIDATE
 - `localcms` déjà mergé intégralement
 - futur `forms` = intégration compatible à l’existant, pas recréation de briques déjà présentes
+
+## RISKS
+
+- À qualifier.

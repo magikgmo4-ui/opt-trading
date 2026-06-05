@@ -148,3 +148,7 @@ Operer le desk trading avec runbooks, wrappers, script admin reel et dashboard.
 - `docs/status/desk_pro_stack_canonique.md`
 - `docs/desk_pro_multi_machine_quick_reference.md`
 - `docs/governance/DESK_PRO_CANONICAL_PRODUCT_SYNTH_01.md`
+
+## RISKS
+
+- À qualifier.

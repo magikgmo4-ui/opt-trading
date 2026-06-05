@@ -146,3 +146,7 @@ Decision presente :
 Step suivant :
 - auditer la duplication `install_shortcuts.sh`, `cmd.sh`, `menu.sh`, `sanity.sh`
 - verifier si une petite mutualisation sans risque est reellement possible
+
+## RISKS
+
+- À qualifier.

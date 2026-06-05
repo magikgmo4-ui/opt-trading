@@ -49,3 +49,7 @@ Il sert à :
 Trigger courant clos au niveau schémas : `GO_OT_TRADING_LAB_V1_SCHEMA_MATERIALIZATION_01`
 
 Trigger naturel suivant : `GO_OT_TRADING_LAB_V1_SKELETON_01`
+
+## RISKS
+
+- À qualifier.

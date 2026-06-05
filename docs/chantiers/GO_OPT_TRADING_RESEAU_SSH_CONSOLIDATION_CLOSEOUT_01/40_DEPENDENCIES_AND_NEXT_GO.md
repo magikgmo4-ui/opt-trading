@@ -49,3 +49,7 @@
 - les alias SSH Linux prioritaires sont verifies et le canonique `modules/reseau_ssh` est confirme physiquement
 - `cursor-ai` est maintenant le prochain point logique de reprise productive pour garder la regle ideale de `1` chantier principal par machine
 - `admin-trading`, `fantome` et `student` peuvent rester derriere ce passage d'alignement
+
+## RISKS
+
+- À qualifier.

@@ -65,3 +65,7 @@ Le manque est machine-side.
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

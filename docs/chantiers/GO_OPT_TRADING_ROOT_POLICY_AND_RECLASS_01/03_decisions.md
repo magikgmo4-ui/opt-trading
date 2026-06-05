@@ -43,3 +43,7 @@ links:
 ## REPRISE
 Point de reprise unique :
 - `docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/02_journal_technique.md`
+
+## RISKS
+
+- À qualifier.

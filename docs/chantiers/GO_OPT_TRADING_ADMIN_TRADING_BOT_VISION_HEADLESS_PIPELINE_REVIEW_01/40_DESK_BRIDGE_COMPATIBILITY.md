@@ -111,3 +111,7 @@ Le `visual_context` V1 sidecar produit par `capture_headless.js` est compatible 
 3. Le sidecar peut enrichir `latest.json` via les champs `source` et `host` de `ingest_snapshots.py`
 
 Gap: `desk_bridge` ne lit pas le sidecar JSON → les métadonnées V1 ne sont pas propagées automatiquement vers `desk_snapshot`.
+
+## RISKS
+
+- À qualifier.

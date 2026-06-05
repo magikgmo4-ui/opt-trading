@@ -38,3 +38,7 @@ if ($manifest.go_sequence[7].pr -eq "#213") { "PASS: position C pr=#213" }
 # Verifier position D ajoutee
 if ($manifest.go_sequence[8].position -eq "D") { "PASS: position D added" }
 ```
+
+## RISKS
+
+- À qualifier.

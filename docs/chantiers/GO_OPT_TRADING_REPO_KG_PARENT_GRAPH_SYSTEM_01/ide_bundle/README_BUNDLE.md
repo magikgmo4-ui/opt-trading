@@ -74,3 +74,7 @@ Lancer dans l'IDE :
 ```text
 01_GO_PROMPT_TESTS_ULTRA_CONCRETS.md
 ```
+
+## RISKS
+
+- À qualifier.

@@ -65,3 +65,7 @@ Pour toute reprise future sur le sujet WHY layer cursor-ai:
 `REFERENCE_MERGED_CANDIDATE`
 
 La branche `go/GO_OPT_TRADING_CURSOR_AI_DOC_OPS_CHILD_WHY_LAYER_AUDIT_01` ne doit pas etre traitee comme chantier actif uniquement parce qu'elle existe encore. Elle doit etre consideree comme reference documentaire mergee candidate, sans suppression de branche dans ce lot.
+
+## RISKS
+
+- À qualifier.

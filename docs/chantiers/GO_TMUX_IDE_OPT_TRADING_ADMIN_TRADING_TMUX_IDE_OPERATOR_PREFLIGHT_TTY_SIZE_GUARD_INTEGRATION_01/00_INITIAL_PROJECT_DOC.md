@@ -26,3 +26,7 @@ Integrer durablement le guard TTY size dans le template operateur 	mux-ide.
 ## 17_RESUME_POINT
 
 Surface canonique patchee : $targetRel.
+
+## RISKS
+
+- À qualifier.

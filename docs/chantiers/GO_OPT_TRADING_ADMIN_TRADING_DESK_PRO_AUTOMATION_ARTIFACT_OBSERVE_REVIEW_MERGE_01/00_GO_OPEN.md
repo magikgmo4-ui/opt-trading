@@ -58,3 +58,7 @@ Analyser la branche desk-pro artifact observe avant merge, verifier le head reel
 ## Critere de sortie
 
 Le GO est clos quand la branche desk-pro a traiter est identifiee sans ambiguite, que le plan PR/merge est documente, et que la suite de realignement `admin-trading:/opt/trading` est gatee dans un GO separe.
+
+## RISKS
+
+- À qualifier.

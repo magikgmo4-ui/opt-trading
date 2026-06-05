@@ -58,3 +58,7 @@ DATE: 2026-05-06
 | 06 | LOW | Non bloquant |
 
 Aucun gap bloquant pour continuer.
+
+## RISKS
+
+- À qualifier.

@@ -112,3 +112,7 @@ Sortie réelle :
 - Durée : À_CAPTURER
 - Résultat : `PASS` / `FAIL` / `STOP` — À_CAPTURER
 - Notes : À_CAPTURER
+
+## RISKS
+
+- À qualifier.

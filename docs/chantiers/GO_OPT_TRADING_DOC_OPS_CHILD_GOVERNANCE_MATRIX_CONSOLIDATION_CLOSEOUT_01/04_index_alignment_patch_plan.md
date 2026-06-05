@@ -68,3 +68,7 @@ links:
 - ne pas modifier `BRANCH_STATE.md`
 - ne pas modifier les index pour `GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01`
 - ne pas creer de `GO_CLOSED_INDEX.md` supplementaire
+
+## RISKS
+
+- À qualifier.

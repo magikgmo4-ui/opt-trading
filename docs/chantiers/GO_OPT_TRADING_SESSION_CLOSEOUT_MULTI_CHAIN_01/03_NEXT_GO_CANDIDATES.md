@@ -57,3 +57,7 @@ Un closeout final peut figer l'etat et proposer les suites (circuit breaker acti
 ```text
 docs/product/PRODUCT_USAGE_MATRIX.md
 ```
+
+## RISKS
+
+- À qualifier.

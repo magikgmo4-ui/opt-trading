@@ -142,3 +142,7 @@ On ne passe a l'etape suivante que si :
 - la distinction canonique / runtime / local reste claire
 - aucun repertoire local-only n'est surpromu comme surface active
 - tout reclassement propose est compatible avec les dependances repo-level verifiees
+
+## RISKS
+
+- À qualifier.

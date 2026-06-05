@@ -184,3 +184,7 @@ PASS_DOC_ONLY
 ```
 
 The active CI activation must be a separate GO.
+
+## RISKS
+
+- À qualifier.

@@ -37,3 +37,7 @@ Payload envoyé:
 
 Prochaine suite:
 Validation pipeline PAPER_TEST complète. Options: close position, additional scenarios, risk sizing tests.
+
+## RISKS
+
+- À qualifier.

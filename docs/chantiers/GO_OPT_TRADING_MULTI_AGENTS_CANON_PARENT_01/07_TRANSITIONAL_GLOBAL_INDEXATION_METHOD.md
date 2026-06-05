@@ -253,3 +253,7 @@ Reprendre ici avant toute modification directe de :
 - `docs/index/ACTIVE_STREAMS.md`
 - `docs/index/NEXT_GO_CANDIDATES.md`
 - `docs/index/REPRISE.md`
+
+## RISKS
+
+- À qualifier.

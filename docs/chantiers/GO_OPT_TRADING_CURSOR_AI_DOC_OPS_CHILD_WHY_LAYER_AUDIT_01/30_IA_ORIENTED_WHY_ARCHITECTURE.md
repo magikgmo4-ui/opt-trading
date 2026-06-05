@@ -49,3 +49,7 @@ Creer eventuellement:
 - FAILURE_MODE registry
 - TRADEOFF registry
 - lecture IA prioritaire WHY avant APPLY
+
+## RISKS
+
+- À qualifier.

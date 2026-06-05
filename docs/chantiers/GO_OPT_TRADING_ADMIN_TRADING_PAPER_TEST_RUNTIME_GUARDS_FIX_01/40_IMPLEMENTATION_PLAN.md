@@ -43,3 +43,7 @@ TV_TEST, PAPER_TEST, TEST_*, _TEST_* bypassent le ledger perf.
 ## Limite volontaire
 
 Ce GO ne lance pas `PAPER_TEST` et ne modifie pas la configuration runtime cible. Il fournit le guard detectable et le blocage pre-effet de bord. La prochaine tentative paper doit encore capturer un etat AVANT/APRES et verifier `/api/paper/guards` en PASS avant tout payload.
+
+## RISKS
+
+- À qualifier.

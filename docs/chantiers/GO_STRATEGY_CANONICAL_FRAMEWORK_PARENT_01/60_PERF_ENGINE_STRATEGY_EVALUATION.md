@@ -162,3 +162,7 @@ MARKET_ORDER
 BITGET_ORDER
 LIVE_APPROVED
 ```
+
+## RISKS
+
+- À qualifier.

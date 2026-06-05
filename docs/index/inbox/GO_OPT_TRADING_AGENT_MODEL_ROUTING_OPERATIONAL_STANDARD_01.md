@@ -13,3 +13,7 @@ Standard opératoire de routage modèle/provider obligatoire pour tout futur usa
 - `docs/chantiers/.../ROUTING_DECISION_TEMPLATE_01.md`
 - `docs/chantiers/.../PROVIDER_FALLBACK_LADDER_01.md`
 - `docs/chantiers/.../CHECKPOINT.md`
+
+## RISKS
+
+- À qualifier.

@@ -54,3 +54,7 @@ Le point de reprise est maintenant post-absorption :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

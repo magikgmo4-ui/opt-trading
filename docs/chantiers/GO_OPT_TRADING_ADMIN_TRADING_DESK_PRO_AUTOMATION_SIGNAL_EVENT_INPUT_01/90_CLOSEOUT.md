@@ -88,3 +88,7 @@ Tests: 76/76 passed
 Timer: active/waiting
 Next GO: GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_COMBINED_INPUT_SMOKE_01
 ```
+
+## RISKS
+
+- À qualifier.

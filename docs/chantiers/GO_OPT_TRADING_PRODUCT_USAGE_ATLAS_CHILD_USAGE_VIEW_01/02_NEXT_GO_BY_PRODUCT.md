@@ -31,3 +31,7 @@ links:
 Chaque produit doit pointer vers :
 - un `NEXT_GO` explicite ; ou
 - une condition d'ouverture claire quand aucun GO ne doit etre force artificiellement.
+
+## RISKS
+
+- À qualifier.

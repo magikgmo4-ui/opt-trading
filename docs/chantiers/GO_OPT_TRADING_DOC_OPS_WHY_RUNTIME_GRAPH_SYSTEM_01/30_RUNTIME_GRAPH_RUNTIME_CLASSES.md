@@ -32,3 +32,7 @@ Le graphe doit permettre de:
 ## Invariant
 
 La classe runtime doit rester contextualisee et explicable.
+
+## RISKS
+
+- À qualifier.

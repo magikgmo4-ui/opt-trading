@@ -80,3 +80,7 @@ links:
 ## Candidats GO suivants
 - `GO_STRATEGY_KERNEL_SHARED_LAYER_02`
 - `GO_RANGE_STRATEGY_V1_RULES_01`
+
+## RISKS
+
+- À qualifier.

@@ -21,3 +21,7 @@ doc_type: discovery_scope
 - Grep sur `*.py`, `*.md`, `*.{yaml,yml,json}`.
 - Classification manuelle par thème.
 - 0 nouvelle entrée registry ajoutée.
+
+## RISKS
+
+- À qualifier.

@@ -47,3 +47,7 @@ Le dossier `scripts/reseau_ssh` change donc de statut :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

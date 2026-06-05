@@ -134,3 +134,7 @@ Durcir les frontieres `Runtime edge / platform` par contrats de couche et d'entr
 
 ## Point de reprise
 Contrats `Runtime edge / platform` cadres. Basculer vers `Repo / tooling / authoring`.
+
+## RISKS
+
+- À qualifier.

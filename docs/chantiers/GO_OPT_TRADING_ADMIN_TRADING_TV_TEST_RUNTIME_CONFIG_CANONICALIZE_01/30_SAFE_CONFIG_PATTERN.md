@@ -112,3 +112,7 @@ Les engines reconnus qui passent par ce chemin :
 - `TV_TEST` (bypass perf ledger, pas de PAPER_TEST)
 - `PAPER_TEST` (execution papier)
 - `COINM_SHORT`, `USDTM_LONG`, `GOLD_CFD_LONG` (trading reel, hors scope de ce GO)
+
+## RISKS
+
+- À qualifier.

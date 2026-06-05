@@ -609,3 +609,7 @@ L'optimiseur ne contourne jamais le correcteur.
 Le mode simulation exploitable reste bloque tant que les formules Bitget et l'historique funding ne sont pas figes.
 Aucune connexion exchange, aucun backtest reel et aucune execution live ne sont autorises depuis ce document.
 ```
+
+## RISKS
+
+- À qualifier.

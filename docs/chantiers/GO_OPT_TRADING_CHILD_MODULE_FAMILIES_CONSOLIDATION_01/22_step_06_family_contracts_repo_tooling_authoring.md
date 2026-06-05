@@ -146,3 +146,7 @@ Converger sur :
 
 ## Point de reprise
 Contrats `Repo / tooling / authoring` cadres. Basculer ensuite vers le gate `Step 07` ou directement vers `Step 08` si aucun move faible risque n'est justifie.
+
+## RISKS
+
+- À qualifier.

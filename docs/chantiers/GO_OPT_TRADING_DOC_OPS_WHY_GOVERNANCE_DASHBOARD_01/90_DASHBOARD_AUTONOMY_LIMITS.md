@@ -25,3 +25,7 @@ Verrouiller les limites d'autonomie du futur WHY governance dashboard.
 ## Invariant
 
 Le dashboard WHY reste une aide d'audit et de visualisation, jamais une autorite autonome.
+
+## RISKS
+
+- À qualifier.

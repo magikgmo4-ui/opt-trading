@@ -604,3 +604,7 @@ Construire **un framework trading dual Lab + Real-Time**, centré d’abord sur 
 
 - `docs/ot/trading/INDEX.md` : point d’entrée local de la zone trading.
 - `docs/ot/trading/01_GO_OT_TRADING_DUAL_STACK_V1_01_REPRISE.md` : point de reprise opératoire court.
+
+## RISKS
+
+- À qualifier.

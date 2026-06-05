@@ -58,3 +58,7 @@ Aucun nouveau chantier n’est recommandé par défaut.
 
 ## FORMULE COURTE
 La chaîne minimale REALTIME V1 est fermée proprement au niveau repo et continuité canonique. Reprendre uniquement depuis `GO_OT_TRADING_REALTIME_V1_CHAIN_CLOSED_01` si un nouveau chantier réel doit être ouvert.
+
+## RISKS
+
+- À qualifier.

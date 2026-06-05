@@ -50,3 +50,7 @@ Exécuter le réalignement contrôlé de `/opt/trading` avec `origin/sot/mainlin
 - legacy perf/perf.db non touchée
 - aucun restart service
 ```
+
+## RISKS
+
+- À qualifier.

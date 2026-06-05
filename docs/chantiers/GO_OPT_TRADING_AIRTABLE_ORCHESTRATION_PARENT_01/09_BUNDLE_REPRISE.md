@@ -9,3 +9,7 @@ Statut: working bundle.
 Note: revalidation requise avec la documentation canonique bundles lorsqu elle sera disponible.
 
 Next: completer le prompt closeout puis lancer le prompt implementation.
+
+## RISKS
+
+- À qualifier.

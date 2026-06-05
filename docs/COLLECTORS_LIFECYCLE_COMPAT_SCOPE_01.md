@@ -99,3 +99,7 @@ Before any patch, the repo should first freeze:
 ## 8. Recommended next trigger
 
 GO_COLLECTORS_LIFECYCLE_COMPAT_SPEC_01
+
+## RISKS
+
+- À qualifier.

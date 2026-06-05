@@ -28,3 +28,7 @@ Constat principal : écart documentaire significatif. MACHINE_WORK_SPLIT couvre 
 GO_OPT_TRADING_ADMIN_TRADING_MACHINE_WORK_SPLIT_UPDATE_01 (P1 — doc-only update du bloc ADMIN_TRADING)
 GO_OPT_TRADING_ADMIN_TRADING_BRANCH_STATE_SEED_01 (P2 — seed des entrées BRANCH_STATE.md)
 GO_OPT_TRADING_ADMIN_TRADING_DROP_MERGED_CLEANUP_01 (P3 — cleanup branches DROP_MERGED, après le 2026-05-28)
+
+## RISKS
+
+- À qualifier.

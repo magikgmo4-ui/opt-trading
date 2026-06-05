@@ -267,3 +267,7 @@ Memory Bricks projet uniquement :
 - sur `admin-trading`, la sequence child GO runtime doit suivre l'ordre `webhook runtime -> webhook signal diag -> bot vision headless pipeline -> desk pro runtime`
 - `Desk Pro` ne doit pas etre valide avant documentation des contrats `signal_event`, `visual_context` et `desk_snapshot`
 - toute integration reelle, smoke global ou mutation runtime doit sortir de cette sequence et ouvrir un GO dedie
+
+## RISKS
+
+- À qualifier.

@@ -58,3 +58,7 @@ Si un lot de housekeeping est ouvert plus tard :
 1. repartir de cette note de disposition ;
 2. verifier de nouveau que `sot/mainline` contient toujours le contenu merge ;
 3. decider alors entre conservation reference ou suppression operee.
+
+## RISKS
+
+- À qualifier.

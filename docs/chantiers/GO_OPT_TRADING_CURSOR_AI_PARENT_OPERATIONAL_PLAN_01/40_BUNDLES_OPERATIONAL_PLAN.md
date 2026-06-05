@@ -39,3 +39,7 @@ Bundles est le mecanisme de packaging documentaire du repo opt-trading. Il struc
 ## Lien avec Claude artifacts
 
 Le pack Claude artifacts (`GO_OPT_TRADING_CURSOR_AI_CLAUDE_ARTIFACTS_OPERATOR_PACK_01`) utilisera Bundles pour structurer ses livrables.
+
+## RISKS
+
+- À qualifier.

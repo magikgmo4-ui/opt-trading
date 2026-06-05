@@ -144,3 +144,7 @@ Connecter les alertes TradingView au repo, les observer, les journaliser, les no
 
 - `docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md`
 - `docs/chantiers/GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_01/90_CLOSEOUT.md`
+
+## RISKS
+
+- À qualifier.

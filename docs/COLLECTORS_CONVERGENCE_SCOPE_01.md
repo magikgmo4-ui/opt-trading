@@ -37,3 +37,7 @@
 
 ## Trigger suivant
 GO_COLLECTORS_CONVERGENCE_AUDIT_01
+
+## RISKS
+
+- À qualifier.

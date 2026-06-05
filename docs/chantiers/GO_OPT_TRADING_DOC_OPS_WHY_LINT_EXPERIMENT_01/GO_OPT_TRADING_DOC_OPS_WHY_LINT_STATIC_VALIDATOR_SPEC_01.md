@@ -555,3 +555,7 @@ Memory Bricks candidates:
 ```text
 PASS_STATIC_VALIDATOR_SPEC_DOC_ONLY
 ```
+
+## RISKS
+
+- À qualifier.

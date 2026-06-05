@@ -245,3 +245,7 @@ Memory Bricks candidates:
 ```text
 PASS_SPEC_REVIEW_DOC_ONLY
 ```
+
+## RISKS
+
+- À qualifier.

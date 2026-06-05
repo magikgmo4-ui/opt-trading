@@ -174,3 +174,7 @@ _archive/ + tmp/ + caches ---------> jamais upstream
 
 ## Point de reprise
 Utiliser ce document comme carte de dependance avant tout nouveau reclassement physique de surface.
+
+## RISKS
+
+- À qualifier.

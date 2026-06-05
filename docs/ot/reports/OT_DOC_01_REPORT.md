@@ -24,3 +24,7 @@
 - Aucun document n’affirme que les timers/services sont “prouvés live” sur la seule base du repo.
 - Le statut de déploiement live reste explicitement un point à confirmer (cf. OT-SVC-01).
 
+
+## RISKS
+
+- À qualifier.

@@ -46,3 +46,7 @@ Le score pourra plus tard:
 ## Invariant
 
 Aucun scoring automatique actif n'est introduit par ce document.
+
+## RISKS
+
+- À qualifier.

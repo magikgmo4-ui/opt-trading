@@ -707,3 +707,7 @@ Elle établit :
 - le schéma trade/log V1 ;
 - la première famille de variantes Gold/session ;
 - les garde-fous de périmètre V1.
+
+## RISKS
+
+- À qualifier.

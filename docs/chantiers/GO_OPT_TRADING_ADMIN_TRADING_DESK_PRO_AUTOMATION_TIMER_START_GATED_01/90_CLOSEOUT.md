@@ -84,3 +84,7 @@ Service state: inactive after one timer-triggered successful execution
 Journal result: payload status FAIL, service exit 0/SUCCESS
 Next GO: GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_FIRST_TRIGGER_OBSERVE_01
 ```
+
+## RISKS
+
+- À qualifier.

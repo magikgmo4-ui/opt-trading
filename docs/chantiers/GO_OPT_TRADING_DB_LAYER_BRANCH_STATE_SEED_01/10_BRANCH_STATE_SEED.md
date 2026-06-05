@@ -66,3 +66,7 @@ Les compteurs de synthese en tete de `BRANCH_STATE.md` ne sont pas recalcules da
 
 - 11 nouvelles entrees seedees
 - 4 lignes existantes corrigees
+
+## RISKS
+
+- À qualifier.

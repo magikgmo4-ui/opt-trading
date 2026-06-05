@@ -69,3 +69,7 @@ Ce lot ne cree pas docs/index/GO_PARENT_THREAD_MAP.md.
 Apres ce lot :
 - les parents machine sont tous traites
 - la suite logique est de traiter les GO orphelins
+
+## RISKS
+
+- À qualifier.

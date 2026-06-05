@@ -56,3 +56,7 @@ Traiter uniquement :
 ## VERDICT
 
 - PASS - le lot remote cible est supprime en restant strictement separe des suppressions locales et de `backup/main-before-filter`
+
+## RISKS
+
+- À qualifier.

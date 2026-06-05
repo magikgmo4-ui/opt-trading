@@ -88,3 +88,7 @@ python3 -m modules.desk_pro_orchestrator.app.desk_pro_orchestrator run --config 
   "rationale": "Approved LONG (HALF size)."
 }
 ```
+
+## RISKS
+
+- À qualifier.

@@ -35,3 +35,7 @@ Definir les gates avant implementation reelle du prototype graph statique WHY/ru
 ## Invariant
 
 Aucune implementation reelle du prototype ne doit contourner les gates de gouvernance humaine.
+
+## RISKS
+
+- À qualifier.

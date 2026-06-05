@@ -215,3 +215,7 @@ méthode de stockage GitHub définie.
 Prochaine action:
 créer 02_BUNDLE_RETRIEVAL_METHOD.md
 ```
+
+## RISKS
+
+- À qualifier.

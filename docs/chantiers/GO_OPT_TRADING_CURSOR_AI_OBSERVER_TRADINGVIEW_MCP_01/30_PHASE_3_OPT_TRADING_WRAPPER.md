@@ -77,3 +77,7 @@ Depuis opt-trading, une commande unique peut produire un inventaire TradingView 
 - **Auto-variable** : `@args` utilisé dans `Tv` function wrapper, pas `$Args` (conflit avec l'automatique).
 - **Mutation lock** : Flag `-AllowMutation` ignoré en Phase 3 (aucune fonction d'écriture). Prêt pour Phase 4+.
 - **Path** : `tradingview-mcp` hors repo → le wrapper ne crée pas de dépendance npm.
+
+## RISKS
+
+- À qualifier.

@@ -23,3 +23,7 @@ Ces éléments ne doivent pas polluer ce chantier UI tant qu’ils ne sont pas c
 
 ## Conclusion
 Avant toute UI spécifique, maintenir une **UI registry MSI-first** et un **target map** des surfaces, sans sur-interpréter l’état live tant qu’il n’est pas prouvé.
+
+## RISKS
+
+- À qualifier.

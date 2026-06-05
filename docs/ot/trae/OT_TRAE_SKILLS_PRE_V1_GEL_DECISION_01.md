@@ -32,3 +32,7 @@ Acter, de manière strictement doc-only, si le bloc “Skills Trae V1” doit ê
 
 ## 7. Point de reprise
 - Suite recommandée : `GO_OT_NEXT_MISSION_SELECTION_01` (décider explicitement si l’étape suivante est la couche MCP V1, sans inventer de nouveau GO).
+
+## RISKS
+
+- À qualifier.

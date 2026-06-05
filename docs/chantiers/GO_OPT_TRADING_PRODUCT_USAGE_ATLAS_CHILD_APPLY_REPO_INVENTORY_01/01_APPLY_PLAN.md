@@ -59,3 +59,7 @@ Aucune entree `KEEP_CANDIDATE`, `DO_NOT_PROMOTE`, `ARCHIVE_ONLY`, `A AUDITER` ou
 - Aucun bucket n'est ajoute.
 - Aucune promotion de KEEP_CANDIDATE.
 - Repo KG NEXT_GO actualise (l'inventaire est fait, l'application est en cours).
+
+## RISKS
+
+- À qualifier.

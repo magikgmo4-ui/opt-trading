@@ -50,3 +50,7 @@ docs/index/BRANCH_STATE.md
 ## Point de reprise
 
 Reprendre depuis `docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md` pour la routine machine anti-conflit. Les branches `BUNDLES_REPO_STORAGE_PARENT_01` et `CLICKUP_PARENT_CONTINUITY_01` restent a merger ou fermer dans leurs GO respectifs.
+
+## RISKS
+
+- À qualifier.

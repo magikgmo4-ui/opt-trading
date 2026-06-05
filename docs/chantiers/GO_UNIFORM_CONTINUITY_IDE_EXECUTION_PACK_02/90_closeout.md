@@ -63,3 +63,7 @@ links:
 ## Reprise
 - point de reprise : transmettre `IDE_EXECUTION_PACK.md` à l’IDE et faire exécuter le hardening réel
 - prochaine action recommandée : laisser l’IDE modifier les index existants, commit, puis fermer le hardening `GO_UNIFORM_CONTINUITY_HARDENING_01` en vrai PASS si les mises à jour sont effectivement appliquées
+
+## RISKS
+
+- À qualifier.

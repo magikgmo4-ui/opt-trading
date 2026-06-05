@@ -47,3 +47,7 @@ links:
 - `PERF` reste hors Atlas.
 - Aucun guide utilisateur nouveau n'est cree.
 - Aucun runtime n'est modifie.
+
+## RISKS
+
+- À qualifier.

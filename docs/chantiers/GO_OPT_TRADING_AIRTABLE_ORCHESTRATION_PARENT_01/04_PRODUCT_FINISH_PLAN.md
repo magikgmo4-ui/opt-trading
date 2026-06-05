@@ -277,3 +277,7 @@ Memory Bricks projet :
 - Le bridge doit être optionnel et fail-open.
 - Airtable sert la lecture humaine ; opt-trading reste le coeur logique.
 - Aucun code d'intégration ne doit être produit avant verrouillage du plan produit.
+
+## RISKS
+
+- À qualifier.

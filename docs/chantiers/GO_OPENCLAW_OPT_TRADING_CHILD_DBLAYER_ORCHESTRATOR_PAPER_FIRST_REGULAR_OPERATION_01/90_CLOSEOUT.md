@@ -55,3 +55,7 @@ db-layer PAPER promotion gate = PASS
 paper first regular operation = PASS
 next = poursuivre fenetre de stabilite PAPER (hors live)
 ```
+
+## RISKS
+
+- À qualifier.

@@ -40,3 +40,7 @@ d'état. Aucun restart automatique. Aucun secret dans les logs.
 
 Deployer sur db-layer : copier les unites systemd, `systemctl enable --now opt-trading-runtime-health.timer`.
 Phase 2 (self-heal) a planifier apres validation Phase 1 en production.
+
+## RISKS
+
+- À qualifier.

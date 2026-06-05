@@ -33,3 +33,7 @@ Relier le render WHY/runtime a l'observabilite runtime.
 ## Invariant
 
 Le render WHY/runtime ne doit jamais inferer une preuve runtime absente.
+
+## RISKS
+
+- À qualifier.

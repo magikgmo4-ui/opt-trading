@@ -311,3 +311,7 @@ Ne jamais confondre :
 ### NO_MEMORY
 Pas de bio memory à ajouter.  
 Ceci relève de la **documentation canonique projet**.
+
+## RISKS
+
+- À qualifier.

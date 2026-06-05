@@ -43,3 +43,7 @@ Le retry est bloque.
 - Ne pas executer de test d'ordre.
 - Ne pas contourner le precheck `/api/paper/guards`.
 - Ne pas melanger ce GO avec db-layer ou OpenClaw.
+
+## RISKS
+
+- À qualifier.

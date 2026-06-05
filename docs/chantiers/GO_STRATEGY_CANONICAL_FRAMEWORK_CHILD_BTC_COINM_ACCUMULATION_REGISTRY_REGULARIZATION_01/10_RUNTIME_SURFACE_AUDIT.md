@@ -21,3 +21,7 @@ Aucune.
 ### Surfaces runtime
 
 Aucune. Candidat doc-only pur (concept draft).
+
+## RISKS
+
+- À qualifier.

@@ -11,3 +11,7 @@
 - `sot/mainline` a jour
 - Admin-trading non ouvert
 - Runtime non modifie
+
+## RISKS
+
+- À qualifier.

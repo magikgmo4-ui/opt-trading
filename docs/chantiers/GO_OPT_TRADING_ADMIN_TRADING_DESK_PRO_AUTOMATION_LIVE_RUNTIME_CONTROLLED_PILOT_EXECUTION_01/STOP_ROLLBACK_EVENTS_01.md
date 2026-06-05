@@ -28,3 +28,7 @@ No STOP triggers were fired during this pilot.
 ## Rollback readiness
 
 Rollback commands remain available. Not executed (no STOP trigger).
+
+## RISKS
+
+- À qualifier.

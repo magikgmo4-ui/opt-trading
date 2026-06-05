@@ -15,3 +15,7 @@
 - `db-layer` reste seulement l'hote actuel d'execution.
 - `admin-trading` reste differe pour l'integration trading future.
 - Aucun changement runtime n'est autorise dans ce GO.
+
+## RISKS
+
+- À qualifier.

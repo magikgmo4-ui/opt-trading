@@ -35,3 +35,7 @@ links:
 ## Objectif
 
 Valider la stabilite du workflow PAPER sur plusieurs runs bornees avant toute promotion de scope.
+
+## RISKS
+
+- À qualifier.

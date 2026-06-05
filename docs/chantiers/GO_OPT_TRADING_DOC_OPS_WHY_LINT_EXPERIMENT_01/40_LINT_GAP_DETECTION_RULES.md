@@ -32,3 +32,7 @@ Les gaps doivent aider a:
 ## Invariant
 
 Le lint WHY ne doit jamais corriger automatiquement un gap documentaire.
+
+## RISKS
+
+- À qualifier.

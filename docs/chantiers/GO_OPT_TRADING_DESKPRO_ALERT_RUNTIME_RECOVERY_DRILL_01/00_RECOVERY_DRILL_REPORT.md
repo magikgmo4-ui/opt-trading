@@ -108,3 +108,7 @@ JSONL fallback                        : persisté
 Logs                                  : présents
 Tests 111/111                         : PASS
 ```
+
+## RISKS
+
+- À qualifier.

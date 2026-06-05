@@ -25,3 +25,7 @@ qwen2.5:0.5b-instruct    494M
 "Reply exactly: OK" → "OK" (4.3s, clean)
 ```
 PASS.
+
+## RISKS
+
+- À qualifier.

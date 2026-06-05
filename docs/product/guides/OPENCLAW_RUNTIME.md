@@ -147,3 +147,7 @@ Orchestrer les appels IA, configurer les modules, superviser le runtime, prepare
 - `docs/product_targets/OPENCLAW_TARGET_CANON.md`
 - `docs/chantiers/GO_OPENCLAW_DBLAYER_DOCS_RESEARCH_LIBRARY_PARENT_01/`
 - `docs/chantiers/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01/`
+
+## RISKS
+
+- À qualifier.

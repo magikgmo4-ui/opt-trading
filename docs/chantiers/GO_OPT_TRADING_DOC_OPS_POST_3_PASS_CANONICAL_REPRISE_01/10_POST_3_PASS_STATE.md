@@ -35,3 +35,7 @@
 - `sot/mainline` a jour.
 - `docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md` importe sur `sot/mainline`.
 - Branche `go/GO_OPT_TRADING_CURSOR_AI_MACHINE_WORK_SPLIT_ANTI_CONFLICT_01` reste la source canonique de la map jusqu'a prochain merge.
+
+## RISKS
+
+- À qualifier.

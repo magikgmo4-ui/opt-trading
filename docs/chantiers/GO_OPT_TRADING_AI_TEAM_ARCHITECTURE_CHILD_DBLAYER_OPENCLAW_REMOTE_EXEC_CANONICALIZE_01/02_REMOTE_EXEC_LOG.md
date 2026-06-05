@@ -245,3 +245,7 @@ Observation `git status --short` sur le repo distant apres run:
 - execution OpenClaw reelle de bout en bout: `FAIL`
 
 La Phase 5 reelle montre donc un etat `PARTIAL_PASS`: le chemin cible est sain, mais l'etage OpenClaw applicatif sur `db-layer` n'est pas encore capable de porter le SSH vers `fantome`.
+
+## RISKS
+
+- À qualifier.

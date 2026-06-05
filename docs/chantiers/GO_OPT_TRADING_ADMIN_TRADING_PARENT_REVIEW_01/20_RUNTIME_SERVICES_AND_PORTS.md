@@ -115,3 +115,7 @@ Aucun port 8080, 18789, 18790. Pas d'OpenClaw gateway.
 - modules/desk_capture_inputs/config/desk_capture_inputs.env
 - modules/desk_retention/config/desk_retention.env
 - modules/auth/secrets.py
+
+## RISKS
+
+- À qualifier.

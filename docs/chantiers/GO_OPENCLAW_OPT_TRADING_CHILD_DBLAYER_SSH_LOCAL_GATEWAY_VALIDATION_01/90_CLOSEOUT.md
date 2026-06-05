@@ -48,3 +48,7 @@ links:
 ## Prochaine Etape
 
 GO valide et clos. Prochaine action selon le parent `GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01`.
+
+## RISKS
+
+- À qualifier.

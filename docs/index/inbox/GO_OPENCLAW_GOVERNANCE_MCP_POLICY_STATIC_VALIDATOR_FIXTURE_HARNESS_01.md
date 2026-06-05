@@ -123,3 +123,7 @@ Recommended next GO:
 ```text
 GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_CI_DRAFT_01
 ```
+
+## RISKS
+
+- À qualifier.

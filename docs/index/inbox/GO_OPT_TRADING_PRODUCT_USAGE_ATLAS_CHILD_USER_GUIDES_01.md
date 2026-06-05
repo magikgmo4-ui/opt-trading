@@ -41,3 +41,7 @@ Aucun runtime modifie. Aucun secret. Aucune promotion implicite.
 ```text
 docs/product/guides/README.md
 ```
+
+## RISKS
+
+- À qualifier.

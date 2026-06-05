@@ -34,3 +34,7 @@ PASS / REAL_BOUNDED_JSON_EXPORT
 ## Next Gate
 
 Render graphique futur uniquement apres review et merge de ce JSON export reel.
+
+## RISKS
+
+- À qualifier.

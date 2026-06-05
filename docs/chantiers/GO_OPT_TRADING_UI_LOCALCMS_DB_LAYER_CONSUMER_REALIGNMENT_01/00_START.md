@@ -15,3 +15,7 @@
 - `db-layer` reste seulement le parent machine / hote d'execution.
 - `opt-trading` reste le producer canonique.
 - Aucun changement runtime n'est realise dans ce GO.
+
+## RISKS
+
+- À qualifier.

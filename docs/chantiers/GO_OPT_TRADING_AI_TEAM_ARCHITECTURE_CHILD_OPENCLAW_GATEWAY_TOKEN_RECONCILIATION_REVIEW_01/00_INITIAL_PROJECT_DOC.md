@@ -41,3 +41,7 @@ Décision documentée et traçable sur le gateway token mismatch, avec action cl
 ## 17_RESUME_POINT
 
 Reprendre à la rédaction de `01_GATEWAY_TOKEN_DIAGNOSTIC.md`.
+
+## RISKS
+
+- À qualifier.

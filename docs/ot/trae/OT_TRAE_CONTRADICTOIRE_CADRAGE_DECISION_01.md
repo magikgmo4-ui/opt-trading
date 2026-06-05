@@ -89,3 +89,7 @@ V1 peut être ouverte seulement si :
 
 ## 5. Point de reprise
 - Suite recommandée : `GO_OT_NEXT_MISSION_SELECTION_01` (décider explicitement : ouvrir Rules V1 ou traiter une divergence non tolérée prioritaire).
+
+## RISKS
+
+- À qualifier.

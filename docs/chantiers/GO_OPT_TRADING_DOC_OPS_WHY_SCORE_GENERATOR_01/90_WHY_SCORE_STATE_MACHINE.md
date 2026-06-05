@@ -42,3 +42,7 @@ Formaliser le pipeline du futur WHY score generator.
 - SKIP doit etre explicite.
 - REPORT reste audit-only.
 - Aucun etat ne declenche APPLY.
+
+## RISKS
+
+- À qualifier.

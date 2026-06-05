@@ -183,3 +183,7 @@ perf/perf.db :
 3 dépendances externes : desk_pro (API mount), uvicorn runtime, SQLite.
 Toute restructuration toucherait desk_pro, uvicorn, SQLite — GO séparé obligatoire.
 ```
+
+## RISKS
+
+- À qualifier.

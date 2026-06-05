@@ -31,3 +31,7 @@ VERDICT = NON CONFIRMÉ MAIS ACCEPTÉ COMME INVARIANT DOCUMENTÉ
 
 ## 6. Point de reprise
 - Suite recommandée : `GO_OT_NEXT_MISSION_SELECTION_01` (décider explicitement : corriger la divergence non tolérée “wrappers vs registry”, ou ouvrir Rules V1).
+
+## RISKS
+
+- À qualifier.

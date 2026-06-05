@@ -102,3 +102,7 @@ Les index globaux sont réservés aux changements structurels, aux fermetures, a
 - La matrice continue d'obliger `GO_INDEX.md` / `ACTIVE_STREAMS.md` / `REPRISE.md` pour chaque micro-avancement.
 - L'inbox est absente.
 - Le dossier parent n'est pas reconnu comme surface de continuité locale.
+
+## RISKS
+
+- À qualifier.

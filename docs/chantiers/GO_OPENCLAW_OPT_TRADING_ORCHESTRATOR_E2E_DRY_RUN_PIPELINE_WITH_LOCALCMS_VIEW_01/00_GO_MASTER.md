@@ -58,3 +58,7 @@ signal_router
 - `DRY_RUN=1 PAPER_MODE=1` verrouillés
 - Ne pas modifier les sessions TMUX critiques
 - LocalCMS reste lecture seule
+
+## RISKS
+
+- À qualifier.

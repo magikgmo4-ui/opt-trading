@@ -84,3 +84,7 @@ git stash show --stat stash@{0}
 ```
 
 Ne pas restaurer le stash tant que le chantier ClickUp n'est pas ferme cote execution.
+
+## RISKS
+
+- À qualifier.

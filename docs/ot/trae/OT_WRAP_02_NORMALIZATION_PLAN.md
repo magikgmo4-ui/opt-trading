@@ -13,3 +13,7 @@
 ## 3. PROCHAINES ÉTAPES (HORS MISSION)
 - Renommer `menu-desk-pro` en `menu-desk_pro` (si possible).
 - Normaliser les wrappers `deepseek_*`.
+
+## RISKS
+
+- À qualifier.

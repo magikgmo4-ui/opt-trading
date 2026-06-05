@@ -57,3 +57,7 @@ Une promotion de statut exige au minimum :
 - Ne pas marquer Botpress `PRODUCT_FINISHED` tant que Telegram reel et le webhook reel ne sont pas valides.
 - Ne pas marquer BTC COIN-M utilisable tant que le cadre mathematique reste draft et non valide.
 - Ne pas retirer `USABLE_LIMITED` a ClickUp tant que les limites du plan gratuit structurent encore l'usage.
+
+## RISKS
+
+- À qualifier.

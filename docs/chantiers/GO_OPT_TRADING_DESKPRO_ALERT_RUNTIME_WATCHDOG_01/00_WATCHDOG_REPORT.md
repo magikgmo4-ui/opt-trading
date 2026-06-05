@@ -92,3 +92,7 @@ Heartbeat nominal (services UP)   : PASS
 No secrets in log                 : PASS
 Tests 111/111                     : PASS
 ```
+
+## RISKS
+
+- À qualifier.

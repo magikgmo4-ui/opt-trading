@@ -32,3 +32,7 @@ Formaliser les gates review humaine du render WHY/runtime.
 ## Invariant
 
 Le render WHY/runtime ne doit jamais remplacer une validation humaine critique.
+
+## RISKS
+
+- À qualifier.

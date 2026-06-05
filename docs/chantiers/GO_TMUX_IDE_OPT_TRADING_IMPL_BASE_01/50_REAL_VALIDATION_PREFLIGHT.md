@@ -94,3 +94,7 @@ Raison:
 - la machine cible n'est pas sur une branche canonique de depart pour ce GO
 - `tmux-ide` n'est pas installe
 - aucun `ide.yml` de base n'est encore pose
+
+## RISKS
+
+- À qualifier.

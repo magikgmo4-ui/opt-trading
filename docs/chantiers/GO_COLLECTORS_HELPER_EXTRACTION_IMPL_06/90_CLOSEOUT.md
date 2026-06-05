@@ -46,3 +46,7 @@ import run_collection PASS
 ```text
 GO_COLLECTORS_HELPER_EXTRACTION_IMPL_07
 ```
+
+## RISKS
+
+- À qualifier.

@@ -65,3 +65,7 @@ run_id | date | signal | side | ticker | action | confidence | verdict
 - Sheets API credentials hors repo (via env vars)
 - Log JSON de chaque sync
 - closeout obligatoire
+
+## RISKS
+
+- À qualifier.

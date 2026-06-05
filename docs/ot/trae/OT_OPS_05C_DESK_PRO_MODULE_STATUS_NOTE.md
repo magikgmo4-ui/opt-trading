@@ -21,3 +21,7 @@ Il contient :
 
 ## 3. ACTION REQUISE
 Corriger la documentation (Master Pack) pour refléter ce statut "Librairie" et retirer la mention "Coquille structurelle" qui induit en erreur.
+
+## RISKS
+
+- À qualifier.

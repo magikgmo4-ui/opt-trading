@@ -57,3 +57,7 @@ Sur chaque machine cible (`admin-trading`, `student`, `db-layer`) :
 
 ---
 *Dernière mise à jour : 2026-03-06*
+
+## RISKS
+
+- À qualifier.

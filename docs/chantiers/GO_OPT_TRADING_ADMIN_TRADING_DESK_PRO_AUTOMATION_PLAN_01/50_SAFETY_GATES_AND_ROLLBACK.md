@@ -43,3 +43,7 @@ updated_at: 2026-05-09
 ## Desactivation rapide cible
 
 Le futur design doit permettre une coupure rapide par une seule action operateur: arret du timer ou execution manuelle retiree, sans impact sur webhook, desk_bridge ou capture.
+
+## RISKS
+
+- À qualifier.

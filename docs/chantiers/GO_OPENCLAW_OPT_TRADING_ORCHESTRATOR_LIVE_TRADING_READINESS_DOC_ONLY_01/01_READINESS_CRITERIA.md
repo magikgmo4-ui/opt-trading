@@ -66,3 +66,7 @@ Le présent GO ne constitue pas une autorisation de passage live.
 | Paper élargi        | 30         | 14          | 1           |
 | Live MICRO          | 30 paper   | 30          | 2           |
 | Live FULL sizing    | 30 live ok | 30          | 2           |
+
+## RISKS
+
+- À qualifier.

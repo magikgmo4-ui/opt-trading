@@ -119,3 +119,7 @@ La synthèse seule ne suffisait pas, mais le brut seul ne rendait pas la reprise
 
 Bloc humain de fondation.
 À utiliser comme référence d’intention et de sens pour la structuration de la continuité, sans le substituer aux closeouts, reprises, index, ni à la compaction.
+
+## RISKS
+
+- À qualifier.

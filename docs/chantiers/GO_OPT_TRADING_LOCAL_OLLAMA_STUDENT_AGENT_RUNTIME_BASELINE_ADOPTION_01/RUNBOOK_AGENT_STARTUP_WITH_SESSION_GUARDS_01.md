@@ -59,3 +59,7 @@ time sudo -u openclaw-lab /home/openclaw-lab/.npm-global/bin/openclaw agent \
 | Empty response | NO_REPLY (rien à signaler) | Message plus direct |
 | Gateway refuse | Port occupé ou PID mort | `openclaw gateway stop && openclaw gateway start` |
 | Ollama lent | Modèle froid | Attendre prewarm ~2s |
+
+## RISKS
+
+- À qualifier.

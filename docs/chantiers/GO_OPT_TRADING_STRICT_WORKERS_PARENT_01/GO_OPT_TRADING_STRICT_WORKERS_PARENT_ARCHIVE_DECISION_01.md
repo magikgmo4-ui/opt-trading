@@ -37,3 +37,7 @@ Reprendre STRICT_WORKERS uniquement si une demande explicite ouvre un nouveau GO
 - Ne pas classer `EN_PRODUCTION`.
 - Ne pas rouvrir sans nouveau GO.
 - Ne pas nettoyer ni supprimer les traces `DRAFT_ONLY`.
+
+## RISKS
+
+- À qualifier.

@@ -29,3 +29,7 @@ Une capture ne doit entrer dans **Archive / Memory** que si au moins un des él�
 
 ## Direction UI
 La future UI `screenshots_analyses_passees` doit lire prioritairement la zone Archive / Memory, pas la zone Daily brute.
+
+## RISKS
+
+- À qualifier.

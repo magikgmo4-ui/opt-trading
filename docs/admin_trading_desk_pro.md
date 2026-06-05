@@ -53,3 +53,7 @@ The copy script populates `/shared/desk_pro/latest/` with:
 - **Wrapper**: `desk_pro_cmd.sh` delegates to `modules.desk_pro_runner`.
 - **Runner**: Orchestrates `desk_pro_orchestrator` and `desk_pro_dashboard`.
 - **Engine**: Pure Python logic in `modules/`.
+
+## RISKS
+
+- À qualifier.

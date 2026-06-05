@@ -130,3 +130,7 @@ GO_OPT_TRADING_DOC_OPS_WHY_LINT_CLOSEOUT_01
 
 Objectif immediat :
 clore proprement la sequence WHY lint V1 puisque le control scan post-refinement est a `0 findings` sans remediation documentaire supplementaire.
+
+## RISKS
+
+- À qualifier.

@@ -43,3 +43,7 @@ doc_type: strategy_spec
 - Pas de ré-entrée après invalidation.
 - `lower_low` non requis (`lower_low or True`).
 - Pas de filtre volume ou RSI.
+
+## RISKS
+
+- À qualifier.

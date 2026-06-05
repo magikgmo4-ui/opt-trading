@@ -29,3 +29,7 @@ After PR #348 merge, `GET /api/paper/guards` returned HTTP 200 with `ok: false`.
 - No live trading orders
 - No secrets committed
 - No db-layer/OpenClaw changes
+
+## RISKS
+
+- À qualifier.

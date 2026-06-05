@@ -141,3 +141,7 @@ Memoire projet candidate :
 ```text
 Ollama Lab policy permits bounded reads, gates live health/smoke, and blocks model pull, provider switch, restart and install until explicit human approval.
 ```
+
+## RISKS
+
+- À qualifier.

@@ -63,3 +63,7 @@ Constat :
 ```text
 La DB legacy existe réellement sur la surface runtime.
 ```
+
+## RISKS
+
+- À qualifier.

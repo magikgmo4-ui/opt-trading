@@ -47,3 +47,7 @@ Lire :
 
 Puis ouvrir :
 `docs/chantiers/GO_OPT_TRADING_REPO_KG_CHILD_PRODUCER_VIEW_ALIGNMENT_01/02_MERMAID_REPLAY.md`
+
+## RISKS
+
+- À qualifier.

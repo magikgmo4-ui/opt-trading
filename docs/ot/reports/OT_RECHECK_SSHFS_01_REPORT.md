@@ -102,3 +102,7 @@ La correction symlink-safe est **confirmée live** sur `admin-trading`. Le dépl
 ## 10. IMPACT SUR OT-SVC-01
 - Réserve SSHFS : **réduire** (bug wrappers levé) / **maintenir** (service/mount non déployé).
 
+
+## RISKS
+
+- À qualifier.

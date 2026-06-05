@@ -57,3 +57,7 @@ docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_CHILD_OPERATIONAL_RUNBOOK_01/STRICT
 - limites connues
 - pool modeles courant
 ```
+
+## RISKS
+
+- À qualifier.

@@ -17,3 +17,7 @@ Matrice de conformité surface → standard opératoire.
 | ❌ | Non conforme / Absent |
 | — | Non applicable |
 | N/A | Surface sans agent |
+
+## RISKS
+
+- À qualifier.

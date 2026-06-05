@@ -38,3 +38,7 @@
 
 ## Methode a conserver
 - La methode correcte pour `db-layer` est donc `owner-session openclaw -> module repo-side -> verification tmux/process/port/health/dashboard`.
+
+## RISKS
+
+- À qualifier.

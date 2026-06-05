@@ -40,3 +40,7 @@ Le runner A4 est operationnel en mode WRITE_GATED. Toutes les regles de refus (R
 ## VERDICT_CONSOLIDATION
 
 **PASS** — 5/5 negatifs REFUSE, 1/1 positif ACCEPTE. WRITE_GATE_A4 operationnel en mode gated. Pret pour write reel apres validation humaine.
+
+## RISKS
+
+- À qualifier.

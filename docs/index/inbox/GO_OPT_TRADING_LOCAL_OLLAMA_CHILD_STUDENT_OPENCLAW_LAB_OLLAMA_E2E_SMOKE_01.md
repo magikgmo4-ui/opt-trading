@@ -24,3 +24,7 @@ PASS
 
 ## Dossier
 `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_OLLAMA_E2E_SMOKE_01/`
+
+## RISKS
+
+- À qualifier.

@@ -25,3 +25,7 @@ doc_type: registry_decision_matrix
 **0 nouvelles entrées registry.** Aucun thème audité ne justifie un `strategy_id` aujourd'hui.
 La registry reste à 7 entrées. `modules/strategy/` peut être ouvert sans risque de
 confusion entre stratégies runtime et thèmes non-opérables.
+
+## RISKS
+
+- À qualifier.

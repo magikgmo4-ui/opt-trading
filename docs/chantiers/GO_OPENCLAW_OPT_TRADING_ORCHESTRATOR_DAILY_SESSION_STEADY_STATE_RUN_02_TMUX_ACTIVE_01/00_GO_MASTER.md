@@ -62,3 +62,7 @@ pour passer de `DEGRADED` (run 01) à `PASS`.
 - Pas de live trade / Pas de Bitget order
 - Pas de write Sheets automatique
 - LocalCMS read-only
+
+## RISKS
+
+- À qualifier.

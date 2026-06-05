@@ -92,3 +92,7 @@ Produire une cartographie bornée permettant de répondre, repo par repo :
 ## Verdict PASS / FAIL / OPEN
 
 OPEN
+
+## RISKS
+
+- À qualifier.

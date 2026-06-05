@@ -42,3 +42,7 @@ GO_OPT_TRADING_AGENT_MODEL_ROUTING_OPERATIONAL_ADOPTION_GATE_01
 
 Le routage multi-provider est operationnellement adopte pour les workflows non-trading.
 ```
+
+## RISKS
+
+- À qualifier.

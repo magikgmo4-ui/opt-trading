@@ -41,3 +41,7 @@ links:
 - scripts/verify_all.sh
 - docs et scripts qui referencent perf/perf_app.py
 ```
+
+## RISKS
+
+- À qualifier.

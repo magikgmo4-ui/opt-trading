@@ -83,3 +83,7 @@ Il sert a naviguer rapidement entre GO, docs, modules, branches, gaps et resume 
 ## NEXT_GO
 
 `GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_USAGE_VIEW_01`
+
+## RISKS
+
+- À qualifier.

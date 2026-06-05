@@ -125,3 +125,7 @@ journalctl -u shared-sshfs.service --since "@$start_epoch" -n 200 --no-pager || 
 ### B. student (exécuter localement sur student)
 Même runbook ; adapter si `admin-trading` est atteint via IP différente (consulter `getent ahostsv4 admin-trading`).
 
+
+## RISKS
+
+- À qualifier.

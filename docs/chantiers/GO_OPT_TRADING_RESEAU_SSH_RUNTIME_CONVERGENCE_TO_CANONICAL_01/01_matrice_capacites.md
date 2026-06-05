@@ -89,3 +89,7 @@ Le canonique final ne sera pleinement unique qu'une fois :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

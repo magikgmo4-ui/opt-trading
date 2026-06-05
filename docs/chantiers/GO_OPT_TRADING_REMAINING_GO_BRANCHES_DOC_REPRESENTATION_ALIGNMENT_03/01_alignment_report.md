@@ -44,3 +44,7 @@ links:
 - aucune ouverture artificielle dans `GO_INDEX.md` pour des branches non encore prouvees comme chantiers canoniques
 - aucun dossier chantier cree pour les branches `BRANCH_ONLY_UNREPRESENTED` sans preuve documentaire suffisante
 - aucune suppression ou reclassification Git operationnelle
+
+## RISKS
+
+- À qualifier.

@@ -53,3 +53,7 @@ links:
 - Non modifie.
 - Aucun systemd, webhook_server.py, risk engine touche.
 - Aucune alerte reelle declenchee depuis cursor-ai.
+
+## RISKS
+
+- À qualifier.

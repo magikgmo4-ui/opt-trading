@@ -102,3 +102,7 @@ GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_RUNTIME_REVIEW_01 (P1)
 - Aucun service manipule
 - Aucune autre machine perturbee
 - Controles strictement read-only
+
+## RISKS
+
+- À qualifier.

@@ -44,3 +44,7 @@ Implémenter un premier lot de helper extraction, strictement borné aux utilita
 - extraction additive et sûre
 - aucune sémantique de payload changée
 ```
+
+## RISKS
+
+- À qualifier.

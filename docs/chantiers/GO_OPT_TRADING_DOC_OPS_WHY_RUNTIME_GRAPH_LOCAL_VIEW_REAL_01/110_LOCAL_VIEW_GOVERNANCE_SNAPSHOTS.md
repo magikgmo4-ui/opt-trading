@@ -33,3 +33,7 @@ Preparer les snapshots governance/runtime du render WHY/runtime local.
 ## Invariant
 
 Les snapshots WHY/runtime ne doivent jamais devenir des validations runtime autonomes.
+
+## RISKS
+
+- À qualifier.

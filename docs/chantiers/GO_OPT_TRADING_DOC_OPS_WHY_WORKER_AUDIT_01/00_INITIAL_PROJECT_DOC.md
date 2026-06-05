@@ -65,3 +65,7 @@ Le futur worker doit rester:
 ## 17_RESUME_POINT
 
 Reprendre sur `go/GO_OPT_TRADING_DOC_OPS_WHY_WORKER_AUDIT_01` pour cadrer le worker d'audit WHY.
+
+## RISKS
+
+- À qualifier.

@@ -34,3 +34,7 @@ Observation seulement : pas d’ordre réel, pas encore de runner live complet.
 ## TRIGGER NATUREL SUIVANT
 
 `GO_OT_TRADING_LAB_V1_LIVE_EXPORT_PASS_01`
+
+## RISKS
+
+- À qualifier.

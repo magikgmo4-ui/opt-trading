@@ -31,3 +31,7 @@
 - confirmation de compatibilite provider `OpenClaw <-> Ollama`
 - garde-fous lab : localhost, pas de secrets, pas de shell libre, pas d'ecriture repo automatique
 - reouverture du child seulement si ces conditions sont levees
+
+## RISKS
+
+- À qualifier.

@@ -51,3 +51,7 @@ PORT_8010 = managed via deskpro_api_daemon.sh
 | tmux `desk-pro` | Gère stack complète (runner+orchestrator+perf+logs) — non modifié |
 | systemctl | Inaccessible en sandbox |
 | venv | Absent en local, system python3 (miniforge3 3.13.12) utilisé |
+
+## RISKS
+
+- À qualifier.

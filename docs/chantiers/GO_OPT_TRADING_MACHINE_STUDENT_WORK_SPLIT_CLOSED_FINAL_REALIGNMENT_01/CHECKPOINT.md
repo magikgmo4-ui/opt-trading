@@ -103,3 +103,7 @@ NEXT_STUDENT_GO: NONE.
 Prochain mouvement :
 Choisir prochaine surface machine active.
 ```
+
+## RISKS
+
+- À qualifier.

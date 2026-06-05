@@ -100,3 +100,7 @@ Priorité 2 :
 Priorité 3 :
   GO_OPT_TRADING_DEEPSEEK_RUNTIME_CONSOLIDATION_PLAN_01
 ```
+
+## RISKS
+
+- À qualifier.

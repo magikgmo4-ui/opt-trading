@@ -77,3 +77,7 @@ Ne pas faire :
 - inventorier les surfaces machine reellement rattachees a `admin-trading` ;
 - expliciter les interfaces operateur a garder sous ce parent ;
 - borner les recouvrements avec `reseau_ssh` et `tmux-ide`.
+
+## RISKS
+
+- À qualifier.

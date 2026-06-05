@@ -83,3 +83,7 @@ Point de reprise exact :
 Next GO apres ce PASS :
 
 `GO_OPT_TRADING_DOC_OPS_CHILD_PRIMARY_RESTART_01`
+
+## RISKS
+
+- À qualifier.

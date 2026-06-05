@@ -61,3 +61,7 @@ Aucune option n'est prioritaire sans demande explicite. Le statu quo est accepta
 - `Runtime` = stable.
 
 L'operateur choisit la suite en fonction de ses besoins.
+
+## RISKS
+
+- À qualifier.

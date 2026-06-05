@@ -77,3 +77,7 @@ silencieusement inactive sans notification.
 
 La date du dernier POST connu (2026-04-01 07:12) suggère un arrêt brutal à cette date —
 potentiellement une expiration programmée ou un stop de la stratégie source.
+
+## RISKS
+
+- À qualifier.

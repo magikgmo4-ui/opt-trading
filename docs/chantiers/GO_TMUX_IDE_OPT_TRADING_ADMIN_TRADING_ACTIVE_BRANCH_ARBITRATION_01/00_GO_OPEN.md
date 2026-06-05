@@ -81,3 +81,7 @@ Le GO est `PASS` si les elements suivants sont prouvees et documentes :
 - absence de travail seulement local
 - decision explicite sur PR / sauvegarde / retour a `sot/mainline`
 - gate explicite pour la suite `tmux-ide`
+
+## RISKS
+
+- À qualifier.

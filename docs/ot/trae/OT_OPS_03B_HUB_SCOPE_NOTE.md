@@ -11,3 +11,7 @@ Ces outils de maintenance sont critiques et doivent être accessibles depuis le 
 ## 3. PROPOSITION
 Ajouter une sous-section "Development & QA" ou intégrer dans "Maintenance" du Hub.
 Pas de cleanup large nécessaire, juste un ajout de lien.
+
+## RISKS
+
+- À qualifier.

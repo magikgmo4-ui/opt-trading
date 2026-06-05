@@ -25,3 +25,7 @@ Cependant, une note de friction est ajoutée pour rappeler que ces commandes doi
 ## 5. CONCLUSION
 Le runbook est **VALIDE POUR LA CIBLE** (admin-trading/Linux).
 Le test a échoué techniquement à cause de l'environnement de l'agent (Windows sans WSL configuré), mais a validé la logique sous-jacente via Python.
+
+## RISKS
+
+- À qualifier.

@@ -49,3 +49,7 @@ Checks:
 - ledger_live exists: no
 - Events log: PAPER_TEST entries properly tagged
 - No live ledger contamination: confirmed
+
+## RISKS
+
+- À qualifier.

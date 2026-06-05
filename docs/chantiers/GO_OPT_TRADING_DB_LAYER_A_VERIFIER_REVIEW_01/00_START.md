@@ -39,3 +39,7 @@ Revue doc-only des 10 branches `A_VERIFIER` de la surface `db-layer/OpenClaw`.
 ## But
 
 Reclassifier chaque branche en `KEEP_ACTIVE`, `KEEP_REFERENCE`, `DROP_MERGED` ou `A_VERIFIER` avec preuve repo/doc.
+
+## RISKS
+
+- À qualifier.

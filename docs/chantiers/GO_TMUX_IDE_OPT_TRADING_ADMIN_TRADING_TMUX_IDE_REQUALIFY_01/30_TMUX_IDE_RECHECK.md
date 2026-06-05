@@ -51,3 +51,7 @@ Ne pas installer `tmux-ide`.
 Ne pas creer `ide.yml`.
 
 Il faut d'abord investiguer la compatibilite Linux x64 / packaging `tmux-ide` ou choisir une methode d'installation compatible.
+
+## RISKS
+
+- À qualifier.

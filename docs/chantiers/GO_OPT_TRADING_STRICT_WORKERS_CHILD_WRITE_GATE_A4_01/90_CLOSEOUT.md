@@ -123,3 +123,7 @@ GO_OPT_TRADING_STRICT_WORKERS_CHILD_WRITE_GATE_A4_WRITE_REEL_01
 Objectif : tester un write reel avec rollback, approbation humaine, et validation Git diff.
 Apres write reel valide : integration operationnelle.
 ```
+
+## RISKS
+
+- À qualifier.

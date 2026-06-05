@@ -44,3 +44,7 @@ Stale context ignore.
 Points differes documentes.
 Prochains GO candidats listes (VISION, BTC COIN-M, OBSERVABILITY clos).
 ```
+
+## RISKS
+
+- À qualifier.

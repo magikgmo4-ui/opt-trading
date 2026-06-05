@@ -27,3 +27,7 @@ Fichier : `modules/trading_realtime_v1/tests/test_strategy_id_adapter_readonly.p
 2. `python -m pytest tests/test_strategy_adapter.py -q`
 3. `python -m pytest modules/trading_realtime_v1/tests/ -q`
 4. Vérifier git diff limité à `trading_realtime_v1/` + nouveaux fichiers
+
+## RISKS
+
+- À qualifier.

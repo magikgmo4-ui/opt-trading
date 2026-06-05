@@ -53,3 +53,7 @@ Si une suite doit exister :
 ## Verdict
 
 PASS — canonisation doc-only de la matrice V2 realisee et refermee.
+
+## RISKS
+
+- À qualifier.

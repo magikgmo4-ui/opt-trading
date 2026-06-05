@@ -32,3 +32,7 @@ Aligner les surfaces externes candidates avec la classification runtime R0-R5.
 ## Invariant
 
 La classe runtime d'une surface externe ne doit jamais etre inferee sans preuve explicite.
+
+## RISKS
+
+- À qualifier.

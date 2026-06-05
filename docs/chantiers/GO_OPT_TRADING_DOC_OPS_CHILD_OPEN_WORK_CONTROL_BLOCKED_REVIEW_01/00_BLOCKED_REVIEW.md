@@ -183,3 +183,7 @@ Decision recommandee:
 - ne pas la rouvrir comme chantier actif ;
 - ne rien appliquer du delta bloque ;
 - conserver la branche comme trace tant qu'un GO cleanup explicite n'ordonne pas sa suppression.
+
+## RISKS
+
+- À qualifier.

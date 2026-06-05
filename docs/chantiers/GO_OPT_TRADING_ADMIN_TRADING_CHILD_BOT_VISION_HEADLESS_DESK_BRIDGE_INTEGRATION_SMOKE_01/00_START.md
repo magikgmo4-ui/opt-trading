@@ -42,3 +42,7 @@ Valider l'integration complete: headless capture → vision_bot → desk_bridge 
 - Pas de trading reel
 - Pas de modification de code
 - ShareX fallback conserve
+
+## RISKS
+
+- À qualifier.

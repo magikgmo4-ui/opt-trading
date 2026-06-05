@@ -86,3 +86,7 @@ Point de décision : 40_NEXT_CHILD_GO_DECISION.md
 ```text
 PASS — POST_MERGE_CLOSEOUT_DOC_ONLY
 ```
+
+## RISKS
+
+- À qualifier.

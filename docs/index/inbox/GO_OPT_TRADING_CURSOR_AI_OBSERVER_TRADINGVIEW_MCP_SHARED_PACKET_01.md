@@ -52,3 +52,7 @@ next_action: >-
 updated_at: 2026-05-05
 aggregation_status: applied
 ```
+
+## RISKS
+
+- À qualifier.

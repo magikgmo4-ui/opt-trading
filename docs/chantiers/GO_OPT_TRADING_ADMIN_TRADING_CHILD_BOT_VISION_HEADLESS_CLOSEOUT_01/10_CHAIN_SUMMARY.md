@@ -40,3 +40,7 @@ updated_at: 2026-05-04
 9. **BOT_VISION_HEADLESS_SYSTEMD**: Timer 10 min + 30s jitter, oneshot valide
 10. **INTEGRATION_SMOKE**: Pipeline complet automatique, 10+ cycles, desk_bridge exit 0
 11. **BRIDGE_GUARD**: 3 guards anti 0-byte/.uploading dans bridge_vision_to_desk_inbox.sh
+
+## RISKS
+
+- À qualifier.

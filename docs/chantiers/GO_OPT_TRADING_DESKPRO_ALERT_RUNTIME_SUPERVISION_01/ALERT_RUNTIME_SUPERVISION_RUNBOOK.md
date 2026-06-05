@@ -231,3 +231,7 @@ cd /opt/trading && python3 -m unittest discover -s tests -p "test_*.py"
 # UI opérateur
 echo "http://127.0.0.1:8010/desk/ui"
 ```
+
+## RISKS
+
+- À qualifier.

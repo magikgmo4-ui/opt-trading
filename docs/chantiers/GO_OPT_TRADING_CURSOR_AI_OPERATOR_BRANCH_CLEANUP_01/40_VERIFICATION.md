@@ -35,3 +35,7 @@ git diff --name-only | grep -vE "^(bundles/operator-export/|docs/)"  # doit etre
 - [x] Aucune modification runtime.
 - [x] Aucun admin-trading.
 - [x] Aucun secret.
+
+## RISKS
+
+- À qualifier.

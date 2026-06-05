@@ -120,3 +120,7 @@ Fixer la structuration P2 de la suite `Registry/UI/navigation`, en distinguant s
 
 ## Point de reprise
 Suite P2 `Registry/UI/navigation` cadree. Basculer sur `Openclaw`, `Collectors / market intelligence` et `Vision`.
+
+## RISKS
+
+- À qualifier.

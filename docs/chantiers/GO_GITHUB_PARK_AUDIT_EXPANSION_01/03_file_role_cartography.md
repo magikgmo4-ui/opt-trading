@@ -244,3 +244,7 @@ Parce que :
 ## Verdict
 
 **PASS — cartographie canonique fichier par fichier établie ; suite logique = consolidation ciblée `reseau_ssh*`**
+
+## RISKS
+
+- À qualifier.

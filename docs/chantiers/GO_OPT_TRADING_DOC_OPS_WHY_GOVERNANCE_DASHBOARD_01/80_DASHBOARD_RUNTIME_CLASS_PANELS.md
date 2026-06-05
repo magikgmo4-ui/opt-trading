@@ -32,3 +32,7 @@ Les panneaux doivent aider a:
 ## Invariant
 
 Les panneaux R0-R5 ne doivent jamais devenir une autorite runtime autonome.
+
+## RISKS
+
+- À qualifier.

@@ -235,3 +235,7 @@ If verification finds executable artifacts, global index edits, runtime touch, o
 ```text
 BLOCKED_WITH_REASON
 ```
+
+## RISKS
+
+- À qualifier.

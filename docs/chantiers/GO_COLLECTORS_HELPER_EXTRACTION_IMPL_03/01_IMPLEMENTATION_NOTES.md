@@ -46,3 +46,7 @@ collectors_core.lifecycle
 Moins de duplication spot lifecycle.
 Doctrines status/freshness alignées par construction.
 ```
+
+## RISKS
+
+- À qualifier.

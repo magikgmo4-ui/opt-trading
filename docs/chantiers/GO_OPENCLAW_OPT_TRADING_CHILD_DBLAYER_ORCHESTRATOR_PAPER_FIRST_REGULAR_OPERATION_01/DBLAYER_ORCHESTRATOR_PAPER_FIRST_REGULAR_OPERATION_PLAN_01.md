@@ -53,3 +53,7 @@ python3 -m modules.desk_pro_orchestrator.app.desk_pro_orchestrator run --config 
 | sudo requis | STOP |
 | write hors artefacts PAPER prevus | STOP |
 | commande hors runbook | STOP |
+
+## RISKS
+
+- À qualifier.

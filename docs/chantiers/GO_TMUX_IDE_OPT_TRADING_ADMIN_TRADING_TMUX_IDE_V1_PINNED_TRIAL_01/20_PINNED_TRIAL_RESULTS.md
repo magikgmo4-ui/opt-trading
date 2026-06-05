@@ -59,3 +59,7 @@ Ce resultat ne prouve pas encore :
 ## 17_RESUME_POINT
 
 Le trial pinne passe pour `--version` et `--help`; la suite doit rester gatee avant `ide.yml`.
+
+## RISKS
+
+- À qualifier.

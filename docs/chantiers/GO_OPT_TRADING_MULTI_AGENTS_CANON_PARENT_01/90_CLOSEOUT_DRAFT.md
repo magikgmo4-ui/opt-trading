@@ -193,3 +193,7 @@ Closeout draft : docs/chantiers/GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01/90_C
 Methode gouvernance : docs/governance/PARENT_CONTINUITY_INDEX_INBOX_METHOD_01.md
 Prochaine action : revue PR puis validation / merge si approuve
 ```
+
+## RISKS
+
+- À qualifier.

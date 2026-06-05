@@ -67,3 +67,7 @@ reports/ai/workers/ (sorties test A4)
 - denied_commands conserves
 - stash branch_arbitration preserve
 ```
+
+## RISKS
+
+- À qualifier.

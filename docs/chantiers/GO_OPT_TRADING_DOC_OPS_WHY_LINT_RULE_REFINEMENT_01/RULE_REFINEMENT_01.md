@@ -131,3 +131,7 @@ RULE_REFINEMENT_PR_01
 
 Objectif immediat :
 faire relire et merger le raffinement de regles WHY lint V1 maintenant que le scan read-only canonique n'expose plus de faux positifs ni de `RULE_TOO_BROAD` restants dans le scope PR #464.
+
+## RISKS
+
+- À qualifier.

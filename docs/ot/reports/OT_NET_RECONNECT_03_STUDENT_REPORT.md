@@ -83,3 +83,7 @@ Date (America/Montreal) : 2026-03-14
 
 ## Point de reprise exact
 > **Néant (student prouvé ; OT-NET-RECONNECT-03 clôturée)**
+
+## RISKS
+
+- À qualifier.

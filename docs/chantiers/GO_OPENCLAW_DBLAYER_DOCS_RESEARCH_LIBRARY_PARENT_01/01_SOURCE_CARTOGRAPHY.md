@@ -123,3 +123,7 @@ updated_at: 2026-05-06
 2. Pas de vue unifiee cross-surfaces
 3. Doublons potentiels entre consolidation famille et orchestration parent
 4. Hermes bridge potentiellement obsolete (non maintenu)
+
+## RISKS
+
+- À qualifier.

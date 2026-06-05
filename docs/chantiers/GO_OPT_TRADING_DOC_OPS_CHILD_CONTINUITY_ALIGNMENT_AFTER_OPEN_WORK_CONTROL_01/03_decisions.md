@@ -58,3 +58,7 @@ links:
 - confirmer que `BRANCH_STATE.md` reste inchange ;
 - utiliser `90_closeout.md` comme point de reprise exact ;
 - lancer ensuite `GO_OPT_TRADING_DOC_OPS_CHILD_PRIMARY_RESTART_01` si aucune autre contradiction repo-first n'apparait.
+
+## RISKS
+
+- À qualifier.

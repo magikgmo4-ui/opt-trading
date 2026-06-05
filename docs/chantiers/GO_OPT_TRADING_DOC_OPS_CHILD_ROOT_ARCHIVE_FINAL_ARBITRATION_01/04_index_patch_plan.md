@@ -44,3 +44,7 @@ links:
 - aucun patch runtime
 - aucun patch `modules/`
 - aucun patch `scripts/`
+
+## RISKS
+
+- À qualifier.

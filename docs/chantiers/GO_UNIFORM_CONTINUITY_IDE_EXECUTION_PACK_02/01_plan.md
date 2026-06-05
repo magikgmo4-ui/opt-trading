@@ -43,3 +43,7 @@ links:
 - cohérence entre les tâches IDE et l’état réel des repos
 - absence de modification des fichiers GO existants dans ce lot documentaire
 - pack suffisamment précis pour exécution sans hypothèse supplémentaire
+
+## RISKS
+
+- À qualifier.

@@ -34,3 +34,7 @@ links:
 
 ## Patch non applique
 - aucun changement sur `ACTIVE_STREAMS.md` et `NEXT_GO_CANDIDATES.md` au-dela d'une verification de coherence, car le prochain geste naming reste l'inventaire
+
+## RISKS
+
+- À qualifier.

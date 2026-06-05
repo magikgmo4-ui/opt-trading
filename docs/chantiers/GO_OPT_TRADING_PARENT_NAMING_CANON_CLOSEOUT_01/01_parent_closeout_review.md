@@ -68,3 +68,7 @@ Le parent a atteint sa cible de gouvernance :
 - exceptions qualifiees
 
 Le reliquat releve d'une application future optionnelle, pas d'un blocage de closeout parent.
+
+## RISKS
+
+- À qualifier.

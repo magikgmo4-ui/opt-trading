@@ -42,3 +42,7 @@ valider la reproductibilité du comportement steady-state.
 - No live trade / No Bitget order
 - No automatic Sheets write
 - Rollback obligatoire
+
+## RISKS
+
+- À qualifier.

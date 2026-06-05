@@ -49,3 +49,7 @@ Pour tout nouveau chantier parent :
 ## Surface d'application
 
 Cette règle s'applique aux prochains parents, sauf consigne explicite contraire ou cas où la matrice impose une propagation globale immédiate.
+
+## RISKS
+
+- À qualifier.

@@ -19,3 +19,7 @@ Toute nouvelle mission doit commencer par :
 > "Applique le protocole du Starter Pack (docs/master_pack/mission_starter_pack/00_mission_start_guide.md)."
 
 **Status : PACK DÉPLOYÉ.**
+
+## RISKS
+
+- À qualifier.

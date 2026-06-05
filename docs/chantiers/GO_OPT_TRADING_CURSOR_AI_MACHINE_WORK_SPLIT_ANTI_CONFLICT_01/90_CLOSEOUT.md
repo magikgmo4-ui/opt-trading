@@ -46,3 +46,7 @@ sans rearbitrage complet.
 ## Prochain GO
 
 Aucun — closeout final.
+
+## RISKS
+
+- À qualifier.

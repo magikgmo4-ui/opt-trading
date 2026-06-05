@@ -11,3 +11,7 @@ Les tests effectués depuis un environnement Windows sans couche de compatibilit
 ## 3. RECOMMANDATION
 Ne pas tenter d'exécuter ce runbook depuis un PowerShell Windows standard.
 Toujours se connecter en SSH à `admin-trading` avant de commencer.
+
+## RISKS
+
+- À qualifier.

@@ -90,3 +90,7 @@ Ne pas faire :
 ## Point de reprise
 
 `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_MACHINE_PARENT_THREAD_ASSIGNMENT_01/02_machine_go_assignment_matrix.md`
+
+## RISKS
+
+- À qualifier.

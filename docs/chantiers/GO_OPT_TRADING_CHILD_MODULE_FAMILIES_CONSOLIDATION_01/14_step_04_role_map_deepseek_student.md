@@ -92,3 +92,7 @@ Figer la carte de role `DeepSeek/student` en distinguant clairement runtime reel
 
 ## Point de reprise
 Carte P1 `DeepSeek/student` complete. Poursuivre avec `reseau/share/transfer`, puis basculer en `Step 05`.
+
+## RISKS
+
+- À qualifier.

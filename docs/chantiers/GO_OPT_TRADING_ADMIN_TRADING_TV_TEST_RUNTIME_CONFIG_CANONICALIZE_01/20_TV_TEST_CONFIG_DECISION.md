@@ -60,3 +60,7 @@ runtime est le mecanisme prevu. Le code est deja correct.
 - La config `TV_TEST` reste runtime locale
 - Le pattern est documente et reproductible
 - Si un jour le repo doit fournir un fichier example, le pattern est deja la
+
+## RISKS
+
+- À qualifier.

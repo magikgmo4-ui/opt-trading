@@ -63,3 +63,7 @@ links:
 - poursuivre la qualification fichier par fichier du pack :
   - vérifier après push si le GO peut passer en closeout doc-only
   - sinon maintenir le gel : `README.md` vivant, `trae_pack/` archivé
+
+## RISKS
+
+- À qualifier.

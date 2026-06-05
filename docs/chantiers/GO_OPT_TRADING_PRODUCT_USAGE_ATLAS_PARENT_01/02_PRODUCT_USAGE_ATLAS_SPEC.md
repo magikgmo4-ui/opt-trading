@@ -63,3 +63,7 @@ Le modele doit alimenter :
 - `docs/product/FINAL_TARGET_GAPS.md` ;
 - `docs/product/guides/*` ;
 - `docs/product/PRODUCT_USAGE_GRAPH.mmd`.
+
+## RISKS
+
+- À qualifier.

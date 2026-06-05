@@ -55,3 +55,7 @@ PASS
 ## Point de reprise
 
 - `registry/README.md`
+
+## RISKS
+
+- À qualifier.

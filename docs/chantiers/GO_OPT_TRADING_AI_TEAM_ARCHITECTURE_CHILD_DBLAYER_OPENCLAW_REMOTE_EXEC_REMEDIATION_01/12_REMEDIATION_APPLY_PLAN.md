@@ -239,3 +239,7 @@ Role :
 2. lister les commandes exactes autorisees ;
 3. confirmer que le runtime reste bloque sauf autorisation explicite ;
 4. preparer ensuite seulement un `14_REMEDIATION_APPLY_EXECUTION_LOG.md`.
+
+## RISKS
+
+- À qualifier.

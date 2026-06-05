@@ -16,3 +16,7 @@ Confirmer que le patch no-sudo appliqué au repo a bien été propagé sur `admi
 Le correctif est effectif sur le runtime.
 Le module `workflow_post_change_v2` est de nouveau sain et actif.
 Les variantes `fix*` peuvent être considérées comme obsolètes.
+
+## RISKS
+
+- À qualifier.

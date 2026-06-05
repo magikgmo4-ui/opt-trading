@@ -34,3 +34,7 @@ doisvent augmenter la severite des warnings.
 ## Invariant
 
 Le lint WHY ne doit jamais devenir une validation runtime autonome.
+
+## RISKS
+
+- À qualifier.

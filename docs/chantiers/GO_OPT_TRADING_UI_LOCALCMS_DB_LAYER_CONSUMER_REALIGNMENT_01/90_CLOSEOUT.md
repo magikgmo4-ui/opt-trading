@@ -55,3 +55,7 @@ PASS
 
 ## Next GO recommande
 - `GO_OPT_TRADING_RESEAU_SSH_CONSOLIDATION_CLOSEOUT_01`
+
+## RISKS
+
+- À qualifier.

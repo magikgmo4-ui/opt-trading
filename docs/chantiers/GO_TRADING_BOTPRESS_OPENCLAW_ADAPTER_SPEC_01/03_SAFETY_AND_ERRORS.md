@@ -82,3 +82,7 @@ Si Gateway echoue > 3 fois en 60s:
 6. Verifier reponse OK avec data
 
 Verdict smoke: PASS si 1-2-3-4 OK (5-6 depend du Gateway).
+
+## RISKS
+
+- À qualifier.

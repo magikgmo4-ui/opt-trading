@@ -47,3 +47,7 @@ GO_OPT_TRADING_DESKPRO_ALERT_DELIVERY_SMOKE_01
 ```
 
 Tester livraison réelle Telegram/webhook avec env local, sans secret commité.
+
+## RISKS
+
+- À qualifier.

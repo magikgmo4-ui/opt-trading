@@ -49,3 +49,7 @@
 3. `K-012` verifier `fail2ban`
 4. `K-014` tester backup USB
 5. `K-010` figer une convention officielle des raccourcis
+
+## RISKS
+
+- À qualifier.

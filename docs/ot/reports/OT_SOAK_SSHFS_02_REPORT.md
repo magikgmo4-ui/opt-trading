@@ -98,3 +98,7 @@ Pour chaque machine (une à la fois) :
 ## 11. IMPACT SUR OT-SVC-01
 - La réserve “reconnexion réseau” est **réduite** : récupération automatique prouvée sur `db-layer` et `student` sans intervention manuelle (dans le modèle “transport reset”).
 
+
+## RISKS
+
+- À qualifier.

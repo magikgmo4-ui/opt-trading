@@ -157,3 +157,7 @@ Checklist 8 étapes prête à l'usage.
 Graphe de confiance à 5 niveaux établi.
 Prochaine application réelle : USER_GUIDES_01.
 ```
+
+## RISKS
+
+- À qualifier.

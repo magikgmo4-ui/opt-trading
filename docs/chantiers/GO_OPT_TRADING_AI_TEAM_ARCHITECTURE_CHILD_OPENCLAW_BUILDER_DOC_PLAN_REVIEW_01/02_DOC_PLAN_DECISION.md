@@ -59,3 +59,7 @@ GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_OPENCLAW_BUILDER_DOC_WRITING_01
 ## 17_RESUME_POINT
 
 Proceed to closeout of this review child, then open the doc writing child after merge.
+
+## RISKS
+
+- À qualifier.

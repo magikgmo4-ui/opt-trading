@@ -56,3 +56,7 @@ Toutes les options cursor-ai (A-D) sont terminees. L'operateur peut :
 - Executer le nettoyage manuel des branches locales (voir `20_CLEANUP_ACTIONS.md`).
 - Ouvrir admin-trading si necessaire (phrase d'activation requise).
 - Considerer la sequence cursor-ai comme close.
+
+## RISKS
+
+- À qualifier.

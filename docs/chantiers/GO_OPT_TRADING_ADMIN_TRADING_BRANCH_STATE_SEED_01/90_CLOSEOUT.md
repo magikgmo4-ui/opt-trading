@@ -55,3 +55,7 @@ Tronc: sot/mainline
 Prochain geste: BRANCH_STATE_SYNTHESIS_REFRESH (optionnel) ou DROP_MERGED_CLEANUP apres 2026-05-28
 Runtime: FIRST_14D_REVIEW PENDING_OBSERVATION jusqu'au 2026-05-28
 ```
+
+## RISKS
+
+- À qualifier.

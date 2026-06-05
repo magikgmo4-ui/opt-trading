@@ -72,3 +72,7 @@ Current dry-run: WARN (desk_snapshot missing, visual_context missing)
 Tests: 62/62 passed
 Next GO: GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_DESK_SNAPSHOT_INPUT_01
 ```
+
+## RISKS
+
+- À qualifier.

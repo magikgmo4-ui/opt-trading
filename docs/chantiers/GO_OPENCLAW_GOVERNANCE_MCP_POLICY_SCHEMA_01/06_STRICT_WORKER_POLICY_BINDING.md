@@ -160,3 +160,7 @@ Memoire projet candidate :
 ```text
 Strict workers consume policy, produce evidence and verdict, and never approve their own sensitive actions.
 ```
+
+## RISKS
+
+- À qualifier.

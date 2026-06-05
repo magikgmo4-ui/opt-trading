@@ -187,3 +187,7 @@ Autorise :
 ```text
 views, exports, dashboards et reports derives de ObservationEvent
 ```
+
+## RISKS
+
+- À qualifier.

@@ -165,3 +165,7 @@ Toutes les surfaces ci-dessous sont referencees dans `registry/ui_surfaces_regis
 | market_scanner | market_scanner | cmd-market_scanner run |
 | opportunity_ranker | opportunity_ranker | cmd-opportunity_ranker rank |
 | perf_engine | perf_engine | cmd-perf_engine measure |
+
+## RISKS
+
+- À qualifier.

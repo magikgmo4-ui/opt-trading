@@ -48,3 +48,7 @@ derivatives_collector/scripts/{cmd.sh,lifecycle_compat.sh}
 - aucun payload métier
 - aucun adapter provider-specific
 ```
+
+## RISKS
+
+- À qualifier.

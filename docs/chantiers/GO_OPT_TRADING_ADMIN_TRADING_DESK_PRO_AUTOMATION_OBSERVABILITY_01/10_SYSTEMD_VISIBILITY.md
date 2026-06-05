@@ -45,3 +45,7 @@ TriggeredBy: desk_pro_dry_run.timer
 ## Installed content visibility
 
 `systemctl cat` confirme que le host expose exactement les definitions versionnees du repo pour `OnBootSec=5min`, `OnUnitActiveSec=15min`, `Type=oneshot`, `User=ghost`, `WorkingDirectory=/opt/trading` et `ExecStart=/opt/trading/modules/desk_pro/desk_pro_dry_run.sh`.
+
+## RISKS
+
+- À qualifier.

@@ -20,3 +20,7 @@ Ajouter `tzdata` dans `requirements.txt`.
 - pas de refactor `ZoneInfo` ;
 - pas de fallback applicatif custom ;
 - pas de changement de logique de dates/timezones.
+
+## RISKS
+
+- À qualifier.

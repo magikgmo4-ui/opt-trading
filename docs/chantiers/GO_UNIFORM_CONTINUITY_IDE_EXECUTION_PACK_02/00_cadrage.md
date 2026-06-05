@@ -49,3 +49,7 @@ links:
 ## Critères PASS / FAIL
 - PASS si : le dossier permet à un IDE d’exécuter le hardening restant et la suite logique du plan sans ambiguïté ni recroisement
 - FAIL si : les actions IDE restent implicites, incomplètes ou contradictoires avec l’état réel déjà posé
+
+## RISKS
+
+- À qualifier.

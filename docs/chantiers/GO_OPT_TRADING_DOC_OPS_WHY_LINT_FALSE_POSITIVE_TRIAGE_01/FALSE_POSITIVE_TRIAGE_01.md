@@ -213,3 +213,7 @@ GO_OPT_TRADING_DOC_OPS_WHY_LINT_RULE_REFINEMENT_01
 
 Objectif immediat :
 reduire les 110 findings residuels en traitant d'abord les 15 faux positifs confirmes et les 95 cas de regle trop large, avant toute nouvelle correction documentaire.
+
+## RISKS
+
+- À qualifier.

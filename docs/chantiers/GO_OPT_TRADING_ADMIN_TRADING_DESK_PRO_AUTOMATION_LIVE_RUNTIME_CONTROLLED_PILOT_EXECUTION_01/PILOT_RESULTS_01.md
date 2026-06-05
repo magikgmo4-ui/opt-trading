@@ -36,3 +36,7 @@ updated_at: 2026-05-13
 - Signal event present
 - Desk snapshot loaded from real source
 - Fallback behavior correct for unconfigured inputs
+
+## RISKS
+
+- À qualifier.

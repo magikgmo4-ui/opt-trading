@@ -81,3 +81,7 @@ docs/product/PRODUCT_USAGE_ATLAS.md
 docs/product/FINAL_TARGET_GAPS.md
 docs/product/UPDATE_PROTOCOL.md
 ```
+
+## RISKS
+
+- À qualifier.

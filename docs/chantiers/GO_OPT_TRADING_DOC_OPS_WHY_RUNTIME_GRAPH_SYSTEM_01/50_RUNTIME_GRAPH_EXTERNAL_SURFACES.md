@@ -32,3 +32,7 @@ Integrer les surfaces externes candidates dans le futur WHY runtime graph.
 ## Invariant
 
 Le graphe ne doit jamais transformer une surface externe en orchestrateur runtime autonome.
+
+## RISKS
+
+- À qualifier.

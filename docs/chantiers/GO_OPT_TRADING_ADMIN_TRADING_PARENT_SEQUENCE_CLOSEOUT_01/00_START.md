@@ -42,3 +42,7 @@ Fermer proprement la séquence admin-trading producer/consumer après validation
 ## Runtime side effects attendus
 
 `NONE`
+
+## RISKS
+
+- À qualifier.

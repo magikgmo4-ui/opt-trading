@@ -109,3 +109,7 @@ Pas encore de source canonique identifiee. Le besoin est reference dans `GO_OPEN
 ## Memory stratification
 
 La stratification documentaire de la memoire est definie dans `MATRICE_DOC_OPS_MASTER_MATRIX_01.md` (Partie 1, hierarchie canonique) et dans les surfaces `memory_bricks`, `search_tags`, `registry`.
+
+## RISKS
+
+- À qualifier.

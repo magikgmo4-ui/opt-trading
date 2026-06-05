@@ -35,3 +35,7 @@ Definir les inputs autorises du prototype graph statique WHY/runtime.
 ## Invariant
 
 Les inputs WHY/runtime doivent rester statiques, lecture seule et tracables.
+
+## RISKS
+
+- À qualifier.

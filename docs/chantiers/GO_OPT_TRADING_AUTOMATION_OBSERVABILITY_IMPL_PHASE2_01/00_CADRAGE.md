@@ -55,3 +55,7 @@ modules/health/README.md (mis à jour)
 - dry-run OK (10 state files créés)
 - desk_pro=healthy, perf=down (cohérent avec health-check)
 ```
+
+## RISKS
+
+- À qualifier.

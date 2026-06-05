@@ -51,3 +51,7 @@ Stop matrix: STOP_ROLLBACK_MATRIX_01.md
 ## Verdict: PASS
 
 No STOP triggers fired. No forbidden side effects. All safety flags preserved.
+
+## RISKS
+
+- À qualifier.

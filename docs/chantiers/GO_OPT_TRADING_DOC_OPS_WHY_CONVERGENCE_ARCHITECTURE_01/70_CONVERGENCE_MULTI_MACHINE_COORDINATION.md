@@ -34,3 +34,7 @@ Formaliser la coordination multi-machine de la convergence WHY.
 ## Invariant
 
 La convergence WHY ne doit jamais inferer une orchestration multi-machine non documentee.
+
+## RISKS
+
+- À qualifier.

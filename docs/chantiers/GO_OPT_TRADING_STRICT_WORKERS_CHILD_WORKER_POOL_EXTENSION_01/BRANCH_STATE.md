@@ -83,3 +83,7 @@ scripts/ai/workers/tasks.index.json (mis a jour)
 - stash branch_arbitration preserve
 - aucun write runtime
 ```
+
+## RISKS
+
+- À qualifier.

@@ -35,3 +35,7 @@ Definir les alignements R0-R5 du WHY lint experimental.
 ## Invariant
 
 Le lint WHY ne doit jamais promouvoir automatiquement une classe runtime.
+
+## RISKS
+
+- À qualifier.

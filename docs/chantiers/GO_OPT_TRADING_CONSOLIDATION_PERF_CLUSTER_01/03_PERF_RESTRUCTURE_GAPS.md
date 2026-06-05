@@ -146,3 +146,7 @@ Les actions suivantes sont DIFFÉRÉES à un GO séparé :
 1 GO séparé proposé : PERF_MODULE_RESTRUCTURE_PLAN_01.
 Aucune restructuration exécutée dans ce child.
 ```
+
+## RISKS
+
+- À qualifier.

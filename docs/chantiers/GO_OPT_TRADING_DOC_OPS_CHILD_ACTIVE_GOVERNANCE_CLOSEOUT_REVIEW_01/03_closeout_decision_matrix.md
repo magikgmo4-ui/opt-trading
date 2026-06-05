@@ -49,3 +49,7 @@ links:
 - retirer les 2 GO clos des surfaces actives
 - les ajouter a `GO_CLOSED_INDEX.md`
 - laisser `BRANCH_STATE.md` inchange
+
+## RISKS
+
+- À qualifier.

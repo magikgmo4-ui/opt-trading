@@ -85,3 +85,7 @@ Manuel / doc-only / external check
 - Pas de captures sensibles du compte TradingView
 - Ne pas modifier tv-webhook, ngrok, tv-perf, bot_vision_headless, Desk Pro, OpenClaw
 - Ne pas créer de nouveau parent
+
+## RISKS
+
+- À qualifier.

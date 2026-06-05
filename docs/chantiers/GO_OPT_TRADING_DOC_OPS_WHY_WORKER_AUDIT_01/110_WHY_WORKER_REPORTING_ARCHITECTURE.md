@@ -34,3 +34,7 @@ Les rapports doivent rester:
 ## Invariant
 
 Les rapports du worker WHY ne doivent jamais devenir des validations runtime autonomes.
+
+## RISKS
+
+- À qualifier.

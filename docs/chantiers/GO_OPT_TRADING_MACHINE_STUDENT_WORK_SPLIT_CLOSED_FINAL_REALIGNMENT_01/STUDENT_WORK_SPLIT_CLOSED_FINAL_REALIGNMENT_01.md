@@ -75,3 +75,7 @@ Prochain mouvement machine recommandé : consulter `MACHINE_WORK_SPLIT_ANTI_CONF
 ## Verdict
 
 **PASS** — MACHINE_WORK_SPLIT realigné sur CLOSED_FINAL, aucun GO student proposé sans preuve, continuité créée.
+
+## RISKS
+
+- À qualifier.

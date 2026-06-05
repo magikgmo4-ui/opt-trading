@@ -33,3 +33,7 @@ Preparer les snapshots governance/runtime de la vue statique WHY/runtime.
 ## Invariant
 
 Les snapshots WHY/runtime ne doivent jamais devenir des validations runtime autonomes.
+
+## RISKS
+
+- À qualifier.

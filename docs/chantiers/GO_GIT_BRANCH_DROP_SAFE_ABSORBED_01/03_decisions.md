@@ -48,3 +48,7 @@ git branch -r | grep -E 'origin/(feat/GO_OPT_TRADING_GO_INDEX_CLOSED_ENTRIES_CAN
 - **Garde locale maintenue** : `feat/student-validation-bitget-readonly-01` reste presente localement et non supprimee dans ce passage a cause du worktree `/tmp/opt-trading-consolidate-validated-extracts-01`
 - **Hors perimetre maintenu** : `backup/main-before-filter` n'a pas ete touchee
 - **Sujet separe observe** : `origin/doc/GO_OPENCLAW_STATE_DIR_READ_09` est apparue pendant le fetch et doit etre traitee dans un GO dedie ulterieur
+
+## RISKS
+
+- À qualifier.

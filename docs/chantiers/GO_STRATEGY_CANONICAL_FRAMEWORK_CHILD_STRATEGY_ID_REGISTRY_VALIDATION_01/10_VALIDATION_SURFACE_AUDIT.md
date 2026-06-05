@@ -95,3 +95,7 @@ Aucune référence à `strategy_id`. Scope négatif.
 | `test` | e2e dry_run test | Non (test) |
 
 **Total : 9 valeurs uniques. 2 registrées, 7 test-only non registrées.**
+
+## RISKS
+
+- À qualifier.

@@ -106,3 +106,7 @@ Date (America/Montreal) : 2026-04-06
 ## 9. Point de reprise suivant
 - Aucun nouveau chantier n’est recommandé par défaut.
 - Point de reprise unique : `GO_OT_TRADING_REALTIME_V1_CHAIN_CLOSED_01`
+
+## RISKS
+
+- À qualifier.

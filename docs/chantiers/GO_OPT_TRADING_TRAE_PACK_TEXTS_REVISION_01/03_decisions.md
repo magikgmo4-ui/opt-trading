@@ -84,3 +84,7 @@ links:
 ## REPRISE
 - point de reprise local : `docs/chantiers/GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01/02_journal_technique.md`
 - suite logique : vérifier après push si le lot peut être clos comme réalignement doc-only
+
+## RISKS
+
+- À qualifier.

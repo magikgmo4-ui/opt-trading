@@ -34,3 +34,7 @@ Une surface externe ne doit pas etre promue runtime sans:
 ## Invariant
 
 Ces classifications restent candidates tant qu'aucune integration active n'est validee.
+
+## RISKS
+
+- À qualifier.

@@ -213,3 +213,7 @@ Rôle :
 2. Enregistrer la sortie et les vérifications post-start ;
 3. Statuer `GATEWAY_UP` ou `GATEWAY_START_FAILED` ;
 4. Si `GATEWAY_UP` : préparer le plan d'activation des agents.
+
+## RISKS
+
+- À qualifier.

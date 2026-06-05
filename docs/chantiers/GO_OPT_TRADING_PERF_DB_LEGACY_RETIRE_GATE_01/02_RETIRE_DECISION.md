@@ -43,3 +43,7 @@ Condition :
 ```text
 toutes les preuves du gate sont collectées et validées.
 ```
+
+## RISKS
+
+- À qualifier.

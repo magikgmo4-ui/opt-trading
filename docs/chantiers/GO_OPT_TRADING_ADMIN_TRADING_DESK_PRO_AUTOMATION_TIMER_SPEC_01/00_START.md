@@ -41,3 +41,7 @@ Definir la spec du timer pour l'automatisation Desk Pro.
 - Tests must pass
 - No runtime side effects (timer inactive)
 - Timer spec must be docs-only until TIMER_IMPL
+
+## RISKS
+
+- À qualifier.

@@ -353,3 +353,7 @@ funding -> DCA -> short -> TP -> checks -> breaches.
 Les calculs sont figeables en Python directement depuis les formules PAPER_LOCKED.
 Aucune connexion exchange, aucun worker runtime.
 ```
+
+## RISKS
+
+- À qualifier.

@@ -25,3 +25,7 @@ DCA accumulation long + COIN-M shorts en couverture. Draft non implémenté.
 - Concept seulement, pas de logique de signal.
 - Pas de runtime.
 - Nécessite GO de validation avant implémentation.
+
+## RISKS
+
+- À qualifier.

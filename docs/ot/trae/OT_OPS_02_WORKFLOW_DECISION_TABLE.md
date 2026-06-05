@@ -16,3 +16,7 @@
 ## 3. ROLLBACK
 Un backup de l'ancien `v2` existe dans `_archive/workflow_post_change_v2_broken_backup`.
 Le dossier `fix3` est intact pour référence.
+
+## RISKS
+
+- À qualifier.

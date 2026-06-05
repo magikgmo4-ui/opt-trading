@@ -32,3 +32,7 @@ sudo systemctl reset-failed desk_pro_dry_run.service desk_pro_dry_run.timer || t
 - `systemctl list-unit-files | grep desk_pro_dry_run` ne retourne rien
 - `systemctl status desk_pro_dry_run.timer --no-pager` signale l'absence du timer
 - `systemctl status desk_pro_dry_run.service --no-pager` signale l'absence du service
+
+## RISKS
+
+- À qualifier.

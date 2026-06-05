@@ -64,3 +64,7 @@ git push -u origin go/GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_ARTIFACT_STABILITY_P
 ```
 
 PR titre : `docs: record desk pro artifact post-merge sync`
+
+## RISKS
+
+- À qualifier.

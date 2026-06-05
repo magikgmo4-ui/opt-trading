@@ -84,3 +84,7 @@ Surfaces auditées :
 ```text
 PASS_STRATEGY_BACKFILL_DISCOVERY_DOC_ONLY
 ```
+
+## RISKS
+
+- À qualifier.

@@ -29,3 +29,7 @@ updated_at: 2026-05-09
 - no `/etc/systemd/system` file modified
 - no repo systemd file modified
 - no manual service start added
+
+## RISKS
+
+- À qualifier.

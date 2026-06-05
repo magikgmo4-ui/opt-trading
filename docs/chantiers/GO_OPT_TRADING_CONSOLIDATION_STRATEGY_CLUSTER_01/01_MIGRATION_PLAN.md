@@ -293,3 +293,7 @@ Plan de migration en 8 étapes, entièrement scripté.
 3 imports Python à fixer, ~9 scripts shell.
 Backups dans _archive/ avant toute opération.
 ```
+
+## RISKS
+
+- À qualifier.

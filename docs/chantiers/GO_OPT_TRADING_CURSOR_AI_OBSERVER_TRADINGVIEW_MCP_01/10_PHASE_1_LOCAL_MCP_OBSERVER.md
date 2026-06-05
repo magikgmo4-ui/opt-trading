@@ -165,3 +165,7 @@ Sans cette PR, `tv launch` échoue silencieusement sur MSIX (le .exe ne peut pas
 
 Phase 2 — Alertes TradingView : inventaire et contrôle
 → `GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_ALERTS_INVENTORY_01`
+
+## RISKS
+
+- À qualifier.

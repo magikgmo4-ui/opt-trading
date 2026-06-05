@@ -38,3 +38,7 @@ class NotificationDispatcher:
 | `strategy_id` connu dans le payload | Silence, message normal |
 | `strategy_id` inconnu dans le payload | Warning log, message normal |
 | `strategy_id` absent du payload | Pas de validation, message normal |
+
+## RISKS
+
+- À qualifier.

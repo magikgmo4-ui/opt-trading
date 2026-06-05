@@ -76,3 +76,7 @@ GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_OPENCLAW_GATEWAY_TOKEN_RECONCILIATION_
 ## 17_RESUME_POINT
 
 Close this review child after decision. Then open the patch child only if token reconciliation is approved.
+
+## RISKS
+
+- À qualifier.

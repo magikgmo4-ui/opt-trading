@@ -97,3 +97,7 @@ sudo mv /home/openclaw-lab/.openclaw/agents/main/sessions/sessions.json /tmp/ope
 - Politique rétention : `docs/chantiers/.../SESSION_RETENTION_POLICY_01.md`
 - Script diagnostic : `docs/chantiers/.../scripts/session_diagnostic.sh`
 - Script purge : `docs/chantiers/.../scripts/purge_old_sessions.sh`
+
+## RISKS
+
+- À qualifier.

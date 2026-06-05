@@ -17,3 +17,7 @@ Transformer la politique de rétention documentée en garde-fous opératoires v�
 ## Prochaine action
 
 Tester script diagnostic, valider smoke post-purge.
+
+## RISKS
+
+- À qualifier.

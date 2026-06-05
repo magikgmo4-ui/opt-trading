@@ -74,3 +74,7 @@ Aucune session tmux active.
 ## OpenClaw
 
 NON INSTALLE sur admin-trading. Modules documentaires seulement (configure_openclaw, doctor_openclaw, evidence_openclaw). Conformement au plan, OpenClaw principal est sur db-layer (127.0.0.1:18789).
+
+## RISKS
+
+- À qualifier.

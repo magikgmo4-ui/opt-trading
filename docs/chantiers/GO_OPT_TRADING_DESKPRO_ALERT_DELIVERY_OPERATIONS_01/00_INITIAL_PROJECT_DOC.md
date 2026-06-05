@@ -30,3 +30,7 @@ Aucun nouveau code. Deliverable : runbook opérationnel complet.
 - Smoke test (`POST /desk/alert/test`) ne touche pas JSONL ni `_alert_state`
 - `GET /desk/status` expose `destinations.telegram` et `destinations.webhook` (bool, sans valeur)
 - Tests : 107/107 PASS
+
+## RISKS
+
+- À qualifier.

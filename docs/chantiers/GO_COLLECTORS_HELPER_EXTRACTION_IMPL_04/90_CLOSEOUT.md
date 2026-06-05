@@ -42,3 +42,7 @@ La duplication lifecycle/artefacts diminue encore sans toucher aux payloads mét
 ```text
 GO_COLLECTORS_HELPER_EXTRACTION_IMPL_05
 ```
+
+## RISKS
+
+- À qualifier.

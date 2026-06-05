@@ -62,3 +62,7 @@ python3 -m modules.desk_pro_orchestrator.app.desk_pro_orchestrator sample-run
 | sudo requis | STOP |
 | write hors `data/desk_runs/` | STOP |
 | commande hors runbook | STOP |
+
+## RISKS
+
+- À qualifier.

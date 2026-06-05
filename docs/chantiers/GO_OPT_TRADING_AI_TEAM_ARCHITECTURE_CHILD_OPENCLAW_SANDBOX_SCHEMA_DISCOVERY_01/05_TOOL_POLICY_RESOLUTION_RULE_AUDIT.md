@@ -217,3 +217,7 @@ Rôle :
 2. Décider si le patch tool policy est nécessaire avant ou après activation du gateway ;
 3. Définir le delta minimal entre deployed V2 et repo V1.2.1 ;
 4. Statuer sur go/no-go de déploiement repo config.
+
+## RISKS
+
+- À qualifier.

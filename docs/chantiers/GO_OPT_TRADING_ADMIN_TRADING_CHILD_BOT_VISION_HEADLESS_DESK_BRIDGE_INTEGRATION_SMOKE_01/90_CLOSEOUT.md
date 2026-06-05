@@ -48,3 +48,7 @@ Pipeline complet valide:
 ## Next GO
 
 GO_OPT_TRADING_ADMIN_TRADING_BRIDGE_GUARD_ADD_01 (P1)
+
+## RISKS
+
+- À qualifier.

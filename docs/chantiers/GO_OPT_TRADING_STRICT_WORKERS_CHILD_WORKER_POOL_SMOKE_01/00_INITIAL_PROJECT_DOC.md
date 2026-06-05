@@ -76,3 +76,7 @@ REMAINING_GAP si un modele est limite mais non bloquant.
 - Aucun index global modifie
 - Stash branch_arbitration preserve
 ```
+
+## RISKS
+
+- À qualifier.

@@ -242,3 +242,7 @@ SUBSEQUENT: produire vues 3-7 au fil des GO pipeline (workers + datasheet + lear
 | Données | État, healthchecks, roadmap, KG | Positions, P&L, snapshots |
 | Refresh | Polling / batch | Temps réel |
 | Relation | Complémentaire | Complémentaire |
+
+## RISKS
+
+- À qualifier.

@@ -196,3 +196,7 @@ GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01
 ```
 
 Ce prochain GO ouvre la passe opératoire contrôlée, toujours sur `db-layer`, toujours sans bridge ni élargissement de scope.
+
+## RISKS
+
+- À qualifier.

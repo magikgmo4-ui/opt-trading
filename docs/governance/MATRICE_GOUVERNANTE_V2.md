@@ -340,3 +340,7 @@ La matrice V2 n'integre pas comme noyau :
 - les details naming
 - les tags et metadata comme base de regle
 - les contradictions locales bornees non encore resynchronisees
+
+## RISKS
+
+- À qualifier.

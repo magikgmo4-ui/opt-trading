@@ -56,3 +56,7 @@ Be concise. Answer briefly. You are a local lab assistant.
 - Les 9 skills (4837 chars) ne sont pas desactivables — ils font partie du runtime OpenClaw
 - Le non-project context (~11,800 chars) reste eleve car il inclut l'internal prompt + skills
 - Le workspace ne peut pas etre reduit en dessous de ~400 chars sans risquer de casser le fonctionnement
+
+## RISKS
+
+- À qualifier.

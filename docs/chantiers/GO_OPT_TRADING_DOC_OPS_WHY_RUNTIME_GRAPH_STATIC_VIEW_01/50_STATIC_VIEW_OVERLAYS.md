@@ -32,3 +32,7 @@ Formaliser les overlays WHY/runtime de la vue statique.
 ## Invariant
 
 Les overlays WHY/runtime doivent rester statiques, reviewables et non destructifs.
+
+## RISKS
+
+- À qualifier.

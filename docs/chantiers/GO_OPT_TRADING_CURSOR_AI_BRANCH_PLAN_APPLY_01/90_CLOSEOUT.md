@@ -18,3 +18,7 @@
 ## Verdict
 
 **PASS** — Matrice cursor-ai appliquee : 1 DROP_MERGED supprimee, 3 REVIEW_MERGE mergees, 2 KEEP_ACTIVE conservees.
+
+## RISKS
+
+- À qualifier.

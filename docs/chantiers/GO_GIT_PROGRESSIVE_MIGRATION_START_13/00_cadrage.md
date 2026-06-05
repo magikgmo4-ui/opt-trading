@@ -129,3 +129,7 @@ Disposer d’un dossier `docs/chantiers/GO_GIT_PROGRESSIVE_MIGRATION_START_13/` 
 ## Statut
 
 **ACTIVE — dossier chantier dédié minimal désormais ouvert pour un GO déjà actif dans l’index**
+
+## RISKS
+
+- À qualifier.

@@ -163,3 +163,7 @@ Rôle :
 2. identifier lequel des deux doit exécuter SSH/network selon l'architecture du job ;
 3. décider `TARGET_AGENT_CONFIRMED` ;
 4. autoriser ou bloquer le patch.
+
+## RISKS
+
+- À qualifier.

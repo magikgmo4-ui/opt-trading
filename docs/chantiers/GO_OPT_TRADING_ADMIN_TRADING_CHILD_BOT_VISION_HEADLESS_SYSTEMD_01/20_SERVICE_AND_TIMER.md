@@ -80,3 +80,7 @@ exec /usr/bin/node capture_headless.js --profile profiles.example.json --once
 
 `ghost:ghost` — meme user que vision_bot, bot_vision_step2, desk_bridge.
 Pas de root necessaire.
+
+## RISKS
+
+- À qualifier.

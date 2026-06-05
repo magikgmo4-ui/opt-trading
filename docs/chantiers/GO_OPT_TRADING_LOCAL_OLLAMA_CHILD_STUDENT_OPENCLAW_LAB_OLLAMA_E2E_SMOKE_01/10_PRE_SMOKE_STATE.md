@@ -36,3 +36,7 @@ Tous loopback-only.
 - `gateway.port` : non defini (default 18789)
 - `gateway.auth` : token mode
 - Port reel du processus : 18790 (decalage vs config)
+
+## RISKS
+
+- À qualifier.

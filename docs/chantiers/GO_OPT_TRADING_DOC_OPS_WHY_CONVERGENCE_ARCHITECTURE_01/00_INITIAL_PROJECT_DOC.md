@@ -70,3 +70,7 @@ La convergence doit rester:
 ## 17_RESUME_POINT
 
 Reprendre sur `go/GO_OPT_TRADING_DOC_OPS_WHY_CONVERGENCE_ARCHITECTURE_01` pour cadrer la convergence des couches WHY avant implementation reelle.
+
+## RISKS
+
+- À qualifier.

@@ -70,3 +70,7 @@ ROUTING_FIRST_CONTROLLED_EXECUTION_PASS
 La politique de routage multi-provider est validée sur un cas réel.
 Le fallback 1.5B direct Ollama est opérationnel pour les tâches à format exact.
 Le 0.5B reste réservé au smoke/pipeline/faible risque.
+
+## RISKS
+
+- À qualifier.

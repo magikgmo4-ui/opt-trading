@@ -111,3 +111,7 @@ Documenter la famille `openclaw*` avant tout arbitrage de consolidation, sans to
 
 ## Point de reprise
 Poursuivre `Step 02` avec les `9` modules restants sans `README`, en priorisant `engines`, `marketdata`, `scripts`, `audit` puis les verticales `bot_vision`, `hf_free_platform`, `trading_lab_v1`, `trading_realtime_v1`, `dev_validation_hub`.
+
+## RISKS
+
+- À qualifier.

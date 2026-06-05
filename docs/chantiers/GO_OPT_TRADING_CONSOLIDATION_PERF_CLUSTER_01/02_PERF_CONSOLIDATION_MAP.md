@@ -140,3 +140,7 @@ Consolidation documentaire uniquement.
 1 README unifié à créer.
 Toute restructuration physique → GO séparé PERF_MODULE_RESTRUCTURE_PLAN_01.
 ```
+
+## RISKS
+
+- À qualifier.

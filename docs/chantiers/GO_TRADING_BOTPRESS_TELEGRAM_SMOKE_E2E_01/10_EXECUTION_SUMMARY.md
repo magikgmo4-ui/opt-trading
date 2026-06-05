@@ -33,3 +33,7 @@ Le test simule les payloads Telegram. Pour un test E2E reel, configurer:
 1. Telegram Bot Token dans `.env`
 2. Webhook Telegram → Botpress webhook endpoint
 3. Botpress → Adapter HTTP
+
+## RISKS
+
+- À qualifier.

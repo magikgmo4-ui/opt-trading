@@ -283,3 +283,7 @@ Prochain point de décision : ≥2026-05-30 (30 runs + 14 jours).
 - Aucun trade
 - `GO_INDEX.md` non modifié
 - `ACTIVE_STREAMS.md` non modifié
+
+## RISKS
+
+- À qualifier.

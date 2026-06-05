@@ -49,3 +49,7 @@ Avant toute implementation future :
 ```text
 GO_OPT_TRADING_PERF_MODULE_RESTRUCTURE_IMPL_01
 ```
+
+## RISKS
+
+- À qualifier.

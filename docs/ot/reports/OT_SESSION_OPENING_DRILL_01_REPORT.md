@@ -71,3 +71,7 @@ Commandes exécutées :
 **PASS_AVEC_FRICTIONS** :
 - PASS : le point d’entrée canonique existe, les étapes sont actionnables, et le point de reprise est retrouvable.
 - FRICTIONS : clarifiées et corrigées minimalement par un patch doc + kanban.
+
+## RISKS
+
+- À qualifier.

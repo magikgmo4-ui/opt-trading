@@ -79,3 +79,7 @@ relire 20_PINNED_TRIAL_RESULTS.md et 30_GATE_DECISION.md avant tout GO ide.yml.
 ```text
 WIP / PINNED_TRIAL_OPENED
 ```
+
+## RISKS
+
+- À qualifier.

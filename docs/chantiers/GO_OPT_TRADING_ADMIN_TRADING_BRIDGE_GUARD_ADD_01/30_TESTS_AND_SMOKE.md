@@ -42,3 +42,7 @@ Fichier valide traite normalement: crop 2x2 → 4 quadrants → ingest → exit 
 | PNG 0-byte | SKIP (silencieux) |
 | .uploading | SKIP (silencieux) |
 | PIL crash | 0 |
+
+## RISKS
+
+- À qualifier.

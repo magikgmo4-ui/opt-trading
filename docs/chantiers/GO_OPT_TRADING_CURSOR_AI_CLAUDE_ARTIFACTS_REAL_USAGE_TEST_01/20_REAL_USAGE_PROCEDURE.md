@@ -152,3 +152,7 @@ Secrets: (none)
 ## Resume de la procedure
 
 **Tous les artefacts du pack Claude artifacts sont utilisables en conditions reelles par un operateur cursor-ai.** Aucun blocage, aucune dependance manquante, aucune etape inexecutable.
+
+## RISKS
+
+- À qualifier.

@@ -125,3 +125,7 @@ Conclusion source-state :
 - le `+1` etait l'ecart entre `OBSERVE_01` et `OUTPUT_01`
 - au `2026-05-12`, ce commit n'est plus seulement local : il est deja pousse sur `origin/...OBSERVE_01`
 - le risque de perte immediate par abandon du worktree actif n'est donc plus un risque de commit non pousse
+
+## RISKS
+
+- À qualifier.

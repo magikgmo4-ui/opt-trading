@@ -43,3 +43,7 @@ Le GO devait livrer un module durable `naming_normalizer` en mode audit-only, av
 
 ## Point de reprise
 `modules/naming_normalizer/README.md`
+
+## RISKS
+
+- À qualifier.

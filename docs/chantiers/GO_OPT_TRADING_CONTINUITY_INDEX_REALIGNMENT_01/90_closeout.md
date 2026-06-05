@@ -62,3 +62,7 @@ PASS
 ## Point de reprise
 
 - `docs/index/GO_INDEX.md`
+
+## RISKS
+
+- À qualifier.

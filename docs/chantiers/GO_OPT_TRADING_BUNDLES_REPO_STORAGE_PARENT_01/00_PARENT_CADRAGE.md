@@ -234,3 +234,7 @@ Memory candidate éventuelle :
 ```text
 Les bundles IDE durables doivent être ancrés en version décompressée dans GitHub sous `bundles/<GO_ID>/`, avec manifest, prompts, checklists et scripts séparés. Le ZIP reste un artefact de transport secondaire.
 ```
+
+## RISKS
+
+- À qualifier.

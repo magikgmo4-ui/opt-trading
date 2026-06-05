@@ -66,3 +66,7 @@ fantome
 → orchestrator first controlled job : PASS / 11 modules OK
 → prochain : job orchestrateur etendu ou integration continue
 ```
+
+## RISKS
+
+- À qualifier.

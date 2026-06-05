@@ -71,3 +71,7 @@ Classement conforme à la grille `40_SCORING_P0_P1_P2.md`.
 - Pas d'alertes sans source : ✓
 - Pas de liste longue sans classement : ✓
 - Anti-bruit respecté : ✓ (P2 relégué en surveillance)
+
+## RISKS
+
+- À qualifier.

@@ -38,3 +38,7 @@ Aucun. Registry reste à 7 entrées, 0 UNREGISTERED.
 **PASS_MACRO_SECTOR_STAT_STRATEGY_CHECKUP_DOC_ONLY**
 
 Prochaine étape : consolidation `modules/strategy/`.
+
+## RISKS
+
+- À qualifier.

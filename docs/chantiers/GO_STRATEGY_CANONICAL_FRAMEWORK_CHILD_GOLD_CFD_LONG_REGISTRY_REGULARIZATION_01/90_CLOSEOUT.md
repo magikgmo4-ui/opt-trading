@@ -41,3 +41,7 @@ surface: doc-only / registry-only
 
 Régulariser `range_strategy_v1` (P3) ou passer à `modules/strategy/` car les 3 engines
 de `strategy_logic.py` sont maintenant registrés.
+
+## RISKS
+
+- À qualifier.

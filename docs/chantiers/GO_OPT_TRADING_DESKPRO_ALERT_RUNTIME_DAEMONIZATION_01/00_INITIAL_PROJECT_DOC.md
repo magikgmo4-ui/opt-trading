@@ -39,3 +39,7 @@ Créer un script de gestion stable pour le processus Desk Pro API (port 8010) :
 - Port conflict detection avant start
 - Fallback python : venv si présent, sinon `python3` système
 - Env : `source scripts/load_env.sh`
+
+## RISKS
+
+- À qualifier.

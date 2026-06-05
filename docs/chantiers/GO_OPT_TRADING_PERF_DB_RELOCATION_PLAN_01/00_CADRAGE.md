@@ -44,3 +44,7 @@ Pas de changement de PERF_DB_PATH dans ce GO.
 - 0 data mutation
 - 0 runtime change
 ```
+
+## RISKS
+
+- À qualifier.

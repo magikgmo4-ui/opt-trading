@@ -149,3 +149,7 @@ Point de reprise chantier logique:
 
 Utile seulement sur demande explicite:
 - pour `module_contextuals_shell`, le prochain manque structurant est surtout la fixation courte de son adoption par les modules futurs / aval.
+
+## RISKS
+
+- À qualifier.

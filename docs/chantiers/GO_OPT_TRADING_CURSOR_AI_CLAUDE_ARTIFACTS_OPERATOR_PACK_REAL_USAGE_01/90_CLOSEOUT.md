@@ -53,3 +53,7 @@ Le pack `bundles/claude-artifacts/` fonctionne en usage reel operateur `cursor-a
 Conserver `bundles/claude-artifacts/` en `product_closed`.
 
 La suite logique est l'exploitation reelle du pack sur de futurs GO doc-only ou l'ouverture d'un nouveau GO separe si un gap prouve apparait.
+
+## RISKS
+
+- À qualifier.

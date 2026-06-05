@@ -54,3 +54,7 @@ Le preflight reel de `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01` a prouve:
 - ecart courant documente
 - gates d'execution machine-first posees
 - suite explicite vers qualification `tmux-ide`
+
+## RISKS
+
+- À qualifier.

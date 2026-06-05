@@ -48,3 +48,7 @@ avec :
 ```
 
 et les tests desk-pro post-merge doivent passer.
+
+## RISKS
+
+- À qualifier.

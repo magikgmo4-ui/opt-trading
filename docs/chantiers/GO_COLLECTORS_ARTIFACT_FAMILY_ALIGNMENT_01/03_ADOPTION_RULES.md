@@ -42,3 +42,7 @@ Après artifact family alignment :
 - operator surface alignment
 - selective runtime extraction decision
 ```
+
+## RISKS
+
+- À qualifier.

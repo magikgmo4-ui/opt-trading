@@ -44,3 +44,7 @@ et n'autoriser que des extractions utilitaires ciblees si prouvees.
 ```text
 GO_COLLECTORS_HELPER_EXTRACTION_CANDIDATES_01
 ```
+
+## RISKS
+
+- À qualifier.

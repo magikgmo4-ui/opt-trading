@@ -157,3 +157,7 @@ Ce GO peut etre clos en PASS documentaire si les decisions ci-dessus sont accept
 La cloture documentaire ne change pas l'etat runtime.
 
 `NO_GO_PHYSICAL` reste applicable jusqu'a ouverture et validation d'un GO physique separe.
+
+## RISKS
+
+- À qualifier.

@@ -101,3 +101,7 @@ ALLOW_OPERATOR_DRY_RUN
 ```text
 ALLOW_OPERATOR_DRY_RUN
 ```
+
+## RISKS
+
+- À qualifier.

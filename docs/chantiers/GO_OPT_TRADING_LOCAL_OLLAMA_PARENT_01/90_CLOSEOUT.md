@@ -77,3 +77,7 @@ Motif :
 ## Next GO recommande
 
 - reprise controlee de `GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_QUALIFICATION_01` seulement apres propagation selective minimale du parent et validation explicite d'un perimetre `OpenClaw` sur `student`
+
+## RISKS
+
+- À qualifier.

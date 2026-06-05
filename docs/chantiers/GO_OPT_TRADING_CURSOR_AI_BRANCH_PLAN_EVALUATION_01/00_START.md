@@ -16,3 +16,7 @@ Auditer 6 branches cursor-ai TradingView restantes et produire une matrice de de
 - Audit seulement. Pas de merge, pas de suppression dans ce GO.
 - ClickUp non lance.
 - Runtime non modifie.
+
+## RISKS
+
+- À qualifier.

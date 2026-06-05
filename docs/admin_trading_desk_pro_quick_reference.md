@@ -46,3 +46,7 @@
 3. Lancer `./scripts/desk_pro_requirements_fix.sh` si les deps Python sont à corriger.
 4. Vérifier avec `./scripts/desk_pro_sanity.sh`.
 5. Tester l'accès HTTP avec `./scripts/desk_pro_http_test.sh`.
+
+## RISKS
+
+- À qualifier.

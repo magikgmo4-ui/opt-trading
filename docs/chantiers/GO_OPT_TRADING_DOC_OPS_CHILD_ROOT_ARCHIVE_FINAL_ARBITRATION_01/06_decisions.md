@@ -52,3 +52,7 @@ La matrice d'audit et les lots deja executes sont juges suffisants pour fermer l
 ### D6
 
 `BRANCH_STATE.md` reste hors patch faute d'incoherence prouvee.
+
+## RISKS
+
+- À qualifier.

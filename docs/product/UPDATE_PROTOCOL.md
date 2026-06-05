@@ -155,3 +155,7 @@ Avant de sauvegarder la mise a jour, verifier :
 ```text
 docs/product/PRODUCT_USAGE_MATRIX.md
 ```
+
+## RISKS
+
+- À qualifier.

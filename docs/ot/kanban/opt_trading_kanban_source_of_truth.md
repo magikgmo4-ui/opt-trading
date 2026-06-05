@@ -179,3 +179,7 @@ Ordre retenu :
 
 ## 11. POINT CANDIDAT SI OUVERTURE DU CHANTIER TRAE V1
 - GO_OT_TRAE_MCP_POLICY_V1_OPEN_01 (sélection explicite, sans lancement automatique)
+
+## RISKS
+
+- À qualifier.

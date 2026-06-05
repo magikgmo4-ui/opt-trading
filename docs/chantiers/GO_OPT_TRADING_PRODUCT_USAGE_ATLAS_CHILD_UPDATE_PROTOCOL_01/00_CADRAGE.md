@@ -170,3 +170,7 @@ Tous les futurs changements produit devront suivre ce protocole.
 0 runtime, 0 secret, 0 connexion externe.
 Prochaine action : validation cadrage → création des règles → closeout.
 ```
+
+## RISKS
+
+- À qualifier.

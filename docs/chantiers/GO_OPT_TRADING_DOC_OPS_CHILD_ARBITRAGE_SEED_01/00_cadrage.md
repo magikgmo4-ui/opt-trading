@@ -23,3 +23,7 @@ Résumé des résultats:
 - DROP_CANDIDATE: aucun branch local existant; aucun delete effectué.
 - CLOSEOUT_ONLY_REVIEW: feat/go-strategy-docs-v1 est présent en remote only; autres non présents localement et à distance non détectés.
 - Prochain point: à confirmer après closeout PASS.
+
+## RISKS
+
+- À qualifier.

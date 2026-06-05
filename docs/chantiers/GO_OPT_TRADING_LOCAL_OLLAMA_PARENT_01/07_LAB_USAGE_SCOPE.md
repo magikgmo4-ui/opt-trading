@@ -590,3 +590,7 @@ Reprise :
 - première valeur à viser : JSON structuré + scripts Python ;
 - valeur produit suivante : RAG read-only + aide reprise GO ;
 - OpenClaw : à qualifier après compatibilité OpenAI et sécurité.
+
+## RISKS
+
+- À qualifier.

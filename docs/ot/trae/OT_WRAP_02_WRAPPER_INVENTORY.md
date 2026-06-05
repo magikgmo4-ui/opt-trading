@@ -19,3 +19,7 @@
 - `sanity-post_change_v2` (Legacy).
 - `menu-desk-pro` vs `menu-desk_pro`.
 - Wrappers `deepseek_*`.
+
+## RISKS
+
+- À qualifier.

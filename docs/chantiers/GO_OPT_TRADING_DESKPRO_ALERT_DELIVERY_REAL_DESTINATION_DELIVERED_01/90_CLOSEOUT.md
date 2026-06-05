@@ -65,3 +65,7 @@ du JSON arbitraire via POST.
 - Aucun token ni credential dans ce document
 - Aucun token dans le JSONL (`{ts, status}` uniquement)
 - Aucun token dans les réponses API (`destinations.*` = bool)
+
+## RISKS
+
+- À qualifier.

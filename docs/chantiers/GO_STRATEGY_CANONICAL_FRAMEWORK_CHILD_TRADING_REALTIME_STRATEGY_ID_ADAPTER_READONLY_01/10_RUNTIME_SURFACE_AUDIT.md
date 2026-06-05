@@ -26,3 +26,7 @@ doc_type: audit
 - Appeler `validate_strategy_id(STRATEGY_ID)` au niveau module, après la définition de `STRATEGY_ID`.
 - Si `False` : émettre un warning vers stderr (pas de hard-fail).
 - Si `True` : ne rien faire (silence).
+
+## RISKS
+
+- À qualifier.

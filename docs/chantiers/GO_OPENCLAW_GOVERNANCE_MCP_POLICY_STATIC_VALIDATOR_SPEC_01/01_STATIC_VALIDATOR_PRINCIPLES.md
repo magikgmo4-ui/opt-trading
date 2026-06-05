@@ -116,3 +116,7 @@ Future implementation notes must keep the validator read-only and must not add p
 ## 19_TO_REMEMBER
 
 The validator exists to block unsafe or incomplete policy drafts before they can become operational.
+
+## RISKS
+
+- À qualifier.

@@ -90,3 +90,7 @@ ssh -o BatchMode=yes -o ConnectTimeout=5 admin-trading 'cd /opt/trading/modules/
 ## 7. POINT DE REPRISE EXACT
 > **GO_OT_MODULE_05_VALIDATED_PROMPT_FACTORY_GLOBAL_WRAPPERS_VALIDATE**
 
+
+## RISKS
+
+- À qualifier.

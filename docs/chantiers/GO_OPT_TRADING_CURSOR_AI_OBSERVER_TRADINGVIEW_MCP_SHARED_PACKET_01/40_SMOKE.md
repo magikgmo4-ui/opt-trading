@@ -31,3 +31,7 @@ Test-Path C:\Users\ghost\opt-trading\_shared_packets\tradingview_observer\*\late
 
 - Si tout PASS : `SMOKE_PASS`
 - Si dry-run OK mais export reel impossible (permissions) : `PARTIAL_ENV`
+
+## RISKS
+
+- À qualifier.

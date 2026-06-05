@@ -69,3 +69,7 @@ Ce document dit pourquoi un produit n'est pas encore `PRODUCT_FINISHED`, meme qu
 - TradingView Pipeline pour recevoir et router les alertes.
 - OpenClaw Runtime pour installer et configurer la gateway.
 - derivatives_collector pour collecter les donnees marches derives.
+
+## RISKS
+
+- À qualifier.

@@ -53,3 +53,7 @@ Suite recommandée immédiate : ouvrir une passe **REALTIME skeleton** pour mat�
 
 ## FORMULE COURTE
 Reprendre depuis les docs `docs/ot/trading/`, les fichiers `schemas/`, puis `modules/trading_lab_v1/`, et ouvrir le skeleton REALTIME avant toute exécution plus poussée.
+
+## RISKS
+
+- À qualifier.

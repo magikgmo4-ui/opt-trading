@@ -83,3 +83,7 @@ Surface lifecycle compatibility :
 - lifecycle-export
 - lifecycle-status
 ```
+
+## RISKS
+
+- À qualifier.

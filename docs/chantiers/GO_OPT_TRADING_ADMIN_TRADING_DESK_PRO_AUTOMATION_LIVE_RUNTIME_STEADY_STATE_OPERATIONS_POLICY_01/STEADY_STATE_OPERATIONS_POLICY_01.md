@@ -98,3 +98,7 @@ sudo systemctl daemon-reload
 - Safety flags true throughout
 - All quotas respected
 - Formal GO proposal with risk analysis
+
+## RISKS
+
+- À qualifier.

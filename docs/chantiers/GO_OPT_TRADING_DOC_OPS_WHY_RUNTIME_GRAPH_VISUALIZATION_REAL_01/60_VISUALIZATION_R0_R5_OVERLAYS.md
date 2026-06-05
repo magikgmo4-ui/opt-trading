@@ -35,3 +35,7 @@ Formaliser les overlays criticite R0-R5 du WHY runtime graph.
 ## Invariant
 
 Les overlays R0-R5 ne doivent jamais devenir une validation runtime autonome.
+
+## RISKS
+
+- À qualifier.

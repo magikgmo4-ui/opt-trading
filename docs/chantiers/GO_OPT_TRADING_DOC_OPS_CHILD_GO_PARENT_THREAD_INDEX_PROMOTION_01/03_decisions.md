@@ -48,3 +48,7 @@ Ce lot ne modifie pas GO_INDEX.md. L'index est un ajout, pas un remplacement.
 ## Decision 6 : regles de priorite entre index
 
 Les regles de priorite sont documentees dans le contrat (02_index_contract.md). GO_INDEX.md reste souverain.
+
+## RISKS
+
+- À qualifier.

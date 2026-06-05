@@ -6,3 +6,7 @@
 - note utile : `fantome` resolve `/opt/trading` vers `/home/fantome/opt-trading`
 - canonique retenu : `modules/reseau_ssh`
 - next GO recommande : `GO_OPT_TRADING_MULTI_AGENTS_CURSOR_AI_PARENT_ALIGNMENT_01`
+
+## RISKS
+
+- À qualifier.

@@ -63,3 +63,7 @@ Trigger the next pass only when the goal is explicit:
 
 Stop here for this pass.
 The canonical alignment is recorded; no code or architecture expansion is part of this note.
+
+## RISKS
+
+- À qualifier.

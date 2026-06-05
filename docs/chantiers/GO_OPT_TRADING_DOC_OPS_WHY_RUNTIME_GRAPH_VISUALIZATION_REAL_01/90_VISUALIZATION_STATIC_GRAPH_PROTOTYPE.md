@@ -38,3 +38,7 @@ Le prototype doit produire une visualisation statique a partir de donnees docume
 ## Invariant
 
 Le prototype statique doit rester audit-oriented et non destructif.
+
+## RISKS
+
+- À qualifier.

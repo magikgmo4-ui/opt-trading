@@ -41,3 +41,7 @@ scripts/student/LEGACY.md :
   + marqueur legacy
   + ne pas supprimer, callers encore actifs
 ```
+
+## RISKS
+
+- À qualifier.

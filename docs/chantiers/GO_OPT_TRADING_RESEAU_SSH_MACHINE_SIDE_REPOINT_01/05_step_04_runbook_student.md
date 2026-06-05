@@ -56,3 +56,7 @@ Rollback immédiat si :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

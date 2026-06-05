@@ -639,3 +639,7 @@ Reprise :
 - première machine : `student` ;
 - usage P0 : scripts Python + RAG documentaire read-only ;
 - invariant : `admin-trading` protégé, pas serveur Ollama lourd par défaut.
+
+## RISKS
+
+- À qualifier.

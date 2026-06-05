@@ -130,3 +130,7 @@ Future implementation must document how it suppresses risky values in errors and
 ## 19_TO_REMEMBER
 
 No-secret is both an input requirement and an output requirement.
+
+## RISKS
+
+- À qualifier.

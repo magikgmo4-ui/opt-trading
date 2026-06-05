@@ -41,3 +41,7 @@ export GOOGLE_SHEETS_SYNC_SHEET_ID='...'
 - Aucune écriture automatique
 - No live trade / No Bitget order
 - LocalCMS read-only
+
+## RISKS
+
+- À qualifier.

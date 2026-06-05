@@ -49,3 +49,7 @@ collector_binance_spot/run.py :
   + import ErrorInfo from collectors_core
   _classify_error → 1 ligne
 ```
+
+## RISKS
+
+- À qualifier.

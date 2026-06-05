@@ -61,3 +61,7 @@ Extraction de toutes les lignes ou PARENT != CHANTIER, ou ou le GO est explicite
 ## Parents non retenus dans GO_INDEX mais presents dans les dossiers chantier
 
 Certains dossiers chantier existent sans ligne parent explicite dans GO_INDEX. Ils restent des GO simples ou des sous-GO et ne sont pas promus parents ici.
+
+## RISKS
+
+- À qualifier.

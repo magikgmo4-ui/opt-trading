@@ -48,3 +48,7 @@ Créer la DB PERF canonique par copie non destructive, puis prouver G1, G3 et G4
 - canonical DB = copie identique
 - aucun restart service
 ```
+
+## RISKS
+
+- À qualifier.

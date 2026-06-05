@@ -53,3 +53,7 @@ est strictement isole du trading reel par :
 2. `engine != "PAPER_TEST"` → bypass `executor.execute()`
 3. `trade_allowed=false` dans le template
 4. `admin_trading_runtime=false` dans le template
+
+## RISKS
+
+- À qualifier.

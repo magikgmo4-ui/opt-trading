@@ -68,3 +68,7 @@ links:
 - `BRANCH_ONLY_UNREPRESENTED` : confirme partiellement
   - les 14 branches sont maintenant representees dans `BRANCH_STATE.md`
   - elles ne sont pas promues dans `GO_INDEX.md` ni dans la matrice sans preuve
+
+## RISKS
+
+- À qualifier.

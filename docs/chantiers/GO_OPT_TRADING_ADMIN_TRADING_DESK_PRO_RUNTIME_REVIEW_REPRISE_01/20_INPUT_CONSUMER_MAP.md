@@ -117,3 +117,7 @@ Pour que Desk Pro consomme `signal_event` V1, un adapter serait nécessaire pour
 ## Desk Pro consomme-t-il visual_context directement?
 
 **Indirectement, oui.** `desk_analyze` (`analyze_latest.py`) consomme les PNG de `desk/snapshots/latest.json` pour l'analyse OpenAI vision. Le sidecar JSON n'est pas lu directement par Desk Pro.
+
+## RISKS
+
+- À qualifier.

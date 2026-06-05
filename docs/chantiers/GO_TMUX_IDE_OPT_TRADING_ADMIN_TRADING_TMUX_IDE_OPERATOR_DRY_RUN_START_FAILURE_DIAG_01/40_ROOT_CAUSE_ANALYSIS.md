@@ -103,3 +103,7 @@ Next retry must set stty rows/cols before tmux-ide launch.
 GATE:
 PASS_ROOT_CAUSE_ISOLATED
 ```
+
+## RISKS
+
+- À qualifier.

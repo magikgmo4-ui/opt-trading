@@ -35,3 +35,7 @@ Le probleme etait double:
 
 - `modules/desk_pro/desk_pro_dry_run.sh` construisait un faux payload V1 partiel au lieu d'un payload V0 compatible adaptateur
 - `modules/desk_pro/dry_run.py` traitait `desk_snapshot` absent comme une erreur bloquante alors que le mode timer-only dry-run doit tolérer son absence
+
+## RISKS
+
+- À qualifier.

@@ -31,3 +31,7 @@ Cette matrice recense les routines exécutables **localement** sur la machine `s
     - `Daily AI Report` pourrait être déclenché par SSH depuis `admin-trading`.
     - `Probability Engine` est un service, donc pilotable via `systemctl` ou API (si existante).
     - **Note** : Aucun wrapper distant n'est *requis* pour l'instant si l'opérateur se connecte en SSH.
+
+## RISKS
+
+- À qualifier.

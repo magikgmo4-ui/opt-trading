@@ -37,3 +37,7 @@ updated_at: 2026-05-14
 ## Fichier modifié
 
 `docs/index/BRANCH_STATE.md` — tableau canonique (insertion alphabetique)
+
+## RISKS
+
+- À qualifier.

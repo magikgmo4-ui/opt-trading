@@ -9,3 +9,7 @@ Pull qwen2.5:3b-instruct, apply proven session refresh method, evaluate as final
 
 ## Regle cle
 - Use validated refresh: rm sessions.json + pkill gateway + restart
+
+## RISKS
+
+- À qualifier.

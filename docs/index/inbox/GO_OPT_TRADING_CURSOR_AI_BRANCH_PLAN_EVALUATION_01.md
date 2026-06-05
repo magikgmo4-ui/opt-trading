@@ -16,3 +16,7 @@ Audit de 6 branches cursor-ai TradingView avant merge/suppression. Matrice de de
 ## Prochain GO
 
 `GO_OPT_TRADING_CURSOR_AI_BRANCH_PLAN_APPLY_01` — appliquer les decisions (DROP_MERGED x1, REVIEW_MERGE x3, KEEP_ACTIVE x2).
+
+## RISKS
+
+- À qualifier.

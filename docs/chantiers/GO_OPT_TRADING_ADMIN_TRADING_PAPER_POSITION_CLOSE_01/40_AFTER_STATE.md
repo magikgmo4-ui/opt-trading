@@ -26,3 +26,7 @@
 | PERFTEST2 | SELL | 10.0 | 49500.0 | OPEN | pre-existing |
 
 Target position BTC/USDT removed. Pre-existing positions unchanged.
+
+## RISKS
+
+- À qualifier.

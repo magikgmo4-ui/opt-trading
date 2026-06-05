@@ -115,3 +115,7 @@ La suite canonique est :
 
 ### Point de reprise local
 - `docs/chantiers/GO_UNIFORM_CONTINUITY_HARDENING_02/90_closeout.md`
+
+## RISKS
+
+- À qualifier.

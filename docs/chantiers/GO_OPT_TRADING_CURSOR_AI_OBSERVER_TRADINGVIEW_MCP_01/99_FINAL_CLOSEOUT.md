@@ -137,3 +137,7 @@ Le TradingView MCP Observer est un produit local durci, securise, documente et r
 Le produit local TradingView MCP Observer est complet cote cursor-ai/OpenClaw.
 Reprendre depuis ce closeout.
 Ne pas rouvrir admin-trading sans GO separe.
+
+## RISKS
+
+- À qualifier.

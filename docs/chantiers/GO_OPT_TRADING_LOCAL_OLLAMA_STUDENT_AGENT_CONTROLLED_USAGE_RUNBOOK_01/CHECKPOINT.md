@@ -23,3 +23,7 @@ GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_CONTROLLED_USAGE_RUNBOOK_01
 
 Fermer le GO après merge. La baseline Student/Ollama est maintenant complète :
 validation → politique → enforcement → baseline adoption → usage runbook.
+
+## RISKS
+
+- À qualifier.

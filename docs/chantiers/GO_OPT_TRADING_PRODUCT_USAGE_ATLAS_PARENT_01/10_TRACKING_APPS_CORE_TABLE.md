@@ -47,3 +47,7 @@ Ce parent n'est pas PASS si :
 - Airtable est presente comme utilisable maintenant alors que le bridge produit manque ;
 - ClickUp est presente comme bloquee alors qu'elle est utilisable avec limites ;
 - Repo KG est reduit a un graphe technique sans lecture produit.
+
+## RISKS
+
+- À qualifier.

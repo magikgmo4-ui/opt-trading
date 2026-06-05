@@ -36,3 +36,7 @@ docs/chantiers/GO_STRATEGY_CANONICAL_FRAMEWORK_CHILD_TRADING_REALTIME_STRATEGY_I
 ## Prochaine étape recommandée
 
 Raccorder `trading_lab_v1` (lecture YAML, fallback `xau_session_open_v1`) ou `signal_router` (validation `strategy_id` entrant).
+
+## RISKS
+
+- À qualifier.

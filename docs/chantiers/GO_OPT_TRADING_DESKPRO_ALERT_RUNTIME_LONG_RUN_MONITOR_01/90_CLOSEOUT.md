@@ -64,3 +64,7 @@ PORT_8010 = UP (pid 57479)
 `GO_OPT_TRADING_DESKPRO_ALERT_RUNTIME_WATCHDOG_01`
 
 Objectif : transformer le monitoring passif en watchdog actif — poll périodique `/desk/status`, alerte si `degraded/down`, heartbeat journalisé, détection port absent, Telegram/webhook/JSONL préservés.
+
+## RISKS
+
+- À qualifier.

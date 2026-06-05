@@ -49,3 +49,7 @@ Le chantier actif le plus important est FIRST_14D_REVIEW_01 (PENDING_OBSERVATION
 - Aucune modification de timer/service/systemd
 - Aucune modification des index globaux sans preuve
 - La branche seule ne prouve pas un chantier actif
+
+## RISKS
+
+- À qualifier.

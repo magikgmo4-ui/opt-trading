@@ -114,3 +114,7 @@ Si refus ou blocage :
 ```text
 02_BUILDER_FIRST_JOB_BLOCKED_REPORT.md
 ```
+
+## RISKS
+
+- À qualifier.

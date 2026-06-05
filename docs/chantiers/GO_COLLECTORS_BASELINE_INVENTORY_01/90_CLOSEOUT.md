@@ -45,3 +45,7 @@ Il ne lance aucune migration.
 ```text
 GO_COLLECTORS_VOCABULARY_ALIGNMENT_01
 ```
+
+## RISKS
+
+- À qualifier.

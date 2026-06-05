@@ -24,3 +24,7 @@ surface: doc-only / registry-only
 | 4 | `USDTM_LONG` | CANDIDATE |
 | 5 | `GOLD_CFD_LONG` | CANDIDATE |
 | 6 | `range_strategy_v1` | CANDIDATE |
+
+## RISKS
+
+- À qualifier.

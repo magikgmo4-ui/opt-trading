@@ -59,3 +59,7 @@ GO_OPENCLAW_OPT_TRADING_CHILD_DBLAYER_ORCHESTRATOR_PAPER_REGRESSION_SUITE_01
 La regression prouve que le workflow PAPER est stable sur plusieurs runs bornees,
 avec invariants securite conserves et sans escalade live/write-gated.
 ```
+
+## RISKS
+
+- À qualifier.

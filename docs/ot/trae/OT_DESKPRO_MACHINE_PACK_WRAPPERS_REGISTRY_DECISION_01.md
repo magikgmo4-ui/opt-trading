@@ -37,3 +37,7 @@ VERDICT = EXCEPTION RUNTIME-LAYER OPPOSABLE HORS REGISTRY
 
 ## 7. Point de reprise
 - Suite recommandée : `GO_OT_NEXT_MISSION_SELECTION_01`.
+
+## RISKS
+
+- À qualifier.

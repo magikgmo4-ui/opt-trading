@@ -74,3 +74,7 @@ print('V4 PASS: 0 TV_TEST trades')
 | V2 | equity > 0, risk_pct > 0 | Valeurs valides |
 | V3 | risk_quote() retourne qty > 0 | Quote fonctionnel |
 | V4 | 0 TV_TEST trades | Perf ledger clean |
+
+## RISKS
+
+- À qualifier.

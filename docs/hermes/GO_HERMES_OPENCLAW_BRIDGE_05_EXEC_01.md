@@ -53,3 +53,7 @@ Ce GO exec 01 est clos si :
 - pas de framework bridge declare etabli ;
 - pas de generalisation produit ;
 - pas de mutation systeme large.
+
+## RISKS
+
+- À qualifier.

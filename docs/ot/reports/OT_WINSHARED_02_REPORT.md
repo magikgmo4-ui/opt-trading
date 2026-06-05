@@ -70,3 +70,7 @@ Date (America/Montreal) : 2026-03-13
 - Réserve “poste Windows” : **levée** (accès direct prouvé, chemin local validé).
 - Réserve restante : reconnexion réseau “pure” côté Linux (interface/firewall) et/ou décision d’outillage WinSCP (si GUI KeepUpToDate requis).
 
+
+## RISKS
+
+- À qualifier.

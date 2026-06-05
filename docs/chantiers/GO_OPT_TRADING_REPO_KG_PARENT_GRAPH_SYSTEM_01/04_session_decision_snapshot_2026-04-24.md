@@ -110,3 +110,7 @@ Limites retenues :
 ## 17_RESUME_POINT
 
 Reprise immédiate : documenter d'abord le plan complet jusqu'au final product dans `05_master_plan_final_product.md`, puis seulement après ouvrir les specs de schéma, Producer et Consumer.
+
+## RISKS
+
+- À qualifier.

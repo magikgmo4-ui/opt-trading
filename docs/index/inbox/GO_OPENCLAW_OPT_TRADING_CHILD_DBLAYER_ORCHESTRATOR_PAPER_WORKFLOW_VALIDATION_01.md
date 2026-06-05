@@ -34,3 +34,7 @@ links:
 ## Objectif
 
 Valider un workflow PAPER controle complet sur `db-layer` avec preuves, sans ordre reel, sans secret, sans sudo et sans write libre.
+
+## RISKS
+
+- À qualifier.

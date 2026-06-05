@@ -41,3 +41,7 @@ Premier run réel du prompt `OPT_TRADING_ATTENTION_CENTER_01` dans Claude Cowork
 ## Chantier
 
 `docs/chantiers/GO_OPT_TRADING_CLAUDE_COWORK_CHILD_ATTENTION_CENTER_REAL_RUN_01/`
+
+## RISKS
+
+- À qualifier.

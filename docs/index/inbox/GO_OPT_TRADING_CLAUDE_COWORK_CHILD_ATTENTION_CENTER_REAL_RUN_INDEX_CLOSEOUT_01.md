@@ -25,3 +25,7 @@ Resultat:
 - prochain GO maintenu: `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01`
 - reserve explicite: machine cible a verifier avant execution
 - OpenClaw hors scope
+
+## RISKS
+
+- À qualifier.

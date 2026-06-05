@@ -38,3 +38,7 @@ Les meilleurs candidats WHY:
 - collectors doctrine,
 - machine split,
 - reprise parents.
+
+## RISKS
+
+- À qualifier.

@@ -159,3 +159,7 @@ Pour chaque step execute ensuite :
 
 ## Point de reprise
 Passer a `Step 08`, closeout parent ou maintien ouvert selon traitement de l'hygiene documentaire restante.
+
+## RISKS
+
+- À qualifier.

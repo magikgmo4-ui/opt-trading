@@ -37,3 +37,7 @@ Pour le statut “kanban / source of truth” des chantiers : `docs/ot/kanban/op
 
 ## L6 — Exécution (plus tard)
 - paper trading → live sous flags + kill switch
+
+## RISKS
+
+- À qualifier.

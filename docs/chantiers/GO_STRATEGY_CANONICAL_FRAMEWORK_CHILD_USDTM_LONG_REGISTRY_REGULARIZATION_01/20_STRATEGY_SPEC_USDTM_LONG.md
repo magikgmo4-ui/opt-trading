@@ -44,3 +44,7 @@ doc_type: strategy_spec
 - Pas de ré-entrée après invalidation.
 - 1 instrument seulement (BTC).
 - Filtre `btc_is_leader` dur.
+
+## RISKS
+
+- À qualifier.

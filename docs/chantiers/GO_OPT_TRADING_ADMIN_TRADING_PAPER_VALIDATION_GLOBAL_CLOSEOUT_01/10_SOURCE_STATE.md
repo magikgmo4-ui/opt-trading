@@ -17,3 +17,7 @@
 - Cycle PAPER_TEST: COMPLETE
 - Scenarios expansion: ALL PASS
 - Production readiness: NOT READY (conditions pending)
+
+## RISKS
+
+- À qualifier.

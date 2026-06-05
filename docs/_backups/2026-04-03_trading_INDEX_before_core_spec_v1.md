@@ -38,3 +38,7 @@ Il sert à :
 ## POINT DE REPRISE COURT
 
 Trigger actif : `GO_OT_TRADING_DUAL_STACK_V1_01`
+
+## RISKS
+
+- À qualifier.

@@ -61,3 +61,7 @@ next_go_candidate:
 Ce parent machine cursor-ai est atomique. Il organise les GO children cote cursor-ai sans rouvrir le parent ferme `GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_01`.
 
 Le parent admin-trading reste un NEXT_GO_CANDIDATE separe, documente mais non cree.
+
+## RISKS
+
+- À qualifier.

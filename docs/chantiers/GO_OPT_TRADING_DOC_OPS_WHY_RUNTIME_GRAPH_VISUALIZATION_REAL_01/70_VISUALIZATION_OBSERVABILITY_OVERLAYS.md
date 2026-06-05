@@ -35,3 +35,7 @@ Formaliser les overlays observabilite du WHY runtime graph.
 ## Invariant
 
 Les overlays observabilite ne doivent jamais inferer des preuves runtime absentes.
+
+## RISKS
+
+- À qualifier.

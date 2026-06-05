@@ -68,3 +68,7 @@ Elles doivent etre traitees comme:
 ## 17_RESUME_POINT
 
 Reprendre sur `go/GO_OPT_TRADING_DOC_OPS_WHY_EXTERNAL_ORCHESTRATION_SURFACES_01` pour cadrer les surfaces d'orchestration externes WHY.
+
+## RISKS
+
+- À qualifier.

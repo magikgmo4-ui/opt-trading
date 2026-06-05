@@ -36,3 +36,7 @@ Le chantier peut etre clos en documentant:
 | GO_HEADLESS_CLOSEOUT_01 | P1 | Closeout chantier headless |
 | GO_WEBHOOK_RUNTIME_REVIEW_01 | P2 | Audit webhook runtime |
 | GO_DESK_PRO_SHARED_REFRESH_01 | P3 | Rafraichir /shared |
+
+## RISKS
+
+- À qualifier.

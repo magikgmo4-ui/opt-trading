@@ -172,3 +172,7 @@ Closeout must capture the final workflow path, trigger scope, job commands, loca
 ## 19_TO_REMEMBER
 
 The workflow becomes active only as a local repository artifact in this session. No remote trigger is authorized by this GO.
+
+## RISKS
+
+- À qualifier.

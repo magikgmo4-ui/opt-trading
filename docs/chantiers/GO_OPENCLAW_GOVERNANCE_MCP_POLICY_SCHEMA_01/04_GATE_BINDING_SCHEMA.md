@@ -133,3 +133,7 @@ Memoire projet candidate :
 ```text
 OpenClaw MCP gate binding is family-specific; a Git gate cannot authorize runtime, secret, trade or DB mutation.
 ```
+
+## RISKS
+
+- À qualifier.

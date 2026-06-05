@@ -42,3 +42,7 @@ Paper flags present in `/opt/trading/.env`:
 ## Ledger
 
 `/opt/trading/state/ledger_paper.json`: `{}` (empty, exists)
+
+## RISKS
+
+- À qualifier.

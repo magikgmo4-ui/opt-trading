@@ -110,3 +110,7 @@ But: formaliser le schema d'entrée Desk Pro et créer les adapters signal_event
 ### Si FAIL/BLOCKED
 
 Non applicable — le verdict est PASS.
+
+## RISKS
+
+- À qualifier.

@@ -28,3 +28,7 @@ doc_type: registry_entry_proposal
 | `runtime_surfaces` | `strategy_logic.py` (engine), `engines/registry.py`, `webhook_server.py`, `risk_calculator.py` |
 | `priority` | `P2` |
 | `created_at` | `2026-05-18` |
+
+## RISKS
+
+- À qualifier.

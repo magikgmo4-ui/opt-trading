@@ -133,3 +133,7 @@ Lire dans l'ordre :
 2. `02_integrale_plan_producteur_consommateur.md`
 3. `03_remaining_gap_todo.md`
 4. `SESSION_REPRISE.txt`
+
+## RISKS
+
+- À qualifier.

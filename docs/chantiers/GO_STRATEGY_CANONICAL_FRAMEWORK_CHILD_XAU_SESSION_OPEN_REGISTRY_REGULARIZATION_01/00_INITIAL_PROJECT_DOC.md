@@ -117,3 +117,7 @@ Ce child applique le cadre canonique à `xau_session_open_v1` :
 ```text
 PASS_REGISTRY_REGULARIZATION_DOC_ONLY
 ```
+
+## RISKS
+
+- À qualifier.

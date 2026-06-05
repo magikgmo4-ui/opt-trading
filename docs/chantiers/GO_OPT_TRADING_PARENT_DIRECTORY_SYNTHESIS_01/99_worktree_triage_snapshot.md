@@ -90,3 +90,7 @@ Ces surfaces doivent rester hors du prochain commit de ce lot.
 2. commit le lot `repo-directory-synthesis` + `child modules`
 3. traiter `docs/index/*` dans un commit separe, ou apres nettoyage des changements herites
 4. laisser le lot `DOC_OPS` hors de cette serie
+
+## RISKS
+
+- À qualifier.

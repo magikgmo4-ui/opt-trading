@@ -59,3 +59,7 @@ Avant d'ouvrir `GO_OPT_TRADING_ADMIN_TRADING_WEBHOOK_ALERT_REACTIVATION_01` :
 Ce GO enfant est rattaché au parent `GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01` (OPEN).
 Il ne doit pas modifier la priorité opératoire du tableau canonique (5 GO retenus dans
 `docs/index/ACTIVE_STREAMS.md` et `docs/index/GO_INDEX.md`).
+
+## RISKS
+
+- À qualifier.

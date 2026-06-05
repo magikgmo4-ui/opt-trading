@@ -14,3 +14,7 @@ Le parent TradingView MCP est ferme. Cette reprise fige l'etat cursor-ai post-cl
 ## Prochain GO apres PASS
 
 `GO_OPT_TRADING_CURSOR_AI_CLAUDE_COWORK_LIVE_ARTIFACTS_REVIEW_01`
+
+## RISKS
+
+- À qualifier.

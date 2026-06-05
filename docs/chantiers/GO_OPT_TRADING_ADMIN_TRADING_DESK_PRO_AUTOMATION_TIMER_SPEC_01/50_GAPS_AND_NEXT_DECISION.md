@@ -31,3 +31,7 @@ GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_TIMER_IMPL_01
 
 - Timer spec complete
 - Proposer review puis implementation
+
+## RISKS
+
+- À qualifier.

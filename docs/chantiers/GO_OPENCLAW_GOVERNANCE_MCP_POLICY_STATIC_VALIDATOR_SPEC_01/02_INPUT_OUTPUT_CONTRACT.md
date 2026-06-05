@@ -142,3 +142,7 @@ Future implementation must document exactly which policy paths were validated an
 ## 19_TO_REMEMBER
 
 The validator output cannot be used as a human approval gate. It is static evidence only.
+
+## RISKS
+
+- À qualifier.

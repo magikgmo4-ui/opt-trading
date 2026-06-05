@@ -25,3 +25,7 @@
 
 - suite recommandee : utiliser l'entree `OPEN` nouvellement posee comme point de reprise canonique pour un futur GO enfant dedie
 - statut canonique retenu dans l'index : `OPEN`
+
+## RISKS
+
+- À qualifier.

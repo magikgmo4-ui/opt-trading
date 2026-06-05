@@ -143,3 +143,7 @@ decision_engine sample    : PASS ✓ (GO_LONG BTCUSDT, conf=0.85)
 opportunity_ranker sample : PASS ✓ (score=0.71, priority=HIGH)
 probability_engine sample : PASS ✓ (prob_long=0.72, conf=0.45)
 ```
+
+## RISKS
+
+- À qualifier.

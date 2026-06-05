@@ -39,3 +39,7 @@ Formaliser les etats et transitions du futur parser WHY.
 - ERROR ne doit pas interrompre tout le batch.
 - SKIP doit etre explicite et journalisable.
 - REPORT doit rester audit-only.
+
+## RISKS
+
+- À qualifier.

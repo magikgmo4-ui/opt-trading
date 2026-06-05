@@ -79,3 +79,7 @@ Non recommandée à ce stade.
 
 ## Point de reprise
 Poursuivre `Step 03` avec `desk_*`, puis basculer en `Step 04` pour les cartes de rôle P1 si besoin.
+
+## RISKS
+
+- À qualifier.

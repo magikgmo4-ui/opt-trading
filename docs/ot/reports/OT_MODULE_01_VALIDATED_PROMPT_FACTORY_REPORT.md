@@ -34,3 +34,7 @@ Le **Starter Pack** a permis de :
 - **Cohérence** : Ajout des commandes `list-modes` et `validate` dans le README.
 
 **Status : MODULE VALIDÉ (STRUCTURELLEMENT) + DOC CORRIGÉE.**
+
+## RISKS
+
+- À qualifier.

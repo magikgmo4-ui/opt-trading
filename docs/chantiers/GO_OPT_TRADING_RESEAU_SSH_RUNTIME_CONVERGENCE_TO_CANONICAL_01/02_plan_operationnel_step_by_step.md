@@ -54,3 +54,7 @@ Le lot restant apres eux est machine-side :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

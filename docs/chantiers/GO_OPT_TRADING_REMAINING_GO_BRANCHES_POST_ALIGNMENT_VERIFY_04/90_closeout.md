@@ -64,3 +64,7 @@ Lot separe de decision humaine / deep audit sur les branches encore seulement re
 `PASS`
 
 Le lot confirme que les corrections visees par `PR #177` sont effectives et que les gaps restants sont explicitement listes sans sur-action Git.
+
+## RISKS
+
+- À qualifier.

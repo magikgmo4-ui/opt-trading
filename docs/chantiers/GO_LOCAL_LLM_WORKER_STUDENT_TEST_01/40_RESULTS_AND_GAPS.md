@@ -40,3 +40,7 @@ runtime local
 → rapport
 → revue résultats/gaps
 ```
+
+## RISKS
+
+- À qualifier.

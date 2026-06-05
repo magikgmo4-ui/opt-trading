@@ -42,3 +42,7 @@ La duplication spot diminue encore, sans effet sur le métier.
 ```text
 GO_COLLECTORS_HELPER_EXTRACTION_IMPL_06
 ```
+
+## RISKS
+
+- À qualifier.

@@ -304,3 +304,7 @@ Le resume canonique doit tenir en une ligne par run,
 mais cette ligne doit suffire pour classer, filtrer, expliquer,
 et retrouver ensuite la trace detaillee si necessaire.
 ```
+
+## RISKS
+
+- À qualifier.

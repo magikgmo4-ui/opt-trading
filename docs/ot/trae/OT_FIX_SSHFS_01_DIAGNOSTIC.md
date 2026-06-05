@@ -70,3 +70,7 @@ Date (America/Montreal) : 2026-03-12
 5. Statut canonique correct dans runtime map ? **Repo: Service (installable)** ; **Live admin-trading: absent/non déployé + wrappers incohérents**.
 6. Schedule live desk_retention prouvé sur admin-trading ? **Daily 03:00** (preuve `systemctl cat desk_retention.timer` dans OT-LIVE-01).
 
+
+## RISKS
+
+- À qualifier.

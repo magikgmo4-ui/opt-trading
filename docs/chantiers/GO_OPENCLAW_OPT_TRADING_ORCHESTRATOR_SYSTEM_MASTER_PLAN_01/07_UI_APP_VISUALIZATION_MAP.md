@@ -314,3 +314,7 @@ ops_super_menu       → CLI menus
 | Botpress | OUI — bot chat | E2E Telegram non fermé | BOTPRESS_SMOKE_E2E |
 | Telegram | OUI — notification | notification_dispatcher | GO-04 DISPATCHER |
 | TradingView | OUI — charts/alertes | signal_router à brancher | GO-03 SIGNAL_ROUTER |
+
+## RISKS
+
+- À qualifier.

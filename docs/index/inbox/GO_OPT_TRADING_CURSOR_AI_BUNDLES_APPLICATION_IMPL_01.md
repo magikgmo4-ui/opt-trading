@@ -16,3 +16,7 @@ Application Bundles cursor-ai a partir des documents integres par PR #201. Metho
 ## Prochain GO
 
 `GO_OPT_TRADING_CURSOR_AI_BUNDLES_APPLICATION_VALIDATION_01`
+
+## RISKS
+
+- À qualifier.

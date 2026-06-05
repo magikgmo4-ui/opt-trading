@@ -30,3 +30,7 @@
 ## Guards obligatoires
 - `if (config.mode !== 'PAPER' && config.mode !== 'SIMULATION') throw Error('UNAUTHORIZED_MODE');`
 - `if (order.isReal()) throw Error('CRITICAL_SECURITY_VIOLATION');`
+
+## RISKS
+
+- À qualifier.

@@ -78,3 +78,7 @@ admin-trading:/opt/trading
 - PR desk-pro: aucune
 - decision: PR/merge desk-pro d'abord, tmux-ide ensuite
 ```
+
+## RISKS
+
+- À qualifier.

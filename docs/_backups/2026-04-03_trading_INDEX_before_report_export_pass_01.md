@@ -71,3 +71,7 @@ Il sert à :
 Trigger courant clos au niveau batch reporting : `GO_OT_TRADING_LAB_V1_BATCH_REPORTING_PASS_01`
 
 Trigger naturel suivant : `GO_OT_TRADING_LAB_V1_REPORT_EXPORT_PASS_01`
+
+## RISKS
+
+- À qualifier.

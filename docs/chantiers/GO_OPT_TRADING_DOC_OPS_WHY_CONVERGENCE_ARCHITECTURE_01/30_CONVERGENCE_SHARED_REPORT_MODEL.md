@@ -36,3 +36,7 @@ Definir les modeles de reporting partages entre les couches WHY.
 ## Invariant
 
 Les rapports WHY ne doivent jamais devenir des validations runtime autonomes.
+
+## RISKS
+
+- À qualifier.

@@ -92,3 +92,7 @@ Motif :
 ## Next GO recommande
 
 - `GO_OPT_TRADING_MULTI_AGENTS_CURSOR_AI_PARENT_ALIGNMENT_01`
+
+## RISKS
+
+- À qualifier.

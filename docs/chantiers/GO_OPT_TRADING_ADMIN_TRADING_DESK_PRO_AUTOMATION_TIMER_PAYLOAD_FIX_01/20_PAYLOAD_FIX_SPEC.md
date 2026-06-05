@@ -32,3 +32,7 @@ Le timer doit produire un payload V0 minimal accepte par `normalize_signal_event
 - `errors`: `[]`
 - `warnings`: snapshot/visual context manquants
 - `no_trade`, `no_telegram`, `no_webhook`, `no_systemd`: `true`
+
+## RISKS
+
+- À qualifier.

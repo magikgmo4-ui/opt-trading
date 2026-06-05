@@ -25,3 +25,7 @@ doc_type: implementation_decision
 - Aucun engine modifié.
 - Aucun runtime changé.
 - Aucune migration.
+
+## RISKS
+
+- À qualifier.

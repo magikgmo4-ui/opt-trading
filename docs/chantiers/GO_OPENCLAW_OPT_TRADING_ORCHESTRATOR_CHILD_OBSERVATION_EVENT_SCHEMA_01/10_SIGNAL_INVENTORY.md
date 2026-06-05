@@ -105,3 +105,7 @@ Ces champs sont trop granulaires pour l'observation de premier niveau. Ils appar
 | `learning_feeder` | Détail interne pipeline |
 | `signal_source` (complet) | Trop granulaire pour l'observation agrégée |
 | `engines_context` | Détail moteur probabilité — niveau step |
+
+## RISKS
+
+- À qualifier.

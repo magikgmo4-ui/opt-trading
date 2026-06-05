@@ -33,3 +33,7 @@ Formaliser les chaines de defaillance dans le WHY runtime graph.
 ## Invariant
 
 Le graphe doit aider a comprendre les chaines de risque sans automatiser les decisions runtime.
+
+## RISKS
+
+- À qualifier.

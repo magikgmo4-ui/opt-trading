@@ -52,3 +52,7 @@ modules/perf/
 La forme cible n'est qu'une hypothese de travail.
 Elle n'est executable qu'apres analyse complete des impacts et rollback.
 ```
+
+## RISKS
+
+- À qualifier.

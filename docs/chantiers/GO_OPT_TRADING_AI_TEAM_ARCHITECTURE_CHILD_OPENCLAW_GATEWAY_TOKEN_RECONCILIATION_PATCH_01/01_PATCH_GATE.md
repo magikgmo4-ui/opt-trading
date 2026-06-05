@@ -46,3 +46,7 @@ METHOD = python3 in-place JSON patch via sudo -u openclaw
 - any runtime module patched
 - any global index modified
 ```
+
+## RISKS
+
+- À qualifier.

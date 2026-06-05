@@ -73,3 +73,7 @@ links:
 - 5 spaces maximum (4 crees + 1 existant = 5)
 - Custom Fields et Dashboards non accessibles via API
 - Statuses personnalises limitants via API
+
+## RISKS
+
+- À qualifier.

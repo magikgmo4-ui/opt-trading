@@ -54,3 +54,7 @@ d'activation live. Aucune exécution.
 - no automatic Sheets write
 - controlled-write manuel uniquement
 - no secrets
+
+## RISKS
+
+- À qualifier.

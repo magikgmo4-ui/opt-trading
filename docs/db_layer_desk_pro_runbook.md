@@ -82,3 +82,7 @@ Les wrappers suivants sont disponibles après installation :
 
 ---
 *Dernière mise à jour : 2026-03-06*
+
+## RISKS
+
+- À qualifier.

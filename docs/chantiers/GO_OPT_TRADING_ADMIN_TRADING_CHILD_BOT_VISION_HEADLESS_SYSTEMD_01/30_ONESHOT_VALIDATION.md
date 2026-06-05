@@ -49,3 +49,7 @@ bot-vision-headless-capture.service: Deactivated successfully.
 Les fichiers copies depuis Windows avaient des line endings CRLF.
 Corrige avec `sed -i "s/\r$//"`.
 A ne pas reproduire (utiliser git avec core.autocrlf ou transferer en binaire).
+
+## RISKS
+
+- À qualifier.

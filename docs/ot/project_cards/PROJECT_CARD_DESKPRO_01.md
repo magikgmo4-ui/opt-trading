@@ -152,3 +152,7 @@ Point de reprise chantier logique:
 
 Utile seulement sur demande explicite:
 - pour Desk Pro, la prochaine preuve structurante n’est plus principalement doctrinale mais opérationnelle: démontrer le flux inter-machines export -> shared -> consommation.
+
+## RISKS
+
+- À qualifier.

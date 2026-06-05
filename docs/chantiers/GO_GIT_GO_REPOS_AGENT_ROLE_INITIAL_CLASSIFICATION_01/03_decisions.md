@@ -107,3 +107,7 @@ Le contenu a deja fait l'objet d'une integration doc-only precedente. Classifica
 **Exclusion explicite du flux cleanup**
 
 Cette branche est exclue du flux cleanup et doit etre conservee.
+
+## RISKS
+
+- À qualifier.

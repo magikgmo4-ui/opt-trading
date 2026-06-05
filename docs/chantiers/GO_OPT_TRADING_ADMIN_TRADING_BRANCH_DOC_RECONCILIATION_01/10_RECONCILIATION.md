@@ -165,3 +165,7 @@ Note: Ces classifications `DROP_MERGED` sont **proposées** par cette réconcili
 2. **BRANCH_STATE.md** a zéro entrée pour les branches GO_OPT_TRADING_ADMIN_TRADING_*. Ces 54+ branches ne sont pas tracées dans l'index canonique des branches.
 3. De nombreux chantiers locaux existent sans branche remote associée (ou inversement).
 4. Les TMUX_IDE branches (6) sont listées dans aucun des deux index pour admin-trading.
+
+## RISKS
+
+- À qualifier.

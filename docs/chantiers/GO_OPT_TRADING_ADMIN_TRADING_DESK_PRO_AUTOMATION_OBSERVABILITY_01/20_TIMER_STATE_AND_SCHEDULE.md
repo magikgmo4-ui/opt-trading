@@ -49,3 +49,7 @@ ACTIVATES desk_pro_dry_run.service
 - aucun declenchement naturel n'est visible a ce stade
 - aucun start manuel n'a ete effectue dans ce GO
 - aucun prochain trigger calcule n'est affiche actuellement par systemd
+
+## RISKS
+
+- À qualifier.

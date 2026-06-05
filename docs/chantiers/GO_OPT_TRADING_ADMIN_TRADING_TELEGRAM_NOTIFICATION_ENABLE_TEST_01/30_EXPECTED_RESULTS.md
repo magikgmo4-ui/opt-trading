@@ -56,3 +56,7 @@ links:
 | Qty / Risk | `qty: 20.0 | risk_usd: 100.0` |
 | Pas de token | -- |
 | Pas de chat_id | -- |
+
+## RISKS
+
+- À qualifier.

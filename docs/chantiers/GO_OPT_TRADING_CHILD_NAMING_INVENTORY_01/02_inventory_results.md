@@ -49,3 +49,7 @@ links:
 - toutes les propositions restent indicatives
 - aucun renommage reel n'est applique
 - les cas ambigus ou a forte dependance de contexte restent en `REVIEW_REQUIRED`
+
+## RISKS
+
+- À qualifier.

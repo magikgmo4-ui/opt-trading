@@ -73,3 +73,7 @@ Phase 1 :
 - dashboard minimal (terminal + JSON)
 - alerting critique (Telegram)
 ```
+
+## RISKS
+
+- À qualifier.

@@ -68,3 +68,7 @@ Inventaire des artefacts Claude / IDE / cowork deja presents dans le repo et uti
 | Claude cowork parent | MERGE | Non — matiere integree, non structuree |
 | Bundles method | ACTIVE | Partiel — methode documentee, templates manquants |
 | Parent operational plan | MERGE | N/A — plan, pas source |
+
+## RISKS
+
+- À qualifier.

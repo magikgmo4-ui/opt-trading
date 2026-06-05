@@ -41,3 +41,7 @@ git diff --cached | grep -oP "C:\\\\Users\\\\[^\\\\]+" | sort -u
 1. Revert immediat du commit.
 2. Rotation des tokens si applicable.
 3. Documentation de l'incident dans le GO courant.
+
+## RISKS
+
+- À qualifier.

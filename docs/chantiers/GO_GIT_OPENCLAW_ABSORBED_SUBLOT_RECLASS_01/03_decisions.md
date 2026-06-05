@@ -71,3 +71,7 @@ Verdict du sous-lot :
 Ce passage reste strictement doc-only.
 
 Aucune suppression Git n'est executee ici.
+
+## RISKS
+
+- À qualifier.

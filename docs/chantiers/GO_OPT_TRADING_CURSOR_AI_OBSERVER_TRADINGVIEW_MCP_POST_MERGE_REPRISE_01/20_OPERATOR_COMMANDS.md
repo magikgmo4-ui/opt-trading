@@ -57,3 +57,7 @@ Toutes les sorties sont dans `modules/tradingview_observer/output/` :
 | `latest_bridge_packet.json` | Bridge packet V1 (synthese, dry-run) |
 
 Note : tous les `output/latest_*.json` sont ignores par git.
+
+## RISKS
+
+- À qualifier.

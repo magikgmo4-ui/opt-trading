@@ -32,3 +32,7 @@ Relier les surfaces externes candidates a la governance WHY/runtime.
 ## Invariant
 
 La governance WHY doit rester prioritaire sur toute orchestration externe.
+
+## RISKS
+
+- À qualifier.

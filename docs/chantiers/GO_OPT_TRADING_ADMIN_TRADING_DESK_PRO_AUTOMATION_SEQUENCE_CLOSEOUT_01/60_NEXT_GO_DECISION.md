@@ -27,3 +27,7 @@ Canoniser toute la sequence automation vers `sot/mainline` avant toute extension
 ## Guardrail
 
 Ne pas recommander de live smoke avant merge de la sequence automation.
+
+## RISKS
+
+- À qualifier.

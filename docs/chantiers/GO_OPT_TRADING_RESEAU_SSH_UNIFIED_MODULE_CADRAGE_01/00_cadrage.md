@@ -174,3 +174,7 @@ Obtenir un cadrage stable qui permette ensuite de décider, sans spéculation et
 ## Statut
 
 **OPEN — cadrage enfant créé pour borner la compatibilité transitoire avant toute convergence physique vers un module SSH unique**
+
+## RISKS
+
+- À qualifier.

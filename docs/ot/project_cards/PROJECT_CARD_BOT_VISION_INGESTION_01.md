@@ -161,3 +161,7 @@ Point de reprise chantier logique:
 
 Utile seulement sur demande explicite:
 - pour Bot Vision / ingestion desk, la chaîne de base est déjà prouvée PASS; le prochain manque structurant n’est plus le transport, mais l’enrichissement borné des données d’analyse et l’observabilité.
+
+## RISKS
+
+- À qualifier.

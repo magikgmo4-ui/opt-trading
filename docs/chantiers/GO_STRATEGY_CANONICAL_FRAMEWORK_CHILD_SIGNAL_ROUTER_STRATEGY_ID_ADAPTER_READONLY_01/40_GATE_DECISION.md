@@ -24,3 +24,7 @@ doc_type: gate_decision
 ## Verdict
 
 Frontière d'entrée pipeline sécurisée.
+
+## RISKS
+
+- À qualifier.

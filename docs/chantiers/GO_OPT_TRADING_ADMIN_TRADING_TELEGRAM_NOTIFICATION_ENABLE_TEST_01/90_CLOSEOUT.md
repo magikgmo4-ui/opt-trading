@@ -63,3 +63,7 @@ Pour documenter les resultats reels (comme `95_EXECUTION_RESULTS.md` pour TV_TES
 - Dossier : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_TELEGRAM_NOTIFICATION_ENABLE_TEST_01/`
 - Etat : doc-only, pret pour execution sur admin-trading
 - Rattachement : bloc ADMIN_TRADING
+
+## RISKS
+
+- À qualifier.

@@ -21,3 +21,7 @@ REFERENCE
 
 VERDICT
 - GAP EXPLICITE, NON BLOQUANT
+
+## RISKS
+
+- À qualifier.

@@ -44,3 +44,7 @@
 ## A fermer
 - Aucun de ces GO n'est a fermer dans cette passe.
 - Le besoin actuel est un realignment de lecture, pas un closeout de famille `LocalCMS`.
+
+## RISKS
+
+- À qualifier.

@@ -105,3 +105,7 @@ Ces champs sont dans `ObservationSummary` V1 (PR #524) mais **absents** de `_bui
 | `last_run.localcms_ok` | `e.get("localcms_ok")` | trivial |
 
 Tous ces champs sont calculables sans données externes ni appel réseau.
+
+## RISKS
+
+- À qualifier.

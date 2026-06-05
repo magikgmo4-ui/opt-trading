@@ -129,3 +129,7 @@ Chaque guide doit contenir au minimum :
 | `BOTPRESS_ADAPTER_SIMULATED.md` | Reclasser en IMPLEMENTATION_READY + enrichir | Haute |
 | `BTC_COINM_DO_NOT_USE_LIVE.md` | Verifier conditions de deblocage | Moyenne |
 | `README.md` | Mettre a jour la table de couverture | Haute |
+
+## RISKS
+
+- À qualifier.

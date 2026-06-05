@@ -37,3 +37,7 @@ links:
 - preuve / commande / validation : blobs Git préparés pour versions corrigées de `GO_INDEX.md`, `ACTIVE_STREAMS.md`, `REPRISE.md` et `NEXT_GO_CANDIDATES.md`
 - résultat : contenu de hardening prêt
 - écart / incident : le connecteur GitHub exposé dans ce flux permet la création de fichiers et de blobs, mais pas une mise à jour simple en place des fichiers existants sans un flux Git bas niveau complet qui n’est pas entièrement exploitable ici
+
+## RISKS
+
+- À qualifier.

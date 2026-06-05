@@ -66,3 +66,7 @@ Continuites actives cote cursor-ai apres la sequence positions 1-3.
 | db-layer | OpenClaw, backend, data | SEPARE |
 
 Voir `docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md`.
+
+## RISKS
+
+- À qualifier.

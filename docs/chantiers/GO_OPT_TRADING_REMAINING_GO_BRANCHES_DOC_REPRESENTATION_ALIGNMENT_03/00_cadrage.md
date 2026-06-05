@@ -44,3 +44,7 @@ Corriger les representations documentaires prouvables des branches `GO_OPT_TRADI
 - aucun transport runtime
 - aucun merge de branche source
 - aucune modification runtime
+
+## RISKS
+
+- À qualifier.

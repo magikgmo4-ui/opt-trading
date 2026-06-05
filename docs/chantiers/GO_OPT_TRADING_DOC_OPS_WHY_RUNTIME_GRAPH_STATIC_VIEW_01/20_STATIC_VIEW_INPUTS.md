@@ -35,3 +35,7 @@ Definir les inputs autorises de la vue statique WHY/runtime.
 ## Invariant
 
 Les inputs WHY/runtime doivent rester statiques, tracables et lecture seule.
+
+## RISKS
+
+- À qualifier.

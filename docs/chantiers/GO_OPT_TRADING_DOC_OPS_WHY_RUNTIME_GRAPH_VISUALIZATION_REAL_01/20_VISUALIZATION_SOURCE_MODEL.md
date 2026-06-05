@@ -36,3 +36,7 @@ Definir les donnees sources autorisees pour la visualisation WHY runtime graph.
 ## Invariant
 
 Les donnees de visualisation doivent rester lecture seule et tracables.
+
+## RISKS
+
+- À qualifier.

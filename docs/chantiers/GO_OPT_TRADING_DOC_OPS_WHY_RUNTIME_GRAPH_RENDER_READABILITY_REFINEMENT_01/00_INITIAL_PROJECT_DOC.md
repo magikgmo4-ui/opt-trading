@@ -93,3 +93,7 @@ refinement Markdown lisible depuis le meme JSON valide
 ```text
 WIP / READABILITY_REFINEMENT_GO_OPENED / NO_DASHBOARD
 ```
+
+## RISKS
+
+- À qualifier.

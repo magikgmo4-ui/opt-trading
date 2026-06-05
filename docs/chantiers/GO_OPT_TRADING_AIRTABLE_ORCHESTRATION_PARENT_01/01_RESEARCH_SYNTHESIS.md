@@ -139,3 +139,7 @@ Airtable est déconseillé comme :
 - Airtable Support — Airtable Webhooks API overview.
 - Airtable Support — Airtable AI billing.
 - Airtable pricing page.
+
+## RISKS
+
+- À qualifier.

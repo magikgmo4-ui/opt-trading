@@ -24,3 +24,7 @@ Si l'utilisateur prefere finir completement avant de nettoyer :
 ## Regle
 
 Rester sur cursor-ai. Ne pas ouvrir admin-trading.
+
+## RISKS
+
+- À qualifier.

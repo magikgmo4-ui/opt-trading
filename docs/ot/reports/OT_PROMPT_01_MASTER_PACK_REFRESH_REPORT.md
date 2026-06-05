@@ -14,3 +14,7 @@ Mettre à jour le "cerveau documentaire" pour qu'il intègre les leçons des mis
 
 ## 4. IMPACT FUTUR
 Tout nouveau prompt généré suivra ces standards, évitant la réintroduction de dette technique (comme les vieux noms `<module>_cmd.sh` ou les `sudo` inutiles).
+
+## RISKS
+
+- À qualifier.

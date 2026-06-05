@@ -207,3 +207,7 @@ Le fichier `BUNDLE_EXECUTION_PROMPT.txt` doit etre inclus et utiliser le mode su
 ## 9. Point de reprise
 
 Prochaine action : creer `BUNDLE_EXECUTION_PROMPT.txt`, puis appliquer eventuellement les patchs d'indexation globale en environnement local non tronque.
+
+## RISKS
+
+- À qualifier.

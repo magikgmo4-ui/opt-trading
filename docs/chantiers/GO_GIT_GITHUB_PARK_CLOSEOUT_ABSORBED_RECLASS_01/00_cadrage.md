@@ -56,3 +56,7 @@ Contraintes :
 - aucune suppression remote
 - aucune action sur les branches AI team gelees
 - aucune action sur les snapshots
+
+## RISKS
+
+- À qualifier.

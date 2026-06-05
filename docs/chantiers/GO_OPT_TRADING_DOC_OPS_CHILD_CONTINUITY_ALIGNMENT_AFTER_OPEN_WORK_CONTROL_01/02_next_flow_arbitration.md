@@ -65,3 +65,7 @@ Option A, apres PASS du present GO.
 - aucune branche ne doit etre supprimee ;
 - `BRANCH_STATE.md` doit rester limite a la surface branches ;
 - les 5 parents project/machine restent hors scope jusqu'au GO suivant au minimum.
+
+## RISKS
+
+- À qualifier.

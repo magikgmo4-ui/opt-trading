@@ -162,3 +162,7 @@ Limites :
 
 ## Suite
 - bloc suivant recommande : Bloc C (`data/`, `state/`, `student/`, `tests/`, `tradingview/`, `contracts/`, `audit/`)
+
+## RISKS
+
+- À qualifier.

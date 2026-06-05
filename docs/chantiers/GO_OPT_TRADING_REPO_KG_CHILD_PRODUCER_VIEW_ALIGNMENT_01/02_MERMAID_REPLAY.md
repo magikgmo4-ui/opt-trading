@@ -198,3 +198,7 @@ flowchart LR
 docs/chantiers/GO_OPT_TRADING_REPO_KG_CHILD_PRODUCER_VIEW_ALIGNMENT_01/90_CLOSEOUT.md
 -> relire ensuite graph_bundle.json si un nouveau lot graphique est ouvert
 ```
+
+## RISKS
+
+- À qualifier.

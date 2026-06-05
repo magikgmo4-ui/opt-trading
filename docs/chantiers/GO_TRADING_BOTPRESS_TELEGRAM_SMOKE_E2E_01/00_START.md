@@ -19,3 +19,7 @@ Valider le flux E2E Telegram → Botpress → Adapter → response → Telegram,
 ## Mode
 
 Simulated Telegram webhook via Python (pas de bot Telegram reel). L adapter est teste avec des payloads identiques a ceux que Telegram enverrait.
+
+## RISKS
+
+- À qualifier.

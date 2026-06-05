@@ -39,3 +39,7 @@ Gates de review humaine retenus :
 ## 17_RESUME_POINT
 
 Le prochain GO d'integration LocalCMS/TMUX devra exposer ces gates comme prerequis de lisibilite graph, pas comme mecanismes d'automatisation.
+
+## RISKS
+
+- À qualifier.

@@ -61,3 +61,7 @@ Il manque:
 ## 17_RESUME_POINT
 
 Reprendre sur `go/GO_OPT_TRADING_DOC_OPS_WHY_MARKDOWN_PARSER_01` pour specifier un parser WHY markdown non destructif.
+
+## RISKS
+
+- À qualifier.

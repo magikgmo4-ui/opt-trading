@@ -222,3 +222,7 @@ Checklist finale:
 ## Apres completion
 
 Mettre a jour le closeout (90_CLOSEOUT.md) avec le verdict final, puis merger.
+
+## RISKS
+
+- À qualifier.

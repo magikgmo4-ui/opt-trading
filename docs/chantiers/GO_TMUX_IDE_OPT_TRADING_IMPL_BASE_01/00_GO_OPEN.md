@@ -64,3 +64,7 @@ OpenClaw deja PASS sur `db-layer` ?
 
 Si le check est PASS, la phase suivante de `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01` pourra viser
 une validation reelle `cursor-ai -> SSH -> admin-trading`, sans intervention sur `db-layer`.
+
+## RISKS
+
+- À qualifier.

@@ -289,3 +289,7 @@ Etat residuel apres lot :
 - `_archive/` reste archive locale assumee
 - `workflow_ai/` reste en racine sans deplacement physique
 - `docs/ot/trae/trae_pack_texts/` reste dans le repo comme support local non canonique, mais n'encombre plus la racine
+
+## RISKS
+
+- À qualifier.

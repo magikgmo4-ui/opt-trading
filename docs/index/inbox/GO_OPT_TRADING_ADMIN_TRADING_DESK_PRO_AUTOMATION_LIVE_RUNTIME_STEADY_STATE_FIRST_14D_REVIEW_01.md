@@ -16,3 +16,7 @@ updated_at: 2026-05-14
 **État:** PENDING_OBSERVATION — window completes 2026-05-28
 
 **Next:** Full review after 2026-05-28
+
+## RISKS
+
+- À qualifier.

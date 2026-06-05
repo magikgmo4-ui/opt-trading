@@ -105,3 +105,7 @@ Port 8010 : PASS — boot, status, alert, UI, logs, restart tous validés.
 Port 8000 : NOT_PROVED — webhook_server.py présent, pas de daemon script, env non chargé.
 Tests : 111/111 PASS.
 ```
+
+## RISKS
+
+- À qualifier.

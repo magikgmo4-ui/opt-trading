@@ -38,3 +38,7 @@ Le point d'entree minimal retenu est un **nouveau module isole**: `modules/desk_
 ## Conclusion
 
 Le plus petit changement correct est un helper autonome dans `modules/desk_pro/`, accompagne d'une suite de tests dediee.
+
+## RISKS
+
+- À qualifier.

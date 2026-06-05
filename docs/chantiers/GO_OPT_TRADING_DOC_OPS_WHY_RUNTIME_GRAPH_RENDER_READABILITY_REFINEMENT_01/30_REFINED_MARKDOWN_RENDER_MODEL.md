@@ -96,3 +96,7 @@ Le rendu v1 ne doit pas :
 ## 17_RESUME_POINT
 
 Le modele v1 donne une sortie plus lisible tout en conservant strictement le graph v0.
+
+## RISKS
+
+- À qualifier.

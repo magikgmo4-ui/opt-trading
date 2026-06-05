@@ -32,3 +32,7 @@ Date (America/Montreal) : 2026-03-13
 ## 7. VERDICT FINAL
 Cleanup conforme : réduction des chemins concurrents par clarification et packaging, sans supprimer de mécanismes encore utiles ou ambigus.
 
+
+## RISKS
+
+- À qualifier.

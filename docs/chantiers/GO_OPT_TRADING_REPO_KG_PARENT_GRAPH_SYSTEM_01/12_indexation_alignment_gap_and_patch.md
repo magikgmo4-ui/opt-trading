@@ -121,3 +121,7 @@ Reprise : appliquer les patches ci-dessus dans l'ordre :
 4. `ACTIVE_STREAMS.md` seulement si le flux est déclaré actif
 
 Puis créer `09_graph_views_v1.md`.
+
+## RISKS
+
+- À qualifier.

@@ -16,3 +16,7 @@ Documenter l'adoption canonique du runtime local Student/Ollama comme baseline r
 ## Prochaine action
 
 Valider et merger dans sot/mainline.
+
+## RISKS
+
+- À qualifier.

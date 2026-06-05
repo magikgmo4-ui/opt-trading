@@ -84,3 +84,7 @@ CRITICAL_SECURITY
 Le chemin `PAPER_TEST` force bien l'adaptateur `paper`, mais les guards obligatoires de la gate ne sont pas actifs comme checks runtime detectables. Critere FAIL atteint: `Guard absent ou ambigu`.
 
 Decision: aucun payload `PAPER_TEST` envoye.
+
+## RISKS
+
+- À qualifier.

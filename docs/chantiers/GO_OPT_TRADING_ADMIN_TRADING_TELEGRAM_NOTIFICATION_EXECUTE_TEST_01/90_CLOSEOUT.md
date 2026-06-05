@@ -57,3 +57,7 @@ Pour documenter les resultats reels (sur le modele de `95_EXECUTION_RESULTS.md`)
 - Dossier : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_TELEGRAM_NOTIFICATION_EXECUTE_TEST_01/`
 - Etat : runbook pret, execution en attente de credentials
 - Rattachement : bloc ADMIN_TRADING
+
+## RISKS
+
+- À qualifier.

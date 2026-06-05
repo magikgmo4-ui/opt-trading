@@ -203,3 +203,7 @@ Protocole d'execution pret pour un GO de dry-run separe.
 NEXT:
 Lire 40_GATE_DECISION.md pour le verdict.
 ```
+
+## RISKS
+
+- À qualifier.

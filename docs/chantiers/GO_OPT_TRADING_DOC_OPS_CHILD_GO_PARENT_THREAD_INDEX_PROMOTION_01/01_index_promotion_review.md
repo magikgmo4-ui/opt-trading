@@ -56,3 +56,7 @@ links:
 - l'index soit leger (table unique, pas de duplication des Entrees GO_INDEX)
 
 L'index est utile comme vue derivee legere. Il ne remplace pas GO_INDEX.md.
+
+## RISKS
+
+- À qualifier.

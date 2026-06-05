@@ -138,3 +138,7 @@ Avec :
 strategy_id = SMC_ICT_CHOCH_BOS_RETEST
 setup_type  = SWEEP_CHOCH_BOS_FVG_OB_RETEST
 ```
+
+## RISKS
+
+- À qualifier.

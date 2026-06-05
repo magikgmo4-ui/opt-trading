@@ -111,3 +111,7 @@ OpenClaw peut demander un etat TradingView et recevoir une sortie structuree san
 ## Resultat
 
 **Statut** : PASS
+
+## RISKS
+
+- À qualifier.

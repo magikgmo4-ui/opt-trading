@@ -61,3 +61,7 @@ links:
 ## Point de vigilance
 - risque principal : confondre cadrage stratégique et stratégie déjà validée
 - point d'arrêt acceptable : dossier chantier complet + ancre trading canonique + suite logique nommée
+
+## RISKS
+
+- À qualifier.

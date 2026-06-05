@@ -36,3 +36,7 @@ Definir les flux de donnees entre les couches WHY.
 ## Invariant
 
 Les flux WHY ne doivent jamais devenir une orchestration runtime autonome.
+
+## RISKS
+
+- À qualifier.

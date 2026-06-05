@@ -63,3 +63,7 @@ Cette interdiction ne pourra etre levee que lorsque les etapes suivantes auront 
 ## NEXT_GO
 
 Valider le parent, puis ouvrir le child formules dedie avant toute suite runtime.
+
+## RISKS
+
+- À qualifier.

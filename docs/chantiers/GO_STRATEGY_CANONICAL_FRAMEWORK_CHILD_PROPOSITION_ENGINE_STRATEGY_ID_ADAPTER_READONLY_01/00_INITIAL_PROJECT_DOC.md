@@ -33,3 +33,7 @@ Raccorder `proposition_engine` à `modules.strategy.adapter` en lecture seule, p
 ### 4_RESUME_POINT
 
 Signal_router terminé. Prochaine étape : proposition_engine.
+
+## RISKS
+
+- À qualifier.

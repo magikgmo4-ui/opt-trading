@@ -60,3 +60,7 @@ git diff --cached | grep -iE "(password|secret|token|key=|api_key|\.env)"
 # Runtime
 git diff --cached --name-only | grep -iE "(systemd|webhook|risk)"
 ```
+
+## RISKS
+
+- À qualifier.

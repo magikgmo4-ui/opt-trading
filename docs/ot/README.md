@@ -14,3 +14,7 @@ Emplacements canoniques recommandés :
 
 Règle de legacy :
 - les fichiers OT déjà présents à la racine sont considérés legacy et ne doivent pas être déplacés en masse sans mission dédiée.
+
+## RISKS
+
+- À qualifier.

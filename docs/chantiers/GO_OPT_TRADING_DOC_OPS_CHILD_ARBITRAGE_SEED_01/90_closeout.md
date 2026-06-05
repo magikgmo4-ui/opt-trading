@@ -34,3 +34,7 @@ Prochaines étapes documentées:
 - Validation des statuts locaux et distants (ne pas supprimer sans confirmation).
 - Mise à jour des surfaces dans NEXT_GO_CANDIDATES.md, ACTIVE_STREAMS.md et REPRISE.md pour refléter le closeout et le prochain restart.
 - Après PASS, démarrage du GO suivant: GO_OPT_TRADING_DOC_OPS_CHILD_PRIMARY_RESTART_01.
+
+## RISKS
+
+- À qualifier.

@@ -49,3 +49,7 @@ Le pack `bundles/claude-artifacts/` est ferme produit pour l'usage operateur `cu
 ## Point de reprise
 
 Apres merge, `sot/mainline` contient le pack Claude Artifacts ferme produit. La suite possible est l'exploitation reelle du pack ou un nouveau GO separe si un besoin Claude artifacts apparait.
+
+## RISKS
+
+- À qualifier.

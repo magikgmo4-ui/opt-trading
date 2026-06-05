@@ -86,3 +86,7 @@ Exécuter le premier run réel du prompt `OPT_TRADING_ATTENTION_CENTER_01` dans 
 - Claude ne produit pas de classement P0/P1/P2 exploitable.
 - Claude dépend d'une source non autorisée ou non documentée.
 - Le prompt n'est pas directement utilisable.
+
+## RISKS
+
+- À qualifier.

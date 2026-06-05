@@ -33,3 +33,7 @@ Supprimer ce module casserait l'API Web et les imports de modèles.
 
 **Nouveau Statut** : **MODULE LIBRAIRIE / API CORE**.
 (Ne pas exécuter directement, mais ne surtout pas supprimer).
+
+## RISKS
+
+- À qualifier.

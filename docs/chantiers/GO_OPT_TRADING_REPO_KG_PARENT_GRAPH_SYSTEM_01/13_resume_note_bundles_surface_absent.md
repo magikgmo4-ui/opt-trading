@@ -58,3 +58,7 @@ Surface /bundles/ : ABSENTE
 Bundle IDE courant : docs/chantiers/GO_OPT_TRADING_REPO_KG_PARENT_GRAPH_SYSTEM_01/ide_bundle/
 Action : ne pas déplacer avant GO dédié ou validation explicite
 ```
+
+## RISKS
+
+- À qualifier.

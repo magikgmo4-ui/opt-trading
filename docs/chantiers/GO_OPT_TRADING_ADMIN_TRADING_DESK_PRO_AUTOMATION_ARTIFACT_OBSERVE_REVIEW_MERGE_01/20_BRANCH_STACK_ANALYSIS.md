@@ -100,3 +100,7 @@ PYTHONPATH=/opt/trading python -m pytest \
 ```
 
 Ce GO n'a pas reexecute ces tests localement, car il est doc-only et ne merge pas encore la branche fonctionnelle.
+
+## RISKS
+
+- À qualifier.

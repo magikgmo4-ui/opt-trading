@@ -74,3 +74,7 @@ Possible next bounded continuations, if needed later:
 ## 8. Recommended next trigger
 
 GO_COLLECTORS_LIFECYCLE_WRAPPER_HARMONIZATION_01
+
+## RISKS
+
+- À qualifier.

@@ -172,3 +172,7 @@ Le futur GO physique separe reste :
 `GO_OPT_TRADING_RESEAU_SSH_RUNTIME_COMPAT_RETIREMENT_01`
 
 Ce journal n'ouvre aucun droit d'execution. Il consolide la decision doc-only et maintient `NO_GO_PHYSICAL`.
+
+## RISKS
+
+- À qualifier.

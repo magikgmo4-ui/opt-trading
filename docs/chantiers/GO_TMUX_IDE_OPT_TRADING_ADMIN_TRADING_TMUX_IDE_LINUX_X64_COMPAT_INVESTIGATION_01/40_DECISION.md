@@ -50,3 +50,7 @@ Objectif :
 - verifier les commandes disponibles
 - decider si `ide.yml` peut etre cree pour cette version
 - ne pas installer globalement tant que `doctor` / `validate` ne sont pas compris
+
+## RISKS
+
+- À qualifier.

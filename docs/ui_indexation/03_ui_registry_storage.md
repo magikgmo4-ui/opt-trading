@@ -25,3 +25,7 @@ Doit servir à cartographier :
 
 ## Lecture initiale
 Le pipeline `vision_bot` / `bot_vision` / `desk_capture_inputs` / `desk_analyze` est probablement le cœur de cette catégorie UI.
+
+## RISKS
+
+- À qualifier.

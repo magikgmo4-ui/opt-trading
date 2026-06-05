@@ -109,3 +109,7 @@ Regle retenue :
 ## REPRISE
 - closeout porte par `docs/chantiers/GO_OPT_TRADING_ROOT_POLICY_AND_RECLASS_01/90_closeout.md`
 - lot dedie `GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01` deja clos
+
+## RISKS
+
+- À qualifier.

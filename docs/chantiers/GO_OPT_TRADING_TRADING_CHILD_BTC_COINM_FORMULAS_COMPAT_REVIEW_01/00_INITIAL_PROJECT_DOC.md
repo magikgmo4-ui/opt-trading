@@ -641,3 +641,7 @@ Objectif final global statué : stratégie robuste accumulation Bitcoin + Gold.
 Aucun sous-chantier opérationnel lancé.
 Prochaine action : validation utilisateur du présent document, puis ouverture 01_formulas_compat_review.md.
 ```
+
+## RISKS
+
+- À qualifier.

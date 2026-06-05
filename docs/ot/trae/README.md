@@ -37,3 +37,7 @@ Supports legacy localisés dans la doc :
 - `docs/ot/trae/trae_pack_texts/README.md` : entrée documentaire vivante du pack Trae legacy
 - `docs/ot/trae/trae_pack_texts/trae_pack/*` : archive de lecture conservée pour compatibilité doc/IDE
 - statut : support legacy non canonique ; en cas de conflit, `workflow_ai/`, le starter pack, le kanban et `docs/ot/*` priment
+
+## RISKS
+
+- À qualifier.

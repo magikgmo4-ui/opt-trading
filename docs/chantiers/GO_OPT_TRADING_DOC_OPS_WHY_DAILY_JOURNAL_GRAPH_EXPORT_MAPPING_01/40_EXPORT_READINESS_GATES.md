@@ -49,3 +49,7 @@ Le point de reprise verrouille apres merge de ce GO devra etre `GO_OPT_TRADING_D
 ```text
 WIP / DOC_ONLY_DAILY_JOURNAL_EXPORT_MAPPING_READY_TO_FILL
 ```
+
+## RISKS
+
+- À qualifier.

@@ -79,3 +79,7 @@ Résolution (symlinks) observée :
 ## 8. État réseau final
 **PASS** : les trois connexions SSH attendues sont fonctionnelles en non-interactif, et `admin-trading` expose bien le repo + wrappers.
 
+
+## RISKS
+
+- À qualifier.

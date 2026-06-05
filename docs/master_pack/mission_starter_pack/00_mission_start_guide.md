@@ -66,3 +66,7 @@ Toute mission doit se conclure par :
 ## 5. POINT DE REPRISE (NEXT STEP)
 Toujours indiquer clairement quelle est l'étape logique suivante.
 Si une zone est laissée floue, créer une note "TODO" explicite ou un ticket virtuel.
+
+## RISKS
+
+- À qualifier.

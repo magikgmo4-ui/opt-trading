@@ -34,3 +34,7 @@ scope: doc-only
 - prochain GO: `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01`
 - reserve obligatoire: `machine cible a verifier avant execution`
 - borne de suite: `OpenClaw hors scope`
+
+## RISKS
+
+- À qualifier.

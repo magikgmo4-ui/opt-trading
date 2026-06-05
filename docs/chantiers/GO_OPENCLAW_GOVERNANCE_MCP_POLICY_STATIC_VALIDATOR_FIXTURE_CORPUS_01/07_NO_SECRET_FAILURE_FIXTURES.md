@@ -169,3 +169,7 @@ Future harness must suppress any value it considers risky.
 ## 19_TO_REMEMBER
 
 No-secret applies to fixture input and validator output.
+
+## RISKS
+
+- À qualifier.

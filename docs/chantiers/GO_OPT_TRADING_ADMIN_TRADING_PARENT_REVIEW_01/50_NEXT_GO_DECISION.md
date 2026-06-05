@@ -73,3 +73,7 @@ NE PAS OUVRIR avant stabilisation Desk Pro.
 - Aucun service critique n'est down
 - Les failed sont non bloquants
 - Prochaine etape logique: audit Desk Pro
+
+## RISKS
+
+- À qualifier.

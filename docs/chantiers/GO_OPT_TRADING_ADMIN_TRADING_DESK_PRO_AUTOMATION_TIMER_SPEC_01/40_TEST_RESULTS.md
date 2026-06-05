@@ -38,3 +38,7 @@ pytest tests/test_signal_event_adapter.py tests/test_admin_trading_contract_comp
 ## Verdict
 
 **PASS** — Tests inchanges depuis DRY_RUN_IMPL
+
+## RISKS
+
+- À qualifier.

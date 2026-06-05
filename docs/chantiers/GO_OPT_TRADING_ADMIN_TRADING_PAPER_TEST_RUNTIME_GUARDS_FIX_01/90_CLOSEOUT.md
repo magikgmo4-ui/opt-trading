@@ -56,3 +56,7 @@ Apres merge et deploiement sur `admin-trading`, ouvrir un GO d'observation/confi
 ```
 
 Seulement ensuite, une nouvelle tentative `PAPER_TEST` pourra etre planifiee avec captures AVANT/APRES.
+
+## RISKS
+
+- À qualifier.

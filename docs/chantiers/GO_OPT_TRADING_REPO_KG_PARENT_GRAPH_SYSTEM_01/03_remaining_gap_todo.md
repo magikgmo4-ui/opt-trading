@@ -35,3 +35,7 @@
 - documenter usage
 - produire SESSION_REPRISE
 - valider PASS
+
+## RISKS
+
+- À qualifier.

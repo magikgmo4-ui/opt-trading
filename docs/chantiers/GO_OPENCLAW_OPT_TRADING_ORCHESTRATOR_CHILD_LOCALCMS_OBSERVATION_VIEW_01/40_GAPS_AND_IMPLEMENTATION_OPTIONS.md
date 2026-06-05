@@ -129,3 +129,7 @@ CONDITION :
 
 L'implémentation maintenant est préférable : voir l'éligibilité progresser
 pendant l'observation est plus utile qu'après le seuil.
+
+## RISKS
+
+- À qualifier.

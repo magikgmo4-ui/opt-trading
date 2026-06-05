@@ -45,3 +45,7 @@
 ## Source de verite
 
 `sot/mainline`, branche canonique du repo `opt-trading`.
+
+## RISKS
+
+- À qualifier.

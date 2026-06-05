@@ -44,3 +44,7 @@ Indices documentaires deja etablis :
 ## 17_RESUME_POINT
 
 Le modele `LocalCMS` pose ici devra etre relie dans le fichier de linkage aux sessions `TMUX` et a leurs preuves observables, sans introduire de connecteur actif.
+
+## RISKS
+
+- À qualifier.

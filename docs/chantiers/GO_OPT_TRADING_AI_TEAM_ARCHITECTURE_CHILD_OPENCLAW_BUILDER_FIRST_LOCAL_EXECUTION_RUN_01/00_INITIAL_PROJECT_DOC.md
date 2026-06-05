@@ -126,3 +126,7 @@ Gateway V2 = etat documente comme stable mais non verifiable en direct
 Si `PASS` → closeout `90_CLOSEOUT.md`.
 
 Prochain GO candidat : reprise OpenClaw Builder avec CLI installe, ou suite de la chaine AI_TEAM_ARCHITECTURE.
+
+## RISKS
+
+- À qualifier.

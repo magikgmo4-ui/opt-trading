@@ -77,3 +77,7 @@ docs/chantiers/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_CLOSEOUT_01/
 Apres merge seulement :
 - propager le passage en CLOSED/PASS dans GO_INDEX.md si decide
 - propager dans ACTIVE_STREAMS.md, REPRISE.md si necessaire
+
+## RISKS
+
+- À qualifier.

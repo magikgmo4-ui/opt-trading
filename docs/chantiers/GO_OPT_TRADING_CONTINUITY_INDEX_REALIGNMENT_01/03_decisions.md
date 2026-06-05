@@ -84,3 +84,7 @@ Justification :
 ## REPRISE
 Point de reprise unique :
 - `docs/chantiers/GO_OPT_TRADING_CONTINUITY_INDEX_REALIGNMENT_01/03_decisions.md`
+
+## RISKS
+
+- À qualifier.

@@ -137,3 +137,7 @@ bash modules/evidence_openclaw/scripts/cmd.sh show-files
 Step suivant :
 - proposer la convention de wrappers de famille
 - ne pas toucher aux scripts avant d'avoir fige les verbes communs et les verbes a write-scope eleve
+
+## RISKS
+
+- À qualifier.

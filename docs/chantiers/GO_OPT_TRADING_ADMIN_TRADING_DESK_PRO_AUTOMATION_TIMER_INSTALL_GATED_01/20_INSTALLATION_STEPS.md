@@ -41,3 +41,7 @@ timer sha256 dest     = 74586381633bfed1aabb31db63b770f7eb2b7f999c52be5267d40433
 - timer `enabled`
 - timer non demarre manuellement
 - service non demarre manuellement
+
+## RISKS
+
+- À qualifier.

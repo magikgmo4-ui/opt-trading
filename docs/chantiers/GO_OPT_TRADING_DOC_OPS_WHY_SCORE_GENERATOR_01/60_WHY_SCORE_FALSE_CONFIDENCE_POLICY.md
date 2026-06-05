@@ -32,3 +32,7 @@ Limiter les faux sentiments de qualite produits par un score WHY.
 ## Invariant
 
 Le score WHY doit rester un outil d'aide a l'audit et non une autorite autonome.
+
+## RISKS
+
+- À qualifier.

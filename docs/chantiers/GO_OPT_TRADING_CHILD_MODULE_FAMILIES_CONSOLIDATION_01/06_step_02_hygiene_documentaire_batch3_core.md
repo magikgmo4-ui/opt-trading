@@ -100,3 +100,7 @@ Documenter le bloc core restant le plus transversal avant de passer aux vertical
 
 ## Point de reprise
 Poursuivre `Step 02` avec les `5` verticales restantes sans `README`, en priorisant `bot_vision`, `dev_validation_hub`, `hf_free_platform`, `trading_lab_v1`, `trading_realtime_v1`.
+
+## RISKS
+
+- À qualifier.

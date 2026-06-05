@@ -58,3 +58,7 @@ links:
 ## Point de vigilance
 - risque principal : basculer trop vite vers une refonte générale sans garder le lien avec l'état réel du code
 - point d'arrêt acceptable : dossier chantier complet + ancre trading canonique + next GO unique
+
+## RISKS
+
+- À qualifier.

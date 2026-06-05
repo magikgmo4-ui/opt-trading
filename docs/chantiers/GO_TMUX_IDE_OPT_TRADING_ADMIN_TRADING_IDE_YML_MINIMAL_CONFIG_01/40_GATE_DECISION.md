@@ -76,3 +76,7 @@ ouvrir un GO separe de controlled session trial si la suite est acceptee.
 ```text
 ALLOW_CONTROLLED_SESSION_TRIAL
 ```
+
+## RISKS
+
+- À qualifier.

@@ -176,3 +176,7 @@ Desk Pro peut être décrit comme consumer final de `signal_event + visual_conte
 - `signal_event` nécessite un adapter V0→V1 (ADAPTER NEEDED)
 - Les contrats V1 sont compatibles sans breaking change
 - Les gaps sont des lacunes d'intégration, pas des blocages contractuels
+
+## RISKS
+
+- À qualifier.

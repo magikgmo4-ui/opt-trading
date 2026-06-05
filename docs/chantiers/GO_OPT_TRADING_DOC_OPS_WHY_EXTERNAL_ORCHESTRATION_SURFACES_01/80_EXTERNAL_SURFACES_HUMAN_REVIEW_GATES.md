@@ -38,3 +38,7 @@ Les surfaces externes critiques doivent rester:
 ## Invariant
 
 La decision finale doit toujours rester sous gouvernance humaine.
+
+## RISKS
+
+- À qualifier.

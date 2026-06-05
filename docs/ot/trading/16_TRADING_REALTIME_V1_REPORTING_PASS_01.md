@@ -35,3 +35,7 @@ Cette passe reste observation-only : elle ajoute l’agrégation runtime, sans o
 ## TRIGGER NATUREL SUIVANT
 
 `GO_OT_TRADING_REALTIME_V1_EXPORT_PASS_01`
+
+## RISKS
+
+- À qualifier.

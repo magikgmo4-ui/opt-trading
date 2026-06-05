@@ -33,3 +33,7 @@ Les rapports doivent rester:
 ## Invariant
 
 Les rapports des surfaces externes ne doivent jamais devenir des validations runtime autonomes.
+
+## RISKS
+
+- À qualifier.

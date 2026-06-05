@@ -152,3 +152,7 @@ gh pr view 198 --json state,isDraft,headRefName,baseRefName,mergeStateStatus,sta
 PASS.
 
 Le GO `GO_OPT_TRADING_DOC_OPS_PARENT_LOCAL_CONTINUITY_RULE_MATRIX_PATCH_02` est clos côté documentation de chantier.
+
+## RISKS
+
+- À qualifier.

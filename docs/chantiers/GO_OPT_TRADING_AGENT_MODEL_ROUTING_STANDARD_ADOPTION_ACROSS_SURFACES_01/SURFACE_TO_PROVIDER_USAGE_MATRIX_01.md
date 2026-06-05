@@ -15,3 +15,7 @@ Matrice surface → provider autorisé selon standard.
 - Toute surface doit appliquer la gate capacité/fallback
 - Toute surface doit produire une trace de routage
 - Student/Ollama sert de baseline de référence pour les nouvelles surfaces
+
+## RISKS
+
+- À qualifier.

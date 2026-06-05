@@ -45,3 +45,7 @@ Mettre a jour le statut de `GO_LIVE_ARTIFACTS_CLAUDE_COWORK_IDE_BUNDLE_01` de AC
 - 1 fichier modifie (`bundles/README.md`).
 - Aucun fichier hors `bundles/`.
 - Doc-only.
+
+## RISKS
+
+- À qualifier.

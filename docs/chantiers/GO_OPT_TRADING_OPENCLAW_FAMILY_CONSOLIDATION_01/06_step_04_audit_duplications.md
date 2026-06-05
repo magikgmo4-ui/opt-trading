@@ -93,3 +93,7 @@ Step suivant :
 - decider si le sous-lot doit :
   - rester doc-only et se fermer
   - ou ouvrir un mini patch shell tres cible
+
+## RISKS
+
+- À qualifier.

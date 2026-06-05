@@ -26,3 +26,7 @@ Definir les vues runtime graph du futur WHY governance dashboard.
 ## Invariant
 
 La vue graph ne doit jamais devenir une orchestration runtime autonome.
+
+## RISKS
+
+- À qualifier.

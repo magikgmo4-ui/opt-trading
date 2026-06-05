@@ -58,3 +58,7 @@ Si aucun generateur canonique n'existe encore apres alignement de la base, le pr
 ## 17_RESUME_POINT
 
 Le prochain passage executable doit d'abord remettre le worktree sur la base mergee de `PR #498`, puis produire un seul JSON borne en lecture seule.
+
+## RISKS
+
+- À qualifier.

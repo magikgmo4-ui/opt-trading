@@ -39,3 +39,7 @@ Option D : audit et nettoyage des branches cursor-ai apres merges A, B, C. Verif
 - Ne pas supprimer automatiquement de branches locales.
 - Admin-trading ferme.
 - Aucun runtime modifie.
+
+## RISKS
+
+- À qualifier.

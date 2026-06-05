@@ -156,3 +156,7 @@ live trade intent
 Bitget order path
 automatic Sheets write
 ```
+
+## RISKS
+
+- À qualifier.

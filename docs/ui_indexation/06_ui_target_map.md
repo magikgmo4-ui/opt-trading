@@ -32,3 +32,7 @@ Surfaces de navigation et conservation des captures + analyses liées.
 3. `perf_ui`
 4. surface screenshots + analyses passées
 5. surface probabilités / trades
+
+## RISKS
+
+- À qualifier.

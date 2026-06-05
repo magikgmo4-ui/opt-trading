@@ -50,3 +50,7 @@ R5. manifest.json doit décrire les outputs produits, pas normaliser le payload 
 derivatives_collector devient compatible famille au niveau lifecycle / artifacts,
 tout en restant spécifiquement dérivés au niveau payload.
 ```
+
+## RISKS
+
+- À qualifier.

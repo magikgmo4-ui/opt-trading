@@ -58,3 +58,7 @@ Verifier qu'un GO, une review ou une implementation conserve une couche WHY suff
 | PARTIAL | WHY present mais incomplet |
 | PASS | WHY coherent et exploitable |
 | STRONG_PASS | WHY IA-oriented mature |
+
+## RISKS
+
+- À qualifier.

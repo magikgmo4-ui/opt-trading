@@ -16,3 +16,7 @@ Refléter l'état post-patch du workflow `workflow_post_change_v2` dans la docum
 ## 4. NUANCES
 - Les dossiers `fix*` existent toujours physiquement sur le disque.
 - Le wrapper `cmd-workflow_post_change_v2` est un utilitaire générique, pas l'exécutable métier.
+
+## RISKS
+
+- À qualifier.

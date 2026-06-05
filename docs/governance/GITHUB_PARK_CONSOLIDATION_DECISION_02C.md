@@ -86,3 +86,7 @@ La matrice consolidée devient :
 ## Verdict
 
 **PASS — addendum validé**
+
+## RISKS
+
+- À qualifier.

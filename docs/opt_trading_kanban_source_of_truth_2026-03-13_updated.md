@@ -87,3 +87,7 @@ Règle : une brique n’est pas considérée “clôturée proprement” tant qu
 
 ### POINT DE REPRISE
 - Néant spécifique au module (validé bout-en-bout).
+
+## RISKS
+
+- À qualifier.

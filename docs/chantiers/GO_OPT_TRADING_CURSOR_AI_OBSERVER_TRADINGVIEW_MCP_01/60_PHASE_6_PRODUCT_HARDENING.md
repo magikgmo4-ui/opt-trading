@@ -132,3 +132,7 @@ Ces modes necessitent le flag `-AllowMutation` et un GO explicite.
 `GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_FINAL_CLOSEOUT_01`
 
 Objectif : closeout produit local complet, PR prete a merge.
+
+## RISKS
+
+- À qualifier.

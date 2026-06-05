@@ -57,3 +57,7 @@ gh pr merge <NUM> --merge --delete-branch
 # 8. Reprise
 git fetch origin --prune && git checkout sot/mainline && git pull --rebase origin sot/mainline
 ```
+
+## RISKS
+
+- À qualifier.

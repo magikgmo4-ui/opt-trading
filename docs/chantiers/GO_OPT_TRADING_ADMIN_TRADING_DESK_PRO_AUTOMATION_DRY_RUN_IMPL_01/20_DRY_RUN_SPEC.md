@@ -56,3 +56,7 @@ Un dict de synthese local contenant:
 - aucun appel systemd
 - aucune emission Telegram
 - aucune action trade
+
+## RISKS
+
+- À qualifier.

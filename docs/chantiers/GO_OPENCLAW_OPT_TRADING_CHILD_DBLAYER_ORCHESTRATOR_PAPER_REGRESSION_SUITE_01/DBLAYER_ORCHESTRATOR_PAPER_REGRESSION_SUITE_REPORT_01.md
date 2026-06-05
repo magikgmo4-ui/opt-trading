@@ -103,3 +103,7 @@ Conclusion sécurité:
 - aucun secret detecte
 - aucun sudo
 - aucun write hors artefacts PAPER prevus
+
+## RISKS
+
+- À qualifier.

@@ -145,3 +145,7 @@ Conclusion :
 
 - toutes les versions `2.x` publiees forcent `@opentui/core-darwin-arm64`
 - les versions `1.x` ne portent pas cette dependance
+
+## RISKS
+
+- À qualifier.

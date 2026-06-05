@@ -45,3 +45,7 @@ Premier job builder = non destructif, borné, loggé.
 4. Définir les stop conditions.
 5. Obtenir validation humaine avant exécution.
 6. Créer ensuite `01_BUILDER_FIRST_JOB_GATE.md`.
+
+## RISKS
+
+- À qualifier.

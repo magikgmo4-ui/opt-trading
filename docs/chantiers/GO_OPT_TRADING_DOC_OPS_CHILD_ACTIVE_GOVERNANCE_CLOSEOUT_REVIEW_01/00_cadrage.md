@@ -62,3 +62,7 @@ GO traites uniquement :
 ## Point de reprise
 
 - `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_ACTIVE_GOVERNANCE_CLOSEOUT_REVIEW_01/02_validation_matrix.md`
+
+## RISKS
+
+- À qualifier.

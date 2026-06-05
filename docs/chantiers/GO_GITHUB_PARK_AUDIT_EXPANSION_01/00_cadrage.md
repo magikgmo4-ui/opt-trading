@@ -246,3 +246,7 @@ Tant que ce chantier n’est pas descendu par GO spécialisés :
 ## Statut
 
 **OPEN — cadrage validé, chantier séquencé, next GO défini**
+
+## RISKS
+
+- À qualifier.

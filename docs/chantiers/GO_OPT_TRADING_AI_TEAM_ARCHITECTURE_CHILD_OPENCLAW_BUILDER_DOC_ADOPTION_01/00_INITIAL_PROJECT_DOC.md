@@ -46,3 +46,7 @@ Obtenir une décision d'adoption documentaire claire, traçable et bornée pour 
 ## 17_RESUME_POINT
 
 Reprendre à la rédaction de `01_DOC_ADOPTION_SCOPE.md`.
+
+## RISKS
+
+- À qualifier.

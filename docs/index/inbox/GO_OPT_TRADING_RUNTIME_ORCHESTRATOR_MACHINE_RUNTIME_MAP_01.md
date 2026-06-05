@@ -38,3 +38,7 @@ que son scope declare. Forbidden services detectes. Fleet orchestrator agregateu
 
 Tester depuis chaque machine : `bash scripts/runtime_healthcheck.sh --dry-run`.
 Puis deployer le timer sur admin-trading et activer la collection fleet.
+
+## RISKS
+
+- À qualifier.

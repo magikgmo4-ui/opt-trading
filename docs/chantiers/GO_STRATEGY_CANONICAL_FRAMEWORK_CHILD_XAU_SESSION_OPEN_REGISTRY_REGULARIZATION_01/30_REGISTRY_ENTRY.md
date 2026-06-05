@@ -71,3 +71,7 @@ Après ce GO :
 ```text
 xau_session_open_v1 : registrée, documentée, gouvernée
 ```
+
+## RISKS
+
+- À qualifier.

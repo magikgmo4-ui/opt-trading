@@ -40,3 +40,7 @@
 ## Limites
 - Aucun mode headless supplementaire n'a ete relance ou verifie au-dela des logs existants.
 - Aucun token, secret ou contenu de configuration sensible n'a ete expose.
+
+## RISKS
+
+- À qualifier.

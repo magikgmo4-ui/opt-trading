@@ -193,3 +193,7 @@ Jusqu'a cette validation, le cadre reste :
 - GO physique : `BLOQUE`
 - aucune bascule des alias courts
 - aucune mutation machine dans ce lot d'implementation
+
+## RISKS
+
+- À qualifier.

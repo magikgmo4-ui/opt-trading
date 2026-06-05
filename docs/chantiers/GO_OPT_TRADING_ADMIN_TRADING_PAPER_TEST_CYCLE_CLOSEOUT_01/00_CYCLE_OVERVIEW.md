@@ -32,3 +32,7 @@ Complete PAPER_TEST cycle validated end-to-end on admin-trading without any real
 - No db-layer/OpenClaw changes
 - Guards ok:true throughout
 - Paper adapter only
+
+## RISKS
+
+- À qualifier.

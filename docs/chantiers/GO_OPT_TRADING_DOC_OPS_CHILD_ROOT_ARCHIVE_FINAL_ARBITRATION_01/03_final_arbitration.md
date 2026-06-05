@@ -59,3 +59,7 @@ Justification :
 - les lots deja executes sont documentes
 - les reliquats ont une qualification ou un report explicite
 - aucune nouvelle action physique n'est requise dans ce lot d'arbitrage final
+
+## RISKS
+
+- À qualifier.

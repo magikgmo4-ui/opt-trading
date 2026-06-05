@@ -54,3 +54,7 @@ Le pack doit suffire sans patch bundle si :
 - le template de reprise est executable ;
 - les garde-fous de commit et de PR sont compréhensibles ;
 - le manifest confirme le statut `product_closed` et la version `1.0.1`.
+
+## RISKS
+
+- À qualifier.

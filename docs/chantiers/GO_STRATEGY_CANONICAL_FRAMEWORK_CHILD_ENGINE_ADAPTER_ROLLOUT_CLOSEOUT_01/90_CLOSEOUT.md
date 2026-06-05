@@ -39,3 +39,7 @@ trading_realtime_v1 ✅
 ## Suite recommandee
 
 Traiter `tzdata` / `ZoneInfo("America/Montreal")` dans un chantier environnement/test dedie, separe du rollout adapter strategie.
+
+## RISKS
+
+- À qualifier.

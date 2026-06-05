@@ -53,3 +53,7 @@ links:
 - `GO_INDEX.md`, `ACTIVE_STREAMS.md`, `NEXT_GO_CANDIDATES.md` et `REPRISE.md` etaient encore cales sur l etat pre-closeout de `PROJECT_MACHINE_SPLIT`, `REGISTRY_SCOPE_REALIGNMENT` et `TRAE_PACK_TEXTS_REVISION`
 - `GO_PARENT_THREAD_MAP.md` etait juste sur `GO_OPT_TRADING_DOC_OPS_CHILD_GO_PARENT_THREAD_MAP_01`, mais faux sur les deux statuts `OPEN` restants du thread doc ops, sur `METADATA_DERIVATION`, `REGISTRY_SCOPE_REALIGNMENT` et `TRAE_PACK_TEXTS_REVISION`
 - `GO_CLOSED_INDEX.md` existait deja et pouvait absorber les cinq clotures sans creer de nouvelle surface
+
+## RISKS
+
+- À qualifier.

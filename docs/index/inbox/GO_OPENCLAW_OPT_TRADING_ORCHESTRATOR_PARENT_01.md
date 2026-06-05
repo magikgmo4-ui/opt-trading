@@ -37,3 +37,7 @@ Transport court de reprise pour le parent OpenClaw `db-layer` hors continuite ca
 
  - lire `docs/chantiers/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01/REPRISE_DB_LAYER_20260505.md`
  - ouvrir ensuite le child `GO_OPENCLAW_OPT_TRADING_CHILD_DBLAYER_SSH_LOCAL_GATEWAY_VALIDATION_01`
+
+## RISKS
+
+- À qualifier.

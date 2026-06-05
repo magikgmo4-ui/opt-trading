@@ -67,3 +67,7 @@ DRY_RUN_MODE=true
 
 - Service file unit name: `desk_pro_dry_run.service` (exact spec)
 - Timer file unit name: `desk_pro_dry_run.timer` (exact spec)
+
+## RISKS
+
+- À qualifier.

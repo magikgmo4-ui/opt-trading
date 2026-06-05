@@ -64,3 +64,7 @@ sans trading reel, sans secret dans le repo.
 - Ne pas modifier `webhook_server.py`
 - Ne pas committer `.env`
 - Ne pas committer de secrets
+
+## RISKS
+
+- À qualifier.

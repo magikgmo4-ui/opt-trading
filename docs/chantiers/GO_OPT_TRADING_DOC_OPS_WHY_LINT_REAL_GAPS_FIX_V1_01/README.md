@@ -105,3 +105,7 @@
 ## Statut
 
 - PASS local: passe V1 courte, manuelle, sans auto-fix, sans changement validateur.
+
+## RISKS
+
+- À qualifier.

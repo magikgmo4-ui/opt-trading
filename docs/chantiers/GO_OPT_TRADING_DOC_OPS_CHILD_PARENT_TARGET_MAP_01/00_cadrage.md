@@ -79,3 +79,7 @@ Cette hypothese doit etre justifiee et bornee dans `01_parent_target_map.md`.
 ## Point de reprise
 
 Lire `01_parent_target_map.md`, puis `02_validation_matrix.md`.
+
+## RISKS
+
+- À qualifier.

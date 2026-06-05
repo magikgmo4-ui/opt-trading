@@ -44,3 +44,7 @@ Condition :
 ```text
 choisir un helper concret et isolé (manifest/status/latest writers en premier).
 ```
+
+## RISKS
+
+- À qualifier.

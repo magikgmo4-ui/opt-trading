@@ -174,3 +174,7 @@ Future docs should distinguish:
 ## 19_TO_REMEMBER
 
 `PASS_POLICY_STATIC_VALIDATION` is not runtime approval. It only means the draft passed static checks.
+
+## RISKS
+
+- À qualifier.

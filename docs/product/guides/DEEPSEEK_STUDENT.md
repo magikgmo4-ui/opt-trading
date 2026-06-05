@@ -158,3 +158,7 @@ Lancer des analyses locales, consulter les sorties thinking/response, relire des
 - `docs/status/deepseek_student_canonique.md`
 - `docs/chantiers/GO_OPT_TRADING_DEEPSEEK_RUNTIME_CONSOLIDATION_IMPL_03/90_CLOSEOUT.md`
 - `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_PARENT_01/90_CLOSEOUT.md`
+
+## RISKS
+
+- À qualifier.

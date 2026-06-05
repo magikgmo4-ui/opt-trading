@@ -124,3 +124,7 @@ Objectif :
 2. localiser config OpenClaw sandbox;
 3. capturer `ssh -G fantome` sans connexion;
 4. revenir ensuite a `07` pour revalider les gates.
+
+## RISKS
+
+- À qualifier.

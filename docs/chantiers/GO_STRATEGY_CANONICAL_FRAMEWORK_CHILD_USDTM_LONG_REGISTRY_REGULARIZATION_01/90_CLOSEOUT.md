@@ -39,3 +39,7 @@ COINM_SHORT (PR #541). Aucun changement runtime.
 ## Next GO recommandé
 
 Régulariser `GOLD_CFD_LONG` (P2, même pattern, 3ème engine dans strategy_logic.py).
+
+## RISKS
+
+- À qualifier.

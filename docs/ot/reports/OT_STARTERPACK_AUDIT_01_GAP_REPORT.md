@@ -64,3 +64,7 @@ Date (America/Montreal) : 2026-03-14
 - Corriger la référence OT_OPS_04B manquante.
 - Aligner le naming de clôture (choisir un pattern unique) et synchroniser templates.
 - Rendre la continuité obligatoire à l’ouverture : kanban + dernière clôture + point de reprise.
+
+## RISKS
+
+- À qualifier.

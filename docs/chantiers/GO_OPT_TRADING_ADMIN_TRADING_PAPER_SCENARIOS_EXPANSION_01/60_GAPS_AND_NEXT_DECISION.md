@@ -24,3 +24,7 @@ Recommendation: If production validation desired, create explicit GO with:
 - Minimal position size
 - Immediate close capability
 - Full monitoring
+
+## RISKS
+
+- À qualifier.

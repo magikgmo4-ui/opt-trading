@@ -9,3 +9,7 @@ doc_type: remaining_gaps
 - live runtime smoke not executed
 - artifact sequence not yet merged to `sot/mainline`
 - Playwright/headless remains upstream concern, not blocking for dry-run artifacts
+
+## RISKS
+
+- À qualifier.

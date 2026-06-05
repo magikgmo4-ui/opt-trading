@@ -332,3 +332,7 @@ Le bon ordre est :
 4. GO_OPENCLAW_CODEXOAUTH_POLICY_QUALIFICATION_01 -> optionnel, qualifier codexoauth
 5. GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 -> seulement si execution runtime/tmux/OpenClaw
 ```
+
+## RISKS
+
+- À qualifier.

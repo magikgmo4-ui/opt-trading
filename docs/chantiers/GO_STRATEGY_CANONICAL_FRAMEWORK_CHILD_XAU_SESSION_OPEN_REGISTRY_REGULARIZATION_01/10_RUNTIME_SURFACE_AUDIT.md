@@ -86,3 +86,7 @@ La régularisation est documentaire : le code produit déjà des events avec
 - Gates de lifecycle documentées
 - Lien explicite child GO → parent GO
 ```
+
+## RISKS
+
+- À qualifier.

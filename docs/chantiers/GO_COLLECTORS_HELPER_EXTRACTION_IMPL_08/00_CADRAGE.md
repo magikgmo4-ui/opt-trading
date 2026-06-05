@@ -38,3 +38,7 @@ collector_binance_spot/run.py :
   - _ensure_runtime_directories retiré
   + appel ensure_writable_directories(...) inliné dans run_sanity et run_collection
 ```
+
+## RISKS
+
+- À qualifier.

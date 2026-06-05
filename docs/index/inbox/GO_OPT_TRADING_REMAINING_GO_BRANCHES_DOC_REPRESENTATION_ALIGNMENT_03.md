@@ -30,3 +30,7 @@ Realignement doc-only des representations canoniques des branches `GO_OPT_TRADIN
 ## Point de reprise
 
 Lire `01_alignment_report.md`, puis `BRANCH_STATE.md`.
+
+## RISKS
+
+- À qualifier.

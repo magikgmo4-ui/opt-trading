@@ -134,3 +134,7 @@ Le cluster collectors n'appelle pas une fusion immediate.
 Il appelle une lecture de famille a 4 roles : canonique, hub, satellites, facade.
 La doctrine et la migration map existantes confirment deja cette lecture.
 ```
+
+## RISKS
+
+- À qualifier.

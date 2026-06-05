@@ -186,3 +186,7 @@ Pour chaque entrée ci-dessous :
 - Suites possibles (hors scope de ce document) :
   - Si besoin : mission dédiée “synthèse canonique OpenClaw” ou “clarification runtime DeepSeek”.
   - Si “MiMoPro” doit devenir un produit : décision repo-sourcée + entrypoint canonique consolidé.
+
+## RISKS
+
+- À qualifier.

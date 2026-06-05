@@ -44,3 +44,7 @@ Aucun runtime modifie. Aucun secret.
 docs/product/PRODUCT_USAGE_MATRIX.md
 docs/product/PRODUCT_USAGE_ATLAS.md
 ```
+
+## RISKS
+
+- À qualifier.

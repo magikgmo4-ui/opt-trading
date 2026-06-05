@@ -38,3 +38,7 @@ Rendre explicite la portée de `registry/*` et ses exceptions sans réécrire de
 ## REPRISE
 Point de reprise local :
 - `docs/chantiers/GO_OPT_TRADING_REGISTRY_SCOPE_REALIGNMENT_01/02_journal_technique.md`
+
+## RISKS
+
+- À qualifier.

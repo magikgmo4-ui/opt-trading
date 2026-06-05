@@ -13,3 +13,7 @@ Affiner la documentation pour lever toute ambiguïté sur le statut des variante
 - **fix3** : Déprécié, Merged (Code source du patch).
 - **fix1/fix2** : Déprécié, Obsolete (Code inutile).
 - **Runtime** : Aligné sur v2.
+
+## RISKS
+
+- À qualifier.

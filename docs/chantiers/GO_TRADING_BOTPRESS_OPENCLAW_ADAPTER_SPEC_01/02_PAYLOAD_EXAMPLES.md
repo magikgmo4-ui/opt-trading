@@ -121,3 +121,7 @@ Note: l adapter ne transmet JAMAIS `execute_trade` a OpenClaw Gateway.
   "duration_ms": 31000
 }
 ```
+
+## RISKS
+
+- À qualifier.

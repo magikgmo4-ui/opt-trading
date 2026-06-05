@@ -52,3 +52,7 @@ ShareX/capture → vision_inbox → desk_bridge → inbox → desk_snapshot_inge
                           ↓
                     synthesis object → Desk Pro
 ```
+
+## RISKS
+
+- À qualifier.

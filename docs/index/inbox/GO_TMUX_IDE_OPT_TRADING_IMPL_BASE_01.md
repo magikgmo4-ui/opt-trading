@@ -33,3 +33,7 @@ Validation reelle `2026-05-11`:
 - `tmux-ide`: absent
 - `ide.yml`: absent
 - base Git machine cible pour ce GO: a remettre en canon avant implementation
+
+## RISKS
+
+- À qualifier.

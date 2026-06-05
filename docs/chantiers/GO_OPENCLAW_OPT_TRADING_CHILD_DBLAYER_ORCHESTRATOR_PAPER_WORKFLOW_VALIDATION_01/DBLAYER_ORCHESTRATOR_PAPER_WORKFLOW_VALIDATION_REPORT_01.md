@@ -97,3 +97,7 @@ Conclusion de ce controle:
 | output dir | `data/desk_runs/desk_run_20260518_103325/` |
 | `git status` post-run | clean (`sot/mainline...origin/sot/mainline`) |
 | write hors scope | aucun |
+
+## RISKS
+
+- À qualifier.

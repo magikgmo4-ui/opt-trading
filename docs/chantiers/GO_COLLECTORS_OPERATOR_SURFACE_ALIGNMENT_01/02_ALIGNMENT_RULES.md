@@ -42,3 +42,7 @@ Une future phase d'implementation pourra introduire :
 - short aliases stables
 - runbook templates communs
 ```
+
+## RISKS
+
+- À qualifier.

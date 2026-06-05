@@ -177,3 +177,7 @@ NEXT_GO recommended:
 Purpose:
 
 implement the first read-only static validator and optional Markdown fixture harness against this corpus, with no runtime binding and fail-closed behavior.
+
+## RISKS
+
+- À qualifier.

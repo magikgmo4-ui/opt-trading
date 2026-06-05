@@ -125,3 +125,7 @@ BLOQUE si :
 ```
 
 Prochaine revue recommandée : **2026-05-24** (20 runs ou 7 jours atteints — whichever comes first).
+
+## RISKS
+
+- À qualifier.

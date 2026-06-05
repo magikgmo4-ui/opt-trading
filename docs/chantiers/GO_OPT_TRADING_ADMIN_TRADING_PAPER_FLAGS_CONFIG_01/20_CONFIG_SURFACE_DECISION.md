@@ -31,3 +31,7 @@ Create empty `ledger_paper.json`.
 - Guard checks `LEDGER_PATH` ends in `ledger_paper.json`
 - File must exist at specified path
 - Empty JSON `{}` sufficient for guard check
+
+## RISKS
+
+- À qualifier.

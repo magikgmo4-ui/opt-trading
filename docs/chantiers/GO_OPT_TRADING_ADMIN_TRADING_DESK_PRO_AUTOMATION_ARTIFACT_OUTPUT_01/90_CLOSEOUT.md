@@ -79,3 +79,7 @@ Timer: active/waiting, next trigger at Mon 2026-05-11 22:00:26 EDT
 Artifacts: will produce latest.json, latest.md, history.jsonl at /opt/trading/runtime/desk_pro_dry_run/
 Next GO: GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_ARTIFACT_OBSERVE_01
 ```
+
+## RISKS
+
+- À qualifier.

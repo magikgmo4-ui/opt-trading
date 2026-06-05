@@ -43,3 +43,7 @@ Override: `DESK_PRO_DRY_RUN_OUTPUT_DIR` environment variable
 - no systemd dependency
 - no .env access
 - output dir created if missing
+
+## RISKS
+
+- À qualifier.

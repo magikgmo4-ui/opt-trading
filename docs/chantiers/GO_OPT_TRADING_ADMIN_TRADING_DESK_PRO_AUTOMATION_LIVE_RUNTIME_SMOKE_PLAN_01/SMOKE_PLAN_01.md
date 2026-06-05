@@ -121,3 +121,7 @@ Planifier un GO `EXECUTION_GATED_01` capable de:
 - Safety gates à jour dans `modules/webhook/paper_guards.py`
 - Timer actif et enabled
 - Pas de run en cours
+
+## RISKS
+
+- À qualifier.

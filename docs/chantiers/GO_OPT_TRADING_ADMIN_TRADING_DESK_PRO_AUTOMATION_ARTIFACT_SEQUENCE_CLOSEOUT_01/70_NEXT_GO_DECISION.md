@@ -18,3 +18,7 @@ doc_type: next_go_decision
 ## Guardrail
 
 No live smoke before merge of the artifact sequence.
+
+## RISKS
+
+- À qualifier.

@@ -81,3 +81,7 @@ Si `ok=false`, aucun payload `PAPER_TEST` ne doit etre envoye.
 - Aucun ordre reel.
 - Aucun live trading.
 - Aucun test systemd cible.
+
+## RISKS
+
+- À qualifier.

@@ -55,3 +55,7 @@ PASS
 ## Point de reprise
 
 - `docs/architecture/REPO_SURFACES_MAP.md`
+
+## RISKS
+
+- À qualifier.

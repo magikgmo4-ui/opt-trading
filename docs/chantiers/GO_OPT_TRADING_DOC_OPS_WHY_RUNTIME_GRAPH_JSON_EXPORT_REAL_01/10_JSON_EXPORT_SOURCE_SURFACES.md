@@ -47,3 +47,7 @@ Ce premier export ne doit pas embarquer :
 ## 17_RESUME_POINT
 
 Le premier export JSON reel doit se limiter a la spine `LocalCMS/TMUX` plus le mapping `Daily Journal`, avec provenance documentaire explicite et sans overlays futurs.
+
+## RISKS
+
+- À qualifier.

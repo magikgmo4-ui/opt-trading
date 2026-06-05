@@ -83,3 +83,7 @@ admin-trading (serveur distant, NON CONNECTE)
 - [x] Product sanity 12/12 defini
 - [ ] Closeout final PASS (Phase 7 — FINAL_CLOSEOUT)
 - [x] Reprise possible depuis docs/chantiers uniquement
+
+## RISKS
+
+- À qualifier.

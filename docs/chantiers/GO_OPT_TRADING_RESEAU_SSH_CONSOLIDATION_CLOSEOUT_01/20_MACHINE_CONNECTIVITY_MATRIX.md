@@ -31,3 +31,7 @@
 - aucun gap de connectivite bloquant sur les quatre alias Linux prioritaires
 - une divergence non bloquante de realpath repo existe sur `fantome`
 - aucune preuve utile n'impose une probe SSH de `cursor-ai` dans ce lot
+
+## RISKS
+
+- À qualifier.

@@ -66,3 +66,7 @@ restructure plan → canonical shims impl
 → DB canon copy and proof
 → DB legacy retire impl ✓
 ```
+
+## RISKS
+
+- À qualifier.

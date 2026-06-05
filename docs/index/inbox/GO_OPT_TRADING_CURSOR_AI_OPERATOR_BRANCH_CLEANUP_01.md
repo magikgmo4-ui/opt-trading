@@ -25,3 +25,7 @@ Option D — Audit et nettoyage branches cursor-ai + correction EXPORT_MANIFEST.
 ## Suite
 
 Execute cleanup manuel (20_CLEANUP_ACTIONS.md) puis Option E si admin-trading necessaire.
+
+## RISKS
+
+- À qualifier.

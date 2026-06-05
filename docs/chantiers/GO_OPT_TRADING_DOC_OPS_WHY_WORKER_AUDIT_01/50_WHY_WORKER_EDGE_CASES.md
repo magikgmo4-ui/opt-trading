@@ -29,3 +29,7 @@ Identifier les cas limites du futur worker d'audit WHY.
 ## Invariant
 
 Aucun cas limite ne doit declencher APPLY ou correction automatique.
+
+## RISKS
+
+- À qualifier.

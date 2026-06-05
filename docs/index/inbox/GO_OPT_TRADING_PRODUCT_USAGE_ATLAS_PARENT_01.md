@@ -47,3 +47,7 @@ Lire :
 docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_PARENT_01/90_CLOSEOUT.md
 docs/product/PRODUCT_USAGE_MATRIX.md
 ```
+
+## RISKS
+
+- À qualifier.

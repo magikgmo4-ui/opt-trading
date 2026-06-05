@@ -162,3 +162,7 @@ Si validation humaine recue pour l'installation :
 Si BLOCKED :
 → closeout avec statut documente
 → le prochain GO pourra reprendre avec le CLI installe
+
+## RISKS
+
+- À qualifier.

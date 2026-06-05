@@ -202,3 +202,7 @@ Bitget order
 Google Sheets write
 Telegram message direct (hors dry-run explicite)
 ```
+
+## RISKS
+
+- À qualifier.

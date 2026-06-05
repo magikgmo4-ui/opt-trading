@@ -12,3 +12,7 @@ Date (America/Montreal) : 2026-03-14
 ## À CONFIRMER
 - Adoption systématique du gating GO/STOP par l’opérateur (workflow le décrit, mais la pratique réelle reste à prouver).
 
+
+## RISKS
+
+- À qualifier.

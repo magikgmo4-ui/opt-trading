@@ -95,3 +95,7 @@ Chaque entrée inclut :
 - Dry-run par défaut
 - Champs présents dans le rapport
 - Pas d'appels POST/PUT/DELETE/PATCH
+
+## RISKS
+
+- À qualifier.

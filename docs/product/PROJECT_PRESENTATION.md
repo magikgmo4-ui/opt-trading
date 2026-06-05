@@ -79,3 +79,7 @@ docs/product/PRODUCT_USAGE_GRAPH.mmd
 docs/product/UPDATE_PROTOCOL.md
 docs/product/guides/
 ```
+
+## RISKS
+
+- À qualifier.

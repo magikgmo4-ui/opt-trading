@@ -153,3 +153,7 @@ Collecter les donnees marches derives, les exporter, alimenter les moteurs d'ana
 - `docs/COLLECTORS_MIGRATION_MAP_01.md`
  - `docs/chantiers/GO_COLLECTORS_SELECTIVE_RUNTIME_EXTRACTION_DECISION_01/90_CLOSEOUT.md`
  - `docs/chantiers/GO_COLLECTORS_HELPER_EXTRACTION_IMPL_10_V2/90_CLOSEOUT.md`
+
+## RISKS
+
+- À qualifier.

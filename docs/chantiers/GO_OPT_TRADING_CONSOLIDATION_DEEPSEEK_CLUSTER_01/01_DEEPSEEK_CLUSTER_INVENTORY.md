@@ -137,3 +137,7 @@ deepseek_student n'est pas survivant.
 response/thinking restent necessaires en compatibilite.
 scripts/student/ n'est pas encore retire.
 ```
+
+## RISKS
+
+- À qualifier.

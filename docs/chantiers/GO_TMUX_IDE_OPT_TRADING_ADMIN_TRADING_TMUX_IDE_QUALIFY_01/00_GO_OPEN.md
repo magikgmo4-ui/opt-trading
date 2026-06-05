@@ -84,3 +84,7 @@ admin-trading, répertoire `/opt/trading`
 | PASS | tmux-ide disponible + ide.yml qualifiable sans runtime |
 | PARTIAL_PASS | prérequis OK mais tmux-ide absent ou ide.yml absent |
 | FAIL | Git non propre, SSH échoue, ou prérequis cassés |
+
+## RISKS
+
+- À qualifier.

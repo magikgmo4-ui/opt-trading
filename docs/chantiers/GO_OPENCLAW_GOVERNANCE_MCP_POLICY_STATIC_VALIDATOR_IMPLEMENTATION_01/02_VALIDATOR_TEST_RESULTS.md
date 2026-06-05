@@ -119,3 +119,7 @@ Future closeouts should include both targeted unit tests and full fixture corpus
 ## 19_TO_REMEMBER
 
 Test pass does not imply runtime permission. It proves static validation behavior only.
+
+## RISKS
+
+- À qualifier.

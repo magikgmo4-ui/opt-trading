@@ -35,3 +35,7 @@ Cette passe reste observation-only : elle pose une boucle contrôlée, sans exé
 ## TRIGGER NATUREL SUIVANT
 
 `GO_OT_TRADING_REALTIME_V1_GUARDRAILS_PASS_01`
+
+## RISKS
+
+- À qualifier.

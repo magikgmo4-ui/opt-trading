@@ -34,3 +34,7 @@ Preparer une future governance CI experimentale non bloquante.
 ## Invariant
 
 La future CI lint doit rester experimentale, non destructive et sous gouvernance humaine.
+
+## RISKS
+
+- À qualifier.

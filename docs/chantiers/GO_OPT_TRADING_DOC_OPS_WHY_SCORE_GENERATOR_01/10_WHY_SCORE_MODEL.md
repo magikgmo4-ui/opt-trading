@@ -42,3 +42,7 @@ Il ne remplace jamais:
 ## Invariant
 
 Un score eleve ne prouve pas que le runtime est valide.
+
+## RISKS
+
+- À qualifier.

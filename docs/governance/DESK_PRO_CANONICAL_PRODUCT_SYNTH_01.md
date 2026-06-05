@@ -74,3 +74,7 @@ Séparation explicite : **fil produit/repo** vs **fil machine**.
 - [desk_pro_multi_machine_map.md](file:///c:/Users/ghost/opt-trading/docs/desk_pro_multi_machine_map.md)
 - [desk_pro_release_ops_runbook.md](file:///c:/Users/ghost/opt-trading/docs/desk_pro_release_ops_runbook.md)
 - [db_layer_desk_pro_quick_reference.md](file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_quick_reference.md)
+
+## RISKS
+
+- À qualifier.

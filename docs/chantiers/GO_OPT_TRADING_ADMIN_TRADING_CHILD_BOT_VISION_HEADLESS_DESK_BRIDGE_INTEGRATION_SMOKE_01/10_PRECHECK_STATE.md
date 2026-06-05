@@ -41,3 +41,7 @@ updated_at: 2026-05-04
 - Last run: 19:41, exit 0/SUCCESS
 - Processed headless capture → 4 quadrants → desk/snapshots/
 - No PIL crash
+
+## RISKS
+
+- À qualifier.

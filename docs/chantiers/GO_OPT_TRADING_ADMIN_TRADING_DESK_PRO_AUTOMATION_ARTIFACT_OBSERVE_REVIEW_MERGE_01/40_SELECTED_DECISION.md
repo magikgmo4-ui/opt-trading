@@ -59,3 +59,7 @@ PR existante: aucune
 decision: ouvrir PR depuis STABILITY_WINDOW_01 vers sot/mainline
 tmux-ide: reporte
 ```
+
+## RISKS
+
+- À qualifier.

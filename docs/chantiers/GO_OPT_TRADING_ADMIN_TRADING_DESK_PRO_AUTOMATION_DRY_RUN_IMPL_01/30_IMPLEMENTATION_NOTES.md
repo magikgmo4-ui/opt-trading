@@ -42,3 +42,7 @@ run_desk_pro_dry_run(signal_event_payload, visual_context=None, desk_snapshot=No
 ## Resultat
 
 Le patch ajoute un point d'execution testable et reutilisable pour les futurs GO timer spec et observability, sans coupler Desk Pro dry-run au runtime reel.
+
+## RISKS
+
+- À qualifier.

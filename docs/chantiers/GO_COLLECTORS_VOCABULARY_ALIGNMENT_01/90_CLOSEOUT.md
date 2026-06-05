@@ -44,3 +44,7 @@ La suite logique devient l'alignement des artifacts, puis config, puis operator 
 ```text
 GO_COLLECTORS_ARTIFACT_FAMILY_ALIGNMENT_01
 ```
+
+## RISKS
+
+- À qualifier.

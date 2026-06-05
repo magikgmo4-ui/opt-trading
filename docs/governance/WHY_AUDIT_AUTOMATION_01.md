@@ -48,3 +48,7 @@ Un worker documentaire pourrait:
 ## Invariant
 
 L'automatisation WHY reste une aide d'audit et non une autorite autonome.
+
+## RISKS
+
+- À qualifier.

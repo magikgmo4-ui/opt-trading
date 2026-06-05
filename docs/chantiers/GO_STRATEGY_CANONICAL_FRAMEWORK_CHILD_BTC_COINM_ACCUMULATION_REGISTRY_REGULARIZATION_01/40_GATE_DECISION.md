@@ -18,3 +18,7 @@ doc_type: gate_decision
 ### Verdict
 
 **PASS_BTC_COINM_ACCUMULATION_REGISTRY_REGULARIZATION**
+
+## RISKS
+
+- À qualifier.

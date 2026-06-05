@@ -41,3 +41,7 @@ La machine `student` fonctionne sur une base "hybride" :
 2.  **Modules Modernes** (`modules/probability_engine`) pour le calcul.
 
 **Action requise** : Ne surtout pas supprimer `scripts/student/`. La normalisation (migration vers `modules/deepseek_student`) nécessitera un portage complet du code, pas un simple déplacement.
+
+## RISKS
+
+- À qualifier.

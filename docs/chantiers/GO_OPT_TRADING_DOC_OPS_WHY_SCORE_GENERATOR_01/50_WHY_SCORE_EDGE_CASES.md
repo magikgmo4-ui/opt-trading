@@ -28,3 +28,7 @@ Identifier les cas limites du futur WHY score generator.
 ## Invariant
 
 Les cas limites doivent etre expliques dans la sortie d'audit.
+
+## RISKS
+
+- À qualifier.

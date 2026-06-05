@@ -36,3 +36,7 @@ Preparer le pipeline du premier render effectif WHY/runtime local.
 ## Invariant
 
 Le pipeline de render WHY/runtime doit rester local, statique et non decisionnel.
+
+## RISKS
+
+- À qualifier.

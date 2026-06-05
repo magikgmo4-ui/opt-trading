@@ -37,3 +37,7 @@ Installer de facon controlee les fichiers systemd versionnes pour Desk Pro dry-r
 - aucun webhook reel
 - aucun Telegram
 - aucun live runtime smoke
+
+## RISKS
+
+- À qualifier.

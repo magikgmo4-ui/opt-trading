@@ -75,3 +75,7 @@ Après ce GO :
 - soit formaliser un second cas de preuve si le premier reste trop étroit ;
 - soit ouvrir un micro-module bridge si plusieurs preuves bornées convergent ;
 - sinon clore le sujet comme preuve ponctuelle suffisante.
+
+## RISKS
+
+- À qualifier.

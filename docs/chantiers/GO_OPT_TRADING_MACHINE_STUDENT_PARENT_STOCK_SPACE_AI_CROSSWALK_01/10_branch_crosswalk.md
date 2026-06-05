@@ -101,3 +101,7 @@ Le prochain paquet `student` doit proposer :
 FLY reste côté MARKET_STRUCTURE uniquement pour l'instant.
 
 AI_SPACE_WATCHLIST ne doit pas être modifiée sans validation explicite d'intégration dataset.
+
+## RISKS
+
+- À qualifier.

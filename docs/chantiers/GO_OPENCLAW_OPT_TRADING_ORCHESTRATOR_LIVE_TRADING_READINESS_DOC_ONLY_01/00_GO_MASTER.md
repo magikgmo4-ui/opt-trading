@@ -33,3 +33,7 @@ Aucune activation dans ce GO. Aucun ordre Bitget. Aucun secret committé.
 - NO automatic Sheets write
 - NO secrets in repo or logs
 - La décision de passer en live requiert un GO séparé avec approbation explicite
+
+## RISKS
+
+- À qualifier.

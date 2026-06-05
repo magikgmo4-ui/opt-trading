@@ -108,3 +108,7 @@ docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_ORPHAN_GO_ASSIGNMENT_01/
 Lot suivant possible :
 - creer GO_PARENT_THREAD_MAP.md si decide
 - propager les affectations dans GO_INDEX si besoin
+
+## RISKS
+
+- À qualifier.

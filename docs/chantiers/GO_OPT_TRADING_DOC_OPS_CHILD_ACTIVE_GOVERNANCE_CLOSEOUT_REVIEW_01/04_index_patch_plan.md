@@ -42,3 +42,7 @@ links:
 - aucun patch runtime
 - aucun patch naming
 - aucune relecture structurelle globale de `GO_PARENT_THREAD_MAP.md`
+
+## RISKS
+
+- À qualifier.

@@ -66,3 +66,7 @@ updated_at: 2026-05-06
 ## Verdict global
 
 **Aucun gap bloquant.** Tous les gaps sont soit upstream, soit des enrichissements futurs, soit des décisions séparées (merge, automation).
+
+## RISKS
+
+- À qualifier.

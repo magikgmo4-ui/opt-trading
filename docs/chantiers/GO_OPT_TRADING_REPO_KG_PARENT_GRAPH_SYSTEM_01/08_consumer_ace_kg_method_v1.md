@@ -182,3 +182,7 @@ Next : `09_graph_views_v1.md`
 
 TAG: ACE_KG_USAGE_METHOD_V1
 Ace KG est utilisé via transformation Markdown du graph et exploration interactive.
+
+## RISKS
+
+- À qualifier.

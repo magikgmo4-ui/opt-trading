@@ -41,3 +41,7 @@ C'est voulu tant que le lot machine-side n'est pas execute.
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

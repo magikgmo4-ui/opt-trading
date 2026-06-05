@@ -121,3 +121,7 @@ Desk Pro : port 8010, mode step2_mock, pages UI complètes, zéro data live.
 PR #534 mergée (8bd4d41a).
 Prochaine décision : suffisance du mode mock ou besoin data live.
 ```
+
+## RISKS
+
+- À qualifier.

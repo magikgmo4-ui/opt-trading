@@ -18,3 +18,7 @@ updated_at: 2026-05-11
 - live runtime smoke has not been executed
 - merge to `sot/mainline` for the automation sequence has not been done yet
 - Playwright/headless remains an upstream concern and is not blocking Desk Pro dry-run due to fallback and contract-based validation
+
+## RISKS
+
+- À qualifier.

@@ -60,3 +60,7 @@ PASS
 
 - docs/product/UPDATE_PROTOCOL.md mis à jour
 - Toute future PR significative suit la checklist 04_PR_CHECKLIST.md
+
+## RISKS
+
+- À qualifier.

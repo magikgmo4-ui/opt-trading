@@ -400,3 +400,7 @@ WHY lint ne franchit jamais un gate. Il recommande seulement.
 5. Child GO : triage, baseline V1 et plan de remediation (DONE).
 6. Child GO suivant : corrections documentaires ciblees ou exceptions/regles V1, sans autofix.
 7. Integration future avec OpenClaw central uniquement quand les garde-fous seront prouves et documentes.
+
+## RISKS
+
+- À qualifier.

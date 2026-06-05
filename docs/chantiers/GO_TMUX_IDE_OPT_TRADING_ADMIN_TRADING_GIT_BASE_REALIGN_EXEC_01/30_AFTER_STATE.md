@@ -55,3 +55,7 @@ Sortie réelle :
 
 - branche après : ETAT_VERIFIE si sortie git ci-dessus est remplie, sinon ETAT_DECLARE
 - upstream après : ETAT_VERIFIE si sortie git ci-dessus est remplie, sinon ETAT_DECLARE
+
+## RISKS
+
+- À qualifier.

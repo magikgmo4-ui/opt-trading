@@ -85,3 +85,7 @@ Do not open a follow-up unless lightweight discoverability is explicitly needed:
 ```text
 GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_OPENCLAW_BUILDER_DOC_INBOX_POINTER_01
 ```
+
+## RISKS
+
+- À qualifier.

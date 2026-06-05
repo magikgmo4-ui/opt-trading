@@ -86,3 +86,7 @@ Toute request avec `options.dry_run = false` est bloquee par Botpress (pas trans
 - Gateway: 30s max
 - Si timeout: Botpress repond "analyse en cours, je te tiens au courant"
 - Retry: 1 tentative max, pas de boucle infinie
+
+## RISKS
+
+- À qualifier.

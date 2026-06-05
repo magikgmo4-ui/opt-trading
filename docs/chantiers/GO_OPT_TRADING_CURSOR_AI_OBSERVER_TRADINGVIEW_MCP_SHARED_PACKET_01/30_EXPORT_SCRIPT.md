@@ -41,3 +41,7 @@
 - Local only : aucun acces reseau
 - Git-ignored : le dossier `_shared_packets/` est dans `.gitignore`
 - Pas de secrets : le bridge packet ne contient ni tokens ni .env ni API keys
+
+## RISKS
+
+- À qualifier.

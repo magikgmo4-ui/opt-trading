@@ -107,3 +107,7 @@ BLOCKED
 ```text
 BLOCKED
 ```
+
+## RISKS
+
+- À qualifier.

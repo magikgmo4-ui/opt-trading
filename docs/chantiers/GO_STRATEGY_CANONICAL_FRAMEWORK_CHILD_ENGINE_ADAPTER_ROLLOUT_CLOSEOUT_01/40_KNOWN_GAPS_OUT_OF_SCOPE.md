@@ -26,3 +26,7 @@ Ne pas melanger :
 
 1. cloture rollout adapter strategie ;
 2. remediation `tzdata` / `ZoneInfo`.
+
+## RISKS
+
+- À qualifier.

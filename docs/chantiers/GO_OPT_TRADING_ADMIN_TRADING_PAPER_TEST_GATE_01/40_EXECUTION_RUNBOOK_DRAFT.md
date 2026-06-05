@@ -6,3 +6,7 @@
 4. Surveiller Telegram (notifications `PAPER_ORDER_SIMULATED`).
 5. Vérifier `ledger_paper.json`.
 6. Vérifier l'absence de logs d'erreur de connexion API réelle.
+
+## RISKS
+
+- À qualifier.

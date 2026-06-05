@@ -42,3 +42,7 @@ L'éligibilité multi-signal requiert les **deux** seuils simultanément.
 - No automatic Sheets write
 - No secrets
 - Controlled-write Sheets manuel uniquement
+
+## RISKS
+
+- À qualifier.

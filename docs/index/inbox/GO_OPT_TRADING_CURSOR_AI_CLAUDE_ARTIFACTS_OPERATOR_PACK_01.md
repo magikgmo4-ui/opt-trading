@@ -29,3 +29,7 @@ Regulariser un dossier canonique doc-only pour le pack operateur Claude artifact
 ## Bundle cible
 
 `bundles/claude-artifacts/`
+
+## RISKS
+
+- À qualifier.

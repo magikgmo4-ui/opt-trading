@@ -28,3 +28,7 @@ registry complete
 -> raccord engines cibles
 -> validation warning-only partout
 ```
+
+## RISKS
+
+- À qualifier.

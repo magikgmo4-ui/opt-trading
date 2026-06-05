@@ -197,3 +197,7 @@ Ces éléments sont traités dans des documents dédiés.
 Statut :
 - document de référence locale
 - à maintenir cohérent avec la méthode uniforme globale
+
+## RISKS
+
+- À qualifier.

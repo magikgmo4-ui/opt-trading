@@ -38,3 +38,7 @@ links:
 ## Conclusion
 
 Le patch strictement necessaire porte sur `GO_INDEX.md`, `NEXT_GO_CANDIDATES.md`, `ACTIVE_STREAMS.md` et `REPRISE.md`. `BRANCH_STATE.md` reste lu, qualifie et conserve tel quel.
+
+## RISKS
+
+- À qualifier.

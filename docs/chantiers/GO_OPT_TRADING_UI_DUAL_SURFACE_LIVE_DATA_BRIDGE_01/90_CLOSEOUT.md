@@ -76,3 +76,7 @@ Desk Pro snapshot : fixture + mock fallback.
 Perf engine : SQLite seedé avec trades simulés.
 Prochaine étape : brancher source live réelle ou automatiser l'ingestion.
 ```
+
+## RISKS
+
+- À qualifier.

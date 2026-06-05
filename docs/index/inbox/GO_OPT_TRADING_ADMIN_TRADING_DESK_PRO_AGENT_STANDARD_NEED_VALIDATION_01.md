@@ -10,3 +10,7 @@ Valider le besoin réel d'appliquer le standard agent/routage provider à Admin/
 ## Verdict
 
 NEED_NOT_VALIDATED: NO_GO
+
+## RISKS
+
+- À qualifier.

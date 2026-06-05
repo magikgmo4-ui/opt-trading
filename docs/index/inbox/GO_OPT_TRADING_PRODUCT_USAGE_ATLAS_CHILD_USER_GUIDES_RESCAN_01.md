@@ -33,3 +33,7 @@ Rattraper le delta guide ouvert par le rescan produit : guide `Deepseek Student`
 docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_USER_GUIDES_RESCAN_01/90_CLOSEOUT.md
 docs/product/guides/README.md
 ```
+
+## RISKS
+
+- À qualifier.

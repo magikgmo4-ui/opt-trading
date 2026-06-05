@@ -143,3 +143,7 @@ journalctl -u tv-webhook.service --since "2 min ago" --no-pager | grep -i telegr
 
 - [ ] Pas d'erreur `RuntimeError: Telegram env vars not set`
 - [ ] Pas d'HTTPError vers `api.telegram.org`
+
+## RISKS
+
+- À qualifier.

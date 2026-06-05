@@ -75,3 +75,7 @@ Objectif : déplacer ultérieurement les fichiers “à plat” vers 3–4 répe
 6. Éléments à ne pas bouger : tous les dossiers réservés listés en §4 + `boot_test.txt`.
 7. Stratégie prudente : créer d’abord les dossiers cibles, déplacer par petits lots “évidents”, garder un log de mouvements, et ne déplacer aucun dossier réservé.
 
+
+## RISKS
+
+- À qualifier.

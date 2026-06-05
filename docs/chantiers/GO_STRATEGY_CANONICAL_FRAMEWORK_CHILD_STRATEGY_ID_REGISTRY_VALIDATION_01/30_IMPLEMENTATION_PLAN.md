@@ -91,3 +91,7 @@ Registered: xau_session_open_v1, SMC_ICT_CHOCH_BOS_RETEST
 - Pas de pre-commit hook (futur phase 4)
 - Pas de blocage CI (futur phase 2-3)
 ```
+
+## RISKS
+
+- À qualifier.

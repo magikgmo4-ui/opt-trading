@@ -251,3 +251,7 @@ identity doc gate != VALIDATED
 sandbox doc gate != VALIDATED
 SSH alias doc gate != VALIDATED
 ```
+
+## RISKS
+
+- À qualifier.

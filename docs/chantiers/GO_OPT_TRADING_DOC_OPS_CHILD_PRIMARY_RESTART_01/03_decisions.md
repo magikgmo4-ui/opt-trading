@@ -58,3 +58,7 @@ links:
 - confirmer que les surfaces de continuite pointent bien vers `PRIMARY_RESTART` ;
 - utiliser `90_closeout.md` comme point de reprise exact ;
 - n'envisager `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_TARGET_MAP_01` qu'apres PASS du present lot.
+
+## RISKS
+
+- À qualifier.

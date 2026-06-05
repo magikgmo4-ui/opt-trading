@@ -943,3 +943,7 @@ Document strict worker and Ollama Lab entries in their dedicated files so this Y
 ## 19_TO_REMEMBER
 
 The YAML is intentionally inert. Runtime promotion requires a distinct GO and a validator/gateway design.
+
+## RISKS
+
+- À qualifier.

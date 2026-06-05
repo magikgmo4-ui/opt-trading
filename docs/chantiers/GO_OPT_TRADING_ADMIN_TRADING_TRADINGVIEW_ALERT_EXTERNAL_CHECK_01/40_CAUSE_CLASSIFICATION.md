@@ -74,3 +74,7 @@ Raisonnement :
 3. Vérifier la présence et la valeur de l'URL webhook dans chaque alerte (doc 30)
 4. Vérifier si la stratégie source est chargée sur le chart
 5. Vérifier si TradingView affiche un warning ou une erreur sur les alertes
+
+## RISKS
+
+- À qualifier.

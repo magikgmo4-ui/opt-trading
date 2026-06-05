@@ -58,3 +58,7 @@ Aucun runtime live, connecteur live, traversal decisionnel, dashboard live ou CI
 ## 17_RESUME_POINT
 
 Reprendre sur `go/GO_OPT_TRADING_DOC_OPS_WHY_RUNTIME_GRAPH_LOCAL_VIEW_REAL_01` pour cadrer le premier render graph local reel WHY/runtime.
+
+## RISKS
+
+- À qualifier.

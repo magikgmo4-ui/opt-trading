@@ -59,3 +59,7 @@ TradingView alert → POST /tv (webhook_server:8000) → POST /perf/event → SQ
 ## Prochain GO recommandé
 
 `GO_OPT_TRADING_DESKPRO_RUNTIME_OBSERVABILITY_01` — ajouter une observation exploitable du pipeline : derniers webhooks, events perf, état ingestion, statut source, erreurs.
+
+## RISKS
+
+- À qualifier.

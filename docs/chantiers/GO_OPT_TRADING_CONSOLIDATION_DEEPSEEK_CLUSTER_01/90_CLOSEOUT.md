@@ -110,3 +110,7 @@ P1 complet : STRATEGY, UI, PERF, DEEPSEEK.
 DeepSeek clarifie : student/ canonique, deepseek_hub survivant candidat, scripts/student legacy compat.
 Tout deplacement est differe a un GO separe.
 ```
+
+## RISKS
+
+- À qualifier.

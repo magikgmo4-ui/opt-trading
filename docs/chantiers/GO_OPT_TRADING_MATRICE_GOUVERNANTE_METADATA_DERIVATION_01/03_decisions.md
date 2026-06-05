@@ -49,3 +49,7 @@ links:
 - pas de chantier metadata / tags comme moteur de gouvernance
 - pas de requalification de `GO_INDEX.md`, `REPRISE.md`, `BRANCH_STATE.md`
 - pas de tagging massif dans ce lot
+
+## RISKS
+
+- À qualifier.

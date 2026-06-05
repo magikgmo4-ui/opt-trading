@@ -81,3 +81,7 @@ timer (15min)
 ## Next step
 
 Timer spec est **docs-only**. Prochain GO: `GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_TIMER_IMPL_01`
+
+## RISKS
+
+- À qualifier.

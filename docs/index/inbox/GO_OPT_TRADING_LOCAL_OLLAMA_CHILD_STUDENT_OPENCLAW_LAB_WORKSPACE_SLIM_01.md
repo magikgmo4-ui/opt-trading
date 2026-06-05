@@ -19,3 +19,7 @@ qwen2.5:3b-instruct repond maintenant en 12-75s sans timeout. Modele/provider in
 
 ## Chantier
 - `docs/chantiers/GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_WORKSPACE_SLIM_01/`
+
+## RISKS
+
+- À qualifier.

@@ -92,3 +92,7 @@
   2. figer une synthese produit canonique pour Trading Dual Stack V1
   3. clarifier repo-source la cible produit finale de Bot Vision
   4. deriver ensuite seulement les memory_bricks depuis ces syntheses stabilisees
+
+## RISKS
+
+- À qualifier.

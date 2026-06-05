@@ -141,3 +141,7 @@ Le menu interactif (`menu-deepseek-student`) est structuré pour simplifier l'ex
 
 ---
 *Dernière mise à jour : 2026-03-06*
+
+## RISKS
+
+- À qualifier.

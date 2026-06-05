@@ -27,3 +27,7 @@ updated_at: 2026-05-13
 - `no_systemd` becomes `false`
 - Secret appears in artifact or log
 - Unexpected network call detected
+
+## RISKS
+
+- À qualifier.

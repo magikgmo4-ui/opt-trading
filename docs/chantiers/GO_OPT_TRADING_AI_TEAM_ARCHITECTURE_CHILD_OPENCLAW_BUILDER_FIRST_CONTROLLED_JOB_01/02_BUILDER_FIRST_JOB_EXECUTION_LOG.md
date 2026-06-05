@@ -110,3 +110,7 @@ GATEWAY_STATUS = UP_AND_STABLE
 ```
 
 Le child a atteint son objectif : le builder répond à un job contrôlé structuré, sans commande, sans SSH, sans remote. Prêt pour closeout.
+
+## RISKS
+
+- À qualifier.

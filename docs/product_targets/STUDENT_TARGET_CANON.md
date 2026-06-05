@@ -102,3 +102,7 @@ Interactions:
   - DB layer
   - moteur analytics lourd
   - cluster distribue
+
+## RISKS
+
+- À qualifier.

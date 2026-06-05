@@ -58,3 +58,7 @@ Apres ce lot :
 - les GO gouvernance/methode sont tous arbitres
 - la suite logique est de passer aux parents machine
 - puis aux GO orphelins
+
+## RISKS
+
+- À qualifier.

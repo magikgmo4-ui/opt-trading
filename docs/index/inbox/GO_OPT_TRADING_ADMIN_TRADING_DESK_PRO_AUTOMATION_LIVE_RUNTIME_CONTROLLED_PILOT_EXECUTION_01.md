@@ -25,3 +25,7 @@ updated_at: 2026-05-13
 **Verdict:** PASS — all limits respected, safety flags true, no STOP triggers
 
 **Next:** evaluate next step for the desk pro automation sequence
+
+## RISKS
+
+- À qualifier.

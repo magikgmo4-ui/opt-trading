@@ -148,3 +148,7 @@ Memoire projet candidate :
 ```text
 An OpenClaw MCP policy entry is complete only when class, default, actors, scopes, secret policy, gate, trace, eval, rollback, verdicts and escalation are explicit.
 ```
+
+## RISKS
+
+- À qualifier.

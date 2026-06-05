@@ -56,3 +56,7 @@ modules/health/README.md (breaker commande)
 - would_trip correct pour surfaces down x3
 - protégées marquées would_trip_but_protected
 ```
+
+## RISKS
+
+- À qualifier.

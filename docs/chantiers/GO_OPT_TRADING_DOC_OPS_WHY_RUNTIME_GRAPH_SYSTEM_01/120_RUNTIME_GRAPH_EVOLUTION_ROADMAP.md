@@ -37,3 +37,7 @@ L'evolution doit rester:
 ## Invariant
 
 Le runtime graph ne doit jamais devenir une orchestration runtime autonome sans governance explicite.
+
+## RISKS
+
+- À qualifier.

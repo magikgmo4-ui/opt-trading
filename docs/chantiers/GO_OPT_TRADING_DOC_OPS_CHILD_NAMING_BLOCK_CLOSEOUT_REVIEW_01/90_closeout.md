@@ -43,3 +43,7 @@ links:
 
 ## Suite
 Reprendre sur `GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01` pour produire l'inventaire repo-first et la qualification des exceptions legacy avant tout lot d'application ou closeout du parent naming.
+
+## RISKS
+
+- À qualifier.

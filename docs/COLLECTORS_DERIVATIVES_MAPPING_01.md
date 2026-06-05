@@ -111,3 +111,7 @@ Only after this mapping is accepted should the repo decide:
 ## 8. Next trigger
 
 GO_COLLECTORS_LIFECYCLE_COMPAT_SCOPE_01
+
+## RISKS
+
+- À qualifier.

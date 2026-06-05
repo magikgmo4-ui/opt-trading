@@ -36,3 +36,7 @@ modules/strategy/
 ## Prochaine étape recommandée
 
 Raccorder un premier engine en lecture (ex: `trading_realtime_v1` via `validate_strategy_id`).
+
+## RISKS
+
+- À qualifier.

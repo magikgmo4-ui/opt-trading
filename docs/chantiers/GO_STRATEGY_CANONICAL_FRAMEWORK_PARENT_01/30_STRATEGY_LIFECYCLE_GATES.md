@@ -130,3 +130,7 @@ Elle ne peut pas envoyer d'ordre live.
 Elle ne peut pas activer Bitget.
 Elle ne peut pas contourner les refusal criteria de PR #510.
 ```
+
+## RISKS
+
+- À qualifier.

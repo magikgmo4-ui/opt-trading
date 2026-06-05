@@ -42,3 +42,7 @@ desk_pro_dry_run.service: loaded, static, inactive (dead)
 ## Verdict
 
 PASS
+
+## RISKS
+
+- À qualifier.

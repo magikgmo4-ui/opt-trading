@@ -27,3 +27,7 @@ Fichier : `modules/proposition_engine/tests/test_strategy_id_adapter_readonly.py
 2. `python -m pytest tests/test_strategy_adapter.py -q`
 3. `python -m pytest modules/proposition_engine/tests/ -q`
 4. Vérifier git diff limité à `proposition_engine/` + nouveaux fichiers
+
+## RISKS
+
+- À qualifier.

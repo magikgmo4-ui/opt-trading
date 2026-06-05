@@ -182,3 +182,7 @@ Workflow minimal = session ephemere read-only, 3 panes, timeout, inspect, stop, 
 NEXT:
 Lire 30_EXECUTION_PROTOCOL.md avant tout dry-run.
 ```
+
+## RISKS
+
+- À qualifier.

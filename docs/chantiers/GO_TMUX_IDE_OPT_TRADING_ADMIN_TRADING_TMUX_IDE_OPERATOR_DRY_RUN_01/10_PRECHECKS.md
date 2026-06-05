@@ -76,3 +76,7 @@ Repo distant sale/en retard, conserve read-only.
 NEXT:
 Lire 20_DRY_RUN_PROTOCOL.md.
 ```
+
+## RISKS
+
+- À qualifier.

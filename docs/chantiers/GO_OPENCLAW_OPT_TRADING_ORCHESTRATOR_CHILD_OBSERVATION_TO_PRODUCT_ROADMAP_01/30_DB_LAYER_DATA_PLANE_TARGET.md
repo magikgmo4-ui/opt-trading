@@ -135,3 +135,7 @@ Consommateurs identifiés :
 | Google Sheets | Rail externe de contrôle et d'audit | Export externe (contrôlé) |
 | admin-trading | Producteur de signaux trading — source upstream | Input upstream |
 | `/shared` | Point de transit inter-machine | Input intermédiaire |
+
+## RISKS
+
+- À qualifier.

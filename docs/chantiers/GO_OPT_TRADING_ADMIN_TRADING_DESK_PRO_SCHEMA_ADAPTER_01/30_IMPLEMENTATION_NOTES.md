@@ -69,3 +69,7 @@ events = read_events_v1("/opt/trading/state/events.jsonl", limit=50)
 for evt in events:
     print(f"{evt['direction']} {evt['symbol']} {evt['timeframe']} @ {evt['timestamp']}")
 ```
+
+## RISKS
+
+- À qualifier.

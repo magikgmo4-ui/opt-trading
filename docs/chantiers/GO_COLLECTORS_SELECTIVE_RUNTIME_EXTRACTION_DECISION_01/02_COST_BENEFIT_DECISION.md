@@ -52,3 +52,7 @@ Pas de broad extraction now.
 Autoriser seulement de petits lots cibles sur helpers generiques,
 jamais sur semantics metier derives.
 ```
+
+## RISKS
+
+- À qualifier.

@@ -76,3 +76,7 @@ git push -u origin go/GO_TMUX_IDE_OPT_TRADING_ADMIN_TRADING_GIT_BASE_REALIGN_EXE
 ```
 
 PR titre : `docs: record admin-trading git base realign execution`
+
+## RISKS
+
+- À qualifier.

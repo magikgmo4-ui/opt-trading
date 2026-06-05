@@ -86,3 +86,7 @@ Disposer d'une suite `OpenClaw` lisible comme cockpit local borne, avec :
 
 ## Point de reprise
 Lire d'abord `01_cartographie_suite.md`, puis `03_step_01_matrice_wrappers.md`, puis derouler `02_plan_operationnel_step_by_step.md`.
+
+## RISKS
+
+- À qualifier.

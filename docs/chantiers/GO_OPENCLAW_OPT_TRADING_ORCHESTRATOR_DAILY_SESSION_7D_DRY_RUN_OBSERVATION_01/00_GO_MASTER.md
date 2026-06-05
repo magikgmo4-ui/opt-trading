@@ -44,3 +44,7 @@ pour valider la stabilité temporelle de la stack.
 - controlled-write manuel seulement
 - aucune nouvelle feature
 - rollback après closeout
+
+## RISKS
+
+- À qualifier.

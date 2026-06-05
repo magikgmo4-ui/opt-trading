@@ -41,3 +41,7 @@ Rappels :
 1.  `OT_[ID]_[NOM]_REPORT.md`
 2.  `OT_[ID]_CLOSING.txt`
 3.  [Autres fichiers clés]
+
+## RISKS
+
+- À qualifier.

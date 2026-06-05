@@ -39,3 +39,7 @@ Exécuter la séquence SSH depuis cursor-ai (voir `20_EXECUTION_LOG.md`), rempli
 ## Prochain GO après PASS
 
 `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01`
+
+## RISKS
+
+- À qualifier.

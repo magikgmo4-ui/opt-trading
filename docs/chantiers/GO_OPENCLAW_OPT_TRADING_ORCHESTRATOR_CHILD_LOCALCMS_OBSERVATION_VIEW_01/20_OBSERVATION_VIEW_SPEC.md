@@ -147,3 +147,7 @@ Le bloc "observation" est un objet nouveau — les consommateurs qui ignorent
 les champs inconnus ne sont pas impactés.
 Les extensions "last_run" sont additives — aucun champ existant retiré.
 ```
+
+## RISKS
+
+- À qualifier.

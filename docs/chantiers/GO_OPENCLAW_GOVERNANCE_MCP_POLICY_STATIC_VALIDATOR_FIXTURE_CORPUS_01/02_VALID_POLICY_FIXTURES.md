@@ -251,3 +251,7 @@ Future harness must verify that all valid fixtures still keep `runtime_binding: 
 ## 19_TO_REMEMBER
 
 Passing static validation is not a human gate approval.
+
+## RISKS
+
+- À qualifier.

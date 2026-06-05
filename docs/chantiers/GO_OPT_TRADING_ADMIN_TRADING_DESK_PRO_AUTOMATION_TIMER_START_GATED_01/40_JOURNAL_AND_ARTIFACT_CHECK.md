@@ -55,3 +55,7 @@ Erreurs visibles dans le payload:
 - aucun trade observe
 - aucun webhook observe
 - aucun Telegram observe
+
+## RISKS
+
+- À qualifier.

@@ -87,3 +87,7 @@ Guard obligatoire: stty rows 50 cols 200 avant tmux-ide sous ssh -tt quand stty 
 GATE:
 PASS_OPERATOR_DRY_RUN
 ```
+
+## RISKS
+
+- À qualifier.

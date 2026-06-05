@@ -47,3 +47,7 @@ Test: fichiers 0-byte/.uploading ignores, fichiers valides traites normalement.
 ## Next GO
 
 GO_OPT_TRADING_ADMIN_TRADING_CHILD_BOT_VISION_HEADLESS_CLOSEOUT_01 (P1)
+
+## RISKS
+
+- À qualifier.

@@ -73,3 +73,7 @@ Next child only if global integration/indexation is required:
 ```text
 GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_OPENCLAW_BUILDER_DOC_INDEXATION_REVIEW_01
 ```
+
+## RISKS
+
+- À qualifier.

@@ -38,3 +38,7 @@ Dernier check doc-only avant consolidation `modules/strategy/`. Auditer et class
 ### 4_SCOPE
 
 Audit doc-only. Aucune modification registry, aucun changement runtime.
+
+## RISKS
+
+- À qualifier.

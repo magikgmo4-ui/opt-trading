@@ -59,3 +59,7 @@ Le rendu v1 devrait ajouter :
 ## 17_RESUME_POINT
 
 Le refinement doit etre presentational, borne et compatible avec le JSON v0 existant.
+
+## RISKS
+
+- À qualifier.

@@ -59,3 +59,7 @@ links:
 - valider la coherence des ouvertures admin-trading et db-layer dans les index ;
 - utiliser `90_closeout.md` comme etat PASS local si le diff reste borne ;
 - n'envisager `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01` qu'apres validation humaine de ce lot.
+
+## RISKS
+
+- À qualifier.

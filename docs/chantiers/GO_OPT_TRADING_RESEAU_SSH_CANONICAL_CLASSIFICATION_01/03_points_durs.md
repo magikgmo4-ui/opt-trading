@@ -55,3 +55,7 @@ Le prochain lot utile est :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

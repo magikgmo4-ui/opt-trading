@@ -389,3 +389,7 @@ Trier les 113 findings en catégories actionnables sans correction automatique.
 ```text
 PASS_REAL_DOCS_SCAN_REPORT_V1_DOC_ONLY
 ```
+
+## RISKS
+
+- À qualifier.

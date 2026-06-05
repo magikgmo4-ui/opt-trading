@@ -98,3 +98,7 @@ Elle doit rester :
 
 Bloc humain complémentaire.
 À utiliser comme référence de calibration de la continuité, sans le substituer aux closeouts, index, reprises ni à la compaction.
+
+## RISKS
+
+- À qualifier.

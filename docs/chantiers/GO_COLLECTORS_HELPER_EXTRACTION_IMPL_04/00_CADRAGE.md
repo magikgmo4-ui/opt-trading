@@ -35,3 +35,7 @@ Extraire dans `collectors_core.lifecycle` les builders génériques `manifest` e
 - builders génériques seulement
 - pas de changement de payload métier
 ```
+
+## RISKS
+
+- À qualifier.

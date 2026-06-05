@@ -185,3 +185,7 @@ Ce document definit le payload et les conditions du Telegram watch signal.
 
 Il ne declenche pas d'envoi Telegram reel.
 L'envoi reel necessite un child runtime dedie avec `dry_run = false` explicitement valide.
+
+## RISKS
+
+- À qualifier.

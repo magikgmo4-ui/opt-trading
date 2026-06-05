@@ -39,3 +39,7 @@ Relations structurantes retenues :
 ## 17_RESUME_POINT
 
 Le futur GO de mapping daily journal devra raffiner les relations `RECORDS`, `PROVES` et `READS_OR_SUMMARIZES` avec les structures de run et de snapshot.
+
+## RISKS
+
+- À qualifier.

@@ -52,3 +52,7 @@ updated_at: 2026-05-14
 | --- | --- | --- |
 | PNL_ALERT_THRESHOLDS | `KEEP_REFERENCE` | Doc terminé non merge, pas de runtime |
 | SEQUENCE_PR_MERGE | `KEEP_ACTIVE` | Agrégation active, 6.5k+ lignes, attente merge PR |
+
+## RISKS
+
+- À qualifier.

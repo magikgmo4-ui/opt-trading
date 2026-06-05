@@ -137,3 +137,7 @@ DECISION_COURANTE : A — WAIT_OBSERVATION_THRESHOLD
 | Google Sheets | Support externe | Ne pas relancer par inertie |
 | Remote exec | Dormant | Ne rouvrir que si besoin produit |
 | Cleanup | Closed | Ne pas rouvrir |
+
+## RISKS
+
+- À qualifier.

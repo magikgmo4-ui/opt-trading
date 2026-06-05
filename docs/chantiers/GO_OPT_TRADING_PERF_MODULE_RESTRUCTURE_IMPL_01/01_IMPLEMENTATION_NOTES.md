@@ -60,3 +60,7 @@ Nouveau chemin disponible : modules.perf.webhook
 Le deplacement physique des fichiers et de la DB reste differe.
 Ce lot installe la structure canonique sans casser l'existant.
 ```
+
+## RISKS
+
+- À qualifier.

@@ -28,3 +28,7 @@ Transport propre des 7 fichiers doc-only de la branche divergente `go/GO_OPT_TRA
 ## Point de reprise
 
 Après merge, supprimer la branche source divergente si elle n’a plus d’utilité.
+
+## RISKS
+
+- À qualifier.

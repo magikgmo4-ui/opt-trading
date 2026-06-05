@@ -126,3 +126,7 @@ Relecture du child canonique nouvellement pose, puis decision explicite entre :
 
 1. poursuivre une phase AI_TEAM de remediation `identity + sandbox + SSH alias`, ou
 2. archiver ce child comme preuve de tentative et garder le parent AI_TEAM au niveau documentaire.
+
+## RISKS
+
+- À qualifier.

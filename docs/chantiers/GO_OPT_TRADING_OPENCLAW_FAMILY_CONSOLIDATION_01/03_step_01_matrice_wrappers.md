@@ -117,3 +117,7 @@ Cartographier les wrappers reels de la suite `OpenClaw` :
 Step suivant :
 - produire le runbook unique de suite
 - puis seulement proposer les conventions de wrappers de famille
+
+## RISKS
+
+- À qualifier.

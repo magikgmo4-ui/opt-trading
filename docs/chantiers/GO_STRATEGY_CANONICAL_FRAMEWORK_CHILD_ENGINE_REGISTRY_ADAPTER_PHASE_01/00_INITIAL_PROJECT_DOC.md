@@ -46,3 +46,7 @@ Phase 1 : ajouter un adapter léger lecture/validation seulement.
 ### 5_RESUME_POINT
 
 Base stratégie complète. Ce GO ajoute une fine couche adapter avant toute migration engine.
+
+## RISKS
+
+- À qualifier.

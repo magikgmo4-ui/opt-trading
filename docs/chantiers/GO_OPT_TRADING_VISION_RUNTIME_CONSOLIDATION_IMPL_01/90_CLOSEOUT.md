@@ -61,3 +61,7 @@ Phase suivante :
 - tester le flux inbox → outbox
 - valider Telegram /analyze
 ```
+
+## RISKS
+
+- À qualifier.

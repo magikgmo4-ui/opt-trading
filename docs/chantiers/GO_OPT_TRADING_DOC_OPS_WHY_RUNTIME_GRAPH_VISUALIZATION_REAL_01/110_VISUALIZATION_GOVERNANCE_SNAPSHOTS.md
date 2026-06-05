@@ -33,3 +33,7 @@ Preparer les snapshots governance/runtime du WHY runtime graph.
 ## Invariant
 
 Les snapshots governance/runtime ne doivent jamais devenir des validations runtime autonomes.
+
+## RISKS
+
+- À qualifier.

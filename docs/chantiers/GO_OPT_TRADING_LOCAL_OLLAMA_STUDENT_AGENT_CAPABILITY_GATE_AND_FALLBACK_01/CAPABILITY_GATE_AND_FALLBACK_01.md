@@ -60,3 +60,7 @@ Il est **fiable** pour :
 3. Toute tâche de trading → **REFUSÉ** (hors scope de cette baseline)
 4. L'absence de fallback viable n'est pas un bug mais une **limitation documentée**
 5. Ne pas utiliser le 1.5B pour usage interactif (> 120s)
+
+## RISKS
+
+- À qualifier.

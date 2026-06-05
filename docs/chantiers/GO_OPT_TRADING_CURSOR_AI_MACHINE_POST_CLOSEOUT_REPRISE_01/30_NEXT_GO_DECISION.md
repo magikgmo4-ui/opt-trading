@@ -26,3 +26,7 @@ Decision attendue pour chaque :
 ## Regle
 
 Rester sur cursor-ai. Ne pas ouvrir admin-trading sans demande explicite "chantiers pour admin-trading".
+
+## RISKS
+
+- À qualifier.

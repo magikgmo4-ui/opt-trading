@@ -49,3 +49,7 @@ Objectif :
 - aucun GO runtime OpenClaw base sur cette passe
 - aucun cleanup Git
 - aucune suppression des branches absentes du Git reel sans arbitrage explicite
+
+## RISKS
+
+- À qualifier.

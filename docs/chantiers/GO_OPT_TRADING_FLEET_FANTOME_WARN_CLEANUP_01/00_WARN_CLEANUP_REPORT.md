@@ -119,3 +119,7 @@ overall_status fantome      : PASS (was WARN)
 admin-trading unaffected    : PASS
 Tests 111/111               : PASS
 ```
+
+## RISKS
+
+- À qualifier.

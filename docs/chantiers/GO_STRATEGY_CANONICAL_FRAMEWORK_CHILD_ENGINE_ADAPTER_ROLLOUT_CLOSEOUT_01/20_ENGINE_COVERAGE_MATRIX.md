@@ -22,3 +22,7 @@ trading_realtime_v1 ✅
 -> notification_dispatcher ✅
 -> trading_lab_v1 ✅
 ```
+
+## RISKS
+
+- À qualifier.

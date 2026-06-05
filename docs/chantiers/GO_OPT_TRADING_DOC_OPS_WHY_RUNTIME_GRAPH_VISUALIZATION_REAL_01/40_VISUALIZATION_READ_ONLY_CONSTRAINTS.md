@@ -35,3 +35,7 @@ Verrouiller les contraintes lecture seule de la visualisation WHY runtime graph.
 ## Invariant
 
 La visualisation WHY runtime graph doit rester lecture seule tant qu'aucune gouvernance runtime explicite n'est validee.
+
+## RISKS
+
+- À qualifier.

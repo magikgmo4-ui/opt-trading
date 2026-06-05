@@ -45,3 +45,7 @@ GATE_PASS
 | Pas de validation state/ JSONL runtime | Basse (post-hoc) |
 | Pas de CI check | Moyenne (futur) |
 | Pas de pre-commit hook | Basse (futur) |
+
+## RISKS
+
+- À qualifier.

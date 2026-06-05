@@ -48,3 +48,7 @@
 ## Statut
 
 - PASS: batch manuel borne, diff reviewable, validateur intact.
+
+## RISKS
+
+- À qualifier.

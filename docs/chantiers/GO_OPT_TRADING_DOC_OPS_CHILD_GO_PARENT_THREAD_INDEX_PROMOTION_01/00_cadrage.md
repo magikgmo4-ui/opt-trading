@@ -78,3 +78,7 @@ Ne pas faire :
 ## Point de reprise
 
 `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_GO_PARENT_THREAD_INDEX_PROMOTION_01/02_index_contract.md`
+
+## RISKS
+
+- À qualifier.

@@ -44,3 +44,7 @@ Les regles d'adoption progressive sont figees.
 ```text
 GO_COLLECTORS_OPERATOR_SURFACE_ALIGNMENT_01
 ```
+
+## RISKS
+
+- À qualifier.

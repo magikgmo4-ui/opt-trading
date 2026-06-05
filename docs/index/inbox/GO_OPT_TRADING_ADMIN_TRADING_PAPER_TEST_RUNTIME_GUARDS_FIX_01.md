@@ -41,3 +41,7 @@ Guard runtime `PAPER_TEST` ajoute localement pour rendre le mode paper detectabl
 ## Suite
 
 Apres merge et deploiement sur `admin-trading`, verifier `/api/paper/guards` en PASS avant toute nouvelle tentative `PAPER_TEST`.
+
+## RISKS
+
+- À qualifier.

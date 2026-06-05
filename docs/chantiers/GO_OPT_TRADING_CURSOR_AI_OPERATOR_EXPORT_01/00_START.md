@@ -45,3 +45,7 @@ Option C de la sequence cursor-ai : produire un export operateur propre, autonom
 - Doc-only / bundle-only.
 - Admin-trading ferme.
 - Aucun secret, runtime, endpoint externe.
+
+## RISKS
+
+- À qualifier.

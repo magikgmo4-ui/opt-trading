@@ -24,3 +24,7 @@ Valider l'exécution réelle des wrappers canoniques déployés sur `admin-tradi
 
 ## 4. CONCLUSION
 Les wrappers sont opérationnels, correctement linkés et les scripts sous-jacents sont robustes (patch symlink confirmé efficace).
+
+## RISKS
+
+- À qualifier.

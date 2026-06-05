@@ -67,3 +67,7 @@ Suite recommandée :
 ## 9. TRIGGER NATUREL SUIVANT
 
 `GO_OT_TRADING_LAB_V1_COMPARATOR_PASS_01`
+
+## RISKS
+
+- À qualifier.

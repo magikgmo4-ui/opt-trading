@@ -44,3 +44,7 @@ links:
 Les branches admin-trading existent dans le repo mais sont sous controle de la machine admin-trading. Cursor-ai ne les manipule pas sans ouverture explicite.
 
 Voir `docs/index/MACHINE_WORK_SPLIT_ANTI_CONFLICT_01.md`, bloc ADMIN_TRADING.
+
+## RISKS
+
+- À qualifier.

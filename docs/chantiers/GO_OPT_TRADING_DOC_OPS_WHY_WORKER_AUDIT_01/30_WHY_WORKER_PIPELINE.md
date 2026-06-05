@@ -39,3 +39,7 @@ Definir le pipeline du futur worker WHY.
 ## Invariant
 
 Le pipeline ne doit jamais produire un APPLY runtime automatique.
+
+## RISKS
+
+- À qualifier.

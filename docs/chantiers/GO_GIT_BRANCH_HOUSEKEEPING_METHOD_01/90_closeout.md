@@ -55,3 +55,7 @@ NO_MEMORY — la règle est maintenant ancrée dans le repo et n’a plus besoin
 ## Verdict
 
 PASS — méthode canonique figée et sortie de la session.
+
+## RISKS
+
+- À qualifier.

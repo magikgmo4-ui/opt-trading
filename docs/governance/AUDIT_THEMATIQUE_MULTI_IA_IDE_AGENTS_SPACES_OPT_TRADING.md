@@ -84,3 +84,7 @@
   2. figer une synthese canonique OpenClaw
   3. clarifier la carte produit Hugging Face spaces
   4. clarifier le runtime canonique DeepSeek
+
+## RISKS
+
+- À qualifier.

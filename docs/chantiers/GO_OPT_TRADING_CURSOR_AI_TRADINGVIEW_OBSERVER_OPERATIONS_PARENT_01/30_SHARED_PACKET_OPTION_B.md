@@ -43,3 +43,7 @@ Transfert manuel via WinSCP uniquement. Non automatise.
 ## NEXT_GO
 
 `GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_ALERT_WEBHOOK_TEMPLATE_01` — Phase 10.
+
+## RISKS
+
+- À qualifier.

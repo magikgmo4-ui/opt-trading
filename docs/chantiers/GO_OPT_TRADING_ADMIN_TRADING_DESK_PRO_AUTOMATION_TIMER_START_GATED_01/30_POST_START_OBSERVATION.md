@@ -52,3 +52,7 @@ UNIT   desk_pro_dry_run.timer
 - objectif principal atteint: timer active avec prochain trigger visible
 - service ne reste pas actif apres execution
 - aucun start manuel du service n'a ete fait
+
+## RISKS
+
+- À qualifier.

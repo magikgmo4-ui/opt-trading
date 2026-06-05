@@ -50,3 +50,7 @@ Ouvrir un GO preparatoire de guards runtime avant toute relance:
 ```text
 GO_OPT_TRADING_ADMIN_TRADING_PAPER_TEST_GUARD_RUNTIME_FIX_01
 ```
+
+## RISKS
+
+- À qualifier.

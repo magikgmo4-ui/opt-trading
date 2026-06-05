@@ -118,3 +118,7 @@ The continuity branch is sot/mainline.
 ## Statut
 
 **REFERENCE — baseline ChatGPT retenue au 2026-04-19**
+
+## RISKS
+
+- À qualifier.

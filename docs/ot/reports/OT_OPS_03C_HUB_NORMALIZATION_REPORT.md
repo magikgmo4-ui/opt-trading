@@ -16,3 +16,7 @@ Intégrer les outils de développement et de maintenance validés dans le Hub Op
 
 ## 4. RÉSULTAT
 Le Hub Opérateur reflète mieux la réalité de l'outillage disponible.
+
+## RISKS
+
+- À qualifier.

@@ -68,3 +68,7 @@ Payload result: WARN with no blocking errors and safety flags all true
 Timer state: active/waiting, next trigger at Sat 2026-05-09 07:29:23 EDT
 Next GO: GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_TIMER_STABILITY_WINDOW_01
 ```
+
+## RISKS
+
+- À qualifier.

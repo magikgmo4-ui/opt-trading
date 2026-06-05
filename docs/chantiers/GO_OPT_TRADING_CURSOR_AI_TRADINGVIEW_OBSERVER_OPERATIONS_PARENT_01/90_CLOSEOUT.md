@@ -23,3 +23,7 @@ ACTIVE — Parent cursor-ai operationnel. Children 1-3 PASS. Pret pour parent cl
 ## Prochain GO
 
 `GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_PARENT_CLOSEOUT_01`
+
+## RISKS
+
+- À qualifier.

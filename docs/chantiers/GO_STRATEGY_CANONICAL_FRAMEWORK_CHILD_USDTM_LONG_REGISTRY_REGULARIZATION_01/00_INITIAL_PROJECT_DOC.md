@@ -32,3 +32,7 @@ Exclu : pas de refactor, pas de changement runtime, pas de modules/strategy/.
 
 - `[COINM_SHORT_REGISTERED]` : PR #541 mergée ; COINM_SHORT = entrée #3.
 - `[USDTM_LONG_P1_CANDIDATE]` : USDTM_LONG = candidat P1, même pattern.
+
+## RISKS
+
+- À qualifier.

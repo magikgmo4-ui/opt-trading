@@ -32,3 +32,7 @@ Le dégel ne pourra avoir lieu que si :
 3.  La bascule est prouvée par un test sur machine réelle.
 
 En attendant, **`scripts/student/` EST LA PROD.**
+
+## RISKS
+
+- À qualifier.

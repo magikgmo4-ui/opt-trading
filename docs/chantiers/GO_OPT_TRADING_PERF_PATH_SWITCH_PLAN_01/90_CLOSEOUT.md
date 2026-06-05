@@ -45,3 +45,7 @@ Il n'effectue aucune bascule runtime.
 ```text
 GO_OPT_TRADING_PERF_PATH_SWITCH_IMPL_01
 ```
+
+## RISKS
+
+- À qualifier.

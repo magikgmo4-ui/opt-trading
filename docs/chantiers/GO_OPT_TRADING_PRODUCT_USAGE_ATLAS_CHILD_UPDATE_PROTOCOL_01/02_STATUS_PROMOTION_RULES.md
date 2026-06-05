@@ -238,3 +238,7 @@ Chaque promotion nécessite une preuve minimale explicite.
 Matrice de transition complète avec conditions.
 Rétrogradation autorisée et documentée.
 ```
+
+## RISKS
+
+- À qualifier.

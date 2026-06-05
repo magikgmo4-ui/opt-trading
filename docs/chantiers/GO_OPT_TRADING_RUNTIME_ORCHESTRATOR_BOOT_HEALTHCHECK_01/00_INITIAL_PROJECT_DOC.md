@@ -111,3 +111,7 @@ Points prévus mais hors scope Phase 1 :
 - `healthcheck.jsonl` : exploitable par tout outil d'analyse time-series
 - JSON Schema : permettra la validation CI des rapports
 - Timer `Persistent=true` : rattrapage des runs manqués (reboot long)
+
+## RISKS
+
+- À qualifier.

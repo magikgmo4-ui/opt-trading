@@ -18,3 +18,7 @@ Avant de clore une mission, vérifier :
 - [ ] Pas de fichiers temporaires (`tmp_`, `test_`) laissés à la racine ?
 - [ ] Les rapports de mission sont-ils bien nommés et complets ?
 - [ ] Le statut final est-il clair (PASS, PARTIAL, FAIL) ?
+
+## RISKS
+
+- À qualifier.

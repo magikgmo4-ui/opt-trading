@@ -65,3 +65,7 @@ GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_01
 ## DECISION
 
 Decision retenue : realigner d'abord la documentation canonique sur `sot/mainline`, puis ouvrir le child TMUX comme prochain GO actif, sans merger ni rebase la branche parent brute dans cette passe.
+
+## RISKS
+
+- À qualifier.

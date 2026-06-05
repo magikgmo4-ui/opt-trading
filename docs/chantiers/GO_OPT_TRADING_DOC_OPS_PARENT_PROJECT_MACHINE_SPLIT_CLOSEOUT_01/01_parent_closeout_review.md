@@ -65,3 +65,7 @@ links:
 ## Verdict
 
 CLOSE — tous les criteres de closeout sont remplis. Aucun ecart reel n'impose de garder le parent ouvert.
+
+## RISKS
+
+- À qualifier.

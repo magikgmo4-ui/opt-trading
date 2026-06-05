@@ -43,3 +43,7 @@ Seed `BRANCH_STATE.md` pour les branches `db-layer/OpenClaw` manquantes, avec co
 ## Regle
 
 Les 2 branches du bloc `DB_LAYER` absentes du Git reel observe (`GO_OPT_TRADING_AIRTABLE_ORCHESTRATION_PARENT_01`, `GO_OPT_TRADING_REPO_KG_PARENT_GRAPH_SYSTEM_01`) ne sont pas supprimees ici ; elles restent seulement signalees comme ecart documentaire / `A_VERIFIER`.
+
+## RISKS
+
+- À qualifier.

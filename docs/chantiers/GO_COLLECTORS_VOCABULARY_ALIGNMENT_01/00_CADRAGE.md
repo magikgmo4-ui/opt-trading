@@ -51,3 +51,7 @@ Converger sur :
 - 0 schema change
 - 0 provider #3
 ```
+
+## RISKS
+
+- À qualifier.

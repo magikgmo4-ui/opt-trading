@@ -39,3 +39,7 @@ Il couvre:
 ## Invariant
 
 Le prototype statique WHY/runtime doit rester lecture seule, local et audit-oriented.
+
+## RISKS
+
+- À qualifier.

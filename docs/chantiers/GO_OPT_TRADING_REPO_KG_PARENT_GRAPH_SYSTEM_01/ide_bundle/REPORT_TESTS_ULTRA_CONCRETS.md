@@ -118,3 +118,7 @@ Le schema V1 couvre les types de nodes et edges pour representer cette realite.
 ## Verdict global
 
 **PASS** — 13/14 tests passent. 1 GAP identifie (branche en retard sur mainline).
+
+## RISKS
+
+- À qualifier.

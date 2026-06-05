@@ -121,3 +121,7 @@ Pipeline Order:
 ## Conclusion
 
 Le premier job orchestrateur controle sur `db-layer` a valide l'ensemble de la pile : SSH transport, CLI openclaw, Gateway V2, orchestration desk_pro_orchestrator, execution sample 11 modules en PAPER mode. Aucun effet de bord, aucun write hors perimetre, aucun secret.
+
+## RISKS
+
+- À qualifier.

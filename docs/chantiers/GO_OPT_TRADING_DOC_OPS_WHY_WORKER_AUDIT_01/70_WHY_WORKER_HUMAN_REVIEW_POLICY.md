@@ -37,3 +37,7 @@ Il ne valide jamais seul un runtime critique.
 ## Invariant
 
 Le worker WHY ne doit jamais remplacer une decision humaine sur surface critique.
+
+## RISKS
+
+- À qualifier.

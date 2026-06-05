@@ -84,3 +84,7 @@ links:
 ## Pre-check — verdict intermediaire
 
 **PASS** — Tous les artefacts du pack sont presents, intacts, conformes et prets pour le test d'usage reel.
+
+## RISKS
+
+- À qualifier.

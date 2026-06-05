@@ -33,3 +33,7 @@ Structurer les sorties reporting du WHY lint experimental.
 ## Invariant
 
 Les rapports lint ne doivent jamais devenir des validations runtime autonomes.
+
+## RISKS
+
+- À qualifier.

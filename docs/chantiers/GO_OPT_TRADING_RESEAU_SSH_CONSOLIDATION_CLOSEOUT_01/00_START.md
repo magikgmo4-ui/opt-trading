@@ -40,3 +40,7 @@
 - `reseau_ssh` reste transverse
 - ce closeout ne cree pas un nouveau parent machine
 - ce closeout fige l'etat physique constate pour preparer la reprise suivante
+
+## RISKS
+
+- À qualifier.

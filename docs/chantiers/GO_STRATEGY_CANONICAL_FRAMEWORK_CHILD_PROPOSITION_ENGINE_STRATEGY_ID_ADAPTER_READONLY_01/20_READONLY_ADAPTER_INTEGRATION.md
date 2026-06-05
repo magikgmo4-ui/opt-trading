@@ -36,3 +36,7 @@ class PropositionEngine:
 |----------|---------------------|
 | `strategy_id` connu (ex: `xau_session_open_v1`) | Silence, proposition normale |
 | `strategy_id` inconnu (ex: `test_v1`) | Warning log, proposition normale |
+
+## RISKS
+
+- À qualifier.

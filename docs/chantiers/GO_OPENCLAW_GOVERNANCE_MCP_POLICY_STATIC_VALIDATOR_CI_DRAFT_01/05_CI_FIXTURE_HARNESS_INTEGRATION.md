@@ -112,3 +112,7 @@ Future changes to fixture count must update the fixture corpus closeout and CI a
 ## 19_TO_REMEMBER
 
 Harness PASS is static corpus alignment only. It does not approve runtime policy use.
+
+## RISKS
+
+- À qualifier.

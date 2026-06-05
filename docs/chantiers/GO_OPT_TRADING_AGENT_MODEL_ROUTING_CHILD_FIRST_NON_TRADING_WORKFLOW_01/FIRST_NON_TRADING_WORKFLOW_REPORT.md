@@ -70,3 +70,7 @@ Precheck strict_workers : A1 conforme.
 ## VERDICT
 
 **FIRST_NON_TRADING_WORKFLOW_PASS** — Premier workflow reel non-trading execute avec succes. Routage multi-provider valide en conditions reelles (read-only, doc audit).
+
+## RISKS
+
+- À qualifier.

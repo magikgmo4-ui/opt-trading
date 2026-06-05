@@ -35,3 +35,7 @@ docs/chantiers/GO_LOCAL_LLM_WORKER_STUDENT_TEST_01/
 ```text
 installer runtime local → smoke test → audit 5 fichiers → rapport agrégé
 ```
+
+## RISKS
+
+- À qualifier.

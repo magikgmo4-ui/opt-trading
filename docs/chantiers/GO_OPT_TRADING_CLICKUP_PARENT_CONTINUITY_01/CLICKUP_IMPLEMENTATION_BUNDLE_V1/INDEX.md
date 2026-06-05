@@ -19,3 +19,7 @@ Appliquer 01 → 07 dans l'ordre.
 OBJECTIF
 
 Permettre une implémentation ClickUp reproductible, contrôlée et alignée avec le canon opt-trading.
+
+## RISKS
+
+- À qualifier.

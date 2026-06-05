@@ -69,3 +69,7 @@ Les artefacts reutilisables sont dans `bundles/claude-artifacts/` :
 - Ne pas committer secrets, .env, tokens ou outputs sensibles.
 - Ne pas marquer alert_webhook comme ferme.
 - Ne pas marquer Bundles produit comme ferme.
+
+## RISKS
+
+- À qualifier.

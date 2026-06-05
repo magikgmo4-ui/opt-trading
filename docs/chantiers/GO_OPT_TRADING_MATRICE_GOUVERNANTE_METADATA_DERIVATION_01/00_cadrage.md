@@ -90,3 +90,7 @@ Disposer d'une base de doctrine qui permette ensuite de deriver des enrichisseme
 
 Point de reprise local :
 - `docs/governance/MATRICE_GOUVERNANTE_METADATA_DERIVATION_01.md`
+
+## RISKS
+
+- À qualifier.

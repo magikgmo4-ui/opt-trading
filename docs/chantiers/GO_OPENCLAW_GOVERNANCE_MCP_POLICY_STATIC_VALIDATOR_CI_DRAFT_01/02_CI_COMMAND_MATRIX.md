@@ -99,3 +99,7 @@ If test counts change before activation, the activation GO must record the new c
 ## 19_TO_REMEMBER
 
 Passing static tests do not approve runtime policy use.
+
+## RISKS
+
+- À qualifier.

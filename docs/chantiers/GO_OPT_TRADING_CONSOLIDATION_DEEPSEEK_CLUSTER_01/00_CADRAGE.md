@@ -103,3 +103,7 @@ DEEPSEEK_CLUSTER_01 ouvert.
 Objectif : clarifier survivant, satellites, legacy, et prochain GO.
 Pas de migration executee dans ce child.
 ```
+
+## RISKS
+
+- À qualifier.

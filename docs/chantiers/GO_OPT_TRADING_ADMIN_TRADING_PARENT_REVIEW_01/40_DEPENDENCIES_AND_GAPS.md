@@ -94,3 +94,7 @@ updated_at: 2026-05-04
 - **Symptome**: GO_INDEX, ACTIVE_STREAMS, REPRISE modifies + fichiers supprimes
 - **Impact**: Divergence potentielle avec origin/sot/mainline
 - **Action**: Verifier l'etat, commit ou discard selon la politique
+
+## RISKS
+
+- À qualifier.

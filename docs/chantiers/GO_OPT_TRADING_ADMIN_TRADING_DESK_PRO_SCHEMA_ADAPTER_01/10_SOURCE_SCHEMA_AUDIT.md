@@ -100,3 +100,7 @@ L'adapter est un module **isolé** qui :
 3. Expose `read_events_v1()` pour les consumers
 
 Il ne modifie **aucun** fichier existant. Il est appelé explicitement par les consumers qui en ont besoin.
+
+## RISKS
+
+- À qualifier.

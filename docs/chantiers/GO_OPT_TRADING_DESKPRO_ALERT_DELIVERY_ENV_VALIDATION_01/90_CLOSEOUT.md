@@ -71,3 +71,7 @@ Ce comportement est non bloquant pour l'usage opérationnel réel
 Si la persistance du cooldown entre redémarrages est requise :
 persister `_alert_state` dans un fichier JSON au côté du JSONL.
 Non urgent — à traiter dans un GO dédié si besoin opérationnel confirmé.
+
+## RISKS
+
+- À qualifier.

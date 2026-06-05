@@ -52,3 +52,7 @@ Decider si la profondeur atteinte dans le parent impose l'ouverture d'un chantie
 
 ## Point de reprise
 Passer a `Step 08` pour arbitrer le closeout du parent ou son maintien ouvert jusqu'au traitement de l'hygiene documentaire restante sur `audit/`.
+
+## RISKS
+
+- À qualifier.

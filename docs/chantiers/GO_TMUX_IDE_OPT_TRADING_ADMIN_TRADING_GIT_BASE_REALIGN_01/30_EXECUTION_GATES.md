@@ -33,3 +33,7 @@ scope: doc-only
 - etat Git final de `admin-trading`
 - branche de depart canonique pour la suite `tmux-ide`
 - preuve que la machine est prete pour `tmux-ide` sans toucher au runtime
+
+## RISKS
+
+- À qualifier.

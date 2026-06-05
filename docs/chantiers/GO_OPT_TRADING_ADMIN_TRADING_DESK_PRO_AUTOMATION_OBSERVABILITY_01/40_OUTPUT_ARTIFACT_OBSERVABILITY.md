@@ -34,3 +34,7 @@ Les scans autorises ont retourne des artefacts existants lies a Desk Pro et a d'
 ## Conclusion
 
 La surface d'observabilite fichier existe deja, mais l'attribution au timer dry-run reste a confirmer apres un futur declenchement observe passivement ou dans un GO de start gate.
+
+## RISKS
+
+- À qualifier.

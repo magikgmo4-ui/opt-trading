@@ -77,3 +77,7 @@ Apres validation de ce gate request :
 ```
 
 Role : executer uniquement les commandes autorisees, capturer les sorties, puis decider si le runtime peut etre relance pour un test de bout en bout.
+
+## RISKS
+
+- À qualifier.

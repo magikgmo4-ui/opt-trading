@@ -102,3 +102,7 @@ Le routage multi-provider est adopte pour les workflows operationnels non-tradin
 Les surfaces autorisees sont documentees.
 Les surfaces interdites sont explicites.
 Les criteres PASS/NO_GO sont definis.
+
+## RISKS
+
+- À qualifier.

@@ -33,3 +33,7 @@ sudo systemctl reset-failed desk_pro_dry_run.service desk_pro_dry_run.timer || t
 - forbidden side effect appears in logs
 - explicit user request
 - follow-up fix GO decides to revert timer activation
+
+## RISKS
+
+- À qualifier.

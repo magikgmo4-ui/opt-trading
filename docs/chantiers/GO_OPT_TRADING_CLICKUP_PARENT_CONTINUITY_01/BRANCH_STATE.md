@@ -21,3 +21,7 @@ ETAT
 PROCHAINE ACTION
 - ancrer bundle complet
 - préparer schéma ClickUp
+
+## RISKS
+
+- À qualifier.

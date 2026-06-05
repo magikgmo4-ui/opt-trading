@@ -29,3 +29,7 @@ updated_at: 2026-05-09
 
 - manual service start in this GO: `NO`
 - systemd modification in this GO: `NO`
+
+## RISKS
+
+- À qualifier.

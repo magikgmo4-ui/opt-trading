@@ -315,3 +315,7 @@ GATE CRITIQUE AVANT PROPOSITION ENGINE:
   Valider opérationnel decision_engine + risk_engine + execution_engine
   (smoke test des moteurs existants avant de créer les workers)
 ```
+
+## RISKS
+
+- À qualifier.

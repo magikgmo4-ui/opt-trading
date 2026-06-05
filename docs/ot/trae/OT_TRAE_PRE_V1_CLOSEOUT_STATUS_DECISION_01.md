@@ -40,3 +40,7 @@ Acter canoniquement le statut global Trae **pré‑V1** : `PRE_V1_COHERENT_AVEC_
 
 ## 7. Point de reprise
 - `GO_OT_NEXT_MISSION_SELECTION_01`
+
+## RISKS
+
+- À qualifier.

@@ -56,3 +56,7 @@ flowchart LR
 - This does not mutate runtime state.
 - This does not modify CI, validators, or global indexes.
 - This does not infer nodes or edges outside the validated JSON source.
+
+## RISKS
+
+- À qualifier.

@@ -228,3 +228,7 @@ Bitget order
 Google Sheets write
 Telegram message
 ```
+
+## RISKS
+
+- À qualifier.

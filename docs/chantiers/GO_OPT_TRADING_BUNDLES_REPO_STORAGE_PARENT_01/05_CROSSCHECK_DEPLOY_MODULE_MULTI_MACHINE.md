@@ -350,3 +350,7 @@ les bundles peuvent encadrer deploy_module_multi_machine mais ne le remplacent p
 Prochaine action:
 mettre à jour la méthode ou checkpoint parent.
 ```
+
+## RISKS
+
+- À qualifier.

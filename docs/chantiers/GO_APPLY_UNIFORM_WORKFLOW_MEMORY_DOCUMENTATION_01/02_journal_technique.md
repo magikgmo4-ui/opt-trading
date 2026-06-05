@@ -69,3 +69,7 @@ links:
 
 ### REPRISE
 - reprendre via `docs/index/NEXT_GO_CANDIDATES.md` (entrée parent active) puis ce journal technique
+
+## RISKS
+
+- À qualifier.

@@ -28,3 +28,7 @@ links:
 - classer explicitement les ecarts en canon, legacy tolere ou review-required
 - qualifier les exceptions legacy avant toute cloture du parent naming
 - ne lancer aucun renommage reel tant que cet inventaire n'est pas clos
+
+## RISKS
+
+- À qualifier.

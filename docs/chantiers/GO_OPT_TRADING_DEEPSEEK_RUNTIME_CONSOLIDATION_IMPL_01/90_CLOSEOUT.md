@@ -57,3 +57,7 @@ Phase 3 :
 - mise a jour shortcuts
 - apres validation post_change et operateur
 ```
+
+## RISKS
+
+- À qualifier.

@@ -57,3 +57,7 @@ Ce lot ne cree pas docs/index/GO_PARENT_THREAD_MAP.md. La matrice d'affectation 
 ## Decision 7 : GO_REFERENCE_ONLY conserves tels quels
 
 Les 2 GO REFERENCE (UNIFORM_CONTINUITY_FINAL_MASTER_PLAN, EXTRACTEUR_TAGS_CANONICAL_METHOD) restent en REFERENCE_ONLY sans changement.
+
+## RISKS
+
+- À qualifier.

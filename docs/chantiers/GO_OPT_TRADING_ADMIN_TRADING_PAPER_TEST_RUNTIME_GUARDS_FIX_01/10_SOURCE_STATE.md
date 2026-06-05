@@ -60,3 +60,7 @@ Ce GO n'a pas modifie:
 - `.env`;
 - secrets;
 - configuration broker.
+
+## RISKS
+
+- À qualifier.

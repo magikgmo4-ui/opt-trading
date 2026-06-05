@@ -23,3 +23,7 @@ doc_type: gate_decision
 ## Verdict
 
 Maillon proposition_engine du rollout sécurisé.
+
+## RISKS
+
+- À qualifier.

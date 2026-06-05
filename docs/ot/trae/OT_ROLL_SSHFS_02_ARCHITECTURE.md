@@ -54,3 +54,7 @@ Date (America/Montreal) : 2026-03-13
 
 ## 6. LIGNE CANONIQUE PROJET
 `/shared` est le standard inter-machines : `admin-trading` expose `/srv/sftp/shared_files/shared`, les clients Linux montent cette source sur `/shared` via `shared_sshfs_permanent`, et Windows accède à la même surface via WinSCP/SFTP.
+
+## RISKS
+
+- À qualifier.

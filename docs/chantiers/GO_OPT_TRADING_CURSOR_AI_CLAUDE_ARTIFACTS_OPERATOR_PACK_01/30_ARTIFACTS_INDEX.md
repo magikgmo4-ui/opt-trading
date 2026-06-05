@@ -59,3 +59,7 @@ links:
 | Index des artefacts | `30_ARTIFACTS_INDEX.md` |
 | Workflow d'usage | `40_USAGE_WORKFLOW.md` + `20_OPERATOR_USAGE.md` |
 | Closeout | `90_CLOSEOUT.md` |
+
+## RISKS
+
+- À qualifier.

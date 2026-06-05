@@ -114,3 +114,7 @@ L'Atlas compte 13 produits, mais seuls 4 ont un guide. Les 9 autres ont besoin d
 docs/product/guides/README.md
 docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_USER_GUIDES_01/02_GUIDE_COVERAGE_MATRIX.md
 ```
+
+## RISKS
+
+- À qualifier.

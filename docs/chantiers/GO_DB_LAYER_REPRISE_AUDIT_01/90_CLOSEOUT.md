@@ -72,3 +72,7 @@ BRANCHE_COURANTE = PHASE1_30_RUN_14_DAY_OBSERVATION_01 (observation active)
 - `BRANCH_STATE.md` est la source de vérité branche
 - `GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01` reste l'ancre principale db-layer
 - Phase 1 observation continue — prochaine revue à 20 runs ou 7 jours
+
+## RISKS
+
+- À qualifier.

@@ -12,3 +12,7 @@ Admin/Trading Desk Pro ne nécessite pas d'agent OpenClaw dans l'état actuel.
 
 Student/Ollama reste la seule surface avec agent OpenClaw configuré et standardisé.
 Aucune extension vers Admin/Trading Desk Pro pour le moment.
+
+## RISKS
+
+- À qualifier.

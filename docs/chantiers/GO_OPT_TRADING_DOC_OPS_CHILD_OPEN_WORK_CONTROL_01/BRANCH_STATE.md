@@ -58,3 +58,7 @@ git fetch origin --prune
 git checkout go/GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01
 git status --short --branch
 ```
+
+## RISKS
+
+- À qualifier.

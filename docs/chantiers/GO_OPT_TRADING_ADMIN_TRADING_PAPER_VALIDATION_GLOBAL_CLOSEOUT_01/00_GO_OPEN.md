@@ -27,3 +27,7 @@ Complete paper validation cycle on admin-trading. This GO consolidates all evide
 - No PAPER_TEST payload
 - No runtime changes
 - No production activation
+
+## RISKS
+
+- À qualifier.

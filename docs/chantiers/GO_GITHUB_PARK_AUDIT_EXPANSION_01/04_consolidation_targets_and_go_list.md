@@ -250,3 +250,7 @@ Les GO ci-dessus doivent être traités comme sous-chantiers du parent `inventai
 ## Statut
 
 **VALIDATED — cibles de consolidation identifiées, GO listés, bundle IDE préparé**
+
+## RISKS
+
+- À qualifier.

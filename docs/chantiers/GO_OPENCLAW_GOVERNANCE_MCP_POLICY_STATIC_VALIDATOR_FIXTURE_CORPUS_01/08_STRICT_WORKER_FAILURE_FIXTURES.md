@@ -174,3 +174,7 @@ Future harness must report worker role, requested capability, and blocked reason
 ## 19_TO_REMEMBER
 
 A strict worker cannot become a governor by policy drift.
+
+## RISKS
+
+- À qualifier.

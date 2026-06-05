@@ -129,3 +129,7 @@ Pour tout child strategie :
 ```text
 PASS_SMC_ICT_OBSERVATION_SIGNAL_ENRICHMENT_DOC_ONLY_OPENED
 ```
+
+## RISKS
+
+- À qualifier.

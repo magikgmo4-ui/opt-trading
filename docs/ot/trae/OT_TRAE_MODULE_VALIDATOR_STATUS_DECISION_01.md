@@ -26,3 +26,7 @@ Régulariser le statut canonique de `trae_module_validator` sans forcer une clô
 
 ## 6. Point de reprise
 - Suite recommandée : `GO_OT_TRAE_SOCLE_ADOPTION_PROOF_01` (preuve minimale d’adoption réelle du socle Trae).
+
+## RISKS
+
+- À qualifier.

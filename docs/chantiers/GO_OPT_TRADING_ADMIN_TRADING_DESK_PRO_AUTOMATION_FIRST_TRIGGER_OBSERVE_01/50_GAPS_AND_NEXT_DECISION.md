@@ -27,3 +27,7 @@ The next healthy step is a short stability observation window rather than any li
 ## Alternative
 
 `GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_OBSERVABILITY_ROLLUP_01`
+
+## RISKS
+
+- À qualifier.

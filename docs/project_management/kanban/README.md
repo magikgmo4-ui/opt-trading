@@ -19,3 +19,7 @@ Recommended usage:
 2. Use `kanban_board.csv` for filtering, sorting, and reporting.
 3. Use `kanban_board_manager.md` for quick standups and decision meetings.
 4. Use `kanban_references.md` when a card needs traceability back to evidence.
+
+## RISKS
+
+- À qualifier.

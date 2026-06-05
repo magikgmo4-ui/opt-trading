@@ -64,3 +64,7 @@ Le GO est pret pour un premier render local seulement si ces gates restent visib
 ```text
 WIP / LOCAL_RENDER_GATES_LOCKED / JSON_ONLY_SOURCE
 ```
+
+## RISKS
+
+- À qualifier.

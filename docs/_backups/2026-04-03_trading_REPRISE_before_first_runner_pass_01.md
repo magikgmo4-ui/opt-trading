@@ -86,3 +86,7 @@ Ouvrir une **première passe du runner LAB** qui consomme réellement le profil 
 ## 9. FORMULE DE REPRISE COURTE
 
 Reprendre depuis `docs/ot/trading/00_TRADING_DUAL_STACK_LAB_REALTIME_V1.md`, `docs/ot/trading/02_TRADING_DUAL_STACK_CORE_SPEC_V1.md`, les fichiers `schemas/`, et `modules/trading_lab_v1/`, puis ouvrir la première passe du runner LAB avant toute implémentation REAL-TIME.
+
+## RISKS
+
+- À qualifier.

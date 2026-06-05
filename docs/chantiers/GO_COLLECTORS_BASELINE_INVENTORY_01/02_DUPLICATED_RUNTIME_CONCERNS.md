@@ -64,3 +64,7 @@ Le baseline inventory confirme la bonne question :
 aligner d'abord vocabulaire, artifacts, config boundary, operator surface.
 Pas d'extraction selective automatique a ce stade.
 ```
+
+## RISKS
+
+- À qualifier.

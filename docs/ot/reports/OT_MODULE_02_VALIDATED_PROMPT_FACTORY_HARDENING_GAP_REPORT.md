@@ -28,3 +28,7 @@ Date (America/Montreal) : 2026-03-14
 - Refonte UX (nouveaux modes, API, intégration menu hub).
 - Ajout de flags/options d’exécution non nécessaires au durcissement minimal.
 
+
+## RISKS
+
+- À qualifier.

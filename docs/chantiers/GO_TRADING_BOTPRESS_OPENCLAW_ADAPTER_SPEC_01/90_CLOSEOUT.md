@@ -55,3 +55,7 @@ Impl: Python/FastAPI adapter, lecture seule, safety gate, journalisation, smoke 
 ```
 docs/chantiers/GO_TRADING_BOTPRESS_OPENCLAW_ADAPTER_SPEC_01/01_ADAPTER_CONTRACT.md
 ```
+
+## RISKS
+
+- À qualifier.

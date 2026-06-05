@@ -205,3 +205,7 @@ Future implementation must report both the missing reference and the capability 
 ## 19_TO_REMEMBER
 
 A static validator does not approve gates. It only checks whether the policy requires and records the correct gate path.
+
+## RISKS
+
+- À qualifier.

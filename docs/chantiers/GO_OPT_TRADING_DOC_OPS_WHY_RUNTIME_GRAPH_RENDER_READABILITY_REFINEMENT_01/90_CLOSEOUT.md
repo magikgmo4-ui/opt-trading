@@ -91,3 +91,7 @@ produire l'artefact Markdown v1 borne depuis le JSON valide.
 ```text
 PASS_DOC_ONLY_READY_FOR_LOCAL_COMMIT
 ```
+
+## RISKS
+
+- À qualifier.

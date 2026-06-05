@@ -35,3 +35,7 @@ Date (America/Montreal) : 2026-03-14
 ## 6. POINT DE REPRISE EXACT
 > **GO_OT_SESSION_OPENING_DRILL_01**
 
+
+## RISKS
+
+- À qualifier.

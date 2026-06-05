@@ -54,3 +54,7 @@ Blocages etablis:
 ## Decision de scope
 
 Ce GO modifie uniquement le chemin de guard runtime local au webhook et ajoute des tests unitaires. Il ne lance pas le service, ne modifie pas la configuration cible et n'envoie pas de signal.
+
+## RISKS
+
+- À qualifier.

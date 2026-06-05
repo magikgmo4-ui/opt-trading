@@ -100,3 +100,7 @@ Aligner minimalement les surfaces suivantes :
 ## Point de reprise
 
 Lire `01_gap_matrix.md`, appliquer seulement le patch de continuite strictement necessaire, puis valider dans `02_next_flow_arbitration.md` que le prochain flux unique devient `GO_OPT_TRADING_DOC_OPS_CHILD_PRIMARY_RESTART_01`.
+
+## RISKS
+
+- À qualifier.

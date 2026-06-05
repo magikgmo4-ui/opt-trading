@@ -26,3 +26,7 @@ PASS
 Date: 2026-05-06
 Tester: fantome
 Branche: go/GO_OPT_TRADING_REPO_KG_PARENT_GRAPH_SYSTEM_01
+
+## RISKS
+
+- À qualifier.

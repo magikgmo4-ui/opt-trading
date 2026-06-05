@@ -22,3 +22,7 @@ Ces outils sont critiques mais utilisés à la demande (maintenance, dev).
 ## 3. ZONES AMBIGUËS
 - `scripts/desk_pro_menu.sh` : Doublon historique de `ops_menu_hub`. À supprimer plus tard.
 - `scripts/smoke.sh` : Test global utile, mais pas une routine opérateur standard.
+
+## RISKS
+
+- À qualifier.

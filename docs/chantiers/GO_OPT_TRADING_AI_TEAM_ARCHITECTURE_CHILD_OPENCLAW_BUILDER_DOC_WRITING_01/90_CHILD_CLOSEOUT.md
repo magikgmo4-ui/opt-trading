@@ -79,3 +79,7 @@ After merge, resume from `sot/mainline` and open the adoption child if needed:
 ```text
 GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_OPENCLAW_BUILDER_DOC_ADOPTION_01
 ```
+
+## RISKS
+
+- À qualifier.

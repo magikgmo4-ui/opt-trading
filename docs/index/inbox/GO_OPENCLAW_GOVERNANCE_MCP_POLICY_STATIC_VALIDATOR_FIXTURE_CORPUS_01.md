@@ -103,3 +103,7 @@ Document the force-add exception if the no-secret fixture file is ignored becaus
 NEXT_GO recommended after this corpus:
 
 `GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_IMPLEMENTATION_01`
+
+## RISKS
+
+- À qualifier.

@@ -58,3 +58,7 @@ python -m json.tool bundles/claude-artifacts/bundle_meta/manifest.json > $null &
 ## Verdict attendu
 
 Tous les checks PASS. Aucun fichier hors `bundles/`. Aucun secret.
+
+## RISKS
+
+- À qualifier.

@@ -70,3 +70,7 @@ Module bot_vision_headless V1 implemente et valide:
 ## Next GO
 
 GO_OPT_TRADING_ADMIN_TRADING_CHILD_BOT_VISION_HEADLESS_SYSTEMD_01 (P1)
+
+## RISKS
+
+- À qualifier.

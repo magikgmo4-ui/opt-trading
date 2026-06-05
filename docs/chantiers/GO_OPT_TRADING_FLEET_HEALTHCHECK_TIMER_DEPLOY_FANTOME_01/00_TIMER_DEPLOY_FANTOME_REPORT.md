@@ -120,3 +120,7 @@ Fleet orchestrator timer (db-layer)       : active (every 5 min)
 cursor-ai / student                       : inchangés (hors scope)
 Tests 111/111                             : PASS
 ```
+
+## RISKS
+
+- À qualifier.

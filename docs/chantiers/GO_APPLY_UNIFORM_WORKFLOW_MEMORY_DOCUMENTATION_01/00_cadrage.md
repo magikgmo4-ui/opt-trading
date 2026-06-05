@@ -53,3 +53,7 @@ Appliquer la règle de normalisation des headings déjà cadrée/validée dans `
 ## REPRISE
 Point de reprise local :
 - `docs/chantiers/GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01/02_journal_technique.md`
+
+## RISKS
+
+- À qualifier.

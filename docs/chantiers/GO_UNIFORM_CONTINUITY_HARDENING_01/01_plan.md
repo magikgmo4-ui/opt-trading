@@ -35,3 +35,7 @@ links:
 - cohérence entre index et closeouts PASS
 - cohérence entre index et prochain point de reprise réel
 - absence de nouveau chantier métier ouvert dans ce lot
+
+## RISKS
+
+- À qualifier.

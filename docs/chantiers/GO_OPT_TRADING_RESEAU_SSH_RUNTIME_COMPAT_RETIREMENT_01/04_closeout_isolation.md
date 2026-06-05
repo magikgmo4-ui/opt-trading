@@ -152,3 +152,7 @@ Suite admissible :
 - relire le cadrage publie
 - ouvrir separement tout travail de PR ou de fusion documentaire si requis
 - ne pas confondre cette publication bornee avec un feu vert de migration physique
+
+## RISKS
+
+- À qualifier.

@@ -88,3 +88,7 @@ links:
 ## Point de vigilance
 - risque principal : confondre IDE terminale distante, repo local réel et simple remote GitHub
 - point d’arrêt acceptable : cadrage canonique déposé avant implémentation réelle machine
+
+## RISKS
+
+- À qualifier.

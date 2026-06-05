@@ -58,3 +58,7 @@ bundles/
 - Aucun secret, .env, token dans les bundles
 - Aucun output live tracke
 - Doc-only sauf scripts d'application sans runtime
+
+## RISKS
+
+- À qualifier.

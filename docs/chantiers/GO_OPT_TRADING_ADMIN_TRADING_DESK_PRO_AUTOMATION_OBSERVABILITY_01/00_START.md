@@ -30,3 +30,7 @@ Observer passivement le timer Desk Pro dry-run deja installe, son etat systemd, 
 - aucun Telegram
 - aucun trade
 - aucun rollback execute
+
+## RISKS
+
+- À qualifier.

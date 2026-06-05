@@ -85,3 +85,7 @@ python -m pytest tests/test_signal_event_adapter.py -q
 ## Side effects des tests
 
 `NONE` — les tests n'écrivent aucun fichier, ne lisent aucun fichier réel, n'appellent aucun service.
+
+## RISKS
+
+- À qualifier.

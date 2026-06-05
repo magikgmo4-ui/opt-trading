@@ -40,3 +40,7 @@ Ouvrir explicitement la trajectoire Trae V1 par la couche **Agents V1** uniqueme
 
 ## 7. Point de reprise
 - `GO_OT_TRAE_SKILLS_V1_OPEN_01`
+
+## RISKS
+
+- À qualifier.

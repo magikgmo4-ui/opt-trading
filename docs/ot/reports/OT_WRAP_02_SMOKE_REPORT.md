@@ -13,3 +13,7 @@
 
 ## 4. CONCLUSION
 Les nouveaux wrappers sont fonctionnels et robustes aux liens symboliques.
+
+## RISKS
+
+- À qualifier.

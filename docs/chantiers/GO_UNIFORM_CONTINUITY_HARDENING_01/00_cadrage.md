@@ -49,3 +49,7 @@ links:
 ## Critères PASS / FAIL
 - PASS si : les index locaux reflètent au minimum les pilotes PASS et le prochain point de reprise réel
 - FAIL si : les index restent en retard ou contradictoires après hardening
+
+## RISKS
+
+- À qualifier.

@@ -39,3 +39,7 @@ observer et valider le comportement complet.
 - No live trade / No Bitget order
 - LocalCMS read-only
 - Rollback obligatoire en fin d'observation
+
+## RISKS
+
+- À qualifier.

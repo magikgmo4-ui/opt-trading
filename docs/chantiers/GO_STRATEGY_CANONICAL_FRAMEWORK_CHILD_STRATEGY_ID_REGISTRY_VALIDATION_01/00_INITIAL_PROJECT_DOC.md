@@ -79,3 +79,7 @@ Couche B — code :
 ```text
 PASS_STRATEGY_ID_REGISTRY_VALIDATION_WARNING_ONLY
 ```
+
+## RISKS
+
+- À qualifier.

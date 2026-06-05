@@ -780,3 +780,7 @@ Avant validation, les seuls gestes autorises sont :
 ## 17_RESUME_POINT — Parent
 
 Reprendre ici : document parent cree, statut `draft_for_user_validation`, attente validation ou corrections utilisateur.
+
+## RISKS
+
+- À qualifier.

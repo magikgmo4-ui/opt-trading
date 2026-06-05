@@ -11,3 +11,7 @@ Runbook d'usage contrôlé pour exploiter l'agent local Student/Ollama sans rouv
 
 - `docs/chantiers/.../RUNBOOK_CONTROLLED_USAGE_01.md`
 - `docs/chantiers/.../CHECKPOINT.md`
+
+## RISKS
+
+- À qualifier.

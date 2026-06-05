@@ -159,3 +159,7 @@ La doc est abondante (`docs/admin_trading_desk_pro*`, `docs/desk_pro_multi_machi
 3. **séparer opérateur / dev / maintenance**
 4. **stabiliser la cartographie MSI / admin-trading / Debian réseau**
 5. **ensuite seulement** reprendre l’extension écran réseau et l’intégration API large
+
+## RISKS
+
+- À qualifier.

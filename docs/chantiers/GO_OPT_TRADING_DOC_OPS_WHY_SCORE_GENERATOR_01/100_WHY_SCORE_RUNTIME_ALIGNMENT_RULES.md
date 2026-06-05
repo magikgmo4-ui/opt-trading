@@ -27,3 +27,7 @@ Relier le score WHY a la governance runtime.
 ## Invariant
 
 Le score WHY doit toujours etre contextualise par la criticite runtime.
+
+## RISKS
+
+- À qualifier.

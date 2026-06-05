@@ -102,3 +102,7 @@ Ce document fige le cadre suivant :
 - bascule des alias courts : non autorisable
 - rollback : pret et non utilise
 - suite correcte : lot separe de correction minimale runtime `step2`
+
+## RISKS
+
+- À qualifier.

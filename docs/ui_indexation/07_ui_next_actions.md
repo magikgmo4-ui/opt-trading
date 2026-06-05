@@ -26,3 +26,7 @@ Créer une **registry UI lisible** qui affiche :
 - refactor global des modules
 - fusionner toutes les UI trop tôt
 - déplacer des services entre machines sans map finale
+
+## RISKS
+
+- À qualifier.

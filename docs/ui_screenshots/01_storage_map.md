@@ -32,3 +32,7 @@ Aujourd’hui :
 Créer plus tard une logique claire de stockage en deux niveaux :
 1. **working/daily**
 2. **archive/memory**
+
+## RISKS
+
+- À qualifier.

@@ -67,3 +67,7 @@ Raisons :
 | B | oui | non | partielle | non retenue |
 | C | oui | sans objet | sans effet | inutile |
 | D | oui | oui | oui | retenue |
+
+## RISKS
+
+- À qualifier.

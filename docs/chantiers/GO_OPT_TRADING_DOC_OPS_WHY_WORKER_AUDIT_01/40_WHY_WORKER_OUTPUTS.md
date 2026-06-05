@@ -37,3 +37,7 @@ Les sorties doivent rester:
 ## Invariant
 
 Les sorties du worker WHY ne doivent jamais devenir des gates runtime autonomes.
+
+## RISKS
+
+- À qualifier.

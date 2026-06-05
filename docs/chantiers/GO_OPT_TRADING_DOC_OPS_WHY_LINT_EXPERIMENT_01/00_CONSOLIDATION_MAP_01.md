@@ -85,3 +85,7 @@ Cette carte de consolidation fixe les frontieres logiques entre les 4 axes struc
 - Il n'autorise aucune action runtime.
 - Il ne modifie aucun index global.
 - Il pose les frontieres pour eviter les doublons, contradictions et autorisations implicites.
+
+## RISKS
+
+- À qualifier.

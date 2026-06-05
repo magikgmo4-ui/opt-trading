@@ -99,3 +99,7 @@ La branche a ete absorbee dans `sot/mainline` et n'a plus de commit propre face 
 **DROP_REMOTE_CANDIDATE**
 
 Statut corrige pour suppression remote.
+
+## RISKS
+
+- À qualifier.

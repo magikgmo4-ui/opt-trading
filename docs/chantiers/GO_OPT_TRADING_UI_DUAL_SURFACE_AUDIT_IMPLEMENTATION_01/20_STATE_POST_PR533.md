@@ -102,3 +102,7 @@ Desk Pro : port 8010 confirmé, venv absent sur cette machine.
 localcms : opérationnel port 8000, indépendant.
 Prochaine action : qualifier env/ → tenter lancement perf_app port 8010.
 ```
+
+## RISKS
+
+- À qualifier.

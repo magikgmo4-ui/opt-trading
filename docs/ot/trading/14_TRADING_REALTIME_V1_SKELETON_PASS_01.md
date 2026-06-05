@@ -46,3 +46,7 @@ Cette passe reste **observation only** :
 ## TRIGGER NATUREL SUIVANT
 
 `GO_OT_TRADING_REALTIME_V1_EVENT_BRIDGE_PASS_01`
+
+## RISKS
+
+- À qualifier.

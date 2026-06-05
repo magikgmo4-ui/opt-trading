@@ -35,3 +35,7 @@ doisvent exiger une review humaine explicite.
 ## Invariant
 
 Le lint WHY ne doit jamais remplacer une review humaine critique.
+
+## RISKS
+
+- À qualifier.

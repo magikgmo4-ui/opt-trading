@@ -41,3 +41,7 @@ R5. Toute evolution runtime future doit reutiliser ce vocabulaire.
 3. operator surface alignment
 4. selective runtime extraction decision
 ```
+
+## RISKS
+
+- À qualifier.

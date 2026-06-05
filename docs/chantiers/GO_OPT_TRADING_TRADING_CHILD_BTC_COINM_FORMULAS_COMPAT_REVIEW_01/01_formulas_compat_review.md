@@ -627,3 +627,7 @@ BACKTEST_DATA_PREP reste bloqué tant que le child complet n'est pas PASS.
 MEM_CANDIDATE:
 Dans le chantier BTC/Gold accumulation, la suite validée impose FORMULAS_COMPAT_REVIEW avant BACKTEST_DATA_PREP. Objectif final global = stratégie robuste accumulation Bitcoin + Gold. Toute intégration doit réutiliser trading_lab_v1, Desk Pro, probability_engine/risk_engine si compatibles ; pas de nouveau module, backtest engine, UI ou worker runtime avant validation des formules.
 ```
+
+## RISKS
+
+- À qualifier.

@@ -21,3 +21,7 @@
 ## Prochain GO
 
 Aucun automatique. Cursor-ai prêt pour reprise opérateur.
+
+## RISKS
+
+- À qualifier.

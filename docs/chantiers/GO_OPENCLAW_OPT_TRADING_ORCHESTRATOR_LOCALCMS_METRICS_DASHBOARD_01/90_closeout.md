@@ -78,3 +78,7 @@ Tests couverts :
 - No automatic Sheets write ✓
 - No live trade ✓
 - No Bitget order ✓
+
+## RISKS
+
+- À qualifier.

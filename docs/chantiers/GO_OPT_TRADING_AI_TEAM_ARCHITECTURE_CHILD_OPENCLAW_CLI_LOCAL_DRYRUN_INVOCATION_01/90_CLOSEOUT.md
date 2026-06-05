@@ -82,3 +82,7 @@ fantome
 → Remote/SSH : BLOCKED
 → Next : installation CLI (validation humaine requise) + dry-run builder
 ```
+
+## RISKS
+
+- À qualifier.

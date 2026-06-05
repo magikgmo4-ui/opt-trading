@@ -37,3 +37,7 @@ links:
 | `GO_PARENT_THREAD_MAP.md` reste derive | OUI | doctrine explicite du maitre + entete du map | pas de concurrence souveraine |
 | `BRANCH_STATE.md` reste surface branches | OUI | maitre + fichier lui-meme | aucun patch requis |
 | Lot complementaire reel propre au parent | NON | aucun gap prouve residuel | fermeture parent autorisable |
+
+## RISKS
+
+- À qualifier.

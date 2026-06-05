@@ -29,3 +29,7 @@ Demarrer uniquement `desk_pro_dry_run.timer`, observer l'etat systemd obtenu, et
 - observation post-start
 - journal et artefacts passifs
 - rollback readiness uniquement
+
+## RISKS
+
+- À qualifier.

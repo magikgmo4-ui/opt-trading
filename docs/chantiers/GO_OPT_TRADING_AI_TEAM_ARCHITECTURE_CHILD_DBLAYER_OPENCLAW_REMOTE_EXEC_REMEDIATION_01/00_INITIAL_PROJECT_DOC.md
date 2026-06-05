@@ -158,3 +158,7 @@ TAGS :
 ## NEXT_GO
 
 Creer les fiches d'audit pour les trois gaps (identity + sandbox + SSH alias), puis decider si remediation justifie une execution reelle.
+
+## RISKS
+
+- À qualifier.

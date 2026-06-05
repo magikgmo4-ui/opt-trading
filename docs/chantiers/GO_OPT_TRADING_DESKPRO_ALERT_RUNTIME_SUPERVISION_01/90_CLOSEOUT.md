@@ -44,3 +44,7 @@ PORT_8010 = tv-perf.service / uvicorn modules.perf.app:app (DOWN en local)
 | Venv | absent en local, `system python3` (miniforge3 3.13.12) utilisé |
 | `scripts/diagnose.sh` | script complet déjà existant — à utiliser en premier |
 | Cooldown | process-local, reset au restart — documenté |
+
+## RISKS
+
+- À qualifier.

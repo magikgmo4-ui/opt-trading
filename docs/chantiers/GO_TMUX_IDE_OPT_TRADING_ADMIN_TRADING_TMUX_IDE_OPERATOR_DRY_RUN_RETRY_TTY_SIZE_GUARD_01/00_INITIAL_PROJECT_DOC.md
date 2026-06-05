@@ -110,3 +110,7 @@ Retry operateur avec stty guard execute.
 NEXT:
 Lire 10_PREFLIGHT_TTY_SIZE_GUARD.md.
 ```
+
+## RISKS
+
+- À qualifier.

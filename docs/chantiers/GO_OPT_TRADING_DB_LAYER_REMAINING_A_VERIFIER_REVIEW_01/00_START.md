@@ -35,3 +35,7 @@ Revue doc-only des 4 branches `A_VERIFIER` restantes sur la surface `db-layer/Op
 - aucune suppression Git
 - aucun cleanup
 - ne pas modifier `GO_INDEX` / `ACTIVE_STREAMS` / `REPRISE`
+
+## RISKS
+
+- À qualifier.

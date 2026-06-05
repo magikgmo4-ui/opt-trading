@@ -39,3 +39,7 @@ Desk Pro doit pouvoir s'executer de facon automatique en mode sur, sans trade re
 ## Principe de conception
 
 L'automatisation ne doit pas dependre d'un chainage fragile webhook -> capture -> decision. Elle doit pouvoir fonctionner avec des artefacts asynchrones, tolere le stale, et degrader proprement vers un mode synthese partielle si un input manque.
+
+## RISKS
+
+- À qualifier.

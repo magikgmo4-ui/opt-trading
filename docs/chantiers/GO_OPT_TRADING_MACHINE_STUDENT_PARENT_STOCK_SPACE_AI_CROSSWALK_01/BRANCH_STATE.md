@@ -11,3 +11,7 @@
 | Source branch 2 | `go/GO_STOCK_SPACE_AI_MARKET_STRUCTURE_PARENT_01` |
 | Status | `OPEN` |
 | Next | `branch crosswalk + LUNR/FLY reconciliation` |
+
+## RISKS
+
+- À qualifier.

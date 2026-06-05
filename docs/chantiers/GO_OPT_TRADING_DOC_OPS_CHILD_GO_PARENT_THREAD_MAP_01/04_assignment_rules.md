@@ -90,3 +90,7 @@ On ne deplace pas un GO d'un parent a un parent machine sans preuve que :
 ## Regle 10 : matrice draft avant matrice canonique
 
 La matrice draft reste dans le dossier chantier. On ne cree pas `docs/index/GO_PARENT_THREAD_MAP.md` dans ce lot sauf necessite prouvee et documentee.
+
+## RISKS
+
+- À qualifier.

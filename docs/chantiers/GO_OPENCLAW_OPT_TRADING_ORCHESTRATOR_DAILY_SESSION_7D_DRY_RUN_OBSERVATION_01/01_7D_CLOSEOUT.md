@@ -97,3 +97,7 @@ elle est sans impact sur le comportement timer normal.
 Le timer systemd reste actif après ce GO pour continuer les runs
 quotidiens automatiques en dry-run. Le prochain trigger est à minuit.
 Pour désactiver : `sudo bash scripts/schedule/uninstall_scheduler_service.sh`.
+
+## RISKS
+
+- À qualifier.

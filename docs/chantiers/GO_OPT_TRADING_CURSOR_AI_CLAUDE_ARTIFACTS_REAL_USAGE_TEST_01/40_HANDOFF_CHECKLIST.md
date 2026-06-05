@@ -83,3 +83,7 @@ Verification que le handoff operateur (`bundles/operator-export/HANDOFF.md`) est
 | Reprise | 1 | 1 | 0 |
 
 **Verdict** : PASS — 21/21 checks, le handoff est complet et executable.
+
+## RISKS
+
+- À qualifier.

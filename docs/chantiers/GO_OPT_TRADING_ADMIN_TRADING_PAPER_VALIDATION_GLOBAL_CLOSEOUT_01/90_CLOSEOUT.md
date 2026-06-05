@@ -44,3 +44,7 @@ Gate → Guards Fix → Runtime Sync → Flags Config
 - No runtime changes
 - No production activation
 - No secrets exposed
+
+## RISKS
+
+- À qualifier.

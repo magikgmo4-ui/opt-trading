@@ -43,3 +43,7 @@ Exécuter les re-probes SSH (voir fichiers 10/20/30/40), remplir les champs À_C
 ## Prochain GO
 
 `GO_TMUX_IDE_OPT_TRADING_ADMIN_TRADING_TMUX_IDE_INSTALL_01` — installer tmux-ide, créer ide.yml, doctor + validate.
+
+## RISKS
+
+- À qualifier.

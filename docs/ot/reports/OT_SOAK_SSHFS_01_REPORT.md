@@ -68,3 +68,7 @@ Statut : **NON TESTÉ**
 
 ## 5. CONCLUSION (PROVISOIRE)
 Post-boot et usage normal sont prouvés OK sur `db-layer`. La seule réserve restante concerne une preuve explicite de comportement après reconnexion réseau (incident réel ou test contrôlé).
+
+## RISKS
+
+- À qualifier.

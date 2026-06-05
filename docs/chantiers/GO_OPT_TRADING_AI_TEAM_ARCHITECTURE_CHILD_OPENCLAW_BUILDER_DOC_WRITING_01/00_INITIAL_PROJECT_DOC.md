@@ -46,3 +46,7 @@ Obtenir un pack documentaire builder complet, borné et mergeable.
 ## 17_RESUME_POINT
 
 Reprendre à l'écriture de `BUILDER_OPERATIONAL_GUIDE.md`.
+
+## RISKS
+
+- À qualifier.

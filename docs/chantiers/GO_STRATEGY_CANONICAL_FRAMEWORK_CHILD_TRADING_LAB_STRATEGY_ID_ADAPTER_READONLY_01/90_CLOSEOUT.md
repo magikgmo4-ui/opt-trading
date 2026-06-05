@@ -32,3 +32,7 @@ trading_realtime_v1 ✅
 ## Suite
 
 Prochain chantier naturel : closeout du rollout complet de l'adapter strategie.
+
+## RISKS
+
+- À qualifier.

@@ -534,3 +534,7 @@ TMUX:
   localcms-ui session    → LocalCMS consumer (pane lcms:consumer)
   openclaw-core session  → menu_state_aggregator boucle (pane core:health)
 ```
+
+## RISKS
+
+- À qualifier.

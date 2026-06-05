@@ -86,3 +86,7 @@ sot/mainline
 ```text
 WIP / DOC_ONLY_SURFACES_INVENTORY_OPENED
 ```
+
+## RISKS
+
+- À qualifier.

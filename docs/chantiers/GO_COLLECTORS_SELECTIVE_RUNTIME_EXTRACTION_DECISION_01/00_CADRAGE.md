@@ -41,3 +41,7 @@ Ce GO est un gate de decision, pas une migration automatique.
 INCLUS : coût/bénéfice, zones extractibles, zones interdites, décision explicite.
 EXCLUS : refactor runtime, migration code, schema unification.
 ```
+
+## RISKS
+
+- À qualifier.

@@ -59,3 +59,7 @@ Tous les engines sont découplés de `modules/strategy/`. L'adapter devra :
 - Ne casser aucun import existant.
 - Être optionnel — importable sans risque.
 - Servir de point de lecture registry unique pour les engines qui veulent valider leurs strategy_id.
+
+## RISKS
+
+- À qualifier.

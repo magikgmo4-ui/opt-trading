@@ -40,3 +40,7 @@ Investigation compatibilite Linux x64 / packaging `tmux-ide` apres blocage `EBAD
 ## Suite
 
 Ouvrir un GO d'essai controle avec `tmux-ide@1.3.1` pinne avant toute installation durable ou creation `ide.yml`.
+
+## RISKS
+
+- À qualifier.

@@ -62,3 +62,7 @@ perf, collectors, repo_kg, bitget_bridge, ops_menu
 - restart automatique
 - modification /opt/trading
 ```
+
+## RISKS
+
+- À qualifier.

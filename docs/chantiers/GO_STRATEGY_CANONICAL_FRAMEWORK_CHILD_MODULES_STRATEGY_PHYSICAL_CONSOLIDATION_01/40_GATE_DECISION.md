@@ -16,3 +16,7 @@ Publication bloquée jusqu'au merge PR #545.
 - `python tools/strategy/validate_strategy_registry.py`
 - `from modules.strategy.registry import load_strategy_registry`
 - Diff limité au GO + `modules/strategy/`
+
+## RISKS
+
+- À qualifier.

@@ -46,3 +46,7 @@ Seuls les fichiers suivants sont autorisés :
 ## REPRISE
 Point de reprise unique :
 - `docs/chantiers/GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01/02_journal_technique.md`
+
+## RISKS
+
+- À qualifier.

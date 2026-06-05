@@ -46,3 +46,7 @@ Le repo dispose maintenant d'une base documentaire complete pour preparer:
 ## Invariant final
 
 La visualisation WHY runtime graph ne doit jamais devenir une orchestration runtime autonome ou remplacer une review humaine critique.
+
+## RISKS
+
+- À qualifier.

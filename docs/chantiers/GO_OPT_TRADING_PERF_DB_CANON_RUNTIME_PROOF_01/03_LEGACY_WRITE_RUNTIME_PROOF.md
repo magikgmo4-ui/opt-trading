@@ -54,3 +54,7 @@ Verdict G4 :
 ```text
 NON PROUVÉ
 ```
+
+## RISKS
+
+- À qualifier.

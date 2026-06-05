@@ -57,3 +57,7 @@ Comparaison effectuée entre `v2` et `fix3`.
 1. **Registry Update** : Ajouter `validated_prompt_factory`, `shared_sshfs_permanent`, `trae_module_validator`.
 2. **Wrapper Install** : Générer les wrappers manquants.
 3. **Workflow Fix** : Appliquer le patch `fix3` sur `v2` (Promotion) et supprimer le dossier temporaire.
+
+## RISKS
+
+- À qualifier.

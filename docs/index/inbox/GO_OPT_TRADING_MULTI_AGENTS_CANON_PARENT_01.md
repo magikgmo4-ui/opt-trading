@@ -53,3 +53,7 @@ aggregation_status: applied
 Cette entrée inbox est atomique. Elle ne remplace pas les index globaux.
 
 Elle sert à préparer un batch d'agrégation sans créer de conflit sur les fichiers globaux volumineux.
+
+## RISKS
+
+- À qualifier.

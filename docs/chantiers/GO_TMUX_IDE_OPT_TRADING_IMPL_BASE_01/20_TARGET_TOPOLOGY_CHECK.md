@@ -76,3 +76,7 @@ Topologies explicitement non retenues par defaut:
 
 - `db-layer` comme cible `tmux-ide` de base
 - `cursor-ai` comme cible locale `tmux-ide` de base
+
+## RISKS
+
+- À qualifier.

@@ -40,3 +40,7 @@ Fiche de reprise operateur pour cursor-ai :
 - Aucun secret, .env, token
 - Aucun output live
 - Doc-only + README + reprise
+
+## RISKS
+
+- À qualifier.

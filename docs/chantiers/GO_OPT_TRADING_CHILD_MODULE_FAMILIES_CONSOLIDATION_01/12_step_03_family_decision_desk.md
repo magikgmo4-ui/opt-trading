@@ -97,3 +97,7 @@ Ces modules restent adjacents à la stack Desk Pro, sans être des doublons à f
 - `Desk Pro`
 - `DeepSeek/student`
 - `reseau/share/transfer`
+
+## RISKS
+
+- À qualifier.

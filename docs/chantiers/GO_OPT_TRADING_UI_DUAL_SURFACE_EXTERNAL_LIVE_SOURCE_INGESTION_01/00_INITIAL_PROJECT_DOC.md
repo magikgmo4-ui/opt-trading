@@ -152,3 +152,7 @@ Perf finale : 7 trades, 5 closed, 2 open, PnL $540, engines FIXTURE_SEED + ECHO_
 | `.env` + `risk_config.json` ne peuvent pas être versionnés | basse (gitignored par conception) |
 | Aucune persistence systemd pour webhook_server sur cette machine | basse |
 | TV_WEBHOOK_KEY = dev_local_only (localhost uniquement) | basse (suffisant pour dev) |
+
+## RISKS
+
+- À qualifier.

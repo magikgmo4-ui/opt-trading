@@ -22,3 +22,7 @@ Confirmed via `systemctl show ollama -p Environment`.
 - missingProvidersInUse: `[]`
 - Health: OK
 - Listeners: loopback-only
+
+## RISKS
+
+- À qualifier.
