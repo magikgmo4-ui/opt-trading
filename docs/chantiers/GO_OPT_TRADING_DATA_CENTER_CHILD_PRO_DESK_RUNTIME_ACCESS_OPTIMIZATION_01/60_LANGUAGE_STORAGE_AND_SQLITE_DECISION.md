@@ -107,7 +107,66 @@ Singleton:
   _cache_lock: threading.Lock      # protege le swap atomique
 ```
 
-## 6. Integration avec le source selector
+## 6. SQLite runtime index option
+
+### 6.1 Pourquoi considerer SQLite
+
+```text
+Le repo utilise deja SQLite WAL (perf/perf.db, market_metrics_writer).
+SQLite offre :
+  - CREATE INDEX pour des lookup O(log n)
+  - Transactions ACID (atomicite des rebuilds)
+  - Zero-config, pas de serveur separe
+  - :memory: mode pour cache en RAM
+  - Requetes parametrables pour filtrage complexe
+```
+
+### 6.2 SQLite vs Python dict — comparaison
+
+| Critere | Python dict (V1 default) | SQLite :memory: |
+|---|---|---|
+| Lookup speed | O(1) natif, ~50ns | O(log n) via index, ~1-5us |
+| Memory (400 KB data) | ~405 KB | ~800 KB (overhead B-tree) |
+| Rebuild speed | ~30ms (json.load + loop) | ~50ms (INSERT + CREATE INDEX) |
+| Atomicite | Manuel (swap pointer) | Natif (transaction) |
+| Query complexe | Code manuel | SQL declaratif |
+| Debuggabilite | print(dict) | sqlite3 CLI |
+| Dependance | Zero | Integre Python stdlib |
+| Historique / lineage | Non (in-memory only) | Persistance disque possible |
+
+### 6.3 Quand basculer vers SQLite
+
+```text
+V1 : Python dict (zero overhead, suffisant pour 400 KB)
+V2 (conditionnel) : SQLite :memory: SI :
+  - B01-B08 confirment dict < 0.1ms ✓ (rester sur dict)
+  - OU besoin de requetes complexes (ex: "tous les data_keys P10 avec criticite >= 6")
+  - OU besoin de persistance historique des decisions resolver
+  - OU > 100 producers / > 1000 data_keys (echelle future)
+```
+
+### 6.4 SQLite pour le cold path (stockage froid)
+
+```text
+Usage recommande independamment du hot path :
+  - Stocker l'historique des resolver_decision.v1
+  - Stocker l'historique des source_score.v1
+  - Table data_lineage : producer_id, data_key, ts, value, canonical
+  - Requetes d'audit : "quand a-t-on change de source pour BTCUSDT open_interest ?"
+
+Module cible : modules/data_center/resolver_history.py
+Base : data/data_center/resolver_history.db (SQLite WAL)
+```
+
+### 6.5 Decision finale
+
+```text
+HOT PATH  → Python dict (V1, pas de SQLite pour < 400 KB)
+COLD PATH → SQLite WAL pour lineage/audit/historique (optionnel, future)
+SQLITE    → benchmarker avant de decider, pas rejete sans mesure
+```
+
+## 7. Integration avec le source selector
 
 ```python
 # modules/data_center/source_selector.py

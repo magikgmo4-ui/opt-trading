@@ -92,4 +92,90 @@ HOT PATH (frequent, doit etre < 5ms) :
   - Validation schema d'un write producer
   - Lecture view par consumer
   - Check freshness / stale flag
+
+## 6. Analyse de risques runtime (R01-R10)
+
+### R01 — Latence de parsing > seuil consumer
+
+```text
+Risk:  un consumer (DeskPro) fait 100 resolve() par cycle dashboard.
+       Sans optimisation, chaque resolve parse 150 KB JSON → 100 × 11ms = 1.1s.
+Impact: UI lag, timeout, donnees manquantes dans le dashboard.
+Mitigation: compiled indexes + memory cache (target <0.1ms per resolve).
 ```
+
+### R02 — Contention I/O multi-consumers
+
+```text
+Risk:  10 consumers concurrents lisent les memes JSON files.
+       I/O bound, mutex implicite du filesystem.
+Impact: p99 latency explose, certains consumers timeout.
+Mitigation: cache memoire partage (read-only pour hot path, lock-free).
+```
+
+### R03 — Corruption fichier registre
+
+```text
+Risk:  ecriture concurrente ou crash pendant write de pro_desk_data_inventory.json.
+Impact: JSON parse fail → cache rebuild fail → tout le hot path retourne stale.
+Mitigation: atomic write (write temp + rename), hash SHA256 verification avant rebuild.
+```
+
+### R04 — Cache stale apres modification inventaire
+
+```text
+Risk:  ajout d'un champ P0-P21, cache pas encore rebuild, source selector ignore le champ.
+Impact: nouvelle donnee invisible pour les consumers.
+Mitigation: watchdog mtime/hash + rebuild async < 50ms + atomic swap.
+```
+
+### R05 — Source candidate non-scoree selectionnee
+
+```text
+Risk:  source_candidates.json a score=0 + status=candidate.
+       Un bug dans le source selector selectionne cette source.
+Impact: valeur non fiable injectee dans canonical_value sans avertissement.
+Mitigation: regle explicite score=0 + candidate = non selectable. eligible_statuses whitelist.
+```
+
+### R06 — Desynchro producer registry vs source candidates
+
+```text
+Risk:  producers.json retire un producer, source_candidates.json le reference encore.
+Impact: source selector cherche un producer disparu → erreur ou stale fallback.
+Mitigation: sanity check au rebuild: all active_registry producer_ids exist in producers.json.
+```
+
+### R07 — Memory leak du cache
+
+```text
+Risk:  cache garde des references mortes (anciens producers, anciens symboles).
+Impact: memoire croit lentement, OOM sur long uptime.
+Mitigation: cache taille fixe (~405 KB), rebuild complet (pas incremental), swap atomique.
+```
+
+### R08 — Atomic swap race condition
+
+```text
+Risk:  deux rebuilds concurrents (ex: modification inventaire + modification producers.json).
+Impact: le second rebuild ecrase le premier, donnees intermediaires perdues.
+Mitigation: rebuild mutex (threading.Lock), pas de rebuild si un autre est en cours.
+```
+
+### R09 — Source selector decision non tracee
+
+```text
+Risk:  source selector choisit une source sans produire resolver_decision.v1.
+Impact: impossible d'auditer pourquoi cette valeur a ete choisie, lineage casse.
+Mitigation: toute selection produit resolver_decision.v1 obligatoirement (cf child 4+5).
+```
+
+### R10 — Fallback silencieux sans alerte
+
+```text
+Risk:  toutes les sources stale → source selector retourne derniere valeur connue.
+       Consumer ne sait pas que la donnee est perimee.
+Impact: decision trading sur donnee obsolete.
+Mitigation: canonical_value.v1.stale = true + freshness_state = stale visible dans DeskPro.
+```
+

@@ -63,12 +63,13 @@ A chaque requete consumer :
 
 ## 4_MASTER_PROJECT_PLAN
 
-1. `10_RUNTIME_ACCESS_PROBLEM.md` — diagnostiquer le probleme d'acces runtime.
-2. `20_HOT_PATH_AND_COLD_PATH_DESIGN.md` — separer les chemins chauds (lus a chaque requete) et froids (lus rarement).
-3. `30_COMPILED_INDEXES_PLAN.md` — specifier les index compiles.
-4. `40_SOURCE_SELECTION_POLICY.md` — formaliser la policy de selection de source.
-5. `50_PERFORMANCE_BENCHMARK_PLAN.md` — definir les benchmarks.
-6. `60_LANGUAGE_AND_STORAGE_DECISION.md` — choisir format de stockage runtime.
+1. `10_RESEARCH_FINDINGS_MULTI_SOURCE_DATA_CENTER.md` — etat de l'art multi-source, MDM, data contracts, lineage.
+2. `20_CURRENT_RUNTIME_RISK_ANALYSIS.md` — diagnostiquer le probleme d'acces runtime + analyse de risques R01-R10.
+3. `30_HOT_PATH_COLD_PATH_ARCHITECTURE.md` — separer les chemins chauds et froids, diagramme ASCII du pipeline.
+4. `40_COMPILED_INDEXES_AND_CACHE_PLAN.md` — specifier les 5 index compiles + schemas JSON concrets + cache snapshot.
+5. `50_SOURCE_SELECTION_POLICY_PROFILES.md` — 4 modes de selection (best, all, consensus, fallback).
+6. `60_LANGUAGE_STORAGE_AND_SQLITE_DECISION.md` — matrice 6 formats + option SQLite benchmark.
+7. `70_BENCHMARK_AND_ACCEPTANCE_CRITERIA.md` — B01-B08 benchmarks + criteres go/no-go AC01-AC14 + NG01-NG08.
 
 ## 6_FINAL_TARGET
 
@@ -78,24 +79,31 @@ RUNTIME_ACCESS_OPTIMIZATION_V1
 
 ## 11_KEY_DECISIONS
 
-- L'inventaire canonique (`pro_desk_data_inventory.json`) est la source of truth, jamais modifie par le runtime.
-- Les index compiles sont regeneres a chaque modification de l'inventaire, pas a chaque requete.
-- Le hot path ne lit jamais le JSON brut.
-- Le source selector utilise les index compiles, pas le fichier source.
-- Les views Data Center sont pre-calculees pour les consumers.
+- JSON canonique reste source of truth.
+- Hot path ne doit pas scanner les JSON complets.
+- Compiled indexes + cache snapshot = solution V1 par defaut.
+- SQLite WAL = option a benchmarker, pas obligation immediate.
+- Data Center arbitre la source.
+- Consumers decident l'usage.
+- Toutes les candidates sont preservees.
+- Toute selection doit avoir policy + trace.
+- Python dict / JSON indexe = choix V1 par defaut tant que benchmarks tiennent.
+- Toutes les performances sont TARGET/ESTIMATE tant que B01-B08 non executes.
 
 ## 12_INVARIANTS
 
 - Ne pas modifier les index globaux.
-- Aucune modification runtime (readers, producers, resolvers).
-- Aucun appel API, DB, Telegram.
-- `pro_desk_data_inventory.json` et `source_candidates.json` restent les sources canoniques (ajout registries, pas modification de registries existants).
+- Aucun reader / producer / resolver runtime modifie.
+- Aucun reader consumer cree.
+- Aucun producer path lu directement par consumer.
+- Pas de decision trading dans Data Center.
 - Data Center arbitre les sources, ne decide pas les trades.
+- `pro_desk_data_inventory.json` et `source_candidates.json` restent les sources canoniques (ajout registries, pas modification de registries existants).
 
 ## 16_TODO
 
-Produire les 7 livrables (10_ a 60_ + 90_).
+Produire les 8 livrables (10_ a 70_ + 90_) — fusion des specs RUNTIME_ACCESS_OPTIMIZATION + RUNTIME_SOURCE_SELECTION_OPTIMIZATION.
 
 ## 17_RESUME_POINT
 
-Reprendre ici : child optimisation ouvert. Livrables a produire dans l'ordre.
+Reprendre ici : child optimisation ouvert avec structure canonique 9 fichiers. NEXT_GO = `GO_OPT_TRADING_DATA_CENTER_CHILD_PRO_DESK_RUNTIME_INDEX_IMPLEMENTATION_01`.
