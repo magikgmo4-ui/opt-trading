@@ -12,6 +12,7 @@ from .multi_tf_consensus import produce_multi_tf_consensus
 from .cross_correlation import produce_cross_correlation
 from .coinglass_squeeze import produce_squeeze_alert
 from .market_metrics_live_writer import write_live_market_metrics, write_all_live
+from .telegram_screener_bridge import produce_telegram_signals, produce_latest_index
 
 __all__ = [
     "BundleOutput",

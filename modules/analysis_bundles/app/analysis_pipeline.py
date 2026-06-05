@@ -315,6 +315,10 @@ def run_full_pipeline(output_path: Optional[Path] = None) -> dict:
     from .coinglass_squeeze import produce_squeeze_alert
     squeeze = produce_squeeze_alert()
 
+    # Telegram signals from collector bridge
+    from .telegram_screener_bridge import produce_telegram_signals
+    tg_count = len(produce_telegram_signals())
+
     report = {
         "contract": "analysis_pipeline_report.v1",
         "produced_at": datetime.now(timezone.utc).isoformat(),

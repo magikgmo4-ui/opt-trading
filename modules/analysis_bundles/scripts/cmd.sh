@@ -120,6 +120,17 @@ for asset in ('BTC', 'ETH', 'WTI'):
     print(f'{asset}: consensus={result[\"consensus\"]} bias={result.get(\"bias\",\"?\")} score={result[\"score\"]} tfs={result[\"timeframes\"]}')
 "
     ;;    
+  telegram)
+    python3 -c "
+import json, sys
+sys.path.insert(0, '.')
+from modules.analysis_bundles.app.telegram_screener_bridge import produce_telegram_signals
+signals = produce_telegram_signals()
+print(f'Parsed: {len(signals)} signals')
+for s in signals:
+    print(f'  {s.get(\"pair\",\"?\"):12s} {s.get(\"direction\",\"?\"):6s} from={s.get(\"channel\",\"?\")}')
+"
+    ;;
   status)
     python3 -c "
 import sys; sys.path.insert(0, '.')
