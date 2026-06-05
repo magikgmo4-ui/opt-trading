@@ -28,6 +28,12 @@ _CHANNEL_PRIORITY = {
         "note": "10 complete setups (Coin+Direction+Entry+SL+TPs), 10 assets, backtest ready"},
     "xauusd": {"priority": "P0", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
         "note": "8 complete setups (BUY/SELL GOLD+Entry+SL+TPs), backtest ready"},
+    "xauusd_trading_signals": {"priority": "P0", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "22 complete setups (XAUUSD BUY/SELL inline), top performer"},
+    "xauusd_free_signals": {"priority": "P0", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "11 complete setups (XAUUSD BUY/SELL inline), 2nd best"},
+    "xauusd_trading_free": {"priority": "P0", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "11 complete setups (XAUUSD + EURUSD), multi-asset"},
 
     # ── QUALIFIED (<10 but >0 complete setups) ──
     # (none yet — wallstreetqueenofficial + xauusd promoted to ACTIVE)
@@ -72,17 +78,6 @@ _CHANNEL_PRIORITY = {
 
     # ── DISCOVERY — XAU batch, 17 validated on Telegram, pending signal qualification ──
     "xauusd_signals": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "83 msgs, 0 setups"},
-    "gold_forex_signals": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "29 msgs"},
-    "gold_scalper": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "46 msgs"},
-    "gold_signals_free": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "39 msgs"},
-    "xauusd_trading_signals": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "95 msgs"},
-    "gold_trading_signals": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "68 msgs"},
-    "xauusd_gold_signals": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "88 msgs"},
-    "forex_gold_signals": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "98 msgs"},
-    "gold_signals_trading": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "6 msgs"},
-    "xauusd_free_signals": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "100 msgs"},
-    "gold_trading_free": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "99 msgs"},
-    "xauusd_trading_free": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "82 msgs"},
     "xauusd_signals_free": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "1 msg"},
     "gold_signals_vip": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "92 msgs"},
     "xauusd_vip_signals": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "validated"},
