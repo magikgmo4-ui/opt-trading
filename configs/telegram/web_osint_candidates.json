@@ -1,0 +1,729 @@
+{
+  "version": 1,
+  "description": "Web OSINT Telegram channels from directories + search engines",
+  "total": 36,
+  "candidates": [
+    {
+      "alias": "XAUUSD_PIPSMANAGMENT",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "XAUUSD (GOLD) PIPS SCALPING SIGNAL",
+      "members": 55596,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754336+00:00"
+    },
+    {
+      "alias": "xauusdgoldanalysiss",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "XAUUSD(GOLD) ANALYSIS",
+      "members": 4023,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754367+00:00"
+    },
+    {
+      "alias": "Buy_Sell_XAUUSDSignals",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "GOLD SIGNAL TRADING XAUUSD FOREX",
+      "members": 6779,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754372+00:00"
+    },
+    {
+      "alias": "goldbtc7",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "XAUUSD VIP SIGNALS",
+      "members": 211,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754375+00:00"
+    },
+    {
+      "alias": "forextradingtips4uuu",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "XAUUSD/GOLD MASTER",
+      "members": 2999,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754378+00:00"
+    },
+    {
+      "alias": "xauusdtrader780",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "XAUUSD TRADER",
+      "members": 1435,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754381+00:00"
+    },
+    {
+      "alias": "eurusd_xauusd_scalpers",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "XAUUSD SCALPING FOREX SIGNALS",
+      "members": 8879,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754383+00:00"
+    },
+    {
+      "alias": "Xauusd_gold_Btc_Forex_Signals",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "FOREX XAUUSD BTCUSD GOLD SIGNALS",
+      "members": 50755,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754389+00:00"
+    },
+    {
+      "alias": "XAUUSDSIGNALSG1",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "XAUUSD SIGNALS",
+      "members": 2483,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754391+00:00"
+    },
+    {
+      "alias": "Xauusdscalpingexpert1",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "XAUUSD SCALPING EXPERT",
+      "members": 496,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754394+00:00"
+    },
+    {
+      "alias": "forex_xauusd_master",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "FOREX XAUUSD MASTER",
+      "members": 204,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754397+00:00"
+    },
+    {
+      "alias": "angela_xauusd",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "ANGELA XAUUSD Free",
+      "members": 4719,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754399+00:00"
+    },
+    {
+      "alias": "FORTUNETRADERS1",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "FOREX GOLD XAUUSD SIGNALS",
+      "members": 15515,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754402+00:00"
+    },
+    {
+      "alias": "forex_xauusd_gold_btc_signals1",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "Forex xauusd gold btc signals",
+      "members": 4371,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754405+00:00"
+    },
+    {
+      "alias": "xauusd_goldinsiderfx",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "XAUUSD GOLD INSIDER",
+      "members": 1120,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754407+00:00"
+    },
+    {
+      "alias": "Tradinghub3_fuII",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "XAUUSD GOLD SIGNALS",
+      "members": 10392,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754410+00:00"
+    },
+    {
+      "alias": "xauusdjulia_live",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "XAUUSD JULIA",
+      "members": 3199,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754412+00:00"
+    },
+    {
+      "alias": "FxRoyalXauusdKing_48",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "FX ROYAL XAUUSD KING",
+      "members": 214,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754419+00:00"
+    },
+    {
+      "alias": "goldmarket67",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "XAUUSD PRO TRADER",
+      "members": 520,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754422+00:00"
+    },
+    {
+      "alias": "xauusdfreef",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "Gold Signals VIP (XAUUSD FOREX)",
+      "members": 2214,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754425+00:00"
+    },
+    {
+      "alias": "xauusdsignalsmaneger",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "XAUUSD SIGNAL MANAGER",
+      "members": 290,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754428+00:00"
+    },
+    {
+      "alias": "tradwith_xauusd369",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "TRADE WITH XAUUSD",
+      "members": 311,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754430+00:00"
+    },
+    {
+      "alias": "Xauusd_Gold_Scalping_Signal",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "Xauusd/Gold Scalping Signals/Tips",
+      "members": 2562,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754433+00:00"
+    },
+    {
+      "alias": "xauusdalikh2",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "XAUUSD TRADING ZONE",
+      "members": 341,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754436+00:00"
+    },
+    {
+      "alias": "XAUUSDGOLDFXPIPS",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "XAUUSD/GOLD SIGNALS",
+      "members": 7371,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754438+00:00"
+    },
+    {
+      "alias": "JuanXauusd1",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "JUAN XAUUSD",
+      "members": 4850,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754441+00:00"
+    },
+    {
+      "alias": "Indian_Forex_Gold_Btc_crypto",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "GOLD BTC XAUUSD FOREX VIP",
+      "members": 15885,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754443+00:00"
+    },
+    {
+      "alias": "btcusd_eurjpy_trade_signals",
+      "source": "web_osint",
+      "origin": "tgexplorer",
+      "origin_url": "https://tgexplorer.com/xauusd-telegram-channels/",
+      "bucket": "xau_gold",
+      "title": "BTCUSD EURJPY XAUUSD FOREX SIGNALS",
+      "members": 55883,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754449+00:00"
+    },
+    {
+      "alias": "XAUUSDGOLDsignals",
+      "source": "web_osint",
+      "origin": "duckduckgo",
+      "origin_url": "web search",
+      "bucket": "xau_gold",
+      "title": "XAUUSDGOLDsignals - Pure Price Action",
+      "members": 0,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754451+00:00"
+    },
+    {
+      "alias": "UnitedSignalsFX",
+      "source": "web_osint",
+      "origin": "duckduckgo",
+      "origin_url": "web search",
+      "bucket": "forex",
+      "title": "UnitedSignals - Best Forex Signals",
+      "members": 0,
+      "expected_assets": [
+        "EURUSD",
+        "GBPUSD",
+        "USDJPY"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754455+00:00"
+    },
+    {
+      "alias": "XAUUSD_SI",
+      "source": "web_osint",
+      "origin": "duckduckgo",
+      "origin_url": "web search",
+      "bucket": "xau_gold",
+      "title": "XAUUSD SIGNALS - Nicegram Hub",
+      "members": 0,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754457+00:00"
+    },
+    {
+      "alias": "xauusdalerts",
+      "source": "web_osint",
+      "origin": "duckduckgo",
+      "origin_url": "web search",
+      "bucket": "xau_gold",
+      "title": "Gold (XAUUSD) Signals - Free Forex Signals",
+      "members": 0,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754460+00:00"
+    },
+    {
+      "alias": "xauusdtradingsignalsfx",
+      "source": "web_osint",
+      "origin": "duckduckgo",
+      "origin_url": "web search",
+      "bucket": "xau_gold",
+      "title": "Xauusd Trading Signals (Free)",
+      "members": 0,
+      "expected_assets": [
+        "XAUUSD",
+        "GOLD"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754462+00:00"
+    },
+    {
+      "alias": "signalsforexf",
+      "source": "web_osint",
+      "origin": "duckduckgo",
+      "origin_url": "web search",
+      "bucket": "forex",
+      "title": "Forex Signals - SL and TP",
+      "members": 1805,
+      "expected_assets": [
+        "EURUSD",
+        "GBPUSD",
+        "USDJPY"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754465+00:00"
+    },
+    {
+      "alias": "BitcoinBullets",
+      "source": "web_osint",
+      "origin": "duckduckgo",
+      "origin_url": "web search",
+      "bucket": "crypto_btc_eth",
+      "title": "Bitcoin Bullets - BTC Analysis",
+      "members": 0,
+      "expected_assets": [
+        "BTC",
+        "ETH"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754468+00:00"
+    },
+    {
+      "alias": "signalscryptofuture",
+      "source": "web_osint",
+      "origin": "duckduckgo",
+      "origin_url": "web search",
+      "bucket": "crypto_btc_eth",
+      "title": "Signals Crypto Futures",
+      "members": 0,
+      "expected_assets": [
+        "BTC",
+        "ETH"
+      ],
+      "expected_format": "BUY/SELL + entry + sl + tp",
+      "status": "DISCOVERY",
+      "confidence": "MEDIUM",
+      "sample_limit": 200,
+      "complete_setups": 0,
+      "next_action": "resolve_with_telegram_api",
+      "discovered_at": "2026-06-05T10:40:28.754471+00:00"
+    }
+  ]
+}
