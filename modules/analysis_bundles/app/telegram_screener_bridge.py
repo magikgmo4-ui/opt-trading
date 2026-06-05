@@ -69,6 +69,25 @@ _CHANNEL_PRIORITY = {
         "note": "Educational content only, no trade signals"},
     "goldtrading": {"priority": "P3", "mode": "REJECTED", "type": "marketing", "output": "skip",
         "note": "Indonesian marketing, no trade signals"},
+
+    # ── DISCOVERY — XAU batch, 17 validated on Telegram, pending signal qualification ──
+    "xauusd_signals": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "83 msgs, 0 setups"},
+    "gold_forex_signals": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "29 msgs"},
+    "gold_scalper": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "46 msgs"},
+    "gold_signals_free": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "39 msgs"},
+    "xauusd_trading_signals": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "95 msgs"},
+    "gold_trading_signals": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "68 msgs"},
+    "xauusd_gold_signals": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "88 msgs"},
+    "forex_gold_signals": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "98 msgs"},
+    "gold_signals_trading": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "6 msgs"},
+    "xauusd_free_signals": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "100 msgs"},
+    "gold_trading_free": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "99 msgs"},
+    "xauusd_trading_free": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "82 msgs"},
+    "xauusd_signals_free": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "1 msg"},
+    "gold_signals_vip": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "92 msgs"},
+    "xauusd_vip_signals": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "validated"},
+    "gold_trading_vip": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "60 msgs"},
+    "xauusd_premium": {"priority": "P2", "mode": "DISCOVERY", "type": "xau_signal", "output": "trade", "note": "validated"},
 }
 
 _DISCOVERY_MAX_MSGS = 200  # Limit DISCOVERY channels to last N messages

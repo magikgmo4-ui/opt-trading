@@ -47,9 +47,47 @@ _HASHTAG_COIN_RE = re.compile(
 )
 
 # ── Pattern 5: XAUUSD BUY/SELL GOLD with Entry+SL+TPs ─────────────────
-# "BUY GOLD NOW\nEntry Point: 4496.0 / 4488.0\nStop Loss: 4485.0\nTP1: 4503.0\nTP2: 4510.0\nTP3: OPEN"
+# "BUY GOLD NOW\nEntry Point: 4496.0\nStop Loss: 4485.0\nTP1: 4503.0"
+# "XAUUSD BUY NOW 2354\nSL 2343\nTP 2358\nTP 2362"
+# "#Gold buy @ 2370\nSl: @ 2360\nTP: @ 2380"
 _GOLD_SIGNAL_RE = re.compile(
     r'(?P<direction>BUY|SELL)\s+GOLD\b',
+    re.IGNORECASE,
+)
+
+_GOLD_XAUUSD_RE = re.compile(
+    r'(?:XAUUSD|GOLD)\s+(?P<direction>BUY|SELL)\b',
+    re.IGNORECASE,
+)
+
+_GOLD_HASH_RE = re.compile(
+    r'#\s*Gold\s+(?P<direction>buy|sell)\b',
+    re.IGNORECASE,
+)
+
+_GOLD_ENTRY_SL_RE = re.compile(
+    r'Entry\s*(?:Point)?\s*[:\s]+\s*(?P<entry>' + _PRICE_STR + r')\s*/\s*(?P<entry2>' + _PRICE_STR + r')?'
+    r'.*?Stop\s*(?:Loss|Loss)?\s*[:\s]+\s*(?P<sl>' + _PRICE_STR + r')',
+    re.IGNORECASE | re.DOTALL,
+)
+
+_GOLD_INLINE_SL_RE = re.compile(
+    r'(?:SL|Sl)\s*[:\s@]+\s*(?P<sl>' + _PRICE_STR + r')',
+    re.IGNORECASE,
+)
+
+_GOLD_INLINE_PRICE_RE = re.compile(
+    r'(?:^|\s)(?P<price>' + _PRICE_STR + r')(?:\s|$)',
+    re.IGNORECASE | re.MULTILINE,
+)
+
+_GOLD_TPS_RE = re.compile(
+    r'TP\s*(?P<tp_num>\d+)?\s*[:\s@]+\s*(?P<tp>' + _PRICE_STR + r')',
+    re.IGNORECASE,
+)
+
+_GOLD_SL_TP_RE = re.compile(
+    r'[:\s@]+\s*(?P<price>' + _PRICE_STR + r')\s*',
     re.IGNORECASE,
 )
 
@@ -166,19 +204,50 @@ def parse_telegram_message(raw_dict: dict) -> ParsedTelegramMessage:
 
     asset = None; direction = None; extra = {}
 
-    # ── Try GOLD trade format (most structured, extract everything) ──
-    m = _GOLD_SIGNAL_RE.search(raw_text)
-    if m:
+    # ── Try GOLD trade formats (all variants) ──
+    gold_dir = None
+    gold_match = _GOLD_SIGNAL_RE.search(raw_text)
+    if gold_match:
+        gold_dir = "LONG" if gold_match.group("direction").upper() == "BUY" else "SHORT"
+    if gold_dir is None:
+        gold_match = _GOLD_XAUUSD_RE.search(raw_text)
+        if gold_match:
+            gold_dir = "LONG" if gold_match.group("direction").upper() == "BUY" else "SHORT"
+    if gold_dir is None:
+        gold_match = _GOLD_HASH_RE.search(raw_text)
+        if gold_match:
+            gold_dir = "LONG" if gold_match.group("direction").lower() == "buy" else "SHORT"
+
+    if gold_dir is not None:
         asset = "XAUUSD"
-        direction = "LONG" if m.group("direction").upper() == "BUY" else "SHORT"
-        # Extract entry + SL
+        direction = gold_dir
+        # Extract entry + SL (structured: "Entry: 4496 / 4488 SL: 4485")
         es = _GOLD_ENTRY_SL_RE.search(raw_text)
         if es:
             extra["entry"] = _parse_float(es.group("entry"))
             if es.group("sl"): extra["sl"] = _parse_float(es.group("sl"))
+        # Extract inline entry price (first price after BUY/SELL, e.g. "BUY NOW 2354", "SELL 2262")
+        if not extra.get("entry"):
+            # Find the first number after the gold direction keyword
+            after_match = raw_text[gold_match.end():] if gold_match else raw_text
+            # Look for first standalone price (not preceded by TP/SL)
+            entry_m = re.search(r'(?<!\d)\b(' + _PRICE_STR + r')\b', after_match)
+            if entry_m:
+                price = _parse_float(entry_m.group(1))
+                # Validate: price should be reasonable for gold (1000-10000 range)
+                if price and 1000 < price < 10000:
+                    extra["entry"] = price
+        # Extract SL from inline format ("SL @ 2360", "SL 2343", "❌SL 2343")
+        # Extract SL/TP from inline format ("SL @ 2360 TP @ 2380")
+        if not extra.get("sl"):
+            sl_m = re.search(r'(?:SL|Sl)\s*[:\s@]+\s*(' + _PRICE_STR + r')', raw_text, re.IGNORECASE)
+            if sl_m: extra["sl"] = _parse_float(sl_m.group(1))
         # Extract all TPs
         tps = [_parse_float(m.group("tp")) for m in _GOLD_TPS_RE.finditer(raw_text)]
         tps = [t for t in tps if t is not None]
+        # Dedupe: first TP might be the entry; skip if it matches entry
+        if extra.get("entry") and tps and abs(tps[0] - extra["entry"]) < 0.01:
+            tps = tps[1:]
         if tps: extra["tps"] = tps
 
     # ── Try structured COIN format ──
