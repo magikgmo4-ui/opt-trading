@@ -34,6 +34,16 @@ _CHANNEL_PRIORITY = {
         "note": "11 complete setups (XAUUSD BUY/SELL inline), 2nd best"},
     "xauusd_trading_free": {"priority": "P0", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
         "note": "11 complete setups (XAUUSD + EURUSD), multi-asset"},
+    "signalsGOLD1": {"priority": "P0", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "43 complete setups (XAUUSD), TOP performer"},
+    "trading_signals_gold": {"priority": "P0", "mode": "ACTIVE", "type": "trade_signal", "output": "trade",
+        "note": "30 complete setups (BTC+ETH+XAUUSD), multi-asset top"},
+    "USDJPY_XAUUSD_SIGNALS": {"priority": "P0", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "21 complete setups (XAUUSD)"},
+    "btcusdt_xauusd_eurusd_signal": {"priority": "P0", "mode": "ACTIVE", "type": "trade_signal", "output": "trade",
+        "note": "13 complete setups (EURUSD+GBPUSD+XAUUSD), multi-asset"},
+    "GBPUSD_FOREXSiGNAL": {"priority": "P0", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "12 complete setups (EURUSD+XAUUSD)"},
 
     # ── QUALIFIED (<10 but >0 complete setups) ──
     # (none yet — wallstreetqueenofficial + xauusd promoted to ACTIVE)
