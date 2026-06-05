@@ -1,8 +1,21 @@
 {
   "job_id": "repo-closeout-eligibility-check",
-  "checked_at": "2026-06-03T04:16:01.532114Z",
-  "total_checked": 58,
-  "eligible_count": 0,
-  "eligible": [],
-  "status": "PASS"
+  "checked_at": "2026-06-05T04:16:01.632283Z",
+  "total_checked": 60,
+  "eligible_count": 2,
+  "eligible": [
+    {
+      "go_id": "GO_TELEGRAM_ROUTING_AUDIT_CHILD_CHAT_SPLIT_ENFORCEMENT_01",
+      "init_status": "open",
+      "acceptance_status": "PASS",
+      "closed_at": "2026-06-03"
+    },
+    {
+      "go_id": "GO_TELEGRAM_USER_EXPERIENCE_CHILD_COMMAND_CENTER_01",
+      "init_status": "open",
+      "acceptance_status": "PASS",
+      "closed_at": "2026-06-03"
+    }
+  ],
+  "status": "WARN"
 }

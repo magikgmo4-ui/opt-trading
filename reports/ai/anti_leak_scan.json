@@ -1,9 +1,21 @@
 {
   "job_id": "anti-leak-scan",
-  "scanned_at": "2026-06-03T04:20:03.310980Z",
-  "files_scanned": 7604,
-  "findings_count": 40,
+  "scanned_at": "2026-06-05T10:20:03.042872Z",
+  "files_scanned": 7733,
+  "findings_count": 55,
   "findings": [
+    {
+      "file": "datacenter_setup_initialization.patch",
+      "line": 97,
+      "pattern": "password literal",
+      "snippet": "PASSWORD=ZZZZZ_VOTRE_PASSWORD_ICI_ZZZZZ"
+    },
+    {
+      "file": "deskpro_setup_initialization.patch",
+      "line": 87,
+      "pattern": "api_key literal",
+      "snippet": "API_KEY=XXXXX_VOTRE_CLE_DESKPRO_ICI_XXXXX"
+    },
     {
       "file": "docs/chantiers/GO_OPT_TRADING_AIRTABLE_ORCHESTRATION_PARENT_01/05_IMPLEMENTATION_SPEC.md",
       "line": 39,
@@ -35,6 +47,54 @@
       "snippet": "API_KEY=$OPENAI_API_KEY"
     },
     {
+      "file": "docs/chantiers/GO_OPT_TRADING_OPENCLAW_GOVERNANCE_CHILD_SECURITY_CREDENTIALS_METHOD_01/60_ROTATION_RUNBOOK.md",
+      "line": 102,
+      "pattern": "api_key literal",
+      "snippet": "API_KEY=<nouveau>"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DATACENTER_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md",
+      "line": 20,
+      "pattern": "password literal",
+      "snippet": "PASSWORD=ZZZZZ_VOTRE_PASSWORD_ICI_ZZZZZ"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_DESKPRO_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md",
+      "line": 19,
+      "pattern": "api_key literal",
+      "snippet": "API_KEY=XXXXX_VOTRE_CLE_DESKPRO_ICI_XXXXX"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md",
+      "line": 18,
+      "pattern": "api_key literal",
+      "snippet": "API_KEY=XXXXX_VOTRE_CLE_OPENAI_ICI_XXXXX"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md",
+      "line": 19,
+      "pattern": "api_key literal",
+      "snippet": "API_KEY=YYYYY_VOTRE_CLE_ANTHROPIC_ICI_YYYYY"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_LLM_CLOUD_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md",
+      "line": 20,
+      "pattern": "api_key literal",
+      "snippet": "API_KEY=ZZZZZ_VOTRE_CLE_GEMINI_ICI_ZZZZZ"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_MARKET_DATA_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md",
+      "line": 18,
+      "pattern": "api_key literal",
+      "snippet": "API_KEY=XXXXX_VOTRE_CLE_BINANCE_ICI_XXXXX"
+    },
+    {
+      "file": "docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_MARKET_DATA_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md",
+      "line": 20,
+      "pattern": "api_key literal",
+      "snippet": "API_KEY=ZZZZZ_VOTRE_CLE_COINGLASS_ICI_ZZZZZ"
+    },
+    {
       "file": "docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md",
       "line": 18,
       "pattern": "secret literal",
@@ -47,82 +107,22 @@
       "snippet": "API_KEY=\n+ANTHROPIC_API_KEY="
     },
     {
-      "file": "modules/airtable_bridge/README.md",
-      "line": 28,
+      "file": "llm_cloud_setup_initialization.patch",
+      "line": 103,
       "pattern": "api_key literal",
-      "snippet": "API_KEY=your_key"
+      "snippet": "API_KEY=XXXXX_VOTRE_CLE_OPENAI_ICI_XXXXX"
     },
     {
-      "file": "modules/bot_vision_step2/app/bot_vision_step2.py",
-      "line": 159,
+      "file": "llm_cloud_setup_initialization.patch",
+      "line": 104,
       "pattern": "api_key literal",
-      "snippet": "api_key=api_key)"
+      "snippet": "API_KEY=YYYYY_VOTRE_CLE_ANTHROPIC_ICI_YYYYY"
     },
     {
-      "file": "modules/collector_coingecko/src/collector_coingecko/config.py",
-      "line": 75,
+      "file": "llm_cloud_setup_initialization.patch",
+      "line": 105,
       "pattern": "api_key literal",
-      "snippet": "api_key = _optional_string(api_section,"
-    },
-    {
-      "file": "modules/collector_coingecko/src/collector_coingecko/config.py",
-      "line": 101,
-      "pattern": "api_key literal",
-      "snippet": "api_key=api_key,"
-    },
-    {
-      "file": "modules/desk_analyze/analyze_latest.py",
-      "line": 30,
-      "pattern": "api_key literal",
-      "snippet": "API_KEY = os.getenv("
-    },
-    {
-      "file": "modules/desk_capture_inputs/extract_tv_inputs.py",
-      "line": 62,
-      "pattern": "api_key literal",
-      "snippet": "api_key = os.environ.get("
-    },
-    {
-      "file": "modules/reseau_ssh/modules/reseau_ssh/reseau_ssh_step2/templates/wg0.client.template",
-      "line": 3,
-      "pattern": "private_key literal",
-      "snippet": "PrivateKey = {{PRIVATE_KEY}}"
-    },
-    {
-      "file": "modules/reseau_ssh/modules/reseau_ssh/reseau_ssh_step2/templates/wg0.server.template",
-      "line": 4,
-      "pattern": "private_key literal",
-      "snippet": "PrivateKey = {{PRIVATE_KEY}}"
-    },
-    {
-      "file": "modules/reseau_ssh/modules/reseau_ssh/reseau_ssh_step2/templates/wg0.windows.template",
-      "line": 2,
-      "pattern": "private_key literal",
-      "snippet": "PrivateKey = {{PRIVATE_KEY}}"
-    },
-    {
-      "file": "modules/vision/coinglass/ai_extraction.py",
-      "line": 107,
-      "pattern": "api_key literal",
-      "snippet": "api_key=api_key)"
-    },
-    {
-      "file": "modules/vision/coinglass/ai_extraction.py",
-      "line": 147,
-      "pattern": "api_key literal",
-      "snippet": "api_key = os.environ.get("
-    },
-    {
-      "file": "project_initialization.patch",
-      "line": 127,
-      "pattern": "api_key literal",
-      "snippet": "API_KEY=\n+COINGLASS_API_KEY="
-    },
-    {
-      "file": "reports/ai/anti_leak_scan.json",
-      "line": 41,
-      "pattern": "secret literal",
-      "snippet": "SECRET=XXXXX_VOTRE_SECRET_PARTAGE_ICI_XXXXX"
+      "snippet": "API_KEY=ZZZZZ_VOTRE_CLE_GEMINI_ICI_ZZZZZ"
     }
   ],
   "status": "WARN"

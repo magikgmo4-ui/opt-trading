@@ -1,6 +1,6 @@
 {
   "job_id": "capability-matrix-validate",
-  "checked_at": "2026-06-03T05:03:01.761558Z",
+  "checked_at": "2026-06-05T05:03:01.512137Z",
   "agents_scanned": 5,
   "findings": [
     "MODELS_MATRIX_01.md: missing sections ['capabilities', 'constraints', 'task_types']",

@@ -1,7 +1,7 @@
 {
   "job_id": "scheduler-crontab-list",
-  "checked_at": "2026-06-03T05:13:02.046363Z",
-  "active_entries": 42,
+  "checked_at": "2026-06-05T05:13:01.894363Z",
+  "active_entries": 44,
   "entries": [
     {
       "schedule": "*/15 * * * *",
@@ -170,6 +170,14 @@
     {
       "schedule": "*/15 * * * *",
       "command": "cd $REPO && $PY scripts/ai/workers/localcms_ledger_view_refresh.py >> $LOGDIR/le"
+    },
+    {
+      "schedule": "20 1 * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/strict_worker_denied_command_scan.py >> $LOGD"
+    },
+    {
+      "schedule": "25 1 * * *",
+      "command": "cd $REPO && $PY scripts/ai/workers/signal_stats.py >> $LOGDIR/signal_stats.log 2"
     }
   ],
   "error": null,

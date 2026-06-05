@@ -1,72 +1,10 @@
 {
   "job_id": "repo-changelog-digest",
   "period": "24 hours ago",
-  "generated_at": "2026-06-03T04:18:02.135408Z",
-  "commit_count": 5,
-  "commits": [
-    {
-      "sha": "1e5d648a",
-      "subject": "feat(telegram): multi-channel routing \u2014 alerts/pipeline/push/ops",
-      "author": "magikgmo4-ui",
-      "date": "2026-06-02 01:47:14 -0400"
-    },
-    {
-      "sha": "111a28a5",
-      "subject": "fix(cron-alerts): add load_env() in _notify() \u2014 cron ne source pas .env",
-      "author": "magikgmo4-ui",
-      "date": "2026-06-02 01:29:20 -0400"
-    },
-    {
-      "sha": "407835ab",
-      "subject": "feat(cron-alerts): Telegram WARN alerts + tmux visibility for cron workers",
-      "author": "magikgmo4-ui",
-      "date": "2026-06-02 00:29:14 -0400"
-    },
-    {
-      "sha": "947af132",
-      "subject": "feat(validation-gate): PASS \u2014 GO_OPT_TRADING_ORCHESTRATOR_CHILD_VALIDATION_GATE_V1_01 (#1061)",
-      "author": "magikgmo4-ui",
-      "date": "2026-06-02 00:24:16 -0400"
-    },
-    {
-      "sha": "a0f85298",
-      "subject": "docs(security): setup tradingview webhook credentials role (#1060)",
-      "author": "magikgmo4-ui",
-      "date": "2026-06-02 00:23:08 -0400"
-    }
-  ],
-  "files_changed_count": 35,
-  "files_changed": [
-    "configs/env/registry/machines.yaml",
-    "configs/telegram/channel_map.yaml",
-    "docs/chantiers/GO_OPT_TRADING_ORCHESTRATOR_CHILD_VALIDATION_GATE_V1_01/00_INITIAL_PROJECT_DOC.md",
-    "docs/chantiers/GO_OPT_TRADING_ORCHESTRATOR_CHILD_VALIDATION_GATE_V1_01/20_ACCEPTANCE_REPORT.md",
-    "docs/chantiers/GO_OPT_TRADING_ORCHESTRATOR_CHILD_VALIDATION_GATE_V1_01/FILE_SCOPE.txt",
-    "docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/00_INITIAL_PROJECT_DOC.md",
-    "docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/10_TRADINGVIEW_WEBHOOK_CREDENTIALS_SCOPE.md",
-    "docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/20_ROLE_AND_PROFILE_AUTHORIZATION.md",
-    "docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/30_LOCAL_SETUP_PROCEDURE.md",
-    "docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/40_VALIDATION_AND_RESOLVER_CHECKS.md",
-    "docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/60_GAPS_AND_NEXT_GO.md",
-    "docs/chantiers/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01/FILE_SCOPE.txt",
-    "docs/index/inbox/GO_OPT_TRADING_SECURITY_CREDENTIALS_TRADINGVIEW_WEBHOOK_ROLE_SETUP_CHILD_01.md",
-    "modules/notification_dispatcher/app/dispatcher.py",
-    "modules/runtime_health/fleet_orchestrator.py",
-    "modules/validation_gate/config/gate_policy.yaml",
-    "modules/validation_gate/tests/test_gate.py",
-    "modules/vision/coinglass/telegram_sender.py",
-    "reports/ai/anti_leak_scan.json",
-    "reports/ai/kill_switch_state_check.json",
-    "reports/ai/localcms_ledger_view_refresh.json",
-    "reports/ai/repo_changelog_digest.json",
-    "reports/ai/repo_closeout_eligibility.json",
-    "reports/ai/repo_doc_link_check.json",
-    "reports/ai/repo_go_index_audit.json",
-    "reports/ai/repo_orphan_files_audit.json",
-    "reports/ai/strict_worker_registry_check.json",
-    "scripts/ai/workers/approval_expiry_check.py",
-    "scripts/ai/workers/kill_switch_state_check.py",
-    "scripts/ai/workers/pending_approvals_digest.py"
-  ],
+  "generated_at": "2026-06-05T04:18:01.560828Z",
+  "commit_count": 0,
+  "commits": [],
+  "files_changed_count": 0,
+  "files_changed": [],
   "status": "PASS"
 }

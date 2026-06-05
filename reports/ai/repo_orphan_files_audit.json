@@ -1,8 +1,8 @@
 {
   "job_id": "repo-orphan-files-audit",
-  "checked_at": "2026-06-03T04:17:05.425835Z",
-  "tracked_scripts": 1510,
-  "orphan_candidates": 133,
+  "checked_at": "2026-06-05T04:17:02.447596Z",
+  "tracked_scripts": 1527,
+  "orphan_candidates": 139,
   "candidates": [
     "modules/bot_vision/headless_capture/scripts/run_orchestrator.sh",
     "modules/collector_telegram/tests/test_collector_telegram_module.py",
@@ -21,6 +21,8 @@
     "modules/notification_dispatcher/tests/test_import_safety.py",
     "modules/perf_engine/replay_context_reader.py",
     "modules/strategy/market_context_reader.py",
+    "modules/telegram_command_center/tests/test_commands.py",
+    "modules/telegram_command_center/tests/test_formatters.py",
     "modules/telegram_ingestion/parser/telethon_client.py",
     "modules/termux_operator/scripts/install_tasker_scripts.sh",
     "modules/trading_lab_v1/tests/test_exit_outcome_v1.py",
@@ -31,9 +33,7 @@
     "scripts/ai/workers/anti_leak_scan.py",
     "scripts/ai/workers/approval_expiry_check.py",
     "scripts/ai/workers/capability_matrix_validate.py",
-    "scripts/ai/workers/deny_by_default_check.py",
-    "scripts/ai/workers/doc_ops_create_chantier.py",
-    "scripts/ai/workers/env_file_presence_check.sh"
+    "scripts/ai/workers/deny_by_default_check.py"
   ],
   "status": "WARN"
 }
