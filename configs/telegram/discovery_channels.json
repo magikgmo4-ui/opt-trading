@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "description": "Discovery channels — collect, parse, qualify before activating as signal sources. See catalog/telegram_signal_channels_catalog_v1.md",
+  "discovery_channels": [
+    {"alias": "xauusd_signals", "enabled": false, "categories": ["xau", "discovery"]},
+    {"alias": "gold_forex_signals", "enabled": false, "categories": ["xau", "discovery"]},
+    {"alias": "gold_scalper", "enabled": false, "categories": ["xau", "discovery"]},
+    {"alias": "xauusd_scalping", "enabled": false, "categories": ["xau", "discovery"]},
+    {"alias": "cryptosignals", "enabled": false, "categories": ["crypto", "discovery"]},
+    {"alias": "btc_signals", "enabled": false, "categories": ["crypto", "discovery"]},
+    {"alias": "bitcoin_signals", "enabled": false, "categories": ["crypto", "discovery"]},
+    {"alias": "eth_signals", "enabled": false, "categories": ["crypto", "discovery"]},
+    {"alias": "binance_signals", "enabled": false, "categories": ["crypto", "discovery"]},
+    {"alias": "binance_futures_signals", "enabled": false, "categories": ["crypto", "discovery"]},
+    {"alias": "crypto_futures_signals", "enabled": false, "categories": ["crypto", "discovery"]},
+    {"alias": "altcoin_signals", "enabled": false, "categories": ["alt", "discovery"]},
+    {"alias": "altsignals", "enabled": false, "categories": ["alt", "discovery"]},
+    {"alias": "sol_signals", "enabled": false, "categories": ["alt", "discovery"]},
+    {"alias": "forex_signal", "enabled": false, "categories": ["forex", "discovery"]},
+    {"alias": "forex_signals_free", "enabled": false, "categories": ["forex", "discovery"]},
+    {"alias": "fx_signals", "enabled": false, "categories": ["forex", "discovery"]},
+    {"alias": "liquidation_alerts", "enabled": false, "categories": ["coinglass", "discovery"]},
+    {"alias": "funding_rate_alerts", "enabled": false, "categories": ["coinglass", "discovery"]},
+    {"alias": "lookonchain", "enabled": false, "categories": ["context", "discovery"]}
+  ]
+}
