@@ -123,6 +123,12 @@ def produce_telegram_signals() -> list[dict]:
         if not asset:
             continue
 
+        # Filter: only keep signals with direction AND at least one price field
+        direction = claim.get("direction")
+        has_price = claim.get("entry") or claim.get("sl") or claim.get("tp")
+        if not direction or not has_price:
+            continue
+
         signal = {
             "contract": "telegram_signal.v1",
             "id": f"tg_{msg.get('message_id', '')}_{now.strftime('%Y%m%dT%H%M%S')}",
@@ -133,9 +139,9 @@ def produce_telegram_signals() -> list[dict]:
             "channel_type": _CHANNEL_PRIORITY.get(channel, {}).get("type", "unknown"),
             "parsed_at": ts,
             "produced_at": now.isoformat(),
-                "pair": f"{asset}USDT",
-                "direction": (claim.get("direction") or "").upper() or None,
-                "entry_price": claim.get("entry"),
+            "pair": f"{asset}USDT",
+            "direction": (claim.get("direction") or "").upper() or None,
+            "entry_price": claim.get("entry"),
             "sl": claim.get("sl"),
             "tp": claim.get("tp"),
             "tps": claim.get("tps", []),
