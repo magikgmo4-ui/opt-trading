@@ -31,4 +31,7 @@ sync_dir "$REMOTE/data/data_center/views/vision_analysis/history/" \
 sync_dir "$REMOTE/data/deskpro/inputs/vision_context/coinglass/latest.json" \
          "$LOCAL_ROOT/data/deskpro/inputs/vision_context/coinglass/"
 
+sync_dir "$REMOTE/modules/collector_telegram/outputs/raw/" \
+         "$LOCAL_ROOT/modules/collector_telegram/outputs/raw/"
+
 echo "OK sync done"
