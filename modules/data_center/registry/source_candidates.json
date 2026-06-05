@@ -1,0 +1,737 @@
+{
+  "registry_version": "v1",
+  "registry_id": "source_candidates",
+  "updated_at": "2026-06-05",
+  "description": "Mapping data_item -> source candidates. Pour chaque champ de l'inventaire P0-P21, liste les sources existantes (DC producers) et candidates (externes, futures). Score = 0 si non evalue, sinon voir source_score.v1.",
+  "source_candidates": {
+    "P0": {
+      "label": "Instrument Master",
+      "sources": {
+        "existing": [],
+        "candidates": [
+          {
+            "source_id": "bloomberg_desktop_api",
+            "type": "vendor",
+            "coverage": ["symbol", "isin", "cusip", "sedol", "figi", "exchange_code", "mic_code", "asset_class", "instrument_type", "contract_specification", "trading_hours", "holiday_calendar", "corporate_action_calendar", "option_chain_structure", "futures_curve_membership", "benchmark_mapping", "sector_industry", "country_region", "index_membership", "borrow_eligibility"],
+            "access": "paid_terminal",
+            "score": 0,
+            "status": "candidate"
+          },
+          {
+            "source_id": "refinitiv_eikon",
+            "type": "vendor",
+            "coverage": ["symbol", "isin", "cusip", "sedol", "figi", "exchange_code", "mic_code", "asset_class", "instrument_type", "contract_specification", "currency"],
+            "access": "paid_api",
+            "score": 0,
+            "status": "candidate"
+          },
+          {
+            "source_id": "exchange_public_reference",
+            "type": "public",
+            "coverage": ["symbol", "exchange_code", "asset_class", "instrument_type", "contract_specification", "lot_size", "min_notional", "price_precision", "quantity_precision", "trading_hours", "holiday_calendar"],
+            "access": "free_public",
+            "score": 0,
+            "status": "candidate"
+          },
+          {
+            "source_id": "ccxt_library",
+            "type": "open_source",
+            "coverage": ["symbol", "exchange_code", "asset_class", "instrument_type", "contract_specification", "lot_size", "min_notional", "price_precision", "quantity_precision", "margin_model", "trading_hours"],
+            "access": "free_library",
+            "score": 0,
+            "status": "candidate"
+          }
+        ]
+      }
+    },
+    "P1": {
+      "label": "Market Data — Prix temps reel",
+      "sources": {
+        "existing": [
+          {
+            "source_id": "collector_binance_spot",
+            "type": "dc_producer",
+            "contract_class": "pair_market_snapshot.v1",
+            "coverage": ["last_price", "open", "high", "low", "close", "ohlcv_daily"],
+            "score": 0,
+            "status": "active_registry",
+            "note": "Producer enregistre, last_write=null, spot only, view directory absente"
+          }
+        ],
+        "candidates": [
+          {
+            "source_id": "binance_api_public",
+            "type": "exchange_api",
+            "coverage": ["last_price", "bid", "ask", "spread", "open", "high", "low", "ohlcv_intraday", "ohlcv_daily", "tick_data", "trade_prints", "level_1", "level_2", "level_3", "market_status"],
+            "access": "free_public_websocket",
+            "score": 0,
+            "status": "candidate"
+          },
+          {
+            "source_id": "bybit_api_public",
+            "type": "exchange_api",
+            "coverage": ["last_price", "bid", "ask", "spread", "mark_price", "index_price", "open", "high", "low", "ohlcv_intraday", "ohlcv_daily", "funding_rate_crypto"],
+            "access": "free_public_websocket",
+            "score": 0,
+            "status": "candidate"
+          },
+          {
+            "source_id": "bloomberg_market_data_feed",
+            "type": "vendor",
+            "coverage": ["last_price", "bid", "ask", "mid_price", "spread", "vwap", "twap", "consolidated_tape", "sip_feed", "level_1", "level_2", "auction_price", "halt_status", "indicative_nav", "market_status"],
+            "access": "paid_feed",
+            "score": 0,
+            "status": "candidate"
+          },
+          {
+            "source_id": "coingecko_api",
+            "type": "public_api",
+            "coverage": ["last_price", "open", "high", "low", "ohlcv_daily", "market_cap"],
+            "access": "free_tier",
+            "score": 0,
+            "status": "candidate"
+          }
+        ]
+      }
+    },
+    "P2": {
+      "label": "Position / risque / capital",
+      "sources": {
+        "existing": [],
+        "candidates": [
+          {
+            "source_id": "dc_internal_position_engine",
+            "type": "internal",
+            "coverage": ["current_positions", "average_entry_price", "realized_pnl", "unrealized_pnl", "daily_pnl", "mtd_ytd_pnl", "cash_balance", "buying_power", "available_margin", "used_margin", "leverage", "gross_exposure", "net_exposure", "drawdown", "max_intraday_loss", "stop_levels", "liquidation_price", "maintenance_margin_breach", "risk_limit_usage", "kill_switch_state"],
+            "access": "internal_runtime",
+            "score": 0,
+            "status": "candidate"
+          },
+          {
+            "source_id": "exchange_account_api",
+            "type": "broker_api",
+            "coverage": ["current_positions", "cash_balance", "available_margin", "used_margin", "liquidation_price"],
+            "access": "authenticated_api",
+            "score": 0,
+            "status": "candidate"
+          }
+        ]
+      }
+    },
+    "P3": {
+      "label": "Ordres / execution / routage",
+      "sources": {
+        "existing": [],
+        "candidates": [
+          {
+            "source_id": "dc_internal_execution_engine",
+            "type": "internal",
+            "coverage": ["parent_orders", "child_orders", "active_orders", "filled_orders", "partial_fills", "cancelled_orders", "rejected_orders", "order_timestamp", "fill_price", "slippage", "fees", "audit_trail"],
+            "access": "internal_runtime",
+            "score": 0,
+            "status": "candidate"
+          },
+          {
+            "source_id": "exchange_order_api",
+            "type": "broker_api",
+            "coverage": ["active_orders", "filled_orders", "partial_fills", "exchange_timestamp", "fill_timestamp", "latency", "order_type", "time_in_force", "venue_routed"],
+            "access": "authenticated_api",
+            "score": 0,
+            "status": "candidate"
+          }
+        ]
+      }
+    },
+    "P4": {
+      "label": "Liquidite et microstructure",
+      "sources": {
+        "existing": [
+          {
+            "source_id": "bot_vision_headless__coinglass",
+            "type": "dc_producer",
+            "contract_class": "vision_context.coinglass.v1",
+            "coverage": ["liquidation_clusters"],
+            "score": 0,
+            "status": "active_registry",
+            "note": "Producer enregistre, last_write=null, path dans views/ (hors convention)"
+          },
+          {
+            "source_id": "derivatives_collector__bitget",
+            "type": "dc_producer",
+            "contract_class": "market_metrics.v1",
+            "coverage": ["liquidation_clusters"],
+            "score": 0,
+            "status": "active_registry",
+            "note": "liquidations_long, liquidations_short"
+          },
+          {
+            "source_id": "derivatives_collector__binance",
+            "type": "dc_producer",
+            "contract_class": "market_metrics.v1",
+            "coverage": ["liquidation_clusters"],
+            "score": 0,
+            "status": "active_registry",
+            "note": "liquidations_long, liquidations_short"
+          }
+        ],
+        "candidates": [
+          {
+            "source_id": "binance_order_book_ws",
+            "type": "exchange_api",
+            "coverage": ["order_book_depth", "depth_imbalance", "top_of_book_size", "spread_regime", "quote_update_rate"],
+            "access": "free_websocket",
+            "score": 0,
+            "status": "candidate"
+          },
+          {
+            "source_id": "coinglass_api",
+            "type": "data_aggregator",
+            "coverage": ["liquidation_clusters", "order_flow_imbalance", "cvd"],
+            "access": "paid_api",
+            "score": 0,
+            "status": "candidate"
+          }
+        ]
+      }
+    },
+    "P5": {
+      "label": "Volatilite / options / derives",
+      "sources": {
+        "existing": [],
+        "candidates": [
+          {
+            "source_id": "deribit_api",
+            "type": "exchange_api",
+            "coverage": ["option_chain", "implied_volatility", "vol_surface", "skew", "smile", "term_structure", "atm_vol", "open_interest_options", "options_volume", "put_call_ratio", "max_pain", "expiry_calendar", "greeks_per_position"],
+            "access": "free_public_websocket",
+            "score": 0,
+            "status": "candidate"
+          },
+          {
+            "source_id": "cme_options_data",
+            "type": "exchange_data",
+            "coverage": ["option_chain", "implied_volatility", "open_interest_options", "options_volume", "futures_options_surface"],
+            "access": "paid_market_data",
+            "score": 0,
+            "status": "candidate"
+          },
+          {
+            "source_id": "bloomberg_options_analytics",
+            "type": "vendor",
+            "coverage": ["vol_surface", "skew", "smile", "term_structure", "dealer_gamma", "gamma_flip_level", "portfolio_greeks", "structured_product_hedging_flows"],
+            "access": "paid_terminal",
+            "score": 0,
+            "status": "candidate"
+          }
+        ]
+      }
+    },
+    "P6": {
+      "label": "Taux / courbes / credit",
+      "sources": {
+        "existing": [],
+        "candidates": [
+          {
+            "source_id": "fred_api",
+            "type": "public_api",
+            "coverage": ["treasury_yields", "sofr", "fed_funds", "yield_curve", "curve_spreads", "real_rates"],
+            "access": "free_public",
+            "score": 0,
+            "status": "candidate",
+            "note": "Federal Reserve Economic Data — centaines de milliers de series economiques"
+          },
+          {
+            "source_id": "finra_trace",
+            "type": "regulatory_data",
+            "coverage": ["trace_prints", "bond_prices", "bond_yields"],
+            "access": "paid_tier",
+            "score": 0,
+            "status": "candidate",
+            "note": "Transactions obligataires OTC — prix, taille, yield"
+          },
+          {
+            "source_id": "bloomberg_rates_credit",
+            "type": "vendor",
+            "coverage": ["swap_rates", "ois_curve", "forward_rates", "cross_currency_basis", "repo_rates", "credit_spreads", "cds_spreads", "credit_rating", "rating_outlook", "default_probability", "new_issue_calendar", "maturity_wall"],
+            "access": "paid_terminal",
+            "score": 0,
+            "status": "candidate"
+          }
+        ]
+      }
+    },
+    "P7": {
+      "label": "Macroeconomie / calendrier global",
+      "sources": {
+        "existing": [],
+        "candidates": [
+          {
+            "source_id": "fred_api",
+            "type": "public_api",
+            "coverage": ["cpi", "pce", "ppi", "nfp", "unemployment_rate", "jobless_claims", "jolts", "gdp", "pmi", "ism", "retail_sales", "consumer_confidence", "industrial_production", "housing_starts", "trade_balance", "inflation_expectations", "real_rates", "dollar_index", "global_liquidity_proxies"],
+            "access": "free_public",
+            "score": 0,
+            "status": "candidate"
+          },
+          {
+            "source_id": "economic_calendar_public",
+            "type": "public_aggregator",
+            "coverage": ["economic_calendar", "central_bank_calendar", "rate_decision", "surprise_index"],
+            "access": "free_public",
+            "score": 0,
+            "status": "candidate"
+          },
+          {
+            "source_id": "bloomberg_economics",
+            "type": "vendor",
+            "coverage": ["economic_calendar", "dot_plot", "press_conference_text", "minutes", "beige_book", "geopolitical_calendar", "surprise_index", "commodity_inventories_macro"],
+            "access": "paid_terminal",
+            "score": 0,
+            "status": "candidate"
+          }
+        ]
+      }
+    },
+    "P8": {
+      "label": "Fondamentaux entreprises",
+      "sources": {
+        "existing": [],
+        "candidates": [
+          {
+            "source_id": "sec_edgar",
+            "type": "regulatory_data",
+            "coverage": ["revenue", "gross_margin", "ebitda", "ebit", "net_income", "eps", "free_cash_flow", "capex", "opex", "cash_balance_company", "debt", "net_debt", "segment_revenue", "geographic_revenue", "legal_liabilities", "customer_concentration", "supplier_exposure"],
+            "access": "free_public",
+            "score": 0,
+            "status": "candidate",
+            "note": "10-K, 10-Q, 8-K — source centrale pour resultats, risques, MD&A"
+          },
+          {
+            "source_id": "bloomberg_fundamentals",
+            "type": "vendor",
+            "coverage": ["guidance", "guidance_revision", "consensus_estimates", "estimate_revisions", "surprise_eps", "surprise_revenue", "valuation_multiples", "comparable_companies", "dcf_assumptions", "insider_transactions", "13f_holdings", "short_interest", "buybacks", "dividends", "split_history", "ma_activity"],
+            "access": "paid_terminal",
+            "score": 0,
+            "status": "candidate"
+          }
+        ]
+      }
+    },
+    "P9": {
+      "label": "News / evenements / texte",
+      "sources": {
+        "existing": [
+          {
+            "source_id": "bot_vision_headless__news_sentiment",
+            "type": "dc_producer",
+            "contract_class": "vision_context.news_sentiment.v1",
+            "coverage": ["nlp_sentiment"],
+            "score": 0,
+            "status": "active_registry",
+            "note": "Producer enregistre, last_write=null, sentiment score uniquement"
+          }
+        ],
+        "candidates": [
+          {
+            "source_id": "bloomberg_news",
+            "type": "vendor",
+            "coverage": ["real_time_headlines", "full_news_articles", "press_releases", "analyst_notes", "rating_changes", "price_target_changes", "ma_rumors", "regulatory_headlines", "central_bank_speeches", "nlp_sentiment", "entity_extraction", "event_classification", "news_velocity", "news_novelty"],
+            "access": "paid_feed",
+            "score": 0,
+            "status": "candidate"
+          },
+          {
+            "source_id": "sec_edgar_filings",
+            "type": "regulatory_data",
+            "coverage": ["sec_filing_alerts"],
+            "access": "free_public",
+            "score": 0,
+            "status": "candidate"
+          },
+          {
+            "source_id": "seeking_alpha_transcripts",
+            "type": "public_data",
+            "coverage": ["earnings_call_transcripts", "conference_transcripts"],
+            "access": "free_public",
+            "score": 0,
+            "status": "candidate"
+          }
+        ]
+      }
+    },
+    "P10": {
+      "label": "Flows / positioning / ownership",
+      "sources": {
+        "existing": [
+          {
+            "source_id": "derivatives_collector__bitget",
+            "type": "dc_producer",
+            "contract_class": "market_metrics.v1",
+            "coverage": ["futures_open_interest", "futures_volume", "funding_rate", "long_short_ratio", "liquidation_data"],
+            "score": 0,
+            "status": "active_registry",
+            "note": "multi-source avec binance — candidate for resolver"
+          },
+          {
+            "source_id": "derivatives_collector__binance",
+            "type": "dc_producer",
+            "contract_class": "market_metrics.v1",
+            "coverage": ["futures_open_interest", "futures_volume", "funding_rate", "long_short_ratio", "liquidation_data"],
+            "score": 0,
+            "status": "active_registry",
+            "note": "multi-source avec bitget — candidate for resolver"
+          },
+          {
+            "source_id": "bot_vision_headless__coinglass",
+            "type": "dc_producer",
+            "contract_class": "vision_context.coinglass.v1",
+            "coverage": ["futures_open_interest", "liquidation_data", "funding_rate", "long_short_ratio", "exchange_reserves"],
+            "score": 0,
+            "status": "active_registry"
+          }
+        ],
+        "candidates": [
+          {
+            "source_id": "cftc_cot_report",
+            "type": "regulatory_data",
+            "coverage": ["cot_commercial", "cot_non_commercial", "cot_non_reportable"],
+            "access": "free_public",
+            "score": 0,
+            "status": "candidate",
+            "note": "Rapport hebdomadaire CFTC — positionnement futures/options par categorie"
+          },
+          {
+            "source_id": "bloomberg_flows",
+            "type": "vendor",
+            "coverage": ["etf_flows", "etf_creations_redemptions", "mutual_fund_flows", "hedge_fund_exposure", "prime_brokerage_balances", "margin_debt", "securities_lending", "borrow_rate", "utilization", "dark_pool_volume", "dealer_inventory", "broker_axes", "iois", "rfq_flow"],
+            "access": "paid_terminal",
+            "score": 0,
+            "status": "candidate"
+          }
+        ]
+      }
+    },
+    "P11": {
+      "label": "Donnees techniques / analytiques",
+      "sources": {
+        "existing": [
+          {
+            "source_id": "bot_vision_headless",
+            "type": "dc_producer",
+            "contract_class": "vision_analysis.v1",
+            "coverage": ["support_resistance", "trendlines", "breakout_levels", "liquidity_zones", "vwap_bands", "gap_analysis"],
+            "score": 0,
+            "status": "active_registry",
+            "note": "Analyse visuelle — 20 symboles dans by_symbol/, path views/ hors convention"
+          }
+        ],
+        "candidates": [
+          {
+            "source_id": "dc_internal_technical_engine",
+            "type": "internal",
+            "coverage": ["moving_averages", "ema_sma_clusters", "rsi", "macd", "bollinger_bands", "atr", "donchian_channels", "ichimoku", "supertrend", "market_profile", "volume_profile", "anchored_vwap", "fibonacci_levels", "pivot_points", "breadth_indicators", "advance_decline", "new_highs_new_lows", "correlation_matrix", "rolling_beta", "z_score", "regime_classification", "volatility_regime", "momentum_regime", "seasonality", "intraday_seasonality", "relative_strength", "pair_spreads", "stat_arb_signals", "factor_scores"],
+            "access": "internal_compute",
+            "score": 0,
+            "status": "candidate",
+            "note": "Indicateurs calculables a partir de P1 (OHLCV) — ne necessite pas de source externe"
+          }
+        ]
+      }
+    },
+    "P12": {
+      "label": "Modeles / signaux / recherche",
+      "sources": {
+        "existing": [],
+        "candidates": [
+          {
+            "source_id": "dc_strategy_framework",
+            "type": "internal",
+            "coverage": ["strategy_signals", "signal_confidence", "signal_horizon", "expected_return", "expected_volatility", "expected_drawdown", "hit_rate", "payoff_ratio", "sharpe_ratio", "sortino_ratio", "max_adverse_excursion", "max_favorable_excursion", "backtest_results", "walk_forward_results", "out_of_sample_results", "live_paper_results", "production_results", "feature_values", "feature_importance", "model_version", "model_drift", "regime_filter", "ensemble_score", "research_notes", "trade_thesis", "invalidation_level", "catalyst_map", "scenario_tree", "watchlist_ranking", "idea_backlog"],
+            "access": "internal_runtime",
+            "score": 0,
+            "status": "candidate"
+          }
+        ]
+      }
+    },
+    "P13": {
+      "label": "Donnees alternatives",
+      "sources": {
+        "existing": [],
+        "candidates": [
+          {
+            "source_id": "alternative_data_vendors",
+            "type": "vendor",
+            "coverage": ["credit_card_spend", "web_traffic", "app_downloads", "search_trends", "social_sentiment", "job_postings", "satellite_imagery", "shipping_ais_data", "weather_forecasts"],
+            "access": "paid_vendor",
+            "score": 0,
+            "status": "candidate"
+          },
+          {
+            "source_id": "coingecko_api",
+            "type": "public_api",
+            "coverage": ["github_activity", "developer_activity", "token_unlock_schedules"],
+            "access": "free_tier",
+            "score": 0,
+            "status": "candidate"
+          }
+        ]
+      }
+    },
+    "P14": {
+      "label": "Donnees crypto specifiques",
+      "sources": {
+        "existing": [
+          {
+            "source_id": "derivatives_collector__bitget",
+            "type": "dc_producer",
+            "contract_class": "market_metrics.v1",
+            "coverage": ["open_interest_per_venue", "funding_rate_crypto", "crypto_liquidation_data", "long_short_ratio", "top_trader_ratio"],
+            "score": 0,
+            "status": "active_registry"
+          },
+          {
+            "source_id": "derivatives_collector__binance",
+            "type": "dc_producer",
+            "contract_class": "market_metrics.v1",
+            "coverage": ["open_interest_per_venue", "funding_rate_crypto", "crypto_liquidation_data", "long_short_ratio", "top_trader_ratio"],
+            "score": 0,
+            "status": "active_registry"
+          },
+          {
+            "source_id": "collector_binance_spot",
+            "type": "dc_producer",
+            "contract_class": "pair_market_snapshot.v1",
+            "coverage": ["spot_price_per_exchange"],
+            "score": 0,
+            "status": "active_registry"
+          },
+          {
+            "source_id": "bot_vision_headless__coinglass",
+            "type": "dc_producer",
+            "contract_class": "vision_context.coinglass.v1",
+            "coverage": ["open_interest_per_venue", "crypto_liquidation_data", "funding_rate_crypto", "long_short_ratio", "exchange_reserves_btc_eth", "exchange_proof_of_reserves"],
+            "score": 0,
+            "status": "active_registry"
+          }
+        ],
+        "candidates": [
+          {
+            "source_id": "coinglass_api",
+            "type": "data_aggregator",
+            "coverage": ["open_interest_per_venue", "funding_rate_crypto", "predicted_funding", "crypto_liquidation_data", "long_short_ratio", "top_trader_ratio", "basis_spot_perp", "futures_curve_crypto", "exchange_reserves_btc_eth", "netflow_exchange", "exchange_proof_of_reserves"],
+            "access": "paid_api",
+            "score": 0,
+            "status": "candidate",
+            "note": "API directe possible, actuellement capture headless"
+          },
+          {
+            "source_id": "defillama_api",
+            "type": "public_api",
+            "coverage": ["tvl", "protocol_revenue", "dex_volume", "bridge_flows", "stablecoin_supply", "stablecoin_depeg_risk"],
+            "access": "free_public",
+            "score": 0,
+            "status": "candidate"
+          },
+          {
+            "source_id": "glassnode_api",
+            "type": "data_aggregator",
+            "coverage": ["exchange_reserves_btc_eth", "netflow_exchange", "whale_transactions", "miner_reserves", "wallet_cohorts", "mempool_data"],
+            "access": "paid_api",
+            "score": 0,
+            "status": "candidate"
+          }
+        ]
+      }
+    },
+    "P15": {
+      "label": "Commodities specifiques",
+      "sources": {
+        "existing": [],
+        "candidates": [
+          {
+            "source_id": "eia_api",
+            "type": "public_api",
+            "coverage": ["eia_crude_inventories", "cushing_inventories", "refinery_utilization", "rig_count", "gas_storage"],
+            "access": "free_public",
+            "score": 0,
+            "status": "candidate"
+          },
+          {
+            "source_id": "usda_wasde",
+            "type": "public_data",
+            "coverage": ["crop_reports", "wasde", "planting_progress", "harvest_progress", "export_inspections"],
+            "access": "free_public",
+            "score": 0,
+            "status": "candidate"
+          },
+          {
+            "source_id": "bloomberg_commodities",
+            "type": "vendor",
+            "coverage": ["futures_curve_commodity", "spot_price_commodity", "inventory_data", "opec_production", "opec_quotas", "tanker_tracking", "crack_spreads", "lng_flows", "lme_inventories", "comex_inventories"],
+            "access": "paid_terminal",
+            "score": 0,
+            "status": "candidate"
+          }
+        ]
+      }
+    },
+    "P16": {
+      "label": "FX specifiques",
+      "sources": {
+        "existing": [],
+        "candidates": [
+          {
+            "source_id": "oanda_api",
+            "type": "broker_api",
+            "coverage": ["spot_fx_rates", "forward_points"],
+            "access": "free_tier",
+            "score": 0,
+            "status": "candidate"
+          },
+          {
+            "source_id": "bloomberg_fx",
+            "type": "vendor",
+            "coverage": ["spot_fx_rates", "forward_points", "fx_swaps", "cross_currency_basis", "interest_rate_differentials", "real_yield_differential", "options_risk_reversals", "implied_vol_fx", "carry_score", "fixing_flows", "corporate_hedging_flows", "sovereign_flows", "emerging_market_risk", "dollar_liquidity"],
+            "access": "paid_terminal",
+            "score": 0,
+            "status": "candidate"
+          },
+          {
+            "source_id": "cftc_cot_fx",
+            "type": "regulatory_data",
+            "coverage": ["positioning_imm_cot"],
+            "access": "free_public",
+            "score": 0,
+            "status": "candidate"
+          }
+        ]
+      }
+    },
+    "P17": {
+      "label": "Actions specifiques",
+      "sources": {
+        "existing": [
+          {
+            "source_id": "bot_vision_headless__screener",
+            "type": "dc_producer",
+            "contract_class": "vision_context.screener.v1",
+            "coverage": ["premarket_price", "postmarket_price", "market_cap"],
+            "score": 0,
+            "status": "active_registry",
+            "note": "Screener equities — coverage basique"
+          }
+        ],
+        "candidates": [
+          {
+            "source_id": "bloomberg_equity",
+            "type": "vendor",
+            "coverage": ["earnings_date", "earnings_time", "whisper_number", "consensus_eps_target", "consensus_revenue_target", "short_interest_pct", "borrow_availability", "borrow_fee", "insider_trades_recent", "institutional_ownership", "float", "free_float", "enterprise_value", "index_inclusion_risk", "etf_ownership", "buyback_authorization", "dividend_date", "ex_dividend_date", "split_date", "corporate_actions", "sector_etf_flow", "peer_basket", "factor_loading", "beta_to_index"],
+            "access": "paid_terminal",
+            "score": 0,
+            "status": "candidate"
+          }
+        ]
+      }
+    },
+    "P18": {
+      "label": "Compliance / restrictions",
+      "sources": {
+        "existing": [],
+        "candidates": [
+          {
+            "source_id": "dc_internal_compliance",
+            "type": "internal",
+            "coverage": ["restricted_list", "watch_list", "mnpi_flag", "personal_account_dealing_flags", "best_execution_evidence_compliance", "approval_workflow", "audit_logs", "communication_records"],
+            "access": "internal_runtime",
+            "score": 0,
+            "status": "candidate"
+          },
+          {
+            "source_id": "ofac_sanctions_list",
+            "type": "regulatory_data",
+            "coverage": ["sanctions_list"],
+            "access": "free_public",
+            "score": 0,
+            "status": "candidate"
+          }
+        ]
+      }
+    },
+    "P19": {
+      "label": "Operations / settlement",
+      "sources": {
+        "existing": [],
+        "candidates": [
+          {
+            "source_id": "dc_internal_ops",
+            "type": "internal",
+            "coverage": ["trade_confirmation", "allocation", "settlement_date", "settlement_status", "fails_to_deliver", "custodian_data", "clearing_broker_data", "prime_broker_data", "margin_calls", "collateral_posted", "collateral_available", "cash_movements", "fx_settlement", "corporate_action_election", "tax_lots", "realized_tax_pnl", "reconciliation_breaks", "broker_statements", "fee_schedules", "commission_schedules", "exchange_fees", "financing_accruals", "dividend_receivables", "coupon_receivables", "borrow_recalls", "stock_loan_records"],
+            "access": "internal_runtime",
+            "score": 0,
+            "status": "candidate"
+          }
+        ]
+      }
+    },
+    "P20": {
+      "label": "Desk memory / collaboration",
+      "sources": {
+        "existing": [],
+        "candidates": [
+          {
+            "source_id": "dc_internal_desk_memory",
+            "type": "internal",
+            "coverage": ["trader_notes", "pm_comments", "analyst_comments", "morning_meeting_notes", "handover_notes", "watchlist_rationale", "trade_idea_log", "thesis_log", "invalidation_notes", "post_trade_review", "broker_chat", "sales_notes", "voice_transcript", "chat_transcript", "rfq_conversation", "client_interest", "internal_approvals", "incident_notes", "playbooks", "runbooks", "lessons_learned"],
+            "access": "internal_runtime",
+            "score": 0,
+            "status": "candidate"
+          }
+        ]
+      }
+    },
+    "P21": {
+      "label": "Qualite / lineage / fraicheur",
+      "sources": {
+        "existing": [],
+        "candidates": [
+          {
+            "source_id": "dc_source_scoring_engine",
+            "type": "internal",
+            "coverage": ["source_vendor", "source_priority", "timestamp_source", "timestamp_received", "timestamp_processed", "staleness_latency", "stale_flag", "missing_flag", "outlier_flag", "correction_flag", "revision_number", "corporate_action_adjusted_flag", "split_adjusted_price", "dividend_adjusted_price", "survivorship_bias_flag", "lookahead_bias_flag", "backfill_flag", "entitlement_status", "permission_scope", "schema_version", "normalization_rules", "unit_metadata", "precision_metadata", "validation_checksum", "audit_lineage", "data_health_score", "vendor_outage_flag", "fallback_source_used"],
+            "access": "internal_runtime",
+            "score": 0,
+            "status": "candidate",
+            "note": "Implemente les schemas source_score.v1 + source_evidence.v1 specifies dans child 4"
+          }
+        ]
+      }
+    }
+  },
+  "summary": {
+    "total_existing_sources": 7,
+    "existing_producers_mapped": [
+      "collector_binance_spot",
+      "derivatives_collector__bitget",
+      "derivatives_collector__binance",
+      "bot_vision_headless",
+      "bot_vision_headless__coinglass",
+      "bot_vision_headless__screener",
+      "bot_vision_headless__news_sentiment"
+    ],
+    "total_candidate_sources": 31,
+    "candidate_source_types": {
+      "dc_producer": 7,
+      "internal": 8,
+      "vendor": 1,
+      "public_api": 5,
+      "exchange_api": 5,
+      "regulatory_data": 4,
+      "data_aggregator": 3,
+      "broker_api": 3,
+      "public_aggregator": 1,
+      "public_data": 2,
+      "open_source": 1
+    }
+  }
+}
