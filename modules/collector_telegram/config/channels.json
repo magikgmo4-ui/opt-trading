@@ -61,9 +61,30 @@
     {
       "alias": "gold_scalping",
       "source_ref": "gold_scalping",
-      "enabled": false,
+      "enabled": true,
       "categories": ["signals", "gold", "scalping"],
-      "notes": "Candidate handle to validate before live rollout"
+      "notes": "Activated 2026-06-05 — GOLD scalping signals"
+    },
+    {
+      "alias": "gold_intraday",
+      "source_ref": "gold_intraday",
+      "enabled": true,
+      "categories": ["signals", "gold", "intraday"],
+      "notes": "Activated 2026-06-05 — GOLD intraday signals"
+    },
+    {
+      "alias": "forexgoldsignals",
+      "source_ref": "forexgoldsignals",
+      "enabled": true,
+      "categories": ["signals", "forex", "gold"],
+      "notes": "Activated 2026-06-05 — Forex + Gold signals"
+    },
+    {
+      "alias": "fxpremiumsignals",
+      "source_ref": "fxpremiumsignals",
+      "enabled": true,
+      "categories": ["signals", "forex"],
+      "notes": "Activated 2026-06-05 — FX premium signals"
     },
     {
       "alias": "gold_intraday",

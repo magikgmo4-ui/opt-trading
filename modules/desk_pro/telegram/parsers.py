@@ -82,6 +82,21 @@ _SIGNAL_ID_COIN_RE = re.compile(
     re.IGNORECASE | re.DOTALL,
 )
 
+# ── Pattern 9: WallStreetQueen setup "Coin: #APTUSDT\nDirection: Long\nEntry: $0.95\nStop-loss: $0.92" ──
+_WSQ_SETUP_RE = re.compile(
+    r'Coin(?:\s*name)?\s*:\s*\**\#?(?P<asset>[A-Z]{2,10})USDT\**.*?'
+    r'Direction\s*:\s*(?P<direction>Long|Short).*?'
+    r'Entry\s*:\s*\$?(?P<entry>' + _PRICE_STR + r').*?'
+    r'(?:Stop[-\s]?loss|SL)\s*:\s*\$?(?P<sl>' + _PRICE_STR + r')',
+    re.IGNORECASE | re.DOTALL,
+)
+
+# ── Pattern 10: TP hit report "✔️✔️#APTUSDT✔️✔️\nTarget 1: 0.974$" ──
+_WSQ_TP_HIT_RE = re.compile(
+    r'✔️.*?#(?P<asset>[A-Z]{2,10})USDT.*?✔️\s*\n\s*\*{0,2}(?P<hits>\w+)\*{0,2}\s+Targets?\s+done',
+    re.IGNORECASE | re.DOTALL,
+)
+
 # ── Price regexes for general extraction ──────────────────────────────
 _ENTRY_RE = re.compile(
     r'(?:Entry|Price|@|开仓价格)\s*(?:Point|Price)?\s*[:\s\$]+(?P<entry>' + _PRICE_STR + ')',
@@ -92,7 +107,7 @@ _SL_RE = re.compile(
     re.IGNORECASE,
 )
 _TP_ANY_RE = re.compile(
-    r'(?:TP|Target)\s*\d*\s*[:\s]+\s*(?P<tp>' + _PRICE_STR + ')',
+    r'(?:TP|Targets?)\s*[:\s]+\s*\$?(?P<tp>' + _PRICE_STR + r')',
     re.IGNORECASE,
 )
 _LEVERAGE_RE = re.compile(
@@ -174,6 +189,27 @@ def parse_telegram_message(raw_dict: dict) -> ParsedTelegramMessage:
             direction = m.group("direction").upper()
             lev = m.group("leverage")
             if lev: extra["leverage"] = int(lev)
+
+    # ── Try WSQ setup format (Coin: #APTUSDT + Direction + Entry + Stop-loss) ──
+    if asset is None:
+        m = _WSQ_SETUP_RE.search(raw_text)
+        if m:
+            asset = m.group("asset").upper()
+            direction = "LONG" if m.group("direction").upper() == "LONG" else "SHORT"
+            extra["entry"] = _parse_float(m.group("entry"))
+            extra["sl"] = _parse_float(m.group("sl"))
+            # Extract all targets
+            tps = [_parse_float(m.group("tp")) for m in _TP_ANY_RE.finditer(raw_text)]
+            tps = [t for t in tps if t is not None]
+            if tps: extra["tps"] = tps
+            # Extract leverage
+            lev_m = re.search(r'(?:Leverage|Lev)\s*:\s*(\d+)', raw_text, re.IGNORECASE)
+            if lev_m: extra["leverage"] = int(lev_m.group(1))
+
+    # ── Skip TP hit reports ──
+    if asset is None:
+        if _WSQ_TP_HIT_RE.search(raw_text):
+            return ParsedTelegramMessage(message_type="TP_HIT", raw_text=raw_text, channel_alias=channel_alias)
 
     # ── Try Chinese long/short ──
     if asset is None:

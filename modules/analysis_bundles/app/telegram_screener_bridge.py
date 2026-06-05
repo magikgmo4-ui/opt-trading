@@ -1,10 +1,10 @@
 """
-telegram_screener_bridge — parse raw collector messages into signals with channel stats.
+telegram_screener_bridge — parse raw collector messages into signals + context.
 
-Reads raw JSONL files from collector_telegram/outputs/raw/,
-parses them through parse_telegram_message (with whitelist),
-classifies by channel with timestamps,
-writes structured signals + per-channel quality stats.
+Outputs:
+- Trade signals: direction + entry + sl/tp required (xauusd, wallstreetqueenofficial)
+- Context signals: whale flows, coinglass alerts, onchain data (for DeskPro)
+- Channel quality stats per channel
 """
 
 import json
@@ -17,72 +17,74 @@ from modules.desk_pro.telegram.parsers import parse_telegram_message
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
 _RAW_DIR = _PROJECT_ROOT / "modules" / "collector_telegram" / "outputs" / "raw"
 _SIGNALS_DIR = _PROJECT_ROOT / "data" / "telegram_screener" / "signals"
+_CONTEXT_DIR = _PROJECT_ROOT / "data" / "telegram_screener" / "context_signals"
 _CHANNEL_STATS_DIR = _PROJECT_ROOT / "data" / "telegram_screener" / "channel_stats"
-_DATA_CENTER_TG = _PROJECT_ROOT / "data" / "data_center" / "views" / "telegram_signals"
+_DC_TG = _PROJECT_ROOT / "data" / "data_center" / "views" / "telegram_signals"
+_DC_CTX = _PROJECT_ROOT / "data" / "data_center" / "views" / "telegram_context"
 
-# Channel priority classification
 _CHANNEL_PRIORITY = {
-    "coinglass_alerts": {"priority": "P0", "type": "whale_trade", "note": "Coinglass whale alerts — Hyperliquid + exchange flows"},
-    "fatpigsignals": {"priority": "P0", "type": "trade_setup", "note": "Fat Pig Signals — trade setups with entry/sl/tp"},
-    "binancekillers": {"priority": "P1", "type": "trade_signal", "note": "Binance Killers — trade signals"},
-    "cryptoquant_official": {"priority": "P1", "type": "onchain_data", "note": "CryptoQuant — on-chain metrics, exchange flows"},
-    "glassnode": {"priority": "P1", "type": "onchain_data", "note": "Glassnode — on-chain analytics"},
-    "arkhamintelligence": {"priority": "P1", "type": "onchain_data", "note": "Arkham Intelligence — wallet tracking"},
-    "whale_alert_io": {"priority": "P1", "type": "whale_alert", "note": "Whale Alert — large BTC/ETH/USDT transfers"},
-    "forexsignals": {"priority": "P1", "type": "xau_signal", "note": "Forex Signals — XAUHQ gold trades with entry/tp"},
-    "goldsignals": {"priority": "P1", "type": "xau_signal", "note": "Gold Signals — XAUHQ gold trades"},
-    "xauusd": {"priority": "P1", "type": "xau_signal", "note": "XAUUSD — BUY/SELL GOLD with entry/sl/tp"},
-    "wallstreetqueenofficial": {"priority": "P2", "type": "trade_signal", "note": "WallStreetQueen — #COINUSDT signals"},
-    "learn2trade": {"priority": "P2", "type": "education", "note": "Learn2Trade — educational content only"},
-    "goldtrading": {"priority": "Bruit", "type": "marketing", "note": "Gold Trading — Indo marketing, no signals"},
+    "coinglass_alerts": {"priority": "P1", "type": "whale_trade", "output": "context"},
+    "fatpigsignals": {"priority": "P0", "type": "trade_setup", "output": "trade"},
+    "binancekillers": {"priority": "P1", "type": "tp_hits", "output": "skip"},
+    "cryptoquant_official": {"priority": "P1", "type": "onchain_data", "output": "context"},
+    "glassnode": {"priority": "P1", "type": "onchain_data", "output": "context"},
+    "arkhamintelligence": {"priority": "P1", "type": "onchain_data", "output": "context"},
+    "whale_alert_io": {"priority": "P1", "type": "whale_alert", "output": "context"},
+    "forexsignals": {"priority": "P1", "type": "xau_signal", "output": "trade"},
+    "goldsignals": {"priority": "P1", "type": "xau_signal", "output": "trade"},
+    "xauusd": {"priority": "P0", "type": "xau_signal", "output": "trade"},
+    "wallstreetqueenofficial": {"priority": "P1", "type": "trade_signal", "output": "trade"},
+    "learn2trade": {"priority": "P2", "type": "education", "output": "skip"},
+    "goldtrading": {"priority": "Bruit", "type": "marketing", "output": "skip"},
+    # New channels (enabled 2026-06-05)
+    "gold_scalping": {"priority": "P1", "type": "xau_signal", "output": "trade"},
+    "gold_intraday": {"priority": "P1", "type": "xau_signal", "output": "trade"},
+    "forexgoldsignals": {"priority": "P1", "type": "xau_signal", "output": "trade"},
+    "fxpremiumsignals": {"priority": "P1", "type": "xau_signal", "output": "trade"},
 }
 
 
 def read_all_raw_messages() -> list[dict]:
-    """Read all raw JSONL messages from collector output."""
     messages = []
     if not _RAW_DIR.exists():
         return messages
-
     for jsonl_file in sorted(_RAW_DIR.glob("*.jsonl")):
         try:
             for line in jsonl_file.read_text(encoding="utf-8").splitlines():
                 line = line.strip()
-                if not line:
-                    continue
+                if not line: continue
                 try:
                     msg = json.loads(line)
                     if isinstance(msg, dict) and msg.get("raw_text"):
                         messages.append(msg)
-                except json.JSONDecodeError:
-                    continue
-        except Exception:
-            continue
-
+                except json.JSONDecodeError: continue
+        except Exception: continue
     return messages
 
 
 def produce_telegram_signals() -> list[dict]:
-    """Parse all raw messages, extract claims, write signals per channel with timestamps."""
+    """Parse raw messages, produce trade signals + context signals."""
     now = datetime.now(timezone.utc)
     messages = read_all_raw_messages()
+    if not messages: return []
 
-    if not messages:
-        return []
-
+    # Clean old files
     _SIGNALS_DIR.mkdir(parents=True, exist_ok=True)
-
-    # Clean old signal files before regenerating
-    for old in _SIGNALS_DIR.glob("signal_*.json"):
+    _CONTEXT_DIR.mkdir(parents=True, exist_ok=True)
+    for old in list(_SIGNALS_DIR.glob("signal_*.json")) + list(_CONTEXT_DIR.glob("ctx_*.json")):
         old.unlink()
 
-    signals_written = []
-    for msg in messages:
-        parsed = parse_telegram_message(msg)
+    trade_signals = []
+    context_signals = []
 
-        # Track all parsed types for stats
+    for msg in messages:
         channel = msg.get("channel_alias", "unknown")
+        ch_info = _CHANNEL_PRIORITY.get(channel, {"priority": "P2", "type": "unknown", "output": "skip"})
+        if ch_info["output"] == "skip":
+            continue
+
         ts = msg.get("timestamp_utc", now.isoformat())
+        parsed = parse_telegram_message(msg)
 
         if parsed.claim is None:
             continue
@@ -90,43 +92,37 @@ def produce_telegram_signals() -> list[dict]:
         claim = parsed.claim
         claim_type = claim.get("claim_type", "TRADE_SETUP")
 
-        if claim_type == "CRYPTO_FLOW":
-            # Whale transfer alert
-            asset = claim.get("asset", "")
-            signal = {
-                "contract": "telegram_signal.v1",
-                "id": f"tg_flow_{msg.get('message_id', '')}_{now.strftime('%Y%m%dT%H%M%S')}",
+        # Route to context signals
+        if claim_type == "CRYPTO_FLOW" or ch_info["output"] == "context":
+            ctx = {
+                "contract": "telegram_context.v1",
+                "id": f"ctx_{msg.get('message_id', '')}_{now.strftime('%Y%m%dT%H%M%S')}",
                 "source": "telegram_screener_bridge",
-                "signal_type": "crypto_flow",
+                "signal_type": claim_type.lower() if claim_type == "CRYPTO_FLOW" else ch_info["type"],
                 "channel": channel,
-                "channel_priority": _CHANNEL_PRIORITY.get(channel, {}).get("priority", "P2"),
-                "channel_type": _CHANNEL_PRIORITY.get(channel, {}).get("type", "unknown"),
+                "channel_priority": ch_info["priority"],
+                "channel_type": ch_info["type"],
                 "parsed_at": ts,
                 "produced_at": now.isoformat(),
-                "pair": f"{asset}USDT",
-                "direction": None,
+                "asset": claim.get("asset"),
+                "direction": claim.get("direction"),
+                "entry_price": claim.get("entry"),
                 "amount": claim.get("amount"),
                 "value_usd": claim.get("value_usd"),
-                "confidence": "LOW",
                 "raw_text": msg.get("raw_text", ""),
-                "summary": f"{claim.get('amount', '?')} {asset} (${claim.get('value_usd', '?')} USD) transfer",
             }
-            signal_path = _SIGNALS_DIR / f"signal_{signal['id']}.json"
-            signal_path.write_text(json.dumps(signal, indent=2, default=str), encoding="utf-8")
-            signals_written.append(signal)
+            ctx_path = _CONTEXT_DIR / f"ctx_{ctx['id']}.json"
+            ctx_path.write_text(json.dumps(ctx, indent=2, default=str), encoding="utf-8")
+            context_signals.append(ctx)
             continue
 
         if claim_type != "TRADE_SETUP":
             continue
 
         asset = claim.get("asset", "")
-        if not asset:
-            continue
-
-        # Filter: only keep signals with direction AND at least one price field
         direction = claim.get("direction")
         has_price = claim.get("entry") or claim.get("sl") or claim.get("tp")
-        if not direction or not has_price:
+        if not asset or not direction or not has_price:
             continue
 
         signal = {
@@ -135,12 +131,12 @@ def produce_telegram_signals() -> list[dict]:
             "source": "telegram_screener_bridge",
             "signal_type": "trade",
             "channel": channel,
-            "channel_priority": _CHANNEL_PRIORITY.get(channel, {}).get("priority", "P2"),
-            "channel_type": _CHANNEL_PRIORITY.get(channel, {}).get("type", "unknown"),
+            "channel_priority": ch_info["priority"],
+            "channel_type": ch_info["type"],
             "parsed_at": ts,
             "produced_at": now.isoformat(),
             "pair": f"{asset}USDT",
-            "direction": (claim.get("direction") or "").upper() or None,
+            "direction": direction.upper() if direction else None,
             "entry_price": claim.get("entry"),
             "sl": claim.get("sl"),
             "tp": claim.get("tp"),
@@ -148,131 +144,109 @@ def produce_telegram_signals() -> list[dict]:
             "leverage": claim.get("leverage"),
             "confidence": "LOW",
             "raw_text": msg.get("raw_text", ""),
-            "summary": f"{asset} {claim.get('direction', '')}",
+            "summary": f"{asset} {direction}",
         }
+        sig_path = _SIGNALS_DIR / f"signal_{signal['id']}.json"
+        sig_path.write_text(json.dumps(signal, indent=2, default=str), encoding="utf-8")
+        trade_signals.append(signal)
 
-        # Write per-signal file
-        signal_path = _SIGNALS_DIR / f"signal_{signal['id']}.json"
-        signal_path.write_text(json.dumps(signal, indent=2, default=str), encoding="utf-8")
-        signals_written.append(signal)
+    # Write latest.json for trade signals
+    (_SIGNALS_DIR / "latest.json").write_text(json.dumps({
+        "total": len(trade_signals),
+        "produced_at": now.isoformat(),
+    }, indent=2), encoding="utf-8")
 
-    return signals_written
+    # Write context index
+    (_CONTEXT_DIR / "latest.json").write_text(json.dumps({
+        "total": len(context_signals),
+        "produced_at": now.isoformat(),
+    }, indent=2), encoding="utf-8")
+
+    # Write to data_center views
+    _DC_TG.mkdir(parents=True, exist_ok=True)
+    (_DC_TG / "latest.json").write_text(json.dumps({"signals": len(trade_signals), "produced_at": now.isoformat()}, indent=2), encoding="utf-8")
+
+    _DC_CTX.mkdir(parents=True, exist_ok=True)
+    (_DC_CTX / "latest.json").write_text(json.dumps({"context_signals": len(context_signals), "produced_at": now.isoformat()}, indent=2), encoding="utf-8")
+
+    return trade_signals
 
 
 def produce_channel_stats() -> dict:
-    """Analyze all messages per channel and produce quality statistics."""
     messages = read_all_raw_messages()
     now = datetime.now(timezone.utc).isoformat()
 
     channel_data: dict[str, dict] = defaultdict(lambda: {
-        "channel": "",
-        "priority": "P2",
-        "type": "unknown",
-        "note": "",
-        "total_messages": 0,
-        "trade_setups": 0,
-        "noise_count": 0,
-        "unique_assets": set(),
-        "signals_by_asset": defaultdict(int),
-        "latest_ts": None,
-        "earliest_ts": None,
-        "signals_with_entry": 0,
-        "signals_with_sl": 0,
-        "signals_with_tp": 0,
-        "avg_leverage": 0.0,
-        "leverage_count": 0,
+        "channel": "", "priority": "P2", "type": "unknown", "output": "skip",
+        "total_messages": 0, "trade_setups": 0, "context_signals": 0, "skipped": 0,
+        "unique_assets": set(), "signals_by_asset": defaultdict(int),
+        "latest_ts": None, "earliest_ts": None,
+        "signals_with_entry": 0, "signals_with_sl": 0, "signals_with_tp": 0,
     })
 
     for msg in messages:
         channel = msg.get("channel_alias", "unknown")
-        ts = msg.get("timestamp_utc", "")
-
-        info = _CHANNEL_PRIORITY.get(channel, {"priority": "P2", "type": "unknown", "note": ""})
+        ch_info = _CHANNEL_PRIORITY.get(channel, {"priority": "P2", "type": "unknown", "output": "skip"})
         cd = channel_data[channel]
         cd["channel"] = channel
-        cd["priority"] = info.get("priority", "P2")
-        cd["type"] = info.get("type", "unknown")
-        cd["note"] = info.get("note", "")
+        cd["priority"] = ch_info["priority"]
+        cd["type"] = ch_info["type"]
+        cd["output"] = ch_info["output"]
         cd["total_messages"] += 1
 
+        ts = msg.get("timestamp_utc", "")
         if ts:
-            if cd["latest_ts"] is None or ts > cd["latest_ts"]:
-                cd["latest_ts"] = ts
-            if cd["earliest_ts"] is None or ts < cd["earliest_ts"]:
-                cd["earliest_ts"] = ts
+            if cd["latest_ts"] is None or ts > cd["latest_ts"]: cd["latest_ts"] = ts
+            if cd["earliest_ts"] is None or ts < cd["earliest_ts"]: cd["earliest_ts"] = ts
 
         parsed = parse_telegram_message(msg)
-        if parsed.message_type == "TRADE_SETUP" and parsed.claim:
-            cd["trade_setups"] += 1
-            asset = parsed.claim.get("asset", "?")
+        if not parsed.claim: continue
+
+        claim = parsed.claim
+        claim_type = claim.get("claim_type", "TRADE_SETUP")
+
+        if ch_info["output"] == "skip":
+            cd["skipped"] += 1
+            continue
+
+        if claim_type == "CRYPTO_FLOW" or ch_info["output"] == "context":
+            cd["context_signals"] += 1
+            asset = claim.get("asset", "?")
             cd["unique_assets"].add(asset)
-            cd["signals_by_asset"][asset] += 1
-            if parsed.claim.get("entry"):
-                cd["signals_with_entry"] += 1
-            if parsed.claim.get("sl"):
-                cd["signals_with_sl"] += 1
-            if parsed.claim.get("tp") or parsed.claim.get("tps"):
-                cd["signals_with_tp"] += 1
-            if parsed.claim.get("leverage"):
-                cd["leverage_count"] += 1
-                cd["avg_leverage"] += parsed.claim["leverage"]
-        else:
-            cd["noise_count"] += 1
+            continue
 
-    # Build final stats
-    stats = {
-        "contract": "telegram_channel_stats.v1",
-        "produced_at": now,
-        "total_channels": len(channel_data),
-        "total_messages": len(messages),
-        "channels": [],
-    }
+        if claim_type != "TRADE_SETUP": continue
 
+        asset = claim.get("asset", "?")
+        direction = claim.get("direction")
+        has_price = claim.get("entry") or claim.get("sl") or claim.get("tp")
+        if not asset or not direction or not has_price: continue
+
+        cd["trade_setups"] += 1
+        cd["unique_assets"].add(asset)
+        cd["signals_by_asset"][asset] += 1
+        if claim.get("entry"): cd["signals_with_entry"] += 1
+        if claim.get("sl"): cd["signals_with_sl"] += 1
+        if claim.get("tp"): cd["signals_with_tp"] += 1
+
+    stats = {"contract": "telegram_channel_stats.v1", "produced_at": now,
+             "total_channels": len(channel_data), "total_messages": len(messages), "channels": []}
     for ch, cd in sorted(channel_data.items()):
         cd["unique_assets"] = sorted(cd["unique_assets"])
         cd["signals_by_asset"] = dict(cd["signals_by_asset"])
-        if cd["leverage_count"] > 0:
-            cd["avg_leverage"] = round(cd["avg_leverage"] / cd["leverage_count"], 1)
-        else:
-            cd["avg_leverage"] = 0.0
         stats["channels"].append(cd)
 
-    # Write to data_center
     _CHANNEL_STATS_DIR.mkdir(parents=True, exist_ok=True)
     (_CHANNEL_STATS_DIR / "latest.json").write_text(json.dumps(stats, indent=2, default=str), encoding="utf-8")
 
-    # Also write to data_center views for DeskPro
-    _DATA_CENTER_TG.mkdir(parents=True, exist_ok=True)
-    (_DATA_CENTER_TG / "channel_stats" / "latest.json").parent.mkdir(parents=True, exist_ok=True)
-    (_DATA_CENTER_TG / "channel_stats" / "latest.json").write_text(json.dumps(stats, indent=2, default=str), encoding="utf-8")
+    _DC_TG.mkdir(parents=True, exist_ok=True)
+    (_DC_TG / "channel_stats" / "latest.json").parent.mkdir(parents=True, exist_ok=True)
+    (_DC_TG / "channel_stats" / "latest.json").write_text(json.dumps(stats, indent=2, default=str), encoding="utf-8")
 
     return stats
 
 
 def produce_latest_index() -> dict:
-    """Generate signals, stats, and return summary."""
     signals = produce_telegram_signals()
     stats = produce_channel_stats()
-
-    latest_path = _SIGNALS_DIR / "latest.json"
-    btc_signals = [s for s in signals if s.get("pair", "").startswith("BTC")]
-
-    # Write per-channel latest files
-    _DATA_CENTER_TG.mkdir(parents=True, exist_ok=True)
-    (_DATA_CENTER_TG / "latest.json").write_text(
-        json.dumps({
-            "contract": "telegram_signal_index.v1",
-            "produced_at": datetime.now(timezone.utc).isoformat(),
-            "total_signals": len(signals),
-            "btc_signals": len(btc_signals),
-            "channels": stats["total_channels"],
-            "total_messages": stats["total_messages"],
-        }, indent=2),
-        encoding="utf-8",
-    )
-
-    # Write latest BTC signal for bundle reader
-    if btc_signals:
-        latest_path.write_text(json.dumps(btc_signals[-1], indent=2, default=str), encoding="utf-8")
-
-    return {"signals": len(signals), "btc": len(btc_signals), "channels": stats["total_channels"]}
+    return {"signals": len(signals), "good_channels": sum(1 for c in stats["channels"] if c["trade_setups"] > 0)}
