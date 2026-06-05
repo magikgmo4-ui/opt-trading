@@ -28,13 +28,13 @@ GO_OPT_TRADING_DATA_CENTER_CHILD_PRO_DESK_RUNTIME_ACCESS_OPTIMIZATION_01
 ```text
 pro_desk_data_inventory.json + source_candidates.json (cold, source of truth)
         ↓
-INDEX BUILDER (cold path, ~30ms rebuild)
+INDEX BUILDER (cold path, TARGET ~30ms rebuild)
         ↓
 COMPILED INDEXES (5 index files in data/data_center/_registry/compiled/)
         ↓
-MEMORY CACHE (hot path, ~405 KB, dict Python)
+MEMORY CACHE (hot path, TARGET ~405 KB, dict Python)
         ↓
-SOURCE SELECTOR (hot path, <0.1ms per resolve)
+SOURCE SELECTOR (hot path, TARGET <0.1ms per resolve)
         ↓
 DATA CENTER VIEWS (canonical_value for consumers)
         ↓
@@ -45,10 +45,10 @@ DeskPro / Strategy / Perf / Telegram / Sheets / Dashboards
 
 ```text
 FORMAT       : JSON indexe en memoire (Python dict) — pas de dependance externe
-MODULE       : modules/data_center/registry_cache.py + source_selector.py
-REBUILD      : async, atomic swap, trigger par mtime/hash
-MEMORY       : ~405 KB total, negatif
-LATENCY      : <0.1ms hot path, <50ms cold start
+MODULE       : modules/data_center/registry_cache.py + source_selector.py (spec only, not implemented)
+REBUILD      : async, atomic swap, trigger par mtime/hash (design only)
+MEMORY       : TARGET ~405 KB total (B04 pending)
+LATENCY      : TARGET <0.1ms hot path, <50ms cold start (B01-B06 pending)
 ```
 
 ## Terminologie verrouillee

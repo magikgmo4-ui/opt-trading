@@ -40,10 +40,10 @@ AVEC optimisation (index compiles + cache memoire) :
   - freshness check (2 sources)                    → <0.01ms
   - eligibility check                              → <0.01ms
   - select best                                    → <0.01ms
-  - TOTAL par appel                                → <0.1ms
-  - 1000 appels                                    → <0.1 seconde
-  - Latence p50                                    → <0.05ms
-  - Latence p99                                    → <0.5ms
+  - TOTAL par appel (TARGET)                       → <0.1ms
+  - 1000 appels (TARGET)                           → <0.1 seconde
+  - Latence p50 (TARGET)                           → <0.05ms
+  - Latence p99 (TARGET)                           → <0.5ms
 ```
 
 ## 3. Benchmarks a implementer

@@ -900,8 +900,30 @@
   ],
   "summary": {
     "total_categories": 22,
-    "total_fields": 0,
-    "criticality_distribution": {},
-    "category_distribution": {}
+    "total_fields": 671,
+    "criticality_distribution": {
+      "1_survivre": 101,
+      "2_executer": 62,
+      "3_comprendre_marche": 35,
+      "4_risque_global": 81,
+      "5_catalyseur": 123,
+      "6_positioning": 64,
+      "7_signal_alpha": 152,
+      "8_prouver_auditer": 53
+    },
+    "category_distribution": {
+      "A_reference_data": 31,
+      "B_market_data": 64,
+      "C_internal_state": 42,
+      "D_execution": 33,
+      "E_risk_options": 32,
+      "F_macro_fundamental": 179,
+      "G_event_data": 31,
+      "H_flow_positioning": 64,
+      "I_alternative_data": 29,
+      "J_research_model": 85,
+      "K_compliance_ops": 53,
+      "L_data_quality_metadata": 28
+    }
   }
 }

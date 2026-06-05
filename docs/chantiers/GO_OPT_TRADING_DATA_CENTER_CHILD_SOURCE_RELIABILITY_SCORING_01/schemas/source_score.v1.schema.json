@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opt-trading.local/data_center/schemas/source_score.v1.schema.json",
+  "title": "source_score.v1",
+  "description": "Score de fiabilite d'une source productrice pour une donnee specifique (symbol + data_key), evalue selon 8 dimensions ponderees.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "producer_id",
+    "contract_class",
+    "symbol",
+    "data_key",
+    "evaluated_at",
+    "dimensions",
+    "final_score"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "source_score.v1"
+    },
+    "producer_id": {
+      "type": "string",
+      "description": "Identifiant du producer evalue (ex: derivatives_collector__bitget)"
+    },
+    "contract_class": {
+      "type": "string",
+      "description": "Contract class de la donnee (ex: market_metrics.v1)"
+    },
+    "symbol": {
+      "type": "string",
+      "description": "Symbole trading concerne (ex: BTCUSDT)"
+    },
+    "data_key": {
+      "type": "string",
+      "description": "Metrique specifique evaluee (ex: open_interest, funding_rate)"
+    },
+    "evaluated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp ISO 8601 de l'evaluation"
+    },
+    "dimensions": {
+      "type": "object",
+      "required": [
+        "source_reliability",
+        "freshness",
+        "schema_validation",
+        "completeness",
+        "cross_source_consistency",
+        "historical_accuracy",
+        "latency",
+        "permission"
+      ],
+      "properties": {
+        "source_reliability": {
+          "type": "object",
+          "required": ["value", "weight"],
+          "properties": {
+            "value": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Fiabilite historique de la source (uptime, coherence, reputation)"
+            },
+            "weight": { "type": "number", "const": 0.20 }
+          }
+        },
+        "freshness": {
+          "type": "object",
+          "required": ["value", "weight"],
+          "properties": {
+            "value": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Fraicheur de la donnee (age relatif au max_age_seconds autorise)"
+            },
+            "weight": { "type": "number", "const": 0.20 }
+          }
+        },
+        "schema_validation": {
+          "type": "object",
+          "required": ["value", "weight"],
+          "properties": {
+            "value": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Conformite au schema du contract (1.0 si valide, 0.0 si invalide, partiel si warnings)"
+            },
+            "weight": { "type": "number", "const": 0.15 }
+          }
+        },
+        "completeness": {
+          "type": "object",
+          "required": ["value", "weight"],
+          "properties": {
+            "value": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Ratio metriques presentes / metriques attendues (collectable_metrics)"
+            },
+            "weight": { "type": "number", "const": 0.15 }
+          }
+        },
+        "cross_source_consistency": {
+          "type": "object",
+          "required": ["value", "weight"],
+          "properties": {
+            "value": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Concordance avec les autres sources (ecart relatif moyen). 1.0 = toutes les sources concordent, 0.0 = valeur aberrante"
+            },
+            "weight": { "type": "number", "const": 0.10 }
+          }
+        },
+        "historical_accuracy": {
+          "type": "object",
+          "required": ["value", "weight"],
+          "properties": {
+            "value": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Precision historique mesuree (si historique disponible, sinon valeur neutre 0.5)"
+            },
+            "weight": { "type": "number", "const": 0.10 }
+          }
+        },
+        "latency": {
+          "type": "object",
+          "required": ["value", "weight"],
+          "properties": {
+            "value": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Rapidite de mise a disposition (1.0 = immediat, 0.0 = depasse max_age)"
+            },
+            "weight": { "type": "number", "const": 0.05 }
+          }
+        },
+        "permission": {
+          "type": "object",
+          "required": ["value", "weight"],
+          "properties": {
+            "value": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Droit d'utilisation de la source (1.0 = full access, 0.0 = restricted/expired)"
+            },
+            "weight": { "type": "number", "const": 0.05 }
+          }
+        }
+      }
+    },
+    "final_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Score pondere final = Σ(dimension.value × dimension.weight)"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Notes libres sur l'evaluation"
+    }
+  }
+}

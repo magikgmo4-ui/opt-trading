@@ -97,7 +97,7 @@ INDEX REBUILD (triggered by inventory change):
   9. write compiled index files               → ~10ms
   10. refresh memory cache                    → ~1ms
 
-Total rebuild: ~30ms — acceptable car declenche rarement
+Total rebuild: TARGET ~30ms — acceptable car declenche rarement (non benchmarke, B03 pending)
 ```
 
 ## 4. Cache invalidation
@@ -127,7 +127,7 @@ by_source index:                          ~20 KB
 by_priority index:                        ~15 KB
 by_symbol index:                          ~10 KB
 ----------------------------------------
-TOTAL cache memoire:                     ~405 KB
+TOTAL cache memoire (ESTIMATE):          ~405 KB
 
-Negligeable. Aucun besoin de cache distribue.
+Negligeable. Aucun besoin de cache distribue. Confirme par B04.
 ```

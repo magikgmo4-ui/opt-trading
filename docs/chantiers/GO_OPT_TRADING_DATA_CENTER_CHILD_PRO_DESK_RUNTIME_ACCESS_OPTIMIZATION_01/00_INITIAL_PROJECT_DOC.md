@@ -87,9 +87,9 @@ RUNTIME_ACCESS_OPTIMIZATION_V1
 ## 12_INVARIANTS
 
 - Ne pas modifier les index globaux.
-- Aucune modification runtime.
+- Aucune modification runtime (readers, producers, resolvers).
 - Aucun appel API, DB, Telegram.
-- `pro_desk_data_inventory.json` et `source_candidates.json` restent les sources canoniques.
+- `pro_desk_data_inventory.json` et `source_candidates.json` restent les sources canoniques (ajout registries, pas modification de registries existants).
 - Data Center arbitre les sources, ne decide pas les trades.
 
 ## 16_TODO

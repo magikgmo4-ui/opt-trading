@@ -3,6 +3,12 @@
   "registry_id": "source_candidates",
   "updated_at": "2026-06-05",
   "description": "Mapping data_item -> source candidates. Pour chaque champ de l'inventaire P0-P21, liste les sources existantes (DC producers) et candidates (externes, futures). Score = 0 si non evalue, sinon voir source_score.v1.",
+  "selection_rules": {
+    "score_zero_policy": "unevaluated",
+    "rule": "score=0 + status=candidate → not selectable for runtime source selection. All scores must be evaluated (source_score.v1) before a candidate becomes eligible.",
+    "eligible_statuses": ["active_registry", "evaluated"],
+    "ineligible_statuses": ["candidate", "discontinued", "restricted"]
+  },
   "source_candidates": {
     "P0": {
       "label": "Instrument Master",

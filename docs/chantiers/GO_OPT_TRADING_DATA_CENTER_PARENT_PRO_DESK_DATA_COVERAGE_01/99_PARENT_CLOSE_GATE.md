@@ -3,7 +3,7 @@ doc_id: GO_OPT_TRADING_DATA_CENTER_PARENT_PRO_DESK_DATA_COVERAGE_01_PARENT_CLOSE
 doc_type: close_gate
 repo: opt-trading
 go_id: GO_OPT_TRADING_DATA_CENTER_PARENT_PRO_DESK_DATA_COVERAGE_01
-status: closed
+status: ready_for_close_gate
 lifecycle_stage: acceptance
 surface: docs/chantiers
 source_kind: canonical
@@ -13,8 +13,8 @@ GO_STRUCTURAL_ROLE: GO_PARENT_ATTACHED_TO_MASTER_PROJECT_PLAN
 PF_ID: PF_DATA_CENTER
 MASTER_TARGET_ID: MT_DATA_CENTER_PRO_DESK_DATA_COVERAGE
 MASTER_PROJECT_PLAN_ID: MPP_DATA_CENTER_NORMALIZED_REGISTRY
-CLOSE_GATE_MASTER_TARGET: validated
-PARENT_STATUS: CLOSED / ACCEPTED
+CLOSE_GATE_MASTER_TARGET: pending_child_branch_merge
+PARENT_STATUS: READY_FOR_CLOSE_GATE / CHILD_BRANCHES_REFERENCED
 BUNDLE_TARGET: PRO_DESK_DATA_COVERAGE_FOUNDATION_V1
 TRANSPORT_MODE: patch_only
 links:
@@ -32,20 +32,21 @@ links:
 ## Verdict
 
 ```text
-CLOSE_GATE_MASTER_TARGET = validated
-PARENT_STATUS = CLOSED / ACCEPTED
+CLOSE_GATE_MASTER_TARGET = pending_child_branch_merge
+PARENT_STATUS = READY_FOR_CLOSE_GATE / CHILD_BRANCHES_REFERENCED
 ```
 
-Le parent `GO_OPT_TRADING_DATA_CENTER_PARENT_PRO_DESK_DATA_COVERAGE_01` est ferme. Tous les livrables documentaires sont produits. Aucun runtime n'a ete modifie. Le plan est valide et executable.
+Le parent `GO_OPT_TRADING_DATA_CENTER_PARENT_PRO_DESK_DATA_COVERAGE_01` a tous ses livrables documentaires produits sur des branches enfant distinctes. Les livrables ne sont pas tous dans la base `sot/mainline`. Le close gate formel sera effectif quand les child branches seront merged ou que les livrables seront explicitement inclus dans une PR vers `sot/mainline`.
 
-## Perimetre ferme
+## Perimetre
 
-| Ferme | Objet |
+| Statut | Objet |
 |---|---|
-| **OUI** | `GO_OPT_TRADING_DATA_CENTER_PARENT_PRO_DESK_DATA_COVERAGE_01` |
-| **OUI** | `BUNDLE_TARGET = PRO_DESK_DATA_COVERAGE_FOUNDATION_V1` |
+| **READY** | `GO_OPT_TRADING_DATA_CENTER_PARENT_PRO_DESK_DATA_COVERAGE_01` |
+| **READY** | `BUNDLE_TARGET = PRO_DESK_DATA_COVERAGE_FOUNDATION_V1` |
 | NON | `PF_DATA_CENTER` |
 | NON | `MPP_DATA_CENTER_NORMALIZED_REGISTRY` |
+| PENDING | Merge child branches into sot/mainline |
 
 ## 6_FINAL_TARGET — ATTEINT
 
@@ -133,15 +134,16 @@ ABSENT   : 3  (P3, P18, P19)
 
 ## Verifications close gate
 
-| Condition parent | Statut |
-|---|---|
-| Audit existant produit | **OK** — child 1, 5 livrables |
-| Inventaire canonique P0-P21 produit | **OK** — child 2 / parent `10_PRO_DESK_DATA_INVENTORY_PLAN.md` |
-| Gap matrix produite | **OK** — child 3, `PRO_DESK_DATA_GAP_MATRIX.md` |
-| Scoring source specifie | **OK** — child 4, 4 schemas + policy |
-| Resolver policy specifiee | **OK** — child 5, `RESOLVER_IMPLEMENTATION_SPEC.md` |
-| Consumption map DeskPro produite | **OK** — child 6, `DESKPRO_PRO_DATA_CONSUMPTION_MAP.md` |
-| Derniere branche child visible remote | **OK** — `go/GO_OPT_TRADING_DATA_CENTER_CHILD_DESKPRO_PRO_DATA_CONSUMPTION_MAP_01` pushed |
+| Condition parent | Statut | Note |
+|---|---|---|
+| Audit existant produit | **OK** | child 1, 5 livrables (branch: `PRO_DESK_EXISTING_COVERAGE_AUDIT_01`) |
+| Inventaire canonique P0-P21 produit | **OK** | parent `10_PRO_DESK_DATA_INVENTORY_PLAN.md` + `pro_desk_data_inventory.json` |
+| Gap matrix produite | **OK** | child 3, `PRO_DESK_DATA_GAP_MATRIX.md` (branch: `PRO_DESK_INVENTORY_MAPPING_01`) |
+| Scoring source specifie | **OK** | child 4, 4 schemas + policy (branch: `SOURCE_RELIABILITY_SCORING_01`) |
+| Resolver policy specifiee | **OK** | child 5, `RESOLVER_IMPLEMENTATION_SPEC.md` (branch: `BEST_VALUE_RESOLVER_01`) |
+| Consumption map DeskPro produite | **OK** | child 6, `DESKPRO_PRO_DATA_CONSUMPTION_MAP.md` (branch: `DESKPRO_PRO_DATA_CONSUMPTION_MAP_01`) |
+| Child branches merged to sot/mainline | **PENDING** | Livrables sur branches distinctes, pas encore dans base |
+| Registries production ajoutes | **OK** | `pro_desk_data_inventory.json` + `source_candidates.json` dans cette PR |
 
 ## 11_KEY_DECISIONS — maintenues
 
@@ -177,9 +179,10 @@ Les gaps documentes dans la matrix et la consumption map sont laisses aux childs
 
 ## Prochaines etapes
 
-Le parent etant ferme, les childs d'implementation peuvent etre ouverts en sequence :
-
-1. Infrastructure (views + paths) — priorite HIGH
-2. Migration DeskPro readers — priorite HIGH
-3. Resolver market_metrics — priorite MEDIUM
-4. Extension P0-P21 — priorite LOW (futur)
+1. Merge child branches into `sot/mainline` pour close gate formel.
+2. Sanity checks a implementer :
+   - `inventory summary.total_fields` matches actual field count
+   - all `source_candidates` data_key references exist in inventory
+   - all `active_registry` producer ids exist in `producers.json`
+   - `score=0 + status=candidate` sources are never selected by source selector
+3. Benchmarks B01-B08 a executer avant de declarer les targets de perf validees.

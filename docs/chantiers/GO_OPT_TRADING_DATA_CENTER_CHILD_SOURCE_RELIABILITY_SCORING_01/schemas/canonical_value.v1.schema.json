@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opt-trading.local/data_center/schemas/canonical_value.v1.schema.json",
+  "title": "canonical_value.v1",
+  "description": "Valeur canonique resolue pour une donnee specifique, publiee dans la view Data Center. C'est la valeur que les consumers lisent sans connaitre la source.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "contract_class",
+    "symbol",
+    "data_key",
+    "canonical_value",
+    "resolved_at",
+    "resolver_decision_ref",
+    "winning_producer_id"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "canonical_value.v1"
+    },
+    "contract_class": {
+      "type": "string",
+      "description": "Contract class de la donnee (ex: market_metrics.v1)"
+    },
+    "symbol": {
+      "type": "string",
+      "description": "Symbole trading (ex: BTCUSDT)"
+    },
+    "data_key": {
+      "type": "string",
+      "description": "Metrique resolue (ex: open_interest)"
+    },
+    "canonical_value": {
+      "description": "Valeur retenue (type depend du data_key: number, string, object...)"
+    },
+    "resolved_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp ISO 8601 de la resolution"
+    },
+    "resolver_decision_ref": {
+      "type": "string",
+      "description": "Reference au resolver_decision.v1 qui a produit cette valeur (UUID ou hash)"
+    },
+    "winning_producer_id": {
+      "type": "string",
+      "description": "Producer dont la valeur a ete retenue"
+    },
+    "winning_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Score de la source gagnante"
+    },
+    "alternative_sources": {
+      "type": "array",
+      "description": "Autres sources candidates avec leur valeur et score (pour audit)",
+      "items": {
+        "type": "object",
+        "required": ["producer_id", "value", "score"],
+        "properties": {
+          "producer_id": { "type": "string" },
+          "value": {},
+          "score": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Confiance dans la valeur resolue (peut differer du score si plusieurs sources concordent)"
+    },
+    "stale": {
+      "type": "boolean",
+      "description": "True si aucune source n'a de donnee fraiche, la valeur est la derniere connue"
+    }
+  }
+}
