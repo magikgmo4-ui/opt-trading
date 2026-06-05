@@ -139,20 +139,24 @@ def write_synthetic_market_metrics(symbol: str = "BTCUSDT") -> Optional[MarketMe
     return mm
 
 
-def write_all_synthetic() -> list[str]:
-    """Write synthetic market_metrics for all mapped symbols. BTC last (wins latest.json)."""
+def write_all() -> list[str]:
+    """Write market_metrics: try live Binance first, fallback to synthetic from vision."""
     written = []
-    # Write non-BTC first
+
+    # Write synthetic for all symbols first
     for tv_symbol, mkt_symbol in _SYMBOL_TO_MARKET.items():
-        if mkt_symbol == "BTCUSDT":
-            continue
         if _price_from_vision(tv_symbol) is not None:
-            mm = write_synthetic_market_metrics(mkt_symbol)
-            if mm:
-                written.append(mkt_symbol)
-    # BTC last → latest.json = BTCUSDT
-    if _price_from_vision("BTCUSDT.P") is not None:
-        mm = write_synthetic_market_metrics("BTCUSDT")
-        if mm:
-            written.append("BTCUSDT")
+            write_synthetic_market_metrics(mkt_symbol)
+            written.append(mkt_symbol)
+
+    # Then overwrite with live Binance data (wins — BTC last = latest.json = live)
+    try:
+        from .market_metrics_live_writer import write_all_live
+        live = write_all_live()
+        for sym in live:
+            if sym not in written:
+                written.append(sym)
+    except Exception:
+        pass
+
     return written

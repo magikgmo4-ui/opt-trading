@@ -28,6 +28,8 @@ def _read_market_metrics(symbol: str = "BTCUSDT") -> dict:
     data = _read_json(_MARKET_METRICS_PATH)
     freshness = "UNKNOWN"
     produced_at = None
+    missing = []
+    last_price = None
 
     if data is None:
         return {"source": "market_metrics.v1", "freshness": "MISSING", "produced_at": None}
@@ -41,13 +43,17 @@ def _read_market_metrics(symbol: str = "BTCUSDT") -> dict:
     else:
         freshness = data.get("freshness_state", "UNKNOWN").upper()
         produced_at = data.get("metrics_ts")
-        missing = []
+        last_price = data.get("last_price")
+        provider_id = data.get("provider_id", "")
 
     result = {
         "source": "market_metrics.v1",
         "freshness": freshness,
         "produced_at": produced_at,
     }
+    if last_price is not None:
+        result["last_price"] = last_price
+        result["provider"] = provider_id
     if missing:
         result["missing"] = missing
     return result
@@ -203,10 +209,17 @@ def _derive_freshness(inputs: dict) -> tuple[str, str]:
     # Check if coinglass is a stub
     cg = inputs.get("coinglass_vision", {})
     is_stub = cg.get("detection_method") == "stub" if isinstance(cg, dict) else False
+
+    # Check if market_metrics is real (not synthetic)
+    mm = inputs.get("market_metrics", {})
+    is_real_mm = mm.get("provider") == "binance_spot" if isinstance(mm, dict) else False
     
     # Derive quality
-    if fresh_count == total:
-        quality = "FULL" if not is_stub else "DEGRADED"
+    if fresh_count == total and not is_stub:
+        quality = "FULL"
+        freshness = "FRESH"
+    elif fresh_count == total:
+        quality = "DEGRADED"
         freshness = "FRESH"
     elif fresh_count > total / 2:
         quality = "DEGRADED"
@@ -218,8 +231,12 @@ def _derive_freshness(inputs: dict) -> tuple[str, str]:
         quality = "DEGRADED"
         freshness = "STALE"
     
-    if is_stub:
+    if is_stub and not is_real_mm:
         quality = "STUB"
+    elif is_real_mm and is_stub:
+        quality = "DEGRADED"  # real mm partially compensates stub coinglass
+    elif is_real_mm:
+        quality = "FULL"  # real mm without stub is full quality if fresh
     
     return freshness, quality
 
