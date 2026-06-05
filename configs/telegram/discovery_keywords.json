@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "method": "telegram_search",
+  "description": "Keywords for Telegram search-based channel discovery. Use Telethon SearchRequest or Telegram in-app search.",
+  "buckets": {
+    "xau_gold": {
+      "priority": "P0",
+      "keywords": [
+        "xauusd signals", "gold signals free", "gold trading signals", "xauusd scalping",
+        "gold intraday signals", "xauusd vip", "gold forex signals", "xauusd premium",
+        "buy gold sell gold", "gold entry sl tp", "xauusd analysis", "gold pips",
+        "gold sniper entry", "gold signal today", "xauusd forecast", "gold technical analysis"
+      ],
+      "expected_assets": ["XAUUSD", "GOLD"],
+      "expected_format": "BUY/SELL + entry + sl + tp"
+    },
+    "forex": {
+      "priority": "P1",
+      "keywords": [
+        "eurusd signals", "gbpusd signals", "usdjpy signals", "nas100 signals",
+        "us30 signals", "forex vip signals", "free forex signals", "forex scalping",
+        "forex intraday", "forex swing trading", "pip signals", "forex entry sl tp",
+        "fx premium signals", "forex technical analysis"
+      ],
+      "expected_assets": ["EURUSD", "GBPUSD", "USDJPY", "NAS100", "US30"],
+      "expected_format": "BUY/SELL + entry + sl + tp"
+    },
+    "crypto_btc_eth": {
+      "priority": "P0",
+      "keywords": [
+        "btc signals", "bitcoin signals", "btcusdt signals", "eth signals",
+        "ethereum signals", "crypto futures signals", "binance futures signals",
+        "bybit signals", "btc long short", "crypto trading signals", "crypto scalp",
+        "bitcoin entry sl tp", "eth entry sl tp", "crypto leverage signals"
+      ],
+      "expected_assets": ["BTC", "ETH", "BTCUSDT", "ETHUSDT"],
+      "expected_format": "LONG/SHORT + entry + sl + tp (COIN format or inline)"
+    },
+    "crypto_alts": {
+      "priority": "P2",
+      "keywords": [
+        "sol signals", "xrp signals", "doge signals", "altcoin signals",
+        "crypto pump signals", "crypto scalp signals", "altcoin trading",
+        "meme coin signals", "defi signals"
+      ],
+      "expected_assets": ["SOL", "XRP", "DOGE", "multiple"],
+      "expected_format": "any"
+    },
+    "derivatives_oi": {
+      "priority": "P1",
+      "keywords": [
+        "open interest alerts", "funding rate alerts", "liquidation alerts",
+        "long short ratio", "whale liquidation", "coinglass", "oi heatmap",
+        "crypto derivatives", "perpetual funding", "liquidation heatmap"
+      ],
+      "expected_assets": ["BTC", "ETH", "multiple"],
+      "expected_format": "OI/funding data, no trade setup — context only"
+    },
+    "whale_onchain": {
+      "priority": "P1",
+      "keywords": [
+        "whale alert", "lookonchain", "arkham intelligence", "glassnode alerts",
+        "cryptoquant alerts", "santiment", "nansen", "zachxbt",
+        "on chain data", "whale transaction", "smart money", "institution flow"
+      ],
+      "expected_assets": ["BTC", "ETH", "USDT", "USDC"],
+      "expected_format": "flow/transfer data — context only"
+    },
+    "trading_communities": {
+      "priority": "P2",
+      "keywords": [
+        "trading signals free", "technical analysis signals", "price action signals",
+        "scalping signals", "day trading signals", "swing trading signals",
+        "trading vip", "forex crypto signals", "premium signals"
+      ],
+      "expected_assets": ["multiple"],
+      "expected_format": "any"
+    },
+    "macro_context": {
+      "priority": "P2",
+      "keywords": [
+        "market news alert", "crypto news alert", "forex news", "fed alert",
+        "cpi alert", "nfp alert", "fomc alert", "economic calendar",
+        "geopolitics alert", "central bank"
+      ],
+      "expected_assets": ["multiple"],
+      "expected_format": "news/context only — no trade setups"
+    }
+  }
+}

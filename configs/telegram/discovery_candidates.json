@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "description": "Telegram trading channel discovery candidates. Populated by discover_telegram_channels.sh via Telethon SearchRequest.",
+  "discovery_rules": {
+    "max_messages_to_sample": 200,
+    "min_complete_setups_to_activate": 10,
+    "auto_collect": true,
+    "llm_ocr_allowed": false
+  },
+  "candidates": []
+}
