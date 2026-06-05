@@ -31,19 +31,58 @@ _STRUCTURED_COIN_RE = re.compile(
 
 # Pattern 3: Chinese "做多**BTC**" / "做空**ETH**"
 _CHINESE_LONG_RE = re.compile(
-    r'做多\*+(?P<asset>[A-Z]{2,10})\*+',
+    r'做多\**(?P<asset>[A-Z]{2,10})\**',
     re.IGNORECASE,
 )
 _CHINESE_SHORT_RE = re.compile(
-    r'做空\*+(?P<asset>[A-Z]{2,10})\*+',
+    r'做空\**(?P<asset>[A-Z]{2,10})\**',
     re.IGNORECASE,
 )
 
-# Price value: 1-8 digit number with optional decimals
+# Price value: 1-8 digit number with optional decimals (used by all price regexes)
 _PRICE_STR = r'\d{1,8}(?:\.\d+)?'
 
+# Pattern 4: Hashtag coin format: "#ACEUSDT", "#BTCUSDT" with Direction: Long
+_HASHTAG_COIN_RE = re.compile(
+    r'#(?P<asset>[A-Z]{2,10})USDT.*?(?P<direction>Long|Short|LONG|SHORT)',
+    re.IGNORECASE | re.DOTALL,
+)
+
+# Pattern 5: GOLD/XAU trade: "BUY GOLD NOW Entry: 4496 SL: 4485 TP1: 4503"
+_GOLD_TRADE_RE = re.compile(
+    r'(?:BUY|SELL)\s+(?:GOLD|XAU).*?'
+    r'(?:Entry|Price)[:\s]+(?P<entry>' + _PRICE_STR + ')',
+    re.IGNORECASE | re.DOTALL,
+)
+
+# Pattern 6: XAUHQ signal: "XAUHQ | HIT TARGET ENTRY: 4468.5"
+_XAUHQ_RE = re.compile(
+    r'XAUHQ.*?(?:ENTRY|Entry)\s*(?:Point)?\s*[:\s]+(?P<entry>' + _PRICE_STR + ')',
+    re.IGNORECASE | re.DOTALL,
+)
+
+# Pattern 7: Whale transfer: "1,026 $BTC (65,704,264 USD)", "3,399 $BTC ($215M)"
+_WHALE_BTC_RE = re.compile(
+    r'(?P<amount>[\d,]+)\s*\$(?P<asset>BTC|ETH)\s*\(\s*\$?(?P<value>[\d,]+)',
+    re.IGNORECASE,
+)
+
+# Pattern 8: GOLD entry: "BUY GOLD NOW ... Entry Point: 4496.0"
+_GOLD_TRADE_RE = re.compile(
+    r'(?:BUY|SELL)\s+(?:GOLD|XAU).*?'
+    r'Entry\s*(?:Point)?\s*[:\s]+\s*(?P<entry>' + _PRICE_STR + ')',
+    re.IGNORECASE | re.DOTALL,
+)
+
+# Pattern 8: Signal #ID format "SIGNAL ID: #2138 COIN: **$INJ**/USDT"
+_SIGNAL_ID_COIN_RE = re.compile(
+    r'SIGNAL\s*(?:ID)?\s*[:\#]\s*\d+.*?COIN.*?\$?(?P<asset>[A-Z]{2,10})',
+    re.IGNORECASE | re.DOTALL,
+)
+
+# Price regexes used by _extract_prices_from_text
 _ENTRY_RE = re.compile(
-    r'(?:Entry|Price|@|开仓价格)[:\s\$]+(?P<entry>' + _PRICE_STR + ')',
+    r'(?:Entry|Price|@|开仓价格)\s*(?:Point|Price)?\s*[:\s\$]+(?P<entry>' + _PRICE_STR + ')',
     re.IGNORECASE,
 )
 
@@ -148,6 +187,58 @@ def parse_telegram_message(raw_dict: dict) -> ParsedTelegramMessage:
         if m:
             asset = m.group("asset").upper()
             direction = "SHORT"
+
+    # Try hashtag coin format: "#ACEUSDT ... Direction: Long"
+    if asset is None:
+        m = _HASHTAG_COIN_RE.search(raw_text)
+        if m:
+            asset = m.group("asset").upper()
+            direction_raw = m.group("direction").upper()
+            direction = "LONG" if direction_raw in ("LONG", "BUY") else "SHORT"
+
+    # Try Signal ID + COIN format: "SIGNAL ID: #2138 COIN: **$INJ**/USDT"
+    if asset is None:
+        m = _SIGNAL_ID_COIN_RE.search(raw_text)
+        if m:
+            asset = m.group("asset").upper()
+            # Look for direction nearby
+            dir_match = re.search(r'(?:Direction)[:\s]+(?P<dir>LONG|SHORT)', raw_text, re.IGNORECASE)
+            if dir_match:
+                direction = dir_match.group("dir").upper()
+
+    # Try GOLD trade format: "BUY GOLD NOW Entry: 4496"
+    if asset is None:
+        m = _GOLD_TRADE_RE.search(raw_text)
+        if m:
+            asset = "XAUUSD"
+            direction = "LONG" if "BUY" in raw_text.upper() else "SHORT"
+
+    # Try XAUHQ format: "XAUHQ | ENTRY: 4468.5"
+    if asset is None:
+        m = _XAUHQ_RE.search(raw_text)
+        if m:
+            asset = "XAUUSD"
+            direction = None  # Direction not explicit, derive from context later
+
+    # Try whale alert: "1,026 BTC ($65M) transferred from X to Y"
+    if asset is None:
+        m = _WHALE_BTC_RE.search(raw_text)
+        if m:
+            asset = m.group("asset").upper()
+            claim = {
+                "claim_type": "CRYPTO_FLOW",
+                "asset": asset,
+                "amount": m.group("amount").replace(",", ""),
+                "value_usd": m.group("value").replace(",", ""),
+                "source_channel": channel_alias,
+                "message_id": raw_dict.get("message_id", ""),
+            }
+            return ParsedTelegramMessage(
+                message_type="CRYPTO_FLOW",
+                raw_text=raw_text,
+                channel_alias=channel_alias,
+                claim=claim,
+            )
 
     if asset is None:
         return ParsedTelegramMessage(message_type="UNKNOWN_RAW", raw_text=raw_text, channel_alias=channel_alias)

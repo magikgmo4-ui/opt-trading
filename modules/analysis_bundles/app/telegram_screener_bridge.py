@@ -28,13 +28,13 @@ _CHANNEL_PRIORITY = {
     "cryptoquant_official": {"priority": "P1", "type": "onchain_data", "note": "CryptoQuant — on-chain metrics, exchange flows"},
     "glassnode": {"priority": "P1", "type": "onchain_data", "note": "Glassnode — on-chain analytics"},
     "arkhamintelligence": {"priority": "P1", "type": "onchain_data", "note": "Arkham Intelligence — wallet tracking"},
-    "whale_alert_io": {"priority": "P1", "type": "whale_alert", "note": "Whale Alert — large transactions"},
-    "forexsignals": {"priority": "P2", "type": "trade_signal", "note": "Forex Signals — FX trade ideas"},
-    "learn2trade": {"priority": "P2", "type": "trade_signal", "note": "Learn2Trade — educational + signals"},
-    "goldsignals": {"priority": "P2", "type": "trade_signal", "note": "Gold Signals — XAU focused"},
-    "goldtrading": {"priority": "P2", "type": "trade_signal", "note": "Gold Trading — XAU focused"},
-    "wallstreetqueenofficial": {"priority": "Bruit", "type": "noise", "note": "WallStreetQueen — unverified signals"},
-    "xauusd": {"priority": "Bruit", "type": "noise", "note": "XAUUSD — likely copy/repost"},
+    "whale_alert_io": {"priority": "P1", "type": "whale_alert", "note": "Whale Alert — large BTC/ETH/USDT transfers"},
+    "forexsignals": {"priority": "P1", "type": "xau_signal", "note": "Forex Signals — XAUHQ gold trades with entry/tp"},
+    "goldsignals": {"priority": "P1", "type": "xau_signal", "note": "Gold Signals — XAUHQ gold trades"},
+    "xauusd": {"priority": "P1", "type": "xau_signal", "note": "XAUUSD — BUY/SELL GOLD with entry/sl/tp"},
+    "wallstreetqueenofficial": {"priority": "P2", "type": "trade_signal", "note": "WallStreetQueen — #COINUSDT signals"},
+    "learn2trade": {"priority": "P2", "type": "education", "note": "Learn2Trade — educational content only"},
+    "goldtrading": {"priority": "Bruit", "type": "marketing", "note": "Gold Trading — Indo marketing, no signals"},
 }
 
 
@@ -88,7 +88,35 @@ def produce_telegram_signals() -> list[dict]:
             continue
 
         claim = parsed.claim
-        if claim.get("claim_type") != "TRADE_SETUP":
+        claim_type = claim.get("claim_type", "TRADE_SETUP")
+
+        if claim_type == "CRYPTO_FLOW":
+            # Whale transfer alert
+            asset = claim.get("asset", "")
+            signal = {
+                "contract": "telegram_signal.v1",
+                "id": f"tg_flow_{msg.get('message_id', '')}_{now.strftime('%Y%m%dT%H%M%S')}",
+                "source": "telegram_screener_bridge",
+                "signal_type": "crypto_flow",
+                "channel": channel,
+                "channel_priority": _CHANNEL_PRIORITY.get(channel, {}).get("priority", "P2"),
+                "channel_type": _CHANNEL_PRIORITY.get(channel, {}).get("type", "unknown"),
+                "parsed_at": ts,
+                "produced_at": now.isoformat(),
+                "pair": f"{asset}USDT",
+                "direction": None,
+                "amount": claim.get("amount"),
+                "value_usd": claim.get("value_usd"),
+                "confidence": "LOW",
+                "raw_text": msg.get("raw_text", ""),
+                "summary": f"{claim.get('amount', '?')} {asset} (${claim.get('value_usd', '?')} USD) transfer",
+            }
+            signal_path = _SIGNALS_DIR / f"signal_{signal['id']}.json"
+            signal_path.write_text(json.dumps(signal, indent=2, default=str), encoding="utf-8")
+            signals_written.append(signal)
+            continue
+
+        if claim_type != "TRADE_SETUP":
             continue
 
         asset = claim.get("asset", "")
@@ -105,9 +133,9 @@ def produce_telegram_signals() -> list[dict]:
             "channel_type": _CHANNEL_PRIORITY.get(channel, {}).get("type", "unknown"),
             "parsed_at": ts,
             "produced_at": now.isoformat(),
-            "pair": f"{asset}USDT",
-            "direction": claim.get("direction", "").upper(),
-            "entry_price": claim.get("entry"),
+                "pair": f"{asset}USDT",
+                "direction": (claim.get("direction") or "").upper() or None,
+                "entry_price": claim.get("entry"),
             "sl": claim.get("sl"),
             "tp": claim.get("tp"),
             "tps": claim.get("tps", []),
