@@ -55,6 +55,12 @@ _GOLD_SIGNAL_RE = re.compile(
     re.IGNORECASE,
 )
 
+# Standalone direction without GOLD keyword: "SELL : 4455.5", "BUY 4500"
+_GOLD_STANDALONE_RE = re.compile(
+    r'(?P<direction>BUY|SELL)\b\s*[:\s@]+\s*\d',
+    re.IGNORECASE,
+)
+
 _GOLD_XAUUSD_RE = re.compile(
     r'(?:XAUUSD|GOLD)\s+(?P<direction>BUY|SELL)\b',
     re.IGNORECASE,
@@ -223,6 +229,10 @@ def parse_telegram_message(raw_dict: dict) -> ParsedTelegramMessage:
         gold_match = _GOLD_HASH_RE.search(raw_text)
         if gold_match:
             gold_dir = "LONG" if gold_match.group("direction").lower() == "buy" else "SHORT"
+    if gold_dir is None:
+        gold_match = _GOLD_STANDALONE_RE.search(raw_text)
+        if gold_match:
+            gold_dir = "LONG" if gold_match.group("direction").upper() == "BUY" else "SHORT"
 
     if gold_dir is not None:
         asset = "XAUUSD"
