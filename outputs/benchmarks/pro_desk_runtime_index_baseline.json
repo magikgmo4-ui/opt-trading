@@ -1,0 +1,67 @@
+{
+  "benchmark_version": "v1",
+  "run_at": "2026-06-06T06:52:34Z",
+  "inventory_fields": 671,
+  "results": [
+    {
+      "name": "B01_resolve_json_parse",
+      "iterations": 1000,
+      "p50_us": 826,
+      "p99_us": 1432,
+      "mean_us": 868.18,
+      "min_us": 722,
+      "max_us": 2636,
+      "result_type": "bool"
+    },
+    {
+      "name": "B03",
+      "error": "sum() takes at most 2 arguments (3 given)"
+    },
+    {
+      "name": "B04_memory_json",
+      "parsed_data_kb": 385.2,
+      "note": "Peak memory after loading all registry JSONs"
+    },
+    {
+      "name": "B07_stale_fallback_baseline",
+      "iterations": 1000,
+      "p50_us": 0,
+      "p99_us": 1,
+      "mean_us": 0.34,
+      "min_us": 0,
+      "max_us": 1,
+      "result_type": "dict"
+    },
+    {
+      "name": "B08_json_vs_dict",
+      "json_scan_mean_us": 30.9,
+      "dict_lookup_mean_us": 0.29,
+      "speedup": 106.6,
+      "json_detail": {
+        "name": "B08_json_scan",
+        "iterations": 1000,
+        "p50_us": 28,
+        "p99_us": 66,
+        "mean_us": 30.9,
+        "min_us": 25,
+        "max_us": 90,
+        "result_type": "None"
+      },
+      "dict_detail": {
+        "name": "B08_dict_lookup",
+        "iterations": 1000,
+        "p50_us": 0,
+        "p99_us": 1,
+        "mean_us": 0.29,
+        "min_us": 0,
+        "max_us": 17,
+        "result_type": "None"
+      }
+    },
+    {
+      "name": "B02_json_throughput",
+      "calls_per_second": 32294,
+      "duration_s": 1.0
+    }
+  ]
+}
