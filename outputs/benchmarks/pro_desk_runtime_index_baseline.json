@@ -1,21 +1,27 @@
 {
   "benchmark_version": "v1",
-  "run_at": "2026-06-06T06:52:34Z",
+  "run_at": "2026-06-06T06:59:26Z",
   "inventory_fields": 671,
   "results": [
     {
       "name": "B01_resolve_json_parse",
       "iterations": 1000,
-      "p50_us": 826,
-      "p99_us": 1432,
-      "mean_us": 868.18,
-      "min_us": 722,
-      "max_us": 2636,
+      "p50_us": 829,
+      "p99_us": 1436,
+      "mean_us": 876.62,
+      "min_us": 724,
+      "max_us": 2288,
       "result_type": "bool"
     },
     {
-      "name": "B03",
-      "error": "sum() takes at most 2 arguments (3 given)"
+      "name": "B03_cold_start_json",
+      "iterations": 30,
+      "p50_us": 800,
+      "p99_us": 1205,
+      "mean_us": 855.33,
+      "min_us": 738,
+      "max_us": 1205,
+      "result_type": "int"
     },
     {
       "name": "B04_memory_json",
@@ -27,24 +33,24 @@
       "iterations": 1000,
       "p50_us": 0,
       "p99_us": 1,
-      "mean_us": 0.34,
+      "mean_us": 0.35,
       "min_us": 0,
       "max_us": 1,
       "result_type": "dict"
     },
     {
       "name": "B08_json_vs_dict",
-      "json_scan_mean_us": 30.9,
-      "dict_lookup_mean_us": 0.29,
-      "speedup": 106.6,
+      "json_scan_mean_us": 29.7,
+      "dict_lookup_mean_us": 0.26,
+      "speedup": 114.2,
       "json_detail": {
         "name": "B08_json_scan",
         "iterations": 1000,
         "p50_us": 28,
-        "p99_us": 66,
-        "mean_us": 30.9,
+        "p99_us": 64,
+        "mean_us": 29.7,
         "min_us": 25,
-        "max_us": 90,
+        "max_us": 87,
         "result_type": "None"
       },
       "dict_detail": {
@@ -52,15 +58,15 @@
         "iterations": 1000,
         "p50_us": 0,
         "p99_us": 1,
-        "mean_us": 0.29,
+        "mean_us": 0.26,
         "min_us": 0,
-        "max_us": 17,
+        "max_us": 1,
         "result_type": "None"
       }
     },
     {
       "name": "B02_json_throughput",
-      "calls_per_second": 32294,
+      "calls_per_second": 32356,
       "duration_s": 1.0
     }
   ]
