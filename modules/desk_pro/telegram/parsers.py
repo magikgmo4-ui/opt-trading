@@ -55,8 +55,44 @@ _GOLD_SIGNAL_RE = re.compile(
     re.IGNORECASE,
 )
 
+# Standalone direction without GOLD keyword: "SELL : 4455.5", "BUY 4500"
+_GOLD_STANDALONE_RE = re.compile(
+    r'(?P<direction>BUY|SELL)\b\s*[:\s@]+\s*\d',
+    re.IGNORECASE,
+)
+
 _GOLD_XAUUSD_RE = re.compile(
-    r'(?:XAUUSD|GOLD)\s+(?P<direction>BUY|SELL)\b',
+    r'(?:XAUUSD|GOLD|#BTCUSD|#ETHUSDT|BTCUSDT|ETHUSDT)\s*[*_]*\s+(?P<direction>BUY|SELL)(?=[_*\s]|$)',
+    re.IGNORECASE,
+)
+
+# Crypto futures format: "Buy/Long #BTCUSDT Entry: 63522 Stop: 62852 Targets: 64367 Leverage: 20X"
+_CRYPTO_FUTURES_RE = re.compile(
+    r'(?P<direction>Buy|Sell|Long|Short)[/\s]*(?:signal)?\s*#?(?P<asset>[A-Z]{3,10})(?:USDT)?\s*[\n\r]'
+    r'.*?Entry\s*(?:range)?\s*[:\s]+(?P<entry>' + _PRICE_STR + r')'
+    r'.*?Stop\s*[:\s]+(?P<sl>' + _PRICE_STR + r')',
+    re.IGNORECASE | re.DOTALL,
+)
+
+# Extract all targets from crypto futures "Targets: X Y Z" or "Targets: X_Y_Z"
+_CRYPTO_TARGETS_RE = re.compile(
+    r'Targets?\s*[:\s]+(.+)',
+    re.IGNORECASE,
+)
+
+# Forex pair format: "SELL AUDJPY @ 113.822", "BUY GBPUSD 1.3534"
+# Valid forex pairs (prevent false positives like "SIGNAL", "TARGET")
+_VALID_FOREX_PAIRS = {
+    "EURUSD", "GBPUSD", "USDJPY", "AUDUSD", "NZDUSD", "USDCAD", "USDCHF",
+    "EURJPY", "GBPJPY", "AUDJPY", "NZDJPY", "CADJPY", "CHFJPY",
+    "EURGBP", "EURAUD", "EURNZD", "EURCAD", "EURCHF",
+    "GBPAUD", "GBPNZD", "GBPCAD", "GBPCHF",
+    "AUDNZD", "AUDCAD", "AUDCHF",
+    "NZDCAD", "NZDCHF", "CADCHF",
+}
+
+_FOREX_PAIR_RE = re.compile(
+    r'(?P<direction>BUY|SELL)\s+(?P<asset>[A-Z]{6})\s*[@\s]',
     re.IGNORECASE,
 )
 
@@ -72,7 +108,13 @@ _GOLD_ENTRY_SL_RE = re.compile(
 )
 
 _GOLD_INLINE_SL_RE = re.compile(
-    r'(?:SL|Sl)\s*[:\s@]+\s*(?P<sl>' + _PRICE_STR + r')',
+    r'(?:SL|Sl)\s*[:\s@.]*\s*(?P<sl>' + _PRICE_STR + r')',
+    re.IGNORECASE,
+)
+
+# Inline SL without any separator: "SL2669", "SL.2610.50", "SL4515"
+_GOLD_NO_SPACE_SL_RE = re.compile(
+    r'(?:SL|Sl)[.\s]*?(?P<sl>' + _PRICE_STR + r')',
     re.IGNORECASE,
 )
 
@@ -137,7 +179,7 @@ _WSQ_TP_HIT_RE = re.compile(
 
 # ── Price regexes for general extraction ──────────────────────────────
 _ENTRY_RE = re.compile(
-    r'(?:Entry|Price|@|开仓价格)\s*(?:Point|Price)?\s*[:\s\$]+(?P<entry>' + _PRICE_STR + ')',
+    r'(?:Entry|entry|Price|@|开仓价格)\s*(?:Point|Price)?\s*[:\s\$@]*\s*(?P<entry>' + _PRICE_STR + r')',
     re.IGNORECASE,
 )
 _SL_RE = re.compile(
@@ -145,7 +187,13 @@ _SL_RE = re.compile(
     re.IGNORECASE,
 )
 _TP_ANY_RE = re.compile(
-    r'(?:TP|Targets?)\s*[:\s]+\s*\$?(?P<tp>' + _PRICE_STR + r')',
+    r'(?:TAKE\s*PROFIT|TP|Targets?|Take\s*Profit)\s*[^\d]*(?P<tp>' + _PRICE_STR + r')',
+    re.IGNORECASE,
+)
+
+# Inline TP without separator: "TP2507", "TP2504"
+_TP_NO_SPACE_RE = re.compile(
+    r'TP\s*[¹²³⁴⁵⁶⁷⁸⁹⁰]*\s*(?P<tp>' + _PRICE_STR + r')',
     re.IGNORECASE,
 )
 _LEVERAGE_RE = re.compile(
@@ -187,8 +235,10 @@ def _extract_prices(text: str) -> dict:
     if e: result["entry"] = _parse_float(e.group("entry"))
     s = _SL_RE.search(text)
     if s: result["sl"] = _parse_float(s.group("sl"))
-    tps = [_parse_float(m.group("tp")) for m in _TP_ANY_RE.finditer(text)]
-    tps = [t for t in tps if t is not None]
+    # TPs from both patterns (with separator + without)
+    tps1 = [_parse_float(m.group("tp")) for m in _TP_ANY_RE.finditer(text)]
+    tps2 = [_parse_float(m.group("tp")) for m in _TP_NO_SPACE_RE.finditer(text)]
+    tps = [t for t in tps1 + tps2 if t is not None]
     if tps: result["tps"] = tps
     lv = _LEVERAGE_RE.search(text)
     if lv: result["leverage"] = int(lv.group("leverage"))
@@ -217,6 +267,39 @@ def parse_telegram_message(raw_dict: dict) -> ParsedTelegramMessage:
         gold_match = _GOLD_HASH_RE.search(raw_text)
         if gold_match:
             gold_dir = "LONG" if gold_match.group("direction").lower() == "buy" else "SHORT"
+    if gold_dir is None:
+        gold_match = _GOLD_STANDALONE_RE.search(raw_text)
+        if gold_match:
+            gold_dir = "LONG" if gold_match.group("direction").upper() == "BUY" else "SHORT"
+
+    # Try forex pair format (SELL AUDJPY @ price, BUY GBPUSD price)
+    if gold_dir is None:
+        forex_match = _FOREX_PAIR_RE.search(raw_text)
+        if forex_match:
+            asset_candidate = forex_match.group("asset").upper()
+            if asset_candidate in _VALID_FOREX_PAIRS:
+                asset = asset_candidate
+                direction = "LONG" if forex_match.group("direction").upper() == "BUY" else "SHORT"
+
+    # Try crypto futures format (Buy/Long #BTCUSDT Entry: X Stop: X)
+    if asset is None:
+        cf_match = _CRYPTO_FUTURES_RE.search(raw_text)
+        if cf_match:
+            asset = cf_match.group("asset").upper()
+            dir_raw = cf_match.group("direction").lower()
+            direction = "LONG" if dir_raw in ("buy", "long") else "SHORT"
+            extra["entry"] = _parse_float(cf_match.group("entry"))
+            extra["sl"] = _parse_float(cf_match.group("sl"))
+            # Extract targets from "Targets: X_Y Z" or "Targets: X, Y, Z"
+            targets_m = _CRYPTO_TARGETS_RE.search(raw_text)
+            if targets_m:
+                targets_section = targets_m.group(1)
+                tps = []
+                for pm in re.finditer(r'(' + _PRICE_STR + r')', targets_section):
+                    val = _parse_float(pm.group(1))
+                    if val and val > 0.00001:
+                        tps.append(val)
+                if tps: extra["tps"] = tps
 
     if gold_dir is not None:
         asset = "XAUUSD"
@@ -242,6 +325,10 @@ def parse_telegram_message(raw_dict: dict) -> ParsedTelegramMessage:
         if not extra.get("sl"):
             sl_m = re.search(r'(?:SL|Sl)\s*[:\s@]+\s*(' + _PRICE_STR + r')', raw_text, re.IGNORECASE)
             if sl_m: extra["sl"] = _parse_float(sl_m.group(1))
+        # Fallback: inline SL without separator ("SL2669", "SL.2610.50")
+        if not extra.get("sl"):
+            sl_m = _GOLD_NO_SPACE_SL_RE.search(raw_text)
+            if sl_m: extra["sl"] = _parse_float(sl_m.group("sl"))
         # Extract all TPs
         tps = [_parse_float(m.group("tp")) for m in _GOLD_TPS_RE.finditer(raw_text)]
         tps = [t for t in tps if t is not None]
@@ -339,9 +426,11 @@ def parse_telegram_message(raw_dict: dict) -> ParsedTelegramMessage:
     if asset is None:
         return ParsedTelegramMessage(message_type="UNKNOWN_RAW", raw_text=raw_text, channel_alias=channel_alias)
 
-    # Validate against whitelist (skip structured coins which come from trusted signal channels)
+    # Validate against whitelist (skip structured coins, forex pairs, crypto futures)
     from_structured = _STRUCTURED_COIN_RE.search(raw_text) is not None
-    if not from_structured and asset not in _KNOWN_ASSETS:
+    from_forex = asset is not None and asset in _VALID_FOREX_PAIRS
+    from_crypto_futures = _CRYPTO_FUTURES_RE.search(raw_text) is not None
+    if not (from_structured or from_forex or from_crypto_futures) and asset not in _KNOWN_ASSETS:
         return ParsedTelegramMessage(message_type="UNKNOWN_RAW", raw_text=raw_text, channel_alias=channel_alias)
 
     # Extract all prices from text (supplements channel-specific extractions)

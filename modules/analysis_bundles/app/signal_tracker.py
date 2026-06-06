@@ -57,8 +57,37 @@ def extract_trade_signals(channel: str) -> list[dict]:
         sl = claim.get("sl")
         tps = claim.get("tps", [])
 
-        # Filter: must have direction + entry + sl
-        if not asset or not direction or not entry or not sl:
+        # ── Normalize ──
+        # Clean asset: remove trailing USDT suffix if present, skip fake assets
+        asset_raw = asset.upper()
+        if asset_raw.endswith("USDT"):
+            asset_clean = asset_raw[:-4]
+        else:
+            asset_clean = asset_raw
+        if asset_clean in ("SIGNAL", "COIN", "PAIR", "ENTRY", "STOP", "TARGET", "LONG", "SHORT", "BUY", "SELL", ""):
+            continue
+        if len(asset_clean) < 2:
+            continue
+        asset = asset_clean
+
+        # Build pair: forex pairs keep their name; crypto gets USDT suffix
+        if len(asset) == 6 and asset[3:] == "USD":  # EURUSD, GBPUSD, AUDUSD...
+            pair = asset
+        elif len(asset) == 3 and asset != "USD":  # BTC, ETH, SOL...
+            pair = f"{asset}USDT"
+        elif len(asset) == 6 and asset.endswith("JPY"):  # USDJPY, AUDJPY...
+            pair = asset
+        else:
+            pair = f"{asset}USDT"
+
+        # Filter TP noise: remove small integers that are likely leverage/volume, not prices
+        if tps and entry:
+            tps = [t for t in tps if t > entry * 0.001 or t < entry * 1000]
+            tps = [t for t in tps if not (t == float(int(t)) and t <= 50)]
+            tps = sorted(set(tps))
+
+        # Quality gate: must have direction + entry + sl
+        if not entry or not sl:
             continue
 
         signal = {
@@ -68,9 +97,9 @@ def extract_trade_signals(channel: str) -> list[dict]:
             "channel": channel,
             "parsed_at": ts,
             "produced_at": datetime.now(timezone.utc).isoformat(),
-            "pair": f"{asset}USDT",
+            "pair": pair,
             "asset": asset,
-            "direction": direction.upper() if direction else None,
+            "direction": direction,
             "entry_price": entry,
             "sl": sl,
             "tp": tps[0] if tps else None,
