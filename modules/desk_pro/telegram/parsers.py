@@ -74,6 +74,12 @@ _CRYPTO_FUTURES_RE = re.compile(
     re.IGNORECASE | re.DOTALL,
 )
 
+# Extract all targets from crypto futures "Targets: X Y Z" or "Targets: X_Y_Z"
+_CRYPTO_TARGETS_RE = re.compile(
+    r'Targets?\s*[:\s]+(.+)',
+    re.IGNORECASE,
+)
+
 # Forex pair format: "SELL AUDJPY @ 113.822", "BUY GBPUSD 1.3534"
 _FOREX_PAIR_RE = re.compile(
     r'(?P<direction>BUY|SELL)\s+(?P<asset>[A-Z]{6})\s*[@\s]',
@@ -264,6 +270,16 @@ def parse_telegram_message(raw_dict: dict) -> ParsedTelegramMessage:
             direction = "LONG" if dir_raw in ("buy", "long") else "SHORT"
             extra["entry"] = _parse_float(cf_match.group("entry"))
             extra["sl"] = _parse_float(cf_match.group("sl"))
+            # Extract targets from "Targets: X_Y Z" or "Targets: X, Y, Z"
+            targets_m = _CRYPTO_TARGETS_RE.search(raw_text)
+            if targets_m:
+                targets_section = targets_m.group(1)
+                tps = []
+                for pm in re.finditer(r'(' + _PRICE_STR + r')', targets_section):
+                    val = _parse_float(pm.group(1))
+                    if val and val > 0.00001:
+                        tps.append(val)
+                if tps: extra["tps"] = tps
 
     if gold_dir is not None:
         asset = "XAUUSD"
