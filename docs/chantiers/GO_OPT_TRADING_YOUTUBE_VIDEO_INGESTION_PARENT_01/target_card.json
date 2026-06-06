@@ -1,0 +1,40 @@
+{
+  "go_id": "GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_PARENT_01",
+  "title": "YouTube Video Ingestion Parent",
+  "status": "OPEN",
+  "created_at": "2026-06-06",
+  "go_structural_role": "GO_PARENT_ATTACHED_TO_MASTER_PROJECT_PLAN",
+  "pf_id": "PF_OPT_TRADING_DATA_INGESTION",
+  "master_target_id": "MASTER_TARGET_OPT_TRADING_DATA_CENTER",
+  "master_project_plan_id": "MPP_OPT_TRADING_DATA_INGESTION_AND_SIGNAL_DISCOVERY",
+  "parent_go_id": null,
+  "final_target": "Documentation parent complète et autonome pour ingestion vidéo YouTube ciblée: registry -> raw -> transcript/OCR -> parser -> fixtures -> dataset.",
+  "transport_mode": "bundle_patch_zip",
+  "close_gate_master_target": "pending",
+  "pilot_source": "https://youtube.com/@trademachineoff",
+  "parser_profile": "youtube_trading_short_v1",
+  "deliverables": [
+    "00_INITIAL_PROJECT_DOC.md",
+    "01_SOURCE_REGISTRY_MODEL.md",
+    "02_RAW_OUTPUT_CONTRACT.md",
+    "03_TRANSCRIPT_OCR_METHOD.md",
+    "04_PARSER_PROFILE_YOUTUBE_TRADING_SHORT_V1.md",
+    "05_FIXTURES_AND_VALIDATION.md",
+    "TARGETS.md",
+    "target_card.json"
+  ],
+  "next_go": "GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_CHILD_TRADEMACHINEOFF_PILOT_01",
+  "invariants": [
+    "No live trading",
+    "Raw output preserved before parsing",
+    "Transcript and OCR remain separate before parser input",
+    "Unknown fields are null or unknown, never invented",
+    "No broad discovery before fixtures validation"
+  ],
+  "remaining_gap": [
+    "No collector implementation yet",
+    "No pilot fixtures yet",
+    "No parsed JSONL dataset yet",
+    "No parser confidence thresholds validated yet"
+  ]
+}
