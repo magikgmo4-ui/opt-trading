@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opt-trading.local/data_center/schemas/resolver_decision.v1.schema.json",
+  "title": "resolver_decision.v1",
+  "description": "Decision du best-value resolver : pourquoi cette source a ete selectionnee pour cette donnee. Assure la tracabilite complete de la selection.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "decision_id",
+    "contract_class",
+    "symbol",
+    "data_key",
+    "decided_at",
+    "candidates",
+    "selected_producer_id",
+    "selection_reason",
+    "selection_rule"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "resolver_decision.v1"
+    },
+    "decision_id": {
+      "type": "string",
+      "description": "Identifiant unique de la decision (UUID v4)"
+    },
+    "contract_class": {
+      "type": "string",
+      "description": "Contract class concernee (ex: market_metrics.v1)"
+    },
+    "symbol": {
+      "type": "string",
+      "description": "Symbole trading (ex: BTCUSDT)"
+    },
+    "data_key": {
+      "type": "string",
+      "description": "Metrique resolue (ex: open_interest)"
+    },
+    "decided_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp ISO 8601 de la decision"
+    },
+    "candidates": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Sources candidates evaluees",
+      "items": {
+        "type": "object",
+        "required": [
+          "producer_id",
+          "score",
+          "score_ref",
+          "evidence_ref",
+          "eligible"
+        ],
+        "properties": {
+          "producer_id": { "type": "string" },
+          "score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Score final de la source"
+          },
+          "score_ref": {
+            "type": "string",
+            "description": "Reference au source_score.v1"
+          },
+          "evidence_ref": {
+            "type": "string",
+            "description": "Reference au source_evidence.v1"
+          },
+          "eligible": {
+            "type": "boolean",
+            "description": "Eligible a la selection (score >= min_threshold, permission OK, schema valide)"
+          },
+          "disqualification_reason": {
+            "type": "string",
+            "description": "Raison de non-eligibilite si eligible=false"
+          }
+        }
+      }
+    },
+    "selected_producer_id": {
+      "type": "string",
+      "description": "Producer selectionne (celui avec le meilleur score parmi les eligibles)"
+    },
+    "selected_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Score du producer selectionne"
+    },
+    "selection_reason": {
+      "type": "string",
+      "description": "Justification textuelle (ex: 'bitget score 0.87 > binance score 0.72, bitget eligible')"
+    },
+    "selection_rule": {
+      "type": "string",
+      "enum": [
+        "highest_score",
+        "only_eligible",
+        "stale_fallback",
+        "manual_override"
+      ],
+      "description": "Regle de selection appliquee"
+    },
+    "min_score_threshold": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Seuil minimum pour qu'une source soit eligible (defaut: 0.3)"
+    },
+    "resolver_version": {
+      "type": "string",
+      "description": "Version du resolver utilise (ex: best_value_resolver.v1)"
+    }
+  }
+}

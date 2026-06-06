@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opt-trading.local/data_center/schemas/source_evidence.v1.schema.json",
+  "title": "source_evidence.v1",
+  "description": "Preuve justifiant chaque dimension du source_score.v1. Chaque dimension evaluee doit avoir une evidence tracable (pourquoi cette valeur a ete attribuee).",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "score_ref",
+    "evidence"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "source_evidence.v1"
+    },
+    "score_ref": {
+      "type": "object",
+      "required": ["producer_id", "contract_class", "symbol", "data_key", "score_id"],
+      "properties": {
+        "producer_id": { "type": "string" },
+        "contract_class": { "type": "string" },
+        "symbol": { "type": "string" },
+        "data_key": { "type": "string" },
+        "score_id": {
+          "type": "string",
+          "description": "Reference au source_score.v1 correspondant (UUID ou hash du payload)"
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": [
+        "source_reliability",
+        "freshness",
+        "schema_validation",
+        "completeness",
+        "cross_source_consistency",
+        "historical_accuracy",
+        "latency",
+        "permission"
+      ],
+      "properties": {
+        "source_reliability": {
+          "type": "object",
+          "required": ["reason", "value"],
+          "properties": {
+            "reason": {
+              "type": "string",
+              "description": "Justification textuelle (ex: 'bitget API uptime 99.8% sur 30j, 0 anomaly detectee')"
+            },
+            "value": { "type": "number", "minimum": 0, "maximum": 1 },
+            "metrics": {
+              "type": "object",
+              "description": "Metriques brutes utilisees pour le calcul (ex: uptime_pct, anomaly_count, consecutive_failures)",
+              "additionalProperties": true
+            }
+          }
+        },
+        "freshness": {
+          "type": "object",
+          "required": ["reason", "value"],
+          "properties": {
+            "reason": {
+              "type": "string",
+              "description": "Justification (ex: 'produced_at 12s ago, max_age=60s, age_ratio=0.20')"
+            },
+            "value": { "type": "number", "minimum": 0, "maximum": 1 },
+            "metrics": {
+              "type": "object",
+              "properties": {
+                "produced_at": { "type": "string", "format": "date-time" },
+                "evaluated_at": { "type": "string", "format": "date-time" },
+                "age_seconds": { "type": "number" },
+                "max_age_seconds": { "type": "number" }
+              }
+            }
+          }
+        },
+        "schema_validation": {
+          "type": "object",
+          "required": ["reason", "value"],
+          "properties": {
+            "reason": { "type": "string" },
+            "value": { "type": "number", "minimum": 0, "maximum": 1 },
+            "metrics": {
+              "type": "object",
+              "properties": {
+                "schema_valid": { "type": "boolean" },
+                "validation_errors": { "type": "array", "items": { "type": "string" } },
+                "validation_warnings": { "type": "array", "items": { "type": "string" } }
+              }
+            }
+          }
+        },
+        "completeness": {
+          "type": "object",
+          "required": ["reason", "value"],
+          "properties": {
+            "reason": { "type": "string" },
+            "value": { "type": "number", "minimum": 0, "maximum": 1 },
+            "metrics": {
+              "type": "object",
+              "properties": {
+                "metrics_present": { "type": "integer" },
+                "metrics_expected": { "type": "integer" },
+                "missing_metrics": { "type": "array", "items": { "type": "string" } }
+              }
+            }
+          }
+        },
+        "cross_source_consistency": {
+          "type": "object",
+          "required": ["reason", "value"],
+          "properties": {
+            "reason": { "type": "string" },
+            "value": { "type": "number", "minimum": 0, "maximum": 1 },
+            "metrics": {
+              "type": "object",
+              "properties": {
+                "peer_sources": { "type": "array", "items": { "type": "string" } },
+                "peer_values": { "type": "object", "additionalProperties": { "type": "number" } },
+                "deviation_pct": { "type": "number" },
+                "within_tolerance": { "type": "boolean" }
+              }
+            }
+          }
+        },
+        "historical_accuracy": {
+          "type": "object",
+          "required": ["reason", "value"],
+          "properties": {
+            "reason": { "type": "string" },
+            "value": { "type": "number", "minimum": 0, "maximum": 1 },
+            "metrics": {
+              "type": "object",
+              "properties": {
+                "samples_available": { "type": "integer" },
+                "mean_error": { "type": "number" },
+                "std_error": { "type": "number" },
+                "reference_source": { "type": "string" }
+              }
+            }
+          }
+        },
+        "latency": {
+          "type": "object",
+          "required": ["reason", "value"],
+          "properties": {
+            "reason": { "type": "string" },
+            "value": { "type": "number", "minimum": 0, "maximum": 1 },
+            "metrics": {
+              "type": "object",
+              "properties": {
+                "collection_duration_ms": { "type": "number" },
+                "pipeline_duration_ms": { "type": "number" },
+                "total_latency_ms": { "type": "number" }
+              }
+            }
+          }
+        },
+        "permission": {
+          "type": "object",
+          "required": ["reason", "value"],
+          "properties": {
+            "reason": { "type": "string" },
+            "value": { "type": "number", "minimum": 0, "maximum": 1 },
+            "metrics": {
+              "type": "object",
+              "properties": {
+                "api_key_valid": { "type": "boolean" },
+                "rate_limit_ok": { "type": "boolean" },
+                "entitlement_level": { "type": "string", "enum": ["full", "limited", "expired", "none"] }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
