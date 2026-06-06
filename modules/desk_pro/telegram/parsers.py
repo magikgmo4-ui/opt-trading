@@ -177,7 +177,13 @@ _SL_RE = re.compile(
     re.IGNORECASE,
 )
 _TP_ANY_RE = re.compile(
-    r'(?:TP|Targets?)\s*[:\s]+\s*\$?(?P<tp>' + _PRICE_STR + r')',
+    r'(?:TP|Targets?)\s*[^\d]*(?P<tp>' + _PRICE_STR + r')',
+    re.IGNORECASE,
+)
+
+# Inline TP without separator: "TP2507", "TP2504"
+_TP_NO_SPACE_RE = re.compile(
+    r'TP\s*[¹²³⁴⁵⁶⁷⁸⁹⁰]*\s*(?P<tp>' + _PRICE_STR + r')',
     re.IGNORECASE,
 )
 _LEVERAGE_RE = re.compile(
@@ -219,8 +225,10 @@ def _extract_prices(text: str) -> dict:
     if e: result["entry"] = _parse_float(e.group("entry"))
     s = _SL_RE.search(text)
     if s: result["sl"] = _parse_float(s.group("sl"))
-    tps = [_parse_float(m.group("tp")) for m in _TP_ANY_RE.finditer(text)]
-    tps = [t for t in tps if t is not None]
+    # TPs from both patterns (with separator + without)
+    tps1 = [_parse_float(m.group("tp")) for m in _TP_ANY_RE.finditer(text)]
+    tps2 = [_parse_float(m.group("tp")) for m in _TP_NO_SPACE_RE.finditer(text)]
+    tps = [t for t in tps1 + tps2 if t is not None]
     if tps: result["tps"] = tps
     lv = _LEVERAGE_RE.search(text)
     if lv: result["leverage"] = int(lv.group("leverage"))
