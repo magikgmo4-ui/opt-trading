@@ -112,3 +112,4 @@ modules/bot_vision/headless_capture/node_modules/
 modules/bot_vision/headless_capture/package-lock.json
 logs/
 modules/collector_binance_spot/outputs/
+modules/collector_binance_spot/logs/
