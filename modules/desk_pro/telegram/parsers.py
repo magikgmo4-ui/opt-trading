@@ -187,7 +187,7 @@ _SL_RE = re.compile(
     re.IGNORECASE,
 )
 _TP_ANY_RE = re.compile(
-    r'(?:TP|Targets?)\s*[^\d]*(?P<tp>' + _PRICE_STR + r')',
+    r'(?:TAKE\s*PROFIT|TP|Targets?|Take\s*Profit)\s*[^\d]*(?P<tp>' + _PRICE_STR + r')',
     re.IGNORECASE,
 )
 

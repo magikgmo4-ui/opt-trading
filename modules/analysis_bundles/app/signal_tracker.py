@@ -85,8 +85,10 @@ def extract_trade_signals(channel: str) -> list[dict]:
             tps = [t for t in tps if t > entry * 0.001 or t < entry * 1000]
             tps = [t for t in tps if not (t == float(int(t)) and t <= 50)]
             tps = sorted(set(tps))
-        else:
-            pair = f"{asset}USDT"
+
+        # Quality gate: must have direction + entry + sl
+        if not entry or not sl:
+            continue
 
         signal = {
             "contract": "telegram_trade_signal.v1",
