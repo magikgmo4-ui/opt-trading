@@ -72,7 +72,13 @@ _GOLD_ENTRY_SL_RE = re.compile(
 )
 
 _GOLD_INLINE_SL_RE = re.compile(
-    r'(?:SL|Sl)\s*[:\s@]+\s*(?P<sl>' + _PRICE_STR + r')',
+    r'(?:SL|Sl)\s*[:\s@.]*\s*(?P<sl>' + _PRICE_STR + r')',
+    re.IGNORECASE,
+)
+
+# Inline SL without any separator: "SL2669", "SL.2610.50", "SL4515"
+_GOLD_NO_SPACE_SL_RE = re.compile(
+    r'(?:SL|Sl)[.\s]*?(?P<sl>' + _PRICE_STR + r')',
     re.IGNORECASE,
 )
 
@@ -242,6 +248,10 @@ def parse_telegram_message(raw_dict: dict) -> ParsedTelegramMessage:
         if not extra.get("sl"):
             sl_m = re.search(r'(?:SL|Sl)\s*[:\s@]+\s*(' + _PRICE_STR + r')', raw_text, re.IGNORECASE)
             if sl_m: extra["sl"] = _parse_float(sl_m.group(1))
+        # Fallback: inline SL without separator ("SL2669", "SL.2610.50")
+        if not extra.get("sl"):
+            sl_m = _GOLD_NO_SPACE_SL_RE.search(raw_text)
+            if sl_m: extra["sl"] = _parse_float(sl_m.group("sl"))
         # Extract all TPs
         tps = [_parse_float(m.group("tp")) for m in _GOLD_TPS_RE.finditer(raw_text)]
         tps = [t for t in tps if t is not None]
