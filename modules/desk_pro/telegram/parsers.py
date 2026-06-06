@@ -81,6 +81,16 @@ _CRYPTO_TARGETS_RE = re.compile(
 )
 
 # Forex pair format: "SELL AUDJPY @ 113.822", "BUY GBPUSD 1.3534"
+# Valid forex pairs (prevent false positives like "SIGNAL", "TARGET")
+_VALID_FOREX_PAIRS = {
+    "EURUSD", "GBPUSD", "USDJPY", "AUDUSD", "NZDUSD", "USDCAD", "USDCHF",
+    "EURJPY", "GBPJPY", "AUDJPY", "NZDJPY", "CADJPY", "CHFJPY",
+    "EURGBP", "EURAUD", "EURNZD", "EURCAD", "EURCHF",
+    "GBPAUD", "GBPNZD", "GBPCAD", "GBPCHF",
+    "AUDNZD", "AUDCAD", "AUDCHF",
+    "NZDCAD", "NZDCHF", "CADCHF",
+}
+
 _FOREX_PAIR_RE = re.compile(
     r'(?P<direction>BUY|SELL)\s+(?P<asset>[A-Z]{6})\s*[@\s]',
     re.IGNORECASE,
@@ -266,8 +276,10 @@ def parse_telegram_message(raw_dict: dict) -> ParsedTelegramMessage:
     if gold_dir is None:
         forex_match = _FOREX_PAIR_RE.search(raw_text)
         if forex_match:
-            asset = forex_match.group("asset").upper()
-            direction = "LONG" if forex_match.group("direction").upper() == "BUY" else "SHORT"
+            asset_candidate = forex_match.group("asset").upper()
+            if asset_candidate in _VALID_FOREX_PAIRS:
+                asset = asset_candidate
+                direction = "LONG" if forex_match.group("direction").upper() == "BUY" else "SHORT"
 
     # Try crypto futures format (Buy/Long #BTCUSDT Entry: X Stop: X)
     if asset is None:
@@ -416,7 +428,7 @@ def parse_telegram_message(raw_dict: dict) -> ParsedTelegramMessage:
 
     # Validate against whitelist (skip structured coins, forex pairs, crypto futures)
     from_structured = _STRUCTURED_COIN_RE.search(raw_text) is not None
-    from_forex = _FOREX_PAIR_RE.search(raw_text) is not None
+    from_forex = asset is not None and asset in _VALID_FOREX_PAIRS
     from_crypto_futures = _CRYPTO_FUTURES_RE.search(raw_text) is not None
     if not (from_structured or from_forex or from_crypto_futures) and asset not in _KNOWN_ASSETS:
         return ParsedTelegramMessage(message_type="UNKNOWN_RAW", raw_text=raw_text, channel_alias=channel_alias)
