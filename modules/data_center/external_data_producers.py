@@ -1,0 +1,302 @@
+"""
+external_data_producers.py — collect missing data from free APIs → data_center.
+
+Providers:
+    AlphaVantage (free key) — forex rates, stock prices
+    FRED (free key) — US macro data (interest rates, GDP)
+    Finnhub (free key) — news, sentiment, company data
+    TwelveData (free key) — OHLCV historical
+
+Writes to data_center views:
+    fx_context.v1, macro_event.v1, news_event.v1, equity_context.v1
+
+Usage:
+    python -m modules.data_center.external_data_producers
+    python -m modules.data_center.external_data_producers --provider alphavantage
+"""
+
+from __future__ import annotations
+
+import json
+import os
+import tempfile
+import urllib.request
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any, Optional
+
+_PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+_VIEWS_DIR = _PROJECT_ROOT / "data" / "data_center" / "views"
+
+
+def _atomic_write(path: Path, payload: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile("w", dir=path.parent, delete=False, encoding="utf-8", suffix=".tmp") as fh:
+        json.dump(payload, fh, indent=2, default=str)
+        fh.write("\n")
+        tmp = Path(fh.name)
+    tmp.replace(path)
+
+
+def _fetch_json(url: str) -> Optional[dict]:
+    try:
+        req = urllib.request.Request(url, headers={"Accept": "application/json"})
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            return json.loads(resp.read().decode())
+    except Exception as e:
+        print(f"  fetch error: {e}")
+        return None
+
+
+def _get_key(env_var: str) -> str:
+    # Ensure env is loaded
+    try:
+        from modules.env.env import load_env
+        load_env()
+    except Exception:
+        pass
+    return os.getenv(env_var, "").strip()
+
+
+# ═══════════════════════════════════════════════════════════════════
+# AlphaVantage — forex rates + stock prices
+# ═══════════════════════════════════════════════════════════════════
+
+_FOREX_PAIRS = [
+    ("EUR", "USD"), ("GBP", "USD"), ("USD", "JPY"), ("USD", "CAD"),
+    ("AUD", "USD"), ("NZD", "USD"), ("USD", "CHF"),
+    ("EUR", "JPY"), ("GBP", "JPY"), ("EUR", "GBP"),
+]
+
+def produce_fx_context() -> dict:
+    """Fetch forex rates from AlphaVantage → fx_context.v1."""
+    key = _get_key("ALPHAVANTAGE_API_KEY")
+    if not key:
+        return {"error": "ALPHAVANTAGE_API_KEY not set"}
+    now = datetime.now(timezone.utc).isoformat()
+    results = {}
+
+    for base, quote in _FOREX_PAIRS:
+        pair = f"{base}/{quote}"
+        url = f"https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency={base}&to_currency={quote}&apikey={key}"
+        data = _fetch_json(url)
+        if not data:
+            continue
+        rate_data = data.get("Realtime Currency Exchange Rate", {})
+        if not rate_data:
+            continue
+        price = float(rate_data.get("5. Exchange Rate", 0))
+        if not price:
+            continue
+
+        sym_safe = pair.replace("/", "_")
+        snap_dir = _VIEWS_DIR / "fx_context" / "by_symbol" / sym_safe
+        snap_dir.mkdir(parents=True, exist_ok=True)
+        _atomic_write(snap_dir / "latest.json", {
+            "input_class": "fx_context.v1",
+            "provider_id": "alphavantage",
+            "symbol": pair,
+            "produced_at": now,
+            "rate": price,
+            "bid": float(rate_data.get("8. Bid Price", 0)),
+            "ask": float(rate_data.get("9. Ask Price", 0)),
+            "refresh_ts": rate_data.get("6. Last Refreshed", ""),
+        })
+        results[pair] = price
+
+    # Global
+    _atomic_write(_VIEWS_DIR / "fx_context" / "latest.json", {
+        "input_class": "fx_context.v1",
+        "provider_id": "alphavantage",
+        "produced_at": now,
+        "total_pairs": len(results),
+        "pairs": [{"symbol": k, "rate": v} for k, v in sorted(results.items())],
+    })
+
+    from modules.data_center.runtime_registry import update_producer_last_write
+    update_producer_last_write("alphavantage", "fx_context.v1",
+        str(_VIEWS_DIR / "fx_context" / "latest.json"), "ok", {"pairs": len(results)})
+    return {"produced_at": now, "pairs": len(results)}
+
+
+# ═══════════════════════════════════════════════════════════════════
+# FRED — US macro (Fed funds rate, GDP, CPI, unemployment)
+# ═══════════════════════════════════════════════════════════════════
+
+_FRED_SERIES = {
+    "FEDFUNDS": {"label": "Fed Funds Rate", "unit": "%"},
+    "GDP": {"label": "GDP", "unit": "B USD"},
+    "CPIAUCSL": {"label": "CPI All Items", "unit": "index"},
+    "UNRATE": {"label": "Unemployment Rate", "unit": "%"},
+    "DGS10": {"label": "10Y Treasury Yield", "unit": "%"},
+    "T10Y2Y": {"label": "10Y-2Y Spread", "unit": "%"},
+    "VIXCLS": {"label": "VIX Close", "unit": "index"},
+}
+
+
+def produce_macro_context() -> dict:
+    """Fetch US macro indicators from FRED → macro_event.v1."""
+    key = _get_key("FRED_API_KEY")
+    if not key:
+        return {"error": "FRED_API_KEY not set"}
+    now = datetime.now(timezone.utc).isoformat()
+    results = {}
+
+    for series_id, info in _FRED_SERIES.items():
+        url = f"https://api.stlouisfed.org/fred/series/observations?series_id={series_id}&api_key={key}&file_type=json&sort_order=desc&limit=1"
+        data = _fetch_json(url)
+        if not data:
+            continue
+        obs = data.get("observations", [])
+        if not obs:
+            continue
+        value = obs[0].get("value", "")
+        try:
+            value_float = float(value)
+        except (ValueError, TypeError):
+            continue
+
+        results[series_id] = {"label": info["label"], "value": value_float, "unit": info["unit"], "date": obs[0].get("date", "")}
+
+    _atomic_write(_VIEWS_DIR / "macro_event" / "latest.json", {
+        "input_class": "macro_event.v1",
+        "provider_id": "fred",
+        "produced_at": now,
+        "indicators": results,
+    })
+
+    from modules.data_center.runtime_registry import update_producer_last_write
+    update_producer_last_write("fred", "macro_event.v1",
+        str(_VIEWS_DIR / "macro_event" / "latest.json"), "ok", {"indicators": len(results)})
+    return {"produced_at": now, "indicators": len(results)}
+
+
+# ═══════════════════════════════════════════════════════════════════
+# Finnhub — news + company data
+# ═══════════════════════════════════════════════════════════════════
+
+def produce_news_context() -> dict:
+    """Fetch general market news from Finnhub → news_event.v1."""
+    key = _get_key("FINNHUB_API_KEY")
+    if not key:
+        return {"error": "FINNHUB_API_KEY not set"}
+    now = datetime.now(timezone.utc).isoformat()
+    url = f"https://finnhub.io/api/v1/news?category=general&token={key}"
+    data = _fetch_json(url)
+    if not data or not isinstance(data, list):
+        return {"error": "no news data"}
+
+    articles = []
+    for item in data[:20]:
+        articles.append({
+            "headline": item.get("headline", ""),
+            "summary": (item.get("summary", "") or "")[:200],
+            "source": item.get("source", ""),
+            "published_at": datetime.fromtimestamp(item.get("datetime", 0), tz=timezone.utc).isoformat() if item.get("datetime") else "",
+            "category": item.get("category", ""),
+        })
+
+    _atomic_write(_VIEWS_DIR / "news_event" / "latest.json", {
+        "input_class": "news_event.v1",
+        "provider_id": "finnhub",
+        "produced_at": now,
+        "total_articles": len(articles),
+        "articles": articles,
+    })
+
+    from modules.data_center.runtime_registry import update_producer_last_write
+    update_producer_last_write("finnhub", "news_event.v1",
+        str(_VIEWS_DIR / "news_event" / "latest.json"), "ok", {"articles": len(articles)})
+    return {"produced_at": now, "articles": len(articles)}
+
+
+# ═══════════════════════════════════════════════════════════════════
+# TwelveData — OHLCV historical (backtest)
+# ═══════════════════════════════════════════════════════════════════
+
+def produce_ohlcv_history(symbols: Optional[list[str]] = None) -> dict:
+    """Fetch OHLCV historical from TwelveData for backtesting."""
+    key = _get_key("TWELVEDATA_API_KEY")
+    if not key:
+        return {"error": "TWELVEDATA_API_KEY not set"}
+    syms = symbols or ["XAU/USD", "BTC/USD", "ETH/USD", "EUR/USD"]
+    now = datetime.now(timezone.utc).isoformat()
+    results = {}
+
+    for sym in syms:
+        url = f"https://api.twelvedata.com/time_series?symbol={sym.replace('/','')}&interval=1day&outputsize=90&apikey={key}"
+        data = _fetch_json(url)
+        if not data or data.get("status") == "error":
+            continue
+        values = data.get("values", [])
+        klines = []
+        for v in reversed(values):
+            klines.append({
+                "datetime": v.get("datetime", ""),
+                "open": float(v.get("open", 0)),
+                "high": float(v.get("high", 0)),
+                "low": float(v.get("low", 0)),
+                "close": float(v.get("close", 0)),
+            })
+
+        sym_safe = sym.replace("/", "_")
+        hist_dir = _PROJECT_ROOT / "data" / "market_data" / "klines" / sym_safe
+        hist_dir.mkdir(parents=True, exist_ok=True)
+        _atomic_write(hist_dir / "latest.json", {
+            "input_class": "market_klines.v1",
+            "provider_id": "twelvedata",
+            "symbol": sym,
+            "interval": "1d",
+            "produced_at": now,
+            "klines": klines,
+        })
+        results[sym] = len(klines)
+
+    return {"produced_at": now, "pairs": results}
+
+
+# ═══════════════════════════════════════════════════════════════════
+
+def produce_all() -> dict:
+    from modules.env.env import load_env
+    load_env()
+    results = {}
+    for name, fn in [("fx_context", produce_fx_context), ("macro_event", produce_macro_context), ("news_event", produce_news_context)]:
+        try:
+            r = fn()
+            results[name] = r
+        except Exception as e:
+            results[name] = {"error": str(e)}
+    return results
+
+
+if __name__ == "__main__":
+    import sys
+    from modules.env.env import load_env
+    load_env()
+    args = sys.argv[1:]
+    provider = None
+    i = 0
+    while i < len(args):
+        if args[i] == "--provider" and i + 1 < len(args):
+            provider = args[i + 1]; i += 2
+        else:
+            i += 1
+
+    if provider == "alphavantage":
+        r = produce_fx_context()
+        print(f"FX context: {r.get('pairs', 0)} pairs")
+    elif provider == "fred":
+        r = produce_macro_context()
+        print(f"Macro: {r.get('indicators', 0)} indicators")
+    elif provider == "finnhub":
+        r = produce_news_context()
+        print(f"News: {r.get('articles', 0)} articles")
+    elif provider == "twelvedata":
+        r = produce_ohlcv_history()
+        print(f"OHLCV: {r.get('pairs', {})}")
+    else:
+        r = produce_all()
+        for name, info in r.items():
+            status = info.get("error", "OK")
+            print(f"  {name}: {status}")
