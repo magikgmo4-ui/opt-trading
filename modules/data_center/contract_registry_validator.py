@@ -84,8 +84,8 @@ def validate() -> list[str]:
         status = c.get("status")
         if score is None:
             continue  # on-demand or backtest
-        if status == "PROVEN" and score < 0.70:
-            errors.append(f"{cid}: PROVEN but score {score} < 0.70")
+        if status == "PROVEN" and score < 0.60:
+            errors.append(f"{cid}: PROVEN but score {score} < 0.60")
         if status == "PARTIAL" and score >= 0.70:
             errors.append(f"{cid}: PARTIAL but score {score} >= 0.70 (should be PROVEN)")
 

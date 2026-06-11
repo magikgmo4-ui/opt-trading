@@ -54,9 +54,9 @@
       "data_keys": ["price", "previous_close", "currency"], "next_action": "Add rate-limit retry logic (HTTP 429)"
     },
     "options_surface.v1": {
-      "domain": "market", "label_fr": "Surface options", "provider_id": "deribit_public", "schedule": "daily", "score": 0.60, "status": "PROVEN", "on_demand": false,
+      "domain": "market", "label_fr": "Surface options", "provider_id": "deribit_public", "schedule": "daily", "score": 0.60, "status": "PARTIAL", "on_demand": false,
       "view_path": "data/data_center/views/options_surface/latest.json", "producer_module": "modules/data_center/external_data_producers.py",
-      "data_keys": ["total_options"]
+      "data_keys": ["total_options"], "next_action": "Enrich with Greeks (delta, gamma, vega) and strike-based surface data"
     },
     "vision_analysis.v1": {
       "domain": "vision", "label_fr": "Analyse technique", "provider_id": "bot_vision_headless", "schedule": "10min", "score": 0.90, "status": "PROVEN", "on_demand": false,
@@ -75,7 +75,7 @@
     },
     "vision_context.news_sentiment.v1": {
       "domain": "vision", "label_fr": "Sentiment News", "provider_id": "bot_vision_headless__news_sentiment", "schedule": "6h", "score": 0.70, "status": "PROVEN", "on_demand": false,
-      "view_path": "data/data_center/views/vision_context/news_sentiment/latest.json", "producer_module": "bot_vision_headless_capture",
+      "view_path": "data/deskpro/inputs/vision_context/news_sentiment/latest.json", "producer_module": "bot_vision_headless_capture",
       "data_keys": ["sentiment_label", "avg_sentiment_score", "article_count"]
     },
     "telegram_signal.v1": {
@@ -157,8 +157,8 @@
   "summary": {
     "total_contracts": 28,
     "total_domains": 7,
-    "proven": 22,
-    "partial": 6,
+    "proven": 21,
+    "partial": 7,
     "missing": 0,
     "hypothesis": 0,
     "on_demand": 2,
