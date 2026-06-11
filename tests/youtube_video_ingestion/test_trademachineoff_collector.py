@@ -11,7 +11,8 @@ from modules.youtube_video_ingestion import (
     parse_youtube_trading_short,
     run_trademachineoff_pilot,
 )
-from modules.youtube_video_ingestion.ocr import FrameSamplingContract, OcrResult
+from modules.youtube_video_ingestion.cli import _normalize_source, _parsed_jsonl_path
+from modules.youtube_video_ingestion.ocr import FfmpegFrameOcrRunner, FrameSamplingContract, OcrResult
 from modules.youtube_video_ingestion.yt_dlp_runner import CommandResult
 from modules.youtube_video_ingestion.yt_dlp_runner import discover_urls_for_source
 
@@ -209,6 +210,75 @@ def test_discover_urls_for_source_uses_flat_playlist(tmp_path: Path) -> None:
     assert "--playlist-end 2" in runner.commands[0]
 
 
+def test_parsed_jsonl_relative_path_resolves_from_cwd(tmp_path: Path, monkeypatch) -> None:
+    monkeypatch.chdir(tmp_path)
+
+    parsed_path = _parsed_jsonl_path("outputs/youtube/parsed/custom.jsonl")
+
+    assert parsed_path == tmp_path / "outputs" / "youtube" / "parsed" / "custom.jsonl"
+
+
+def test_parsed_jsonl_absolute_path_is_used_as_is(tmp_path: Path) -> None:
+    absolute = tmp_path / "custom" / "parsed.jsonl"
+
+    parsed_path = _parsed_jsonl_path(str(absolute))
+
+    assert parsed_path == absolute
+
+
+def test_source_handle_keeps_at_prefix() -> None:
+    assert _normalize_source("@trademachineoff") == "@trademachineoff"
+    assert _normalize_source("trademachineoff") == "@trademachineoff"
+
+
+def test_ocr_disabled_by_default_uses_noop(tmp_path: Path) -> None:
+    runner = FakeCommandRunner(tmp_path, write_subtitles=False)
+    client = YtDlpPilotClient(
+        urls=["https://youtube.com/shorts/live_xau_001"],
+        work_dir=tmp_path / "outputs" / "youtube",
+        runner=runner,
+    )
+
+    run_trademachineoff_pilot(tmp_path, client=client, limit=1, collected_at="2026-06-11T00:00:00Z")
+
+    parser_input = _read_json(tmp_path / "outputs" / "youtube" / "parser_input" / "live_xau_001.json")
+    assert parser_input["ocr_status"] == "skipped"
+    assert not any(command.startswith("ffmpeg ") for command in runner.commands)
+
+
+def test_ffmpeg_ocr_runner_samples_frames_without_ocr_command(tmp_path: Path) -> None:
+    runner = FakeOcrCommandRunner(tmp_path)
+    ocr = FfmpegFrameOcrRunner(runner=runner)
+
+    result = ocr.extract(
+        video_id="live_xau_001",
+        metadata=_metadata_payload(),
+        work_dir=tmp_path / "outputs" / "youtube",
+        frame_sampling=FrameSamplingContract(fps=1, max_frames=2),
+    )
+
+    assert result.status == "frames_sampled"
+    assert result.error_summary == "OCR command not configured"
+    assert len(result.segments) == 2
+    assert any(command.startswith("yt-dlp -f") for command in runner.commands)
+    assert any(command.startswith("ffmpeg -y") for command in runner.commands)
+
+
+def test_ffmpeg_ocr_runner_failure_is_non_fatal_result(tmp_path: Path) -> None:
+    runner = FakeOcrCommandRunner(tmp_path, fail_ffmpeg=True)
+    ocr = FfmpegFrameOcrRunner(runner=runner)
+
+    result = ocr.extract(
+        video_id="live_xau_001",
+        metadata=_metadata_payload(),
+        work_dir=tmp_path / "outputs" / "youtube",
+        frame_sampling=FrameSamplingContract(fps=1),
+    )
+
+    assert result.status == "failed"
+    assert "ffmpeg frame sampling failed" in result.error_summary
+
+
 class FakeCommandRunner:
     def __init__(self, root: Path, *, write_subtitles: bool = True, fail_subtitles: bool = False) -> None:
         self.root = root
@@ -242,6 +312,31 @@ class FakeCommandRunner:
             transcript_path = work_dir / "transcripts" / "live_xau_001.txt"
             transcript_path.parent.mkdir(parents=True, exist_ok=True)
             transcript_path.write_text("XAUUSD SELL BELOW 2330 SL 2340 TP 2310", encoding="utf-8")
+            return CommandResult(tuple(args), 0, "", "")
+        return CommandResult(tuple(args), 1, "", "unexpected command")
+
+
+class FakeOcrCommandRunner:
+    def __init__(self, root: Path, *, fail_ffmpeg: bool = False) -> None:
+        self.root = root
+        self.fail_ffmpeg = fail_ffmpeg
+        self.commands: list[str] = []
+
+    def run(self, args: list[str], cwd: Path | None = None) -> CommandResult:
+        self.commands.append(" ".join(args))
+        work_dir = cwd or self.root
+        if args and args[0] == "yt-dlp":
+            video_path = Path(args[args.index("-o") + 1])
+            video_path.parent.mkdir(parents=True, exist_ok=True)
+            video_path.write_bytes(b"fake video")
+            return CommandResult(tuple(args), 0, "", "")
+        if args and args[0] == "ffmpeg":
+            if self.fail_ffmpeg:
+                return CommandResult(tuple(args), 1, "", "ffmpeg Error: cannot decode input")
+            pattern = Path(args[-1])
+            pattern.parent.mkdir(parents=True, exist_ok=True)
+            for index in range(1, 3):
+                (pattern.parent / f"frame_{index:06d}.jpg").write_bytes(b"fake frame")
             return CommandResult(tuple(args), 0, "", "")
         return CommandResult(tuple(args), 1, "", "unexpected command")
 

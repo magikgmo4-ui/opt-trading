@@ -101,7 +101,7 @@ def run_trademachineoff_pilot(
     if parsed_jsonl_path is None:
         parsed_jsonl_path = parsed_dir / "trademachineoff_pilot.jsonl"
     elif not parsed_jsonl_path.is_absolute():
-        parsed_jsonl_path = parsed_dir / parsed_jsonl_path
+        parsed_jsonl_path = parsed_jsonl_path.resolve()
     _write_jsonl(parsed_jsonl_path, parsed_rows)
 
     return {

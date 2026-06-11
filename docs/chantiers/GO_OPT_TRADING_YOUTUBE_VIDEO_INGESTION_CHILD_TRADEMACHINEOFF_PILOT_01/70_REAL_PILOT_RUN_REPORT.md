@@ -41,6 +41,14 @@ parsed JSONL preserved
 outputs/youtube not committed
 ```
 
+## Operator note
+
+PowerShell treats `@name` as syntax unless quoted. Use:
+
+```bash
+python -m modules.youtube_video_ingestion.cli --source '@trademachineoff' --limit 5 --output outputs/youtube/pilots/trademachineoff --subtitle-lang en
+```
+
 ## Gate
 
 Do not expand beyond `@trademachineoff` until a follow-up run shows at least
