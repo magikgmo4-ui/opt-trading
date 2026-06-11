@@ -1,0 +1,47 @@
+[
+  {
+    "video_id": "tm_xau_001",
+    "url": "https://youtube.com/shorts/tm_xau_001",
+    "title": "Gold scalping setup",
+    "description": "Short-form XAUUSD setup sample.",
+    "duration_seconds": 32,
+    "published_at": "2026-06-01T12:00:00Z",
+    "view_count": 1000,
+    "like_count": 50,
+    "tags": ["gold", "xauusd", "scalping"],
+    "is_short": true,
+    "selection_reason": "contains explicit XAUUSD entry, SL and TP",
+    "spoken_transcript": "Watch gold if it breaks above the level.",
+    "screen_text": "XAUUSD BUY ABOVE 2345 SL 2335 TP1 2360 TP2 2375 M5 EMA",
+    "subtitle_source": "manual",
+    "ocr_segments": [
+      {
+        "frame": "frame_000001.jpg",
+        "timestamp_sec": 1,
+        "text": "XAUUSD BUY ABOVE 2345",
+        "confidence": 0.91
+      },
+      {
+        "frame": "frame_000002.jpg",
+        "timestamp_sec": 2,
+        "text": "SL 2335 TP1 2360 TP2 2375",
+        "confidence": 0.88
+      }
+    ]
+  },
+  {
+    "video_id": "tm_btc_context_001",
+    "url": "https://youtube.com/shorts/tm_btc_context_001",
+    "title": "BTC liquidity lesson",
+    "description": "Educational context only.",
+    "duration_seconds": 28,
+    "published_at": "2026-06-02T12:00:00Z",
+    "tags": ["btc", "liquidity"],
+    "is_short": true,
+    "selection_reason": "contains BTC context but no actionable setup",
+    "spoken_transcript": "Do not long BTC here; this is a historical example.",
+    "screen_text": "BTC liquidity lesson, no entry shown",
+    "subtitle_source": "auto",
+    "ocr_segments": []
+  }
+]
