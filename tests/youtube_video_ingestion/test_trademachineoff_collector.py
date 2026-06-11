@@ -5,11 +5,13 @@ from pathlib import Path
 
 from modules.youtube_video_ingestion import (
     SeedJsonClient,
+    YtDlpPilotClient,
     ensure_trademachineoff_source,
     load_youtube_sources,
     parse_youtube_trading_short,
     run_trademachineoff_pilot,
 )
+from modules.youtube_video_ingestion.yt_dlp_runner import CommandResult
 
 
 FIXTURE = Path(__file__).resolve().parents[1] / "fixtures" / "youtube_video_ingestion" / "trademachineoff_seed.json"
@@ -43,6 +45,7 @@ def test_run_trademachineoff_pilot_writes_canonical_artifacts(tmp_path: Path) ->
     raw = _read_json(tmp_path / "outputs" / "youtube" / "raw_metadata" / "tm_xau_001.json")
     parser_input = _read_json(tmp_path / "outputs" / "youtube" / "parser_input" / "tm_xau_001.json")
     parsed = _read_json(tmp_path / "outputs" / "youtube" / "parsed" / "tm_xau_001.json")
+    parsed_jsonl = (tmp_path / "outputs" / "youtube" / "parsed" / "trademachineoff_pilot.jsonl").read_text(encoding="utf-8").splitlines()
     ocr_lines = (tmp_path / "outputs" / "youtube" / "ocr" / "tm_xau_001.jsonl").read_text(encoding="utf-8").splitlines()
 
     assert raw["channel_handle"] == "@trademachineoff"
@@ -50,6 +53,8 @@ def test_run_trademachineoff_pilot_writes_canonical_artifacts(tmp_path: Path) ->
     assert parser_input["parser_profile"] == "youtube_trading_short_v1"
     assert parser_input["subtitle_source"] == "manual"
     assert len(ocr_lines) == 2
+    assert len(parsed_jsonl) == 2
+    assert result["parsed_jsonl"] == "outputs/youtube/parsed/trademachineoff_pilot.jsonl"
     assert parsed["asset"] == "XAUUSD"
     assert parsed["direction"] == "long"
     assert parsed["entry"] == 2345.0
@@ -99,6 +104,97 @@ def test_parser_marks_audio_ocr_direction_conflict() -> None:
     assert parsed["entry"] == 2330.0
     assert parsed["stop_loss"] == 2340.0
     assert parsed["take_profits"] == [2310.0]
+
+
+def test_yt_dlp_client_reads_metadata_and_subtitles(tmp_path: Path) -> None:
+    runner = FakeCommandRunner(tmp_path)
+    client = YtDlpPilotClient(
+        urls=["https://youtube.com/shorts/live_xau_001"],
+        work_dir=tmp_path / "outputs" / "youtube",
+        runner=runner,
+    )
+
+    result = run_trademachineoff_pilot(tmp_path, client=client, limit=1, collected_at="2026-06-11T00:00:00Z")
+
+    parser_input = _read_json(tmp_path / "outputs" / "youtube" / "parser_input" / "live_xau_001.json")
+    parsed = _read_json(tmp_path / "outputs" / "youtube" / "parsed" / "live_xau_001.json")
+
+    assert result["videos_collected"] == 1
+    assert parser_input["subtitle_source"] == "manual|auto"
+    assert "XAUUSD BUY ABOVE 2345" in parser_input["spoken_transcript"]
+    assert parsed["classification"] == "candidate_complete"
+    assert any("--dump-single-json" in command for command in runner.commands)
+    assert any("--write-subs" in command for command in runner.commands)
+    assert not any("whisper" in command for command in runner.commands)
+
+
+def test_yt_dlp_client_audio_fallback_uses_whisper_when_subtitles_absent(tmp_path: Path) -> None:
+    runner = FakeCommandRunner(tmp_path, write_subtitles=False)
+    client = YtDlpPilotClient(
+        urls=["https://youtube.com/shorts/live_xau_001"],
+        work_dir=tmp_path / "outputs" / "youtube",
+        runner=runner,
+        audio_fallback=True,
+    )
+
+    run_trademachineoff_pilot(tmp_path, client=client, limit=1, collected_at="2026-06-11T00:00:00Z")
+
+    parser_input = _read_json(tmp_path / "outputs" / "youtube" / "parser_input" / "live_xau_001.json")
+    parsed = _read_json(tmp_path / "outputs" / "youtube" / "parsed" / "live_xau_001.json")
+
+    assert parser_input["subtitle_source"] == "whisper"
+    assert "SELL BELOW 2330" in parser_input["spoken_transcript"]
+    assert parsed["direction"] == "short"
+    assert any("--extract-audio" in command for command in runner.commands)
+    assert any(command.startswith("whisper ") for command in runner.commands)
+
+
+class FakeCommandRunner:
+    def __init__(self, root: Path, *, write_subtitles: bool = True) -> None:
+        self.root = root
+        self.write_subtitles = write_subtitles
+        self.commands: list[str] = []
+
+    def run(self, args: list[str], cwd: Path | None = None) -> CommandResult:
+        self.commands.append(" ".join(args))
+        work_dir = cwd or self.root
+        if "--dump-single-json" in args:
+            return CommandResult(tuple(args), 0, json.dumps(_metadata_payload()), "")
+        if "--write-subs" in args:
+            if self.write_subtitles:
+                subtitle_path = work_dir / "subtitles" / "live_xau_001.en.vtt"
+                subtitle_path.parent.mkdir(parents=True, exist_ok=True)
+                subtitle_path.write_text(
+                    "WEBVTT\n\n00:00:00.000 --> 00:00:01.000\nXAUUSD BUY ABOVE 2345\n"
+                    "00:00:01.000 --> 00:00:02.000\nSL 2335 TP1 2360 TP2 2375\n",
+                    encoding="utf-8",
+                )
+            return CommandResult(tuple(args), 0, "", "")
+        if "--extract-audio" in args:
+            audio_path = work_dir / "audio" / "live_xau_001.mp3"
+            audio_path.parent.mkdir(parents=True, exist_ok=True)
+            audio_path.write_bytes(b"fake audio")
+            return CommandResult(tuple(args), 0, "", "")
+        if args and args[0] == "whisper":
+            transcript_path = work_dir / "transcripts" / "live_xau_001.txt"
+            transcript_path.parent.mkdir(parents=True, exist_ok=True)
+            transcript_path.write_text("XAUUSD SELL BELOW 2330 SL 2340 TP 2310", encoding="utf-8")
+            return CommandResult(tuple(args), 0, "", "")
+        return CommandResult(tuple(args), 1, "", "unexpected command")
+
+
+def _metadata_payload() -> dict:
+    return {
+        "id": "live_xau_001",
+        "webpage_url": "https://youtube.com/shorts/live_xau_001",
+        "title": "Gold setup",
+        "description": "XAUUSD scalping setup",
+        "duration": 34,
+        "upload_date": "20260610",
+        "view_count": 100,
+        "like_count": 12,
+        "tags": ["xauusd", "scalping"],
+    }
 
 
 def _read_json(path: Path) -> dict:

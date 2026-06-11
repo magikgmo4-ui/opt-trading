@@ -67,6 +67,7 @@ def run_trademachineoff_pilot(
         directory.mkdir(parents=True, exist_ok=True)
 
     written: list[dict[str, str]] = []
+    parsed_rows: list[dict[str, Any]] = []
     for raw_video in videos:
         video = dict(raw_video)
         video_id = _coerce_video_id(video)
@@ -84,6 +85,7 @@ def run_trademachineoff_pilot(
         _write_ocr_jsonl(ocr_path, video_id, parser_input["ocr_segments"])
         _atomic_write_json(parser_input_path, parser_input)
         _atomic_write_json(parsed_path, parsed)
+        parsed_rows.append(parsed)
         written.append(
             {
                 "video_id": video_id,
@@ -94,12 +96,16 @@ def run_trademachineoff_pilot(
             }
         )
 
+    parsed_jsonl_path = parsed_dir / "trademachineoff_pilot.jsonl"
+    _write_jsonl(parsed_jsonl_path, parsed_rows)
+
     return {
         "source_handle": source["handle"],
         "parser_profile": PARSER_PROFILE,
         "videos_requested": limit,
         "videos_collected": len(written),
         "max_videos_per_run": max_videos,
+        "parsed_jsonl": _repo_rel(root, parsed_jsonl_path),
         "artifacts": written,
     }
 
@@ -176,6 +182,15 @@ def _write_ocr_jsonl(path: Path, video_id: str, segments: Iterable[dict[str, Any
             wrote = True
         if not wrote:
             handle.write("")
+    os.replace(temp_path, path)
+
+
+def _write_jsonl(path: Path, rows: Iterable[dict[str, Any]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile("w", dir=path.parent, delete=False, encoding="utf-8") as handle:
+        temp_path = Path(handle.name)
+        for row in rows:
+            handle.write(json.dumps(row, ensure_ascii=False, sort_keys=False) + "\n")
     os.replace(temp_path, path)
 
 
