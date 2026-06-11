@@ -63,11 +63,19 @@ roles:
   - id: clickup_user
     credentials:
       - clickup_token
+  - id: botpress_operator
+    credentials:
+      - botpress_api_token
+      - botpress_workspace_id
+      - botpress_bot_id
+      - botpress_webhook_secret
+      - botpress_webhook_url
+    status: active
   - id: figma_designer
     credentials:
       - figma_token
       - figma_file_key
-    status: future
+    status: active
   - id: llm_local
     credentials:
       - ollama_base_url

@@ -8,11 +8,12 @@ machines:
       - telegram_collector
       - airtable_user
       - clickup_user
+      - botpress_operator
+      - figma_designer
       - infrastructure
     eligible_roles:
       - llm_cloud
       - git_dev
-      - figma_designer
 
   - id: fantome
     roles:
@@ -27,6 +28,8 @@ machines:
       - llm_cloud
       - airtable_user
       - clickup_user
+      - botpress_operator
+      - figma_designer
 
   - id: db-layer
     roles:
@@ -43,6 +46,7 @@ machines:
       - llm_cloud
     eligible_roles:
       - figma_designer
+      - botpress_operator
 
   - id: student
     roles:
