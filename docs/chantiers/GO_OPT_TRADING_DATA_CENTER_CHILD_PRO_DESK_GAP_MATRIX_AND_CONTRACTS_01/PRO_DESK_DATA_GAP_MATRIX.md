@@ -27,10 +27,10 @@
 | P4 | Liquidity heatmap | `vision_context.coinglass.v1` | ✅ coinglass headless | ✅ | ✅ | ✅ PROVEN |
 | P5 | Options surface | `options_surface.v1` | ❌ | ❌ | ❌ | ❌ MISSING |
 | P6 | Rates / credit | `rates_context.v1` | ❌ | ❌ | ❌ | ❌ MISSING |
-| P7 | Macro events | `macro_event.v1` | ❌ | ❌ | ❌ | ❌ MISSING |
+| P7 | Macro events | `macro_event.v1` | ✅ FRED + 🟡 bot_vision | ❌ | ✅ | ✅ PROVEN |
 | P8 | Fundamentals | `fundamental_snapshot.v1` | ❌ | ❌ | ❌ | ❌ MISSING |
-| P9 | News / sentiment | `vision_context.news_sentiment.v1` | ✅ bot_vision | ✅ | ✅ | ✅ PROVEN |
-| P10 | Flows / positioning | `flow_positioning.v1` | 🟡 OI/funding existant | ❌ | ❌ | 🔶 DECLARED |
+| P9 | News / sentiment | `news_event.v1` | ✅ finnhub + 🟡 bot_vision | ✅ | ✅ | ✅ PROVEN |
+| P10 | Flows / positioning | `flow_positioning.v1` | 🟡 data_center_aggregator + 🟡 bot_vision | ❌ | ✅ | 🟡 PARTIAL |
 | P11 | Technical analysis | `vision_analysis.v1` | ✅ bot_vision | ✅ | ✅ | ✅ PROVEN |
 | P12 | Model signals | `telegram_signal.v1` | ✅ telegram_screener | 🟡 telegram_claim | ✅ | 🟡 PARTIAL |
 | P13 | Alternative data | `alternative_data.v1` | ❌ | ❌ | ❌ | ❌ MISSING |
