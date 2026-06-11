@@ -14,6 +14,17 @@ from pathlib import Path
 
 from modules.desk_pro.telegram.parsers import parse_telegram_message
 
+# Forex pairs that should NOT have USDT appended
+_FOREX_ONLY = {
+    "EURUSD", "GBPUSD", "USDJPY", "AUDUSD", "NZDUSD", "USDCAD", "USDCHF",
+    "EURJPY", "GBPJPY", "AUDJPY", "NZDJPY", "CADJPY", "CHFJPY",
+    "EURGBP", "EURAUD", "EURNZD", "EURCAD", "EURCHF",
+    "GBPAUD", "GBPNZD", "GBPCAD", "GBPCHF",
+    "AUDNZD", "AUDCAD", "AUDCHF",
+    "NZDCAD", "NZDCHF", "CADCHF",
+}
+_ALREADY_SUFFIXED = {"USDT", "USDC", "BUSD", "BTC", "ETH"}
+
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
 _RAW_DIR = _PROJECT_ROOT / "modules" / "collector_telegram" / "outputs" / "raw"
 _SIGNALS_DIR = _PROJECT_ROOT / "data" / "telegram_screener" / "signals"
@@ -45,10 +56,75 @@ _CHANNEL_PRIORITY = {
     "GBPUSD_FOREXSiGNAL": {"priority": "P0", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
         "note": "12 complete setups (EURUSD+XAUUSD)"},
 
-    # ── QUALIFIED (<10 but >0 complete setups) ──
-    # (none yet — wallstreetqueenofficial + xauusd promoted to ACTIVE)
+    # ── NEWLY PROMOTED (>=3 verified complete setups, 2026-06-11 scan) ──
+    "angela_xauusd": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "23 clean complete (XAUUSD), 0 dirty, top performer"},
+    "goldtradermofxx": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "20 clean complete (XAUUSD), 0 dirty"},
+    "LexatyCryptoSignals": {"priority": "P1", "mode": "ACTIVE", "type": "trade_signal", "output": "trade",
+        "note": "15 clean complete (BTCUSDT crypto futures), 0 dirty"},
+    "aussieforex": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "11 clean complete (XAUUSD), 0 dirty"},
+    "BTCUSDGOLDVIP_SIGNALS": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "10 clean complete (XAUUSD), 0 dirty"},
+    "GOLD_FOREX_SIGN": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "10 clean complete (XAUUSD), 0 dirty"},
+    "GBPUSDEURUSDXAUUSDFX_Vip1": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "9 clean complete (XAUUSD), 0 dirty"},
+    "Tradinghub3_fuII": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "9 clean complete (XAUUSD), 0 dirty"},
+    "gold_trading_vip": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "8 clean complete (XAUUSD), 0 dirty"},
+    "goldmarket67": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "8 clean complete (XAUUSD), 0 dirty"},
+    "paulgoldhunterfxsignals": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "6 clean complete (XAUUSD), 0 dirty"},
+    "wfr_analysis": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "6 clean complete (XAUUSD), 0 dirty"},
+    "xauusd_trading_gold_signals": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "6 clean complete (XAUUSD), 0 dirty"},
+    "forexfever11": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "5 clean complete (XAUUSD), 0 dirty"},
+    "gold_forex_signals": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "5 clean complete (XAUUSD), 0 dirty"},
+    "goldsnipers11": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "5 clean complete (XAUUSD), 0 dirty"},
+    "vasilytradersignalforex": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "4 clean complete (XAUUSD), 0 dirty"},
+    "XAUUSDGOLDsignals": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "3 clean complete (XAUUSD), 0 dirty"},
+    "gold_pro_trader_signals_btcusd": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "3 clean complete (XAUUSD), 0 dirty"},
 
-    # ── WATCH (has data, <10 complete setups) ──
+    # ── PROMOTED WITH CAUTION (>=3 clean, few dirty) ──
+    "forexbookspdf": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "21 clean / 1 dirty (XAUUSD)"},
+    "XauusdUSpips": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "19 clean / 3 dirty (XAUUSD)"},
+    "GolddExpert": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "16 clean / 1 dirty (XAUUSD)"},
+    "XAUUSDSIGNALSG1": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "14 clean / 3 dirty (XAUUSD)"},
+    "forex_gold_signals": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "9 clean / 48 dirty (XAUUSD) — high dirty rate, review needed"},
+    "robertcroakgoldsignals": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "9 clean / 7 dirty (XAUUSD)"},
+    "Btcusdtradingdaily": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "8 clean / 3 dirty (XAUUSD)"},
+    "NASDAQ100US30GOLDFX1PIP": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "8 clean / 1 dirty (XAUUSD)"},
+    "usdjpy_xauusd_forex_signals": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "4 clean / 2 dirty (XAUUSD)"},
+    "BTC_USD_GOLD_FREE_SIGNALS": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "3 clean / 1 dirty (XAUUSD+BTC)"},
+    "WhaleTank": {"priority": "P1", "mode": "ACTIVE", "type": "trade_signal", "output": "trade",
+        "note": "3 clean / 1 dirty (XAUUSD+BTC)"},
+    "XAUUSDUSDJPYEURUSDfx": {"priority": "P1", "mode": "ACTIVE", "type": "xau_signal", "output": "trade",
+        "note": "3 clean / 1 dirty (XAUUSD)"},
+
+    # ── QUALIFIED (<3 clean but has parseable trade content) ──
+
+    # ── WATCH (has data, incomplete setups) ──
     "fatpigsignals": {"priority": "P1", "mode": "WATCH", "type": "trade_setup", "output": "trade",
         "note": "2 trade setups but incomplete (no entry/sl)"},
     "coinglass_alerts": {"priority": "P1", "mode": "WATCH", "type": "whale_trade", "output": "context",
@@ -207,6 +283,17 @@ def produce_telegram_signals() -> list[dict]:
         if not asset or not direction or not has_price:
             continue
 
+        # Build pair: don't append USDT to forex pairs or already-suffixed assets
+        asset_upper = asset.upper()
+        if asset_upper in _FOREX_ONLY:
+            pair = asset_upper
+        elif any(asset_upper.endswith(s) for s in _ALREADY_SUFFIXED):
+            pair = asset_upper + "USDT" if not asset_upper.endswith("USDT") else asset_upper
+        elif asset_upper == "XAUUSD" or asset_upper == "GOLD" or asset_upper == "XAU":
+            pair = "XAU/USD"
+        else:
+            pair = asset_upper + "USDT"
+
         signal = {
             "contract": "telegram_signal.v1",
             "id": f"tg_{msg.get('message_id', '')}_{now.strftime('%Y%m%dT%H%M%S')}",
@@ -217,7 +304,7 @@ def produce_telegram_signals() -> list[dict]:
             "channel_type": ch_info["type"],
             "parsed_at": ts,
             "produced_at": now.isoformat(),
-            "pair": f"{asset}USDT",
+            "pair": pair,
             "direction": direction.upper() if direction else None,
             "entry_price": claim.get("entry"),
             "sl": claim.get("sl"),
@@ -244,12 +331,76 @@ def produce_telegram_signals() -> list[dict]:
         "produced_at": now.isoformat(),
     }, indent=2), encoding="utf-8")
 
-    # Write to data_center views
+    # ── Write to data_center views (structured, versioned) ──
     _DC_TG.mkdir(parents=True, exist_ok=True)
-    (_DC_TG / "latest.json").write_text(json.dumps({"signals": len(trade_signals), "produced_at": now.isoformat()}, indent=2), encoding="utf-8")
-
     _DC_CTX.mkdir(parents=True, exist_ok=True)
-    (_DC_CTX / "latest.json").write_text(json.dumps({"context_signals": len(context_signals), "produced_at": now.isoformat()}, indent=2), encoding="utf-8")
+
+    # 1. Global latest (counter)
+    (_DC_TG / "latest.json").write_text(json.dumps({
+        "input_class": "telegram_signals.v1",
+        "provider_id": "telegram_screener_bridge",
+        "signals": len(trade_signals),
+        "active_channels": len({s["channel"] for s in trade_signals}),
+        "produced_at": now.isoformat(),
+    }, indent=2, default=str), encoding="utf-8")
+
+    (_DC_CTX / "latest.json").write_text(json.dumps({
+        "input_class": "telegram_context.v1",
+        "provider_id": "telegram_screener_bridge",
+        "context_signals": len(context_signals),
+        "produced_at": now.isoformat(),
+    }, indent=2, default=str), encoding="utf-8")
+
+    # 2. By symbol — one file per symbol with its signals
+    by_symbol: dict[str, list[dict]] = {}
+    for s in trade_signals:
+        sym = s["pair"].replace("/", "_")
+        by_symbol.setdefault(sym, []).append({
+            "id": s["id"], "channel": s["channel"], "direction": s["direction"],
+            "entry_price": s["entry_price"], "sl": s["sl"], "tp": s["tp"],
+            "confidence": s["confidence"], "parsed_at": s["parsed_at"],
+        })
+    for sym, items in by_symbol.items():
+        sym_dir = _DC_TG / "by_symbol" / sym
+        sym_dir.mkdir(parents=True, exist_ok=True)
+        (sym_dir / "latest.json").write_text(json.dumps({
+            "input_class": "telegram_signals.by_symbol.v1",
+            "symbol": sym, "total": len(items), "signals": items,
+            "produced_at": now.isoformat(),
+        }, indent=2, default=str), encoding="utf-8")
+
+    # 3. By channel — one file per channel with its signals
+    by_channel: dict[str, list[dict]] = {}
+    for s in trade_signals:
+        ch = s["channel"]
+        by_channel.setdefault(ch, []).append({
+            "id": s["id"], "pair": s["pair"], "direction": s["direction"],
+            "entry_price": s["entry_price"], "sl": s["sl"], "tp": s["tp"],
+            "confidence": s["confidence"], "parsed_at": s["parsed_at"],
+        })
+    for ch, items in by_channel.items():
+        ch_dir = _DC_TG / "by_channel" / ch
+        ch_dir.mkdir(parents=True, exist_ok=True)
+        (ch_dir / "latest.json").write_text(json.dumps({
+            "input_class": "telegram_signals.by_channel.v1",
+            "channel": ch, "total": len(items), "signals": items,
+            "produced_at": now.isoformat(),
+        }, indent=2, default=str), encoding="utf-8")
+
+    # 4. History — archive individual signals
+    for s in trade_signals:
+        hist_dir = _DC_TG / "history"
+        hist_dir.mkdir(parents=True, exist_ok=True)
+        (hist_dir / f"{s['id']}.json").write_text(json.dumps({
+            "input_class": "telegram_signal.v1",
+            **s,
+        }, indent=2, default=str), encoding="utf-8")
+
+    # 5. Context history
+    for ctx in context_signals:
+        ctx_hist = _DC_CTX / "history"
+        ctx_hist.mkdir(parents=True, exist_ok=True)
+        (ctx_hist / f"{ctx['id']}.json").write_text(json.dumps(ctx, indent=2, default=str), encoding="utf-8")
 
     return trade_signals
 
@@ -339,9 +490,15 @@ def produce_channel_stats() -> dict:
     _CHANNEL_STATS_DIR.mkdir(parents=True, exist_ok=True)
     (_CHANNEL_STATS_DIR / "latest.json").write_text(json.dumps(stats, indent=2, default=str), encoding="utf-8")
 
+    # data_center: channel stats with proper contract
+    stats_dc = {
+        "input_class": "telegram_channel_stats.v1",
+        "provider_id": "telegram_screener_bridge",
+        **stats,
+    }
     _DC_TG.mkdir(parents=True, exist_ok=True)
     (_DC_TG / "channel_stats" / "latest.json").parent.mkdir(parents=True, exist_ok=True)
-    (_DC_TG / "channel_stats" / "latest.json").write_text(json.dumps(stats, indent=2, default=str), encoding="utf-8")
+    (_DC_TG / "channel_stats" / "latest.json").write_text(json.dumps(stats_dc, indent=2, default=str), encoding="utf-8")
 
     return stats
 

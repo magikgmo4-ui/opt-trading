@@ -9,7 +9,13 @@ _KNOWN_ASSETS = {
     "MATIC", "LINK", "UNI", "ATOM", "APE", "SUI", "APT", "ARB", "OP",
     "PEPE", "SHIB", "WIF", "BONK", "FLOKI", "INJ", "HYPE", "RUNE",
     "XAUUSD", "GOLD", "XAU", "DXY", "SPX", "SPY", "VIX", "US10Y",
-    "EURUSD", "GBPUSD", "USDJPY", "WTI", "BRENT", "NATGAS",
+    "EURUSD", "GBPUSD", "USDJPY", "AUDUSD", "NZDUSD", "USDCAD", "USDCHF",
+    "EURJPY", "GBPJPY", "AUDJPY", "NZDJPY", "CADJPY", "CHFJPY",
+    "EURGBP", "EURAUD", "EURNZD", "EURCAD", "EURCHF",
+    "GBPAUD", "GBPNZD", "GBPCAD", "GBPCHF",
+    "AUDNZD", "AUDCAD", "AUDCHF",
+    "NZDCAD", "NZDCHF", "CADCHF",
+    "WTI", "BRENT", "NATGAS",
     "BNB", "TRX", "XLM", "HBAR", "TON", "NEAR", "WLD", "POL",
     "OM", "ENA", "JUP", "RNDR", "WIF", "BOME", "NOT", "STRK",
 }
@@ -93,6 +99,27 @@ _VALID_FOREX_PAIRS = {
 
 _FOREX_PAIR_RE = re.compile(
     r'(?P<direction>BUY|SELL)\s+(?P<asset>[A-Z]{6})\s*[@\s]',
+    re.IGNORECASE,
+)
+
+# Stoplist: uppercase keywords that look like assets but aren't
+_STOP_ASSETS = {
+    "NOW", "ENTRY", "ABOVE", "BELOW", "LIMIT", "STOP", "LOSS", "TARGET",
+    "OPEN", "CLOSE", "HIGH", "RISK", "SIGNAL", "ALERT", "MARKET", "PRICE",
+    "FREE", "VIP", "PREMIUM", "GOLD", "HIT", "DONE", "WAIT", "NEXT",
+    "WEEK", "MONTH", "LEVEL", "ZONE", "AREA", "RANGE", "BREAK", "SETUP",
+    "TAKE", "PROFIT", "MANUAL", "AUTO", "FAST", "SLOW", "NEWS", "LIVE",
+    "CHART", "TRADE", "TRADING", "FOREX", "CRYPTO", "STOCK", "INDEX",
+    "HOUR", "DAILY", "PIPS", "PIP", "PTS", "LONG", "SHORT",
+    "FROM", "ROUGHLY", "ABOUT", "ALMOST", "NEARLY", "EXACTLY",
+    "MELANIA", "CHILLGUY", "BAN", "SHOT",
+}
+
+# Generic "DIRECTION SYMBOL @ PRICE" — crypto, forex, any asset
+# Matches: "SELL BTCUSDT @ 60000", "BUY INJ @ 1.23", "SELL XAUUSD @ 4500"
+_DIR_SYM_AT_RE = re.compile(
+    r'(?P<direction>BUY|SELL|LONG|SHORT)\s+(?P<asset>[A-Z0-9]{3,10})(?:/USDT)?\s*[@\s]\s*'
+    r'(?P<entry>' + _PRICE_STR + r')',
     re.IGNORECASE,
 )
 
@@ -281,6 +308,20 @@ def parse_telegram_message(raw_dict: dict) -> ParsedTelegramMessage:
                 asset = asset_candidate
                 direction = "LONG" if forex_match.group("direction").upper() == "BUY" else "SHORT"
 
+    # Try generic DIRECTION SYMBOL @ PRICE (crypto, forex, any asset)
+    if asset is None and gold_dir is None:
+        dsa_match = _DIR_SYM_AT_RE.search(raw_text)
+        if dsa_match:
+            asset_candidate = dsa_match.group("asset").upper()
+            if asset_candidate not in _STOP_ASSETS:
+                dir_raw = dsa_match.group("direction").upper()
+                if dir_raw in ("BUY", "LONG"):
+                    direction = "LONG"
+                else:
+                    direction = "SHORT"
+                asset = asset_candidate
+                extra["entry"] = _parse_float(dsa_match.group("entry"))
+
     # Try crypto futures format (Buy/Long #BTCUSDT Entry: X Stop: X)
     if asset is None:
         cf_match = _CRYPTO_FUTURES_RE.search(raw_text)
@@ -426,11 +467,12 @@ def parse_telegram_message(raw_dict: dict) -> ParsedTelegramMessage:
     if asset is None:
         return ParsedTelegramMessage(message_type="UNKNOWN_RAW", raw_text=raw_text, channel_alias=channel_alias)
 
-    # Validate against whitelist (skip structured coins, forex pairs, crypto futures)
+    # Validate against whitelist (skip structured coins, forex pairs, crypto futures, dir_sym_at)
     from_structured = _STRUCTURED_COIN_RE.search(raw_text) is not None
     from_forex = asset is not None and asset in _VALID_FOREX_PAIRS
     from_crypto_futures = _CRYPTO_FUTURES_RE.search(raw_text) is not None
-    if not (from_structured or from_forex or from_crypto_futures) and asset not in _KNOWN_ASSETS:
+    from_dir_sym_at = _DIR_SYM_AT_RE.search(raw_text) is not None
+    if not (from_structured or from_forex or from_crypto_futures or from_dir_sym_at) and asset not in _KNOWN_ASSETS:
         return ParsedTelegramMessage(message_type="UNKNOWN_RAW", raw_text=raw_text, channel_alias=channel_alias)
 
     # Extract all prices from text (supplements channel-specific extractions)
