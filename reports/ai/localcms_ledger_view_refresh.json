@@ -1,6 +1,6 @@
 {
   "job_id": "localcms-ledger-view-refresh",
-  "refreshed_at": "2026-06-05T10:15:01.407203Z",
+  "refreshed_at": "2026-06-11T06:00:01.325987Z",
   "events_rendered": 0,
   "output": "tmp/localcms_ledger_view.json",
   "status": "WARN"

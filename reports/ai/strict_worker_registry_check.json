@@ -1,6 +1,6 @@
 {
   "job_id": "strict-worker-registry-check",
-  "checked_at": "2026-06-05T04:19:01.637969Z",
+  "checked_at": "2026-06-10T04:19:01.813488Z",
   "models_count": 23,
   "tasks_count": 10,
   "findings": [],

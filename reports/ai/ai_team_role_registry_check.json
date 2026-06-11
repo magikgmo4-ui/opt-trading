@@ -1,6 +1,6 @@
 {
   "job_id": "ai-team-role-registry-check",
-  "checked_at": "2026-06-05T05:12:01.848554Z",
+  "checked_at": "2026-06-11T05:12:01.742531Z",
   "roles_found": [
     "telegram_collector",
     "webhook_receiver",

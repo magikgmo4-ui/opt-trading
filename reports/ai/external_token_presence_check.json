@@ -1,6 +1,6 @@
 {
   "job_id": "external-token-presence-check",
-  "checked_at": "2026-06-05T05:10:01.699222Z",
+  "checked_at": "2026-06-11T05:10:01.508467Z",
   "checked_count": 4,
   "present": 0,
   "missing": [
