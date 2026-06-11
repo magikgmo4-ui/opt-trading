@@ -39,6 +39,8 @@ def run_trademachineoff_pilot(
     client: YouTubePilotClient,
     limit: int = 20,
     collected_at: str | None = None,
+    output_root: Path | None = None,
+    parsed_jsonl_path: Path | None = None,
 ) -> dict[str, Any]:
     """Collect a bounded @trademachineoff pilot batch into canonical artifacts.
 
@@ -58,7 +60,7 @@ def run_trademachineoff_pilot(
     videos = client.list_videos(source, effective_limit)
     run_collected_at = collected_at or _now_z()
 
-    output_root = root / "outputs" / "youtube"
+    output_root = (output_root or (root / "outputs" / "youtube")).resolve()
     raw_dir = output_root / "raw_metadata"
     ocr_dir = output_root / "ocr"
     parser_input_dir = output_root / "parser_input"
@@ -96,7 +98,10 @@ def run_trademachineoff_pilot(
             }
         )
 
-    parsed_jsonl_path = parsed_dir / "trademachineoff_pilot.jsonl"
+    if parsed_jsonl_path is None:
+        parsed_jsonl_path = parsed_dir / "trademachineoff_pilot.jsonl"
+    elif not parsed_jsonl_path.is_absolute():
+        parsed_jsonl_path = parsed_dir / parsed_jsonl_path
     _write_jsonl(parsed_jsonl_path, parsed_rows)
 
     return {
@@ -143,7 +148,11 @@ def _parser_input(video: dict[str, Any], source: dict[str, Any]) -> dict[str, An
         "screen_text": screen_text,
         "ocr_segments": ocr_segments,
         "subtitle_source": _string_or_empty(video.get("subtitle_source") or "none"),
+        "subtitle_status": _string_or_empty(video.get("subtitle_status") or "unknown"),
+        "subtitle_error_summary": _string_or_none(video.get("subtitle_error_summary")),
         "frame_sampling_rate": _string_or_empty(video.get("frame_sampling_rate") or "1fps"),
+        "ocr_status": _string_or_empty(video.get("ocr_status") or "not_run"),
+        "ocr_error_summary": _string_or_none(video.get("ocr_error_summary")),
         "parser_profile": source.get("parser_profile") or PARSER_PROFILE,
     }
 
@@ -265,7 +274,10 @@ def _bool_or_default(value: Any, default: bool) -> bool:
 
 
 def _repo_rel(root: Path, path: Path) -> str:
-    return path.relative_to(root).as_posix()
+    try:
+        return path.relative_to(root).as_posix()
+    except ValueError:
+        return str(path)
 
 
 def _now_z() -> str:

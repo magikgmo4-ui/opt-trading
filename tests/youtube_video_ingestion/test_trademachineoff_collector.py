@@ -11,7 +11,9 @@ from modules.youtube_video_ingestion import (
     parse_youtube_trading_short,
     run_trademachineoff_pilot,
 )
+from modules.youtube_video_ingestion.ocr import FrameSamplingContract, OcrResult
 from modules.youtube_video_ingestion.yt_dlp_runner import CommandResult
+from modules.youtube_video_ingestion.yt_dlp_runner import discover_urls_for_source
 
 
 FIXTURE = Path(__file__).resolve().parents[1] / "fixtures" / "youtube_video_ingestion" / "trademachineoff_seed.json"
@@ -52,6 +54,8 @@ def test_run_trademachineoff_pilot_writes_canonical_artifacts(tmp_path: Path) ->
     assert raw["raw_collected_at"] == "2026-06-11T00:00:00Z"
     assert parser_input["parser_profile"] == "youtube_trading_short_v1"
     assert parser_input["subtitle_source"] == "manual"
+    assert parser_input["subtitle_status"] == "unknown"
+    assert parser_input["ocr_status"] == "not_run"
     assert len(ocr_lines) == 2
     assert len(parsed_jsonl) == 2
     assert result["parsed_jsonl"] == "outputs/youtube/parsed/trademachineoff_pilot.jsonl"
@@ -121,6 +125,7 @@ def test_yt_dlp_client_reads_metadata_and_subtitles(tmp_path: Path) -> None:
 
     assert result["videos_collected"] == 1
     assert parser_input["subtitle_source"] == "manual|auto"
+    assert parser_input["subtitle_status"] == "ok"
     assert "XAUUSD BUY ABOVE 2345" in parser_input["spoken_transcript"]
     assert parsed["classification"] == "candidate_complete"
     assert any("--dump-single-json" in command for command in runner.commands)
@@ -143,16 +148,72 @@ def test_yt_dlp_client_audio_fallback_uses_whisper_when_subtitles_absent(tmp_pat
     parsed = _read_json(tmp_path / "outputs" / "youtube" / "parsed" / "live_xau_001.json")
 
     assert parser_input["subtitle_source"] == "whisper"
+    assert parser_input["subtitle_status"] == "ok"
     assert "SELL BELOW 2330" in parser_input["spoken_transcript"]
     assert parsed["direction"] == "short"
     assert any("--extract-audio" in command for command in runner.commands)
     assert any(command.startswith("whisper ") for command in runner.commands)
 
 
+def test_subtitle_failure_is_non_fatal_and_recorded(tmp_path: Path) -> None:
+    runner = FakeCommandRunner(tmp_path, fail_subtitles=True)
+    client = YtDlpPilotClient(
+        urls=["https://youtube.com/shorts/live_xau_001"],
+        work_dir=tmp_path / "outputs" / "youtube",
+        runner=runner,
+    )
+
+    run_trademachineoff_pilot(tmp_path, client=client, limit=1, collected_at="2026-06-11T00:00:00Z")
+
+    parser_input = _read_json(tmp_path / "outputs" / "youtube" / "parser_input" / "live_xau_001.json")
+    parsed_jsonl = (tmp_path / "outputs" / "youtube" / "parsed" / "trademachineoff_pilot.jsonl").read_text(encoding="utf-8")
+
+    assert parser_input["subtitle_status"] == "failed"
+    assert "HTTP Error 429" in parser_input["subtitle_error_summary"]
+    assert "live_xau_001" in parsed_jsonl
+
+
+def test_fake_ocr_runner_populates_screen_text_and_segments(tmp_path: Path) -> None:
+    runner = FakeCommandRunner(tmp_path, write_subtitles=False)
+    client = YtDlpPilotClient(
+        urls=["https://youtube.com/shorts/live_xau_001"],
+        work_dir=tmp_path / "outputs" / "youtube",
+        runner=runner,
+        ocr_runner=FakeOcrRunner(),
+        frame_sampling=FrameSamplingContract(fps=1, max_frames=2),
+    )
+
+    run_trademachineoff_pilot(tmp_path, client=client, limit=1, collected_at="2026-06-11T00:00:00Z")
+
+    parser_input = _read_json(tmp_path / "outputs" / "youtube" / "parser_input" / "live_xau_001.json")
+    parsed = _read_json(tmp_path / "outputs" / "youtube" / "parsed" / "live_xau_001.json")
+
+    assert parser_input["subtitle_status"] == "missing"
+    assert parser_input["ocr_status"] == "ok"
+    assert parser_input["screen_text"] == "XAUUSD BUY ABOVE 2345 SL 2335 TP 2360"
+    assert parser_input["frame_sampling_rate"] == "1fps"
+    assert len(parser_input["ocr_segments"]) == 1
+    assert parsed["classification"] == "candidate_complete"
+
+
+def test_discover_urls_for_source_uses_flat_playlist(tmp_path: Path) -> None:
+    runner = FakeDiscoveryRunner()
+
+    urls = discover_urls_for_source("@trademachineoff", 2, tmp_path, runner=runner)
+
+    assert urls == [
+        "https://www.youtube.com/shorts/a",
+        "https://www.youtube.com/shorts/b",
+    ]
+    assert "--flat-playlist" in runner.commands[0]
+    assert "--playlist-end 2" in runner.commands[0]
+
+
 class FakeCommandRunner:
-    def __init__(self, root: Path, *, write_subtitles: bool = True) -> None:
+    def __init__(self, root: Path, *, write_subtitles: bool = True, fail_subtitles: bool = False) -> None:
         self.root = root
         self.write_subtitles = write_subtitles
+        self.fail_subtitles = fail_subtitles
         self.commands: list[str] = []
 
     def run(self, args: list[str], cwd: Path | None = None) -> CommandResult:
@@ -161,6 +222,8 @@ class FakeCommandRunner:
         if "--dump-single-json" in args:
             return CommandResult(tuple(args), 0, json.dumps(_metadata_payload()), "")
         if "--write-subs" in args:
+            if self.fail_subtitles:
+                return CommandResult(tuple(args), 1, "", "ERROR: Unable to download video subtitles for 'fr': HTTP Error 429: Too Many Requests")
             if self.write_subtitles:
                 subtitle_path = work_dir / "subtitles" / "live_xau_001.en.vtt"
                 subtitle_path.parent.mkdir(parents=True, exist_ok=True)
@@ -181,6 +244,37 @@ class FakeCommandRunner:
             transcript_path.write_text("XAUUSD SELL BELOW 2330 SL 2340 TP 2310", encoding="utf-8")
             return CommandResult(tuple(args), 0, "", "")
         return CommandResult(tuple(args), 1, "", "unexpected command")
+
+
+class FakeOcrRunner:
+    def extract(self, *, video_id, metadata, work_dir, frame_sampling) -> OcrResult:
+        return OcrResult(
+            text="XAUUSD BUY ABOVE 2345 SL 2335 TP 2360",
+            segments=[
+                {
+                    "video_id": video_id,
+                    "frame": "frame_000001.jpg",
+                    "timestamp_sec": 1,
+                    "text": "XAUUSD BUY ABOVE 2345 SL 2335 TP 2360",
+                    "confidence": 0.9,
+                }
+            ],
+            status="ok",
+        )
+
+
+class FakeDiscoveryRunner:
+    def __init__(self) -> None:
+        self.commands: list[str] = []
+
+    def run(self, args: list[str], cwd: Path | None = None) -> CommandResult:
+        self.commands.append(" ".join(args))
+        return CommandResult(
+            tuple(args),
+            0,
+            "https://www.youtube.com/shorts/a\nhttps://www.youtube.com/shorts/b\nhttps://www.youtube.com/shorts/c\n",
+            "",
+        )
 
 
 def _metadata_payload() -> dict:
