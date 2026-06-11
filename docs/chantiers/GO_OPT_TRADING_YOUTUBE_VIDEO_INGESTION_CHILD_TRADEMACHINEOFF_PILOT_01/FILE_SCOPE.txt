@@ -1,0 +1,16 @@
+# FILE_SCOPE - GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_CHILD_TRADEMACHINEOFF_PILOT_01
+# Only these paths may be modified by this GO.
+
+docs/chantiers/GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_CHILD_TRADEMACHINEOFF_PILOT_01/**
+registry/youtube_sources.jsonl
+outputs/youtube/raw_metadata/**
+outputs/youtube/subtitles/**
+outputs/youtube/transcripts/**
+outputs/youtube/frames/**
+outputs/youtube/ocr/**
+outputs/youtube/parser_input/**
+outputs/youtube/parsed/**
+tests/fixtures/youtube_video_ingestion/**
+tests/youtube_video_ingestion/**
+modules/youtube_video_ingestion/**
+

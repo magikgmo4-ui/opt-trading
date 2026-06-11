@@ -1,0 +1,23 @@
+{
+  "go_id": "GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_CHILD_TRADEMACHINEOFF_PILOT_01",
+  "go_structural_role": "GO_CHILD_ATTACHED_TO_PARENT",
+  "parent_go_id": "GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_PARENT_01",
+  "status": "PATCH_READY_NOT_APPLIED",
+  "surface": "youtube_video_ingestion",
+  "source_handle": "@trademachineoff",
+  "final_target": "Ouvrir le child pilote @trademachineoff pour valider registry, raw output, transcript/OCR, parser et fixtures sur une source unique.",
+  "transport_mode": "patch_only",
+  "close_gate_parent_target": "pending",
+  "files": [
+    "docs/chantiers/GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_CHILD_TRADEMACHINEOFF_PILOT_01/00_INITIAL_PROJECT_DOC.md",
+    "docs/chantiers/GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_CHILD_TRADEMACHINEOFF_PILOT_01/10_PILOT_SCOPE.md",
+    "docs/chantiers/GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_CHILD_TRADEMACHINEOFF_PILOT_01/20_PIPELINE_RUNBOOK.md",
+    "docs/chantiers/GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_CHILD_TRADEMACHINEOFF_PILOT_01/30_FIXTURES_AND_ACCEPTANCE.md",
+    "docs/chantiers/GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_CHILD_TRADEMACHINEOFF_PILOT_01/40_GAPS_AND_NEXT_GO.md",
+    "docs/chantiers/GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_CHILD_TRADEMACHINEOFF_PILOT_01/FILE_SCOPE.txt",
+    "docs/chantiers/GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_CHILD_TRADEMACHINEOFF_PILOT_01/TARGETS.md",
+    "docs/chantiers/GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_CHILD_TRADEMACHINEOFF_PILOT_01/target_card.json"
+  ],
+  "next_go": "TBD_AFTER_PILOT_DECISION",
+  "notes": "Patch documentaire seulement. Ne pas modifier les index globaux avec ce lot. Ne pas collecter YouTube dans ce patch."
+}
