@@ -52,12 +52,27 @@ def run_collection(
 
     channel_results: list[dict[str, Any]] = []
     total_messages = 0
-    for channel in selected_channels:
-        raw_messages = _dedupe_messages(client.fetch_messages(channel.source_ref, limit=limit))
-        parsed_messages = [parse_message(_retag_channel(msg, channel.alias)) for msg in raw_messages]
-        total_messages += len(parsed_messages)
-        _write_jsonl(paths.raw_dir / f"{channel.alias}.jsonl", [_raw_message_dict(_retag_channel(msg, channel.alias)) for msg in raw_messages])
-        channel_results.append(summarize_channel(parsed_messages, channel.alias))
+    failed_channels: list[str] = []
+    per_channel_limit = min(limit, 30)  # cap to avoid memory pressure segfaults
+
+    for i, channel in enumerate(selected_channels):
+        try:
+            raw_messages = _dedupe_messages(client.fetch_messages(channel.source_ref, limit=per_channel_limit))
+            parsed_messages = [parse_message(_retag_channel(msg, channel.alias)) for msg in raw_messages]
+            total_messages += len(parsed_messages)
+            _write_jsonl(paths.raw_dir / f"{channel.alias}.jsonl", [_raw_message_dict(_retag_channel(msg, channel.alias)) for msg in raw_messages])
+            channel_results.append(summarize_channel(parsed_messages, channel.alias))
+        except Exception as e:
+            err_msg = str(e)[:200]
+            failed_channels.append(f"{channel.alias}: {err_msg}")
+            _append_event(paths.events_path, _event(run_id, "channel_failed", "WARN", f"Channel {channel.alias} failed: {err_msg}"))
+        # Refresh connection every 30 channels to release native memory
+        if (i + 1) % 30 == 0 and i + 1 < len(selected_channels):
+            try:
+                client.start()
+            except Exception:
+                client = CollectorTelegramClient(paths.session_path, config.api_id, config.api_hash)
+                client.start()
 
     details_name = f"channel_results_{run_id}.json"
     details_path = paths.channel_results_dir / details_name
@@ -66,6 +81,8 @@ def run_collection(
     _write_json(paths.latest_path, _latest(run_id, details_name, channel_results, total_messages))
     _write_json(paths.status_path, _status(run_id))
     _append_event(paths.events_path, _event(run_id, "output_published", "INFO", f"Captured {total_messages} messages across {len(channel_results)} channels", details_ref=f"outputs/channel_results/{details_name}"))
+    if failed_channels:
+        _append_event(paths.events_path, _event(run_id, "channels_failed", "WARN", f"{len(failed_channels)} channels failed: {', '.join(failed_channels[:10])}"))
     _append_event(paths.events_path, _event(run_id, "run_succeeded", "INFO", "Telegram batch collection succeeded", state_after="healthy"))
 
     return {
@@ -73,6 +90,9 @@ def run_collection(
         "run_id": run_id,
         "channels": [channel.alias for channel in selected_channels],
         "messages_total": total_messages,
+        "channels_succeeded": len(channel_results),
+        "channels_failed": len(failed_channels),
+        "failed_list": failed_channels[:20],
         "channel_results_path": str(details_path),
         "status_path": str(paths.status_path),
     }
