@@ -70,6 +70,7 @@ roles:
       - botpress_bot_id
       - botpress_webhook_secret
       - botpress_webhook_url
+      - botpress_bot_api_key
     status: active
   - id: figma_designer
     credentials:
