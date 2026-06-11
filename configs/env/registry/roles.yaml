@@ -23,10 +23,35 @@ roles:
   - id: git_dev
     credentials:
       - gh_token
+  - id: market_data_public
+    credentials:
+      - enable_binance_public
+      - enable_bybit_public
+      - enable_okx_public
+      - enable_kraken_public
+      - enable_coinbase_public
+      - enable_defillama_public
+      - enable_stooq_public
+      - enable_cftc_public
+      - enable_sec_edgar_public
+      - enable_gdelt_public
+    note: public no-auth providers — flags only, no keys
+  - id: market_data_free_keys
+    credentials:
+      - alphavantage_api_key
+      - fred_api_key
+      - eia_api_key
+      - finnhub_api_key
+      - twelvedata_api_key
+      - coingecko_api_key
+    note: free API keys — rate-limited, non-trading
   - id: market_data_readonly
     credentials:
       - binance_api_key
+      - binance_api_secret
       - coinglass_api_key
+    status: disabled
+    note: private/signed access only — account/positions/orders; disabled until needed
   - id: deskpro_user
     credentials:
       - deskpro_api_key
