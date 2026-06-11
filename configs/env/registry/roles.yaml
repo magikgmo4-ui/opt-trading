@@ -70,11 +70,14 @@ roles:
       - botpress_bot_id
       - botpress_webhook_secret
       - botpress_webhook_url
+      - botpress_bot_api_key
     status: active
   - id: figma_designer
     credentials:
       - figma_token
       - figma_file_key
+      - figma_team_id
+      - figma_user_id
     status: active
   - id: llm_local
     credentials:
