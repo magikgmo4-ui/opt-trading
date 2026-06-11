@@ -390,6 +390,93 @@ def produce_flow_positioning() -> dict:
 
 
 # ═══════════════════════════════════════════════════════════════════
+# Yahoo Finance — fundamentals snapshot (P8)
+# ═══════════════════════════════════════════════════════════════════
+
+_FUNDAMENTAL_TICKERS = ["AAPL", "MSFT", "GOOGL", "AMZN", "NVDA", "META", "TSLA", "BTC-USD", "ETH-USD", "GC=F"]
+
+
+def produce_fundamental_snapshot() -> dict:
+    now = datetime.now(timezone.utc).isoformat()
+    results = {}
+    for ticker in _FUNDAMENTAL_TICKERS[:5]:
+        try:
+            url = f"https://query1.finance.yahoo.com/v8/finance/chart/{ticker}?interval=1d&range=1mo"
+            data = _fetch_json(url)
+            if not data:
+                continue
+            result = data.get("chart", {}).get("result", [])
+            if not result:
+                continue
+            meta = result[0].get("meta", {})
+            results[ticker] = {
+                "price": meta.get("regularMarketPrice"),
+                "previous_close": meta.get("previousClose"),
+                "currency": meta.get("currency"),
+            }
+        except Exception:
+            continue
+
+    _atomic_write(_VIEWS_DIR / "fundamental_snapshot" / "latest.json", {
+        "input_class": "fundamental_snapshot.v1",
+        "provider_id": "yahoo_finance", "produced_at": now, "tickers": results,
+    })
+    from modules.data_center.runtime_registry import update_producer_last_write
+    update_producer_last_write("yahoo_finance", "fundamental_snapshot.v1",
+        str(_VIEWS_DIR / "fundamental_snapshot" / "latest.json"), "ok", {"tickers": len(results)})
+    return {"tickers": len(results)}
+
+
+# ═══════════════════════════════════════════════════════════════════
+# Deribit — crypto options surface (P5)
+# ═══════════════════════════════════════════════════════════════════
+
+def produce_options_surface() -> dict:
+    now = datetime.now(timezone.utc).isoformat()
+    results = {}
+    for coin in ["BTC", "ETH"]:
+        url = f"https://www.deribit.com/api/v2/public/get_book_summary_by_currency?currency={coin}&kind=option"
+        data = _fetch_json(url)
+        if not data:
+            continue
+        entries = data.get("result", [])
+        results[coin] = {"total_options": len(entries), "sample": [e.get("instrument_name", "") for e in entries[:3]]}
+
+    _atomic_write(_VIEWS_DIR / "options_surface" / "latest.json", {
+        "input_class": "options_surface.v1", "provider_id": "deribit_public", "produced_at": now, "surfaces": results,
+    })
+    from modules.data_center.runtime_registry import update_producer_last_write
+    update_producer_last_write("deribit_public", "options_surface.v1",
+        str(_VIEWS_DIR / "options_surface" / "latest.json"), "ok", {"coins": len(results)})
+    return {"coins": len(results)}
+
+
+# ═══════════════════════════════════════════════════════════════════
+# Compliance state — risk config → compliance_state.v1 (P18)
+# ═══════════════════════════════════════════════════════════════════
+
+def produce_compliance_state() -> dict:
+    now = datetime.now(timezone.utc).isoformat()
+    risk = {}
+    risk_path = _PROJECT_ROOT / "state" / "risk_config.json"
+    if risk_path.exists():
+        try:
+            risk = json.loads(risk_path.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+
+    _atomic_write(_VIEWS_DIR / "compliance_state" / "latest.json", {
+        "input_class": "compliance_state.v1", "provider_id": "risk_engine",
+        "produced_at": now, "risk_config": risk,
+        "checks": {"risk_configured": bool(risk), "accounts_defined": len(risk.get("accounts", {}))},
+    })
+    from modules.data_center.runtime_registry import update_producer_last_write
+    update_producer_last_write("risk_engine", "compliance_state.v1",
+        str(_VIEWS_DIR / "compliance_state" / "latest.json"), "ok")
+    return {"accounts": len(risk.get("accounts", {}))}
+
+
+# ═══════════════════════════════════════════════════════════════════
 
 def produce_all() -> dict:
     from modules.env.env import load_env
@@ -403,6 +490,9 @@ def produce_all() -> dict:
         ("rates_context", produce_rates_context),
         ("crypto_derivatives_state", produce_crypto_derivatives_state),
         ("flow_positioning", produce_flow_positioning),
+        ("fundamental_snapshot", produce_fundamental_snapshot),
+        ("options_surface", produce_options_surface),
+        ("compliance_state", produce_compliance_state),
     ]:
         try:
             r = fn()
@@ -448,6 +538,15 @@ if __name__ == "__main__":
     elif provider == "flows":
         r = produce_flow_positioning()
         print(f"Flows: {r.get('flows', 0)} sources")
+    elif provider == "yahoo":
+        r = produce_fundamental_snapshot()
+        print(f"Fundamentals: {r.get('tickers', 0)} tickers")
+    elif provider == "deribit":
+        r = produce_options_surface()
+        print(f"Options: {r.get('coins', 0)} coins")
+    elif provider == "compliance":
+        r = produce_compliance_state()
+        print(f"Compliance: {r.get('accounts', 0)} accounts")
     else:
         r = produce_all()
         for name, info in r.items():
