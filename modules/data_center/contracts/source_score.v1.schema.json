@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "source_score.v1",
+  "description": "Multi-dimensional reliability score for a data source. Each dimension 0-1.",
+  "type": "object",
+  "required": ["source_id", "contract_class", "evaluated_at"],
+  "properties": {
+    "source_id": { "type": "string" },
+    "contract_class": { "type": "string" },
+    "evaluated_at": { "type": "string", "format": "date-time" },
+    "dimensions": {
+      "type": "object",
+      "properties": {
+        "source_reliability": { "type": "number", "minimum": 0, "maximum": 1, "description": "Historical uptime and consistency" },
+        "freshness": { "type": "number", "minimum": 0, "maximum": 1, "description": "Data recency vs expected cadence" },
+        "completeness": { "type": "number", "minimum": 0, "maximum": 1, "description": "Required fields present" },
+        "schema_validation": { "type": "number", "minimum": 0, "maximum": 1, "description": "Passes JSON Schema validation" },
+        "latency": { "type": "number", "minimum": 0, "maximum": 1, "description": "Time from capture to publication" },
+        "consistency": { "type": "number", "minimum": 0, "maximum": 1, "description": "Agreement with peer sources" },
+        "historical_accuracy": { "type": "number", "minimum": 0, "maximum": 1, "description": "Past prediction accuracy" },
+        "license_permission": { "type": "number", "minimum": 0, "maximum": 1, "description": "Legal right to use + redistribute" }
+      }
+    },
+    "final_score": { "type": "number", "minimum": 0, "maximum": 1, "description": "Weighted average of dimensions" },
+    "weights": {
+      "type": "object",
+      "description": "Dimension weights used for final_score computation",
+      "properties": {
+        "source_reliability": { "type": "number", "default": 0.20 },
+        "freshness": { "type": "number", "default": 0.20 },
+        "completeness": { "type": "number", "default": 0.15 },
+        "schema_validation": { "type": "number", "default": 0.15 },
+        "consistency": { "type": "number", "default": 0.10 },
+        "historical_accuracy": { "type": "number", "default": 0.10 },
+        "latency": { "type": "number", "default": 0.05 },
+        "license_permission": { "type": "number", "default": 0.05 }
+      }
+    }
+  }
+}

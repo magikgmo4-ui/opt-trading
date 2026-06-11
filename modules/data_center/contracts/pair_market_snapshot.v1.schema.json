@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "pair_market_snapshot.v1",
+  "description": "OHLCV snapshot for Desk Pro display — price, 24h change, freshness.",
+  "type": "object",
+  "required": ["input_class", "provider_id", "symbol", "produced_at", "snapshot"],
+  "properties": {
+    "input_class": { "type": "string", "const": "pair_market_snapshot.v1" },
+    "provider_id": { "type": "string", "enum": ["coingecko_public_api", "binance_public_api"] },
+    "symbol": { "type": "string" },
+    "produced_at": { "type": "string", "format": "date-time" },
+    "snapshot": {
+      "type": "object",
+      "required": ["price"],
+      "properties": {
+        "price": { "type": "number" },
+        "change_24h_pct": { "type": "number" },
+        "high_24h": { "type": "number" },
+        "low_24h": { "type": "number" },
+        "volume_24h": { "type": "number" }
+      }
+    },
+    "freshness_state": { "type": "string", "enum": ["fresh", "stale"] }
+  }
+}
