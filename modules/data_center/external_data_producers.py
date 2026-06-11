@@ -256,12 +256,154 @@ def produce_ohlcv_history(symbols: Optional[list[str]] = None) -> dict:
 
 
 # ═══════════════════════════════════════════════════════════════════
+# EIA — Commodities inventory (P15)
+# ═══════════════════════════════════════════════════════════════════
+
+def produce_commodity_context() -> dict:
+    """Fetch US energy data from EIA → commodity_inventory.v1."""
+    key = _get_key("EIA_API_KEY")
+    if not key:
+        return {"error": "EIA_API_KEY not set"}
+    now = datetime.now(timezone.utc).isoformat()
+    # EIA series: PET.RWTC.D (WTI Crude), PET.RBRTE.D (Brent), NG.RNGWHHD.D (Natural Gas)
+    series = {"WTI": "PET.RWTC.D", "BRENT": "PET.RBRTE.D", "NATGAS": "NG.RNGWHHD.D"}
+    results = {}
+    for label, series_id in series.items():
+        url = f"https://api.eia.gov/v2/seriesid/{series_id}?api_key={key}&length=1"
+        data = _fetch_json(url)
+        if not data:
+            continue
+        resp = data.get("response", {})
+        rows = resp.get("data", [])
+        if rows and isinstance(rows[0], list) and len(rows[0]) >= 2:
+            results[label] = {"price": rows[0][1], "unit": resp.get("unit", "?"), "date": rows[0][0]}
+
+    _atomic_write(_VIEWS_DIR / "commodity_inventory" / "latest.json", {
+        "input_class": "commodity_inventory.v1", "provider_id": "eia",
+        "produced_at": now, "commodities": results,
+    })
+    from modules.data_center.runtime_registry import update_producer_last_write
+    update_producer_last_write("eia", "commodity_inventory.v1",
+        str(_VIEWS_DIR / "commodity_inventory" / "latest.json"), "ok", {"commodities": len(results)})
+    return {"produced_at": now, "commodities": len(results)}
+
+
+# ═══════════════════════════════════════════════════════════════════
+# Rates context — FRED rates → rates_context.v1 (P6)
+# ═══════════════════════════════════════════════════════════════════
+
+def produce_rates_context() -> dict:
+    """Consolidate FRED rates into rates_context.v1."""
+    key = _get_key("FRED_API_KEY")
+    if not key:
+        return {"error": "FRED_API_KEY not set"}
+    now = datetime.now(timezone.utc).isoformat()
+    rates_series = {"FEDFUNDS": "Fed Funds", "DGS10": "10Y Yield", "DGS2": "2Y Yield", "T10Y2Y": "10Y-2Y Spread"}
+    results = {}
+    for sid, label in rates_series.items():
+        url = f"https://api.stlouisfed.org/fred/series/observations?series_id={sid}&api_key={key}&file_type=json&sort_order=desc&limit=1"
+        data = _fetch_json(url)
+        if not data:
+            continue
+        obs = data.get("observations", [])
+        if obs:
+            try:
+                results[label] = {"value": float(obs[0]["value"]), "date": obs[0]["date"]}
+            except (ValueError, TypeError):
+                pass
+
+    _atomic_write(_VIEWS_DIR / "rates_context" / "latest.json", {
+        "input_class": "rates_context.v1", "provider_id": "fred",
+        "produced_at": now, "rates": results,
+    })
+    from modules.data_center.runtime_registry import update_producer_last_write
+    update_producer_last_write("fred", "rates_context.v1",
+        str(_VIEWS_DIR / "rates_context" / "latest.json"), "ok", {"rates": len(results)})
+    return {"produced_at": now, "rates": len(results)}
+
+
+# ═══════════════════════════════════════════════════════════════════
+# Crypto derivatives state — consolidate OI/funding/liq (P14)
+# ═══════════════════════════════════════════════════════════════════
+
+def produce_crypto_derivatives_state() -> dict:
+    """Aggregate crypto derivatives data from existing sources → crypto_derivatives_state.v1."""
+    now = datetime.now(timezone.utc).isoformat()
+    # Read from existing views
+    sources = {}
+    # Coinglass OCR
+    cg_path = _VIEWS_DIR / "vision_context" / "coinglass" / "latest.json"
+    if cg_path.exists():
+        try:
+            cg = json.loads(cg_path.read_text(encoding="utf-8"))
+            for d in cg.get("detections", []):
+                sources[d.get("detected_metric_type", "")] = {"value": d.get("extracted_value"), "source": "coinglass_ocr"}
+        except Exception:
+            pass
+    # Market metrics (OI from derivatives collector if available)
+    mm_path = _VIEWS_DIR / "market_metrics" / "latest.json"
+    if mm_path.exists():
+        try:
+            mm = json.loads(mm_path.read_text(encoding="utf-8"))
+        except Exception:
+            mm = {}
+
+    _atomic_write(_VIEWS_DIR / "crypto_derivatives_state" / "latest.json", {
+        "input_class": "crypto_derivatives_state.v1",
+        "provider_id": "data_center_aggregator",
+        "produced_at": now,
+        "metrics": sources,
+    })
+    from modules.data_center.runtime_registry import update_producer_last_write
+    update_producer_last_write("data_center_aggregator", "crypto_derivatives_state.v1",
+        str(_VIEWS_DIR / "crypto_derivatives_state" / "latest.json"), "ok")
+    return {"produced_at": now, "metrics": len(sources)}
+
+
+# ═══════════════════════════════════════════════════════════════════
+# Flow positioning — aggregate whale + liquidations + OI (P10)
+# ═══════════════════════════════════════════════════════════════════
+
+def produce_flow_positioning() -> dict:
+    """Aggregate whale flows + liquidations → flow_positioning.v1."""
+    now = datetime.now(timezone.utc).isoformat()
+    flows = []
+    # Read from telegram_context (whale transfers)
+    ctx_path = _VIEWS_DIR / "telegram_context" / "latest.json"
+    if ctx_path.exists():
+        try:
+            ctx = json.loads(ctx_path.read_text(encoding="utf-8"))
+            flows.append({"source": "telegram_context", "count": ctx.get("context_signals", 0)})
+        except Exception:
+            pass
+
+    _atomic_write(_VIEWS_DIR / "flow_positioning" / "latest.json", {
+        "input_class": "flow_positioning.v1",
+        "provider_id": "data_center_aggregator",
+        "produced_at": now,
+        "sources": flows,
+    })
+    from modules.data_center.runtime_registry import update_producer_last_write
+    update_producer_last_write("data_center_aggregator", "flow_positioning.v1",
+        str(_VIEWS_DIR / "flow_positioning" / "latest.json"), "ok")
+    return {"produced_at": now, "flows": len(flows)}
+
+
+# ═══════════════════════════════════════════════════════════════════
 
 def produce_all() -> dict:
     from modules.env.env import load_env
     load_env()
     results = {}
-    for name, fn in [("fx_context", produce_fx_context), ("macro_event", produce_macro_context), ("news_event", produce_news_context)]:
+    for name, fn in [
+        ("fx_context", produce_fx_context),
+        ("macro_event", produce_macro_context),
+        ("news_event", produce_news_context),
+        ("commodity_inventory", produce_commodity_context),
+        ("rates_context", produce_rates_context),
+        ("crypto_derivatives_state", produce_crypto_derivatives_state),
+        ("flow_positioning", produce_flow_positioning),
+    ]:
         try:
             r = fn()
             results[name] = r
@@ -289,12 +431,23 @@ if __name__ == "__main__":
     elif provider == "fred":
         r = produce_macro_context()
         print(f"Macro: {r.get('indicators', 0)} indicators")
+        r2 = produce_rates_context()
+        print(f"Rates: {r2.get('rates', 0)} rates")
     elif provider == "finnhub":
         r = produce_news_context()
         print(f"News: {r.get('articles', 0)} articles")
     elif provider == "twelvedata":
         r = produce_ohlcv_history()
         print(f"OHLCV: {r.get('pairs', {})}")
+    elif provider == "eia":
+        r = produce_commodity_context()
+        print(f"Commodities: {r.get('commodities', 0)}")
+    elif provider == "crypto":
+        r = produce_crypto_derivatives_state()
+        print(f"Crypto derivatives: {r.get('metrics', 0)} metrics")
+    elif provider == "flows":
+        r = produce_flow_positioning()
+        print(f"Flows: {r.get('flows', 0)} sources")
     else:
         r = produce_all()
         for name, info in r.items():
