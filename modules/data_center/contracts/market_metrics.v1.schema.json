@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "market_metrics.v1",
+  "description": "Market metrics from CoinGecko public API — current price + 24h change for tracked pairs.",
+  "type": "object",
+  "required": ["input_class", "provider_id", "symbol", "produced_at", "metrics"],
+  "properties": {
+    "input_class": { "type": "string", "const": "market_metrics.v1" },
+    "provider_id": { "type": "string", "enum": ["coingecko_public_api", "binance_public_api", "derivatives_collector__bitget", "derivatives_collector__binance"] },
+    "symbol": { "type": "string", "description": "Display pair name, e.g. XAU/USD, BTC/USDT" },
+    "binance_symbol": { "type": "string", "description": "Binance-native symbol if applicable" },
+    "produced_at": { "type": "string", "format": "date-time" },
+    "metrics": {
+      "type": "object",
+      "required": ["price"],
+      "properties": {
+        "price": { "type": "number" },
+        "price_change_24h_pct": { "type": "number" },
+        "high_24h": { "type": "number" },
+        "low_24h": { "type": "number" },
+        "volume_24h": { "type": "number" },
+        "quote_volume_24h": { "type": "number" }
+      }
+    },
+    "priority": { "type": "string", "enum": ["P0", "P1", "P2"] }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "registry_version": "v2",
+  "registry_id": "pro_desk_data_inventory_index",
+  "updated_at": "2026-06-11",
+  "description": "Index leger de l'inventaire Pro Desk P0-P21. Les payloads complets sont split par priorite dans data/priority/*.json pour eviter le chargement complet en memoire (optimisation runtime).",
+  "priority_files": {
+    "P0": { "file": "priority/P0.json", "label": "Instrument Master", "items": 1, "fields": 20 },
+    "P1": { "file": "priority/P1.json", "label": "Market Quote / OHLCV", "items": 2, "fields": 12 },
+    "P2": { "file": "priority/P2.json", "label": "Position / Risk / PnL", "items": 2, "fields": 15 },
+    "P3": { "file": "priority/P3.json", "label": "Orders / Fills", "items": 2, "fields": 18 },
+    "P4": { "file": "priority/P4.json", "label": "Liquidity / Microstructure", "items": 2, "fields": 14 },
+    "P5": { "file": "priority/P5.json", "label": "Options / Volatility", "items": 1, "fields": 16 },
+    "P6": { "file": "priority/P6.json", "label": "Rates / Credit", "items": 1, "fields": 12 },
+    "P7": { "file": "priority/P7.json", "label": "Macro Events", "items": 1, "fields": 10 },
+    "P8": { "file": "priority/P8.json", "label": "Fundamentals", "items": 1, "fields": 14 },
+    "P9": { "file": "priority/P9.json", "label": "News / Sentiment", "items": 1, "fields": 8 },
+    "P10": { "file": "priority/P10.json", "label": "Flows / Positioning", "items": 1, "fields": 10 },
+    "P11": { "file": "priority/P11.json", "label": "Technical Context", "items": 1, "fields": 12 },
+    "P12": { "file": "priority/P12.json", "label": "Models / Research", "items": 1, "fields": 10 },
+    "P13": { "file": "priority/P13.json", "label": "Alternative Data", "items": 1, "fields": 8 },
+    "P14": { "file": "priority/P14.json", "label": "Crypto Derivatives", "items": 1, "fields": 10 },
+    "P15": { "file": "priority/P15.json", "label": "Commodities", "items": 1, "fields": 10 },
+    "P16": { "file": "priority/P16.json", "label": "FX Context", "items": 1, "fields": 8 },
+    "P17": { "file": "priority/P17.json", "label": "Equity Context", "items": 1, "fields": 10 },
+    "P18": { "file": "priority/P18.json", "label": "Compliance", "items": 1, "fields": 8 },
+    "P19": { "file": "priority/P19.json", "label": "Ops / Settlement", "items": 1, "fields": 8 },
+    "P20": { "file": "priority/P20.json", "label": "Desk Memory", "items": 1, "fields": 6 },
+    "P21": { "file": "priority/P21.json", "label": "Data Quality", "items": 1, "fields": 8 }
+  },
+  "runtime_access": {
+    "hot_path": "Read priority_files index only (this file, ~2KB). Load individual priority_N.json on demand (lazy).",
+    "cold_path": "Full inventory reload via pro_desk_data_inventory.json (legacy, ~15KB)."
+  },
+  "contracts_index": {
+    "market_metrics.v1": "contracts/market_metrics.v1.schema.json",
+    "pair_market_snapshot.v1": "contracts/pair_market_snapshot.v1.schema.json",
+    "canonical_value.v1": "contracts/canonical_value.v1.schema.json",
+    "resolver_decision.v1": "contracts/resolver_decision.v1.schema.json",
+    "source_score.v1": "contracts/source_score.v1.schema.json"
+  }
+}

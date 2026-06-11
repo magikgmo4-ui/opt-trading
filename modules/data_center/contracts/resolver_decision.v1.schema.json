@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "resolver_decision.v1",
+  "description": "Decision record from the best-value resolver — which source was selected and why.",
+  "type": "object",
+  "required": ["schema_version", "decision_id", "contract_class", "symbol", "data_key", "decided_at", "candidates", "selected_producer_id"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "resolver_decision.v1" },
+    "decision_id": { "type": "string", "format": "uuid" },
+    "contract_class": { "type": "string" },
+    "symbol": { "type": "string" },
+    "data_key": { "type": "string" },
+    "decided_at": { "type": "string", "format": "date-time" },
+    "candidates": { "type": "array", "items": { "$ref": "#/$defs/candidate" } },
+    "selected_producer_id": { "type": ["string", "null"] },
+    "selected_score": { "type": "number" },
+    "selection_reason": { "type": "string" },
+    "selection_rule": { "type": "string", "enum": ["highest_score", "only_eligible", "consensus", "fallback_only", "fallback_exhausted", "stale_fallback"] },
+    "min_score_threshold": { "type": "number", "default": 0.3 },
+    "resolver_version": { "type": "string" }
+  },
+  "$defs": {
+    "candidate": {
+      "type": "object",
+      "properties": {
+        "producer_id": { "type": "string" },
+        "score": { "type": "number" },
+        "eligible": { "type": "boolean" },
+        "disqualification_reason": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

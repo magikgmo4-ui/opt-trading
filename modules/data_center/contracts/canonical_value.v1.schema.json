@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "canonical_value.v1",
+  "description": "Canonical value resolved from best source — selected value with metadata.",
+  "type": "object",
+  "required": ["schema_version", "contract_class", "symbol", "data_key", "canonical_value", "resolved_at", "resolver_decision_ref"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "canonical_value.v1" },
+    "contract_class": { "type": "string" },
+    "symbol": { "type": "string" },
+    "data_key": { "type": "string" },
+    "canonical_value": {},
+    "resolved_at": { "type": "string", "format": "date-time" },
+    "resolver_decision_ref": { "type": "string", "description": "UUID of the resolver decision" },
+    "winning_producer_id": { "type": "string" },
+    "winning_score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "alternative_sources": { "type": "array", "items": { "type": "object" } },
+    "stale": { "type": "boolean" },
+    "stale_reason": { "type": "string" },
+    "extraction_method": { "type": "string" },
+    "payload_ok": { "type": "boolean" }
+  }
+}
