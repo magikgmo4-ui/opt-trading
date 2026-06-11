@@ -1,0 +1,21 @@
+{
+  "go_id": "GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_PARENT_01",
+  "go_structural_role": "GO_PARENT_ATTACHED_TO_MASTER_PROJECT_PLAN",
+  "status": "PATCH_READY_NOT_APPLIED",
+  "surface": "youtube_video_ingestion",
+  "final_target": "Documentation parent complète et autonome pour ingestion YouTube vidéo ciblée.",
+  "transport_mode": "patch_only",
+  "close_gate_master_target": "pending",
+  "files": [
+    "docs/chantiers/GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_PARENT_01/00_INITIAL_PROJECT_DOC.md",
+    "docs/chantiers/GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_PARENT_01/01_SOURCE_REGISTRY_MODEL.md",
+    "docs/chantiers/GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_PARENT_01/02_RAW_OUTPUT_CONTRACT.md",
+    "docs/chantiers/GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_PARENT_01/03_TRANSCRIPT_OCR_METHOD.md",
+    "docs/chantiers/GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_PARENT_01/04_PARSER_PROFILE_YOUTUBE_TRADING_SHORT_V1.md",
+    "docs/chantiers/GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_PARENT_01/05_FIXTURES_AND_VALIDATION.md",
+    "docs/chantiers/GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_PARENT_01/TARGETS.md",
+    "docs/chantiers/GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_PARENT_01/target_card.json"
+  ],
+  "next_go": "GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_CHILD_TRADEMACHINEOFF_PILOT_01",
+  "notes": "Patch documentaire seulement. Ne pas modifier les index globaux avec ce lot."
+}
