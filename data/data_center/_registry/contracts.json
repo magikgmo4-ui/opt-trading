@@ -1,0 +1,169 @@
+{
+  "registry_version": "v1",
+  "registry_id": "contracts",
+  "updated_at": "2026-06-11",
+  "description": "Canonical contract registry for Data Center — 28 contracts across 7 domains. Single source of truth for contract_class naming, producers, schedules, scores, view paths, and status.",
+  "domains": {
+    "market": {"label": "Market Data", "icon": "📊", "contracts": ["market_metrics.v1","pair_market_snapshot.v1","market_klines.v1","fx_context.v1","rates_context.v1","macro_event.v1","commodity_inventory.v1","fundamental_snapshot.v1","options_surface.v1"]},
+    "vision": {"label": "Vision & Analysis", "icon": "👁️", "contracts": ["vision_analysis.v1","vision_context.coinglass.v1","vision_context.screener.v1","vision_context.news_sentiment.v1"]},
+    "telegram": {"label": "Telegram Signals", "icon": "📡", "contracts": ["telegram_signal.v1","telegram_context.v1","telegram_channel_stats.v1","telegram_raw.v1"]},
+    "runtime": {"label": "Trading Runtime", "icon": "⚡", "contracts": ["signal_event.v1","position_state.v1","compliance_state.v1","runtime_health.v1"]},
+    "derivatives": {"label": "Derivatives & Flows", "icon": "🔗", "contracts": ["crypto_derivatives_state.v1","flow_positioning.v1"]},
+    "quality": {"label": "Meta & Quality", "icon": "🛡️", "contracts": ["source_score.v1","canonical_value.v1","resolver_decision.v1"]},
+    "backtest": {"label": "Backtest", "icon": "🧪", "contracts": ["telegram_backtest.v1","backtest_export.v1"]}
+  },
+  "contracts": {
+    "market_metrics.v1": {
+      "domain": "market", "label_fr": "Métriques marché", "provider_id": "coingecko_public_api", "schedule": "hourly", "score": 0.85, "status": "PROVEN", "on_demand": false,
+      "view_path": "data/data_center/views/market_metrics/latest.json", "producer_module": "modules/data_center/coingecko_market_producer.py",
+      "data_keys": ["price", "price_change_24h_pct"]
+    },
+    "pair_market_snapshot.v1": {
+      "domain": "market", "label_fr": "Snapshot paire", "provider_id": "coingecko_public_api", "schedule": "hourly", "score": 0.85, "status": "PROVEN", "on_demand": false,
+      "view_path": "data/data_center/views/pair_market_snapshot/latest.json", "producer_module": "modules/data_center/coingecko_market_producer.py",
+      "data_keys": ["price", "change_24h_pct"]
+    },
+    "market_klines.v1": {
+      "domain": "market", "label_fr": "Historique OHLCV", "provider_id": "coingecko_public_api", "schedule": "daily", "score": 0.80, "status": "PROVEN", "on_demand": false,
+      "view_path": "data/market_data/klines/{SYMBOL}/latest.json", "producer_module": "modules/data_center/coingecko_market_producer.py",
+      "data_keys": ["open", "high", "low", "close"]
+    },
+    "fx_context.v1": {
+      "domain": "market", "label_fr": "Contexte Forex", "provider_id": "alphavantage", "schedule": "hourly", "score": 0.70, "status": "PROVEN", "on_demand": false,
+      "view_path": "data/data_center/views/fx_context/latest.json", "producer_module": "modules/data_center/external_data_producers.py",
+      "data_keys": ["rate", "bid", "ask"]
+    },
+    "rates_context.v1": {
+      "domain": "market", "label_fr": "Contexte Taux", "provider_id": "fred", "schedule": "daily", "score": 0.78, "status": "PROVEN", "on_demand": false,
+      "view_path": "data/data_center/views/rates_context/latest.json", "producer_module": "modules/data_center/external_data_producers.py",
+      "data_keys": ["Fed Funds", "10Y Yield", "2Y Yield", "10Y-2Y Spread"]
+    },
+    "macro_event.v1": {
+      "domain": "market", "label_fr": "Événements Macro", "provider_id": "fred", "schedule": "daily", "score": 0.78, "status": "PROVEN", "on_demand": false,
+      "view_path": "data/data_center/views/macro_event/latest.json", "producer_module": "modules/data_center/external_data_producers.py",
+      "data_keys": ["FEDFUNDS", "GDP", "CPIAUCSL", "UNRATE", "DGS10", "T10Y2Y", "VIXCLS"]
+    },
+    "commodity_inventory.v1": {
+      "domain": "market", "label_fr": "Matières premières", "provider_id": "eia", "schedule": "daily", "score": 0.55, "status": "PARTIAL", "on_demand": false,
+      "view_path": "data/data_center/views/commodity_inventory/latest.json", "producer_module": "modules/data_center/external_data_producers.py",
+      "data_keys": ["WTI", "BRENT", "NATGAS"], "next_action": "Fix EIA API endpoint parsing"
+    },
+    "fundamental_snapshot.v1": {
+      "domain": "market", "label_fr": "Fondamentaux", "provider_id": "yahoo_finance", "schedule": "daily", "score": 0.45, "status": "PARTIAL", "on_demand": false,
+      "view_path": "data/data_center/views/fundamental_snapshot/latest.json", "producer_module": "modules/data_center/external_data_producers.py",
+      "data_keys": ["price", "previous_close", "currency"], "next_action": "Add rate-limit retry logic (HTTP 429)"
+    },
+    "options_surface.v1": {
+      "domain": "market", "label_fr": "Surface options", "provider_id": "deribit_public", "schedule": "daily", "score": 0.60, "status": "PROVEN", "on_demand": false,
+      "view_path": "data/data_center/views/options_surface/latest.json", "producer_module": "modules/data_center/external_data_producers.py",
+      "data_keys": ["total_options"]
+    },
+    "vision_analysis.v1": {
+      "domain": "vision", "label_fr": "Analyse technique", "provider_id": "bot_vision_headless", "schedule": "10min", "score": 0.90, "status": "PROVEN", "on_demand": false,
+      "view_path": "data/data_center/views/vision_analysis/latest.json", "producer_module": "bot_vision_headless_capture + bot_vision_step2",
+      "data_keys": ["support_level", "resistance_level", "trend"]
+    },
+    "vision_context.coinglass.v1": {
+      "domain": "vision", "label_fr": "Contexte Coinglass", "provider_id": "bot_vision_headless__coinglass", "schedule": "1h", "score": 0.85, "status": "PROVEN", "on_demand": false,
+      "view_path": "data/data_center/views/vision_context/coinglass/latest.json", "producer_module": "bot_vision_headless_capture",
+      "data_keys": ["open_interest", "liquidations_long", "liquidations_short", "long_short_ratio", "liquidation_heatmap_level"]
+    },
+    "vision_context.screener.v1": {
+      "domain": "vision", "label_fr": "Screener Stocks", "provider_id": "bot_vision_headless__screener", "schedule": "6h", "score": 0.70, "status": "PROVEN", "on_demand": false,
+      "view_path": "data/data_center/views/vision_context/screener/latest.json", "producer_module": "bot_vision_headless_capture",
+      "data_keys": ["stock_count", "screener_label"]
+    },
+    "vision_context.news_sentiment.v1": {
+      "domain": "vision", "label_fr": "Sentiment News", "provider_id": "bot_vision_headless__news_sentiment", "schedule": "6h", "score": 0.70, "status": "PROVEN", "on_demand": false,
+      "view_path": "data/data_center/views/vision_context/news_sentiment/latest.json", "producer_module": "bot_vision_headless_capture",
+      "data_keys": ["sentiment_label", "avg_sentiment_score", "article_count"]
+    },
+    "telegram_signal.v1": {
+      "domain": "telegram", "label_fr": "Signal Trade", "provider_id": "telegram_screener_bridge", "schedule": "hourly", "score": 0.88, "status": "PROVEN", "on_demand": false,
+      "view_path": "data/data_center/views/telegram_signals/latest.json", "producer_module": "modules/analysis_bundles/app/telegram_screener_bridge.py",
+      "data_keys": ["entry_price", "sl", "tp", "direction", "channel"]
+    },
+    "telegram_context.v1": {
+      "domain": "telegram", "label_fr": "Contexte Telegram", "provider_id": "telegram_screener_bridge", "schedule": "hourly", "score": 0.82, "status": "PROVEN", "on_demand": false,
+      "view_path": "data/data_center/views/telegram_context/latest.json", "producer_module": "modules/analysis_bundles/app/telegram_screener_bridge.py",
+      "data_keys": ["whale_flows", "onchain_data"]
+    },
+    "telegram_channel_stats.v1": {
+      "domain": "telegram", "label_fr": "Stats Canaux", "provider_id": "telegram_screener_bridge", "schedule": "hourly", "score": 0.80, "status": "PROVEN", "on_demand": false,
+      "view_path": "data/data_center/views/telegram_signals/channel_stats/latest.json", "producer_module": "modules/analysis_bundles/app/telegram_screener_bridge.py",
+      "data_keys": ["trade_setups", "complete_setups", "parse_rate", "candidate_score"]
+    },
+    "telegram_raw.v1": {
+      "domain": "telegram", "label_fr": "Messages Bruts", "provider_id": "collector_telegram", "schedule": "hourly", "score": 0.75, "status": "PROVEN", "on_demand": false,
+      "view_path": "data/data_center/views/telegram_raw/latest.json", "producer_module": "modules/data_center/telegram_raw_dc_writer.py",
+      "data_keys": ["raw_text", "timestamp"]
+    },
+    "signal_event.v1": {
+      "domain": "runtime", "label_fr": "Événements Signal", "provider_id": "webhook_server", "schedule": "hourly", "score": 0.85, "status": "PROVEN", "on_demand": false,
+      "view_path": "data/data_center/views/signal_event/latest.json", "producer_module": "modules/data_center/signal_event_dc_writer.py",
+      "data_keys": ["engine", "signal", "price", "sl", "tp"]
+    },
+    "position_state.v1": {
+      "domain": "runtime", "label_fr": "État Positions", "provider_id": "position_engine", "schedule": "hourly", "score": 0.50, "status": "PARTIAL", "on_demand": false,
+      "view_path": "data/data_center/views/position_state/latest.json", "producer_module": "modules/data_center/position_state_dc_writer.py",
+      "data_keys": ["positions"], "next_action": "Enrich with trade-level detail from perf.db"
+    },
+    "compliance_state.v1": {
+      "domain": "runtime", "label_fr": "État Conformité", "provider_id": "risk_engine", "schedule": "hourly", "score": 0.45, "status": "PARTIAL", "on_demand": false,
+      "view_path": "data/data_center/views/compliance_state/latest.json", "producer_module": "modules/data_center/external_data_producers.py",
+      "data_keys": ["risk_config", "accounts_defined"], "next_action": "Add restricted_symbols, daily_loss_limits"
+    },
+    "runtime_health.v1": {
+      "domain": "runtime", "label_fr": "Santé Runtime", "provider_id": "runtime_health", "schedule": "hourly", "score": 0.75, "status": "PROVEN", "on_demand": false,
+      "view_path": "data/data_center/views/runtime_health/latest.json", "producer_module": "modules/data_center/runtime_health_dc_writer.py",
+      "data_keys": ["services_status"]
+    },
+    "crypto_derivatives_state.v1": {
+      "domain": "derivatives", "label_fr": "Dérivés Crypto", "provider_id": "data_center_aggregator", "schedule": "hourly", "score": 0.55, "status": "PARTIAL", "on_demand": false,
+      "view_path": "data/data_center/views/crypto_derivatives_state/latest.json", "producer_module": "modules/data_center/external_data_producers.py",
+      "data_keys": ["open_interest", "funding_rate", "liquidations"], "next_action": "Add derivatives_collector data when available"
+    },
+    "flow_positioning.v1": {
+      "domain": "derivatives", "label_fr": "Positionnement Flux", "provider_id": "data_center_aggregator", "schedule": "hourly", "score": 0.50, "status": "PARTIAL", "on_demand": false,
+      "view_path": "data/data_center/views/flow_positioning/latest.json", "producer_module": "modules/data_center/external_data_producers.py",
+      "data_keys": ["whale_transfers", "liquidation_context"], "next_action": "Add Coinglass exchange flow data"
+    },
+    "source_score.v1": {
+      "domain": "quality", "label_fr": "Score Fiabilité", "provider_id": "source_scoring_engine", "schedule": "hourly", "score": 0.85, "status": "PROVEN", "on_demand": false,
+      "view_path": "data/data_center/views/source_score/latest.json", "producer_module": "modules/data_center/source_scoring.py",
+      "data_keys": ["freshness", "completeness", "schema_validation", "final_score"]
+    },
+    "canonical_value.v1": {
+      "domain": "quality", "label_fr": "Valeur Canonique", "provider_id": "canonical_value_publisher", "schedule": "on-demand", "score": null, "status": "PROVEN", "on_demand": true,
+      "view_path": "data/data_center/views/{CONTRACT}/by_symbol/{SYMBOL}.json", "producer_module": "modules/data_center/canonical_value_publisher.py",
+      "data_keys": ["canonical_value", "winning_producer_id", "stale"]
+    },
+    "resolver_decision.v1": {
+      "domain": "quality", "label_fr": "Décision Resolver", "provider_id": "source_selector", "schedule": "on-demand", "score": null, "status": "PROVEN", "on_demand": true,
+      "view_path": "data/data_center/resolver/{CONTRACT}/{SYMBOL}/{DATA_KEY}.json", "producer_module": "modules/data_center/source_selector.py",
+      "data_keys": ["selected_producer_id", "selection_rule", "candidates"]
+    },
+    "telegram_backtest.v1": {
+      "domain": "backtest", "label_fr": "Backtest Signals", "provider_id": "trading_lab_v1", "schedule": "hourly", "score": 0.75, "status": "PROVEN", "on_demand": false,
+      "view_path": "data/trading_lab_v1/backtests/latest.json", "producer_module": "modules/trading_lab_v1/app/telegram_signal_backtest.py",
+      "data_keys": ["trades", "wins", "losses", "winrate_pct", "avg_r", "total_pnl"]
+    },
+    "backtest_export.v1": {
+      "domain": "backtest", "label_fr": "Export Backtest", "provider_id": "trading_lab_v1", "schedule": "hourly", "score": 0.75, "status": "PROVEN", "on_demand": false,
+      "view_path": "data/trading_lab_v1/exports/latest.json", "producer_module": "modules/trading_lab_v1/app/backtest_export.py",
+      "data_keys": ["by_channel"]
+    }
+  },
+  "summary": {
+    "total_contracts": 28,
+    "total_domains": 7,
+    "proven": 22,
+    "partial": 6,
+    "missing": 0,
+    "hypothesis": 0,
+    "on_demand": 2,
+    "with_score": 25,
+    "avg_score_proven": 0.77,
+    "automated_producers": 16
+  }
+}
