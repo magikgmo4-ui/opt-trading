@@ -2,47 +2,37 @@
 
 ## Objectif
 
-Valider en conditions admin-trading live que les 12 sources PROVEN écrivent réellement dans data_center, que les views sont fraîches, que LocalCMS expose les pages, et que l'automatisation horaire fonctionne.
+Monitoring runtime 24h du Data Center — valider que les 28 contrats restent PROVEN, que le pipeline horaire tourne, et que LocalCMS répond.
 
 ## Contexte
 
-- PR #1094: specs/registries (mergée)
-- PR #1095: runtime index/cache/source_selector (mergée)
-- PR #1098: canonical_value_publisher + 12/12 PROVEN + LocalCMS/backtest (mergée)
+- Phase construction terminée (13 PRs mergées)
+- 28 contrats canonisés (20 PROVEN, 8 PARTIAL)
+- Pipeline hourly automatisé (16 producers)
+- LocalCMS live sur :8700
 
-## Checklist de validation
+## Scope
 
-### 1. Views data_center écrites
-- [ ] `market_metrics` — 13 symboles, CoinGecko
-- [ ] `pair_market_snapshot` — 13 symboles
-- [ ] `signal_event` — 25+ symboles, 4931 events
-- [ ] `telegram_raw` — 165 canaux
-- [ ] `runtime_health` — services actifs
-- [ ] `telegram_channel_stats` — rafraîchi après bridge
+- ❌ Pas de nouveaux contrats
+- ❌ Pas de modification de producers (sauf bug bloquant)
+- ✅ Observer freshness / failures / partials
+- ✅ Capturer preuves runtime toutes les 4-6h
+- ✅ Produire rapport final après 24h
 
-### 2. LocalCMS pages live
-- [ ] `/signals` — 259 signaux, 40 canaux
-- [ ] `/vision` — Coinglass + screener + screenshots
-- [ ] `/backtest/summary` — 39 canaux, 165 trades
-- [ ] `/` — perf KPIs proxy + Desk Pro link
+## Script de monitoring
 
-### 3. Automatisation horaire
-- [ ] `collector-telegram-screener.timer` — actif, 1h
-- [ ] Pipeline 6 étapes OK
-- [ ] CoinGecko market data frais
+```bash
+bash scripts/data_center/live_runtime_validation_24h.sh
+```
 
-### 4. Tests
-- [ ] `pytest tests/data_center/ -q` — 113 tests
-- [ ] `cmd.sh telegram stats` — fonctionnel
-- [ ] `cmd.sh backtest` — fonctionnel
+Capture un snapshot JSON + log dans `runtime_snapshots/`.
 
-### 5. Couverture Desk Pro
-- [ ] 12/12 PROVEN
-- [ ] 0 MISSING
-- [ ] Score moyen ≥ 0.80
+## Critères de succès
 
-### 6. Services systemd
-- [ ] `localcms.service` — actif
-- [ ] `collector-telegram-screener.timer` — actif
-- [ ] `tv-webhook.service` — actif
-- [ ] `tv-perf.service` — actif
+- Validator PASS
+- Hourly pipeline confirmé
+- LocalCMS répond (4 endpoints)
+- 28 contrats audités (fraîcheur)
+- 20 PROVEN maintenus
+- 8 PARTIAL avec next_action documenté
+- Aucun crash bloquant
