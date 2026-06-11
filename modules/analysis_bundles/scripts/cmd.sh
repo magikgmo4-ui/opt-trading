@@ -121,15 +121,22 @@ for asset in ('BTC', 'ETH', 'WTI'):
 "
     ;;    
   telegram)
-    python3 -c "
-import json, sys
-sys.path.insert(0, '.')
-from modules.analysis_bundles.app.telegram_screener_bridge import produce_telegram_signals
-signals = produce_telegram_signals()
-print(f'Parsed: {len(signals)} signals')
-for s in signals:
-    print(f'  {s.get(\"pair\",\"?\"):12s} {s.get(\"direction\",\"?\"):6s} from={s.get(\"channel\",\"?\")}')
-"
+    shift || true
+    python3 -m modules.analysis_bundles.app.telegram_signal_cli "$@"
+    ;;
+  backtest)
+    shift || true
+    SUB="${1:-run}"
+    CH="${2:-}"
+    PAIR="${3:-}"
+    ARGS=""
+    [ -n "$CH" ] && ARGS="--channel $CH"
+    [ -n "$PAIR" ] && ARGS="$ARGS --pair $PAIR"
+    if [ "$SUB" = "report" ]; then
+      python3 -m modules.trading_lab_v1.app.telegram_signal_backtest --report
+    else
+      python3 -m modules.trading_lab_v1.app.telegram_signal_backtest $ARGS
+    fi
     ;;
   status)
     python3 -c "
@@ -146,6 +153,10 @@ print('DataCenterRouter: OK')
 "
     ;;
   help|*)
-    echo "Usage: cmd.sh [sanity|test|validate <file>|btc|macro|verdict|datacenter|tickets|report|status|help]"
+    echo "Usage: cmd.sh [sanity|test|telegram|backtest|btc|macro|verdict|datacenter|tickets|report|help]"
+    echo ""
+    echo "  telegram stats|channels|complete|signals [chan] [pair] [dir]"
+    echo "  backtest [channel] [pair]    — run backtest from data_center"
+    echo "  backtest report              — show last backtest report"
     ;;
 esac

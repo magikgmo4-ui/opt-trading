@@ -1182,6 +1182,152 @@ def credentials_json():
     ])
 
 
+# ── Signals panel ───────────────────────────────────────────────────
+
+@app.get("/signals/summary")
+def signals_summary():
+    """Return telegram signal summary for dashboard."""
+    try:
+        sys.path.insert(0, str(PROJECT_ROOT))
+        from modules.analysis_bundles.app.telegram_signal_query import signal_summary
+        return JSONResponse(content=signal_summary())
+    except Exception as e:
+        return JSONResponse(content={"error": str(e)}, status_code=500)
+
+
+@app.get("/signals")
+def signals_list(channel: str = "", pair: str = "", direction: str = "", complete: bool = False):
+    """Query signals with filters. Use ?channel=&pair=&direction=&complete=1"""
+    try:
+        sys.path.insert(0, str(PROJECT_ROOT))
+        from modules.analysis_bundles.app.telegram_signal_query import query_signals
+        signals = query_signals(
+            channel=channel if channel else None,
+            pair=pair if pair else None,
+            direction=direction.upper() if direction else None,
+            complete_only=complete,
+        )
+        return JSONResponse(content={
+            "total": len(signals),
+            "signals": signals[:100],
+        })
+    except Exception as e:
+        return JSONResponse(content={"error": str(e)}, status_code=500)
+
+
+@app.get("/signals/channels")
+def signals_channels():
+    """List all channels with types, modes, signal counts."""
+    try:
+        sys.path.insert(0, str(PROJECT_ROOT))
+        from modules.analysis_bundles.app.telegram_signal_query import list_channels
+        return JSONResponse(content=list_channels())
+    except Exception as e:
+        return JSONResponse(content={"error": str(e)}, status_code=500)
+
+
+# ── Vision panel ─────────────────────────────────────────────────────
+
+_VISION_COINGLASS = PROJECT_ROOT / "data" / "vision" / "coinglass" / "latest.json"
+_VISION_SCREENER = PROJECT_ROOT / "data" / "data_center" / "views" / "vision_context" / "screener" / "latest.json"
+_VISION_ANALYSIS_LATEST = PROJECT_ROOT / "data" / "data_center" / "views" / "vision_analysis" / "latest.json"
+_VISION_ANALYSIS_DIR = PROJECT_ROOT / "data" / "data_center" / "views" / "vision_analysis" / "by_symbol"
+_VISION_RAW_DIR = PROJECT_ROOT / "data" / "vision" / "coinglass" / "raw"
+
+
+@app.get("/vision/summary")
+def vision_summary():
+    """Aggregated vision status for dashboard."""
+    now = datetime.now(timezone.utc).isoformat()
+
+    # Coinglass metrics
+    cg = {}
+    if _VISION_COINGLASS.exists():
+        try:
+            raw = json.loads(_VISION_COINGLASS.read_text())
+            cg = {
+                "freshness": raw.get("freshness_state", "stale"),
+                "screenshot_ts": raw.get("screenshot_ts", ""),
+                "symbol": raw.get("symbol", ""),
+                "metrics": {d["detected_metric_type"]: d["extracted_value"] for d in raw.get("detections", [])},
+            }
+        except Exception:
+            cg = {"error": "parse failed"}
+
+    # Screener context
+    scr = {}
+    if _VISION_SCREENER.exists():
+        try:
+            raw = json.loads(_VISION_SCREENER.read_text())
+            scr = {
+                "freshness": raw.get("freshness_state", "stale"),
+                "captured_at": raw.get("captured_at", ""),
+                "screener_label": raw.get("screener_label", ""),
+                "stock_count": len(raw.get("stocks", [])),
+            }
+        except Exception:
+            scr = {"error": "parse failed"}
+
+    # Vision analysis
+    symbols = []
+    if _VISION_ANALYSIS_DIR.exists():
+        for f in sorted(_VISION_ANALYSIS_DIR.glob("*.json")):
+            try:
+                raw = json.loads(f.read_text())
+                items = raw if isinstance(raw, list) else [raw]
+                for data in items:
+                    signal_list = data.get("signals", [])
+                    symbols.append({
+                        "symbol": data.get("symbol", f.stem),
+                        "timeframe": data.get("timeframe", ""),
+                        "freshness": data.get("freshness_state", "stale"),
+                        "analysis_ts": data.get("analysis_ts", ""),
+                        "signal_count": len(signal_list),
+                        "top_signal": signal_list[0]["type"] if signal_list else None,
+                    })
+            except Exception:
+                continue
+
+    # Latest screenshot
+    screenshot_info = {}
+    if _VISION_RAW_DIR.exists():
+        screenshots = sorted(_VISION_RAW_DIR.glob("*.png"), key=lambda p: p.stat().st_mtime, reverse=True)
+        if screenshots:
+            latest = screenshots[0]
+    screenshot_info = {
+                "file": latest.name,
+                "size_kb": latest.stat().st_size // 1024,
+                "mtime": datetime.fromtimestamp(latest.stat().st_mtime, tz=timezone.utc).isoformat(),
+            }
+
+
+# ── Backtest panel ────────────────────────────────────────────────────
+
+_BACKTEST_JSON = PROJECT_ROOT / "data" / "trading_lab_v1" / "exports" / "latest.json"
+_BACKTEST_CSV_DIR = PROJECT_ROOT / "data" / "trading_lab_v1" / "exports"
+
+
+@app.get("/backtest/summary")
+def backtest_summary():
+    """Return latest backtest summary for dashboard."""
+    if not _BACKTEST_JSON.exists():
+        return JSONResponse(content={"error": "No backtest data. Run: cmd.sh backtest"}, status_code=404)
+    try:
+        return JSONResponse(content=json.loads(_BACKTEST_JSON.read_text(encoding="utf-8")))
+    except Exception as e:
+        return JSONResponse(content={"error": str(e)}, status_code=500)
+
+
+@app.get("/backtest/csv")
+def backtest_csv():
+    """Return latest backtest CSV file."""
+    csv_files = sorted(_BACKTEST_CSV_DIR.glob("backtest_*.csv"), reverse=True)
+    if not csv_files:
+        return JSONResponse(content={"error": "No CSV export. Run: python -m modules.trading_lab_v1.app.backtest_export"}, status_code=404)
+    from fastapi.responses import FileResponse
+    return FileResponse(csv_files[0], media_type="text/csv", filename=csv_files[0].name)
+
+
 # ── HTML UI ──────────────────────────────────────────────────────────
 
 @app.get("/", response_class=HTMLResponse)
@@ -1191,9 +1337,38 @@ def ui_index(request: Request):
     menu_data = _read_json(MENU_FILE)
     state_data = _read_json(STATE_CACHE)
 
+    # Proxy perf + deskpro summary
+    perf_data = {}
+    try:
+        import urllib.request
+        resp = urllib.request.urlopen("http://127.0.0.1:8010/perf/summary", timeout=3)
+        perf_data = json.loads(resp.read())
+    except Exception:
+        pass
+
     menu_json = json.dumps(menu_data, indent=2)
     tmux_json = json.dumps(tmux, indent=2)
     state_json = json.dumps(state_data, indent=2)
+
+    # Perf KPI cards
+    perf_html = ""
+    if perf_data:
+        pnl = perf_data.get("pnl_realized", 0)
+        pnl_class = "pnl-positive" if pnl >= 0 else "pnl-negative"
+        perf_html = f"""
+    <div class="section" id="perf">
+      <h2>📈 Performance <a href="http://localhost:8010/desk/ui" target="_blank" style="font-size:11px;color:#58a6ff">(Desk Pro →)</a></h2>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="num">{perf_data.get('total_trades', 0)}</div><div class="label">Total Trades</div></div>
+        <div class="kpi"><div class="num">{perf_data.get('open_trades', 0)}</div><div class="label">Open</div></div>
+        <div class="kpi"><div class="num">{perf_data.get('winrate_pct', 0):.1f}%</div><div class="label">Winrate</div></div>
+        <div class="kpi"><div class="num {pnl_class}">\${pnl:,.0f}</div><div class="label">P&L</div></div>
+        <div class="kpi"><div class="num">{perf_data.get('avg_r', 0):.4f}</div><div class="label">Avg R</div></div>
+      </div>
+    </div>"""
+
+    # Try deskpro status
+    desk_html = '<div class="section"><h2>🖥️ Desk Pro <a href="http://localhost:8010/desk/ui" target="_blank" style="font-size:11px;color:#58a6ff">(ouvrir →)</a></h2><p style="font-size:12px;color:#8b949e">UI de trading accessible sur le port 8010</p></div>'
 
     sessions_rows = ""
     for s in tmux["sessions"]:
@@ -1231,6 +1406,20 @@ def ui_index(request: Request):
         non_critical_down_html = '<span class="pill pill-ok">none</span>'
 
     nav_items = ""
+    # Add Signals link first
+    nav_items += """
+<a class="nav-item nav-item-signals" href="/signals">
+  <span class="nav-icon">📡</span>
+  <span class="nav-label">Telegram Signals</span>
+</a>
+<a class="nav-item nav-item-vision" href="/vision">
+  <span class="nav-icon">👁️</span>
+  <span class="nav-label">Bot Vision</span>
+</a>
+<a class="nav-item nav-item-backtest" href="/backtest/summary">
+  <span class="nav-icon">🧪</span>
+  <span class="nav-label">Backtest</span>
+</a>"""
     for domain in menu_data.get("menu", []):
         nav_items += f"""
 <a class="nav-item" href="#{domain['id']}">
@@ -1431,6 +1620,10 @@ def ui_index(request: Request):
       <tbody>{sessions_rows}</tbody>
     </table>
 
+    {perf_html}
+
+    {desk_html}
+
     <div class="section-title">📋 Global Menu — 14 Domaines</div>
     <div class="domain-grid">
       {domain_cards}
@@ -1478,6 +1671,117 @@ def ui_index(request: Request):
 <script>
   setTimeout(() => location.reload(), 30000);
 </script>
+</body>
+</html>"""
+    return HTMLResponse(content=html)
+
+
+@app.get("/signals", response_class=HTMLResponse)
+def signals_page(request: Request):
+    """Dedicated Telegram Signals dashboard page."""
+    try:
+        sys.path.insert(0, str(PROJECT_ROOT))
+        from modules.analysis_bundles.app.telegram_signal_query import signal_summary
+        summary = signal_summary()
+    except Exception:
+        summary = {"totals": {"signals": 0, "complete": 0, "incomplete": 0, "longs": 0, "shorts": 0, "active_channels": 0},
+                   "by_type": {}, "by_pair": {}, "by_channel": {}}
+
+    t = summary["totals"]
+
+    # Build type rows
+    type_rows = ""
+    for ct, info in sorted(summary.get("by_type", {}).items(), key=lambda x: -x[1]["total"]):
+        type_rows += f"""<tr><td>{info['label']}</td><td>{info['total']}</td><td>{info['complete']}</td></tr>"""
+
+    # Build pair rows
+    pair_rows = ""
+    for p, cnt in list(summary.get("by_pair", {}).items())[:15]:
+        pair_rows += f"""<tr><td>{p}</td><td>{cnt}</td></tr>"""
+
+    # Build channel rows
+    ch_rows = ""
+    for ch, info in sorted(summary.get("by_channel", {}).items(), key=lambda x: -x[1]["complete"])[:25]:
+        ch_rows += f"""<tr><td>{ch}</td><td>{info['total']}</td><td>{info['complete']}</td><td>{info['priority']}</td></tr>"""
+
+    json_summary = json.dumps(summary, indent=2, default=str)
+
+    html = f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LocalCMS — Telegram Signals</title>
+<style>
+  * {{ margin:0; padding:0; box-sizing:border-box; }}
+  body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace; background:#0d1117; color:#c9d1d9; }}
+  header {{ background:#161b22; border-bottom:1px solid #30363d; padding:12px 24px; display:flex; align-items:center; gap:12px; }}
+  header a {{ color:#58a6ff; text-decoration:none; font-size:14px; }}
+  header h1 {{ font-size:18px; color:#f0f6fc; }}
+  main {{ max-width:1200px; margin:0 auto; padding:24px; }}
+  .kpi-grid {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:12px; margin-bottom:24px; }}
+  .kpi {{ background:#161b22; border:1px solid #30363d; border-radius:8px; padding:16px; text-align:center; }}
+   .kpi .num {{ font-size:28px; font-weight:700; color:#58a6ff; }}
+   .kpi .num.pnl-positive {{ color:#3fb950; }}
+   .kpi .num.pnl-negative {{ color:#f85149; }}
+   .kpi .label {{ font-size:11px; color:#8b949e; margin-top:4px; text-transform:uppercase; }}
+  .section {{ margin-bottom:24px; }}
+  .section h2 {{ font-size:16px; color:#f0f6fc; margin-bottom:8px; border-bottom:1px solid #30363d; padding-bottom:6px; }}
+  table {{ width:100%; border-collapse:collapse; font-size:13px; }}
+  th {{ text-align:left; padding:6px 8px; border-bottom:1px solid #30363d; color:#8b949e; font-weight:600; }}
+  td {{ padding:4px 8px; border-bottom:1px solid #21262d; }}
+  tr:hover {{ background:#161b22; }}
+  .json-toggle {{ margin-top:16px; font-size:12px; }}
+  .json-toggle summary {{ color:#58a6ff; cursor:pointer; }}
+  .json-toggle pre {{ background:#0d1117; border:1px solid #30363d; border-radius:4px; padding:12px; overflow-x:auto; font-size:11px; max-height:400px; }}
+  .auto-refresh {{ font-size:11px; color:#484f58; text-align:center; margin-top:24px; }}
+  .nav-back {{ display:inline-block; padding:4px 12px; background:#21262d; border-radius:4px; color:#c9d1d9; }}
+</style>
+</head>
+<body>
+<header>
+  <a href="/" class="nav-back">← LocalCMS</a>
+  <h1>📡 Telegram Signals</h1>
+</header>
+<main>
+  <div class="kpi-grid">
+    <div class="kpi"><div class="num">{t['signals']}</div><div class="label">Signaux</div></div>
+    <div class="kpi"><div class="num">{t['complete']}</div><div class="label">Complets</div></div>
+    <div class="kpi"><div class="num">{t['longs']}</div><div class="label">LONG</div></div>
+    <div class="kpi"><div class="num">{t['shorts']}</div><div class="label">SHORT</div></div>
+    <div class="kpi"><div class="num">{t['active_channels']}</div><div class="label">Canaux</div></div>
+    <div class="kpi"><div class="num">{t['incomplete']}</div><div class="label">Incomplets</div></div>
+  </div>
+
+  <div class="section">
+    <h2>Par type de signal</h2>
+    <table><tr><th>Type</th><th>Total</th><th>Complets</th></tr>
+    {type_rows}
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Top paires</h2>
+    <table><tr><th>Paire</th><th>Signaux</th></tr>
+    {pair_rows}
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Top canaux (complets)</h2>
+    <table><tr><th>Canal</th><th>Total</th><th>Complets</th><th>Prio</th></tr>
+    {ch_rows}
+    </table>
+  </div>
+
+  <details class="json-toggle">
+    <summary>📋 JSON brut</summary>
+    <pre>{json_summary}</pre>
+  </details>
+
+  <div class="auto-refresh">Auto-refresh 30s. {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}</div>
+</main>
+<script>setTimeout(() => location.reload(), 30000);</script>
 </body>
 </html>"""
     return HTMLResponse(content=html)

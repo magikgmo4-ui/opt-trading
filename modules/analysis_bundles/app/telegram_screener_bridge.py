@@ -402,7 +402,25 @@ def produce_telegram_signals() -> list[dict]:
         ctx_hist.mkdir(parents=True, exist_ok=True)
         (ctx_hist / f"{ctx['id']}.json").write_text(json.dumps(ctx, indent=2, default=str), encoding="utf-8")
 
+    # 6. Channel stats (always regenerate after signals)
+    _write_channel_stats_to_dc()
+
     return trade_signals
+
+
+def _write_channel_stats_to_dc() -> None:
+    """Generate and write channel stats to data_center during signal production."""
+    try:
+        stats = produce_channel_stats()
+        stats_dc = {
+            "input_class": "telegram_channel_stats.v1",
+            "provider_id": "telegram_screener_bridge",
+            **stats,
+        }
+        (_DC_TG / "channel_stats" / "latest.json").parent.mkdir(parents=True, exist_ok=True)
+        (_DC_TG / "channel_stats" / "latest.json").write_text(json.dumps(stats_dc, indent=2, default=str), encoding="utf-8")
+    except Exception:
+        pass  # Non-critical
 
 
 def produce_channel_stats() -> dict:
